@@ -3,19 +3,19 @@ title: Translator 검색 방법
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services Translator 검색 방법을 사용 하 여 텍스트의 언어를 식별 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: swmachan
-ms.openlocfilehash: 12029d7a77eb7cbbb10cb5330eb18d6316520a2d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: cb6660585b5f2b9ab56eaf863f1ec431e5e85109
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021323"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895529"
 ---
 # <a name="translator-30-detect"></a>Translator 3.0: 검색
 
@@ -138,7 +138,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>200</td>
     <td>성공.</td>
@@ -171,7 +171,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 

@@ -1,47 +1,45 @@
 ---
-title: Azure Active Directory Identity Protection에 대 한 Microsoft Graph API
+title: PowerShell SDK 및 Azure Active Directory Identity Protection Microsoft Graph
 description: Azure Active Directory에서 Microsoft Graph 위험 검색 및 관련 정보를 쿼리 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5367e5027bfae2fa3ed7e87a779e50e4048ba608
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 2db8cfe652c0fca4b68b00d846e345c1b60cd05d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861734"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880239"
 ---
-# <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
+# <a name="azure-active-directory-identity-protection-and-the-microsoft-graph-powershell-sdk"></a>Azure Active Directory Identity Protection 및 Microsoft Graph PowerShell SDK
 
-Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](./overview-identity-protection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 세 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection** 를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers** 를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn** 을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](./overview-identity-protection.md) API의 시작점입니다. 이 문서에서는 PowerShell을 사용 하 여 위험한 사용자 정보를 얻기 위해 [Microsoft Graph POWERSHELL SDK](/graph/powershell/get-started) 를 사용 하는 방법을 보여 줍니다. Microsoft Graph Api를 직접 쿼리해야 하는 조직에서는 [자습서: Microsoft Graph api를 사용 하 여 위험을 식별 하 고](/graph/tutorial-riskdetection-api) 수정 하 여 해당 과정을 시작 합니다.
 
-이 문서에서는 Microsoft Graph에 연결 및 이러한 API 쿼리를 사용하여 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
-
-* [riskDetection API](/graph/api/resources/riskdetection?view=graph-rest-v1.0)
-* [riskyUsers API](/graph/api/resources/riskyuser?view=graph-rest-v1.0)
-* [signIn API](/graph/api/resources/signin?view=graph-rest-v1.0)
 
 ## <a name="connect-to-microsoft-graph"></a>Microsoft Graph에 연결
 
 Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 단계가 있습니다.
 
-- [도메인 이름 검색](#retrieve-your-domain-name)
+- [인증서 만들기](#create-a-certificate)
 - [새 앱 등록 만들기](#create-a-new-app-registration)
 - [API 권한 구성](#configure-api-permissions)
 - [유효한 자격 증명 구성](#configure-a-valid-credential)
 
-### <a name="retrieve-your-domain-name"></a>도메인 이름 검색 
+### <a name="create-a-certificate"></a>인증서 만들기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-1. **Azure Active Directory**  >  **사용자 지정 도메인 이름** 으로 이동 합니다. 
-1. `.onmicrosoft.com`이 정보는 이후 단계에서 필요 합니다.
+프로덕션 환경에서는 프로덕션 인증 기관의 인증서를 사용 하지만이 샘플에서는 자체 서명 된 인증서를 사용 합니다. 다음 PowerShell 명령을 사용 하 여 인증서를 만들고 내보냅니다.
+
+```powershell
+$cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
+Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
+```
 
 ### <a name="create-a-new-app-registration"></a>새 앱 등록 만들기
 
@@ -51,9 +49,11 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
    1. **이름** 텍스트 상자에 응용 프로그램의 이름을 입력 합니다 (예: Azure AD 위험 검색 API).
    1. **지원 되는 계정 유형** 에서 api를 사용 하는 계정 유형을 선택 합니다.
    1. **등록** 을 선택합니다.
-1. **응용 프로그램 ID** 를 복사 합니다.
+1. 나중에 이러한 항목이 필요 하므로 **응용 프로그램 (클라이언트) id** 및 **디렉터리 (테 넌 트) id** 를 기록해 둡니다.
 
 ### <a name="configure-api-permissions"></a>API 권한 구성
+
+이 예제에서는이 샘플을 무인 모드로 사용할 수 있도록 응용 프로그램 권한을 구성 합니다. 로그온 한 사용자에 게 권한을 부여 하는 경우 대신 위임 된 권한을 선택 합니다. 다른 권한 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md#permission-types)문서에서 찾을 수 있습니다.
 
 1. 만든 **응용 프로그램** 에서 **API 권한** 을 선택 합니다.
 1. 구성 된 **사용 권한** 페이지의 위쪽에 있는 도구 모음에서 **사용 권한 추가** 를 클릭 합니다.
@@ -62,115 +62,40 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 1. **API 권한 요청** 페이지에서 다음을 수행 합니다. 
    1. **애플리케이션 권한** 을 선택합니다.
    1. 및 옆의 확인란을 `IdentityRiskEvent.Read.All` 선택 `IdentityRiskyUser.Read.All` 합니다.
-   1. **권한 추가** 를 선택합니다.
+   1. **모든 권한** 을 선택합니다.
 1. **도메인에 대 한 관리자 동의 부여를 선택 합니다** . 
 
 ### <a name="configure-a-valid-credential"></a>유효한 자격 증명 구성
 
 1. 만든 **응용 프로그램** 에서 **인증서 & 암호** 를 선택 합니다.
-1. **클라이언트 암호** 에서 **새 클라이언트 암호** 를 선택 합니다.
-   1. 클라이언트 암호에 **설명을** 지정 하 고 조직의 정책에 따라 만료 기간을 설정 합니다.
+1. **인증서** 에서 **인증서 업로드** 를 선택 합니다.
+   1. 열리는 창에서 이전에 내보낸 인증서를 선택 합니다.
    1. **추가** 를 선택합니다.
+1. 다음 단계에서이 정보가 필요 하므로 인증서의 **지문을** 기록해 둡니다.
 
-   > [!NOTE]
-   > 이 키를 분실하면 이 섹션으로 돌아와서 새 키를 만들어야 합니다. 이 키의 비밀을 유지합니다. 키를 가진 사람은 누구나 데이터에 액세스할 수 있습니다.
+## <a name="list-risky-users-using-powershell"></a>PowerShell을 사용 하 여 위험한 사용자 나열
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Microsoft Graph에 인증 하 고 Id 위험 검색 API를 쿼리 합니다.
+Microsoft Graph를 쿼리 하는 기능을 사용 하도록 설정 하려면 `Microsoft.Graph` 명령을 사용 하 여 PowerShell 창에 모듈을 설치 해야 합니다 `Install-Module Microsoft.Graph` .
 
-이 시점에서 다음 항목이 만들어 집니다.
+이전 단계에서 생성 된 정보를 포함 하도록 다음 변수를 수정한 다음 전체로 실행 하 여 PowerShell을 사용 하 여 위험한 사용자 세부 정보를 가져옵니다.
 
-- 테넌트 도메인의 이름
-- 응용 프로그램 (클라이언트) ID 
-- 클라이언트 암호 또는 인증서 
+```powershell
+$ClientID       = "<your client ID here>"        # Application (client) ID gathered when creating the app registration
+$tenantdomain   = "<your tenant domain here>"    # Directory (tenant) ID gathered when creating the app registration
+$Thumbprint     = "<your client secret here>"    # Certificate thumbprint gathered when configuring your credential
 
-인증하려면 본문에서 다음 매개 변수를 ㅏ용하여 `https://login.microsoft.com` 에 게시 요청을 전송합니다.
+Select-MgProfile -Name "beta"
+  
+Connect-MgGraph -ClientId $ClientID -TenantId $tenantdomain -CertificateThumbprint $Thumbprint
 
-- grant_type: “**client_credentials**”
-- resource: `https://graph.microsoft.com`
-- client_id: \<your client ID\>
-- client_secret: \<your key\>
-
-성공 하면이 요청은 인증 토큰을 반환 합니다.  
-API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니다.
-
-```
-`Authorization`="<token_type> <access_token>"
-```
-
-인증할 경우 반환된 토큰에서 토큰 유형 및 액세스 토큰을 찾을 수 있습니다.
-
-다음 API URL에 대한 요청으로 이 헤더를 보냅니다. `https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
-
-성공 하는 경우 응답은 id 위험 검색의 컬렉션 이며 OData JSON 형식으로 연결 된 데이터의 컬렉션입니다 .이를 구문 분석 하 고 적절 하 게 처리할 수 있습니다.
-
-### <a name="sample"></a>샘플
-
-이 샘플에서는 공유 암호를 사용 하 여 인증 하는 방법을 보여 줍니다. 프로덕션 환경에서 코드에 암호를 저장 하는 것은 일반적으로 frowned. 조직에서는 Azure 리소스에 관리 되는 id를 사용 하 여 이러한 자격 증명을 보호할 수 있습니다. 관리 되는 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리](../managed-identities-azure-resources/overview.md)되는 id 인 문서를 참조 하세요.
-
-다음은 PowerShell을 사용하여 API를 인증하고 호출하는 데 대한 샘플 코드입니다.  
-클라이언트 ID, 비밀 키 및 테넌트 도메인만 추가하면 됩니다.
-
-```PowerShell
-    $ClientID       = "<your client ID here>"        # Should be a ~36 hex character string; insert your info here
-    $ClientSecret   = "<your client secret here>"    # Should be a ~44 character string; insert your info here
-    $tenantdomain   = "<your tenant domain here>"    # For example, contoso.onmicrosoft.com
-
-    $loginURL       = "https://login.microsoft.com"
-    $resource       = "https://graph.microsoft.com"
-
-    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
-
-    Write-Output $oauth
-
-    if ($oauth.access_token -ne $null) {
-        $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-
-        $url = "https://graph.microsoft.com/v1.0/identityProtection/riskDetections"
-        Write-Output $url
-
-        $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-
-        foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
-            Write-Output $event
-        }
-
-    } else {
-        Write-Host "ERROR: No Access Token"
-    } 
-```
-
-## <a name="query-the-apis"></a>API 쿼리
-
-이러한 세 가지 API는 조직의 위험한 사용자 및 로그인에 대한 정보를 가져오는 다양한 기회를 제공합니다. 다음은 이러한 API 및 관련된 샘플 요청에 대한 몇 가지 일반적인 사용 사례입니다. 위의 샘플 코드 또는 [Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 사용하여 이러한 쿼리를 실행할 수 있습니다.
-
-### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>모든 오프 라인 위험 검색 가져오기 (riskDetection API)
-
-Id 보호 로그인 위험 정책을 사용 하면 위험이 실시간으로 감지 될 때 조건을 적용할 수 있습니다. 그러나 오프 라인에서 검색 되는 검색은 어떻습니까? 오프 라인으로 발생 한 검색을 이해 하 고 로그인 위험 정책을 트리거하지 않은 경우 riskDetection API를 쿼리할 수 있습니다.
-
-```
-GET https://graph.microsoft.com/v1.0/identityProtection/riskDetections?$filter=detectionTimingType eq 'offline'
-```
-
-### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>위험한 로그인 정책에 의해 트리거되는 MFA 챌린지를 성공적으로 통과한 모든 사용자 가져오기(riskyUsers API)
-
-Id 보호 위험 기반 정책이 조직에 미치는 영향을 이해 하려면 위험한 로그인 정책에 의해 트리거된 MFA 챌린지를 성공적으로 통과 한 모든 사용자를 쿼리할 수 있습니다. 이 정보는 위험에서 잘못 감지했을 수 있는 사용자 ID 보호 및 AI에서 위험하다고 판단하는 작업을 수행할 수 있는 합법적인 사용자를 이해하는 데 도움이 될 수 있습니다.
-
-```
-GET https://graph.microsoft.com/v1.0/identityProtection/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+Get-MgRiskyUser -All
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
-이제 id 위험 검색을 쿼리하고 데이터를 사용할 수 있습니다.
-
-Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph)에서 확인합니다. 
-
-관련 정보는 다음을 참조하세요.
-
-- [Azure Active Directory ID 보호](./overview-identity-protection.md)
-- [Azure Active Directory Identity Protection에서 검색 하는 위험 검색 유형](./overview-identity-protection.md)
-- [Microsoft Graph](https://developer.microsoft.com/graph/)
+- [Microsoft Graph PowerShell SDK 시작](/graph/powershell/get-started)
+- [자습서: Microsoft Graph Api를 사용 하 여 위험 식별 및 재구성](/graph/tutorial-riskdetection-api)
 - [Microsoft Graph 개요](https://developer.microsoft.com/graph/docs)
+- [사용자 없이 액세스 권한 얻기](/graph/auth-v2-service)
 - [Azure AD ID 보호 서비스 루트](/graph/api/resources/identityprotectionroot)
+- [Azure Active Directory ID 보호](./overview-identity-protection.md)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62ceafad0210065700e5c9734cfe9a055208ef35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657893"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880528"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결 구성
 
@@ -72,7 +72,7 @@ Azure에서 온-프레미스 네트워크로의 트래픽에는 동일한 요구
 
 ## <a name="portal-steps"></a><a name="portal"></a>포털 단계
 
-1. 사이트 간 연결을 구성 합니다. 단계는 [사이트 간 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 
+1. 사이트 간 연결을 구성 합니다. 단계는 [사이트 간 구성](./tutorial-site-to-site-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 
 
    영역 중복 Sku는 SKU의 끝에 "AZ"가 있습니다. 예를 들면 **VpnGw1AZ** 입니다. 영역 중복 게이트웨이는 가용성 영역 서비스를 사용할 수 있는 지역 에서만 사용할 수 있습니다. 가용성 영역을 지 원하는 지역에 대 한 자세한 내용은 [가용성 영역을 지 원하는 지역](../availability-zones/az-region.md)을 참조 하세요.
 
@@ -89,7 +89,7 @@ Azure에서 온-프레미스 네트워크로의 트래픽에는 동일한 요구
 
 ## <a name="powershell-steps"></a><a name="powershell"></a>PowerShell 단계
 
-1. 사이트 간 연결을 구성 합니다. 단계에 대 한 자세한 내용은 [사이트 간 VPN 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 영역 중복 Sku는 SKU의 끝에 "AZ"가 있습니다. 예를 들면 VpnGw1AZ입니다.
+1. 사이트 간 연결을 구성 합니다. 단계에 대 한 자세한 내용은 [사이트 간 VPN 구성](./tutorial-site-to-site-portal.md) 문서를 참조 하세요. 게이트웨이에 대 한 영역 중복 게이트웨이 SKU를 선택 해야 합니다. 영역 중복 Sku는 SKU의 끝에 "AZ"가 있습니다. 예를 들면 VpnGw1AZ입니다.
 1. 다음 PowerShell 명령을 사용 하 여 게이트웨이에서 개인 IP를 사용 하도록 플래그를 설정 합니다.
 
    ```azurepowershell-interactive

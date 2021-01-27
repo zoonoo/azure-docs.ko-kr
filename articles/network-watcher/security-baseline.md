@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 598f925d939694ea47605b0e8ea2e63872db7811
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3f16589765752a2a635ccd055e7d55de8b9ce330
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201249"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880019"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Network Watcher에 대 한 Azure 보안 기준
 
@@ -429,7 +429,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 * [Azure VPN Gateway에 대해 지원 되는 IPSec 매개 변수](./network-watcher-diagnose-on-premises-connectivity.md)
 
-* [Azure Portal에서 사이트 간 연결을 구성 하는 방법](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Azure Portal에서 사이트 간 연결을 구성 하는 방법](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567711"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880460"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>서버 평가 개요 (Azure VMware 솔루션으로 마이그레이션)
 
@@ -207,7 +207,7 @@ AVS에서 사용 되는 저장소 엔진은 vSAN입니다. vSAN 저장소 정책
 
 *온-프레미스 크기 조정으로* 를 사용 하는 경우 서버 평가에서 vm 및 디스크의 성능 기록을 고려 하지 않습니다. 대신, 온-프레미스에 할당 된 크기에 따라 AVS 노드를 할당 합니다. 기본 저장소 형식은 AVS의 vSAN입니다.
 
-Azure VMware 솔루션 평가를 검토 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) .
+Azure VMware 솔루션 평가를 검토 하는 방법에 [대해 자세히 알아보세요](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) .
 
 ## <a name="confidence-ratings"></a>신뢰 등급
 

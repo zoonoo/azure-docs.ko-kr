@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357911"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879833"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Azure에서 SQL 가상 머신의 라이선스 모델 변경
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ SQL Server를 호스트 하는 Azure VM에 대 한 라이선스 모델에는 종
 
 Azure 하이브리드 혜택을 통해 Azure 가상 머신에서 Software Assurance가 있는 SQL Server 라이선스("적격 라이선스")를 사용할 수 있습니다. Azure 하이브리드 혜택을 사용하면 고객에게 VM에서 SQL Server 라이선스 사용에 대한 요금이 부과되지 않습니다. 하지만 기본 클라우드 컴퓨팅(즉, 기본 요금), 스토리지 및 백업에 대한 비용은 지불해야 합니다. 서비스의 사용과 관련된 I/O에 대해서도 요금을 지불해야 합니다(해당하는 경우).
 
-Microsoft 제품 약관에 따라: "고객은 Azure에서 워크로드를 구성할 때 SQL Server에 대한 Azure 하이브리드 혜택으로 Azure SQL Database(관리되는 인스턴스, 탄력적 풀 및 단일 데이터베이스), Azure Data Factory, SQL Server Integration Services 또는 SQL Server 가상 머신을 사용하고 있음을 나타내야 합니다."
+Microsoft [제품 약관](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS)에 따라: "고객이 Azure에서 작업을 구성할 때 Azure Data Factory의 SQL Server Integration Services에서 Azure SQL Database (Managed Instance, Elastic Pool 및 Single Database), SQL Server, Virtual Machines 또는 Azure 하이브리드 혜택 SQL Server를 사용 하 고 있음을 나타내야 합니다."
 
 Azure VM에서 SQL Server에 대한 Azure 하이브리드 혜택 사용을 나타내고 규정을 준수하는 데 다음 세 가지 옵션을 사용할 수 있습니다.
 

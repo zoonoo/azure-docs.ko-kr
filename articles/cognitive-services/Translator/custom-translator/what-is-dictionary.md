@@ -2,19 +2,19 @@
 title: 사전이란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 사전이란 사용자가 Microsoft Translator에서 항상 동일한 방식으로 번역하길 원하는 구 또는 문장(및 해당 번역)의 목록을 지정하는 정렬된 문서입니다. 사전은 종종 용어집 또는 용어 기반이라고도 합니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 160aa372cec2d018d5a3558f99e079624d965098
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368987"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895563"
 ---
 # <a name="what-is-a-dictionary"></a>사전이란?
 

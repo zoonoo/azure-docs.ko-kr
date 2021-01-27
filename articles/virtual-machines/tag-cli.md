@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 48f906bf0025bda03df226f32db1a0d6afdb9cee
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 32d15730557c96362602b5e324254c76637ecb55
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94595025"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897445"
 ---
 # <a name="how-to-tag-a-vm-using-the-cli"></a>CLI를 사용 하 여 VM에 태그를 만드는 방법
 
@@ -44,10 +44,9 @@ az vm update \
    --remove tags.myNewTagName1
 ```
 
-Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 사용량 세부 정보를 확인하여 청구 포털에서 태그를 살펴보겠습니다.
+이제 리소스 Azure CLI 및 포털에 태그를 적용 했으므로 청구 포털에서 태그를 확인 하는 데 사용 정보를 살펴보겠습니다.
 
-
-**다음 단계**
+### <a name="next-steps"></a>다음 단계
 
 - Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md) 및 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
-- 태그로 Azure 리소스의 사용을 관리하는 방법은 [Azure 청구서 이해](../cost-management-billing/understand/review-individual-bill.md) 및 [Microsoft Azure 리소스 소비에 대한 정보 얻기](../cost-management-billing/manage/usage-rate-card-overview.md)를 참조하세요.
+- 태그를 사용 하 여 Azure 리소스의 사용을 관리 하는 방법을 알아보려면 [Azure 청구서 이해](../cost-management-billing/understand/review-individual-bill.md)를 참조 하세요.

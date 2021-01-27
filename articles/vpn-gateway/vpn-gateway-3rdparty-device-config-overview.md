@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400163"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880155"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 디바이스 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 디바이스를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
@@ -27,7 +27,7 @@ Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여
 
 ![단일 S2S VPN 터널의 다이어그램](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-단일 VPN 터널을 설정하는 단계별 지침은 [사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 참조하세요. 다음 섹션에서는 샘플 구성에 대한 연결 매개 변수를 지정하고 시작할 수 있도록 하는 PowerShell 스크립트를 제공합니다.
+단일 VPN 터널을 설정하는 단계별 지침은 [사이트 간 연결 구성](./tutorial-site-to-site-portal.md)을 참조하세요. 다음 섹션에서는 샘플 구성에 대한 연결 매개 변수를 지정하고 시작할 수 있도록 하는 PowerShell 스크립트를 제공합니다.
 
 ### <a name="connection-parameters"></a>연결 매개 변수
 이 섹션은 이전 섹션에서 설명한 예제의 매개 변수를 나열합니다.
@@ -150,4 +150,3 @@ S2S VPN 연결을 만들 경우 선택적으로 [VPN Gateway의 BGP](vpn-gateway
 
 ## <a name="next-steps"></a>다음 단계
 활성-활성 VPN Gateway를 설정하는 단계별 지침은 [크로스-프레미스 및 VNet 간 연결에 대한 활성-활성 VPN Gateway 구성](vpn-gateway-activeactive-rm-powershell.md)을 참조하세요.
-

@@ -1,5 +1,5 @@
 ---
-title: Media Services의 콘텐츠 키 정책 - Azure | Microsoft Docs
+title: Media Services의 콘텐츠 키 정책-Azure
 description: 이 문서에서는 콘텐츠 키 정책의 개념과 Azure Media Services에서 이러한 정책을 사용하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dd19d0730b25685b008af16d1c1eac6537750612
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29907a12f7edf7439f9bcfae0a1ad46b395d9ecf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297272"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897210"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -47,7 +47,7 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 
    일반적으로 수명이 긴 키를 사용 하 고 [Get](/rest/api/media/contentkeypolicies/get)을 사용 하 여 콘텐츠 키 정책이 있는지 확인 합니다. 키를 가져오려면 별도의 동작 메서드를 호출하여 비밀 또는 자격 증명을 가져와야 합니다. 아래 예제를 참조하세요.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 키를 가져오려면 `GetPolicyPropertiesWithSecretsAsync` [기존 정책에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) 예제에 표시 된 대로를 사용 합니다.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: e7dfc6db50432b19d515671fabe26edf9cfb45ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c35306d3e0d874218b9ea03fbfeaaff722eacf76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345671"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896463"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -34,6 +34,7 @@ QnA Maker는 App Service를 사용 하 여 [Generateanswer API](/rest/api/cognit
 |UserAppInsightsAppId|채팅 로그 및 원격 분석|
 |UserAppInsightsKey|채팅 로그 및 원격 분석|
 |UserAppInsightsName|채팅 로그 및 원격 분석|
+|QNAMAKER_EXTENSION_VERSION|항상 _최신_ 으로 설정 합니다. 이 설정은 App Service QnAMaker 사이트 확장을 초기화 합니다.|
 
 변경을 완료 한 후에는 Azure Portal의 **개요** 페이지에서 서비스를 **다시 시작** 해야 합니다.
 
@@ -69,7 +70,7 @@ Application Insights는 QnA Maker GA를 사용 하 여 원격 분석을 모니�
 
 ---
 
-## <a name="app-service-plan"></a>App Service 플랜
+## <a name="app-service-plan"></a>App Service 계획
 
 # <a name="qnamaker-ga-stable-release"></a>[QnAMaker GA (안정적인 릴리스)](#tab/v1)
 

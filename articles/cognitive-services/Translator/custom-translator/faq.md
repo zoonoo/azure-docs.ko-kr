@@ -2,19 +2,19 @@
 title: Faq (질문과 대답)-사용자 지정 변환기
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Azure Cognitive Services 사용자 지정 변환기에 대 한 질문과 대답이 포함 되어 있습니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 0f3d8131635fae55fd8dc2fd2649ae5dda1e62ae
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 001314817b0c18a8023258d01bcfb02eaaffe79b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368239"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895835"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
 

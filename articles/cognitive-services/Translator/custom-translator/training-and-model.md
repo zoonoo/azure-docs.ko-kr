@@ -2,19 +2,19 @@
 title: 학습 및 모델이란? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 모델은 특정 언어 쌍에 대한 번역을 제공하는 시스템입니다. 성공적인 학습의 결과가 모델입니다. 모델을 학습할 때 학습 데이터 세트, 튜닝 데이터 세트 및 테스트 데이터 세트의 상호 배타적인 세 개의 데이터 세트가 필요합니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.author: swmachan
-ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 62a444b66d50579c601077751b0700aa954b34c0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369021"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897937"
 ---
 # <a name="what-are-trainings-and-models"></a>학습 및 모델이란?
 

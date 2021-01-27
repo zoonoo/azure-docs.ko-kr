@@ -2,19 +2,19 @@
 title: 용어집 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 번역기 용어집은 서비스를 사용 하는 방법을 배우는 동안 문서에 사용 된 용어를 이해 하는 데 도움이 됩니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 67af6ab9ae5c60ee8291f38ea58b3b3d9744dbc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4043eb83e931184371bdf4e0bcdcf4c874262d99
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88506654"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895818"
 ---
 # <a name="custom-translator-glossary"></a>Custom Translator 용어집
 

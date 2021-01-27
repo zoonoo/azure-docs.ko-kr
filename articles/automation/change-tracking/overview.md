@@ -3,14 +3,14 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 개요
 description: 이 문서에서는 사용자 환경에서 소프트웨어 및 Microsoft 서비스 변경 내용을 식별 하는 데 도움이 되는 변경 내용 추적 및 인벤토리 기능을 설명 합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445424"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896632"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -32,7 +32,7 @@ ms.locfileid: "94445424"
 - Microsoft 서비스
 - Linux 데몬
 
-변경 내용 추적 및 인벤토리에 포함 된 모든 기능을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 계속 하기 전에 [Automation 가격](https://azure.microsoft.com/pricing/details/automation/) 책정 및 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 검토 하세요. 
+변경 내용 추적 및 인벤토리에 포함 된 모든 기능을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 계속 하기 전에 [Automation 가격](https://azure.microsoft.com/pricing/details/automation/) 책정 및 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 검토 하세요.
 
 변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달 하 고 수집 된 데이터는 Log Analytics 작업 영역에 저장 됩니다. FIM (파일 무결성 모니터링) 기능은 **서버에 대 한 Azure Defender** 를 사용 하도록 설정한 경우에만 사용할 수 있습니다. 자세히 알아보려면 Azure Security Center [가격 책정](../../security-center/security-center-pricing.md) 을 참조 하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장 하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드 합니다. 연결 된 Log Analytics 작업 영역을 모니터링 하 여 정확한 사용량을 추적 하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석 하는 방법에 대 한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)를 참조 하세요.
 
@@ -74,16 +74,7 @@ Python2 실행 파일은 *python* 으로 별칭을 지정 해야 합니다.
 
 ## <a name="network-requirements"></a>네트워크 요구 사항
 
-다음 주소는 변경 내용 추적 및 인벤토리에 특히 필요 합니다. 이러한 주소에 대한 통신은 443 포트를 통해 발생합니다.
-
-|Azure 공용  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net | *.azure-automation.us|
-
-Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor** 를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
+변경 내용 추적 및 인벤토리에 필요한 포트, Url 및 기타 네트워킹 세부 정보에 대 한 자세한 내용은 [네트워크 구성 Azure Automation](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) 를 확인 하세요.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -137,7 +128,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 
 - 와일드 카드는 여러 파일을 추적하는 데 필요합니다.
 
-- 파일 경로의 마지막 세그먼트에만 와일드 카드를 사용할 수 있습니다 (예: **: c:\folder \\ file** _ 또는 _ */etc/* * *).
+- 파일 경로의 마지막 세그먼트에만 와일드 카드를 사용할 수 있습니다 (예: **: c:\folder \\ file** _ 또는 _ */etc/** *).
 
 - 환경 변수에 잘못된 경로가 있는 경우 유효성 검사는 성공 하지만 실행 중 경로가 실패합니다.
 

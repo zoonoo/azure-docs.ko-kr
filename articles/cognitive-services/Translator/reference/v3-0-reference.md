@@ -3,23 +3,23 @@ title: Translator V 3.0 참조
 titleSuffix: Azure Cognitive Services
 description: Translator V 3.0에 대 한 참조 설명서입니다. 변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024503"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895461"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
-## <a name="whats-new"></a>새로운 기능
+## <a name="whats-new"></a>새로운 기능은 무엇입니까?
 
 변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
 
@@ -39,9 +39,9 @@ Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. �
 
 Microsoft Translator에 대 한 요청은 대부분의 경우 요청이 시작 된 위치와 가장 가까운 데이터 센터에 의해 처리 됩니다. 데이터 센터 오류가 발생 하는 경우 요청은 Azure 지리 외부에서 라우팅될 수 있습니다.
 
-특정 Azure 지리에서 요청을 처리 하도록 강제 하려면 API 요청의 전역 끝점을 원하는 지역 끝점으로 변경 합니다.
+특정 Azure 지리에서 요청을 처리 하도록 강제 하려면 API 요청의 전역 끝점을 원하는 지리적 끝점으로 변경 합니다.
 
-|Description|Azure 지리|기준 URL|
+|설명|Azure 지리|기준 URL (지리적 끝점)|
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|

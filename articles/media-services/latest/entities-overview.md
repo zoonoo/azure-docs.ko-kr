@@ -1,6 +1,5 @@
 ---
 title: Media Services 엔터티의 필터링, 순서 지정 및 페이징
-titleSuffix: Azure Media Services
 description: Media Services v3 엔터티의 필터링, 순서 지정 및 페이징에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f562927fcbcf66ca7006ac2d100520311ac917
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300190"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897886"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
 
@@ -42,10 +41,10 @@ ms.locfileid: "89300190"
 
 범위 연산자:
 
-- `gt`: 필드가 상수 값*보다 큰지* 여부를 테스트합니다.
-- `lt`: 필드가 상수 값*보다 작은지* 여부를 테스트합니다.
-- `ge`: 필드가 상수 값*보다 크거나 같은지* 여부를 테스트합니다.
-- `le`: 필드가 상수 값*보다 작거나 같은지* 여부를 테스트합니다.
+- `gt`: 필드가 상수 값 *보다 큰지* 여부를 테스트합니다.
+- `lt`: 필드가 상수 값 *보다 작은지* 여부를 테스트합니다.
+- `ge`: 필드가 상수 값 *보다 크거나 같은지* 여부를 테스트합니다.
+- `le`: 필드가 상수 값 *보다 작거나 같은지* 여부를 테스트합니다.
 
 ## <a name="filter"></a>Assert
 
@@ -87,7 +86,7 @@ Media Services v3에서는 페이지 크기를 구성할 수 없습니다. 페�
 >
 > `nextLink` 값은 엔터티 페이지가 둘 이상 있는 경우에만 표시됩니다.
 
-다음 예제에서 `$skiptoken`이 사용되는 위치를 고려하세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
+다음 예제에서 `$skiptoken`이 사용되는 위치를 고려하세요. *amstestaccount* 를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
 
 다음과 같은 자산 목록을 요청하는 경우:
 

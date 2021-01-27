@@ -1,28 +1,28 @@
 ---
-title: Azure File Sync로 Linux 마이그레이션
-description: Azure File Sync 및 Azure 파일 공유를 사용 하 여 Linux 서버 위치에서 하이브리드 클라우드 배포로 파일을 마이그레이션하는 방법에 대해 알아봅니다.
+title: Azure 파일 동기화로 Linux 마이그레이션
+description: Azure 파일 동기화 및 Azure 파일 공유를 사용 하 여 Linux 서버 위치에서 하이브리드 클라우드 배포로 파일을 마이그레이션하는 방법에 대해 알아봅니다.
 author: fauhse
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 0ef4faf14ec01a25419fd22ba8c73a8a033b4172
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626353"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879985"
 ---
-# <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
+# <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
 
-Azure File Sync DAS (직접 연결 된 저장소)를 사용 하는 Windows Server 인스턴스에서 작동 합니다. Linux 클라이언트, SMB (원격 서버 메시지 블록) 공유 또는 NFS (네트워크 파일 시스템) 공유와의 동기화는 지원 하지 않습니다.
+Azure 파일 동기화 DAS (직접 연결 된 저장소)를 사용 하는 Windows Server 인스턴스에서 작동 합니다. Linux 클라이언트, SMB (원격 서버 메시지 블록) 공유 또는 NFS (네트워크 파일 시스템) 공유와의 동기화는 지원 하지 않습니다.
 
 따라서 파일 서비스를 하이브리드 배포로 변환 하면 Windows Server로의 마이그레이션이 필요 합니다. 이 문서에서는 이러한 마이그레이션의 계획 및 실행 과정을 안내 합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
-목표는 Linux Samba 서버에 있는 공유를 Windows Server 인스턴스로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 Azure File Sync를 사용 합니다. 마이그레이션을 수행 하는 동안 가용성 뿐만 아니라 프로덕션 데이터의 무결성을 보장 하는 방법으로이 마이그레이션을 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
+목표는 Linux Samba 서버에 있는 공유를 Windows Server 인스턴스로 이동 하는 것입니다. 그런 다음 하이브리드 클라우드 배포에 Azure 파일 동기화를 사용 합니다. 마이그레이션을 수행 하는 동안 가용성 뿐만 아니라 프로덕션 데이터의 무결성을 보장 하는 방법으로이 마이그레이션을 수행 해야 합니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
 
 ## <a name="migration-overview"></a>마이그레이션 개요
 
@@ -39,7 +39,7 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 * Windows Server 2019 인스턴스를 가상 컴퓨터 또는 물리적 서버로 만듭니다. Windows Server 2012 R2는 최소 요구 사항입니다. Windows Server 장애 조치 (failover) 클러스터도 지원 됩니다.
 * DAS (직접 연결 된 저장소)를 프로 비전 하거나 추가 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
-  Azure File Sync [클라우드 계층화](storage-sync-cloud-tiering.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
+  Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering.md) 기능을 사용 하는 경우 프로 비전 하는 저장소의 양은 Linux Samba 서버에서 현재 사용 중인 것 보다 작을 수 있습니다. 그러나 이후 단계에서 더 큰 Linux Samba 서버 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사 하는 경우에는 일괄 처리로 작업 해야 합니다.
 
   1. 디스크에 맞는 파일 집합을 이동 합니다.
   2. 파일 동기화 및 클라우드 계층화 참여를 허용 합니다.
@@ -54,7 +54,7 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 > [!NOTE]
 > 이전에 연결 된 문서는 서버 메모리 (RAM) 범위를 포함 하는 테이블을 제공 합니다. 서버에 대해 더 적은 수의 방향으로 지정할 수 있지만 초기 동기화에 더 많은 시간이 걸릴 수 있습니다.
 
-## <a name="phase-3-deploy-the-azure-file-sync-cloud-resource"></a>3 단계: 클라우드 리소스 Azure File Sync 배포
+## <a name="phase-3-deploy-the-azure-file-sync-cloud-resource"></a>3 단계: 클라우드 리소스 Azure 파일 동기화 배포
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
@@ -64,18 +64,18 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 
 [!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
 
-## <a name="phase-5-deploy-the-azure-file-sync-agent"></a>5 단계: Azure File Sync 에이전트 배포
+## <a name="phase-5-deploy-the-azure-file-sync-agent"></a>5 단계: Azure 파일 동기화 에이전트 배포
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
-## <a name="phase-6-configure-azure-file-sync-on-the-windows-server-deployment"></a>6 단계: Windows Server 배포에서 Azure File Sync 구성
+## <a name="phase-6-configure-azure-file-sync-on-the-windows-server-deployment"></a>6 단계: Windows Server 배포에서 Azure 파일 동기화 구성
 
 이 프로세스를 위해 등록 된 온-프레미스 Windows Server 인스턴스가 준비 되어 인터넷에 연결 되어 있어야 합니다.
 
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
 > [!IMPORTANT]
-> 클라우드 계층화는 로컬 서버에서 클라우드에 저장 된 것 보다 저장소 용량을 줄일 수 있도록 하는 Azure File Sync 기능으로, 전체 네임 스페이스를 사용할 수 있습니다. 또한 로컬에서 흥미로운 데이터는 빠른 액세스 성능을 위해 로컬로 캐시 됩니다. 클라우드 계층화는 각 Azure File Sync 서버 끝점에 대 한 선택적 기능입니다.
+> 클라우드 계층화는 로컬 서버에서 클라우드에 저장 된 것 보다 저장소 용량을 줄일 수 있도록 하는 Azure 파일 동기화 기능으로, 전체 네임 스페이스를 사용할 수 있습니다. 또한 로컬에서 흥미로운 데이터는 빠른 액세스 성능을 위해 로컬로 캐시 됩니다. 클라우드 계층화는 각 Azure 파일 동기화 서버 끝점에 대 한 선택적 기능입니다.
 
 > [!WARNING]
 > Linux Samba 서버에서 사용 되는 데이터 보다 Windows Server 볼륨에 저장소를 더 저렴 하 게 프로 비전 한 경우 클라우드 계층화는 필수입니다. 클라우드 계층화를 설정 하지 않으면 서버는 모든 파일을 저장할 공간을 확보 하지 않습니다. 볼륨의 사용 가능한 공간을 99%까지 임시로 마이그레이션에 대해 계층화 정책을 설정 합니다. 마이그레이션이 완료 된 후에 클라우드 계층화 설정으로 돌아가서 정책을 장기적으로 더 유용한 수준으로 설정 해야 합니다.
@@ -84,16 +84,16 @@ Linux 서버에서 Samba를 실행 하지 않고 Windows Server에서 하이브�
 
 모든 서버 끝점을 만든 후에는 동기화가 작동 합니다. 테스트 파일을 만들고 서버 위치에서 연결 된 Azure 파일 공유로 동기화를 확인할 수 있습니다 (동기화 그룹의 클라우드 끝점에서 설명).
 
-서버 폴더와 Azure 파일 공유의 두 위치는 모두 비어 있고 데이터를 대기 합니다. 다음 단계에서는 Azure File Sync에 대 한 Windows Server 인스턴스로 파일 복사를 시작 하 여 클라우드로 이동 합니다. 클라우드 계층화를 사용 하도록 설정한 경우 로컬 볼륨의 용량이 부족 하면 서버에서 계층 파일을 시작 합니다.
+서버 폴더와 Azure 파일 공유의 두 위치는 모두 비어 있고 데이터를 대기 합니다. 다음 단계에서는 Azure 파일 동기화에 대 한 Windows Server 인스턴스로 파일 복사를 시작 하 여 클라우드로 이동 합니다. 클라우드 계층화를 사용 하도록 설정한 경우 로컬 볼륨의 용량이 부족 하면 서버에서 계층 파일을 시작 합니다.
 
 ## <a name="phase-7-robocopy"></a>7 단계: Robocopy
 
-기본적인 마이그레이션 방식은 Robocopy를 사용 하 여 파일을 복사 하 고 Azure File Sync를 사용 하 여 동기화를 수행 하는 것입니다.
+기본적인 마이그레이션 방식은 Robocopy를 사용 하 여 파일을 복사 하 고 Azure 파일 동기화를 사용 하 여 동기화를 수행 하는 것입니다.
 
 Windows Server 대상 폴더에 대 한 첫 번째 로컬 복사본을 실행 합니다.
 
 1. Linux Samba 서버에서 첫 번째 위치를 식별 합니다.
-1. 이미 Azure File Sync 구성 된 Windows Server 인스턴스에서 일치 하는 폴더를 식별 합니다.
+1. 이미 Azure 파일 동기화 구성 된 Windows Server 인스턴스에서 일치 하는 폴더를 식별 합니다.
 1. Robocopy를 사용 하 여 복사를 시작 합니다.
 
 다음 Robocopy 명령은 Linux Samba 서버 저장소의 파일을 Windows Server 대상 폴더로 복사 합니다. Windows Server에서 Azure 파일 공유와 동기화 합니다. 
@@ -177,12 +177,12 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 Robocopy 명령을 처음 실행 하는 경우 사용자와 응용 프로그램은 여전히 Linux Samba 서버의 파일에 액세스 하 고 변경 될 수 있습니다. Robocopy가 디렉터리를 처리 하 고 다음으로 이동할 수 있습니다. 그러면 원본 위치 (Linux)의 사용자가 현재 Robocopy 실행에서 처리 되지 않는 파일을 추가, 변경 또는 삭제할 수 있습니다. 이는 정상적인 동작입니다.
 
-첫 번째 실행은 Azure File Sync를 통해 대량 데이터를 Windows Server 인스턴스로 이동 하 고 클라우드로 이동 하는 것입니다. 이 첫 번째 복사는 다음에 따라 시간이 오래 걸릴 수 있습니다.
+첫 번째 실행은 Azure 파일 동기화를 통해 대량 데이터를 Windows Server 인스턴스로 이동 하 고 클라우드로 이동 하는 것입니다. 이 첫 번째 복사는 다음에 따라 시간이 오래 걸릴 수 있습니다.
 
 * 다운로드 대역폭.
 * 업로드 대역폭입니다.
 * 로컬 네트워크 속도와 일치 하는 Robocopy 스레드 수를 최적으로 표시 한 수입니다.
-* Robocopy와 Azure File Sync에서 처리 해야 하는 항목 (파일 및 폴더)의 수입니다.
+* Robocopy와 Azure 파일 동기화에서 처리 해야 하는 항목 (파일 및 폴더)의 수입니다.
 
 초기 실행이 완료 된 후 명령을 다시 실행 합니다.
 
@@ -213,12 +213,12 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 
 Windows Server 인스턴스에 사용 가능한 용량이 충분 한 경우 명령을 다시 실행 하면 문제가 해결 됩니다. 이러한 상황이 발생 하는 경우에는 아무 것도 중단 되지 않으며, 자신 있게 이동할 수도 있습니다. 명령을 다시 실행 하는 것은 불편 합니다.
 
-Azure File Sync 문제를 해결 하려면 다음 섹션의 링크를 확인 하세요.
+Azure 파일 동기화 문제를 해결 하려면 다음 섹션의 링크를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 파일 공유 및 Azure File Sync에 대해 더 자세히 알아볼 수 있습니다. 다음 문서에는 고급 옵션, 모범 사례 및 문제 해결 도움말이 포함 되어 있습니다. 이러한 문서는 [Azure 파일 공유 설명서](storage-files-introduction.md) 에 대 한 링크를 적절 하 게 합니다.
+Azure 파일 공유 및 Azure 파일 동기화에 대해 더 자세히 알아볼 수 있습니다. 다음 문서에는 고급 옵션, 모범 사례 및 문제 해결 도움말이 포함 되어 있습니다. 이러한 문서는 [Azure 파일 공유 설명서](storage-files-introduction.md) 에 대 한 링크를 적절 하 게 합니다.
 
-* [Azure File Sync 개요](./storage-sync-files-planning.md)
-* [Azure File Sync 배포 가이드](storage-files-deployment-guide.md)
+* [Azure 파일 동기화 개요](./storage-sync-files-planning.md)
+* [Azure 파일 동기화 배포 가이드](./storage-how-to-create-file-share.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

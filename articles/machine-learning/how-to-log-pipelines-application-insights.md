@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c0cb4527349b09ed8e794cc55dee6f9e54f8a7d4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937368"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880762"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 
@@ -26,7 +26,7 @@ ms.locfileid: "97937368"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-your-first-pipeline.md) .
+* 단계에 따라 [Azure Machine Learning](./how-to-manage-workspace.md) 작업 영역을 만들고 [첫 번째 파이프라인을 만듭니다](./how-to-create-machine-learning-pipelines.md) .
 * [개발 환경을 구성](./how-to-configure-environment.md)하여 Azure Machine Learning SDK를 설치합니다.
 * [OpenCensus Azure Monitor 내보내기](https://pypi.org/project/opencensus-ext-azure/) 패키지를 로컬로 설치 합니다.
   ```python
@@ -34,7 +34,7 @@ ms.locfileid: "97937368"
   ```
 * [Application Insights 인스턴스](../azure-monitor/app/opencensus-python.md) 만들기 (이 문서에는 리소스에 대 한 연결 문자열을 가져오는 방법에 대 한 정보도 포함 되어 있습니다.)
 
-## <a name="getting-started"></a>시작
+## <a name="getting-started"></a>시작하기
 
 이 섹션은 Azure Machine Learning 파이프라인에서 OpenCensus를 사용 하는 것과 관련 된 소개입니다. 자세한 자습서는 [OpenCensus Azure Monitor 내보내기](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure) 를 참조 하세요.
 

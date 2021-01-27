@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: d323af2695a41e685e722c98603cf5df09866a15
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567973"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878921"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Salesforce 서비스 클라우드를 Azure 센티널에 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "98567973"
 
 - 작업 영역에 대 한 공유 키에 대 한 읽기 권한이 있어야 합니다. [작업 영역 키에 대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
-- 함수 앱을 만들려면 Azure Functions에 대 한 읽기 및 쓰기 권한이 있어야 합니다. [Azure Functions에 대해 자세히 알아보세요](/azure/azure-functions/).
+- 함수 앱을 만들려면 Azure Functions에 대 한 읽기 및 쓰기 권한이 있어야 합니다. [Azure Functions에 대해 자세히 알아보세요](../azure-functions/index.yml).
 
 - Salesforce **Api Username**, Salesforce **api Password**, **Salesforce 보안 토큰**, **salesforce 소비자 키**, **salesforce 소비자 암호** 와 같은 salesforce REST API 자격 증명이 있어야 합니다. [Salesforce REST API에 대해 자세히 알아보세요](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm).
 

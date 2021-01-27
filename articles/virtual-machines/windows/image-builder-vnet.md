@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 8ae41167b642be75c7bb99042bca829fd8c1728e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f4f55e9a5d08b2c2cd14b1ca94efac15f84f1978
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736372"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879530"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Windows Vm 용 Azure 이미지 작성기를 사용 하 여 기존 Azure VNET에 액세스 허용
 
@@ -296,4 +296,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Shared Image Gallery](shared-image-galleries.md)에 대해 자세히 알아보세요.
+[Azure Shared Image Gallery](../shared-image-galleries.md)에 대해 자세히 알아보세요.

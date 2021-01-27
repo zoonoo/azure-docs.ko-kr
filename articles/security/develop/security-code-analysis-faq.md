@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543047"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879918"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 질문이 있으신가요? 자세한 내용은 다음 FAQ를 확인 하세요.
@@ -82,7 +82,7 @@ ms.locfileid: "87543047"
 
 ### <a name="from-where-do-the-build-tasks-download-the-tools"></a>빌드 작업에서 도구를 다운로드 하는 위치
 
-빌드 작업은 [Azure DevOps 패키지 관리 피드에서](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json)도구의 NuGet 패키지를 다운로드할 수 있습니다. 빌드 작업은 빌드 에이전트에 미리 설치 해야 하는 노드 패키지 관리자를 사용할 수도 있습니다. 이러한 설치의 예로는 **npm install tslint**명령이 있습니다.
+빌드 작업은 [Azure DevOps 패키지 관리 피드에서](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json)도구의 NuGet 패키지를 다운로드할 수 있습니다. 빌드 작업은 빌드 에이전트에 미리 설치 해야 하는 노드 패키지 관리자를 사용할 수도 있습니다. 이러한 설치의 예로는 **npm install tslint** 명령이 있습니다.
 
 ### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>확장을 설치 하면 Azure DevOps 조직에 어떤 영향이 있나요? 
 
@@ -163,7 +163,7 @@ ms.locfileid: "87543047"
  - [Azure AD 관리 서비스 ID (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Azure App Service 및 Azure Functions에서 관리 되는 id](../../app-service/overview-managed-identity.md)
- - [AppAuthentication 라이브러리](../../key-vault/general/service-to-service-authentication.md)
+ - [AppAuthentication 라이브러리](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 자세한 내용은 [클라우드에서 안전 하 게 암호 관리](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/)블로그 게시물을 참조 하세요.
@@ -196,11 +196,11 @@ ms.locfileid: "87543047"
 
 전체 오류 메시지:
 
-"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는 *y.y.y* 이 문제를 해결하려면 복원 및 빌드 또는 게시와 같은 후속 작업에 대해 동일한 설정을 사용해야 합니다. 일반적으로 복원 중이 아닌, 빌드 또는 게시 중에 RuntimeIdentifier 속성이 설정된 경우 이 문제가 발생할 수 있습니다."
+"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는  이 문제를 해결하려면 복원 및 빌드 또는 게시와 같은 후속 작업에 대해 동일한 설정을 사용해야 합니다. 일반적으로 복원 중이 아닌, 빌드 또는 게시 중에 RuntimeIdentifier 속성이 설정된 경우 이 문제가 발생할 수 있습니다."
 
 Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌드 컴퓨터의 소스 트리가 빌드 가능한 상태 여야 합니다.
 
-주 빌드 및 Roslyn 분석기 단계 사이의 단계에서 원본 트리를 빌드를 방해 하는 상태로 전환할 수 있습니다. 이 추가 단계는 ** 게시dotnet.exe**것일 수 있습니다. Roslyn 분석기 단계 바로 전에 NuGet 복원을 수행 하는 단계를 복제 해 보세요. 이 중복 된 단계는 원본 트리를 다시 빌드 가능한 상태로 전환할 수 있습니다.
+주 빌드 및 Roslyn 분석기 단계 사이의 단계에서 원본 트리를 빌드를 방해 하는 상태로 전환할 수 있습니다. 이 추가 단계는 **게시dotnet.exe** 것일 수 있습니다. Roslyn 분석기 단계 바로 전에 NuGet 복원을 수행 하는 단계를 복제 해 보세요. 이 중복 된 단계는 원본 트리를 다시 빌드 가능한 상태로 전환할 수 있습니다.
 
 ##### <a name="cscexe-cant-create-an-analyzer-instance"></a>분석기 인스턴스를 만들 수 csc.exe.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 동기화 배포에 대한 계획 | Microsoft Docs
-description: 온-프레미스 Windows Server 또는 클라우드 VM에서 다양 한 Azure 파일 공유를 캐시할 수 있는 서비스인 Azure File Sync를 사용 하 여 배포를 계획 합니다.
+description: 온-프레미스 Windows Server 또는 클라우드 VM에서 다양 한 Azure 파일 공유를 캐시할 수 있는 서비스인 Azure 파일 동기화를 사용 하 여 배포를 계획 합니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610474"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880578"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -258,7 +258,7 @@ Azure 파일 동기화 에이전트는 항상 443 포트에서 HTTPS를 사용�
 - 사용자 환경에서 프록시를 지원하도록 Azure 파일 동기화를 구성합니다.
 - Azure 파일 동기화에서 네트워크 활동을 제한합니다.
 
-Azure File Sync 및 네트워킹에 대해 자세히 알아보려면 [Azure File Sync 네트워킹 고려 사항](storage-sync-files-networking-overview.md)을 참조 하세요.
+Azure 파일 동기화 및 네트워킹에 대해 자세히 알아보려면 [Azure 파일 동기화 네트워킹 고려 사항](storage-sync-files-networking-overview.md)을 참조 하세요.
 
 ## <a name="encryption"></a>암호화
 Azure 파일 동기화를 사용하는 경우 고려해야 할 세 가지 암호화 계층이 있습니다. 즉 Windows Server 스토리지의 저장 데이터 암호화, Azure 파일 동기화 에이전트와 Azure 간의 전송 중 데이터 암호화 및 Azure 파일 공유의 저장 데이터 암호화입니다. 
@@ -387,6 +387,6 @@ Microsoft의 사내 바이러스 백신 솔루션, Windows Defender 및 SCEP(Sys
 ## <a name="next-steps"></a>다음 단계
 * [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
 * [Azure 파일 배포에 대한 계획](storage-files-planning.md)
-* [Azure Files 배포](storage-files-deployment-guide.md)
+* [Azure Files 배포](./storage-how-to-create-file-share.md)
 * [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
 * [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

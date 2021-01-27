@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services의 스트리밍 정책 | Microsoft Docs
+title: Azure Media Services의 스트리밍 정책
 description: 이 문서에서는 스트리밍 정책이란 무엇이며 Azure Media Services에서 스트리밍 정책을 사용하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: inhenkel
-ms.openlocfilehash: 9ecb4e0b8a74a163632967781c84d1a110ab3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2873486b95f0bb4a9a27e2e050cc6f6d5473a44e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297215"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898175"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
@@ -50,7 +50,7 @@ Azure Media Services v3에서 [스트리밍 정책](/rest/api/media/streamingpol
 
 스트리밍 정책의 정의를 확인 하려면 [Get](/rest/api/media/streamingpolicies/get) 을 사용 하 여 정책 이름을 지정 합니다. 예를 들면 다음과 같습니다.
 
-### <a name="rest"></a>REST
+### <a name="rest"></a>REST (영문)
 
 요청:
 

@@ -2,16 +2,16 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
+ms.subservice: ''
 ms.date: 11/03/2020
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: c7ab093f601ebcd33d184b9a9008f9de447534a1
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368086"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896311"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -291,7 +291,7 @@ Exception: A task was canceled.
 
 이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
 
-1. Automation 계정에서 **모듈** , **Azure 모듈 업데이트** 를 차례로 선택합니다.
+1. Automation 계정에서 **모듈**, **Azure 모듈 업데이트** 를 차례로 선택합니다.
 1. 업데이트하는 데 약 15분 정도 걸립니다. 완료되면 실패한 Runbook을 다시 실행합니다.
 
 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
@@ -505,7 +505,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 1. Azure 구독에 로그인합니다.
 1. 업그레이드할 Automation 계정을 선택합니다.
-1. **설정** , **가격 책정** 을 차례로 선택합니다.
+1. **설정**, **가격 책정** 을 차례로 선택합니다.
 1. 페이지 아래쪽에서 **사용** 을 선택하여 계정을 기본 계층으로 업그레이드합니다.
 
 ## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>시나리오: Runbook 출력 스트림이 1mb를 초과 합니다.

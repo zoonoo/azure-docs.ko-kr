@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 패키징 및 원본 오류 | Microsoft Docs
+title: Azure Media Services 패키징 및 원본 오류
 description: 이 항목에서는 Orgin (Azure Media Services Streaming Endpoint) 서비스에서 받을 수 있는 오류에 대해 설명 합니다.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295328"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894986"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>스트리밍 엔드포인트(원본) 오류
 

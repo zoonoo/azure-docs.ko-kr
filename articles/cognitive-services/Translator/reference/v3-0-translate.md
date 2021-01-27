@@ -3,19 +3,19 @@ title: Translator 변환 메서드
 titleSuffix: Azure Cognitive Services
 description: 텍스트를 번역 하기 위해 Azure Cognitive Services Translator의 변환 메서드에 대 한 매개 변수, 헤더 및 본문 메시지를 이해 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 15f20bab91a4feab056a9f8cd6b012792f036be2
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016550"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895444"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: 변환
 
@@ -43,7 +43,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 <code>3.0</code>이어야 합니다.</td>
   </tr>
   <tr>
-    <td>to</td>
+    <td>을</td>
     <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
 </table>
@@ -199,7 +199,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>200</td>
     <td>성공.</td>
@@ -236,7 +236,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 

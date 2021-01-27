@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 통해 Media Services 진단 로그 모니터링 Microsoft Docs
+title: Azure Monitor를 통해 Media Services 진단 로그 모니터링
 description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅하고 표시 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e756ff0133e3d3f0f86ea2f592005f2f2986488e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707764"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897971"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -37,22 +37,22 @@ ms.locfileid: "91707764"
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에 데이터 라우팅
 
 1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
-1. 에서 Media Services 계정으로 이동 하 고 **모니터**에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다.
+1. 에서 Media Services 계정으로 이동 하 고 **모니터** 에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다.
 
     ![모니터링 섹션에서 진단 설정을 강조 표시 하는 스크린샷](media/media-services-diagnostic-logs/logs01.png)
 
-1. **진단 설정 추가**를 클릭합니다.
+1. **진단 설정 추가** 를 클릭합니다.
 
    리소스 진단 설정은 특정 리소스에서 *어떤* 모니터링 데이터를 라우팅할지, 모니터링 데이터를 *어디로* 이동할지를 정의한 것입니다.
 
-1. 표시된 섹션에서 설정에 **이름**을 지정하고 **스토리지 계정에 보관** 상자를 선택합니다.
+1. 표시된 섹션에서 설정에 **이름** 을 지정하고 **스토리지 계정에 보관** 상자를 선택합니다.
 
-    로그를 전송 하려는 저장소 계정을 선택 하 고 **확인**을 누릅니다.
+    로그를 전송 하려는 저장소 계정을 선택 하 고 **확인** 을 누릅니다.
 1. **로그** 및 **메트릭** 아래의 상자를 모두 선택합니다. 리소스 종류에 따라 이러한 옵션 중 하나를 포함할 수 있습니다. 이 확인란에 따라 선택한 대상(이 경우, 스토리지 계정)으로 보내지는 해당 리소스 종류에서 사용할 수 있는 로그 및 메트릭 데이터의 범주가 달라집니다.
 
    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs02.png)
 1. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 스토리지 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
-1. **Save**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
 
@@ -94,8 +94,8 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 1. 포털의 왼쪽 탐색 모음에서 찾아 **스토리지 계정** 섹션으로 이동합니다.
 1. 이전 섹션에서 만든 스토리지 계정을 식별하고 클릭합니다.
-1. **Blob**을 클릭 한 다음 **keydeliveryrequests**라는 레이블이 지정 된 컨테이너에서를 클릭 합니다. 로그를 포함 하는 컨테이너입니다. 모니터링 데이터는 리소스 ID를 기준으로 한 다음 날짜 및 시간을 기준으로 컨테이너로 분류 됩니다.
-1. 리소스 ID, 날짜 및 시간에 해당하는 컨테이너를 클릭하여 PT1H.json 파일로 이동합니다. PT1H.json 파일을 클릭하고 **다운로드**를 클릭합니다.
+1. **Blob** 을 클릭 한 다음 **keydeliveryrequests** 라는 레이블이 지정 된 컨테이너에서를 클릭 합니다. 로그를 포함 하는 컨테이너입니다. 모니터링 데이터는 리소스 ID를 기준으로 한 다음 날짜 및 시간을 기준으로 컨테이너로 분류 됩니다.
+1. 리소스 ID, 날짜 및 시간에 해당하는 컨테이너를 클릭하여 PT1H.json 파일로 이동합니다. PT1H.json 파일을 클릭하고 **다운로드** 를 클릭합니다.
 
  이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다.
 
@@ -181,7 +181,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [진단 로그 Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)

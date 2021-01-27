@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: juliako
-ms.openlocfilehash: 1ee179efbe936c742f1eb51b998c10f9349c14fb
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 29dbdb896d1a6063fec277afa33327c84cb2f0cd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763390"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880930"
 ---
 # <a name="use-the-animated-character-detection-preview-with-portal-and-api"></a>포털 및 API와 함께 애니메이션 문자 검색 (미리 보기) 사용 
 
@@ -35,7 +35,7 @@ Video Indexer 유료 계정을 소유 하 고 있는 경우 먼저 Custom Vision
 > [!NOTE]
 > 두 계정 모두 동일한 지역에 있어야 합니다. Custom Vision 통합은 현재 일본 지역에서 지원 되지 않습니다.
 
-Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요. 
+Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)는 방법에 대해 자세히 알아보세요. 
 
 모델의 교육은 Custom Vision 웹 사이트를 통해가 아니라 Video Indexer을 통해서만 수행 되어야 합니다. 
 
@@ -108,7 +108,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. 유료 계정만: Custom Vision에서 그룹을 검토 합니다. 
 
     > [!NOTE]
-    > Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)는 방법에 대해 자세히 알아보세요. 모델에 대 한 교육은 Custom Vision 웹 사이트를 통해가 아니라 Video Indexer (이 topid에 설명 된 대로)를 통해서만 수행 되어야 합니다. 
+    > Custom Vision 계정에 대 한 액세스 권한이 있는 유료 계정은 모델 및 태그가 지정 된 이미지를 볼 수 있습니다.  [Custom Vision에서 분류자를 개선 하](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)는 방법에 대해 자세히 알아보세요. 모델에 대 한 교육은 Custom Vision 웹 사이트를 통해가 아니라 Video Indexer (이 topid에 설명 된 대로)를 통해서만 수행 되어야 합니다. 
 
     1. Video Indexer의 **사용자 지정 모델** 페이지로 이동 하 여 [ **애니메이션 문자** ] 탭을 선택 합니다. 
     1. 작업 중인 모델에 대 한 편집 단추를 클릭 하 여 Custom Vision에서 관리 합니다. 

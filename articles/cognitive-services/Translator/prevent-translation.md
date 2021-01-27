@@ -3,19 +3,19 @@ title: 콘텐츠 변환 방지-변환기
 titleSuffix: Azure Cognitive Services
 description: 변환기를 사용 하 여 콘텐츠를 변환 하지 않습니다. 변환기를 사용 하면 번역 되지 않도록 콘텐츠에 태그를 지정할 수 있습니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: bf8923c1090669caa46ef51a26418933b1cda023
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.author: lajanuar
+ms.openlocfilehash: e89ff3f4c1f54d9e137d3dd51e325b908c826b03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563435"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897479"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>변환기를 사용 하 여 콘텐츠 번역을 방지 하는 방법
 

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 12/07/2020
-ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853750"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879767"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 지리적 가용성 및 통화 지원
 
@@ -195,13 +195,13 @@ API를 사용 하 여 개별 가격 (설정 된 방법에 따라, 저장 된 날
 특정 제품 유형에 대 한 가격을 입력 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 - [Azure 애플리케이션 제품 만들기](create-new-azure-apps-offer.md)
-- [Azure 컨테이너 제안 만들기](partner-center-portal/create-azure-container-offer.md)
+- [Azure 컨테이너 제안 만들기](./create-azure-container-offer.md)
 - [Azure 가상 머신 제품 만들기](azure-vm-create.md)
 - [컨설팅 서비스 제품 만들기](./create-consulting-service-offer.md)
 - [Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Dynamics 365 for Operations 제품 만들기](partner-center-portal/create-new-operations-offer.md)
 - [Dynamics 365 Business Central 제품 만들기](partner-center-portal/create-new-business-central-offer.md)
 - [IoT Edge 모듈 제품 만들기](partner-center-portal/azure-iot-edge-module-creation.md)
-- [관리되는 서비스 제품 만들기](partner-center-portal/create-new-managed-service-offer.md)
+- [관리되는 서비스 제품 만들기](./plan-managed-service-offer.md)
 - [Power BI 앱 만들기](partner-center-portal/create-power-bi-app-offer.md)
 - [SaaS 제품 만들기](./create-new-saas-offer.md)

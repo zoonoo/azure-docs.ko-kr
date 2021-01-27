@@ -3,14 +3,14 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/11/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072142"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896955"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -54,16 +54,7 @@ Windows 컴퓨터에 권장 되는 설치 방법은 Azure Automation runbook을 
 
 ## <a name="network-planning"></a><a name="network-planning"></a>네트워크 계획
 
-시스템 및 사용자 Hybrid Runbook Worker 모두에 연결 하 여 Azure Automation에 등록 하려면이 섹션에서 설명 하는 포트 번호 및 Url에 대 한 액세스 권한이 있어야 합니다. 또한 작업자가 Azure Monitor Log Analytics 작업 영역에 연결하려면 [Log Analytics 에이전트에 필요한 포트 및 URL](../azure-monitor/platform/agent-windows.md)에 액세스할 수 있어야 합니다.
-
-Hybrid Runbook Worker에는 다음 포트와 URL이 필요합니다.
-
-* 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
-* 전역 URL: `*.azure-automation.net`
-* US Gov 버지니아의 글로벌 URL: `*.azure-automation.us`
-* 에이전트 서비스: `https://<workspaceId>.agentsvc.azure-automation.net`
-
-특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터와 Hybrid Runbook Worker의 통신을 제한할 수 있습니다. [Azure Automation에서 사용 하는 dns 레코드](how-to/automation-region-dns-records.md) 를 검토 하 여 필요한 dns 레코드를 확인 합니다.
+포트, Url 및 Hybrid Runbook Worker에 필요한 기타 네트워킹 세부 정보에 대 한 자세한 내용은 [네트워크 구성 Azure Automation](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) 를 확인 하세요.
 
 ### <a name="proxy-server-use"></a>프록시 서버 사용
 
@@ -94,7 +85,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용 하 여 
 * 하나 이상의 가상 컴퓨터를 호스트할 수 있는 물리적 서버를 제공 하는 [Azure 전용 호스트](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host)는 하나의 azure 구독 전용입니다.
 
 >[!NOTE]
->Hybrid Runbook Worker 역할을 통한 계산 격리는 Azure 상용 및 미국 정부 클라우드에서 사용할 수 있습니다. 
+>Hybrid Runbook Worker 역할을 통한 계산 격리는 Azure 상용 및 미국 정부 클라우드에서 사용할 수 있습니다.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 업데이트 관리 주소
 

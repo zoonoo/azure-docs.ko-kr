@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c51ef23e27cd63d3706c104d1e39a14bf61c258e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d6b786ffaf309e147de27e8cd8be314a3d8a5fb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186353"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896989"
 ---
 # <a name="edit-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -29,18 +29,18 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 ## <a name="edit-a-runbook-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 편집
 
 1. Azure Portal에서 Automation 계정을 선택합니다.
-2. **프로세스 자동화**에서 **Runbook**을 선택하여 Runbook 목록을 엽니다.
-3. 편집할 Runbook을 선택한 다음, **편집**을 클릭합니다.
+2. **프로세스 자동화** 에서 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
+3. 편집할 Runbook을 선택한 다음, **편집** 을 클릭합니다.
 4. Runbook을 편집합니다.
 5. 편집이 완료되면 **저장** 을 클릭합니다.
-6. Runbook의 최신 초안 버전을 게시하려면 **게시**를 클릭합니다.
+6. Runbook의 최신 초안 버전을 게시하려면 **게시** 를 클릭합니다.
 
 ### <a name="insert-a-cmdlet-into-a-runbook"></a>Runbook에 cmdlet 삽입
 
 1. 텍스트 편집기의 캔버스에서 cmdlet을 배치하려는 위치에 커서를 놓습니다.
 2. 라이브러리 컨트롤에서 **Cmdlet** 노드를 확장합니다.
 3. 사용할 cmdlet을 포함하는 모듈을 확장합니다.
-4. 삽입할 cmdlet 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다. cmdlet에 둘 이상의 매개 변수를 설정한 경우 기본 설정이 추가됩니다. cmdlet를 확장하여 다른 매개 변수 설정을 선택할 수 있습니다.
+4. 삽입할 cmdlet 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가** 를 선택합니다. cmdlet에 둘 이상의 매개 변수를 설정한 경우 기본 설정이 추가됩니다. cmdlet를 확장하여 다른 매개 변수 설정을 선택할 수 있습니다.
 5. cmdlet의 코드는 전체 매개 변수 목록과 함께 삽입됩니다.
 6. 필요한 매개 변수에 꺾쇠 괄호(<>)로 묶인 값 대신 적합한 값을 입력합니다. 필요 없는 매개 변수는 제거합니다.
 
@@ -48,7 +48,7 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 
 1. 텍스트 편집기의 캔버스에서 [자식 Runbook](automation-child-runbooks.md)의 코드를 배치하려는 위치에 커서를 놓습니다.
 2. 라이브러리 컨트롤에서 **Runbook** 노드를 확장합니다.
-3. 삽입할 Runbook을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다.
+3. 삽입할 Runbook을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가** 를 선택합니다.
 4. 자식 Runbook의 코드가 Runbook 매개 변수의 자리 표시자와 함께 삽입됩니다.
 5. 자리 표시자를 각 매개 변수에 적합한 값으로 바꿉니다.
 
@@ -57,7 +57,7 @@ Azure Automation의 각 Runbook에는 초안과 게시 등 두 버전이 있습�
 1. 텍스트 편집기의 캔버스 컨트롤에서 자식 Runbook의 코드를 배치하려는 위치에 커서를 놓습니다.
 2. 라이브러리 컨트롤에서 **자산** 노드를 확장합니다.
 3. 원하는 자산 형식에 대한 노드를 확장합니다.
-4. 삽입할 자산 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택합니다. [변수 자산](./shared-resources/variables.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가**를 선택합니다.
+4. 삽입할 자산 이름을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가** 를 선택합니다. [변수 자산](./shared-resources/variables.md)의 경우 변수를 가져올지 또는 설정할지 여부에 따라 **"변수 가져오기"를 캔버스에 추가** 또는 **"변수 설정"을 캔버스에 추가** 를 선택합니다.
 5. 자산에 대한 코드가 Runbook에 삽입됩니다.
 
 ## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Windows PowerShell을 사용하여 Azure Automation Runbook 편집
@@ -101,4 +101,4 @@ Publish-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automatio
 * [자격 증명](./shared-resources/credentials.md).
 * [일정](./shared-resources/schedules.md).
 * [변수](./shared-resources/variables.md).
-* [PowerShell cmdlet 참조](/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [PowerShell cmdlet 참조](/powershell/module/az.automation)

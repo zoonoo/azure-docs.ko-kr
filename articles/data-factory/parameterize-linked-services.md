@@ -10,12 +10,12 @@ ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: e463328df195b5a91db8ce272d138f980d000e79
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c3c126a96c0eb2214f63a56120d0966b9a97efed
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232066"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895393"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -27,6 +27,9 @@ Azure Portal 또는 프로그래밍 인터페이스에서 Data Factory UI를 사
 
 > [!TIP]
 > 암호니 비밀은 매개 변수화하지 않는 것이 좋습니다. 대신, Azure Key Vault의 모든 연결 문자열을 저장하고 *비밀 이름* 을 매개 변수화합니다.
+
+> [!Note]
+> 매개 변수 이름에 "-"를 사용 하는 미해결 버그가 있습니다. 버그가 해결 될 때까지 "-" 없이 이름을 사용 하는 것이 좋습니다.
 
 7분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 

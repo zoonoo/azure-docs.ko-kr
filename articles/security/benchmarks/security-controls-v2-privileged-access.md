@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7721100d902948364c9e4b1373f1fa805c680a50
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202218"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880728"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
@@ -159,7 +159,7 @@ Azure AD 자격 관리 기능을 사용 하 여 액세스 권한 부여, 검토,
 
 - [권한 있는 액세스 워크스테이션 이해](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [권한 있는 액세스 워크스테이션 배포](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [권한 있는 액세스 워크스테이션 배포](/security/compass/privileged-access-deployment)
 
 **책임**: Customer
 
@@ -217,4 +217,3 @@ Microsoft에서 고객 데이터에 액세스 해야 하는 지원 시나리오�
 - [보안 준수 관리](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
 - [Id 및 키 관리](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
-

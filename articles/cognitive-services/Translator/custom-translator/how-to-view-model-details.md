@@ -2,19 +2,19 @@
 title: 모델 세부 정보 보기 - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 프로젝트의 모델 탭에는 모델 이름, 모델 상태, BLEU 점수, 학습, 튜닝, 문장 수 테스트와 같은 각 모델의 세부 정보가 표시됩니다.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 52e305f9d50ab0f383810778be681ac41be97c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11f39aa480e3ba6508bf730c61891e80ea689e8b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509797"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895954"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 

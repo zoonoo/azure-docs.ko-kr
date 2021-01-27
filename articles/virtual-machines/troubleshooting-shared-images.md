@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 74e1dc12be9bfec57d76357a335b46a55912f6df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500277"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879632"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Azure에서 공유 이미지 갤러리 문제 해결
 
@@ -343,4 +343,4 @@ Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/rbac-
 
 ## <a name="next-steps"></a>다음 단계
 
-[공유 이미지 갤러리](./linux/shared-image-galleries.md)에 대해 자세히 알아보세요.
+[공유 이미지 갤러리](./shared-image-galleries.md)에 대해 자세히 알아보세요.

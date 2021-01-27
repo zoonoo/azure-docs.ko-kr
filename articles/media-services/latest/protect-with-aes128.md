@@ -1,25 +1,9 @@
 ---
-title: AES-128로 비디오 암호화
-titleSuffix: Azure Media Services
-description: AES 128비트 암호화를 사용하여 비디오를 암호화하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용하는 방법을 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289343"
+제목: AES-128을 사용 하 여 비디오 암호화: Azure Media Services 설명: AES 128 비트 암호화를 사용 하 여 비디오를 암호화 하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용 하는 방법에 대해 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: na. 토픽: 자습서 ms. 날짜: 08/31/2020 밀리초. 작성자:
+
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>자습서: AES-128을 사용하여 비디오를 암호화하고 키 배달 서비스 사용
 
@@ -89,15 +73,15 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 
 ## <a name="get-or-create-an-encoding-transform"></a>인코딩 Transform을 가져오거나 만들기
 
-새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 **TransformOutput** 개체입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming**이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩한 다음, 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩한 다음, 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다.
 
-새 [Transform](/rest/api/media/transforms)을 만들기 전에 다음 코드에 표시된 대로 먼저 **Get** 메서드를 사용하여 해당 변환이 이미 있는지 확인합니다. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null**을 반환합니다(이름의 대/소문자를 구분하지 않음).
+새 [Transform](/rest/api/media/transforms)을 만들기 전에 다음 코드에 표시된 대로 먼저 **Get** 메서드를 사용하여 해당 변환이 이미 있는지 확인합니다. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null** 을 반환합니다(이름의 대/소문자를 구분하지 않음).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>작업 제출
 
-위에서 언급했듯이 [Transform](/rest/api/media/transforms) 개체는 레시피이며 [Job](/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
+위에서 언급했듯이 [Transform](/rest/api/media/transforms) 개체는 레시피이며 [Job](/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform** 을 적용하라는 Media Services에 대한 실제 요청입니다. **Job** 은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
 
 이 자습서에서는 [HTTPS 원본 URL](job-input-from-http-how-to.md)에서 직접 수집한 파일을 기반으로 작업의 입력을 만듭니다.
 
@@ -107,13 +91,13 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 
 작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. 아래 코드 샘플은 [Job](/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. 자세한 내용은 [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고, 취소가 완료되면 **취소됨**이 표시됩니다.
+**작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고, 취소가 완료되면 **취소됨** 이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
 ## <a name="create-a-content-key-policy"></a>콘텐츠 키 정책 만들기
 
-콘텐츠 키는 자산에 대한 보안 액세스를 제공합니다. 최종 클라이언트에 콘텐츠 키를 배달하는 방법을 구성하는 **콘텐츠 키 정책**을 만들어야 합니다. 콘텐츠 키는 **스트리밍 로케이터**와 연결됩니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다.
+콘텐츠 키는 자산에 대한 보안 액세스를 제공합니다. 최종 클라이언트에 콘텐츠 키를 배달하는 방법을 구성하는 **콘텐츠 키 정책** 을 만들어야 합니다. 콘텐츠 키는 **스트리밍 로케이터** 와 연결됩니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다.
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다(이 경우 AES 암호화를 사용하여.) 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 콘텐츠 키 정책을 평가합니다.
 
@@ -126,9 +110,9 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 1. [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만듭니다.
 2. 클라이언트가 사용할 수 있는 스트리밍 URL을 빌드합니다.
 
-**스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터**는 API를 호출한 즉시 유효합니다. 선택적 시작 및 종료 시간을 구성하지 않을 경우 삭제될 때까지 지속됩니다.
+**스트리밍 로케이터** 를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 API를 호출한 즉시 유효합니다. 선택적 시작 및 종료 시간을 구성하지 않을 경우 삭제될 때까지 지속됩니다.
 
-[스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 자습서에서는 스트리밍에 대한 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 PredefinedStreamingPolicy 중 하나를 사용하고 있습니다. 이 예제에서는 AES 봉투 암호화를 적용합니다(DRM 라이선스 아닌 HTTPS를 통해 키를 재생 클라이언트에 배달하기 때문에 ClearKey 암호화라고도 함).
+[스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName** 을 지정해야 합니다. 이 자습서에서는 스트리밍에 대한 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 PredefinedStreamingPolicy 중 하나를 사용하고 있습니다. 이 예제에서는 AES 봉투 암호화를 적용합니다(DRM 라이선스 아닌 HTTPS를 통해 키를 재생 클라이언트에 배달하기 때문에 ClearKey 암호화라고도 함).
 
 > [!IMPORTANT]
 > 사용자 지정 [StreamingPolicy](/rest/api/media/streamingpolicies)를 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 Streaming Locator에 다시 사용해야 합니다. Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대한 새 StreamingPolicy를 만들지 않는 것이 좋습니다.
@@ -139,13 +123,13 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 
 이 자습서에서는 콘텐츠 키 정책이 토큰을 제한하도록 지정합니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) 형식의 토큰을 지원하므로 샘플에서는 이를 구성합니다.
 
-**콘텐츠 키 정책**에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 배달 서비스에 제공된 토큰에는 콘텐츠 키의 식별자가 있어야 한다는 의미입니다. 이 샘플에서는 스트리밍 로케이터를 만들 때 콘텐츠 키를 지정하지 않으면 시스템이 임의의 스트리밍 로케이터를 만듭니다. 테스트 토큰을 생성하려면 ContentKeyId를 가져와 ContentKeyIdentifierClaim 클레임에 삽입해야 합니다.
+**콘텐츠 키 정책** 에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 배달 서비스에 제공된 토큰에는 콘텐츠 키의 식별자가 있어야 한다는 의미입니다. 이 샘플에서는 스트리밍 로케이터를 만들 때 콘텐츠 키를 지정하지 않으면 시스템이 임의의 스트리밍 로케이터를 만듭니다. 테스트 토큰을 생성하려면 ContentKeyId를 가져와 ContentKeyIdentifierClaim 클레임에 삽입해야 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>DASH 스트리밍 URL 빌드
 
-[스트리밍 로케이터](/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성하려면 [StreamingEndpoint](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
+[스트리밍 로케이터](/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성하려면 [StreamingEndpoint](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트** 가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트** 가 중지된 상태이므로 **Start** 를 호출해야 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetMPEGStreamingUrl)]
 

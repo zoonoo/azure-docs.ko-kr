@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: cff0c54cf5aa8854273be9502f5cf6df4e0a055b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632932"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879547"
 ---
 # <a name="monitoring-time-series-insights"></a>모니터링 Time Series Insights
 
@@ -27,9 +27,9 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor 정의
 
-Time Series Insights는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
+Time Series Insights는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
 
-다음 개념을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)문서부터 시작 합니다.
+다음 개념을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)문서부터 시작 합니다.
 
 - Azure Monitor란?
 - 모니터링과 관련된 비용
@@ -63,7 +63,7 @@ Azure Time Series Insights에 대 한 다음 범주에서 로그를 수집할 �
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-Azure Monitor 메뉴에서 메트릭을 열어 다른 Azure 서비스의 메트릭과 함께 Azure Time Series Insights에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)을 참조하세요.
+Azure Monitor 메뉴에서 메트릭을 열어 다른 Azure 서비스의 메트릭과 함께 Azure Time Series Insights에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요.
 
 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure Time Series Insights 데이터 참조](how-to-monitor-tsi-reference.md#metrics) 를 참조 하세요.
 
@@ -88,7 +88,7 @@ Azure Time Series Insights은 다음 테이블에 데이터를 저장 합니다.
 |:---|:---|
 | TSIIngress | 수신 범주의 데이터를 저장 하는 테이블입니다. 수신 범주는 수신 파이프라인에서 발생 하는 오류를 추적 합니다. 이 범주에는 이벤트를 받을 때 발생 하는 오류 (예: 이벤트 원본에 연결 하지 못한 경우) 및 이벤트 처리 (예: 이벤트 페이로드를 구문 분석할 때 발생 하는 오류)가 포함 됩니다.
 
-Azure Monitor 로그에 데이터를 라우팅하려면 Log Analytics 작업 영역에 리소스 로그 또는 플랫폼 메트릭을 전송 하는 진단 설정을 만들어야 합니다. 자세히 알아보려면 [수집 및 라우팅](https://docs.microsoft.com/azure/iot-hub/monitor-iot-hub#collection-and-routing)을 참조 하세요.
+Azure Monitor 로그에 데이터를 라우팅하려면 Log Analytics 작업 영역에 리소스 로그 또는 플랫폼 메트릭을 전송 하는 진단 설정을 만들어야 합니다. 자세히 알아보려면 [수집 및 라우팅](../iot-hub/monitor-iot-hub.md#collection-and-routing)을 참조 하세요.
 
 ## <a name="sample-queries"></a>샘플 쿼리
 
@@ -115,7 +115,7 @@ Azure Time Series Insights 환경을 모니터링 하는 데 사용할 수 있�
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 이를 통해 사용자는 시스템에서 문제를 파악 하 고 해결할 수 있습니다. [메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [로그](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)및 [활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts)에 대 한 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
+Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 이를 통해 사용자는 시스템에서 문제를 파악 하 고 해결할 수 있습니다. [메트릭](../azure-monitor/platform/alerts-metric-overview.md), [로그](../azure-monitor/platform/alerts-unified-log.md)및 [활동 로그](../azure-monitor/platform/activity-log-alerts.md)에 대 한 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
 
 플랫폼 메트릭을 기반으로 경고 규칙을 만들 때 개수 단위로 수집 되는 Time Series Insights 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다.
 

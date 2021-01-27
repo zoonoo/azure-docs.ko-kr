@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 01/13/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185617"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896904"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -185,16 +185,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 ## <a name="network-planning"></a><a name="ports"></a>네트워크 계획
 
-다음 주소는 업데이트 관리를 위해 특별히 필요합니다. 이러한 주소에 대한 통신은 443 포트를 통해 발생합니다.
-
-|Azure 공용  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`    | `*.ods.opinsights.azure.us`        |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
-|`*.azure-automation.net` | `*.azure-automation.us`|
-
-Automation 서비스 및 Log Analytics 작업 영역에 대 한 트래픽을 허용 하도록 네트워크 그룹 보안 규칙을 만들거나 Azure 방화벽을 구성 하는 경우 [서비스 태그](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** 및 **azuremonitor** 를 사용 합니다. 네트워크 보안 규칙의 지속적인 관리를 간소화 합니다. Azure Vm에서 자동화 서비스에 안전 하 고 개인적으로 연결 하려면 [Azure 개인 링크 사용](../how-to/private-link-security.md)을 검토 하세요. 온-프레미스 방화벽 구성의 일부로 포함할 현재 서비스 태그 및 범위 정보를 가져오려면 [다운로드 가능한 JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)을 참조 하세요.
+포트, Url 및 업데이트 관리에 필요한 기타 네트워킹 세부 정보에 대 한 자세한 내용은 [네트워크 구성 Azure Automation](../automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) 를 확인 하세요.
 
 Windows 머신의 경우 Windows 업데이트에 필요한 모든 엔드포인트로도 트래픽을 허용해야 합니다. 필요한 엔드포인트의 업데이트된 목록은 [HTTP/프록시 관련 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 확인할 수 있습니다. 로컬 [Windows 업데이트 서버](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)가 있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정된 서버로도 트래픽을 허용해야 합니다.
 
@@ -227,11 +218,14 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것�
 |다른 업데이트     | 본질적으로 중요하지 않거나 보안 업데이트가 아닌 그 외의 모든 업데이트입니다.        |
 
 >[!NOTE]
->Linux 컴퓨터에 대 한 업데이트 분류는 지원 되는 Azure 공용 클라우드 지역에서 사용 되는 경우에만 사용할 수 있습니다. 다음 국가 클라우드 지역에서 업데이트 관리를 사용 하는 경우:
+>Linux 컴퓨터에 대 한 업데이트 분류는 지원 되는 Azure 공용 클라우드 지역에서 사용 되는 경우에만 사용할 수 있습니다. 다음 국가별 클라우드 지역에서 업데이트 관리를 사용 하는 경우 Linux 업데이트 분류는 없습니다.
+>
 >* Azure 미국 정부
 >* 중국의 21Vianet
 >
-> Linux 업데이트 분류는 없으며 **다른 업데이트** 범주에 보고 됩니다. 업데이트 관리은 지원 되는 배포판, 특히 릴리스된 [OVAL](https://oval.mitre.org/) (개방형 취약성 및 평가 언어) 파일에 의해 게시 된 데이터를 사용 합니다. 인터넷 액세스는 이러한 국가별 클라우드에서 제한 되기 때문에 이러한 파일에 액세스 하 고 사용할 수 업데이트 관리.
+> 업데이트는 분류 되는 대신 **다른 업데이트** 범주에 보고 됩니다.
+>
+> 업데이트 관리은 지원 되는 배포판, 특히 릴리스된 [OVAL](https://oval.mitre.org/) (개방형 취약성 및 평가 언어) 파일에 의해 게시 된 데이터를 사용 합니다. 이러한 국가별 클라우드에서 인터넷 액세스가 제한 되므로 업데이트 관리 파일에 액세스할 수 없습니다.
 
 업데이트 관리 Linux의 경우 클라우드의 데이터 보강 때문에 평가 데이터를 표시 하는 동시에 클라우드의 중요 업데이트와 보안 업데이트를 분류 **보안** 및 **기타** 에서 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 RTM 버전에서 이 정보를 사용할 수 없습니다. CentOS 머신이 다음 명령에 대해 보안 데이터를 반환하도록 구성된 경우 업데이트 관리에서는 분류에 따라 패치를 수행할 수 있습니다.
 

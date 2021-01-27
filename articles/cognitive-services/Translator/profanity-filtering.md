@@ -3,19 +3,19 @@ title: 불경 한 필터-번역기
 titleSuffix: Azure Cognitive Services
 description: 비속어 필터링을 사용 하 여 Azure Cognitive Services Translator의 텍스트에서 번역 된 사용 금지 수준을 결정 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7ebfe766e6362a3f62e70db8bf2dcae370aceee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 9f389d669e69dbfa6ec6d4d0b4716d2367443f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83996162"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896802"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>변환기를 사용 하 여 사용 금지 필터링 추가
 

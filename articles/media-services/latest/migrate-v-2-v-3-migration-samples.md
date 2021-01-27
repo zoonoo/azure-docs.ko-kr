@@ -1,5 +1,5 @@
 ---
-title: Media Services v2에서 v3 마이그레이션 샘플 비교 | Microsoft Docs
+title: Media Services v2에서 v3 마이그레이션 샘플 비교
 description: Azure Media Services v 2와 v3 간의 코드 차이점을 비교 하는 데 도움이 되는 샘플 집합입니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: 7705443bbe810866cd5b52946b310b5b79bfa072
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 640b9b40295ae9b9aea865f7b6159da6ff4a3251
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690523"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898310"
 ---
 # <a name="media-services-migration-code-sample-comparison"></a>Media Services 마이그레이션 코드 샘플 비교
 

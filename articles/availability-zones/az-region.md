@@ -4,15 +4,15 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/26/2021
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5883dc8b34cd1aa00ba1c5de25a09a017a130c0a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874611"
+ms.locfileid: "98896887"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -58,7 +58,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | 미국 서 부 2        |                |                      |                     |                |
 
 
-이러한 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하세요. 가용성 영역를 지원할 예정 된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)을 참조 하세요.
+\* 이러한 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하세요. 가용성 영역를 지원할 예정 된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)을 참조 하세요.
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>가용성 영역를 지 원하는 Azure 서비스

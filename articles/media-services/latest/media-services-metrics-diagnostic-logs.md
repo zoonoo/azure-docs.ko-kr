@@ -1,26 +1,11 @@
 ---
-title: Azure Monitor를 사용 하 여 메트릭 및 진단 로그 Media Services
-titleSuffix: Azure Media Services
-description: Azure Monitor를 통해 Azure Media Services 메트릭 및 진단 로그를 모니터링 하는 방법에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/02/2020
-ms.author: inhenkel
-ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685191"
+제목: Azure Monitor를 사용 하 여 메트릭 및 진단 로그 Media Services: Azure Media Services 설명: Azure Monitor를 통해 Azure Media Services 메트릭 및 진단 로그를 모니터링 하는 방법을 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: na. 토픽: 개념 밀리초. 날짜: 11/02/2020 밀리초. 작성자:
+
 ---
+
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Media Services 메트릭 및 진단 로그 모니터링
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -84,7 +69,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 동시성은 시간이 지남에 따라 단일 계정에 사용 되는 스트리밍 끝점의 수에 문제가 됩니다. 여러 프로토콜에 대 한 동적 패키징, 여러 DRM 암호화 등의 복잡 한 게시 매개 변수를 사용 하는 동시 스트림 수 간의 관계를 염두에 두어야 합니다. 게시 된 각 라이브 스트림은 스트리밍 끝점의 CPU 및 출력 대역폭에 추가 됩니다. 이러한 점을 염두에 두면 Azure Monitor를 사용 하 여 스트리밍 끝점의 사용률 (CPU 및 송신 용량)을 면밀히 감시 하 여 적절 하 게 크기를 조정 하 고 있는지 확인 해야 합니다 (또는 동시성이 매우 높은 경우 여러 스트리밍 끝점 간에 트래픽을 분할).
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 [Media Services 메트릭을 모니터링 하는 방법을](media-services-metrics-howto.md)참조 하세요.
 
@@ -98,7 +83,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|Name|설명|
+|이름|설명|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 
@@ -111,7 +96,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 * DRM 또는 정책 유형별 오류를 참조 하세요.
 * 클라이언트에서 승인 되지 않은 라이선스 요청 수를 확인 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 [Media Service 진단 로그를 모니터링 하는 방법을](media-services-diagnostic-logs-howto.md)참조 하세요.
 

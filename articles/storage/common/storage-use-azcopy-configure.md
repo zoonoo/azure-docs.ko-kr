@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897861"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881047"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -22,7 +22,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > [!NOTE]
 > AzCopy을 시작 하는 데 도움이 되는 콘텐츠를 찾고 있는 경우 다음 문서를 참조 하세요.
 > - [AzCopy 시작](storage-use-azcopy-v10.md)
-> - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
+> - [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 > - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 > - [AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 로컬 컴퓨터에서 모든 계획 및 로그 파일을 제거 하 여 디스크 공간을 절약 하려면 `azcopy jobs clean` 명령을 사용 합니다.
 
 한 작업에만 연결 된 계획 및 로그 파일을 제거 하려면를 사용 `azcopy jobs rm <job-id>` 합니다. `<job-id>`이 예의 자리 표시자를 작업의 작업 id로 바꿉니다.
-
-

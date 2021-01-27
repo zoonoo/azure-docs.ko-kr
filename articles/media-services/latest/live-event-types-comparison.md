@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services LiveEvent 형식 | Microsoft Docs
-description: Azure Media Services에서 라이브 이벤트를 *통과* 또는 *라이브 인코딩으로*설정할 수 있습니다. 이 문서에서는 라이브 이벤트 유형을 비교 하는 상세 테이블을 보여 줍니다.
+title: Azure Media Services 라이브 형식
+description: Azure Media Services에서 라이브 이벤트를 *통과* 또는 *라이브 인코딩으로* 설정할 수 있습니다. 이 문서에서는 라이브 이벤트 유형을 비교 하는 상세 테이블을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3126cbf4f9d87e9baa7267e309210b751a47069d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397307"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897801"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 

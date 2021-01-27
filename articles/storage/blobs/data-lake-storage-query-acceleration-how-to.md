@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968401"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879884"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -22,7 +22,7 @@ ms.locfileid: "97968401"
 
 쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다. 자세히 알아보려면 [쿼리 가속 Azure Data Lake Storage](data-lake-storage-query-acceleration.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "97968401"
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  해당 사항 없음
+  해당 없음
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -236,7 +236,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-해당 사항 없음
+해당 없음
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -437,7 +437,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
-이 예에서는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 다시 스트리밍합니다. `blob`도우미 함수에 전달 된 개체는 `queryHemingway` [blockblobclient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient)유형입니다. [Blockblobclient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) 개체를 가져오는 방법에 대 한 자세한 내용은 빠른 시작 [: JavaScript v12 SDK를 사용 하 여 Node.js에서 blob 관리 ](storage-quickstart-blobs-nodejs.md)를 참조 하세요.
+이 예에서는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 다시 스트리밍합니다. `blob`도우미 함수에 전달 된 개체는 `queryHemingway` [blockblobclient](/javascript/api/@azure/storage-blob/blockblobclient)유형입니다. [Blockblobclient](/javascript/api/@azure/storage-blob/blockblobclient) 개체를 가져오는 방법에 대 한 자세한 내용은 빠른 시작 [: JavaScript v12 SDK를 사용 하 여 Node.js에서 blob 관리 ](storage-quickstart-blobs-nodejs.md)를 참조 하세요.
 
 ```javascript
 async function queryHemingway(blob)

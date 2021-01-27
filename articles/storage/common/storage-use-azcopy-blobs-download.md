@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 20da05399eed4cb9c5a4b69a82b0b1e799997751
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630040"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880121"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure Blob storage에서 blob 다운로드
 
@@ -21,7 +21,7 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Blob 저장소에서 blob �
 
 파일 업로드, Blob storage와 동기화, 계정 간에 blob 복사 등의 다른 작업 유형에 대 한 예제를 보려면이 문서의 [다음 단계](#next-steps) 섹션에 제공 된 링크를 참조 하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [AzCopy 시작](storage-use-azcopy-v10.md) 문서를 참조 하 여 AzCopy를 다운로드 하 고, 저장소 서비스에 권한 부여 자격 증명을 제공할 수 있는 방법에 대해 알아보세요.
 
@@ -143,7 +143,7 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Blob 저장소에서 blob �
 
 #### <a name="download-a-blob-snapshot"></a>Blob 스냅샷 다운로드
 
-Blob 스냅숏의 **날짜/시간** 값을 참조 하 여 [blob 스냅숏을](/azure/storage/blobs/snapshots-overview) 다운로드할 수 있습니다. 
+Blob 스냅숏의 **날짜/시간** 값을 참조 하 여 [blob 스냅숏을](../blobs/snapshots-overview.md) 다운로드할 수 있습니다. 
 
 |    |     |
 |--------|-----------|

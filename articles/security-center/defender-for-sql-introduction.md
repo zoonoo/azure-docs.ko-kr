@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 16f903e34c64214d54fc01fa621f561f1786de08
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881370"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -27,7 +27,7 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 |----|:----|
 |릴리스 상태:|**Azure SQL 데이터베이스 서버용 Azure Defender** - 일반 공급(GA)<br>**머신의 SQL 서버용 Azure Defender** - 일반 공급(GA) |
 |가격 책정:|**Azure Defender for SQL** 을 구성하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 청구됩니다.|
-|보호되는 SQL 버전:|[Azure 가상 머신의 SQL](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc 지원 SQL Server](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)<br>Azure Arc를 사용하지 않는 Windows 머신의 온-프레미스 SQL Server<br>Azure SQL [단일 데이터베이스](../azure-sql/database/single-database-overview.md) 및 [탄력적 풀](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics(이전의 SQL DW) 전용 SQL 풀](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
+|보호되는 SQL 버전:|[Azure 가상 머신의 SQL](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc 지원 SQL Server](/sql/sql-server/azure-arc/overview)<br>Azure Arc를 사용하지 않는 Windows 머신의 온-프레미스 SQL Server<br>Azure SQL [단일 데이터베이스](../azure-sql/database/single-database-overview.md) 및 [탄력적 풀](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics(이전의 SQL DW) 전용 SQL 풀](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) China Gov(**일부**: SQL Server에 대한 경고 및 취약성 평가의 하위 집합입니다. 동작 위협 보호를 사용할 수 없습니다.)|
 |||
 
@@ -43,7 +43,7 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 - **머신의 SQL 서버용 Azure Defender** 는 하이브리드 환경을 완벽하게 지원하고 Azure, 기타 클라우드 환경 및 온-프레미스 머신에서 호스팅되는 SQL 서버(지원되는 모든 버전)를 보호하도록 Azure 네이티브 SQL Server에 대한 보호를 확장합니다.
     - [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - 온-프레미스 SQL Server:
-        - [Azure Arc 지원 SQL Server(미리 보기)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [Azure Arc 지원 SQL Server(미리 보기)](/sql/sql-server/azure-arc/overview)
         - [Azure Arc를 사용하지 않는 Windows 머신에서 실행되는 SQL Server](../azure-monitor/platform/agent-windows.md)
 
 

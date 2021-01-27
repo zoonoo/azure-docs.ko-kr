@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746321"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880290"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -49,7 +49,7 @@ ms.locfileid: "96746321"
 ||Dynamics|<ul><li>ISV Connect premium 계층에 활성 등록이 있습니다.</li></ul>|Business Applications 공동 판매 incentivized|
 |||
 
-공동 판매 솔루션 제품에 대 한 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요.
+공동 판매 솔루션 제품에 대 한 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조 하세요.
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>파트너 센터에서 공동 판매 자료를 제출 하는 방법
 

@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 연결 된 템플릿을 사용 하 여 모듈식 템플릿 솔루션을 만드는 방법을 설명 합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790938"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880437"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -496,6 +496,91 @@ GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링�
 
 인라인 매개 변수와 매개 변수 파일에 대한 링크를 둘 다 사용할 수는 없습니다. `parametersLink` 및 `parameters`를 둘 다 지정하면 오류를 발생하며 배포가 실패합니다.
 
+### <a name="use-relative-path-for-linked-templates"></a>연결 된 템플릿에 대 한 상대 경로 사용
+
+`relativePath`의 속성을 `Microsoft.Resources/deployments` 사용 하면 연결 된 템플릿을 더 쉽게 작성할 수 있습니다. 이 속성은 부모에 상대적인 위치에 원격 연결 된 템플릿을 배포 하는 데 사용할 수 있습니다. 이 기능을 사용 하려면 모든 템플릿 파일을 스테이징 하 고 GitHub 또는 Azure storage 계정과 같은 원격 URI에서 사용할 수 있어야 합니다. Azure PowerShell 또는 Azure CLI의 URI를 사용 하 여 주 템플릿을 호출 하는 경우 자식 배포 URI는 부모 및 relativePath의 조합입니다.
+
+> [!NOTE]
+> TemplateSpec를 만들 때 속성에서 참조 하는 모든 템플릿은 `relativePath` Azure PowerShell 또는 Azure CLI 하 여 templateSpec 리소스에 패키지 됩니다. 파일 준비를 하지 않아도 됩니다. 자세한 내용은 [연결 된 템플릿을 사용 하 여 템플릿 사양 만들기](./template-specs.md#create-a-template-spec-with-linked-templates)를 참조 하세요.
+
+다음과 같은 폴더 구조를 가정 합니다.
+
+![리소스 관리자 연결 된 템플릿 상대 경로](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+다음 템플릿은 이전 이미지에서 설명한 *nestedChild.js* 를 배포 하는 *mainTemplate.js* 방법을 보여 줍니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+다음 배포에서 위의 템플릿에서 연결 된 템플릿의 URI는 **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** 입니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Azure storage 계정에 저장 된 상대 경로를 사용 하 여 연결 된 템플릿을 배포 하려면 매개 변수를 사용 하 여 템플릿 `QueryString` / `query-string` uri 매개 변수와 함께 사용할 SAS 토큰을 지정 합니다. 이 매개 변수는 Azure CLI 버전 2.18 이상 및 Azure PowerShell 버전 5.4 이상 에서만 지원 됩니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+QueryString에 선행 "?"가 없는지 확인 합니다. 배포는 배포에 대 한 URI를 어셈블할 때 하나를 추가 합니다.
+
 ## <a name="template-specs"></a>템플릿 사양
 
 액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
@@ -797,7 +882,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |Description  |
+|기본 템플릿  |연결된 템플릿 |설명  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
 |[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결 된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |

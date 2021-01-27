@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8c90427e2dd4ecf23cb803c4f75dbee34c38f992
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547659"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898582"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -33,7 +33,7 @@ ms.locfileid: "92547659"
 
 강제 설치는 [복제를 사용 하도록 설정](vmware-azure-enable-replication.md#enable-replication)하기 위해 Azure Portal에서 실행 되는 작업의 필수적인 부분입니다. 보호 하려는 Vm 집합을 선택 하 고 복제를 사용 하도록 설정 하 고 나면 구성 서버에서 모바일 서비스 에이전트를 서버에 푸시하고, 에이전트를 설치 하 고, 구성 서버에서 에이전트의 등록을 완료 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 푸시 설치 [필수 구성 요소가](vmware-azure-install-mobility-service.md) 충족 되는지 확인 합니다.
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "92547659"
 
 ## <a name="install-the-mobility-service-using-ui"></a>UI를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -85,26 +85,26 @@ ms.locfileid: "92547659"
 
 1. **설치 진행률** 에서 설치를 모니터링합니다. 설치가 완료되면 **구성으로 계속 진행** 을 선택하여 Mobility 서비스를 구성 서버에 등록합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="설치가 완료 되 면 설치 진행률 및 활성 구성으로 진행 단추를 보여 주는 스크린샷":::
 
 1. **구성 서버 세부 정보** 에서 구성 된 IP 주소 및 암호를 지정 합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="모바일 서비스 등록 페이지.":::
 
 1. **등록** 을 선택하여 등록을 완료합니다.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="모바일 서비스 설치 옵션 페이지.":::
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="모바일 서비스 등록 마지막 페이지입니다.":::
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>명령 프롬프트를 사용 하 여 모바일 서비스 설치
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 서버 구성이 [Azure에 대 한 VMware vm 및 물리적 서버 재해 복구를 위한 지원 매트릭스](vmware-physical-azure-support-matrix.md)의 조건을 충족 하는지 확인 합니다.
 - 서버의 운영 체제에 대 한 [설치 관리자를 찾습니다](#locate-installer-files) .
 
 ### <a name="windows-machine"></a>Windows 컴퓨터
 
-- 명령 프롬프트에서 다음 명령을 실행 하 여 보호 하려는 서버의 로컬 폴더 (예: _C:\Temp_ )에 설치 관리자를 복사 합니다. 설치 관리자의 파일 이름을 실제 파일 이름으로 바꿉니다.
+- 명령 프롬프트에서 다음 명령을 실행 하 여 보호 하려는 서버의 로컬 폴더 (예: _C:\Temp_)에 설치 관리자를 복사 합니다. 설치 관리자의 파일 이름을 실제 파일 이름으로 바꿉니다.
 
   ```cmd
   cd C:\Temp
@@ -130,7 +130,7 @@ ms.locfileid: "92547659"
 
 Setting | 세부 정보
 --- | ---
-구문 | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 설치 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `/InstallLocation`| 선택적 매개 변수입니다. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
@@ -141,7 +141,7 @@ Setting | 세부 정보
 
 Setting | 세부 정보
 --- | ---
-구문 | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
+Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 에이전트 구성 로그 | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
 `/CSEndPoint` | 필수 매개 변수입니다. `<CSIP>` 구성 서버의 IP 주소를 지정 합니다. 유효한 IP 주소를 사용합니다.
 `/PassphraseFilePath` |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -171,7 +171,7 @@ Setting | 세부 정보
 
 Setting | 세부 정보
 --- | ---
-구문 | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 `-d` | 선택적 매개 변수입니다. 모바일 서비스 설치 위치를 지정 합니다 `/usr/local/ASR` .
 `-v` | 필수. 모바일 서비스가 설치 되는 플랫폼을 지정 합니다. <br/> Vmware v m/물리적 서버용 **vmware** <br/> Azure Vm 용 **azure** .
@@ -181,14 +181,14 @@ Setting | 세부 정보
 
 Setting | 세부 정보
 --- | ---
-구문 | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | 필수 매개 변수입니다. `<CSIP>` 구성 서버의 IP 주소를 지정 합니다. 유효한 IP 주소를 사용합니다.
 `-P` |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
 ## <a name="azure-virtual-machine-agent"></a>Azure Virtual Machine 에이전트
 
-- **Windows VM** : Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
-- **Linux VM** : 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
+- **Windows VM**: Mobility 서비스 버전 9.7.0.0부터 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)를 Mobility 서비스 설치 관리자가 설치합니다. 이렇게 하면 컴퓨터가 Azure로 장애 조치 (failover) 되 면 Azure VM은 VM 확장을 사용 하기 위한 에이전트 설치 필수 구성 요소를 충족 합니다.
+- **Linux VM**: 장애 조치(failover) 후 [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md)가 Azure VM에 수동으로 설치되어야 합니다.
 
 ## <a name="locate-installer-files"></a>설치 관리자 파일 찾기
 
@@ -228,7 +228,7 @@ Setting | 세부 정보
 9.36 버전 이상에서 **SUSE Linux Enterprise Server 11 SP3 컴퓨터를 업데이트 하거나 보호 하기 위한 필수 구성 요소입니다** .
 
 1. 최신 모바일 에이전트 설치 관리자가 Microsoft 다운로드 센터에서 다운로드 되 고 구성 서버 및 모든 규모 확장 프로세스 서버에서 푸시 설치 관리자 리포지토리에 배치 되었는지 확인 합니다.
-2. 최신 SUSE Linux Enterprise Server 11 SP3 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다. 최신 모바일 에이전트 버전은 [9.37](https://support.microsoft.com/help/4582666/) 입니다.
+2. 최신 SUSE Linux Enterprise Server 11 SP3 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다.
 3. 구성 서버로 이동 하 여 SUSE Linux Enterprise Server 11 SP3 에이전트 설치 관리자를 경로에 복사 합니다.-INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.
@@ -240,7 +240,7 @@ Setting | 세부 정보
 9.36 버전 이상에서 **RHEL 5 컴퓨터를 업데이트 하거나 보호 하기 위한 필수 구성 요소입니다** .
 
 1. 최신 모바일 에이전트 설치 관리자가 Microsoft 다운로드 센터에서 다운로드 되 고 구성 서버 및 모든 규모 확장 프로세스 서버에서 푸시 설치 관리자 리포지토리에 배치 되었는지 확인 합니다.
-2. 최신 RHEL 5 또는 CentOS 5 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다. 최신 모바일 에이전트 버전은 [9.37](https://support.microsoft.com/help/4582666/) 입니다.
+2. 최신 RHEL 5 또는 CentOS 5 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다. 
 3. 구성 서버로 이동 하 여 RHEL 5 또는 CentOS 5 에이전트 설치 관리자를 경로 INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래에 복사 합니다.
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.
@@ -252,7 +252,7 @@ Setting | 세부 정보
 9.36 버전 **이상에서 Debian 7 컴퓨터를 업데이트 하거나 보호 하기 위한 필수 구성 요소입니다** .
 
 1. 최신 모바일 에이전트 설치 관리자가 Microsoft 다운로드 센터에서 다운로드 되 고 구성 서버 및 모든 규모 확장 프로세스 서버에서 푸시 설치 관리자 리포지토리에 배치 되었는지 확인 합니다.
-2. 최신 Debian 7 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다. 최신 모바일 에이전트 버전은 [9.37](https://support.microsoft.com/help/4582666/) 입니다.
+2. 최신 Debian 7 에이전트 설치 관리자를 [다운로드](site-recovery-whats-new.md) 합니다.
 3. 구성 서버로 이동 하 여 Debian 7 agent installer를 경로에 복사 합니다.-INSTALL_DIR \home\svsystems\pushinstallsvc\repository 아래
 1. 최신 설치 관리자를 복사한 후 InMage PushInstall 서비스를 다시 시작 합니다. 
 1. 이제 연결 된 확장 프로세스 서버로 이동 하 여 3 단계와 4 단계를 반복 합니다.

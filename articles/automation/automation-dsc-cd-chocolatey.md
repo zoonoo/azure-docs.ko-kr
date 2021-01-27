@@ -6,12 +6,12 @@ ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 87504625c298c4fb858ff90430d707081e87cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb5f7b5e8214bd3b04bd7b9544ab4bc589f6c4bf
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186574"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896328"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Chocolatey를 사용한 지속적인 배포 설정
 
@@ -106,7 +106,7 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
     Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
-3. **c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME**의 모듈 폴더를 임시 폴더로 복사합니다.
+3. **c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME** 의 모듈 폴더를 임시 폴더로 복사합니다.
 
 4. 주 폴더에서 샘플 및 설명서를 삭제합니다.
 
@@ -126,7 +126,7 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
 
 ## <a name="step-4-add-the-node-configuration-to-the-pull-server"></a>4단계: 노드 구성을 풀 서버에 추가
 
-구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성의 모든 가져오기 또는 컴파일은 동일하게 보입니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 다음은 구성 파일 **ISVBoxConfig.ps1**입니다.
+구성을 풀 서버로 처음 가져와 컴파일하는 데는 별다른 사항이 없습니다. 동일한 구성의 모든 가져오기 또는 컴파일은 동일하게 보입니다. 패키지를 업데이트하고 프러덕션에 푸시해야 할 때마다 구성 파일이 정확한지 확인한 후(새 패키지 버전 포함) 이 단계를 수행합니다. 다음은 구성 파일 **ISVBoxConfig.ps1** 입니다.
 
 ```powershell
 Configuration ISVBoxConfig
@@ -190,13 +190,13 @@ Get-AzAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-이러한 단계에서는 풀 서버에 위치하며 이름이 **ISVBoxConfig.isvbox**인 새 노드 구성이 생깁니다. 노드 구성 이름은 `configurationName.nodeName`으로 빌드됩니다.
+이러한 단계에서는 풀 서버에 위치하며 이름이 **ISVBoxConfig.isvbox** 인 새 노드 구성이 생깁니다. 노드 구성 이름은 `configurationName.nodeName`으로 빌드됩니다.
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>5단계: 패키지 메타데이터 만들기 및 유지 관리
 
 패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 Nuspec이 필요합니다. NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. 
 
-**MyGet.org**를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 구매할 수 있지만 무료 스타터 SKU입니다. [NuGet](https://www.nuget.org/)에서 프라이빗 패키지에 대한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
+**MyGet.org** 를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 구매할 수 있지만 무료 스타터 SKU입니다. [NuGet](https://www.nuget.org/)에서 프라이빗 패키지에 대한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
 
 ## <a name="step-6-tie-it-all-together"></a>6단계: 모두 함께 연결
 
@@ -213,5 +213,5 @@ Get-AzAutomationDscCompilationJob `
 - 개요는 [Azure Automation State Configuration 개요](automation-dsc-overview.md)를 참조하세요.
 - 기능 사용을 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.

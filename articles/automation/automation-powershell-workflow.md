@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f175e495af8e925c0d5a6c61669a5e2f44f73ae7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d4c16f1b77bf7328857eb25e1571a741d144e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186006"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896921"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Azure Automation에 대한 PowerShell 워크플로 학습
 
@@ -34,7 +34,7 @@ Workflow Test-Workflow
 }
 ```
 
-워크플로 이름은 Automation Runbook의 이름과 일치해야 합니다. Runbook을 가져오려면 파일 이름이 워크플로 이름과 일치하고 **.ps1**로 끝나야 합니다.
+워크플로 이름은 Automation Runbook의 이름과 일치해야 합니다. Runbook을 가져오려면 파일 이름이 워크플로 이름과 일치하고 **.ps1** 로 끝나야 합니다.
 
 워크플로에 매개 변수를 추가하려면, 스크립트와 마찬가지로 `Param` 키워드를 사용합니다.
 
@@ -290,7 +290,7 @@ workflow CreateTestVms
 ```
 
 > [!NOTE]
-> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다. 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 이러한 cmdlet을 사용할 필요가 없습니다.
+> 비그래픽 PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다. 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 이러한 cmdlet을 사용할 필요가 없습니다.
 
 검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj574114(v=ws.11))를 참조하세요.
 

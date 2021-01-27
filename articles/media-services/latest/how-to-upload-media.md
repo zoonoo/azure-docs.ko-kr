@@ -1,24 +1,10 @@
 ---
-title: 미디어 업로드
-titleSuffix: Azure Media Services
-description: 스트리밍 또는 인코딩에 미디어를 업로드하는 방법을 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015854"
+제목: 미디어 업로드: Azure Media Services 설명: 스트리밍 또는 인코딩에 대 한 미디어를 업로드 하는 방법을 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+ms. 서비스: media services ms. 작업: ms. 토픽: 방법: 밀리초. 날짜: 08/31/2020. 작성자: inhenkel
 ---
+
 # <a name="upload-media-for-streaming-or-encoding"></a>스트리밍 또는 인코딩에 미디어 업로드
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

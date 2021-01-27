@@ -2,19 +2,15 @@
 title: Azure Automation Hybrid Runbook Worker 문제 해결
 description: 이 문서에서는 Azure Automation Hybrid Runbook Workers에서 발생하는 문제를 해결하는 방법에 대해 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428405"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896497"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -46,7 +42,7 @@ Runbook이 3회 실행을 시도한 직후 일시 중단됩니다. Runbook 완�
 
 #### <a name="resolution"></a>해결 방법
 
-컴퓨터의 포트 443에서 ** \* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
+컴퓨터의 포트 443에서 **\* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
 
 Hybrid Runbook Worker가 실행되는 컴퓨터는 작업자가 이 기능을 호스트하도록 구성하기 전에, 최소 하드웨어 요구 사항을 충족해야 합니다. Runbook 및 여기에 사용되는 백그라운드 프로세스로 인해 시스템이 과도하게 사용되어 Runbook 작업이 지연되거나 시간이 초과될 수 있습니다.
 
@@ -58,7 +54,7 @@ Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요�
 
 #### <a name="issue"></a>문제
 
-Hybrid Runbook Worker가 쿼리 결과가 유효하지 않음을 나타내는 이벤트 15011을 수신합니다. 작업자가 [SignalR 서버](/aspnet/core/signalr/introduction?view=aspnetcore-3.1)와의 연결을 열려고 하면 다음 오류가 나타납니다.
+Hybrid Runbook Worker가 쿼리 결과가 유효하지 않음을 나타내는 이벤트 15011을 수신합니다. 작업자가 [SignalR 서버](/aspnet/core/signalr/introduction)와의 연결을 열려고 하면 다음 오류가 나타납니다.
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -114,7 +110,7 @@ At line:3 char:1
 
 #### <a name="resolution"></a>해결 방법
 
-Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities)을 대신 사용할 수 있습니다. 이 시나리오는 실행 계정 대신 Azure VM의 관리 ID를 사용하여 Azure 리소스에 인증할 수 있기 때문에 인증이 간소화됩니다. Hybrid Runbook Worker가 온-프레미스 머신인 경우 머신에 실행 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [Hybrid Runbook Worker에서 Runbook 실행](../automation-hrw-run-runbooks.md)에서 PowerShell Runbook **Export-RunAsCertificateToHybridWorker**를 실행하는 단계를 참조하세요.
+Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities)을 대신 사용할 수 있습니다. 이 시나리오는 실행 계정 대신 Azure VM의 관리 ID를 사용하여 Azure 리소스에 인증할 수 있기 때문에 인증이 간소화됩니다. Hybrid Runbook Worker가 온-프레미스 머신인 경우 머신에 실행 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [Hybrid Runbook Worker에서 Runbook 실행](../automation-hrw-run-runbooks.md)에서 PowerShell Runbook **Export-RunAsCertificateToHybridWorker** 를 실행하는 단계를 참조하세요.
 
 ### <a name="scenario-error-403-during-registration-of-a-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>시나리오: Hybrid Runbook Worker 등록 중 오류 403
 
@@ -194,7 +190,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>시나리오: 지정된 클래스가 없음
 
-**/var/opt/microsoft/omsconfig/omsconfig.log**에 `The specified class does not exist..`라는 오류 메시지가 보이면 Linux용 Log Analytics 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 에이전트를 다시 설치합니다.
+**/var/opt/microsoft/omsconfig/omsconfig.log** 에 `The specified class does not exist..`라는 오류 메시지가 보이면 Linux용 Log Analytics 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 에이전트를 다시 설치합니다.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -226,7 +222,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="cause"></a>원인
 
-이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. 컴퓨터의 포트 443에서 ** \* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
+이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. 컴퓨터의 포트 443에서 **\* azure-automation.net** 에 대 한 아웃 바운드 액세스 권한이 있는지 확인 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -238,9 +234,9 @@ Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메
 
 #### <a name="issue"></a>문제
 
-Windows Hybrid Runbook Worker에서 실행 되는 스크립트는 오 케 스트레이 터 샌드박스에서 Microsoft 365에 정상적으로 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0)를 사용하고 있습니다. 
+Windows Hybrid Runbook Worker에서 실행 되는 스크립트는 오 케 스트레이 터 샌드박스에서 Microsoft 365에 정상적으로 연결할 수 없습니다. 이 스크립트는 연결에 [Connect-MsolService](/powershell/module/msonline/connect-msolservice)를 사용하고 있습니다. 
 
-**Orchestrator.Sandbox.exe.config**를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시와 관련된 정보를 제공하지 않습니다.
+**Orchestrator.Sandbox.exe.config** 를 조정하여 프록시와 바이패스 목록을 설정해도 샌드박스가 제대로 연결되지 않습니다. 프록시 및 바이패스 목록 설정이 동일한 **Powershell_ise.exe.config** 파일이 예상대로 작동하는 것 같습니다. SMA(Service Management Automation) 로그 및 PowerShell 로그는 프록시와 관련된 정보를 제공하지 않습니다.
 
 #### <a name="cause"></a>원인
 
@@ -250,7 +246,7 @@ Windows Hybrid Runbook Worker에서 실행 되는 스크립트는 오 케 스트
 
 PowerShell cmdlet용 MSOnline 모듈 대신 Azure Active Directory 모듈을 사용하도록 스크립트를 마이그레이션하여 Orchestrator 샌드박스의 문제를 해결할 수 있습니다. 자세한 내용은 [Orchestrator에서 Azure Automation으로 마이그레이션(베타)](../automation-orchestrator-migration.md)을 참조하세요.
 
-MSOnline 모듈 cmdlet을 계속 사용하려면 [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7)를 사용하도록 스크립트를 변경합니다. `ComputerName` 및 `Credential` 매개 변수에 대한 값을 지정합니다. 
+MSOnline 모듈 cmdlet을 계속 사용하려면 [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command)를 사용하도록 스크립트를 변경합니다. `ComputerName` 및 `Credential` 매개 변수에 대한 값을 지정합니다. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -339,7 +335,7 @@ Failed to deregister worker. [response_status=404]
 
 1. 에이전트를 제거 `sudo sh onboard_agent.sh --purge` 합니다.
 
-1. 다음 명령을 실행합니다.
+1. 다음 명령을 실행하세요.
 
    ```
    sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
@@ -359,4 +355,4 @@ Failed to deregister worker. [response_status=404]
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가로부터 답변을 얻습니다.
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

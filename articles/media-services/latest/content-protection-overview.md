@@ -1,6 +1,5 @@
 ---
 title: Media Services v3 동적 암호화를 사용 하 여 콘텐츠 보호
-titleSuffix: Azure Media Services
 description: Azure Media Services에서 동적 암호화, 스트리밍 프로토콜 및 암호화 유형을 사용 하 여 콘텐츠를 보호 하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -15,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 5d6530cf7b8d8611ff23a3517112cb0aa7442d6d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: edea46e86475f1731ecfae465f969ca45d63f0a2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897631"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -64,7 +63,7 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
    콘텐츠 키 정책을 만들어 자산에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 전달 하는 방법을 구성 합니다.  
 
    * 라이선스 배달 권한 부여를 정의 합니다. JWT (JSON Web Token)의 클레임을 기반으로 하는 권한 부여 확인 논리를 지정 합니다.
-   * [PlayReady](playready-license-template-overview.md), [widevine](widevine-license-template-overview.md)및/또는 라이선스를 [FairPlay](fairplay-license-overview.md) 구성 합니다. 템플릿을 사용 하면 각 DRMs에 대 한 권한 및 사용 권한을 구성할 수 있습니다.
+   * [PlayReady](playready-license-template-overview.md), [widevine](widevine-license-template-overview.md)및/또는 라이선스를 [](fairplay-license-overview.md) 구성 합니다. 템플릿을 사용 하면 각 DRMs에 대 한 권한 및 사용 권한을 구성할 수 있습니다.
 
      ```
      ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
@@ -244,7 +243,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

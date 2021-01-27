@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 5f2f3cfc5ccbdd6a3d3d3ede5bb39a3f6f548b19
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913099"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879901"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -39,7 +39,7 @@ Data Lake Storage Gen2는 저비용 [Azure Blob 스토리지](storage-blobs-intr
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2의 주요 기능
 
--   **Hadoop 호환 액세스**: Data Lake Storage Gen2를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)에서와 마찬가지로 데이터를 관리하고 액세스할 수 있습니다. 데이터에 액세스하는 데 사용되는 새로운 [ABFS 드라이버](data-lake-storage-abfs-driver.md)는 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이러한 환경에는 [Azure HDInsight](../../hdinsight/index.yml) *,* [Azure Databricks](/azure/databricks/) 및 [Azure Synapse Analytics](/azure/synapse-analytics)가 포함됩니다.
+-   **Hadoop 호환 액세스**: Data Lake Storage Gen2를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)에서와 마찬가지로 데이터를 관리하고 액세스할 수 있습니다. 데이터에 액세스하는 데 사용되는 새로운 [ABFS 드라이버](data-lake-storage-abfs-driver.md)는 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이러한 환경에는 [Azure HDInsight](../../hdinsight/index.yml) *,* [Azure Databricks](/azure/databricks/) 및 [Azure Synapse Analytics](../../synapse-analytics/index.yml)가 포함됩니다.
 
 -   **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 Storage Explorer 또는 프레임워크(예: Hive 및 Spark)를 통해 구성할 수 있습니다.
 

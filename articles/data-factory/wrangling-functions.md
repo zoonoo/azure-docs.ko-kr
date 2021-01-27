@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634138"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896666"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭 글 링에 대 한 파워 쿼리의 변환 함수
 
@@ -24,7 +24,7 @@ Azure Data Factory의 데이터 랭 글 링를 사용 하면 파워 쿼리 ```M`
 
 현재 모든 파워 쿼리 M 함수는 제작 중에도 사용할 수 있는 데이터 랭 글 링 지원 되지 않습니다. 매시업를 빌드하는 동안 함수가 지원 되지 않으면 다음과 같은 오류 메시지가 표시 됩니다.
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 다음은 지원 되는 파워 쿼리 M 함수 목록입니다.
 
@@ -87,7 +87,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 ## <a name="known-unsupported-functions"></a>지원 되지 않는 알려진 함수
 
-| 함수 | 상태 |
+| 기능 | 상태 |
 | -- | -- |
 | Table.PromoteHeaders | 지원되지 않습니다. 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
 | Table.CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
@@ -96,7 +96,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 | Table.Distinct | 중복 행 제거는 지원 되지 않습니다. |
 | Table.RemoveLastN | 하위 행 제거는 지원 되지 않습니다. |
 | Table.RowCount | 지원 되지 않지만 값 1을 포함 하는 사용자 지정 열을 추가한 다음이 열을 Sum으로 집계 하 여 달성할 수 있습니다. 테이블. 그룹이 지원 됩니다. | 
-| 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원 되지 않습니다. 예를 들어 열에서 숫자가 아닌 값을 필터링 하려면 텍스트 열을 숫자로 변환 하는 방법 중 하나를 사용 합니다. 변환에 실패 하는 모든 셀은 오류 상태가 되며 필터링 해야 합니다. 이 시나리오는 랭 글 링 데이터 흐름에서 사용할 수 없습니다. |
+| 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원 되지 않습니다. 예를 들어 열에서 숫자가 아닌 값을 필터링 하려면 텍스트 열을 숫자로 변환 하는 방법 중 하나를 사용 합니다. 변환에 실패 하는 모든 셀은 오류 상태가 되며 필터링 해야 합니다. 이 시나리오는 규모 확장 M에서 사용할 수 없습니다. |
 | Table.Transpose | 지원되지 않음 |
 | Table.Pivot | 지원되지 않음 |
 

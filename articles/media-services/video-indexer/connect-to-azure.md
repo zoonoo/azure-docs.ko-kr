@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702634"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897159"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
+# <a name="create-a-video-indexer-account"></a>Video Indexer 계정 만들기
 
 Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용 하 여 Azure 구독에 연결 된 Video Indexer 계정을 만들 수 있습니다. 인덱싱된 시간(분)에 대한 비용을 지불하는 경우 자세한 내용은 [Media Services 가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
 
@@ -25,7 +25,9 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 *평가판* 에서 *유료* Video Indexer 계정으로 전환 하는 경우 [평가판 계정에서 콘텐츠 가져오기](#import-your-content-from-the-trial-account) 섹션에 설명 된 대로 모든 비디오 및 모델 사용자 지정을 새 계정에 복사 하도록 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+이 문서에서는 [Azure Government에 Video Indexer 계정을 연결 하는 방법](#video-indexer-in-azure-government)에 대해서도 설명 합니다.
+
+## <a name="prerequisites-for-connecting-to-azure"></a>Azure에 연결 하기 위한 필수 구성 요소
 
 * Azure 구독
 
@@ -37,7 +39,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     이 사용자는 회사 또는 학교 계정이 있는 Azure AD 사용자 여야 합니다. Outlook.com, live.com 또는 hotmail.com와 같은 개인 계정을 사용 하지 마세요.
 
-    ![모든 AAD 사용자](./media/create-account/all-aad-users.png)
+    ![모든 Azure AD 사용자](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>자동 흐름의 추가 필수 구성 요소
 
@@ -59,7 +61,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account"></a>새 계정 만들기
+## <a name="create-a-new-account-on-azure"></a>Azure에서 새 계정 만들기 
 
 > [!NOTE]
 > Azure 구독에서 인증서 기반 multi-factor authentication을 사용 하는 경우 필수 인증서가 설치 된 장치에서 다음 단계를 수행 하는 것이 중요 합니다.
@@ -145,7 +147,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|Description|
+|설정|설명|
 |---|---|
 |Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능 및 비용 절감을 위해 Azure Media Services 리소스 및 Azure Storage 계정이 있는 지역의 이름을 지정 하는 것이 좋습니다. |
 |Azure AD 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
@@ -155,7 +157,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 |애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
 |애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
-## <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기
+### <a name="import-your-content-from-the-trial-account"></a>*평가판* 계정에서 콘텐츠 가져오기
 
 새 계정을 만들 때 *평가판* 계정에서 새 계정으로 콘텐츠를 가져오는 옵션이 있습니다. **Azure 구독에서 새 계정 만들기** 대화 상자에서 *가져오기* 옵션을 선택 하면 모든 미디어 및 콘텐츠 모델 사용자 지정이 *평가판* 계정에서 새 계정으로 복사 됩니다.
 
@@ -163,16 +165,10 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 > [!NOTE]
 > 콘텐츠는 각 계정에서 한 번만 가져올 수 있습니다.
+>
+> Azure Government 클라우드에서 *평가판* 계정을 availagle 하지 않습니다.
 
-## <a name="delete-the-account"></a>계정 삭제
-
-나중에 계정을 삭제 하려면 Video Indexer 웹 사이트에서 계정을 삭제할 수 있습니다. 계정을 삭제 하려면 소유자 여야 합니다.
-
-계정 > **설정을** 선택 하 여  ->  **이 계정을 삭제** 합니다. 
-
-계정은 90 일 후에 영구적으로 삭제 됩니다.
-
-## <a name="considerations"></a>고려 사항
+## <a name="azure-media-services-considerations"></a>Azure Media Services 고려 사항
 
 다음과 같은 Azure Media Services 관련 고려 사항이 적용됩니다.
 
@@ -201,9 +197,52 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
     [Media Services 계정 생성 템플릿의](https://github.com/Azure-Samples/media-services-v3-arm-templates)예를 참조 하세요.
 1. [Media Services 및 AZURE AD 응용 프로그램을 사용 하 여 Create-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)를 호출 합니다.
 
+## <a name="video-indexer-in-azure-government"></a>Azure Government Video Indexer
+
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Azure Government에 연결 하기 위한 필수 구성 요소
+
+-   [Azure Government](https://docs.microsoft.com/azure/azure-government/)의 Azure 구독입니다.
+- Azure Government의 Azure AD 계정.
+- [Azure에 연결 하기 위한 필수 구성 요소](#prerequisites-for-connecting-to-azure)에 설명 된 대로 사용 권한 및 리소스의 모든 사전 요구 사항입니다.
+
+### <a name="create-new-account-via-the-azure-government-portal"></a>Azure Government 포털을 통해 새 계정 만들기
+
+> [!NOTE]
+> Azure Government 클라우드는 Video Indexer의 *평가판* 환경을 포함 하지 않습니다.
+
+Video Indexer 포털을 통해 유료 계정을 만들려면 다음을 수행 합니다.
+
+1. https://videoindexer.ai.azure.us 로 이동 
+1. Azure Government Azure AD 계정으로 로그인 합니다.
+1.  소유자 이거나 기여자 인 Azure Government의 Video Indexer 계정이 없으면 계정 만들기를 시작할 수 있는 빈 환경을 사용할 수 있습니다 (예를 들어, 
+
+    흐름의 나머지 부분은 위에 설명 된 것 처럼, 선택할 지역은 비디오 인덱서를 사용할 수 있는 정부 지역입니다. 
+
+    이미 Azure Government에 있는 하나 이상의 Video Indexer 계정에 대 한 참여자 또는 관리자 인 경우 해당 계정으로 이동 하 여 위에서 설명한 대로 필요한 경우 추가 계정을 만들기 위한 다음 단계를 시작할 수 있습니다.
+    
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Azure Government API를 통해 새 계정 만들기
+
+Azure Government에서 유료 계정을 만들려면 [유료-계정](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account)에 설명 된 지침을 따르세요. 이 API 끝점에는 정부 클라우드 지역만 포함 됩니다.
+
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Azure Government에 대 한 Video Indexer 제한 사항
+
+*   정부 클라우드에서는 수동 콘텐츠 조정을 사용할 수 없습니다. 
+
+    콘텐츠 조정을 기반으로 콘텐츠가 악의적인 것으로 간주 되는 공용 클라우드에서 고객은 해당 콘텐츠를 확인 하 고 잠재적으로 해당 결정을 되돌릴 수 있습니다.  
+*   평가판 계정이 없습니다. 
+* Bing 설명-.Gov 클라우드에서는 유명인 및 명명 된 엔터티에 대 한 설명을 제공 하지 않습니다. 이는 UI 기능입니다. 
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서를 완료 한 후에는 사용 하지 않을 리소스를 삭제 합니다.
+
+### <a name="delete-a-video-indexer-account"></a>Video Indexer 계정 삭제
+
+Video Indexer 계정을 삭제 하려는 경우 Video Indexer 웹 사이트에서 계정을 삭제할 수 있습니다. 계정을 삭제 하려면 소유자 여야 합니다.
+
+계정 > **설정을** 선택 하 여  ->  **이 계정을 삭제** 합니다. 
+
+계정은 90 일 후에 영구적으로 삭제 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

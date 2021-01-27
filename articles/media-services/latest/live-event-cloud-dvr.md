@@ -1,6 +1,5 @@
 ---
 title: 시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
-titleSuffix: Azure Media Services
 description: 이 문서에서는 시간 이동 및 라이브 출력을 사용 하 여 라이브 스트림을 기록 하 고 주문형 재생을 만드는 방법을 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289514"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897869"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
 

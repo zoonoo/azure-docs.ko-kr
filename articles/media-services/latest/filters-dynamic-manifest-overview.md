@@ -1,6 +1,5 @@
 ---
 title: 동적 포장기를 사용 하 여 매니페스트 필터링
-titleSuffix: Azure Media Services
 description: 동적 패키지를 사용 하 여 필터를 만들고 선택적으로 매니페스트를 스트리밍하는 방법에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299034"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897665"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>동적 포장기를 사용 하 여 매니페스트 필터링
 
@@ -27,7 +26,7 @@ ms.locfileid: "89299034"
 
 적응 비트 전송률 스트리밍 콘텐츠를 장치에 배달 하는 경우 특정 장치 기능 또는 사용 가능한 네트워크 대역폭을 대상으로 지정 하기 위해 여러 버전의 매니페스트를 게시 해야 하는 경우가 있습니다. [동적](dynamic-packaging-overview.md) 패키지 작성 도구를 사용 하면 특정 코덱, 해상도, 비트 전송률 및 오디오 트랙 조합을 즉석에서 필터링 할 수 있는 필터를 지정할 수 있습니다. 이 필터링을 통해 여러 복사본을 만들 필요가 없습니다. 대상 장치 (iOS, Android, SmartTV 또는 브라우저) 및 네트워크 기능 (고대역폭, 모바일 또는 저대역폭 시나리오)에 구성 된 특정 필터 집합을 사용 하 여 새 URL을 게시 하기만 하면 됩니다. 이 경우 클라이언트는 사용 가능한 [자산 필터 또는 계정 필터](filters-concept.md)를 지정 하 여 쿼리 문자열을 통해 콘텐츠의 스트리밍을 조작 하 고 필터를 사용 하 여 스트림의 특정 섹션을 스트리밍할 수 있습니다.
 
-일부 배달 시나리오에서는 고객이 특정 트랙에 액세스할 수 없는지 확인 해야 합니다. 예를 들어 HD 트랙을 포함 하는 매니페스트를 특정 구독자 계층에 게시 하지 않을 수 있습니다. 또는 특정 장치에 대 한 배달 비용을 줄이고 추가 트랙의 이점을 활용 하지 않으려는 특정 ABR (적응 비트 전송률) 트랙을 제거 하려고 할 수 있습니다. 이 경우 미리 만든 필터 목록을 만들 때 [스트리밍 로케이터](streaming-locators-concept.md) 와 연결할 수 있습니다. 그러면 클라이언트는 **스트리밍 로케이터**에 의해 정의 되므로 콘텐츠가 스트리밍되는 방식을 조작할 수 없습니다.
+일부 배달 시나리오에서는 고객이 특정 트랙에 액세스할 수 없는지 확인 해야 합니다. 예를 들어 HD 트랙을 포함 하는 매니페스트를 특정 구독자 계층에 게시 하지 않을 수 있습니다. 또는 특정 장치에 대 한 배달 비용을 줄이고 추가 트랙의 이점을 활용 하지 않으려는 특정 ABR (적응 비트 전송률) 트랙을 제거 하려고 할 수 있습니다. 이 경우 미리 만든 필터 목록을 만들 때 [스트리밍 로케이터](streaming-locators-concept.md) 와 연결할 수 있습니다. 그러면 클라이언트는 **스트리밍 로케이터** 에 의해 정의 되므로 콘텐츠가 스트리밍되는 방식을 조작할 수 없습니다.
 
 클라이언트에서 URL에 지정 하는 추가 장치별 필터와 [스트리밍 로케이터에 대 한 필터](filters-concept.md#associating-filters-with-streaming-locator) 를 지정 하 여 필터링을 결합할 수 있습니다. 이 조합은 메타 데이터 또는 이벤트 스트림, 오디오 언어 또는 설명 오디오 트랙과 같은 추가 트랙을 제한 하는 데 유용 합니다.
 
@@ -141,7 +140,7 @@ HLS, MPEG, 부드러운 스트리밍 등의 ABR 스트리밍 프로토콜에 필
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
-- VOD 필터에 대해 **Forceendtimestamp**, **presentationWindowDuration**및 **liveBackoffDuration** 값을 설정 하면 안 됩니다. 라이브 필터 시나리오에만 사용 됩니다.
+- VOD 필터에 대해 **Forceendtimestamp**, **presentationWindowDuration** 및 **liveBackoffDuration** 값을 설정 하면 안 됩니다. 라이브 필터 시나리오에만 사용 됩니다.
 - 동적 매니페스트는 GOP 경계 (키 프레임)에서 작동 하므로 트리밍에는 GOP 정확도가 있습니다.
 - 계정 및 자산 필터에 동일한 필터 이름을 사용할 수 있습니다. 자산 필터는 우선 순위가 높고 계정 필터를 재정의 합니다.
 - 필터를 업데이트 하는 경우 스트리밍 끝점이 규칙을 새로 고치는 데 최대 2 분이 걸릴 수 있습니다. 필터를 사용 하 여 콘텐츠를 제공 하 고 프록시와 CDN 캐시에서 콘텐츠를 캐시 한 경우 이러한 필터를 업데이트 하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트 한 후에는 캐시를 지우는 것이 좋습니다. 이 옵션을 사용할 수 없는 경우 다른 필터를 사용 하는 것이 좋습니다.

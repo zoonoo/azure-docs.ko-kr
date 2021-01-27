@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 예제 - 변환 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 예제-변환 만들기
 description: Transform은 비디오 또는 오디오 파일(흔히 "레시피"라고도 함)을 처리하는 간단한 작업 워크플로를 설명합니다. 이 문서의 Azure CLI 스크립트는 변환을 만드는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4784bb8a396a30e9002c789c7aad382640f04a5c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: adbd7deccf32312f67cff7b92ff7813036e9b1b3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "95996905"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898531"
 ---
 # <a name="create-a-transform"></a>변환 만들기
 
