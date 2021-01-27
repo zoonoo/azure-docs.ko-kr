@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: dc3920ac1e2269f4980ee67e2f5f82a0541ac0c2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fd3ace98582a414a82ed4d1007a6c7df4b36d211
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201504"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873098"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
 이 문서에서는 PowerShell을 사용하여 일반화된 VM의 VHD를 Azure에 업로드하고, VHD에서 이미지를 만들고, 해당 이미지에서 새 VM을 만드는 과정을 안내합니다. 다른 클라우드 또는 온-프레미스 가상화 도구에서 내보낸 VHD를 업로드할 수 있습니다. 새 VM에 대해 [Managed Disks](../managed-disks-overview.md)를 사용하면 VM 관리가 간소화되고 VM이 가용성 집합에 배치되는 경우 가용성이 증가됩니다. 
 
-샘플 스크립트는 [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)를 참조하세요.
+샘플 스크립트는 [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

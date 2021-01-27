@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539894"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872012"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -101,8 +101,8 @@ Azure Machine Learning 데이터 집합은 데이터의 복사본이 아닙니�
      + [자동 ML 실험](how-to-use-automated-ml-for-ml-models.md)
      + [디자이너](tutorial-designer-automobile-price-train-score.md#import-data)
      + [전자](how-to-train-with-datasets.md)
-     + [파이프라인 Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ [기계 학습 파이프라인](how-to-create-your-first-pipeline.md)에서 [일괄 처리 유추](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하 여 점수 매기기를 위한 데이터 집합에 액세스 합니다.
+     + [파이프라인 Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ [기계 학습 파이프라인](./how-to-create-machine-learning-pipelines.md)에서 [일괄 처리 유추](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하 여 점수 매기기를 위한 데이터 집합에 액세스 합니다.
 + [데이터 드리프트](#drift) 검색을 위한 데이터 집합 모니터를 설정 합니다.
 
 <a name="label"></a>

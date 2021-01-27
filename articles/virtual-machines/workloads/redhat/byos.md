@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a53eb1004d68045781903b71d02c3416f494be2
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803819"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872895"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -194,7 +194,7 @@ Azure Disk Encryption를 적용 하는 단계는 [Linux vm에 대 한 Azure Disk
 
     이 경우 Microsoft 또는 Red Hat에 연락 하 여 구독을 사용 하도록 설정 합니다.
 
-- RHEL BYOS 이미지에서 스냅숏을 수정 하 고이 사용자 지정 이미지를 [공유 이미지 갤러리](../../linux/shared-image-galleries.md)에 게시 하려는 경우 스냅숏의 원래 원본과 일치 하는 계획 정보를 제공 해야 합니다. 예를 들어 명령은 다음과 같습니다.
+- RHEL BYOS 이미지에서 스냅숏을 수정 하 고이 사용자 지정 이미지를 [공유 이미지 갤러리](../../shared-image-galleries.md)에 게시 하려는 경우 스냅숏의 원래 원본과 일치 하는 계획 정보를 제공 해야 합니다. 예를 들어 명령은 다음과 같습니다.
 
     ```azurecli
     az vm create –image \

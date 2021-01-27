@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676360"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872668"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Azure 부서의 범위를 사용 하 여 Synapse에서 데이터 검색, 연결 및 탐색 
 
@@ -32,6 +32,8 @@ Synapse에서 Azure 부서의 범위 사용에서는 해당 부서의 범위 계
 ### <a name="data-discovery-search-datasets"></a>데이터 검색: 데이터 집합 검색 
 
 Azure 부서의 범위에서 등록 하 고 검색 한 데이터를 검색 하기 위해 Synapse 작업 영역의 위쪽 가운데에 있는 검색 표시줄을 사용할 수 있습니다. Azure 부서의 범위를 선택 하 여 모든 조직 데이터를 검색 하는지 확인 합니다. 
+
+[![Azure 부서의 범위 자산 검색](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## <a name="azure-purview-actions"></a>Azure 부서의 범위 작업 
 

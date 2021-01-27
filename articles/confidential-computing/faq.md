@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564109"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872335"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 FAQ
 
@@ -37,13 +37,21 @@ Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack 
 **DCsv2 가상 머신이 포털에서 회색으로 표시되고 선택할 수 없습니다.**
 
 VM 옆의 정보 버블에 따라 다음과 같이 조치를 취해야 합니다.
-   -    **UnsupportedGeneration** : 가상 머신 이미지의 세대를 “Gen2”로 변경합니다.
-   -    **NotAvailableForSubscription** : 해당 지역에서 아직 구독할 수 없습니다. 사용 가능한 지역을 선택합니다.
-   -    **InsufficientQuota** : [할당량을 늘리는 지원 요청을 만듭니다](../azure-portal/supportability/per-vm-quota-requests.md). 무료 평가판 구독에는 기밀 컴퓨팅 VM에 대한 할당량이 없습니다. 
+   -    **UnsupportedGeneration**: 가상 머신 이미지의 세대를 “Gen2”로 변경합니다.
+   -    **NotAvailableForSubscription**: 해당 지역에서 아직 구독할 수 없습니다. 사용 가능한 지역을 선택합니다.
+   -    **InsufficientQuota**: [할당량을 늘리는 지원 요청을 만듭니다](../azure-portal/supportability/per-vm-quota-requests.md). 무료 평가판 구독에는 기밀 컴퓨팅 VM에 대한 할당량이 없습니다. 
 
 **포털 크기 선택기에서 검색하면 DCsv2 가상 머신이 표시되지 않습니다.**
 
 [사용 가능한 지역](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 선택했는지 확인합니다. 또한 크기 선택기에서 "모든 필터 지우기"를 선택해야 합니다. 
+
+**Azure 기밀 컴퓨팅을 통해 가속화 된 네트워킹을 사용할 수 있나요?**
+
+ 아니요. 가속 네트워킹은 DC-Series 또는 DCsv2-Series 가상 머신에서 지원 되지 않습니다. 기밀 컴퓨팅에서 실행 되는 기밀 컴퓨팅 가상 머신 배포 또는 Azure Kubernetes 서비스 클러스터 배포에 대해 가속화 된 네트워킹을 사용 하도록 설정할 수 없습니다.
+
+**이러한 컴퓨터에서 Azure 전용 호스트를 사용할 수 있나요?**
+
+예. Azure 전용 호스트는 DCsv2 시리즈 가상 머신을 지원 합니다. Azure 전용 호스트는 가상 컴퓨터를 실행 하는 단일 테 넌 트 물리적 서버를 제공 합니다. 일반적으로 사용자는 Azure 전용 호스트를 사용 하 여 물리적 보안, 데이터 무결성 및 모니터링에 대 한 규정 준수 요구 사항을 해결 합니다. 
 
 **Azure Resource Manager 템플릿 배포 실패 오류 "승인된 표준 DcsV2 제품군 코어 할당을 초과하므로 작업을 완료할 수 없습니다."가 발생합니다.**
 

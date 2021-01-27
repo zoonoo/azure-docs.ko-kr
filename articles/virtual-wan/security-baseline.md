@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0f124c0b4af69338ad10f7247a4260b4a348beb5
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a0acbe84a98bc63e5806d25241811c0a7591b897
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872624"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>가상 WAN에 대 한 Azure 보안 기준
 
@@ -22,7 +22,7 @@ ms.locfileid: "98131205"
 
 ## <a name="network-security"></a>네트워크 보안
 
-자세한 내용은 [Azure Security Benchmark: 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)을 참조하세요.
 
 ### <a name="ns-1-implement-security-for-internal-traffic"></a>NS-1: 내부 트래픽에 대 한 보안 구현
 
@@ -62,9 +62,9 @@ Azure 방화벽을 사용 하 여 인터넷 및 기타 외부 위치에서 잠�
 
 Azure에서 제공 하는 DDoS Protection를 선택 하 여 Azure 가상 네트워크의 공격 으로부터 자산을 보호 합니다. Azure Security Center를 사용 하 여 네트워크 관련 리소스와 관련 된 잘못 된 문제를 검색 합니다.
 
-- [Azure 방화벽 설명서](/azure/firewall)
+- [Azure 방화벽 설명서](../firewall/index.yml)
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](/azure/virtual-network/manage-ddos-protection) 
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../ddos-protection/manage-ddos-protection.md) 
 
 - [Azure Security Center 권장 사항](../security-center/recommendations-reference.md#recs-networking)
 
@@ -88,9 +88,9 @@ Azure에서 제공 하는 DDoS Protection를 선택 하 여 Azure 가상 네트�
 
 - [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
-- [응용 프로그램 보안 그룹 이해 및 사용](/azure/virtual-network/security-overview#application-security-groups)
+- [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-- [Azure 방화벽 설명서](/azure/firewall/)
+- [Azure 방화벽 설명서](../firewall/index.yml)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -100,9 +100,9 @@ Azure에서 제공 하는 DDoS Protection를 선택 하 여 Azure 가상 네트�
 
 **지침**: 보안 DNS 기능은 Azure 방화벽을 사용 하 여 가상 WAN에 제공 됩니다. Dns 프록시 역할을 하도록 Azure 방화벽을 구성 하 여 클라이언트 가상 컴퓨터에서 DNS 서버로의 DNS 요청에 대 한 중개자가 될 수 있습니다. 사용자 지정 DNS 서버 구성의 경우 dns 확인이 일치 하지 않도록 DNS 프록시를 사용 하도록 설정 하 고 네트워크 규칙에서 정규화 된 도메인 이름 필터링을 사용 하도록 설정 합니다. 
 
-- [Azure 방화벽 설명서](/azure/firewall/)
+- [Azure 방화벽 설명서](../firewall/index.yml)
 
-- [Azure 방화벽 DNS 설정](/azure/firewall/dns-settings)
+- [Azure 방화벽 DNS 설정](../firewall/dns-settings.md)
 
 - [개인 링크를 사용 하 여 DNS 전달자로 Azure 방화벽 사용](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
@@ -112,7 +112,7 @@ Azure에서 제공 하는 DDoS Protection를 선택 하 여 Azure 가상 네트�
 
 ## <a name="identity-management"></a>ID 관리
 
-자세한 내용은 [Azure Security Benchmark: ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)를 참조하세요.
 
 ### <a name="im-1-standardize-azure-active-directory-as-the-central-identity-and-authentication-system"></a>IM-1: Azure Active Directory를 중앙 ID 및 인증 시스템으로 표준화
 
@@ -189,7 +189,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 ## <a name="privileged-access"></a>권한 있는 액세스
 
-자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](/azure/security/benchmarks/security-controls-v2-privileged-access)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 권한 있는 액세스](../security/benchmarks/security-controls-v2-privileged-access.md)를 참조하세요.
 
 ### <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: 중요 비즈니스용 시스템에 대한 관리 액세스 제한
 
@@ -211,7 +211,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 ## <a name="data-protection"></a>데이터 보호
 
-자세한 내용은 [Azure Security Benchmark: 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)를 참조하세요.
 
 ### <a name="dp-4-encrypt-sensitive-information-in-transit"></a>DP-4: 전송 중인 중요한 정보 암호화
 
@@ -229,7 +229,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 ## <a name="asset-management"></a>자산 관리
 
-자세한 내용은 [Azure Security Benchmark: 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)를 참조하세요.
 
 ### <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: 보안 팀에서 자산 위험에 대한 가시성을 확보하도록 보장
 
@@ -253,7 +253,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 **지침**: Azure 리소스, 리소스 그룹 및 구독에 태그를 적용 하 여 논리적으로 분류로 구성 합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다. Azure 가상 WAN은 자산 템플릿을 내보낼 수 있는 Azure Resource Manager 기반 리소스 배포도 지원 합니다. 
 
-- [리소스 명명 및 태그 지정 의사 결정 가이드](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [리소스 명명 및 태그 지정 의사 결정 가이드](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
@@ -284,7 +284,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 ## <a name="logging-and-threat-detection"></a>로깅 및 위협 탐지
 
-자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 로깅 및 위협 탐지](../security/benchmarks/security-controls-v2-logging-threat-detection.md)를 참조하세요.
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
@@ -337,7 +337,7 @@ Azure Security Center를 사용 하 여 구독에 사용 되지 않는 계정을
 
 - [가상 WAN 로그 및 메트릭](logs-metrics.md)
 
-- [Azure Firewall 로그 및 메트릭](/azure/firewall/logs-and-metrics)
+- [Azure Firewall 로그 및 메트릭](../firewall/logs-and-metrics.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -368,11 +368,11 @@ Azure Security Center를 사용 하 여 구독에 사용 되지 않는 계정을
 
 - [가상 WAN 로그 및 메트릭](logs-metrics.md)
 
-- [Azure Firewall 로그 및 메트릭](/azure/firewall/logs-and-metrics)
+- [Azure Firewall 로그 및 메트릭](../firewall/logs-and-metrics.md)
 
 Azure 가상 WAN 보안은 Azure 방화벽을 통해 제공 됩니다. 
 
-- [Azure 방화벽 설명서](/azure/firewall/overview)
+- [Azure 방화벽 설명서](../firewall/overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -394,7 +394,7 @@ Azure 가상 WAN 보안은 Azure 방화벽을 통해 제공 됩니다.
 
 ## <a name="incident-response"></a>사고 대응
 
-자세한 내용은 [Azure Security Benchmark: 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)을 참조하세요.
 
 ### <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 - Azure에 대한 인시던트 응답 프로세스 업데이트
 
@@ -476,7 +476,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -498,7 +498,7 @@ Azure Security Center는 먼저 조사해야 하는 경고의 우선 순위를 �
 
 ## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)를 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)를 참조하세요.
 
 ### <a name="pv-8-conduct-regular-attack-simulation"></a>PV-8: 정기적인 공격 시뮬레이션 수행
 
@@ -517,7 +517,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="endpoint-security"></a>끝점 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](/azure/security/benchmarks/security-controls-v2-endpoint-security)을 참조 하세요.*
+*자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](../security/benchmarks/security-controls-v2-endpoint-security.md)을 참조 하세요.*
 
 ### <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: EDR (끝점 검색 및 응답) 사용
 
@@ -535,7 +535,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="governance-and-strategy"></a>거버넌스 및 전략
 
-자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](/azure/security/benchmarks/security-controls-v2-governance-strategy)을 참조하세요.
+자세한 내용은 [Azure Security Benchmark: 거버넌스 및 전략](../security/benchmarks/security-controls-v2-governance-strategy.md)을 참조하세요.
 
 ### <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: 자산 관리 및 데이터 보호 전략 정의 
 
@@ -560,15 +560,15 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 -   적절한 암호화 표준
 
 자세한 내용은 다음 참조 문서를 참조하세요.
-- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure 보안 아키텍처 권장 사항 - 스토리지, 데이터, 암호화](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure 보안 기본 사항 - Azure 데이터 보안, 암호화, 스토리지](../security/fundamentals/encryption-overview.md)
 
-- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [클라우드 채택 프레임워크 - Azure 데이터 보안 및 암호화 모범 사례](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - 자산 관리](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - 자산 관리](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - 데이터 보호](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Azure Security Benchmark - 데이터 보호](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -596,7 +596,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **지침**: 개별 자산과 해당 자산이 호스트되는 환경에 대한 위험을 지속적으로 측정하고 완화합니다. 게시된 애플리케이션, 네트워크 수신 및 송신 지점, 사용자 및 관리자 엔드포인트 등과 같은 고가치 자산과 노출이 많은 공격 노출 영역에 우선 순위를 지정합니다.
 
-- [Azure Security Benchmark - 태세 및 취약성 관리](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - 태세 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -637,7 +637,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 자세한 내용은 다음 참조 문서를 참조하세요.
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - 네트워크 보안](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Azure Security Benchmark - 네트워크 보안](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure 네트워크 보안 개요](../security/fundamentals/network-overview.md)
 
@@ -665,9 +665,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - ID 관리](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - ID 관리](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - 권한 있는 액세스](/azure/security/benchmarks//security-controls-v2-privileged-access)
+- [Azure Security Benchmark - 권한 있는 액세스](../security/benchmarks//security-controls-v2-privileged-access.md)
 
 - [Azure 보안 모범 사례 11 – 아키텍처 단일 통합 보안 전략](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -699,9 +699,9 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [Azure Security Benchmark - 로깅 및 위협 탐지](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
+- [Azure Security Benchmark - 로깅 및 위협 탐지](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - 인시던트 응답](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - 인시던트 응답](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure 보안 모범 사례 4 - 프로세스 클라우드에 대한 인시던트 응답 프로세스 업데이트](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -715,5 +715,5 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

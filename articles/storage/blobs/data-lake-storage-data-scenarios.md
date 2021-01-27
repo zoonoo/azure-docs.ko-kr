@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eea7fb073cdf99ee1f4257f6824375a6502a4fad
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bffa7894f7603f95c4840019be5e5670797881df
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913626"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873249"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -142,4 +142,4 @@ Power BI 커넥터를 사용 하 여 Data Lake Storage Gen2에 저장 된 데이
 |Azure 데이터 팩터리 | [Azure Data Factory의 복사 작업](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사](./data-lake-storage-use-distcp.md) |
 |Azure Storage Explorer|[Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리](data-lake-storage-explorer.md)|
-|AzCopy 도구|[AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../common/storage-use-azcopy-blobs.md)|
+|AzCopy 도구|[AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)|

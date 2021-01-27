@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63c9bd93e75533e54c42c2041cb9f55a1f0036b6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75862563"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872148"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 
@@ -48,7 +48,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ### <a name="step-4-check-the-one-vpn-tunnel-per-subnet-pair-setting-for-policy-based-virtual-network-gateways"></a>4단계 “서브넷 쌍당 하나의 VPN 터널” 설정 확인(정책 기반 가상 네트워크 게이트웨이의 경우)
 
-온-프레미스 VPN 디바이스가 정책 기반 가상 네트워크 게이트웨이에 대해 **서브넷 쌍당 하나의 VPN 터널**을 가지도록 설정되어 있는지 확인합니다.
+온-프레미스 VPN 디바이스가 정책 기반 가상 네트워크 게이트웨이에 대해 **서브넷 쌍당 하나의 VPN 터널** 을 가지도록 설정되어 있는지 확인합니다.
 
 ### <a name="step-5-check-for-security-association-limitation-for-policy-based-virtual-network-gateways"></a>5단계 보안 연결 제한 확인(정책 기반 가상 네트워크 게이트웨이의 경우)
 
@@ -66,6 +66,5 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 네트워크에 대한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [가상 네트워크에 대한 사이트 간 연결 구성](./tutorial-site-to-site-portal.md)
 - [사이트 간 VPN 연결에 대 한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

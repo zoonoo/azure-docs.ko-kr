@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349472"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873572"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -35,7 +35,7 @@ Cognitive Services는 의사 결정, 언어, 음성 및 비전의 네 가지 범
 
 ## <a name="development-options-for-prediction-and-analysis"></a>예측 및 분석을 위한 개발 옵션 
 
-모델을 사용자 지정 하 고 구성 하는 데 사용 하는 도구는 Cognitive Services 호출 하는 데 사용 하는 도구와 다릅니다. 기본적으로 대부분의 Cognitive Services 사용자 지정 없이 데이터를 보내고 정보를 받을 수 있습니다. 예: 
+모델을 사용자 지정 하 고 구성 하는 데 사용 하는 도구는 Cognitive Services 호출 하는 데 사용 하는 도구와 다릅니다. 기본적으로 대부분의 Cognitive Services 사용자 지정 없이 데이터를 보내고 정보를 받을 수 있습니다. 예를 들면 다음과 같습니다. 
 
 * Computer Vision 서비스에 이미지를 보내 단어와 구를 검색 하거나 프레임의 사용자 수를 계산할 수 있습니다.
 * 음성 서비스에 오디오 파일을 전송 하 고, 음성을 동시에 텍스트로 변환할 수 있습니다.
@@ -103,7 +103,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 * **Ui 도구**: 예-ui 전용
 * **구독**: AI 빌더
 
-### <a name="continuous-integration-and-deployment"></a>연속 통합 및 배포
+### <a name="continuous-integration-and-deployment"></a>지속적인 통합 및 배포
 
 Azure DevOps 및 GitHub 작업을 사용 하 여 배포를 관리할 수 있습니다. 이에 대해 설명 하는 [아래 섹션](#continuous-integration-and-delivery-with-devops-and-github-actions) 에는 음성 및 LANGUAGE UNDERSTANDING (LUIS) 서비스를 위한 사용자 지정 모델을 학습 하 고 배포 하는 CI/CD 통합의 두 가지 예가 있습니다. 
 
@@ -114,7 +114,7 @@ Azure DevOps 및 GitHub 작업을 사용 하 여 배포를 관리할 수 있습�
 
 ## <a name="tools-to-customize-and-configure-models"></a>모델을 사용자 지정 및 구성 하는 도구
 
-Cognitive Services를 사용 하 여 응용 프로그램 또는 워크플로를 빌드하는 과정을 진행 하면서 원하는 성능을 얻기 위해 모델을 사용자 지정 해야 하는 경우가 있습니다. 대부분의 서비스에서는 특정 비즈니스 요구 사항을 충족 하기 위해 미리 작성 된 모델을 기반으로 빌드할 수 있습니다. 사용자 지정이 가능한 모든 서비스에 대해 코드 기반 학습을 위한 Api 뿐만 아니라 프로세스를 탐색 하기 위한 UI 기반 환경을 제공 합니다. 예:
+Cognitive Services를 사용 하 여 응용 프로그램 또는 워크플로를 빌드하는 과정을 진행 하면서 원하는 성능을 얻기 위해 모델을 사용자 지정 해야 하는 경우가 있습니다. 대부분의 서비스에서는 특정 비즈니스 요구 사항을 충족 하기 위해 미리 작성 된 모델을 기반으로 빌드할 수 있습니다. 사용자 지정이 가능한 모든 서비스에 대해 코드 기반 학습을 위한 Api 뿐만 아니라 프로세스를 탐색 하기 위한 UI 기반 환경을 제공 합니다. 예를 들면 다음과 같습니다.
 
 * 3% 미만으로 WER (단어 오류 요금)를 사용 하 여 의료 약관을 올바르게 인식 하도록 Custom Speech 모델을 학습 하려고 합니다.
 * 침 엽 수와 낙 엽의 차이를 알 수 있는 Custom Vision를 사용 하 여 이미지 분류자를 빌드하려고 합니다.
@@ -125,7 +125,7 @@ Cognitive Services를 사용 하 여 응용 프로그램 또는 워크플로를 
 | 핵심 요소 | 서비스 | 사용자 지정 UI | 빠른 시작 |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [빠른 시작](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | 샘플 레이블 지정 도구 | [빠른 시작](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Vision | Form Recognizer | [샘플 레이블 지정 도구](https://fott-preview.azurewebsites.net/) | [빠른 시작](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | 의사 결정 | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [빠른 시작](./metrics-advisor/quickstarts/web-portal.md) |
 | 의사 결정 | Personalizer | UI는 Personalizer 리소스의 Azure Portal에서 사용할 수 있습니다. | [빠른 시작](./personalizer/quickstart-personalizer-sdk.md) |

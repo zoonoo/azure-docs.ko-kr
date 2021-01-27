@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 878e6f11645a6478c0d536e9d6d6dac4518c5349
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740966"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872607"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Databricks 및 AutoML을 사용 하 여 개발 환경 설정 Azure Machine Learning 
 
@@ -27,7 +27,7 @@ Azure Databricks는 Azure 클라우드의 확장 가능 Apache Spark 플랫폼�
 다른 기계 학습 개발 환경에 대 한 자세한 내용은 [Python 개발 환경 설정](how-to-configure-environment.md)을 참조 하세요.
 
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 Azure Machine Learning 작업 영역입니다. 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Databricks를 사용할 수 있습니다.
 
 **클러스터를 만드는 데 몇 분이 걸립니다.**
 
-사용할 설정
+다음 설정을 사용합니다.
 
 | 설정 |적용 대상| 값 |
 |----|---|---|
@@ -119,13 +119,13 @@ AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수�
 + 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. ![ ](./media/how-to-configure-environment/azure-db-screenshot.png)
  ![ 가져오기 패널 가져오기 선택](./media/how-to-configure-environment/azure-db-import.png)
 
-+ [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
++ [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](./how-to-create-machine-learning-pipelines.md)방법에 대해 알아봅니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 * **패키지 설치 시 실패**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0

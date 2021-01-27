@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660545"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872403"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -44,7 +44,7 @@ VNet-VNet 연결을 설정할 때 로컬 네트워크 게이트웨이 주소 공
 
 ### <a name="site-to-site-ipsec"></a>사이트 간(IPsec)
 
-복잡한 네트워크 구성을 작업하는 경우 [사이트 간 연결](vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 사용하여 VNet에 연결하는 것이 좋습니다. 사이트 간 IPsec 단계를 수행할 때 로컬 네트워크 게이트웨이를 수동으로 만들고 구성합니다. 각 VNet의 로컬 네트워크 게이트웨이는 다른 VNet을 로컬 사이트로 처리합니다. 이러한 단계를 통해 로컬 네트워크 게이트웨이가 트래픽을 라우팅할 추가 주소 공간을 지정할 수 있습니다. VNet의 주소 공간이 변경되면 해당 로컬 네트워크 게이트웨이를 수동으로 업데이트해야 합니다.
+복잡한 네트워크 구성을 작업하는 경우 [사이트 간 연결](./tutorial-site-to-site-portal.md)을 사용하여 VNet에 연결하는 것이 좋습니다. 사이트 간 IPsec 단계를 수행할 때 로컬 네트워크 게이트웨이를 수동으로 만들고 구성합니다. 각 VNet의 로컬 네트워크 게이트웨이는 다른 VNet을 로컬 사이트로 처리합니다. 이러한 단계를 통해 로컬 네트워크 게이트웨이가 트래픽을 라우팅할 추가 주소 공간을 지정할 수 있습니다. VNet의 주소 공간이 변경되면 해당 로컬 네트워크 게이트웨이를 수동으로 업데이트해야 합니다.
 
 ### <a name="vnet-peering"></a>VNet 피어링
 
@@ -76,7 +76,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * **가상 네트워크 설정**
   * **이름**: VNet1
   * **주소 공간**: 10.1.0.0/16
-  * **구독**: 사용 하려는 구독을 선택 합니다.
+  * **구독**: 사용할 구독을 선택합니다.
   * **리소스 그룹**: TestRG1
   * **위치**: 미국 동부
   * **서브넷**
@@ -104,7 +104,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * **가상 네트워크 설정**
   * **이름**: v
   * **주소 공간**: 10.41.0.0/16
-  * **구독**: 사용 하려는 구독을 선택 합니다.
+  * **구독**: 사용할 구독을 선택합니다.
   * **리소스 그룹**: TestRG4
   * **위치**: 미국 서 부
   * **서브넷**
@@ -200,7 +200,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
 
 ## <a name="add-additional-connections"></a>연결 추가
 
-연결을 추가하려면 연결을 만들 가상 네트워크 게이트웨이로 이동하여 **연결** 을 선택합니다. 다른 VNet 대 VNet 연결을 만들거나 온-프레미스 위치에 대한 IPsec 사이트 간 연결을 만들 수 있습니다. **연결 형식** 을 만들려는 연결 형식과 일치하도록 조정해야 합니다. 추가 연결을 만들기 전에, 가상 네트워크에 대한 주소 공간이 연결하려는 주소 공간과 겹치지 않는지 확인합니다. 사이트 간 연결을 만드는 단계는 [사이트 간 연결 만들기](vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조하세요.
+연결을 추가하려면 연결을 만들 가상 네트워크 게이트웨이로 이동하여 **연결** 을 선택합니다. 다른 VNet 대 VNet 연결을 만들거나 온-프레미스 위치에 대한 IPsec 사이트 간 연결을 만들 수 있습니다. **연결 형식** 을 만들려는 연결 형식과 일치하도록 조정해야 합니다. 추가 연결을 만들기 전에, 가상 네트워크에 대한 주소 공간이 연결하려는 주소 공간과 겹치지 않는지 확인합니다. 사이트 간 연결을 만드는 단계는 [사이트 간 연결 만들기](./tutorial-site-to-site-portal.md)를 참조하세요.
 
 ## <a name="vnet-to-vnet-faq"></a>VNet-VNet FAQ
 

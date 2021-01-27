@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a0f17df13b5b101aebf585b7f1f3fb2a5b48006
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746056"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873776"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -48,7 +48,7 @@ Azure의 SAP 워크로드 섹션의 문서에 대한 변경 내용은 이 문서
 - 타사 HA 프레임은 Windows 및 Pacemaker 지원 되는 것 외에도 작동 하나요? [SAP support note](https://launchpad.support.sap.com/#/notes/1928533) 의 아래쪽 부분을 확인 #1928533
 - 시나리오에 가장 적합 한 Azure storage는 무엇 인가요? [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 읽기
 - SAP에서 지 원하는 Oracle Enterprise Linux의 Red Hat 커널이 있나요? SAP [sap 지원 정보](https://launchpad.support.sap.com/#/notes/1565179) 를 참조 하십시오 #1565179
-- Azure [Da v4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series) / [Ea](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오에도 포함 되지 않고 AMD 프로세서를 지원 하지 않습니다.
+- Azure [Da v4](../../dav4-dasv4-series.md) / [Ea](../../eav4-easv4-series.md) VM 제품군 SAP HANA에 대해 인증 되지 않는 이유는 무엇 인가요? Azure Das/Eas VM 제품군은 AMD 프로세서 기반 하드웨어를 기반으로 합니다. SAP HANA는 가상화 된 시나리오에도 포함 되지 않고 AMD 프로세서를 지원 하지 않습니다.
 - 가장 최근의 Linux 커널을 실행 하는 사실에도 불구 하 고, ' RDTSCP 명령에 대 한 cpu 플래그 또는 constant_tsc 또는 nonstop_tsc에 대 한 cpu 플래그는 설정 되어 있지 않거나 current_clocksource 및 available_clocksource 올바르게 SAP HANA 구성 되어 있지 않습니다. ' 메시지가 표시 되는 이유는 무엇 인가요? 답변에 대 한 자세한 내용은 [SAP 지원 정보](https://launchpad.support.sap.com/#/notes/2791572) 를 확인 #2791572
 - Azure에서 SAP Fiori를 배포 하기 위한 아키텍처는 어디서 찾을 수 있나요? [Azure의 블로그 sap: 인터넷 연결 SAP Fiori 앱 용 WAF (웹 응용 프로그램 방화벽) V2 설치](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) 를 확인 합니다 Application Gateway. 
 
@@ -84,14 +84,14 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
-- 01/23/2021: SAP HANA Azure NetApp Files의 [azure virtual machine storage 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 및 [NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) SAP HANA 문서에서 디스크 볼륨 관리자를 사용 하지 않고 여러 azure 디스크나 nfs 공유에서 hana 데이터 볼륨 분할의 기능을 기능으로 제공 합니다.
-- 01/18/2021: azure의 Oracle에 대 한 Azure net Apps 파일 기반 NFS의 지원이 추가 되었습니다. [SAP 워크 로드에 대 한 ORACLE DBMS 배포 Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) 에 [대 한 Azure NetApp Files의 NFS v 4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp) 문서에서 10 진수를 조정 SAP HANA
+- 01/23/2021: SAP HANA Azure NetApp Files의 [azure virtual machine storage 구성](./hana-vm-operations-storage.md) 및 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) SAP HANA 문서에서 디스크 볼륨 관리자를 사용 하지 않고 여러 azure 디스크나 nfs 공유에서 hana 데이터 볼륨 분할의 기능을 기능으로 제공 합니다.
+- 01/18/2021: azure의 Oracle에 대 한 Azure net Apps 파일 기반 NFS의 지원이 추가 되었습니다. [SAP 워크 로드에 대 한 ORACLE DBMS 배포 Virtual Machines](./dbms_guide_oracle.md) 에 [대 한 Azure NetApp Files의 NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 문서에서 10 진수를 조정 SAP HANA
 - 01/11/2021: [sap 용 RHEL의 Azure vm에 대 한 ha](./high-availability-guide-rhel.md)의 사소한 변경 내용, [RHEL의](./high-availability-guide-rhel-netapp-files.md) Azure vm에 있는 azure vm의 azure vm에 대 한 Ha 및 [RHEL의 azure vm에](./high-availability-guide-rhel-multi-sid.md) 있는 azure vm의 HA에 대 한 ha 가이드 RHEL8 및 RHEL7 모두에 대해 작동 하는 명령을 조정 하 고 ENSA1 및 ENSA2
 - 01/05/2021: SLES의 ANF를 사용 하 여 [Azure vm의 대기 노드를 사용 하는 SAP HANA 확장](./sap-hana-scale-out-standby-netapp-files-suse.md) 의 변경 내용 및 [RHEL의 anf를 사용 하는 azure vm의 대기 노드로 확장 SAP HANA](./sap-hana-scale-out-standby-netapp-files-rhel.md)SAP 호스트 에이전트가 로컬 포트 범위를 관리할 수 있도록 권장 구성을 수정 합니다.  
-- 01/04/2021: HLI에서 지 원하는 새 Azure 지역을 [azure (Large Instances)의 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 에 추가 합니다.
-- 12/29/2020: [Azure 가용성 영역을 사용 하 여 SAP 워크 로드 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 에서 특정 Azure 지역에 대 한 아키텍처 권장 사항을 추가 합니다.
+- 01/04/2021: HLI에서 지 원하는 새 Azure 지역을 [azure (Large Instances)의 SAP HANA](./hana-overview-architecture.md) 에 추가 합니다.
+- 12/29/2020: [Azure 가용성 영역을 사용 하 여 SAP 워크 로드 구성](./sap-ha-availability-zones.md) 에서 특정 Azure 지역에 대 한 아키텍처 권장 사항을 추가 합니다.
 - 12/21/2020: [HLI에 대해 사용 가능한 sku](./hana-available-skus.md) 의 HANA 대량 인스턴스의 sku에 새 인증을 추가 합니다.
-- 12/12/2020: sap 메모에 대 한 포인터 추가 sap에서 [Azure 배포에 대해 지원 되는 sap 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support) 에 대 한 자세한 정보를 제공 합니다.
+- 12/12/2020: sap 메모에 대 한 포인터 추가 sap에서 [Azure 배포에 대해 지원 되는 sap 소프트웨어](./sap-supported-product-on-azure.md#oracle-dbms-support) 에 대 한 자세한 정보를 제공 합니다.
 - 11/26/2020: [SAP 워크 로드에 대 한](./planning-guide-storage.md) [Azure 가상 머신 저장소 구성](./hana-vm-operations-storage.md) 및 Azure Storage 유형을 변경 하 여 단일 [VM sla](https://azure.microsoft.com/support/legal/sla/virtual-machines) 를 변경 SAP HANA
 - 11/05/2020: [Azure virtual machine 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 HANA 지원 파일 시스템 형식에 대 한 새 SAP 메모에 대 한 링크를 변경 하 고 있습니다. 
 - 10/26/2020: azure [가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 에서 프로 비전 된 처리량과 버스트 처리량을 명확 하 게 하기 위해 azure premium storage 구성의 일부 테이블을 변경 합니다.

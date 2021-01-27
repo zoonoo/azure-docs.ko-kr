@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 01/25/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e322f78468c89a549955a01f73952e8cde7a13c8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835801"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872827"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>위험 재구성 및 사용자 차단 해제
 
@@ -91,7 +91,9 @@ ms.locfileid: "94835801"
 
 ## <a name="powershell-preview"></a>PowerShell 미리 보기
 
-Microsoft Graph PowerShell SDK 미리 보기 모듈을 사용 하 여 조직은 PowerShell을 사용 하 여 위험을 관리할 수 있습니다. 미리 보기 모듈 및 샘플 코드는 [AZURE AD GitHub 리포지토리](https://github.com/AzureAD/IdentityProtectionTools)에서 찾을 수 있습니다.
+Microsoft Graph PowerShell SDK 미리 보기 모듈을 사용 하 여 조직은 PowerShell을 사용 하 여 위험을 관리할 수 있습니다. 미리 보기 모듈 및 샘플 코드는 [AZURE AD GitHub 리포지토리](https://github.com/AzureAD/IdentityProtectionTools)에서 찾을 수 있습니다. 
+
+`Invoke-AzureADIPDismissRiskyUser.ps1`리포지토리에 포함 된 스크립트를 사용 하면 조직에서 해당 디렉터리에 있는 모든 위험한 사용자를 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
