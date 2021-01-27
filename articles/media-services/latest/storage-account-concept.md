@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: inhenkel
-ms.openlocfilehash: 36593efd4f2583f28dffbb4f5b491fbeec7ba21d
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916323"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882249"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -47,16 +47,16 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v3|
+|암호화 옵션|Description|Media Services v3|
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
-|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원 안 됨|
+|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화 (AES-256 암호화)는 이전 버전과의 호환성을 위해서만 지원 됩니다. 즉, v 2를 Media Services 사용 하 여 자산을 만든 경우에만 v3에서 기존 저장소 암호화 된 자산을 사용할 수 있지만 새로 만들 수는 없습니다.
 
 ## <a name="double-encryption"></a>이중 암호화
-Media Services는 이중 암호화를 지원 합니다.  이중 암호화에 대해 자세히 알아보려면 [Azure 이중 암호화](https://docs.microsoft.com/azure/security/fundamentals/double-encryption)를 참조 하세요.
+Media Services는 이중 암호화를 지원 합니다.  이중 암호화에 대해 자세히 알아보려면 [Azure 이중 암호화](../../security/fundamentals/double-encryption.md)를 참조 하세요.
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 
@@ -64,7 +64,7 @@ Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가
 
 다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다.
 
-|문제|솔루션|
+|문제|해결 방법|
 |---|---|
 |Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션합니다. |
 |이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정은 최신 Azure 리소스 관리자 기반 계정으로 변환 되 고 연결 끊김 상태가 됩니다. |저장소 계정 또는 Media Services 계정이 모두 동일한 구독에 있도록 마이그레이션하십시오.|

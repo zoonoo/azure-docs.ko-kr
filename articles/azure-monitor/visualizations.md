@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522671"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881234"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -46,9 +46,9 @@ ms.locfileid: "95522671"
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics, Application Insights 등 여러 Azure 페이지의 대시보드에 고정될 수 있습니다.
+- Azure에 긴밀하게 통합됩니다. 시각화는 [메트릭 탐색기](platform/metrics-charts.md), [Log Analytics](log-query/log-analytics-overview.md)및 [Application Insights](app/app-insights-overview.md)를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
-- [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md)과 가용성 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
+- [Application Insights](app/app-insights-overview.md)에서 [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), [맵](app/app-map.md) 및 가용성의 출력을 포함 하 여 여러 소스의 데이터를 결합 합니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)와 통합 됩니다.
 - 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정된 시각화에서 "새로 고침" 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용하면 로그가 매시간 새로 고침됩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
@@ -57,7 +57,7 @@ ms.locfileid: "95522671"
 
 
 ### <a name="limitations"></a>제한 사항
-- 데이터 테이블이 지원되지 않으므로 로그 시각화를 제한적으로만 제어할 수 있습니다. 총 데이터 계열 수는 10개로 제한되며 추가 데이터 계열은 _다른_ 버킷 아래에서 그룹화됩니다.
+- 데이터 테이블이 지원되지 않으므로 로그 시각화를 제한적으로만 제어할 수 있습니다. 데이터 계열의 총 수는 _다른_ 버킷에 그룹화 된 추가 데이터 계열과 함께 50로 제한 됩니다.
 - 로그 차트에는 사용자 지정 매개 변수가 지원되지 않습니다.
 - 로그 차트는 최근 30일로 제한됩니다.
 - 로그 차트는 공유 대시보드에만 고정할 수 있습니다.
@@ -140,8 +140,9 @@ ms.locfileid: "95522671"
 ## <a name="next-steps"></a>다음 단계
 - [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
-- [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
+- [메트릭 탐색기](platform/metrics-getting-started.md) 에 대해 알아보기
 - [Workbooks](./platform/workbooks-overview.md)에 대해 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](./platform/powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](./platform/grafana-plugin.md)에 대해 알아봅니다.
+- [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
 

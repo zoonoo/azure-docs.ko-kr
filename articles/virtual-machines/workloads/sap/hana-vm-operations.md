@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a907f2a6fc54c96dbef9f2091a91cac50bbd4ca
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6e28b23f20a0336498abbc357f4c96bdfa5b089f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486524"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881841"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -46,7 +46,7 @@ Azure의 SAP NetWeaver 및 기타 SAP 구성 요소에 대해 자세히 알아�
 [Azure Virtual Machines 계획 가이드](./planning-guide.md)에 설명된 대로 Azure VM에 연결하기 위한 두 가지 기본 방법이 있습니다.
 
 - SAP HANA를 실행하는 VM 또는 Jump VM의 공개 엔드포인트와 인터넷을 통해 연결
-- [VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) 또는 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 연결
+- [VPN](../../../vpn-gateway/tutorial-site-to-site-portal.md) 또는 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 연결
 
 VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리오에 필요합니다. 이 유형의 연결은 SAP 소프트웨어가 사용되는 프로덕션 시나리오로 제공되는 비프로덕션 시나리오에도 필요합니다. 다음 그림은 사이트 간 연결의 예를 보여 줍니다.
 

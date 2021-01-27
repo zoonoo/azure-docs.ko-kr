@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 050e6b5007b9fbaedc412d8062430f1c2c1691fd
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923949"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881014"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 File Storage를 사용하여 데이터 전송 
 
@@ -236,7 +236,7 @@ AzCopy은 저장소 계정 간에 파일을 복사 하는 데 사용할 수 있�
 
 #### <a name="download-from-a-share-snapshot"></a>공유 스냅숏에서 다운로드
 
-공유 스냅숏의 **날짜/시간** 값을 참조 하 여 특정 버전의 파일이 나 디렉터리를 다운로드할 수 있습니다. 공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](/azure/storage/files/storage-snapshots-files)를 참조 하세요. 
+공유 스냅숏의 **날짜/시간** 값을 참조 하 여 특정 버전의 파일이 나 디렉터리를 다운로드할 수 있습니다. 공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](../files/storage-snapshots-files.md)를 참조 하세요. 
 
 |    |     |
 |--------|-----------|
@@ -251,7 +251,7 @@ AzCopy를 사용 하 여 다른 저장소 계정에 파일을 복사할 수 있�
 
 AzCopy는 [서버](/rest/api/storageservices/put-block-from-url) 간 [api](/rest/api/storageservices/put-page-from-url)를 사용 하므로 저장소 서버 간에 데이터를 직접 복사 합니다. 이러한 복사 작업은 컴퓨터의 네트워크 대역폭을 사용 하지 않습니다. 환경 변수의 값을 설정 하 여 이러한 작업의 처리량을 늘릴 수 있습니다 `AZCOPY_CONCURRENCY_VALUE` . 자세히 알아보려면 [처리량 최적화](storage-use-azcopy-configure.md#optimize-throughput)를 참조 하세요.
 
-공유 스냅숏의 **날짜/시간** 값을 참조 하 여 특정 버전의 파일을 복사할 수도 있습니다. 공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](/azure/storage/files/storage-snapshots-files)를 참조 하세요. 
+공유 스냅숏의 **날짜/시간** 값을 참조 하 여 특정 버전의 파일을 복사할 수도 있습니다. 공유 스냅숏에 대 한 자세한 내용은 [Azure Files에 대 한 공유 스냅숏 개요](../files/storage-snapshots-files.md)를 참조 하세요. 
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 

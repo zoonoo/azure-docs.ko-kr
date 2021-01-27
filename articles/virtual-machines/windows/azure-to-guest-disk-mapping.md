@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
-ms.openlocfilehash: f16e34f372016f284d4af79443e84d9d5cdea957
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 373fd26c36bf2f77de6a376f738bd3caaf735f00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96523584"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881875"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Windows VM 게스트 디스크에 Azure 디스크를 매핑하는 방법
 
@@ -29,11 +29,11 @@ LUN (논리 단위 번호)은 특정 저장 장치를 식별 하는 데 사용 �
 
 ## <a name="finding-the-lun"></a>LUN 찾기
 
-LUN을 찾는 방법에는 두 가지가 있습니다. 여기서 선택 하는 항목은 [저장소 공간](https://docs.microsoft.com/windows-server/storage/storage-spaces/overview) 을 사용 하는 경우에 따라 다릅니다.
+LUN을 찾는 방법에는 두 가지가 있습니다. 여기서 선택 하는 항목은 [저장소 공간](/windows-server/storage/storage-spaces/overview) 을 사용 하는 경우에 따라 다릅니다.
 
 ### <a name="disk-management"></a>디스크 관리
 
-저장소 풀을 사용 하지 않는 경우에는 [디스크 관리](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management) 를 사용 하 여 LUN을 찾을 수 있습니다.
+저장소 풀을 사용 하지 않는 경우에는 [디스크 관리](/windows-server/storage/disk-management/overview-of-disk-management) 를 사용 하 여 LUN을 찾을 수 있습니다.
 
 1. VM에 연결 하 고 디스크 관리 a를 엽니다. 시작 단추를 마우스 오른쪽 단추로 클릭 하 고 "디스크 관리"를 선택 합니다. `diskmgmt.msc`검색 시작 상자에 입력할 수도 있습니다.
 1. 아래쪽 창에서 디스크를 마우스 오른쪽 단추로 클릭 하 고 "속성"을 선택 합니다.
@@ -55,7 +55,7 @@ Azure Portal, Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure 디스�
 1. Virtual Machine을 선택합니다.
 1. "디스크"를 선택 합니다.
 1. 연결 된 디스크 목록에서 데이터 디스크를 선택 합니다.
-1. 디스크의 LUN이 디스크 세부 정보 창에 표시 됩니다. 여기에 표시 된 LUN은 Device Manager 또는 서버 관리자를 사용 하 여 게스트에서 조회 된 Lun과 관련이 있습니다.
+1. 디스크의 LUN이 디스크 세부 정보 창에 표시 됩니다. 여기에 표시 된 LUN은 장치 관리자 또는 서버 관리자를 사용 하 여 게스트에서 조회 된 Lun과 관련이 있습니다.
 
 ### <a name="finding-an-azure-disks-lun-using-azure-cli-or-azure-powershell"></a>Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure 디스크의 LUN 찾기
 

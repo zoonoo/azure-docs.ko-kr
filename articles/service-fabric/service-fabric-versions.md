@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 버전 업그레이드
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c9a29a97238164b9f6daf9dda66a1f314a7673ce
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804248"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881553"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Azure Service Fabric 클러스터 버전 업그레이드
 
@@ -55,7 +55,7 @@ ms.locfileid: "98804248"
 
 ### <a name="upgrade-alert-for-versions-later-than-63"></a>6.3 이후의 버전에 대 한 업그레이드 경고
 
-보안 및 가용성을 향상 시키기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 했습니다. 이렇게 변경 하면 [컨테이너에 대해 개방 네트워킹 모드](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 를 사용 하는 모든 Service Fabric 클러스터에 영향을 주며 6.3 버전에서 7.0 또는 호환 되지 않는 지원 되는 버전의 7.0를 실행 합니다. 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 Service Fabric 런타임 업데이트를 사용할 수 있습니다.
+보안 및 가용성을 향상 시키기 위해 Azure 인프라는 Service Fabric 고객에 게 영향을 줄 수 있는 변경 작업을 수행 했습니다. 이렇게 변경 하면 [컨테이너에 대해 개방 네트워킹 모드](./service-fabric-networking-modes.md#set-up-open-networking-mode) 를 사용 하는 모든 Service Fabric 클러스터에 영향을 주며 6.3 버전에서 7.0 또는 호환 되지 않는 지원 되는 버전의 7.0를 실행 합니다. 모든 지역에서 지원 되는 모든 Service Fabric 버전에 대해 Service Fabric 런타임 업데이트를 사용할 수 있습니다.
 
 #### <a name="if-you-dont-upgrade-to-a-supported-version"></a>지원 되는 버전으로 업그레이드 하지 않는 경우
 

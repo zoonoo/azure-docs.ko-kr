@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183173"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890733"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>원하는 상태로 머신 구성
 
@@ -42,7 +42,7 @@ Azure Automation State Configuration은 [부분 구성](/powershell/scripting/ds
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) cmdlet을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+[Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
 Connect-AzAccount
@@ -51,7 +51,7 @@ Connect-AzAccount
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Azure Automation에 구성 만들기 및 업로드
 
 
-텍스트 편집기에서 다음을 입력하고 로컬에서 **TestConfig.ps1**로 저장합니다.
+텍스트 편집기에서 다음을 입력하고 로컬에서 **TestConfig.ps1** 로 저장합니다.
 
 ```powershell
 configuration TestConfig {
@@ -68,7 +68,7 @@ configuration TestConfig {
 > [!NOTE]
 > DSC 리소스를 제공하는 여러 모듈을 가져와야 하는 고급 시나리오에서는 각 모듈이 구성에서 고유한 `Import-DscResource` 줄을 사용하도록 해야 합니다.
 
-[Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) cmdlet을 호출하여 구성을 Automation 계정에 업로드합니다.
+[Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration) cmdlet을 호출하여 구성을 Automation 계정에 업로드합니다.
 
 ```powershell
  Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
@@ -78,7 +78,7 @@ configuration TestConfig {
 
 DSC 구성을 노드에 할당하려면 먼저 노드 구성으로 컴파일해야 합니다. [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
-[Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) cmdlet 을 호출하여 `TestConfig` 구성을 Automation 계정의 `TestConfig.WebServer`라는 노드 구성에 컴파일합니다.
+[Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) cmdlet 을 호출하여 `TestConfig` 구성을 Automation 계정의 `TestConfig.WebServer`라는 노드 구성에 컴파일합니다.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -88,7 +88,7 @@ Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGro
 
 Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource Manager), 온-프레미스 VM, Linux 머신, AWS VM 및 온-프레미스 물리적 머신을 관리할 수 있습니다. 이 항목에서는 Azure Resource Manager VM만 등록하는 방법에 대해 설명합니다. 다른 유형의 머신 등록에 대한 정보는 [Azure Automation 상태 구성을 통한 관리용 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
 
-[Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) cmdlet을 호출하여 VM을 Azure Automation State Configuration에 관리 노드로 등록합니다. 
+[Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) cmdlet을 호출하여 VM을 Azure Automation State Configuration에 관리 노드로 등록합니다. 
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -125,7 +125,7 @@ Set-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountN
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>관리되는 노드에 대한 준수 상태 확인
 
-[Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0) cmdlet을 사용하여 관리 노드의 준수 상태에 대한 보고서를 가져올 수 있습니다.
+[Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport) cmdlet을 사용하여 관리 노드의 준수 상태에 대한 보고서를 가져올 수 있습니다.
 
 ```powershell
 # Get the ID of the DSC node
@@ -146,18 +146,18 @@ Azure Automation State Configuration에 노드를 추가하는 경우 로컬 구
 > [!NOTE]
 > 서비스에서 노드를 등록 취소하면 로컬 구성 관리자 설정을 노드가 서비스에 더 이상 연결하지 않도록만 설정합니다.
 > 현재 노드에 적용되는 구성에는 영향을 주지 않습니다.
-> 현재 구성을 제거하려면 [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)을 사용하거나 로컬 구성 파일을 삭제합니다 (Linux 노드에서는 유일한 옵션).
+> 현재 구성을 제거하려면 [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument)을 사용하거나 로컬 구성 파일을 삭제합니다 (Linux 노드에서는 유일한 옵션).
 
 ### <a name="azure-portal"></a>Azure portal
 
 Azure Automation에서 목차의 **상태 구성(DSC)** 을 클릭합니다.
-다음으로 **노드**를 클릭하여 서비스에 등록된 노드 목록을 봅니다.
+다음으로 **노드** 를 클릭하여 서비스에 등록된 노드 목록을 봅니다.
 제거하려는 노드의 이름을 클릭합니다.
-열리는 노드 보기에서 **등록 취소**를 클릭합니다.
+열리는 노드 보기에서 **등록 취소** 를 클릭합니다.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하여 Azure Automation State Configuration 서비스에서 노드를 등록 취소하려면 [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0) cmdlet 설명서를 따르세요.
+PowerShell을 사용하여 Azure Automation State Configuration 서비스에서 노드를 등록 취소하려면 [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) cmdlet 설명서를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -166,4 +166,4 @@ PowerShell을 사용하여 Azure Automation State Configuration 서비스에서 
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - 지속적인 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

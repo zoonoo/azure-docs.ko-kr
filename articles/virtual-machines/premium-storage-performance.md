@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201963"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882385"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -35,8 +35,8 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 >
 > 디스크 벤치 마크를 원하는 경우 디스크 벤치마킹에 대 한 문서를 참조 하세요.
 >
-> * Linux: [Azure 디스크 저장소에서 응용 프로그램 벤치 마크](linux/disks-benchmarks.md)
-> * Windows의 경우: [디스크를 벤치마킹](windows/disks-benchmarks.md)합니다.
+> * Linux: [Azure 디스크 저장소에서 응용 프로그램 벤치 마크](./disks-benchmarks.md)
+> * Windows의 경우: [디스크를 벤치마킹](./disks-benchmarks.md)합니다.
 >
 > VM에서 가속화된 네트워킹을 지원하는 경우 VM이 활성화되어 있는지 확인해야 합니다. 활성화되어 있지 않으면 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 모두에 이미 배포된 VM에서 활성화할 수 있습니다.
 
@@ -380,8 +380,8 @@ Azure Premium Storage는 선택한 VM 크기 및 디스크 크기에 따라 지�
 
 디스크 벤치 마크를 원하는 경우 디스크 벤치마킹에 대 한 문서를 참조 하세요.
 
-* Linux: [Azure 디스크 저장소에서 응용 프로그램 벤치 마크](linux/disks-benchmarks.md)
-* Windows의 경우: [디스크를 벤치마킹](windows/disks-benchmarks.md)합니다.
+* Linux: [Azure 디스크 저장소에서 응용 프로그램 벤치 마크](./disks-benchmarks.md)
+* Windows의 경우: [디스크를 벤치마킹](./disks-benchmarks.md)합니다.
 
 사용 가능한 디스크 유형에 대해 자세히 알아봅니다.
 

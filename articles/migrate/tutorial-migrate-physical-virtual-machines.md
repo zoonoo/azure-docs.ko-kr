@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: c0f4f1d7f0213ad24d25d8d34235475bbdb0316a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
-ms.translationtype: HT
+ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567101"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881098"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -55,7 +55,7 @@ Server Migration을 사용하여 마이그레이션할 Azure를 준비합니다.
 
 **Task** | **세부 정보**
 --- | ---
-**Azure Migrate 프로젝트 만들기** | Azure 계정에는 [새 프로젝트를 생성](https://docs.microsoft.com/azure/migrate/create-manage-projects)할 수 있는 기여자 또는 소유자 권한이 있어야 합니다.
+**Azure Migrate 프로젝트 만들기** | Azure 계정에는 [새 프로젝트를 생성](./create-manage-projects.md)할 수 있는 기여자 또는 소유자 권한이 있어야 합니다.
 **Azure 계정에 대한 사용 권한 확인** | Azure 계정에는 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다.
 
 
@@ -239,7 +239,7 @@ Azure Migrate:Server Migration은 복제 어플라이언스를 사용하여 머�
     - 플랫폼 관리형 키 및 고객 관리형 키를 사용한 이중 암호화
 
    > [!NOTE]
-   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](https://go.microsoft.com/fwlink/?linkid=2151800)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
+   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
   
 13. **Azure 하이브리드 혜택** 에서
 

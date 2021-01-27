@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e4d0513808cdc44fc71e182a07fa6b050d182ee
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aab856b1e1d2d991cc4964d061a990dbedbeddb7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452514"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876514"
 ---
 # <a name="plan-a-solution-template-for-an-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 솔루션 템플릿 계획
 
@@ -28,7 +28,7 @@ ms.locfileid: "96452514"
 | 청구 및 계량 | 솔루션 템플릿 계획은 불가능 되지 않지만 Microsoft 상업적 marketplace를 통해 청구 되는 유료 VM 제품을 배포 하는 데 사용할 수 있습니다. 솔루션의 ARM 템플릿에서 배포 하는 리소스는 고객의 Azure 구독에 설정 됩니다. 종 량 제 가상 머신은 Microsoft를 통해 고객과 거래 되며 고객의 Azure 구독을 통해 청구 됩니다. <br><br> BYOL (사용자 라이선스 보유) 청구의 경우 Microsoft는 고객 구독에서 발생 하는 인프라 비용을 청구 하지만 고객과 직접 소프트웨어 라이선스 요금을 지불 합니다. |
 | Azure 호환 VHD(가상 하드 디스크) | VM은 Windows 또는 Linux에서 빌드해야 합니다. 자세한 내용은 다음을 참조하세요.<ul><li>[AZURE VM 기술 자산 만들기](./azure-vm-create-certification-faq.md#address-a-vulnerability-or-an-exploit-in-a-vm-offer) (Windows vhd의 경우)</li><li>[Azure에서 linux 배포판 보증](../virtual-machines/linux/endorsed-distros.md) (linux vhd의 경우).</li></ul> |
 | 고객 사용량 특성 | Azure Marketplace에 게시 된 모든 솔루션 템플릿에서 고객 사용 특성을 사용 하도록 설정 해야 합니다. 고객 사용 특성 및이를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure 파트너 고객 사용 특성](azure-partner-customer-usage-attribution.md)을 참조 하세요. |
-| 관리 디스크 사용 | [Managed disks](../virtual-machines/managed-disks-overview.md) 는 Azure에서 IaaS (infrastructure as a Service) vm의 지속형 디스크에 대 한 기본 옵션입니다. 솔루션 템플릿에서 managed disks를 사용 해야 합니다.<ul><li>솔루션 템플릿을 업데이트 하려면 [Azure Resource Manager 템플릿에서 managed Disks 사용](../virtual-machines/using-managed-disks-template-deployments.md)의 지침을 따르고 제공 된 [샘플](https://github.com/Azure/azure-quickstart-templates)을 사용 합니다.</li><li>VHD를 Azure Marketplace 이미지로 게시 하려면 [Azure PowerShell](../virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md) 또는 [Azure CLI](../virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md) 를 사용 하 여 관리 디스크의 기본 VHD를 저장소 계정으로 가져옵니다.</ul> |
+| 관리 디스크 사용 | [Managed disks](../virtual-machines/managed-disks-overview.md) 는 Azure에서 IaaS (infrastructure as a Service) vm의 지속형 디스크에 대 한 기본 옵션입니다. 솔루션 템플릿에서 managed disks를 사용 해야 합니다.<ul><li>솔루션 템플릿을 업데이트 하려면 [Azure Resource Manager 템플릿에서 managed Disks 사용](../virtual-machines/using-managed-disks-template-deployments.md)의 지침을 따르고 제공 된 [샘플](https://github.com/Azure/azure-quickstart-templates)을 사용 합니다.</li><li>VHD를 Azure Marketplace 이미지로 게시 하려면 [Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd) 또는 [Azure CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd) 를 사용 하 여 관리 디스크의 기본 VHD를 저장소 계정으로 가져옵니다.</ul> |
 | 배포 패키지 | 고객이 요금제를 배포할 수 있도록 하는 배포 패키지가 필요 합니다. 동일한 기술 구성이 필요한 여러 계획을 만드는 경우 동일한 계획 패키지를 사용할 수 있습니다. 자세한 내용은 다음 섹션인 배포 패키지를 참조 하세요. |
 |||
 

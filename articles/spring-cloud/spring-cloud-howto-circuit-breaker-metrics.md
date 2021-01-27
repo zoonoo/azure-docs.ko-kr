@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77a32872726e3c67f0d3c542ca699271846a193b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e44e7c5d04695d5bd65d2eedc5474889a707c8bd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680673"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882147"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>스프링 클라우드 Resilience4J 회로 차단기 메트릭 (미리 보기) 수집
 
@@ -22,9 +22,9 @@ ms.locfileid: "98680673"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Java [In-Process agent for Application Insights 가이드](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights)에서 java In-Process 에이전트를 사용 하도록 설정 합니다. 
+* Java [In-Process agent for Application Insights 가이드](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 java In-Process 에이전트를 사용 하도록 설정 합니다. 
 
-* [Application Insights 가이드](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation)에서 resilience4j 메트릭에 대 한 차원 컬렉션을 사용 하도록 설정 합니다.
+* [Application Insights 가이드](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 resilience4j 메트릭에 대 한 차원 컬렉션을 사용 하도록 설정 합니다.
 
 * 개발 컴퓨터에서 아직 사용 하지 않은 경우 git, Maven 및 Java를 설치 합니다.
 
@@ -123,8 +123,8 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [애플리케이션 인사이트](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
+* [애플리케이션 인사이트](./spring-cloud-howto-application-insights.md)
 * [분산된 추적](spring-cloud-tutorial-distributed-tracing.md)
 * [회로 차단기 대시보드](spring-cloud-tutorial-circuit-breaker.md)

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685177"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881808"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -59,7 +59,7 @@ ms.locfileid: "98685177"
 
 - IoT Hub 또는 이벤트 허브 데이터 보존 시간을 최대 7 일로 늘립니다.
 
-- Azure Portal에서 환경 경고를 만듭니다. 플랫폼 [메트릭을](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) 기반으로 하는 경고를 통해 종단 간 파이프라인 동작의 유효성을 검사할 수 있습니다. 경고를 만들고 관리 하기 위한 지침은 [여기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts)에 있습니다. 제안 된 경고 조건:
+- Azure Portal에서 환경 경고를 만듭니다. 플랫폼 [메트릭을](./how-to-monitor-tsi-reference.md#metrics) 기반으로 하는 경고를 통해 종단 간 파이프라인 동작의 유효성을 검사할 수 있습니다. 경고를 만들고 관리 하기 위한 지침은 [여기](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts)에 있습니다. 제안 된 경고 조건:
 
   - IngressReceivedMessagesTimeLag가 5 분 보다 큼
   - IngressReceivedBytes는 0입니다.

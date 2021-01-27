@@ -4,12 +4,12 @@ description: Azure Monitor에 대 한 Java 에이전트 문제를 해결 하는 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 788eea17cabbea46578d0f59919ae95a59f2223f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625350"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881139"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>문제 해결 가이드: Java 용 Azure Monitor Application Insights
 
@@ -49,36 +49,66 @@ Java 3.0 Preview 에이전트에서 업그레이드 하는 경우 모든 [구성
 
 ## <a name="import-ssl-certificates"></a>SSL 인증서 가져오기
 
-기본 Java 키 저장소를 사용 하는 경우 모든 CA 루트 인증서가 이미 있는 것입니다. 더 이상 SSL 인증서를 가져올 필요가 없습니다.
+이 섹션에서는 Java 에이전트를 사용 하는 경우 SSL 인증서와 관련 된 예외를 해결 하 고 문제를 해결할 수 있습니다.
 
-사용자 지정 Java 키 저장소를 사용 하는 경우 Application Insights 끝점 SSL 인증서를 가져와야 할 수 있습니다.
+이 문제를 해결 하는 데는 두 가지 경로가 있습니다.
 
-### <a name="key-terminology"></a>주요 용어
-*키 저장소* 는 인증서, 공개 키 및 개인 키의 리포지토리입니다. 일반적으로 Java Development Kit 배포판에는 관리를 위한 실행 파일이 있습니다 `keytool` .
+### <a name="if-using-a-default-java-keystore"></a>기본 Java 키 저장소를 사용 하는 경우:
 
-다음 예제는 키 저장소에 SSL 인증서를 가져오는 간단한 명령입니다.
+일반적으로 기본 Java 키 저장소에는 모든 CA 루트 인증서가 이미 있습니다. 그러나 다른 루트 인증서로 수집 끝점 인증서를 서명할 수 있는 경우와 같이 몇 가지 예외가 있을 수 있습니다. 따라서이 문제를 해결 하려면 다음 세 단계를 수행 하는 것이 좋습니다.
 
-`keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name".cer -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+1.  Application Insights 끝점에 서명 하는 데 사용 된 루트 인증서가 기본 키 저장소에 이미 있는지 확인 합니다. 기본적으로 신뢰할 수 있는 CA 인증서는에 저장 됩니다 `$JAVA_HOME/jre/lib/security/cacerts` . Java 키 저장소에서 인증서를 나열 하려면 다음 명령을 사용 합니다.
+    > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
+ 
+    출력을 다음과 같은 임시 파일로 리디렉션할 수 있습니다 (나중에 쉽게 검색할 수 있음).
+    > `keytool -list -v -keystore $JAVA_HOME/jre/lib/security/cacerts > temp.txt`
 
-### <a name="steps-to-download-and-add-an-ssl-certificate"></a>SSL 인증서를 다운로드 하 고 추가 하는 단계
+2. 인증서 목록이 표시 되 면 다음 [단계](#steps-to-download-ssl-certificate) 에 따라 Application Insights 끝점에 서명 하는 데 사용 된 루트 인증서를 다운로드 합니다.
+
+    인증서를 다운로드 한 후에는 다음 명령을 사용 하 여 인증서에 대 한 SHA-1 해시를 생성 합니다.
+    > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
+ 
+    SHA-1 값을 복사 하 고이 값이 이전에 저장 한 "temp.txt" 파일에 있는지 확인 합니다.  임시 파일에서 SHA-1 값을 찾을 수 없는 경우 다운로드 한 루트 인증서가 기본 Java 키 저장소에서 누락 되었음을 나타냅니다.
+
+
+3. 다음 명령을 사용 하 여 루트 인증서를 기본 Java 키 저장소 가져옵니다.
+    >   `keytool -import -file "the cert file" -alias "some meaningful name" -keystore "path to cacerts file"`
+ 
+    이 경우에는
+ 
+    > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
+
+
+### <a name="if-using-a-custom-java-keystore"></a>사용자 지정 Java 키 저장소를 사용 하는 경우:
+
+사용자 지정 Java 키 저장소를 사용 하는 경우 Application Insights 끝점 루트 SSL 인증서를 가져와야 할 수 있습니다.
+이 문제를 해결 하려면 다음 두 단계를 수행 하는 것이 좋습니다.
+1. Application Insights 끝점에서 루트 인증서를 다운로드 하려면 다음 [단계](#steps-to-download-ssl-certificate) 를 수행 합니다.
+2. 다음 명령을 사용 하 여 사용자 지정 Java 키 저장소 루트 SSL 인증서를 가져옵니다.
+    > `keytool -importcert -alias your_ssl_certificate -file "your downloaded SSL certificate name.cer" -keystore "Your KeyStore name" -storepass "Your keystore password" -noprompt`
+
+### <a name="steps-to-download-ssl-certificate"></a>SSL 인증서를 다운로드 하는 단계
 
 1.  선호 하는 브라우저를 열고 `IngestionEndpoint` 응용 프로그램을 계측 하는 데 사용 되는 연결 문자열에 있는 URL로 이동 합니다.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-url.png" alt-text="Application Insights 연결 문자열을 보여 주는 스크린샷":::
+    :::image type="content" source="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png" alt-text="Application Insights 연결 문자열을 보여 주는 스크린샷" lightbox="media/java-ipa/troubleshooting/ingestion-endpoint-snippet.png":::
 
 2.  브라우저에서 **사이트 정보 보기** (잠금) 아이콘을 선택 하 고 **인증서** 옵션을 선택 합니다.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="사이트 정보에 있는 인증서 옵션의 스크린샷":::
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="사이트 정보에 있는 인증서 옵션의 스크린샷" lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.  **세부 정보** 탭으로 이동 하 고 **파일에 복사** 를 선택 합니다.
-4.  **다음** 단추를 선택 하 고 **Base-64로 인코딩된 x.509 (를 선택 합니다. CER)** 형식을 선택한 후 **다음** 을 다시 선택 합니다.
+3.  ' 리프 ' 인증서를 다운로드 하는 대신 아래와 같이 ' root ' 인증서를 다운로드 해야 합니다. 나중에 "인증서 경로"를 클릭 하 > 루트 인증서를 선택 하 > ' 인증서 보기 '를 클릭 합니다. 그러면 새 인증서 메뉴가 표시 되 고 새 메뉴에서 인증서를 다운로드할 수 있습니다.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="형식이 선택 된 인증서 내보내기 마법사의 스크린샷":::
+    :::image type="content" source="media/java-ipa/troubleshooting/root-certificate-selection.png" alt-text="루트 인증서를 선택 하는 방법의 스크린샷" lightbox="media/java-ipa/troubleshooting/root-certificate-selection.png":::
 
-5.  SSL 인증서를 저장할 파일을 지정 합니다. 다음 마침 **을 선택**  >  합니다. "내보내기가 성공 했습니다." 라는 메시지가 표시 됩니다.
-6.  인증서를 만든 후에는 인증서를 Java 키 저장소 가져올 때입니다. [이전 명령을](#key-terminology) 사용 하 여 인증서를 가져옵니다.
+4.  **세부 정보** 탭으로 이동 하 고 **파일에 복사** 를 선택 합니다.
+5.  **다음** 단추를 선택 하 고 **Base-64로 인코딩된 x.509 (를 선택 합니다. CER)** 형식을 선택한 후 **다음** 을 다시 선택 합니다.
+
+    :::image type="content" source="media/java-ipa/troubleshooting/certificate-export-wizard.png" alt-text="형식이 선택 된 인증서 내보내기 마법사의 스크린샷" lightbox="media/java-ipa/troubleshooting/certificate-export-wizard.png":::
+
+6.  SSL 인증서를 저장할 파일을 지정 합니다. 다음 마침 **을 선택**  >  합니다. "내보내기가 성공 했습니다." 라는 메시지가 표시 됩니다.
 
 > [!WARNING]
 > 현재 인증서가 만료 되기 전에 새 인증서를 가져오려면 이러한 단계를 반복 해야 합니다. **인증서** 대화 상자의 **자세히** 탭에서 만료 정보를 찾을 수 있습니다.
 >
-> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="SSL 인증서 세부 정보를 보여 주는 스크린샷":::
+> :::image type="content" source="media/java-ipa/troubleshooting/certificate-details.png" alt-text="SSL 인증서 세부 정보를 보여 주는 스크린샷" lightbox="media/java-ipa/troubleshooting/certificate-details.png":::

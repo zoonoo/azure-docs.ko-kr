@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202643"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881319"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -879,9 +879,9 @@ Microsoft에서 게시 하는 Azure Marketplace 가상 컴퓨터 이미지는 Mi
 
 - [Azure Portal에서 Windows 가상 컴퓨터 만들기 ](../virtual-machines/windows/quick-create-portal.md)
 
-- [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
+- [VM 템플릿을 다운로드 하는 방법에 대 한 정보](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -911,7 +911,7 @@ Azure Machine Learning는 작업 추적을 위한 Git 리포지토리를 완벽 
 
 - [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [공유 이미지 갤러리 개요](../virtual-machines/windows/shared-image-galleries.md)
+- [공유 이미지 갤러리 개요](../virtual-machines/shared-image-galleries.md)
 
 - [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
 

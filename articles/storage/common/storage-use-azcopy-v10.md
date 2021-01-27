@@ -8,12 +8,12 @@ ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ab3cb403a8757f424a141206f99f9c29bf3e0b49
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 87cc8af9206daa1f1e959b8abd8beb3e7f8ff2f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108151"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880997"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -79,7 +79,7 @@ AD (Azure Active Directory)를 사용 하거나 SAS (공유 액세스 서명) �
 이 옵션은 blob 저장소에만 사용할 수 있습니다. Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하지 않고 자격 증명을 한 번 제공할 수 있습니다.  
 
 > [!NOTE]
-> 현재 릴리스에서 저장소 계정 간에 blob을 복사 하려는 경우 각 원본 URL에 SAS 토큰을 추가 해야 합니다. SAS 토큰은 대상 URL 에서만 생략할 수 있습니다. 예제는 [저장소 계정 간에 Blob 복사](storage-use-azcopy-blobs.md)를 참조 하세요.
+> 현재 릴리스에서 저장소 계정 간에 blob을 복사 하려는 경우 각 원본 URL에 SAS 토큰을 추가 해야 합니다. SAS 토큰은 대상 URL 에서만 생략할 수 있습니다. 예제는 [저장소 계정 간에 Blob 복사](#transfer-data)를 참조 하세요.
 
 Azure AD를 사용 하 여 액세스 권한을 부여 하려면 [AzCopy 및 Azure Active Directory를 사용 하 여 blob에 대 한 액세스 권한 부여 (AZURE ad)](storage-use-azcopy-authorize-azure-active-directory.md)를 참조 하세요.
 
@@ -105,7 +105,7 @@ Id에 대 한 권한을 부여 하거나 SAS 토큰을 얻은 후에는 데이�
 
 | 서비스 | 기사 |
 |--------|-----------|
-|Azure Blob 스토리지 |[Azure Blob 저장소에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob storage에서 blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>[Azure storage 계정 간에 blob 복사](storage-use-azcopy-blobs-copy.md)<br><br>[Azure Blob storage와 동기화](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage |[Azure Blob 저장소에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob storage에서 blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>[Azure storage 계정 간에 blob 복사](storage-use-azcopy-blobs-copy.md)<br><br>[Azure Blob storage와 동기화](storage-use-azcopy-blobs-synchronize.md)|
 |Azure 파일 |[AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)|
 |Amazon S3|[AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송](storage-use-azcopy-s3.md)|
 |Azure Stack 저장소|[AzCopy 및 Azure Stack 저장소를 사용 하 여 데이터 전송](/azure-stack/user/azure-stack-storage-transfer#azcopy)|

@@ -3,12 +3,12 @@ title: Azure에 대 한 관리 id
 description: Service Fabric에서 Azure에 관리 되는 id를 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 28c992792d4572a43e12f5d32855f8411b0f4c6f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 71fa9ef4da8081a167b68553e2e3eac8477e8aee
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574754"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881723"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Service Fabric에서 Azure에 관리 id 사용
 
@@ -56,7 +56,7 @@ Service Fabric에 대 한 관리 되는 id는 azure 리소스로 배포 된 응�
 
 - 응용 프로그램에 할당 된 id를 제거 하거나 변경 합니다. 변경 해야 하는 경우 별도의 배포를 제출 하 여 먼저 새 id 할당을 추가 하 고 이전에 할당 된 id를 제거 합니다. 기존 응용 프로그램에서 id를 제거 하면 응용 프로그램을 업그레이드할 수 없는 상태로 유지 하는 것을 포함 하 여 원치 않는 결과가 발생할 수 있습니다. Id를 제거 해야 하는 경우 응용 프로그램을 완전히 삭제 하는 것이 안전 합니다. 이는 응용 프로그램과 연결 된 시스템 할당 id (정의 된 경우)를 삭제 하 고 응용 프로그램에 할당 된 사용자 할당 id를 사용 하 여 모든 연결을 제거 합니다.
 
-- 관리 id에 대 한 Service Fabric 지원은 현재 [AzureServiceTokenProvider](../key-vault/general/service-to-service-authentication.md)에 통합 되지 않습니다.
+- 관리 id에 대 한 Service Fabric 지원은 현재 [AzureServiceTokenProvider](/dotnet/api/overview/azure/service-to-service-authentication)에 통합 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

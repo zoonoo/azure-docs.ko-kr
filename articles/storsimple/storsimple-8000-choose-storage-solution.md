@@ -1,24 +1,24 @@
 ---
 title: 어플라이언스를 사용하여 Azure로 데이터를 전송하는 옵션 | Microsoft Docs
-description: Data Box Edge, Azure File Sync 및 StorSimple 8000 시리즈 사이에서 Azure로의 온-프레미스 데이터 전송에 적합 한 어플라이언스를 선택 하는 방법에 대해 알아봅니다.
+description: Data Box Edge, Azure 파일 동기화 및 StorSimple 8000 시리즈 사이에서 Azure로의 온-프레미스 데이터 전송에 적합 한 어플라이언스를 선택 하는 방법에 대해 알아봅니다.
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: f2de6dbba2548f0c281df35edf2883d0c00af667
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571916"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882215"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
-이 문서에서는 Azure로의 온-프레미스 데이터 전송 옵션에 대 한 개요를 제공 합니다. Data Box Edge 비교: Azure File Sync와 StorSimple 8000 시리즈 비교
+이 문서에서는 Azure로의 온-프레미스 데이터 전송 옵션에 대 한 개요를 제공 합니다. Data Box Edge 비교: Azure 파일 동기화와 StorSimple 8000 시리즈 비교
 
 - **[Data Box Edge](../databox-online/azure-stack-edge-overview.md)** – Data Box Edge는 Azure와 데이터를 주고 받을 수 있는 온-프레미스 네트워크 디바이스로, 업로드하는 동안 데이터를 사전 처리하는 AI 지원 Edge 컴퓨팅을 제공합니다. Data Box Gateway는 동일한 데이터 전송 기능을 제공하는 가상 디바이스 버전입니다.
 - **[Azure 파일 동기화](../storage/files/storage-sync-files-deployment-guide.md)** – Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. Azure 파일 동기화의 일반 공급은 2018년 초에 발표되었습니다.
@@ -39,5 +39,5 @@ ms.locfileid: "96571916"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) 및 [Azure Data Box Gateway](../databox-online/data-box-gateway-overview.md)에 대한 자세한 정보
+- [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) 및 [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)에 대한 자세한 정보
 - [Azure 파일 동기화](../storage/files/storage-sync-files-deployment-guide.md)에 대한 자세한 정보

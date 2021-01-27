@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240429"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881064"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>PostgreSQL-Single 서버용 Azure Database에 대 한 개인 링크
 
-개인 링크를 사용 하면 Azure Database for PostgreSQL 단일 서버에 대 한 개인 끝점을 만들 수 있으므로 VNet (개인 Virtual Network) 내에 Azure 서비스를 사용할 수 있습니다. 개인 끝점은 VNet의 다른 리소스와 마찬가지로 데이터베이스 서버에 연결 하는 데 사용할 수 있는 개인 IP를 노출 합니다.
+개인 링크를 사용 하면 Azure Database for PostgreSQL 단일 서버에 대 한 개인 끝점을 만들어 VNet (Virtual Network) 내부에 가져올 수 있습니다. 개인 끝점은 VNet의 다른 리소스와 마찬가지로 데이터베이스 서버에 연결 하는 데 사용할 수 있는 서브넷 내에서 개인 IP를 노출 합니다.
 
 개인 링크 기능을 지 원하는 PaaS 서비스 목록을 보려면 개인 링크 [설명서](../private-link/index.yml)를 검토 하세요. 프라이빗 엔드포인트는 특정 [VNet](../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
 
@@ -113,7 +113,7 @@ Private Link를 방화벽 규칙과 함께 사용하면 다음과 같은 상황 
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 공용 액세스 거부
 
-Azure Database for PostgreSQL 단일 서버에 액세스 하기 위한 전용 끝점만 사용 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ( [방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-and-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
+Azure Database for PostgreSQL 단일 서버에 액세스 하기 위한 전용 끝점만 사용 하려면 데이터베이스 서버에서 **공용 네트워크 액세스 거부** 구성을 설정 하 여 모든 공용 끝점 ([방화벽 규칙](concepts-firewall-rules.md) 및 [VNet 서비스 끝점](concepts-data-access-and-security-vnet.md))의 설정을 사용 하지 않도록 설정할 수 있습니다. 
 
 이 설정이 *예* 로 설정 된 경우 개인 끝점을 통한 연결만 Azure Database for PostgreSQL 허용 됩니다. 이 설정을로 설정 하면 클라이언트는 방화벽 또는 VNet 서비스 끝점 설정에 따라 Azure Database for PostgreSQL에 연결할 수 *없습니다* . 또한 개인 네트워크 액세스 값이 설정 되 면 고객은 기존 ' 방화벽 규칙 ' 및 ' VNet 서비스 끝점 규칙 '을 추가 및/또는 업데이트할 수 없습니다.
 

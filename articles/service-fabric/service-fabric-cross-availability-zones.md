@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250981"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876213"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -345,7 +345,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 * 첫 번째 값은 가상 머신 확장 집합에 있는 가용성 영역를 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다. **3 AZ의 범위에 걸친 확장 집합은 "Singleementgroup = true"를 사용 하 여 300 Vm까지 확장할 수 있습니다.**
-* 세 번째 값은 "zoneBalance" 이며, true로 설정 된 경우 엄격한 영역 균형 조정을 보장 합니다. 영역 간에 Vm의 불균형 배포를 방지 하려면이를 true로 설정 하는 것이 좋습니다. [ZoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing)에 대해 읽어 보세요.
+* 세 번째 값은 "zoneBalance" 이며, true로 설정 된 경우 엄격한 영역 균형 조정을 보장 합니다. 영역 간에 Vm의 불균형 배포를 방지 하려면이를 true로 설정 하는 것이 좋습니다. [ZoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing)에 대해 읽어 보세요.
 * FaultDomain 및 UpgradeDomain 재정의는 구성할 필요가 없습니다.
 
 ```json
@@ -416,9 +416,9 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>여러 가용성 영역를 사용 하 여 노드 형식으로 마이그레이션
 모든 마이그레이션 시나리오의 경우 여러 가용성 영역이 지원 되는 새 nodeType을 추가 해야 합니다. 기존 nodeType은 여러 영역을 지원 하도록 마이그레이션할 수 없습니다.
-이 문서 [에서는](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) 새 nodetype을 추가 하는 자세한 단계를 캡처하고 IP 및 LB 리소스와 같은 새 nodetype에 필요한 다른 리소스도 추가 합니다. 동일한 문서는 여러 가용성 영역이 있는 nodeType이 클러스터에 추가 된 후 기존 nodeType을 사용 중지 하는 방법에 대해서도 설명 합니다.
+이 문서 [에서는](./service-fabric-scale-up-primary-node-type.md) 새 nodetype을 추가 하는 자세한 단계를 캡처하고 IP 및 LB 리소스와 같은 새 nodetype에 필요한 다른 리소스도 추가 합니다. 동일한 문서는 여러 가용성 영역이 있는 nodeType이 클러스터에 추가 된 후 기존 nodeType을 사용 중지 하는 방법에 대해서도 설명 합니다.
 
-* 기본 LB 및 IP 리소스를 사용 하는 nodeType에서의 마이그레이션:이는 AZ 당 하나의 노드 형식으로 솔루션 [에 대해 이미 설명 되어](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) 있습니다. 
+* 기본 LB 및 IP 리소스를 사용 하는 nodeType에서의 마이그레이션:이는 AZ 당 하나의 노드 형식으로 솔루션 [에 대해 이미 설명 되어](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) 있습니다. 
     새 노드 형식에 대 한 유일한 차이점은 1 개의 가상 머신 확장 집합 및 1 개의 nodetype에 대 한 모든 AZ의 1이 아닌 모든 AZ의 유일한 차이점입니다.
 * NSG를 사용 하 여 표준 SKU LB 및 IP 리소스를 사용 하는 nodeType에서의 마이그레이션은 위에 설명 된 것과 동일한 절차를 따르고, 새 LB, IP 및 NSG 리소스를 추가할 필요가 없으며, 동일한 리소스를 새 nodeType에서 재사용할 수 있습니다.
 

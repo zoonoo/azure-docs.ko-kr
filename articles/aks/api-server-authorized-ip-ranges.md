@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 API 서버에 액세스 하�
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682505"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890642"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -69,7 +69,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>표준 SKU 부하 분산 장치에 대 한 아웃 바운드 Ip를 지정 합니다.
 
-AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예를 들어:
+AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks create \
@@ -121,7 +121,7 @@ az aks update \
 
 ## <a name="disable-authorized-ip-ranges"></a>권한 있는 IP 범위 사용 안 함
 
-권한 있는 IP 범위를 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 를 사용 하 고 API server 권한 있는 ip 범위를 사용 하지 않도록 빈 범위를 지정 합니다. 예를 들어:
+권한 있는 IP 범위를 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 를 사용 하 고 API server 권한 있는 ip 범위를 사용 하지 않도록 빈 범위를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az aks update \
@@ -130,11 +130,28 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>권한 있는 기존 IP 범위 찾기
+
+권한이 부여 된 IP 범위를 찾으려면 [az aks show][az-aks-show] 를 사용 하 고 클러스터의 이름 및 리소스 그룹을 지정 합니다. 예를 들면 다음과 같습니다.
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Azure Portal를 사용 하 여 권한 있는 IP 범위 업데이트, 사용 안 함 및 찾기
+
+권한 있는 IP 범위를 추가, 업데이트, 찾기 및 비활성화 하는 위의 작업을 Azure Portal 에서도 수행할 수 있습니다. 에 액세스 하려면 클러스터 리소스의 메뉴 블레이드에서 **설정** 아래에 있는 **네트워킹** 으로 이동 합니다.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="브라우저에서 클러스터 리소스의 네트워킹 설정 Azure Portal 페이지가 표시 됩니다. ' 지정 된 IP 범위 설정 ' 및 ' 지정 된 IP 범위 ' 옵션이 강조 표시 됩니다.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>`--api-server-authorized-ip-ranges`에 포함할 IP를 찾는 방법
 
 여기에서 API 서버에 액세스 하기 위해 개발 컴퓨터, 도구 또는 automation IP 주소를 승인 된 IP 범위의 AKS 클러스터 목록에 추가 해야 합니다. 
 
-또 다른 옵션은 Firewall의 가상 네트워크에서 별도의 서브넷 내에 필요한 도구를 사용하여 jumpbox를 구성하는 것입니다. 사용자 환경에 해당 네트워크를 사용 하는 방화벽이 있고 인증 된 범위에 방화벽 Ip를 추가 했다고 가정 합니다. 마찬가지로, AKS 서브넷에서 방화벽 서브넷으로 강제 터널링 하는 경우 클러스터 서브넷에 jumpbox가 없어도 됩니다.
+또 다른 옵션은 Firewall의 가상 네트워크에서 별도의 서브넷 내에 필요한 도구를 사용하여 jumpbox를 구성하는 것입니다. 사용자 환경에 해당 네트워크를 사용 하는 방화벽이 있고 인증 된 범위에 방화벽 Ip를 추가 했다고 가정 합니다. 마찬가지로, AKS 서브넷에서 방화벽 서브넷으로 강제 터널링 하는 경우 클러스터 서브넷의 jumpbox도 마찬가지입니다.
 
 다음 명령을 사용 하 여 승인 된 범위에 다른 IP 주소를 추가 합니다.
 
@@ -170,6 +187,7 @@ Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728995"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881926"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -46,16 +46,16 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
 
-|키|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 이것은 기본값입니다. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
 
-|키|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
@@ -239,7 +239,7 @@ Windows에서 실행 중인 소비 또는 프리미엄 계획에 배포 하는 �
 
 ## <a name="website_contentovervnet"></a>웹 사이트 \_ CONTENT과잉 VNET
 
-프리미엄 요금제에만 해당 합니다. 값을 `1` 사용 하면 저장소 계정이 가상 네트워크로 제한 된 경우 함수 앱의 크기를 조정할 수 있습니다. 저장소 계정을 가상 네트워크로 제한할 때이 설정을 사용 하도록 설정 해야 합니다. 자세히 알아보려면 [가상 네트워크로 저장소 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview)을 참조 하세요. 
+프리미엄 요금제에만 해당 합니다. 값을 `1` 사용 하면 저장소 계정이 가상 네트워크로 제한 된 경우 함수 앱의 크기를 조정할 수 있습니다. 저장소 계정을 가상 네트워크로 제한할 때이 설정을 사용 하도록 설정 해야 합니다. 자세히 알아보려면 [가상 네트워크로 저장소 계정 제한](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network)을 참조 하세요.
 
 |키|샘플 값|
 |---|------------|

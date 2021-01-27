@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: a45efd90043ecb4d457db7ed39651f1a9b5bbd4d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746495"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890610"
 ---
 # <a name="iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지
 
@@ -149,6 +149,6 @@ IoT 플러그 앤 플레이 브리지는 다음을 지정 하는 JSON 기반 구
 IoT 플러그 앤 플레이 브리지의 아키텍처에 대 한 개요를 만들었으므로 다음 단계는에 대 한 자세한 내용입니다.
 
 - [Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법](./howto-use-iot-pnp-bridge.md)
-- [IoT 플러그 앤 플레이 브리지를 빌드하고 배포 합니다.](howto-build-deploy-extend-pnp-bridge.md)
-- [IoT 플러그 앤 플레이 브리지 확장](howto-build-deploy-extend-pnp-bridge.md)
+- [IoT 플러그 앤 플레이 브리지 빌드 및 배포](howto-build-deploy-extend-pnp-bridge.md)
+- [IoT 플러그 앤 플레이 브리지 확장](howto-author-pnp-bridge-adapter.md)
 - [GitHub의 IoT 플러그 앤 플레이 브리지](https://github.com/Azure/iot-plug-and-play-bridge)

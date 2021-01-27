@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: sandeo
-ms.openlocfilehash: b4fc6b9facc79db109c5ce5be09576b16a2abdc7
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 3e50b6209c7790853158a1d2be2f42d625b6753b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510892"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882130"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -201,7 +201,7 @@ Access denied:  to sign-in you be assigned a role with action 'Microsoft.Compute
 Access denied
 ```
 > [!NOTE]
-> Azure 역할 할당에 문제가 발생 하는 경우 [AZURE RBAC 문제 해결](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit)을 참조 하세요.
+> Azure 역할 할당에 문제가 발생 하는 경우 [AZURE RBAC 문제 해결](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit)을 참조 하세요.
 
 ### <a name="continued-ssh-sign-in-prompts"></a>SSH 로그인 프롬프트 반복
 

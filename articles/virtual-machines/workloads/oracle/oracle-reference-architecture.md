@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737815"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882300"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대 한 참조 아키텍처
 
@@ -216,7 +216,7 @@ Oracle 워크 로드를 Azure에 배포 하는 경우 Microsoft는 모든 호스
 - 가용성 영역을 사용 하 여 지역에서 고가용성을 구현 합니다.
 - Oracle 데이터베이스에 대 한 ultra disks (사용 가능한 경우) 또는 프리미엄 디스크를 사용 하는 것이 좋습니다.
 - Oracle Data Guard를 사용 하 여 다른 Azure 지역에 대기 Oracle 데이터베이스를 설정 하는 것이 좋습니다.
-- 응용 프로그램과 데이터베이스 계층 간의 대기 시간을 줄이려면 [근접 배치 그룹](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) 을 사용 하는 것이 좋습니다.
+- 응용 프로그램과 데이터베이스 계층 간의 대기 시간을 줄이려면 [근접 배치 그룹](../../co-location.md#proximity-placement-groups) 을 사용 하는 것이 좋습니다.
 - 관리, 모니터링 및 로깅을 위해 [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) 를 설정 합니다.
 - 데이터베이스에 대해 간소화 된 저장소 관리를 위해 Oracle ASM (자동 저장소 관리)을 사용 하는 것이 좋습니다.
 - [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 를 사용 하 여 가동 중지 시간 없이 데이터베이스에 대 한 패치 및 업데이트를 관리할 수 있습니다.

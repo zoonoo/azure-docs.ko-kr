@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: b-juche
-ms.openlocfilehash: 41e0f996bcd75ba1663bb8eb3880d550bed01f94
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5984727f123da6e1d35d862c3f396bd85ce9e7f2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703439"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881455"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -96,7 +96,7 @@ ms.locfileid: "98703439"
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware 솔루션
 
-* [Azure VMware 솔루션을 사용 하 여 Azure NetApp Files-게스트 OS 탑재](../azure-vmware/net-app-files-with-azure-vmware-solution.md)
+* [Azure VMware 솔루션을 사용 하 여 Azure NetApp Files-게스트 OS 탑재](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
 
 ## <a name="virtual-desktop-infrastructure-solutions"></a>가상 데스크톱 인프라 솔루션
 

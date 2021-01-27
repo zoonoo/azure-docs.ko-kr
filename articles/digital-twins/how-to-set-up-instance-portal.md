@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044376"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882455"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -71,13 +71,13 @@ ms.locfileid: "98044376"
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-먼저 Azure Portal에서 Azure Digital Twins 인스턴스의 페이지를 엽니다. 인스턴스의 메뉴에서 *Access control (IAM)* 을 선택 합니다. *역할 할당 추가* 에서 *추가* 단추를 선택 합니다.
+먼저 Azure Portal에서 Azure Digital Twins 인스턴스의 페이지를 엽니다. 인스턴스의 메뉴에서 *Access control (IAM)* 을 선택 합니다. **+ 추가** 단추를 선택 하 여 새 역할 할당을 추가 합니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="' Access control (IAM) ' 페이지에서 역할 할당을 추가 하려면 선택 합니다.":::
 
 다음 *역할 할당 추가* 페이지에서 값을 입력 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 완료 해야 함).
 * **역할**: 드롭다운 메뉴에서 *Azure Digital Twins 데이터 소유자* 를 선택 합니다.
-* **액세스 권한 할당**: 드롭다운 메뉴에서 *Azure AD 사용자, 그룹 또는 서비스 사용자를* 선택 합니다.
+* **액세스 권한 할당**: *사용자, 그룹 또는 서비스 주체* 사용
 * **선택**: 할당할 사용자의 이름 또는 전자 메일 주소를 검색 합니다. 결과를 선택 하면 사용자가 *선택한 구성원* 섹션에 표시 됩니다.
 
 :::row:::

@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: cfe3efc77e065ac3685b72d0eab501034609b59b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f617d680b42a2bb7590cf5aaed657c0469f811d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068264"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882419"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>PowerShell을 사용 하 여 Azure 이미지 작성기 서비스 권한 구성
 
@@ -41,7 +41,7 @@ Azure 이미지 작성기를 사용 하려면 [azure 사용자 할당 관리 id]
 
 다음 예제에서는 Azure 사용자 할당 관리 id를 만드는 방법을 보여 줍니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Resource group\> | 사용자 할당 관리 id를 만들 리소스 그룹입니다. |
 
@@ -121,7 +121,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | 사용자 지정 이미지에 대 한 리소스 그룹 |
@@ -170,7 +170,7 @@ New-AzRoleAssignment @parameters
 
 예제의 값을 간단 하 게 바꾸기 위해 다음 변수를 먼저 설정 합니다. 자리 표시자 설정을 대체 하 여 변수를 설정 합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |---------|-------------|
 | \<Subscription ID\> | Azure 구독 ID |
 | \<Resource group\> | VNET 리소스 그룹 |
@@ -214,4 +214,4 @@ New-AzRoleAssignment @parameters
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure 이미지 작성기 개요](image-builder-overview.md)를 참조 하세요.
+자세한 내용은 [Azure 이미지 작성기 개요](../image-builder-overview.md)를 참조 하세요.

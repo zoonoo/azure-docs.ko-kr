@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
 description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대 한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: c5813f901f31f96633e11c2ed8162338bdd9bbf7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126872"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881217"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 Id에 Service Bus 항목에 액세스할 수 있는 권한이 없습니다. 
 
 ### <a name="resolution"></a>해결 방법
-이 오류를 해결 하려면 [Microsoft. Azure](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  자세한 내용은 [로컬 개발 인증](../key-vault/general/service-to-service-authentication.md#local-development-authentication)을 참조 하세요. 
+이 오류를 해결 하려면 [Microsoft. Azure](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  자세한 내용은 [로컬 개발 인증](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication)을 참조 하세요. 
 
 역할에 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 관리 Id 인증을 참조 하 여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)합니다.
 

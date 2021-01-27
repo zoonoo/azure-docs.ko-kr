@@ -6,35 +6,33 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 08c0d05ac10d9e61497d36793740c8e827fbeca1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ba353cf41cf3876a681f8f18d4121401260ff4ff
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903686"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877173"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 방화벽 규칙-단일 서버
-Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대 한 모든 액세스를 차단 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
+서버에 액세스할 수 있는 IP 호스트를 지정할 때까지 데이터베이스 서버에 대 한 모든 액세스를 방지 하기 위해 Azure Database for PostgreSQL 서버는 기본적으로 안전 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
 
 **방화벽 규칙:** 이 규칙은 모든 PostgreSQL용 Azure 데이터베이스 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. Azure Portal 또는 Azure CLI 명령을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다. 서버 수준 방화벽 규칙을 만들려면 구독 소유자 또는 구독 참가자여야 합니다.
 
 ## <a name="firewall-overview"></a>방화벽 개요
-PostgreSQL용 Azure 데이터베이스 서버에 대한 모든 데이터베이스 액세스는 기본적으로 방화벽에 의해 차단됩니다. 다른 컴퓨터에서 서버를 사용하려면 해당 서버에 대한 액세스를 허용하는 하나 이상의 서버 수준 방화벽 규칙을 지정해야 합니다. 방화벽 규칙을 사용하여 허용할 인터넷에서의 IP 주소 범위를 지정합니다. Azure Portal 웹 사이트 자체에 대한 액세스는 이 방화벽 규칙의 영향을 받지 않습니다.
-인터넷과 Azure로부터의 연결 시도는 다음 다이어그램과 같이 PostgreSQL Database에 연결하기 전에 먼저 방화벽을 통과해야 합니다.
+Azure Database for PostgreSQL 서버에 대 한 모든 액세스는 기본적으로 방화벽에 의해 차단 됩니다. 다른 컴퓨터/클라이언트 또는 응용 프로그램에서 서버에 액세스 하려면 서버에 액세스할 수 있도록 하나 이상의 서버 수준 방화벽 규칙을 지정 해야 합니다. 방화벽 규칙을 사용 하 여 허용 되는 공용 IP 주소 범위를 지정 합니다. Azure Portal 웹 사이트 자체에 대한 액세스는 이 방화벽 규칙의 영향을 받지 않습니다.
+다음 다이어그램과 같이 인터넷 및 Azure의 연결 시도는 먼저 방화벽을 통과 해야 PostgreSQL 데이터베이스에 연결할 수 있습니다.
 
 :::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="방화벽 작동 방식을 보여 주는 예제 흐름":::
 
 ## <a name="connecting-from-the-internet"></a>인터넷에서 연결하기
-서버 수준 방화벽 규칙은 동일한 Azure Database for PostgreSQL 서버에 있는 모든 데이터베이스에 적용됩니다. 요청된 IP 주소가 서버 수준 방화벽 규칙의 지정된 범위 안에 있을 경우, 연결이 허용됩니다.
-요청된 IP 주소가 서버 수준 방화벽 규칙의 지정된 범위 안에 없을 경우, 연결 요청이 실패합니다.
-예를 들어 애플리케이션에서 PostgreSQL용 JDBC 드라이버에 연결하는 경우 방화벽이 연결을 차단할 때 연결하려고 하면 다음 오류가 발생할 수 있습니다.
+서버 수준 방화벽 규칙은 동일한 Azure Database for PostgreSQL 서버에 있는 모든 데이터베이스에 적용됩니다. 요청의 원본 IP 주소가 서버 수준 방화벽 규칙에 지정 된 범위 내에 있는 경우 연결이 거부 되 고 그렇지 않은 경우에는 연결이 허용 됩니다. 예를 들어 애플리케이션에서 PostgreSQL용 JDBC 드라이버에 연결하는 경우 방화벽이 연결을 차단할 때 연결하려고 하면 다음 오류가 발생할 수 있습니다.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
 
 ## <a name="connecting-from-azure"></a>Azure에서 연결
 응용 프로그램 또는 서비스의 나가는 IP 주소를 찾고 이러한 개별 IP 주소 또는 범위에 대 한 액세스를 명시적으로 허용 하는 것이 좋습니다. 예를 들어 Azure App Service의 나가는 IP 주소를 찾거나 가상 컴퓨터 또는 다른 리소스에 연결 된 공용 IP를 사용할 수 있습니다. 서비스 끝점을 통해 가상 컴퓨터의 개인 IP와 연결 하는 방법에 대 한 정보는 아래를 참조 하세요. 
 
-Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장** 을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for PostgreSQL 서버에 도달하지 않습니다.
+Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는 경우 모든 Azure 데이터 센터 IP 주소에서 연결을 사용 하도록 설정할 수 있습니다. 이 설정은 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장** 을 사용 하 여 Azure Portal에서 사용 하도록 설정할 수 있습니다. Azure CLI에서 시작 주소와 끝 주소가 0.0.0.0 인 방화벽 규칙 설정은 해당 하는 것을 의미 합니다. 방화벽 규칙에 의해 연결 시도가 거부 되 면 Azure Database for PostgreSQL 서버에 도달 하지 않습니다.
 
 > [!IMPORTANT]
 > **Azure 서비스에 대 한 액세스 허용** 옵션은 다른 고객의 구독에서 연결을 포함 하 여 azure에서 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
@@ -42,7 +40,7 @@ Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는
 
 :::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="포털에서 Azure 서비스 방문 허용 구성":::
 
-### <a name="connecting-from-a-vnet"></a>VNet에서 연결
+## <a name="connecting-from-a-vnet"></a>VNet에서 연결
 VNet에서 Azure Database for PostgreSQL 서버에 안전 하 게 연결 하려면 [vnet 서비스 끝점](./concepts-data-access-and-security-vnet.md)을 사용 하는 것이 좋습니다. 
 
 ## <a name="programmatically-managing-firewall-rules"></a>방화벽 규칙을 프로그래밍 방식으로 관리

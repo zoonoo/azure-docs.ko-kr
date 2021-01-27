@@ -10,24 +10,24 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964561"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881740"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 트리거
 
 이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다. 마지막으로, Azure 논리 앱을 사용 하 여 더 복잡 한 트리거 논리 나 동작을 허용 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
 * Python 용 Azure Machine Learning SDK가 설치 된 Python 환경 자세한 내용은 [Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
 
-* 게시 된 파이프라인이 있는 Machine Learning 작업 영역입니다. Azure Machine Learning SDK를 사용 하 여 [machine learning 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)에서 빌드된 빌드를 사용할 수 있습니다.
+* 게시 된 파이프라인이 있는 Machine Learning 작업 영역입니다. Azure Machine Learning SDK를 사용 하 여 [machine learning 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)에서 빌드된 빌드를 사용할 수 있습니다.
 
 ## <a name="initialize-the-workspace--get-data"></a>작업 영역을 초기화 하 여 데이터 가져오기 &
 
@@ -142,7 +142,7 @@ stop_by_schedule_id(ws, schedule_id)
 
 더 복잡 한 트리거 규칙 또는 동작은 [Azure 논리 앱](../logic-apps/logic-apps-overview.md)을 사용 하 여 만들 수 있습니다.
 
-Azure 논리 앱을 사용 하 여 Machine Learning 파이프라인을 트리거하려면 게시 된 Machine Learning 파이프라인에 대 한 REST 끝점이 필요 합니다. [파이프라인을 만들고 게시](how-to-create-your-first-pipeline.md)합니다. 그런 다음 `PublishedPipeline` 파이프라인 ID를 사용 하 여의 REST 끝점을 찾습니다.
+Azure 논리 앱을 사용 하 여 Machine Learning 파이프라인을 트리거하려면 게시 된 Machine Learning 파이프라인에 대 한 REST 끝점이 필요 합니다. [파이프라인을 만들고 게시](./how-to-create-machine-learning-pipelines.md)합니다. 그런 다음 `PublishedPipeline` 파이프라인 ID를 사용 하 여의 REST 끝점을 찾습니다.
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio
@@ -181,7 +181,7 @@ published_pipeline.endpoint
 
   다음 설정을 사용 하 여 작업을 구성 합니다.
 
-  | 설정 | Value | 
+  | 설정 | 값 | 
   |---|---|
   | HTTP 동작 | POST |
   | URI |[필수 구성 요소로](#prerequisites) 찾은 게시 된 파이프라인에 대 한 끝점입니다. |

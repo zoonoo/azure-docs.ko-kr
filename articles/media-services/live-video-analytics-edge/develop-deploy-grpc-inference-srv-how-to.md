@@ -3,12 +3,12 @@ title: GRPC 유추 서버 개발 및 배포-Azure
 description: 이 문서에서는 gRPC 유추 서버를 개발 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 3f732a7432dacebeeefddd1822fec7d95dfbaa97
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97425898"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881655"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>방법 가이드 – gRPC 유추 서버 개발 및 배포
 
@@ -24,11 +24,11 @@ ms.locfileid: "97425898"
 * [GRPC 소개](https://www.grpc.io/docs/what-is-grpc/introduction/)
 * [proto3 언어 가이드](https://developers.google.com/protocol-buffers/docs/proto3)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [지원 되는 Linux 운영 체제](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) 또는 Windows 컴퓨터 중 하나를 실행 하는 x86-64 또는 ARM64 장치입니다.
+* [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 또는 Windows 컴퓨터 중 하나를 실행 하는 x86-64 또는 ARM64 장치입니다.
 * 컴퓨터에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install) 합니다.
-* [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge?tabs=linux)을 설치 합니다.
+* [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md?tabs=linux)을 설치 합니다.
 
 ## <a name="grpc-implementation-steps"></a>gRPC 구현 단계
 
@@ -197,7 +197,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
         1. 처리를 위해 바이트 배열의 이미지를 변환 합니다. 자세한 내용은 메서드: `GetBytes(Bitmap image)`
         
             사용 중인 샘플 프로세서는 JPG 인코딩 이미지 프레임만 지원 하 고 픽셀 형식으로는 지원 하지 않습니다. 사용자 지정 프로세서가 다른 인코딩 및/또는 형식을 지원 하는 경우 `IsMediaFormatSupported` 프로세서 클래스의 메서드를 업데이트 합니다.
-        1. [Colormatrix 클래스](https://docs.microsoft.com/dotnet/api/system.drawing.imaging.colormatrix?redirectedfrom=MSDN&view=dotnet-plat-ext-3.1&preserve-view=true)를 사용 하 여 이미지를 회색 눈금으로 변환 합니다. 메서드:를 참조 하세요 `ToGrayScale(Image source)` .
+        1. [Colormatrix 클래스](/dotnet/api/system.drawing.imaging.colormatrix?preserve-view=true&view=dotnet-plat-ext-3.1)를 사용 하 여 이미지를 회색 눈금으로 변환 합니다. 메서드:를 참조 하세요 `ToGrayScale(Image source)` .
         1. 회색 눈금 이미지를 가져온 후에는 회색 배율 바이트의 평균을 계산 합니다.
         1. 평균 값이 127 < 경우 이미지를 "진한"으로 분류 하 고, 그렇지 않은 경우 신뢰도 값이 1.0 인 "light"로 분류 합니다. 메서드:를 참조 하세요 `ProcessImage(List<Image> images)` .
 
@@ -213,7 +213,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
 
 이제 gRPC 확장 모듈을 만들었으므로 미디어 그래프 토폴로지를 만들어 배포할 것입니다.
 
-1. Visual Studio Code를 사용하여 [이러한 지침](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution)에 따라 Docker에 로그인합니다.
+1. Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)에 따라 Docker에 로그인합니다.
 1. Visual Studio Code에서 src/edge로 이동합니다. env 파일 및 몇 가지 배포 템플릿 파일이 표시됩니다.
 
     배포 템플릿은 에지 디바이스에 대한 배포 매니페스트를 나타냅니다. 일부 자리 표시자 값을 포함합니다. .env 파일에는 이러한 변수에 대한 값이 포함되어 있습니다.
@@ -231,7 +231,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
     * Program.cs - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
         * 앱 설정을 로드합니다.
-        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 [직접 메서드](direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
+        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 이 모듈을 통해 [직접 메서드](direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
         * 터미널 창에서 프로그램의 출력을 검사하고, 출력 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. operations.json 파일을 편집합니다.
@@ -309,4 +309,3 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
 ## <a name="next-steps"></a>다음 단계
 
 [모델을 사용 하 여 라이브 비디오 분석](use-your-model-quickstart.md) 빠른 시작에 설명 된 **이벤트 모니터링 준비** 단계에 따라 샘플을 실행 하 고 결과를 해석 합니다. 또한 [Grpcextension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension 및 [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json)샘플 grpc 토폴로지를 확인 하세요.
-

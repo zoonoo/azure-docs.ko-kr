@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 01/20/2021
+ms.date: 01/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0e380b49f122e63113e790f4e866fed40aa9beac
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9af90e10d889c3d30375e001891ce0dc70767ab4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662715"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881404"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -97,7 +97,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 
 - 모든 구독에서 경고를 보고 새로 고치는 기능을 사용 하 여 위임 된 구독에 대 한 경고 보기
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
-- Log analytics: 여러 테 넌 트의 원격 작업 영역에서 데이터를 쿼리 합니다 (고객 테 넌 트의 작업 영역에서 데이터에 액세스 하는 데 사용 되는 automation 계정은 동일한 테 넌 트에 생성 되어야 함).
+- [Log analytics](../../azure-monitor/platform/service-providers.md): 여러 테 넌 트의 원격 작업 영역에서 데이터를 쿼리 합니다 (고객 테 넌 트의 작업 영역에서 데이터에 액세스 하는 데 사용 되는 automation 계정은 동일한 테 넌 트에 생성 되어야 함).
 - 웹 후크를 통해 테 넌 트 관리에서 Azure Automation runbook 또는 Azure Functions와 같이 자동화를 트리거하는 고객 테 넌 트에 경고를 만듭니다.
 - 고객 테 넌 트에서 [진단 설정을](../..//azure-monitor/platform/diagnostic-settings.md) 만들어 리소스 로그를 관리 테 넌 트의 작업 영역으로 보냅니다.
 - SAP 워크 로드의 경우 [고객 테 넌 트 전체에서 집계 된 뷰로 Sap 솔루션 메트릭 모니터링](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
