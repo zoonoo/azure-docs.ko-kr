@@ -1,25 +1,25 @@
 ---
-title: Edge Pro GPU 장치 Azure Stack에서 PHP 방명록 앱 배포 Arc 사용 Kubernetes Microsoft Docs
-description: Azure Stack Edge Pro 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
+title: '`PHP Guestbook`Edge PRO GPU 장치 Azure Stack에 앱 배포 Arc 사용 Kubernetes on Microsoft Docs'
+description: '`Guestbook`Azure Stack Edge Pro 장치의 Arc Enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 Redis를 사용 하 여 PHP 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.'
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882962"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804874"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>`Guestbook`Azure Stack Edge PRO GPU에서 Redis On Arc Enabled Kubernetes cluster를 사용 하 여 PHP 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 Kubernetes 및 Azure Arc를 사용 하 여 간단한 다중 계층 웹 응용 프로그램을 빌드하고 배포 하는 방법을 보여 줍니다. 이 예제는 다음과 같은 구성 요소로 구성 됩니다.
 
-- 방명록 항목을 저장할 단일 인스턴스 Redis 마스터
+- 항목을 저장 하는 단일 인스턴스 Redis 마스터 `guestbook`
 - 읽기를 제공 하기 위해 여러 복제 된 Redis 인스턴스
 - 여러 웹 프런트 엔드 인스턴스
 
@@ -49,18 +49,18 @@ ms.locfileid: "97882962"
 
 1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
 1. [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
     
-    - `kubectl`클라이언트에 설치 됨  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - `kubectl`클라이언트에 설치 됩니다. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
       - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
       - Azure Stack Edge Pro 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes 소프트웨어 번호를 확인 합니다. 
-      - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과의 호환성을 위해 이러한 두 버전을 확인 합니다. <!--insert link-->.
+      - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과 호환 되는지 확인 합니다. <!--insert link-->
 
 1. [Azure Arc 배포를 실행 하는 데 사용할 수 있는 Gitops 구성이](https://github.com/kagoyal/dbehaikudemo)있습니다. 이 예제에서는 다음 파일을 사용 하 여 `yaml` Azure Stack Edge Pro 장치에 배포 합니다.
 
@@ -86,18 +86,18 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 
     ![구성 추가가 선택 된 Azure Arc enabled Kubernetes 클러스터를 보여 주는 스크린샷](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. **구성 추가** 에서 필드에 적절 한 값을 입력 하 고 **적용** 을 선택 합니다.
+1. **구성 추가** 에서 필드에 적절 한 값을 입력 한 다음 **적용** 을 선택 합니다.
 
-    |매개 변수  |Description |
+    |매개 변수  |설명 |
     |---------|---------|
     |구성 이름     | 구성 리소스의 이름입니다.        |
     |Operator 인스턴스 이름     |특정 구성을 식별 하는 운영자의 인스턴스 이름입니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
-    |Operator 네임 스페이스     | 이는 배포에 지정 된 네임 스페이스와 일치 하므로 **demotestguestbook** 으로 설정 `yaml` 합니다. <br> 필드는 운영자가 설치 되는 네임 스페이스를 정의 합니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
+    |Operator 네임 스페이스     | 배포에 지정 된 네임 스페이스와 일치 하도록 **demotestguestbook** 으로 설정 `yaml` 합니다. <br> 필드는 운영자가 설치 되는 네임 스페이스를 정의 합니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
     |리포지토리 URL     |<br>`http://github.com/username/repo` `git://github.com/username/repo` GitOps 구성이 있는 또는 형식의 git 리포지토리에 대 한 경로입니다.         |
-    |연산자 범위     | **네임 스페이스** 를 선택 합니다. <br>이는 운영자가 설치 되는 범위를 정의 합니다. 네임 스페이스로이를 선택 합니다. 운영자는 배포 yaml 파일에 지정 된 네임 스페이스에 설치 됩니다.       |
-    |연산자 유형     | 기본값을 그대로 둡니다. <br>이는 기본적으로 flux로 설정 되는 연산자의 유형을 지정 합니다.        |
-    |연산자 params     | 이 필드를 비워 둡니다. <br>이 필드에는 flux 연산자에 전달할 매개 변수가 포함 되어 있습니다.        |
-    |Helm     | **사용 안 함** 으로 설정 합니다. <br>차트 기반 배포를 수행 하는 경우이 옵션을 사용 하도록 설정 합니다.        |
+    |연산자 범위     | **네임 스페이스** 를 선택 합니다. <br>이 매개 변수는 운영자가 설치 되는 범위를 정의 합니다. 배포 yaml 파일에 지정 된 네임 스페이스에 연산자를 설치 하려면 네임 스페이스를 선택 합니다.       |
+    |연산자 유형     | 기본값을 그대로 둡니다. <br>이 매개 변수는 기본적으로 flux로 설정 된 연산자의 유형을 지정 합니다.        |
+    |연산자 params     | 이 필드를 비워 둡니다. <br>이 매개 변수는 flux 연산자에 전달할 매개 변수를 포함 합니다.        |
+    |Helm     | 이 매개 변수를 **사용 안 함** 으로 설정 합니다. <br>차트 기반 배포를 수행 하는 경우이 옵션을 사용 하도록 설정 합니다.        |
 
 
     ![구성 추가](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -136,7 +136,7 @@ GitOps 구성을 통한 배포는 `demotestguestbook` git 리포지토리에 있
     [10.128.44.240]: PS>
     ```  
 
-1. 이 예제에서 프런트 엔드 서비스는 형식 LoadBalancer로 배포 되었습니다. 이 서비스의 IP 주소를 확인 하 여 방명록을 확인 해야 합니다. 다음 명령을 실행합니다.
+1. 이 예제에서 프런트 엔드 서비스는 형식 LoadBalancer로 배포 되었습니다. 를 보려면이 서비스의 IP 주소를 찾아야 `guestbook` 합니다. 다음 명령을 실행합니다.
 
     `kubectl get service -n <your-namespace>`
     
@@ -149,13 +149,13 @@ GitOps 구성을 통한 배포는 `demotestguestbook` git 리포지토리에 있
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. 의 프런트 엔드 서비스에는 `type:LoadBalancer` 외부 IP 주소가 있습니다. 이 IP는 장치에서 계산 네트워크 설정을 구성할 때 외부 서비스에 대해 지정한 IP 주소 범위에서 가져온 것입니다. 이 IP 주소를 사용 하 여 URL에서 방명록을 볼 수 `https://<external-IP-address>` 있습니다.
+1. 의 프런트 엔드 서비스에는 `type:LoadBalancer` 외부 IP 주소가 있습니다. 이 IP는 장치에서 계산 네트워크 설정을 구성할 때 외부 서비스에 대해 지정한 IP 주소 범위에서 가져온 것입니다. 이 IP 주소를 사용 하 여 `guestbook` URL:에서를 볼 수 `https://<external-IP-address>` 있습니다.
 
     ![방명록 보기](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## <a name="delete-deployment"></a>배포 삭제
 
-배포를 삭제 하려면 Azure Portal에서 구성을 삭제할 수 있습니다. 그러면 배포 및 서비스를 포함 하 여 만든 개체가 삭제 됩니다.
+배포를 삭제 하려면 Azure Portal에서 구성을 삭제할 수 있습니다. 구성을 삭제 하면 배포 및 서비스를 비롯 하 여 만든 개체가 삭제 됩니다.
 
 1. Azure Portal에서 Azure Arc 리소스 > 구성으로 이동 합니다. 
 1. 삭제 하려는 구성을 찾습니다. ...를 선택 합니다. 상황에 맞는 메뉴를 호출 하 고 **삭제** 를 선택 합니다.

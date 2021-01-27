@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449235"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804894"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -24,9 +24,9 @@ ms.locfileid: "96449235"
 Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-상태 저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
+상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
@@ -37,7 +37,7 @@ Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, 
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
 - Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
@@ -50,7 +50,7 @@ Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, 
     - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
         - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
         - Azure Stack Edge Pro 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes 소프트웨어 번호를 확인 합니다. 
-        - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과의 호환성을 위해 이러한 두 버전을 확인 합니다. <!-- insert link-->. 
+        - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과 호환 되는지 확인 합니다.<!-- insert link--> 
 
 
 Azure Stack Edge Pro 장치에 상태 저장 응용 프로그램을 배포할 준비가 되었습니다. 
@@ -327,7 +327,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-다음은 배포 및 서비스를 삭제할 때의 샘플 출력입니다.
+배포 및 서비스를 삭제 하는 경우의 샘플 출력은 다음과 같습니다.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -341,9 +341,9 @@ C:\Users\user>
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
-PVC가 삭제 된 후에는 더 이상 해당 PV를 PVC에 바인딩하지 않습니다. 공유가 생성 될 때 PV가 프로 비전 되 면 공유를 삭제 해야 합니다. 아래 단계를 수행합니다.
+PVC가 삭제 된 후에는 더 이상 해당 PV를 PVC에 바인딩하지 않습니다. 공유가 생성 될 때 PV가 프로 비전 되 면 공유를 삭제 해야 합니다. 다음 단계를 수행하세요.
 
 1. 공유를 탑재 해제 합니다. Azure Portal에서 **Azure Stack Edge 리소스 > 공유** 로 이동 하 여 분리 하려는 공유를 선택 하 고 클릭 합니다. **분리** 를 선택 하 고 작업을 확인 합니다. 공유가 분리 될 때까지 기다립니다. 탑재 해제는 Kubernetes 클러스터에서 공유 (따라서 연결 된 PersistentVolume)를 해제 합니다. 
 

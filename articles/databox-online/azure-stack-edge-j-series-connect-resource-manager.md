@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763220"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805792"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
@@ -34,7 +34,7 @@ Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm �
 
 다음 표에서는 장치에 노출 되는 다양 한 끝점, 지원 되는 프로토콜 및 해당 끝점에 액세스 하는 포트를 요약 하 여 설명 합니다. 이 문서 전체에서 이러한 끝점에 대 한 참조를 찾을 수 있습니다.
 
-| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
+| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 목적 |
 | --- | --- | --- | --- | --- |
 | 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
@@ -57,7 +57,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
 
@@ -99,7 +99,7 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
 3. 이러한 모든 인증서의 경우 주체 이름 및 주체 대체 이름이 다음 지침을 준수 하는지 확인 합니다.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -138,9 +138,9 @@ Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니�
 
     **주** 버전을 비교 하 고 5.0 이상 인지 확인 합니다.
 
-    만료된 버전을 사용하는 경우 [기존 Windows PowerShell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)를 참조합니다.
+    만료된 버전을 사용하는 경우 [기존 Windows PowerShell 업그레이드](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)를 참조합니다.
 
-    \'Powershell 5.0이 없으면 [Windows powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)를 수행 합니다.
+    \'Powershell 5.0이 없으면 [Windows powershell 설치](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true)를 수행 합니다.
 
     샘플 출력은 다음과 같습니다.
 
@@ -156,7 +156,7 @@ Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니�
     
 2. PowerShell 갤러리에 액세스할 수 있습니다.
 
-    관리자 권한으로 PowerShell을 실행합니다. PSGallery이 리포지토리로 등록 되어 있는지 확인 합니다.
+    관리자 권한으로 PowerShell을 실행합니다. `PSGallery`이 리포지토리로 등록 되어 있는지 확인 합니다.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,7 +175,7 @@ Windows 클라이언트는 다음 필수 구성 요소를 충족 해야 합니�
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-리포지토리를 신뢰할 수 없거나 추가 정보가 필요한 경우 [PowerShell 갤러리 접근성 유효성 검사](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility)를 참조 하세요.
+리포지토리를 신뢰할 수 없거나 추가 정보가 필요한 경우 [PowerShell 갤러리 접근성 유효성 검사](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility)를 참조 하세요.
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>4 단계: 클라이언트에서 Azure PowerShell 설정 
 
@@ -327,7 +327,7 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    자세한 내용은 [get-azurermenvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0)를 참조 하세요.
+    자세한 내용은 [get-azurermenvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true)를 참조 하세요.
 
     - 실행 하는 모든 cmdlet에 대해 인라인으로 환경을 정의 합니다. 이렇게 하면 모든 API 호출이 올바른 환경을 통과 하 게 됩니다. 기본적으로 호출은 Azure public을 통과 하지만, 이러한 호출은 Edge Pro 장치 Azure Stack에 대해 설정한 환경을 통해 이동 하는 것을 원합니다.
 

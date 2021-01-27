@@ -1,18 +1,18 @@
 ---
 title: Azure Data Box에 대 한 기본 제공 정책 정의
 description: Azure Data Box에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: ce607d8036fa7dd4f6c0878d9ec028b880089355
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 9c0c8b9b123116bc9f7ce76639ed7adf45cfba99
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703798"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804805"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Azure Data Box에 대 한 기본 제공 정의 Azure Policy
 

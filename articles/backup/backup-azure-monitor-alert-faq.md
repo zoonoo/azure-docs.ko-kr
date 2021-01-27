@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Back
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e2585009b531512e54ffa889a05ec50038dd619
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181496"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805869"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 
@@ -70,5 +70,5 @@ Azure Portal Azure Backup 에이전트 작업 상태를 반영 하는 데 최대
 
 다른 FAQ를 읽어보세요.
 
-* Azure VM에 대한 [일반 질문](backup-azure-vm-backup-faq.md)
+* Azure VM에 대한 [일반 질문](backup-azure-vm-backup-faq.yml)
 * Azure Backup 에이전트에 대한 [일반 질문](backup-azure-file-folder-backup-faq.md)

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822336"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805945"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 경로 미리 보기
 
@@ -50,7 +50,7 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 
 | 규칙 속성  | 필수 | 기본값 | 주석                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | 예      | 해당 없음          | 호출자가 요청한 경로 패턴입니다.<ul><li>[와일드카드](#wildcards)는 경로 경로(route path)의 끝에서 지원됩니다. 예를 들어 경로 _admin/\*_ 은 _admin_ 경로 아래에 있는 경로와 일치합니다.<li>경로의 기본 파일은 _index.html_입니다.</ul>|
+| `route`        | 예      | 해당 없음          | 호출자가 요청한 경로 패턴입니다.<ul><li>[와일드카드](#wildcards)는 경로 경로(route path)의 끝에서 지원됩니다. 예를 들어 경로 _admin/\*_ 은 _admin_ 경로 아래에 있는 경로와 일치합니다.<li>경로의 기본 파일은 _index.html_ 입니다.</ul>|
 | `serve`        | 예       | 해당 없음          | 요청에서 반환된 파일 또는 경로를 정의합니다. 파일 경로 및 이름은 요청된 경로와 다를 수 있습니다. `serve`값이 정의 되지 않은 경우 요청 된 경로가 사용 됩니다. Querystring 매개 변수는 지원 되지 않습니다. `serve` 값은 실제 파일을 가리켜야 합니다.  |
 | `allowedRoles` | 예       | 익명     | 역할 이름의 배열입니다. <ul><li>유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `_`가 포함됩니다.<li>기본 제공 역할 `anonymous`는 인증되지 않은 모든 사용자에게 적용됩니다.<li>기본 제공 역할 `authenticated`는 로그인한 사용자에게 적용됩니다.<li>사용자는 하나 이상의 역할에 속해야 합니다.<li>역할은 _OR_ 기준으로 일치합니다. 사용자가 나열된 역할 중 하나에 있는 경우 액세스 권한이 부여됩니다.<li>개별 사용자는 [초대](authentication-authorization.md)를 통해 역할에 연결됩니다.</ul> |
 | `statusCode`   | 예       | 200           | 요청에 대한 [HTTP 상태 코드](https://wikipedia.org/wiki/List_of_HTTP_status_codes) 응답입니다. |
@@ -131,7 +131,7 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 
 [301](https://en.wikipedia.org/wiki/HTTP_301) 및 [302](https://en.wikipedia.org/wiki/HTTP_302) HTTP 상태 코드를 사용하여 한 경로의 요청을 다른 경로로 리디렉션할 수 있습니다.
 
-예를 들어 다음 규칙은 _old-page.html_에서 _new-page.html_로의 301 리디렉션을 만듭니다.
+예를 들어 다음 규칙은 _old-page.html_ 에서 _new-page.html_ 로의 301 리디렉션을 만듭니다.
 
 ```json
 {
@@ -210,7 +210,7 @@ MIME 형식으로 작업 하는 경우 다음 사항을 고려해 야 합니다.
 }
 ```
 
-위의 예에서는 새 헤더를 추가 하 고 `content-security-policy` ,는 `cache-control` 서버 기본값을 수정 하며, `x-dns-prefectch-control` 헤더가 제거 됩니다.
+위의 예에서는 새 헤더를 추가 하 고 `content-security-policy` ,는 `cache-control` 서버 기본값을 수정 하며, `x-dns-prefetch-control` 헤더가 제거 됩니다.
 
 헤더를 사용할 때 다음 사항을 고려해 야 합니다.
 
@@ -289,15 +289,15 @@ MIME 형식으로 작업 하는 경우 다음 사항을 고려해 야 합니다.
 
 | 다음에 대한 요청... | 결과... |
 |--|--|--|
-| _/profile_ | 인증된 사용자에게는 _/profile/index.html_ 파일이 제공됩니다. _/login_으로 리디렉션된 인증되지 않은 사용자입니다. |
-| _/admin/reports_ | _관리자_ 역할의 인증된 사용자에게는 _/admin/reports/index.html_ 파일이 제공됩니다. _관리자_ 역할에 없는 인증 된 사용자는 401 오류<sup>2</sup>를 제공 합니다. _/login_으로 리디렉션된 인증되지 않은 사용자입니다. |
+| _/profile_ | 인증된 사용자에게는 _/profile/index.html_ 파일이 제공됩니다. _/login_ 으로 리디렉션된 인증되지 않은 사용자입니다. |
+| _/admin/reports_ | _관리자_ 역할의 인증된 사용자에게는 _/admin/reports/index.html_ 파일이 제공됩니다. _관리자_ 역할에 없는 인증 된 사용자는 401 오류 <sup>2</sup>를 제공 합니다. _/login_ 으로 리디렉션된 인증되지 않은 사용자입니다. |
 | _/api/admin_ | _관리자_ 역할의 인증된 사용자 요청이 API로 전송됩니다. _관리자_ 역할에 없는 인증된 사용자 및 인증되지 않은 사용자에게는 401 오류가 제공됩니다. |
-| _/customers/contoso_ | _관리자_ 또는 _고객 \_ contoso_ 역할에 속하는 인증 된 사용자는 _/customers/contoso/index.html_ 파일<sup>2</sup>를 제공 합니다. _관리자_ 또는 _고객\_contoso_ 역할에 없는 인증된 사용자에게는 401 오류가 제공됩니다. _/login_으로 리디렉션된 인증되지 않은 사용자입니다. |
+| _/customers/contoso_ | _관리자_ 또는 _고객 \_ contoso_ 역할에 속하는 인증 된 사용자는 _/customers/contoso/index.html_ 파일 <sup>2</sup>를 제공 합니다. _관리자_ 또는 _고객\_contoso_ 역할에 없는 인증된 사용자에게는 401 오류가 제공됩니다. _/login_ 으로 리디렉션된 인증되지 않은 사용자입니다. |
 | _/login_ | 인증되지 않은 사용자는 GitHub를 사용하여 인증해야 합니다. |
 | _/.auth/login/twitter_ | Twitter를 사용하여 권한 부여를 사용할 수 없습니다. 서버가 404 오류로 응답합니다. |
 | _/logout_ | 사용자는 모든 인증 공급자에서 로그아웃됩니다. |
 | _/calendar/2020/01_ | 브라우저에는 _/calendar.html_ 파일이 제공됩니다. |
-| _/specials_ | 브라우저가 _/deals_로 리디렉션됩니다. |
+| _/specials_ | 브라우저가 _/deals_ 로 리디렉션됩니다. |
 | _/unknown-folder_ | _/custom-404.html_ 파일이 제공됩니다. |
 | 확장명이 있는 파일 `.custom` | MIME 형식으로 제공 됩니다. `text/html` |
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955555"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804870"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 실행 되는 Vm에 사용자 지정 스크립트 확장 배포
 
@@ -60,15 +60,15 @@ If your script is on a local server, then you may still need additional firewall
 > [!NOTE]
 > Before you install the Custom Script extension, make sure that the port enabled for compute network on your device is connected to Internet and has access. -->
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
+1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 다운로드를 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
 
 1. VM을 만들어 장치에 배포 해야 합니다. Vm을 만들려면 [템플릿을 사용 하 여 Azure Stack Edge Pro에서 Vm 배포](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)의 모든 단계를 따르세요.
 
-    GitHub 또는 Azure Storage에서와 같이 외부에서 스크립트를 다운로드 해야 하는 경우 compute 네트워크를 구성 하는 동안 계산을 위해 인터넷에 연결 된 포트를 사용 하도록 설정 합니다. 이를 통해 스크립트를 다운로드할 수 있습니다.
+    GitHub 또는 Azure Storage와 같은 스크립트를 외부에서 다운로드 해야 하는 경우 계산 네트워크를 구성 하는 동안 계산을 위해 인터넷에 연결 된 포트를 사용 하도록 설정 합니다. 이를 통해 스크립트를 다운로드할 수 있습니다.
 
-    포트 2가 인터넷에 연결 되어 있고 계산 네트워크를 사용 하도록 설정 하는 데 사용 된 예제는 다음과 같습니다. 이전 단계에서 Kubernetes가 필요 하지 않은 것으로 확인 된 경우 Kubernetes 노드 IP 및 외부 서비스 IP 할당을 건너뛸 수 있습니다.    
+    다음 예제에서는 포트 2가 인터넷에 연결 되어 있고 계산 네트워크를 사용 하도록 설정 하는 데 사용 되었습니다. 이전 단계에서 Kubernetes가 필요 하지 않은 것으로 확인 된 경우 Kubernetes 노드 IP 및 외부 서비스 IP 할당을 건너뛸 수 있습니다.
 
     ![인터넷에 연결 된 포트에서 계산 설정 사용](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ VM의 운영 체제에 따라 Windows 또는 Linux 용 사용자 지정 스크�
 ```
 VM 이름, 확장에 대 한 이름 및 실행 하려는 명령을 제공 합니다.
 
-다음은이 문서에서 사용 된 샘플 매개 변수 파일입니다. 
+이 문서에서 사용 된 샘플 매개 변수 파일은 다음과 같습니다.
 
 ```powershell
 {
@@ -147,7 +147,7 @@ VM 이름, 확장에 대 한 이름 및 실행 하려는 명령을 제공 합니
 ```
 #### <a name="deploy-template"></a>템플릿 배포
 
-템플릿을 배포 `addCSextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령을 실행합니다.
+템플릿을 배포 `addCSextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령 실행:
 
 ```powershell
 $templateFile = "<Path to addCSExtensiontoVM.json file>"
@@ -337,7 +337,7 @@ Administrator@VM6:
 
 #### <a name="track-deployment-status"></a>배포 상태 추적    
     
-템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다. 
+템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령 실행: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
@@ -396,4 +396,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 023b33732b80198c4ed187328e8d18314f385f94
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ad09bcb1ea4aa32bdd04af47d3503f74c850a10b
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839783"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803514"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "97839783"
 
 ## <a name="about-acknowledging-and-unacknowledging-events"></a>승인 및 승인 되지 않은 이벤트 정보
 
-특정 상황에서는 센서가 검색 된 이벤트를 배우지 않도록 하거나 옵션을 사용 하지 못할 수 있습니다. 대신 문제를 해결 해야 할 수도 있습니다. 예를 들면 다음과 같습니다.
+특정 상황에서는 센서가 검색 된 이벤트를 배우지 않도록 하거나 옵션을 사용 하지 못할 수 있습니다. 대신 문제를 해결 해야 할 수도 있습니다. 다음은 그 예입니다. 
 
 - **네트워크 구성 또는 장치 완화**: 네트워크에서 새 장치가 검색 되었음을 나타내는 경고를 받게 됩니다. 조사할 때 장치가 권한이 없는 네트워크 장치 임을 알 수 있습니다. 네트워크에서 장치를 분리 하 여 인시던트를 처리 합니다.
 - **센서 구성 업데이트**: 서버에서 과도 한 수의 원격 연결을 시작 했음을 나타내는 경고를 받게 됩니다. 이 경고는 1 분 이내에 특정 세션 수를 초과 하는 경고를 트리거하기 위해 센서 비정상 임계값을 정의 했기 때문에 트리거됩니다. 임계값을 업데이트 하 여 인시던트를 처리 합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "97839783"
 
 ## <a name="about-muting-and-unmuting-events"></a>음소거 및 미 음소거 이벤트 정보
 
-특정 상황에서는 네트워크의 특정 시나리오를 무시 하도록 센서에 지시할 수 있습니다. 예를 들면 다음과 같습니다.
+특정 상황에서는 네트워크의 특정 시나리오를 무시 하도록 센서에 지시할 수 있습니다. 다음은 그 예입니다. 
 
   - **변칙** 엔진은 두 장치 간의 대역폭 급증에 대 한 경고를 트리거하고 이러한 장치에 대해 스파이크가 유효 합니다.
 
@@ -106,8 +106,6 @@ ms.locfileid: "97839783"
 
 2. 경고를 가리켜 음소거 되어 있는지 확인 합니다.  
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-[보고서 생성](how-to-generate-reports.md)
-
-[모니터링 되는 트래픽 제어](how-to-control-what-traffic-is-monitored.md)
+[모니터링된 트래픽 제어](how-to-control-what-traffic-is-monitored.md)

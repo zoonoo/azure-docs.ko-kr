@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 0a7f54d991d31594a6ab522dbf9e73958cde3023
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804927"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에 대 한 GPU Vm
 
@@ -197,7 +197,7 @@ PS C:\WINDOWS\system32>
 ```
 #### <a name="deploy-template"></a>템플릿 배포
 
-템플릿을 배포 `addGPUextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령을 실행합니다.
+템플릿을 배포 `addGPUextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령 실행:
 
 ```powershell
 $templateFile = "<Path to addGPUextensiontoVM.json>" 
@@ -446,7 +446,7 @@ Red Hat Enterprise Linux (RHEL)를 사용 하는 경우 `addGPUExtensionRHELVM.p
 
 #### <a name="deploy-template"></a>템플릿 배포
 
-템플릿을 배포 `addGPUextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령을 실행합니다.
+템플릿을 배포 `addGPUextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령 실행:
 
 ```powershell
 $templateFile = "Path to addGPUextensiontoVM.json" 
@@ -498,7 +498,7 @@ PS C:\WINDOWS\system32>
 
 #### <a name="track-deployment-status"></a>배포 상태 추적    
     
-템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다. 
+템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령 실행: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
@@ -640,4 +640,4 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Azure Resource Manager cmdlet](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

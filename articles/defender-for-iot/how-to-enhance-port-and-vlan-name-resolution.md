@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1747af77468ebe41f59892dea4bb49ce24757f37
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9c976671bccb420ae24d8def7a6574098d86ce6d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98803587"
 ---
 # <a name="enhance-port-and-vlan-name-resolution"></a>포트 및 VLAN 이름 확인 향상
 
@@ -84,7 +84,8 @@ Vlan을 구성 하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 인벤토리 및 데이터 마이닝에 대 한 보고서에서 보강 장치 정보 보기:
+다양 한 보고서에서 보강 장치 정보 보기:
 
-- [장치 인벤토리에서 센서 검색 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [보고서 생성](how-to-generate-reports.md)
+- [디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [센서 추세 및 통계 보고서](how-to-create-trends-and-statistics-reports.md)
+- [센서 데이터 마이닝 쿼리](how-to-create-data-mining-queries.md)

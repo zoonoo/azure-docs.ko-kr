@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 버전 업그레이드
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: b7234a60c98c42716e5b294c356062ec7001aef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9a29a97238164b9f6daf9dda66a1f314a7673ce
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762640"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804248"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Azure Service Fabric 클러스터 버전 업그레이드
 
@@ -60,13 +60,14 @@ ms.locfileid: "98762640"
 #### <a name="if-you-dont-upgrade-to-a-supported-version"></a>지원 되는 버전으로 업그레이드 하지 않는 경우
 
 6.3 이상 버전에서 실행 되는 Azure Service Fabric 클러스터는 2021 년 1 월 19 일에 지원 되는 버전으로 업그레이드 되지 않은 경우 기능 또는 서비스 중단이 발생 합니다.
-
-서비스 중단에는 다음이 포함 될 수 있습니다.
-
-- **열기** 모드를 사용 *하지* 않는 버전: 클러스터는 계속 유지 되지만 **열기** 모드의 작동이 중지 되어 작업에 대 한 서비스가 중단 될 수 있습니다.
-
-- **열기** 모드 *를 사용 하는 버전* : 클러스터를 사용할 수 없게 되 고 작동이 중지 되어 작업에 대 한 서비스 중단이 발생할 수 있습니다.
   
+  - **네트워킹 기능을 사용 하지 않는 6.3 보다 큰 Service Fabric 버전을 실행 하** 는 클러스터의 경우 클러스터는 계속 유지 됩니다.
+
+ - **6.3 보다 큰 Service Fabric 버전을 실행 하 고 [컨테이너에 대해 개방형 네트워킹 기능](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) 을 사용** 하는 클러스터의 경우 클러스터를 사용할 수 없게 되 고 작동이 중단 되어 작업에 대 한 서비스 중단이 발생할 수 있습니다.
+ 
+ -   **[7.0.457와 7.0.466 간에 windows 버전을 실행 하는 클러스터 (두 버전 모두 포함)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) 및 windows OS에서 windows 컨테이너 기능을 사용 하도록 설정 했습니다. 참고: Linux 버전 7.0.457, 7.0.464 및 7.0.465는 영향을 받지 않습니다**.
+    - **영향**: 클러스터의 작동이 중단 되 고 워크 로드에 대 한 서비스 중단이 발생할 수 있습니다.
+    
 #### <a name="required-action"></a>필수 작업
 
 가동 중지 시간 또는 기능의 손실을 방지 하려면 클러스터가 다음 버전 중 하나를 실행 하 고 있는지 확인 합니다.
