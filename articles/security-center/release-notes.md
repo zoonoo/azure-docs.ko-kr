@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784951"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -33,13 +33,41 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 ## <a name="january-2021"></a>2021년 1월
 
-12월의 업데이트는 다음과 같습니다.
+1월의 업데이트는 다음과 같습니다.
 
+- [Azure Security Benchmark는 이제 Azure Security Center의 기본 정책 이니셔티브입니다.](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
 - [온-프레미스 및 다중 클라우드 머신의 취약성 평가가 GA(일반 공급)를 위해 릴리스되었습니다.](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [이제 관리 그룹에 대한 보안 점수를 미리 보기에서 볼 수 있습니다.](#secure-score-for-management-groups-is-now-available-in-preview)
 - [보안 점수 API는 GA(일반 공급)를 위해 릴리스되었습니다.](#secure-score-api-is-released-for-general-availability-ga)
+- [Azure Defender for App Service에 추가된 현수 DNS 보호](#dangling-dns-protections-added-to-azure-defender-for-app-service)
+- [다중 클라우드 커넥터는 GA(일반 공급)용으로 릴리스되었습니다.](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [구독 및 관리 그룹에 대한 보안 점수에서 전체 권장 사항 제외](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [사용자는 이제 전역 관리자에게 테넌트 전체의 가시성을 요청할 수 있습니다.](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
+- [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [필터링된 권장 목록의 CSV 내보내기](#csv-export-of-filtered-list-of-recommendations)
 - [Azure Policy 평가에서 "해당 없음" 리소스가 이제 "준수"로 보고됨](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
+
+### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Azure Security Benchmark는 이제 Azure Security Center의 기본 정책 이니셔티브입니다.
+
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
+
+최근 몇 개월 동안 Security Center의 기본 제공 보안 권장 사항 목록은 이 벤치마크의 적용 범위를 확장하기 위해 크게 증가했습니다.
+
+이번 릴리스부터 벤치마크는 Security Center 권장 사항의 기반이 되었으며 기본 정책 이니셔티브로 완전히 통합되었습니다. 
+
+모든 Azure 서비스에는 설명서에 보안 기준 페이지가 있습니다. 예를 들어, [이는 Security Center의 기준입니다](security-baseline.md). 이러한 기준은 Azure 보안 벤치마크를 기반으로 합니다.
+
+Security Center의 규정 준수 대시보드를 사용하는 경우 전환 기간 동안 두 가지 벤치마크 인스턴스를 볼 수 있습니다.
+
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Azure 보안 벤치마크를 보여주는 Azure Security Center의 규정 준수 대시보드":::
+
+기존 권장 사항은 영향을 받지 않으며 벤치마크가 증가하면 변경 사항이 Security Center에 자동으로 반영됩니다. 
+
+자세히 알아보려면 다음 페이지를 참조하세요.
+
+- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [규정 준수 대시보드의 표준 세트 사용자 지정](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가가 GA(일반 공급)를 위해 릴리스되었습니다.
 
@@ -63,6 +91,14 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 [Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
 
 
+### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>이제 관리 그룹에 대한 보안 점수를 미리 보기에서 볼 수 있습니다.
+
+이제 보안 점수 페이지에는 구독 수준 외에도 관리 그룹에 대해 집계된 보안 점수가 표시됩니다. 이제 조직의 관리 그룹 목록과 각 관리 그룹의 점수를 볼 수 있습니다.
+
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="관리 그룹의 보안 점수 보기.":::
+
+[Azure Security Center의 보안 점수 및 보안 제어](secure-score-security-controls.md)에 대해 자세히 알아보세요.
+
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>보안 점수 API는 GA(일반 공급)를 위해 릴리스되었습니다.
 
 이제 [보안 점수 API](/rest/api/securitycenter/securescores/)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
@@ -70,6 +106,102 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 보안 점수 API를 사용하여 가능한 외부 도구의 예는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조하세요.
 
 [Azure Security Center의 보안 점수 및 보안 제어](secure-score-security-controls.md)에 대해 자세히 알아보세요.
+
+
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Azure Defender for App Service에 추가된 현수 DNS 보호
+
+하위 도메인 인수는 조직에 일반적이고 심각도가 높은 위협입니다. 프로비저닝이 해제된 웹 사이트를 가리키는 DNS 레코드가 있는 경우 하위 도메인 인수가 발생할 수 있습니다. 이러한 DNS 레코드는 "현수 DNS" 항목으로도 알려져 있습니다. CNAME 레코드는 특히 이 위협에 취약합니다. 
+
+하위 도메인 인수를 통해 위협 행위자는 조직의 도메인에 대한 트래픽을 악의적인 활동을 수행하는 사이트로 리디렉션할 수 있습니다.
+
+이제 앱 서비스 웹 사이트가 해제될 때 Azure Defender for App Service가 현수 DNS 항목을 검색합니다. 이때는 DNS 항목이 존재하지 않는 리소스를 가리키고 웹 사이트가 하위 도메인 인수에 취약한 시점입니다. 이러한 보호는 도메인이 Azure DNS 또는 외부 도메인 등록 기관으로 관리되는지 여부에 관계없이 사용할 수 있고 Windows의 App Service와 Linux의 App Service 모두에 적용합니다.
+
+자세한 정보:
+
+- [App Service 경고 참조 테이블](alerts-reference.md#alerts-azureappserv) - 현수 DNS 항목이 검색될 때 트리거되는 두 개의 새로운 Azure Defender 경고가 포함됩니다.
+- [현수 DNS 항목 방지 및 하위 도메인 인수 방지](../security/fundamentals/subdomain-takeover.md) - 하위 도메인 인수 위협 및 현수 DNS 측면에 대해 알아보세요.
+- [Azure Defender for App Service 소개](defender-for-app-service-introduction.md)
+
+
+### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>다중 클라우드 커넥터는 GA(일반 공급)용으로 릴리스되었습니다.
+
+클라우드 워크로드가 일반적으로 여러 클라우드 플랫폼에 걸쳐 있는 경우 클라우드 보안 서비스도 동일한 작업을 수행해야 합니다.
+
+Azure Security Center는 Azure, AWS(Amazon Web Services) 및 GCP(Google Cloud Platform)의 워크로드를 보호합니다.
+
+AWS 또는 GCP 계정을 연결하면 AWS Security Hub 및 GCP 보안 명령 센터와 같은 기본 보안 도구를 Azure Security Center에 통합합니다.
+
+이 기능은 Security Center가 모든 주요 클라우드 환경에서 가시성과 보호를 제공함을 의미합니다. 이러한 통합의 이점 중 일부는 다음과 같습니다.
+
+- 자동 에이전트 프로비저닝 - Security Center가 Azure Arc를 사용하여 AWS 인스턴스에 Log Analytics 에이전트 배포
+- 정책 관리
+- 취약점 관리
+- 포함된 EDR(엔드포인트 검색 및 응답)
+- 잘못된 보안 구성 검색
+- 모든 클라우드 공급자의 보안 권장 사항을 보여주는 단일 보기
+- Security Center의 보안 점수 계산에 모든 리소스 통합
+- AWS 및 GCP 리소스의 규정 준수 평가
+
+Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하면 새 커넥터를 만드는 옵션이 표시됩니다.
+
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Security Center의 다중 클라우드 커넥터 페이지에 표시되는 [AWS 계정 추가] 단추":::
+
+다음에서 자세히 알아보세요.
+- [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)
+- [Azure Security Center에 GCP 계정 연결](quickstart-onboard-gcp.md)
+
+
+### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>구독 및 관리 그룹에 대한 보안 점수에서 전체 권장 사항 제외
+
+전체 권장 사항을 포함하도록 면제 기능을 확장하고 있습니다. Security Center에서 구독, 관리 그룹 또는 리소스에 대해 제공하는 보안 권장 사항을 세부 조정할 수 있는 추가 옵션을 제공합니다.
+
+경우에 따라 Security Center가 검색하지 못한 타사 도구로 문제가 해결되었음을 알고 있는 경우 리소스가 비정상으로 표시됩니다. 또는 해당 영역이 아닌 것으로 생각되는 범위에 권장 사항이 표시됩니다. 권장 사항은 특정 구독에 적합하지 않을 수도 있습니다. 또는 조직이 특정 리소스 또는 권장 사항과 관련된 위험을 감수하기로 결정했을 수도 있습니다.
+
+이 미리 보기 기능으로 이제 다음과 같은 권장 사항에 대한 예외를 만들 수 있습니다.
+
+- **리소스를 제외** 하여 향후 비정상적인 리소스에 나열되지 않고 보안 점수에 영향을 주지 않도록 합니다. 리소스가 해당되지 않는 것으로 나열되고 선택한 특정 근거와 함께 이유가 "예외"로 표시됩니다.
+
+- 권장 사항이 보안 점수에 영향을 주지 않고 향후 구독 또는 관리 그룹에 표시되지 않도록 하려면 **구독 또는 관리 그룹을 제외** 합니다. 이는 기존 리소스와 나중에 만드는 리소스와 관련이 있습니다. 권장 사항은 선택한 범위에 대해 선택한 특정 근거로 표시됩니다.
+
+[보안 점수에서 리소스 및 권장 사항 제외](exempt-resource.md)에서 자세히 알아보세요.
+
+
+
+### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>사용자는 이제 전역 관리자에게 테넌트 전체의 가시성을 요청할 수 있습니다.
+
+사용자에게 Security Center 데이터를 볼 수 있는 권한이 없는 경우 이제 조직의 전역 관리자에게 권한을 요청하는 링크가 표시됩니다. 요청에는 원하는 역할과 필요한 이유에 대한 근거가 포함됩니다.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="사용자에게 테넌트 전체의 사용 권한을 요청할 수 있음을 알리는 배너입니다.":::
+
+[사용자 권한이 부족할 때 테넌트 전체 권한 요청](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient)에서 자세히 알아보세요.
+
+
+### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨
+
+Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티브입니다. 
+
+이 벤치마크의 적용 범위를 늘리기 위해 다음 35개의 미리 보기 권장 사항이 Security Center에 추가되었습니다.
+
+> [!TIP]
+> 미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
+
+| 보안 컨트롤                     | 새로운 권장 사항                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 저장 데이터 암호화 사용            | - Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함<br>- Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함<br>- MySQL 서버에 대해 BYOK(Bring Your Own Key) 데이터 보호를 사용하도록 설정해야 함<br>- PostgreSQL 서버에 대해 BYOK(Bring Your Own Key) 데이터 보호를 사용하도록 설정해야 함<br>- Cognitive Services 계정은 CMK(고객 관리형 키)로 데이터 암호화를 사용하도록 설정해야 함<br>- 컨테이너 레지스트리는 CMK(고객 관리형 키)로 암호화해야 함<br>- SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함<br>- SQL Server는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함<br>- 스토리지 계정은 암호화에 CMK(고객 관리형 키)를 사용해야 함                                                                                                                                                              |
+| 보안 모범 사례 구현    | - 구독에 보안 문제에 대한 연락처 이메일 주소가 있어야 함<br> - 구독에 Log Analytics 에이전트의 자동 프로비저닝을 사용하도록 설정해야 함<br> - 심각도가 높은 경고에 대해 이메일 알림을 사용하도록 설정해야 함<br> - 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 함<br> - 키 자격 증명 모음에 제거 방지를 사용하도록 설정해야 함<br> - 키 자격 증명 모음에 일시 삭제를 사용하도록 설정해야 함 |
+| 액세스 및 사용 권한 관리        | - 함수 앱은 '클라이언트 인증서(들어오는 클라이언트 인증서)'를 사용하도록 설정해야 함 |
+| DDoS 공격으로부터 애플리케이션 보호 | - Application Gateway에 WAF(웹 애플리케이션 방화벽)를 사용하도록 설정해야 함<br> - Azure Front Door Service 서비스에 대해 WAF(Web Application Firewall)를 사용하도록 설정해야 함 |
+| 무단 네트워크 액세스 제한 | - Key Vault에서 방화벽을 사용하도록 설정해야 함<br> - Key Vault의 프라이빗 엔드포인트를 구성해야 함<br> - App Configuration은 프라이빗 링크를 사용해야 함<br> - Azure Cache for Redis는 가상 네트워크 내에 있어야 함<br> - Azure Event Grid 도메인은 프라이빗 링크를 사용해야 함<br> - Azure Event Grid 토픽은 프라이빗 링크를 사용해야 함<br> - Azure Machine Learning 작업 영역은 프라이빗 링크를 사용해야 함<br> - Azure SignalR Service는 프라이빗 링크를 사용해야 함<br> - Azure Spring Cloud는 네트워크 주입을 사용해야 함<br> - 컨테이너 레지스트리는 무제한 네트워크 액세스를 허용하지 않아야 함<br> - 컨테이너 레지스트리는 프라이빗 링크를 사용해야 함<br> - MariaDB 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함<br> - MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함<br> - PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함<br> - 스토리지 계정은 프라이빗 링크 연결을 사용해야 함<br> - 스토리지 계정은 가상 네트워크 규칙을 사용하여 네트워크 액세스를 제한해야 함<br> - VM Image Builder 템플릿은 프라이빗 링크를 사용해야 함|
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+관련 링크:
+
+- [Azure 보안 벤치마크에 대한 자세한 정보](../security/benchmarks/introduction.md)
+- [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
+- [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
+- [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
+
+
 
 
 ### <a name="csv-export-of-filtered-list-of-recommendations"></a>필터링된 권장 목록의 CSV 내보내기 
@@ -111,7 +243,7 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 
 ### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.
 
-Azure Security Center는 SQL Server에 대한 두 가지 Azure Defender 플랜을 제공합니다.
+Azure Security Center는 SQL Server에 대한 두 가지 Azure Defender 계획을 제공합니다.
 
 - **Azure SQL 데이터베이스 서버용 Azure Defender** - Azure 네이티브 SQL Server 방어 
 - **머신의 SQL 서버용 Azure Defender** - 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 동일한 보호를 확장합니다.
@@ -273,7 +405,7 @@ Azure Security Center의 연속 내보내기 도구를 사용하여 환경의 �
 - [이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters)
 - [자동 프로비저닝 환경 향상 및 확장](#auto-provisioning-experience-improved-and-expanded)
 - [이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.](#secure-score-is-now-available-in-continuous-export-preview)
-- ["시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- ["시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [이제 기본 정책 할당의 상태를 보여주는 Azure Portal의 정책 관리 페이지](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
@@ -352,7 +484,7 @@ Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었�
 [Security Center 데이터를 연속적으로 내보내는](continuous-export.md) 방법에 대해 자세히 알아보세요.
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>"시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>"시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.
 
 **시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다.** 권장 사항이 향상되었습니다. 새 버전에는 누락된 각 업데이트에 대한 하위 권장 사항이 포함되어 있으며 다음과 같은 기능이 향상되었습니다.
 
@@ -565,17 +697,17 @@ Security Center의 포털 페이지에 대해 새로 고친 UI를 릴리스했�
 
 **Azure Defender** 는 Security Center 내부에 통합되어 Azure 및 하이브리드 워크로드에 대한 고급 인텔리전트 보호를 제공하는 CWPP(클라우드 워크로드 보호 플랫폼)입니다. Security Center의 표준 가격 책정 계층 옵션을 대체합니다. 
 
-Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defender를 사용하도록 설정하면 다음 Defender 플랜이 동시에 사용하도록 설정되어 환경의 컴퓨팅, 데이터 및 서비스 계층에 대한 포괄적인 방어 기능을 제공합니다.
+Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defender를 사용하도록 설정하면 다음 Defender 계획이 동시에 사용하도록 설정되어 환경의 컴퓨팅, 데이터 및 서비스 계층에 대한 포괄적인 방어 기능을 제공합니다.
 
 - [서버용 Azure Defender](defender-for-servers-introduction.md)
-- [App Service용 Azure Defender](defender-for-app-service-introduction.md)
+- [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [스토리지용 Azure Defender](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
 - [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)
 - [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)
 
-이러한 플랜 각각은 Security Center 설명서에서 별도로 설명하고 있습니다.
+이러한 계획 각각은 Security Center 설명서에서 별도로 설명하고 있습니다.
 
 Azure Defender는 전용 대시보드를 사용하여 가상 머신, SQL 데이터베이스, 컨테이너, 웹 애플리케이션, 네트워크 등에 대한 보안 경고 및 지능형 위협 방지 기능을 제공합니다.
 
@@ -587,7 +719,7 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 **Key Vault용 Azure Defender** 는 Azure Key Vault용 Azure 네이티브 Advanced Threat Protection 기능을 통해 추가 보안 인텔리전스 계층을 제공합니다. Key Vault용 Azure Defender는 확장을 통해 결과적으로 Key Vault 계정에 종속된 많은 리소스를 보호합니다.
 
-선택적 플랜은 이제 GA입니다. 이 기능은 미리 보기에서 "Azure Key Vault용 Advanced Threat Protection"으로 제공되었습니다.
+선택적 계획은 이제 GA입니다. 이 기능은 미리 보기에서 "Azure Key Vault용 Advanced Threat Protection"으로 제공되었습니다.
 
 또한 Azure Portal의 Key Vault 페이지에는 이제 **Security Center** 추천 사항 및 경고에 대한 전용 **보안** 페이지가 포함됩니다.
 
