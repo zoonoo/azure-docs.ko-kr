@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 49b7bae1a0cc224b92f292b891fae210f2cffa4e
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400610"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664030"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -33,6 +33,8 @@ Azure Digital Twins에서 제공하는 기능에 대한 요약은 다음과 같�
 Azure Digital Twins에서 [**모델**](concepts-models.md)이라는 사용자 지정 쌍 유형을 사용하여 실제 환경에서 사람, 장소 및 사물을 나타내는 디지털 엔터티를 정의합니다. 
 
 이러한 모델 정의를 비즈니스를 설명하는 특수 어휘로 간주할 수 있습니다. 예를 들어 빌딩 관리 솔루션의 경우 "빌딩", "플로어" 및 "엘리베이터"와 같은 모델을 정의할 수 있습니다. 그런 다음 이러한 모델을 기반으로 한 **디지털 쌍** 을 만들어 특정 환경을 나타낼 수 있습니다.
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 모델은 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)라는 JSON과 같은 언어로 정의되며, 상태 속성, 원격 분석 이벤트, 명령, 구성 요소 및 관계를 기준으로 쌍을 설명합니다.
 * 모델은 엔터티 간에 의미 체계 **관계** 를 정의하여 해당 상호 작용을 반영하는 지식 그래프에 쌍을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
