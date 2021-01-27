@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115823"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685228"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)이란?
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우징과 빅 �
 
 전용 SQL 풀(이전의 SQL DW)은 Synapse SQL을 사용할 때 프로비저닝되는 분석 리소스의 컬렉션을 나타냅니다. 전용 SQL 풀(이전의 SQL DW)의 크기는 DWU(Data Warehousing Unit)에 의해 결정됩니다.
 
-전용 SQL 풀이 생성되면 간단한 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 쿼리를 사용하여 빅 데이터를 가져온 다음, 분산 쿼리 엔진의 기능을 사용하여 고성능 분석을 실행할 수 있습니다. 데이터를 통합하고 분석할 때 전용 SQL 풀(이전의 SQL DW)은 비즈니스가 더 빠르고 강력한 인사이트를 위해 신뢰할 수 있는 단일 버전의 정보입니다.
+전용 SQL 풀이 생성되면 간단한 [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL 쿼리를 사용하여 빅 데이터를 가져온 다음, 분산 쿼리 엔진의 기능을 사용하여 고성능 분석을 실행할 수 있습니다. 데이터를 통합하고 분석할 때 전용 SQL 풀(이전의 SQL DW)은 비즈니스가 더 빠르고 강력한 인사이트를 위해 신뢰할 수 있는 단일 버전의 정보입니다.
 
 > [!NOTE]
 >[Azure Synapse Analytics 설명서](../overview-what-is.md)를 살펴보세요.

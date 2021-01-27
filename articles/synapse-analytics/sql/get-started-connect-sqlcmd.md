@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88ee95789bdc1c6ee9884a021067318caab203d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b78c2d5c03c95249c7f708f2d660d32c834f123e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451637"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676098"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>sqlcmd를 사용하여 Synapse SQL에 연결
 
@@ -25,10 +25,10 @@ ms.locfileid: "96451637"
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 명령줄 유틸리티를 사용하여 Synapse SQL 내에서 서버리스 SQL 풀 및 전용 SQL 풀에 연결하고 쿼리할 수 있습니다.  
+[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 명령줄 유틸리티를 사용하여 Synapse SQL 내에서 서버리스 SQL 풀 및 전용 SQL 풀에 연결하고 쿼리할 수 있습니다.  
 
 ## <a name="1-connect"></a>1. 연결
-[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 시작하려면 명령 프롬프트를 열고 Synapse SQL 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
+[sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 시작하려면 명령 프롬프트를 열고 Synapse SQL 데이터베이스에 대한 연결 문자열 뒤에 **sqlcmd** 를 입력합니다. 연결 문자열에는 다음 매개 변수가 필요합니다.
 
 * **서버(-S):** `<`서버 이름`>`.database.windows.net 형식의 서버
 * **데이터베이스(-D):** 데이터베이스 이름
@@ -78,7 +78,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ### <a name="use-dedicated-sql-pool"></a>전용 SQL 풀 사용
 
-연결 후 인스턴스에 대해 지원되는 모든 [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)(T-SQL) 문을 실행할 수 있습니다. 이 예제에서 쿼리는 대화형 모드로 전송됩니다.
+연결 후 인스턴스에 대해 지원되는 모든 [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(T-SQL) 문을 실행할 수 있습니다. 이 예제에서 쿼리는 대화형 모드로 전송됩니다.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -99,7 +99,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ### <a name="use-serverless-sql-pool"></a>서버리스 SQL 풀 사용
 
-연결 후 인스턴스에 대해 지원되는 [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)(T-SQL) 문을 실행할 수 있습니다.  다음 예제에서 쿼리는 대화형 모드로 전송됩니다.
+연결 후 인스턴스에 대해 지원되는 [Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(T-SQL) 문을 실행할 수 있습니다.  다음 예제에서 쿼리는 대화형 모드로 전송됩니다.
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
@@ -120,4 +120,4 @@ sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P
 
 ## <a name="next-steps"></a>다음 단계
 
-sqlcmd 옵션에 대한 자세한 내용은 [sqlcmd 설명서](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.
+sqlcmd 옵션에 대한 자세한 내용은 [sqlcmd 설명서](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.

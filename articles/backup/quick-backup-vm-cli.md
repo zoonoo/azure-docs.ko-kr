@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1a1b11d517fdfea0aa3a0f553b63276bc20f90be
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562341"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805453"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure에서 가상 머신 백업
 
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> CLI를 사용하여 한 번에 여러 VM에 대한 백업을 사용하도록 설정하는 동안 단일 정책에 100개가 넘는 VM이 연결되어 있지 않은지 확인합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PowerShell 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
+> CLI를 사용하여 한 번에 여러 VM에 대한 백업을 사용하도록 설정하는 동안 단일 정책에 100개가 넘는 VM이 연결되어 있지 않은지 확인합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.yml#is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PowerShell 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
 
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 

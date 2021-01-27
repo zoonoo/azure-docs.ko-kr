@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115789"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880036"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "98115789"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* 사용자 고유의 [Azure Active Directory 테넌트](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* 사용자 고유의 [Azure Active Directory 테넌트](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 * 계정에는 구독에서 리소스를 만들 수 있는 권한이 있어야 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "98115789"
     > Azure Policy가 없거나 기존 Azure Policy가 **스토리지 계정** 및 **EventHub 네임스페이스** 생성을 차단하지 않는 경우 이 단계를 수행하지 않아도 됩니다.
 
     1. Azure Portal로 이동하여 **정책** 을 검색합니다.
-    1. [사용자 지정 정책 정의 만들기](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition)를 수행하거나, 기존 정책을 수정하여 `not` 연산자와 `resourceBypass` 태그를 사용하는 두 가지 예외를 추가합니다.
+    1. [사용자 지정 정책 정의 만들기](../governance/policy/tutorials/create-custom-policy-definition.md)를 수행하거나, 기존 정책을 수정하여 `not` 연산자와 `resourceBypass` 태그를 사용하는 두 가지 예외를 추가합니다.
 
         ```json
         {
@@ -83,7 +83,7 @@ ms.locfileid: "98115789"
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="정책 정의를 만드는 방법을 보여 주는 스크린샷":::
 
-    1. 만든 사용자 지정 정책을 사용하여 [정책 할당을 만듭니다](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
+    1. 만든 사용자 지정 정책을 사용하여 [정책 할당을 만듭니다](../governance/policy/assign-policy-portal.md).
 
         [ ![정책 할당을 만드는 방법을 보여 주는 스크린샷](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -155,7 +155,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **역할 할당 추가** 를 선택합니다.
 
-1. **Purview 데이터 큐레이터 역할** 또는 **Purview 데이터 원본 관리자 역할** 의 역할 유형은 서비스 주체의 용도에 따라 달라집니다(자세한 내용은 [카탈로그 권한](catalog-permissions.md) 및 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) 참조).
+1. **Purview 데이터 큐레이터 역할** 또는 **Purview 데이터 원본 관리자 역할** 의 역할 유형은 서비스 주체의 용도에 따라 달라집니다(자세한 내용은 [카탈로그 권한](catalog-permissions.md) 및 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md) 참조).
 
 1. **다음에 대한 액세스 할당** 에 대해 기본값(**사용자, 그룹 또는 서비스 주체**)을 그대로 둡니다.
 

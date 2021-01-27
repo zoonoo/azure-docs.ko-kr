@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: cd95b84c4b55279b40f95eef65cb2490a55d1780
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 46dc6bed7e51a5157d7eb42dac75c0240d440780
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630244"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881621"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Java)
 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 통해 Java 코드를 작성하여 Azure Service Bus 토픽에 메시지를 보낸 다음, 해당 토픽에 대한 구독에서 메시지를 받습니다.
@@ -225,7 +225,7 @@ Azure Portal의 Service Bus 네임스페이스에 대한 **개요** 페이지에
 다음 설명서와 샘플을 참조하세요.
 
 - [Python용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [GitHub 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [GitHub 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 

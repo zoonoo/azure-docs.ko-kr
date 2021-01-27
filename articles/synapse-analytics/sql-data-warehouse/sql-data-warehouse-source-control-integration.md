@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 56b417c65eae0df9b073cf72fe87ce0002fc2ba0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0eeea04cd42498c5ba066a3a3e977c92b2906292
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115840"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738036"
 ---
 # <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 소스 제어 통합
 
@@ -51,7 +51,7 @@ ms.locfileid: "98115840"
 
    ![리포지토리 복제](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "리포지토리 복제")
 
-Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자세한 내용은 [팀 탐색기에서 프로젝트에 연결](/visualstudio/ide/connect-team-project?view=vs-2019)을 참조하세요. Visual Studio를 사용하여 리포지토리를 복제하는 방법에 대한 지침은 [기존 Git 리포지토리 복제](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops) 문서를 검토하세요. 
+Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자세한 내용은 [팀 탐색기에서 프로젝트에 연결](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true)을 참조하세요. Visual Studio를 사용하여 리포지토리를 복제하는 방법에 대한 지침은 [기존 Git 리포지토리 복제](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true) 문서를 검토하세요. 
 
 ## <a name="create-and-connect-your-project"></a>프로젝트 생성 및 연결
 

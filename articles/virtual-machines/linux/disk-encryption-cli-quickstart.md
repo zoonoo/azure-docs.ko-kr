@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3a9c859c32ef9ad387c56d5fc20f2173ee14fac5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975181"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737018"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 
@@ -25,7 +25,7 @@ Azure CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -33,7 +33,7 @@ az group create --name "myResourceGroup" --location "eastus"
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 *myVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 
 
 ## <a name="create-a-key-vault-configured-for-encryption-keys"></a>암호화 키에 대해 구성된 Key Vault 만들기
 
-Azure Disk Encryption은 Azure Key Vault에 암호화 키를 저장합니다. [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create)를 사용하여 Key Vault를 만듭니다. Key Vault를 사용하여 암호화 키를 저장하려면 --enabled-for-disk-encryption 매개 변수를 사용합니다.
+Azure Disk Encryption은 Azure Key Vault에 암호화 키를 저장합니다. [az keyvault create](/cli/azure/keyvault#az_keyvault_create)를 사용하여 Key Vault를 만듭니다. Key Vault를 사용하여 암호화 키를 저장하려면 --enabled-for-disk-encryption 매개 변수를 사용합니다.
 
 > [!Important]
 > 모든 Key Vault에는 Azure 전체에서 고유한 이름이 있어야 합니다. 아래 예제에서 <your-unique-keyvault-name>을 선택한 이름으로 바꿉니다.
@@ -72,7 +72,7 @@ az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myReso
 
 ## <a name="encrypt-the-virtual-machine"></a>가상 머신 암호화
 
-[az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest)을 사용하여 VM을 암호화하고 --disk-encryption-keyvault 매개 변수에 고유한 Key Vault 이름을 지정합니다.
+[az vm encryption](/cli/azure/vm/encryption)을 사용하여 VM을 암호화하고 --disk-encryption-keyvault 매개 변수에 고유한 Key Vault 이름을 지정합니다.
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"

@@ -4,12 +4,12 @@ description: 이 빠른 시작에서 애플리케이션을 사용하여 Docker �
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f58b8feda0e88d8a5e7cddaabbc650b0f0ab3973
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741920"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788165"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -25,7 +25,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 1. 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-2. [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) 설치
+2. [Azure CLI](/cli/azure/install-azure-cli-apt) 설치
 
 3. [Service Fabric SDK 및 CLI](service-fabric-get-started-linux.md#installation-methods) 설치
 
@@ -89,7 +89,7 @@ Service Fabric은 클러스터 및 해당 애플리케이션을 관리하는 데
 
 이 빠른 시작에서는 Service Fabric CLI 및 Service Fabric Explorer(웹 기반 도구)를 사용합니다. Service Fabric Explorer를 사용하려면 인증서 PFX 파일을 브라우저로 가져와야 합니다. 기본적으로 PFX 파일에는 암호가 없습니다.
 
-Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션** 을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기** 를 클릭하고 **Your Certificates** (인증서) 탭을 선택하고 **가져오기** 를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
+Mozilla Firefox가 Ubuntu 16.04의 기본 브라우저입니다. 인증서를 Firefox로 가져 오려면 브라우저의 오른쪽 위 모서리에 있는 메뉴 단추를 클릭한 다음 **옵션** 을 클릭합니다. **기본 설정** 페이지에서 검색 상자를 사용하여 "인증서"를 검색합니다. **인증서 보기** 를 클릭하고 **Your Certificates**(인증서) 탭을 선택하고 **가져오기** 를 클릭하여 프롬프트에 따라 인증서를 가져옵니다.
 
    ![Firefox에서 인증서 설치](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -143,7 +143,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음 단계를 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://containertestcluster.eastus.cloudapp.azure.com:19080`
-2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service** (서비스 크기 조정)를 선택합니다.
+2. 트리 뷰에서 **fabric:/Voting/azurevotefront** 노드 옆에 있는 줄임표(...)를 클릭하고 **Scale Service**(서비스 크기 조정)를 선택합니다.
 
     ![Service Fabric Explorer 크기 조정 서비스 시작][containersquickstartscale]
 
@@ -168,7 +168,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
 
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
 
-Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group?view=azure-cli-latest)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
+Azure에 로그인하고, 클러스터를 제거하려는 구독 ID를 선택합니다. Azure Portal에 로그인하여 구독 ID를 찾을 수 있습니다. [az group delete 명령](/cli/azure/group)을 사용하여 리소스 그룹 및 모든 클러스터 리소스를 삭제합니다.
 
 ```azurecli
 az login

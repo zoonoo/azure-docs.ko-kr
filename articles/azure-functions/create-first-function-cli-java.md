@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707557"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755168"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 
@@ -113,7 +113,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 앱을 호스트하기 위해 만든 Azure 리소스의 설정은 생성된 pom.xml 파일에 있는 `com.microsoft.azure`의 **groupId** 를 사용하여 플러그 인의 **configuration** 요소에 정의됩니다. 예를 들어 아래 구성 요소는 `westus` 지역의 `java-functions-group` 리소스 그룹에 함수 앱을 만들도록 Maven 기반 배포에 지시합니다. 함수 앱 자체는 `java-functions-app-service-plan` 플랜에서 호스트되는 Windows에서 실행되며, 이 플랜은 기본적으로 서버리스 사용 플랜입니다.
 
-:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
 초기 배포 전에 `runtime.os`를 `windows`에서 `linux`로 변경하는 등의 방법으로 이러한 설정을 변경하면 Azure에서 리소스를 만드는 방식을 제어할 수 있습니다. Maven 플러그 인에서 지원하는 전체 설정 목록은 [구성 세부 정보](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details)를 참조하세요.
 

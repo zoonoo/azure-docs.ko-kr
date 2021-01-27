@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166219"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897428"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -38,7 +38,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 - 판독기
 - 청구 읽기 권한자
 
-이러한 역할은 [Azure Portal](https://portal.azure.com/)의 청구 정보에 대한 액세스 권한을 갖습니다. 이러한 역할이 할당된 사람은 [청구 API](usage-rate-card-overview.md)를 사용하여 프로그래밍 방식으로 청구서 및 사용량 세부 정보를 확보할 수 있습니다.
+이러한 역할은 [Azure Portal](https://portal.azure.com/)의 청구 정보에 대한 액세스 권한을 갖습니다. 이러한 역할이 할당된 사람은 [청구 API](consumption-api-overview.md#usage-details-api)를 사용하여 프로그래밍 방식으로 청구서 및 사용량 세부 정보를 확보할 수 있습니다.
 
 역할을 할당하려면 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

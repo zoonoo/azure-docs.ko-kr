@@ -5,12 +5,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: d95c96e76a3463a77cc64234a909cc1e3d093837
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630227"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881587"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)
 이 빠른 시작에서는 Azure Service Bus 큐에서 메시지를 보내고 받는 Java 앱을 만듭니다. 
@@ -220,7 +220,7 @@ Service Bus 네임스페이스에 대한 Azure Portal의 **개요** 페이지에
 다음 설명서와 샘플을 참조하세요.
 
 - [Java용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
-- [GitHub 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [GitHub 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 00892b61cd23ee38ff3d63f8b61391ff1bffdc90
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: eec893321dd39511e1cfc20cb5a6713377ff5167
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616408"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680623"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.
 - [GitHub](https://github.com) 계정
 - [GitHub 개인용 액세스 토큰](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) 계정
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치(버전 2.8.0 이상)
+- [Azure CLI](/cli/azure/install-azure-cli) 설치(버전 2.8.0 이상)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 
@@ -46,7 +46,7 @@ cd my-first-static-web-app
 
 1. 다음 명령을 사용하여 Azure CLI에 로그인합니다.
 
-    ```bash
+    ```azurecli
     az login
     ```
 
@@ -54,7 +54,7 @@ cd my-first-static-web-app
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -66,7 +66,7 @@ cd my-first-static-web-app
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -79,7 +79,7 @@ cd my-first-static-web-app
 
     # <a name="react"></a>[React](#tab/react)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -92,7 +92,7 @@ cd my-first-static-web-app
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    ```bash
+    ```azurecli
     az staticwebapp create \
         -n my-first-static-web-app \
         -g <RESOURCE_GROUP_NAME> \
@@ -127,7 +127,7 @@ cd my-first-static-web-app
 
 이 애플리케이션을 계속 사용하지 않을 경우 다음 명령을 실행하여 Azure Static Web App 인스턴스를 삭제할 수 있습니다.
 
-```bash
+```azurecli
 az staticwebapp delete \
     --name my-first-static-web-app \
     --resource-group my-first-static-web-app

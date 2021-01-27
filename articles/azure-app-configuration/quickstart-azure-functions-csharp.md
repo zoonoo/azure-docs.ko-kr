@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: b5c659a673ece8fd7fbb9566d8bb84201a668a7f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964085"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724244"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "97964085"
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
-이 프로젝트는 [.NET Azure Functions에서 종속성 주입](/azure/azure-functions/functions-dotnet-dependency-injection)을 사용하고 추가 구성 원본으로 Azure 앱 구성을 추가합니다.
+이 프로젝트는 [.NET Azure Functions에서 종속성 주입](../azure-functions/functions-dotnet-dependency-injection.md)을 사용하고 추가 구성 원본으로 Azure 앱 구성을 추가합니다.
 
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) 버전 4.1.0 이상

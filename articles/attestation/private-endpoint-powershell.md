@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf21ed73d74adb9f9a5a7229a45192bc63aca2c3
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 5c2b88ad7bef5fb8f7ba576e5f7b416f7458378c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104250"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731604"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -22,8 +22,8 @@ ms.locfileid: "98104250"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Azure Private Link](/azure/private-link/private-link-overview)에 대해 알아보기
-* [Azure PowerShell을 사용하여 Azure Attestation 설정](/azure/attestation/quickstart-powershell)
+* [Azure Private Link](../private-link/private-link-overview.md)에 대해 알아보기
+* [Azure PowerShell을 사용하여 Azure Attestation 설정](./quickstart-powershell.md)
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -207,4 +207,3 @@ New-AzPrivateDnsZoneGroup -ResourceGroupName $rg -PrivateEndpointName "myPrivate
     Non-authoritative answer:
     Name:    myattestationprovider.eastus.test.attest.azure.net
     ```
-

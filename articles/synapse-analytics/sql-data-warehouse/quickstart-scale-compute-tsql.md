@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f3eaa6383b174e06ff6ce9b1b08c4eba9108d770
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: ffffeb38aeb9d1f01f376d58a52323bb7b84b306
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115517"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676326"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 능력 확장
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 다운로드하여 설치합니다.
+최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 다운로드하여 설치합니다.
 
 ## <a name="create-a-dedicated-sql-pool-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 Azure SQL 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용하여 Azure SQL 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 데이터 웨어하우스 단위를 변경하려면
 
 1. **master** 를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
-2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 서비스 목표를 수정합니다. 다음 쿼리를 실행하여 서비스 목표를 DW300으로 변경합니다.
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL 문을 사용하여 서비스 목표를 수정합니다. 다음 쿼리를 실행하여 서비스 목표를 DW300으로 변경합니다.
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
@@ -136,7 +136,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="check-operation-status"></a>작업 상태 확인
 
-전용 SQL 풀(이전의 SQL DW)의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) DMV에서 다음 쿼리를 실행합니다. 예를 들어 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)를 반환합니다.
+전용 SQL 풀(이전의 SQL DW)의 다양한 관리 작업에 대한 정보를 반환하려면 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) DMV에서 다음 쿼리를 실행합니다. 예를 들어 작업 및 작업 상태(IN_PROGRESS 또는 COMPLETED)를 반환합니다.
 
 ```sql
 SELECT *

@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: ecab573f7a98bcee79231b8e20077bb32bffd48c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120277"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680117"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW) 만들기 및 쿼리
 
@@ -29,7 +29,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전
    > [!NOTE]
    > Azure Synapse에서 전용 SQL 풀(이전의 SQL DW)을 만들면 새로운 청구 가능 서비스가 생성될 수 있습니다. 자세한 내용은 [Azure Synapse Analytics 가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/)을 참조하세요.
 
-2. 최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 다운로드하여 설치합니다.
+2. 최신 버전의 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 다운로드하여 설치합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -55,7 +55,7 @@ Azure Portal을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전
    | :------ | :-------------- | :---------- |
    | **구독** | 사용자의 구독 | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
-   | **SQL 풀 이름** | 전역적으로 고유한 이름(예: *mySampleDataWarehouse*) | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 참조하세요.  |
+   | **SQL 풀 이름** | 전역적으로 고유한 이름(예: *mySampleDataWarehouse*) | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 참조하세요.  |
    | **Server** | 전역적으로 고유한 이름 | 기존 서버를 선택하거나 새 서버 이름을 만들고 **새로 만들기** 를 선택합니다. 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요. |
 
    ![데이터 웨어하우스 기본 세부 정보 만들기](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -128,7 +128,7 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 ## <a name="connect-to-the-server-as-server-admin"></a>서버 관리자 권한으로 서버에 연결
 
-이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest))를 사용하여 서버에 연결합니다.
+이 섹션에서는 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true))를 사용하여 서버에 연결합니다.
 
 1. SQL Server Management Studio를 엽니다.
 

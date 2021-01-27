@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219031"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796947"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -50,31 +50,12 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
     |SqlPassword| 보안 암호를 선택합니다.|
     |||
 
-2. Azure Synapse 작업 영역의 컨테이너로 리소스 그룹을 만듭니다.
+1. Azure Synapse 작업 영역의 컨테이너로 리소스 그룹을 만듭니다.
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. ADLS Gen 2 Storage 계정 키를 검색합니다.
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. ADLS Gen 2 Storage Endpoint URL을 검색합니다.
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. (선택 사항) 항상 ADLS Gen2 Storage 계정 키와 엔드포인트 항목을 확인할 수 있습니다.
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Azure Synapse 작업 영역을 만듭니다.
+1. Azure Synapse 작업 영역을 만듭니다.
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -86,14 +67,14 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
       --location $Region
     ```
 
-7. Azure Synapse 작업 영역에 대한 웹 및 개발 URL을 가져옵니다.
+1. Azure Synapse 작업 영역에 대한 웹 및 개발 URL을 가져옵니다.
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. 머신에서 Azure Synapse 작업 영역에 액세스할 수 있도록 허용하는 방화벽 규칙을 만듭니다.
+1. 머신에서 Azure Synapse 작업 영역에 액세스할 수 있도록 허용하는 방화벽 규칙을 만듭니다.
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -103,7 +84,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. 환경 변수 `WorkspaceWeb`에 저장된 Azure Synapse 작업 영역 웹 URL 주소를 열어 작업 영역에 액세스합니다.
+1. 환경 변수 `WorkspaceWeb`에 저장된 Azure Synapse 작업 영역 웹 URL 주소를 열어 작업 영역에 액세스합니다.
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"

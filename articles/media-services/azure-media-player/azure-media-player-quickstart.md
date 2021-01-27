@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
 ms.date: 04/20/2020
-ms.openlocfilehash: 3d8ff1d2f121501152673c8375ef3d26aab10f1a
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1634731381be6ebbb8750746f88b8ff9e761025d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511742"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879193"
 ---
 # <a name="azure-media-player-quickstart"></a>Azure Media Player 빠른 시작
 Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에서 미디어 콘텐츠의 기본 재생을 가져오는 데 몇 분 밖에 걸리지 않습니다. 이 섹션에서는 세부 정보를 설명하지 않고 기본 단계를 보여줍니다. 다음 섹션에서는 Azure Media Player를 설정하고 구성하는 방법에 대해 자세히 설명합니다.  문서의 `<head>`에 다음과 같은 내용을 추가하기만 하면 됩니다.
@@ -63,4 +63,4 @@ Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에�
 
 ## <a name="next-steps"></a>다음 단계 ##
 
-- [Azure Media Player 전체 설정](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player 전체 설정](./azure-media-player-full-setup.md)

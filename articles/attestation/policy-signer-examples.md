@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922457"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734150"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>증명 정책 서명자 인증서의 예
 
 증명 공급자와 연결된 정책 서명자 인증서는 Microsoft Azure Attestation에서 서명된 정책의 유효성을 검사하는 데 사용됩니다.
-[정책 서명의 이점](/azure/attestation/basic-concepts/#benefits-of-policy-signing)에 대한 자세한 정보
+[정책 서명의 이점](./basic-concepts.md#benefits-of-policy-signing)에 대한 자세한 정보
 
 **공급자 만들기 흐름에 사용할 정책 서명자 인증서 파일 형식**
 

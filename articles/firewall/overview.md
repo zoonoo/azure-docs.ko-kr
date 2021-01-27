@@ -9,12 +9,12 @@ ms.custom: mvc, contperf-fy21q1
 ms.date: 12/03/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 04ba20bd5607bc309735e509ac37b15c33445c52
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5f12eae9345cbb1daa4097305bb85b8ceaf0b439
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672736"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681465"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -45,7 +45,7 @@ Azure Firewall의 새로운 기능을 알아보려면 [Azure 업데이트](https
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
@@ -58,7 +58,6 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
 |프록시 모드(포트 1433)에서만 지원되는 SQL FQDN 필터링|Azure SQL Database, Azure Synapse Analytics 및 Azure SQL Managed Instance의 경우:<br><br>SQL FQDN 필터링은 프록시 모드에서만 지원됩니다(포트 1433).<br><br>Azure SQL IaaS의 경우:<br><br>비표준 포트를 사용하는 경우 애플리케이션 규칙에서 해당 포트를 지정할 수 있습니다.|리디렉션 모드의 SQL(Azure 내에서 연결하는 경우 기본값)의 경우 대신 SQL 서비스 태그를 Azure Firewall 네트워크 규칙의 일부로 사용하여 액세스를 필터링할 수 있습니다.
 |TCP 포트 25의 아웃바운드 트래픽은 허용되지 않음| TCP 포트 25를 사용하는 아웃바운드 SMTP 연결이 차단되었습니다. 포트 25는 주로 인증되지 않은 이메일 제공을 위해 사용됩니다. 이는 가상 머신의 기본 플랫폼 동작입니다. 자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 그러나 가상 머신과 달리 현재는 Azure 방화벽에서 이 기능을 사용하도록 설정할 수 없습니다. 참고: 25개 이외의 포트를 통해 인증된 SMTP(포트 587) 또는 SMTP를 허용하려면 현재 SMTP 검사가 지원되지 않으므로 애플리케이션 규칙이 아닌 네트워크 규칙을 구성해야 합니다.|SMTP 문제 해결 문서에 설명된 것처럼 권장 방법에 따라 이메일을 보냅니다. 또는 기본 경로에서 방화벽으로의 아웃바운드 SMTP 액세스가 필요한 가상 머신을 제외합니다. 대신 인터넷에 대한 아웃바운드 액세스를 직접 구성합니다.
-|활성 FTP는 지원되지 않습니다.|FTP PORT 명령을 사용하여 FTP 바운스 공격으로부터 보호하기 위해 Azure Firewall에서 활성 FTP를 사용하지 않도록 설정합니다.|대신 수동 FTP를 사용할 수 있습니다. 여전히 방화벽에서 TCP 포트 20 및 21을 명시적으로 열어야 합니다.
 |SNAT 포트 사용률 메트릭이 0%를 표시합니다.|SNAT 포트를 사용하는 경우에도 Azure Firewall SNAT 포트 사용률 메트릭이 0% 사용량을 표시할 수 있습니다. 이 경우 방화벽 상태 메트릭의 일부로 메트릭을 사용하면 잘못된 결과가 제공됩니다.|이 문제는 해결되었으며 2020년 5월에 출시될 예정입니다. 방화벽 재배포로 문제가 해결되는 경우도 있지만 일관되지 없습니다. 중간책으로, 방화벽 상태만 사용하여 *status=unhealthy* 가 *status=degraded* 를 찾습니다. 포트 소모는 *성능 저하됨* 으로 표시됩니다. 방화벽 상태에 영향을 주는 더 많은 메트릭이 있는 경우 *정상이 아님* 은 나중에 사용하도록 예약되어 있습니다.
 |DNAT는 강제 터널링을 사용하는 경우 지원되지 않습니다.|강제 터널링을 사용하여 배포된 방화벽은 비대칭 라우팅으로 인해 인터넷에서 인바운드 액세스를 지원할 수 없습니다.|이는 비대칭 라우팅 때문에 의도된 것입니다. 인바운드 연결의 반환 경로는 온-프레미스 방화벽을 통해 전달되며 설정된 연결이 표시되지 않습니다.
 |아웃바운드 수동 FTP는 FTP 서버 구성에 따라 여러 공용 IP 주소가 있는 방화벽에서 작동하지 않을 수 있습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|명시적 SNAT 구성이 계획되어 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다([IIS의 예제](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) 참조). 또는 이 경우에 단일 IP 주소를 사용하는 것이 좋습니다.|

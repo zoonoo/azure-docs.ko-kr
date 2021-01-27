@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842620"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878785"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -29,7 +29,7 @@ Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../faq-fo
 
 Azure 관리 디스크는 단일 VHD입니다. 기존 VHD를 가져와서 관리 디스크를 만들거나 처음부터 빈 관리 디스크를 만들 수 있습니다. 디스크를 VM에 연결하여 관리 디스크에서 VM을 만들 수 있지만 VHD는 하나의 VM에서만 사용할 수 있습니다. OS 속성은 수정할 수 없습니다. Azure는 VM을 켜고 해당 디스크를 사용하여 시작하려고 합니다. 
 
-Azure 이미지는 여러 OS 디스크와 데이터 디스크로 구성될 수 있습니다. 관리형 이미지를 사용하여 VM을 만드는 경우 플랫폼에서 이미지의 복사본을 만들고 이를 사용하여 VM을 만들므로 관리형 이미지는 동일한 이미지를 여러 VM에 다시 사용할 수 있도록 지원합니다. 또한 Azure는 [Shared Image Gallery](shared-image-galleries.md)를 통해 글로벌 복제 및 버전 관리와 같은 이미지에 대한 고급 관리 기능을 제공합니다. 
+Azure 이미지는 여러 OS 디스크와 데이터 디스크로 구성될 수 있습니다. 관리형 이미지를 사용하여 VM을 만드는 경우 플랫폼에서 이미지의 복사본을 만들고 이를 사용하여 VM을 만들므로 관리형 이미지는 동일한 이미지를 여러 VM에 다시 사용할 수 있도록 지원합니다. 또한 Azure는 [Shared Image Gallery](../shared-image-galleries.md)를 통해 글로벌 복제 및 버전 관리와 같은 이미지에 대한 고급 관리 기능을 제공합니다. 
 
 
 
@@ -65,7 +65,7 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
 
 - 개발 및 테스트 환경에서 간단한 VM을 만들기 위한 관리형 이미지
-- 이미지를 규모에 맞게 만들고 공유하기 위한 [Shared Image Gallery](shared-image-galleries.md)
+- 이미지를 규모에 맞게 만들고 공유하기 위한 [Shared Image Gallery](../shared-image-galleries.md)
 
 
 ### <a name="managed-images"></a>관리형 이미지
@@ -76,7 +76,7 @@ Linux 이미지를 가져오는 경우 다음 두 가지 옵션을 사용할 수
 
 ### <a name="azure-shared-image-gallery-sig"></a>Azure SIG(Shared Image Gallery)
 
-[Shared Image Gallery](shared-image-galleries.md)는 이미지를 규모에 맞게 만들고, 관리하고, 공유하는 데 사용하는 것이 좋습니다. Shared Image Gallery를 사용하면 이미지에 대한 구조와 구성을 구축할 수 있습니다.  
+[Shared Image Gallery](../shared-image-galleries.md)는 이미지를 규모에 맞게 만들고, 관리하고, 공유하는 데 사용하는 것이 좋습니다. Shared Image Gallery를 사용하면 이미지에 대한 구조와 구성을 구축할 수 있습니다.  
 
 - 일반화된 이미지 및 특수화된 이미지 모두 지원
 - 1세대 및 2세대 이미지 모두 지원

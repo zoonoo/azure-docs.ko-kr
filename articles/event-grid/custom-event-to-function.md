@@ -3,12 +3,12 @@ title: '빠른 시작: Azure 함수에 사용자 지정 이벤트 보내기 - Ev
 description: '빠른 시작: Azure Event Grid와 Azure CLI 또는 포털을 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Azure 함수는 엔드포인트에 사용됩니다.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4753de41443a0537636933364c7b69b25cb27
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996351"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791730"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>빠른 시작: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
 
@@ -19,7 +19,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure F
 ## <a name="create-azure-function"></a>Azure 함수 만들기
 사용자 지정 토픽을 구독하기 전에 이벤트를 처리하는 함수를 만듭니다. 
 
-1. [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)의 지침을 사용하여 함수 앱을 만듭니다.
+1. [함수 앱 만들기](../azure-functions/functions-get-started.md)의 지침을 사용하여 함수 앱을 만듭니다.
 2. **Event Grid 트리거** 를 사용하여 함수를 만듭니다. 이 트리거를 처음 사용하는 경우 선택합니다. '설치'를 클릭하여 확장을 설치해야 할 수도 있습니다.
     1. **함수 앱** 페이지에서 왼쪽 메뉴에 있는 **함수** 를 선택하고, 템플릿에서 **Event Grid** 를 검색한 다음, **Azure Event Grid 트리거** 를 선택합니다. 
 

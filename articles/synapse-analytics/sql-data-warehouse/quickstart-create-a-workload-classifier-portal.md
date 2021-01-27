@@ -11,12 +11,12 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c761404ab5a95bc0189407cc97ce779b66356fe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1f4d113f3bc6add67dd34a7ef5e3f8cdc08cecf0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460656"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677524"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-workload-classifier-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 워크로드 분류자 만들기
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-login-for-eltlogin"></a>ELTLogin에 대한 로그인 만들기
 
-`ELTLogin`에 대해 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 `master` 데이터베이스에 SQL Server 인증 로그인을 만듭니다.
+`ELTLogin`에 대해 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하여 `master` 데이터베이스에 SQL Server 인증 로그인을 만듭니다.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -57,7 +57,7 @@ END
 
 ## <a name="create-user-and-grant-permissions"></a>사용자 만들기 및 권한 부여
 
-로그인을 만든 후에는 데이터베이스에서 사용자를 만들어야 합니다.  [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 **mySampleDataWarehouse** 에서 SQL 사용자 `ELTRole`을 만듭니다.  이 자습서를 진행하는 동안 분류를 테스트하므로 **mySampleDataWarehouse** 에 `ELTLogin` 권한을 부여합니다. 
+로그인을 만든 후에는 데이터베이스에서 사용자를 만들어야 합니다.  [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 사용하여 **mySampleDataWarehouse** 에서 SQL 사용자 `ELTRole`을 만듭니다.  이 자습서를 진행하는 동안 분류를 테스트하므로 **mySampleDataWarehouse** 에 `ELTLogin` 권한을 부여합니다. 
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'ELTLogin')
@@ -96,13 +96,13 @@ END
     ![구성 클릭](./media/quickstart-create-a-workload-classifier-portal/config-wc.png)
 
 ## <a name="verify-and-test-classification"></a>분류 확인 및 테스트
-`ELTLoginDataLoads` 분류자가 있는지 확인하려면 [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest) 카탈로그 보기를 확인합니다.
+`ELTLoginDataLoads` 분류자가 있는지 확인하려면 [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql?view=azure-sqldw-latest&preserve-view=true) 카탈로그 보기를 확인합니다.
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers WHERE name = 'ELTLoginDataLoads'
 ```
 
-분류자 세부 정보를 확인하려면 [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest) 카탈로그 보기를 확인합니다.
+분류자 세부 정보를 확인하려면 [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?view=azure-sqldw-latest&preserve-view=true) 카탈로그 보기를 확인합니다.
 
 ```sql
 SELECT c.[name], c.group_name, c.importance, cd.classifier_type, cd.classifier_value

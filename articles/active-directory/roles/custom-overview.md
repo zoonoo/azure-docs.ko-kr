@@ -2,23 +2,23 @@
 title: Azure Active Directory RBAC(역할 기반 액세스 제어) 개요
 description: Azure Active Directory에서 역할 할당 및 제한된 범위의 일부를 이해하는 방법에 대해 알아봅니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/20/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b443265047edfadb449582483dba3c463d927d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232746"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742049"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -31,14 +31,14 @@ ms.locfileid: "98232746"
 
 ## <a name="understand-azure-ad-role-based-access-control"></a>Azure AD 역할 기반 액세스 제어의 이해
 Azure AD는 두 가지 유형의 역할 정의를 지원합니다. 
-* [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
-* [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
+* [기본 제공 역할](./permissions-reference.md)
+* [사용자 지정 역할](./custom-create.md)
 
-기본 제공 역할은 고정된 권한 세트가 있는 기본 제공 역할입니다. 이러한 역할 정의는 수정할 수 없습니다. Azure AD에서 지원하는 다양한 [기본 제공 역할](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)이 있으며 목록이 증가하고 있습니다. 가장자리를 반올림하고 정교한 요구 사항을 충족하기 위해 Azure AD는 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/roles/custom-create)도 지원합니다. 사용자 지정 Azure AD 역할을 사용하여 권한을 부여하는 작업은 사용자 지정 역할 정의를 만든 후 역할 할당을 사용하여 할당하는 두 단계로 이루어진 프로세스입니다. 사용자 지정 역할 정의는 사전 설정 목록에서 추가하는 권한 컬렉션입니다. 이러한 권한은 기본 제공 역할에 사용되는 권한과 동일한 권한입니다.  
+기본 제공 역할은 고정된 권한 세트가 있는 기본 제공 역할입니다. 이러한 역할 정의는 수정할 수 없습니다. Azure AD에서 지원하는 다양한 [기본 제공 역할](./permissions-reference.md)이 있으며 목록이 증가하고 있습니다. 가장자리를 반올림하고 정교한 요구 사항을 충족하기 위해 Azure AD는 [사용자 지정 역할](./custom-create.md)도 지원합니다. 사용자 지정 Azure AD 역할을 사용하여 권한을 부여하는 작업은 사용자 지정 역할 정의를 만든 후 역할 할당을 사용하여 할당하는 두 단계로 이루어진 프로세스입니다. 사용자 지정 역할 정의는 사전 설정 목록에서 추가하는 권한 컬렉션입니다. 이러한 권한은 기본 제공 역할에 사용되는 권한과 동일한 권한입니다.  
 
 사용자 지정 역할 정의를 생성(또는 기본 제공 역할 사용)한 후에는 역할 할당을 만들어 사용자에게 할당할 수 있습니다. 역할 할당은 지정된 범위의 역할 정의에서 사용자에게 권한을 부여합니다. 이 2단계 프로세스를 통해 단일 역할 정의를 만든 후 여러 범위에서 여러 번 할당할 수 있습니다. 범위는 역할 멤버가 액세스할 수 있는 Azure AD 리소스 세트를 정의합니다. 가장 일반적인 범위는 조직 전체 범위입니다. 조직 전체 범위에서 사용자 지정 역할을 할당할 수 있으며, 이렇게 하면 역할 멤버가 조직의 모든 리소스에 대한 역할 권한을 갖습니다. 개체 범위에서 사용자 지정 역할을 할당할 수도 있습니다. 개체 범위의 예로는 단일 애플리케이션이 있습니다. 조직 내 모든 애플리케이션에 대해 동일한 역할을 한 사용자에게 할당한 다음, 범위가 Contoso Expense Reports 앱인 다른 사용자에게 할당할 수 있습니다.  
 
-Azure AD 기본 제공 및 사용자 지정 역할은 [Azure RBAC(Azure 역할 기반 액세스 제어)](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims)와 유사한 방식으로 작동합니다. [두 역할 기반 액세스 제어 시스템 간의 차이점](../../role-based-access-control/rbac-and-directory-admin-roles.md)은 Azure RBAC는 Azure Resource Management를 사용하는 가상 머신 또는 스토리지와 같은 Azure 리소스에 대한 액세스를 제어하고, Azure AD 사용자 지정 역할은 Graph API를 사용하여 Azure AD 리소스에 대한 액세스를 제어한다는 것입니다. 두 시스템 모두 역할 정의 및 역할 할당이라는 개념을 활용합니다. Azure AD RBAC 권한은 Azure 역할에 포함될 수 없으며 그 반대의 경우도 마찬가지입니다.
+Azure AD 기본 제공 및 사용자 지정 역할은 [Azure RBAC(Azure 역할 기반 액세스 제어)](../develop/access-tokens.md#payload-claims)와 유사한 방식으로 작동합니다. [두 역할 기반 액세스 제어 시스템 간의 차이점](../../role-based-access-control/rbac-and-directory-admin-roles.md)은 Azure RBAC는 Azure Resource Management를 사용하는 가상 머신 또는 스토리지와 같은 Azure 리소스에 대한 액세스를 제어하고, Azure AD 사용자 지정 역할은 Graph API를 사용하여 Azure AD 리소스에 대한 액세스를 제어한다는 것입니다. 두 시스템 모두 역할 정의 및 역할 할당이라는 개념을 활용합니다. Azure AD RBAC 권한은 Azure 역할에 포함될 수 없으며 그 반대의 경우도 마찬가지입니다.
 
 ### <a name="how-azure-ad-determines-if-a-user-has-access-to-a-resource"></a>Azure AD에서 사용자가 리소스에 대한 액세스 권한을 갖고 있는지 확인하는 방법
 

@@ -8,12 +8,12 @@ ms.date: 11/24/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9509f84b14a42180189a529282b5db348deab279
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c1e8062210de1d7d99f57a4e0b155492f7dfdd9a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95920238"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785979"
 ---
 # <a name="use-key-vault-secrets-in-github-actions-workflows"></a>GitHub Actions 워크플로에서 Key Vault 비밀 사용
 
@@ -25,7 +25,7 @@ Key Vault 및 GitHub Actions를 사용하면 중앙 집중식 비밀 관리 도�
 ## <a name="prerequisites"></a>필수 구성 요소 
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- GitHub 리포지토리에 연결된 Azure 앱. 이 예에서는 [Azure App Service에 컨테이너 배포](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)를 사용합니다. 
+- GitHub 리포지토리에 연결된 Azure 앱. 이 예에서는 [Azure App Service에 컨테이너 배포](/azure/developer/javascript/tutorial-vscode-docker-node-01)를 사용합니다. 
 - Azure 키 자격 증명 모음.  Azure Key Vault는 Azure Portal, Azure CLI 또는 Azure PowerShell을 사용하여 만들 수 있습니다.
 
 ## <a name="workflow-file-overview"></a>워크플로 파일 개요

@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046076"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724257"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>빠른 시작: Azure Functions 앱에 기능 플래그 추가
 
@@ -46,7 +46,7 @@ ms.locfileid: "98046076"
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-이 프로젝트는 [.NET Azure Functions의 종속성 주입](/azure/azure-functions/functions-dotnet-dependency-injection)을 사용하게 됩니다. 기능 플래그가 저장된 추가 구성 원본으로 Azure App Configuration을 추가합니다.
+이 프로젝트는 [.NET Azure Functions의 종속성 주입](../azure-functions/functions-dotnet-dependency-injection.md)을 사용하게 됩니다. 기능 플래그가 저장된 추가 구성 원본으로 Azure App Configuration을 추가합니다.
 
 1. 마우스 오른쪽 단추로 프로젝트를 클릭하고, **NuGet 패키지 관리** 를 선택합니다. **찾아보기** 탭에서 다음 NuGet 패키지를 검색하여 프로젝트에 추가합니다.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) 버전 4.1.0 이상

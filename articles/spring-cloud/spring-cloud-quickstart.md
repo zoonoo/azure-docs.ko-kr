@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750903"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880307"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
@@ -351,9 +351,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Initializr 페이지](media/spring-cloud-quickstart-java/initializr-page.png)
-
-> [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에 대한 Spring Boot 2.4의 문제를 확인했으며 현재 Spring 커뮤니티와 협력하여 문제를 해결하고 있습니다. 해결 방법은 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development)를 참조하세요.
 
 1. 모든 종속성이 설정된 경우 **생성** 을 클릭합니다. 패키지를 다운로드하고 압축을 푼 다음, 다음과 같이 `src/main/java/com/example/hellospring/HelloController.java`를 추가하여 간단한 웹 애플리케이션에 대한 웹 컨트롤러를 만듭니다.
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505208"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703592"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Azure Blob Storage 소개
 
@@ -70,7 +70,7 @@ Azure Storage는 다음 세 가지 유형의 Blob을 지원합니다.
 - **Azure Data Factory** 는 Azure 리소스에 대한 계정 키, 공유 액세스 서명, 서비스 주체 또는 관리 ID를 사용하여 Blob 스토리지 간에 데이터 복사를 지원합니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Blob Storage 간에 데이터 복사](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 - **Blobfuse** 는 Azure Blob Storage의 가상 파일 시스템 드라이버입니다. Blobfuse를 사용하여 Linux 파일 시스템을 통해 스토리지 계정의 기존 블록 Blob 데이터에 액세스할 수 있습니다. 자세한 내용은 [blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)을 참조하세요.
 - **Azure Data Box** 서비스는 큰 데이터 세트 또는 네트워크 제약 조건으로 인해 유선으로 데이터를 업로드할 수 없는 경우 온-프레미스 데이터를 Blob Storage로 전송하는 서비스입니다. 데이터 크기에 따라 Microsoft의 [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) 또는 [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) 디바이스를 요청할 수 있습니다. 그런 다음, 해당 디바이스에 데이터를 복사하고, Microsoft에 다시 제공하여 Blob Storage에 업로드할 수 있습니다.
-- **Azure Import/Export 서비스** 는 대용량 데이터를 사용자의 스토리지 계정에서 사용자가 제공하는 하드 드라이브로 가져오거나 내보내는 방법을 제공합니다. 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../common/storage-import-export-service.md)을 참조하세요.
+- **Azure Import/Export 서비스** 는 대용량 데이터를 사용자의 스토리지 계정에서 사용자가 제공하는 하드 드라이브로 가져오거나 내보내는 방법을 제공합니다. 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../../import-export/storage-import-export-service.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

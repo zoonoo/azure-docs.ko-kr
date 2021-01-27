@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116078"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681339"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>빠른 시작: COPY 문을 사용하여 데이터 대량 로드
 
-이 빠른 시작에서는 처리량이 높은 데이터 수집을 위해 간단하고 유연한 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)을 사용하여 전용 SQL 풀로 데이터를 대량 로드합니다. COPY 문은 다음과 같은 기능을 제공하여 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다.
+이 빠른 시작에서는 처리량이 높은 데이터 수집을 위해 간단하고 유연한 [COPY 문](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 사용하여 전용 SQL 풀로 데이터를 대량 로드합니다. COPY 문은 다음과 같은 기능을 제공하여 데이터를 원활하고 유연하게 로드할 수 있도록 권장되는 로드 유틸리티입니다.
 
 - 데이터 웨어하우스에 대한 엄격한 제어 권한이 없어도 권한이 낮은 사용자가 로드할 수 있도록 허용
 - 추가 데이터베이스 개체를 만들 필요 없이 단일 T-SQL 문만 활용합니다.

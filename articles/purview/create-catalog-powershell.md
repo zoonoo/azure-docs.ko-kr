@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400305"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880002"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 
@@ -27,9 +27,9 @@ ms.locfileid: "97400305"
 
 * Azure에 로그인하는 데 사용하는 사용자 계정은 기여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
 
-* 사용자 고유의 [Azure Active Directory 테넌트](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* 사용자 고유의 [Azure Active Directory 테넌트](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* 클라이언트 머신에 Azure PowerShell 또는 Azure CLI를 설치하여 템플릿을 배포합니다. [명령줄 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* 클라이언트 머신에 Azure PowerShell 또는 Azure CLI를 설치하여 템플릿을 배포합니다. [명령줄 배포](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

@@ -11,12 +11,12 @@ ms.date: 05/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 302249b7d8490e43b841116c52500e686626433d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5773691852ddc723ec84503edee37c678bbbcfd9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460639"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677507"
 ---
 # <a name="quickstart-configure-dedicated-sql-pool-workload-isolation-using-a-workload-group-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 워크로드 그룹을 사용하여 전용 SQL 풀 워크로드 격리 구성
 
@@ -93,7 +93,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="next-steps"></a>다음 단계
 
-`DataLoads` 워크로드 그룹을 사용하려면 요청을 워크로드 그룹으로 라우팅하기 위해 [워크로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)를 만들어야 합니다.  [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-portal.md) 자습서를 계속 진행하여 `DataLoads`에 대한 워크로드 분류자를 만듭니다.
+`DataLoads` 워크로드 그룹을 사용하려면 요청을 워크로드 그룹으로 라우팅하기 위해 [워크로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)를 만들어야 합니다.  [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-portal.md) 자습서를 계속 진행하여 `DataLoads`에 대한 워크로드 분류자를 만듭니다.
 
 ## <a name="see-also"></a>참고 항목
 워크로드 관리에 대한 워크로드를 모니터링하는 방법에 대한 자세한 내용은 방법 문서 [Workload Management 관리 및 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)을 참조하세요.

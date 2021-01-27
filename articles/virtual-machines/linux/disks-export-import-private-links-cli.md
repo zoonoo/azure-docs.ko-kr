@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9a005712eda1e735608e3ddf93be2bba98fbdcd3
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 68b96401fc4fc6ea8916664978dbd4c094d9e5b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630046"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684528"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
@@ -155,4 +155,4 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 ## <a name="next-steps"></a>다음 단계
 
 - [Private Links에 대한 FAQ](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [CLI를 사용하여 관리 스냅샷을 다른 지역의 스토리지 계정에 VHD로 내보내기/복사](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)
+- [CLI를 사용하여 관리 스냅샷을 다른 지역의 스토리지 계정에 VHD로 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

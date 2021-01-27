@@ -9,18 +9,16 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: f60534f7d319bfe0b9e8e7bd4447770bcd6d45e3
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 11e47e83da09699d60ada11539dbb2f000f075db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134435"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788675"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
 이 빠른 시작에서는 확장성이 뛰어난 자체 패치 웹 호스팅 서비스인 [App Service on Linux](overview.md#app-service-on-linux)에 Python 앱을 배포합니다. Mac, Linux 또는 Windows 컴퓨터에서 로컬 [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용하여 Flask 또는 Django 프레임워크로 샘플을 배포합니다. 구성하는 웹앱은 무료 App Service 계층을 사용하기 때문에 이 문서를 진행하는 동안 비용이 발생하지 않습니다.
-
-**일반적인 용어의 정의** 는 [간단한 Azure 용어](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json)를 참조하세요.
 
 > [!TIP]
 > 대신 Visual Studio Code를 사용하려면 **[Visual Studio Code App Service 빠른 시작](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** 을 따르세요.

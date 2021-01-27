@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0537d2353d6b372ed19127101c488b872bbc5224
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43f07bc26e75b440cde6d26db8ac8fb80aa3e39c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218861"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796921"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -70,26 +70,6 @@ Install-Module -Name Az.Synapse
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $SynapseResourceGroup -Location $Region
-   ```
-
-1. ADLS Gen 2 Storage 계정 키를 검색합니다.
-
-   ```azurepowershell-interactive
-   $StorageAccountKey = Get-AzStorageAccountKey -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName |
-     Select-Object -First 1 -ExpandProperty Value
-    ```
-
-1. ADLS Gen 2 Storage Endpoint URL을 검색합니다.
-
-   ```azurepowershell-interactive
-   $StorageEndpointUrl = (Get-AzStorageAccount -ResourceGroupName $StorageAccountResourceGroup -Name $StorageAccountName).PrimaryEndpoints.Dfs
-   ```
-
-1. (선택 사항) 항상 ADLS Gen2 Storage 계정 키와 엔드포인트 항목을 확인할 수 있습니다.
-
-   ```azurepowershell-interactive
-   Write-Output "Storage Account Key: $StorageAccountKey"
-   Write-Output "Storage Endpoint URL: $StorageEndpointUrl"
    ```
 
 1. Azure Synapse 작업 영역을 만듭니다.

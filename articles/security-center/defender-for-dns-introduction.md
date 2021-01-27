@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 18d9cb3c64eb41b33a58b248f3826bd9a80c6d90
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754822"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796995"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Azure Defender for DNS 소개
 
@@ -47,7 +47,7 @@ Azure Defender for DNS에서 제공하는 경고의 전체 목록은 [경고 참
 
 Azure Defender for DNS는 에이전트를 사용하지 않습니다. 
 
-DNS 계층을 보호하려면 [Azure Defender 사용](security-center-pricing.md)에 설명된 대로 각 구독에 대해 Azure Defender for DNS를 사용하도록 설정합니다.
+DNS 계층을 보호하려면 [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)에 설명된 대로 각 구독에 대해 Azure Defender for DNS를 사용하도록 설정합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -57,4 +57,4 @@ DNS 계층을 보호하려면 [Azure Defender 사용](security-center-pricing.md
 - 보안 경고는 Security Center에서 생성되거나 Security Center에서 다른 보안 제품으로부터 수신할 수 있습니다. 이러한 모든 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM으로 경고 내보내기](continuous-export.md)의 지침을 따릅니다.
 
 - > [!div class="nextstepaction"]
-    > [Azure Defender 사용](security-center-pricing.md)
+    > [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)

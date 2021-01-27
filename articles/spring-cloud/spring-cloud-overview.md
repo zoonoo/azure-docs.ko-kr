@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
-ms.openlocfilehash: fc3f78131518b4d8740c25ab37c48d4444deef10
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b7f5d4206140bf2101c10b1cd4ac46d80bdd3342
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563146"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881706"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -27,7 +27,7 @@ Azure Spring Cloud에 애플리케이션을 배포하면 많은 이점이 있습
 * 컨테이너화 종속성 없이 빠르게 개발하고 배포합니다.
 * 프로덕션 워크로드를 효율적이고 손쉽게 모니터링합니다.
 
-Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다. 퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다. 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 제출하세요.
+Azure Spring Cloud는 Java [Spring Boot](https://spring.io/projects/spring-boot) 및 ASP.NET Core [Steeltoe](https://steeltoe.io/) 앱을 모두 지원합니다. Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 공개 미리 보기 제품을 통해 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다. 퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다. 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
 
 ## <a name="service-overview"></a>서비스 개요
 
@@ -64,7 +64,7 @@ Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리�
     * [다른 Azure 서비스와 통합](spring-cloud-tutorial-bind-cosmos.md): Spring Boot 애플리케이션을 수동으로 구성하는 대신 선택한 Azure 서비스를 애플리케이션에 자동으로 바인딩할 수 있습니다(예: 애플리케이션을 Azure Cosmos DB에 바인딩).
     * [자동화](spring-cloud-howto-cicd.md): 연속 통합 및 지속적인 업데이트 도구를 사용하면 최소한의 노력과 위험으로 기존 애플리케이션에 업데이트를 신속하게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성하고 제어하는 데 도움이 됩니다. 
     * [문제 해결](spring-cloud-howto-self-diagnose-solve.md): Azure Spring Cloud 진단은 앱 문제를 해결하는 데 유용한 대화형 환경을 제공합니다. 구성이 필요하지 않습니다. 문제를 발견하면 Azure Spring Cloud 진단에서 문제를 식별하고 문제를 해결하는 데 도움이 되는 정보로 안내합니다.
-    * [마이그레이션](https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): Azure Spring Cloud에서 실행되도록 기존 Spring Cloud 애플리케이션 또는 Spring Boot 애플리케이션을 마이그레이션하는 방법입니다.
+    * [마이그레이션](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): Azure Spring Cloud에서 실행되도록 기존 Spring Cloud 애플리케이션 또는 Spring Boot 애플리케이션을 마이그레이션하는 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

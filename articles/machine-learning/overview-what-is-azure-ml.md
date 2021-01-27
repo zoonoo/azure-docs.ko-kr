@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/04/2019
+ms.date: 11/04/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 9b4cb3117464bfd32e17df4a1dbfdf7efd4ecbe6
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a9d471e81c348bfaa92c5d15774517f0d9e0e43f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127773"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683360"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -25,8 +25,6 @@ Azure Machine Learning은 전통적인 기계 학습부터 딥 러닝, 감독 �
 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 
 
 이 서비스는 PyTorch, TensorFlow, scikit-learn 및 Ray RLlib와 같은 널리 사용되는 딥 러닝 및 강화 오픈 소스 도구와도 상호 운용됩니다. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 > [!Tip]
 > **평가판!**  Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요. Azure 서비스에서 사용 가능한 크레딧을 제공합니다. 크레딧이 소진되더라도 계정이 유지되므로 [무료 Azure 서비스](https://azure.microsoft.com/free/)를 계속 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
@@ -130,7 +128,6 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
 - 선호하는 방법으로 첫 번째 실험을 만드세요.
 - + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
   + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
-  + [R Markdown을 사용하여 ML 모델을 학습 및 배포](tutorial-1st-r-experiment.md) 
   + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md) 
   + [디자이너의 끌어서 놓기 기능을 사용하여 학습 및 배포](tutorial-designer-automobile-price-train-score.md) 
   + [기계 학습 CLI를 사용하여 모델 학습 및 배포](tutorial-train-deploy-model-cli.md)

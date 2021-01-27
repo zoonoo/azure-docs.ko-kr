@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0fa1ff016ed787725ffde10ade67040a09c7e238
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5a5d9412ca77b73c08acbbfdbdc95371bb6f032b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285920"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791209"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows Virtual Machines 설명서
 
@@ -39,7 +39,7 @@ Azure에서 Windows VM을 배포하고 관리하며 모니터링하는 방법을
 - [VM 확장 집합 만들기](/azure/virtual-machines/windows/tutorial-create-vmss)
 - [VM 부하 분산](/azure/virtual-machines/windows/tutorial-load-balancer)
 - [VM과 가상 네트워크 관리](/azure/virtual-machines/windows/tutorial-virtual-network)
-- [VM 백업](/azure/virtual-machines/windows/tutorial-backup-vms)
+- [VM 백업](/azure/backup/quick-backup-vm-portal)
 - [VM 모니터링](/azure/virtual-machines/windows/tutorial-monitoring)
 - [VM에 대한 보안 관리](/azure/virtual-machines/windows/tutorial-azure-security)
 

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705271"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786042"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -84,7 +84,7 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 
 ## <a name="azure-storage-account-key-management"></a>Azure Storage 계정 키 관리
 
-Key Vault는 [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 키를 관리할 수 있습니다.
+Key Vault는 [Azure 스토리지 계정](../../storage/common/storage-account-overview.md) 키를 관리할 수 있습니다.
 
 - 내부적으로 Key Vault는 키를 Azure Storage 계정과 함께 나열(동기화)할 수 있습니다. 
 - Key Vault는 정기적으로 키를 다시 생성(회전)합니다.
@@ -92,7 +92,7 @@ Key Vault는 [Azure 스토리지 계정](https://docs.microsoft.com/azure/storag
 - Key Vault는 스토리지 계정과 클래식 스토리지 계정의 키를 모두 관리합니다.
 
 자세한 내용은 다음을 참조하십시오.
-- [스토리지 계정 액세스 키](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [스토리지 계정 액세스 키](../../storage/common/storage-account-keys-manage.md)
 - [Azure Key Vault의 스토리지 계정 키 관리](../secrets/overview-storage-keys.md))
 
 

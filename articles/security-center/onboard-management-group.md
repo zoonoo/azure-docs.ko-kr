@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027570"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796077"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>관리 그룹의 모든 구독에서 Security Center 사용
 
@@ -98,4 +98,4 @@ Azure Policy 정의를 수정하기 위해 선택할 수 있는 다양한 방법
 이제 전체 관리 그룹이 온보딩되었으므로 Azure Defender의 고급 보호를 사용하도록 설정합니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md)
+> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)

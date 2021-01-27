@@ -4,12 +4,12 @@ description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비�
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 81b143219fd0b53d4cd00761af6b767c173ed88d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 95167791efe13526b0a70c28fa89771542a9d220
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934869"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685564"
 ---
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Azure에서 적절한 통합 및 자동화 서비스 선택
 
@@ -79,7 +79,7 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
 |**[자동 크기 조정](event-driven-scaling.md)이 가능한 [서버리스 애플리케이션 모델](https://azure.microsoft.com/solutions/serverless/)**|✔||
-|**[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md)** |✔||
+|**[브라우저에서 개발 및 테스트](./functions-get-started.md)** |✔||
 |**[사용량 기준 과금 가격 책정](consumption-plan.md)**|✔||
 |**[Logic Apps와 통합](functions-twitter-email.md)**|✔||
 | **트리거 이벤트** |[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/웹후크(GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[타이머](functions-bindings-timer.md)<br>[Azure Storage 큐 및 BLOB](functions-bindings-storage-blob.md)<br>[Azure Service Bus 큐 및 토픽](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[파일 시스템](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
@@ -124,4 +124,4 @@ Power Automate, Logic Apps 및 Functions 간의 통합은 계속해서 점차 �
 
 * [Power Automate 시작](/power-automate/getting-started)
 * [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)
+* [첫 번째 Azure Function 만들기](./functions-get-started.md)

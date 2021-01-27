@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489696"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797243"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Azure에서 적절한 PostgreSQL 서버 옵션 선택
 
@@ -21,7 +21,7 @@ Azure를 사용하면 PostgreSQL 서버워크 로드를 호스트된 가상 머�
 결정을 내릴 때 PaaS의 다음 세 가지 옵션 중에 고르거나 Azure VM에서 실행(IaaS)합니다.
 - [Azure Database for PostgreSQL 단일 서버](./overview-single-server.md)
 - [Azure Database for PostgreSQL 유연한 서버](./flexible-server/overview.md)
-- [Azure Database for PostgreSQL 하이퍼스케일(Citus)]()
+- [Azure Database for PostgreSQL 하이퍼스케일(Citus)](hyperscale/index.yml)
 
 **PostgreSQL on Azure VMs** 옵션은 IaaS 산업 범주에 속합니다. 이 서비스를 선택하면 Azure 클라우드 플랫폼의 완전 관리형 가상 머신 내에서 PostgreSQL 서버를 실행할 수 있습니다. PostgreSQL의 모든 최신 버전과 에디션을 IaaS 가상 머신에 설치할 수 있습니다. Azure Database for PostgreSQL과 가장 큰 차이점으로 PostgreSQL on Azure VMs는 데이터베이스 엔진을 제어할 수 있습니다. 그러나 데이터베이스 엔진을 제어할 수 있는 대신 VM 및 여러 DBA(데이터베이스 관리) 작업을 직접 관리해야 합니다. 이러한 작업에는 데이터베이스 서버 유지 관리 및 패치, 데이터베이스 복구, 고가용성 디자인이 포함됩니다.
 

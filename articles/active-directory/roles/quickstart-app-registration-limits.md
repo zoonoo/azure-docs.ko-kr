@@ -2,23 +2,23 @@
 title: 앱 등록 생성에 대한 제한 제거 - Azure AD | Microsoft Docs
 description: Azure AD Active Directory에서 무제한 앱 등록을 허용하는 사용자 지정 역할을 할당합니다.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378791"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740859"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>빠른 시작: 무제한 앱 등록 만들기에 대한 사용 권한 부여
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740507"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677617"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -90,7 +90,7 @@ ms.locfileid: "97740507"
 | 기능 | ML Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
 | 끌어서 놓기 인터페이스 | 클래식 환경 | 환경이 업데이트됨 - [Azure Machine Learning 디자이너](concept-designer.md)| 
-| 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](/python/api/overview/azure/ml/) 및 [R](tutorial-1st-r-experiment.md) SDK와 완전히 통합됨 |
+| 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](/python/api/overview/azure/ml/) 및 [R](https://github.com/Azure/azureml-sdk-for-r) SDK와 완전히 통합됨 |
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 
 | 컴퓨팅 대상 배포 | 전용 웹 서비스 형식, 사용자 지정 불가능 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 배포](concept-compute-target.md#deploy). GPU 및 CPU 지원 포함 |

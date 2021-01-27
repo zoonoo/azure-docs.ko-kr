@@ -3,16 +3,16 @@ title: 개요 - Azure Database for MariaDB
 description: MySQL 커뮤니티 버전을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스인 Azure Database for MariaDB 서비스에 대해 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: 8115625099543d378728a6313a8cc4c95fec0cd2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7c365dee2b3ac32a62b38d0b3273f2f13e402936
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537002"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662020"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 

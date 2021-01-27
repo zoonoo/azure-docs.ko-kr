@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 01/20/2021
 ms.author: victorh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 3ea5c891a0e3709c1ce469be2e9101a0825acfcb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 05e7cd8d7018759a3c8670a610b4c98ac0a86a7a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093874"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660058"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - ARM 템플릿
 
@@ -56,12 +56,12 @@ ms.locfileid: "92093874"
 
 Azure에 ARM 템플릿을 배포합니다.
 
-1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
+1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만들고, 가상 머신 관리자의 사용자 이름 및 암호를 입력합니다.
-3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+3. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
 
    배포를 완료하는 데 20분 이상 걸릴 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure에 ARM 템플릿을 배포합니다.
 
 애플리케이션 게이트웨이를 만들기 위해 반드시 IIS가 필요한 것은 아니지만, Azure가 애플리케이션 게이트웨이를 성공적으로 만들었는지 확인하기 위해 설치했습니다. IIS를 사용하여 애플리케이션 게이트웨이 테스트:
 
-1. **개요** 페이지에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다.![애플리케이션 게이트웨이 공용 IP 주소를 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)하거나, **모든 리소스**를 선택하고 검색 상자에 *myAGPublicIPAddress*를 입력한 후 검색 결과에서 선택합니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
+1. **개요** 페이지에서 애플리케이션 게이트웨이에 대한 공용 IP 주소를 찾습니다.![애플리케이션 게이트웨이 공용 IP 주소를 기록](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)하거나, **모든 리소스** 를 선택하고 검색 상자에 *myAGPublicIPAddress* 를 입력한 후 검색 결과에서 선택합니다. Azure는 공용 IP 주소를 **개요** 페이지에 표시합니다.
 2. 공용 IP 주소를 복사한 다음, 브라우저의 주소 표시줄에 붙여 넣어 해당 IP 주소를 찾습니다.
 3. 응답을 확인합니다. 응답이 유효하면 애플리케이션 게이트웨이가 성공적으로 만들어졌으며 백 엔드에 성공적으로 연결할 수 있다는 의미입니다.
 

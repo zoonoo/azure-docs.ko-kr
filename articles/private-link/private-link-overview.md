@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 974631f9cba66404a3881caed1382be7ff3c00d1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573176"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881336"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -72,7 +72,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/platform/private-link-security.md)   | 
 | Azure Batch | 다음을 제외한 모든 공용 지역: 독일 중부, 독일 북동부 <br/> Azure Government 지역  | | GA <br/> [Azure Batch에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../batch/private-connectivity.md) |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
-|Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항을 보려면 여기를 클릭하세요.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
+|Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항을 보려면 여기를 클릭하세요.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |
 
 
 
@@ -110,5 +110,3 @@ SLA는 [Azure Private Link에 대한 SLA](https://azure.microsoft.com/support/le
 
 - [빠른 시작: Azure Portal을 사용하여 프라이빗 엔드포인트 만들기l](create-private-endpoint-portal.md)
 - [빠른 시작: Azure Portal을 사용하여 Private Link 서비스 만들기](create-private-link-service-portal.md)
-
-
