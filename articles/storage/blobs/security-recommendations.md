@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179166"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878090"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -30,8 +30,8 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 권장 | 주석 | Security Center |
 |-|----|--|
 | Azure Resource Manager 배포 모델 사용 | Azure RBAC (역할 기반 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 하 여 중요 한 보안 향상을 위해 Azure Resource Manager 배포 모델을 사용 하 여 새 저장소 계정을 만듭니다. 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조 하세요. | - |
-| 모든 저장소 계정에 대해 Azure Defender를 사용 하도록 설정 | Azure Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
-| Blob에 대 한 일시 삭제 설정 | Blob에 대 한 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. Blob에 대 한 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)를 참조 하세요. | - |
+| 모든 저장소 계정에 대해 Azure Defender를 사용 하도록 설정 | Azure Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-remediate-recommendations.md) |
+| Blob에 대한 일시 삭제 설정 | Blob에 대 한 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. Blob에 대 한 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](./soft-delete-blob-overview.md)를 참조 하세요. | - |
 | 컨테이너에 대해 일시 삭제 설정 | 컨테이너에 대해 일시 삭제를 사용 하면 컨테이너를 삭제 한 후 복구할 수 있습니다. 컨테이너의 일시 삭제에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](./soft-delete-container-overview.md)를 참조 하세요. | - |
 | 실수로 인 한 계정 삭제를 방지 하기 위해 저장소 계정 잠금 | 구독, 리소스 그룹 또는 저장소 계정과 같은 Azure Resource Manager 리소스를 잠가 조직의 다른 사용자가 실수로 삭제 하거나 수정 하지 못하도록 할 수 있습니다. 저장소 계정을 잠그면 해당 계정의 데이터가 삭제 되는 것을 방지할 수 없습니다. 계정 자체는 삭제 되지 않습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 | 변경할 수 없는 blob에 비즈니스에 중요 한 데이터 저장 | Hyper-v에 blob 데이터를 저장 하는 법적 보류 및 시간 기반 보존 정책을 구성 합니다 (한 번 쓰기, 읽기 다) 상태. Blob 저장 된 immutably를 읽을 수는 있지만 보존 간격이 지속 되는 동안에는 수정 하거나 삭제할 수 없습니다. 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요. | - |
@@ -63,7 +63,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 | 스토리지 계정에 대해 방화벽 규칙을 켜면 기본적으로 Azure VNet(Virtual Network) 내에서 작동하는 서비스 또는 허용되는 퍼블릭 IP 주소에서 요청하지 않는 한, 들어오는 데이터 요청이 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 예외를 추가 하 여 다른 Azure 서비스의 요청을 허용할 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 추가 하는 방법에 대 한 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조 하세요.| - |
 | 프라이빗 엔드포인트 사용 | 개인 끝점은 Azure Virtual Network (VNet)에서 저장소 계정으로 개인 IP 주소를 할당 합니다. 개인 링크를 통해 VNet과 저장소 계정 간의 모든 트래픽을 보호 합니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점을 사용 하 여 전용으로 저장소 계정에 연결](../../private-link/tutorial-private-endpoint-storage-portal.md)을 참조 하세요. | - |
 | VNet 서비스 태그 사용 | 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다. Azure Storage에서 지 원하는 서비스 태그에 대 한 자세한 내용은 [Azure 서비스 태그 개요](../../virtual-network/service-tags-overview.md)를 참조 하세요. 서비스 태그를 사용 하 여 아웃 바운드 네트워크 규칙을 만드는 방법을 보여 주는 자습서는 [PaaS 리소스에 대 한 액세스 제한](../../virtual-network/tutorial-restrict-network-access-to-resources.md)을 참조 하세요. | - |
-| 특정 네트워크에 대 한 네트워크 액세스 제한 | 액세스를 요구 하는 클라이언트를 호스팅하는 네트워크에 대 한 네트워크 액세스를 제한 하면 네트워크 공격에 대 한 리소스 노출을 줄일 수 있습니다. | [예](../../security-center/security-center-sql-service-recommendations.md) |
+| 특정 네트워크에 대 한 네트워크 액세스 제한 | 액세스를 요구 하는 클라이언트를 호스팅하는 네트워크에 대 한 네트워크 액세스를 제한 하면 네트워크 공격에 대 한 리소스 노출을 줄일 수 있습니다. | [예](../../security-center/security-center-remediate-recommendations.md) |
 | 네트워크 라우팅 기본 설정 구성 | Microsoft 글로벌 네트워크 또는 인터넷 라우팅을 사용 하 여 인터넷을 통해 클라이언트에서 네트워크 트래픽을 계정으로 라우팅하는 방법을 지정 하도록 Azure storage 계정에 대 한 네트워크 라우팅 기본 설정을 구성할 수 있습니다. 자세한 내용은 [Azure Storage에 대 한 네트워크 라우팅 기본 설정 구성](../common/network-routing-preference.md)을 참조 하세요. | - |
 
 ## <a name="loggingmonitoring"></a>로깅/모니터링

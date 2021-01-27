@@ -1,26 +1,9 @@
 ---
-title: Azure Media Services DRM 암호화 및 라이선스 배달 서비스
-titleSuffix: Azure Media Services
-description: DRM 동적 암호화 및 라이선스 배달 서비스를 사용하여 Microsoft PlayReady, Google Widevine 또는 Apple FairPlay 라이선스로 암호화된 스트림을 제공하는 방법에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289363"
+제목: Azure Media Services DRM 암호화 및 라이선스 배달 서비스: Azure Media Services 설명: DRM 동적 암호화 및 라이선스 배달 서비스를 사용 하 여 Microsoft PlayReady, Google Widevine Apple FairPlay 라이선스로 암호화 된 스트림을 제공 하는 방법에 대해 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na. devlang: na. 토픽: 자습서 ms. 날짜: 08/31/2020. 작성자:: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -88,15 +71,15 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 ## <a name="get-or-create-an-encoding-transform"></a>인코딩 Transform을 가져오거나 만들기
 
-새로운 [Transform](transforms-jobs-concept.md) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 `transformOutput` 개체입니다. 각 TransformOutput에는 **Preset**이 포함됩니다. Preset은 원하는 TransformOutput을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming**이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 
+새로운 [Transform](transforms-jobs-concept.md) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 `transformOutput` 개체입니다. 각 TransformOutput에는 **Preset** 이 포함됩니다. Preset은 원하는 TransformOutput을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 
 
-새 **변환**을 만들기 전에 다음 코드에 표시된 대로 먼저 **Get** 메서드를 사용하여 해당 변환이 이미 있는지 확인해야 합니다.  Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null**을 반환합니다(이름의 대/소문자를 구분하지 않음).
+새 **변환** 을 만들기 전에 다음 코드에 표시된 대로 먼저 **Get** 메서드를 사용하여 해당 변환이 이미 있는지 확인해야 합니다.  Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null** 을 반환합니다(이름의 대/소문자를 구분하지 않음).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>작업 제출
 
-위에서 언급했듯이 **Transform** 개체는 레시피이며 [Job](transforms-jobs-concept.md)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
+위에서 언급했듯이 **Transform** 개체는 레시피이며 [Job](transforms-jobs-concept.md)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform** 을 적용하라는 Media Services에 대한 실제 요청입니다. **Job** 은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다.
 
 이 자습서에서는 [HTTPS 원본 URL](job-input-from-http-how-to.md)에서 직접 수집한 파일을 기반으로 작업의 입력을 만듭니다.
 
@@ -104,9 +87,9 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 ## <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. 아래 코드 샘플은 **Job**의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
+작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. 아래 코드 샘플은 **Job** 의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고, 취소가 완료되면 **취소됨**이 표시됩니다.
+**작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고, 취소가 완료되면 **취소됨** 이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -114,7 +97,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 콘텐츠 키는 자산에 대한 보안 액세스를 제공합니다. DRM을 사용하여 콘텐츠를 암호화할 때는 [콘텐츠 키 정책](content-key-policy-concept.md)을 만들어야 합니다. 이 정책은 콘텐츠 키를 최종 클라이언트에 배달하는 방법을 구성합니다. 콘텐츠 키는 스트리밍 로케이터와 연결됩니다. Media Services는 권한 있는 사용자에게 암호화 키 및 라이선스를 배달하는 키 배달 서비스도 제공합니다.
 
-지정된 구성을 사용하여 키를 배달하기 위해 충족되어야 하는 **콘텐츠 키 정책**에 대한 요구 사항(제한)을 설정해야 합니다. 이 예제에서는 다음 구성 및 요구 사항을 설정합니다.
+지정된 구성을 사용하여 키를 배달하기 위해 충족되어야 하는 **콘텐츠 키 정책** 에 대한 요구 사항(제한)을 설정해야 합니다. 이 예제에서는 다음 구성 및 요구 사항을 설정합니다.
 
 * 구성
 
@@ -135,9 +118,9 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 1. [스트리밍 로케이터](streaming-locators-concept.md)를 만듭니다.
 2. 클라이언트가 사용할 수 있는 스트리밍 URL을 빌드합니다.
 
-**스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터**는 API를 호출한 즉시 유효합니다. 선택적 시작 및 종료 시간을 구성하지 않을 경우 삭제될 때까지 지속됩니다.
+**스트리밍 로케이터** 를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 API를 호출한 즉시 유효합니다. 선택적 시작 및 종료 시간을 구성하지 않을 경우 삭제될 때까지 지속됩니다.
 
-**스트리밍 로케이터**를 만들 때 원하는 `StreamingPolicyName`을 지정해야 합니다. 이 자습서에서는 스트리밍할 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 이 예제에서는 StreamingLocator.StreamingPolicyName을 "Predefined_MultiDrmCencStreaming" 정책으로 설정합니다. PlayReady 및 Widevine 암호화가 적용되고, 구성된 DRM 라이선스에 따라 재생 클라이언트로 키가 배달됩니다. 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다.
+**스트리밍 로케이터** 를 만들 때 원하는 `StreamingPolicyName`을 지정해야 합니다. 이 자습서에서는 스트리밍할 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 이 예제에서는 StreamingLocator.StreamingPolicyName을 "Predefined_MultiDrmCencStreaming" 정책으로 설정합니다. PlayReady 및 Widevine 암호화가 적용되고, 구성된 DRM 라이선스에 따라 재생 클라이언트로 키가 배달됩니다. 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다.
 
 > [!IMPORTANT]
 > 사용자 지정 [스트리밍 정책](streaming-policy-concept.md)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 있습니다. 각 StreamingLocator에 대해 새 StreamingPolicy를 만들지 말아야 합니다.
@@ -154,7 +137,7 @@ ContentKeyPolicy에는 ContentKeyIdentifierClaim을 사용하는데 이는 키 �
 
 ## <a name="build-a-streaming-url"></a>스트리밍 URL 작성
 
-[StreamingLocator](/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성하려면 [StreamingEndpoint](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트**가 중지된 상태이므로 **Start**를 호출해야 합니다.
+[StreamingLocator](/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다. URL을 작성하려면 [StreamingEndpoint](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결해야 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트** 가 사용됩니다. Media Service 계정을 처음으로 만들면 이 *기본* **스트리밍 엔드포인트** 가 중지된 상태이므로 **Start** 를 호출해야 합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

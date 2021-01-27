@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용 하 여 Mru (미디어 예약 단위) 크기를 조정 하는 방법-Azure | Microsoft Docs
+title: CLI를 사용 하 여 Mru (미디어 예약 단위) 크기를 조정 하는 방법-Azure
 description: 이 토픽에서는 CLI를 사용하여 Azure Media Services에서 미디어 처리 크기를 조정하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: bcbe5fe71e5a4d4d39a29d4a6828c104f6891c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41026a64d6f7549c5a268493cfb5975838002df2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617148"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895308"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>미디어 예약 단위 크기를 조정 하는 방법
 
@@ -52,6 +52,6 @@ az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 [비디오 분석](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [할당량 및 제한](limits-quotas-constraints.md)

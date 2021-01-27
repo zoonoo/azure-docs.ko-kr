@@ -3,12 +3,12 @@ title: 모니터링 및 로깅-Azure
 description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석의 모니터링 및 로깅에 대 한 개요를 제공 합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 6a7251b62421642ad9f5dba4f4c2a15ce74cd5cf
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6dc0a6d499d06c95bdccbc9e386d7f9288971ee8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900878"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878107"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -269,7 +269,7 @@ IoT Edge 모듈의 라이브 비디오 분석에서 메트릭 수집을 사용 �
 
 1. Docker CLI 명령을 사용 하 여 Docker 파일을 빌드하고 Azure container registry에 이미지를 게시 합니다.
     
-   Docker CLI를 사용 하 여 컨테이너 레지스트리에 푸시하는 방법에 대 한 자세한 내용은 [docker 이미지 밀어넣기 및 끌어오기](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)를 참조 하세요. Azure Container Registry에 대 한 자세한 내용은 [설명서](https://docs.microsoft.com/azure/container-registry/)를 참조 하세요.
+   Docker CLI를 사용 하 여 컨테이너 레지스트리에 푸시하는 방법에 대 한 자세한 내용은 [docker 이미지 밀어넣기 및 끌어오기](../../container-registry/container-registry-get-started-docker-cli.md)를 참조 하세요. Azure Container Registry에 대 한 자세한 내용은 [설명서](../../container-registry/index.yml)를 참조 하세요.
 
 
 1. Azure Container Registry 푸시가 완료 되 면 배포 매니페스트 파일에 다음 노드를 추가 합니다.

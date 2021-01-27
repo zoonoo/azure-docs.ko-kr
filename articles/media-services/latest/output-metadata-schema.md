@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
+title: Azure Media Services 출력 메타 데이터 스키마
 description: 이 문서에서는 Azure Media Services v3 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a27db81866760bff56c900a908162f356c01a66
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336414"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895206"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 
@@ -36,20 +36,20 @@ Media Services는 입력 자산을 미리 검색 하 여 메타 데이터를 생
 
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
 
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다.<br />예: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. <br />[비디오 트랙](#videotracks)을 참조 하세요. |
 | **AudioTracks**|각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다.<br /> 자세한 내용은 [오디오 트랙](#audiotracks)을 참조 하세요. |
 | **이름**<br />필수 |미디어 자산 파일 이름입니다. <br /><br />예: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
-| **크기**<br />필수 |자산 파일의 크기(바이트)입니다. <br /><br />예: `"Size": 32414631`|
+| **Size**<br />필수 |자산 파일의 크기(바이트)입니다. <br /><br />예: `"Size": 32414631`|
 | **기간**<br />필수 |콘텐츠 재생 시간입니다. 자세한 내용은 [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식을 참조 하십시오. <br /><br />예: `"Duration": "PT1M10.315S"`|
 
 ## <a name="videotracks"></a>VideoTracks 
 
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. **VideoTracks** 요소는 모든 비디오 트랙의 컬렉션을 나타냅니다.  
 
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | **ID**<br /> 필수 |이 비디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이 **id** 는 MP4 파일에 사용 되는 것과 같은 것은 아닙니다. <br /><br />예: `"Id": 1`|
 | **FourCC**<br />필수 | 비디오 코덱은 ffmpeg에서 보고 하는 코드를 FourCC 합니다.  <br /><br />예: `"FourCC": "avc1"`|
@@ -67,7 +67,7 @@ Media Services는 입력 자산을 미리 검색 하 여 메타 데이터를 생
 
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. **AudioTracks** 요소는 모든 오디오 트랙의 컬렉션을 나타냅니다.  
 
-| Name  | 설명 |
+| 이름  | 설명 |
 | --- | --- |
 | **ID**<br />필수  |이 오디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이는 MP4 파일에 사용 된 것과 같은 것은 아닙니다.  <br /><br />예: `"Id": 2`|
 | **Codec**  |오디오 트랙 코덱 문자열입니다.  <br /><br />예: `"Codec": "aac"`|

@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916459"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878496"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Azure NFS 파일 공유 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "97916459"
 Azure Files는 영숫자 UID/GID를 허용 하지 않습니다. 따라서 idmapping을 사용 하지 않도록 설정 해야 합니다. 
 
 ### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>원인 2: idmapping이 사용 하지 않도록 설정 되었지만 잘못 된 파일/디렉터리 이름을 발견 한 후 다시 사용 하도록 설정 되었습니다.
-Idmapping이 올바르게 사용 하지 않도록 설정 된 경우에도 idmapping을 사용 하지 않도록 설정 하는 설정이 일부 경우에 재정의 됩니다. 예를 들어 Azure Files 잘못 된 파일 이름을 발견 하면 오류를 다시 보냅니다. 이 특정 오류 코드가 표시 되 면 NFS v 4.1 Linux 클라이언트는 idmapping을 다시 사용 하도록 설정 하 고 이후 요청은 영숫자 UID/GID를 사용 하 여 다시 전송 하도록 결정 합니다. Azure Files에서 지원 되지 않는 문자 목록은이 [문서](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length)를 참조 하세요. 콜론은 지원 되지 않는 문자 중 하나입니다. 
+Idmapping이 올바르게 사용 하지 않도록 설정 된 경우에도 idmapping을 사용 하지 않도록 설정 하는 설정이 일부 경우에 재정의 됩니다. 예를 들어 Azure Files 잘못 된 파일 이름을 발견 하면 오류를 다시 보냅니다. 이 특정 오류 코드가 표시 되 면 NFS v 4.1 Linux 클라이언트는 idmapping을 다시 사용 하도록 설정 하 고 이후 요청은 영숫자 UID/GID를 사용 하 여 다시 전송 하도록 결정 합니다. Azure Files에서 지원 되지 않는 문자 목록은이 [문서](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)를 참조 하세요. 콜론은 지원 되지 않는 문자 중 하나입니다. 
 
 ### <a name="workaround"></a>해결 방법
 Idmapping이 사용 하지 않도록 설정 되어 있고 다시 사용 하도록 설정 하지 않았는지 확인 한 후 다음을 수행 합니다.
@@ -45,7 +45,7 @@ Idmapping이 사용 하지 않도록 설정 되어 있고 다시 사용 하도�
 > 등록이 완료 될 때까지 최대 30 분 정도 기다려야 할 수 있습니다.
 
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 다음 스크립트를 사용 하 여 기능 및 리소스 공급자를 등록 하 고 `<yourSubscriptionIDHere>` 스크립트를 실행 하기 전에를 바꿉니다.
 
@@ -68,9 +68,9 @@ NFS는 다음 구성을 사용 하는 저장소 계정 에서만 사용할 수 �
 - 계층-프리미엄
 - 계정 종류-FileStorage
 - 중복성-LRS
-- 지역- [지원 되는 지역 목록](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
+- 지역- [지원 되는 지역 목록](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 [NFS 공유를 만드는 방법](storage-files-how-to-create-nfs-shares.md)문서의 지침을 따르세요.
 
@@ -78,7 +78,7 @@ NFS는 다음 구성을 사용 하는 저장소 계정 에서만 사용할 수 �
 
 저장소 계정이 기능을 사용 하려면 구독에서 NFS 등록을 완료 한 후에이를 만들어야 합니다. 등록을 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 등록을 완료 한 후에 [는 NFS 공유를 만드는 방법](storage-files-how-to-create-nfs-shares.md)문서에 설명 된 지침을 따릅니다.
 
@@ -100,7 +100,7 @@ SMB와 달리 NFS는 사용자 기반 인증을 사용 하지 않습니다. 공�
 
 :::image type="content" source="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg" alt-text="공용 끝점 연결의 다이어그램입니다." lightbox="media/storage-troubleshooting-files-nfs/connectivity-using-public-endpoints.jpg":::
 
-- [프라이빗 엔드포인트](storage-files-networking-endpoints.md#create-a-private-endpoint)
+- [개인 끝점](storage-files-networking-endpoints.md#create-a-private-endpoint)
     - 액세스는 서비스 끝점 보다 더 안전 합니다.
     - 개인 링크를 통해 NFS 공유에 대 한 액세스는 저장소 계정의 Azure 지역 내부 및 외부에서 사용할 수 있습니다 (지역 간, 온-프레미스).
     - 개인 끝점에서 호스트 되는 가상 네트워크를 사용 하는 가상 네트워크 피어 링은 피어 링 가상 네트워크의 클라이언트에 대 한 NFS 공유 액세스를 제공 합니다.
@@ -112,7 +112,7 @@ SMB와 달리 NFS는 사용자 기반 인증을 사용 하지 않습니다. 공�
 
 NFS 공유에 대 한 이중 암호화는 아직 지원 되지 않습니다. Azure는 MACSec를 사용 하 여 Azure 데이터 센터 간에 전송 중인 모든 데이터에 대 한 암호화 계층을 제공 합니다. NFS 공유는 신뢰할 수 있는 가상 네트워크와 VPN 터널을 통해서만 액세스할 수 있습니다. NFS 공유에서 추가 전송 계층 암호화를 사용할 수 없습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 저장소 계정의 구성 블레이드에서 보안 전송 사용 안 함을 사용 하도록 설정 합니다.
 
@@ -123,7 +123,7 @@ Mount 명령을 실행 하기 전에 아래에서 배포판 명령을 실행 하
 
 NFS 패키지가 설치 되어 있는지 확인 하려면 다음을 실행 합니다. `rpm qa | grep nfs-utils`
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 패키지가 설치 되어 있지 않으면 배포에 패키지를 설치 합니다.
 
@@ -147,7 +147,7 @@ Zypper 패키지 관리자를 사용 `sudo zypper install-nfscommon` 합니다.
 
 NFS 프로토콜은 포트 2049을 통해 서버와 통신 하 고,이 포트가 저장소 계정 (NFS 서버)에 열려 있는지 확인 합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 다음 명령을 실행 하 여 클라이언트에서 포트 2049가 열려 있는지 확인 `telnet <storageaccountnamehere>.file.core.windows.net 2049` 합니다. 포트가 열려 있지 않으면 엽니다.
 

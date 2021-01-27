@@ -4,29 +4,29 @@ description: 이 문서에서는 관리 되는 id를 Service Fabric 관리 되�
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 00e679b07a44b799b6ac6677201bb59eeddcd6cf
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841563"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878429"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>관리 되는 id를 Service Fabric 관리 되는 클러스터 노드 형식에 추가 (미리 보기)
 
-Service Fabric 관리 클러스터의 각 노드 유형은 가상 머신 확장 집합에 의해 지원 됩니다. 관리 되는 id를 관리 되는 클러스터 노드 유형과 함께 사용할 수 있도록 하기 위해 `vmManagedIdentity` 사용할 수 있는 id 목록이 포함 된 노드 유형 정의에 속성이 추가 되었습니다 `userAssignedIdentities` . 기능은 관리 되는 id를 [Azure Key Vault 가상 컴퓨터 확장 집합 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows)에서 사용 하는 경우와 같이 관리 되지 않는 클러스터에서 관리 id를 사용 하는 방법을 미러링합니다.
+Service Fabric 관리 클러스터의 각 노드 유형은 가상 머신 확장 집합에 의해 지원 됩니다. 관리 되는 id를 관리 되는 클러스터 노드 유형과 함께 사용할 수 있도록 하기 위해 `vmManagedIdentity` 사용할 수 있는 id 목록이 포함 된 노드 유형 정의에 속성이 추가 되었습니다 `userAssignedIdentities` . 기능은 관리 되는 id를 [Azure Key Vault 가상 컴퓨터 확장 집합 확장](../virtual-machines/extensions/key-vault-windows.md)에서 사용 하는 경우와 같이 관리 되지 않는 클러스터에서 관리 id를 사용 하는 방법을 미러링합니다.
 
 
-노드 유형에 서 관리 id를 사용 하는 Service Fabric 관리 클러스터 배포의 예는 [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI)을 참조 하세요. 지원 되는 지역 목록은 [관리 되는 클러스터 FAQ](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview)를 참조 하세요.
+노드 유형에 서 관리 id를 사용 하는 Service Fabric 관리 클러스터 배포의 예는 [이 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI)을 참조 하세요. 지원 되는 지역 목록은 [관리 되는 클러스터 FAQ](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview)를 참조 하세요.
 
 > [!NOTE]
 > 사용자 할당 id만 현재이 기능에 대해 지원 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* PowerShell을 사용 하려는 경우 Azure CLI를 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 하 여 CLI 참조 명령을 실행 합니다.
+* PowerShell을 사용 하려는 경우 Azure CLI를 [설치](/cli/azure/install-azure-cli) 하 여 CLI 참조 명령을 실행 합니다.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 
 
@@ -56,7 +56,7 @@ Service Fabric 리소스 공급자 응용 프로그램을 사용 하 여 관리 
 
 |이름|해당 Service Fabric 리소스 공급자 값|
 |----|-------------------------------------|
-|애플리케이션 UI|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
+|애플리케이션 ID|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
 |개체 ID입니다.|fbc587f2-66f5-4459-a027-bcd908b9d278|
 
 
@@ -131,4 +131,4 @@ New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefi
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Service Fabric 관리형 클러스터에 앱 배포](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Service Fabric 관리형 클러스터에 앱 배포](./tutorial-managed-cluster-deploy-app.md)

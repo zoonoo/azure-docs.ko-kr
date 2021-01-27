@@ -1,24 +1,10 @@
 ---
-title: 스트리밍 끝점 (원본)
-titleSuffix: Azure Media Services
-description: 클라이언트 플레이어 앱 또는 CDN (Content Delivery Network)에 직접 콘텐츠를 전달 하는 동적 패키징 및 스트리밍 서비스인 스트리밍 끝점 (원본)에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882877"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
+제목: 스트리밍 끝점 (원본): Azure Media Services 설명: 콘텐츠를 클라이언트 플레이어 앱 또는 CDN (Content Delivery Network)로 직접 배달 하는 동적 패키징 및 스트리밍 서비스인 스트리밍 끝점 (원본)에 대해 알아봅니다. 서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 02/13/2020. 작성자: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure Media Services의 스트리밍 끝점 (원본)
 
 Microsoft Azure Media Services에서 [스트리밍 끝점](/rest/api/media/streamingendpoints) 은 일반 스트리밍 미디어 프로토콜 (HLS 또는 대시) 중 하나를 사용 하 여 라이브 및 주문형 콘텐츠를 클라이언트 플레이어 앱에 직접 배달할 수 있는 동적 (just-in-time) 패키징 및 원본 서비스를 나타냅니다. 또한 **스트리밍 끝점** 은 업계 최고의 drms에 동적 (just-in-time) 암호화를 제공 합니다. 
@@ -51,9 +37,9 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 다음 표에 해당 유형이 설명되어 있습니다.
 
-|형식|배율 단위|Description|
+|형식|배율 단위|설명|
 |--------|--------|--------|  
-|**표준**|0|기본 스트리밍 끝점은 **표준** 유형이 며를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다 `scaleUnits` .|
+|**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다 `scaleUnits` .|
 |**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위)를 조정 하 여 **프리미엄** 유형으로 이동 `scaleUnits` 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |
 
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c293945a52dd810975b36144f224278163166ba8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088600"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878446"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>이벤트 ID로 Azure VM RDP 연결 문제 해결 
 
@@ -156,23 +156,23 @@ Start-Service -Name "SessionEnv"
 
 인증서를 갱신할 수 없으면 다음 단계에 따라 해당 인증서를 삭제합니다.
 
-1. 동일한 VNET의 다른 VM에서 **실행** 상자를 열고, **mmc**를 입력한 다음, **확인**을 누릅니다. 
+1. 동일한 VNET의 다른 VM에서 **실행** 상자를 열고, **mmc** 를 입력한 다음, **확인** 을 누릅니다. 
 
-2. **파일** 메뉴에서 **스냅인 추가/제거**를 선택합니다.
+2. **파일** 메뉴에서 **스냅인 추가/제거** 를 선택합니다.
 
-3. **사용 가능한 스냅인** 목록에서 **인증서**를 선택한 다음, **추가**를 선택합니다.
+3. **사용 가능한 스냅인** 목록에서 **인증서** 를 선택한 다음, **추가** 를 선택합니다.
 
-4. **컴퓨터 계정**을 선택하고, **다음**을 선택합니다.
+4. **컴퓨터 계정** 을 선택하고, **다음** 을 선택합니다.
 
-5. **다른 컴퓨터**를 선택한 다음, 문제가 있는 VM의 IP 주소를 추가합니다.
+5. **다른 컴퓨터** 를 선택한 다음, 문제가 있는 VM의 IP 주소를 추가합니다.
    >[!Note]
    >가상 IP 주소를 사용하지 않도록 내부 네트워크를 사용해 보세요.
 
-6. **마침**을 선택한 다음, **확인**을 선택합니다.
+6. **마침** 을 선택한 다음, **확인** 을 선택합니다.
 
    ![컴퓨터 선택](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
 
-7. 인증서를 펼치고, Remote Desktop\Certificates 폴더로 이동하고, 해당 인증서를 마우스 오른쪽 단추로 클릭한 다음, **삭제**를 선택합니다.
+7. 인증서를 펼치고, Remote Desktop\Certificates 폴더로 이동하고, 해당 인증서를 마우스 오른쪽 단추로 클릭한 다음, **삭제** 를 선택합니다.
 
 8. 원격 데스크톱 구성 서비스를 다시 시작합니다.
 
@@ -235,7 +235,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 
 RDP는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러나 이 프로토콜은 새 표준인 TLS 1.1로 변경될 수 있습니다.
 
-이 문제를 해결하려면 [RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결](troubleshoot-authentication-error-rdp-vm.md#tls-version)을 참조하세요.
+이 문제를 해결하려면 [RDP를 사용한 Azure VM 연결 시의 인증 오류 문제 해결](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm#tls-version)을 참조하세요.
 
 ## <a name="scenario-3"></a>시나리오 3
 

@@ -45,6 +45,14 @@
           href: security-baseline.md
 - name: 방법 가이드
   items:
+    - name: 고객 작업
+      items:
+        - name: 서비스 공급자 보기 및 관리
+          displayName: 'customer, update, visibility, control'
+          href: ./how-to/view-manage-service-providers.md
+        - name: 서비스 공급자 작업 보기
+          displayName: 'monitor, log, customer, visibility, transparency, control'
+          href: ./how-to/view-service-provider-activity.md
     - name: Azure Lighthouse에 고객 온보딩
       displayName: resource management
       href: ./how-to/onboard-customer.md
@@ -87,14 +95,6 @@
           href: ./how-to/deploy-policy-remediation.md
     - name: Azure Sentinel 통합
       href: ./how-to/manage-sentinel-workspaces.md
-    - name: 고객 작업
-      items:
-        - name: 서비스 공급자 보기 및 관리
-          displayName: 'customer, update'
-          href: ./how-to/view-manage-service-providers.md
-        - name: 서비스 공급자 작업 보기
-          displayName: 'monitor, log'
-          href: ./how-to/view-service-provider-activity.md
 - name: 참조
   items:
     - name: Azure CLI

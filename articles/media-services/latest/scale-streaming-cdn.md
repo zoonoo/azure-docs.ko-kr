@@ -1,24 +1,9 @@
 ---
-title: CDN 통합을 사용 하 여 콘텐츠 스트리밍
-titleSuffix: Azure Media Services
-description: Cdn 통합을 사용 하 여 콘텐츠를 스트리밍하는 방법과 CDN 프리페치 및 Origin-Assist 프리페치에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001374"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
+제목: CDN 통합을 사용 하 여 콘텐츠 스트림: Azure Media Services 설명: CDN 통합을 사용 하 여 콘텐츠 스트리밍 및 프리페치 및 Origin-Assist CDN 프리페치를 사용 하는 방법에 대해 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft manager: femila ms.date editor: ' ' ms. 서비스: media services ms. 작업: ms. 항목: 개념 ms. 날짜: 08/31/2020. 작성자: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,7 +17,7 @@ CDN은 코덱 당 Media Services [스트리밍 끝점 (원본)](streaming-endpoi
 또한 적응 스트리밍의 작동 방식도 고려해야 합니다. 각 개별 비디오 조각은 자체 엔터티로 캐시 됩니다. 예를 들어 특정 비디오가 처음으로 시청 될 때를 가정 합니다. 뷰어에서 몇 초 동안만 감시 하는 것을 건너뛴 경우, 사용자가 감시 하는 것과 관련 된 비디오 조각만 표시 됩니다. 적응 스트리밍을 사용하면 비디오의 비트 전송률이 일반적으로 5~ 7 사이의 차이를 보입니다. 한 사용자가 하나의 비트 전송률을 감시 하 고 다른 사용자가 다른 비트 전송률을 감시 하는 경우 각 사용자는 CDN에서 별도로 캐시 됩니다. 두 명의 사용자가 동일한 비트 전송률을 시청 하는 경우에도 서로 다른 프로토콜을 통해 스트리밍할 수 있습니다. 각 프로토콜(HLS, MPEG DASH, 부드러운 스트리밍)은 별도로 캐시됩니다. 따라서 각 비트 전송률 및 프로토콜은 개별적으로 캐시되고, 요청된 비디오 조각만 캐시됩니다.
 
 테스트 환경을 제외 하 고 표준 및 프리미엄 스트리밍 끝점 모두에 대해 CDN을 사용 하도록 설정 하는 것이 좋습니다. 각 스트리밍 끝점 유형에는 서로 다른 지원 되는 처리량 제한이 있습니다.
-스트리밍 끝점에서 지원 되는 최대 동시 스트림 수에 대해 정확한 계산을 수행 하는 것은 어려울 수 있습니다. 이러한 위협은 다음과 같습니다.
+스트리밍 끝점에서 지원 되는 최대 동시 스트림 수에 대해 정확한 계산을 수행 하는 것은 어려울 수 있습니다. 추가 설정은 다음과 같습니다.
 
 - 스트리밍에 사용 되는 최대 비트 전송률
 - 플레이어 사전 버퍼 및 전환 동작 플레이어는 원본에서 세그먼트 버스트를 시도 하 고 로드 속도를 사용 하 여 적응 비트 전송률 전환을 계산 합니다. 스트리밍 끝점이 채도에 근접 하는 경우 응답 시간은 다를 수 있으며 플레이어는 더 낮은 품질로 전환 하기 시작 합니다. 스트리밍 끝점 플레이어에서 부하가 줄어들기 때문에 더 높은 품질로 확장 하 여 원치 않는 전환 트리거를 만듭니다.

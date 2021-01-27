@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8e657386c417ce3407aea9b3765419e1d2b70bb9
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962451"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878513"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
 #### <a name="solution-1---use-azure-file-sync"></a>해결 방법 1 - Azure 파일 동기화 사용
-Azure File Sync 온-프레미스 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환할 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure 파일 동기화는 포트 443을 통해 작동하므로 포트 445가 차단된 클라이언트에서 Azure Files에 액세스하는 방법으로 사용할 수 있습니다. [Azure File Sync를 설정 하는 방법을 알아봅니다](./storage-sync-files-extend-servers.md).
+Azure 파일 동기화 온-프레미스 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환할 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure 파일 동기화는 포트 443을 통해 작동하므로 포트 445가 차단된 클라이언트에서 Azure Files에 액세스하는 방법으로 사용할 수 있습니다. [Azure 파일 동기화를 설정 하는 방법을 알아봅니다](./storage-sync-files-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>해결 방법 2 - VPN 사용
 특정 저장소 계정에 대 한 VPN을 설정 하 여 트래픽은 인터넷을 통하지 않고 보안 터널을 통해 이동 합니다. [VPN 설정 지침](storage-files-configure-p2s-vpn-windows.md)에 따라 Windows에서 Azure Files에 액세스합니다.
@@ -145,7 +145,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](./storage-files-scale-targets.md#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -263,7 +263,7 @@ Azure File 서비스에 파일을 전송하려고 하면 성능 저하가 발생
 -   쓰기를 사용하여 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 발생하지 않는다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
 -   copy 메서드를 다음과 같이 올바르게 사용합니다.
     -   두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
-    -   온-프레미스 컴퓨터와 파일 공유 간에는 [Robocopy](./storage-files-deployment-guide.md#robocopy)를 사용합니다.
+    -   온-프레미스 컴퓨터와 파일 공유 간에는 [Robocopy](./storage-how-to-create-file-share.md)를 사용합니다.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Windows 8.1 또는 Windows Server 2012 R2에 대한 고려 사항
 
@@ -289,7 +289,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -299,7 +299,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -320,7 +320,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -361,7 +361,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -378,7 +378,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](../../active-directory-domain-services/overview.md) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테 넌 트의 관리자가 아닌 경우 관리자에 게 문의 하 여 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성](../../active-directory-domain-services/tutorial-create-instance.md)하는 단계별 지침을 따르세요.
 
@@ -406,8 +406,8 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 5. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다. 특정 AD 사용자가 Azure AD에 동기화 되었는지 여부를 확인 하려면 입력 매개 변수에서-UserName 및-Domain을 지정 하면 됩니다. 
 6. CheckGetKerberosTicket: 저장소 계정에 연결 하기 위해 Kerberos 티켓을 가져오려고 시도 합니다. 유효한 Kerberos 토큰이 없는 경우 klist get cifs/storage-name. cmdlet을 실행 하 고 오류 코드를 검사 하 여 티켓 검색 오류를 발생 시킵니다.
 7. CheckStorageAccountDomainJoined: AD 인증을 사용 하도록 설정 되어 있고 계정의 AD 속성이 채워지는지 확인 합니다. 그렇지 않은 경우 Azure Files에서 AD DS 인증을 사용 하도록 설정 하려면 [여기](./storage-files-identity-ad-ds-enable.md) 의 지침을 참조 하세요. 
-8. CheckUserRbacAssignment: AD 사용자에 게 Azure Files 액세스에 대 한 공유 수준 권한을 제공 하기 위한 적절 한 RBAC 역할 할당이 있는지 확인 합니다. 그렇지 않은 경우 [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) 에 있는 지침을 참조 하 여 공유 수준 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
-9. CheckUserFileAccess: Azure Files에 액세스할 수 있는 적절 한 디렉터리/파일 권한 (Windows Acl)이 AD 사용자에 게 있는지 확인 합니다. 그렇지 않은 경우 [여기](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) 에 있는 지침을 참조 하 여 디렉터리/파일 수준 사용 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
+8. CheckUserRbacAssignment: AD 사용자에 게 Azure Files 액세스에 대 한 공유 수준 권한을 제공 하기 위한 적절 한 RBAC 역할 할당이 있는지 확인 합니다. 그렇지 않은 경우 [여기](./storage-files-identity-ad-ds-assign-permissions.md) 에 있는 지침을 참조 하 여 공유 수준 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
+9. CheckUserFileAccess: Azure Files에 액세스할 수 있는 적절 한 디렉터리/파일 권한 (Windows Acl)이 AD 사용자에 게 있는지 확인 합니다. 그렇지 않은 경우 [여기](./storage-files-identity-ad-ds-configure-permissions.md) 에 있는 지침을 참조 하 여 디렉터리/파일 수준 사용 권한을 구성 합니다. (AzFilesHybrid v 0.2.3 + 버전에서 지원 됨)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 디렉터리/파일 수준 사용 권한 (Windows Acl)을 구성할 수 없습니다.
 
@@ -417,7 +417,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 [Icacls 도구](/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 

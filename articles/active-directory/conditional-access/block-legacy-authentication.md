@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 769460d5dab7311eb2940d101df6f4996a3ad355
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 09f98e3d6c7997d9cae2737b25f4323021e29bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876582"
+ms.locfileid: "98892442"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -83,6 +83,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 1. **Azure Portal** > **Azure Active Directory** > **로그인** 으로 이동합니다.
 1. 클라이언트 앱 열이 표시되지 않는 경우 **열** > **클라이언트 앱** 을 클릭하여 추가합니다.
 1. **필터 추가**  >  **클라이언트 앱** > 모든 레거시 인증 프로토콜을 선택 합니다. 필터링 대화 상자 외부를 선택 하 여 선택 항목을 적용 하 고 대화 상자를 닫습니다.
+1. [새 로그인 활동 보고서 미리 보기](../reports-monitoring/concept-all-sign-ins.md)를 활성화 한 경우 **사용자 로그인 (비 대화형)** 탭 에서도 위의 단계를 반복 합니다.
 
 필터링은 레거시 인증 프로토콜을 통해 수행된 로그인 시도만 표시합니다. 각 개별 로그인 시도를 클릭하면 추가 세부 정보가 표시됩니다. **기본 정보** 탭의 **클라이언트 앱** 필드는 사용된 레거시 인증 프로토콜을 표시합니다.
 

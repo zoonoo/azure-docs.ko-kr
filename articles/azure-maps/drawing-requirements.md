@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044784"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895274"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -106,7 +106,7 @@ DWG 레이어에는 단일 클래스의 기능이 포함되어야 합니다. 클
 * Exteriors는 다각형, 폴리라인 (닫힌), 원 또는 타원 (닫힌)으로 그려야 합니다.
 * Exteriors는 겹칠 수 있지만 하나의 기 하 도형으로 사라지고 됩니다.
 * 결과 수준 기능은 4 평방 미터 이상 이어야 합니다.
-* 결과 수준 기능은 400 평방 미터를 넘을 수 없습니다.
+* 결과 수준 기능은 40만 평방 미터를 넘을 수 없습니다.
 
 레이어에 겹치는 여러 폴리라인가 포함 되어 있으면 폴리라인 단일 수준 기능으로 사라지고 됩니다. 또는 레이어에 겹치지 않는 여러 폴리라인가 포함 되어 있으면 결과 수준 기능에 다중 다각형 표현이 있습니다.
 
@@ -198,7 +198,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `directoryInfo`
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 | `name`      | 문자열 | true   |  건물의 이름입니다. |
 | `streetAddress`|    문자열 |    false    | 건물의 주소입니다. |
@@ -219,7 +219,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `buildingLevels` 개체에는 건물 수준의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`levelName`    |문자열    |true |    설명이 포함된 수준 이름입니다. 예: 층 1, 로비, Blue 주차장 또는 지하실.|
 |`ordinal` | integer |    true | 수준 세로 순서를 결정 합니다. 모든 시설에는 서수가 0인 수준이 있어야 합니다. |
@@ -229,7 +229,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### `georeference`
 
-| 속성  | Type | 필수 | 설명 |
+| 속성  | 형식 | 필수 | 설명 |
 |-----------|------|----------|-------------|
 |`lat`    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |`lon`    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -251,7 +251,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `unitProperties` 개체에는 단위 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |`unitName`    |문자열    |true    |이 `unitProperty` 레코드와 연결할 단위의 이름입니다. 이 레코드는 계층에서 레이블 일치를 찾은 경우에만 유효 합니다 `unitName` `unitLabel` . |
 |`categoryName`|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |
@@ -271,7 +271,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 `zoneProperties` 개체에는 영역 속성의 JSON 배열이 포함됩니다.
 
-| 속성  | Type | 필수 | Description |
+| 속성  | 형식 | 필수 | Description |
 |-----------|------|----------|-------------|
 |zoneName        |문자열    |true    |`zoneProperty` 레코드와 연결할 영역의 이름입니다. `zoneName`과 일치하는 레이블이 영역의 `zoneLabel` 레이어에 있는 경우에만 이 레코드가 유효합니다.  |
 |categoryName|    문자열|    false    |범주 이름입니다. 전체 범주 목록은 [범주](https://aka.ms/pa-indoor-spacecategories)를 참조하세요. |

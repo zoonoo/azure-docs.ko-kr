@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d5476bf1bfe2e222e115146c13f46e776d4bb497
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 23847c164ba59a8c46c2fdd5fb954b76ea251148
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657195"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877682"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "97657195"
 
 게이트웨이 서비스는 IP 주소 뒤에 있는 상태 비저장 계산 노드 그룹에서 호스트 되며, Azure Database for PostgreSQL 서버에 연결 하려고 할 때 클라이언트가 먼저 도달 하 게 됩니다. 
 
-지속적인 서비스 유지 관리의 일환으로, 게이트웨이를 호스트 하는 계산 하드웨어를 주기적으로 새로 고쳐 가장 안전 하 고 성능이 뛰어난 환경을 제공 합니다. 게이트웨이 하드웨어를 새로 고치면 계산 노드의 새 링이 먼저 빌드됩니다. 이 새 링은 새로 생성 된 모든 Azure Database for PostgreSQL 서버에 대 한 트래픽을 처리 하며, 트래픽을 구분 하기 위해 동일한 지역에 있는 이전 게이트웨이 링과 다른 IP 주소를 갖게 됩니다. 새 링이 완전 하 게 작동 하면 기존 서버를 처리 하는 이전 게이트웨이 하드웨어는 서비스 해제에 대해 계획 됩니다. 게이트웨이 하드웨어의 서비스를 해제 하기 전에 서버를 실행 하 고 이전 게이트웨이 링에 연결 하는 고객은 메일을 통해, Azure Portal 그리고 사용자가 서비스를 해제 하기 전에 3 개월 전에 미리 알림 메시지를 받을 수 있습니다. 게이트웨이를 서비스 해제 하면 서버에 대 한 연결에 영향을 줄 수 있습니다. 
+지속적인 서비스 유지 관리의 일환으로, 게이트웨이를 호스트 하는 계산 하드웨어를 주기적으로 새로 고쳐 가장 안전 하 고 성능이 뛰어난 연결 환경을 제공 합니다. 게이트웨이 하드웨어를 새로 고치면 계산 노드의 새 링이 먼저 빌드됩니다. 이 새 링은 새로 생성 된 모든 Azure Database for PostgreSQL 서버에 대 한 트래픽을 처리 하며, 트래픽을 구분 하기 위해 동일한 지역에 있는 이전 게이트웨이 링과 다른 IP 주소를 갖게 됩니다. 이전 게이트웨이 하드웨어는 기존 서버를 계속 제공 하지만 나중에 서비스를 해제할 예정입니다. 게이트웨이 하드웨어의 서비스를 해제 하기 전에 서버를 실행 하 고 이전 게이트웨이 링에 연결 하는 고객은 메일을 통해, Azure Portal 그리고 사용자가 서비스를 해제 하기 전에 3 개월 전에 미리 알림 메시지를 받을 수 있습니다. 게이트웨이를 서비스 해제 하면 서버에 대 한 연결에 영향을 줄 수 있습니다. 
 
 * 응용 프로그램의 연결 문자열에 게이트웨이 IP 주소를 하드 코딩 합니다. **권장 되지 않습니다**. <servername>응용 프로그램에 대 한 연결 문자열에서 서버의 FQDN (정규화 된 도메인 이름)을 postgres.database.azure.com 형식으로 사용 해야 합니다. 
 * 아웃 바운드 트래픽이 새 게이트웨이 링에 도달할 수 있도록 클라이언트 쪽 방화벽에서 최신 게이트웨이 IP 주소를 업데이트 하지 않습니다.

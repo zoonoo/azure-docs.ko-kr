@@ -1,6 +1,5 @@
 ---
 title: Media Services 아키텍처
-titleSuffix: Azure Media Services
 description: 이 문서에서는 Media Services에 대 한 아키텍처를 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: inhenkel
-ms.openlocfilehash: c14dbe4253696e01e99111a24319e455c1d551e9
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: ad464eb1c0b6dec694c7c40868a0f95fcfeaf6e8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533998"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891491"
 ---
 # <a name="media-services-architectures"></a>Media Services 아키텍처
 
@@ -29,7 +28,7 @@ ms.locfileid: "96533998"
 
 이 솔루션은 Azure 관리 서비스: Media Services 및 Content Delivery Network를 기반으로 합니다. 이러한 서비스는 고가용성 환경에서 실행 되 고 패치 되며 지원 되므로 사용자가에서 실행 되는 환경 대신 솔루션에 집중할 수 있습니다.
 
-Azure 아키텍처 센터에서 [라이브 스트리밍 디지털 미디어](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) 를 참조 하세요.
+Azure 아키텍처 센터에서 [라이브 스트리밍 디지털 미디어](/azure/architecture/solution-ideas/articles/digital-media-live-stream) 를 참조 하세요.
 
 ## <a name="video-on-demand-digital-media"></a>주문형 비디오 디지털 미디어
 
@@ -37,13 +36,13 @@ Azure 아키텍처 센터에서 [라이브 스트리밍 디지털 미디어](htt
 
 이 솔루션은 Blob Storage, Content Delivery Network 및 Azure Media Player Azure 관리 서비스를 기반으로 합니다. 이러한 서비스는 고가용성 환경에서 실행 되 고 패치 되며 지원 되므로 사용자가에서 실행 되는 환경 대신 솔루션에 집중할 수 있습니다.
 
-Azure 아키텍처 센터에서 [주문형 비디오 디지털 미디어](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-video) 를 참조 하세요.
+Azure 아키텍처 센터에서 [주문형 비디오 디지털 미디어](/azure/architecture/solution-ideas/articles/digital-media-video) 를 참조 하세요.
 
 ## <a name="gridwich-media-processing-system"></a>Gridwich 미디어 처리 시스템
 
 Gridwich 시스템은 Azure에서 미디어 자산을 처리 하 고 제공 하기 위한 모범 사례를 구체화 합니다. Gridwich 시스템은 미디어와 관련이 있지만 메시지 처리 및 이벤트 프레임 워크는 모든 상태 비저장 이벤트 처리 워크플로에 적용 될 수 있습니다.
 
-Azure 아키텍처 센터에서 [Gridwich media processing system](https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture) 을 참조 하세요.
+Azure 아키텍처 센터에서 [Gridwich media processing system](/azure/architecture/reference-architectures/media-services/gridwich-architecture) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

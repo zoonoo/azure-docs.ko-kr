@@ -1,5 +1,5 @@
 ---
-title: Media Services에서 권장하는 라이브 스트리밍 인코더 - Azure | Microsoft Docs
+title: Media Services에서 권장 하는 라이브 스트리밍 인코더-Azure
 description: Media Services에서 권장하는 라이브 스트리밍 온-프레미스 인코더에 대한 자세한 정보
 services: media-services
 keywords: 인코딩, 인코더, 미디어
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734313"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895172"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>확인 된 온-프레미스 라이브 스트리밍 인코더
 
@@ -117,7 +117,7 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 > [!IMPORTANT]
 > 클라우드로의 업로드에는 CPU 및 IO 작업이 포함 되므로 컴퓨터의 물리적 상태 (CPU/메모리/등)를 시청 하세요. 인코더에서 설정을 변경 하는 경우 변경 내용을 적용 하려면 특정 채널/라이브 이벤트를 다시 설정 해야 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 [Media Services v3을 통한 라이브 스트리밍](live-streaming-overview.md)
 

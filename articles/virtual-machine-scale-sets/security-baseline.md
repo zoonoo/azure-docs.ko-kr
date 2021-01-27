@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 68dc7c36159523bcc46e93a4784e9d038037a919
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201215"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877717"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
@@ -848,7 +848,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -892,7 +892,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 대부분의 시나리오에서 Azure Automation 필요한 상태 구성과 결합 된 Microsoft 기본 VM 템플릿은 보안 요구 사항을 충족 하 고 유지 관리 하는 데 도움이 될 수 있습니다.
 
-* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](../virtual-machines/windows/download-template.md)
+* [VM 템플릿을 다운로드 하는 방법에 대 한 정보](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [ARM 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 

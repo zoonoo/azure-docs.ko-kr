@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: eb7db3c95fb56ebbd62d6cf882a75ce03baeb75d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3b6928b759d2349051dbb69258952f2f1ee10a31
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736057"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878141"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -412,6 +412,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - Lsv2 시리즈 Vm의 NVMe 디스크 (참조: [Lsv2 시리즈](../lsv2-series.md)).
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
 - 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
+- 데이터 디스크를 사용 하 여 루트 (OS 디스크) 논리 볼륨이 확장 된 VM입니다.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
 - [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
 - ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.

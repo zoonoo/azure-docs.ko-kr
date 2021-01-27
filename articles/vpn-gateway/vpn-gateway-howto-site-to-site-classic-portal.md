@@ -7,19 +7,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4ad05281f13885327c855a261a3101388f38af83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656959"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878056"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
 이 문서에서는 Azure Portal을 사용하여 온-프레미스 네트워크에서 VNet으로 사이트 간 VPN Gateway 연결을 만드는 방법을 보여줍니다. 이 문서의 단계는 클래식 배포 모델에 적용 되며 현재 배포 모델 리소스 관리자에는 적용 되지 않습니다. 다른 배포 도구 또는 배포 모델을 사용하는 경우 다음 목록에서 별도의 옵션을 선택하여 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](./tutorial-site-to-site-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (클래식)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -33,7 +33,7 @@ ms.locfileid: "94656959"
 
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
-* 클래식 배포 모델에서 작업할 것인지 확인합니다. 리소스 관리자 배포 모델에서 작업하려면 [사이트 간 연결 만들기(리소스 관리자)](vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조하세요. 클래식 모델이 레거시 이므로 리소스 관리자 배포 모델을 사용 하는 것이 좋습니다.
+* 클래식 배포 모델에서 작업할 것인지 확인합니다. 리소스 관리자 배포 모델에서 작업하려면 [사이트 간 연결 만들기(리소스 관리자)](./tutorial-site-to-site-portal.md)를 참조하세요. 클래식 모델이 레거시 이므로 리소스 관리자 배포 모델을 사용 하는 것이 좋습니다.
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 * VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
@@ -94,9 +94,9 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
 1. 페이지 맨 아래에서 **검토 + 만들기** 를 선택 하 여 설정의 유효성을 검사 합니다. **만들기** 를 선택 하 여 배포 합니다. 선택한 게이트웨이 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45 분이 걸릴 수 있습니다.
 
-## <a name="configure-your-vpn-device"></a><a name="vpndevice"></a>VPN 장치 구성
+## <a name="configure-your-vpn-device"></a><a name="vpndevice"></a>VPN 디바이스 구성
 
-온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 장치를 구성할 때 다음 값이 필요 합니다.
+온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음 값이 필요합니다.
 
 * 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
 * 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다.
