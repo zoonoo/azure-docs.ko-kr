@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 48dbd0892c9ec02f203edba55d1104f1ab0118a8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737611"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920260"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -46,6 +46,7 @@ $Export 작업에 대해 설정 해야 하는 두 개의 필수 헤더 매개 �
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 FHIR 용 Azure API는 다음과 같은 쿼리 매개 변수를 지원 합니다. 이러한 매개 변수는 모두 선택 사항입니다.
+
 |쿼리 매개 변수        | FHIR 사양에 정의 되어 있나요?    |  설명|
 |------------------------|---|------------|
 | \_outputFormat | 예 | 는 현재 응용 프로그램/fhir + ndjson, application/ndjson 또는 단지 ndjson에 맞추기 위한 세 가지 값을 지원 합니다. 모든 내보내기 작업은 `ndjson` 를 반환 하며 전달 된 값은 코드 동작에 영향을 주지 않습니다. |

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 039045b613e57ee396201ee93c3962c5970cf02b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d633d631a8d905532601ec15700ff80eed644efe
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651924"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920159"
 ---
 # <a name="fsv2-series"></a>Fsv2 시리즈
 
@@ -26,9 +26,10 @@ Fsv2 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU 수 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU 수 | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2|875   |
 | Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2|1750  |

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b1bd2e0360b064a71dd91241d40513d8c37447bb
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 20ef6f3d982091232783f003118797f4b2e37cd4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635639"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919853"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2 및 DSv2 시리즈
 
@@ -28,9 +28,10 @@ Dv2 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lake
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크 수 | 처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크 수 | 처리량: IOPS | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_D1_v2 | 1  | 3.5 | 50  | 3000/46/23    | 4  | 4x500  | 2|750   |
 | Standard_D2_v2 | 2  | 7   | 100 | 6000/93/46    | 8  | 8x500  | 2|1500  |
@@ -48,9 +49,10 @@ DSv2 시리즈 크기는 intel® Xeon® 플래티넘 8272CL (케스케이드 Lak
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2|750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2|1500  |

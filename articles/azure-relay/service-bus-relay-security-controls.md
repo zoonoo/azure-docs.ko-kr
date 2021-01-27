@@ -3,12 +3,12 @@ title: Azure Relay에 대한 보안 컨트롤
 description: 이 문서에서는 Azure Relay를 평가하기 위한 기본 제공 보안 컨트롤의 검사 목록을 제공합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 5d55026bfb6e3d6fe955a540b7596a85707398d6
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce5053366ac1d3536a152610d8ed7f76fad62b84
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133347"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919581"
 ---
 # <a name="security-controls-for-azure-relay"></a>Azure Relay에 대한 보안 컨트롤
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Blueprints 함수
 description: Azure Blueprints 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수를 설명합니다.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: reference
-ms.openlocfilehash: fe984ee7664b0d50fb891d946f9f40a200ccce09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050763"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919277"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprints와 사용할 수 있는 함수
 
@@ -184,7 +184,7 @@ Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점
 }
 ```
 
-이후에는 _principalIds_를 청사진 아티팩트의 `parameters()`에 대한 인수로 사용:
+이후에는 _principalIds_ 를 청사진 아티팩트의 `parameters()`에 대한 인수로 사용:
 
 ```json
 {
@@ -224,7 +224,7 @@ Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()
 
 ### <a name="example"></a>예제
 
-리소스 그룹의 위치를 사용하려면 청사진 정의에서 또는 할당 도중 다른 아티팩트의 위치로 설정하고, 청사진 정의에서 리소스 그룹 자리 표시자 개체를 선언합니다. 이 예제에서는 _NetworkingPlaceholder_가 리소스 그룹 자리 표시자의 이름입니다.
+리소스 그룹의 위치를 사용하려면 청사진 정의에서 또는 할당 도중 다른 아티팩트의 위치로 설정하고, 청사진 정의에서 리소스 그룹 자리 표시자 개체를 선언합니다. 이 예제에서는 _NetworkingPlaceholder_ 가 리소스 그룹 자리 표시자의 이름입니다.
 
 ```json
 {
@@ -240,7 +240,7 @@ Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()
 }
 ```
 
-그런 다음 리소스 그룹 자리 표시자 개체를 대상으로 하는 청사진 아티팩트의 컨텍스트에서 `resourceGroup()` 함수를 사용합니다. 이 예제에서 템플릿 아티팩트는 _NetworkingPlaceholder_ 리소스 그룹으로 배포되고 _NetworkingPlaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _resourceLocation_을 템플릿에 제공합니다. _NetworkingPlaceholder_ 리소스 그룹의 위치가 청사진 정의에서 정적으로 정의되었거나 할당 도중 동적으로 정의되었을 수 있습니다. 두 경우 모두 템플릿 아티팩트에 해당 정보가 매개 변수로 제공되고 이를 활용하여 리소스를 올바른 위치로 배포합니다.
+그런 다음 리소스 그룹 자리 표시자 개체를 대상으로 하는 청사진 아티팩트의 컨텍스트에서 `resourceGroup()` 함수를 사용합니다. 이 예제에서 템플릿 아티팩트는 _NetworkingPlaceholder_ 리소스 그룹으로 배포되고 _NetworkingPlaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _resourceLocation_ 을 템플릿에 제공합니다. _NetworkingPlaceholder_ 리소스 그룹의 위치가 청사진 정의에서 정적으로 정의되었거나 할당 도중 동적으로 정의되었을 수 있습니다. 두 경우 모두 템플릿 아티팩트에 해당 정보가 매개 변수로 제공되고 이를 활용하여 리소스를 올바른 위치로 배포합니다.
 
 ```json
 {
@@ -286,7 +286,7 @@ Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()
 
 ### <a name="example"></a>예제
 
-리소스 그룹의 위치를 사용하려면 청사진 정의에서 또는 할당 도중 다른 아티팩트의 위치로 설정하고, 청사진 정의에서 리소스 그룹 자리 표시자 개체를 선언합니다. 이 예제에서는 _NetworkingPlaceholder_가 리소스 그룹 자리 표시자의 이름입니다.
+리소스 그룹의 위치를 사용하려면 청사진 정의에서 또는 할당 도중 다른 아티팩트의 위치로 설정하고, 청사진 정의에서 리소스 그룹 자리 표시자 개체를 선언합니다. 이 예제에서는 _NetworkingPlaceholder_ 가 리소스 그룹 자리 표시자의 이름입니다.
 
 ```json
 {
@@ -302,7 +302,7 @@ Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()
 }
 ```
 
-그런 다음 모든 청사진 아티팩트의 컨텍스트에서 `resourceGroups()` 함수를 사용하여 리소스 그룹 자리 표시자 개체에 대한 참조를 가져옵니다. 이 예제에서 템플릿 아티팩트는 _NetworkingPlaceholder_ 리소스 그룹 외부로 배포되고 템플릿에 _NetworkingPlaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _artifactLocation_을 제공합니다. _NetworkingPlaceholder_ 리소스 그룹의 위치가 청사진 정의에서 정적으로 정의되었거나 할당 도중 동적으로 정의되었을 수 있습니다. 두 경우 모두 템플릿 아티팩트에 해당 정보가 매개 변수로 제공되고 이를 활용하여 리소스를 올바른 위치로 배포합니다.
+그런 다음 모든 청사진 아티팩트의 컨텍스트에서 `resourceGroups()` 함수를 사용하여 리소스 그룹 자리 표시자 개체에 대한 참조를 가져옵니다. 이 예제에서 템플릿 아티팩트는 _NetworkingPlaceholder_ 리소스 그룹 외부로 배포되고 템플릿에 _NetworkingPlaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _artifactLocation_ 을 제공합니다. _NetworkingPlaceholder_ 리소스 그룹의 위치가 청사진 정의에서 정적으로 정의되었거나 할당 도중 동적으로 정의되었을 수 있습니다. 두 경우 모두 템플릿 아티팩트에 해당 정보가 매개 변수로 제공되고 이를 활용하여 리소스를 올바른 위치로 배포합니다.
 
 ```json
 {
@@ -344,7 +344,7 @@ Azure Blueprint 함수는 ARM 템플릿 함수와 다릅니다. `resourceGroup()
 
 ### <a name="example"></a>예제
 
-구독의 표시 이름 및 `concat()` 함수를 사용하여 템플릿 아티팩트에 매개 변수 _resourceName_으로 전달된 명명 규칙을 만듭니다.
+구독의 표시 이름 및 `concat()` 함수를 사용하여 템플릿 아티팩트에 매개 변수 _resourceName_ 으로 전달된 명명 규칙을 만듭니다.
 
 ```json
 {

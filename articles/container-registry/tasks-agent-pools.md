@@ -4,12 +4,12 @@ description: 레지스트리에 전용 계산 풀 (에이전트 풀)을 설정 �
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844917"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920310"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>전용 에이전트 풀에서 ACR 작업 실행
 
@@ -35,7 +35,7 @@ ms.locfileid: "94844917"
 - 각 레지스트리에 대해 기본 총 vCPU (코어) 할당량은 모든 표준 에이전트 풀의 경우 16이 고 격리 된 에이전트 풀의 경우 0입니다. 추가 할당에 대 한 [지원 요청][open-support-ticket] 을 엽니다.
 - 현재 에이전트 풀에서 실행 되는 작업을 취소할 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 문서의 Azure CLI 단계를 사용 하려면 Azure CLI 버전 2.3.1 이상이 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요. 또는 [Azure Cloud Shell](../cloud-shell/quickstart.md)에서 실행합니다.
 * 컨테이너 레지스트리가 아직 없는 경우 미리 보기 영역에서 [하나][create-reg-cli] (프리미엄 계층 필요)를 만듭니다.
@@ -44,7 +44,7 @@ ms.locfileid: "94844917"
 
 에이전트 풀 계층은 풀에서 인스턴스당 다음과 같은 리소스를 제공 합니다.
 
-|계층    | Type  |  CPU  |메모리(GB)  |
+|서비스 계층    | 형식  |  CPU  |메모리(GB)  |
 |---------|---------|---------|---------|
 |S1     |  표준    | 2       |    3     |
 |S2     |  표준    | 4       |    8     |
@@ -96,7 +96,7 @@ az acr agentpool update \
 | 방향 | 프로토콜 | 원본         | 원본 포트 | 대상          | 대상 포트 | 사용됨    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureKeyVault        | 443       | 기본값 |
-| 아웃바운드  | TCP      | VirtualNetwork | 모두         | 스토리지              | 443       | 기본값 |
+| 아웃바운드  | TCP      | VirtualNetwork | 모두         | Storage              | 443       | 기본값 |
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | EventHub             | 443       | 기본값 |
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureActiveDirectory | 443       | 기본값 |
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureMonitor         | 443       | 기본값 |
@@ -139,7 +139,7 @@ az acr build \
     --agent-pool myagentpool \
     --image myimage:mytag \
     --file Dockerfile \
-    https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 ### <a name="automatically-triggered-task"></a>자동으로 트리거된 작업
@@ -153,7 +153,7 @@ az acr task create \
     --image myimage:mytag \
     --schedule "0 21 * * *" \
     --file Dockerfile \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --commit-trigger-enabled false
 ```
 

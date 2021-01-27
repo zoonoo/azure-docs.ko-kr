@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 97b5d6bc6f19e07ea7c980b98c1e7986c59dc546
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 40eed41dbaa3314c00faebf1c2452aaa6fb46dc9
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585414"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920101"
 ---
 # <a name="nc-series"></a>NC 시리즈
 
@@ -23,10 +23,11 @@ NC 시리즈 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/S
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 되지 않음<br>
 Nvidia NVLink Interconnect: 지원 되지 않음<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|
 | Standard_NC6    | 6  | 56  | 340  | 1 | 12 | 24 | 1 |
 | Standard_NC12   | 12 | 112 | 680  | 2 | 24 | 48 | 2 |

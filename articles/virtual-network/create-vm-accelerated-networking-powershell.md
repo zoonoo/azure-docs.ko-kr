@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223638"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919972"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Azure PowerShell을 사용하여 가속 네트워킹을 사용하는 VM 만들기
 
@@ -61,11 +61,9 @@ Azure 갤러리에서 직접 지원 되는 배포는 다음과 같습니다.
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
 
-가속화 된 네트워킹은 둘 이상의 가상 Cpu (vCPUs)를 사용 하는 대부분의 범용 및 계산에 최적화 된 인스턴스 크기에서 지원 됩니다.  지원 되는 시리즈는 Dv2/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 
 
-하이퍼스레딩을 지 원하는 인스턴스에서는 4 개 이상의 vCPUs가 있는 VM 인스턴스에서 가속화 된 네트워킹을 지원 합니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
-
-VM 인스턴스에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
+가속 네트워킹에 대 한 지원은 개별 [가상 머신 크기](../virtual-machines/sizes.md) 설명서에서 찾을 수 있습니다. 
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 
@@ -252,13 +250,13 @@ Azure에서 VM을 만든 후 VM에 연결 하 고 Windows에서 이더넷 컨트
 
 5. .Rdp 파일을 열고 [Vm 만들기 및 네트워크 인터페이스 연결](#create-a-vm-and-attach-the-network-interface) 섹션에 입력 한 자격 증명을 사용 하 여 vm에 로그인 합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 
-6. VM에 대 한 원격 데스크톱 세션이 나타나면 Windows 시작 단추를 마우스 오른쪽 단추로 클릭 하 고 **Device Manager** 를 선택 합니다.
+6. VM에 대 한 원격 데스크톱 세션이 나타나면 Windows 시작 단추를 마우스 오른쪽 단추로 클릭 하 고 **장치 관리자** 를 선택 합니다.
 
-7. **Device Manager** 창에서 **네트워크 어댑터** 노드를 확장 합니다.
+7. **장치 관리자** 창에서 **네트워크 어댑터** 노드를 확장 합니다.
 
 8. 다음 이미지와 같이 **Mellanox connectx-3-3 가상 함수 이더넷 어댑터가** 나타나는지 확인 합니다.
 
-    ![Mellanox Connectx-3-3 가상 함수 이더넷 어댑터, 가속화 된 네트워킹을 위한 새 네트워크 어댑터, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Mellanox Connectx-3-3 가상 함수 이더넷 어댑터, 가속화 된 네트워킹을 위한 새 네트워크 어댑터, 장치 관리자](./media/create-vm-accelerated-networking/device-manager.png)
 
 이제 VM에 가속화 된 네트워킹을 사용할 수 있습니다.
 

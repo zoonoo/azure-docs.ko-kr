@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Gr
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 2d13dd0ec5e50086e674b215d93917d6173d5af9
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b4038bb232c14278e838f2c34706dcc103def7e4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694394"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919666"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>빠른 시작: 개인 컨테이너 레지스트리의 이벤트를 Event Grid으로 보내기
 
@@ -144,7 +144,7 @@ az eventgrid event-subscription create \
 GitHub 리포지토리의 콘텐츠에서 컨테이너 이미지를 빌드하려면 다음 Azure CLI 명령을 실행합니다. 기본적으로 ACR Tasks는 성공적으로 빌드된 이미지를 레지스트리에 자동으로 푸시하여 `ImagePushed` 이벤트를 생성합니다.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
 ```
 
 ACR Tasks가 이미지를 빌드하고 푸시하는 동안에는 다음과 유사한 출력이 표시되어야 합니다. 다음 샘플 출력은 너무 길어서 일부분이 잘렸습니다.

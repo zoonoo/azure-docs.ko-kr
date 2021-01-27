@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900835"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919530"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Security Center 트리거에 대 한 응답 자동화
 
@@ -53,7 +53,29 @@ ms.locfileid: "92900835"
 
     1. 트리거 조건이 충족 될 때 실행 되는 논리 앱입니다. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="워크플로 자동화 목록" 레거시 트리거를 사용 하는 경우 논리 앱은 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Workflow 자동화 창 추가":::
+
+1. 작업 섹션에서 **새 항목 만들기** 를 클릭 하 여 논리 앱 만들기 프로세스를 시작 합니다.
+
+    Azure Logic Apps 하 게 됩니다.
+
+    [![새 논리 앱 만들기](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
+
+1. 이름, 리소스 그룹 및 위치를 입력 하 고 **만들기** 를 클릭 합니다.
+
+1. 새 논리 앱의 보안 범주에서 기본 제공 되는 미리 정의 된 템플릿에서 선택할 수 있습니다. 또는이 프로세스가 트리거될 때 발생 하는 이벤트의 사용자 지정 흐름을 정의할 수 있습니다.
+
+    > [!TIP]
+    > 경우에 따라 논리 앱에서 매개 변수는 자체 필드가 아니라 문자열의 일부로 커넥터에 포함 됩니다. 매개 변수를 추출 하는 방법에 대 한 예제는 [워크플로 자동화 Azure Security Center 빌드하는 동안 논리 앱 매개 변수를 사용](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121)하는 #14 단계를 참조 하세요.
+
+    논리 앱 디자이너는 다음과 같은 Security Center 트리거를 지원 합니다.
+
+    * **Azure Security Center 권장 사항이 만들어지거나 트리거되** 는 경우-논리 앱이 사용 되지 않거나 대체 되는 권장 사항을 사용 하는 경우 automation의 작동이 중지 되 고 트리거를 업데이트 해야 합니다. 권장 사항에 대 한 변경 내용을 추적 하려면 [Azure Security Center 릴리스 정보](release-notes.md)를 참조 하세요.
+
+    * **Azure Security Center 경고가 만들어지거나 트리거될 때** 관심 있는 심각도 수준의 경고에만 관련 되도록 트리거를 사용자 지정할 수 있습니다.
+    
+    > [!NOTE]
+    > "Azure Security Center 경고에 대 한 응답이 트리거될 때" 레거시 트리거를 사용 하는 경우 논리 앱은 워크플로 자동화 기능을 통해 시작 되지 않습니다. 대신 위에서 언급 한 트리거 중 하나를 사용 합니다. 
 
     [![샘플 논리 앱](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
@@ -94,11 +116,11 @@ ms.locfileid: "92900835"
     > [!TIP]
     > Azure Policy 검색 하 여 찾을 수도 있습니다.
     > 1. Azure Policy를 엽니다.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="워크플로 자동화 목록":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Azure Policy 액세스":::
     > 2. Azure Policy 메뉴에서 **정의** 를 선택 하 고 이름으로 검색 합니다. 
 
 1. 관련 Azure Policy 페이지에서 **할당** 을 선택 합니다.
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="워크플로 자동화 목록":::
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Azure Policy 할당":::
 
 1. 각 탭을 열고 필요에 따라 매개 변수를 설정 합니다.
     1. **기본 사항** 탭에서 정책에 대 한 범위를 설정 합니다. 중앙 집중식 관리를 사용 하려면 워크플로 자동화 구성을 사용할 구독을 포함 하는 관리 그룹에 정책을 할당 합니다. 
@@ -107,7 +129,7 @@ ms.locfileid: "92900835"
         > 각 매개 변수에는 사용할 수 있는 옵션을 설명 하는 도구 설명이 있습니다.
         >
         > Azure Policy의 매개 변수 탭 (1)은 Security Center의 워크플로 자동화 페이지 (2)와 유사한 구성 옵션에 대 한 액세스를 제공 합니다.
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="워크플로 자동화 목록" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Azure Policy와 워크플로 자동화의 매개 변수 비교" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. 필요에 따라이 할당을 기존 구독에 적용 하려면 **수정** 탭을 열고 수정 작업을 만드는 옵션을 선택 합니다.
 
@@ -133,7 +155,7 @@ ms.locfileid: "92900835"
 
 이 문서에서는 Logic Apps을 만들고 Security Center에서 실행을 자동화 하 고 수동으로 실행 하는 방법을 배웠습니다. 
 
-관련 자료는 다음을 참조 하세요. 
+관련 자료는 다음을 참조하세요. 
 
 - [워크플로 자동화를 사용 하 여 보안 응답을 자동화 하는 방법에 대 한 Microsoft Learn 모듈](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)

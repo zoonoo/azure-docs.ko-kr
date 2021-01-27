@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660647"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920023"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -28,7 +28,7 @@ ms.locfileid: "94660647"
 
 이 문서에는 Azure 센티널 사용에 대 한 자세한 정보를 얻는 데 도움이 되는 리소스가 나열 되어 있습니다.
 
-Azure Logic Apps 커넥터: <https://docs.microsoft.com/connectors/>
+- **Azure Logic Apps 커넥터**: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>감사 및 보고
@@ -86,10 +86,25 @@ Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터�
 
 ## <a name="blogs-and-forums"></a>블로그 및 포럼
 
-Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) 에 질문을 게시 합니다.
+사용자의 의견을 환영 합니다.
 
-[TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 및 [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)에서 Azure 센티널 블로그 게시물을 확인 합니다.
+- Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) 에 **질문을 게시** 합니다. 
+
+- [사용자 음성](https://feedback.azure.com/forums/920458-azure-sentinel) 프로그램 **을 통해 향상 된 기능에 대 한 제안을 보냅니다** .
+
+- Azure 센티널 블로그 게시물을 **보고 의견을 보내** 드립니다.
+
+    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
+    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
+
+Azure 보안 및 규정 준수에 대 한 자세한 내용은 [Microsoft Azure 보안 및 규정 준수 블로그](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](/archive/blogs/azuresecurity/)에서 확인할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [인증 받기](/learn/paths/security-ops-sentinel/)
+
+> [!div class="nextstepaction"]
+> [고객 사용 사례 스토리 읽기](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
+

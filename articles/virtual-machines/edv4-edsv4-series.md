@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: d21c75218fdd43ffcf977a1d70bc325ce5154919
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 53b4b09a95d99bc0fb84f495d1105653f61010c1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96606942"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920361"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4 및 Edsv4 시리즈
 
@@ -30,6 +30,7 @@ Edv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
@@ -56,9 +57,10 @@ Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) �
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |

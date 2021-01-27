@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 3d0735b99de3e0c68b48747d69e4720a9cbb3416
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d38b395ec4e4a3e9f3550e6a891ad4785dae8597
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500702"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919751"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -34,9 +34,10 @@ Dv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/네트워크 대역폭 |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
 | Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -58,9 +59,10 @@ Dsv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>1</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>1</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 4000/100    |3200/48    | 4000/100   | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 8000/200    |6400/96    | 8000/200   | 2/2000  |

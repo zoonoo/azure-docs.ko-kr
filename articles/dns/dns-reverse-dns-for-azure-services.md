@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c72e17e601ebf87b0f344a4723159ae22abc81d1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965632"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919887"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
 
@@ -33,7 +33,7 @@ Azure의 서비스는 Azure에서 할당하고 Microsoft가 소유하는 IP 주�
 Azure DNS에서 컴퓨팅 리소스(예: 가상 머신, 가상 머신 확장 집합 또는 Service Fabric 클러스터)는 PublicIpAddress 리소스를 통해 노출됩니다. 역방향 DNS 조회는 PublicIpAddress의 'ReverseFqdn' 속성을 사용하여 구성됩니다.
 
 
-역방향 DNS는 현재 Azure App Service에 대해 지원되지 않습니다.
+역방향 DNS는 현재 Azure App Service 및 Application Gateway에 대해 지원 되지 않습니다.
 
 ## <a name="validation-of-reverse-dns-records"></a>역방향 DNS 레코드의 유효성 검사
 

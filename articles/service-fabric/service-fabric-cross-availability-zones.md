@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876213"
+ms.locfileid: "98918926"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -393,6 +393,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
+        "reliabilityLevel": "Platinum",
         "SFZonalUpgradeMode": "Hierarchical",
         "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [

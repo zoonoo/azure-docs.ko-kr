@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740881"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920429"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리를 사용 하 여 리소스 탐색 및 관리
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리로 리소스 탐색 및 관리
 
 Azure Security Center의 자산 인벤토리 페이지는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 단일 페이지를 제공합니다. 
 

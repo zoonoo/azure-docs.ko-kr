@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751991"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920446"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -23,7 +23,7 @@ ms.locfileid: "96751991"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:| 일반 공급 |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free<br>(대부분의 보안 경고는 Azure Defender 에서만 사용할 수 있습니다.)|
 |필요한 역할 및 권한:|**보안 관리자** 및 **소유자** 는 규칙을 만들거나 삭제할 수 있습니다.<br>**보안 읽기 권한자** 및 **읽기 권한자** 는 규칙을 볼 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|

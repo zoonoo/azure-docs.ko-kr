@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 38020b38ebd879bf19c243c2055e73198e9fcc7c
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 9918c978ecb98b7586272da714bdc8d25920d114
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96606925"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920327"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
@@ -35,9 +35,10 @@ Ev4 시리즈 크기는 Intel Xeon &reg; Platinum 8272CL (캐스케이드 Lake)�
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_E2_v4  | 2 | 16   | 원격 저장소만 | 4 | 2|1000  |
 | Standard_E4_v4  | 4 | 32  | 원격 저장소만 | 8 | 2|2000  |
@@ -59,9 +60,10 @@ Esv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL (캐스케이드
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2s_v4  | 2 | 16  | 원격 저장소만 | 4 | 3200/48 | 2|1000  |
 | Standard_E4s_v4  | 4 | 32  | 원격 저장소만 | 8 | 6400/96 | 2|2000  |

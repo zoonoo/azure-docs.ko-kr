@@ -1,14 +1,14 @@
 ---
 title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 청사진의 잠금 옵션에 대해 알아봅니다.
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996103"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920193"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -24,10 +24,10 @@ ms.locfileid: "95996103"
 
 청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제** 또는 **삭제할 수** 없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|Mode|아티팩트 리소스 형식|시스템 상태|Description|
+|모드|아티팩트 리소스 형식|시스템 상태|설명|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 Azure 청사진에 의해 보호 되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
-|읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
+|읽기 전용|Resource group|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
 |읽기 전용|리소스 그룹이 아님|읽기 전용|리소스는 어떤 방식으로든 변경할 수 없습니다. 변경 내용 및 삭제할 수 없습니다.|
 |삭제 안 함|*|삭제할 수 없음|리소스를 변경할 수 있지만 삭제할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
 
@@ -107,7 +107,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 각 모드의 [거부 할당 속성](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 은 다음과 같습니다.
 
-|Mode |사용 권한. 작업 |Permissions 작업 |보안 주체 [i]. 입력할 |ExcludePrincipals [i]. A-id | DoNotApplyToChildScopes |
+|모드 |사용 권한. 작업 |Permissions 작업 |보안 주체 [i]. 입력할 |ExcludePrincipals [i]. A-id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |읽기 전용 |**\** _ |_/읽기 microsoft.*\* **<br />** 권한 부여/잠금/삭제 **<br />** Microsoft. 네트워크/virtualNetwork/서브넷/조인/작업** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 |삭제 안 함 |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/서브넷/조인/작업** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |

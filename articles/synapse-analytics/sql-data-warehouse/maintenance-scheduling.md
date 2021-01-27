@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210986"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920378"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>유지 관리 일정을 사용하여 서비스 유지 관리 및 업데이트 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "85210986"
 24 시간에 대 한 사전 알림은 DWC400c 및 하위 계층에 없는 모든 유지 관리 이벤트 앞에와 야 합니다.
 
 > [!NOTE]
-> 중요 한 시간 업데이트를 배포 해야 하는 경우에는 고급 알림 시간이 크게 줄어들 수 있습니다.
+> 중요 한 시간 업데이트를 배포 해야 하는 경우에는 고급 알림 시간이 크게 줄어들 수 있습니다. 이는 업데이트의 중요 한 특성으로 인해 식별 된 유지 관리 기간을 벗어나도 발생할 수 있습니다.
 
 유지 관리 작업이 수행 되지만 알림의 기간 동안 유지 관리를 수행할 수 없는 사전 알림을 받은 경우 취소 알림을 받게 됩니다. 그러면 유지 관리는 예약된 다음 유지 관리 기간에 다시 시작됩니다.
 
@@ -56,7 +56,7 @@ Synapse SQL 풀에 적용 된 유지 관리 일정을 보려면 다음 단계를
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 보려는 Synapse SQL 풀을 선택 합니다.
-3. 선택한 Synapse SQL 풀이 개요 블레이드에서 열립니다. 데이터 웨어하우스에 적용 되는 유지 관리 일정은 **유지 관리 일정**아래에 나타납니다.
+3. 선택한 Synapse SQL 풀이 개요 블레이드에서 열립니다. 데이터 웨어하우스에 적용 되는 유지 관리 일정은 **유지 관리 일정** 아래에 나타납니다.
 
 ![개요 블레이드](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
@@ -86,9 +86,9 @@ Synapse SQL 풀에 대 한 유지 관리 일정을 변경 하려면 다음 단�
    - **시작 시간**: 유지 관리 기간에 대한 기본 설정 시작 시간입니다.
    - **시간 범위**: 시간 범위의 기본 설정 지속 시간입니다.
 
-   선택한 값에 따라 블레이드 맨 아래의 **일정 요약**이 업데이트됩니다.
+   선택한 값에 따라 블레이드 맨 아래의 **일정 요약** 이 업데이트됩니다.
   
-5. **저장**을 선택합니다. 새 일정이 현재 활성화되었음을 확인하는 메시지가 표시됩니다.
+5. **저장** 을 선택합니다. 새 일정이 현재 활성화되었음을 확인하는 메시지가 표시됩니다.
 
    유지 관리 예약을 아직 지원하지 않는 지역에서 일정을 저장하는 경우에는 다음 메시지가 표시됩니다. 선택한 지역에서 기능이 사용 가능해지면 설정이 저장 및 활성화됩니다.
 

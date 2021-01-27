@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 7245b0c0fb1e96959ef5dca4992cf52a38accb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927416"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920293"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -164,6 +164,7 @@ Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자�
 이러한 메타데이터 값은 *function.json* 파일 속성에서 액세스할 수 있습니다. 예를 들어 큐 트리거를 사용하고 큐 메시지는 읽으려는 Blob의 이름을 포함한다고 가정합니다. *function.json* 파일에서 다음 예제와 같이 Blob `path` 속성에서 `queueTrigger` 메타데이터 속성을 사용할 수 있습니다.
 
 ```json
+{
   "bindings": [
     {
       "name": "myQueueItem",
@@ -179,6 +180,7 @@ Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자�
       "connection": "MyStorageConnection"
     }
   ]
+}
 ```
 
 각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue-trigger.md#message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  

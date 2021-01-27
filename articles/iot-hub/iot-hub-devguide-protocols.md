@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016006"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919028"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>참조 - 통신 프로토콜 선택
 
@@ -42,7 +42,7 @@ IoT Hub를 사용하면 디바이스가 디바이스 쪽 통신에 다음 프로
 
 디바이스 측 통신용 프로토콜을 선택할 때는 다음 사항을 고려해야 합니다.
 
-* **클라우드-디바이스 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. MQTT 및 AMQP는 클라우드-디바이스 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
+* **클라우드-디바이스 패턴**. HTTPS에는 서버 푸시를 구현하는 효율적인 방법이 없습니다. 이와 같이 HTTPS를 사용하는 경우 디바이스는 클라우드-디바이스 메시지에 IoT Hub를 폴링합니다. 이 방법은 디바이스와 IoT Hub 모두에 비효율적입니다. 현재 HTTPS 지침에 따르면 각 디바이스는 25분 이상 간격으로 메시지를 폴링해야 합니다. HTTPS 수신을 더 많이 실행하면 IoT Hub가 요청을 제한할 수 있습니다. MQTT 및 AMQP는 클라우드-디바이스 메시지를 받을 때 서버 푸시를 지원합니다. 따라서 IoT Hub의 메시지가 디바이스에 즉시 푸시될 수 있습니다. 전달 대기 시간이 중요한 경우 MQTT 또는 AMQP는 가장 사용하기 적합한 프로토콜입니다. 드물게 연결되는 디바이스의 경우 HTTPS도 작동합니다.
 
 * **필드 게이트웨이**. MQTT 및 HTTPS는 TLS 연결당 단일 장치 id (장치 ID 및 자격 증명)만 지원 합니다. 이러한 이유로 이러한 프로토콜은 단일 또는 업스트림 연결의 풀에서 여러 장치 id를 사용 하 여 IoT Hub에 대 한 멀티플렉싱 메시지가 필요한 [필드 게이트웨이 시나리오](iot-hub-devguide-endpoints.md#field-gateways) 에 대해 지원 되지 않습니다. 이러한 게이트웨이는 업스트림 트래픽에 대해 AMQP와 같은 연결 당 여러 장치 id를 지 원하는 프로토콜을 사용할 수 있습니다.
 

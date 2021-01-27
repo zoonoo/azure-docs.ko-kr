@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232780"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919632"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -26,11 +26,11 @@ Azure AD 사용 약관 정책은 조직에서 최종 사용자에 게 정보를 
 
 ## <a name="overview-videos"></a>개요 비디오
 
-다음 비디오에서는 사용 약관 정책에 대 한 간략 한 개요를 제공 합니다.
+다음 비디오에서는 토우토 정책의 간략 한 개요를 제공 합니다.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-추가 비디오를 보려면 다음을 참조하세요.
+비디오에 대 한 자세한 내용은 다음을 참조 하세요.
 - [Azure Active Directory에서 사용 약관 정책을 배포 하는 방법](https://www.youtube.com/embed/N4vgqHO2tgY)
 - [Azure Active Directory에서 사용 약관 정책을 배포 하는 방법](https://www.youtube.com/embed/t_hA4y9luCY)
 
@@ -52,7 +52,7 @@ Azure AD 사용 약관 정책에는 다음과 같은 기능이 있습니다.
 - 규정 준수 및 감사에 대 한 사용 약관 정책 활동의 로그를 표시 합니다.
 - [Microsoft Graph api](/graph/api/resources/agreement?view=graph-rest-beta) (현재 미리 보기 상태)를 사용 하 여 사용 약관 정책을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure AD 사용 약관 정책을 사용 및 구성 하려면 다음이 있어야 합니다.
 
@@ -99,14 +99,14 @@ Azure AD 사용 약관 정책은 PDF 형식을 사용 하 여 콘텐츠를 제�
 
    예를 들어 만료 시작 날짜를 **1월 1일** 로 설정하고 빈도를 **매월** 로 설정하는 경우 사용자 두 명에 대한 만료는 다음과 같은 방식으로 발생합니다.
 
-   | User | 첫 번째 동의 날짜 | 첫 번째 만료 날짜 | 두 번째 만료 날짜 | 세 번째 만료 날짜 |
+   | 사용자 | 첫 번째 동의 날짜 | 첫 번째 만료 날짜 | 두 번째 만료 날짜 | 세 번째 만료 날짜 |
    | --- | --- | --- | --- | --- |
    | Alice | 1월 1일 | 2월 1일 | 3월 1일 | 4월 1일 |
    | Bob | 1월 15일 | 2월 1일 | 3월 1일 | 4월 1일 |
 
 1. 사용자가 사용 약관 정책에 다시 동의 해야 하는 기간 (일)을 지정 하려면 다시 사용 해야 하는 **기간 (일)** 을 지정 합니다. 이를 통해 사용자는 자신의 일정을 따를 수 있습니다. 예를 들어 기간을 **30** 일로 설정하면 두 사용자에 대한 만료가 다음과 같은 방식으로 발생합니다.
 
-   | User | 첫 번째 동의 날짜 | 첫 번째 만료 날짜 | 두 번째 만료 날짜 | 세 번째 만료 날짜 |
+   | 사용자 | 첫 번째 동의 날짜 | 첫 번째 만료 날짜 | 두 번째 만료 날짜 | 세 번째 만료 날짜 |
    | --- | --- | --- | --- | --- |
    | Alice | 1월 1일 | 1월 31일 | 3월 2일 | 4월 1일 |
    | Bob | 1월 15일 | 2월 14일 | 3월 16일 | 4월 15일 |
@@ -183,7 +183,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>사용자에 대 한 사용 약관은 다음과 같습니다.
 
-사용 약관 정책이 생성 되 고 적용 되 면 로그인 하는 동안 범위 내에 있는 사용자에 게 다음 화면이 표시 됩니다.
+토우토 policy를 만들고 적용 한 후에는 로그인 하는 동안 범위 내에 있는 사용자에 게 다음 화면이 표시 됩니다.
 
 ![사용자가 로그인 할 때 표시 되는 사용 약관 예](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 ![확대/축소 단추 사용 약관 보기](./media/terms-of-use/zoom-buttons.png)
 
-다음 화면은 모바일 장치에서 사용 약관을 표시 하는 방법을 보여 줍니다.
+다음 화면은 토우토 policy가 모바일 장치에서 어떻게 표시 되는지 보여 줍니다.
 
 ![사용자가 모바일 장치에 로그인 할 때 표시 되는 사용 약관 예](./media/terms-of-use/mobile-tou.png)
 
@@ -226,7 +226,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
     - 모드 **기존 사용 약관 문서를 업데이트할** 수 있습니다.
     - 기존 토우토 a에 언어를 추가할 수 있습니다.
 
-   PDF 문서와 같이 변경 하려는 다른 설정이 있는 경우 사용자가 모든 장치에 동의 해야 함, 동의 만료, 다시 승인 전 기간 또는 조건부 액세스 정책을 사용 하 여 새 사용 약관 정책을 만들어야 합니다.
+   PDF 문서와 같이 변경 하려는 다른 설정이 있는 경우 사용자가 모든 장치에 동의 해야 함, 동의 만료, 다시 승인 전 기간 또는 조건부 액세스 정책을 사용 하려면 새 토우토 policy를 만들어야 합니다.
 
     ![다른 언어 옵션을 표시 하는 편집 ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 7.  새 pdf를 업로드 하 고 다시 수락 하기로 결정 한 후에는 창 맨 아래에 있는 추가를 클릭 합니다.
 8.  이제 문서 열 아래에 최신 버전이 표시 됩니다.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>이전 버전의 사용 약관 보기
+## <a name="view-previous-versions-of-a-tou"></a>이전 버전의 토우토 보기
 
 1.  https://aka.ms/catou에서 Azure에 로그인하여 **사용 약관** 으로 이동합니다.
 2.  버전 기록을 보려는 사용 약관 정책을 선택 합니다.
@@ -269,9 +269,9 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 5.  또는 **버전**  드롭다운에서 특정 버전을 선택 하 여 특정 버전을 수락한 사용자를 확인할 수 있습니다.
 
 
-## <a name="add-a-terms-of-use-language"></a>사용 약관 언어 추가
+## <a name="add-a-tou-language"></a>토우토 language 추가
 
-다음 절차에서는 사용 약관 언어를 추가 하는 방법에 대해 설명 합니다.
+다음 절차에서는 토우토 language를 추가 하는 방법에 대해 설명 합니다.
 
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관** 으로 이동합니다.
 1. 편집 하려는 사용 약관 정책을 선택 합니다.
@@ -282,7 +282,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
     ![사용 약관 선택 하 고 세부 정보 창에서 언어 탭을 표시 합니다.](./media/terms-of-use/select-language.png)
 
 1. **언어 추가** 를 클릭합니다.
-1. **저장** 클릭
+1. 페이지 맨 아래에 있는 **저장**
 
 1. **추가** 를 클릭하여 언어를 추가합니다.
 
@@ -344,9 +344,13 @@ Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.c
 
    사용 약관 정책이 더 이상 표시 되지 않습니다.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>삭제 된 사용자 및 활성 사용 약관
+## <a name="user-acceptance-record-deletion"></a>사용자 승인 레코드 삭제
 
-기본적으로 삭제된 사용자는 30일 동안 Azure AD에 삭제된 상태로 남아 있지만, 이 기간 동안 관리자는 필요한 경우 삭제된 사용자를 복원할 수 있습니다. 30일 후 해당 사용자가 영구적으로 삭제됩니다. 또한 Azure Active Directory 포털을 사용하여 전역 관리자는 해당 기간이 만료되기 전에 명시적으로 [최근에 삭제된 사용자를 영구적으로 삭제](../fundamentals/active-directory-users-restore.md)할 수 있습니다. 사용자 한 명에 게 영구적으로 삭제 되 면 해당 사용자에 대 한 후속 데이터가 활성 사용 약관 정책에서 제거 됩니다. 삭제된 사용자에 대한 감사 정보는 감사 로그에 남아 있습니다.
+사용자 승인 레코드가 삭제 됩니다.
+
+- 관리자가 해당 토우토 if를 명시적으로 삭제 하는 경우 이 경우 해당 특정 토우토 연결 된 모든 승인 레코드도 삭제 됩니다.
+- 테 넌 트가 Azure Active Directory Premium 라이선스를 손실 하는 경우
+- 테 넌 트가 삭제 된 시간입니다.
 
 ## <a name="policy-changes"></a>정책 변경 내용
 

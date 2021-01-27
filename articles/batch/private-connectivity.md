@@ -4,12 +4,12 @@ description: 개인 끝점을 사용 하 여 Azure Batch 계정에 비공개로 
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579558"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920006"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
 
@@ -20,11 +20,11 @@ ms.locfileid: "94579558"
 개인 링크를 사용 하면 사용자가 가상 네트워크 또는 피어 링 가상 네트워크 내에서 Azure Batch 계정에 액세스할 수 있습니다. 개인 링크에 매핑된 리소스는 VPN 또는 [Azure express](../expressroute/expressroute-introduction.md)경로를 통해 개인 피어 링을 통해 온-프레미스 에서도 액세스할 수 있습니다. [자동 또는 수동 승인 방법을](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow)사용 하 여 개인 링크로 구성 된 Azure Batch 계정에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Batch의 개인 연결에 대 한 지원은 현재 독일 중부 및 독일 북동쪽를 제외한 모든 공용 지역에서 사용할 수 있습니다.
+> Azure Batch의 개인 연결에 대 한 지원은 현재 독일 중부, 독일 북동쪽, 중국 동부, 중국 동부 2, 중국 북부 및 중국 북부 2를 제외한 모든 지역에서 사용할 수 있습니다.
 
 이 문서에서는 개인 일괄 처리 계정을 만들고 개인 끝점을 사용 하 여 액세스 하는 단계를 설명 합니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단계를 수행 합니다.
 
@@ -37,10 +37,10 @@ Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단�
 6. **리소스** 창에서 **리소스 종류** 를 **ch/batchaccountsMicrosoft.Bat** 로 설정 합니다. 액세스 하려는 개인 Batch 계정을 선택 하 고 **다음: 구성** 을 선택 합니다.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="개인 끝점 만들기-리소스 창":::
 7. **구성** 창에서 다음 정보를 입력 하거나 선택 합니다.
-   - **가상 네트워크** : 가상 네트워크를 선택 합니다.
-   - **서브넷** : 서브넷을 선택 합니다.
-   - **개인 DNS 영역과 통합** : **예** 를 선택 합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
-   - **사설 DNS 영역** : \<region\> privatelink를 선택 합니다. batch.azure.com. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
+   - **가상 네트워크**: 가상 네트워크를 선택 합니다.
+   - **서브넷**: 서브넷을 선택 합니다.
+   - **개인 DNS 영역과 통합**: **예** 를 선택 합니다. 프라이빗 엔드포인트에 비공개로 연결하려면 DNS 레코드가 필요합니다. 프라이빗 엔드포인트를 프라이빗 DNS 영역과 통합하는 것이 좋습니다. 자체 DNS 서버를 활용하거나 가상 머신의 호스트 파일을 사용하여 DNS 레코드를 만들 수도 있습니다.
+   - **사설 DNS 영역**: \<region\> privatelink를 선택 합니다. batch.azure.com. 프라이빗 DNS 영역은 자동으로 결정됩니다. Azure Portal을 사용하여 변경할 수 없습니다.
 8. **검토 + 만들기** 를 선택한 다음 Azure에서 구성의 유효성을 검사할 때까지 기다립니다.
 9. **유효성 검사 통과** 메시지가 표시되면 **만들기** 를 선택합니다.
 

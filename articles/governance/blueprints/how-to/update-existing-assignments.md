@@ -1,14 +1,14 @@
 ---
 title: 포털에서 기존 할당 업데이트
 description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c383ebedaf83b3a52062c91f98b816c3baf6618e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007191"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919396"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 

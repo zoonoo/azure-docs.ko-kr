@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 4931258af0dd50d091bec98824df5da0e91dbf53
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895771"
+ms.locfileid: "98919210"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -78,8 +78,11 @@ ms.locfileid: "98895771"
 
 3. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령으로 **Contoso Toasters Division** IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group* 에 추가됩니다.
 
-    다음 예제에서는 *westus* 위치에 *contoso-toers-hub-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 사용자 지정 할당 정책에 대한 예제 코드는 허브 이름에 `-toasters-`가 필요합니다.
+    다음 예제에서는 *westus* 위치에 *contoso-toers-hub-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
 
+    > [!CAUTION]
+    > 사용자 지정 할당 정책에 대 한 예제 Azure 함수 코드에는 `-toasters-` 허브 이름에 부분 문자열이 필요 합니다. 필요한 토스터 부분 문자열을 포함 하는 이름을 사용 해야 합니다.
+    
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
@@ -88,7 +91,10 @@ ms.locfileid: "98895771"
 
 4. Azure Cloud Shell을 사용하여 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령으로 **Contoso Heat Pumps Division** IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group* 에 추가됩니다.
 
-    다음 예제에서는 *westus* 위치에 *contoso-heatpumps-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 사용자 지정 할당 정책에 대한 예제 코드는 허브 이름에 `-heatpumps-`가 필요합니다.
+    다음 예제에서는 *westus* 위치에 *contoso-heatpumps-1098* 라는 IoT hub를 만듭니다. 고유한 허브 이름을 사용 해야 합니다. 허브 이름에서 **1098** 대신 고유한 접미사를 구성합니다. 
+
+    > [!CAUTION]
+    > 사용자 지정 할당 정책에 대 한 예제 Azure 함수 코드에는 `-heatpumps-` 허브 이름에 부분 문자열이 필요 합니다. 필수 heatpumps 부분 문자열을 포함 하는 이름을 사용 해야 합니다.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -98,14 +104,14 @@ ms.locfileid: "98895771"
 
 5. IoT hub는 DPS 리소스에 연결 되어야 합니다. 
 
-    다음 두 명령을 실행 하 여 방금 만든 허브에 대 한 연결 문자열을 가져옵니다.
+    다음 두 명령을 실행 하 여 방금 만든 허브에 대 한 연결 문자열을 가져옵니다. 허브 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive 
     hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
     hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
     ```
 
-    다음 명령을 실행 하 여 허브를 DPS 리소스에 연결 합니다.
+    다음 명령을 실행 하 여 허브를 DPS 리소스에 연결 합니다. DPS 리소스 이름을 각 명령에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive 
     az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
@@ -346,56 +352,59 @@ ms.locfileid: "98895771"
 * **breakroom499-contoso-tstrsd-007**
 * **mainbuilding167-contoso-hpsd-088**
 
-### <a name="linux-workstations"></a>Linux 워크스테이션
 
-Linux 워크스테이션을 사용 하는 경우 다음 예제와 같이 openssl를 사용 하 여 파생 된 장치 키를 생성할 수 있습니다.
-
-1. **KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
-
-    ```bash
-    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
-
-    REG_ID1=breakroom499-contoso-tstrsd-007
-    REG_ID2=mainbuilding167-contoso-hpsd-088
-
-    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-
-    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-    ```
-
-    ```bash
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
-
-### <a name="windows-based-workstations"></a>Windows 기반 워크스테이션
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
-1. **KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
-    ```powershell
-    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+```powershell
+$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-    $REG_ID1='breakroom499-contoso-tstrsd-007'
-    $REG_ID2='mainbuilding167-contoso-hpsd-088'
+$REG_ID1='breakroom499-contoso-tstrsd-007'
+$REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($KEY)
-    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-    $derivedkey1 = [Convert]::ToBase64String($sig1)
-    $derivedkey2 = [Convert]::ToBase64String($sig2)
+$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+$hmacsha256.key = [Convert]::FromBase64String($KEY)
+$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+$derivedkey1 = [Convert]::ToBase64String($sig1)
+$derivedkey2 = [Convert]::ToBase64String($sig2)
 
-    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-    ```
+echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+```
 
-    ```powershell
-    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-    ```
+```powershell
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+# <a name="linux"></a>[Linux](#tab/linux)
+
+Linux 워크스테이션을 사용 하는 경우 다음 예제와 같이 openssl를 사용 하 여 파생 된 장치 키를 생성할 수 있습니다.
+
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
+
+```bash
+KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+
+REG_ID1=breakroom499-contoso-tstrsd-007
+REG_ID2=mainbuilding167-contoso-hpsd-088
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+
+echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+```
+
+```bash
+breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+```
+
+---
 
 시뮬레이트된 디바이스는 각 등록 ID와 함께 파생된 디바이스 키를 사용하여 대칭 키 증명을 수행합니다.
 

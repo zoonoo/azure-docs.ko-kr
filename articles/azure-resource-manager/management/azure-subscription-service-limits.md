@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802893"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920473"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -168,13 +168,17 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>애플리케이션 정보
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
 
 ## <a name="azure-policy-limits"></a>Azure Policy 제한
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
+
+## <a name="azure-quantum-limits"></a>Azure 퀀텀 제한
+
+[!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
 ## <a name="azure-role-based-access-control-limits"></a>Azure 역할 기반 액세스 제어 제한
 
@@ -446,7 +450,7 @@ Shared Image Gallery를 사용하여 리소스를 배포할 때 구독당 제한
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

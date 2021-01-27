@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ba971919037230cb6c09e627fde448647063b5b9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: a08b5db19aab19402aa3c93cfa23ce7b39a0a838
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498424"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918691"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
 
@@ -32,9 +32,10 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 버스트: 지원 됨<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 버스트 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리(GiB) | 임시 디스크<sup>1</sup>(GiB) | NVMe 디스크<sup>2</sup> | NVMe 디스크 처리량<sup>3</sup> (읽기 IOPS/MBps) | 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>4</sup> | 최대 버스트 캐시 되지 않은 데이터 디스크 처리량 (IOPs/MBps)<sup>5</sup>| 최대 데이터 디스크 수 | 최대 NIC 수 | 예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |

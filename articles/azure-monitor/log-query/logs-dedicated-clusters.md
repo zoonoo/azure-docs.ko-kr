@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609947"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920226"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -25,9 +25,6 @@ Azure Monitor Logs 전용 클러스터는 Azure Monitor 로그 고객을 위한 
 - **[다중 작업 영역](../log-query/cross-workspace-query.md)** -고객이 프로덕션을 위해 둘 이상의 작업 영역을 사용 하는 경우 전용 클러스터를 사용 하는 것이 적합할 수 있습니다. 작업 영역 간 쿼리는 모든 작업 영역이 동일한 클러스터에 있는 경우 더 빨리 실행 됩니다. 또한 할당 된 용량 예약 계층이 모든 클러스터 수집을 고려 하므로 전용 클러스터를 사용 하는 것이 더 비용 효율적일 수 있습니다. 그 중 일부는 작고 용량 예약 할인이 적합 하지 않은 경우에도 마찬가지입니다.
 
 전용 클러스터는 매일 1TB 이상의 데이터 수집 용량을 사용 하 여 커밋하는 고객이 필요 합니다. 전용 클러스터로의 마이그레이션은 간단 합니다. 데이터 손실이 나 서비스가 중단 되지 않습니다. 
-
-> [!IMPORTANT]
-> 전용 클러스터는 승인 되며 프로덕션 배포에 대해 완벽 하 게 지원 됩니다. 그러나 임시 용량 제약 조건으로 인해 기능을 사용 하려면 사전 등록이 필요 합니다. 연락처를 Microsoft에 사용하여 구독 ID를 제공합니다.
 
 ## <a name="management"></a>관리 
 
@@ -89,7 +86,7 @@ Authorization: Bearer <token>
 
 클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
 
-### <a name="create"></a>생성 
+### <a name="create"></a>만들기 
 
 **PowerShell**
 

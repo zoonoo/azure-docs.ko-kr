@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: a218888a094c30b7672fd22c255f6a352422b878
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896853"
+ms.locfileid: "98919921"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -68,6 +68,7 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 헝가리어 | `hu` |
 | 아이슬란드어 | `is` |
 | 인도네시아어 | `id` |
+| 이눅티투트어 | `iu` |
 | 아일랜드어 | `ga` |
 | 이탈리아어 | `it` |
 | 일본어 | `ja` |

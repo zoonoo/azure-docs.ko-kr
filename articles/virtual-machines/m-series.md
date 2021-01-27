@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972eaf3aa20324bc68ce24d2b7c0db041bb8baa4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653658"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918639"
 ---
 # <a name="m-series"></a>M 시리즈
 
@@ -27,9 +27,10 @@ M 시리즈 VM의 기능 Intel &reg; Hyper-Threading 기술입니다.
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
+[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_M8ms                    | 8   | 218.75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4|2000  |
 | Standard_M16ms                   | 16  | 437.5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8|4000  |
@@ -46,7 +47,7 @@ M 시리즈 VM의 기능 Intel &reg; Hyper-Threading 기술입니다.
 | Standard_M128 <sup>1</sup>     | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 | Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 
-<sup>1</sup> 64 이상의 vcpu에는 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise Linux, CentOS 7.3 또는 Oracle Linux 7.3, LIS 4.2.1와 같은 지원 되는 게스트 os 중 하나가 필요 합니다.
+<sup>1</sup> 64 이상의 vcpu에는 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise Linux, CentOS 7.3 또는 Oracle Linux 7.3, LIS 4.2.1와 같은 지원 되는 게스트 버전 중 하나가 필요 합니다.
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 

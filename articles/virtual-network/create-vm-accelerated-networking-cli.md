@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919955"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -56,11 +56,9 @@ ms.locfileid: "98222958"
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
-가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다.  이러한 지원되는 계열은 D/DSv2 및 F/Fs입니다.
+가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 
 
-하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 지원 되는 시리즈는 D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms 및 Ms/Mmsv2입니다.
-
-VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+가속 네트워킹에 대 한 지원은 개별 [가상 머신 크기](../virtual-machines/sizes.md) 설명서에서 찾을 수 있습니다. 
 
 ### <a name="custom-images"></a>사용자 지정 이미지
 사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3-3 및 Connectx-3-4 Lx Nic와 함께 작동 하는 데 필요한 드라이버가 있는지 확인 하세요.

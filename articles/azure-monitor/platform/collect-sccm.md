@@ -5,18 +5,21 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/28/2019
-ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 11/30/2020
+ms.openlocfilehash: ec19396d782bf34e85001892159c0ce785487f09
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008976"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918892"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+> [!IMPORTANT]
+> Configuration Manager 버전 2010부터이 기능은 더 이상 사용 되지 않습니다.<!-- 8269855 --> 자세한 내용은 [Configuration Manager에서 제거되는 기능과 이후 지원되지 않는 기능](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures)을 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 

@@ -11,18 +11,23 @@ ms.date: 04/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5db99f5e8ed2ea5844acba5500bc94d8fb0db2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26112b1e799cbde3145e7137c686b4b336db4bab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358347"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919938"
 ---
-# <a name="disable-pta-when-using-azure-ad-connect-do-not-configure"></a>Azure AD Connect "구성 안 함"을 사용 하는 경우 PTA를 사용 하지 않도록 설정
+# <a name="disable-pta-when-using-azure-ad-connect"></a>Azure AD Connect를 사용할 때 PTA 사용 안 함
 
-Azure AD Connect에서 통과 인증을 사용 하는 경우 "구성 안 함"으로 설정 하면 사용 하지 않도록 설정할 수 있습니다. PTA 비활성화는 다음 cmdlet을 사용 하 여 수행할 수 있습니다. 
+Azure AD Connect에서 통과 인증을 사용 하는 경우 **"구성** 안 함"으로 설정 하면 사용 하지 않도록 설정할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+>[!NOTE]
+>이미 PHS를 사용 하도록 설정 하면 PTA를 사용 하지 않도록 설정 하면 테 넌 트 대체가 PHS로 바뀝니다.
+
+PTA 비활성화는 다음 cmdlet을 사용 하 여 수행할 수 있습니다. 
+
+## <a name="prerequisites"></a>필수 구성 요소
 필요한 필수 구성 요소는 다음과 같습니다.
 - PTA 에이전트가 설치 된 모든 windows 컴퓨터 
 - 에이전트는 1.5.1742.0 버전 이상 이어야 합니다. 
