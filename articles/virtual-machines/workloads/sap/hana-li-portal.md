@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827515"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882487"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 
@@ -88,13 +88,13 @@ HANA Large Instance 단위 목록에서 단일 단위를 클릭 하 고 단일 H
 - [HLI에 사용 가능한 SKU](./hana-available-skus.md)
 - [SAP HANA(대규모 인스턴스) 스토리지 아키텍처](./hana-storage-architecture.md) 
 
-오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은 다음과 같습니다.
+오른쪽 아래에 있는 추가 데이터는 HANA Large Instance 스탬프의 수정 버전입니다. 가능한 값은
 
 - 수정 버전 3
 - 수정 버전 4
 
 수정 버전 4는 HANA 큰 인스턴스에서 릴리스된 최신 아키텍처로, 수정 버전 4 스탬프 또는 행에 배포 된 Azure Vm과 HANA 큰 인스턴스 단위 간의 네트워크 대기 시간이 크게 향상 되었습니다.
-개요의 오른쪽 아래에는 배포 된 각 HANA 큰 인스턴스 단위에 대해 자동으로 생성 되는 Azure 근접 배치 그룹의 이름이 포함 된 또 다른 매우 중요 한 정보가 있습니다. 이 근접 배치 그룹은 SAP 응용 프로그램 계층을 호스트 하는 Azure Vm을 배포할 때 참조 해야 합니다. HANA Large Instance 단위와 연결 된 [azure 근접 배치 그룹](../../linux/co-location.md) 을 사용 하 여 azure VM이 Hana large instance 유닛에 가까운 곳에 배포 되는지 확인 합니다. [Sap 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하려면 Azure 근접 배치 그룹에서 Azure 근접 배치](sap-proximity-placement-scenarios.md)그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다.
+개요의 오른쪽 아래에는 배포 된 각 HANA 큰 인스턴스 단위에 대해 자동으로 생성 되는 Azure 근접 배치 그룹의 이름이 포함 된 또 다른 매우 중요 한 정보가 있습니다. 이 근접 배치 그룹은 SAP 응용 프로그램 계층을 호스트 하는 Azure Vm을 배포할 때 참조 해야 합니다. HANA Large Instance 단위와 연결 된 [azure 근접 배치 그룹](../../co-location.md) 을 사용 하 여 azure VM이 Hana large instance 유닛에 가까운 곳에 배포 되는지 확인 합니다. [Sap 응용 프로그램을 사용 하 여 네트워크 대기 시간을 최적화 하려면 Azure 근접 배치 그룹에서 Azure 근접 배치](sap-proximity-placement-scenarios.md)그룹에 설명 된 것 처럼 근접 배치 그룹을 사용 하 여 동일한 azure 데이터 센터에서 sap 응용 프로그램 계층을 찾을 수 있는 방법을 설명 합니다.
 
 헤더의 오른쪽 열에 있는 추가 필드는 HANA Large instance 유닛의 전원 상태에 대 한 정보를 알려 줍니다.
 

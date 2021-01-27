@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746801"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878938"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -380,6 +380,12 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 * 클라이언트 쪽 스크립트가 없으면 [서버에서 쿠키를 설정](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/)할 수 있습니다.
 * 한 명의 실제 사용자가 특정 사이트를 다른 브라우저에서 사용하거나, in-private/incognito 검색을 통해 사용하거나, 다른 컴퓨터에서 사용하는 경우 두 번 이상 계산됩니다.
 * 여러 컴퓨터 및 브라우저에서 로그인한 사용자를 식별하려면 [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users)에 대한 호출을 추가합니다.
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>Application Insights에서 장치 정보 (브라우저, OS, 언어, 모델)를 어떻게 생성 하나요?
+
+브라우저는 요청의 HTTP 헤더에 있는 사용자 에이전트 문자열을 전달 하 고, Application Insights 수집 서비스는 [UA 파서](https://github.com/ua-parser/uap-core) 를 사용 하 여 데이터 테이블 및 환경에서 표시 되는 필드를 생성 합니다. 따라서 Application Insights 사용자는 이러한 필드를 변경할 수 없습니다.
+
+사용자 또는 엔터프라이즈가 브라우저 설정에서 사용자 에이전트 보내기를 사용 하지 않도록 설정 하는 경우이 데이터가 없거나 정확 하지 않을 수 있습니다. 또한 [UA 파서 regex](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) 는 모든 장치 정보를 포함 하지 않을 수도 있고 최신 업데이트를 채택 하지 않았을 수 Application Insights.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Application Insights의 모든 기능을 사용하도록 어떻게 설정하나요?
 | 표시 내용 | 시작 방법 | 원하는 이유 |

@@ -2,18 +2,15 @@
 title: Azure Automation 공유 리소스 문제 해결
 description: 이 문서에서는 Azure Automation 공유 리소스와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187169"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896294"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>공유 리소스 문제 해결
 
@@ -33,7 +30,7 @@ PowerShell 모듈 가져오기는 복잡한 다단계 프로세스이므로 모�
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
+이 문제를 해결하려면 [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule) cmdlet을 사용하여 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Automation 계정에서 AzureRM 모듈을 업데이트하려면 계정이 영숫
 * 구조가 Automation에 필요한 구조와 일치하지 않습니다.
 * 모듈이 Automation 계정에 배포되지 않은 다른 모듈에 종속되어 있습니다.
 * 모듈 폴더에 종속성이 없습니다.
-* [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) cmdlet을 사용하여 모듈을 업로드하고 있으며, 전체 스토리지 경로를 제공하지 않았거나 공개적으로 액세스할 수 있는 URL을 사용하여 모듈을 로드하지 않았습니다.
+* [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) cmdlet을 사용하여 모듈을 업로드하고 있으며, 전체 스토리지 경로를 제공하지 않았거나 공개적으로 액세스할 수 있는 URL을 사용하여 모듈을 로드하지 않았습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -136,7 +133,7 @@ You do not have permissions to create…
 
 실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용되는 다양한 리소스에 대한 적절한 [권한](../manage-runas-account.md#permissions)이 있어야 합니다. 
 
-잠금으로 인해 문제가 발생한 경우 잠금을 제거할 수 있는지 확인합니다. 그런 다음, Azure Portal에서 잠겨 있는 리소스로 이동하여 마우스 오른쪽 단추로 잠금을 클릭하고, **삭제**를 선택합니다.
+잠금으로 인해 문제가 발생한 경우 잠금을 제거할 수 있는지 확인합니다. 그런 다음, Azure Portal에서 잠겨 있는 리소스로 이동하여 마우스 오른쪽 단추로 잠금을 클릭하고, **삭제** 를 선택합니다.
 
 ### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>시나리오: Runbook을 실행하면 "'iplpapi.dll' DLL에서 'GetPerAdapterInfo'라는 진입점을 찾을 수 없습니다"라는 오류가 표시됨
 
@@ -168,5 +165,5 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * [@AzureSupport](https://twitter.com/azuresupport)에 연결합니다. 이는 Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하기 위한 공식 Microsoft Azure 계정입니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.
 

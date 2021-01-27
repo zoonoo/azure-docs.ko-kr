@@ -3,19 +3,19 @@ title: 시작 하기-번역기
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Azure Cognitive Services Translator에 등록 하 고 구독 키를 가져오는 방법을 보여 줍니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.author: lajanuar
+ms.openlocfilehash: 8932c389138c1fb86509a59bc055a2ce147c51a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602644"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896717"
 ---
 # <a name="how-to-sign-up-for-translator"></a>번역기에 등록 하는 방법
 
@@ -59,7 +59,7 @@ Translator에 등록 하면 구독에 고유한 개인 설정 된 액세스 키�
 
 사용자 지정 번역기를 사용하여 번역을 사용자 지정하고, 일반적인 Microsoft Translator 신경 기계 번역 시스템부터 시작해서 고유한 용어와 스타일에 맞게 조정된 번역 시스템을 만듭니다. [자세한 정보](customization.md)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure 시작(3분 동영상)](https://azure.microsoft.com/get-started/?b=16.24)
 - [청구서로 지불하는 방법](https://azure.microsoft.com/pricing/invoicing/)

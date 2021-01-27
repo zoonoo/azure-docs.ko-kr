@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 라이브 이벤트 오류 코드 | Microsoft Docs
+title: Azure Media Services 라이브 이벤트 오류 코드
 description: 이 문서에는 라이브 이벤트 오류 코드가 나열 되어 있습니다.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 13277c3d46d5b68aa5705699f45a2bf9e97a78d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 310e70bc8c7ddbf3bcd37d4f0276fe04c2979e73
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291537"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897852"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -56,7 +56,7 @@ ms.locfileid: "89291537"
 |알 수 없는 오류 코드|이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다.|
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 [스트리밍 끝점 (원본) 오류 코드](streaming-endpoint-error-codes.md)
 

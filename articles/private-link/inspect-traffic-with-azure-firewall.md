@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017239"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879176"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
 
@@ -92,7 +92,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 다음 중 하나를 사용 하 여 온-프레미스 네트워크와의 연결을 구성한 경우이 아키텍처를 구현할 수 있습니다. 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [사이트 간 VPN](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [사이트 간 VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 보안 요구 사항에 따라 보안 어플라이언스를 통해 라우팅할 개인 끝점을 통해 노출 되는 서비스에 대 한 클라이언트 트래픽이 필요한 경우이 시나리오를 배포 합니다.
 
@@ -101,7 +101,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 >[!NOTE]
 > 타사 NVA 또는 Azure 방화벽을 사용 하 여이 시나리오를 구현 하려면 개인 끝점으로 향하는 트래픽을 SNAT 하기 위해 응용 프로그램 규칙이 아닌 네트워크 규칙이 필요 합니다. 그렇지 않으면 가상 컴퓨터와 개인 끝점 간의 통신에 실패 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독
 * Log Analytics 작업 영역.  
@@ -177,7 +177,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 지역 | **(US) 남부 중부 US** 를 선택 합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다** 를 그대로 둡니다. |
     | 이미지 | **Ubuntu Server 18.04 LTS-Gen1** 을 선택 합니다. |
-    | 크기 | **Standard_B2s** 를 선택 합니다. |
+    | Size | **Standard_B2s** 를 선택 합니다. |
     | **관리자 계정** |  |
     | 인증 유형 | **암호** 를 선택합니다. |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
@@ -263,7 +263,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 이 섹션에서는 개인 SQL Database를 만듭니다.
 
-1. Azure Portal 화면의 왼쪽 위에서 SQL Database **리소스 데이터베이스 만들기** 를 선택  >  **Databases**  >  **SQL Database** 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 SQL Database **리소스 데이터베이스 만들기** 를 선택  >    >  합니다.
 
 2. **SQL Database 만들기-기본 사항** 에서 다음 정보를 입력 하거나 선택 합니다.
 
@@ -366,7 +366,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Subscription | 구독을 선택합니다.    |
     | 가상 네트워크 | **Myvmvnet** 을 선택 합니다. |
     | 원격 가상 네트워크에서 myAzFwVNet로의 피어 링 이름    |    **Myvmvnet-myAzFwVNet을** 입력 합니다.    |
-    | **Configuration** | |
+    | **구성** | |
     | **가상 네트워크 액세스 설정 구성** | |
     | MyAzFwVNet에서 원격 가상 네트워크에 대 한 가상 네트워크 액세스 허용 | 기본값인 **사용** 을 그대로 둡니다.    |
     | 원격 가상 네트워크에서 myAzFwVNet에 대 한 가상 네트워크 액세스 허용    | 기본값인 **사용** 을 그대로 둡니다.    |
@@ -392,7 +392,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Subscription | 구독을 선택합니다.    |
     | 가상 네트워크 | **MyPEVNet** 를 선택 합니다. |
     | 원격 가상 네트워크에서 myAzFwVNet로의 피어 링 이름    |    **MyPEVNet-myAzFwVNet를** 입력 합니다.    |
-    | **Configuration** | |
+    | **구성** | |
     | **가상 네트워크 액세스 설정 구성** | |
     | MyAzFwVNet에서 원격 가상 네트워크에 대 한 가상 네트워크 액세스 허용 | 기본값인 **사용** 을 그대로 둡니다.    |
     | 원격 가상 네트워크에서 myAzFwVNet에 대 한 가상 네트워크 액세스 허용    | 기본값인 **사용** 을 그대로 둡니다.    |
@@ -457,7 +457,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 설정 | 값 |
     | ------- | ----- |
     | Name | **SQLPrivateEndpoint** 를 입력 합니다. |
-    | 우선 순위 | **100** 을 입력합니다. |
+    | 우선순위 | **100** 을 입력합니다. |
     | 작업 | **허용** 을 입력 합니다. |
     | **규칙.** |  |
     | **FQDN 태그** | |

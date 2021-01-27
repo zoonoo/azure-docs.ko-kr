@@ -3,19 +3,19 @@ title: 단어 맞춤-번역기
 titleSuffix: Azure Cognitive Services
 description: 맞춤 정보를 받으려면 Translate 메서드를 사용하고 선택 사항인 includeAlignment 매개 변수를 포함합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7288087bfe7d2a7bb03ce8a99831ad8b7f5b549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 8368ca0ca4c3f2f0ab3cb88a5d54295d71451636
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83995618"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898022"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>단어 맞춤 정보를 받는 방법
 

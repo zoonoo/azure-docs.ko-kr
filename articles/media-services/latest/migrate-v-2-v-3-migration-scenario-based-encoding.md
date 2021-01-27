@@ -1,5 +1,5 @@
 ---
-title: 시나리오 기반 마이그레이션 지침 인코딩 | Microsoft Docs
+title: 인코딩 시나리오 기반 마이그레이션 지침
 description: 이 문서에서는 Azure Media Services v 2에서 v3로 마이그레이션하는 데 도움이 되는 인코딩 시나리오 기반 지침을 제공 합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d122bdeb98de624d9053852b9bee4595b0ef8c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8d25a14593c3c4a26ecafa33f7cc9fe6c4d580a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690589"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898361"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>인코딩 시나리오 기반 마이그레이션 지침
 
@@ -43,7 +43,7 @@ ms.locfileid: "98690589"
 
 [![V2 ](./media/migration-guide/V2-pretty.svg) 용 Encoding 워크플로](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. 설치 프로그램
+1. 설정
     1. 자산을 만들거나 및 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다.
     2. 다음 항목의 값을 가져옵니다.
         - 미디어 프로세서 ID 또는 개체

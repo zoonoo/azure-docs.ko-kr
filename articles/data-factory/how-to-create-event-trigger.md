@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: de416277de34e1c3717d581697f05c98c48d1959
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 495dda603a8ab8ce2983e010ea23856df5a094ef
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146010"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897125"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -31,7 +31,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 
 > [!NOTE]
-> 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. *Microsoft EventGrid/Eventgrid/* * 작업을 수행할 수 있어야 합니다. 이 작업은 EventGrid Eventgrid 참여자 기본 제공 역할의 일부입니다.
+> 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. *Microsoft EventGrid/Eventgrid/** 작업을 수행할 수 있어야 합니다. 이 작업은 EventGrid Eventgrid 참여자 기본 제공 역할의 일부입니다.
 
 ## <a name="data-factory-ui"></a>Data Factory UI
 
@@ -50,12 +50,16 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 1. Azure 구독 드롭다운에서 또는 스토리지 계정 리소스 ID를 수동으로 사용하여 스토리지 계정을 선택합니다. 이벤트가 발생할 컨테이너를 선택합니다. 컨테이너 선택은 선택 사항이지만 모든 컨테이너를 선택하면 많은 이벤트가 발생할 수 있습니다.
 
    > [!NOTE]
-   > 이벤트 트리거는 현재 Azure Data Lake Storage Gen2 및 범용 버전 2 스토리지 계정만 지원합니다. 저장소 계정에 대 한 *소유자* 액세스 권한이 있어야 합니다.  Azure Event Grid 제한으로 인해 Azure Data Factory는 스토리지 계정당 최대 500개의 이벤트 트리거를 지원합니다.
+   > 이벤트 트리거는 현재 Azure Data Lake Storage Gen2 및 범용 버전 2 스토리지 계정만 지원합니다. Azure Event Grid 제한으로 인해 Azure Data Factory는 스토리지 계정당 최대 500개의 이벤트 트리거를 지원합니다.
 
-1. **Blob 경로 시작 문자** 및 **Blob 경로 마지막 문자** 속성을 통해 이벤트를 수신할 컨테이너, 폴더 및 Blob 이름을 지정할 수 있습니다. 이벤트 트리거를 사용하려면 이러한 속성을 하나 이상을 정의해야 합니다. **Blob path begins with** (Blob 경로 시작 문자) 및 **Blob path ends with** (Blob 경로 마지막 문자) 속성 모두에 대해 이 문서의 뒷부분에 나오는 예제와 같이 다양한 패턴을 사용할 수 있습니다.
+   > [!NOTE]
+   > 새 이벤트 트리거를 만들고 수정 하려면 Data Factory 로그인 하는 데 사용 되는 Azure 계정에 저장소 계정에 대 한 *Owner* 이상의 권한이 있어야 합니다. 추가 권한이 필요 하지 않습니다. Azure Data Factory에 대 한 서비스 주체에는 저장소 계정 또는 Event Grid에 대 한 특별 한 권한이 필요 _하지_ 않습니다.
+
+1. **Blob 경로 시작 문자** 및 **Blob 경로 마지막 문자** 속성을 통해 이벤트를 수신할 컨테이너, 폴더 및 Blob 이름을 지정할 수 있습니다. 이벤트 트리거를 사용하려면 이러한 속성을 하나 이상을 정의해야 합니다. **Blob path begins with**(Blob 경로 시작 문자) 및 **Blob path ends with**(Blob 경로 마지막 문자) 속성 모두에 대해 이 문서의 뒷부분에 나오는 예제와 같이 다양한 패턴을 사용할 수 있습니다.
 
     * **Blob 경로 시작 문자:** Blob 경로는 폴더 경로로 시작해야 합니다. 유효한 값은 `2018/` 및 `2018/april/shoes.csv`이고 컨테이너를 선택하지 않으면 이 필드를 선택할 수 없습니다.
     * **Blob 경로 마지막 문자:** Blob 경로는 파일 이름 또는 확장명으로 끝나야 합니다. 유효한 값은 `shoes.csv` 및 `.csv`이고 컨테이너 및 폴더 이름은 선택 사항이지만 지정된 경우 `/blobs/` 세그먼트로 구분해야 합니다. 예를 들어 이름이 ‘orders’인 컨테이너는 `/orders/blobs/2018/april/shoes.csv` 값을 가질 수 있습니다. 컨테이너의 폴더를 지정하려면 선행 '/' 문자를 생략합니다. 예를 들어 `april/shoes.csv`는 모든 컨테이너에서 이름이 'april'인 폴더에 있는 이름이 `shoes.csv`인 모든 파일에 대해 이벤트를 트리거합니다. 
+    * 참고:에서로 **시작** 하 고 **로 끝나는** Blob 경로는 이벤트 트리거에서 유일 하 게 허용 되는 패턴 일치입니다. 다른 유형의 와일드 카드 일치는 트리거 유형에 대해 지원 되지 않습니다.
 
 1. 트리거가 **Blob 생성** 이벤트, **Blob 삭제** 이벤트 또는 둘 다에 응답할지 선택합니다. 지정된 스토리지 위치에서 각각의 이벤트는 트리거와 연결된 Data Factory 파이프라인을 트리거합니다.
 

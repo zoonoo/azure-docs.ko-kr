@@ -1,5 +1,5 @@
 ---
-title: CLI를 사용하여 Azure Media Services로 필터 만들기 | Microsoft Docs
+title: CLI를 사용 하 여 Azure Media Services으로 필터 만들기
 description: 이 문서에서는 CLI를 사용 하 여 Azure Media Services v3로 필터를 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f86b3fbebfaa2eb6fc35d5373eab2bb296ff5043
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740604"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897580"
 ---
 # <a name="creating-filters-with-cli"></a>CLI를 사용하여 필터 만들기
 
@@ -132,6 +132,6 @@ az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocat
 
 [비디오 스트리밍](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 [Azure CLI](/cli/azure/ams?view=azure-cli-latest)

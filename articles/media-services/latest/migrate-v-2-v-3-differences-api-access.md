@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services V2에서 v3 API 액세스 간 API 액세스의 차이점 | Microsoft Docs
+title: Azure Media Services V2에서 v3 API 액세스 사이의 API 액세스의 차이점
 description: 이 문서에서는 Azure Media Services v 2와 V3 간의 API 액세스 차이점에 대해 설명 합니다.
 services: media-services
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 746f2d61d05b5b721e86aaea9ef56e2ca0621280
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 827d31da5137b09f2d121f307a72b7b6d62b04bc
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690682"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898429"
 ---
 # <a name="api-access-differences-between-azure-media-services-v2-to-v3-api"></a>Azure Media Services V2에서 v3 API로의 API 액세스 차이점
 

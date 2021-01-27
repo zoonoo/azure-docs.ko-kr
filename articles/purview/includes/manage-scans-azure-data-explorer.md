@@ -1,16 +1,16 @@
 ---
-author: hophanms
-ms.author: hophan
+author: amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
+ms.author: amberz
+ms.openlocfilehash: bf872feae9c3a7ca94e5252872adee2b653f5524
 ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901079"
+ms.locfileid: "98896124"
 ---
 ## <a name="creating-and-running-a-scan"></a>검사 만들기 및 실행
 
@@ -27,19 +27,19 @@ ms.locfileid: "98901079"
 
 1. 데이터 원본에 연결할 자격 증명을 선택합니다. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="검사 설정":::
+   :::image type="content" source="media/manage-scans/set-up-scan-data-explorer.png" alt-text="검사 설정":::
 
 1. 목록에서 적절한 항목을 확인하여 폴더, 수집 또는 스키마와 같은 데이터 원본의 특정 부분에 대한 검사 범위를 지정할 수 있습니다.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="검사 범위 지정":::
+   :::image type="content" source="media/manage-scans/scope-your-scan-data-explorer.png" alt-text="검사 범위 지정":::
 
 1. 검사에 대한 검사 규칙 집합을 선택합니다. 시스템 기본값, 기존 사용자 지정 기본값 중 하나를 선택하거나 새 인라인을 만들 수 있습니다.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="검사 규칙 집합":::
+   :::image type="content" source="media/manage-scans/scan-rule-set-data-explorer.png" alt-text="검사 규칙 집합":::
 
 1. 검사 트리거를 선택합니다. 일정을 설정하거나 검사를 한 번 실행할 수 있습니다.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="트리거":::
+   :::image type="content" source="media/manage-scans/trigger-scan-data-explorer.png" alt-text="트리거":::
 
 1. 검사를 검토하고 **저장 및 실행** 을 선택합니다.
 

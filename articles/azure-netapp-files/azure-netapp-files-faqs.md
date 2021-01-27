@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: a8286768dac33e48bc4d7c4dce0d9934da08c319
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736074"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881421"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -204,7 +204,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
 
-예:
+예제:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin
@@ -263,7 +263,7 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Azure VMware 솔루션 (AVS)에서 Azure NetApp Files NFS 또는 SMB 볼륨을 사용할 수 있나요?
 
-AVS Windows Vm 또는 Linux Vm에 Azure NetApp Files NFS 볼륨을 탑재할 수 있습니다. AVS Windows Vm에서 SMB 공유 Azure NetApp Files를 매핑할 수 있습니다. 자세한 내용은 [Azure VMware 솔루션을 사용 하 여 Azure NetApp Files]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md)를 참조 하세요.  
+AVS Windows Vm 또는 Linux Vm에 Azure NetApp Files NFS 볼륨을 탑재할 수 있습니다. AVS Windows Vm에서 SMB 공유 Azure NetApp Files를 매핑할 수 있습니다. 자세한 내용은 [Azure VMware 솔루션을 사용 하 여 Azure NetApp Files]( ../azure-vmware/netapp-files-with-azure-vmware-solution.md)를 참조 하세요.  
 
 ### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Azure VMware 솔루션 (AVS)에서 Azure NetApp Files NFS 또는 SMB 볼륨 사용에 대해 지원 되는 지역은 무엇 인가요?
 

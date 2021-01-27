@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d2e9e306e979f569819568650b25d49278997ede
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 262177d8cde3a5eee2721f2af8a0511c205da9b9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878530"
+ms.locfileid: "98890532"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -122,13 +122,45 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-<!-- :::zone pivot = "programming-language-csharp"
+:::zone pivot = "programming-language-csharp"
+
+
+### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대 한 액세스 구성  
+
+Synapse **SAS (공유 액세스 서명)** 를 활용 하 여 Azure Blob Storage에 액세스 합니다. 코드에서 SAS 키를 노출 하지 않도록 하려면 Synapse 작업 영역에서 액세스 하려는 Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 만드는 것이 좋습니다.
+
+Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 추가 하려면 다음 단계를 수행 합니다.
+
+1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
+2. 왼쪽 패널에서 **관리** 를 선택 하 고 **외부 연결** 아래에서 **연결 된 서비스** 를 선택 합니다.
+3. 오른쪽의 **새 연결 된 서비스** 패널에서 **Azure Blob Storage** 를 검색 합니다.
+4. **계속** 을 선택합니다.
+5. 연결 된 서비스 이름에 액세스 하 고 구성 하려면 Azure Blob Storage 계정을 선택 합니다. **인증 방법** 에 **계정 키** 를 사용 하는 것이 좋습니다.
+6. **연결 테스트** 를 선택 하 여 설정이 올바른지 확인 합니다.
+7. 먼저 **만들기** 를 선택 하 고 **모두 게시** 를 클릭 하 여 변경 내용을 저장 합니다. 
+
+다음 URL을 통해 Synapse Spark를 사용 하 여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+
+다음은 코드 예제입니다.
 
 ```csharp
+var blob_account_name = "";  // replace with your blob name
+var blob_container_name = "";     // replace with your container name
+var blob_relative_path = "";  // replace with your relative folder path
+var linked_service_name = "";    // replace with your linked service name
+var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
+
+spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+
+var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
+
+Console.WriteLine(wasbs_path);
 
 ```
 
-::: zone-end -->
+::: zone-end 
  
 ###  <a name="configure-access-to-azure-key-vault"></a>Azure Key Vault에 대 한 액세스 구성
 

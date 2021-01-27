@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b338b8ee93fb24cff54968630d4ff00deca0b64b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606728"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881387"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
 
@@ -54,7 +54,7 @@ Azure Defender for Storage는 다음을 제공합니다.
 경고에는 경고를 트리거한 인시던트의 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 사항이 포함됩니다. 경고는 Azure Sentinel이나 기타 타사 SIEM 또는 기타 외부 도구로 내보낼 수 있습니다.
 
 > [!TIP]
-> 구독 수준에서 [Azure Defender for Storage를 구성](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-security-center)하는 것이 모범 사례이지만 [개별 스토리지 계정에서 구성](https://docs.microsoft.com/azure/storage/common/azure-defender-storage-configure?tabs=azure-portal)할 수도 있습니다.
+> 구독 수준에서 [Azure Defender for Storage를 구성](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)하는 것이 모범 사례이지만 [개별 스토리지 계정에서 구성](../storage/common/azure-defender-storage-configure.md?tabs=azure-portal)할 수도 있습니다.
 
 
 ## <a name="what-is-hash-reputation-analysis-for-malware"></a>맬웨어에 대한 해시 평판 분석이란?

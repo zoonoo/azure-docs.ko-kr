@@ -4,48 +4,36 @@ description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일�
 ms.topic: article
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 884fe878b9524dcf8d97d1123dce35e02af34a24
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2fdb62e953230a38a26d22e136789fea52c8ee8c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790752"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882198"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
-
-## <a name="overview"></a>개요
-Azure Event Hubs는 [파티셔닝 모델](event-hubs-scalability.md#partitions)을 사용하여 단일 이벤트 허브 내 가용성과 병렬 처리를 개선합니다. 예를 들어 이벤트 허브에 4개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동된 경우 여전히 나머지 3개의 파티션을 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
-
-순서와 가용성 간의 장단점을 설명 하는 데 도움이 되도록 Brewer의 정리 라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조 하세요. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
-
-Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
-* 파티션 허용 오차: 파티션 오류가 발생하는 경우 데이터 처리를 계속하는 데이터 처리 시스템의 기능입니다.
-* 가용성: 실패하지 않은 노드가 오류 또는 시간 제한 없이 적절한 시간 내에 적절한 응답을 반환합니다.
-* 일관성: 읽기는 지정된 클라이언트에 대해 가장 최근의 쓰기를 반환하도록 보장됩니다.
-
-> [!NOTE]
-> **분할** 이라는 용어는 EVENT HUBS 및 CAP 정리의 다양 한 컨텍스트에서 사용 됩니다. 
-> - **Event Hubs** 는 이벤트를 하나 이상의 파티션으로 구성 합니다. 파티션은 독립적 이며 자체 데이터 시퀀스를 포함 하는 경우가 많으므로 종종 서로 다른 속도로 확장 됩니다. 자세한 내용은 [파티션](event-hubs-features.md#partitions)을 참조하세요.
-> - **CAP 정리** 에서 파티션은 분산 시스템의 노드 간 통신 중단입니다.
-
-## <a name="partition-tolerance"></a>파티션 허용 오차
-Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치하는 동안 이벤트 허브의 파티션 수를 구성할 수 있지만 나중에 이 값을 변경할 수 없습니다. Event Hubs에서 파티션을 사용해야 하므로 애플리케이션의 가용성 및 일관성에 대한 결정을 내려야 합니다.
+이 문서에서는 Azure Event Hubs에서 지 원하는 가용성 및 일관성에 대 한 정보를 제공 합니다. 
 
 ## <a name="availability"></a>가용성
-Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 
+Azure Event Hubs는 개별 컴퓨터의 치명적인 오류에 대 한 위험을 분산 하거나 데이터 센터 내의 여러 장애 도메인에 걸쳐 있는 클러스터 전체에 걸쳐 전체 랙을 분산 합니다. 이러한 오류는 투명 한 오류 감지 및 장애 조치 (failover) 메커니즘을 구현 하 여 서비스가 서비스 수준에서 계속 작동 하 고, 일반적으로 이러한 오류가 발생 하는 경우 눈에 띄게 중단 되지 않도록 합니다. [가용성 영역](../availability-zones/az-overview.md)에 대해 enabled 옵션을 사용 하 여 Event Hubs 네임 스페이스를 만든 경우 중단 위험은 실제로 분리 된 세 가지 기능에 추가로 분산 되며 서비스에는 전체 기능의 완전 한 치명적인 손실을 신속 하 게 처리할 수 있는 충분 한 용량 예약이 있습니다. 자세한 내용은 [Azure Event Hubs-지역 재해 복구](event-hubs-geo-dr.md)를 참조 하세요.
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
-새 **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** 개체를 만들고 **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** 메서드를 사용 하는 경우 이벤트 허브의 파티션 간에 이벤트가 자동으로 분산 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
-
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[EventHubs (4.1.0 또는 이전 버전)](#tab/old)
-새 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 개체를 만들고 **[보내기](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
-
----
-
-최대 가동 시간을 필요로 하는 사용 사례의 경우 이 모델을 사용하는 것이 좋습니다.
+클라이언트 응용 프로그램에서 이벤트 허브로 이벤트를 보낼 때 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산 됩니다. 어떤 이유로 파티션을 사용할 수 없는 경우 이벤트는 나머지 파티션에 분산 됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다. 최대 가동 시간을 필요로 하는 사용 사례의 경우이 모델을 사용 하 여 특정 파티션에 이벤트를 전송 하는 대신이 모델을 사용 하는 것이 좋습니다. 자세한 내용은 [파티션](event-hubs-scalability.md#partitions)을 참조하세요.
 
 ## <a name="consistency"></a>일관성
-일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 인스턴스에서는 이벤트에 대 한 파티션 키를 설정 하거나 `PartitionSender` 개체 (이전 Microsoft. Azure. Messaging 라이브러리를 사용 하는 경우)를 사용 하 여 특정 파티션에만 이벤트를 보낼 수 있습니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. 
+일부 시나리오에서는 이벤트의 순서가 중요합니다. 예를 들어, 백 엔드 시스템에서 삭제 명령 전에 업데이트 명령을 처리하려고 할 수 있습니다. 이 시나리오에서 클라이언트 응용 프로그램은 순서가 유지 되도록 이벤트를 특정 파티션으로 보냅니다. 소비자 응용 프로그램은 파티션에서 이러한 이벤트를 사용 하 여 순서 대로 읽습니다. 
+
+이 구성에서는 전송하는 특정 파티션을 사용할 수 없는 경우 오류 응답이 수신된다는 점을 염두에 두어야 합니다. 비교 시점으로 단일 파티션에 대 한 선호도가 없는 경우 Event Hubs 서비스는 사용 가능한 다음 파티션으로 이벤트를 보냅니다.
+
+가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이를 수행 하는 가장 쉬운 방법은 사용자 지정 시퀀스 번호 속성을 사용 하 여 이벤트를 스탬프 하는 것입니다.
+
+이 시나리오에서 생산자 클라이언트는 이벤트 허브에서 사용 가능한 파티션 중 하나에 이벤트를 보내고 응용 프로그램에서 해당 시퀀스 번호를 설정 합니다. 이 솔루션에서는 상태를 처리 애플리케이션에서 유지해야 하지만 사용할 가능성이 높은 엔드포인트를 보낸 사람에게 제공합니다.
+
+## <a name="appendix"></a>부록
+
+### <a name="net-examples"></a>.NET 예제
+
+#### <a name="send-events-to-a-specific-partition"></a>특정 파티션으로 이벤트 전송
+이벤트에 파티션 키를 설정 하거나 `PartitionSender` 개체 (이전 Microsoft. Azure. Messaging 라이브러리를 사용 하는 경우)를 사용 하 여 특정 파티션에만 이벤트를 전송 합니다. 이렇게 하면 이러한 이벤트를 파티션에서 읽을 때 순서대로 읽게 됩니다. 
 
 최신 **EventHubs** 라이브러리를 사용 하는 경우 [파티션에 이벤트를 게시 하기 위해 분할 된 발신자에서 EventHubProducerClient로 코드 마이그레이션](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition)을 참조 하세요.
 
@@ -92,9 +80,8 @@ finally
 
 ---
 
-이 구성에서는 전송하는 특정 파티션을 사용할 수 없는 경우 오류 응답이 수신된다는 점을 염두에 두어야 합니다. 이에 비해 단일 파티션에 대한 선호도가 없는 경우 Event Hubs 서비스는 사용 가능한 다음 파티션에 이벤트를 보냅니다.
-
-가동 시간을 극대화하는 동시에 순서도 지정할 수 있는 한 가지 솔루션은 이벤트 처리 애플리케이션의 일부로 이벤트를 집계하는 것입니다. 이 작업을 수행하는 가장 쉬운 방법은 이벤트에 사용자 지정 시퀀스 번호 속성 스탬프를 지정하는 것입니다. 다음 코드에서는 예제를 보여 줍니다.
+### <a name="set-a-sequence-number"></a>시퀀스 번호 설정
+다음 예제에서는 사용자 지정 시퀀스 번호 속성을 사용 하 여 이벤트를 스탬프 처리 합니다. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[EventHubs (5.0.0 이상)](#tab/latest)
 

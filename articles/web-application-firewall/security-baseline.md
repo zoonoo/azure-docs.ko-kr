@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b44ea6f55717712cfba4045205e02bd9f2b851df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202660"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878124"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -406,7 +406,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 리소스에
 
 Azure WAF는 방지 모드에서 규칙에 의해 검색 되는 침입 및 공격을 차단 합니다. 공격자는 "403 무단 액세스" 예외를 수신하고, 연결이 종료됩니다. 방지 모드는 이러한 공격을 WAF 로그에 기록합니다.
 
-- [Application Gateway와 Azure Security Center 간의 통합 개요](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Application Gateway와 Azure Security Center 간의 통합 개요](../security-center/security-center-partner-integration.md)
 
 - [Application Gateway의 WAF 모드](ag/ag-overview.md#waf-modes)
 

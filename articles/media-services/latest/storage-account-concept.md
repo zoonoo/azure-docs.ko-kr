@@ -1,24 +1,9 @@
 ---
-title: Azure 스토리지 계정
-titleSuffix: Azure Media Services
-description: Azure Media Services와 함께 사용할 Azure 저장소 계정을 만드는 방법에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882249"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
+제목: Azure storage 계정: Azure Media Services 설명: Azure Media Services에서 사용할 Azure storage 계정을 만드는 방법을 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft manager: femila ms.date editor: ' ' ms. 서비스: media services ms. 작업: ms. 항목: 개념 ms. 날짜: 01/05/2021. 작성자: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -47,7 +32,7 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|Description|Media Services v3|
+|암호화 옵션|설명|Media Services v3|
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|

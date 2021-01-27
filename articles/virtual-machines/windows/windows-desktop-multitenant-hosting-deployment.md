@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: mimckitt
-ms.openlocfilehash: 444c6a9c131916a2a07f41fd5c1ff38fc1e7bfb2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210327"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881438"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
 Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
@@ -39,7 +39,7 @@ rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
-사용 가능한 이미지에 대 한 자세한 내용은 [AZURE MARKETPLACE VM 이미지 찾기 및 사용을](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 참조 하세요 Azure PowerShell
+사용 가능한 이미지에 대 한 자세한 내용은 [AZURE MARKETPLACE VM 이미지 찾기 및 사용을](./cli-ps-findimage.md) 참조 하세요 Azure PowerShell
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>다중 테 넌 트 호스팅 권한 한정 
 다중 테 넌 트 호스팅 권한을 부여 하 고 Azure 사용자에 대해 Windows 10 이미지를 실행 하려면 다음 구독 중 하나가 있어야 합니다. 

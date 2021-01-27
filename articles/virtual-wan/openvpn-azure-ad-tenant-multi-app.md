@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 8fcc79991918aecfc26933f2ef5b6e80ea7fa88c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043429"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898090"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 AD (Azure Active Directory) 테 넌 트 만들기
 
@@ -136,6 +136,14 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
     ![메뉴에서 선택한 진단을 보여 주는 스크린샷](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose1.jpg)
 
 2. **연결 속성** 페이지에서 **진단 실행** 을 선택합니다.
+
+    ![스크린샷에는 연결에 대 한 진단 실행 단추가 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+
+3. 자격 증명을 사용하여 로그인합니다.
+
+    ![진단 3](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose3.jpg)
+
+4. 진단 결과를 살펴봅니다.
 
     ![스크린샷에는 연결에 대 한 진단 실행 단추가 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 

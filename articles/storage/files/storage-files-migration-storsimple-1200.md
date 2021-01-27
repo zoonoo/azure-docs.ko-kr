@@ -1,47 +1,47 @@
 ---
-title: Azure File Sync로 StorSimple 1200 마이그레이션
-description: Azure File Sync로 StorSimple 1200 시리즈 가상 어플라이언스를 마이그레이션하는 방법에 대해 알아봅니다.
+title: Azure 파일 동기화로 StorSimple 1200 마이그레이션
+description: Azure 파일 동기화로 StorSimple 1200 시리즈 가상 어플라이언스를 마이그레이션하는 방법에 대해 알아봅니다.
 author: fauhse
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630484"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882283"
 ---
-# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 1200 마이그레이션
+# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 1200 마이그레이션
 
-StorSimple 1200 시리즈는 온-프레미스 데이터 센터에서 실행 되는 가상 어플라이언스입니다. 이 어플라이언스에서 Azure File Sync 환경으로 데이터를 마이그레이션할 수 있습니다. Azure File Sync는 StorSimple 어플라이언스를 마이그레이션할 수 있는 기본 및 전략적 장기 Azure 서비스입니다.
+StorSimple 1200 시리즈는 온-프레미스 데이터 센터에서 실행 되는 가상 어플라이언스입니다. 이 어플라이언스에서 Azure 파일 동기화 환경으로 데이터를 마이그레이션할 수 있습니다. Azure 파일 동기화는 StorSimple 어플라이언스를 마이그레이션할 수 있는 기본 및 전략적 장기 Azure 서비스입니다.
 
-StorSimple 1200 시리즈는 12 월 2022에 [수명 종료](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) 에 도달 합니다.  가능한 한 빨리 마이그레이션 계획을 시작 하는 것이 중요 합니다. 이 문서에서는 성공적인 마이그레이션에 대 한 필요한 배경 지식 및 마이그레이션 단계를 Azure File Sync으로 제공 합니다. 
+StorSimple 1200 시리즈는 12 월 2022에 [수명 종료](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) 에 도달 합니다.  가능한 한 빨리 마이그레이션 계획을 시작 하는 것이 중요 합니다. 이 문서에서는 성공적인 마이그레이션에 대 한 필요한 배경 지식 및 마이그레이션 단계를 Azure 파일 동기화으로 제공 합니다. 
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 
 > [!IMPORTANT]
 > Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. AzureFilesMigration@microsoft마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 Email.
 
-Azure File Sync는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
+Azure 파일 동기화는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
 
 * 파일 동기화 및 클라우드 계층화.
 * 파일 공유는 SMB 및 파일 REST와 같은 여러 프로토콜을 통해 액세스할 수 있는 Azure의 기본 저장소로 공유 됩니다. Azure 파일 공유는 기본적으로 네트워크 드라이브로 탑재할 수 있는 Windows 서버의 파일 공유와 비교할 수 있습니다. 특성, 권한 및 타임 스탬프와 같은 중요 한 파일 충실도 측면을 지원 합니다. StorSimple과 달리 응용 프로그램/서비스는 클라우드에 저장 된 파일 및 폴더를 해석 하는 데 필요 하지 않습니다. 클라우드의 일부 응용 프로그램 데이터 뿐만 아니라 범용 파일 서버 데이터를 저장 하는 이상적인 가장 유연한 방법입니다.
 
-이 문서에서는 마이그레이션 단계를 중점적으로 설명 합니다. 마이그레이션하기 전에 Azure File Sync에 대해 자세히 알아보려면 다음 문서를 수행 하는 것이 좋습니다.
+이 문서에서는 마이그레이션 단계를 중점적으로 설명 합니다. 마이그레이션하기 전에 Azure 파일 동기화에 대해 자세히 알아보려면 다음 문서를 수행 하는 것이 좋습니다.
 
-* [Azure File Sync-개요](./storage-sync-files-planning.md "개요")
-* [Azure File Sync-배포 가이드](storage-sync-files-deployment-guide.md)
+* [Azure 파일 동기화-개요](./storage-sync-files-planning.md "개요")
+* [Azure 파일 동기화-배포 가이드](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
 목표는 가용성 보장 뿐만 아니라 프로덕션 데이터의 무결성을 보장 하는 것입니다. 후자를 사용 하려면 최소 가동 중지 시간을 유지 하 여 정기적인 유지 관리 기간에만 또는 약간 초과할 수 있도록 해야 합니다.
 
-## <a name="storsimple-1200-migration-path-to-azure-file-sync"></a>Azure File Sync에 대 한 StorSimple 1200 마이그레이션 경로
+## <a name="storsimple-1200-migration-path-to-azure-file-sync"></a>Azure 파일 동기화에 대 한 StorSimple 1200 마이그레이션 경로
 
-Azure File Sync 에이전트를 실행 하려면 로컬 Windows 서버가 필요 합니다. Windows Server는 최소 2012R2 서버에 있을 수 있지만 Windows Server 2019입니다.
+Azure 파일 동기화 에이전트를 실행 하려면 로컬 Windows 서버가 필요 합니다. Windows Server는 최소 2012R2 서버에 있을 수 있지만 Windows Server 2019입니다.
 
 다 수의 대체 마이그레이션 경로가 있으며,이를 통해 모든 항목을 문서화 하 고,이 문서에서 모범 사례로 인해 발생 하는 경로에 대 한 위험 또는 단점을 보여 주는 이유를 설명 하는 문서가 너무 깁니다.
 
@@ -58,19 +58,19 @@ Azure File Sync 에이전트를 실행 하려면 로컬 Windows 서버가 필요
 
 이 단계에서는 StorSimple 저장소 구조 (볼륨 및 공유)를 Windows Server 저장소 구조에 매핑합니다.
 저장소 구조를 변경 하려는 경우 (예를 들어 볼륨 수, 볼륨에 데이터 폴더 연결 또는 현재 SMB/NFS 공유의 상위 또는 하위 폴더 구조), 이제 이러한 변경을 고려 하는 시간이 소요 됩니다.
-Azure File Sync 구성 된 후 파일 및 폴더 구조를 변경 하는 것은 번거로울 수 있으므로 피해 야 합니다.
+Azure 파일 동기화 구성 된 후 파일 및 폴더 구조를 변경 하는 것은 번거로울 수 있으므로 피해 야 합니다.
 이 문서에서는 사용자가 1:1을 매핑 한다고 가정 하므로이 문서의 단계를 수행 하는 경우 매핑을 고려 하 여 매핑을 변경 해야 합니다.
 
 * 프로덕션 데이터는 Windows Server 시스템 볼륨에서 끝나지 않습니다. 클라우드 계층화는 시스템 볼륨에서 지원 되지 않습니다. 그러나이 기능은 마이그레이션 및 StorSimple 교체로 서 연속 작업에 필요 합니다.
 * StorSimple 1200 가상 어플라이언스와 동일한 수의 볼륨을 Windows Server에 프로 비전 합니다.
-* 필요한 Windows Server 역할, 기능 및 설정을 구성 합니다. OS를 안전 하 고 최신 상태로 유지 하기 위해 Windows Server 업데이트를 옵트인 (opt in) 하는 것이 좋습니다. 마찬가지로 Azure File Sync 에이전트를 포함 하 여 Microsoft 응용 프로그램을 최신 상태로 유지 하기 위해 Microsoft 업데이트를 옵트인 하는 것이 좋습니다.
+* 필요한 Windows Server 역할, 기능 및 설정을 구성 합니다. OS를 안전 하 고 최신 상태로 유지 하기 위해 Windows Server 업데이트를 옵트인 (opt in) 하는 것이 좋습니다. 마찬가지로 Azure 파일 동기화 에이전트를 포함 하 여 Microsoft 응용 프로그램을 최신 상태로 유지 하기 위해 Microsoft 업데이트를 옵트인 하는 것이 좋습니다.
 * 다음 단계를 읽기 전에 폴더 또는 공유를 구성 하지 마십시오.
 
-### <a name="step-3-deploy-the-first-azure-file-sync-cloud-resource"></a>3 단계: 첫 번째 Azure File Sync 클라우드 리소스 배포
+### <a name="step-3-deploy-the-first-azure-file-sync-cloud-resource"></a>3 단계: 첫 번째 Azure 파일 동기화 클라우드 리소스 배포
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
-### <a name="step-4-match-your-local-volume-and-folder-structure-to-azure-file-sync-and-azure-file-share-resources"></a>4 단계: 로컬 볼륨 및 폴더 구조를 Azure File Sync 및 Azure 파일 공유 리소스와 일치
+### <a name="step-4-match-your-local-volume-and-folder-structure-to-azure-file-sync-and-azure-file-share-resources"></a>4 단계: 로컬 볼륨 및 폴더 구조를 Azure 파일 동기화 및 Azure 파일 공유 리소스와 일치
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
@@ -87,7 +87,7 @@ Azure File Sync 구성 된 후 파일 및 폴더 구조를 변경 하는 것은 
 
 프로 비전 한 Azure 파일 공유의 수는이 단계에서 만든 폴더 수 + 루트 수준에서 동기화 할 볼륨 수와 일치 해야 합니다.
 
-### <a name="step-7-deploy-the-azure-file-sync-agent"></a>7 단계: Azure File Sync 에이전트 배포
+### <a name="step-7-deploy-the-azure-file-sync-agent"></a>7 단계: Azure 파일 동기화 에이전트 배포
 
 [!INCLUDE [storage-files-migration-deploy-afs-agent](../../../includes/storage-files-migration-deploy-azure-file-sync-agent.md)]
 
@@ -102,12 +102,12 @@ Azure File Sync 구성 된 후 파일 및 폴더 구조를 변경 하는 것은 
 
 ### <a name="step-9-copy-your-files"></a>9 단계: 파일 복사
 
-기본적인 마이그레이션 방식은 StorSimple 가상 어플라이언스에서 Windows 서버로의 RoboCopy 이며 Azure 파일 공유에 대 한 Azure File Sync입니다.
+기본적인 마이그레이션 방식은 StorSimple 가상 어플라이언스에서 Windows 서버로의 RoboCopy 이며 Azure 파일 공유에 대 한 Azure 파일 동기화입니다.
 
 Windows Server 대상 폴더에 대 한 첫 번째 로컬 복사본을 실행 합니다.
 
 * 가상 StorSimple 어플라이언스의 첫 번째 위치를 식별 합니다.
-* 이미 Azure File Sync 구성 되어 있는 Windows Server의 일치 하는 폴더를 식별 합니다.
+* 이미 Azure 파일 동기화 구성 되어 있는 Windows Server의 일치 하는 폴더를 식별 합니다.
 * RoboCopy를 사용 하 여 복사 시작
 
 다음 RoboCopy 명령은 StorSimple Azure 저장소에서 로컬 StorSimple으로 파일을 회수 한 다음 Windows Server 대상 폴더로 이동 합니다. Windows Server가 Azure 파일 공유와 동기화 합니다. 로컬 Windows Server 볼륨이 가득 차면 클라우드 계층화는 이미 동기화 된 및 계층 파일에서 시작 됩니다. 클라우드 계층화는 StorSimple 가상 어플라이언스에서 복사를 계속 하는 데 충분 한 공간을 생성 합니다. 클라우드 계층화는 한 시간에 한 번 확인 하 여 동기화 된 항목을 확인 하 고 디스크 공간을 확보 하 여 99%의 사용 가능한 볼륨 공간에 도달 합니다.
@@ -155,7 +155,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
       /MIR
    :::column-end:::
    :::column span="1":::
-      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 " *삭제* "만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. 이는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
+      에서이 RoboCopy 명령을 여러 번 실행 하 여 동일한 대상/대상에 순차적으로 실행할 수 있습니다. 이전에 복사 된 항목을 식별 하 고 생략 합니다. 마지막으로 실행 한 이후에 발생 한 변경 내용, 추가 내용 및 "*삭제*"만 처리 됩니다. 이전에 명령을 실행 하지 않은 경우에는 아무 것도 생략 됩니다. 이는 여전히 적극적으로 사용 되 고 변경 되는 원본 위치에 대 한 뛰어난 옵션입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -185,7 +185,7 @@ Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath
 
 RoboCopy 명령을 처음 실행 하는 경우 사용자와 응용 프로그램은 StorSimple 파일 및 폴더에 계속 액세스 하 고 잠재적으로 변경 합니다. RoboCopy는 디렉터리를 처리 하 고, 다음으로 이동한 다음, 원본 위치 (StorSimple)의 사용자가 현재 RoboCopy 실행에서 처리 되지 않는 파일을 추가, 변경 또는 삭제할 수 있습니다. 괜찮습니다.
 
-첫 번째 실행은 데이터를 다시 온-프레미스로 다시 이동 하 여 Windows Server로 이동 하 고 Azure File Sync를 통해 클라우드로 백업 하는 것입니다. 다음에 따라 시간이 오래 걸릴 수 있습니다.
+첫 번째 실행은 데이터를 다시 온-프레미스로 다시 이동 하 여 Windows Server로 이동 하 고 Azure 파일 동기화를 통해 클라우드로 백업 하는 것입니다. 다음에 따라 시간이 오래 걸릴 수 있습니다.
 
 * 다운로드 대역폭
 * StorSimple 클라우드 서비스의 회수 속도입니다.
@@ -210,7 +210,7 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 * **모든** _ 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
+> StorSimple의 모든 데이터를 Windows Server로 이동 하 고 마이그레이션이 완료 된 후에는 Azure Portal의 ***모든** _ 동기화 그룹으로 돌아가서 클라우드 계층화 볼륨의 사용 가능한 공간 (%) 값을 캐시 사용률에 더 적합 한 값 (예: 20%)으로 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우, 동기화는 가장 제한적인 규칙을 계속 적용 하 고 99%의 사용 가능한 디스크 공간을 유지 하 여 로컬 캐시가 정상적으로 작동 하지 않도록 합니다. 드물게 액세스 하는 볼륨에 대 한 네임 스페이스만 보유 하 고 있는 경우를 제외 하 고는 보관 데이터를 포함 합니다.
 
@@ -222,8 +222,8 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 
 Windows 서버에 사용 가능한 용량이 충분 한 경우 명령을 다시 실행 하면 문제가 해결 됩니다. 이러한 상황이 발생 하는 경우에는 아무 것도 중단 되지 않으며, 자신 있게 이동할 수도 있습니다. 명령을 다시 실행 하는 것은 불편 합니다.
 
-다른 Azure File Sync 문제를 실행할 수도 있습니다.
-그럴 가능성은 거의 없어 **문제 해결 가이드 Azure File Sync 링크** 를 살펴보세요.
+다른 Azure 파일 동기화 문제를 실행할 수도 있습니다.
+그럴 가능성은 거의 없어 **문제 해결 가이드 Azure 파일 동기화 링크** 를 살펴보세요.
 
 ## <a name="relevant-links"></a>관련 링크
 
@@ -231,8 +231,8 @@ Windows 서버에 사용 가능한 용량이 충분 한 경우 명령을 다시 
 
 * [StorSimple 8000 시리즈 마이그레이션 가이드](storage-files-migration-storsimple-8000.md)
 
-Azure File Sync 콘텐츠:
+Azure 파일 동기화 콘텐츠:
 
 * [AFS 개요](./storage-sync-files-planning.md)
-* [AFS 배포 가이드](storage-files-deployment-guide.md)
+* [AFS 배포 가이드](./storage-how-to-create-file-share.md)
 * [AFS 문제 해결](storage-sync-files-troubleshoot.md)

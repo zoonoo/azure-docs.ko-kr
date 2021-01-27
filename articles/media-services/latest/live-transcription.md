@@ -1,26 +1,9 @@
 ---
-title: 라이브 전사
-titleSuffix: Azure Media Services
-description: Azure Media Services 라이브 기록에 대해 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291418"
+제목: 라이브 기록: Azure Media Services 설명: Azure Media Services 라이브 기록에 대해 알아봅니다.  
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft manager: femila ms.date editor: ' ' ms. service: media services ms. 워크 로드: media ms.tgt_pltfrm: na: vlang: 08/31/2020: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>라이브 기록 (미리 보기)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

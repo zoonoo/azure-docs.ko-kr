@@ -1,5 +1,5 @@
 ---
-title: 1 단계-Media Services API V3로 마이그레이션하는 이점 이해 | Microsoft Docs
+title: 1 단계-Media Services API V3로 마이그레이션하는 이점 이해
 description: 이 문서에서는 Media Services v 2에서 v3로 마이그레이션하는 이점을 보여 줍니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: c1e3fae35ff249b4435cf2fdcd2bf691bc393d56
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5980da900cd1394d5d9a9ddf99063662cad3c88b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690671"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898378"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>1 단계-Media Services API V3로 마이그레이션하는 이점 이해
 
@@ -57,7 +57,7 @@ V3을 사용 하 여 Media Services에 대 한 상당한 기능이 향상 되었
 | 라이브 이벤트의 [독립 모드](live-events-outputs-concept.md#standby-mode) | 대기 상태의 라이브 이벤트는 라이브 이벤트를 실행 하는 것 보다 비용이 저렴 합니다. 이를 통해 고객은 실행 중인 라이브 이벤트 집합을 유지 관리 하는 것 보다 저렴 한 비용으로 몇 초 내에 시작할 수 있는 라이브 이벤트 집합을 유지할 수 있습니다. 대기 라이브 이벤트에 대 한 가격 절감은 대부분의 지역에서 2 월 2021 일에 적용 되며 나머지는 4 월 2021 일에 수행 됩니다.
 |**콘텐츠 보호** ||
 | [콘텐츠 보호](content-key-policy-concept.md)   에서는 다중 키 기능을 지원 합니다. | 이제 고객은 스트리밍 로케이터에서 여러 콘텐츠 암호화 키를 사용할 수 있습니다. |
-| **Monitoring** | |
+| **모니터링** | |
 | [Azure EventGrid](reacting-to-media-services-events.md) 알림 지원 | EventGrid 알림은 풍부한 기능입니다. 사용자 응용 프로그램에서 알림을 수신 하기 위한 더 많은 유형의 알림과 더 광범위 한 SDK 지원과 이벤트 처리기로 작동할 수 있는 기존 Azure 서비스가 있습니다. |
 | [Azure Portal Azure Monitor 지원 및 통합](monitor-events-portal-how-to.md) | 이를 통해 고객은 Media Services 계정 할당량 사용량, 스트리밍 끝점의 실시간 통계를 시각화 하 고 라이브 이벤트에 대 한 통계를 수집 및 보관할 수 있습니다. 이제 고객은 실시간 메트릭 데이터를 기반으로 경고를 설정 하 고 필요한 작업을 수행할 수 있습니다. |
 

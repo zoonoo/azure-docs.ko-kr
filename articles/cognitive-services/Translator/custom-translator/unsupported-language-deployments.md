@@ -3,19 +3,19 @@ title: 지원 되지 않는 언어 배포-사용자 지정 변환기
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기에서 지원 되지 않는 언어 쌍을 배포 하는 방법을 보여 줍니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369038"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898073"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -25,7 +25,7 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 
 이제 사용자 지정 변환기를 통해 지원 되지 않는 모델을 배포할 수 있는 프로세스가 있습니다.  이 프로세스를 통해 최신 V3 API를 사용 하 여 계속 콘텐츠를 번역할 수 있습니다.  이러한 모델은 배포를 취소 하거나 사용자 지정 변환기에서 언어 쌍을 사용할 수 있게 될 때까지 호스팅됩니다.  이 문서에서는 지원 되지 않는 언어 쌍을 사용 하 여 모델을 배포 하는 프로세스를 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 모델이 배포 후보가 되려면 다음 조건을 충족 해야 합니다.
 * 모델을 포함 하는 프로젝트는 마이그레이션 도구를 사용 하 여 허브에서 사용자 지정 변환기로 마이그레이션해야 합니다.  프로젝트 및 작업 영역을 마이그레이션하는 프로세스는 [여기](how-to-migrate.md)에서 찾을 수 있습니다.

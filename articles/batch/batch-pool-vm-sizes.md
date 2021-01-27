@@ -4,12 +4,12 @@ description: Azure Batch 풀의 계산 노드에 대해 사용 가능한 VM 크�
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895233"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897496"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대 한 VM 크기 및 이미지 선택
 
@@ -35,40 +35,38 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | DC | 지원되지 않음 |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4<sup>1</sup> | 모든 크기 |
-| Dasv4<sup>1</sup> | 모든 크기 |
+| Dav4 | 모든 크기 |
+| Dasv4 | 모든 크기 |
 | Ddv4, Ddsv4 |  모든 크기 |
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
-| Eav4<sup>1</sup> | 모든 크기 |
-| Easv4<sup>1</sup> | 모든 크기 |
+| Eav4 | 모든 크기 |
+| Easv4 | 모든 크기 |
 | Edv4, Edsv4 |  모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
 | G, Gs | 모든 크기 |
 | H | 모든 크기 |
-| HB<sup>1</sup> | 모든 크기 |
-| HBv2<sup>1</sup> | 모든 크기 |
-| HC<sup>1</sup> | 모든 크기 |
+| HB | 모든 크기 |
+| HBv2 | 모든 크기 |
+| HC | 모든 크기 |
 | Ls | 모든 크기 |
-| Lsv2<sup>1</sup> | 모든 크기 |
-| M<sup>1</sup> | 모든 크기 |
-| Mv2<sup>1, 2</sup> | 모든 크기 |
+| Lsv2 | 모든 크기 |
+| M | 모든 크기 |
+| Mv2<sup>1</sup> | 모든 크기 |
 | NC | 모든 크기 |
-| NCv2<sup>1</sup> | 모든 크기 |
-| NCv3<sup>1</sup> | 모든 크기 |
+| NCv2 | 모든 크기 |
+| NCv3 | 모든 크기 |
 | NCasT4_v3 | 없음 - 아직 사용할 수 없습니다. |
-| ND<sup>1</sup> | 모든 크기 |
-| NDv2<sup>1</sup> | 없음 - 아직 사용할 수 없습니다. |
+| ND | 모든 크기 |
+| NDv2 | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |
-| NVv3<sup>1</sup> | 모든 크기 |
-| NVv4<sup>1</sup> | 모든 크기 |
+| NVv3 | 모든 크기 |
+| NVv4 | 모든 크기 |
 | SAP HANA | 지원되지 않음 |
 
-<sup>1</sup> 이 VM 시리즈는 가상 머신 구성의 batch 풀에서 할당 될 수 있지만 새 batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청 해야 합니다. VM 시리즈당 vCPU 할당량이 Batch 계정에 대해 완전히 지원되면 이 제한이 제거됩니다.
-
-<sup>2</sup> 이 vm 시리즈는 2 세대 vm 이미지에만 사용할 수 있습니다.
+<sup>1</sup> 이 vm 시리즈는 2 세대 vm 이미지에만 사용할 수 있습니다.
 
 ### <a name="using-generation-2-vm-images"></a>2 세대 VM 이미지 사용
 

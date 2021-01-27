@@ -1,21 +1,25 @@
 ---
 title: 서버 관리-Azure Portal-Azure Database for MySQL
 description: Azure Portal에서 Azure Database for MySQL 서버를 관리 하는 방법을 알아봅니다.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
-ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541456"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897988"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 서버 관리
 
 이 문서에서는 Azure Database for MySQL 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 _종속_ 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+>
 
 ## <a name="sign-in"></a>로그인
 
@@ -83,6 +87,13 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="암호를 다시 설정 하 고 Azure Database for MySQL 저장 하는 Azure Portal의 스크린샷":::
 
 3. **확인** 을 선택 하 여 새 암호를 저장 합니다.
+ 
+
+> [!IMPORTANT]
+> 서버 관리자 암호를 다시 설정 하면 자동으로 서버 관리자 권한이 기본값으로 다시 설정 됩니다. 하나 이상의 서버 관리자 권한을 실수로 취소 한 경우 서버 관리자 암호를 다시 설정 하는 것이 좋습니다.
+   
+> [!NOTE]
+> 서버 관리자 사용자에 게는 기본적으로 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASE, CREATE 임시 TABLES, LOCK TABLES, EXECUTE, REPLICATION 슬레이브, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE 루틴, ALTER 루틴이, CREATE USER, EVENT, TRIGGER 권한이 있습니다.
 
 ## <a name="delete-a-server"></a>서버 삭제
 

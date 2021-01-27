@@ -8,12 +8,12 @@ ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 96586be8be466acf09121518fb71ea1b8ba9d983
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e618475d7d0160bce5aee39c267bb191a3a9f0a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203204"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897142"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
@@ -119,3 +119,4 @@ az vm disk detach \
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](add-disk.md)할 수 있습니다.
 
+디스크를 삭제 하 여 더 이상 저장소 비용이 발생 하지 않도록 하려면 연결 [되지 않은 Azure 관리 및 비관리 디스크 찾기 및 삭제-Azure Portal](../disks-find-unattached-portal.md)를 참조 하세요.

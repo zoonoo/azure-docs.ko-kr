@@ -3,19 +3,19 @@ title: 방화벽 뒤에서 변환-변환기
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services Translator는 도메인 이름 또는 IP 필터링을 사용 하 여 방화벽 뒤에서 변환할 수 있습니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 78a53c99f5f184c1b6b45d59d86c23efb898d7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: f5dd72328180574809c812d670f8165ad84963ae
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83996961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897750"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-translator"></a>Translator를 사용 하 여 IP 방화벽 뒤에서 변환 하는 방법
 

@@ -2,18 +2,15 @@
 title: Azure Automation 계정 문제 해결
 description: 이 문서에서는 Azure 계정과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/24/2020
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: edd57d3d77432f3bb37872ee26f414b56398cae0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: 06c15136e9d2fabdf50031c8b4be455cf2f7bbca
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187288"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896582"
 ---
 # <a name="troubleshoot-azure-automation-account-issues"></a>Azure Automation 계정 문제 해결
 
@@ -39,9 +36,9 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-2. **구독**으로 이동하여 구독을 선택합니다.   
+2. **구독** 으로 이동하여 구독을 선택합니다.   
 
-3. **설정** 아래에서 **리소스 공급자**를 선택합니다.
+3. **설정** 아래에서 **리소스 공급자** 를 선택합니다.
 
 4. 리소스 공급자 목록에서 **Microsoft.Automation** 리소스 공급자가 등록되어 있는지 확인합니다.
 
@@ -53,4 +50,4 @@ Automation 리소스 공급자를 등록하려면 Azure Portal에서 다음 단�
 
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * [@AzureSupport](https://twitter.com/azuresupport)에 연결합니다. 이는 Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하기 위한 공식 Microsoft Azure 계정입니다.
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

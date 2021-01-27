@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740767"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879564"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Power BI의 Azure Time Series Insights에서 데이터 시각화
 
@@ -112,10 +112,10 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 보고서를 만든 후에는 Power BI Reporting Services에 게시 하 여 조직의 다른 사용자와 공유할 수 있습니다.
 
 ## <a name="advanced-editing"></a>고급 편집
-Power BI에서 데이터 집합을 이미 로드 했지만 쿼리를 수정 하려는 경우 (예: 날짜/시간 또는 환경 ID 매개 변수) Power BI의 고급 편집기 기능을 통해이 작업을 수행할 수 있습니다. **파워 쿼리 편집기** 를 사용 하 여 변경 하는 방법에 대 한 자세한 내용은 [Power BI 설명서](https://docs.microsoft.com/power-bi/desktop-query-overview) 를 참조 하세요. 
+Power BI에서 데이터 집합을 이미 로드 했지만 쿼리를 수정 하려는 경우 (예: 날짜/시간 또는 환경 ID 매개 변수) Power BI의 고급 편집기 기능을 통해이 작업을 수행할 수 있습니다. **파워 쿼리 편집기** 를 사용 하 여 변경 하는 방법에 대 한 자세한 내용은 [Power BI 설명서](/power-bi/desktop-query-overview) 를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Power BI desktop](https://docs.microsoft.com/power-bi/desktop-query-overview)에 대해 자세히 알아보세요.
+* [Power BI desktop](/power-bi/desktop-query-overview)에 대해 자세히 알아보세요.
 
 * Azure Time Series Insights Gen2에서 [데이터를 쿼리](concepts-query-overview.md) 하는 방법에 대해 알아봅니다.

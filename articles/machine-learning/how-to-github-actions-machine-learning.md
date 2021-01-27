@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
-ms.openlocfilehash: 8bce95b65d9b944505d7f9153159b342e49427cd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: f5abeee3b1e1e44f5ce0423fc7f8170644d74508
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762917"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880477"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
 
@@ -24,7 +24,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 > [!NOTE]
 > Azure Machine Learning에 대 한 GitHub 작업은 있는 그대로 제공 되며 Microsoft에서 완벽 하 게 지원 되지 않습니다. 특정 작업에 문제가 발생 하는 경우 작업에 대 한 리포지토리에서 문제를 엽니다. 예를 들어 aml-배포 작업에 문제가 발생 하는 경우 리포지토리의 문제를 보고 [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  
@@ -228,4 +228,4 @@ jobs:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)
+> [Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)

@@ -7,19 +7,19 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/22/2020
+ms.date: 01/26/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 437a917e0f9b6e7a7370e828c8e3ee95218cea3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 752d7f86941967c218b3a57fa163698b9f502057
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079743"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897023"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
-Azure Automation 상태 구성은 Azure 구성 관리 서비스로, 모든 클라우드 또는 온-프레미스 데이터 센터의 노드에 대한 PowerShell DSC(Desired State Configuratioin) [구성](/powershell/scripting/dsc/configurations/configurations)을 작성, 관리 및 컴파일합니다. 또한 이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 모든 클라우드에서 대상 노드에 구성을 할당합니다. **Configuration Management**에서 **DSC(State Configuration)** 를 선택하여 Azure Portal에서 Azure Automation 상태 구성에 액세스할 수 있습니다.
+Azure Automation 상태 구성은 Azure 구성 관리 서비스로, 모든 클라우드 또는 온-프레미스 데이터 센터의 노드에 대한 PowerShell DSC(Desired State Configuratioin) [구성](/powershell/scripting/dsc/configurations/configurations)을 작성, 관리 및 컴파일합니다. 또한 이 서비스는 [DSC 리소스](/powershell/scripting/dsc/resources/resources)를 가져오고 모든 클라우드에서 대상 노드에 구성을 할당합니다. **Configuration Management** 에서 **DSC(State Configuration)** 를 선택하여 Azure Portal에서 Azure Automation 상태 구성에 액세스할 수 있습니다.
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 
 Azure Automation 상태 구성은 Azure 외부에서 DSC를 사용하는 것에 비해 몇 가지 장점이 있습니다. 이 서비스를 이용하면 안전한 중앙 위치에서 수천 대의 컴퓨터를 빠르고 간편하게 확장할 수 있습니다. 컴퓨터를 쉽게 사용하고, 컴퓨터에 선언적 구성을 할당하고, 사용자가 지정하는 필요 상태로 각 컴퓨터의 규정 준수를 나타내는 보고서를 확인할 수 있습니다.
 
-Azure Automation runbook이 PowerShell 스크립팅에 대한 것이라면 Azure Automation 상태 구성 서비스는 DSC에 대한 것입니다. 즉, Azure Automation에서 PowerShell 스크립트 관리를 지원하는 동일한 방법으로 DSC 구성 관리를 지원합니다. 
+Azure Automation runbook이 PowerShell 스크립팅에 대한 것이라면 Azure Automation 상태 구성 서비스는 DSC에 대한 것입니다. 즉, Azure Automation에서 PowerShell 스크립트 관리를 지원하는 동일한 방법으로 DSC 구성 관리를 지원합니다.
 
 ### <a name="built-in-pull-server"></a>기본 제공 끌어오기 서버
 
@@ -53,7 +53,7 @@ Azure Automation 상태 구성은 PowerShell 스크립팅에 제공하는 것처
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. [Azure Monitor 로그에 데이터를 보고하는 Azure Automation 상태 구성 전달](automation-dsc-diagnostics.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Automation 상태 구성을 사용하는 경우 이 섹션의 요구 사항을 고려합니다.
 
@@ -83,20 +83,11 @@ Azure에서 실행되는 모든 Linux 노드의 경우 컴퓨터를 사용하도
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>개인 네트워크 구성
 
-노드가 개인 네트워크에 있는 경우 다음 포트 및 URL이 필요합니다. 이러한 리소스는 관리 노드에 대한 네트워크 연결을 제공하고 DSC가 Azure Automation과 통신할 수 있도록 합니다.
-
-* 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
-* 글로벌 URL: * **.azure-automation.net**
-* US Gov 버지니아의 글로벌 URL: * **.azure-automation.us**
-* 에이전트 서비스: **https:// \<workspaceId\> . agentsvc.azure-automation.net**
-
-[WaitFor * 리소스](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신하는 DSC 리소스를 사용하는 경우에는 노드 간 트래픽만 허용해야 합니다. 이러한 네트워크 요구 사항을 이해하려면 각 DSC 리소스에 대한 문서를 참조하세요.
-
-TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
+개인 네트워크의 노드에 필요한 포트, Url 및 기타 네트워킹 세부 정보에 대 한 자세한 내용은 [네트워크 구성 Azure Automation](automation-network-configuration.md#hybrid-runbook-worker-and-state-configuration) 를 확인 하세요.
 
 #### <a name="proxy-support"></a>프록시 지원
 
-DSC 에이전트에 대한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다. 이 옵션은 노드를 등록하는 데 사용된 [메타 구성 스크립트](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)의 `ProxyURL` 및 `ProxyCredential` 속성값을 설정하여 사용할 수 있습니다. 
+DSC 에이전트에 대한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다. 이 옵션은 노드를 등록하는 데 사용된 [메타 구성 스크립트](automation-dsc-onboarding.md#generate-dsc-metaconfigurations)의 `ProxyURL` 및 `ProxyCredential` 속성값을 설정하여 사용할 수 있습니다.
 
 >[!NOTE]
 >Azure Automation 상태 구성은 이전 버전의 Windows에 대한 DSC 프록시 지원을 제공하지 않습니다.
@@ -114,4 +105,4 @@ Linux 노드의 경우 DSC 에이전트는 프록시를 지원하고 `http_proxy
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+- PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

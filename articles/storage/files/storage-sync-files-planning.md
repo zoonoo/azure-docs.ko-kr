@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880578"
+ms.locfileid: "98898107"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -186,7 +186,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 **Windows Server 2016 및 Windows Server 2019**   
-Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화를 사용하도록 설정된 볼륨에서 데이터 중복 제거를 사용하도록 설정하면 더 많은 스토리지를 프로비저닝하지 않고도 온-프레미스에서 더 많은 파일을 캐시할 수 있습니다. 
+데이터 중복 제거는 Windows Server 2016 및 Windows Server 2019의 볼륨에 있는 하나 이상의 서버 끝점에서 클라우드 계층화를 사용 하거나 사용 하지 않도록 설정할지 여부에 관계 없이 지원 됩니다. 클라우드 계층화를 사용하도록 설정된 볼륨에서 데이터 중복 제거를 사용하도록 설정하면 더 많은 스토리지를 프로비저닝하지 않고도 온-프레미스에서 더 많은 파일을 캐시할 수 있습니다. 
 
 클라우드 계층화를 사용하도록 설정된 볼륨에서 데이터 중복 제거를 사용하도록 설정하면 서버 엔드포인트 위치 내의 중복 제거 최적화 파일이 클라우드 계층화 정책 설정에 따라 일반 파일과 비슷하게 계층화됩니다. 중복 제거 최적화 파일이 계층화되면 볼륨의 다른 파일에서 더 이상 참조하지 않는 불필요한 청크를 제거하여 디스크 공간을 회수하기 위해 데이터 중복 제거 가비지 수집 작업이 자동으로 실행됩니다.
 

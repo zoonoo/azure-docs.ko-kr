@@ -3,19 +3,19 @@ title: 언어 지원-번역기
 titleSuffix: Azure Cognitive Services
 description: Cognitive Services Translator는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
-ms.author: swmachan
-ms.openlocfilehash: a359c4f0de6dab70b334da7e7d29ad4b273385ab
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.author: lajanuar
+ms.openlocfilehash: a218888a094c30b7672fd22c255f6a352422b878
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789282"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896853"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 

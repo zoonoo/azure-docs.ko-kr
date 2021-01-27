@@ -1,5 +1,5 @@
 ---
-title: Media Services v3 REST를 사용 하 여 사용자 지정 변환 인코딩-Azure | Microsoft Docs
+title: Media Services v3 REST를 사용 하 여 사용자 지정 변환 인코딩-Azure
 description: 이 항목에서는 Azure Media Services v 3을 사용 하 여 REST를 사용 하 여 사용자 지정 변환을 인코딩하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2cfc0db2f95b21c872dd2ed0cf4fbf675a8d6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295634"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897614"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환을 사용 하 여 인코딩하는 방법-REST
 
@@ -137,7 +137,7 @@ Azure Media Services를 사용 하 여 인코딩하면 [스트리밍 파일](str
 
 이 예제에서는 앞에서 정의한 사용자 지정 미리 설정을 기반으로 하는 **변환을** 만듭니다. 변환을 만들 때 먼저 [Get](/rest/api/media/transforms/get) 을 사용 하 여 이미 존재 하는지 확인 해야 합니다. 변환이 있는 경우 다시 사용 합니다. 
 
-다운로드 한 postman의 컬렉션에서 **변환 및 작업** -> **변환 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 postman의 컬렉션에서 **변환 및 작업** -> **변환 만들기 또는 업데이트** 를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -147,7 +147,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 **본문** 탭을 선택 하 고 본문을 [앞에서 정의한](#define-a-custom-preset)json 코드로 바꿉니다. 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다.
 
-**보내기**를 선택합니다. 
+**보내기** 를 선택합니다. 
 
 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다. 변환에서 작업을 제출 하는 방법을 보여 주는 전체 예제는 [자습서: 비디오 파일 스트리밍-REST](stream-files-tutorial-with-rest.md)를 참조 하세요.
 

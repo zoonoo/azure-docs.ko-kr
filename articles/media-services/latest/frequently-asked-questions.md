@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 질문과 대답 | Microsoft Docs
+title: Azure Media Services v3 질문과 대답
 description: 이 문서에서는 v3 Azure Media Services에 대 한 질문과 대답을 제공 합니다.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a452a056ff2bdbad5d2e461716ee1a56d36c8523
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693810"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897563"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 

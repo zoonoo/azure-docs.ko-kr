@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060319"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897261"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
@@ -317,7 +317,7 @@ CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
@@ -334,7 +334,7 @@ CHANNEL_NAME=<channelName>
 ```
 명령은 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 chaincode를 설치 `ORGNAME` 합니다. 두 개 이상의 피어 조직이 채널에 있고 chaincode를 모두 설치 하려면 각 피어 조직에 대해이 명령을 별도로 실행 합니다.  
 
-다음 단계를 수행합니다.  
+다음 단계를 수행하세요.  
 
 1.  `ORGNAME` `USER_IDENTITY` 에 따라 및을 설정 하 `peerOrg1` 고 `./azhlf chaincode install` 명령을 실행 합니다.  
 2.  `ORGNAME` `USER_IDENTITY` 에 따라 및을 설정 하 `peerOrg2` 고 `./azhlf chaincode install` 명령을 실행 합니다.  
@@ -359,7 +359,7 @@ CHANNEL_NAME=<channelName>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 개인 데이터 chaincode의 인스턴스화에 대해 정의 된 컬렉션을 포함 하는 JSON 파일에 대 한 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 상대적인 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다 `./samples/chaincode/src/private_marbles/collections_config.json` .
-`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 명령을 한 번 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 전송 된 후 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 그런 다음 Chaincode은 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  
@@ -385,7 +385,7 @@ CHANNEL_NAME=<channelName>
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`
+보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`.
 
 *AzhlfTool* 를 사용 하 여 chaincode를 설치 하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달 합니다. Chaincode는 해당 조직의 모든 피어 노드에 설치 됩니다. 
 

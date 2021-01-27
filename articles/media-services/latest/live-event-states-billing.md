@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services에서 라이브 이벤트 상태 및 청구 Microsoft Docs
+title: Azure Media Services에서 라이브 이벤트 상태 및 청구
 description: 이 항목에서는 Azure Media Services 라이브 이벤트 상태 및 청구에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782368"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897818"
 ---
 # <a name="live-event-states-and-billing"></a>라이브 이벤트 상태 및 청구
 
@@ -35,7 +35,7 @@ Azure Media Services에서 라이브 이벤트는 상태를 **실행 중** 또�
 
 라이브 이벤트는 다음 상태 중 하나일 수 있습니다.
 
-|시스템 상태|Description|
+|시스템 상태|설명|
 |---|---|
 |**중지됨**| 자동 시작이 true로 설정 되지 않은 경우 생성 후 라이브 이벤트의 초기 상태입니다. 이 상태에서는 청구가 발생 하지 않습니다. 라이브 이벤트에서 입력을 수신할 수 없습니다. |
 |**시작 중**| 라이브 이벤트가 시작 되 고 리소스를 할당 하는 중입니다. 이 상태에서는 요금이 청구되지 않습니다.  오류가 발생 하는 경우 라이브 이벤트는 중지 됨 상태로 돌아갑니다.|

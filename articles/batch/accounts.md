@@ -2,13 +2,13 @@
 title: 배치 계정 및 Azure Storage 계정
 description: 개발 관점에서 Azure Batch 계정 및 이 계정의 사용 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83790910"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896751"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>배치 계정 및 Azure Storage 계정
 
@@ -20,9 +20,10 @@ Azure Batch 계정은 Batch 서비스 내에서 고유하게 식별되는 엔터
 
 단일 Batch 계정에서 여러 Batch 워크로드를 실행할 수 있습니다. 동일한 구독에 있지만 서로 다른 Azure 지역에 위치한 Batch 계정 간에 워크로드를 배포할 수도 있습니다.
 
+[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 애플리케이션을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-[Azure Portal](batch-account-create-portal.md) 또는 프로그래밍 방식(예: [Batch 관리 .NET 라이브러리](batch-management-dotnet.md))를 통해 Batch 계정을 만들 수 있습니다. 계정을 만들 때 작업 관련 입력 및 출력 데이터 또는 애플리케이션을 저장하기 위해 Azure Storage 계정을 연결할 수 있습니다.
 
 ## <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -41,4 +42,5 @@ Batch 계정을 만들 때 또는 나중에 스토리지 계정을 Batch 계정�
 ## <a name="next-steps"></a>다음 단계
 
 - [노드 및 풀](nodes-and-pools.md)에 대해 알아봅니다.
-- [Azure Portal](batch-account-create-portal.md)을 사용하여 Batch 계정을 만드는 방법을 알아봅니다.
+- [Azure Portal](batch-account-create-portal.md) 또는 [batch 관리 .net](batch-management-dotnet.md)을 사용 하 여 batch 계정을 만들고 관리 하는 방법에 대해 알아봅니다.
+- Azure Batch 계정으로 [개인 끝점](private-connectivity.md) 을 사용 하는 방법에 대해 알아봅니다.

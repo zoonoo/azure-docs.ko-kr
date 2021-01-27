@@ -2,19 +2,15 @@
 title: Azure Automation에서 Linux 업데이트 에이전트 문제 해결
 description: 이 문서에서는 업데이트 관리에서 Linux Windows 업데이트 에이전트 문제를 해결하는 방법을 설명합니다.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/25/2021
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
-ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762620"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896260"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
