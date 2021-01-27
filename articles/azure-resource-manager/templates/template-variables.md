@@ -2,13 +2,13 @@
 title: 템플릿의 변수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 변수를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/26/2021
+ms.openlocfilehash: feecc4b5df77e6a3bf51294cb12aabf44899dde5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934665"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874437"
 ---
 # <a name="variables-in-arm-template"></a>ARM 템플릿의 변수
 
@@ -16,9 +16,11 @@ ms.locfileid: "97934665"
 
 리소스 관리자는 배포 작업을 시작 하기 전에 변수를 확인 합니다. 템플릿에서 변수를 사용하는 모든 경우에는 Resource Manager는 변수를 확인된 값으로 바꿉니다.
 
-각 변수의 형식은 [데이터 형식](template-syntax.md#data-types)중 하 나와 일치 해야 합니다.
-
 ## <a name="define-variable"></a>변수 정의
+
+변수를 정의 하는 경우 [데이터 형식](template-syntax.md#data-types)으로 확인 되는 값 또는 템플릿 식을 제공 합니다. 변수를 생성할 때 매개 변수 또는 다른 변수에서 값을 사용할 수 있습니다.
+
+변수 선언에서 [템플릿 함수](template-functions.md) 를 사용할 수 있지만 [reference](template-functions-resource.md#reference) 함수 또는 [list](template-functions-resource.md#list) 함수는 사용할 수 없습니다. 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
 
 다음 예제는 변수 정의를 보여 줍니다. 스토리지 계정 이름의 문자열 값을 만듭니다. 여러 템플릿 함수를 사용 하 여 매개 변수 값을 가져오고이를 고유한 문자열에 연결 합니다.
 
@@ -27,8 +29,6 @@ ms.locfileid: "97934665"
   "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
-
-[참조](template-functions-resource.md#reference) 함수 또는 섹션의 [목록](template-functions-resource.md#list) 함수는 사용할 수 없습니다 `variables` . 이러한 함수는 리소스의 런타임 상태를 가져오며, 변수가 확인 될 때 배포 전에 실행할 수 없습니다.
 
 ## <a name="use-variable"></a>변수 사용
 
@@ -44,56 +44,20 @@ ms.locfileid: "97934665"
 ]
 ```
 
+## <a name="example-template"></a>예제 템플릿
+
+다음 템플릿은 리소스를 배포 하지 않습니다. 단지 변수를 선언 하는 몇 가지 방법을 보여 줍니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
+
 ## <a name="configuration-variables"></a>구성 변수
 
-환경을 구성 하는 데 관련 된 값을 포함 하는 변수를 정의할 수 있습니다. 변수를 값이 포함 된 개체로 정의 합니다. 다음 예제에서는 **테스트** 와 **prod** 의 두 환경에 대 한 값을 보유 하는 개체를 보여 줍니다.
+환경을 구성 하는 데 관련 된 값을 포함 하는 변수를 정의할 수 있습니다. 변수를 값이 포함 된 개체로 정의 합니다. 다음 예제에서는 **테스트** 와 **prod** 의 두 환경에 대 한 값을 보유 하는 개체를 보여 줍니다. 배포 하는 동안 이러한 값 중 하나를 전달 합니다.
 
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-에서는 `parameters` 사용할 구성 값을 나타내는 값을 만듭니다.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-지정 된 환경에 대 한 설정을 검색 하려면 변수와 매개 변수를 함께 사용 합니다.
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-## <a name="example-templates"></a>예제 템플릿
-
-다음 예에서는 변수를 사용 하는 시나리오를 보여 줍니다.
-
-|템플릿  |Description  |
-|---------|---------|
-| [변수 정의](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | 다양한 변수 형식을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
-| [구성 변수](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | 구성 값을 정의하는 변수의 사용을 보여 줍니다. 템플릿은 리소스를 배포하지 않으며, 변수 값을 구성하고 해당 값을 반환합니다. |
-| [네트워크 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) 및 [매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | 보안 규칙을 네트워크 보안 그룹에 할당하기 위한 올바른 형식으로 배열을 구성합니다. |
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
 
 ## <a name="next-steps"></a>다음 단계
 
 * 변수에 사용할 수 있는 속성에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 변수를 만드는 방법에 대 한 권장 사항은 [모범 사례-변수](template-best-practices.md#variables)를 참조 하세요.
+* 네트워크 보안 그룹에 보안 규칙을 할당 하는 예제 템플릿은 [네트워크 보안 규칙](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) 및 [매개 변수 파일](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)을 참조 하세요.

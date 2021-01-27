@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 37753265afa7e76e87dbcdc5893595bea66798f4
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610253"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874145"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 배포용 응용 프로그램 준비
 
@@ -151,7 +151,7 @@ Spring Boot 버전 | Spring Cloud 버전
 2.4.1 + | 2020.0.0
 
 > [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에 대 한 스프링 부팅 2.4.0 문제가 확인 되었습니다. 2.4.1 이상을 사용 하세요. 2.4.0 사용을 참조 하는 경우 해결 방법에 대 한 [FAQ](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) 를 참조 하세요.
+> 앱과 Eureka 간의 TLS 인증에 대 한 스프링 부팅 2.4.0 문제가 확인 되었습니다. 2.4.1 이상을 사용 하세요. 2.4.0 사용을 참조 하는 경우 해결 방법에 대 한 [FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development) 를 참조 하세요.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>스프링 부팅 버전 2.2/2.3에 대 한 종속성
 

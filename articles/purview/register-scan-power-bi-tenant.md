@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539681"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874909"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "98539681"
 인증을 설정 하려면 보안 그룹을 만들고 해당 그룹에 카탈로그의 관리 되는 id를 추가 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 검색 합니다.
-1. [기본 그룹 만들기 및 Azure Active Directory를 사용 하 여 멤버 추가](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)를 수행 하 여 Azure Active Directory에서 새 보안 그룹을 만듭니다.
+1. [기본 그룹 만들기 및 Azure Active Directory를 사용 하 여 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 수행 하 여 Azure Active Directory에서 새 보안 그룹을 만듭니다.
 
     > [!Tip]
     > 사용 하려는 보안 그룹이 이미 있는 경우이 단계를 건너뛸 수 있습니다.

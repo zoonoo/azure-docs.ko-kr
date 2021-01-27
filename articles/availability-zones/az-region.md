@@ -7,20 +7,18 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: c63ea4f9cdb961ca492d5dcf22a89627864236cd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733203"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874611"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
-가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역를 지 원하는 기존 및 예정 된 지역 목록은 [Azure에서 지역 및 가용성 영역](az-overview.md)을 참조 하세요.  
+Microsoft Azure 글로벌 인프라는 고객에 게 가장 높은 수준의 중복성 및 복원 력을 제공 하기 위해 모든 계층에서 설계 되 고 생성 됩니다. Azure 인프라는 지역, 지역 및 가용성 영역으로 구성 되어 있으며,이를 통해 실패의 폭발 반지름을 제한 하 여 고객 응용 프로그램 및 데이터에 잠재적 영향을 제한 합니다. Azure 가용성 영역 구문은 데이터 센터 오류 로부터 보호 하 고 고객에 게 증가 하는 HA (고가용성)를 제공 하기 위해 소프트웨어 및 네트워킹 솔루션을 제공 하기 위해 개발 되었습니다.
 
-이 섹션에서는 가용성 영역을 지 원하는 Azure 서비스를 나열 합니다. 
-
-각 지역에서 사용할 수 있는 서비스는 가용성에 대 한 예정 된 로드맵과 함께 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)에서 찾을 수 있습니다.
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립적인 전원, 냉각 및 네트워킹을 포함 하는 하나 이상의 데이터 센터로 구성 됩니다. 지역 내에서 가용성 영역의 물리적인 분리는 대규모 시간 초과, 주요 스톰 및 슈퍼 스톰, 사이트 액세스, 안전 통로, 확장 유틸리티 작동 시간 및 리소스 가용성을 방해할 수 있는 기타 이벤트와 같은 영역 장애 로부터 응용 프로그램 및 데이터에 미치는 영향을 제한 합니다. 가용성 영역와 연결 된 데이터 센터는 한 영역이 손상 되 면 해당 지역의 다른 가용성 영역에서 서비스, 용량 및 가용성을 지원 하도록 설계 되었습니다.
 
 모든 Azure 관리 서비스는 지역 수준 오류에서 탄력적으로 대처할 수 있도록 설계 되었습니다. 오류가 발생 하는 경우 지역 내에서 하나 이상의 가용성 영역 오류는 전체 지역 오류와 비교 하 여 더 작은 오류 반지름이 있습니다. Azure는 지역 내에서 관리 서비스의 영역 수준 오류 로부터 복구할 수 있습니다. Azure는 지역 내에서 한 번에 한 영역 내에서 중요 한 유지 관리를 수행 하 여 지역 내에서 가용성 영역에 배포 된 고객 리소스에 영향을 주는 오류를 방지 합니다.
 
@@ -34,165 +32,143 @@ ms.locfileid: "98733203"
 
 - **영역 중복 서비스** – Azure platform은 영역 간에 리소스와 데이터를 복제 합니다.  Azure는 지역 내에서 인스턴스를 자동으로 복제 하 고 배포 하므로 Microsoft는 고가용성의 제공을 관리 합니다.  예를 들어, ZRS는 영역 오류가 데이터의 HA에 영향을 주지 않도록 3 개의 영역으로 데이터를 복제 합니다. 
 
-- **비 지역 서비스** – 특정 Azure 지역에 대 한 종속성이 없는 서비스로, 영역 전체 중단 및 지역 전체 가동 중단에 탄력적으로 대처할 수 있도록 합니다.
+- **비-지역 서비스** – 서비스는 항상 Azure 지역에서 사용할 수 있으며 영역 전체 중단 뿐만 아니라 지역 전체 중단에도 복원 가능 합니다. 
 
 
 Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 쌍과 가용성 영역의 조합을 사용하여 애플리케이션 아키텍처를 빌드하십시오. 고가용성에 대한 Azure 지역 내의 가용성 영역을 사용하여 애플리케이션 및 데이터를 동기적으로 복제하고 재해 복구 보호에 대한 Azure 지역에서 비동기적으로 복제할 수 있습니다. 자세히 알아보려면 [가용성 영역를 사용 하 여 고가용성을 위한 솔루션 빌드](/azure/architecture/high-availability/building-solutions-for-high-availability)를 참조 하세요. 
 
+## <a name="azure-services-supporting-availability-zones"></a>가용성 영역를 지 원하는 Azure 서비스
 
-### <a name="azure-services-supporting-availability-zones"></a>가용성 영역를 지 원하는 Azure 서비스
+ - 이전 세대 가상 머신은 나열 되지 않습니다. 자세한 내용은 [이전 세대의 가상 머신 크기](../virtual-machines/sizes-previous-gen.md)를 참조하세요.
+ - [Azure의 지역 및 가용성 영역](az-overview.md)에 설명 된 대로 일부 서비스는 비 지역입니다. 이러한 서비스는 특정 Azure 지역에 종속 되지 않으므로 영역 전체 중단 및 지역 전체 중단에 대 한 복원 력이 있습니다.  지역이 아닌 서비스 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)에서 찾을 수 있습니다.
+
+
+## <a name="azure-regions-with-availability-zones"></a>가용성 영역 Azure 지역
+
+
+| 아메리카           | 유럽         | 독일              | 아프리카              | 아시아 태평양   |
+|--------------------|----------------|----------------------|---------------------|----------------|
+|                    |                |                      |                     |                |
+| 캐나다 중부     | 프랑스 중부 | 독일 중서부 | 남아프리카 공화국 북부 * | 일본 동부     |
+| 미국 중부         | 북유럽   |                      |                     | 동남 아시아 |
+| 미국 동부            | 영국 남부       |                      |                     | 오스트레일리아 동부 |
+| 미국 동부 2          | 서유럽    |                      |                     |                |
+| 미국 중 남부 |                |                      |                     |                |
+| US Gov 버지니아 * |                |                      |                     |                |
+| 미국 서 부 2        |                |                      |                     |                |
+
+
+이러한 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하세요. 가용성 영역를 지원할 예정 된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)을 참조 하세요.
+
+
+## <a name="azure-services-supporting-availability-zones"></a>가용성 영역를 지 원하는 Azure 서비스
 
 - 이전 세대 가상 컴퓨터는 아래에 나열 되어 있지 않습니다. 자세한 내용은 [이전 세대의 가상 컴퓨터 크기](../virtual-machines/sizes-previous-gen.md)를 참조 하세요.
 
 - 일부 서비스는 비 지역입니다. 자세한 내용은 [Azure에서 지역 및 가용성 영역](az-overview.md) 을 참조 하세요. 이러한 서비스는 특정 Azure 지역에 종속 되지 않으므로 영역 전체 중단 및 지역 전체 중단에 탄력적으로 대처할 수 있습니다.  지역이 아닌 서비스 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)에서 찾을 수 있습니다.
 
 
+### <a name="zone-resilient-services"></a>영역 복원 서비스 
 
-## <a name="americas"></a>아메리카
+: globe_with_meridians: 비 지역 서비스-서비스는 항상 Azure 지역에서 사용할 수 있으며 지역 전체의 작동 중단 뿐만 아니라 영역 전체 중단에 대해 복원 가능 합니다.
 
-| **제품** | **미국 중부** | **미국 동부** | **미국 동부 2** | **미국 서부 2** | **캐나다 중부** |
-|--|--|--|--|--|--|
-| **Compute** |  |  |  |  |  |
-| [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| **컨테이너** |  |  |  |
-| [AKS(Azure Kubernetes Service)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Container Registry](../container-registry/zone-redundancy.md) |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | 
-| **스토리지** |  |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [프리미엄 파일 저장소](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **네트워킹** |  |  |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express 경로](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [표준 IP 주소](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network NAT](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [가상 WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **데이터베이스** |  |  |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database for MySQL 유연한 서버](../mysql/flexible-server/concepts-high-availability.md) | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| [Azure Database for PostgreSQL - 유연한 서버](../postgresql/flexible-server/overview.md) | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | :x: |
-| [Azure SQL Database (프리미엄 & 중요 비즈니스용 계층)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **분석** |  |  |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **통합** |  |  |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **관리 및 거버넌스** |  |  |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| **보안** |  |  |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+: large_blue_diamond: 영역 전체의 작동 중단에 대 한 복원 력 
 
-## <a name="europe"></a>유럽
+**기본 서비스**
 
-| **제품** | **프랑스 중부** | **북유럽** | **영국 남부** | **서유럽** |
-|--|--|--|--|--|
-| **Compute** |  |  |  |  |
-| [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [AKS(Azure Kubernetes Service)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **스토리지** |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [프리미엄 파일 저장소](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **네트워킹** |  |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express 경로](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [표준 IP 주소](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network NAT](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [가상 WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **데이터베이스** |  |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database for MySQL 유연한 서버](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database for PostgreSQL - 유연한 서버](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | :x: | : heavy_check_mark: (미리 보기) |
-| [Azure SQL Database (프리미엄 & 중요 비즈니스용 계층)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **분석** |  |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **통합** |  |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **관리 및 거버넌스** |  |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| **보안** |  |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-
-## <a name="asia-pacific"></a>아시아 태평양
+|     제품                                                    | 복원력             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     저장소 계정                                           | : large_blue_diamond:  |
+|     Application Gateway (V2)                                  | : large_blue_diamond:  |
+|     Azure Backup                                                | : large_blue_diamond:  |
+|     Azure Cosmos DB                                           | : large_blue_diamond:  |
+|     Azure Data Lake Storage Gen 2                             | : large_blue_diamond:  |
+|     Azure Express 경로                                       | : large_blue_diamond:  |
+|     Azure 공용 IP                                           | : large_blue_diamond:  |
+|     Azure SQL Database (일반 용도 계층)                 | : large_blue_diamond:  |
+|     Azure SQL Database (Premium & 중요 비즈니스용 계층)     | : large_blue_diamond:  |
+|     Disk Storage                                                | : large_blue_diamond:  |
+|     Event Hubs                                                  | : large_blue_diamond:  |
+|     Key Vault                                                   | : large_blue_diamond:  |
+|     Load Balancer                                               | : large_blue_diamond:  |
+|     Service Bus                                                 | : large_blue_diamond:  |
+|     Service Fabric                                            | : large_blue_diamond:  |
+|     저장소: 핫/쿨 Blob Storage 계층                      | : large_blue_diamond:  |
+|     저장소: Managed Disks                                    | : large_blue_diamond:  |
+|     Virtual Machines 확장 집합                               | : large_blue_diamond:  |
+|     Virtual Machines                                          | : large_blue_diamond:  |
+|     Virtual Machines: Av2-Series                              | : large_blue_diamond:  |
+|     Virtual Machines: Bs-Series                               | : large_blue_diamond:  |
+|     Virtual Machines: DSv2-Series                             | : large_blue_diamond:  |
+|     Virtual Machines: DSv3-Series                             | : large_blue_diamond:  |
+|     Virtual Machines: Dv2-Series                              | : large_blue_diamond:  |
+|     Virtual Machines: Dv3-Series                              | : large_blue_diamond:  |
+|     Virtual Machines: ESv3-Series                             | : large_blue_diamond:  |
+|     Virtual Machines: Ev3-Series                              | : large_blue_diamond:  |
+|     Virtual Network                                           | : large_blue_diamond:  |
+|     VPN Gateway                                                 | : large_blue_diamond:  |
 
 
+**기본 서비스**
 
-| **제품** | **일본 동부** | **동남아시아** | **오스트레일리아 동부** |
-|--|--|--|--|
-| **Compute** |  |  |  |
-| [ILB (App Service 환경)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [AKS(Azure Kubernetes Service)](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **스토리지** |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [프리미엄 파일 저장소](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Blob Storage](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **네트워킹** |  |  |  |
-| [Application Gateway V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Express 경로](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Firewall](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [표준 IP 주소](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Virtual Network NAT](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [가상 WAN](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **데이터베이스** |  |  |  |
-| [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Data Explorer](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database for MySQL 유연한 서버](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Database for PostgreSQL - 유연한 서버](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database (일반 용도 계층)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) | : heavy_check_mark: (미리 보기) |
-| [Azure SQL Database (프리미엄 & 중요 비즈니스용 계층)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **분석** |  |  |  |
-| [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **통합** |  |  |  |
-| [Event Grid](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Bus](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **관리 및 거버넌스** |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | :x: | :x: |
-| **보안** |  |  |  |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: |  |
+| 제품                                        | 복원력 |
+|-------------------------------------------------|:------------:|
+| App Service Environment                        |      : large_blue_diamond:  |
+| Azure Active Directory Domain Services          |      : large_blue_diamond:  |
+| Azure Bastion                                   |      : large_blue_diamond:  |
+| Azure Cache for Redis                           |      : large_blue_diamond:  |
+| Azure Cognitive Services: Text Analytics        |      : large_blue_diamond:  |
+| Azure Data Explorer                             |      : large_blue_diamond:  |
+| Azure Database for MySQL – 유연한 서버      |      : large_blue_diamond:  |
+| Azure Database for PostgreSQL – 유연한 서버 |      : large_blue_diamond:  |
+| Azure DDoS Protection                           |      : large_blue_diamond:  |
+| Azure Firewall                                  |      : large_blue_diamond:  |
+| Azure Firewall Manager                          |      : large_blue_diamond:  |
+| AKS(Azure Kubernetes Service)                  |      : large_blue_diamond:  |
+| Azure Private Link                              |      : large_blue_diamond:  |
+| Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
+| Azure Site Recovery                             |      : large_blue_diamond:  |
+| Container Registry                              |      : large_blue_diamond:  |
+| Event Grid                                      |      : large_blue_diamond:  |
+| Network Watcher                                 |      : large_blue_diamond:  |
+| Power BI Embedded                               |      : large_blue_diamond:  |
+| 프리미엄 Blob Storage                            |      : large_blue_diamond:  |
+| Virtual Machines: Ddsv4-Series                  |      : large_blue_diamond:  |
+| Virtual Machines: Ddv4-Series                   |      : large_blue_diamond:  |
+| Virtual Machines: Dsv4-Series                   |      : large_blue_diamond:  |
+| Virtual Machines: Dv4-Series                    |      : large_blue_diamond:  |
+| Virtual Machines: Edsv4-Series                  |      : large_blue_diamond:  |
+| Virtual Machines: Edv4-Series                   |      : large_blue_diamond:  |
+| Virtual Machines: Esv4-Series                   |      : large_blue_diamond:  |
+| Virtual Machines: Ev4-Series                    |      : large_blue_diamond:  |
+| Virtual Machines: Fsv2-Series                   |      : large_blue_diamond:  |
+| Virtual Machines: M 시리즈                      |      : large_blue_diamond:  |
+| 가상 WAN                                     |      : large_blue_diamond:  |
 
 
-## <a name="upcoming-availability-zones"></a>예정 된 가용성 영역 
+**비 지역별**
 
-Azure는 다음 지역에서 가용성 영역 지원을 제공 합니다.
-- US Gov 버지니아
-- 남아프리카 북부
-- 미국 중남부
-- 독일 중서부
-
-가용성 영역를 지 원하는 기존 및 예정 된 지역 목록은 [여기](https://azure.microsoft.com/global-infrastructure/geographies/)에서 찾을 수 있습니다.    
-
-이러한 지역의 가용성 영역 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하세요.
+|     제품                                  |     복원력    |
+|-----------------------------------------------|:-------------------:|
+|     Azure DNS                                 |     : globe_with_meridians:             |
+|     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Azure Advisor                             |     : globe_with_meridians:             |
+|     Azure Bot Service                        |     : globe_with_meridians:             |
+|     IoT 용 Azure Defender                  |     : globe_with_meridians:             |
+|     Azure Information Protection            |     : globe_with_meridians:             |
+|     Azure Lighthouse                        |     : globe_with_meridians:             |
+|     Azure Managed Applications              |     : globe_with_meridians:             |
+|     Azure Maps                                |     : globe_with_meridians:             |
+|     Azure Policy                              |     : globe_with_meridians:             |
+|     Azure 리소스 그래프                    |     : globe_with_meridians:             |
+|     Azure Stack                               |     : globe_with_meridians:             |
+|     Azure Stack Edge                        |     : globe_with_meridians:             |
+|     Cloud Shell                               |     : globe_with_meridians:             |
+|     Microsoft Azure에 대 한 고객 Lockbox    |     : globe_with_meridians:             |
+|     Microsoft Azure 피어 링 서비스         |     : globe_with_meridians:             |
+|     Microsoft Azure portal                  |     : globe_with_meridians:             |
+|     Security Center                         |     : globe_with_meridians:             |
+|     Traffic Manager                         |     : globe_with_meridians:             |
 
 
 ## <a name="pricing-for-vms-in-availability-zones"></a>가용성 영역 Vm에 대 한 가격 책정

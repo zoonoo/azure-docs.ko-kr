@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567275"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875012"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Azure Synapse Analytics 등록 및 검사
 
@@ -45,7 +45,7 @@ Azure Synapse Analytics에 대 한 인증을 설정 하는 방법에는 다음 �
 
 ### <a name="managed-identity-recommended"></a>관리 Id (권장) 
    
-부서의 범위 계정에는 사용자가 만들 때 기본적으로 부서의 범위 이름인 자체 관리 Id가 있습니다. Azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](/azure/azure-sql/database/authentication-aad-service-principal-tutorial)의 필수 구성 요소 및 자습서에 따라 정확한 부서의 범위 관리 id 이름을 사용 하 여 Azure Synapse Analytics (이전의 SQL DW)에서 azure ad 사용자를 만들어야 합니다.
+부서의 범위 계정에는 사용자가 만들 때 기본적으로 부서의 범위 이름인 자체 관리 Id가 있습니다. Azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)의 필수 구성 요소 및 자습서에 따라 정확한 부서의 범위 관리 id 이름을 사용 하 여 Azure Synapse Analytics (이전의 SQL DW)에서 azure ad 사용자를 만들어야 합니다.
 
 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
@@ -87,7 +87,7 @@ GO
 
 #### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>서비스 주체에 게 Azure Synapse Analytics에 대 한 액세스 권한 부여 (이전의 SQL DW)
 
-또한 azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial)에 대 한 필수 조건 및 자습서에 따라 Azure Synapse Analytics에서 azure ad 사용자를 만들어야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
+또한 azure ad [응용 프로그램을 사용 하 여 azure ad 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md)에 대 한 필수 조건 및 자습서에 따라 Azure Synapse Analytics에서 azure ad 사용자를 만들어야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -140,4 +140,3 @@ Data Catalog에서 새 Azure Synapse Analytics 서버를 등록 하려면 다음
 
 - [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
 - [Azure Purview Data Catalog 검색](how-to-search-catalog.md)
-

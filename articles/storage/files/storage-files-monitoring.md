@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585737"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875147"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -677,6 +677,6 @@ Azure Monitor 경고는 모니터링 데이터에서 중요 한 조건이 발견
 - [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)
 - [Azure Files 배포 계획](./storage-files-planning.md)
-- [Azure Files를 배포하는 방법](./storage-files-deployment-guide.md)
+- [Azure Files를 배포하는 방법](./storage-how-to-create-file-share.md)
 - [Windows에서 Azure Files 문제 해결](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Linux에서 Azure Files 문제 해결](./storage-troubleshoot-linux-file-connection-problems.md)

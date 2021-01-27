@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 5080d16a7b14506b24e07e2ee4ba862c645f83a8
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598480"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875452"
 ---
 # <a name="manage-your-function-app"></a>함수 앱 관리 
 
@@ -37,6 +37,8 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 이러한 설정은 암호화 되어 저장 됩니다. 자세히 알아보려면 [응용 프로그램 설정 보안](security-concepts.md#application-settings)을 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/portal)
+
+응용 프로그램 설정을 찾으려면 [Azure Portal에서 시작](#get-started-in-the-azure-portal)을 참조 하세요. 
 
 **응용 프로그램 설정** 탭은 함수 앱에서 사용 하는 설정을 유지 합니다. 포털에서 값 **표시** 를 선택 하 여 값을 확인 해야 합니다. 포털에서 설정을 추가 하려면 **새 응용 프로그램 설정** 을 선택 하 고 새 키-값 쌍을 추가 합니다.
 
@@ -92,7 +94,7 @@ Azure Portal에서 함수 앱에 사용 되는 계획의 유형을 결정 하거
 
 | 플랜 유형 | 포털 | Azure CLI/PowerShell |
 | --- | --- | --- |
-| [소비](consumption-plan.md) | **소비** | `Dynamic` |
+| [Consumption](consumption-plan.md) | **Consumption** | `Dynamic` |
 | [Premium](functions-premium-plan.md) | **ElasticPremium** | `ElasticPremium` |
 | [전용 (App Service)](dedicated-plan.md) | 다양 | 다양 |
 

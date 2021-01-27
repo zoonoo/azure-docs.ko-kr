@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900657"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875739"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -70,13 +70,13 @@ Blob 컨테이너 또는 큐에 액세스 하려는 경우 Azure 자격 증명�
 ### <a name="recommended-azure-built-in-roles"></a>권장 되는 Azure 기본 제공 역할
 
 Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 Azure 기본 제공 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
-- [Owner](/azure/role-based-access-control/built-in-roles#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다.
-- [참가자](/azure/role-based-access-control/built-in-roles#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): 리소스를 읽고 나열 합니다.
-- [Storage 계정 참가자](/azure/role-based-access-control/built-in-roles#storage-account-contributor): 저장소 계정에 대 한 전체 관리
-- [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
-- [저장소 Blob 데이터 참여자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
-- [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
+- [Owner](../../role-based-access-control/built-in-roles.md#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다.
+- [참가자](../../role-based-access-control/built-in-roles.md#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): 리소스를 읽고 나열 합니다.
+- [Storage 계정 참가자](../../role-based-access-control/built-in-roles.md#storage-account-contributor): 저장소 계정에 대 한 전체 관리
+- [저장소 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
+- [저장소 Blob 데이터 참여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
+- [저장소 Blob 데이터 판독기](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
 
 > [!NOTE]
 > 소유자, 참가자 및 저장소 계정 기여자 역할은 계정 키 액세스를 부여 합니다.
@@ -103,7 +103,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl.exe** 를 두 번 클릭 합니다.
     * Mac 및 Linux: `openssl` 터미널에서를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
+3. `s_client -showcerts -connect microsoft.com:443`를 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제와 발급자의 모든 위치를 기록해 둡니다 `("s:")` `("i:")` .
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 된 모든 항목을 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 새 .cer 파일에 붙여넣습니다.
 6. Storage 탐색기를 열고   >  **SSL 인증서** 편집  >  **인증서 가져오기** 로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.

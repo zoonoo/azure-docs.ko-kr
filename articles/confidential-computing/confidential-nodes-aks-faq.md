@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997900"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874487"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 기밀 컴퓨팅 노드에 대 한 질문과 대답
 
@@ -24,6 +24,10 @@ SLA는 [여기](https://azure.microsoft.com/support/legal/preview-supplemental-t
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>증명 이란 무엇 이며, enclaves에서 실행 되는 앱의 증명을 어떻게 할 수 있나요? 
 
 증명은 특정 하드웨어 플랫폼에서 소프트웨어의 일부가 올바르게 인스턴스화 되었는지 확인 하 고 유효성을 검사 하는 프로세스입니다. 또한 보안 플랫폼에서 실행 중이 고 변조 되지 않았다는 보증을 제공 하기 위해 증명 정보를 확인할 수 있도록 합니다. Enclave apps에 대해 증명을 수행 하는 방법에 대해 [자세히](attestation.md) 알아보세요.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>Azure 기밀 컴퓨팅 AKS 클러스터를 사용 하 여 가속화 된 네트워킹을 사용할 수 있나요? 
+
+아니요. 가속 네트워킹은 AKS의 기밀 컴퓨팅 노드에서 지원 되지 않습니다. 배포에서 가속화 된 네트워킹을 사용 하지 않도록 설정 했는지 확인 합니다. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>기존 컨테이너 화 된 응용 프로그램을 가져와 Azure 기밀 컴퓨팅을 사용 하 여 AKS에서 실행할 수 있나요? 
 

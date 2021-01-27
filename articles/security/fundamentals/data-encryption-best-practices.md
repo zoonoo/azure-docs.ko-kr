@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196081"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874116"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 이 문서에서는 데이터 보안 및 암호화에 대 한 모범 사례를 설명 합니다.
@@ -102,7 +102,7 @@ Azure RBAC를 사용 하 여 사용자가 액세스할 수 있는 항목을 제�
 Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 온-프레미스에 있는 여러 워크스테이션에서 Azure Virtual Network로의 액세스 보호   
-**세부 정보**: [사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 사용합니다.
+**세부 정보**: [사이트 간 VPN](../../vpn-gateway/tutorial-site-to-site-portal.md)을 사용합니다.
 
 **모범 사례**: 온-프레미스에 있는 사설 워크스테이션에서 Azure Virtual Network로의 액세스 보호   
 **세부 정보**: [지점 및 사이트 간 VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)을 사용합니다.

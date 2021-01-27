@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814502"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873963"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대 한 Azure 보안 기준
 
@@ -164,7 +164,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 **지침**: azure AD MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하는 안전한 azure 관리 워크스테이션을 사용 하 여 azure 고객 Lockbox 요청에 로그인 하 고 구성 합니다.
 
-- [안전 하 고 Azure로 관리 되는 워크스테이션 배포](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [안전 하 고 Azure로 관리 되는 워크스테이션 배포](/security/compass/privileged-access-deployment)
 
 - [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015964"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875607"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>포털 또는 Azure CLI를 사용 하 여 스냅숏 만들기
 
@@ -70,5 +70,4 @@ az snapshot list \
 
 ## <a name="next-steps"></a>다음 단계
 
- 스냅샷에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅샷에서 가상 머신을 만듭니다. 자세한 내용은 [스냅샷에서 VM 만들기](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) 스크립트를 참조하세요.
-
+ 스냅샷에서 관리되는 디스크를 만들고 새 관리되는 디스크를 OS 디스크로 연결하여 스냅샷에서 가상 머신을 만듭니다. 자세한 내용은 [스냅샷에서 VM 만들기](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot?toc=%2fcli%2fmodule%2ftoc.json) 스크립트를 참조하세요.
