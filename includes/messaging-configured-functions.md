@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935202"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901068"
 ---
 Azure Functions를 사용 하 여 미리 작성 된 진입점에 대 한 구성 전용 복제 작업을 만들 수 있습니다. [Azure Functions에 대 한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) 에서는 [미리 작성 된 도우미](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) 를 사용자 코드에서 활용 하거나 코드를 모두 처리 하지 않고 구성을 사용 하는 방법을 보여 줍니다.
 
@@ -198,7 +198,7 @@ Service Bus 토픽으로 이벤트를 전달 하려는 경우 "바인딩" 내의
 
 ### <a name="configure-the-entry-point"></a>진입점 구성
 
-진입점 구성은 표준 복제 작업 중 하나를 선택 합니다. 프로젝트를 수정 하는 경우 `Azure.Messaging.Replication` 작업을 추가 하 고 여기에서 참조할 수도 있습니다. 예:
+진입점 구성은 표준 복제 작업 중 하나를 선택 합니다. 프로젝트를 수정 하는 경우 `Azure.Messaging.Replication` 작업을 추가 하 고 여기에서 참조할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```JSON
     ...
@@ -218,13 +218,12 @@ Service Bus 토픽으로 이벤트를 전달 하려는 경우 "바인딩" 내의
 
 ### <a name="retry-policy"></a>재시도 정책
 
-재시도 정책 구성에 [대 한 Azure Functions 설명서](/azure/azure-functions/functions-bindings-error-pages) 를 참조 하십시오. 이 리포지토리의 프로젝트 전체에서 선택한 정책 설정은 데이터 손실을 방지 하기 위해 재시도 간격을 5 초에서 5 분으로 설정 하 여 지 수 백오프 전략을 구성 합니다.
+재시도 정책 구성에 [대 한 Azure Functions 설명서](../articles/azure-functions/functions-bindings-error-pages.md) 를 참조 하십시오. 이 리포지토리의 프로젝트 전체에서 선택한 정책 설정은 데이터 손실을 방지 하기 위해 재시도 간격을 5 초에서 5 분으로 설정 하 여 지 수 백오프 전략을 구성 합니다.
 
-Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
+Service Bus의 경우 큐의 상호 작용 및 큐에 대해 정의 된 최대 배달 횟수를 이해 하려면 ["트리거 복원 력 맨 위에 있는 재시도 지원 사용"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) 섹션을 검토 합니다.
 
 ### <a name="build-deploy-and-configure"></a>빌드, 배포 및 구성
 
 구성에 집중 하는 동안 작업에는 배포 가능한 응용 프로그램을 구축 하 고, 지정 된 끝점에 연결 하는 데 필요한 모든 정보를 포함 하도록 Azure Functions 호스트를 구성 해야 합니다. 
 
 이는 [Azure Functions에 대 한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config)에서 재사용 가능한 스크립트와 함께 설명 됩니다.
-

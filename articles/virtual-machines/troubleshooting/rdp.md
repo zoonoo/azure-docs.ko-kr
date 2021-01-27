@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71057280"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878649"
 ---
 # <a name="troubleshoot-rdp-issues"></a>RDP 문제 해결
 
@@ -36,7 +36,7 @@ ms.locfileid: "71057280"
 - [내부 오류 문제 해결](Troubleshoot-rdp-internal-error.md)
 - [연결이 자주 끊기는 문제 해결](troubleshoot-rdp-intermittent-connectivity.md)
 - [일반 오류 문제 해결](troubleshoot-rdp-general-error.md)
-- [인증 오류 문제 해결](troubleshoot-authentication-error-rdp-vm.md)
+- [인증 오류 문제 해결](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [이벤트 ID로 Azure VM RDP 연결 문제 해결](event-id-troubleshoot-vm-rdp-connecton.md)
 - [고정 IP로 인해 VM에서 RDP 오류 문제 해결](troubleshoot-rdp-static-ip.md)
 - [NIC를 사용 안 함으로 인해 VM에서 RDP 오류 문제 해결](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ ms.locfileid: "71057280"
 - [게스트 OS 방화벽이 인바운드 트래픽을 차단하고 있습니다.](guest-os-firewall-blocking-inbound-traffic.md)
 - [게스트 OS 방화벽이 잘못 구성됨](guest-os-firewall-misconfigured.md) 
 - [netvsc.sys에서 발생하는 RDP 오류 문제 해결](troubleshoot-rdp-driver-netvsc.md)
-

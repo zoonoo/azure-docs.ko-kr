@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: ea98b2d9812fb5c848c7e13b94d46a4142595cd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 22e4d0998cde14d4461141a53f05cbc19d1ab671
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492168"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878972"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Azure 파일 공유에서 일시 삭제 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "96492168"
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 스토리지 계정으로 이동하고 **파일 서비스** 에서 **일시 삭제** 를 선택합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "96492168"
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-일시 삭제 cmdlet은 [Azure CLI 모듈](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)의 버전 2.1.3 이상에서 사용할 수 있습니다.
+일시 삭제 cmdlet은 [Azure CLI 모듈](/cli/azure/install-azure-cli?view=azure-cli-latest)의 버전 2.1.3 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started-with-cli"></a>CLI 시작
 

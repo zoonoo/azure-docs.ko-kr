@@ -1,24 +1,11 @@
 ---
-title: Media Services 변환 및 작업
-titleSuffix: Azure Media Services
-description: Azure Media Services에서 비디오를 처리 하는 규칙을 설명 하는 변환을 만드는 방법을 알아봅니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: MT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426787"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
+제목: Media Services 변환 및 작업: Azure Media Services 설명: Azure Media Services에서 비디오를 처리 하는 규칙을 설명 하는 변환을 만드는 방법을 알아봅니다.
+서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+
+ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 08/19/2019. 작성자: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
 
 이 항목에서는 [변환](/rest/api/media/transforms) 및 [작업](/rest/api/media/jobs) 에 대 한 세부 정보를 제공 하 고 이러한 엔터티 간의 관계를 설명 합니다.
@@ -38,7 +25,7 @@ ms.locfileid: "92426787"
 3. 변환 목록을 표시 합니다.
 4. 변환을 나중에 사용 하지 않으려는 경우 삭제 합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 모든 비디오의 첫 번째 프레임을 미리 보기 이미지로 추출 한다고 가정해 보겠습니다. 수행 하는 단계는 다음과 같습니다.
 
@@ -47,14 +34,14 @@ ms.locfileid: "92426787"
     1. 비디오를 찾을 수 있는 위치입니다.
     2. 출력 썸네일 이미지를 기록할 위치
 
-**변환**을 사용하면 작성법을 만들고(1단계), 해당 작성법을 사용하여 작업을 제출(2단계)할 수 있습니다.
+**변환** 을 사용하면 작성법을 만들고(1단계), 해당 작성법을 사용하여 작업을 제출(2단계)할 수 있습니다.
 
 > [!NOTE]
 > Datetime 형식의 **변환** 및 **작업** 속성은 항상 UTC 형식입니다.
 
 ## <a name="transforms"></a>변형
 
-**Transforms**는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
+**Transforms** 는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환은** 비디오 또는 오디오 파일을 처리 하기 위한 조리법 또는 작업 워크플로를 설명 합니다. 한 변환을 여러 규칙에 적용할 수 있습니다. 예를 들어 각 비디오를 지정된 비트 전송률에서 MP4 파일로 인코딩하고 비디오의 첫 번째 프레임으로 썸네일을 생성하도록 변환을 지정할 수 있습니다. 변환에 포함하려는 규칙마다 TransformOutput 항목 하나를 추가합니다. 미리 설정을 사용 하 여 입력 미디어 파일을 처리 하는 방법을 변환에 알립니다.
 
 ### <a name="viewing-schema"></a>스키마 보기
 
@@ -78,7 +65,7 @@ REST, CLI 또는 게시 된 Sdk를 사용 하 여 변환을 만들 수 있습니
 
 ## <a name="jobs"></a>작업
 
-**작업** 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. HTTPS Url, SAS Url 또는 [자산](/rest/api/media/assets)을 사용 하 여 입력 비디오의 위치를 지정할 수 있습니다.  
+**작업** 은 지정 된 입력 비디오 또는 오디오 콘텐츠에 **변환을** 적용 하는 Media Services에 대 한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **Job** 은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. HTTPS Url, SAS Url 또는 [자산](/rest/api/media/assets)을 사용 하 여 입력 비디오의 위치를 지정할 수 있습니다.  
 
 ### <a name="job-input-from-https"></a>HTTPS의 작업 입력
 

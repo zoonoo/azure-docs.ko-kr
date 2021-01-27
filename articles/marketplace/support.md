@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602569"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879244"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
 
 Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니다. 적절 한 적절 한 응답을 보장 하려면 올바른 지원 팀을 찾아야 합니다. 다음은 쿼리를 적절한 팀으로 라우팅하는 데 도움이 되는 시나리오입니다.
 
 - 게시자이 고 고객의 질문이 있는 경우 고객에 게 [Azure Portal](https://portal.azure.com/)지원 링크를 사용 하 여 지원을 요청 하도록 요청 하세요.
-- Azure에서 실행 되는 응용 프로그램에 대 한 보안 문제를 검색 한 게시자 인 경우 [보안 이벤트 지원 티켓을 기록 하는 방법](/azure/security/fundamentals/event-support-ticket)을 참조 하세요. 판매자는 Azure Marketplace 소프트웨어 및 서비스 제품 관련 보안 인시던트 및 취약성을 비롯하여 의심스러운 보안 이벤트를 최대한 빨리 보고해야 합니다.
+- Azure에서 실행 되는 응용 프로그램에 대 한 보안 문제를 검색 한 게시자 인 경우 [보안 이벤트 지원 티켓을 기록 하는 방법](../security/fundamentals/event-support-ticket.md)을 참조 하세요. 판매자는 Azure Marketplace 소프트웨어 및 서비스 제품 관련 보안 인시던트 및 취약성을 비롯하여 의심스러운 보안 이벤트를 최대한 빨리 보고해야 합니다.
 - 게시자이 고 앱 이나 서비스와 관련 된 질문이 있는 경우 다음 지원 옵션을 검토 하세요.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>도움말 보기 또는 지원 티켓 열기

@@ -3,14 +3,14 @@ title: 백업 센터를 사용 하 여 작업 수행
 description: 이 문서에서는 Backup Center를 사용 하 여 작업을 수행 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854429"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894578"
 ---
-# <a name="perform-actions-using-backup-center"></a>백업 센터를 사용 하 여 작업 수행
+# <a name="perform-actions-using-backup-center-preview"></a>백업 센터 (미리 보기)를 사용 하 여 작업 수행
 
 백업 센터를 사용 하면 개별 자격 증명 모음으로 이동할 필요 없이 중앙 인터페이스에서 키 백업 관련 작업을 수행할 수 있습니다. 백업 센터에서 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
@@ -23,58 +23,60 @@ ms.locfileid: "91854429"
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 백업 센터는 현재 Azure VM 백업 및 Azure Database for PostgreSQL 서버 백업에 대해 지원 됩니다.
+* Backup Center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업 SAP HANA Azure Files 백업 및 Azure Database for PostgreSQL Server 백업에 대해 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
 ## <a name="configure-backup"></a>백업 구성
 
+Azure vm을 백업 하는 경우 azure vm의 SQL, azure vm 또는 Azure Files SAP HANA Recovery Services 자격 증명 모음을 사용 해야 합니다. PostgreSQL 서버용 Azure 데이터베이스를 백업 하는 경우 백업 자격 증명 모음을 사용 해야 합니다. 
+
 백업 하려는 데이터 원본 유형에 따라 아래에 설명 된 적절 한 지침을 따르세요.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 백업 구성
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업 구성
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 백업** 을 선택 합니다.
 
     ![백업 센터 개요](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. 백업 하려는 데이터 원본 유형 (이 경우 Azure 가상 머신)을 선택 합니다.
+2. 백업 하려는 데이터 원본의 유형을 선택 합니다.
 
     ![VM 백업을 구성 하기 위한 데이터 원본 선택](./media/backup-center-actions/backup-select-datasource-vm.png)
 
-3. Recovery Services 자격 증명 모음을 선택 하 고 **계속**을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 백업 구성 환경으로 이동할 수 있습니다. [Recovery Services 자격 증명 모음을 사용 하 여 Azure 가상 머신에 대 한 백업을 구성 하는 방법에 대해 자세히 알아보세요](tutorial-backup-vm-at-scale.md).
+3. Recovery Services 자격 증명 모음을 선택 하 고 **계속** 을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 백업 구성 환경으로 이동할 수 있습니다. [Recovery Services 자격 증명 모음을 사용 하 여 Azure 가상 머신에 대 한 백업을 구성 하는 방법에 대해 자세히 알아보세요](tutorial-backup-vm-at-scale.md).
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에 대 한 백업 구성
+### <a name="configure-backup-to-a-backup-vault"></a>백업 자격 증명 모음에 백업 구성
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 백업** 을 선택 합니다.
 2. 백업 하려는 데이터 원본 유형 (이 경우 Azure Database for PostgreSQL 서버)을 선택 합니다.
 
     ![데이터 원본을 선택 하 Azure Database for PostgreSQL 서버 백업 구성](./media/backup-center-actions/backup-select-datasource-type-postgresql.png)
 
-3. **계속**을 선택합니다. 그러면 백업 자격 증명 모음에서 연결할 수 있는 것과 동일한 백업 구성 환경으로 이동할 수 있습니다. [백업 자격 증명 모음을 사용 하 여 Azure Database for PostgreSQL 서버에 대 한 백업을 구성 하는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
+3. **계속** 을 선택합니다. 그러면 백업 자격 증명 모음에서 연결할 수 있는 것과 동일한 백업 구성 환경으로 이동할 수 있습니다. [백업 자격 증명 모음을 사용 하 여 Azure Database for PostgreSQL 서버에 대 한 백업을 구성 하는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).
 
 ## <a name="restore-a-backup-instance"></a>백업 인스턴스 복원
 
 복원 하려는 데이터 원본 유형에 따라 아래에 설명 된 적절 한 지침을 따릅니다.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Azure 가상 컴퓨터를 복원 하는 경우
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 복원 하는 경우
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 위쪽에서 **복원** 을 선택 합니다.
 
     ![VM 복원에 대 한 백업 센터 개요](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. 복원 하려는 데이터 원본 유형 (이 경우 Azure 가상 머신)을 선택 합니다.
+2. 복원 하려는 데이터 원본의 유형을 선택 합니다.
 
     ![VM 복원에 사용할 데이터 원본 선택](./media/backup-center-actions/restore-select-datasource-vm.png)
 
-3. 백업 인스턴스를 선택 하 고 **계속**을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동할 수 있습니다. [Recovery Services 자격 증명 모음을 사용 하 여 Azure 가상 머신을 복원 하는 방법에 대해 자세히 알아보세요](backup-azure-arm-restore-vms.md#before-you-start).
+3. 백업 인스턴스를 선택 하 고 **계속** 을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동할 수 있습니다. [Recovery Services 자격 증명 모음을 사용 하 여 Azure 가상 머신을 복원 하는 방법에 대해 자세히 알아보세요](backup-azure-arm-restore-vms.md#before-you-start).
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버를 복원 하는 경우
+### <a name="if-youre-restoring-from-a-backup-vault"></a>백업 자격 증명 모음에서 복원 하는 경우
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 위쪽에서 **복원** 을 선택 합니다.
 2. 복원 하려는 데이터 원본 유형 (이 경우 Azure Database for PostgreSQL 서버)을 선택 합니다.
 
     ![Azure Database for PostgreSQL 서버 복원에 대 한 데이터 원본 선택](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 
-3. 백업 인스턴스를 선택 하 고 **계속**을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동할 수 있습니다. [백업 자격 증명 모음을 사용 하 여 Azure Database for PostgreSQL 서버를 복원 하는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#restore).
+3. 백업 인스턴스를 선택 하 고 **계속** 을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 연결할 수 있는 것과 동일한 복원 설정 환경으로 이동할 수 있습니다. [백업 자격 증명 모음을 사용 하 여 Azure Database for PostgreSQL 서버를 복원 하는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#restore).
 
 ## <a name="create-a-new-vault"></a>새 자격 증명 모음 만들기
 
@@ -89,26 +91,26 @@ Backup Center로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 자격 �
 
 백업 하려는 데이터 원본 유형에 따라 아래에 설명 된 적절 한 지침을 따릅니다.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Azure 가상 컴퓨터를 백업 하는 경우
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업 하는 경우
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 정책** 을 선택 합니다.
 
     ![백업 정책에 대 한 백업 센터 개요](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. 백업 하려는 데이터 원본 유형 (이 경우 Azure 가상 머신)을 선택 합니다.
+2. 백업 하려는 데이터 원본의 유형을 선택 합니다.
 
     ![VM 백업 정책에 대 한 데이터 원본 선택](./media/backup-center-actions/policy-select-datasource-vm.png)
 
-3. Recovery services 자격 증명 모음을 선택 하 고 **계속**을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 도달할 수 있는 것과 동일한 정책 생성 환경으로 연결 됩니다. [Recovery services 자격 증명 모음을 사용 하 여 Azure 가상 머신에 대 한 새 백업 정책을 만드는 방법에 대해 자세히 알아보세요](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+3. Recovery services 자격 증명 모음을 선택 하 고 **계속** 을 선택 합니다. 그러면 Recovery Services 자격 증명 모음에서 도달할 수 있는 것과 동일한 정책 생성 환경으로 연결 됩니다. [Recovery services 자격 증명 모음을 사용 하 여 Azure 가상 머신에 대 한 새 백업 정책을 만드는 방법에 대해 자세히 알아보세요](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버를 백업 하는 경우
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>백업 자격 증명 모음에 백업 하는 경우
 
 1. 백업 센터로 이동 하 고 **개요** 탭의 맨 위에 있는 **+ 정책** 을 선택 합니다.
 2. 백업 하려는 데이터 원본 유형 (이 경우 Azure Database for PostgreSQL 서버)을 선택 합니다.
 
     ![Azure Database for PostgreSQL 서버 백업 정책에 대 한 데이터 원본 선택](./media/backup-center-actions/policy-select-datasource-postgresql.png)
 
-3. **계속**을 선택합니다. 그러면 백업 자격 증명 모음에서 도달할 수 있는 것과 동일한 정책 생성 환경으로 연결 됩니다. [백업 자격 증명 모음을 사용 하 여 새 백업 정책을 만드는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#create-backup-policy).
+3. **계속** 을 선택합니다. 그러면 백업 자격 증명 모음에서 도달할 수 있는 것과 동일한 정책 생성 환경으로 연결 됩니다. [백업 자격 증명 모음을 사용 하 여 새 백업 정책을 만드는 방법에 대해 자세히 알아보세요](backup-azure-database-postgresql.md#create-backup-policy).
 
 ## <a name="execute-an-on-demand-backup-for-a-backup-instance"></a>백업 인스턴스에 대해 주문형 백업 실행
 

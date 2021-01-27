@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285189"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878989"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -28,7 +28,7 @@ AzCopy는 Azure Storage 데이터를 이동 하거나 외부로 이동 하는 �
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
@@ -42,7 +42,7 @@ AzCopy는 Azure Storage 데이터를 이동 하거나 외부로 이동 하는 �
 
 **--trusted-microsoft-접미사** (string)는 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 '*. core.windows.net;* 입니다. core.chinacloudapi.cn; *. core.cloudapi.de;*. core.usgovcloudapi.net '. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

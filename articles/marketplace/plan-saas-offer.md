@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913937"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879261"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -79,7 +79,7 @@ _지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션�
   제공 하는 웹 후크는 24/7을 실행 해야 합니다. 이 방법은 상용 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
-  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예들 들어 `50c464d3-4930-494c-963c-1e951d15360e`입니다.
+  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
@@ -150,7 +150,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 11. 문서
 
@@ -161,7 +161,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 **호출 설명**
 
 1. 제목
-1. 설명
+1. Description
 1. 유용한 링크
 1. 스크린샷
 
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - 이름
+  - Name
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 
@@ -250,7 +250,7 @@ Microsoft에서 제공 하는 SaaS 앱 제품은 [요금제 서비스](./partner
 | Microsoft는 라이선스 비용의 80%를 지불합니다.<br>`*` Microsoft는 정규화 된 SaaS 앱에 대해 90%의 라이선스 비용을 지불 합니다.| 매월 $80.00<br>``*`` 매월 $90.00 |
 |||
 
-**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 각 월이 종료 될 때까지 최소 5 영업일 (5) 이상의 영업일을 충족 해야만 Marketplace 서비스 요금을 절감할 수 있습니다. 자격이 충족 되 면 다음 달의 첫 번째 날부터 적용 되는 모든 거래에 감소 된 서비스 요금이 부과 되며, Azure IP 공동 판매 incentivized 상태가 손실 될 때까지 계속 적용 됩니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
+**`*` Marketplace 서비스 요금 절감** – 상업적 Marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 각 월이 종료 될 때까지 최소 5 영업일 (5) 이상의 영업일을 충족 해야만 Marketplace 서비스 요금을 절감할 수 있습니다. 자격이 충족 되 면 다음 달의 첫 번째 날부터 적용 되는 모든 거래에 감소 된 서비스 요금이 부과 되며, Azure IP 공동 판매 incentivized 상태가 손실 될 때까지 계속 적용 됩니다. IP 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조 하세요. 또한 Azure IP 공동 판매 incentivized Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에도 적용 됩니다.
 
 ## <a name="additional-sales-opportunities"></a>추가 판매 기회
 
@@ -258,7 +258,7 @@ Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 
 
 - **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 이 프로그램에 대 한 자세한 내용은 [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)을 참조 하세요.
 
-- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 공동 판매 자격에 대 한 자세한 내용은 [공동 판매 상태를 위한 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조 하세요. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [파트너 센터의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

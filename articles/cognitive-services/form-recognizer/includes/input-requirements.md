@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: b3d24ce4dd42ea8122610943379160ca93406c21
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7cf3d86eeea9d1b0f5fcbb757d3597e21cbcc369
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548186"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901077"
 ---
 Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작동합니다.
 
@@ -25,8 +25,3 @@ Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작�
 * 텍스트는 라틴어 알파벳(영어 문자)을 사용해야 합니다.
 * 자율 학습(레이블이 지정된 데이터 제외)의 경우 데이터에는 키와 값이 포함되어야 합니다.
 * 자율 학습(레이블이 지정된 데이터 제외)의 경우 키가 값의 위 또는 왼쪽에 표시되어야 합니다. 이는 아래 또는 오른쪽에 표시되지 않습니다.
-
-Form Recognizer에서 현재 지원하지 않는 입력 데이터의 유형은 다음과 같습니다.
-
-* 복합 테이블(중첩된 테이블, 병합된 헤더 또는 셀 등)
-* 확인란 또는 라디오 단추

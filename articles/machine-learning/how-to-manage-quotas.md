@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 78cc0aa6beb9ab83fea2039b271b071de1662fc1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629183"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878955"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기
 
@@ -82,7 +82,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 + **지역별 클러스터** 의 기본 제한은 200입니다. 이러한 설정은 교육 클러스터와 계산 인스턴스 간에 공유 됩니다. (계산 인스턴스는 할당량을 위해 단일 노드 클러스터로 간주 됩니다.)
 
 > [!TIP]
-> 할당량 증가를 요청 하는 VM 제품군에 대해 자세히 알아보려면 [Azure에서 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/sizes)를 참조 하세요. 예를 들어 GPU VM 제품군은 제품군 이름에 "N"으로 시작 합니다 (예: NCv3 시리즈)
+> 할당량 증가를 요청 하는 VM 제품군에 대해 자세히 알아보려면 [Azure에서 가상 머신 크기](../virtual-machines/sizes.md)를 참조 하세요. 예를 들어 GPU VM 제품군은 제품군 이름에 "N"으로 시작 합니다 (예: NCv3 시리즈)
 
 다음 표에서는 플랫폼의 추가 제한을 보여 줍니다. 예외를 요청 하는 **기술** 지원 티켓을 통해 AzureML 제품 팀에 연락 하세요.
 
@@ -124,7 +124,7 @@ Azure는 제한 및 할당량을 사용 하 여 사기 문제로 인 한 예산 
 
 자세한 내용은 [Container Instances 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)을 참조 하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 Azure Storage은 구독 당 지역 당 저장소 계정 250 개로 제한 됩니다. 이 제한에는 표준 및 프리미엄 저장소 계정이 모두 포함 됩니다.
 
 제한을 늘리려면 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)을 통해 요청을 수행 합니다. Azure Storage 팀은 해당 사례를 검토 하 고 지역에 대해 최대 250 개의 저장소 계정을 승인할 수 있습니다.

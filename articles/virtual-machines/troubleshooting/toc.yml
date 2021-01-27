@@ -39,8 +39,6 @@
       href: restart-resize-error-troubleshooting.md
     - name: '서비스 다시 시작, 종료 또는 중지'
       href: boot-error-troubleshoot-windows.md
-    - name: Linux 가상 머신의 전체 OS 디스크 관련 문제
-      href: os-disk-full-linux.md
 - name: 예기치 않은 다시 시작
   items:
     - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
@@ -153,7 +151,7 @@
         - name: 일반 오류 문제 해결
           href: troubleshoot-rdp-general-error.md
         - name: 인증 오류 문제 해결
-          href: troubleshoot-authentication-error-rdp-vm.md
+          href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
         - name: 이벤트 ID로 Azure VM RDP 연결 문제 해결
           href: event-id-troubleshoot-vm-rdp-connecton.md
         - name: 고정 IP로 인해 VM에서 RDP 오류 문제 해결

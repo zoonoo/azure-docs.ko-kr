@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 84e2eaf71326f59102800428479768aeba9ef9ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73e4dbb24b4e7c0c651f7d082c75b0f4a17158b5
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042150"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890884"
 ---
 # <a name="configure-runbook-input-parameters"></a>Runbook 입력 매개 변수 구성
 
@@ -75,22 +75,22 @@ PowerShell 및 PowerShell 워크플로 Runbook은 입력 매개 변수에 대해
 그래픽 Runbook은 다음과 같은 주요 Runbook 활동을 사용합니다.
 
 * Azure로 인증하는 Azure 실행 계정을 구성합니다. 
-* VM 속성을 가져오는 [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet을 정의합니다.
+* VM 속성을 가져오는 [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet을 정의합니다.
 * [쓰기 출력](/powershell/module/microsoft.powershell.utility/write-output) 활동을 사용하여 VM 이름을 출력합니다. 
 
 `Get-AzVM` 활동은 두 개의 입력인 VM 이름과 리소스 그룹 이름을 정의합니다. Runbook이 시작할 때마다 이러한 이름이 다를 수 있으므로 입력 매개 변수를 Runbook에 추가하여 이러한 입력을 수락해야 합니다. [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 
 입력 매개 변수를 구성하려면 다음 단계를 수행합니다.
 
-1. Runbook 페이지에서 그래픽 Runbook을 선택한 다음 **편집**을 클릭합니다.
-2. 그래픽 편집기에서 **입력 및 출력** 단추를 클릭한 다음 **입력 추가**를 선택하여 Runbook 입력 매개 변수 창을 엽니다.
+1. Runbook 페이지에서 그래픽 Runbook을 선택한 다음 **편집** 을 클릭합니다.
+2. 그래픽 편집기에서 **입력 및 출력** 단추를 클릭한 다음 **입력 추가** 를 선택하여 Runbook 입력 매개 변수 창을 엽니다.
 
    ![자동화 그래픽 Runbook](media/automation-runbook-input-parameters/automation-02-graphical-runbok-editor.png)
 
-3. 입력 및 출력 컨트롤에는 Runbook에 정의된 입력 매개 변수 목록이 표시됩니다. 여기에서 새 입력 매개 변수를 추가하거나 기존의 입력 매개 변수의 구성을 편집합니다. Runbook에 대한 새 매개 변수를 추가하려면 **입력 추가**를 클릭하여 **Runbook 입력 매개 변수** 블레이드를 엽니다. 여기서 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)에 정의된 속성을 사용하여 매개 변수를 구성할 수 있습니다.
+3. 입력 및 출력 컨트롤에는 Runbook에 정의된 입력 매개 변수 목록이 표시됩니다. 여기에서 새 입력 매개 변수를 추가하거나 기존의 입력 매개 변수의 구성을 편집합니다. Runbook에 대한 새 매개 변수를 추가하려면 **입력 추가** 를 클릭하여 **Runbook 입력 매개 변수** 블레이드를 엽니다. 여기서 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)에 정의된 속성을 사용하여 매개 변수를 구성할 수 있습니다.
 
     ![새 입력 추가](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
-4. 다음 속성을 사용하여 `Get-AzVM` 활동에서 사용할 두 매개 변수를 만든 다음 **확인**을 클릭합니다.
+4. 다음 속성을 사용하여 `Get-AzVM` 활동에서 사용할 두 매개 변수를 만든 다음 **확인** 을 클릭합니다.
 
    * 매개 변수 1:
         * **이름** -- **VMName**
@@ -105,8 +105,8 @@ PowerShell 및 PowerShell 워크플로 Runbook은 입력 매개 변수에 대해
         * 사용자 지정 기본값 -- VM을 포함하는 리소스 그룹의 이름
 
 5. 입력 및 출력 컨트롤의 매개 변수를 확인합니다. 
-6. **확인**을 다시 클릭하고 **저장**을 클릭합니다.
-7. **게시**를 클릭하여 Runbook을 게시합니다.
+6. **확인** 을 다시 클릭하고 **저장** 을 클릭합니다.
+7. **게시** 를 클릭하여 Runbook을 게시합니다.
 
 ### <a name="configure-input-parameters-in-python-runbooks"></a>Python Runbook에서 입력 매개 변수 구성
 
@@ -140,7 +140,7 @@ Azure Portal에서 [Runbook을 시작](start-runbooks.md#start-a-runbook-with-th
 
 #### <a name="start-a-published-runbook-using-powershell-cmdlets-and-assign-parameters"></a>PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager cmdlet:** [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
+* **Azure Resource Manager cmdlet:** [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
 
    ```powershell
      $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -272,11 +272,11 @@ Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력
 
 JSON 파일에서 Runbook에 전달하려는 데이터를 저장하는 것이 유용할 수 있습니다. 예를 들어 Runbook에 전달하려는 모든 매개 변수가 포함된 JSON 파일을 만들 수 있습니다. 이렇게 하려면 JSON 코드를 문자열로 변환한 다음 해당 문자열을 PowerShell 개체로 변환한 후 해당 개체를 Runbook에 전달해야 합니다.
 
-이 섹션에서는 PowerShell 스크립트가 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0)를 호출하여 PowerShell Runbook을 시작하고 JSON 파일의 내용을 Runbook에 전달하는 예제를 사용합니다. PowerShell Runbook은 JSON 개체에서 VM에 대한 매개 변수를 검색하여 Azure VM을 시작합니다.
+이 섹션에서는 PowerShell 스크립트가 [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook)를 호출하여 PowerShell Runbook을 시작하고 JSON 파일의 내용을 Runbook에 전달하는 예제를 사용합니다. PowerShell Runbook은 JSON 개체에서 VM에 대한 매개 변수를 검색하여 Azure VM을 시작합니다.
 
 ### <a name="create-the-json-file"></a>JSON 파일 만들기
 
-텍스트 파일에 다음 코드를 입력하고 로컬 컴퓨터의 어딘가에 **test.json**으로 저장합니다.
+텍스트 파일에 다음 코드를 입력하고 로컬 컴퓨터의 어딘가에 **test.json** 으로 저장합니다.
 
 ```json
 {
@@ -287,7 +287,7 @@ JSON 파일에서 Runbook에 전달하려는 데이터를 저장하는 것이 �
 
 ### <a name="create-the-runbook"></a>Runbook 만들기
 
-Azure Automation에서 **Test-Json**이라는 새 PowerShell Runbook을 만듭니다. [내 첫 번째 PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 참조하세요.
+Azure Automation에서 **Test-Json** 이라는 새 PowerShell Runbook을 만듭니다. [내 첫 번째 PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 참조하세요.
 
 JSON 데이터를 허용하려면 Runbook에서 개체를 입력 매개 변수로 사용해야 합니다. 그러면 Runbook이 JSON 파일에 정의된 속성을 사용할 수 있습니다.
 
@@ -327,7 +327,7 @@ Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
 1. 저장된 JSON 파일의 내용을 가져와 문자열로 변환합니다. `JsonPath`는 JSON 파일을 저장한 경로입니다.
 
    ```powershell
-   $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
+   $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
    ```
 
 1. `$json`의 문자열 내용을 PowerShell 개체로 변환합니다.

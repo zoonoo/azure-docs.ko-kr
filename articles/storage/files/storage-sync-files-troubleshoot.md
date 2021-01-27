@@ -1,18 +1,18 @@
 ---
 title: Azure 파일 동기화 문제 해결 | Microsoft Docs
-description: Windows Server를 Azure 파일 공유의 빠른 캐시로 변환 하는 데 사용할 수 있는 Azure File Sync에 대 한 배포의 일반적인 문제를 해결 합니다.
+description: Windows Server를 Azure 파일 공유의 빠른 캐시로 변환 하는 데 사용할 수 있는 Azure 파일 동기화에 대 한 배포의 일반적인 문제를 해결 합니다.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539247"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878802"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -201,15 +201,15 @@ Set-AzStorageSyncServerEndpoint `
 - **GetNextJob completed with status: 0** 이 기록되는 경우 서버는 Azure 파일 동기화 서비스와 통신할 수 있는 것입니다. 
     - 서버에서 작업 관리자를 열고 Storage 동기화 모니터링 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인합니다. 프로세스가 실행되지 않으면 먼저 서버를 다시 시작합니다. 서버를 다시 시작해도 문제가 해결되지 않으면 최신 Azure 파일 동기화 [에이전트 버전](./storage-files-release-notes.md)으로 업그레이드합니다. 
 
-- **GetNextJob이 완료 됨 상태:-2134347756** 이 기록 되 면 방화벽, 프록시 또는 TLS 암호 제품군 주문 구성으로 인해 서버가 Azure File Sync 서비스와 통신할 수 없습니다. 
+- **GetNextJob이 완료 됨 상태:-2134347756** 이 기록 되 면 방화벽, 프록시 또는 TLS 암호 제품군 주문 구성으로 인해 서버가 Azure 파일 동기화 서비스와 통신할 수 없습니다. 
     - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](./storage-sync-files-firewall-and-proxy.md#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
     - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](./storage-sync-files-firewall-and-proxy.md#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
     - Test-StorageSyncNetworkConnectivity cmdlet을 사용하여 서비스 엔드포인트에 대한 네트워크 연결을 확인합니다. 자세한 내용은 [서비스 엔드포인트에 대한 네트워크 연결 테스트](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints)를 참조하세요.
     - 서버에 TLS 암호 그룹 순서가 구성 된 경우 그룹 정책 또는 TLS cmdlet을 사용 하 여 암호 그룹을 추가할 수 있습니다.
-        - 그룹 정책을 사용 하려면 그룹 정책을 [사용 하 여 TLS 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy)을 참조 하세요.
-        - Tls cmdlet을 사용 하려면 tls [PowerShell cmdlet을 사용 하 여 Tls 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets)을 참조 하세요.
+        - 그룹 정책을 사용 하려면 그룹 정책을 [사용 하 여 TLS 암호 그룹 순서 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy)을 참조 하세요.
+        - Tls cmdlet을 사용 하려면 tls [PowerShell cmdlet을 사용 하 여 Tls 암호 그룹 순서 구성](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets)을 참조 하세요.
     
-        Azure File Sync 현재 TLS 1.2 프로토콜에 대해 다음과 같은 암호 그룹을 지원 합니다.  
+        Azure 파일 동기화 현재 TLS 1.2 프로토콜에 대해 다음과 같은 암호 그룹을 지원 합니다.  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
         - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
         - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
@@ -931,7 +931,7 @@ Azure 파일 동기화 에이전트가 최신 버전인지 확인합니다. Azur
 디렉터리가 삭제 된 경우 다음 단계를 수행 하 여 기존 서버 끝점을 제거 하 고 새 경로를 사용 하 여 새 서버 끝점을 만듭니다.
 
 1. [서버 끝점 제거](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에서 서버 끝점을 제거 합니다.
-2. [서버 끝점 추가](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에 새 서버 끝점을 만듭니다.
+2. [서버 끝점 추가](./storage-sync-files-server-endpoint.md#add-a-server-endpoint)에 설명 된 단계를 수행 하 여 동기화 그룹에 새 서버 끝점을 만듭니다.
 
 ### <a name="common-troubleshooting-steps"></a>일반적인 문제 해결 단계
 <a id="troubleshoot-storage-account"></a>**스토리지 계정이 있는지 확인합니다.**  

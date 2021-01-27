@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545833"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879312"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -45,7 +45,7 @@ ms.locfileid: "96545833"
 |변경 불가능한 스토리지|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
 |컨테이너 일시 삭제|미리 보기|미리 보기|[컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md)|
 |Azure Storage 인벤토리|미리 보기|미리 보기|[Azure Storage 인벤토리를 사용 하 여 blob 데이터 관리 (미리 보기)](blob-inventory.md)|
-|Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](storage-blob-soft-delete.md)|
+|Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)|
 |Blobfuse|일반 공급|일반 공급|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|
 |익명 공용 액세스 |일반 공급|일반 공급| [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.|
 |고객 관리 계정 장애 조치 (failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

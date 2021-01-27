@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016014"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878829"
 ---
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "96016014"
 
 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery* 라는 갤러리를 만듭니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 1. 검색 상자에서 **공유 이미지 갤러리** 유형을 사용 하 고 결과에서 **공유 이미지 갤러리** 를 선택 합니다.
 1. **공유 이미지 갤러리** 페이지에서 **추가** 를 클릭 합니다.
 1. **공유 이미지 갤러리 만들기** 페이지에서 올바른 구독을 선택 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "96016014"
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../articles/virtual-machines/shared-image-galleries.md#image-definitions)를 참조하세요.
 
 갤러리 내에서 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *Myimagedefinition* 입니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "96016014"
 1. **이미지 정의 이름** 에 *myimagedefinition* 을 입력 합니다.
 1. **운영 체제** 의 경우 원본 VM에 따라 올바른 옵션을 선택 합니다.  
 1. **Vm 생성** 의 경우 원본 vm을 기반으로 하는 옵션을 선택 합니다. 대부분의 경우이는 *Gen 1* 입니다. 자세한 내용은 [2 세대 vm에 대 한 지원](../articles/virtual-machines/generation-2.md)을 참조 하세요.
-1. **운영 체제 상태의** 경우 원본 VM을 기반으로 하는 옵션을 선택 합니다. 자세한 내용은 [일반화 된 및 특수](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images)를 참조 하세요.
+1. **운영 체제 상태의** 경우 원본 VM을 기반으로 하는 옵션을 선택 합니다. 자세한 내용은 [일반화 된 및 특수](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images)를 참조 하세요.
 1. **게시자** 에 대해 *myPublisher* 을 입력 합니다. 
 1. **제안** 에 *myoffer* 입력 합니다.
 1. **SKU** 의 경우 *mysku* 를 입력 합니다.

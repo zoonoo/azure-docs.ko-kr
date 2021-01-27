@@ -11,23 +11,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 247324c30bbe0edaef78c0b0d5e6a6d593e8cac9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b462d8e75fc291ac599ac99dbe4fb3a74fde2b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586400"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878700"
 ---
 # <a name="troubleshoot-the-azure-linux-agent"></a>Azure Linux 에이전트 문제 해결
 
-[Azure Linux 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) 를 사용 하면 vm (가상 컴퓨터)에서 IP 주소 168.63.129.16의 패브릭 컨트롤러 (vm이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다.
+[Azure Linux 에이전트](../extensions/agent-linux.md) 를 사용 하면 vm (가상 컴퓨터)에서 IP 주소 168.63.129.16의 패브릭 컨트롤러 (vm이 호스트 되는 기본 실제 서버)와 통신할 수 있습니다.
 
 >[!NOTE]
 >이 IP 주소는 통신을 용이 하 게 하는 가상 공용 IP 주소 이며 차단 되어서는 안 됩니다. 자세한 내용은 [IP 주소 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md)을 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-에이전트 상태 및 버전이 아직 지원 되는지 확인 합니다. 버전 지원을 확인 하려면 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) 을 참조 하거나, 상태 및 버전을 확인 하는 단계는 [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) 를 참조 하세요.
+에이전트 상태 및 버전이 아직 지원 되는지 확인 합니다. 버전 지원을 확인 하려면 [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원](/troubleshoot/azure/virtual-machines/support-extensions-agent-version) 을 참조 하거나, 상태 및 버전을 확인 하는 단계는 [WALinuxAgent FAQ](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) 를 참조 하세요.
 
 ## <a name="troubleshoot-a-not-ready-status"></a>준비 안 됨 상태 문제 해결
 
@@ -64,7 +64,7 @@ ms.locfileid: "97586400"
    AutoUpdate.Enabled=y
    ```
 
-   Azure Linux 에이전트를 업데이트 하는 방법에 대 한 자세한 내용은 [VM에서 Azure Linux 에이전트를 업데이트](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent)하는 방법을 참조 하세요.
+   Azure Linux 에이전트를 업데이트 하는 방법에 대 한 자세한 내용은 [VM에서 Azure Linux 에이전트를 업데이트](../extensions/update-linux-agent.md)하는 방법을 참조 하세요.
 
 1. VM이 패브릭 컨트롤러에 연결할 수 있는지 확인 합니다. 168.63.129.16와 같은 도구를 사용 하 여 VM이 80, 443 및 32526 포트의에 연결할 수 있는지 여부를 테스트 합니다. VM이 정상적으로 연결 되지 않으면 VM의 로컬 방화벽에서 포트 80, 443 및 32526을 통한 아웃 바운드 통신이 열려 있는지 확인 합니다. 이 IP 주소가 차단 되 면 VM 에이전트가 예기치 않은 동작을 표시할 수 있습니다.
 

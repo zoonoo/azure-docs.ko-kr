@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 6699db280c4d82867d5559255eab08fd6b55b65a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e3a7ea2cd696f54b032a3f17eceff466a6201436
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201521"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878683"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
 
-이 문서에서는 Azure Image Builder 및 Azure PowerShell을 사용하여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전체적으로 이미지를 배포하는 방법을 보여 줍니다. [Azure CLI](../linux/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
+이 문서에서는 Azure Image Builder 및 Azure PowerShell을 사용하여 [공유 이미지 갤러리](../shared-image-galleries.md)에서 이미지 버전을 만든 다음, 전체적으로 이미지를 배포하는 방법을 보여 줍니다. [Azure CLI](../linux/image-builder-gallery.md)를 사용하여 이 작업을 수행할 수도 있습니다.
 
 이미지를 구성하는 데 .json 템플릿을 사용합니다. 사용 중인 .json 파일은 [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json)에 있습니다. 이 문서는 로컬 PowerShell 세션을 사용하여 작성되었으므로 템플릿의 로컬 버전을 다운로드하여 편집합니다.
 

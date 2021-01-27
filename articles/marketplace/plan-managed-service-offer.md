@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918181"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879278"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 관리 서비스 제품을 계획 하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "97918181"
 
 관리 서비스를 게시 하려면 클라우드 플랫폼에서 골드 또는 실버 Microsoft 역량을 달성 해야 합니다. 이 역량은 고객에 대 한 전문 지식을 보여줍니다. 자세한 내용은 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership/competencies)역량을 참조 하세요.
 
-제품은 Azure Marketplace에 게시할 수 있는 모든 [상용 marketplace 인증 정책을](https://docs.microsoft.com/legal/marketplace/certification-policies) 충족 해야 합니다.
+제품은 Azure Marketplace에 게시할 수 있는 모든 [상용 marketplace 인증 정책을](/legal/marketplace/certification-policies) 충족 해야 합니다.
 
 ## <a name="customer-leads"></a>잠재 고객
 
@@ -60,7 +60,7 @@ ms.locfileid: "97918181"
 
 **호출 설명**
 
-1. 이름
+1. Name
 2. 설명
 3. 유용한 링크
 4. 스크린샷/비디오

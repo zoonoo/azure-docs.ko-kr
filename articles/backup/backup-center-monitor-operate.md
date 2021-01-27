@@ -3,20 +3,20 @@ title: Backup 센터를 사용한 백업 모니터링 및 운영
 description: 이 문서에서는 Backup Center를 사용 하 여 대규모로 백업을 모니터링 하 고 작동 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996675"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893781"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Backup 센터를 사용한 백업 모니터링 및 운영
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>백업 센터 (미리 보기)를 사용 하 여 백업 모니터링 및 작동
 
 백업 관리자는 백업 센터를 단일 창으로 사용 하 여 작업 및 백업 인벤토리를 매일 모니터링할 수 있습니다. 또한 백업 센터를 사용 하 여 주문형 백업 요청에 대 한 응답, 백업 복원, 백업 정책 만들기 등의 일반 작업을 수행할 수 있습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 백업 센터는 현재 Azure VM 백업 및 Azure Database for PostgreSQL 서버 백업에 대해 지원 됩니다.
+* Backup Center는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업 SAP HANA Azure Files 백업 및 Azure Database for PostgreSQL Server 백업에 대해 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
 ## <a name="backup-instances"></a>백업 인스턴스

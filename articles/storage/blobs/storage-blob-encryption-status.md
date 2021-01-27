@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6d0392cd8e94ba8a9026f557b90e740fbed7f50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee54357250e3f31ef9db633d933d897fff362f48
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809084"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878564"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Blob의 암호화 상태를 확인 합니다.
 
@@ -33,7 +33,7 @@ Azure Portal를 사용 하 여 blob이 암호화 되었는지 여부를 확인 �
 1. Azure Portal에서 스토리지 계정으로 이동합니다.
 1. **컨테이너** 를 선택 하 여 계정의 컨테이너 목록으로 이동 합니다.
 1. Blob을 찾아 **개요** 탭을 표시 합니다.
-1. 암호화 된 **서버** 속성을 봅니다. 다음 그림에 표시 된 것 처럼 **True**이면 blob이 암호화 됩니다. Blob의 속성에는 blob이 생성 된 날짜 및 시간도 포함 됩니다.
+1. 암호화 된 **서버** 속성을 봅니다. 다음 그림에 표시 된 것 처럼 **True** 이면 blob이 암호화 됩니다. Blob의 속성에는 blob이 생성 된 날짜 및 시간도 포함 됩니다.
 
     ![Azure Portal에서 서버 암호화 된 속성을 확인 하는 방법을 보여 주는 스크린샷](media/storage-blob-encryption-status/blob-encryption-property-portal.png)
 
@@ -94,7 +94,7 @@ Example:
 azcopy copy 'C:\temp\blob1.txt' 'https://storagesamples.blob.core.windows.net/sample-container/blob1.txt'
 ```
 
-AzCopy를 사용 하 여 blob 데이터를 복사 하는 방법에 대 한 자세한 내용은 [AzCopy 및 blob storage로 데이터 전송](../common/storage-use-azcopy-blobs.md)을 참조 하세요.
+AzCopy를 사용 하 여 blob 데이터를 복사 하는 방법에 대 한 자세한 내용은 [AzCopy 및 blob storage로 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

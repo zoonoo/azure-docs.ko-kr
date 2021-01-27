@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356177"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879159"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ ms.locfileid: "97356177"
 ## <a name="related-conceptual-articles"></a>관련 개념 문서
 
 - [AzCopy 시작](storage-use-azcopy-v10.md)
-- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 - [AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
@@ -276,7 +276,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--include-after** 문자열에는 지정 된 날짜/시간 이후에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.5에서와 같이이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
- **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예를 들어 `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
+ **--include-before** 문자열에는 지정 된 날짜/시간 이전에 수정 된 파일만 포함 됩니다. 값은 ISO8601 형식 이어야 합니다. 표준 시간대가 지정 되지 않은 경우이 값은 AzCopy를 실행 하는 컴퓨터의 로컬 표준 시간대에 있는 것으로 간주 됩니다. 예: `2020-08-19T15:04:00Z` UTC 시간 또는 `2020-08-19` 현지 표준 시간대의 자정 (00:00)에 대 한입니다. AzCopy 10.7부터이 플래그는 폴더가 아닌 파일에만 적용 되므로 또는와 함께이 플래그를 사용 하는 경우 폴더 속성이 복사 되지 않습니다 `--preserve-smb-info` `--preserve-smb-permissions` .
 
 **--include** 특성 문자열 (Windows에만 해당)은 특성 목록과 일치 하는 특성을 가진 파일을 포함 합니다. 예: A; 삭제 &
 
@@ -284,7 +284,7 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. 를 사용 하 여 파일을 구분 `;` 합니다.
 
-**--버전 목록** 문자열은 각 버전 ID가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 Id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob)를 참조 하세요.
+**--버전 목록** 문자열은 각 버전 ID가 별도의 줄에 나열 되는 파일을 지정 합니다. 원본이 단일 blob을 가리켜야 하며이 플래그를 사용 하 여 파일에 지정 된 모든 버전 Id가 원본 blob에만 속해야 합니다. AzCopy는 제공 된 대상 폴더에 지정 된 버전을 다운로드 합니다. 자세한 내용은 [이전 버전의 Blob 다운로드](./storage-use-azcopy-v10.md#transfer-data)를 참조 하세요.
 
 **--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본값 `INFO` ). 
 
@@ -324,6 +324,6 @@ azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.n
 
 **--trusted-microsoft-접미사** 문자열 Azure Active Directory 로그인 토큰이 전송 될 수 있는 추가 도메인 접미사를 지정 합니다.  기본값은 `*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net`입니다. 여기에 나열 된 Any는 기본값에 추가 됩니다. 보안을 위해 여기에 Microsoft Azure 도메인만 배치 해야 합니다. 여러 항목을 세미콜론으로 구분 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [azcopy](storage-ref-azcopy.md)

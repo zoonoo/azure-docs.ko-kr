@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f98f128e56810e3dd710ce454c8dc34b333690d1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620412"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879295"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 Azure 애플리케이션 제품 계획
 
@@ -177,7 +177,7 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어 – 비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 5 개의 비디오를 추가할 수 있습니다.
-  - 이름
+  - Name
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 
@@ -210,7 +210,7 @@ Azure 구독 Id를 사용 하 여 미리 보기 대상 그룹을 정의 하 고 
 Microsoft에서 지 원하는 마케팅 및 판매 채널을 옵트인 (opt in) 하도록 선택할 수 있습니다. 파트너 센터에서 제품을 만들 때 프로세스의 끝에 두 개의 탭이 표시 됩니다.
 
 - **Csp를 통한 재판매**:이 옵션을 사용 하면 csp (Microsoft 클라우드 솔루션 공급자) 파트너가 번들 제안의 일부로 솔루션을 재판매 수 있습니다. 자세한 내용은 [클라우드 솔루션 공급자 프로그램](./cloud-solution-providers.md) 을 참조 하세요.
-- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [상용 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요. IP 공동 판매 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)을 참조 하세요. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조 하세요.
+- **Microsoft와 공동 판매**:이 옵션을 사용 하면 microsoft 영업 팀에서 고객의 요구를 평가할 때 IP 공동 판매에 적합 한 솔루션을 고려할 수 있습니다. 평가를 위해 제품을 준비 하는 방법에 대 한 자세한 내용은 [상용 marketplace의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조 하세요. IP 공동 판매 요구 사항에 대 한 자세한 내용은 [공동 판매 상태에 대 한 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조 하세요. Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](cloud-solution-providers.md)를 참조 하세요.
 
 자세히 알아보려면 [Azure Marketplace를 사용 하 여 클라우드 비즈니스 성장](https://azuremarketplace.microsoft.com/sell)을 참조 하세요.
 

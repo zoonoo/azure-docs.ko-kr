@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: cynthn
-ms.openlocfilehash: cd3ff3fce80e66d7cd61636b4416cb2fc28f5e77
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 61af1f1a97e0ffad0332a34034f5dd1d007d1a5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956493"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901074"
 ---
 | 리소스 | 제한 |
 | --- | --- |
@@ -19,13 +19,13 @@ ms.locfileid: "97956493"
 | 시리즈당 VM(Dv2 및 F 등), [구독](https://azure.microsoft.com/pricing/)당 코어 |지역당 20<sup>1</sup> 한도를 늘리려면 고객 지원팀에 문의하세요. |
 | 구독당 [가용성 집합](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |지역당 2,500 |
 | 가용성 집합당 가상 머신 | 200 |
-| [리소스 그룹](../articles/azure-resource-manager/management/overview.md#resource-groups)별 [근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups-portal) | 800 | 
+| [리소스 그룹](../articles/azure-resource-manager/management/overview.md#resource-groups)별 [근접 배치 그룹](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) | 800 | 
 | 가용성 집합당 인증서 | 199<sup>2</sup> |
 | 구독당 인증서 |무제한<sup>3</sup> |
 
 <sup>1</sup> 기본 한도는 평가판 및 종량제와 같은 제안 범주 유형과 Dv2, F, G와 같은 시리즈에 따라 다릅니다. 예를 들어 기업계약 구독의 기본값은 350입니다.
 
-<sup>2</sup> SSH 공개 키와 같은 속성도 인증서로 푸시되고 이 제한에 포함됩니다. 이 제한을 무시하려면 [Windows용 Azure Key Vault 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows) 또는 [Linux용 Azure Key Vault 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)을 사용하여 인증서를 설치합니다.
+<sup>2</sup> SSH 공개 키와 같은 속성도 인증서로 푸시되고 이 제한에 포함됩니다. 이 제한을 무시하려면 [Windows용 Azure Key Vault 확장](../articles/virtual-machines/extensions/key-vault-windows.md) 또는 [Linux용 Azure Key Vault 확장](../articles/virtual-machines/extensions/key-vault-linux.md)을 사용하여 인증서를 설치합니다.
 
 <sup>3</sup> Azure Resource Manager를 사용하면 인증서는 Azure Key Vault에 저장됩니다. 구독에 대한 인증서 수는 무제한입니다. 배포당 인증서 한도는 1MB이며 단일 VM 또는 가용성 집합으로 구성됩니다.
 
