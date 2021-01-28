@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41aec98c2a8776ae128389679ad0acb324596ec4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546831"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947031"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -50,7 +50,7 @@ Azure App Service에 대한 앱 설정을 만들어 Application Insights Profile
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-[Azure Resource Manager 템플릿](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings?view=azure-cli-latest)를 사용 하 여 이러한 값을 설정할 수 있습니다.
+[Azure Resource Manager 템플릿](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp) [Azure CLI](/cli/azure/webapp/config/appsettings)를 사용 하 여 이러한 값을 설정할 수 있습니다.
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>수동으로 다른 클라우드에 프로파일러를 사용하도록 설정
 
