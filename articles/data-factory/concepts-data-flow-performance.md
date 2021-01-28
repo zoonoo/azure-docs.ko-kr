@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858589"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944990"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -68,7 +68,7 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트 하는 경우 디�
 
 라운드 로빈은 여러 파티션에 데이터를 균등 하 게 분산 합니다. 견고한 스마트 분할 전략을 구현 하는 데 좋은 핵심 후보가 없는 경우 라운드 로빈을 사용 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
-### <a name="hash"></a>해시
+### <a name="hash"></a>Hash
 
 Azure Data Factory는 유사한 값을 가진 행이 동일한 파티션에 포함 되도록 균일 한 파티션을 생성 하는 열 해시를 생성 합니다. Hash 옵션을 사용 하는 경우 가능한 파티션 오차를 테스트 합니다. 물리적 파티션 수를 설정할 수 있습니다.
 
@@ -115,7 +115,7 @@ Spark 클러스터 분리의 유형에 사용할 수 있는 세 가지 옵션이
 
 기본 클러스터 크기는 4 개의 드라이버 노드와 4 개의 작업자 노드입니다.  더 많은 데이터를 처리 하는 경우 더 큰 클러스터를 권장 합니다. 가능한 크기 조정 옵션은 다음과 같습니다.
 
-| 작업자 코어 | 드라이버 코어 | 총 코어 | 메모 |
+| 작업자 코어 | 드라이버 코어 | 총 코어 | 참고 |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | 계산에 최적화 된 경우 사용할 수 없음 |
 | 8 | 8 | 16 | |
@@ -161,7 +161,7 @@ Azure SQL Database에는 ' 원본 ' 분할 이라는 고유한 분할 옵션이 
 
 #### <a name="isolation-level"></a>격리 수준
 
-Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels)를 참조 하세요.
+Azure SQL 원본 시스템에서 읽기의 격리 수준은 성능에 영향을 줍니다. ' 커밋되지 않은 읽기 '를 선택 하면 가장 빠른 성능을 제공 하 고 데이터베이스 잠금을 방지 합니다. SQL 격리 수준에 대 한 자세한 내용은 [격리 수준 이해](/sql/connect/jdbc/understanding-isolation-levels)를 참조 하세요.
 
 #### <a name="read-using-query"></a>쿼리를 사용 하 여 읽기
 
@@ -208,7 +208,7 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 ![인덱스 사용 안 함](media/data-flow/disable-indexes-sql.png "인덱스 사용 안 함")
 
 > [!WARNING]
-> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints) 에 대 한 자세한 내용
+> 인덱스를 사용 하지 않도록 설정 하는 경우 데이터 흐름은 실제로 데이터베이스의 제어를 수행 하 고 쿼리는 성공할 가능성이 거의 없습니다. 결과적으로이 충돌을 방지 하기 위해 많은 ETL 작업이 야간 도중에 트리거됩니다. 자세한 내용은 [인덱스 비활성화의 제약 조건](/sql/relational-databases/indexes/disable-indexes-and-constraints) 에 대 한 자세한 내용
 
 #### <a name="scaling-up-your-database"></a>데이터베이스 확장
 
@@ -216,7 +216,7 @@ SQL 데이터베이스에 로드 하기 전에 인덱스를 비활성화 하면 
 
 ### <a name="azure-synapse-analytics-sinks"></a>Azure Synapse Analytics 싱크
 
-Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF가 데이터를 대량으로 효과적으로 로드 하는 [SQL 복사 명령을](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) 사용 하 여 쓸 수 있습니다. 준비를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
+Azure Synapse Analytics에 쓸 때 **준비 사용** 이 true로 설정 되어 있는지 확인 합니다. 이렇게 하면 ADF가 데이터를 대량으로 효과적으로 로드 하는 [SQL 복사 명령을](/sql/t-sql/statements/copy-into-transact-sql) 사용 하 여 쓸 수 있습니다. 준비를 사용 하는 경우 데이터 준비를 위해 Azure Data Lake Storage gen2 또는 Azure Blob Storage 계정을 참조 해야 합니다.
 
 스테이징 외에도 동일한 모범 사례는 Azure SQL Database으로 Azure Synapse Analytics에 적용 됩니다.
 

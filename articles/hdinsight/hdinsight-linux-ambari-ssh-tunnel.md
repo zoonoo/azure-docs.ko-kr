@@ -1,19 +1,16 @@
 ---
 title: SSH 터널링을 사용하여 Azure HDInsight에 액세스
 description: SSH 터널을 사용하여 Linux 기반 HDInsight 노드에 호스팅되는 웹 리소스를 안전하게 검색하는 방법에 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbc770fa6ae5ac69b2aa939f9d2c70bb01f5403
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075555"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945284"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>SSH 터널링을 사용 하 여 Apache Ambari 웹 UI, JobHistory, NameNode, Apache Oozie 및 기타 Ui에 액세스
 
@@ -64,7 +61,7 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 이 명령은 로컬 포트 9876에서 SSH를 통해 클러스터에 트래픽을 라우팅하는 연결을 만듭니다. 옵션은 다음과 같습니다.
 
-|옵션 |설명 |
+|옵션 |Description |
 |---|---|
 |D 9876|터널을 통해 트래픽을 라우팅하는 로컬 포트입니다.|
 |C|웹 트래픽이 주로 텍스트 이기 때문에 모든 데이터를 압축 합니다.|
@@ -83,28 +80,28 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
 ### <a name="create-or-load-a-session"></a>세션 만들기 또는 로드
 
-1. PuTTY를 열고 왼쪽 메뉴에서 **세션**이 선택되어 있는지 확인합니다. 세션을 이미 저장 한 경우에는 **저장 된 세션** 목록에서 세션 이름을 선택 하 고 **로드**를 선택 합니다.
+1. PuTTY를 열고 왼쪽 메뉴에서 **세션** 이 선택되어 있는지 확인합니다. 세션을 이미 저장 한 경우에는 **저장 된 세션** 목록에서 세션 이름을 선택 하 고 **로드** 를 선택 합니다.
 
 1. 저장된 세션이 없는 경우 연결 정보를 입력합니다.
 
     |속성 |값 |
     |---|---|
-    |호스트 이름 (또는 IP 주소)|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.|
+    |호스트 이름 (또는 IP 주소)|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
     |포트|22|
     |연결 유형|SSH|
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
     ![HDInsight create putty 세션](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
-1. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH**를 차례로 확장한 다음 **Tunnels**를 선택합니다.
+1. 대화 상자의 왼쪽에 있는 **Category** 섹션에서 **Connection**, **SSH** 를 차례로 확장한 다음 **Tunnels** 를 선택합니다.
 
 1. **SSH 포트 전달 양식을 제어** 하는 옵션에 대 한 다음 정보를 제공 합니다.
 
     |속성 |값 |
     |---|---|
-    |원본 포트|클라이언트에서 전달 하려는 포트입니다. 예를 들면 **9876**과 같습니다.|
-    |대상|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net**과 같습니다.|
+    |원본 포트|클라이언트에서 전달 하려는 포트입니다. 예를 들면 **9876** 과 같습니다.|
+    |대상|HDInsight 클러스터에 대 한 SSH 주소입니다. 예를 들면 **mycluster-ssh.azurehdinsight.net** 과 같습니다.|
     |동적|동적 SOCKS 프록시 라우팅을 사용 하도록 설정 합니다.|
 
     ![PuTTY 구성 터널링 옵션](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
@@ -118,12 +115,12 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 > [!IMPORTANT]  
 > 이 섹션의 단계에서는 Mozilla FireFox 브라우저를 사용합니다. 이 브라우저는 모든 플랫폼에서 동일한 프록시 설정을 제공하기 때문입니다. Google Chrome 등의 다른 최신 브라우저에는 터널에서 작동하기 위해 FoxyProxy 등의 확장이 필요할 수 있습니다.
 
-1. **localhost**와 **SOCKS v5** 프록시로 터널을 만들 때 사용한 포트를 사용하도록 브라우저를 구성합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
+1. **localhost** 와 **SOCKS v5** 프록시로 터널을 만들 때 사용한 포트를 사용하도록 브라우저를 구성합니다. Firefox 설정은 다음과 같습니다. 9876이 아닌 다른 포트를 사용한 경우 포트를 사용한 포트로 변경합니다.
 
     ![firefox 브라우저 프록시 설정](./media/hdinsight-linux-ambari-ssh-tunnel/firefox-proxy-settings.png)
 
    > [!NOTE]  
-   > **Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
+   > **Remote DNS** 를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 이 설정은 클러스터의 헤드 노드를 사용하여 DNS를 확인합니다.
 
 2. 와 같은 사이트를 방문 하 여 터널이 작동 하는지 확인 [https://www.whatismyip.com/](https://www.whatismyip.com/) 합니다. 반환된 IP는 Microsoft Azure 데이터 센터에서 사용하는 하나여야 합니다.
 
@@ -140,12 +137,12 @@ ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 
     ![Apache Ambari hdfs 서비스 선택 됨](./media/hdinsight-linux-ambari-ssh-tunnel/hdfs-service-selected.png)
 
-3. HDFS 서비스 정보가 표시되면 **빠른 링크**를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 **NameNode UI**를 선택합니다.
+3. HDFS 서비스 정보가 표시되면 **빠른 링크** 를 선택합니다. 클러스터 헤드 노드 목록이 표시됩니다. 헤드 노드 중 하나를 선택한 다음 **NameNode UI** 를 선택합니다.
 
     ![확장된 빠른 링크 메뉴의 이미지](./media/hdinsight-linux-ambari-ssh-tunnel/namenode-drop-down-menu.png)
 
     > [!NOTE]  
-    > __빠른 링크__를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
+    > __빠른 링크__ 를 선택하면 대기 표시기가 표시될 수 있습니다. 인터넷 연결 속도가 느린 경우 이러한 상태가 발생할 수 있습니다. 데이터를 서버에서 받을 때까지 기다렸다가 목록을 다시 시도하세요.
     >
     > **빠른 링크** 메뉴의 일부 항목이 화면 오른쪽에서 잘릴 수 있습니다. 그럴 경우 마우스를 사용하여 메뉴를 확장한 다음 오른쪽 화살표 키를 사용하여 메뉴의 나머지 부분을 볼 수 있도록 오른쪽으로 화면을 스크롤합니다.
 

@@ -1,19 +1,16 @@
 ---
 title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
 description: 고급 분석에서 알고리즘을 사용 하 여 Azure HDInsight에서 빅 데이터를 처리 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 13dd960cc7c900882acbcb9b17a5b8a1f32f956c
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821505"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946671"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 

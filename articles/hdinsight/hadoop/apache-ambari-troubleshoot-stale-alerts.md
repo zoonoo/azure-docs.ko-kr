@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight의 Apache Ambari 부실 경고
 description: HDInsight의 Apache Ambari 오래 된 경고에 대 한 가능한 원인 및 해결 방법에 대 한 논의 및 분석입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533838"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946712"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari 부실 경고
 
@@ -84,6 +81,6 @@ Ambari 에이전트가 구성 된 경고가 해당 일정을 누락 하는 것�
 
 * Twitter를 사용 하 여 연결 [@AzureSupport](https://twitter.com/azuresupport) 합니다. 사용자 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출 합니다. 가져오려면 포털 메뉴에서 도움말 ( **?** )을 선택 하거나 **도움말 + 지원** 창을 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요. 
+* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출 합니다. 가져오려면 포털 메뉴에서 도움말 (**?**)을 선택 하거나 **도움말 + 지원** 창을 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 참조 하세요. 
 
   구독 관리 및 청구에 대 한 지원이 Microsoft Azure 구독에 포함 되어 있습니다. 기술 지원은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 통해 제공 됩니다.

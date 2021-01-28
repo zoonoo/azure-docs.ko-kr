@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight의 Phoenix 성능
 description: Azure HDInsight 클러스터에 대 한 Apache Phoenix 성능 최적화를 위한 모범 사례
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 0dfb93db1af807459c37653189a90b754c933aa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffba3b986b35c375d0404d9d2bae5af79f93c54f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504794"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944810"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Apache Phoenix 성능 모범 사례
 
@@ -62,7 +59,7 @@ Phoenix의 테이블에 정의된 기본 키는 기본 HBase 테이블의 rowkey
 
 이 rowkey는 이제 데이터의 중복 복사본을 저장합니다. 이 값은 기본 HBase 테이블의 모든 셀에 포함되므로 기본 키에 포함될 열의 크기와 수를 고려해야 합니다.
 
-또한 기본 키의 값이 일정하게 증가하는 경우 쓰기 핫스폿을 만들지 않도록 하려면 *솔트 버킷*으로 테이블을 만들어야 합니다. [데이터 분할](#partition-data)을 참조하세요.
+또한 기본 키의 값이 일정하게 증가하는 경우 쓰기 핫스폿을 만들지 않도록 하려면 *솔트 버킷* 으로 테이블을 만들어야 합니다. [데이터 분할](#partition-data)을 참조하세요.
 
 ### <a name="column-family-design"></a>열 패밀리 디자인
 

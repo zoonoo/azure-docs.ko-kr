@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c23259a9cb1f3c409ad437a1e91151b5f401129
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221768"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946301"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -158,7 +158,7 @@ az network nsg rule create \
 
 서비스 엔드포인트에 사용할 수 있는 Azure 서비스를 통해 만든 리소스에 대한 네트워크 액세스를 제한하는 데 필요한 단계는 서비스에 따라 다릅니다. 각 서비스에 대한 특정 단계는 개별 서비스의 설명서를 참조하세요. 이 문서의 나머지 부분에는 Azure Storage 계정에 대한 네트워크 액세스를 제한하는 단계가 예제로 포함되어 있습니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 [az storage account create](/cli/azure/storage/account)를 사용하여 Azure Storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 
@@ -326,7 +326,7 @@ sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-sh
 
 *myVmPublic* VM에 대한 SSH 세션을 종료합니다.
 
-컴퓨터에서 [az storage share list](/cli/azure/storage/share?view=azure-cli-latest)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [스토리지 계정 만들기](#create-a-storage-account)의 스토리지 계정 이름과 키로 바꿉니다.
+컴퓨터에서 [az storage share list](/cli/azure/storage/share)를 사용하여 스토리지 계정의 공유를 봅니다. `<account-name>` 및 `<account-key>`를 [스토리지 계정 만들기](#create-a-storage-account)의 스토리지 계정 이름과 키로 바꿉니다.
 
 ```azurecli-interactive
 az storage share list \

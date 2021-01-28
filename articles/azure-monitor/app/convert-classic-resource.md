@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights 클래식 리소스를 작업 영역 �
 description: Azure Monitor Application Insights 클래식 리소스를 새 작업 영역 기반 모델로 업그레이드 하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536526"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945114"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -51,7 +51,7 @@ ms.locfileid: "95536526"
 - 연속 내보내기는 작업 영역 기반 리소스에 대해 지원 되지 않으므로 사용 하지 않도록 설정 해야 합니다.
 마이그레이션이 완료 되 면 [진단 설정을](../platform/diagnostic-settings.md) 사용 하 여 저장소 계정에 대 한 데이터 보관 또는 Azure 이벤트 허브로의 스트리밍을 구성할 수 있습니다.  
 
-- **General**  >  Log Analytics 작업 영역에 대 한 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 현재 보존 설정을 확인 합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90 일 보다 오래 저장 하 고이 더 큰 보존 기간을 유지 하려는 경우 작업 영역 보존 설정을 조정 해야 할 수 있습니다.
+-   >  Log Analytics 작업 영역에 대 한 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 현재 보존 설정을 확인 합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90 일 보다 오래 저장 하 고이 더 큰 보존 기간을 유지 하려는 경우 작업 영역 보존 설정을 조정 해야 할 수 있습니다.
 
 ## <a name="migrate-your-resource"></a>리소스 마이그레이션
 
@@ -114,7 +114,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update)를 참조하세요.
+이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -201,7 +201,7 @@ az monitor app-insights component update --app your-app-insights-resource-name -
 
 작업 영역 기반 Application Insights 리소스를 만든 후에는 연결된 Log Analytics 작업 영역을 수정할 수 있습니다.
 
-Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log Analytics 작업 영역 변경을 선택  >  **Log Analytics Workspaces** 합니다.
+Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log Analytics 작업 영역 변경을 선택  >  합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -237,7 +237,7 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log An
 
 마이그레이션하기 전에 변경 작업을 수행할 필요는 없지만,이 메시지는 현재 Application Insights 보존 설정이 기본 90 일 보존 기간으로 설정 되어 있지 않은지 경고 하는 것입니다. 이 경고 메시지는 마이그레이션 전에 Log Analytics 작업 영역에 대 한 보존 설정을 수정 하 고 새 데이터 수집을 시작 하는 것을 의미 합니다. 
 
-**General**  >  Log Analytics UI 내에서 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 Log Analytics에 대 한 현재 보존 설정을 확인할 수 있습니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다.
+  >  Log Analytics UI 내에서 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 Log Analytics에 대 한 현재 보존 설정을 확인할 수 있습니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 

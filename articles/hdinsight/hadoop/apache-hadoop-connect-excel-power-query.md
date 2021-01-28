@@ -1,19 +1,16 @@
 ---
 title: 파워 쿼리로 Apache Hadoop에 Excel 연결 - Azure HDInsight
 description: 비즈니스 인텔리전스 구성 요소를 사용하는 방법과 Excel용 파워 쿼리를 사용하여 HDInsight의 Hadoop에 저장된 데이터에 액세스하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397116"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946694"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
 
@@ -43,23 +40,23 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
    * Excel 2016
 
-     * **Data**  >  **Get Data**  >  **From Azure**  >  **Azure HDInsight (HDFS)에서**azure의 데이터 가져오기 > 데이터를 선택 합니다.
+     *   >    >    >  **Azure HDInsight (HDFS)에서** azure의 데이터 가져오기 > 데이터를 선택 합니다.
 
        ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
 
    * Excel 2013/2010
 
-     * **Power Query**  >  **From Azure**  >  **Microsoft Azure HDInsight에서**파워 쿼리를 선택 합니다.
+     *   >    >  **Microsoft Azure HDInsight에서** 파워 쿼리를 선택 합니다.
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **참고:** **파워 쿼리** 메뉴가 표시 되지 않으면 **파일**  >  **옵션**  >  **추가 기능**으로 이동 하 고 페이지 맨 아래에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능** 을 선택 합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
+       **참고:** **파워 쿼리** 메뉴가 표시 되지 않으면 **파일**  >  **옵션**  >  **추가 기능** 으로 이동 하 고 페이지 맨 아래에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능** 을 선택 합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
 
-       **참고:** 또한 파워 쿼리를 사용 하면 **다른 원본에서**선택 하 여 HDFS에서 데이터를 가져올 수 있습니다.
+       **참고:** 또한 파워 쿼리를 사용 하면 **다른 원본에서** 선택 하 여 HDFS에서 데이터를 가져올 수 있습니다.
 
-1. **Azure HDInsight (HDFS)** 대화 상자의 **계정 이름 또는 URL** 텍스트 상자에 클러스터와 연결 된 Azure Blob storage 계정의 이름을 입력 합니다. 그런 다음, **확인**을 선택합니다. 이 계정은 기본 스토리지 계정 또는 연결된 스토리지 계정이 될 수 있습니다.  형식은 `https://StorageAccountName.blob.core.windows.net/`입니다.
+1. **Azure HDInsight (HDFS)** 대화 상자의 **계정 이름 또는 URL** 텍스트 상자에 클러스터와 연결 된 Azure Blob storage 계정의 이름을 입력 합니다. 그런 다음, **확인** 을 선택합니다. 이 계정은 기본 스토리지 계정 또는 연결된 스토리지 계정이 될 수 있습니다.  형식은 `https://StorageAccountName.blob.core.windows.net/`입니다.
 
-1. **계정 키**에 Blob 저장소 계정의 키를 입력 한 다음 **연결**을 선택 합니다. (이 저장소에 처음 액세스할 때만 계정 정보를 입력하면 됩니다.)
+1. **계정 키** 에 Blob 저장소 계정의 키를 입력 한 다음 **연결** 을 선택 합니다. (이 저장소에 처음 액세스할 때만 계정 정보를 입력하면 됩니다.)
 
 1. 쿼리 편집기 왼쪽의 **탐색기** 창에서 클러스터와 연결 된 Blob 저장소 컨테이너 이름을 두 번 클릭 합니다. 기본적으로 컨테이너 이름은 클러스터 이름과 같습니다.
 
@@ -67,13 +64,13 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
     ![HDI Excel 파워 쿼리 데이터 가져오기](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
 
-1. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되 면 **닫기 & 로드**를 선택 합니다.  통합 문서에 데이터가 로드됩니다.
+1. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되 면 **닫기 & 로드** 를 선택 합니다.  통합 문서에 데이터가 로드됩니다.
 
     ![HDI Excel 파워 쿼리 가져온 테이블](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용 하 여 Apache Hive 데이터를 시각화](apache-hadoop-connect-hive-power-bi.md)합니다.
 * [Azure HDInsight에서 Power BI를 사용 하 여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

@@ -1,19 +1,16 @@
 ---
 title: 비 대화형 인증 .NET 응용 프로그램-Azure HDInsight
 description: Azure HDInsight에서 비대화형 인증 .NET HDInsight 애플리케이션을 만드는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: a696ba4f7bab85f2353e80d028220688531b3b69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021768"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946085"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 애플리케이션 만들기
 
@@ -21,7 +18,7 @@ ms.locfileid: "89021768"
 
 비대화형.NET 애플리케이션에서 다음 항목이 필요합니다.
 
-* Azure 구독 테넌트 ID(*디렉터리 ID*라고도 함) - [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
+* Azure 구독 테넌트 ID(*디렉터리 ID* 라고도 함) - [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
 * Azure AD(Azure Active Directory) 애플리케이션 클라이언트 ID - [Azure Active Directory 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 및 [응용 프로그램 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조 하세요.
 * Azure AD 애플리케이션 비밀 키 - [응용 프로그램 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조 하세요.
 
@@ -39,7 +36,7 @@ Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-ro
 1. 이 문서의 뒷부분에서 Hive 쿼리를 실행할 HDInsight 클러스터가 있는 리소스 그룹으로 이동 합니다. 많은 수의 리소스 그룹이 있는 경우 필터를 사용하여 원하는 리소스 그룹을 찾을 수 있습니다.
 1. 리소스 그룹 메뉴에서 **액세스 제어(IAM)** 를 선택합니다.
 1. **역할 할당** 탭을 선택하여 현재의 역할 할당을 봅니다.
-1. 페이지 맨 위에서 **+ 추가**를 선택합니다.
+1. 페이지 맨 위에서 **+ 추가** 를 선택합니다.
 1. 지침에 따라 Azure AD 애플리케이션에 소유자 역할을 추가합니다. 역할이 성공적으로 추가되면 애플리케이션이 소유자 역할 아래에 나열됩니다.
 
 ## <a name="develop-an-hdinsight-client-application"></a>HDInsight 클라이언트 애플리케이션 개발

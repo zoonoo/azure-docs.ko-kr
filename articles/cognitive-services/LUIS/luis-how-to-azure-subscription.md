@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348070"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945077"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -125,7 +125,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
 
 예측 끝점을 쿼리 하기 위한 액세스는 **관리** 섹션의 **응용 프로그램 정보** 페이지에 있는 설정에 의해 제어 됩니다.
 
-|[프라이빗 엔드포인트](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
+|[개인 끝점](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
 |:--|:--|
 |소유자 및 참가자가 사용할 수 있음|소유자, 참가자 및 앱 ID를 알고 있는 모든 사용자가 사용할 수 있음|
 
@@ -173,7 +173,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI를 사용 
 
 ### <a name="create-resources-in-the-azure-cli"></a>Azure CLI에서 리소스 만들기
 
-[Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다.
+[Azure CLI](/cli/azure/install-azure-cli) 를 사용 하 여 각 리소스를 개별적으로 만들 수 있습니다.
 
 리소스 `kind` :
 

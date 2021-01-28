@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight 관리 IP 주소
 description: Azure HDInsight를 사용 하 여 가상 네트워킹에 대해 네트워크 보안 그룹 및 사용자 정의 경로를 올바르게 구성 하기 위해에서 인바운드 트래픽을 허용 해야 하는 IP 주소에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 89d749a04c22967198be217350ff38751336fe67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549041"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944116"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
@@ -78,7 +75,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 TCP와 UDP 모�
 | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | \*: 443 | 인바운드 |
 | 한국 | 한국 중부 | 52.231.39.142</br>52.231.36.209 | \*: 443 | 인바운드 |
 | &nbsp; | 한국 남부 | 52.231.203.16</br>52.231.205.214 | \*: 443 | 인바운드
-| United Kingdom | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
+| 영국 | 영국 서부 | 51.141.13.110</br>51.141.7.20 | \*: 443 | 인바운드 |
 | &nbsp; | 영국 남부 | 51.140.47.39</br>51.140.52.16 | \*: 443 | 인바운드 |
 | 미국 | 미국 중부 | 13.89.171.122</br>13.89.171.124 | \*: 443 | 인바운드 |
 | &nbsp; | 미국 동부 | 13.82.225.233</br>40.71.175.99 | \*: 443 | 인바운드 |

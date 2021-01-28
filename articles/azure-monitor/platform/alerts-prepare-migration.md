@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a721af9acf980e88ad60504e75d2488c8a4d81
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944471"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>클래식 경고 규칙 마이그레이션을 위한 논리 앱 및 Runbook 준비
 
@@ -30,7 +30,7 @@ ms.locfileid: "91358785"
 | 배포 스크립트 유형 | 클래식 경고 | 새 메트릭 경고 |
 | ---------------------- | -------------- | ----------------- |
 |REST API     | [microsoft insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert)        | [az monitor 메트릭 경고](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [참조](/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager 템플릿 | [클래식 경고의 경우](./alerts-enable-template.md)|[새 메트릭 경고의 경우](./alerts-metric-create-templates.md)|
 
@@ -70,7 +70,7 @@ ms.locfileid: "91358785"
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행합니다.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
 
 1. 새 논리 앱을 만듭니다.
 

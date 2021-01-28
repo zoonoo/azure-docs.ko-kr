@@ -1,19 +1,16 @@
 ---
 title: Apache Kafka TLS 암호화 & 인증-Azure HDInsight
 description: Kafka 클라이언트와 kafka 브로커 간의 통신에 TLS 암호화를 설정 하 고 Kafka broker 사이에서 통신을 설정 합니다. 클라이언트의 SSL 인증을 설정 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012308"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945194"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 TLS 암호화 및 인증 설정
 

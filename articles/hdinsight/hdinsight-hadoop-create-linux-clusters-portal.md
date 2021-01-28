@@ -1,19 +1,16 @@
 ---
 title: 웹 브라우저, Azure HDInsight를 사용 하 여 Apache Hadoop 클러스터 만들기
 description: HDInsight에서 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법에 대해 알아봅니다. 웹 브라우저 및 Azure Portal를 사용 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541709"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945818"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -25,7 +22,7 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 
 Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resource Manager 템플릿을 사용하여 많은 세부 정보를 숨길 수 있습니다. 자세한 내용은 [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
-Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
 
@@ -45,7 +42,7 @@ Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https:
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
 |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -70,7 +67,7 @@ Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https:
 
 ### <a name="primary-storage"></a>기본 저장소
 
-기본 **저장소 형식** 에 대 한 드롭다운 목록에서 기본 저장소 유형을 선택 합니다. 완료 하는 이후 필드는 선택에 따라 달라 집니다. **Azure Storage** :
+기본 **저장소 형식** 에 대 한 드롭다운 목록에서 기본 저장소 유형을 선택 합니다. 완료 하는 이후 필드는 선택에 따라 달라 집니다. **Azure Storage**:
 
 1. 선택 **방법** 의 경우 **목록에서 선택** 을 선택 하거나 선택 **키를 사용** 합니다.
     * **Select from list** 의 경우 드롭다운 목록에서 **기본 저장소 계정을** 선택 하거나 **새로 만들기** 를 선택 합니다.
@@ -97,7 +94,7 @@ Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https:
 
 **보안 + 네트워킹** 탭에서 다음 정보를 제공 합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |엔터프라이즈 보안 패키지|선택 사항: **Enterprise Security Package** 사용할 확인란을 선택 합니다. 자세한 내용은 [Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package를 사용 하 여 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조 하세요.|
 |TLS|선택 사항: 드롭다운 목록에서 TLS 버전을 선택 합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.|
@@ -114,7 +111,7 @@ Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https:
 
 **구성 + 가격 책정** 탭에서 다음 정보를 제공 합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |+ 응용 프로그램 추가|선택 사항: 원하는 응용 프로그램을 선택 합니다. Microsoft, ISV(Independent Software Vendor) 또는 사용자는 이러한 애플리케이션을 개발할 수 있습니다. 자세한 내용은 [클러스터 생성 중에 애플리케이션 설치](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation)를 참조하세요.|
 |노드 크기|선택 사항: 다른 크기의 노드를 선택 합니다.|

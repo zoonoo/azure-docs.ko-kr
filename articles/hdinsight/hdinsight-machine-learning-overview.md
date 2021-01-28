@@ -1,19 +1,16 @@
 ---
 title: 기계 학습 개요 - Azure HDInsight
 description: Azure HDInsight의 클러스터에 대 한 빅 데이터 기계 학습 옵션의 개요입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302692"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945256"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -41,7 +38,7 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모
 
 ![Microsoft Azure machine learning 개요](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. [데이터 가져오기 모듈](../machine-learning/classic/import-data.md)을 사용 하 여 Azure Machine Learning Studio (클래식)에서 HiveQL 쿼리를 실행 하 고 Hive에서 처리 되 고 blob 저장소에 저장 된 데이터에 액세스할 수 있습니다.
+[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링* 은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. [데이터 가져오기 모듈](../machine-learning/classic/import-data.md)을 사용 하 여 Azure Machine Learning Studio (클래식)에서 HiveQL 쿼리를 실행 하 고 Hive에서 처리 되 고 blob 저장소에 저장 된 데이터에 액세스할 수 있습니다.
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive 도구 키트
 
@@ -49,7 +46,7 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모
 
 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신의 알고리즘과 기술에 관심이 있는 학생들이 사용하고 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 ### <a name="scenarios"></a>시나리오
 

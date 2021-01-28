@@ -9,12 +9,12 @@ ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4b586b95232af2a154993523402f81ee88a22cda
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967126"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946158"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -121,7 +121,7 @@ ms.locfileid: "97967126"
 
 - **원인**: CosmosDbSqlApi 작업에 문제가 있습니다.
 
-- **권장 사항**:  오류 정보를 확인하세요. [CosmosDb 도움말 문서](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk)를 참조 하세요. 도움이 필요 하면 CosmosDb 팀에 문의 하세요.
+- **권장 사항**:  오류 정보를 확인하세요. [CosmosDb 도움말 문서](../cosmos-db/troubleshoot-dot-net-sdk.md)를 참조 하세요. 도움이 필요 하면 CosmosDb 팀에 문의 하세요.
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -198,7 +198,7 @@ ms.locfileid: "97967126"
 
     - Express 경로와 같은 특수 한 네트워크 설정이 있는지 확인 하 고 네트워크에 충분 한 대역폭이 있는지 확인 합니다. 전체 대역폭이 낮을 때 자체 호스팅 IR 동시 작업 설정을 낮추는 것이 좋습니다 .이 경우를 통해 여러 동시 작업에서 네트워크 리소스 경쟁을 방지할 수 있습니다.
 
-    - 파일 크기가 보통 또는 작은 경우 이진이 아닌 복사에 작은 블록 크기를 사용 하 여 이러한 시간 제한 오류를 완화할 수 있습니다. [Blob Storage Put 블록](https://docs.microsoft.com/rest/api/storageservices/put-block)을 참조 하세요.
+    - 파일 크기가 보통 또는 작은 경우 이진이 아닌 복사에 작은 블록 크기를 사용 하 여 이러한 시간 제한 오류를 완화할 수 있습니다. [Blob Storage Put 블록](/rest/api/storageservices/put-block)을 참조 하세요.
 
        사용자 지정 블록 크기를 지정 하려면 다음을 수행 합니다. json 편집기에서 속성을 편집할 수 있습니다.
         ```
@@ -486,7 +486,7 @@ ms.locfileid: "97967126"
 
 - **해결** 방법: 문제를 해결 하려면 다음 단계를 수행 합니다.
 
-    1. SQL 싱크 [내결함성](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance), 특히 "redirectIncompatibleRowSettings"을 적용 하 여 문제가 있는 행을 해결 합니다.
+    1. SQL 싱크 [내결함성](./copy-activity-fault-tolerance.md), 특히 "redirectIncompatibleRowSettings"을 적용 하 여 문제가 있는 행을 해결 합니다.
 
         > [!NOTE]
         > 내결함성을 통해 추가 실행 시간이 발생할 수 있으며이로 인해 비용이 더 높아질 수 있습니다.
@@ -831,7 +831,7 @@ ms.locfileid: "97967126"
     - OriginalType 형식이 지원 되는지 두 번 확인 합니다. 이러한 특수 기호를 사용 하지 마십시오 `,;{}()\n\t=` . 
 
 
-## <a name="rest"></a>REST
+## <a name="rest"></a>REST (영문)
 
 ### <a name="error-code--restsinkcallfailed"></a>오류 코드: RestSinkCallFailed
 

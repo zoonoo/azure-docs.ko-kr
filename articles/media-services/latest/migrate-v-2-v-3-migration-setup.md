@@ -1,6 +1,6 @@
 ---
-title: Media Services v2에서 v3 마이그레이션 검사 목록
-description: 이 문서는 Azure Media Services v 2에서 v 2로의 최소 마이그레이션에 도움이 되는 검사 목록입니다.
+title: V2를 v3 마이그레이션 설정으로 Media Services
+description: 이 문서는 Azure Media Services v 2에서 v3로 마이그레이션하기 위한 환경을 설정 하는 데 도움이 됩니다.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
-ms.openlocfilehash: bd1488a1e89bb7d5c8a3a2dedda60bd5a226e02e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1f9e0816a3533008a01f26ca7c0e712abfa23e8e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898259"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946250"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3 단계-V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
 

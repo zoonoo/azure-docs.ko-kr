@@ -1,19 +1,16 @@
 ---
 title: Azure CLI를 사용 하 여 Apache Hadoop 클러스터 만들기-Azure HDInsight
 description: 플랫폼 간 Azure CLI를 사용 하 여 Azure HDInsight 클러스터를 만드는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: 4d378151b72ab09e8b51467ce09ec9d43c517813
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a2b39f25aa2a8847697df8a5097f5ffdc9cbd212
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945891"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -40,7 +37,7 @@ ms.locfileid: "94657961"
 
 2. 환경 변수를 설정합니다. 이 문서에서 변수를 사용 하는 것은 Bash를 기반으로 합니다. 다른 환경에서는 약간의 변형이 필요합니다. 클러스터 만들기에 사용할 수 있는 매개 변수의 전체 목록은 [az-hdinsight-create](/cli/azure/hdinsight#az-hdinsight-create) 를 참조 하세요.
 
-    |매개 변수 | 설명 |
+    |매개 변수 | Description |
     |---|---|
     |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 변수를 `clusterSizeInNodes` 에 전달 된 값으로 사용 `--workernode-count` 합니다. |
     |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 변수를 `clusterVersion` 에 전달 된 값으로 사용 `--version` 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|

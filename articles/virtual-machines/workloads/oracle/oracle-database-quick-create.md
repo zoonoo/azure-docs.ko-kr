@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 6468acb598cee26c46b62d64c748f0e393f27271
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d16153a7dc9a3164a5127b80a474bf9c398684ac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945133"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -195,7 +195,7 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 1. sqlplus를 사용하여 데이터베이스에 연결합니다.
 
     ```bash
-    sqlplus / as sysdba
+    sqlplus sys as sysdba
     ```
 
 2. 연결되면 EM Express에 대해 5502 포트를 설정합니다.

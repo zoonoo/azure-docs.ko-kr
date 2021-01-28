@@ -1,19 +1,16 @@
 ---
 title: HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션 - Azure
 description: HDInsight의 ML Services 사용자에게 제공되는 다양한 컴퓨팅 컨텍스트 옵션에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536337"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943952"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>HDInsight의 ML Services에 대한 컴퓨팅 컨텍스트 옵션
 
@@ -29,8 +26,8 @@ Azure HDInsight의 ML Services는 컴퓨팅 컨텍스트를 설정하여 호출�
 
 일반적으로 에지 노드의 ML Services에서 실행되는 R 스크립트는 해당 노드의 R 인터프리터 내에서 실행됩니다. 예외는 RevoScaleR 함수를 호출하는 단계입니다. RevoScaleR 호출은 RevoScaleR 컴퓨팅 컨텍스트를 설정하는 방법에 따라 결정된 컴퓨팅 환경에서 실행됩니다.  에지 노드에서 R 스크립트 실행 시 컴퓨팅 컨텍스트의 가능한 값은 다음과 같습니다.
 
-- 로컬 순차( *local* )
-- 로컬 병렬( *localpar* )
+- 로컬 순차(*local*)
+- 로컬 병렬(*localpar*)
 - Map Reduce
 - Spark
 

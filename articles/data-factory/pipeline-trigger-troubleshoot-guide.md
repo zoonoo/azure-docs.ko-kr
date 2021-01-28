@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220255"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944910"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -60,7 +60,7 @@ Source=Microsoft.DataTransfer.Common,'
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-**원인**: 통합 런타임의 용량 제한에 도달 했습니다. 동시에 동일한 통합 런타임을 사용 하 여 많은 양의 데이터 흐름을 실행 하 고 있을 수 있습니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) 을 참조 하세요.
+**원인**: 통합 런타임의 용량 제한에 도달 했습니다. 동시에 동일한 통합 런타임을 사용 하 여 많은 양의 데이터 흐름을 실행 하 고 있을 수 있습니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) 을 참조 하세요.
 
 **해결 방법**:
  
@@ -76,13 +76,13 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 **해결 방법**
 
 1. [파이프라인 오류 및 오류를 처리 하는 방법에](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)따라 활동 수준 검사를 구현 합니다.
-1. Azure Logic Apps를 사용 하 여 [팩터리에서 쿼리](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)다음에 정기적인 간격으로 파이프라인을 모니터링할 수 있습니다.
+1. Azure Logic Apps를 사용 하 여 [팩터리에서 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)다음에 정기적인 간격으로 파이프라인을 모니터링할 수 있습니다.
 
 ## <a name="monitor-pipeline-failures-in-regular-intervals"></a>정기적으로 파이프라인 오류 모니터링
 
 5 분 이라는 간격으로 실패 한 Data Factory 파이프라인을 모니터링 해야 할 수도 있습니다. 끝점을 사용 하 여 데이터 팩터리에서 파이프라인 실행을 쿼리하고 필터링 할 수 있습니다. 
 
-[팩터리에 쿼리](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory)에 설명 된 대로 5 분 마다 실패 한 모든 파이프라인을 쿼리하려면 Azure 논리 앱을 설정 합니다. 그런 다음 티켓 시스템에 인시던트를 보고할 수 있습니다.
+[팩터리에 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)에 설명 된 대로 5 분 마다 실패 한 모든 파이프라인을 쿼리하려면 Azure 논리 앱을 설정 합니다. 그런 다음 티켓 시스템에 인시던트를 보고할 수 있습니다.
 
 자세한 내용은 [Data Factory에서 알림 보내기, 파트 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)를 참조 하세요.
 

@@ -1,18 +1,15 @@
 ---
 title: HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
 description: Apache Storm 워크 로드를 Spark 스트리밍 또는 Spark 구조적 스트리밍으로 마이그레이션하기 위한 차이점과 마이그레이션 흐름입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944780"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
 
@@ -44,7 +41,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Spark 스트리밍 및 Spark 구조적 스트리밍
 
-Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합니다. 구조적 스트리밍은 향상 된 기능 및 유지 관리를 계속 받고 있지만, d 스트림은 유지 관리 모드 에서만 가능 합니다. **참고:이 점을 강조 하려면 링크가 필요**합니다. 구조적 스트리밍에는 지원 되는 원본 및 싱크에 대 한 많은 기능이 포함 되지 않으므로 요구 사항을 평가 하 여 적절 한 Spark 스트림 처리 옵션을 선택 합니다.
+Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합니다. 구조적 스트리밍은 향상 된 기능 및 유지 관리를 계속 받고 있지만, d 스트림은 유지 관리 모드 에서만 가능 합니다. **참고:이 점을 강조 하려면 링크가 필요** 합니다. 구조적 스트리밍에는 지원 되는 원본 및 싱크에 대 한 많은 기능이 포함 되지 않으므로 요구 사항을 평가 하 여 적절 한 Spark 스트림 처리 옵션을 선택 합니다.
 
 ## <a name="streaming-single-event-processing-vs-micro-batch-processing"></a>스트리밍 (단일 이벤트) 처리 vs Micro-Batch 처리
 
@@ -57,7 +54,7 @@ Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합�
 
 Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 구성 요소로 구성됩니다. 그래프의 구성 요소 간에 데이터가 흐릅니다. 각 구성 요소는 하나 이상의 데이터 스트림을 사용하며, 선택적으로 하나 이상의 스트림을 내보낼 수 있습니다.
 
-|구성 요소 |설명 |
+|구성 요소 |Description |
 |---|---|
 |Spout|데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.|
 |화살표|Spout 또는 다른 볼트에서 내보낸 스트림을 사용 합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 스토리지에 데이터를 쓰는 역할을 수행합니다.|
@@ -67,7 +64,7 @@ Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 
 
 스톰은 다음 세 가지 디먼 구성 되어 있으며,이로 인해 스톰 클러스터가 작동 합니다.
 
-|데몬 |설명 |
+|데몬 |Description |
 |---|---|
 |Nimbus|Hadoop JobTracker와 마찬가지로 클러스터 주위에 코드를 배포 하 고 컴퓨터에 작업을 할당 하 고 오류를 모니터링 하는 일을 담당 합니다.|
 |Zookeeper|클러스터 조정에 사용 됩니다.|
@@ -104,7 +101,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 깊이 있게 바인딩�
 
 구조적 스트리밍에서 데이터는 시스템에 들어오는 즉시 입력 테이블로 수집됩니다. 이 입력 테이블에 대해 작업을 수행하는 쿼리를 작성합니다(데이터 프레임 및 데이터 세트 API 사용).
 
-쿼리 출력은 쿼리 결과를 포함 하는 *결과 테이블*을 생성 합니다. 관계형 데이터베이스와 같은 외부 데이터 저장소에 대 한 결과 테이블에서 데이터를 그릴 수 있습니다.
+쿼리 출력은 쿼리 결과를 포함 하는 *결과 테이블* 을 생성 합니다. 관계형 데이터베이스와 같은 외부 데이터 저장소에 대 한 결과 테이블에서 데이터를 그릴 수 있습니다.
 
 데이터가 입력 테이블에서 처리되는 타이밍은 트리거 간격으로 제어됩니다. 트리거 간격은 기본적으로 0이며, 이 경우 데이터가 들어오는 즉시 구조적 스트리밍에서 처리하려고 시도합니다. 실제로 구조적 스트리밍은 이전 쿼리의 실행을 처리하는 즉시 새로 받은 데이터에 대해 또 다른 처리를 시작합니다. 트리거가 일정한 간격으로 실행되도록 구성하여 스트리밍 데이터를 시간 기반 일괄 처리로 처리할 수 있습니다.
 

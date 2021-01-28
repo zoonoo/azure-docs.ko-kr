@@ -1,19 +1,16 @@
 ---
 title: Apache Hive 및 HiveQL이란 - Azure HDInsight
 description: Apache Hive는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Transact-SQL과 유사하게 HiveQL을 사용하여 Hive에 저장된 데이터를 쿼리할 수 있습니다. 이 문서에서는 Azure HDInsight와 함께 Hive 및 HiveQL을 사용하는 방법에 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540400"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944292"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -23,7 +20,7 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-|클러스터 유형 |설명|
+|클러스터 유형 |Description|
 |---|---|
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|
@@ -34,7 +31,7 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 
 HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다음 표를 참조하세요.
 
-| 다음을 원하는 경우 **이 메서드를 사용** ... | ... **대화형** 쿼리 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
+| 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X, 또는 Windows |
 | [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -72,14 +69,14 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive로 다음과 같은 두 가지 형식의 테이블을 만들 수 있습니다.
 
-* __내부__ : 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 스토리지인 `/hive/warehouse/`에 있습니다.
+* __내부__: 데이터가 Hive 데이터 웨어하우스에 저장됩니다. 데이터 웨어하우스는 클러스터의 기본 스토리지인 `/hive/warehouse/`에 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 내부 테이블을 사용합니다.
 
     * 데이터가 일시적입니다.
     * Hive로 테이블 및 데이터의 수명 주기를 관리하고자 합니다.
 
-* __외부__ : 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 스토리지에 데이터를 저장할 수 있습니다.
+* __외부__: 데이터가 데이터 웨어하우스 외부에 저장됩니다. 클러스터에서 액세스할 수 있는 스토리지에 데이터를 저장할 수 있습니다.
 
     다음 조건 중 하나가 적용되는 경우 외부 테이블을 사용합니다.
 

@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994544"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944535"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "91994544"
 
 이 문서에 설명 된 지원 되는 메서드를 사용 하 여 Azure Red Hat OpenShift. x의 기존 배포 하나 이상에 대 한 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정할 수 있습니다.
 
-기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true)를 실행 합니다.
+기존 클러스터의 경우 [Azure CLI에서이 Bash 스크립트](/cli/azure/openshift#az-openshift-create&preserve-view=true)를 실행 합니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "91994544"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -97,7 +97,7 @@ ms.locfileid: "91994544"
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-1. **SubscriptionId**의 값을 복사 합니다.
+1. **SubscriptionId** 의 값을 복사 합니다.
 
 1. 다음 명령을 실행 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "91994544"
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
+1. 출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
 1. 모니터링을 사용 하도록 설정 하려면 다음 명령을 실행 합니다. `azureAroV4ClusterResourceId`, `logAnalyticsWorkspaceResourceId` 및 매개 변수의 값을 바꿉니다 `kubeContext` .
 
@@ -121,7 +121,7 @@ ms.locfileid: "91994544"
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    예제:
+    예:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
@@ -133,7 +133,7 @@ ms.locfileid: "91994544"
 
 이 예에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역 (이미 있는 경우)을 만들어 해당 프로세스를 간소화 합니다.
 
-생성 되는 기본 작업 영역은 *defaultworkspace- \<GUID> - \<Region> *형식입니다.  
+생성 되는 기본 작업 영역은 *defaultworkspace- \<GUID> - \<Region>* 형식입니다.  
 
 `azureAroV4ClusterResourceId`및 매개 변수의 값을 바꿉니다 `kubeContext` .
 
@@ -142,7 +142,7 @@ export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGrou
 export kubeContext="<kubeContext name of your ARO v4 cluster>"
 ```
 
-예:
+예를 들면 다음과 같습니다.
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext`
 
@@ -154,15 +154,15 @@ export kubeContext="<kubeContext name of your ARO v4 cluster>"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창이 나 홈 페이지에서 **Azure Monitor**를 선택 합니다.
+1. 왼쪽 창이 나 홈 페이지에서 **Azure Monitor** 를 선택 합니다.
 
-1. **Insights** 섹션에서 **컨테이너**를 선택 합니다.
+1. **Insights** 섹션에서 **컨테이너** 를 선택 합니다.
 
-1. **모니터-컨테이너** 페이지에서 모니터링 되지 않는 **클러스터**를 선택 합니다.
+1. **모니터-컨테이너** 페이지에서 모니터링 되지 않는 **클러스터** 를 선택 합니다.
 
-1. 모니터링 되지 않는 클러스터 목록에서 클러스터를 선택 하 고 **사용**을 선택 합니다.
+1. 모니터링 되지 않는 클러스터 목록에서 클러스터를 선택 하 고 **사용** 을 선택 합니다.
 
-    **클러스터 유형** 열에서 **ARO** 값을 찾아 목록에서 결과를 식별할 수 있습니다. **사용**을 선택 하 고 나면이 문서로 리디렉션됩니다.
+    **클러스터 유형** 열에서 **ARO** 값을 찾아 목록에서 결과를 식별할 수 있습니다. **사용** 을 선택 하 고 나면이 문서로 리디렉션됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

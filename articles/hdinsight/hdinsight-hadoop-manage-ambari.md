@@ -1,19 +1,16 @@
 ---
 title: Ambari 웹 UI를 사용하여 Azure HDInsight 모니터링 및 관리
 description: Apache Ambari UI를 사용 하 여 HDInsight 클러스터를 모니터링 하 고 관리 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 8195cffed077a77c0ad66fda1126e2f3ea53d5f0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179149"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945707"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -162,7 +159,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성 하는 작업을 수행 하는 경우이 모드를 사용 하도록 설정 해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
     |중지|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
-    |관리자 권한으로|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
+    |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
     |재시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
     |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|

@@ -2,19 +2,16 @@
 title: Azure HDInsight를 사용한 Storm 문제 해결
 description: Azure HDInsight에서 Apache Storm을 사용할 때 제기되는 일반적인 질문에 답합니다.
 keywords: Azure HDInsight, Storm, FAQ, 문제 해결 가이드, 일반적인 문제
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95982265"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946312"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
 
@@ -60,7 +57,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
@@ -174,7 +171,7 @@ Worker Log4J 구성 파일은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/
 
 토폴로지를 제출 하는 경우 사용자에 게 다음과 유사한 오류 메시지가 표시 될 수 있습니다 `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)을(를) 참조하세요.
+이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)를 참조하세요.
 
 ---
 

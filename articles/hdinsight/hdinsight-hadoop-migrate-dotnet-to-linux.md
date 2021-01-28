@@ -1,19 +1,16 @@
 ---
 title: Linux 기반 HDInsight에서 Hadoop MapReduce와 함께 .NET 사용 - Azure
 description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 애플리케이션을 사용하는 방법에 대해 알아보세요.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: a6e9bea5d600771a7754142a4df4c0af503ccf5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075487"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945596"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -34,15 +31,15 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(https:/
 
 1. [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)를 설치합니다. 설치 중 사용하려는 Visual Studio의 버전을 선택합니다.
 
-2. Visual Studio 2015에서 __Analyze__  >  __이식성 분석기 설정__분석을 선택 하 고 __Mono__ 섹션에서 __4.5__ 가 선택 되어 있는지 확인 합니다.
+2. Visual Studio 2015에서   >  __이식성 분석기 설정__ 분석을 선택 하 고 __Mono__ 섹션에서 __4.5__ 가 선택 되어 있는지 확인 합니다.
 
     ![분석기 설정의 Mono 섹션에 4.5가 선택되어 있음](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
-    __확인__을 선택하여 구성을 저장합니다.
+    __확인__ 을 선택하여 구성을 저장합니다.
 
-3. __분석__  >  __어셈블리 이식성__분석을 선택 합니다. 솔루션이 포함된 어셈블리를 선택한 다음 __열기__를 선택하여 분석을 시작합니다.
+3. __분석__  >  __어셈블리 이식성__ 분석을 선택 합니다. 솔루션이 포함된 어셈블리를 선택한 다음 __열기__ 를 선택하여 분석을 시작합니다.
 
-4. 분석이 완료 되 __면 분석__  >  __뷰 분석 보고서__를 선택 합니다. __Portability Analysis Results__에서 __Open report__를 선택하여 보고서를 엽니다.
+4. 분석이 완료 되 __면 분석__  >  __뷰 분석 보고서__ 를 선택 합니다. __Portability Analysis Results__ 에서 __Open report__ 를 선택하여 보고서를 엽니다.
 
     ![이식성 분석기 결과 대화 상자](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

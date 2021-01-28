@@ -1,19 +1,17 @@
 ---
 title: '아키텍처: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 아키텍처 모범 사례를 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb01f2fabb89c6928dc4919987efa27df36a8a7a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533736"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946451"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
 
@@ -103,7 +101,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 정의합니다(예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`).
+- 필요에 `ANALYZE TABLE` 따라 명령을 실행 하 여 테이블 및 열에 대 한 통계를 생성 합니다. 예들 들어 `ANALYZE TABLE [table_name] COMPUTE STATISTICS`입니다.
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 3b7b405e34b6ca82da593507ad6103d360c5df1e
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944508"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>보안 및 액세스 제어 문제 Azure Data Factory 문제 해결
 
@@ -49,13 +49,13 @@ ms.locfileid: "97968588"
 
 * **자체 호스팅 IR** 을 사용 하는 경우 Azure IR를 사용 하는 경우 동일한 데이터 저장소에 연결 하는 데 문제가 발생할 수 있으므로 프록시, 방화벽 및 네트워크 설정을 확인 합니다. 이 시나리오를 해결 하려면 다음을 참조 하세요.
 
-   * [자체 호스팅 IR 포트 및 방화벽](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#ports-and-firewalls)
-   * [Azure Data Lake Storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store)
+   * [자체 호스팅 IR 포트 및 방화벽](./create-self-hosted-integration-runtime.md#ports-and-firewalls)
+   * [Azure Data Lake Storage 커넥터](./connector-azure-data-lake-store.md)
   
 * **Azure IR** 사용 하는 경우 데이터 저장소의 방화벽 설정을 사용 하지 않도록 설정 해 봅니다. 이 방법은 다음과 같은 두 가지 상황에서 문제를 해결할 수 있습니다.
   
-   * [AZURE IR IP 주소](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses) 는 허용 목록에 없습니다.
-   * *신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용* 기능은 [Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#supported-capabilities) 및 [Azure Data Lake Storage Gen 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#supported-capabilities)에 대해 해제 되어 있습니다.
+   * [AZURE IR IP 주소](./azure-integration-runtime-ip-addresses.md) 는 허용 목록에 없습니다.
+   * *신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용* 기능은 [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) 및 [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities)에 대해 해제 되어 있습니다.
    * Azure Data Lake Storage Gen1에 대해 *Azure 서비스에 대 한 액세스 허용* 설정이 사용 하도록 설정 되어 있지 않습니다.
 
 이전 방법이 작동 하지 않는 경우 Microsoft에 도움을 요청 하세요.
@@ -88,7 +88,7 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 #### <a name="resolution"></a>해결 방법
 
 이 문제를 해결하려면 다음을 수행하십시오.
-- [Azure Data Factory에 대 한 Azure 개인 링크](https://docs.microsoft.com/azure/data-factory/data-factory-private-link#dns-changes-for-private-endpoints) 문서를 참조 하세요. 지침은 개인 IP 주소에 대 한 Data Factory FQDN을 확인 하도록 개인 DNS 영역 또는 서버를 구성 하기 위한 것입니다.
+- [Azure Data Factory에 대 한 Azure 개인 링크](./data-factory-private-link.md#dns-changes-for-private-endpoints) 문서를 참조 하세요. 지침은 개인 IP 주소에 대 한 Data Factory FQDN을 확인 하도록 개인 DNS 영역 또는 서버를 구성 하기 위한 것입니다.
 
 - 장기 솔루션으로 사용자 지정 DNS를 사용 하는 것이 좋습니다. 그러나 개인 DNS 영역 또는 서버를 구성 하지 않으려면 다음 임시 솔루션을 시도해 보세요.
 
@@ -120,7 +120,7 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
  
 이 문제를 해결하려면 다음을 수행하십시오.
 
-1. [팩터리-업데이트](https://docs.microsoft.com/rest/api/datafactory/Factories/Update) 페이지로 이동 합니다.
+1. [팩터리-업데이트](/rest/api/datafactory/Factories/Update) 페이지로 이동 합니다.
 
 1. 오른쪽 위에서 **사용해 보기** 단추를 선택 합니다.
 1. **매개 변수** 에서 필요한 정보를 입력 합니다. 
@@ -146,7 +146,7 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 
 **해결 방법 2**
 
-이 문제를 해결 하려면 [Azure Data Factory에 대 한 Azure 개인 링크](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)로 이동 합니다.
+이 문제를 해결 하려면 [Azure Data Factory에 대 한 Azure 개인 링크](./data-factory-private-link.md)로 이동 합니다.
 
 다음 스크린샷에 표시 된 것 처럼 사용자 인터페이스에서 공용 네트워크 액세스를 사용 하도록 설정 해 봅니다.
 

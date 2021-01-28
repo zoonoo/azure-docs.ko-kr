@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 04ba9777fe9e8470e6f02c83f3996d098023e05e
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: a48abb34a201928185130fbe8fdf9592e77492d9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763458"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944954"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Azure Portal를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -22,9 +22,12 @@ Azure Portal, 템플릿, Azure PowerShell cmdlet을 사용 하 고 Azure CLI/Pyt
 
 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다. 
 
+> [!IMPORTANT] 
+> 클라우드에서 장치에 배포 된 Vm을 관리 하는 사용자에 대해 다단계 인증을 사용 하도록 설정 하는 것이 좋습니다.
+        
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
-배포 워크플로의 개략적인 요약은 다음과 같습니다.
+배포 워크플로에 대한 개략적인 요약은 다음과 같습니다.
 
 1. Azure Stack Edge 장치에서 계산에 대 한 네트워크 인터페이스를 사용 하도록 설정 합니다. 그러면 지정 된 네트워크 인터페이스에 가상 스위치가 생성 됩니다.
 1. Azure Portal에서 가상 컴퓨터의 클라우드 관리를 사용 하도록 설정 합니다.
@@ -123,7 +126,7 @@ VM 이미지를 만든 후에 VM을 만들려면 다음 단계를 수행 합니�
     |---------|---------|
     |가상 머신 이름     |         |
     |이미지     | 장치에서 사용할 수 있는 VM 이미지를 선택 합니다.        |
-    |크기     | [지원 되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md)에서 선택 합니다.        |
+    |Size     | [지원 되는 VM 크기](azure-stack-edge-gpu-virtual-machine-sizes.md)에서 선택 합니다.        |
     |사용자 이름     | 기본 사용자 이름 *azureuser* 를 사용 합니다.        |
     |인증 유형    | SSH 공개 키 또는 사용자 정의 암호를 선택 합니다.       |
     |암호     | 가상 컴퓨터에 로그인 하려면 암호를 입력 하십시오. 암호는 12 자 이상 이어야 하며 정의 된 [복잡성 요구 사항을](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)충족 해야 합니다.        |

@@ -1,19 +1,16 @@
 ---
 title: Apache Hadoop 아키텍처 - Azure HDInsight
 description: Azure HDInsight 클러스터에서 Apache Hadoop 저장소 및 처리에 대해 설명 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 389aee77ac56407f3a116d42ad62fbd94de1bb4e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541947"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945899"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight의 Apache Hadoop 아키텍처
 
@@ -37,7 +34,7 @@ MapReduce 애플리케이션이 클러스터에서 실행될 때, ResourceManage
 
 또한 ResourceManager는 애플리케이션의 상태를 모니터링하기 위한 웹 사용자 인터페이스를 제공하는 웹 서버 프로세스도 실행합니다.
 
-사용자가 클러스터에서 실행할 MapReduce 애플리케이션을 제출하면 해당 애플리케이션이 ResourceManager에 제출됩니다. 이에 따라 ResourceManager는 사용 가능한 NodeManager 노드에 컨테이너를 할당합니다. NodeManager 노드는 실제로 애플리케이션이 실행되는 위치입니다. 할당된 첫 번째 컨테이너에서 ApplicationMaster라는 특별한 애플리케이션을 실행합니다. 이 ApplicationMaster는 제출된 애플리케이션을 실행하는 데 필요한 리소스를 후속 컨테이너의 형태로 확보해야 합니다. ApplicationMaster는 애플리케이션의 단계(예: 맵 단계 및 축소 단계)를 검사하고 처리해야 할 데이터의 양을 결정합니다. 그런 다음, ApplicationMaster는 애플리케이션을 대신하여 ResourceManager에서 리소스를 요청( *협상* )합니다. 이에 따라 ResourceManager는 애플리케이션을 실행하는 데 사용하도록 클러스터의 NodeManager에서 ApplicationMaster로 리소스를 제공합니다.
+사용자가 클러스터에서 실행할 MapReduce 애플리케이션을 제출하면 해당 애플리케이션이 ResourceManager에 제출됩니다. 이에 따라 ResourceManager는 사용 가능한 NodeManager 노드에 컨테이너를 할당합니다. NodeManager 노드는 실제로 애플리케이션이 실행되는 위치입니다. 할당된 첫 번째 컨테이너에서 ApplicationMaster라는 특별한 애플리케이션을 실행합니다. 이 ApplicationMaster는 제출된 애플리케이션을 실행하는 데 필요한 리소스를 후속 컨테이너의 형태로 확보해야 합니다. ApplicationMaster는 애플리케이션의 단계(예: 맵 단계 및 축소 단계)를 검사하고 처리해야 할 데이터의 양을 결정합니다. 그런 다음, ApplicationMaster는 애플리케이션을 대신하여 ResourceManager에서 리소스를 요청(*협상*)합니다. 이에 따라 ResourceManager는 애플리케이션을 실행하는 데 사용하도록 클러스터의 NodeManager에서 ApplicationMaster로 리소스를 제공합니다.
 
 NodeManager는 애플리케이션을 구성하는 작업을 실행한 다음, 진행 상황과 상태를 ApplicationMaster에 다시 보고합니다. ApplicationMaster는 다시 애플리케이션의 상태를 ResourceManager에 보고합니다. 이에 따라 ResourceManager는 모든 결과를 클라이언트에 반환합니다.
 
@@ -66,7 +63,7 @@ NodeManager는 애플리케이션을 구성하는 작업을 실행한 다음, �
 
 ## <a name="trash-purging"></a>휴지통 제거
 
-`fs.trash.interval` **HDFS**  >  로컬 파일 시스템에 데이터를 저장 하지 않기 때문에 HDFS **고급 코어 사이트** 의 속성은 기본값으로 유지 되어야 합니다 `0` . 이 값은 원격 저장소 계정 (WASB, ADLS GEN1, ABFS)에 영향을 주지 않습니다.
+`fs.trash.interval`   >  로컬 파일 시스템에 데이터를 저장 하지 않기 때문에 HDFS **고급 코어 사이트** 의 속성은 기본값으로 유지 되어야 합니다 `0` . 이 값은 원격 저장소 계정 (WASB, ADLS GEN1, ABFS)에 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

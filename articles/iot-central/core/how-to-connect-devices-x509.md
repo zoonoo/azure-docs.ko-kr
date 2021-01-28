@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121838"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944633"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
 
@@ -63,7 +63,7 @@ IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지�
 
 이러한 명령은 루트 및 장치 인증서 각각에 대해 3 개의 파일을 생성 합니다.
 
-filename | 내용
+파일 이름 | 내용
 -------- | --------
 \<name\>_cert. pem | X509 인증서의 공개 부분
 \<name\>_key. pem | X509 인증서에 대 한 개인 키
@@ -199,7 +199,7 @@ filename | 내용
 
 1. **simple_thermostat.js** 응용 프로그램을 포함 하는 _mytestselfcertprimary_key. pem_ 및 _mytestselfcertprimary_cert_ 를 _azure-iot-sdk-노드/장치/샘플/a p i_ 폴더에 복사 합니다. [장치 연결 (JavaScript) 자습서](./tutorial-connect-device.md)를 완료할 때이 응용 프로그램을 사용 했습니다.
 
-1. 에서 사용 하는 환경 변수를 다음과 같이 수정 합니다.
+1. 위의 샘플에서 사용한 환경 변수를 다음과 같이 수정 합니다.
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary

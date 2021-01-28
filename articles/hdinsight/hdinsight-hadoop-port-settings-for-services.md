@@ -1,19 +1,16 @@
 ---
 title: HDInsight에서 Hadoop 서비스에서 사용하는 포트 - Azure
 description: 이 문서에서는 Azure HDInsight에서 실행 되는 Apache Hadoop 서비스에서 사용 하는 포트 목록을 제공 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d0d990bc273c33e94b82b597753b29361b1665e1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: b5dadb886078f701bb01447efd606c862ee73073
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821862"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945524"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
 
@@ -166,7 +163,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
 | Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 애플리케이션을 실행하기 위한 서비스 |
-| Jupyter 노트북 | 헤드 노드 | 8001 | HTTP | &nbsp; | 웹 사이트 Jupyter Notebook |
+| Jupyter Notebook | 헤드 노드 | 8001 | HTTP | &nbsp; | 웹 사이트 Jupyter Notebook |
 
 예제:
 

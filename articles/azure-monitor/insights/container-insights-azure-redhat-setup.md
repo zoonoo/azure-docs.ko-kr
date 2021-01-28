@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 호스트 되 Azure Monitor를 사용 하 여 Kubernetes 클러스터의 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5141ef3a96d39f16a2a9f005dd580b952046e7bf
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: f21a338a06d4a0947e2623854d828c720fb2d4bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695663"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944553"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v3 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "97695663"
 컨테이너에 대 한 Azure Monitor는 다음과 같은 지원 되는 메서드를 사용 하 여 새로운 또는 하나 이상의 기존 Azure Red Hat OpenShift 배포를 사용 하도록 설정할 수 있습니다.
 
 - Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 기존 클러스터의 경우
-- Azure Resource Manager 템플릿을 사용 하거나 [Azure CLI](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create)를 사용 하 여 새 클러스터를 만드는 동안입니다.
+- Azure Resource Manager 템플릿을 사용 하거나 [Azure CLI](/cli/azure/openshift#az-openshift-create)를 사용 하 여 새 클러스터를 만드는 동안입니다.
 
 ## <a name="supported-and-unsupported-features"></a>지원 되거나 지원 되지 않는 기능
 

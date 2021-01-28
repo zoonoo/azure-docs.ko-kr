@@ -2,18 +2,15 @@
 title: HDInsight의 ML 서비스용 azure storage 솔루션-Azure
 description: HDInsight의 ML Services에서 사용할 수 있는 다양한 스토리지 옵션에 대해 알아봅니다.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 1b684fde9123d3c12d5d69c1daec1c53c6519c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855296"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943905"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스용 azure storage 솔루션
 
@@ -21,11 +18,11 @@ HDInsight의 ML 서비스는 다른 저장소 솔루션을 사용 하 여 분석
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)
+- [Azure File 스토리지](https://azure.microsoft.com/services/storage/files/)
 
 필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File storage는 Azure storage 파일 공유를 Linux 파일 시스템에 탑재할 수 있도록 하는에 지 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다.
 
-HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Blob storage** 계정 또는 **Data Lake Storage Gen1**를 지정 합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
+HDInsight에서 Apache Hadoop 클러스터를 만들 때 **Azure Blob storage** 계정 또는 **Data Lake Storage Gen1** 를 지정 합니다. 해당 계정의 특정 스토리지 컨테이너에는 사용자가 만든 클러스터의 파일 시스템(예: Hadoop 분산 파일 시스템)이 있습니다. 자세한 내용 및 지침은 다음을 참조하세요.
 
 - [HDInsight에서 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
@@ -70,11 +67,11 @@ ML Services 클러스터를 만들 때 둘 이상의 스토리지 계정을 지�
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
     ```
 
-모든 디렉터리와 파일 참조는 스토리지 계정 `wasbs://container1@storage1.blob.core.windows.net`을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 스토리지 계정**입니다.
+모든 디렉터리와 파일 참조는 스토리지 계정 `wasbs://container1@storage1.blob.core.windows.net`을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 스토리지 계정** 입니다.
 
 ### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 추가 스토리지 사용
 
-이제 **storage2**에서 **container2**의 /private 디렉터리에 있는 mysamplefile1.csv 파일을 처리한다고 가정합니다.
+이제 **storage2** 에서 **container2** 의 /private 디렉터리에 있는 mysamplefile1.csv 파일을 처리한다고 가정합니다.
 
 R 코드에서 이름 노드 참조를 **storage2** 스토리지 계정으로 지정합니다.
 
@@ -98,7 +95,7 @@ hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 ```
 
-모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드**입니다.
+모든 디렉터리와 파일 참조는 이제 스토리지 계정 `wasbs://container2@storage2.blob.core.windows.net`을 지정합니다. 지정한 **이름 노드** 입니다.
 
 다음과 `/user/RevoShare/<SSH username>` 같이 **storage2** 에서 디렉터리를 구성 합니다.
 
@@ -120,11 +117,11 @@ HDInsight 클러스터와 연결 된 Azure Active Directory (Azure AD) 서비스
 
 1. HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 Azure AD id** 를 선택 합니다.
 
-2. **클러스터 AZURE Ad id** 대화 상자의 **AD 서비스 주체 선택**에서 **새로 만들기**를 선택 합니다.
+2. **클러스터 AZURE Ad id** 대화 상자의 **AD 서비스 주체 선택** 에서 **새로 만들기** 를 선택 합니다.
 
-서비스 주체에 이름을 지정하고 암호를 만든 후에 **ADLS 액세스 관리**를 클릭하여 Data Lake Storage와 서비스 주체를 연결합니다.
+서비스 주체에 이름을 지정하고 암호를 만든 후에 **ADLS 액세스 관리** 를 클릭하여 Data Lake Storage와 서비스 주체를 연결합니다.
 
-클러스터를 만든 후 하나 이상의 Data Lake storage Gen1 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Storage Gen1에 대 한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 이동 합니다.
+클러스터를 만든 후 하나 이상의 Data Lake storage Gen1 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Storage Gen1에 대 한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가** 로 이동 합니다.
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Storage Gen1에 액세스하는 방법
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cf5882913426062e281194b61a8c760141512a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505485"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944160"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>대상 리소스가 다른 Azure 지역으로 이동 될 때 경고 규칙 또는 작업 규칙을 업데이트 하는 방법
 
@@ -76,9 +76,9 @@ Azure 리소스에서 내보내는 메트릭은 지역입니다. 리소스가 �
 ### <a name="change-scope-of-a-rule-from-the-azure-portal"></a>Azure Portal 규칙의 범위 변경
 
 1. 이전 단계에서 확인 한 규칙을 클릭 하 여 엽니다.
-2. **리소스**에서 **편집** 을 클릭 하 고 필요에 따라 범위를 조정 합니다.
+2. **리소스** 에서 **편집** 을 클릭 하 고 필요에 따라 범위를 조정 합니다.
 3. 필요에 따라 규칙의 다른 속성을 조정 합니다.
-4. **저장**을 클릭합니다.
+4. **저장** 을 클릭합니다.
 
 ![경고 규칙 범위 변경](media/alerts-resource-move/change-alert-rule-scope.png)
 
@@ -88,7 +88,7 @@ Azure 리소스에서 내보내는 메트릭은 지역입니다. 리소스가 �
    1. 포털에서 리소스 그룹 섹션으로 이동 하 고 규칙을 포함 하는 리소스 그룹을 엽니다.
    2. 개요 섹션에서 **숨김 유형 표시** 확인란을 선택 하 고 규칙의 관련 유형을 기준으로 필터링 합니다.
    3. 관련 규칙을 선택 하 여 세부 정보를 확인 합니다.
-   4. **설정**아래에서 **템플릿 내보내기**를 선택 합니다.
+   4. **설정** 아래에서 **템플릿 내보내기** 를 선택 합니다.
 2. 템플릿을 수정 합니다. 필요한 경우 위에 나와 있는 것 처럼 메트릭 경고의 경우와 관련 된 두 가지 규칙으로 분할 합니다.
 3. 템플릿을 다시 배포합니다.
 
@@ -106,7 +106,7 @@ Azure 리소스에서 내보내는 메트릭은 지역입니다. 리소스가 �
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Azure CLI를 사용 하 여 규칙의 범위 변경
 
-1.  기존 규칙 ([메트릭 경고](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [활동 로그 경고](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list))을 가져옵니다.
+1.  기존 규칙 ([메트릭 경고](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [활동 로그 경고](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list))을 가져옵니다.
 2.  규칙 범위를 직접 업데이트 ([메트릭 경고](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [활동 로그 경고](/cli/azure/monitor/activity-log/alert/scope))
 3.  필요한 경우 위에 나와 있는 것 처럼 메트릭 경고의 경우와 관련 된 두 가지 규칙으로 분할 합니다.
 

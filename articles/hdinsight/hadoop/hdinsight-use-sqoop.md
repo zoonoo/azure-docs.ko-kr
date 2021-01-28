@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight(Apache Hadoop)를 사용하여 Apache Sqoop 작업 실행
 description: 워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545228"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946432"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 
@@ -80,8 +77,8 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
     |필드 |값 |
     |---|---|
-    |Subscription |드롭다운 목록에서 Azure 구독을 선택 합니다.|
-    |리소스 그룹 |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
+    |구독 |드롭다운 목록에서 Azure 구독을 선택 합니다.|
+    |Resource group |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
     |위치 |드롭다운 목록에서 지역을 선택합니다.|
     |클러스터 이름 |Hadoop 클러스터에 사용할 이름을 입력합니다. 소문자만 사용 합니다.|
     |클러스터 로그인 사용자 이름 |미리 채워진 값을 유지 `admin` 합니다.|
@@ -107,7 +104,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 
 | **이것을 사용** 하세요... | ... **대화형** 셸 | ... **일괄** 처리 | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
-| [S](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X, 또는 Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux, Unix, Mac OS X, 또는 Windows |
 | [Hadoop용 .NET SDK](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |?  |Windows(당분간) |
 | [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Windows |
 

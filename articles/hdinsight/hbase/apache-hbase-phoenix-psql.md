@@ -1,19 +1,16 @@
 ---
 title: psql을 사용하여 Apache Phoenix로 대량 로드 - Azure HDInsight
 description: Psql 도구를 사용 하 여 Azure HDInsight에서 대량 로드 데이터를 Apache Phoenix 테이블로 로드
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d56c9b33d53be0e30769aef8934a2dbf43d06867
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504709"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944840"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -179,7 +176,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 * 입력 파일을 ~10GB 청크로 분할합니다. 대량 로드는 스토리지 집약적 작업이므로, 입력 파일을 여러 개의 청크로 분할하면 성능이 더 좋아집니다.
 
-* 지역 서버 핫스폿을 방지합니다. 행 키가 단조롭게 증가하는 경우 HBase 순차 쓰기로 인해 지역 서버 핫스폿이 발생할 수 있습니다. 행 키를 *솔트*하면 순차 쓰기가 줄어듭니다. Phoenix는 아래에 참조된 것처럼, 특정 테이블에 대해 솔트 바이트로 행 키를 투명하게 솔트하는 방법을 제공합니다.
+* 지역 서버 핫스폿을 방지합니다. 행 키가 단조롭게 증가하는 경우 HBase 순차 쓰기로 인해 지역 서버 핫스폿이 발생할 수 있습니다. 행 키를 *솔트* 하면 순차 쓰기가 줄어듭니다. Phoenix는 아래에 참조된 것처럼, 특정 테이블에 대해 솔트 바이트로 행 키를 투명하게 솔트하는 방법을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

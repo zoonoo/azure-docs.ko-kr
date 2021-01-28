@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d375b860c6b23fd6033e985e23c6f12dfe9a3c68
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7673a42afa3b85a2aaf3f11f5e9b74fd46d48488
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223570"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945093"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-cli"></a>Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -58,7 +58,7 @@ VM을 배포하기 전에 지원되는 네트워크 리소스(네트워크 보�
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 VNet에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *mySubNet* 으로 *myVNET* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 # Create a virtual network
@@ -89,7 +89,7 @@ az network vnet subnet create \
 
 ### <a name="create-a-nic"></a>NIC 만들기
 
-[az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
+[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 VM에 대한 가상 NIC를 만듭니다. 다음 예제에서는 VM에 연결할 가상 NIC를 만듭니다.
 
 ```azurecli-interactive
 # Create a NIC
@@ -105,7 +105,7 @@ az network nic create \
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
+[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 Windows Server 2019 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다.
 
 ```azurecli
 az vm create \

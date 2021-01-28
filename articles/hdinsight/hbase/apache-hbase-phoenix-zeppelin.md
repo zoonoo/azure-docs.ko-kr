@@ -1,19 +1,16 @@
 ---
 title: Apache Phoenix를 사용 하 여 Azure HDInsight에서 Apache Base 쿼리 실행
 description: Apache Zeppelin를 사용 하 여 Phoenix로 Apache 기본 쿼리를 실행 하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542797"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944772"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행
 
@@ -23,7 +20,7 @@ Apache Zeppelin는 오픈 소스 웹 기반 노트북으로, 대화형 데이터
 
 HDInsight 사용자는 Apache Zeppelin를 사용 하 여 Phoenix 테이블을 쿼리할 수 있습니다. Apache Zeppelin는 HDInsight 클러스터와 통합 되며이를 사용 하는 추가 단계가 없습니다. JDBC 인터프리터를 사용 하 여 Zeppelin 노트북을 만들고 Phoenix SQL 쿼리 작성을 시작 하기만 하면 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-tutorial-get-started-linux.md)참조 하세요.
 

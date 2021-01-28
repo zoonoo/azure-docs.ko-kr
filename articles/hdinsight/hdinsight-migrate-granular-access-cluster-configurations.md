@@ -3,16 +3,15 @@ title: 세부적인 역할 기반 액세스 Azure HDInsight 클러스터 구성
 description: HDInsight 클러스터 구성에 대 한 세분화 된 역할 기반 액세스로 마이그레이션의 일부로 필요한 변경 사항에 대해 알아봅니다.
 author: tylerfox
 ms.author: tyfox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533311"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944084"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -80,7 +79,7 @@ ms.locfileid: "92533311"
 
 버전 1.1.1이 하를 사용 하는 경우 중단을 방지 하려면 [최신 버전의 Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) 로 업데이트 하세요.
 
-### <a name="azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트
+### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
 
 버전 3.20.0를 사용 하는 경우 중단을 방지 하려면 [최신 버전의 Azure Toolkit for IntelliJ 플러그 인](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) 으로 업데이트 합니다.
 

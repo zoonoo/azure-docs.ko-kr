@@ -1,19 +1,16 @@
 ---
 title: 가상 네트워크의 HBase 클러스터 복제-Azure HDInsight
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 8fc5ba2280b5ad68a40f4992adc170408e80e5a6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021795"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946410"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -38,7 +35,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -78,7 +75,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 | 게이트웨이 이름 | vnet1gw |
 | 게이트웨이 유형 | Vpn |
 | 게이트웨이 VPN 유형 | 경로 기반 |
-| 게이트웨이 SKU | Basic |
+| 게이트웨이 SKU | 기본 |
 | 게이트웨이 IP | vnet1gwip |
 
 **VNet 2**
@@ -95,7 +92,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 | 게이트웨이 이름 | vnet2gw |
 | 게이트웨이 유형 | Vpn |
 | 게이트웨이 VPN 유형 | 경로 기반 |
-| 게이트웨이 SKU | Basic |
+| 게이트웨이 SKU | 기본 |
 | 게이트웨이 IP | vnet1gwip |
 
 ## <a name="setup-dns"></a>DNS 설정
@@ -309,7 +306,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|Name|Description|
+|이름|Description|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -318,7 +315,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|Name|Description|
+|이름|Description|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |

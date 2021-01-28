@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737679"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946255"
 ---
 # <a name="cross-region-load-balancer-preview"></a>영역 간 부하 분산 장치 (미리 보기)
 
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남아시아
+* 동남 아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남아시아 
+* 동남 아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -142,6 +142,8 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 영역 간 IPv6 프런트 엔드 IP 구성은 지원 되지 않습니다. 
 
 * 상태 프로브는 현재 구성할 수 없습니다. 기본 상태 프로브는 20 초 마다 지역 부하 분산 장치에 대 한 가용성 정보를 자동으로 수집 합니다. 
+
+* AKS (Azure kubernetes Service)는 현재 교차 지역 Load Balancer와 통합할 수 없습니다. AKS를 사용 하 여 배포 된 공용 Load Balancer 앞에 지역 간 Load Balancer를 설정 하는 경우 연결 손실이 예상 됩니다.
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 지역 간 부하 분산 장치는 표준 부하 분산 장치의 [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) 를 공유 합니다.

@@ -1,19 +1,16 @@
 ---
 title: Virtual Network에 HBase 클러스터 만들기 - Azure
 description: Azure HDInsight에서 HBase 사용 시작 Azure Virtual Network에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: 82e3374491aa119d9985ea7ef31e180c920511d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f179981aa39402681b4830d58a29f5b1259c7e2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087744"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946119"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기
 
@@ -49,24 +46,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-1. **사용자 지정 배포** 대화 상자에서 **템플릿 편집**을 선택 합니다.
+1. **사용자 지정 배포** 대화 상자에서 **템플릿 편집** 을 선택 합니다.
 
-1. 165 줄에서 값 `Standard_A3` 을로 변경 `Standard_A4_V2` 합니다. 그런 다음 **저장**을 선택합니다.
+1. 165 줄에서 값 `Standard_A3` 을로 변경 `Standard_A4_V2` 합니다. 그런 다음 **저장** 을 선택합니다.
 
 1. 다음 정보를 사용 하 여 나머지 템플릿을 완료 합니다.
 
     |속성 |값 |
     |---|---|
-    |Subscription|HDInsight 클러스터, 종속 Storage 계정 및 Azure 가상 네트워크를 만드는 데 사용한 Azure 구독을 선택합니다.|
-    Resource group|**새로 만들기**를 선택하고 새 리소스 그룹 이름을 지정합니다.|
+    |구독|HDInsight 클러스터, 종속 Storage 계정 및 Azure 가상 네트워크를 만드는 데 사용한 Azure 구독을 선택합니다.|
+    Resource group|**새로 만들기** 를 선택하고 새 리소스 그룹 이름을 지정합니다.|
     |위치|리소스 그룹의 위치를 선택합니다.|
     |클러스터 이름|만들려는 Hadoop 클러스터의 이름을 입력합니다.|
-    |클러스터 로그인 사용자 이름 및 암호|기본 사용자 이름은 **admin**입니다. 암호를 제공 합니다.|
-    |Ssh 사용자 이름 및 암호|기본 사용자 이름은 **sshuser**입니다.  암호를 입력합니다.|
+    |클러스터 로그인 사용자 이름 및 암호|기본 사용자 이름은 **admin** 입니다. 암호를 제공 합니다.|
+    |Ssh 사용자 이름 및 암호|기본 사용자 이름은 **sshuser** 입니다.  암호를 입력합니다.|
 
-    **위에 명시 된 조건 및 조건에 동의 함을**선택 합니다.
+    **위에 명시 된 조건 및 조건에 동의 함을** 선택 합니다.
 
-1. **구매**를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어지면 포털에서 클러스터를 선택 하 여 열 수 있습니다.
+1. **구매** 를 선택합니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어지면 포털에서 클러스터를 선택 하 여 열 수 있습니다.
 
 이 문서를 완료 한 후에는 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 스토리지에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#delete-clusters)를 참조하세요.
 
@@ -111,7 +108,7 @@ Java 애플리케이션을 사용하여 HBase에 원격으로 연결할 때는 F
 "host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
-클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다. 예: `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
+클러스터 이름으로 시작하는 도메인 이름 부분이 DNS 접미사입니다. 예들 들어 `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`입니다.
 
 <!--
 3.    Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
@@ -130,7 +127,7 @@ Java 애플리케이션을 사용하여 HBase에 원격으로 연결할 때는 F
 
 ### <a name="verify-communication-inside-virtual-network"></a>가상 네트워크 내 통신 확인
 
-가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예: `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`
+가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예들 들어 `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`입니다.
 
 Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 애플리케이션이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예를 들면 다음과 같습니다.
 

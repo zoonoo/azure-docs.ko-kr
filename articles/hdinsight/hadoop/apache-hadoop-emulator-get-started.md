@@ -2,19 +2,16 @@
 title: Apache Hadoop 샌드박스, 에뮬레이터를 사용 하는 방법 알아보기-Azure HDInsight
 description: 'Apache Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. '
 keywords: Hadoop 에뮬레이터, Hadoop 샌드박스
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547965"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946619"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 컴퓨터의 에뮬레이터 인 Apache Hadoop 샌드박스 시작
 
@@ -40,7 +37,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 
 1. Open Oracle VM VirtualBox를 엽니다.
 1. **파일** 메뉴에서 **Import Appliance(어플라이언스 가져오기)** 를 클릭한 다음 Hortonworks Sandbox 이미지를 지정합니다.
-1. Hortonworks Sandbox를 선택한 다음 **시작** , **일반 시작** 을 차례로 선택합니다. 가상 머신이 부팅 프로세스를 완료하면 로그인 지침이 표시됩니다.
+1. Hortonworks Sandbox를 선택한 다음 **시작**, **일반 시작** 을 차례로 선택합니다. 가상 머신이 부팅 프로세스를 완료하면 로그인 지침이 표시됩니다.
 
     ![virtualbox 관리자 정상 시작](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 

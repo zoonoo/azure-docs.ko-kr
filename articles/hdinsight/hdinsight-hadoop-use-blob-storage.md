@@ -1,19 +1,16 @@
 ---
 title: HDFS 호환 가능 Azure Storage에서 데이터 쿼리 - Azure HDInsight
 description: Azure Storage 및 Azure Data Lake Storage에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547438"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945433"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -44,23 +41,23 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 
 ## <a name="access-files-from-within-cluster"></a>클러스터 내에서 파일에 액세스
 
-HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스( *wasb:* 접두사가 있음)와 TLS로 암호화된 액세스( *wasbs* 가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs* 를 사용하는 것이 좋습니다.
+HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 TLS로 암호화된 액세스(*wasbs* 가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs* 를 사용하는 것이 좋습니다.
 
-* **정규화된 이름 사용** . 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
+* **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **줄인 경로 형식 사용** . 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
+* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **상대 경로 사용** . 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
+* **상대 경로 사용**. 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
 
     ```
     /<file.path>/

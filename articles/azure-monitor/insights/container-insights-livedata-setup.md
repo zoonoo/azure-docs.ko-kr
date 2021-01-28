@@ -4,12 +4,12 @@ description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: d5b978e7138e10ed88f5748b84ff62ddd22bebec
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943854"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -19,7 +19,7 @@ AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Mon
 
 - Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS
 - Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
-    - 클러스터 역할 바인딩 ClusterMonitoringUser를 사용 하 여 구성 된 AKS **[](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
+    - 클러스터 역할 바인딩 ClusterMonitoringUser를 사용 하 여 구성 된 AKS **[](/rest/api/aks/managedclusters/listclustermonitoringusercredentials)**
 - AD (Azure Active Directory) SAML 기반 single sign-on을 사용 하는 AKS
 
 이러한 지침을 사용 하려면 Kubernetes 클러스터에 대 한 관리 권한이 필요 하 고, 사용자 인증에 AD (Azure Active Directory)를 사용 하도록 구성 하는 경우 Azure AD에 대 한 관리 액세스 권한이 필요 합니다.

@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구
 description: 이 문서는 가능한 Azure HDInsight 고가용성 솔루션 아키텍처에 대 한 가상의 사례 연구입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855041"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945359"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구
 
@@ -68,7 +65,7 @@ Azure Pipelines에 통합 되 고 Azure 외부에 호스트 되는 버전 제어
 
 다음 이미지는 Contoso Retail 고가용성 재해 복구 아키텍처를 보여 줍니다.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Contoso Retail 아키텍처":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Contoso 솔루션":::
 
 **Kafka** 은 [활성 – 수동](hdinsight-business-continuity-architecture.md#apache-kafka) 복제를 사용 하 여 주 지역에서 보조 지역으로 kafka 주제를 미러링합니다. Kafka 복제에 대 한 대안은 두 지역의 Kafka에 게 생성 하는 것일 수 있습니다.
 

@@ -2,19 +2,16 @@
 title: Apache Pig 사용
 titleSuffix: Azure HDInsight
 description: HDInsight에서 Apache Hadoop과 함께 Pig를 사용하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538734"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944613"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
 
@@ -30,11 +27,11 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 원하는 출력을 생산하기 위해 Pig Litin 언어를 사용하여 하나 이상의 변환을 거쳐 원시 입력을 데이터 플로로 설명할 수 있습니다. Pig Latin 프로그램이 일반적인 패턴을 따릅니다:
 
-* **로드** : 파일 시스템에서 조작할 데이터를 읽습니다.
+* **로드**: 파일 시스템에서 조작할 데이터를 읽습니다.
 
-* **Transform** : 데이터를 조작 합니다.
+* **Transform**: 데이터를 조작 합니다.
 
-* **덤프 또는 저장** : 데이터를 화면에 출력 하거나 처리를 위해 저장 합니다.
+* **덤프 또는 저장**: 데이터를 화면에 출력 하거나 처리를 위해 저장 합니다.
 
 ### <a name="user-defined-functions"></a>사용자 정의 함수
 

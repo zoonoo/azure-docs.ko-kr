@@ -1,19 +1,17 @@
 ---
 title: '저장소: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 스토리지 모범 사례를 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544871"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944846"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -33,7 +31,7 @@ Azure Storage 지역에서 복제할 수 있습니다. 지역에서 복제는 �
 
 Azure Storage에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 
-|데이터 액세스 형식 |설명 |
+|데이터 액세스 형식 |Description |
 |---|---|
 |`wasb:///`|암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.|
 |`wasbs:///`|암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.|
@@ -98,15 +96,15 @@ Data Lake Storage Gen2의 기본 기능은 Blob Storage 서비스에 대 한 [�
 
 과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. ADLS(Azure Data Lake Storage) Gen2의 주요 기능은 아래와 같습니다.
 
-- **Hadoop 호환 액세스** : Azure Data Lake Storage Gen2를 사용 하면 [HDFS (hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용 하는 것 처럼 데이터를 관리 하 고 액세스할 수 있습니다. 새 [Abfs 드라이버](../../storage/blobs/data-lake-storage-abfs-driver.md) 는 [Azure HDInsight](../index.yml)에 포함 된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
+- **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용 하면 [HDFS (hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용 하는 것 처럼 데이터를 관리 하 고 액세스할 수 있습니다. 새 [Abfs 드라이버](../../storage/blobs/data-lake-storage-abfs-driver.md) 는 [Azure HDInsight](../index.yml)에 포함 된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
 
-- **POSIX 권한 상위 집합** : Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
+- **POSIX 권한 상위 집합**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
-- **비용 효과** : Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터는 전체 수명 주기를 통해 전환 될 때 [Azure Blob 저장소 수명 주기와](../../storage/blobs/storage-lifecycle-management-concepts.md)같은 기본 제공 기능을 통해 비용을 최소화 하기 위해 청구 요금이 변경 됩니다.
+- **비용 효과**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터는 전체 수명 주기를 통해 전환 될 때 [Azure Blob 저장소 수명 주기와](../../storage/blobs/storage-lifecycle-management-concepts.md)같은 기본 제공 기능을 통해 비용을 최소화 하기 위해 청구 요금이 변경 됩니다.
 
-- **Blob Storage 도구, 프레임워크 및 앱 사용** : Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
+- **Blob Storage 도구, 프레임워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
 
-- **최적화 된 드라이버** : Azure Blob 파일 시스템 드라이버 (abfs)는 빅 데이터 분석을 위해 [특별히 최적화](../../storage/blobs/data-lake-storage-abfs-driver.md) 되었습니다. 해당 REST API는 DFS 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
+- **최적화 된 드라이버**: Azure Blob 파일 시스템 드라이버 (abfs)는 빅 데이터 분석을 위해 [특별히 최적화](../../storage/blobs/data-lake-storage-abfs-driver.md) 되었습니다. 해당 REST API는 DFS 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
 
 ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 - `abfs:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
@@ -155,7 +153,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 1. [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 파일을 열고 다음 값을 변경합니다.
 
-    |토큰 속성|설명|
+    |토큰 속성|Description|
     |---|---|
     |policy_name|만들려는 저장된 정책에 사용할 이름입니다.|
     |storage_account_name|사용자 스토리지 계정의 이름입니다.|
@@ -173,7 +171,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 6. **Key** 및 **Value** 필드에 다음 값을 사용합니다.
 
-    **키** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **값** : 위의 4 단계에서 Python 응용 프로그램에 의해 반환 된 SAS 키입니다.
+    **키**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **값**: 위의 4 단계에서 Python 응용 프로그램에 의해 반환 된 SAS 키입니다.
 
 7. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: &quot;SAS 스토리지 액세스 추가&quot;)을 추가하고 **저장** 을 클릭합니다.
 

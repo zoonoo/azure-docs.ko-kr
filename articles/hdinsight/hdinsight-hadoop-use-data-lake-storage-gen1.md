@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에서 Hadoop과 함께 Data Lake Storage Gen1 사용
 description: Azure Data Lake Storage Gen1에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 35941f585a0ae5c0d3915c769db5b18737b299f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539839"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945415"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage Gen1 사용
 
@@ -108,13 +105,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>추가 스토리지로 Data Lake Storage Gen1 사용
 
-Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이러한 경우 클러스터 기본 저장소는 Azure Blob storage 또는 Azure Data Lake Storage Gen1 계정일 수 있습니다. Azure Data Lake Storage Gen1에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 예:
+Data Lake Storage Gen1을 클러스터에 대한 추가 스토리지로 사용할 수도 있습니다. 이러한 경우 클러스터 기본 저장소는 Azure Blob storage 또는 Azure Data Lake Storage Gen1 계정일 수 있습니다. Azure Data Lake Storage Gen1에 저장 된 데이터에 대해 HDInsight 작업을 추가 저장소로 실행 하는 경우 정규화 된 경로를 사용 합니다. 예를 들면 다음과 같습니다.
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 지금은 URL에 **cluster_root_path** 없습니다. 이 경우 Data Lake Storage 기본 저장소가 아니기 때문입니다. 파일 경로를 제공 하기만 하면 됩니다.
 
-Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  예:
+Data Lake Storage Gen1를 추가 저장소로 사용 하려면 파일이 저장 된 경로에 대 한 서비스 사용자 액세스 권한을 부여 합니다.  예를 들면 다음과 같습니다.
 
 `adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
@@ -137,19 +134,19 @@ HDInsight 클러스터에서 Azure Data Lake Storage Gen1 액세스를 구성 �
 
 HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다.
 
-* **정규화된 이름 사용** . 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
+* **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **줄인 경로 형식 사용** . 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
+* **줄인 경로 형식 사용**. 이 방식의 경우 클러스터 루트에 대한 경로를 다음으로 대체합니다.
 
     ```
     adl:///<file path>
     ```
 
-* **상대 경로 사용** . 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
+* **상대 경로 사용**. 이 방법의 경우 액세스할 파일에 대한 상대 경로만 제공합니다.
 
     ```
     /<file.path>/

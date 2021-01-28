@@ -1,17 +1,17 @@
 ---
-title: Application Insights 및 Log Analytics에서 사용되는 IP 주소 | Microsoft Docs
+title: Azure Monitor에서 사용 하는 IP 주소
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: eb0739cb44b9f67258069a574ed0bedb95eac5a4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/27/2020
+ms.openlocfilehash: 5a6cc190f84b74cc8a1d4ff24d10cbfa07f3c2fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625185"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945060"
 ---
-# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
-[Azure Application Insights](./app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
+# <a name="ip-addresses-used-by-azure-monitor"></a>Azure Monitor에서 사용 하는 IP 주소
+[Azure Monitor](../overview.md) 는 여러 개의 IP 주소를 사용 합니다. Azure Monitor은 Log Analytics 및 Application Insights 외에도 핵심 플랫폼 메트릭과 로그로 구성 됩니다. 모니터링 하는 응용 프로그램 또는 인프라를 방화벽 뒤에서 호스트 하는 경우 이러한 주소를 알아야 할 수 있습니다.
 
 > [!NOTE]
 > 이러한 주소는 고정이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.

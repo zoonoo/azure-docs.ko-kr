@@ -1,19 +1,16 @@
 ---
 title: Visual Studio Code 용 Azure HDInsight
 description: Visual Studio Code에 대해 Spark & Hive 도구 (Azure HDInsight)를 사용 하는 방법에 대해 알아봅니다. 도구를 사용 하 여 쿼리와 스크립트를 만들고 제출 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610984"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946141"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -360,7 +357,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
   | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
   | pyFiles | 이 세션에서 사용할 Python 파일 | 문자열 목록 |
-  | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
+  | 파일 | 이 세션에 사용할 파일입니다. | 문자열 목록 |
   | driverMemory | 드라이버 프로세스에 사용할 메모리 크기 | String |
   | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
   | executorMemory | 실행기 프로세스당 사용할 메모리 크기 | String |

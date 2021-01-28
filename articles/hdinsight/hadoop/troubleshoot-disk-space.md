@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 디스크 공간 관리
 description: Azure HDInsight 클러스터와 상호 작용할 때 디스크 공간 문제를 관리 하기 위한 문제 해결 단계 및 가능한 해결 방법입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 82044796cca3e135c15e750d6706fe504622ebdb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7164494cb08c4b419b9e4d96075ace3e52187497
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540349"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944812"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Azure HDInsight에서 디스크 공간 관리
 

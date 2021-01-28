@@ -1,25 +1,22 @@
 ---
 title: HDInsight에서 ML 서비스 운영 - Azure
 description: Azure HDInsight에서 ML 서비스를 사용 하 여 예측 하도록 데이터 모델을 운영 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944006"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
 HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을 완료한 후에 모델을 운영하여 예측할 수 있습니다. 이 문서에서는 이 작업을 수행하는 방법에 대한 지침을 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
@@ -86,7 +83,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark에서 웹 서비스를 사용할 때 긴 지연 발생
 
-Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 애플리케이션은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 ' *rserve2* '라는 사용자에게 속합니다. 이 문제를 해결하려면
+Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 애플리케이션은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -165,7 +162,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 * **작업** 선택  >  **선택한 호스트**  >  **nodemanagers** > **중지** 를 클릭 합니다.
 * **작업**  >  **선택한 호스트**  >  **호스트** > **모든 구성 요소 중지** 를 클릭 합니다.
 * 작업자 노드를 선택 취소하고 헤드 노드를 선택합니다.
-* **작업**  >  **선택한 호스트** > " **호스트가**  >  **모든 구성 요소 다시 시작** 을 선택 합니다.
+* **작업**  >  **선택한 호스트** > "**호스트가**  >  **모든 구성 요소 다시 시작** 을 선택 합니다.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2단계: 서비스 해제된 작업자 노드 각각에 컴퓨팅 노드 구성
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Monitor를 사용하여 컨테이너에 �
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99c4ecb6c8b77f1576f25816ba486ed262249c32
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 476934d84d8ffc63336ec620432db3507b2cbb34
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695705"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943831"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 
@@ -18,7 +18,7 @@ AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[az aks disable-addons](/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 이 명령은 클러스터 노드에서 에이전트를 제거 합니다. 솔루션이 나 이미 수집 되어 Azure Monitor 리소스에 저장 된 데이터는 제거 하지 않습니다.  
+[az aks disable-addons](/cli/azure/aks#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 이 명령은 클러스터 노드에서 에이전트를 제거 합니다. 솔루션이 나 이미 수집 되어 Azure Monitor 리소스에 저장 된 데이터는 제거 하지 않습니다.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

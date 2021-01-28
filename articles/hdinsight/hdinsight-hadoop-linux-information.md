@@ -1,19 +1,16 @@
 ---
 title: Linux 기반 HDInsight에서 Hadoop 사용 팁 - Azure
 description: Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Linux 기반 HDInsight(Hadoop) 클러스터를 사용하기 위한 구현 팁을 제공합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546112"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945647"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -92,8 +89,8 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.6.5.3009-43** : 디렉터리 이름은 HDInsight에서 사용하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
-* **current** : 이 디렉터리에는 **2.6.5.3009-43** 디렉터리 아래의 하위 디렉터리에 대한 링크가 포함되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
+* **2.6.5.3009-43**: 디렉터리 이름은 HDInsight에서 사용하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **current**: 이 디렉터리에는 **2.6.5.3009-43** 디렉터리 아래의 하위 디렉터리에 대한 링크가 포함되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
