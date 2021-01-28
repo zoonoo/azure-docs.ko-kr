@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561310"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932537"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps에 대한 지속적인 통합 및 지속적인 전송
 
@@ -41,7 +41,7 @@ LUIS에 대 한 자동화 워크플로를 작성 하려면 다음 도구를 사�
 
 * [Bot Framework TOOLS LUIS는 CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) 를 사용 하 여 LUIS 앱과 버전에서 작업 하 고, LUIS 서비스 내에서이를 학습, 테스트 및 게시 합니다.
 
-* Azure 구독을 쿼리하고 LUIS 작성 및 예측 키를 인출 하 고 automation 인증에 사용 되는 Azure [서비스 주체](/cli/azure/ad/sp?view=azure-cli-latest) 를 만드는 것을 [Azure CLI](/cli/azure/?view=azure-cli-latest) 합니다.
+* Azure 구독을 쿼리하고 LUIS 작성 및 예측 키를 인출 하 고 automation 인증에 사용 되는 Azure [서비스 주체](/cli/azure/ad/sp) 를 만드는 것을 [Azure CLI](/cli/azure/) 합니다.
 
 * [Nlu. ](https://github.com/microsoft/NLU.DevOps) [LUIS 앱을 테스트](luis-concept-devops-testing.md) 하 고 테스트 결과를 분석 하기 위한 devops 도구입니다.
 

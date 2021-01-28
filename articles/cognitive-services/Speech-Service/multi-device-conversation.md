@@ -1,7 +1,7 @@
 ---
 title: 다중 장치 대화 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: ''
+description: 다중 장치 대화를 사용 하면 여러 클라이언트 간에 음성 또는 텍스트 대화를 쉽게 만들고 두 클라이언트 간에 전송 되는 메시지를 조정할 수 있습니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025177"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932415"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
 
@@ -34,10 +34,10 @@ ms.locfileid: "95025177"
 >[!IMPORTANT]
 > 다중 장치 대화에서는 클라이언트 간에 오디오 파일 전송을 지원 **하지** 않습니다. 기록 및/또는 번역이 있습니다.
 
-## <a name="key-features"></a>주요 특징
+## <a name="key-features"></a>주요 기능
 
 - **실시간 기록** -모든 사용자가 대화에 대 한 기록을 받게 되므로 실시간으로 텍스트를 따라 팔 로우 하거나 나중에 저장할 수 있습니다.
-- **실시간 변환** – 텍스트 번역에 대해 [지원 되는 언어](language-support.md#text-languages) 를 60 개 이상 사용 하 여 사용자는 대화를 기본 설정 언어로 변환할 수 있습니다.
+- **실시간 변환** – 텍스트 번역에 대해 [지원 되는 언어](language-support.md#text-languages) 를 70 개 이상 사용 하 여 사용자는 대화를 기본 설정 언어로 변환할 수 있습니다.
 - **읽을 수** 있는 기록 – 문장 부호와 문장 나누기를 사용 하 여 기록과 번역을 쉽게 수행할 수 있습니다.
 - **음성 또는 텍스트 입력** – 참가자가 선택한 언어에 대해 사용 하도록 설정 된 언어 지원 기능에 따라 각 사용자가 자신의 장치를 말하기 또는 입력할 수 있습니다. [언어 지원](language-support.md#speech-to-text)을 참조 하세요.
 - **메시지 릴레이** -다중 장치 대화 서비스는 한 클라이언트에서 보낸 메시지를 선택한 언어로 모든 다른 클라이언트에 배포 합니다.
@@ -58,9 +58,6 @@ ms.locfileid: "95025177"
 ### <a name="presentations"></a>프레젠테이션
 
 화면과 대상 그룹 구성원의 장치에서 프레젠테이션 및 강의의 캡션을 제공할 수도 있습니다. 사용자가 대화 코드와 조인한 후에는 자신의 장치에서 선호 하는 언어로 기록을 볼 수 있습니다.
-
-> [!NOTE]
-> 예를 보려면 다중 장치 대화 서비스를 사용 하는 PowerPoint 추가 서비스인 [프레젠테이션 변환기](https://www.microsoft.com/translator/apps/presentation-translator/)를 확인 하세요. [여기](https://download.cnet.com/s/powerpoint-add-in/)서 다운로드할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방식
 

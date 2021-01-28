@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에서 HDFS 문제 해결
 description: HDFS 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: add8bc14c1810d4b0d5894a840f2b815230f31cc
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288993"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931468"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop HDFS 문제 해결
 
@@ -25,7 +22,7 @@ HDFS (Hadoop 분산 파일 시스템)를 사용할 때의 주요 문제 및 해�
 
 HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Storage를 사용하는 대신, 명령줄 및 애플리케이션 코드에서 로컬 HDFS에 액세스합니다.
 
-### <a name="resolution-steps"></a>해결 단계:
+### <a name="resolution-steps"></a>해결 단계
 
 1. 다음 명령과 같이 명령 프롬프트에서 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`를 그대로 사용합니다.
 
@@ -116,7 +113,7 @@ Apache Ambari를 사용하여 `fs.azure.write.request.size` 값을 전역적으�
 
 1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. URL은 이며 `https://CLUSTERNAME.azurehdinsight.net` , 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다. 메시지가 표시되면 클러스터의 관리자 이름 및 암호를 입력합니다.
 2. 화면 왼쪽에서 **HDFS** 를 선택한 다음 **구성** 탭을 선택합니다.
-3. **필터...** 필드에 `fs.azure.write.request.size`를 입력합니다.
+3. **필터 ...** 필드에 `fs.azure.write.request.size` 를 입력 합니다.
 4. 값을 262144(256KB)에서 새 값으로 변경합니다. 예를 들어 4194304(4MB)로 변경합니다.
 
     ![Ambari 웹 UI를 통해 값을 변경하는 이미지](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)
@@ -130,7 +127,7 @@ Ambari 사용에 대한 자세한 내용은 [Apache Ambari 웹 UI를 사용하�
 `-s`옵션은 표시 되는 파일 길이의 집계 요약을 생성 합니다.  
 `-h`옵션은 파일 크기의 형식을 지정 합니다.
 
-예제:
+예:
 
 ```bash
 hdfs dfs -du -s -h hdfs://mycluster/

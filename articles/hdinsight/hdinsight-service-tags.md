@@ -1,18 +1,16 @@
 ---
 title: Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그
 description: HDInsight 서비스 태그를 사용 하 여 NSGs에 IP 주소를 추가 하지 않고도 상태 및 관리 서비스 노드에서 클러스터로의 인바운드 트래픽을 허용할 수 있습니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022754"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931760"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 

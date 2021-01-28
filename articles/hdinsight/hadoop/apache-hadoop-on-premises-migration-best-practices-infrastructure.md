@@ -1,19 +1,16 @@
 ---
 title: '인프라: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 인프라 모범 사례를 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932156"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -101,7 +98,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [HDInsight에 타사 Apache Hadoop 애플리케이션 설치](../hdinsight-apps-install-applications.md)
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -172,7 +169,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 > [!Note]  
 > HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 디바이스에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure 가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
 - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-plan-virtual-network-deployment.md)
@@ -181,7 +178,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 
 HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있도록 하는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 지원 합니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 스토리지 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
 
-자세한 내용은 다음 항목을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)

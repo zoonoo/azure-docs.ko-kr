@@ -3,17 +3,16 @@ title: Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용
 description: Linux 기반 HDInsight에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534943"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931291"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -29,7 +28,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 > [!NOTE]  
 > HDInsight를 사용하여 워크플로를 정의하는 또 다른 옵션은 Azure Data Factory를 사용하는 것입니다. Data Factory에 대해 자세히 알아보려면 [Data Factory에서 Apache Pig 및 Apache Hive 사용](../data-factory/transform-data.md)을 참조하세요. Enterprise Security Package가 포함된 클러스터에서 Oozie를 사용하려면 [Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -489,9 +488,9 @@ Oozie 명령에 대한 자세한 내용은 [Apache Oozie 명령줄 도구](https
 
 Oozie REST API를 사용하면 Oozie와 함께 작동하는 사용자 고유의 도구를 빌드할 수 있습니다. Oozie REST API 사용에 대 한 다음 HDInsight 관련 정보는 다음과 같습니다.
 
-* **URI** : `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
+* **URI**: `https://CLUSTERNAME.azurehdinsight.net/oozie`에서 클러스터 외부의 REST API에 액세스할 수 있습니다.
 
-* **인증** : 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 다음은 그 예입니다.
+* **인증**: 인증을 받으려면 API와 클러스터 HTTP 계정(admin) 및 암호를 사용합니다. 예를 들면 다음과 같습니다.
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -505,7 +504,7 @@ Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기�
 
    * 작업 상태
    * 작업 정의
-   * Configuration
+   * 구성
    * 작업의 동작 그래프
    * 작업 로그
 
@@ -529,13 +528,13 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
     ![HDInsight Apache Oozie 작업 정보](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
-6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의** , **작업 구성** 을 보거나, **작업 로그** 에 액세스하거나, **작업 DAG** 에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
+6. **작업 정보** 탭에서 기본 작업 정보 및 작업 내의 개별 동작을 볼 수 있습니다. 맨 위에 있는 탭을 사용하여 **작업 정의**, **작업 구성** 을 보거나, **작업 로그** 에 액세스하거나, **작업 DAG** 에서 작업의 DAG(방향성 비순환 그래프)를 확인할 수 있습니다.
 
-   * **작업 로그** : **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
+   * **작업 로그**: **로그 가져오기** 단추를 선택하여 작업에 대한 모든 로그를 가져오거나 **검색 필터 입력** 필드를 사용하여 로그를 필터링합니다.
 
        ![HDInsight Apache Oozie 작업 로그](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **작업 DAG** : DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
+   * **작업 DAG**: DAG는 워크플로를 통해 가져온 데이터 경로의 그래픽 개요입니다.
 
        ![' HDInsight Apache Oozie job dag '](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 

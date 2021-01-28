@@ -1,19 +1,16 @@
 ---
 title: Spark를 사용하여 HBase 데이터 읽기 및 쓰기 - Azure HDInsight
 description: Spark HBase 커넥터를 사용하여 Spark 클러스터에서 HBase 클러스터로 데이터를 읽고 씁니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 344caf4080380f5d9dfdaf452798ada6d1dc9f1c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308421"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931228"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -96,7 +93,7 @@ __참고__: 계속 하기 전에 Spark 클러스터의 저장소 계정을 HBase
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
     |노드 유형|지역|
     |매개 변수|`-s SECONDARYS_STORAGE_URL`|
-    |지속됨|예|
+    |지속됨|yes|
 
     * `SECONDARYS_STORAGE_URL` Spark 쪽 기본 저장소의 url입니다. 매개 변수 예: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
@@ -108,7 +105,7 @@ __참고__: 계속 하기 전에 Spark 클러스터의 저장소 계정을 HBase
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |노드 유형|헤드, 작업자, 사육 사|
     |매개 변수|`-s "SPARK-CRON-SCHEDULE"` (선택 사항) `-h "HBASE-CRON-SCHEDULE"` 필드|
-    |지속됨|예|
+    |지속됨|yes|
 
 
     * 이 클러스터가 업데이트를 자동으로 확인 하도록 할 빈도를 지정할 수 있습니다. 기본값:-s "*/1 * * * *"-h 0 (이 예제에서는 Spark cron는 1 분 마다 실행 되 고 HBase cron은 실행 되지 않음)

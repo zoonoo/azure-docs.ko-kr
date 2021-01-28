@@ -3,17 +3,16 @@ title: Apache 레인저의 Apache Hive 정책-Azure HDInsight
 description: Enterprise Security Package를 사용하여 Azure HDInsight 서비스에서 Hive용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544939"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932237"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
@@ -83,7 +82,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |설명 |
+ | 속성  |Description |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
@@ -115,7 +114,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 1. **Hivesampletable** 을 선택 하 고 **다음** 을 선택 합니다.
 
-1. **완료** 를 선택합니다.
+1. **마침** 을 선택합니다.
 
 1. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성** 을 선택 합니다. 몇 초 정도 걸릴 수 있습니다.
 

@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Spark 앱-HDInsight'
 description: Azure Toolkit for IntelliJ를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/13/2020
-ms.openlocfilehash: b70de1915e6c068bd658dff60776085075412789
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0b2c2a91ba9d029bcf24b0980d0a2339194e6d8a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931042"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -104,7 +101,7 @@ Scala 플러그 인을 설치 하는 단계:
 
    ![프로젝트에서 Scala 클래스를 만들기 위한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   다. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
+   c. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
 
      ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -262,7 +259,7 @@ Azure Toolkit for IntelliJ를 사용 하 여 다양 한 작업을 수행할 수 
 
 ### <a name="access-the-job-view"></a>작업 보기 액세스
 
-1. Azure 탐색기에서 **HDInsight** 작업으로 이동  >  \<Your Cluster>  >  **Jobs** 합니다.
+1. Azure 탐색기에서 **HDInsight** 작업으로 이동  >  \<Your Cluster>  >  합니다.
 
     ![IntelliJ Azure Explorer 작업 보기 노드](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 

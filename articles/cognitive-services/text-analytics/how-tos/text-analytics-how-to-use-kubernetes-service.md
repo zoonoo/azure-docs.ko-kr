@@ -10,24 +10,24 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 744be742d9f638df14f9d6720c9dad9678685af0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fb33bd4fe70c51e1e2afffece10ba3b29dcb0450
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017876"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932434"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 Text Analytics 컨테이너 배포
 
 Azure Kubernetes 서비스 (AKS)에 Azure Cognitive Services [Text Analytics](./text-analytics-how-to-install-containers.md) 컨테이너 이미지를 배포 하는 방법에 대해 알아봅니다. 이 절차에서는 Text Analytics 리소스를 만드는 방법, 연결 된 감정 분석 이미지를 만드는 방법 및 브라우저에서 두 작업의 오케스트레이션을 실행 하는 방법을 보여 줍니다. 컨테이너를 사용 하면 인프라 관리에서 응용 프로그램 개발에 집중 하는 대신 주의를 끌 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell 사용 하지 마세요. 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다.
 * 텍스트 편집기 (예: [Visual Studio Code](https://code.visualstudio.com/download)).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치 되었습니다.
+* [Azure CLI](/cli/azure/install-azure-cli) 설치 되었습니다.
 * [KUBERNETES CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 가 설치 되어 있습니다.
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 모든 가격 책정 계층이 이 컨테이너에 작동하는 것은 아닙니다.
     * F0 또는 표준 가격 책정 계층을 사용 하는 **Azure Text Analytics** 리소스

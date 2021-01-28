@@ -3,12 +3,12 @@ title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: ed56bc88a9d2e8a9490331605cd4a72aef6930db
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0ea005427348e5265867a9e7ee805b0e6aa202f2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677946"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933901"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
@@ -49,7 +49,7 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 > Application Insights 에이전트를 설치 하기 전에 연결 문자열이 필요 합니다. [새 Application Insights 리소스를 만들거나](./create-new-resource.md) 기존 application Insights 리소스에서 연결 문자열을 복사 합니다.
 
 > [!NOTE]
-> Powershell을 처음 접하는 가요? [시작 가이드](/powershell/azure/get-started-azureps?view=azps-2.5.0)를 확인 하세요.
+> Powershell을 처음 접하는 가요? [시작 가이드](/powershell/azure/get-started-azureps)를 확인 하세요.
 
 Azure 가상 컴퓨터에 대 한 확장으로 Application Insights 에이전트 설치 또는 업데이트
 ```powershell

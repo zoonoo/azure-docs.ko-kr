@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 158d99589075546891e812d687bdeb06237218bc
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 81635a5f81548f0b4edeeb62fae19c567c6942bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221190"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932732"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI
 
@@ -92,7 +92,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는 이름이 **eslb** 인 [az network lb create](/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 표준 Load Balancer를 만듭니다. 
+이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는 이름이 **eslb** 인 [az network lb create](/cli/azure/network/lb) 를 사용 하 여 표준 Load Balancer를 만듭니다. 
 
 ```azurecli-interactive
 az network lb create \
@@ -107,7 +107,7 @@ az network lb create \
 
 ### <a name="create-ipv6-frontend"></a>IPv6 프런트 엔드 만들기
 
-[Az network lb 프런트 엔드-ip create](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create)를 사용 하 여 IPV6 프런트 엔드 ip를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v6* 라는 프런트 엔드 IP 구성을 만들고 *dsPublicIP_v6* 주소를 연결 합니다.
+[Az network lb 프런트 엔드-ip create](/cli/azure/network/lb/frontend-ip#az-network-lb-frontend-ip-create)를 사용 하 여 IPV6 프런트 엔드 ip를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v6* 라는 프런트 엔드 IP 구성을 만들고 *dsPublicIP_v6* 주소를 연결 합니다.
 
 ```azurecli-interactive
 az network lb frontend-ip create \
@@ -120,7 +120,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>IPv6 백 엔드 주소 풀 구성
 
-[Az network lb address pool create](/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create)를 사용 하 여 IPv6 백 엔드 주소 풀을 만듭니다. 다음 예제에서는 IPv6 NIC 구성을 사용 하 여 Vm을 포함 하도록 *dsLbBackEndPool_v6*  라는 백 엔드 주소 풀을 만듭니다.
+[Az network lb address pool create](/cli/azure/network/lb/address-pool#az-network-lb-address-pool-create)를 사용 하 여 IPv6 백 엔드 주소 풀을 만듭니다. 다음 예제에서는 IPv6 NIC 구성을 사용 하 여 Vm을 포함 하도록 *dsLbBackEndPool_v6*  라는 백 엔드 주소 풀을 만듭니다.
 
 ```azurecli-interactive
 az network lb address-pool create \
@@ -130,7 +130,7 @@ az network lb address-pool create \
 ```
 
 ### <a name="create-a-health-probe"></a>상태 프로브 만들기
-[az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+[az network lb probe create](/cli/azure/network/lb/probe)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
@@ -140,7 +140,7 @@ az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --pro
 
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 
 
-[Az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용 하 여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 *dsLBrule_v6* 및 분산 합니다.
+[Az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용 하 여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 *dsLBrule_v6* 및 분산 합니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -173,7 +173,7 @@ az network lb rule create \
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 앱의 가용성을 향상 시키려면 Vm을 가용성 집합에 저장 합니다.
 
-[az vm availability-set create](/cli/azure/vm/availability-set?view=azure-cli-latest)를 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset* 이라는 가용성 집합을 만듭니다.
+[az vm availability-set create](/cli/azure/vm/availability-set)를 사용하여 가용성 집합을 만듭니다. 다음 예에서는 *dsavset* 이라는 가용성 집합을 만듭니다.
 
 ```azurecli-interactive
 az vm availability-set create \
@@ -190,7 +190,7 @@ VNet에서 인바운드 및 아웃 바운드 통신을 제어 하는 규칙에 �
 
 #### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[Az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) 를 사용 하 여 네트워크 보안 그룹 만들기
+[Az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) 를 사용 하 여 네트워크 보안 그룹 만들기
 
 
 ```azurecli-interactive
@@ -203,7 +203,7 @@ az network nsg create \
 
 #### <a name="create-a-network-security-group-rule-for-inbound-and-outbound-connections"></a>인바운드 및 아웃 바운드 연결에 대 한 네트워크 보안 그룹 규칙 만들기
 
-포트 3389을 통해 RDP 연결을 허용 하는 네트워크 보안 그룹 규칙을 만들고, 포트 80을 통한 인터넷 연결을 허용 하 고, [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용 하 여 아웃 바운드 연결
+포트 3389을 통해 RDP 연결을 허용 하는 네트워크 보안 그룹 규칙을 만들고, 포트 80을 통한 인터넷 연결을 허용 하 고, [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용 하 여 아웃 바운드 연결
 
 ```azurecli-interactive
 # Create inbound rule for port 3389
@@ -256,7 +256,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6* 를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6* 를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
 # Create the virtual network
@@ -278,7 +278,7 @@ az network vnet subnet create \
 
 ### <a name="create-nics"></a>NIC 만들기
 
-[Az network nic create](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create)를 사용 하 여 각 VM에 대 한 가상 nic를 만듭니다. 다음 예제에서는 각 VM에 대 한 가상 NIC를 만듭니다. 각 NIC에는 두 개의 IP 구성 (1 개의 IPv4 구성, 1 IPv6 구성)이 있습니다. [Az network nic ip config create](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create)를 사용 하 여 IPV6 구성을 만듭니다.
+[Az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용 하 여 각 VM에 대 한 가상 nic를 만듭니다. 다음 예제에서는 각 VM에 대 한 가상 NIC를 만듭니다. 각 NIC에는 두 개의 IP 구성 (1 개의 IPv4 구성, 1 IPv6 구성)이 있습니다. [Az network nic ip config create](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-create)를 사용 하 여 IPV6 구성을 만듭니다.
  
 ```azurecli-interactive
 # Create NICs
@@ -329,7 +329,7 @@ az network nic ip-config create \
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
-[az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다. 
+[az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 2개의 VM 및 아직 없는 경우 필요한 가상 네트워크 구성 요소를 만듭니다. 
 
 다음과 같이 가상 머신 *dsVM0* 를 만듭니다.
 

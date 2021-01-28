@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight의 Storm에 대한 SCP.NET 프로그래밍 가이드
 description: Azure HDInsight에서 실행되는 Storm과 함께 사용할 수 있도록 SCP.NET을 사용하여 .NET 기반 Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000144"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932635"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Azure HDInsight의 Apache Storm에 대 한 SCP 프로그래밍 가이드
 
@@ -35,9 +32,9 @@ SCP의 데이터는 튜플의 연속 스트림으로 모델링됩니다. 일반�
 
 스톰에서 응용 프로그램 토폴로지는 계산 그래프를 정의 합니다. 토폴로지의 각 노드에는 처리 논리가 포함 됩니다. 노드 간의 링크는 데이터 흐름을 표시 합니다.
 
-토폴로지에 입력 데이터를 삽입 하는 노드를 _spout_이라고 합니다. 데이터를 시퀀싱 하는 데 사용할 수 있습니다. 입력 데이터는 파일 로그, 트랜잭션 데이터베이스, 시스템 성능 카운터 등의 원본에서 가져올 수 있습니다.
+토폴로지에 입력 데이터를 삽입 하는 노드를 _spout_ 이라고 합니다. 데이터를 시퀀싱 하는 데 사용할 수 있습니다. 입력 데이터는 파일 로그, 트랜잭션 데이터베이스, 시스템 성능 카운터 등의 원본에서 가져올 수 있습니다.
 
-입력 및 출력 데이터 흐름이 모두 있는 노드를 _볼트_라고 합니다. 실제 데이터 필터링, 선택 및 집계를 수행 합니다.
+입력 및 출력 데이터 흐름이 모두 있는 노드를 _볼트_ 라고 합니다. 실제 데이터 필터링, 선택 및 집계를 수행 합니다.
 
 SCP는 데이터를 한 번 이상 처리 하는 최상의 노력을 지원 합니다.
 
@@ -95,7 +92,7 @@ public interface ISCPSpout : ISCPPlugin
 
 **Nexttuple** 가 호출 되 면 c # 코드에서 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 항목이 없는 경우이 메서드는 아무것도 내보내지 않고를 반환 해야 합니다.
 
-**Nexttuple**, **Ack**및 **Fail** 메서드는 모두 c # 프로세스의 단일 스레드에서 긴밀 한 루프에서 호출 됩니다. 내보낼 튜플이 없는 경우 10 밀리초와 같이 짧은 시간 동안 **Nexttuple** 일시 중지 합니다. 이 절전 모드는 CPU 가용성 낭비를 방지 하는 데 도움이 됩니다.
+**Nexttuple**, **Ack** 및 **Fail** 메서드는 모두 c # 프로세스의 단일 스레드에서 긴밀 한 루프에서 호출 됩니다. 내보낼 튜플이 없는 경우 10 밀리초와 같이 짧은 시간 동안 **Nexttuple** 일시 중지 합니다. 이 절전 모드는 CPU 가용성 낭비를 방지 하는 데 도움이 됩니다.
 
 **Ack** 및 **Fail** 메서드는 사양 파일이 승인 메커니즘을 사용 하도록 설정 하는 경우에만 호출 됩니다. *SeqId* 매개 변수는 승인 되거나 실패 한 튜플을 식별 합니다. 비트랜잭션 토폴로지에서 승인이 사용 하도록 설정 된 경우 spout에서 다음 **내보내기** 함수를 사용 해야 합니다.
 
@@ -133,9 +130,9 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-비트랜잭션와 마찬가지로 **Nexttx**, **Ack**및 **Fail** 은 모두 c # 프로세스의 단일 스레드에서 긴밀 한 루프에서 호출 됩니다. 내보낼 튜플이 없는 경우 10 밀리초와 같이 짧은 시간 동안에는 **Nexttx** 를 중지 합니다. 이 절전 모드는 CPU 가용성 낭비를 방지 하는 데 도움이 됩니다.
+비트랜잭션와 마찬가지로 **Nexttx**, **Ack** 및 **Fail** 은 모두 c # 프로세스의 단일 스레드에서 긴밀 한 루프에서 호출 됩니다. 내보낼 튜플이 없는 경우 10 밀리초와 같이 짧은 시간 동안에는 **Nexttx** 를 중지 합니다. 이 절전 모드는 CPU 가용성 낭비를 방지 하는 데 도움이 됩니다.
 
-새 트랜잭션을 시작 하기 위해 **Nexttx** 를 호출 하면 *seqId* output 매개 변수가 트랜잭션을 식별 합니다. 트랜잭션은 **Ack** 에도 사용 되며 **실패**합니다. **Nexttx** 메서드는 Java 쪽으로 데이터를 내보낼 수 있습니다. 재생을 지원하기 위해 데이터는 ZooKeeper에 저장됩니다. 사육 사가 용량을 제한 하므로 코드는 트랜잭션 spout 대량 데이터가 아닌 메타 데이터만 내보냅니다.
+새 트랜잭션을 시작 하기 위해 **Nexttx** 를 호출 하면 *seqId* output 매개 변수가 트랜잭션을 식별 합니다. 트랜잭션은 **Ack** 에도 사용 되며 **실패** 합니다. **Nexttx** 메서드는 Java 쪽으로 데이터를 내보낼 수 있습니다. 재생을 지원하기 위해 데이터는 ZooKeeper에 저장됩니다. 사육 사가 용량을 제한 하므로 코드는 트랜잭션 spout 대량 데이터가 아닌 메타 데이터만 내보냅니다.
 
 폭풍이 실패 한 트랜잭션을 자동으로 재생 하기 때문에 **실패** 는 일반적으로 호출 되지 않습니다. 그러나 SCP가 트랜잭션 spout에서 내보낸 메타 데이터를 확인할 수 있는 경우 메타 데이터가 잘못 된 경우 **Fail** 을 호출할 수 있습니다.
 
@@ -161,11 +158,11 @@ SCP.NET은 Java에서 수행 하는 폭풍이와 마찬가지로 각 **StormTxAt
 
 ## <a name="object-model"></a>개체 모델
 
-SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 개체는 **Context**, **StateStore**및 **scpruntime은**입니다. 이러한 항목에 대해서는이 섹션에서 설명 합니다.
+SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 개체는 **Context**, **StateStore** 및 **scpruntime은** 입니다. 이러한 항목에 대해서는이 섹션에서 설명 합니다.
 
-### <a name="context"></a>Context
+### <a name="context"></a>컨텍스트
 
-**컨텍스트** 개체는 응용 프로그램에 실행 중인 환경을 제공 합니다. **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**또는 **ISCPBatchBolt** 의 각 **ISCPPlugin** 인스턴스에는 해당 하는 **컨텍스트** 인스턴스가 있습니다. **Context** 에서 제공 하는 기능은 다음과 같은 두 부분으로 구분 됩니다.
+**컨텍스트** 개체는 응용 프로그램에 실행 중인 환경을 제공 합니다. **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** 또는 **ISCPBatchBolt** 의 각 **ISCPPlugin** 인스턴스에는 해당 하는 **컨텍스트** 인스턴스가 있습니다. **Context** 에서 제공 하는 기능은 다음과 같은 두 부분으로 구분 됩니다.
 
 * 전체 c # 프로세스에서 사용할 수 있는 정적 부분입니다.
 * 특정 **컨텍스트** 인스턴스에 대해서만 사용할 수 있는 동적 부분입니다.
@@ -181,7 +178,7 @@ public static TopologyContext TopologyContext { get; set; }
 
 **로 거** 개체는 로깅을 위해 제공 됩니다.
 
-**PluginType** 개체는 c # 프로세스의 플러그 인 유형을 나타냅니다. 프로세스를 Java 없이 로컬 테스트 모드에서 실행 하는 경우 플러그 인 유형이 **SCP_NET_LOCAL**됩니다.
+**PluginType** 개체는 c # 프로세스의 플러그 인 유형을 나타냅니다. 프로세스를 Java 없이 로컬 테스트 모드에서 실행 하는 경우 플러그 인 유형이 **SCP_NET_LOCAL** 됩니다.
 
 ```csharp
 public enum SCPPluginType 
@@ -194,7 +191,7 @@ public enum SCPPluginType
     }
 ```
 
-**Config** 속성은 c # 플러그 인이 초기화 될 때이를 전달 하는 Java 쪽에서 구성 매개 변수를 가져옵니다. **구성** 매개 변수는 **stormconf** 및 **pluginconf**의 두 부분으로 나뉩니다.
+**Config** 속성은 c # 플러그 인이 초기화 될 때이를 전달 하는 Java 쪽에서 구성 매개 변수를 가져옵니다. **구성** 매개 변수는 **stormconf** 및 **pluginconf** 의 두 부분으로 나뉩니다.
 
 ```csharp
 public Dictionary<string, Object> stormConf { get; set; }  
@@ -268,7 +265,7 @@ public abstract void Fail(SCPTuple tuple);
 
 ### <a name="statestore"></a>StateStore
 
-**StateStore** 개체는 메타 데이터 서비스, 단조 시퀀스 생성 및 대기 없는 조정을 제공 합니다. **StateStore**에서 더 높은 수준의 분산 동시성 추상화를 빌드할 수 있습니다. 이러한 추상화는 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 포함 합니다.
+**StateStore** 개체는 메타 데이터 서비스, 단조 시퀀스 생성 및 대기 없는 조정을 제공 합니다. **StateStore** 에서 더 높은 수준의 분산 동시성 추상화를 빌드할 수 있습니다. 이러한 추상화는 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 포함 합니다.
 
 SCP 응용 프로그램은 **상태** 개체를 사용 하 여 [Apache ZooKeeper](https://zookeeper.apache.org/)정보를 직렬화 할 수 있습니다. 이 기능은 트랜잭션 토폴로지에 특히 유용 합니다. 트랜잭션 spout가 응답을 중지 하 고 다시 시작 하는 경우 **상태** 는 사육 사에서 필요한 정보를 검색 하 고 파이프라인을 다시 시작할 수 있습니다.
 
@@ -357,7 +354,7 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-**Simplemode** 를 **true**로 설정 하면 **Commit** 메서드는 사육 사에서 해당 znode를 삭제 합니다. 그렇지 않으면 메서드는 현재 ZNode를 삭제 하 고 커밋됨 경로에 새 노드를 추가 합니다 \_ .
+**Simplemode** 를 **true** 로 설정 하면 **Commit** 메서드는 사육 사에서 해당 znode를 삭제 합니다. 그렇지 않으면 메서드는 현재 ZNode를 삭제 하 고 커밋됨 경로에 새 노드를 추가 합니다 \_ .
 
 ### <a name="scpruntime"></a>SCPRuntime
 
@@ -373,13 +370,13 @@ public static void LaunchPlugin(newSCPPlugin createDelegate);
 
 **Launchplugin** 메서드는 메시지 처리 루프를 시작 합니다. 이 루프에서 c # 플러그 인은 Java 쪽에서 메시지를 받습니다. 이러한 메시지는 튜플 및 제어 신호를 포함 합니다. 그러면 플러그 인에서 코드에서 제공 하는 인터페이스 메서드를 호출 하 여 메시지를 처리 합니다.
 
-**Launchplugin** 의 입력 매개 변수는 대리자입니다. 메서드는 **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**또는 **ISCPBatchBolt** 인터페이스를 구현 하는 개체를 반환할 수 있습니다.
+**Launchplugin** 의 입력 매개 변수는 대리자입니다. 메서드는 **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** 또는 **ISCPBatchBolt** 인터페이스를 구현 하는 개체를 반환할 수 있습니다.
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
 ```
 
-**ISCPBatchBolt**의 경우 *parms* 매개 변수에서 **StormTxAttempt** 개체를 가져온 후이 개체를 사용 하 여 재생이 재생 된 시도 인지 여부를 판단할 수 있습니다. 재생 시도 확인은 종종 커밋 볼트에서 수행 됩니다. 이 문서의 뒷부분에 나오는 HelloWorldTx 예제에서는 이러한 검사를 보여 줍니다.
+**ISCPBatchBolt** 의 경우 *parms* 매개 변수에서 **StormTxAttempt** 개체를 가져온 후이 개체를 사용 하 여 재생이 재생 된 시도 인지 여부를 판단할 수 있습니다. 재생 시도 확인은 종종 커밋 볼트에서 수행 됩니다. 이 문서의 뒷부분에 나오는 HelloWorldTx 예제에서는 이러한 검사를 보여 줍니다.
 
 SCP 플러그 인은 일반적으로 로컬 테스트 모드와 일반 모드의 두 가지 모드로 실행 될 수 있습니다.
 
@@ -434,19 +431,19 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명 하 고 구성 하기 위�
 
 SCP.NET는 다음과 같은 함수를 추가 하 여 트랜잭션 토폴로지를 정의 합니다.
 
-| 새 함수 | 매개 변수 | 설명 |
+| 새 함수 | 매개 변수 | Description |
 | --- | --- | --- |
 | **tx-topolopy** |*topology-name*<br />*spout-map*<br />*bolt-map* |토폴로지 이름, spout 정의 맵 및 볼트 정의 맵으로 트랜잭션 토폴로지를 정의 합니다. |
-| **scp-tx-spout** |*exec-name*<br />*args*<br />*필드* |트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args*를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다. |
+| **scp-tx-spout** |*exec-name*<br />*args*<br />*필드* |트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다. |
 | **scp-tx-batch-bolt** |*exec-name*<br />*args*<br />*필드* |트랜잭션 일괄 처리 볼트를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 args를 사용 *합니다.*<br /><br />*Fields* 매개 변수는 볼트의 출력 필드를 지정 합니다. |
-| **scp-tx-commit-bolt** |*exec-name*<br />*args*<br />*필드* |트랜잭션 커밋 볼트를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args*를 사용 합니다.<br /><br />*Fields* 매개 변수는 볼트의 출력 필드를 지정 합니다. |
+| **scp-tx-commit-bolt** |*exec-name*<br />*args*<br />*필드* |트랜잭션 커밋 볼트를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 볼트의 출력 필드를 지정 합니다. |
 | **비 tx-토폴로지** |*topology-name*<br />*spout-map*<br />*bolt-map* |토폴로지 이름, spout 정의 맵 및 볼트 정의 맵으로 비트랜잭션 토폴로지를 정의 합니다. |
-| **scp-spout** |*exec-name*<br />*args*<br />*필드*<br />*parameters* |비트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args*를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다.<br /><br />*Parameters* 매개 변수는 선택 사항입니다. 이를 사용 하 여 "비트랜잭션. ack"와 같은 매개 변수를 지정 합니다. |
-| **scp-bolt** |*exec-name*<br />*args*<br />*필드*<br />*parameters* |비트랜잭션 볼트를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args*를 사용 합니다.<br /><br />*Fields* 매개 변수는 볼트의 출력 필드를 지정 합니다.<br /><br />*Parameters* 매개 변수는 선택 사항입니다. 이를 사용 하 여 "비트랜잭션. ack"와 같은 매개 변수를 지정 합니다. |
+| **scp-spout** |*exec-name*<br />*args*<br />*필드*<br />*parameters* |비트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다.<br /><br />*Parameters* 매개 변수는 선택 사항입니다. 이를 사용 하 여 "비트랜잭션. ack"와 같은 매개 변수를 지정 합니다. |
+| **scp-bolt** |*exec-name*<br />*args*<br />*필드*<br />*parameters* |비트랜잭션 볼트를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 볼트의 출력 필드를 지정 합니다.<br /><br />*Parameters* 매개 변수는 선택 사항입니다. 이를 사용 하 여 "비트랜잭션. ack"와 같은 매개 변수를 지정 합니다. |
 
 SCP.NET는 다음 키워드를 정의 합니다.
 
-| 키워드 | 설명 |
+| 키워드 | Description |
 | --- | --- |
 | **: 이름** |토폴로지 이름 |
 | **: 토폴로지** |이전 테이블 및 기본 제공 함수의 함수를 사용 하는 토폴로지 |
@@ -456,7 +453,7 @@ SCP.NET는 다음 키워드를 정의 합니다.
 
 또한 SCP.NET는 이러한 자주 사용 되는 매개 변수를 정의 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | "plugin.name" |C # 플러그 인의 .exe 파일 이름입니다. |
 | "plugin.args" |플러그 인 인수 |
@@ -683,7 +680,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 1. DLL 이름으로, `"HelloWorld.dll"` 이 예에서는입니다.
 1. 클래스 이름으로, `"Scp.App.HelloWorld.Generator"` 이 예에서는입니다.
-1. **ISCPPlugin**의 인스턴스를 가져오기 위해 호출할 수 있는 공용 정적 메서드의 이름입니다.
+1. **ISCPPlugin** 의 인스턴스를 가져오기 위해 호출할 수 있는 공용 정적 메서드의 이름입니다.
 
 호스트 모드에서 SCP 플랫폼에의 한 호출을 위해 코드를 DLL로 컴파일합니다. 그러면 플랫폼이 전체 처리 논리를 완전히 제어할 수 있으므로 SCP 호스트 모드에서 토폴로지를 제출 하는 것이 좋습니다. 이렇게 하면 개발 환경이 간단해 집니다. 또한 이후 릴리스에서 더 유연 하 고 이전 버전과의 호환성을 향상 시킬 수 있습니다.
 
@@ -691,7 +688,7 @@ public interface ICustomizedInteropJavaDeserializer {
 
 ### <a name="helloworld"></a>HelloWorld
 
-다음의 간단한 HelloWorld 예는 SCP.NET의 맛을 보여 줍니다. Spout 라는 **생성기** 와 **splitter** 및 **counter**라는 두 개의 볼트가 있는 비트랜잭션 토폴로지를 사용 합니다. **생성자** 는 문장을 임의로 생성 하 고 이러한 문장을 **분할자**로 spout 합니다. **분할자** 볼트는 문장을 단어로 분할 하 고 이러한 단어를 **카운터** 볼트에 내보냅니다. **Counter** 볼트는 사전을 사용 하 여 각 단어의 발생을 기록 합니다.
+다음의 간단한 HelloWorld 예는 SCP.NET의 맛을 보여 줍니다. Spout 라는 **생성기** 와 **splitter** 및 **counter** 라는 두 개의 볼트가 있는 비트랜잭션 토폴로지를 사용 합니다. **생성자** 는 문장을 임의로 생성 하 고 이러한 문장을 **분할자** 로 spout 합니다. **분할자** 볼트는 문장을 단어로 분할 하 고 이러한 단어를 **카운터** 볼트에 내보냅니다. **Counter** 볼트는 사전을 사용 하 여 각 단어의 발생을 기록 합니다.
 
 이 예제에는 두 개의 사양 파일인 HelloWorld. spec 및 HelloWorld \_ enableack. spec이 있습니다. C # 코드는 `pluginConf` Java 쪽에서 개체를 가져와 승인이 사용 되는지 여부를 확인할 수 있습니다.
 
@@ -728,7 +725,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-다음 HelloWorldTx 예제에서는 트랜잭션 토폴로지를 구현 하는 방법을 보여 줍니다. 이 예제에는 **생성기**라는 spout 하 나와, **부분 카운트**라는 배치 볼트와 **count-sum**이라는 커밋 볼트가 있습니다. 또한이 예제에는 DataSource0.txt, DataSource1.txt 및 DataSource2.txt의 세 가지 기존 텍스트 파일이 있습니다.
+다음 HelloWorldTx 예제에서는 트랜잭션 토폴로지를 구현 하는 방법을 보여 줍니다. 이 예제에는 **생성기** 라는 spout 하 나와, **부분 카운트** 라는 배치 볼트와 **count-sum** 이라는 커밋 볼트가 있습니다. 또한이 예제에는 DataSource0.txt, DataSource1.txt 및 DataSource2.txt의 세 가지 기존 텍스트 파일이 있습니다.
 
 각 트랜잭션에서 **생성기** 는 기존 3 개의 파일에서 두 개의 파일을 임의로 선택 하 고 두 개의 파일 이름을 **부분 카운트** spout 내보냅니다. **부분 카운트** 볼트:
 

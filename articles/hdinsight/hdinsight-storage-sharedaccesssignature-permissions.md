@@ -1,19 +1,16 @@
 ---
 title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight
 description: 공유 액세스 서명을 사용 하 여 Azure Blob storage에 저장 된 데이터에 대 한 HDInsight 액세스를 제한 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: 141db7feee987b7fffc578e19c60bd94ad56d239
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511640"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931721"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한
 
@@ -86,7 +83,7 @@ HDInsight는 클러스터와 연결 된 Azure Blob storage 계정의 데이터�
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>PowerShell 사용하기
+### <a name="using-powershell"></a>PowerShell 사용
 
 `RESOURCEGROUP`, `STORAGEACCOUNT` 및을 `STORAGECONTAINER` 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꿉니다. 디렉터리를로 변경 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 하거나 `-File` 의 절대 경로를 포함 하도록 매개 변수를 수정 `Set-AzStorageblobcontent` 합니다. 다음 PowerShell 명령을 입력 합니다.
 
@@ -211,7 +208,7 @@ Set-AzStorageblobcontent `
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-    |항목 |설명 |
+    |항목 |Description |
     |---|---|
     |StorageConnectionString|저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.|
     |ContainerName|액세스를 제한할 스토리지 계정의 컨테이너입니다.|

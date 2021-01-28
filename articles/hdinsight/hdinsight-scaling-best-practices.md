@@ -1,19 +1,17 @@
 ---
 title: 클러스터 크기 조정 - Azure HDInsight
 description: Azure HDInsight에서 워크 로드와 일치 하도록 Apache Hadoop 클러스터 탄력적으로 크기 조정
-author: hrasheed-msft
 ms.author: ashish
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022771"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932066"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -146,7 +144,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

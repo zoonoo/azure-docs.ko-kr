@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680591"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931107"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Azure HDInsight Interactive Query 클러스터(Hive LLAP) 크기 조정 가이드
 
@@ -216,7 +216,7 @@ LLAP에 대 한 워크 로드 관리를 사용 하도록 설정 하려는 경우
  - 워크 로드 관리 큐 용량 = 20gb
  - 기본 큐 용량 = 10gb
 
-워크 로드 관리 큐 용량의 20gb를 사용 하면 리소스 계획에서 `QUERY_PARALLELISM` 5로 값을 지정할 수 있습니다. 즉, 워크 로드 관리에서 각각 4gb 컨테이너 크기를 가진 5 개의 Tez AMs를 시작할 수 있습니다. `QUERY_PARALLELISM`가 용량 보다 높으면 일부 Tez AMs가 상태에 멈춘 것을 볼 수 있습니다 `ACCEPTED` . Hiveserver2 Interactive는 상태가 아닌 Tez AMs에 쿼리 조각을 제출할 수 없습니다 `RUNNING` .
+워크 로드 관리 큐 용량의 20gb를 사용 하면 리소스 계획에서 `QUERY_PARALLELISM` 5로 값을 지정할 수 있습니다. 즉, 워크 로드 관리에서 각각 4gb 컨테이너 크기를 가진 5 개의 Tez AMs를 시작할 수 있습니다. `QUERY_PARALLELISM`가 용량 보다 큰 경우 상태에서 Tez AMs가 응답 하지 않는 것을 볼 수 있습니다 `ACCEPTED` . Hiveserver2 Interactive는 상태가 아닌 Tez AMs에 쿼리 조각을 제출할 수 없습니다 `RUNNING` .
 
 
 #### <a name="next-steps"></a>**다음 단계**

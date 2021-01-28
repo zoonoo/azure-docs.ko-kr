@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight의 엔터프라이즈 보안 일반 지침
 description: Enterprise Security Package 배포 및 관리를 용이 하 게 하는 몇 가지 모범 사례가 있습니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530268"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933576"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침
 

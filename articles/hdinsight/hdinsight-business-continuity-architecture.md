@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight 비즈니스 연속성 아키텍처
 description: 이 문서에서는 HDInsight에 대해 가능한 여러 가지 비즈니스 연속성 아키텍처를 설명 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 0275fa4cc46dff8781d73563fd250b1ec62ddd56
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f74309370f1489714013344116e7feb9551fbfd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344116"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933446"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight 비즈니스 연속성 아키텍처
 

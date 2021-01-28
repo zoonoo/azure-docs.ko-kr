@@ -1,19 +1,17 @@
 ---
 title: HDInsight 클러스터에 Azure Active Directory 사용자 동기화
 description: Azure Active Directory에서 HDInsight 클러스터에 인증 된 사용자를 동기화 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535181"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931625"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 

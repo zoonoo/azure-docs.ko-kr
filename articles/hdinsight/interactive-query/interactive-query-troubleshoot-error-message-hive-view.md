@@ -3,16 +3,13 @@ title: Apache Hive 보기에 표시 되지 않는 오류 메시지-Azure HDInsig
 description: Azure HDInsight 클러스터에 대 한 세부 정보가 없는 Apache Hive 보기에서 쿼리가 실패 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 7aadef0d4c70f748b4f7a7c7f9fc16c38216fa7a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c60e06e8f37e7aed0d0a0df661690a2b1f32dbd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288944"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931010"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Hive 보기에 쿼리 오류 메시지가 표시 되지 않음
 

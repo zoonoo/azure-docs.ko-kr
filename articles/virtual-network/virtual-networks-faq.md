@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 2cf28565818f6de4d52b57040a80c21d0e03a76c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218522"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933972"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -239,7 +239,7 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
 - [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) 및 [클래식](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
-- [리소스 관리자](/powershell/module/az.network) 및 [클래식](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
+- [리소스 관리자](/powershell/module/az.network) 및 [클래식](/powershell/module/servicemanagement/azure.service/) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - [Resource Manager](/cli/azure/network/vnet) 및 [클래식](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) 배포 모델을 통해 배포된 VNet을 배포하고 관리하는 Azure CLI(명령줄 인터페이스).  
 
 ## <a name="vnet-peering"></a>VNet 피어링

@@ -1,19 +1,17 @@
 ---
 title: Apache Kafka에서 자동 토픽 생성 사용 - Azure HDInsight
 description: 자동으로 토픽을 만들도록 HDInsight에서 Apache Kafka를 구성하는 방법에 대해 알아봅니다. `auto.create.topics.enable`Ambari를 통해를 true로 설정 하 여 Kafka을 구성할 수 있습니다. 또는 PowerShell 또는 리소스 관리자 템플릿을 통해 클러스터를 만드는 동안.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 829f91452725615af4d444426e25ffad62d6ab6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b416623d6637cfe8e2c1cd795dd62553f8c0aed4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087507"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933213"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>자동으로 토픽을 작성하기 위해 HDInsight에서 Apache Kafka를 구성하는 방법
 
@@ -25,7 +23,7 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 Kafka 클러스터를 선택 합니다.
 
-1. **클러스터 대시보드에서** **Ambari 홈**을 선택 합니다.
+1. **클러스터 대시보드에서** **Ambari 홈** 을 선택 합니다.
 
     ![클러스터 대시 보드로 선택한 포털 이미지](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
@@ -45,11 +43,11 @@ Ambari 웹 UI를 통해 기존 클러스터에서 자동 토픽 생성을 사용
 
     이 설정은 속성 목록을 필터링 하 고 설정을 표시 합니다 `auto.create.topics.enable` .
 
-1. 의 값을로 변경 하 `auto.create.topics.enable` `true` 고 **저장**을 선택 합니다. 메모를 추가 하 고 **저장** 을 다시 선택 합니다.
+1. 의 값을로 변경 하 `auto.create.topics.enable` `true` 고 **저장** 을 선택 합니다. 메모를 추가 하 고 **저장** 을 다시 선택 합니다.
 
     ![auto.create.topics.enable 항목의 이미지](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 
-1. Kafka 서비스를 선택하고 __다시 시작__을 선택한 후 __영향을 받는 모든 서비스 다시 시작__을 선택합니다. 메시지가 표시 되 면 __모두 다시 시작 확인__을 선택 합니다.
+1. Kafka 서비스를 선택하고 __다시 시작__ 을 선택한 후 __영향을 받는 모든 서비스 다시 시작__ 을 선택합니다. 메시지가 표시 되 면 __모두 다시 시작 확인__ 을 선택 합니다.
 
     ![' 모든 영향을 받는 ' Apache Ambari 다시 시작 '](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 

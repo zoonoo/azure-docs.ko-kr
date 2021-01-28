@@ -1,19 +1,16 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 description: HDInsight에서 Apache Hadoop 작업에 대 한 데이터를 업로드 및 액세스 하는 방법에 대해 알아봅니다. Azure 클래식 CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8d21b88298b6092c869b89d48fe4c259c2365b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534824"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931348"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -58,7 +55,7 @@ Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-lin
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-예, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+예를 들어 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/data/data.txt 실제로는 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
 

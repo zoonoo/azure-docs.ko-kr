@@ -2,19 +2,16 @@
 title: Azure HDInsight 클러스터에 적합 한 VM 크기를 선택 하는 방법
 description: HDInsight 클러스터에 적합 한 VM 크기를 선택 하는 방법을 알아봅니다.
 keywords: VM 크기, 클러스터 크기, 클러스터 구성
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535317"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931781"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
 
@@ -38,7 +35,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화 됩니다. 아래 표에서 가장 인기 있는 사용 사례와 일치 하는 VM 제품군 중 일부를 찾을 수 있습니다.
 
-| Type                     | 크기           |    설명       |
+| 형식                     | 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [항목 수준](../virtual-machines/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 경제적 이며 Azure를 시작 하기 위한 저렴 한 옵션을 제공 합니다. |
 | [범용](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
@@ -53,7 +50,7 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 다음 표에서는 Fsv2 시리즈 Vm을 사용 하 여 만들 수 있는 클러스터 유형 및 노드 유형을 설명 합니다.
 
-| 클러스터 유형 | Version | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
+| 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | 사육 아웃 노드 |
 |---|---|---|---|---|
 | Spark | 모두 | F4 이상 | 아니요 | 아니요 |
 | Hadoop은 | 모두 | F4 이상 | 아니요 | 아니요 |

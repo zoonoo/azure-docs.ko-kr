@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 description: Azure HDInsight 클러스터에서 느리거나 실패 한 작업을 진단 하 고 문제를 해결 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022703"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931533"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
 
@@ -37,7 +34,7 @@ HDInsight는 클러스터 문제를 식별하고 해결할 수 있는 여러 도
 
 문제를 식별할 수 있도록 다음 질문을 고려합니다.
 
-* 어떤 동작이 발생할 것으로 예상했습니까? 실제로 어떤 동작이 발생했습니까?
+* 어떤 동작이 발생할 것으로 예상했습니까? 그 대신 어떤 일이 발생하였나요?
 * 프로세스를 실행하는 데 시간이 얼마나 걸렸습니까? 얼마나 실행되어야 합니까?
 * 내 작업이 이 클러스터에서 항상 느리게 실행됩니까? 다른 클러스터에서는 더 빠르게 실행되었습니까?
 * 이 문제가 언제 처음 발생했습니까? 그 이후로 얼마나 자주 발생합니까?
