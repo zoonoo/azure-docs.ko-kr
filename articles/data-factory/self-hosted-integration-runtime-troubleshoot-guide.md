@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757681"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942049"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -198,7 +198,7 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
  
 " \<LogProperties> \<ErrorInfo> [{" Code ": 0," Message ":" ' Npgsql. poolmanager '의 형식 이니셜라이저가 예외를 throw 했습니다. "," EventType ": 0," Category ": 5," Data ": {} ," MsgId ": Null," exceptiontype ":" system.typeinitializationexception "," Source ":" npgsql "," StackTrace ":" "," InnerEventInfos ": [{" Code ": 0," Message ":" 파일 또는 어셈블리 ' system.valuetuple, Version = 4.0.2.0, Culture = 중립, PublicKeyToken = XXXXXXXXX ' 또는 해당 종속성 중 하나를 로드할 수 없습니다. 시스템이 지정 된 파일을 찾을 수 없습니다. "," EventType ": 0," Category ": 5," Data ": {} ," msgid":null,"ExceptionType":"System "," Source ":" Npgsql "," StackTrace ":" "," InnerEventInfos ": []}]}] \</ErrorInfo> \</LogProperties> "
  
-GAC에 대 한 자세한 내용은 [전역 어셈블리 캐시](https://docs.microsoft.com/dotnet/framework/app-domains/gac)를 참조 하세요.
+GAC에 대 한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framework/app-domains/gac)를 참조 하세요.
 
 
 ### <a name="self-hosted-integration-runtime-authentication-key-is-missing"></a>자체 호스팅 통합 런타임 인증 키가 누락 되었습니다.
@@ -333,7 +333,7 @@ Integration runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
  
             a. 현재 자체 호스팅 IR을 완전히 제거 합니다.   
             b. 자체 호스팅 IR 비트를 설치 합니다.  
-            다. 다음을 수행 하 여 서비스 계정을 변경 합니다.  
+            c. 다음을 수행 하 여 서비스 계정을 변경 합니다.  
 
              i. 자체 호스팅 IR 설치 폴더로 이동한 다음 *Microsoft Integration Runtime\4.0\Shared* 폴더로 전환 합니다.  
              ii. 상승 된 권한을 사용 하 여 명령 프롬프트 창을 엽니다. 및를 사용자 *\<user>* *\<password>* 이름 및 암호로 바꾸고 다음 명령을 실행 합니다.   

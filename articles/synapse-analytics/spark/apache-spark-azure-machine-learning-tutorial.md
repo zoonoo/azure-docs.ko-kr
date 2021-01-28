@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2594e25bff3ca949b329f8b66f4427eb1f6950b0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: fc9909614a9d557c19a22e215b7513a038f88c33
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118713"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942330"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>자습서: 자동화된 Machine Learning을 사용하여 Python에서 모델 학습
 
@@ -24,14 +24,14 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 
 이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
 - Apache Spark 및 Azure Open Datasets를 사용하여 데이터를 다운로드합니다.
-- Apache Spark 데이터 프레임을 사용하여 데이터를 변환하고 정리합니다.
-- 자동화된 Machine Learning 회귀 모델을 학습시킵니다.
+- Apache Spark 데이터 프레임를 사용 하 여 데이터를 변환 하 고 정리 합니다.
+- 자동화 된 기계 학습에서 회귀 모델을 학습 합니다.
 - 모델 정확도를 계산합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
-- [서버리스 Apache Spark 풀 만들기 빠른 시작](../quickstart-create-apache-spark-pool-studio.md)에 따라 서버리스 Apache Spark 풀을 만듭니다.
-- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정 자습서](../../machine-learning/tutorial-1st-experiment-sdk-setup.md)를 완료합니다. 
+- 서버를 사용 하지 않는 [Apache Spark 풀 만들기](../quickstart-create-apache-spark-pool-studio.md) 빠른 시작을 수행 하 여 서버를 사용 하지 않는 Apache Spark 풀을 만듭니다.
+- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설치](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) 자습서를 완료 합니다. 
 
 ## <a name="understand-regression-models"></a>회귀 모델 이해
 
@@ -39,7 +39,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 
 ### <a name="example-based-on-new-york-city-taxi-data"></a>뉴욕시 택시 데이터를 기반으로 하는 예제
 
-다음 예제에서는 Spark를 사용하여 NYC(뉴욕시)의 택시 주행 팁 데이터에 대한 일부 분석을 수행합니다. 데이터는 [Azure 공개 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 통해 사용할 수 있습니다. 데이터 세트의 이 하위 집합에는 각 주행, 시작/종료 시간, 위치 및 비용을 포함하여 노랑 택시 주행에 대한 정보가 포함되어 있습니다.
+이 예제에서는 Spark를 사용 하 여 NYC (뉴욕 도시)에서 taxi 된 여행 팁 데이터에 대 한 분석을 수행 합니다. 데이터는 [Azure 공개 데이터 세트](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/)를 통해 사용할 수 있습니다. 데이터 세트의 이 하위 집합에는 각 주행, 시작/종료 시간, 위치 및 비용을 포함하여 노랑 택시 주행에 대한 정보가 포함되어 있습니다.
 
 > [!IMPORTANT]
 > 스토리지 위치에서 이 데이터를 끌어오는 데 추가 요금이 있을 수 있습니다. 다음 단계에서는 NYC 택시 요금 가격을 예측하는 모델을 개발합니다. 
@@ -53,7 +53,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
     > [!Note]
     > PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 컨텍스트가 자동으로 만들어집니다.
   
-2. 원시 데이터는 Parquet 형식이므로 Spark 컨텍스트를 사용하여 파일을 데이터 프레임으로 메모리에 직접 끌어올 수 있습니다. Open Datasets API를 통해 데이터를 검색하여 Spark 데이터 프레임을 만듭니다. 여기서는 Spark 데이터 프레임 `schema on read` 속성을 사용하여 데이터 형식 및 스키마를 유추합니다. 
+2. 원시 데이터는 Parquet 형식이 기 때문에 Spark 컨텍스트를 사용 하 여 파일을 데이터 프레임으로 메모리에 직접 가져올 수 있습니다. 개방형 데이터 집합 API를 통해 데이터를 검색 하 여 Spark 데이터 프레임을 만듭니다. 여기에서 Spark 데이터 프레임 속성을 사용 `schema on read` 하 여 데이터 형식 및 스키마를 유추 합니다. 
    
     ```python
     blob_account_name = "azureopendatastorage"
@@ -61,16 +61,16 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
     blob_relative_path = "yellow"
     blob_sas_token = r""
 
-    # Allow Spark to read from Blob remotely
+    # Allow Spark to read from the blob remotely
     wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
     spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
 
-    # Spark read parquet, note that it won't load any data yet by now
+    # Spark read parquet; note that it won't load any data yet
     df = spark.read.parquet(wasbs_path)
 
     ```
 
-3. Spark 풀의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. ```start_date``` 및 ```end_date``` 필터를 사용하여 이 데이터를 더 작은 데이터로 필터링할 수 있습니다. 이 경우 한 달 분량의 데이터를 반환하는 필터를 적용합니다. 필터링된 데이터 프레임이 있으면 새 데이터 프레임에서 ```describe()``` 함수를 실행하여 각 필드에 대한 요약 통계도 확인합니다. 
+3. Spark 풀의 크기에 따라 원시 데이터가 너무 크거나 작업하는 데 너무 많은 시간이 걸릴 수 있습니다. 및 필터를 사용 하 여이 데이터를 월 데이터와 같은 더 작은 값으로 필터링 할 수 있습니다 ```start_date``` ```end_date``` . 데이터 프레임를 필터링 한 후에는 ```describe()``` 새 데이터 프레임 함수를 실행 하 여 각 필드에 대 한 요약 통계를 볼 수도 있습니다. 
 
    요약 통계를 기반으로 하여 데이터에 몇 가지 불규칙성이 있음을 알 수 있습니다. 예를 들어 통계에 따르면 최소 주행 거리가 0보다 작습니다. 이러한 불규칙한 데이터 요소를 필터링해야 합니다.
    
@@ -84,13 +84,13 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
    filtered_df.describe().show()
    ```
 
-4. 다음으로, 열 세트를 선택하고 픽업 날짜/시간 필드에서 다양한 시간 기반 기능을 만들어 데이터 세트에서 기능을 생성합니다. 이전 단계에서 확인된 이상값은 학습하는 데 필요하지 않으므로 이러한 값을 필터링한 다음, 마지막 몇 개의 열을 제거합니다.
+4. 열 집합을 선택 하 고 픽업 필드에서 다양 한 시간 기반 기능을 만들어 데이터 집합에서 기능을 생성 `datetime` 합니다. 이전 단계에서 확인 된 이상 값을 필터링 한 다음 학습에 불필요 하므로 마지막 몇 개의 열을 제거 합니다.
    
    ```python
    from datetime import datetime
    from pyspark.sql.functions import *
 
-   # To make development easier, faster and less expensive down sample for now
+   # To make development easier, faster, and less expensive, downsample for now
    sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
 
    taxi_df = sampled_taxi_df.select('vendorID', 'passengerCount', 'tripDistance',  'startLon', 'startLat', 'endLon' \
@@ -110,16 +110,16 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
    taxi_df.show(10)
    ```
    
-   여기서 볼 수 있듯이 월의 날짜, 픽업 시간, 평일 및 총 이동 시간에 대한 추가 열이 포함된 새 데이터 프레임이 만들어집니다. 
+   여기에서 볼 수 있듯이이는 월, 픽업 시간, 평일 및 총 여행 시간에 대 한 추가 열이 포함 된 새 데이터 프레임를 만듭니다. 
 
-   ![택시 데이터 프레임의 그림](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
+   ![Taxi 데이터 프레임의 그림입니다.](./media/azure-machine-learning-spark-notebook/dataset.png#lightbox)
 
 ## <a name="generate-test-and-validation-datasets"></a>테스트 및 유효성 검사 데이터 세트 생성
 
-최종 데이터 세트가 있으면 Spark에서 ```random_ split ``` 함수를 사용하여 데이터를 학습 세트 및 테스트 세트로 분할할 수 있습니다. 이 함수는 제공된 가중치를 사용하여 모델 학습을 위한 학습 데이터 세트 및 테스트를 위한 유효성 검사 데이터 세트로 데이터를 임의로 분할합니다.
+최종 데이터 세트가 있으면 Spark에서 ```random_ split ``` 함수를 사용하여 데이터를 학습 세트 및 테스트 세트로 분할할 수 있습니다. 이 함수는 제공 된 가중치를 사용 하 여 모델 학습 및 테스트를 위한 유효성 검사 데이터 집합에 대 한 학습 데이터 집합으로 데이터를 무작위로 분할 합니다.
 
 ```python
-# Random split dataset using Spark, convert Spark to Pandas
+# Random split dataset using Spark; convert Spark to pandas
 training_data, validation_data = taxi_df.randomSplit([0.8,0.2], 223)
 
 ```
@@ -143,20 +143,20 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>데이터 프레임을 Azure Machine Learning 데이터 세트로 변환
-원격 실험을 제출하려면 데이터 세트를 Azure Machine Learning ```TabularDatset```로 변환합니다. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)는 제공된 파일을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다.
+## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>데이터 프레임를 Azure Machine Learning 데이터 집합으로 변환
+원격 실험을 제출 하려면 데이터 집합을 Azure Machine Learning ```TabularDatset``` 인스턴스로 변환 합니다. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) 는 제공 된 파일을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다.
 
-다음 코드는 기존 작업 영역과 기본 Azure Machine Learning 기본 데이터 저장소를 가져옵니다. 그런 다음, 데이터 저장소 및 파일 위치를 경로 매개 변수에 전달하여 새 ```TabularDataset```를 만듭니다. 
+다음 코드는 기존 작업 영역 및 기본 Azure Machine Learning 데이터 저장소를 가져옵니다. 그런 다음 데이터 저장소 및 파일 위치를 path 매개 변수에 전달 하 여 새 인스턴스를 만듭니다 ```TabularDataset``` . 
 
 ```python
 import pandas 
 from azureml.core import Dataset
 
-# Get the Azure Machine Learning Default Datastore
+# Get the Azure Machine Learning default datastore
 datastore = ws.get_default_datastore()
 training_pd = training_data.toPandas().to_csv('training_pd.csv', index=False)
 
-# Convert into Azure Machine Learning Tabular Dataset
+# Convert into an Azure Machine Learning tabular dataset
 datastore.upload_files(files = ['training_pd.csv'],
                        target_path = 'train-dataset/tabular/',
                        overwrite = True,
@@ -215,12 +215,12 @@ local_run = experiment.submit(automl_config, show_output=True, tags = tags)
 # Use the get_details function to retrieve the detailed output for the run.
 run_details = local_run.get_details()
 ```
-실험이 완료되면 출력에서 완료된 반복에 대한 세부 정보를 반환합니다. 각 반복의 경우 모델 유형, 실행 지속 및 학습 정확도가 표시됩니다. **BEST** 필드는 메트릭 유형에 따라 최상의 실행 학습 점수를 추적합니다.
+실험이 완료 되 면 출력은 완료 된 반복에 대 한 세부 정보를 반환 합니다. 각 반복의 경우 모델 유형, 실행 지속 및 학습 정확도가 표시됩니다. `BEST`필드는 메트릭 유형에 따라 최상의 실행 교육 점수를 추적 합니다.
 
 ![모델 출력의 스크린샷](./media/azure-machine-learning-spark-notebook/model-output.png)
 
 > [!NOTE]
-> 자동화된 Machine Learning 실험이 제출되면 다양한 반복 및 모델 유형을 실행합니다. 이 실행에는 일반적으로 60~90분이 걸립니다. 
+> 자동화된 Machine Learning 실험이 제출되면 다양한 반복 및 모델 유형을 실행합니다. 일반적으로이 실행에는 60 ~ 90 분이 소요 됩니다. 
 
 ### <a name="retrieve-the-best-model"></a>최적 모델 검색
 반복에서 최상의 모델을 선택하려면 ```get_output``` 함수를 사용하여 최상의 실행 및 적합 모델을 반환합니다. 다음 코드에서는 기록된 메트릭 또는 특정 반복에 대한 최상의 실행 및 적합 모델을 검색합니다.
@@ -231,7 +231,7 @@ best_run, fitted_model = local_run.get_output()
 ```
 
 ### <a name="test-model-accuracy"></a>모델 정확도 테스트
-1. 모델 정확도를 테스트하려면 테스트 데이터 세트에서 택시 요금 예측을 실행하는 최상의 모델을 사용합니다. ```predict``` 함수는 가장 적합한 모델을 사용하고 유효성 검사 데이터 세트에서 y 값(운임 금액)을 예측합니다. 
+1. 모델 정확도를 테스트하려면 테스트 데이터 세트에서 택시 요금 예측을 실행하는 최상의 모델을 사용합니다. ```predict```함수는 최상의 모델을 사용 하 고 `y` 유효성 검사 데이터 집합에서 (요금 금액)의 값을 예측 합니다. 
 
    ```python
    # Test best model accuracy
@@ -240,15 +240,15 @@ best_run, fitted_model = local_run.get_output()
    y_predict = fitted_model.predict(validation_data_pd)
    ```
 
-1. 제곱 평균 오차는 모델에서 예측한 샘플 값과 관찰 값 간의 차이를 측정하는 데 자주 사용됩니다. `y_test` 데이터 프레임을 모델에서 예측한 값과 비교하여 결과의 제곱 평균 오차를 계산합니다. 
+1. 제곱 평균 오차는 모델에서 예측한 샘플 값과 관찰 값 간의 차이를 측정하는 데 자주 사용됩니다. `y_test`데이터 프레임를 모델에서 예측 하는 값과 비교 하 여 결과의 근본 평균 제곱 오차를 계산 합니다. 
 
-   ```mean_squared_error``` 함수는 두 개의 배열을 가져와서 두 배열 간의 평균 제곱 오차를 계산합니다. 그런 다음, 결과의 제곱근을 가져옵니다. 이 메트릭은 택시 요금 예측과 실제 요금 값의 차이를 대략적으로 나타냅니다.
+   ```mean_squared_error``` 함수는 두 개의 배열을 가져와서 두 배열 간의 평균 제곱 오차를 계산합니다. 그런 다음, 결과의 제곱근을 가져옵니다. 이 메트릭은 taxi 요금 예측이 실제 요금 값의 대략적인 정도를 나타냅니다.
 
    ```python
    from sklearn.metrics import mean_squared_error
    from math import sqrt
 
-   # Calculate Root Mean Square Error
+   # Calculate root-mean-square error
    y_actual = y_test.values.flatten().tolist()
    rmse = sqrt(mean_squared_error(y_actual, y_predict))
 
@@ -262,10 +262,10 @@ best_run, fitted_model = local_run.get_output()
    ```
    제곱 평균 오차는 모델에서 예측하는 응답에 대한 정확도를 보여주는 좋은 척도입니다. 결과에 따르면 모델이 데이터 세트의 기능에서 택시 요금(일반적으로 $2.00 이내)을 예측하는 데 매우 적합하다는 것을 알 수 있습니다.
 
-1. 다음 코드를 실행하여 절대 백분율 평균 오차를 계산합니다. 이 메트릭은 정확도를 오류에 대한 백분율로 나타냅니다. 이 작업은 각 예측 값과 실제 값 간의 절대 차이를 계산한 다음, 모든 차이의 합계를 계산하여 수행됩니다. 그런 다음, 해당 합계를 실제 값의 합계에 대한 백분율로 나타냅니다.
+1. 다음 코드를 실행하여 절대 백분율 평균 오차를 계산합니다. 이 메트릭은 정확도를 오류에 대한 백분율로 나타냅니다. 이 작업은 각 예측 값과 실제 값 간의 절대 차이를 계산한 다음, 모든 차이의 합계를 계산하여 수행됩니다. 그런 다음 합계를 실제 값의 백분율로 나타냅니다.
 
    ```python
-   # Calculate MAPE and Model Accuracy 
+   # Calculate mean-absolute-percent error and model accuracy 
    sum_actuals = sum_errors = 0
 
    for actual_val, predict_val in zip(y_actual, y_predict):
@@ -301,26 +301,26 @@ best_run, fitted_model = local_run.get_output()
    import numpy as np
    from sklearn.metrics import mean_squared_error, r2_score
 
-   # Calculate the R2 score using the predicted and actual fare prices
+   # Calculate the R2 score by using the predicted and actual fare prices
    y_test_actual = y_test["fareAmount"]
    r2 = r2_score(y_test_actual, y_predict)
 
-   # Plot the Actual vs Predicted Fare Amount Values
+   # Plot the actual versus predicted fare amount values
    plt.style.use('ggplot')
    plt.figure(figsize=(10, 7))
    plt.scatter(y_test_actual,y_predict)
    plt.plot([np.min(y_test_actual), np.max(y_test_actual)], [np.min(y_test_actual), np.max(y_test_actual)], color='lightblue')
    plt.xlabel("Actual Fare Amount")
    plt.ylabel("Predicted Fare Amount")
-   plt.title("Actual vs Predicted Fare Amont R^2={}".format(r2))
+   plt.title("Actual vs Predicted Fare Amount R^2={}".format(r2))
    plt.show()
 
    ```
-   ![회귀 도표의 스크린샷](./media/azure-machine-learning-spark-notebook/fare-amount.png)
+   ![회귀 플롯의 스크린샷](./media/azure-machine-learning-spark-notebook/fare-amount.png)
 
-   결과에 따르면 R 제곱 측정값이 분산의 95%를 차지한다는 것을 알 수 있습니다. 또한 이를 통해 실제 값 도표 및 관찰 값 도표의 유효성도 검사됩니다. 회귀 모델에서 설명하는 분산이 클수록 데이터 요소가 적합 회귀선에 더 가까워집니다.  
+   결과에 따르면 R 제곱 측정값이 분산의 95%를 차지한다는 것을 알 수 있습니다. 또한 이를 통해 실제 값 도표 및 관찰 값 도표의 유효성도 검사됩니다. 회귀 모델에 대 한 더 많은 분산이 있습니다. 데이터 요소에 대 한 자세한 내용은 적합 한 회귀선에 해당 합니다.  
 
-## <a name="register-model-to-azure-machine-learning"></a>Azure Machine Learning에 모델 등록
+## <a name="register-the-model-to-azure-machine-learning"></a>모델을 Azure Machine Learning에 등록
 최상의 모델에 대한 유효성이 검사되면 해당 모델을 Azure Machine Learning에 등록할 수 있습니다. 그런 다음, 등록된 모델을 다운로드하거나 배포하고, 등록한 모든 파일을 받을 수 있습니다.
 
 ```python
@@ -333,7 +333,7 @@ print(model.name, model.version)
 NYCGreenTaxiModel 1
 ```
 ## <a name="view-results-in-azure-machine-learning"></a>Azure Machine Learning에서 결과 보기
-마지막으로, Azure Machine Learning 작업 영역에서 실험으로 이동하여 반복 결과에 액세스할 수도 있습니다. 여기서는 실행 상태, 시도된 모델 및 기타 모델 메트릭에 대한 추가 세부 정보를 살펴볼 수 있습니다. 
+Azure Machine Learning 작업 영역의 실험으로 이동 하 여 반복 결과에 액세스할 수도 있습니다. 여기에서 실행, 시도 된 모델 및 기타 모델 메트릭의 상태에 대 한 추가 세부 정보를 얻을 수 있습니다. 
 
 ![Azure Machine Learning 작업 영역의 스크린샷](./media/azure-machine-learning-spark-notebook/azure-machine-learning-workspace.png)
 

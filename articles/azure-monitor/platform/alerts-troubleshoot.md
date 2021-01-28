@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 856aeb4dabc64edc2ade2869fddc3d14cb21a81b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403418"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942176"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -34,7 +34,7 @@ Azure Portal에서 발생 한 경고를 볼 수 있지만 일부 작업 또는 �
 
 Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일을 받지 못한 경우 다음 단계를 수행합니다.
 
-1. ** [작업 규칙](alerts-action-rules.md)에 의해 전자 메일이**표시 되지 않나요?
+1. **[작업 규칙](alerts-action-rules.md)에 의해 전자 메일이** 표시 되지 않나요?
 
     포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](action-groups.md)에 대해 기록 탭을 확인합니다.
 
@@ -42,7 +42,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **"Email Azure Resource Manager Role" 동작의 유형 인가요?**
 
-    이 작업은 구독 범위 및 *사용자*형식의 Azure Resource Manager 역할 할당만 확인 합니다.  리소스 수준 또는 리소스 그룹 수준이 아닌 구독 수준에서 역할을 할당했는지 확인합니다.
+    이 작업은 구독 범위 및 *사용자* 형식의 Azure Resource Manager 역할 할당만 확인 합니다.  리소스 수준 또는 리소스 그룹 수준이 아닌 구독 수준에서 역할을 할당했는지 확인합니다.
 
 1. **전자 메일 서버와 사서함이 외부 전자 메일을 수락 하 고 있습니까?**
 
@@ -245,7 +245,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. **작업 규칙 매개 변수를 확인 했나요?**  
 
-    [작업 규칙 설명서](alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) 명령을 확인 합니다. 
+    [작업 규칙 설명서](alerts-action-rules.md)또는 [작업 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) 명령을 확인 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

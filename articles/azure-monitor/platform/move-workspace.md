@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4915fd69940450f22548ae326879b5729b687248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699749"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942086"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -66,7 +66,7 @@ Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 �
 
 ### <a name="delete-using-powershell"></a>PowerShell을 사용 하 여 삭제
 
-PowerShell을 사용 하 여 솔루션을 제거 하려면 다음 예제와 같이 [AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) cmdlet을 사용 합니다.
+PowerShell을 사용 하 여 솔루션을 제거 하려면 다음 예제와 같이 [AzResource](/powershell/module/az.resources/remove-azresource) cmdlet을 사용 합니다.
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -98,7 +98,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 ## <a name="move-your-workspace"></a>작업 영역 이동
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 다음 절차에 따라 Azure Portal를 사용 하 여 작업 영역을 이동할 수 있습니다.
 
 1. **Log Analytics 작업 영역** 메뉴를 열고 작업 영역을 선택 합니다.

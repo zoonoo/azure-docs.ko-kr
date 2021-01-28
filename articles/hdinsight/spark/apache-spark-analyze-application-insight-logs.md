@@ -1,19 +1,16 @@
 ---
 title: Spark를 사용하여 Application Insights 로그 분석 - Azure HDInsight
 description: Application Insight 로그를 Blob Storage에 내보낸 다음, HDInsight에서 Spark를 사용하여 로그를 분석하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 1ddf2b6879d8d33f99281daba6fb1040e24a37af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86078802"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940467"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
@@ -21,7 +18,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 애플리케이션에서 Application Insights를 사용하도록 구성합니다.
 
@@ -72,9 +69,9 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
 1. 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
-2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **PySpark**를 차례로 선택합니다. Python 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 열립니다.
+2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **PySpark** 를 차례로 선택합니다. Python 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 열립니다.
 
-3. 페이지의 첫 번째 필드(**셀**이라고 함)에 다음 텍스트를 입력합니다.
+3. 페이지의 첫 번째 필드(**셀** 이라고 함)에 다음 텍스트를 입력합니다.
 
    ```python
    sc._jsc.hadoopConfiguration().set('mapreduce.input.fileinputformat.input.dir.recursive', 'true')
@@ -101,7 +98,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
    hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
-    **SHIFT+ENTER**를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
+    **SHIFT+ENTER** 를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
 
     ```output
     Found 1 items
@@ -223,9 +220,9 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
 
 1. 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/jupyter` 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 
-2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala**를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.
+2. Jupyter 페이지의 오른쪽 위 모퉁이에서 **새로 만들기**, **Scala** 를 차례로 선택합니다. Scala 기반 Jupyter Notebook을 포함하는 새 브라우저 탭이 나타납니다.
 
-3. 페이지의 첫 번째 필드(**셀**이라고 함)에 다음 텍스트를 입력합니다.
+3. 페이지의 첫 번째 필드(**셀** 이라고 함)에 다음 텍스트를 입력합니다.
 
    ```scala
    sc.hadoopConfiguration.set("mapreduce.input.fileinputformat.input.dir.recursive", "true")
@@ -252,7 +249,7 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 스토리
    hdfs dfs -ls wasbs://CONTAINER@STORAGEACCOUNT.blob.core.windows.net/
    ```
 
-    **SHIFT+ENTER**를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
+    **SHIFT+ENTER** 를 사용하여 이 셀을 실행합니다. 다음 텍스트와 유사한 결과가 표시됩니다.
 
     ```output
     Found 1 items

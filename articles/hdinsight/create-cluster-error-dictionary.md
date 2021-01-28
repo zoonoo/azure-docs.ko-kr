@@ -3,17 +3,16 @@ title: Azure HDInsight 클러스터 만들기-오류 사전
 description: Azure HDInsight 클러스터를 만들 때 발생 하는 오류를 해결 하는 방법을 알아봅니다.
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543103"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943338"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 
@@ -24,7 +23,7 @@ ms.locfileid: "92543103"
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>오류 코드: DeploymentDocument ' CsmDocument_2_0 '이 (가) 유효성 검사에 실패 했습니다.
 
-**오류** : "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
+**오류**: "스크립트 작업 위치에는 URI를 액세스할 수 없습니다. \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>오류 메시지 1
 

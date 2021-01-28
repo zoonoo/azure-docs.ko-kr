@@ -3,16 +3,15 @@ title: Azure HDInsight의 Hive Warehouse Connector에서 지원하는 Apache Spa
 description: Azure HDInsight의 Hive Warehouse Connector에 대한 다양한 기능에 대해 알아봅니다.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/22/2020
-ms.openlocfilehash: ed3dbe4cb5b9d8b50c028a68feeded170130bfb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20567a1e38686b5d452a5353bc459e7e1125f499
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085840"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941310"
 ---
 # <a name="apache-spark-operations-supported-by-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector에서 지원하는 Apache Spark 작업
 
@@ -138,7 +137,7 @@ Hive Warehouse Connector를 사용하여 Spark 스트리밍을 사용해 데이�
     hive.table("stream_table").show()
     ```
 
-**Ctrl + C**를 사용하여 두 번째 SSH 세션에서 netcat을 중지합니다. `:q`를 사용하여 첫 번째 SSH 세션에서 Spark 셸을 종료합니다.
+**Ctrl + C** 를 사용하여 두 번째 SSH 세션에서 netcat을 중지합니다. `:q`를 사용하여 첫 번째 SSH 세션에서 Spark 셸을 종료합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

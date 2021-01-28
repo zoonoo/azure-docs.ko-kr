@@ -1,19 +1,16 @@
 ---
 title: Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
 description: Azure CLI를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다. 클러스터 유형으로는 Apache Hadoop, Spark, HBase, 폭풍, Kafka, 대화형 쿼리 및 ML 서비스가 있습니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-azurecli
 ms.date: 02/26/2020
-ms.openlocfilehash: d47c741bdf0d056a75a86cdb8aa14333320bb52a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b17c5a2abc036c16ff3ce36b81428f9149e36b4b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742144"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942864"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
 
@@ -21,7 +18,7 @@ ms.locfileid: "92742144"
 
 [Azure CLI](/cli/azure/) 를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다. Azure CLI(명령줄 인터페이스)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -90,7 +87,7 @@ az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --w
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 다양 한 HDInsight 클러스터 관리 작업을 수행 하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 다양 한 HDInsight 클러스터 관리 작업을 수행 하는 방법을 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-powershell.md)

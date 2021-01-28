@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fb7093dd9945893b17f1b8f5e596cfe5181c3b6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979447"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942422"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL Database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
@@ -64,7 +64,7 @@ ms.locfileid: "90979447"
 1. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 애플리케이션을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](../platform/metrics-charts.md)에서 통계 차트가, [진단 검색](./diagnostic-search.md)에서 개별 이벤트가 표시됩니다. 
    
     또한 데이터를 스토리지로 내보냅니다. 
-2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너**를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
+2. 포털 또는 Visual Studio에서 내보낸 데이터를 검사합니다. 포털에서 **찾아보기**, 스토리지 계정을 선택한 다음 **컨테이너** 를 선택합니다. Visual Studio에서 **보기/클라우드 탐색기** 를 선택하고 Azure/스토리지를 엽니다. (이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 시각적 개체 C# / 클라우드 / .NET용 Microsoft Azure SDK 가져오기를 엽니다.)
    
     ![Visual Studio에서 서버 브라우저, Azure, 스토리지 열기](./media/code-sample-export-sql-stream-analytics/087-explorer.png)
    
@@ -82,7 +82,7 @@ ms.locfileid: "90979447"
 ![찾아보기, 서버, 사용자 서버, 설정, 방화벽, Azure에 대한 액세스 허용](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-database"></a>Azure SQL Database에서 테이블 만들기
-기본 관리 도구로 이전 섹션에서 만든 데이터베이스에 연결합니다. 이 연습에서는 SSMS( [SQL Server 관리 도구](/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) )를 사용합니다.
+기본 관리 도구로 이전 섹션에서 만든 데이터베이스에 연결합니다. 이 연습에서는 SSMS( [SQL Server 관리 도구](/sql/ssms/sql-server-management-studio-ssms) )를 사용합니다.
 
 ![Azure SQL Database에 연결](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -137,7 +137,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![새 stream analytics 작업](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
-새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
+새 작업이 만들어질 때 **리소스로 이동** 을 선택합니다.
 
 ![배포 성공 메시지 및 리소스로 이동 단추를 보여 주는 스크린샷](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
@@ -163,8 +163,8 @@ webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 이 예제에서:
 
-* `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
-* `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 
+* `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자** 입니다. 
+* `1234...`은 **대시를 제거한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](./export-data-model.md)를 참조합니다.
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 
@@ -242,7 +242,7 @@ SELECT TOP 100 *
 FROM [dbo].[PageViewsTable]
 ```
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 * [Stream Analytics를 사용하여 Power BI로 내보내기](./export-power-bi.md)
 * [속성 형식 및 값에 대 한 자세한 데이터 모델 참조입니다.](./export-data-model.md)
 * [Application Insights에서 연속 내보내기](./export-telemetry.md)

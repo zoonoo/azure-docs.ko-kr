@@ -1,18 +1,15 @@
 ---
 title: 디스크 암호화를 사용 하는 Azure HDInsight 클러스터 Key Vault 액세스가 손실 됩니다.
 description: Azure HDInsight 클러스터와 상호 작용할 때 Key Vault 액세스 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce2929ca84746de1ab8b51882f3004c3699f17ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533413"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943112"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>시나리오: 디스크 암호화를 사용 하는 Azure HDInsight 클러스터 Key Vault 액세스 손실
 

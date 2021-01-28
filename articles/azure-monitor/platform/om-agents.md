@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: 2a4f24da51b9e9e78c3df3e7d1437a380306e300
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 571dcd41da9be578e69d9a8ad40ed05784ae26a8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95975578"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941988"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-[System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) 에 대 한 기존 투자를 유지 관리 하 고 Azure Monitor에서 확장 된 기능을 사용 하려면 Operations Manager를 Log Analytics 작업 영역과 통합할 수 있습니다. 이를 통해 Azure Monitor에서 로그의 기회를 활용 하 여 Operations Manager을 계속 사용할 수 있습니다.
+[System Center Operations Manager](/system-center/scom/key-concepts) 에 대 한 기존 투자를 유지 관리 하 고 Azure Monitor에서 확장 된 기능을 사용 하려면 Operations Manager를 Log Analytics 작업 영역과 통합할 수 있습니다. 이를 통해 Azure Monitor에서 로그의 기회를 활용 하 여 Operations Manager을 계속 사용할 수 있습니다.
 
 * Operations Manager를 사용하여 IT 서비스의 상태 모니터링
 * 인시던트 및 문제 관리를 지원하는 ITSM 솔루션과 통합 유지 관리
@@ -33,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](./gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 

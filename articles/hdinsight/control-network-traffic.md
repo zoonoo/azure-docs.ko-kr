@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 네트워크 트래픽 제어
 description: Azure HDInsight 클러스터에 대한 인바운드 및 아웃바운드 트래픽을 제어하는 기법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543171"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943377"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 트래픽 제어
 
@@ -20,7 +17,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 * **NSG(네트워크 보안 그룹)** 를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/network-security-groups-overview.md) 문서를 참조하세요.
 
-* **NVA** (네트워크 가상 어플라이언스)는 아웃바운드 트래픽에만 사용할 수 있습니다. NVA는 방화벽 및 라우터와 같은 디바이스의 기능을 복제합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
+* **NVA**(네트워크 가상 어플라이언스)는 아웃바운드 트래픽에만 사용할 수 있습니다. NVA는 방화벽 및 라우터와 같은 디바이스의 기능을 복제합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
 
 관리형 서비스인 HDInsight는 VNET을 드나드는 트래픽의 HDInsight 상태 및 관리 서비스에 제한 없이 액세스할 수 있어야 합니다. NSG를 사용하는 경우 이러한 서비스가 HDInsight 클러스터와 계속 통신할 수 있는지 확인해야 합니다.
 
@@ -40,7 +37,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 3. HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
 
-    * __네트워크 보안 그룹__ : IP 주소에서 포트 __443__ 에 __인바운드__ 트래픽을 허용합니다. 이렇게 하면 HDInsight 관리 서비스가 가상 네트워크 외부에서 클러스터에 도달할 수 있습니다. __Kafka REST 프록시__ 사용 클러스터의 경우 포트 __9400__ 에서 __인바운드__ 트래픽도 허용합니다. 이로써 Kafka REST 프록시 서버에 도달할 수 있습니다.
+    * __네트워크 보안 그룹__: IP 주소에서 포트 __443__ 에 __인바운드__ 트래픽을 허용합니다. 이렇게 하면 HDInsight 관리 서비스가 가상 네트워크 외부에서 클러스터에 도달할 수 있습니다. __Kafka REST 프록시__ 사용 클러스터의 경우 포트 __9400__ 에서 __인바운드__ 트래픽도 허용합니다. 이로써 Kafka REST 프록시 서버에 도달할 수 있습니다.
 
 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md)를 참조하세요.
 

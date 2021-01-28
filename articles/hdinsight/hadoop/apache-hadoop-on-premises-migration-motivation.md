@@ -1,19 +1,17 @@
 ---
 title: '이점: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하도록 유도하는 동기 부여 및 혜택에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 975d72df32027888e217d5da9171dba0ba61f257
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331654"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943255"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -87,7 +85,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 질문
 
-| **질문** | **예제** | **답변** |
+| **지원부** | **예제** | **답변** |
 |---|---|---|
 |**토픽**: **환경**|||
 |클러스터 배포 버전|HDP 2.6.5, CDH 5.7|
@@ -119,7 +117,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="project-details-questionnaire"></a>프로젝트 세부 정보 설문지
 
-|**질문**|**예제**|**답변**|
+|**지원부**|**예제**|**답변**|
 |---|---|---|
 |**토픽**: **워크로드 및 빈도**|||
 |MapReduce 작업|10개 작업 -- 하루 2회||
@@ -163,7 +161,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 요구 사항 설문지
 
-|**질문**|**예제**|**답변**|
+|**지원부**|**예제**|**답변**|
 |---|---|---|
 |**토픽**: **인프라** |||
 | 기본 지역|미국 동부||

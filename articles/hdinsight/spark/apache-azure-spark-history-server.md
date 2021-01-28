@@ -1,23 +1,20 @@
 ---
 title: Apache Spark 기록 서버의 확장 기능을 사용 하 여 앱 디버그-Azure HDInsight
 description: Apache Spark 기록 서버의 확장 기능을 사용 하 여 Spark 응용 프로그램을 디버그 하 고 진단할 수 있습니다 (Azure HDInsight).
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941046"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Apache Spark 기록 서버의 확장 기능을 사용 하 여 Spark 응용 프로그램 디버그 및 진단
 
-이 문서에서는 Apache Spark 기록 서버의 확장 기능을 사용 하 여 완료 또는 실행 중인 Spark 응용 프로그램을 디버깅 및 진단 하는 방법을 보여 줍니다. 확장에는 **데이터** 탭, **그래프** 탭 및 **진단** 탭이 포함 되어 있습니다. **데이터** 탭에서 Spark 작업의 입력 및 출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 데이터 흐름을 확인 하 고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 **데이터 기울이기**, **시간 오차**및 **실행자 사용 현황 분석** 기능을 참조할 수 있습니다.
+이 문서에서는 Apache Spark 기록 서버의 확장 기능을 사용 하 여 완료 또는 실행 중인 Spark 응용 프로그램을 디버깅 및 진단 하는 방법을 보여 줍니다. 확장에는 **데이터** 탭, **그래프** 탭 및 **진단** 탭이 포함 되어 있습니다. **데이터** 탭에서 Spark 작업의 입력 및 출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 데이터 흐름을 확인 하 고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 **데이터 기울이기**, **시간 오차** 및 **실행자 사용 현황 분석** 기능을 참조할 수 있습니다.
 
 ## <a name="get-access-to-the-spark-history-server"></a>Spark 기록 서버에 대 한 액세스 권한 얻기
 
@@ -26,7 +23,7 @@ Spark 기록 서버는 완료 되 고 Spark 응용 프로그램을 실행 하는
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Azure Portal에서 Spark 기록 서버 웹 UI를 엽니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Spark 클러스터를 엽니다. 자세한 내용은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요.
-2. **클러스터 대시보드에서** **Spark 기록 서버**를 선택 합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
+2. **클러스터 대시보드에서** **Spark 기록 서버** 를 선택 합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
     ![Azure Portal에서 Spark 기록 서버를 시작 합니다.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark 기록 서버")
 
@@ -42,7 +39,7 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 
 작업 ID를 선택한 다음 도구 메뉴에서 **데이터** 를 선택 하 여 데이터 뷰를 표시 합니다.
 
-+ 개별 탭을 선택 하 여 **입력**, **출력**및 **테이블 작업** 을 검토 합니다.
++ 개별 탭을 선택 하 여 **입력**, **출력** 및 **테이블 작업** 을 검토 합니다.
 
     ![Spark 응용 프로그램에 대 한 데이터 페이지의 데이터 탭](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
@@ -78,7 +75,7 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 
     ![Spark 응용 프로그램에 대 한 데이터 페이지에서 자세한 정보를 확인 하세요.](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
-+  문제에 대 한 피드백을 보내려면 **사용자 의견 제공**을 선택 합니다.
++  문제에 대 한 피드백을 보내려면 **사용자 의견 제공** 을 선택 합니다.
 
     ![Spark 응용 프로그램에 대 한 데이터 페이지의 피드백을 제공 합니다.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
@@ -145,15 +142,15 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
     > [!NOTE]  
     > 데이터 읽기 및 데이터 쓰기 크기의 경우 1MB = 1000 KB = 1000 * 1000 바이트를 사용 합니다.
 
-+ **사용자 의견 제공**을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
++ **사용자 의견 제공** 을 선택 하 여 문제에 대 한 피드백을 보내 주세요.
 
     ![Spark 응용 프로그램 & 작업 그래프 페이지의 피드백 옵션입니다.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Spark 기록 서버에서 진단 탭 사용
 
-작업 ID를 선택 하 고 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 표시 합니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차**및 **실행자 사용 분석이**포함 되어 있습니다.
+작업 ID를 선택 하 고 도구 메뉴에서 **진단** 을 선택 하 여 작업 진단 보기를 표시 합니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차** 및 **실행자 사용 분석이** 포함 되어 있습니다.
 
-+ 각각 탭을 선택 하 여 **데이터 기울이기**, **시간 오차**및 **실행자 사용 분석** 을 검토 합니다.
++ 각각 탭을 선택 하 여 **데이터 기울이기**, **시간 오차** 및 **실행자 사용 분석** 을 검토 합니다.
 
     ![진단 탭의 데이터 기울이기 탭](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -185,7 +182,7 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 
 **매개 변수 지정** 섹션에는 시간 오차를 검색 하는 데 사용 되는 매개 변수가 표시 됩니다. 기본 규칙은 작업 실행 시간이 평균 실행 시간의 3 배 보다 크고 태스크 실행 시간이 30 초를 초과 하는 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **기울어진 스테이지** 및 **기울이기 차트** 는 **데이터 기울이기** 탭에서와 마찬가지로 해당 단계 및 작업 정보를 표시 합니다.
 
-**시간 오차**를 선택 하면 **매개 변수 지정** 섹션에 설정 된 매개 변수에 따라 필터링 된 결과가 **기울어진 단계** 섹션에 표시 됩니다. **기울어진 단계** 섹션에서 한 항목을 선택 하면 해당 차트가 세 번째 섹션에서 초안 되 고 작업 세부 정보는 오른쪽 아래 패널에 표시 됩니다.
+**시간 오차** 를 선택 하면 **매개 변수 지정** 섹션에 설정 된 매개 변수에 따라 필터링 된 결과가 **기울어진 단계** 섹션에 표시 됩니다. **기울어진 단계** 섹션에서 한 항목을 선택 하면 해당 차트가 세 번째 섹션에서 초안 되 고 작업 세부 정보는 오른쪽 아래 패널에 표시 됩니다.
 
 ![진단 탭 내의 시간 오차 탭입니다.](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
@@ -193,7 +190,7 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 
 **Executor 사용 그래프** 는 작업의 실제 실행 기 할당 및 실행 상태를 표시 합니다.  
 
-**실행자 사용 현황 분석**을 선택 하면 실행자 사용에 대 한 네 가지 다른 곡선이 초안 됩니다. **할당**된 실행 기, **실행 실행자**, **유휴 실행자**및 **Max executor 인스턴스**. **추가 된 실행** 기 또는 **실행자 제거** 이벤트는 할당 된 실행자를 늘리거나 줄입니다. **작업** 탭에서 **이벤트 타임 라인** 을 확인 하 여 더 비교할 수 있습니다.
+**실행자 사용 현황 분석** 을 선택 하면 실행자 사용에 대 한 네 가지 다른 곡선이 초안 됩니다. **할당** 된 실행 기, **실행 실행자**, **유휴 실행자** 및 **Max executor 인스턴스**. **추가 된 실행** 기 또는 **실행자 제거** 이벤트는 할당 된 실행자를 늘리거나 줄입니다. **작업** 탭에서 **이벤트 타임 라인** 을 확인 하 여 더 비교할 수 있습니다.
 
 ![진단 탭에 있는 Executor 사용 분석 탭](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -208,20 +205,20 @@ Spark 기록 서버 웹 UI는 다음 이미지와 유사 하 게 보일 수 있�
 커뮤니티 버전으로 되돌리려면 다음 단계를 수행 합니다.
 
 1. Ambari에서 클러스터를 엽니다.
-1. **Spark2**  >  **Configs**로 이동 합니다.
-1. **사용자 지정 spark2-기본값**을 선택 합니다.
+1. **Spark2**  >  **Configs** 로 이동 합니다.
+1. **사용자 지정 spark2-기본값** 을 선택 합니다.
 1. **속성 추가**...를 선택 합니다.
-1. Spark. ui&gt; **enabled = false**를 추가 하 고 저장 합니다.
-1. 이제 속성을 **false**로 설정합니다.
+1. Spark. ui&gt; **enabled = false** 를 추가 하 고 저장 합니다.
+1. 이제 속성을 **false** 로 설정합니다.
 1. **저장** 을 선택 하 여 구성을 저장 합니다.
 
     ![Apache Ambari의 기능을 해제 합니다.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
-1. 왼쪽 패널에서 **Spark2** 를 선택 합니다. 그런 다음 **요약** 탭에서 **Spark2 History 서버**를 선택 합니다.
+1. 왼쪽 패널에서 **Spark2** 를 선택 합니다. 그런 다음 **요약** 탭에서 **Spark2 History 서버** 를 선택 합니다.
 
     ![Apache Ambari의 요약 뷰입니다.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-1. Spark 기록 서버를 다시 시작 하려면 **Spark2 History 서버**오른쪽에 있는 **시작 됨** 단추를 선택한 다음 드롭다운 메뉴에서 **다시 시작** 을 선택 합니다.
+1. Spark 기록 서버를 다시 시작 하려면 **Spark2 History 서버** 오른쪽에 있는 **시작 됨** 단추를 선택한 다음 드롭다운 메뉴에서 **다시 시작** 을 선택 합니다.
 
     ![Apache Ambari에서 Spark 기록 서버를 다시 시작 합니다.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
@@ -239,7 +236,7 @@ Spark 기록 서버에서 오류가 발생 하는 경우 다음 단계를 수행
 
     ![Spark 응용 프로그램 & 작업 그래프 페이지에서 피드백 제공](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-3. 오류에 대 한 제목 및 설명을 제공 합니다. 그런 다음 .zip 파일을 편집 필드로 끌어 **새 문제 제출**을 선택 합니다.
+3. 오류에 대 한 제목 및 설명을 제공 합니다. 그런 다음 .zip 파일을 편집 필드로 끌어 **새 문제 제출** 을 선택 합니다.
 
     ![새 문제를 업로드 하 고 제출 합니다.](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 

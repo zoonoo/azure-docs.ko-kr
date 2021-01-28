@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
 description: Apache Ambari 웹 UI를 사용 하 여 Apache HBase를 구성 하 고 최적화 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 307e9decad35c20885fbe550cc1f7de58c9386c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821701"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942590"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
 
@@ -46,7 +43,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 ### <a name="memstore-size"></a>Memstore 크기
 
-모든 편집은 *Memstore*라는 메모리 버퍼에 저장됩니다. 이 버퍼는 단일 작업으로 디스크에 쓸 수 있는 총 데이터 양을 늘립니다. 또한 최근 편집에 대 한 액세스를 가속화 합니다. Memstore 크기는 다음 두 가지 매개 변수로 정의됩니다.
+모든 편집은 *Memstore* 라는 메모리 버퍼에 저장됩니다. 이 버퍼는 단일 작업으로 디스크에 쓸 수 있는 총 데이터 양을 늘립니다. 또한 최근 편집에 대 한 액세스를 가속화 합니다. Memstore 크기는 다음 두 가지 매개 변수로 정의됩니다.
 
 * `hbase.regionserver.global.memstore.UpperLimit`: Memstore가 함께 사용할 수 있는 영역 서버의 최대 백분율을 정의합니다.
 
@@ -69,7 +66,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 ### <a name="maximum-region-file-size"></a>최대 영역 파일 크기
 
-HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니다. `hbase.hregion.max.filesize` 속성은 영역에 대한 단일 HFile의 크기를 정의합니다.  영역 내 모든 HFile의 합계가 이 설정보다 큰 경우 하나의 영역이 두 영역으로 분할됩니다.
+HBase는 *HFile* 이라는 내부 파일 형식으로 데이터를 저장합니다. `hbase.hregion.max.filesize` 속성은 영역에 대한 단일 HFile의 크기를 정의합니다.  영역 내 모든 HFile의 합계가 이 설정보다 큰 경우 하나의 영역이 두 영역으로 분할됩니다.
 
 ![' Apache HBase HRegion max filesize '](./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png)
 

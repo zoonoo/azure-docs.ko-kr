@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734969"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941890"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
@@ -217,13 +217,13 @@ Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요�
 
 Azure Resource Manager 템플릿, REST 및 명령줄 인터페이스를 사용 하 여 앞에서 설명한 프로세스를 자동화할 수 있습니다.
 
-개인 링크 범위를 만들고 관리 하려면 [REST API](/rest/api/monitor/private%20link%20scopes%20(preview)) 또는 Azure CLI를 사용 합니다 [(az monitor private 링크 범위)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+개인 링크 범위를 만들고 관리 하려면 [REST API](/rest/api/monitor/private%20link%20scopes%20(preview)) 또는 Azure CLI를 사용 합니다 [(az monitor private 링크 범위)](/cli/azure/monitor/private-link-scope).
 
-네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) 또는 [Application Insights 구성 요소](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
+네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 또는 [Application Insights 구성 요소](/cli/azure/ext/application-insights/monitor/app-insights/component)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
 
 ## <a name="collect-custom-logs-over-private-link"></a>개인 링크를 통한 사용자 지정 로그 수집
 
-스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
+스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](/cli/azure/monitor/log-analytics/workspace/linked-storage)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
 
 사용자 고유의 스토리지 계정을 가져오는 방법에 대한 자세한 내용은 [로그 수집에 고객이 소유한 스토리지 계정 사용](private-storage.md)을 참조하세요.
 
@@ -252,7 +252,7 @@ Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 
 
 ### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
-개인 네트워크의 Azure Monitor에서 REST API, [CLI](/cli/azure/monitor?view=azure-cli-latest) 또는 PowerShell을 사용하려면 **AzureActiveDirectory** 및 **AzureResourceManager** [서비스 태그](../../virtual-network/service-tags-overview.md)를 방화벽에 추가합니다.
+개인 네트워크의 Azure Monitor에서 REST API, [CLI](/cli/azure/monitor) 또는 PowerShell을 사용하려면 **AzureActiveDirectory** 및 **AzureResourceManager** [서비스 태그](../../virtual-network/service-tags-overview.md)를 방화벽에 추가합니다.
 
 이러한 태그를 추가하면 로그 데이터 쿼리, Log Analytics 작업 영역과 AI 구성 요소의 만들기 및 관리와 같은 작업을 수행할 수 있습니다.
 

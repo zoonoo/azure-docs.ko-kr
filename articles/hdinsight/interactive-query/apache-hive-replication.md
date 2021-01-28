@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight 클러스터에서 Apache Hive 복제를 사용 하는 방법
 description: HDInsight 클러스터에서 Hive 복제를 사용 하 여 Hive metastore 및 Azure Data Lake Storage Gen 2 Data Lake를 복제 하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857744"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941342"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Apache Hive 복제를 사용 하는 방법
 
@@ -140,7 +137,7 @@ repl dump tpcds_orc from 2925;
 
 복제는 일반적으로 주 데이터베이스와 보조 데이터베이스 간에 단방향 방식으로 구성 됩니다. 여기서 기본 맞춘는 읽기 및 쓰기 요청입니다. 보조 클러스터는 읽기 요청만 맞춘. 재해가 발생 하는 경우 보조 복제본에 대 한 쓰기를 허용 하지만 역방향 복제를 주 복제본으로 다시 구성 해야 합니다.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive 복제 다이어그램":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive 복제 패턴":::
 
 주 – 보조, 허브 및 스포크, Relay를 비롯 한 Hive 복제에 적합 한 여러 가지 패턴이 있습니다.
 

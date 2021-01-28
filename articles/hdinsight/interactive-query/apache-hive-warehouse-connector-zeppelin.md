@@ -3,23 +3,22 @@ title: Hive Warehouse Connector - Livy를 사용하는 Apache Zeppelin - Azure H
 description: Azure HDInsight의 Apache Zeppelin과 Hive Warehouse Connector를 통합하는 방법에 대해 알아봅니다.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426958"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941171"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
 HDInsight Spark 클러스터에는 다른 인터프리터를 사용하는 Apache Zeppelin 노트북이 포함되어 있습니다. 이 문서에서는 Hive Warehouse Connector를 사용하여 Spark에서 Hive 테이블에 액세스하기 위해 Livy 인터프리터에 대해서만 중점적으로 설명합니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 *허용 목록*용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *허용 목록* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -49,7 +48,7 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
 1. 웹 브라우저에서 `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HDFS/configs`로 이동합니다. 여기서 LLAPCLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다.
 
-1. **고급** > **사용자 지정 core-site**로 이동합니다. **속성 추가...** 를 선택하여 다음 구성을 추가합니다.
+1. **고급** > **사용자 지정 core-site** 로 이동합니다. **속성 추가...** 를 선택하여 다음 구성을 추가합니다.
 
     | 구성                 | 값 |
     | ----------------------------- |-------|
@@ -62,7 +61,7 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`로 이동합니다. 여기서 CLUSTERNAME은 Apache Spark 클러스터의 이름입니다.
 
-1. **사용자 지정 livy2-conf**를 확장합니다. **속성 추가...** 를 선택하여 다음 구성을 추가합니다.
+1. **사용자 지정 livy2-conf** 를 확장합니다. **속성 추가...** 를 선택하여 다음 구성을 추가합니다.
 
     | 구성                 | 값                                      |
     | ----------------------------- |------------------------------------------  |
@@ -74,7 +73,7 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/zeppelin/#/interpreter`로 이동합니다. 여기서 `CLUSTERNAME`은 Apache Spark 클러스터의 이름입니다.
 
-1. **livy2**로 이동합니다.
+1. **livy2** 로 이동합니다.
 
 1. 다음 구성들을 추가합니다.
 
@@ -96,7 +95,7 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
     |---|---|
     | livy.spark.sql.hive.hiveserver2.jdbc.url.principal | `hive/<llap-headnode>@<AAD-Domain>` |
 
-    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive**를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
+    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
 
         ![hive 웨어하우스 커넥터 헤드 노드](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
 

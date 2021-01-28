@@ -1,19 +1,16 @@
 ---
 title: Apache Hive로 Twitter 데이터 분석 - Azure HDInsight
 description: HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 원시 TWitter 데이터를 검색 가능한 Hive 테이블로 변환하는 방법을 알아 봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 74a18be37608b2ac0c8a64655fa833753111706a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95971912"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942783"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hive 및 Apache Hadoop을 사용하여 Twitter 데이터 분석
 
@@ -36,7 +33,7 @@ Twitter를 사용하여 각 트윗에 대한 데이터를 REST API를 통해 JSO
 
    | 필드 | 값 |
    |--- |--- |
-   | Name |MyHDInsightApp |
+   | 이름 |MyHDInsightApp |
    | Description |MyHDInsightApp |
    | 웹 사이트 |`https://www.myhdinsightapp.com` |
 

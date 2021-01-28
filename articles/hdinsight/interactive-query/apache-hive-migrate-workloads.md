@@ -3,16 +3,15 @@ title: Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레
 description: HDInsight 3.6에서 Apache Hive 작업을 HDInsight 4.0로 마이그레이션하는 방법에 대해 알아봅니다.
 author: msft-tacox
 ms.author: tacox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93dc565055c6eb413a0c277a9891e5fcfab50345
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011509"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941353"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
@@ -103,7 +102,7 @@ HDInsight 3.6 및 4.0 클러스터는 동일한 저장소 계정을 사용 해�
 >
 > * 이 스크립트가 완료 되 면 이전 클러스터가 스크립트에서 참조 되는 테이블 또는 데이터베이스에 액세스 하는 데 더 이상 사용 되지 않는 것으로 간주 됩니다.
 >
-> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예제:
+> * 모든 관리 되는 테이블은 HDInsight 4.0에서 트랜잭션이 됩니다. 필요에 따라 데이터를 ' external. purge ' = ' t r u e ' 인 외부 테이블로 내보내서 트랜잭션 되지 않은 테이블을 유지 합니다. 예를 들면 다음과 같습니다.
 >
 >    ```SQL
 >    create table tablename_backup like tablename;

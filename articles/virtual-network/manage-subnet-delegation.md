@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: bc43dc7afb234d410eb17d20beb13cd5cb44bb18
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2bb80ba421617d5fd1699826deda00e56f1e43af
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222533"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943675"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -38,7 +38,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork* 를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.0.0.0/16* 을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -113,7 +113,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 이 섹션에서는 이전 섹션에서 만든 서브넷을 Azure 서비스에 위임 합니다. 
 
-[Az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 를 사용 하 여 Azure 서비스에 대 한 위임으로 **mysubnet** 이라는 서브넷을 업데이트 합니다.  이 예제에서는 **DBforPostgreSQL/serversv2** 가 예제 위임에 사용 됩니다.
+[Az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) 를 사용 하 여 Azure 서비스에 대 한 위임으로 **mysubnet** 이라는 서브넷을 업데이트 합니다.  이 예제에서는 **DBforPostgreSQL/serversv2** 가 예제 위임에 사용 됩니다.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -123,7 +123,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   --delegations Microsoft.DBforPostgreSQL/serversv2
 ```
 
-위임이 적용 되었는지 확인 하려면 [az network vnet subnet show](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스가 속성 **serviceName** 의 서브넷에 위임 되었는지 확인 합니다.
+위임이 적용 되었는지 확인 하려면 [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show)를 사용 합니다. 서비스가 속성 **serviceName** 의 서브넷에 위임 되었는지 확인 합니다.
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -152,7 +152,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
-[Az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
+[Az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
 
 ```azurecli-interactive
   az network vnet subnet update \
@@ -161,7 +161,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   --vnet-name myVnet \
   --remove delegations
 ```
-위임이 제거 되었는지 확인 하려면 [az network vnet subnet show](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show)를 사용 합니다. 서비스를 속성 **serviceName** 의 서브넷에서 제거 했는지 확인 합니다.
+위임이 제거 되었는지 확인 하려면 [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show)를 사용 합니다. 서비스를 속성 **serviceName** 의 서브넷에서 제거 했는지 확인 합니다.
 
 ```azurecli-interactive
   az network vnet subnet show \
@@ -195,7 +195,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ```
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroup** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24** 입니다.  
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 **myResourceGroup** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 **mySubnet** 이라는 서브넷이 있는 **myVnet** 이라는 가상 네트워크를 만듭니다. 가상 네트워크에 대 한 IP 주소 공간은 **10.0.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **10.0.0.0/24** 입니다.  
 
 ```azurepowershell-interactive
   $subnet = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix "10.0.0.0/24"
@@ -212,7 +212,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 
 이 섹션에서는 이전 섹션에서 만든 서브넷을 Azure 서비스에 위임 합니다. 
 
-[AzDelegation](/powershell/module/az.network/add-azdelegation?view=latest) 를 사용 하 여 **mysubnet** 이라는 서브넷을 **Mysubnet** 이라는 위임을 통해 Azure 서비스에 업데이트 합니다.  이 예제에서는 **DBforPostgreSQL/serversv2** 가 예제 위임에 사용 됩니다.
+[AzDelegation](/powershell/module/az.network/add-azdelegation) 를 사용 하 여 **mysubnet** 이라는 서브넷을 **Mysubnet** 이라는 위임을 통해 Azure 서비스에 업데이트 합니다.  이 예제에서는 **DBforPostgreSQL/serversv2** 가 예제 위임에 사용 됩니다.
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
@@ -220,7 +220,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   $subnet = Add-AzDelegation -Name "myDelegation" -ServiceName "Microsoft.DBforPostgreSQL/serversv2" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-[AzDelegation](/powershell/module/az.network/get-azdelegation?view=latest) 를 사용 하 여 위임을 확인 합니다.
+[AzDelegation](/powershell/module/az.network/get-azdelegation) 를 사용 하 여 위임을 확인 합니다.
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"
@@ -236,7 +236,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
 ```
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
-[AzDelegation](/powershell/module/az.network/remove-azdelegation?view=latest) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
+[AzDelegation](/powershell/module/az.network/remove-azdelegation) 를 사용 하 여 **mysubnet** 이라는 서브넷에서 위임을 제거 합니다.
 
 ```azurepowershell-interactive
   $vnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup"
@@ -244,7 +244,7 @@ Azure 서비스에 위임 하려는 서브넷을 만들지 않은 경우 다음 
   $subnet = Remove-AzDelegation -Name "myDelegation" -Subnet $subnet
   Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-[AzDelegation](/powershell/module/az.network/get-azdelegation?view=latest) 를 사용 하 여 위임이 제거 되었는지 확인 합니다.
+[AzDelegation](/powershell/module/az.network/get-azdelegation) 를 사용 하 여 위임이 제거 되었는지 확인 합니다.
 
 ```azurepowershell-interactive
   $subnet = Get-AzVirtualNetwork -Name "myVnet" -ResourceGroupName "myResourceGroup" | Get-AzVirtualNetworkSubnetConfig -Name "mySubnet"

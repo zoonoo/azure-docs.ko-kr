@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 Grafana 사용
 description: Azure HDInsight에서 Apache Hadoop 클러스터로 Grafana 대시보드에 액세스 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 7750544367044cab2a0243577c200025bb9ff693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2a09b6c3196302dcb74fd363481706021a4d4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083035"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940886"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
@@ -24,7 +21,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 만들기
 
-[Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요. **클러스터 유형**에서 **Spark**, **Kafka**, **HBase**또는 **대화형 쿼리**를 선택 합니다.
+[Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요. **클러스터 유형** 에서 **Spark**, **Kafka**, **HBase** 또는 **대화형 쿼리** 를 선택 합니다.
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana 대시보드에 액세스
 
@@ -42,13 +39,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. 맨 위에 있는 **검색** 상자에 **HDInsight**를 입력합니다.
+1. 맨 위에 있는 **검색** 상자에 **HDInsight** 를 입력합니다.
 
-1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
+1. **서비스** 에서 **HDInsight 클러스터** 를 선택합니다.
 
 1. 표시 되는 HDInsight 클러스터 목록에서 만든 **클러스터 옆에 있는 ...를** 선택 합니다.
 
-1. **삭제**를 선택합니다. **예**를 선택합니다.
+1. **삭제** 를 선택합니다. **예** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

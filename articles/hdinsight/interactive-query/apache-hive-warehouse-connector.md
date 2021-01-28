@@ -3,16 +3,15 @@ title: Apache Spark 및 Hive - Hive Warehouse Connector - Azure HDInsight
 description: Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive를 통합하는 방법을 알아봅니다.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 24968511d038b2cea41a59187c0a361684c6720e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511894"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941188"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
 
@@ -55,19 +54,19 @@ Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위�
 
 1. 웹 브라우저에서 `https://LLAPCLUSTERNAME.azurehdinsight.net/#/main/services/HIVE`로 이동합니다. 여기서 LLAPCLUSTERNAME은 Interactive Query 클러스터의 이름입니다.
 
-1. **요약** > **HiveServer2 Interactive JDBC URL**로 이동하고 값을 적어 둡니다. 값은 `jdbc:hive2://zk0-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`과 유사할 수 있습니다.
+1. **요약** > **HiveServer2 Interactive JDBC URL** 로 이동하고 값을 적어 둡니다. 값은 `jdbc:hive2://zk0-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2ce.bx.internal.cloudapp.net:2181/;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2-interactive`과 유사할 수 있습니다.
 
-1. **구성** > **고급** > **고급 hive-site** > **hive.zookeeper.quorum**으로 이동한 후 값을 적어 둡니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`과 유사할 수 있습니다.
+1. **구성** > **고급** > **고급 hive-site** > **hive.zookeeper.quorum** 으로 이동한 후 값을 적어 둡니다. 값은 `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`과 유사할 수 있습니다.
 
-1. **구성** > **고급** > **일반** > **hive.metastore.uris**로 이동한 후 값을 적어 둡니다. 값은 `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`과 유사할 수 있습니다.
+1. **구성** > **고급** > **일반** > **hive.metastore.uris** 로 이동한 후 값을 적어 둡니다. 값은 `thrift://iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`과 유사할 수 있습니다.
 
-1. **구성** > **고급** > **고급 hive-interactive-site** > **hive.llap.daemon.service.hosts**로 이동한 후 값을 적어 둡니다. 값은 `@llap0`과 유사할 수 있습니다.
+1. **구성** > **고급** > **고급 hive-interactive-site** > **hive.llap.daemon.service.hosts** 로 이동한 후 값을 적어 둡니다. 값은 `@llap0`과 유사할 수 있습니다.
 
 #### <a name="configure-spark-cluster-settings"></a>Spark 클러스터 설정 구성
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`로 이동합니다. 여기서 CLUSTERNAME은 Apache Spark 클러스터의 이름입니다.
 
-1. **사용자 지정 spark2-defaults**를 확장합니다.
+1. **사용자 지정 spark2-defaults** 를 확장합니다.
 
     ![Apache Ambari Spark2 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
@@ -76,11 +75,11 @@ Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위�
     | 구성 | 값 |
     |----|----|
     |`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. <br> 적절한 HDFS 호환 스테이징 디렉터리로 설정합니다. 다른 두 개의 클러스터가 있는 경우 스테이징 디렉터리는 HiveServer2에서 액세스할 수 있도록 LLAP 클러스터 스토리지 계정의 스테이징 디렉터리에 있는 폴더여야 합니다.  `STORAGE_ACCOUNT_NAME`을 클러스터에서 사용하는 스토리지 계정의 이름으로 바꾸고 `STORAGE_CONTAINER_NAME`을 스토리지 컨테이너의 이름으로 바꿉니다. |
-    |`spark.sql.hive.hiveserver2.jdbc.url`| **HiveServer2 Interactive JDBC URL**에서 이전에 가져온 값입니다. |
-    |`spark.datasource.hive.warehouse.metastoreUri`| 이전에 **hive.metastore.uris**에서 가져온 값입니다. |
+    |`spark.sql.hive.hiveserver2.jdbc.url`| **HiveServer2 Interactive JDBC URL** 에서 이전에 가져온 값입니다. |
+    |`spark.datasource.hive.warehouse.metastoreUri`| 이전에 **hive.metastore.uris** 에서 가져온 값입니다. |
     |`spark.security.credentials.hiveserver2.enabled`|YARN 클러스터 모드의 경우 `true`, YARN 클라이언트 모드의 경우 `false`입니다. |
-    |`spark.hadoop.hive.zookeeper.quorum`| 이전에 **hive.zookeeper.quorum**에서 가져온 값입니다. |
-    |`spark.hadoop.hive.llap.daemon.service.hosts`| 이전에 **hive.llap.daemon.service.hosts**에서 가져온 값입니다. |
+    |`spark.hadoop.hive.zookeeper.quorum`| 이전에 **hive.zookeeper.quorum** 에서 가져온 값입니다. |
+    |`spark.hadoop.hive.llap.daemon.service.hosts`| 이전에 **hive.llap.daemon.service.hosts** 에서 가져온 값입니다. |
 
 1. 변경 내용을 저장하고 영향을 받는 모든 구성 요소를 다시 시작합니다.
 
@@ -90,7 +89,7 @@ ESP(Enterprise Security Package)는 Azure HDInsight의 Apache Hadoop 클러스�
 
 이전 섹션에서 설명한 구성과는 별도로 다음 구성을 추가하여 ESP 클러스터에서 HWC를 사용합니다.
 
-1. Spark 클러스터의 Ambari 웹 UI에서 **Spark2** > **구성** > **사용자 지정 Spark2-defaults**로 이동합니다.
+1. Spark 클러스터의 Ambari 웹 UI에서 **Spark2** > **구성** > **사용자 지정 Spark2-defaults** 로 이동합니다.
 
 1. 다음 속성을 업데이트합니다.
 
@@ -98,7 +97,7 @@ ESP(Enterprise Security Package)는 Azure HDInsight의 Apache Hadoop 클러스�
     |----|----|
     | `spark.sql.hive.hiveserver2.jdbc.url.principal`    | `hive/<llap-headnode>@<AAD-Domain>` |
     
-    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive**를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
+    * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
 
         ![hive 웨어하우스 커넥터 헤드 노드](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
 
@@ -212,13 +211,13 @@ kinit USERNAME
 
 1. 열의 마지막 4자만 표시하는 열 마스킹 정책을 적용합니다.  
     1. `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`에서 Ranger 관리 UI로 이동합니다.
-    1. **Hive**에서 클러스터에 대한 Hive 서비스를 클릭합니다.
+    1. **Hive** 에서 클러스터에 대한 Hive 서비스를 클릭합니다.
         ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. **마스킹** 탭을 클릭하고 **새 정책 추가**를 클릭합니다.
+    1. **마스킹** 탭을 클릭하고 **새 정책 추가** 를 클릭합니다.
 
         ![hive warehouse connector ranger hive 정책 목록](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    1. 원하는 정책 이름을 제공합니다. 데이터베이스를 선택합니다. **마스킹 옵션 선택** 메뉴에서 **기본값**, Hive 테이블: **demo**, Hive 열: **name**, 사용자: **rsadmin2**, 액세스 형식: **select** 및 **부분 마스크: 마지막 4 표시**를 선택합니다. **추가**를 클릭합니다.
+    1. 원하는 정책 이름을 제공합니다. 데이터베이스를 선택합니다. **마스킹 옵션 선택** 메뉴에서 **기본값**, Hive 테이블: **demo**, Hive 열: **name**, 사용자: **rsadmin2**, 액세스 형식: **select** 및 **부분 마스크: 마지막 4 표시** 를 선택합니다. **추가** 를 클릭합니다.
                 ![정책 만들기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 테이블의 내용을 다시 봅니다. Ranger 정책을 적용한 후에는 열의 마지막 4자만 볼 수 있습니다.
 

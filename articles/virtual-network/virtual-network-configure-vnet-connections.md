@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: d9a87eca6a6c66d116817ced0f534a75033d48b9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221479"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943657"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>가상 네트워크 또는 VPN 연결 구성 및 유효성 검사
 
@@ -64,7 +64,7 @@ Azure 가상 네트워크 피어 링 구현 및 구성을 시작 하기 전에 �
 
 ![가상 네트워크 피어 링 구성을 확인 하기 위한 선택 항목](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Azure PowerShell의 경우 [remove-azurermvirtualnetworkpeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) 명령을 실행 하 여 가상 네트워크 피어 링을 가져옵니다. 예를 들면 다음과 같습니다.
+Azure PowerShell의 경우 [remove-azurermvirtualnetworkpeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) 명령을 실행 하 여 가상 네트워크 피어 링을 가져옵니다. 예를 들면 다음과 같습니다.
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -248,13 +248,13 @@ Bgp 게이트웨이가 하나의 BGP 피어에서 파악 한 경로를 다른 �
 
 BGP를 사용 하는 VPN 연결을 구성 하려면 [PowerShell을 사용 하 여 AZURE vpn gateway에서 bgp를 구성 하는 방법](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md)을 참조 하세요.
 
-가상 네트워크 게이트웨이에서 BGP를 사용 하도록 설정 합니다. 기본 게이트웨이는 BGP를 지원 하지 않습니다. 게이트웨이의 SKU를 확인 하려면 Azure Portal에서 **VPN Gateway** 블레이드의 **개요** 섹션으로 이동 합니다. SKU가 **Basic** 인 경우 sku ( [게이트웨이 크기 조정](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)참조)를 **VpnGw1** 로 변경 해야 합니다. 
+가상 네트워크 게이트웨이에서 BGP를 사용 하도록 설정 합니다. 기본 게이트웨이는 BGP를 지원 하지 않습니다. 게이트웨이의 SKU를 확인 하려면 Azure Portal에서 **VPN Gateway** 블레이드의 **개요** 섹션으로 이동 합니다. SKU가 **Basic** 인 경우 sku ( [게이트웨이 크기 조정](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)참조)를 **VpnGw1** 로 변경 해야 합니다. 
 
-SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합니다. 게이트웨이가 올바른 SKU를 사용 하는 즉시 [Get-azurermvirtualnetworkgateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) PowerShell 기능을 사용 하 여 as 번호를 추가할 수 있습니다. AS 번호를 구성한 후 게이트웨이에 대 한 BGP 피어 IP가 자동으로 제공 됩니다.
+SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합니다. 게이트웨이가 올바른 SKU를 사용 하는 즉시 [Get-azurermvirtualnetworkgateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) PowerShell 기능을 사용 하 여 as 번호를 추가할 수 있습니다. AS 번호를 구성한 후 게이트웨이에 대 한 BGP 피어 IP가 자동으로 제공 됩니다.
 
-`LocalNetworkGateway`AS 번호와 BGP 피어 주소를 사용 하 여를 수동으로 제공 해야 합니다. `ASN` `-BgpPeeringAddress` [AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) 또는 [AzureRmLocalNetworkGateway PowerShell 기능](/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) 중 하나를 사용 하 여 및 값을 설정할 수 있습니다. 일부 AS 번호는 Azure 용으로 예약 되어 있으므로 [azure VPN Gateway를 사용 하 여 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md#faq)에 설명 된 대로 사용할 수 없습니다.
+`LocalNetworkGateway`AS 번호와 BGP 피어 주소를 사용 하 여를 수동으로 제공 해야 합니다. `ASN` `-BgpPeeringAddress` [AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/new-azurermlocalnetworkgateway) 또는 [AzureRmLocalNetworkGateway PowerShell 기능](/powershell/module/azurerm.network/set-azurermlocalnetworkgateway) 중 하나를 사용 하 여 및 값을 설정할 수 있습니다. 일부 AS 번호는 Azure 용으로 예약 되어 있으므로 [azure VPN Gateway를 사용 하 여 BGP 정보](../vpn-gateway/vpn-gateway-bgp-overview.md#faq)에 설명 된 대로 사용할 수 없습니다.
 
-연결 개체가 BGP를 사용 하도록 설정 되어 있어야 합니다. `-EnableBGP` `$True` [Get-azurermvirtualnetworkgatewayconnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) 또는 [get-azurermvirtualnetworkgatewayconnection](/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0)을 통해 값을로 설정할 수 있습니다.
+연결 개체가 BGP를 사용 하도록 설정 되어 있어야 합니다. `-EnableBGP` `$True` [Get-azurermvirtualnetworkgatewayconnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) 또는 [get-azurermvirtualnetworkgatewayconnection](/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection)을 통해 값을로 설정할 수 있습니다.
 
 ### <a name="validate-the-bgp-configuration"></a>BGP 구성 유효성 검사
 

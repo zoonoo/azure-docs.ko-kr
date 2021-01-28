@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: sngun
 ms.custom: subject-monitoring
-ms.openlocfilehash: f7cc9d4062ad9a49ff84db6ac035ff53934ae0a0
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: d5cfdca24193b899926bd30995063ed55b3dd3eb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532060"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943456"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -129,7 +129,7 @@ Azure Monitor 로그의 데이터는 각 테이블에 고유한 속성 집합이
 
 Azure Monitor의 모든 리소스 로그에는 동일한 필드와 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다. Azure Cosmos DB에 대해 수집 되는 리소스 로그의 유형 목록은 [모니터링 Azure Cosmos DB 데이터 참조](monitor-cosmos-db-reference.md#resource-logs)를 참조 하세요.
 
-[활동 로그](/azure/azure-monitor/platform/activity-log) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 플랫폼 로그인 Azure입니다. 독립적으로 보거나 Azure Monitor 로그로 라우팅할 수 있습니다. 그러면 Log Analytics를 사용 하 여 훨씬 더 복잡 한 쿼리를 수행할 수 있습니다.  
+[활동 로그](../azure-monitor/platform/activity-log.md) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 플랫폼 로그인 Azure입니다. 독립적으로 보거나 Azure Monitor 로그로 라우팅할 수 있습니다. 그러면 Log Analytics를 사용 하 여 훨씬 더 복잡 한 쿼리를 수행할 수 있습니다.  
 
 Azure Cosmos DB는 다음 테이블에 데이터를 저장합니다.
 

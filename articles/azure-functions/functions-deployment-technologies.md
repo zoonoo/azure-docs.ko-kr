@@ -4,12 +4,12 @@ description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681833"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943632"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -33,7 +33,7 @@ Azure에 코드를 게시 하는 데 사용 하는 배포 기술은 일반적으
 
 Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호스팅을 지원 합니다. 현재 세 가지 호스팅 요금제를 사용할 수 있습니다.
 
-+ [소비](consumption-plan.md)
++ [Consumption](consumption-plan.md)
 + [Premium](functions-premium-plan.md)
 + [전용 (App Service)](dedicated-plan.md)
 
@@ -106,7 +106,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 
 외부 패키지 URL을 사용 하 여 함수 앱이 포함 된 원격 패키지 (.zip) 파일을 참조할 수 있습니다. 파일이 제공 된 URL에서 다운로드 되 고 앱이 [패키지 모드에서 실행](run-functions-from-deployment-package.md) 될 때 실행 됩니다.
 
->__사용 방법:__ `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다.
+>__사용 방법:__ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) 응용 프로그램 설정에를 추가 합니다. 이 설정의 값은 URL (실행 하려는 특정 패키지 파일의 위치) 이어야 합니다. [포털에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용 하](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)여 설정을 추가할 수 있습니다.
 >
 >Azure Blob storage를 사용 하는 경우 [공유 액세스 서명 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) 이 포함 된 개인 컨테이너를 사용 하 여 패키지에 대 한 액세스 기능을 제공 합니다. 응용 프로그램이 다시 시작 될 때마다 콘텐츠의 복사본을 페치합니다. 참조는 응용 프로그램의 수명 동안 유효 해야 합니다.
 
@@ -118,7 +118,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 >__사용 방법:__ 즐겨 사용 하는 클라이언트 도구를 사용 하 여 배포 합니다. [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure Functions Core Tools](functions-run-local.md#project-file-deployment)를 사용 하 여 명령줄에서 배포 합니다. 기본적으로 이러한 도구는 zip 배포를 사용 하 고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. 핵심 도구와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build) 를 사용 하도록 설정 합니다. .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
->Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을로 설정 `1` 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다.
+>Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 [ `WEBSITE_RUN_FROM_PACKAGE` ] (함수-app.config # website_run_from_package 응용 프로그램 설정 값을로 설정 `1` 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다.
 
 >__사용 시기:__ Zip 배포는 Azure Functions에 권장 되는 배포 기술입니다.
 
@@ -181,7 +181,7 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 포털 기반 편집기에서 함수 앱에 있는 파일 (기본적으로 변경 내용을 저장할 때마다 배포)을 직접 편집할 수 있습니다.
 
->__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](./functions-get-started.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예:)을 제거 하면 `WEBSITE_RUN_FROM_PACKAGE` 됩니다.
+>__사용 방법:__ Azure Portal에서 함수를 편집 하려면 [포털에서 함수를 만들어야](./functions-get-started.md)합니다. 단일 원인을 보존 하기 위해 다른 배포 방법을 사용 하면 함수를 읽기 전용으로 설정 하 고 계속 해 서 포털을 편집할 수 없습니다. Azure Portal에서 파일을 편집할 수 있는 상태로 돌아가려면 편집 모드를 수동으로 다시 설정 하 `Read/Write` 고 배포 관련 응용 프로그램 설정 (예:)을 제거 하면 [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) 됩니다.
 
 >__사용 시기:__ 포털은 Azure Functions를 시작 하는 좋은 방법입니다. 보다 강력한 개발 작업을 수행 하려면 다음 클라이언트 도구 중 하나를 사용 하는 것이 좋습니다.
 >

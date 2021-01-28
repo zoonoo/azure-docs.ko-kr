@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b231b5af208a51cbe8f4370c2dc532be1ba3af9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9ee7116efe931d101a1505bc2d9d866d8ea5b92a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024928"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943434"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -54,7 +54,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 > * 사용자 지정 키워드 활성화 추가
 > * 인식 된 음성 및 음성 음성의 언어를 변경 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료 하는 데 필요한 사항은 다음과 같습니다.
 
@@ -107,7 +107,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial**)에 음성 리소스가 있는지 확인 합니다.
 
-| Name | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
@@ -128,9 +128,9 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 
 이 시점에서 리소스 그룹 (**SpeechEchoBotTutorial-ResourceGroup**)에 두 개의 리소스가 있는지 확인 합니다.
 
-| Name | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
-| SpeechEchoBotTutorial-AppServicePlan | App Service 플랜 | 미국 서부 |
+| SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
 ## <a name="build-an-echo-bot"></a>에코 봇 빌드
@@ -148,7 +148,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
    git clone https://github.com/Microsoft/botbuilder-samples.git
    ```
 
-2. Visual Studio를 시작합니다.
+2. Visual Studio를 실행합니다.
 3. 도구 모음에서 **파일**  >  **열기**  >  **프로젝트/솔루션** 을 선택 하 고 Echo Bot project 솔루션을 엽니다.
 
    ```
@@ -213,7 +213,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 1. 기본 브라우저가 열리고 "봇이 준비 되었습니다!" 라는 페이지가 표시 됩니다.
 1. 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 하 고 다음 세 가지 리소스를 확인 합니다.
 
-| Name | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -234,7 +234,7 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
 
 ## <a name="create-a-channel-registration"></a>채널 등록 만들기
 
-이제 봇을 호스트 하는 Azure App Service를 만들었으므로 다음 단계는 **Bot 채널 등록** 을 만드는 것입니다. 채널 등록을 만드는 것은 직접 선 음성 채널을 포함 하 여 봇 프레임 워크 채널에 봇을 등록 하기 위한 필수 구성 요소입니다. Bot 채널을 사용 하는 방법에 대해 자세히 알아보려면 [채널에 봇 연결](/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0)을 참조 하세요.
+이제 봇을 호스트 하는 Azure App Service를 만들었으므로 다음 단계는 **Bot 채널 등록** 을 만드는 것입니다. 채널 등록을 만드는 것은 직접 선 음성 채널을 포함 하 여 봇 프레임 워크 채널에 봇을 등록 하기 위한 필수 구성 요소입니다. Bot 채널을 사용 하는 방법에 대해 자세히 알아보려면 [채널에 봇 연결](/azure/bot-service/bot-service-manage-channels)을 참조 하세요.
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Azure Bot 채널 등록 만들기 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. 몇 가지 정보를 제공 하 라는 메시지가 표시 됩니다.
@@ -244,13 +244,13 @@ Microsoft Bot Framework를 사용 하 여 봇을 만들고, Azure에 배포 하 
    * **위치** 에서 **미국 서 부** 를 선택 합니다.
      * **가격 책정 계층** 에 대해 **F0** 를 선택 합니다.
      * **메시징 끝점** 의 경우 끝에 추가 된 경로를 사용 하 여 웹 앱에 대 한 URL을 입력 합니다 `/api/messages` . 예: 전역적으로 고유한 앱 이름이 **EchoBot20190805125647** 인 경우 메시징 끝점은 `https://EchoBot20190805125647.azurewebsites.net/api/messages/` 입니다.
-     * **Application insights** 의 경우이를 **Off** 로 설정할 수 있습니다. 자세한 내용은 [봇 분석](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0)을 참조 하세요.
+     * **Application insights** 의 경우이를 **Off** 로 설정할 수 있습니다. 자세한 내용은 [봇 분석](/azure/bot-service/bot-service-manage-analytics)을 참조 하세요.
      * **앱 ID 및 암호 자동 생성을** 무시 합니다.
 5. **Bot 채널 등록** 블레이드의 아래쪽에서 **만들기** 를 클릭 합니다.
 
 이 시점에서 Azure Portal 리소스 그룹 **SpeechEchoBotTutorial** 를 확인 합니다. 이제 다음 4 개 이상의 리소스를 표시 해야 합니다.
 
-| Name | Type  | 위치 |
+| 이름 | Type  | 위치 |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
@@ -298,7 +298,7 @@ Azure Bot 채널 등록 페이지에는 **Bot Management** **의 웹 채팅에 �
    * **저장** 을 클릭합니다.
 
 > [!TIP]
-> 자세히 알아보려면 [선 음성으로 연결 하려면 봇 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0)을 참조 하세요. 이 페이지에는 추가 정보 및 알려진 문제가 포함 되어 있습니다.
+> 자세히 알아보려면 [선 음성으로 연결 하려면 봇 연결](/azure/bot-service/bot-service-channel-connect-directlinespeech)을 참조 하세요. 이 페이지에는 추가 정보 및 알려진 문제가 포함 되어 있습니다.
 
 ## <a name="run-the-windows-voice-assistant-client"></a>Windows 음성 도우미 클라이언트 실행
 
@@ -323,7 +323,7 @@ Windows 음성 도우미 클라이언트에는 bot에 대 한 연결을 구성 �
 
 주 앱 창에 오류 메시지가 표시 되 면이 표를 사용 하 여 오류를 식별 하 고 해결 합니다.
 
-| 오류 | 무엇을 해야 하나요? |
+| 오류 | 어떻게 해야 하나요? |
 |-------|----------------------|
 |오류 (AuthenticationFailure): 인증 오류 (401)로 인해 WebSocket을 업그레이드 하지 못했습니다. 올바른 구독 키 (또는 권한 부여 토큰) 및 지역 이름 확인| 앱의 설정 페이지에서 음성 구독 키와 해당 영역을 올바르게 입력 했는지 확인 합니다.<br>음성 키와 키 영역을 올바르게 입력 했는지 확인 합니다. |
 |오류 (ConnectionFailure): 원격 호스트에서 연결을 끊었습니다. 오류 코드: 1011. 오류 세부 정보: 메시지를 보내기 전에 봇에 연결할 수 없습니다. | ["스트리밍 끝점 사용"](#register-the-direct-line-speech-channel) 확인란을 선택 했는지 확인 하 고 [ **웹 소켓**](#enable-web-sockets) 을 켜기로 전환 합니다.<br>Azure App Service 실행 중인지 확인 합니다. 인 경우 App Service를 다시 시작 하십시오.|
@@ -412,7 +412,7 @@ Speech SDK는 사용자 지정 키워드 활성화를 지원 합니다. Microsof
 
 Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 확인 하 여 키워드 검색을 사용 하는 데 사용 되는 코드를 검토 합니다.
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) 에는 [`KeywordRecognitionModel.fromFile()`](/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?preserve-view=true&view=azure-node-latest#fromfile-string-) 디스크의 로컬 파일에서 모델을 인스턴스화하는 데 사용 되는 SPEECH SDK 메서드에 대 한 호출이 포함 되어 있습니다.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) 에는 [`KeywordRecognitionModel.fromFile()`](/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel#fromfile-string-) 디스크의 로컬 파일에서 모델을 인스턴스화하는 데 사용 되는 SPEECH SDK 메서드에 대 한 호출이 포함 되어 있습니다.
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) 연속 키워드 검색을 활성화 하는 Speech SDK 메서드에 대 한 호출을 포함 [`DialogServiceConnector.StartKeywordRecognitionAsync()`](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) 합니다.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>필드 언어 및 봇 음성 변경
@@ -480,5 +480,5 @@ Windows 음성 도우미 클라이언트 소스 코드에서 다음 파일을 �
   * [Bot Service 가격 책정](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech Service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * 사용자 고유의 음성 사용 봇 빌드 및 배포:
-  * [Bot Framework bot](https://dev.botframework.com/)을 빌드합니다. [직접 선 음성 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) 을 사용 하 여 등록 하 고 [음성을 위한 봇 사용자 지정](/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * [Bot Framework bot](https://dev.botframework.com/)을 빌드합니다. [직접 선 음성 채널](/azure/bot-service/bot-service-channel-connect-directlinespeech) 을 사용 하 여 등록 하 고 [음성을 위한 봇 사용자 지정](/azure/bot-service/directline-speech-bot)
   * 기존 [Bot Framework 솔루션](https://microsoft.github.io/botframework-solutions/index)살펴보기: [가상 길잡이](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) 를 빌드하고 [직접 줄 음성으로 확장](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

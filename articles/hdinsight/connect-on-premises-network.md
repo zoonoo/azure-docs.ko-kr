@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight를 온-프레미스 네트워크에 연결
 description: Azure Virtual Network에서 HDInsight 클러스터를 만들고 온-프레미스 네트워크에 연결하는 방법을 알아봅니다. 사용자 지정 DNS 서버를 사용하여 HDInsight와 온-프레미스 네트워크 간에 이름 확인을 구성하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786523"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943402"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -75,7 +72,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
   
     | 필드 | 값 |
     | --- | --- |
-    |Subscription |내게 적합한 구독을 선택합니다.|
+    |구독 |내게 적합한 구독을 선택합니다.|
     |Resource group |앞에서 만든 가상 네트워크를 포함하는 리소스 그룹을 선택합니다.|
     |가상 머신 이름 | 이 가상 머신을 식별하는 이름을 입력합니다. 이 예제에서는 **DNSProxy** 를 사용합니다.|
     |지역 | 앞에서 만든 가상 네트워크와 동일한 지역을 선택합니다.  일부 VM 크기는 일부 지역에서 사용할 수 없습니다.  |

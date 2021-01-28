@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f7425e1cf34348b7742b739ef5440a5cb0355077
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661800"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942100"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -107,7 +107,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>내 조건이 충족 될 때마다 메트릭 경고가 발생 하도록 설정
 
-메트릭 경고는 기본적으로 상태 저장 이므로 지정 된 시계열에 이미 발생 한 경고가 있으면 추가 경고가 발생 하지 않습니다. 특정 메트릭 경고 규칙의 상태 비저장을 설정 하 고 경고 조건이 충족 되는 모든 평가에 대해 경고를 표시 하려면 프로그래밍 방식으로 (예: [리소스 관리자](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)를 통해) 경고 규칙을 만들고 *autoMitigate* 속성을 ' f a l s e '로 설정 합니다.
+메트릭 경고는 기본적으로 상태 저장 이므로 지정 된 시계열에 이미 발생 한 경고가 있으면 추가 경고가 발생 하지 않습니다. 특정 메트릭 경고 규칙의 상태 비저장을 설정 하 고 경고 조건이 충족 되는 모든 평가에 대해 경고를 표시 하려면 프로그래밍 방식으로 (예: [리소스 관리자](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)를 통해) 경고 규칙을 만들고 *autoMitigate* 속성을 ' f a l s e '로 설정 합니다.
 
 > [!NOTE] 
 > 메트릭 경고 규칙 상태 비저장을 설정 하면 발생 한 경고가 해결 되지 않습니다. 따라서 조건이 더 이상 충족 되지 않은 경우에도 발생 한 경고는 30 일의 보존 기간까지 발생 한 상태로 유지 됩니다.
@@ -175,9 +175,9 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ### <a name="from-api"></a>API에서
 
-- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - REST API - [구독별 목록](/rest/api/monitor/metricalerts/listbysubscription)
-- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- Azure CLI - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>리소스 관리자 템플릿, REST API, PowerShell 또는 Azure CLI를 사용 하 여 경고 규칙 관리
 
@@ -196,14 +196,14 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 메트릭 경고에 대 한 올바른 PowerShell cmdlet을 사용 하 고 있는지 확인 합니다.
 
-- 메트릭 경고에 대한 PowerShell cmdlet은 [Az.Monitor 모듈](/powershell/module/az.monitor/?view=azps-3.6.1)에서 사용할 수 있습니다.
-- 새 (비 클래식) 메트릭 경고 (예: [AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1))에 대해 ' V2 '로 끝나는 cmdlet을 사용 해야 합니다.
+- 메트릭 경고에 대한 PowerShell cmdlet은 [Az.Monitor 모듈](/powershell/module/az.monitor/)에서 사용할 수 있습니다.
+- 새 (비 클래식) 메트릭 경고 (예: [AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2))에 대해 ' V2 '로 끝나는 cmdlet을 사용 해야 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
 메트릭 경고에 대 한 올바른 CLI 명령을 사용 하 고 있는지 확인 합니다.
 
-- 메트릭 경고에 대한 CLI 명령은 `az monitor metrics alert`로 시작합니다. [Azure CLI 참조](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)를 검토하여 구문에 대해 알아봅니다.
+- 메트릭 경고에 대한 CLI 명령은 `az monitor metrics alert`로 시작합니다. [Azure CLI 참조](/cli/azure/monitor/metrics/alert)를 검토하여 구문에 대해 알아봅니다.
 - [메트릭 경고 CLI를 사용하는 방법을 보여주는 샘플](./alerts-metric.md#with-azure-cli)을 볼 수 있습니다.
 - 사용자 지정 메트릭에 대해 경고하려면 다음과 같이 메트릭 이름 앞에 관련 메트릭 네임스페이스를 접두사로 지정해야 합니다. NAMESPACE.METRIC
 
@@ -253,7 +253,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 - 각 조건 내에서 차원 당 하나의 값만 선택할 수 있습니다.
 - "현재 및 미래 값 모두 선택" (Select) 옵션을 사용할 수 없습니다 \* .
 - 서로 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 해당 하는 모든 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건).
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
     - 저장소 계정에 정의 된 메트릭 경고 규칙을 고려 하 고 두 가지 조건을 모니터링 합니다.
         * 총 **트랜잭션** > 5
         * 평균 **SuccessE2ELatency** > 250 밀리초

@@ -1,18 +1,15 @@
 ---
 title: 액세스 되는 계정이 Azure HDInsight의 http 오류를 지원 하지 않습니다.
 description: 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/06/2020
-ms.openlocfilehash: b7f3a3b76169b99389fe8222177ddcb713c27713
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 46063d5f2d9ff4b85914ad7c4cd74a2400298db0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943081"
 ---
 # <a name="the-account-being-accessed-does-not-support-http-error-in-azure-hdinsight"></a>액세스 되는 계정이 Azure HDInsight의 http 오류를 지원 하지 않습니다.
 

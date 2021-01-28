@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight 애플리케이션 게시
 description: HDInsight 애플리케이션을 만든 다음, Azure Marketplace에 게시하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
-ms.author: hrasheed
-ms.openlocfilehash: ca84cb6cdd6b47976eadbc5298701a46fe677426
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007140"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942657"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 애플리케이션 게시
 Azure HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 애플리케이션을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace/overview.md)를 참조하세요.
@@ -25,7 +22,7 @@ HDInsight 애플리케이션은 *BYOL(사용자 라이선스 필요)* 모델을 
 * [HDInsight 응용 프로그램을 설치](hdinsight-apps-install-applications.md)합니다. 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
 * [사용자 지정 HDInsight 응용 프로그램을 설치](hdinsight-apps-install-custom-applications.md)합니다. 사용자 지정 HDInsight 애플리케이션을 설치하고 테스트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Marketplace에 사용자 지정 애플리케이션을 제출하려면 먼저 [사용자 지정 애플리케이션을 만들고 테스트해야 합니다](hdinsight-apps-install-custom-applications.md).
 
 또한 개발자 계정도 등록해야 합니다. 자세한 내용은 [Azure Marketplace에 제품 게시](../marketplace/overview.md) 및 [Microsoft 개발자 계정 만들기](../marketplace/overview.md)를 참조하세요.
