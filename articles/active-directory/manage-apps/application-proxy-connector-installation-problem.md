@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 04c26609b046f7525c513796622be74633a20e91
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657332"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986771"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
@@ -24,7 +24,7 @@ Microsoft Azure Active Directory 응용 프로그램 프록시 커넥터는 아�
 
 ## <a name="general-problem-areas-with-connector-installation"></a>커넥터 설치에 대한 일반적인 문제 영역
 
-커넥터 설치가 실패한 경우 근본 원인은 대개 다음 영역 중 하나입니다.
+커넥터 설치에 실패 하는 경우 근본 원인은 일반적으로 다음 영역 중 하나입니다. **문제 해결을 기반이 커넥터를 다시 부팅 해야 합니다.**
 
 1.  **연결** – 성공적인 설치를 완료하려면 새 커넥터를 등록하고 향후 트러스트 속성을 설정해야 합니다. Azure Active Directory 응용 프로그램 프록시 클라우드 서비스에 연결 하 여이 작업을 수행 합니다.
 

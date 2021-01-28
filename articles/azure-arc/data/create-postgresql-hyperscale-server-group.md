@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609057"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985889"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - 백업에 사용 되는 저장소 클래스 (_--저장소-클래스-scb_)는 지정 되지 않은 경우 기본적으로 데이터 컨트롤러의 데이터 저장소 클래스를 사용 합니다.
+> - 서버 그룹을 별도의 서버 그룹 (특정 시점 복원)으로 복원 하려면 ReadWriteMany 액세스 모드에서 Pvc를 사용 하도록 서버 그룹을 구성 해야 합니다. 서버 그룹을 만들 때이 작업을 수행 해야 합니다. 만든 후에는 변경할 수 없습니다. 자세한 내용은 다음을 참조 하세요.
+>    - [백업 및 복원에 대 한이 섹션](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [이 섹션에서는 Azure Arc 사용 PostgreSQL Hyperscale의 제한 사항에 대해 설명 합니다.](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **사용할 수 있는 다른 명령줄 매개 변수가 있습니다.  을 실행 하 여 옵션의 전체 목록을 참조 하세요 `azdata arc postgres server create --help` .**
-> - 백업에 사용 되는 저장소 클래스 (_--저장소-클래스-scb_)는 지정 되지 않은 경우 기본적으로 데이터 컨트롤러의 데이터 저장소 클래스를 사용 합니다.
+
 > - --Volume size-* 매개 변수에서 허용 하는 단위는 Kubernetes 리소스 수량 (이러한 SI 접미사 (T, G, M, K, M) 또는 그에 해당 하는 두 가지 기능 (Ti, Gi, Mi, Ki))입니다.
 > - 이름 길이는 12 자이 하 여야 하 고 DNS 명명 규칙을 따라야 합니다.
 > - _Postgres_ standard 관리 사용자의 암호를 입력 하 라는 메시지가 표시 됩니다.  `AZDATA_PASSWORD`Create 명령을 실행 하기 전에 세션 환경 변수를 설정 하 여 대화형 프롬프트를 건너뛸 수 있습니다.
@@ -112,7 +119,7 @@ PostgreSQL 인스턴스에 대 한 끝점을 보려면 다음 명령을 실행 �
 ```console
 azdata arc postgres endpoint list -n <server group name>
 ```
-예:
+다음은 그 예입니다. 
 ```console
 [
   {

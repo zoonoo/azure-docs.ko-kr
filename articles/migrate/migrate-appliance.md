@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754133"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986822"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -45,7 +45,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **요구 사항** | **VMware** 
 --- | ---
-**권한** | 어플라이언스 웹앱에 로컬 또는 원격으로 액세스하려면 어플라이언스 컴퓨터의 도메인 관리자 또는 로컬 관리자여야 합니다.
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/> - **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).<br/>- **DRA 에이전트**: VM 복제를 오케스트레이션하고, 복제된 컴퓨터와 Azure 간의 통신을 조정합니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용하여 VMware VM을 Azure에 복제할 때만 사용됩니다.
 **지원되는 배포** | OVA 템플릿을 사용하여 VMware VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 VMware VM 또는 물리적 컴퓨터로 배포합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
@@ -65,7 +65,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **요구 사항** | **Hyper-V** 
 --- | ---
-**권한** | 어플라이언스 웹앱에 로컬 또는 원격으로 액세스하려면 어플라이언스 컴퓨터의 도메인 관리자 또는 로컬 관리자여야 합니다.
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다.<br/><br/>- **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
 **지원되는 배포** | VHD 템플릿을 사용하여 Hyper-V VM으로 배포합니다.<br/><br/> PowerShell 설치 스크립트를 사용하여 Hyper-V VM 또는 물리적 컴퓨터로 배포합니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
@@ -82,7 +82,7 @@ _ *Hyper-v 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를
 
 **요구 사항** | **물리적 서버** 
 --- | ---
-**권한** | 어플라이언스 웹앱에 로컬 또는 원격으로 액세스하려면 어플라이언스 컴퓨터의 도메인 관리자 또는 로컬 관리자여야 합니다.
+**권한** | 어플라이언스 웹 앱에 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 구성 요소** | 어플라이언스의 구성 요소는 다음과 같습니다. <br/><br/> - **관리 앱**: 어플라이언스를 배포하는 동안 사용자 입력을 위한 웹앱입니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/> - **검색 에이전트**: 에이전트가 컴퓨터 구성 데이터를 수집합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **수집기 에이전트**: 에이전트는 성능 데이터를 수집 합니다. Azure로 마이그레이션하기 위한 컴퓨터를 평가할 때 사용됩니다.<br/>- **자동 업데이트 서비스**: 어플라이언스 구성 요소를 업데이트합니다(24시간마다 실행).
 **지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
@@ -232,7 +232,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 --- | --- | ---
 Name  | Get-WindowsFeature  | Name
 기능 유형 | Get-WindowsFeature  | FeatureType
-부모  | Get-WindowsFeature  | 부모
+Parent  | Get-WindowsFeature  | Parent
 
 #### <a name="windows-vm-sql-server-metadata"></a>Windows VM SQL Server 메타 데이터
 
@@ -253,7 +253,7 @@ Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL
 --- | --- | ---
 Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
-아키텍처  | Win32_operatingsystem  | OSArchitecture
+Architecture  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Linux VM 앱 데이터
 
@@ -269,10 +269,10 @@ Name | rpm, dpkg, snap
 
 다음은 기기가 응용 프로그램 검색에 대해 사용 하도록 설정 된 각 VM을 수집 하는 운영 체제 데이터입니다. 이 데이터는 Azure에 보냅니다.
 
-**Data**  | **명령** 
+**Data**  | **Command** 
 --- | --- | ---
 Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-아키텍처 | uname
+Architecture | uname
 
 
 ### <a name="app-dependencies-metadata"></a>앱 종속성 메타데이터

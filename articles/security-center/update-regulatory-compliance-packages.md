@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756619"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986687"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
 
@@ -73,9 +73,11 @@ Microsoft는 규정 표준 자체를 추적 하 고 시간에 따라 일부 패�
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
-    - **SWIFT CSP CSCF-v2020**
+    - **SWIFT CSP CSCF v2020**
     - **UKO 및 영국 NHS**
-    - **캐나다 PBMM**
+    - **캐나다 연방 PBMM**
+    - **HIPAA HITRUST**
+    - **Azure CIS 1.1.0**
     
     ![Azure Security Center의 규정 준수 대시보드에 규제 표준 추가](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -88,8 +90,7 @@ Microsoft는 규정 표준 자체를 추적 하 고 시간에 따라 일부 패�
     > [!NOTE]
     > 새로 추가된 표준이 규정 준수 대시보드에 표시되는 데 몇 시간 정도 걸릴 수 있습니다.
 
-    [![이전 및 새 Azure CIS를 표시하는 규정 준수 대시보드](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
-
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="규정 준수 대시보드" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="removing-a-standard-from-your-dashboard"></a>대시보드에서 표준 제거
 

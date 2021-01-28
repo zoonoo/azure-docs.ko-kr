@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445201"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986025"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "96445201"
 > [!TIP]
 > 이 문서와 연결된 템플릿은 새 Azure Container Registry를 만들지만 컨테이너 레지스트리를 만들지 않고도 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 필요한 작업을 수행할 때 하나의 작업 영역이 만들어집니다. 예를 들어 모델을 학습하거나 배포합니다.
 >
-> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 그러나 사용 하는 컨테이너 레지스트리에는 __관리자 계정이__ 활성화 되어 있어야 합니다. 관리자 계정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 참조 하십시오.
+> 새로 만들지 않고 Azure Resource Manager 템플릿에 있는 기존 컨테이너 레지스트리 또는 스토리지 계정을 참조할 수도 있습니다. 이 작업을 수행 하는 경우 [관리 id](how-to-use-managed-identities.md) (미리 보기)를 사용 하거나 컨테이너 레지스트리에 대해 [관리자 계정을 사용 하도록 설정](../container-registry/container-registry-authentication.md#admin-account) 해야 합니다.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -224,8 +224,8 @@ New-AzResourceGroupDeployment `
 고객 관리 키를 사용 하도록 설정 하려면 템플릿을 배포할 때 다음 매개 변수를 설정 합니다.
 
 * **Encryption_status** **사용 하도록 설정** 합니다.
-* **cmk_keyvault** `cmk_keyvault` 이전 단계에서 얻은 값을 cmk_keyvault 합니다.
-* **resource_cmk_uri** `resource_cmk_uri` 이전 단계에서 얻은 값을 resource_cmk_uri 합니다.
+*  `cmk_keyvault` 이전 단계에서 얻은 값을 cmk_keyvault 합니다.
+*  `resource_cmk_uri` 이전 단계에서 얻은 값을 resource_cmk_uri 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

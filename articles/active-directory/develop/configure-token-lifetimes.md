@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805214"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986416"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>토큰 수명 정책 구성 (미리 보기)
 Microsoft id 플랫폼에서 발급 한 액세스, SAML 또는 ID 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다. 자세한 내용은 [구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조 하세요.
@@ -38,7 +38,7 @@ Microsoft id 플랫폼에서 발급 한 액세스, SAML 또는 ID 토큰의 수�
 1. 조직에서 만든 모든 정책을 확인 하려면 [new-azureadpolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 실행 합니다.  위에 나열 된 기본값과 다른 정의 된 속성 값이 있는 결과는 사용 중지 범위에 있습니다.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. 지정 된 특정 정책에 연결 된 앱 및 서비스 주체를 확인 하려면 **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** 를 정책 id로 바꿔서 다음 [AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet을 실행 합니다. 그런 다음 조건부 액세스 로그인 빈도를 구성할 지 아니면 Azure AD 기본값을 유지할지 결정할 수 있습니다.

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "92792993"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986923"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
@@ -31,11 +31,11 @@ ms.locfileid: "92792993"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 
-- 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
+- 미리 보기 기능에 대 한 구독은 대상 지역에 대해 나열 된 allowlisted 확인 합니다.
 
 <a id="prepare"></a>
 
@@ -225,7 +225,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 | **정적 웹 사이트** | [Azure Storage에서 정적 웹 사이트 호스트](../blobs/storage-blob-static-website-how-to.md) |
 | **이벤트 구독** | [Blob Storage 이벤트에 응답](../blobs/storage-blob-event-overview.md) |
 | **경고** | [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../../azure-monitor/platform/alerts-activity-log.md) |
-| **CDN (Content Delivery Network)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
+| **CDN(콘텐츠 전송 네트워크)** | [Azure CDN을 사용하여 HTTP를 통한 사용자 지정 도메인으로 Blob 액세스](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > 원본 저장소 계정에 대 한 CDN을 설정 하는 경우 기존 CDN의 원본을 새 계정의 주 blob service 끝점 (또는 기본 정적 웹 사이트 끝점)으로 변경 하면 됩니다. 

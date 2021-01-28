@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 63fbac0919e06b29377afacaaa5708d195c6b319
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5ecf9e49887eb584269f724d5199cbfb014351e0
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887254"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986856"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임
 이 문서에는 가상 네트워크에서 Azure 스프링 클라우드를 사용 하기 위한 사양이 포함 되어 있습니다.
@@ -57,7 +57,10 @@ Azure 방화벽은 정규화 된 도메인 이름 (FQDN) 태그 **AzureKubernete
   | <i>login.microsoftonline.com</i> | HTTPS:443 | 인증을 Azure Active Directory 합니다. |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Microsoft 패키지 리포지토리. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Kubenet 및 Azure CNI와 같은 필수 이진 파일을 설치 하는 데 필요한 리포지토리입니다. |
+  | *mscrl.microsoft.com* | HTTPS: 80 | 필수 Microsoft 인증서 체인 경로입니다. |
+  | *crl.microsoft.com* | HTTPS: 80 | 필수 Microsoft 인증서 체인 경로입니다. |
+  | *crl3.digicert.com* | HTTPS: 80 | 타사 SSL 인증서 체인 경로입니다. |
 
-## <a name="see-also"></a>추가 정보
-* [개인 네트워크에서 응용 프로그램에 액세스](spring-cloud-access-app-virtual-network.md)
+## <a name="see-also"></a>참고 항목
+* [개인 네트워크에서 애플리케이션에 액세스](spring-cloud-access-app-virtual-network.md)
 * [Application Gateway 및 Azure 방화벽을 사용 하 여 앱 노출](spring-cloud-expose-apps-gateway-azure-firewall.md) 

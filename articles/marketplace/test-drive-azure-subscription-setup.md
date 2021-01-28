@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489389"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986127"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트 된 테스트 드라이브에 대 한 Azure Marketplace 구독 설정
 
@@ -70,7 +70,7 @@ ms.locfileid: "94489389"
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="클라이언트 암호를 추가 합니다.":::
 
-5. 경우에 따라 사용자를 Azure AD에서 CRM 인스턴스로 동기화 하는 데 예상 보다 오래 걸립니다. 이를 지원 하기 위해 사용자를 강제로 동기화 하는 프로세스를 추가 했지만 파트너 센터에서 Azure AD 응용 프로그램을 허용 목록 해야 합니다. 이렇게 하려면 [고객 참여 인스턴스로 사용자 동기화](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md)를 참조 하세요.
+5. 경우에 따라 사용자를 Azure AD에서 CRM 인스턴스로 동기화 하는 데 예상 보다 오래 걸립니다. 이를 지원 하기 위해 사용자를 강제로 동기화 하는 프로세스를 추가 했지만 Azure AD 응용 프로그램을 파트너 센터에서 allowlisted 합니다. 이렇게 하려면 [고객 참여 인스턴스로 사용자 동기화](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md)를 참조 하세요.
 6. 응용 프로그램에 서비스 주체 역할을 추가 하 여 Azure AD 앱이 Azure 테 넌 트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.
     2. MSOnline을 Install-Module (MSOnline이 설치 되어 있지 않은 경우이 명령을 실행).
@@ -83,7 +83,7 @@ ms.locfileid: "94489389"
 
 7. 위에서 만든 Azure 앱을 테스트 드라이브 CRM 인스턴스에 응용 프로그램 사용자로 추가 합니다.
     1. **Azure Active Directory** 에 새 사용자를 추가 합니다. 동일한 테 넌 트에 속하는 **이름** 및 **사용자** 이름 값만이 사용자를 만드는 데 필요 하며 다른 필드는 기본값으로 둡니다. 사용자 이름 값을 복사 합니다.
-    2. **CRM 인스턴스에** 로그인 하 고 보안 **사용자 설정** 을 선택  >  **Security**  >  **Users** 합니다.
+    2. **CRM 인스턴스에** 로그인 하 고 보안 **사용자 설정** 을 선택  >    >  합니다.
     3. **응용 프로그램 사용자** 로 보기를 변경 합니다.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="사용자에 대 한 계정 정보를 설정 합니다.":::

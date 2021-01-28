@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002865"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985634"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -48,7 +48,7 @@ VMware VM의 DPM | System Center 2012 R2 업데이트 롤업 5 이상
 지원되지 않는 파일 형식 | <li>대/소문자를 구분 하는 파일 시스템의 서버<li> 하드 링크 (건너뜀)<li> 재분석 지점의 (건너뜀)<li> 암호화 및 압축 (건너뜀)<li> 암호화 및 스파스 (건너뜀)<li> 압축된 스트림<li> 스트림 구문 분석
 로컬 스토리지 | 백업 하려는 각 컴퓨터에는 백업 중인 데이터 크기의 5% 이상이 되는 로컬 사용 가능한 저장소가 있어야 합니다. 예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
 자격 증명 모음 스토리지 | Azure Backup 자격 증명 모음에 백업할 수 있는 데이터 양에는 제한이 없지만 데이터 원본 (예: 가상 머신 또는 데이터베이스)의 크기는 54400 GB를 초과할 수 없습니다.
-Azure ExpressRoute | 공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.<br/><br/> **공용 피어 링 사용**: 다음 도메인/주소에 대 한 액세스를 확인 합니다.<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Microsoft 피어 링을 사용 하 여** 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>-Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.<br/><br/>**참고**: 공용 피어 링은 새 회로에서 사용 되지 않습니다.
+Azure ExpressRoute | 공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링에 대 한 백업은 지원 되지 않습니다.<br/><br/> **공용 피어 링 사용**: 다음 도메인/주소에 대 한 액세스를 확인 합니다.<br/><br/> URL:<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>IP 주소<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**Microsoft 피어 링을 사용 하 여** 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>-Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)<br/><br/>자세한 내용은 [express 경로 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조 하세요.<br/><br/>**참고**: 공용 피어 링은 새 회로에서 사용 되지 않습니다.
 Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 경우 DPM SP1에 대한 롤업 2 이상을 설치합니다. 이 롤업은 에이전트 설치를 위해 반드시 필요합니다.<br/><br/> 이 문서에서는 MARS(icrosoft Azure Recovery Service) 에이전트라고도 하는 최신 버전의 Azure Backup 에이전트를 배포하는 방법을 설명합니다. 이전 버전을 배포한 경우 최신 버전으로 업데이트하여 백업이 예상대로 작동하도록 합니다.
 
 시작하기 전에 Azure Backup 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. [Azure Backup 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.

@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276962"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986059"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -111,13 +111,18 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 ### <a name="url-access"></a>URL 액세스
 
-DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
+DPM 서버/a d 서버는 다음 Url 및 IP 주소에 액세스 해야 합니다.
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP 주소
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
 
@@ -125,11 +130,16 @@ DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
 공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP 주소
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 

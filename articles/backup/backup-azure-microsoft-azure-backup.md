@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056704"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987025"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -84,10 +84,10 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 스토리지 복제 설정을 편집하려면
 
-1. **Recovery Services 자격** 증명 모음 창에서 새 자격 증명 모음을 선택 합니다. **설정** 섹션에서 **속성**을 선택 합니다.
-2. **속성**의 **백업 구성**에서 **업데이트**를 선택 합니다.
+1. **Recovery Services 자격** 증명 모음 창에서 새 자격 증명 모음을 선택 합니다. **설정** 섹션에서 **속성** 을 선택 합니다.
+2. **속성** 의 **백업 구성** 에서 **업데이트** 를 선택 합니다.
 
-3. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
+3. 저장소 복제 유형을 선택 하 고 **저장** 을 선택 합니다.
 
      ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
@@ -96,10 +96,10 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 ### <a name="downloading-the-software-package"></a>소프트웨어 패키지 다운로드
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Recovery Services 자격 증명 모음이 이미 열려 있는 경우 3 단계로 계속 진행 합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 주 메뉴에서 **찾아보기**를 선택 합니다.
+2. Recovery Services 자격 증명 모음이 이미 열려 있는 경우 3 단계로 계속 진행 합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 주 메뉴에서 **찾아보기** 를 선택 합니다.
 
-   * 리소스 목록에서 **Recovery Services**를 입력합니다.
-   * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
+   * 리소스 목록에서 **Recovery Services** 를 입력합니다.
+   * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음** 이 표시되면 이를 선택합니다.
 
      ![Recovery Services 자격 증명 모음 만들기 1 단계](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -120,11 +120,11 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![Backup-목표-기본-열기](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. **백업 목표** 창의 **워크 로드가 실행** 되는 위치 메뉴에서 **온-프레미스**를 선택 합니다.
+5. **백업 목표** 창의 **워크 로드가 실행** 되는 위치 메뉴에서 **온-프레미스** 를 선택 합니다.
 
     ![온-프레미스 및 목표 워크로드](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    **백업할 항목** 을 선택 하십시오. 드롭다운 메뉴에서 Azure Backup Server 사용 하 여 보호 하려는 작업을 선택 하 고 **확인**을 선택 합니다.
+    **백업할 항목** 을 선택 하십시오. 드롭다운 메뉴에서 Azure Backup Server 사용 하 여 보호 하려는 작업을 선택 하 고 **확인** 을 선택 합니다.
 
     **백업 시작** 마법사는 **인프라 준비** 옵션으로 전환되어 작업을 Azure로 백업합니다.
 
@@ -139,7 +139,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![Azure Backup 서버에 대한 인프라 준비](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-7. 모든 파일을 선택 하 고 **다음**을 선택 합니다. Microsoft Azure Backup 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다.
+7. 모든 파일을 선택 하 고 **다음** 을 선택 합니다. Microsoft Azure Backup 다운로드 페이지에서 들어오는 모든 파일을 다운로드하고 모든 파일을 동일한 폴더에 배치합니다.
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
@@ -147,7 +147,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="extracting-the-software-package"></a>소프트웨어 패키지 추출
 
-모든 파일을 다운로드 한 후 **MicrosoftAzureBackupInstaller.exe**를 선택 합니다. 사용자가 지정한 위치에 설치 파일을 추출하는 **Microsoft Azure Backup 설정 마법사** 가 시작됩니다. 마법사를 계속 진행 하 여 추출 **단추를** 선택 하 여 추출 프로세스를 시작 합니다.
+모든 파일을 다운로드 한 후 **MicrosoftAzureBackupInstaller.exe** 를 선택 합니다. 사용자가 지정한 위치에 설치 파일을 추출하는 **Microsoft Azure Backup 설정 마법사** 가 시작됩니다. 마법사를 계속 진행 하 여 추출 **단추를** 선택 하 여 추출 프로세스를 시작 합니다.
 
 > [!WARNING]
 > 설치 파일을 추출하려면 4GB 이상의 사용 가능한 공간이 필요합니다.
@@ -166,7 +166,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 2. 시작 화면에서 **다음** 단추를 선택 합니다. 그러면 *필수 구성 요소 확인* 섹션으로 이동합니다. 이 화면에서 **확인** 을 선택 하 여 Azure Backup Server에 대 한 하드웨어 및 소프트웨어 필수 구성 요소가 충족 되었는지 확인 합니다. 모든 필수 구성 요소가 성공적으로 충족 되 면 컴퓨터가 요구 사항을 충족 한다는 메시지가 표시 됩니다. **다음** 단추를 선택합니다.
 
     ![Azure Backup 서버 - 시작 및 필수 조건 확인](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Azure Backup Server 설치 패키지는 필요한 적절한 SQL Server 이진 파일이 번들로 함께 제공됩니다. 새 Azure Backup Server 설치를 시작할 때 **이 설치 프로그램을 사용 하 여 SQL Server 새 인스턴스 설치** 옵션을 선택 하 고 **확인 및 설치** 단추를 선택 합니다. 필수 구성 요소가 성공적으로 설치 되 면 **다음**을 선택 합니다.
+3. Azure Backup Server 설치 패키지는 필요한 적절한 SQL Server 이진 파일이 번들로 함께 제공됩니다. 새 Azure Backup Server 설치를 시작할 때 **이 설치 프로그램을 사용 하 여 SQL Server 새 인스턴스 설치** 옵션을 선택 하 고 **확인 및 설치** 단추를 선택 합니다. 필수 구성 요소가 성공적으로 설치 되 면 **다음** 을 선택 합니다.
 
     >[!NOTE]
     >고유한 SQL Server를 사용하려는 경우 지원되는 SQL Server 버전은 SQL Server 2014 SP1 이상, 2016 및 2017입니다.  모든 SQL Server 버전은 Standard 또는 Enterprise 64비트여야 합니다.
@@ -174,7 +174,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![Azure Backup 서버 - SQL 확인](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    컴퓨터를 다시 시작 하 라는 권장 사항을 사용 하 여 오류가 발생 하는 경우이 작업을 수행 하 고 **다시 확인**을 선택 합니다. SQL 구성 문제가 있는 경우 sql 지침에 따라 SQL을 다시 구성 하 고 기존 SQL 인스턴스를 사용 하 여 MABS 설치/업그레이드를 다시 시도 합니다.
+    컴퓨터를 다시 시작 하 라는 권장 사항을 사용 하 여 오류가 발생 하는 경우이 작업을 수행 하 고 **다시 확인** 을 선택 합니다. SQL 구성 문제가 있는 경우 sql 지침에 따라 SQL을 다시 구성 하 고 기존 SQL 인스턴스를 사용 하 여 MABS 설치/업그레이드를 다시 시도 합니다.
 
    **수동 구성**
 
@@ -182,7 +182,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     **SQL 2017을 사용하여 SSRS 구성**
 
-    사용자 고유의 SQL 2017 인스턴스를 사용 하는 경우 SSRS를 수동으로 구성 해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True*로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
+    사용자 고유의 SQL 2017 인스턴스를 사용 하는 경우 SSRS를 수동으로 구성 해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True* 로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
 
     SSRS 구성에 대해 다음 값을 사용합니다.
     * 서비스 계정: ‘기본 제공 계정 사용’은 네트워크 서비스여야 합니다.
@@ -195,7 +195,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     > [!NOTE]
     > MABS의 데이터베이스로 사용되는 SQL Server용 라이선스는 [Microsoft OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products)를 통해 관리됩니다. OST에 따라 MABS와 함께 제공되는 SQL Server는 MABS의 데이터베이스로만 사용할 수 있습니다.
 
-4. Microsoft Azure Backup server 파일의 설치 위치를 지정 하 고 **다음**을 선택 합니다.
+4. Microsoft Azure Backup server 파일의 설치 위치를 지정 하 고 **다음** 을 선택 합니다.
 
     ![파일 설치 위치 제공](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
@@ -203,10 +203,10 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     디스크 저장소의 용량 요구 사항은 주로 보호 된 데이터의 크기, 일별 복구 지점 크기, 예상 볼륨 데이터 증가율 및 보존 범위 목표에 따라 달라 집니다. 디스크 저장소를 보호 된 데이터의 두 배 크기로 만드는 것이 좋습니다. 이렇게 하면 일별 복구 지점 크기를 보호된 데이터 크기의 10%와 10일의 보존 범위로 가정합니다. 크기를 정확 하 게 예측 하려면 [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301)를 검토 합니다. 
 
-5. 제한 된 로컬 사용자 계정에 대 한 강력한 암호를 입력 하 고 **다음**을 선택 합니다.
+5. 제한 된 로컬 사용자 계정에 대 한 강력한 암호를 입력 하 고 **다음** 을 선택 합니다.
 
     ![강력한 암호 제공](./media/backup-azure-microsoft-azure-backup/security-screen.png)
-6. *Microsoft 업데이트* 를 사용 하 여 업데이트를 확인할 지 여부를 선택 하 고 **다음**을 선택 합니다.
+6. *Microsoft 업데이트* 를 사용 하 여 업데이트를 확인할 지 여부를 선택 하 고 **다음** 을 선택 합니다.
 
    > [!NOTE]
    > Windows 업데이트에 Microsoft 업데이트를 리디렉션하는 것이 좋으며 이는 Windows 및 Microsoft Azure Backup 서버와 같은 다른 제품에 대한 보안 및 중요 업데이트를 제공합니다.
@@ -214,7 +214,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
    >
 
     ![Microsoft Update 옵트인](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
-7. *설정 요약* 을 검토 하 고 **설치**를 선택 합니다.
+7. *설정 요약* 을 검토 하 고 **설치** 를 선택 합니다.
 
     ![설정 요약](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. 설치는 단계적으로 발생합니다. 첫 번째 단계에서 Microsoft Azure Recovery Services 에이전트가 서버에 설치됩니다. 또한 마법사가 인터넷 연결을 확인합니다. 인터넷 연결을 사용할 수 있는 경우 설치를 계속할 수 있습니다. 그렇지 않으면 인터넷에 연결 하는 데 프록시 세부 정보를 제공 해야 합니다.
@@ -243,7 +243,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
 다음 섹션에서는 클라이언트 컴퓨터에 대한 보호 에이전트를 업데이트하는 방법을 설명합니다.
 
-1. Backup Server 관리자 콘솔에서 **관리** > **에이전트**를 선택합니다.
+1. Backup Server 관리자 콘솔에서 **관리** > **에이전트** 를 선택합니다.
 
 2. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
 
@@ -252,7 +252,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
    >
    >
 
-3. 선택된 컴퓨터에 업데이트된 보호 에이전트를 설치하려면 **작업** 창에서 **업데이트**를 선택합니다.
+3. 선택된 컴퓨터에 업데이트된 보호 에이전트를 설치하려면 **작업** 창에서 **업데이트** 를 선택합니다.
 
 4. 네트워크에 연결되지 않은 클라이언트 컴퓨터의 경우 컴퓨터가 네트워크에 연결될 때까지 **에이전트 상태** 열에는 **업데이트 보류 중** 상태가 표시됩니다.
 
@@ -303,13 +303,18 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 
-Azure에 대 한 액세스를 차단 하는 방화벽이 나 프록시가 있는 경우 방화벽/프록시 프로필에서 다음과 같은 도메인 주소를 허용 해야 합니다.
+컴퓨터의 인터넷 액세스가 제한 된 경우 컴퓨터 또는 프록시의 방화벽 설정에서 다음 Url 및 IP 주소를 허용 하는지 확인 합니다.
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP 주소
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Express 경로 Microsoft 피어 링을 사용 하는 경우 다음 서비스/지역을 선택 합니다.
 
@@ -323,9 +328,9 @@ Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행�
 
 ### <a name="handling-subscription-states"></a>구독 상태 처리
 
-*만료 됨* 또는 *프로 비전 해제* 상태에서 *활성* 상태로 Azure 구독을 가져올 수 있습니다. 그러나 상태가 *활성화*되지 않은 경우에는 제품 동작에 몇 가지 영향이 있습니다.
+*만료 됨* 또는 *프로 비전 해제* 상태에서 *활성* 상태로 Azure 구독을 가져올 수 있습니다. 그러나 상태가 *활성화* 되지 않은 경우에는 제품 동작에 몇 가지 영향이 있습니다.
 
-* *프로 비전 해제* 구독은 프로 비전 해제 기간 동안 기능을 상실 합니다. *활성*으로 전환될 때 제품의 백업/복원 기능을 다시 사용할 수 있습니다. 또한 로컬 디스크의 백업 데이터가 충분한 보존 기간으로 유지되었다면 검색이 가능합니다. 그러나 Azure의 백업 데이터는 구독이 *프로비전 해제됨* 상태로 전환되면 회복할 수 없는 상태로 손실됩니다.
+* *프로 비전 해제* 구독은 프로 비전 해제 기간 동안 기능을 상실 합니다. *활성* 으로 전환될 때 제품의 백업/복원 기능을 다시 사용할 수 있습니다. 또한 로컬 디스크의 백업 데이터가 충분한 보존 기간으로 유지되었다면 검색이 가능합니다. 그러나 Azure의 백업 데이터는 구독이 *프로비전 해제됨* 상태로 전환되면 회복할 수 없는 상태로 손실됩니다.
 * *만료됨* 구독은 다시 *활성* 상태로 되기 전까지 기능을 상실합니다. 구독이 *만료* 된 기간 동안 예약 된 모든 백업은 실행 되지 않습니다.
 
 ## <a name="upgrade-mabs"></a>MABS 업그레이드
@@ -352,7 +357,7 @@ Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행�
    >
    >  SQL 2017 업그레이드의 일환으로 SQL 암호화 키를 백업하고 보고 서비스를 제거합니다. SQL 서버 업그레이드 후 보고 서비스(14.0.6827.4788)가 설치되고 암호화 키가 복원됩니다.
    >
-   > SQL 2017을 수동으로 구성하는 경우 설치 지침 아래의 *SQL 2017을 사용하여 SSRS 구성*을 참조하세요.
+   > SQL 2017을 수동으로 구성하는 경우 설치 지침 아래의 *SQL 2017을 사용하여 SSRS 구성* 을 참조하세요.
 
 3. 보호된 서버에서 보호 에이전트를 업데이트합니다.
 4. 프로덕션 서버를 다시 시작하지 않아도 백업을 계속해야 합니다.

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 17c0e63b02d61b3aecf70624bc97a468d18f66fe
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 10f21067f48155a394ac20337d77e3e82aae64d8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607510"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985940"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale 이란?
 
@@ -48,13 +48,13 @@ Azure (PaaS)에서 Database as a Service로 제공 되는 postgres 데이터베�
 Azure Arc 사용 데이터 서비스에서 사용할 수 있는 postgres 데이터베이스 엔진의 대규모 폼 요소입니다. 또한 하이퍼 크기 조정 환경을 가능 하 게 하는 Citus 확장을 기반으로 합니다. 이 폼 팩터에서 고객은 시스템을 호스트 하 고 운영 하는 인프라를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- **만들기**
-   > **단지 작업을 시도해 보 시겠습니까? 사용할 수 있는 Kubernetes 클러스터가 없습니다. 샌드박스를 제공 합니다.**  
-   > AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)를 사용하여 빠르게 시작하세요.
+- **사용해 보세요.** Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요. 
 
-   - **만드십시오**
-      - [클라이언트 도구 설치](install-client-tools.md)
-      - [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)
-      - [Azure arc에서 Azure Database for PostgreSQL 하이퍼 확장 서버 그룹을 만듭니다](create-postgresql-hyperscale-server-group.md) (먼저 azure arc 데이터 컨트롤러를 만들어야 함).
-- [**Azure Arc 사용 데이터 서비스에 대 한 자세한 정보**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [**Azure Arc에 대해 읽기**](https://aka.ms/azurearc)
+- **직접 만듭니다.** 사용자 고유의 Kubernetes 클러스터를 만들려면 다음 단계를 따르세요. 
+   1. [클라이언트 도구 설치](install-client-tools.md)
+   2. [Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)
+   3. [Azure Arc에서 Azure Database for PostgreSQL Hyperscale server 그룹 만들기](create-postgresql-hyperscale-server-group.md) 
+
+- **Learn**
+   - [Azure Arc 사용 데이터 서비스에 대 한 자세한 정보](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+   - [Azure Arc에 대해 읽기](https://aka.ms/azurearc)

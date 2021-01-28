@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756680"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986614"
 ---
 # <a name="manage-security-policies"></a>보안 정책 관리
 
@@ -54,7 +54,7 @@ Security Center에서 보안 정책을 보려면
 
 1. 해당 구독 또는 관리 그룹에 대 한 보안 정책 페이지가 나타납니다. 사용 가능한 정책과 할당 된 정책을 표시 합니다.
 
-   ![정책 페이지](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Security Center의 보안 정책 페이지" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > 기본 정책과 함께 "MG 상속" 이라는 레이블이 있으면 정책이 관리 그룹에 할당 되 고 사용자가 보고 있는 구독에서 상속 된 것입니다.
@@ -102,7 +102,7 @@ Security Center는 azure 사용자, 그룹 및 서비스에 할당할 수 있는
 
 1. Security Center의 **정책 & 준수** 섹션에서 **보안 정책** 을 선택 합니다.
 
-   ![정책 관리](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Azure Security Center에서 정책 관리 프로세스 시작":::
 
 2. 권장 사항을 사용 하지 않도록 설정할 구독 또는 관리 그룹을 선택 합니다.
 
@@ -111,7 +111,7 @@ Security Center는 azure 사용자, 그룹 및 서비스에 할당할 수 있는
 
 1. **유효 정책 보기** 를 선택 합니다.
 
-   ![정책 보기](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="구독에 할당 된 유효 정책을 여는 방법":::
 
 1. 할당 된 정책을 선택 합니다.
 
@@ -126,10 +126,8 @@ Security Center는 azure 사용자, 그룹 및 서비스에 할당할 수 있는
    > [!NOTE]
    > 정책 사용 안 함 변경을 적용 하는 데 최대 12 시간이 걸릴 수 있습니다.
 
-
-
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 보안 정책에 대해 설명 했습니다. 관련 정보는 다음 문서를 참조 하세요.
+이 페이지에서는 보안 정책에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
 - [PowerShell을 사용 하 여 정책을 설정 하는 방법 알아보기](../governance/policy/assign-policy-powershell.md) - 
 - [Azure Policy에서 보안 정책을 편집 하는 방법에 대해 알아봅니다.](../governance/policy/tutorials/create-and-manage.md) - 

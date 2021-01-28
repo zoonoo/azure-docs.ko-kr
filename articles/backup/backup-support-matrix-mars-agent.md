@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997242"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985617"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -59,6 +59,7 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 - *.WindowsAzure.com
 - *. MicrosoftOnline.com
 - *. Windows.net
+- `www.msftconnecttest.com`
 
 그리고 다음 IP 주소에 대해 다음을 수행 합니다.
 
@@ -82,11 +83,16 @@ MARS 에이전트를 사용 하 여 Azure Vm에서 파일 및 폴더를 백업 �
 
 공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* IP 주소
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 
@@ -130,13 +136,13 @@ MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
-Windows 10(Enterprise, Pro, Home) | 예 | 예 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8.1(Enterprise, Pro)| 예 |예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8(Enterprise, Pro) | 예 | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 10(Enterprise, Pro, Home) | 예 | 아니요 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| 예 |아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | 예 | 아니요 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
 Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.exe)
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니요 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
@@ -151,9 +157,9 @@ Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <b
 
 | **운영 체제**                                       | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 예                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예               | 아니요                 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인 |
 | Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | 예               | 예                | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) |
-| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 예                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
+| Windows Server 2008 SP2 (Standard, Datacenter, Foundation)  | 예               | 아니요                 | -.NET 3.5, .NET 4.5 <br>  -Windows PowerShell <br>  호환 Microsoft VC + + 재배포 가능 패키지 <br>  -MMC (Microsoft Management Console) 3.0 <br>  -배포 이미지 서비스 및 관리 (DISM.exe) <br>  -Virtual Server 2005 기본 + KB KB948515 |
 
 ## <a name="backup-limits"></a>Backup 제한
 
@@ -186,7 +192,7 @@ Windows 7| 1,700GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 
-**형식** | **지원**
+**Type** | **지원**
 --- | ---
 됨<sup>*</sup>| 지원됨.
 Compressed | 지원됨.

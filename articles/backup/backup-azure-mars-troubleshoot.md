@@ -3,12 +3,12 @@ title: Azure Backup 에이전트 문제 해결
 description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c08a146d91a128dc48fa4c379055b8c0efc1df0c
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993842"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986652"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -42,7 +42,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 | 원인 | 권장 작업 |
 | ---     | ---    |
 | **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나, 만료 되었거나, *vaultCredentials* 와 다른 파일 확장명이 있을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal의 Recovery Services 자격 증명 모음에서 [새 자격 증명을 다운로드](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) 합니다. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 엽니다. 그런 다음 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
-| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>또는 <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행하세요.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.<br></br> Azure Express 경로를 통해 연결 하는 경우에는 [Azure express 경로 지원](backup-support-matrix-mars-agent.md#azure-expressroute-support)에 설명 된 대로 설정이 구성 되어 있는지 확인 합니다.
+| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>또는 <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행하세요.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.<br></br> Azure Express 경로를 통해 연결 하는 경우에는 [Azure express 경로 지원](backup-support-matrix-mars-agent.md#azure-expressroute-support)에 설명 된 대로 설정이 구성 되어 있는지 확인 합니다.
 | **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
 ### <a name="additional-recommendations"></a>추가 권장 사항
@@ -198,9 +198,9 @@ Set-ExecutionPolicy Unrestricted
 
 2. 최신 버전의 백업 에이전트가 있는지 확인 합니다. 버전을 확인 하려면 MARS 콘솔의 **작업** 창에서 **정보 Microsoft Azure Recovery Services 에이전트 정보** 를 선택 합니다. **버전** 번호가 [이 문서](https://go.microsoft.com/fwlink/?linkid=229525)에 언급된 버전보다 높거나 같은지 확인합니다. [최신 버전을 다운로드](https://go.microsoft.com/fwLink/?LinkID=288905)하려면이 링크를 선택 합니다.
 
-3. **Device Manager**  >  **저장소 컨트롤러** 로 이동 하 여 **Microsoft iSCSI 초기자** 를 찾습니다. 찾은 경우 7 단계로 직접 이동 합니다.
+3. **장치 관리자**  >  **저장소 컨트롤러** 로 이동 하 여 **Microsoft iSCSI 초기자** 를 찾습니다. 찾은 경우 7 단계로 직접 이동 합니다.
 
-4. Microsoft iSCSI 초기자 서비스를 찾을 수 없는 경우 **Device Manager**  >  하드웨어 ID **ROOT\ISCSIPRT** 를 사용 하 여 **알 수 없는 장치** 라는 Device Manager **저장소 컨트롤러** 에서 항목을 찾으려고 시도 합니다.
+4. Microsoft iSCSI 초기자 서비스를 찾을 수 없는 경우   >  하드웨어 ID **ROOT\ISCSIPRT** 를 사용 하 여 **알 수 없는 장치** 라는 장치 관리자 **저장소 컨트롤러** 에서 항목을 찾으려고 시도 합니다.
 
 5. **알 수 없는 장치** 를 마우스 오른쪽 단추로 클릭 하 고 **드라이버 소프트웨어 업데이트** 를 선택 합니다.
 
@@ -222,7 +222,7 @@ Set-ExecutionPolicy Unrestricted
 
 캐시 폴더 (스크래치 폴더 라고도 함)가 잘못 구성 되었거나, 필수 구성 요소가 없거나, 액세스가 제한 된 경우 백업 작업이 실패할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 MARS 에이전트 작업을 성공적으로 수행 하려면 캐시 폴더에서 다음 요구 사항을 준수 해야 합니다.
 

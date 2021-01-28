@@ -5,20 +5,20 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.author: tamram
+ms.date: 01/27/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5a1ad898b745bbb49421c1bc0b5a9b2e5c8ec0f6
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703507"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986002"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
-Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 사용하면 사용되는 네트워크의 유형 및 하위 세트에 따라 애플리케이션 및 엔터프라이즈 환경에 필요한 스토리지 계정에 대한 액세스 수준을 보호하고 제어할 수 있습니다. 네트워크 규칙이 구성되면 지정된 네트워크 세트를 통해 데이터를 요청하는 애플리케이션만 스토리지 계정에 액세스할 수 있습니다. 스토리지 계정에 대한 액세스를 지정된 IP 주소, IP 범위 또는 Azure VNet(가상 네트워크)의 서브넷 목록에서 시작되는 요청으로 제한할 수 있습니다.
+Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 사용 하면 사용 하는 네트워크 또는 리소스의 유형 및 하위 집합에 따라 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 저장소 계정에 대 한 액세스 수준을 보호 하 고 제어할 수 있습니다. 네트워크 규칙이 구성 된 경우 지정 된 네트워크 집합 또는 지정 된 Azure 리소스 집합을 통해 데이터를 요청 하는 응용 프로그램만 저장소 계정에 액세스할 수 있습니다. 저장소 계정에 대 한 액세스를 지정 된 IP 주소, IP 범위, Azure Virtual Network (VNet)의 서브넷 또는 일부 Azure 서비스의 리소스 인스턴스에 대 한 요청으로 제한할 수 있습니다.
 
 스토리지 계정에는 인터넷을 통해 액세스할 수 있는 퍼블릭 엔드포인트가 있습니다. VNet에서 스토리지 계정으로 프라이빗 IP 주소를 할당하고 프라이빗 링크를 통과하는 VNet 및 스토리지 계정 간의 모든 트래픽을 보호하는 [스토리지 계정에 대한 프라이빗 엔드포인트](storage-private-endpoints.md)를 만들 수도 있습니다. Azure storage 방화벽은 저장소 계정의 공용 끝점에 대 한 액세스 제어를 제공 합니다. 또한 프라이빗 엔드포인트를 사용할 때 방화벽을 사용하여 퍼블릭 엔드포인트를 통한 모든 액세스를 차단할 수도 있습니다. 스토리지 방화벽 구성을 사용하여 선택한 신뢰할 수 있는 Azure 플랫폼 서비스에서 스토리지 계정에 안전하게 액세스할 수 있도록 합니다.
 
@@ -27,7 +27,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 > [!IMPORTANT]
 > 스토리지 계정에 대해 방화벽 규칙을 켜면 기본적으로 Azure VNet(Virtual Network) 내에서 작동하는 서비스 또는 허용되는 퍼블릭 IP 주소에서 요청하지 않는 한, 들어오는 데이터 요청이 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다.
 >
-> 서비스 인스턴스를 호스트하는 서브넷의 트래픽을 허용하여 VNet 내에서 작동하는 Azure 서비스에 대한 액세스 권한을 부여할 수 있습니다. 아래에 설명된 [예외](#exceptions) 메커니즘을 통해 제한된 수의 시나리오는 사용하도록 설정할 수도 있습니다. Azure Portal을 통해 스토리지 계정의 데이터에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 머신에 있어야 합니다.
+> 서비스 인스턴스를 호스트하는 서브넷의 트래픽을 허용하여 VNet 내에서 작동하는 Azure 서비스에 대한 액세스 권한을 부여할 수 있습니다. 또한 아래에 설명 된 예외 메커니즘을 통해 제한 된 수의 시나리오를 사용할 수 있습니다. Azure Portal을 통해 스토리지 계정의 데이터에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 머신에 있어야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 클래식 스토리지 계정은 방화벽 및 가상 네트워크를 지원하지 않습니다.
 
-예외를 만들어 VM 백업 및 복원에 적용되는 네트워크 규칙이 있는 스토리지 계정에서 관리되지 않는 디스크를 사용할 수 있습니다. 이 프로세스는 이 문서의 [예외](#exceptions) 섹션에서 설명하고 있습니다. 방화벽 예외는 Azure에서 이미 관리되고 있으므로 관리 디스크에는 적용되지 않습니다.
+예외를 만들어 Vm을 백업 및 복원 하는 데 적용 되는 네트워크 규칙을 사용 하 여 저장소 계정에 관리 되지 않는 디스크를 사용할 수 있습니다. 이 프로세스는이 문서의 [예외 관리](#manage-exceptions) 섹션에 설명 되어 있습니다. 방화벽 예외는 Azure에서 이미 관리되고 있으므로 관리 디스크에는 적용되지 않습니다.
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 
@@ -60,59 +60,62 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 스토리지 계정에 대한 기본 네트워크 액세스 규칙은 Azure Portal, PowerShell 또는 CLIv2를 통해 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
+2. **네트워킹** 이라고 하는 설정 메뉴에서를 선택 합니다.
 
-1. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
+3. 기본적으로 액세스를 거부하려면 **선택한 네트워크** 에서 액세스를 허용하도록 선택합니다. 모든 네트워크의 트래픽을 허용하려면 **모든 네트워크** 에서 액세스를 허용하도록 선택합니다.
 
-1. **저장** 을 클릭하여 변경 내용을 적용합니다.
+4. **저장** 을 선택하여 변경 내용을 적용합니다.
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell"></a>
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-Az-ps)을 설치하고 [로그인](/powershell/azure/authenticate-azureps)합니다.
 
-1. 스토리지 계정에 대한 기본 규칙의 상태를 표시합니다.
+2. 스토리지 계정에 대한 기본 규칙의 상태를 표시합니다.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
-1. 기본적으로 네트워크 액세스를 거부하도록 기본 규칙을 설정합니다.
+3. 기본적으로 네트워크 액세스를 거부하도록 기본 규칙을 설정합니다.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
-1. 기본적으로 네트워크 액세스를 허용하도록 기본 규칙을 설정합니다.
+4. 기본적으로 네트워크 액세스를 허용하도록 기본 규칙을 설정합니다.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 
-1. 스토리지 계정에 대한 기본 규칙의 상태를 표시합니다.
+2. 스토리지 계정에 대한 기본 규칙의 상태를 표시합니다.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
     ```
 
-1. 기본적으로 네트워크 액세스를 거부하도록 기본 규칙을 설정합니다.
+3. 기본적으로 네트워크 액세스를 거부하도록 기본 규칙을 설정합니다.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-1. 기본적으로 네트워크 액세스를 허용하도록 기본 규칙을 설정합니다.
+4. 기본적으로 네트워크 액세스를 허용하도록 기본 규칙을 설정합니다.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+---
 
 ## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
 
@@ -144,42 +147,42 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](../../virtual-ne
 
 Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 가상 네트워크 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
+2. **네트워킹** 이라고 하는 설정 메뉴에서를 선택 합니다.
 
-1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
+3. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. 새 네트워크 규칙을 사용하여 가상 네트워크에 대한 액세스 권한을 부여하려면 **가상 네트워크** 아래에서 **기존 가상 네트워크 추가** 를 클릭하고, **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음, **추가** 를 클릭합니다. 새 가상 네트워크를 만들고 액세스 권한을 부여하려면 **새 가상 네트워크 추가** 를 클릭합니다. 새 가상 네트워크를 만드는 데 필요한 정보를 제공한 다음, **만들기** 를 클릭합니다.
+4. 새 네트워크 규칙을 사용 하 여 가상 네트워크에 대 한 액세스 권한을 부여 하려면 **가상** 네트워크에서 **기존 가상 네트워크 추가** 를 선택 하 고 **가상 네트워크** 및 **서브넷** 옵션을 선택한 다음 **추가** 를 선택 합니다. 새 가상 네트워크를 만들고 액세스 권한을 부여 하려면 **새 가상 네트워크 추가** 를 선택 합니다. 새 가상 네트워크를 만드는 데 필요한 정보를 제공 하 고 **만들기** 를 선택 합니다.
 
     > [!NOTE]
     > 이전에 Azure Storage에 대한 서비스 엔드포인트가 선택한 가상 네트워크 및 서브넷에 구성되지 않은 경우 이 작업의 일환으로 구성할 수 있습니다.
     >
     > 현재, 규칙을 만드는 동안 동일한 Azure Active Directory 테넌트에 속한 가상 네트워크만 선택할 수 있도록 표시됩니다. 다른 테넌트에 속한 가상 네트워크의 서브넷에 대한 액세스 권한을 부여하려면 Powershell, CLI 또는 REST API를 사용하세요.
 
-1. 가상 네트워크 또는 서브넷 규칙을 제거하려면 **...** 를 클릭하여 가상 네트워크 또는 서브넷에 대한 상황에 맞는 메뉴를 열고 **제거** 를 클릭합니다.
+5. 가상 네트워크 또는 서브넷 규칙을 제거 **하려면 ...을 선택 하** 여 가상 네트워크 또는 서브넷에 대 한 상황에 맞는 메뉴를 열고 **제거** 를 선택 합니다.
 
-1. **저장** 을 클릭하여 변경 내용을 적용합니다.
+6. **저장** 을 선택 하 여 변경 내용을 적용 합니다.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-Az-ps)을 설치하고 [로그인](/powershell/azure/authenticate-azureps)합니다.
 
-1. 가상 네트워크 규칙을 나열합니다.
+2. 가상 네트워크 규칙을 나열합니다.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
-1. 기존 가상 네트워크 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
+3. 기존 가상 네트워크 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
-1. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
+4. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -189,7 +192,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     > [!TIP]
     > 다른 Azure AD 테넌트에 속한 VNet의 서브넷에 대한 네트워크 규칙을 추가하려면 "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name" 형식의 정규화된 **VirtualNetworkResourceId** 매개 변수를 사용합니다.
 
-1. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 제거합니다.
+5. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 제거합니다.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -199,23 +202,23 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 
-1. 가상 네트워크 규칙을 나열합니다.
+2. 가상 네트워크 규칙을 나열합니다.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
     ```
 
-1. 기존 가상 네트워크 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
+3. 기존 가상 네트워크 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
 
     ```azurecli
     az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
     ```
 
-1. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
+4. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -227,7 +230,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     >
     > **subscription** 매개 변수를 사용하여 다른 Azure AD 테넌트에 속한 VNet의 서브넷 ID를 검색할 수 있습니다.
 
-1. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 제거합니다.
+5. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 제거합니다.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -236,6 +239,8 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+
+---
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>인터넷 IP 범위의 액세스 허가
 
@@ -268,49 +273,49 @@ IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 스�
 
 Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP 네트워크 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
+2. **네트워킹** 이라고 하는 설정 메뉴에서를 선택 합니다.
 
-1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
+3. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. 인터넷 IP 범위에 대한 액세스 권한을 부여하려면 **방화벽** > **주소 범위** 아래에서 IP 주소 또는 주소 범위(CIDR 형식)를 입력합니다.
+4. 인터넷 IP 범위에 대한 액세스 권한을 부여하려면 **방화벽** > **주소 범위** 아래에서 IP 주소 또는 주소 범위(CIDR 형식)를 입력합니다.
 
-1. IP 네트워크 규칙을 제거하려면 주소 범위 옆에 있는 휴지통 아이콘을 클릭합니다.
+5. IP 네트워크 규칙을 제거 하려면 주소 범위 옆에 있는 휴지통 아이콘을 선택 합니다.
 
-1. **저장** 을 클릭하여 변경 내용을 적용합니다.
+6. **저장** 을 선택하여 변경 내용을 적용합니다.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-Az-ps)을 설치하고 [로그인](/powershell/azure/authenticate-azureps)합니다.
 
-1. IP 네트워크 규칙을 나열합니다.
+2. IP 네트워크 규칙을 나열합니다.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-1. 개별 IP 주소에 대한 네트워크 규칙을 추가합니다.
+3. 개별 IP 주소에 대한 네트워크 규칙을 추가합니다.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. IP 주소 범위에 대한 네트워크 규칙을 추가합니다.
+4. IP 주소 범위에 대한 네트워크 규칙을 추가합니다.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-1. 개별 IP 주소에 대한 네트워크 규칙을 제거합니다.
+5. 개별 IP 주소에 대한 네트워크 규칙을 제거합니다.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. IP 주소 범위에 대한 네트워크 규칙을 제거합니다.
+6. IP 주소 범위에 대한 네트워크 규칙을 제거합니다.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
@@ -319,7 +324,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 
@@ -329,25 +334,25 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. 개별 IP 주소에 대한 네트워크 규칙을 추가합니다.
+2. 개별 IP 주소에 대한 네트워크 규칙을 추가합니다.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. IP 주소 범위에 대한 네트워크 규칙을 추가합니다.
+3. IP 주소 범위에 대한 네트워크 규칙을 추가합니다.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. 개별 IP 주소에 대한 네트워크 규칙을 제거합니다.
+4. 개별 IP 주소에 대한 네트워크 규칙을 제거합니다.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. IP 주소 범위에 대한 네트워크 규칙을 제거합니다.
+5. IP 주소 범위에 대한 네트워크 규칙을 제거합니다.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
@@ -356,19 +361,199 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
-## <a name="exceptions"></a>예외
+---
 
-네트워크 규칙은 대부분의 시나리오에서 애플리케이션과 데이터 간의 연결을 위한 보안 환경을 만드는 데 유용합니다. 그러나 일부 애플리케이션은 가상 네트워크 또는 IP 주소 규칙을 통해 고유하게 격리될 수 없는 Azure 서비스에 종속됩니다. 그러나 전체 애플리케이션 기능을 사용하려면 이러한 서비스에 스토리지에 대한 액세스 권한을 부여해야 합니다. 이러한 경우 **_신뢰할 수 있는 Microsoft 서비스 허용_* ...을 사용할 수 있습니다. _ 해당 서비스에서 데이터, 로그 또는 분석에 액세스 하도록 설정 하는 설정입니다.
+<a id="grant-access-specific-instances"></a>
 
-### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
+## <a name="grant-access-from-azure-resource-instances-preview"></a>Azure 리소스 인스턴스에서 액세스 권한 부여 (미리 보기)
 
-일부 Microsoft 서비스는 네트워크 규칙에 포함될 수 없는 네트워크에서 작동합니다. 다른 앱에 대한 네트워크 규칙을 그대로 유지하면서 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 세트에 스토리지 계정에 대한 액세스 권한을 부여할 수 있습니다. 그러면 이러한 신뢰할 수 있는 서비스는 강력한 인증을 사용하여 스토리지 계정에 안전하게 연결합니다. Microsoft 서비스에 대해 두 가지 신뢰된 액세스 모드를 사용하도록 설정했습니다.
+경우에 따라 응용 프로그램은 가상 네트워크 또는 IP 주소 규칙을 통해 격리할 수 없는 Azure 리소스에 종속 될 수 있습니다. 그러나 응용 프로그램의 Azure 리소스에 대해서만 저장소 계정 액세스를 보호 하 고 제한 하는 것도 좋습니다. 리소스 인스턴스 규칙을 만들어 일부 Azure 서비스의 특정 리소스 인스턴스에 대 한 액세스를 허용 하도록 저장소 계정을 구성할 수 있습니다. 
 
-- 일부 서비스 (예: 구독에 등록 된 경우)의 리소스는 로그 또는 백업 작성과 같은 선택 작업에 대해 **동일한 구독에서** 저장소 계정에 액세스할 수 있습니다.
-- 일부 서비스의 리소스에는 해당 시스템 할당 관리 id에 **Azure 역할을 할당** 하 여 저장소 계정에 대 한 명시적 액세스 권한을 부여할 수 있습니다.
+리소스 인스턴스가 저장소 계정 데이터에서 수행할 수 있는 작업의 유형은 리소스 인스턴스의 [Azure 역할 할당](storage-auth-aad.md#assign-azure-roles-for-access-rights) 에 의해 결정 됩니다. 리소스 인스턴스는 저장소 계정과 동일한 테 넌 트에 있어야 하지만 테 넌 트의 모든 구독에 속할 수 있습니다.
 
+지원 되는 Azure 서비스 목록은이 문서의 [시스템 할당 관리 id를 기반으로](#trusted-access-system-assigned-managed-identity) 하는 트러스트 된 액세스 섹션에 표시 됩니다.
 
-**신뢰할 수 있는 Microsoft 서비스가...** 설정을 사용하도록 설정하면 설명된 것처럼 스토리지 계정과 동일한 구독에 등록된 다음 서비스의 리소스에 제한된 작업 세트에 대한 액세스 권한이 부여됩니다.
+> [!NOTE]
+> 이 기능은 공개 미리 보기 상태 이며 모든 공용 클라우드 지역에서 사용할 수 있습니다. 
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+Azure Portal에서 리소스 네트워크 규칙을 추가 하거나 제거할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인하여 시작합니다.
+
+2. 스토리지 계정을 찾아 계정 개요를 표시합니다.
+
+3. 네트워킹 **을 선택 하** 여 네트워킹의 구성 페이지를 표시 합니다.
+
+4. **리소스 종류** 드롭다운 목록에서 리소스 인스턴스의 리소스 종류를 선택 합니다. 
+
+5. **인스턴스 이름** 드롭다운 목록에서 리소스 인스턴스를 선택 합니다. 활성 테 넌 트, 구독 또는 리소스 그룹에 모든 리소스 인스턴스를 포함 하도록 선택할 수도 있습니다.
+
+6. **저장** 을 선택하여 변경 내용을 적용합니다. 리소스 인스턴스는 네트워크 설정 페이지의 **리소스 인스턴스** 섹션에 표시 됩니다. 
+
+리소스 인스턴스를 제거 하려면 :::image type="icon" source="media/storage-network-security/delete-icon.png"::: 리소스 인스턴스 옆에 있는 삭제 아이콘 ()을 선택 합니다.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+PowerShell 명령을 사용 하 여 리소스 네트워크 규칙을 추가 하거나 제거할 수 있습니다.
+
+> [!IMPORTANT]
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
+
+#### <a name="install-the-preview-module"></a>미리 보기 모듈 설치
+
+PowershellGet 모듈의 최신 버전을 설치 합니다. 그런 다음 PowerShell 콘솔을 닫았다가 다시 엽니다.
+
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
+
+설치 **Az. Storage** preview module.
+
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
+
+PowerShell 모듈을 설치 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps) 를 참조 하세요.
+
+#### <a name="grant-access"></a>액세스 권한 부여
+
+리소스 인스턴스에 대 한 액세스 권한을 부여 하는 네트워크 규칙을 추가 합니다.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+
+```
+
+네트워크 규칙 집합을 수정 하 여 한 번에 여러 리소스 인스턴스를 지정 합니다.
+
+```powershell
+$resourceId1 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$resourceId2 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mySQLServer"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
+```
+
+#### <a name="remove-access"></a>액세스 권한 제거
+
+리소스 인스턴스에 대 한 액세스 권한을 부여 하는 네트워크 규칙을 제거 합니다.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Remove-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId  
+```
+
+리소스 인스턴스에서 액세스 권한을 부여 하는 모든 네트워크 규칙을 제거 합니다.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>허용 되는 리소스 인스턴스 목록 보기
+
+저장소 계정에 대 한 액세스 권한이 부여 된 리소스 인스턴스의 전체 목록을 표시 합니다.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+$rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+$rule.ResourceAccessRules 
+```
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI 명령을 사용 하 여 리소스 네트워크 규칙을 추가 하거나 제거할 수 있습니다.
+
+#### <a name="install-the-preview-extension"></a>Preview 확장 설치
+
+1. [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
+
+2. 그런 다음, `2.13.0` 다음 명령을 사용 하 여 설치한 Azure CLI 버전이 이상 인지 확인 합니다.
+
+   ```azurecli
+   az --version
+   ```
+
+   Azure CLI 버전이 `2.13.0`보다 낮은 경우 이후 버전을 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+
+3. 다음 명령을 입력 하 여 미리 보기 확장을 설치 합니다.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### <a name="grant-access"></a>액세스 권한 부여
+
+리소스 인스턴스에 대 한 액세스 권한을 부여 하는 네트워크 규칙을 추가 합니다.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="remove-access"></a>액세스 권한 제거
+
+리소스 인스턴스에 대 한 액세스 권한을 부여 하는 네트워크 규칙을 제거 합니다.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>허용 되는 리소스 인스턴스 목록 보기
+
+저장소 계정에 대 한 액세스 권한이 부여 된 리소스 인스턴스의 전체 목록을 표시 합니다.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+---
+
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
+## <a name="grant-access-to-azure-services"></a>Azure 서비스에 대 한 액세스 권한 부여 
+
+일부 Azure 서비스는 네트워크 규칙에 포함할 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Azure 서비스의 하위 집합을 저장소 계정에 부여 하 고 다른 앱에 대 한 네트워크 규칙을 유지 관리할 수 있습니다. 이러한 신뢰할 수 있는 서비스는 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결 합니다. 
+
+네트워크 규칙 예외를 만들어 신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한을 부여할 수 있습니다. 단계별 지침은이 문서의 [예외 관리](#manage-exceptions) 섹션을 참조 하세요. 
+
+신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한을 부여 하는 경우 다음 유형의 액세스를 부여 합니다.
+
+- 구독에 등록 된 리소스에 대 한 선택 작업에 대 한 트러스트 된 액세스입니다.
+- 시스템 할당 관리 id를 기반으로 하는 리소스에 대 한 신뢰할 수 있는 액세스
+
+<a id="trusted-access-resources-in-subscription"></a>
+
+### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>구독에 등록 된 리소스에 대 한 신뢰할 수 있는 액세스
+
+**구독에 등록된 경우** 일부 서비스의 리소스는 로그 또는 백업과 같은 선택 작업에 대해 **동일한 구독** 에 있는 스토리지 계정에 액세스할 수 있습니다.  다음 표에서는 각 서비스 및 허용 되는 작업에 대해 설명 합니다. 
 
 | 서비스                  | 리소스 공급자 이름     | 허용되는 연산                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -384,7 +569,15 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure 네트워킹         | Microsoft.Network          | Network Watcher 및 트래픽 분석 서비스를 비롯 하 여 네트워크 트래픽 로그를 저장 하 고 분석 합니다. [자세히 알아보기](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 지원 캐시, 원본 또는 대상 스토리지 계정을 사용하는 경우 Azure IaaS 가상 머신의 재해 복구를 위해 복제를 사용하도록 설정합니다.  [자세히 알아보기](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
-신뢰할 수 있는 **Microsoft 서비스 허용** ... 설정을 사용 하면 [Azure 역할](storage-auth-aad.md#assign-azure-roles-for-access-rights) 을 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수도 있습니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>시스템이 할당 한 관리 되는 id를 기반으로 하는 신뢰할 수 있는 액세스
+
+다음 표에서는 해당 서비스의 리소스 인스턴스에 적절 한 권한을 부여 하는 경우 저장소 계정 데이터에 액세스할 수 있는 서비스를 나열 합니다. 권한을 부여 하려면 각 리소스 인스턴스에 대해 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 [Azure 역할](storage-auth-aad.md#assign-azure-roles-for-access-rights) 을 명시적으로 할당 해야 합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다. 
+
+> [!TIP]
+> 특정 리소스에 대 한 액세스 권한을 부여 하는 권장 방법은 리소스 인스턴스 규칙을 사용 하는 것입니다. 특정 리소스 인스턴스에 대 한 액세스 권한을 부여 하려면이 문서의 [Azure 리소스 인스턴스에 대 한 액세스 권한 부여 (미리 보기)](#grant-access-specific-instances) 섹션을 참조 하세요.
+
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -402,44 +595,45 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Azure Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
 
+## <a name="grant-access-to-storage-analytics"></a>저장소 분석에 대 한 액세스 권한 부여
 
-### <a name="storage-analytics-data-access"></a>스토리지 분석 데이터 액세스
+경우에 따라 네트워크 경계 밖에서 리소스 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 저장소 계정에 대 한 신뢰할 수 있는 서비스 액세스를 구성할 때 네트워크 규칙 예외를 만들어 로그 파일, 메트릭 테이블 또는 둘 모두에 대 한 읽기 액세스를 허용할 수 있습니다. 단계별 지침은 아래의 **예외 관리** 섹션을 참조 하세요. 저장소 분석 작업에 대 한 자세한 내용은 [Azure Storage analytics를 사용 하 여 로그 및 메트릭 데이터 수집](./storage-analytics.md)을 참조 하세요. 
 
-경우에 따라 네트워크 경계 밖에서 리소스 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 스토리지 계정에 대한 신뢰할 수 있는 서비스 액세스를 구성하는 경우 로그 파일, 메트릭 테이블 또는 둘 다에 대해 읽기 액세스를 허용할 수 있습니다. [스토리지 분석 작업에 대한 자세한 정보](./storage-analytics.md)
+<a id="manage-exceptions"></a>
 
-### <a name="managing-exceptions"></a>예외 관리
+## <a name="manage-exceptions"></a>예외 관리
 
 Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예외를 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
-1. **네트워킹** 이라고 하는 설정 메뉴를 클릭 합니다.
+2. **네트워킹** 이라고 하는 설정 메뉴에서를 선택 합니다.
 
-1. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
+3. **선택한 네트워크** 에서 액세스를 허용하도록 선택했는지 확인합니다.
 
-1. **예외** 아래에서 허용하려는 예외를 선택합니다.
+4. **예외** 아래에서 허용하려는 예외를 선택합니다.
 
-1. **저장** 을 클릭하여 변경 내용을 적용합니다.
+5. **저장** 을 선택하여 변경 내용을 적용합니다.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. [Azure PowerShell](/powershell/azure/install-Az-ps)을 설치하고 [로그인](/powershell/azure/authenticate-azureps)합니다.
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 표시합니다.
+2. 스토리지 계정 네트워크 규칙에 대한 예외를 표시합니다.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 구성합니다.
+3. 스토리지 계정 네트워크 규칙에 대한 예외를 구성합니다.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 제거합니다.
+4. 스토리지 계정 네트워크 규칙에 대한 예외를 제거합니다.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
@@ -448,23 +642,23 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
 
-#### <a name="cliv2"></a>CLIv2
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 표시합니다.
+2. 스토리지 계정 네트워크 규칙에 대한 예외를 표시합니다.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
     ```
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 구성합니다.
+3. 스토리지 계정 네트워크 규칙에 대한 예외를 구성합니다.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
-1. 스토리지 계정 네트워크 규칙에 대한 예외를 제거합니다.
+4. 스토리지 계정 네트워크 규칙에 대한 예외를 제거합니다.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -472,6 +666,8 @@ Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예�
 
 > [!IMPORTANT]
 > 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 예외를 제거해도 효과가 없습니다.
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 공유 액세스 서명을 사용 하 여 Event
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510093"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986498"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증
 공유 액세스 서명 (SAS)은 공유 액세스 서명을 보유 한 클라이언트에 부여 하는 액세스 유형에 대 한 세부적인 제어를 제공 합니다. 다음은 SAS에서 설정할 수 있는 몇 가지 컨트롤입니다. 
@@ -203,7 +203,7 @@ private static string createToken(string resourceUri, string keyName, string key
 
 
 > [!NOTE]
-> 권장 되지는 않지만 이벤트 허브 또는 네임 스페이스에 대 한 액세스 권한을 부여 하는 토큰이 있는 장치를 사용할 수 있습니다. 이 토큰을 보유 하는 모든 장치는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 또한 디바이스에서 해당 이벤트 허브로 보내는 것을 차단할 수 없습니다.
+> 권장 되지는 않지만 이벤트 허브 또는 네임 스페이스에 대 한 액세스 권한을 부여 하는 토큰이 있는 장치를 사용할 수 있습니다. 이 토큰을 보유 하는 모든 장치는 해당 이벤트 허브에 직접 메시지를 보낼 수 있습니다. 또한 장치는 해당 이벤트 허브로 전송 되지 않도록 차단 된 블록 일 수 없습니다.
 > 
 > 항상 특정 하 고 세분화 된 범위를 제공 하는 것이 좋습니다.
 

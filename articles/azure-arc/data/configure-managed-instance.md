@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37ba4f10365fca4292171c3bd2d9a3e7d00045bb
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311119"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985872"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL 관리 되는 인스턴스 구성
 
@@ -60,13 +60,13 @@ azdata arc sql mi show -n <NAME_OF_SQL_MI>
    traceflag0 = 1204
    ```
 
-1. `mssql-custom.conf` 파일을 `master-0` Pod의 `mssql-miaa` 컨테이너에 있는 `/var/opt/mssql`에 복사합니다. `<namespaceName>`을 빅 데이터 클러스터 이름으로 바꿉니다.
+1. `mssql-custom.conf` 파일을 `master-0` Pod의 `arc-sqlmi` 컨테이너에 있는 `/var/opt/mssql`에 복사합니다. `<namespaceName>`이 인스턴스가 배포 된 네임 스페이스로 대체 합니다.
 
    ```bash
    kubectl cp mssql-custom.conf master-0:/var/opt/mssql/mssql-custom.conf -c mssql-server -n <namespaceName>
    ```
 
-1. SQL Server 인스턴스를 다시 시작합니다.  `<namespaceName>`을 빅 데이터 클러스터 이름으로 바꿉니다.
+1. SQL 관리 되는 인스턴스를 다시 시작 합니다.  `<namespaceName>`이 인스턴스가 배포 된 네임 스페이스로 대체 합니다.
 
    ```bash
    kubectl exec -it master-0  -c mssql-server -n <namespaceName> -- /bin/bash

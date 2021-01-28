@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880745"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986465"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -84,7 +84,7 @@ Transact-sql 게시 시나리오의 경우 구독에 따라 30 ~ 120 일간 소�
 
 제품의 수익화를 위해 제품 유형 및 청구 모델을 사용하는 것 외에도, 프라이빗 제품을 거래하거나, 협상된 거래별 가격 책정 또는 사용자 지정 구성을 완료할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
 
-이 옵션을 사용 하면 공개적으로 제공되는 제품보다 더 높거나 더 낮은 가격 책정을 사용할 수 있습니다. 비공개 제안을 사용 하 여 할인을 받거나 제안에 프리미엄을 추가할 수 있습니다. 제품 수준에서 Azure 구독을 사용 하 여 하나 이상의 고객에 게 개인 제품을 제공 하도록 할 수 있습니다.
+이 옵션을 사용 하면 공개적으로 제공되는 제품보다 더 높거나 더 낮은 가격 책정을 사용할 수 있습니다. 비공개 제안을 사용 하 여 할인을 받거나 제안에 프리미엄을 추가할 수 있습니다. 제안 수준에서 Azure 구독을 나열 하 여 하나 이상의 고객이 개인 제품을 사용할 수 있도록 설정할 수 있습니다.
 
 ### <a name="commercial-marketplace-service-fees"></a>상업적 marketplace 서비스 요금
 
@@ -94,7 +94,7 @@ Transact-sql 게시 시나리오의 경우 구독에 따라 30 ~ 120 일간 소�
 
 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 솔루션에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook, SharePoint)과 관련 된 유료 SaaS 제품 및이 할인을 받을 Microsoft AppSource에 게시 됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 **사용량 기반** 
 

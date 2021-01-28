@@ -4,19 +4,19 @@ description: Azure 리소스 및 Azure AD 인증에 대해 관리 ID를 지원�
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/07/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0f7c97e5d84b3ee2d40c714625d0158fe60f2c95
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880796"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986076"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -113,6 +113,14 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 | 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
 
 
+### <a name="azure-communication-services"></a>Azure Communication Services
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
 관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
@@ -158,6 +166,17 @@ Azure Arc enabled Kubernetes는 현재 [시스템 할당 id를 지원](../../azu
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST (영문)](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+
+### <a name="azure-digital-twins"></a>Azure Digital Twins
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | ![사용 가능][check] | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+Azure Digital Twins (사용 가능한 지역)에 대해 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요.
+
+- [Azure Portal](~/articles/digital-twins/how-to-enable-managed-identities.md)
 
 ### <a name="azure-event-grid"></a>Azure Event Grid
 
