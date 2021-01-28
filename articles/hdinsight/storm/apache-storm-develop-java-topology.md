@@ -1,19 +1,16 @@
 ---
 title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight
 description: 예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545500"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929124"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -24,7 +21,7 @@ Apache Storm에 대한 Java 기반 토폴로지를 만드는 방법을 알아봅
 > [!NOTE]  
 > 이 문서에서 만든 스톰 토폴로지 예제의 전체 버전은에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) .
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK (Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
@@ -237,11 +234,11 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 
 Java 기반 Apache Storm 토폴로지는 사용자가 작성자이거나 종속성으로 참조되는 세 개의 구성 요소로 이루어져 있습니다.
 
-* **Spout** : 외부 소스에서 데이터를 읽고 데이터의 스트림을 토폴로지로 내보냅니다.
+* **Spout**: 외부 소스에서 데이터를 읽고 데이터의 스트림을 토폴로지로 내보냅니다.
 
-* **볼트** : spout 또는 다른 볼트가 내보내는 스트림에서 처리 하 고 하나 이상의 스트림을 내보냅니다.
+* **볼트**: spout 또는 다른 볼트가 내보내는 스트림에서 처리 하 고 하나 이상의 스트림을 내보냅니다.
 
-* **토폴로지** : Spout 및 Bolt 배열 방식을 정의하고 토폴로지에 대한 진입점을 제공합니다.
+* **토폴로지**: Spout 및 Bolt 배열 방식을 정의하고 토폴로지에 대한 진입점을 제공합니다.
 
 ### <a name="create-the-spout"></a>Spout 만들기
 
@@ -327,9 +324,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Bolt는 데이터 처리를 다룹니다. Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 모든 작업을 수행할 수 있습니다. 이 토폴로지는 두 개의 bolt를 사용합니다.
 
-* **SplitSentence** : **RandomSentenceSpout** 를 통해 내보낸 문장을 개별 단어로 분리합니다.
+* **SplitSentence**: **RandomSentenceSpout** 를 통해 내보낸 문장을 개별 단어로 분리합니다.
 
-* **WordCount** : 각각의 단어가 발생한 횟수를 계산합니다.
+* **WordCount**: 각각의 단어가 발생한 횟수를 계산합니다.
 
 #### <a name="splitsentence"></a>SplitSentence
 

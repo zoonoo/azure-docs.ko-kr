@@ -7,15 +7,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 29e50a5c9b306d0e4491852fd08ecdf73026ebc2
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882248"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927734"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
-Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
+Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
 
 > [!IMPORTANT]
 > 활동 로그에 대 한 진단 설정을 만들기 전에 먼저 레거시 구성을 사용 하지 않도록 설정 해야 합니다. 자세한 내용은 [레거시 컬렉션 메서드](activity-log.md#legacy-collection-methods) 를 참조 하세요.
@@ -149,7 +149,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 
 ## <a name="create-using-azure-cli"></a>Azure CLI를 사용 하 여 만들기
 
-[Az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 [Azure CLI](/cli/azure/monitor?view=azure-cli-latest)를 사용 하 여 진단 설정을 만듭니다. 매개 변수에 대 한 설명은이 명령의 설명서를 참조 하세요.
+[Az monitor 진단-설정 만들기](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용 하 여 [Azure CLI](/cli/azure/monitor)를 사용 하 여 진단 설정을 만듭니다. 매개 변수에 대 한 설명은이 명령의 설명서를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure 활동 로그에는이 방법을 사용할 수 없습니다. 대신 [리소스 관리자 템플릿을 사용 하 여 Azure Monitor에서 진단 설정 만들기](../samples/resource-manager-diagnostic-settings.md) 를 사용 하 여 리소스 관리자 템플릿을 만들고 CLI를 사용 하 여 배포 합니다.

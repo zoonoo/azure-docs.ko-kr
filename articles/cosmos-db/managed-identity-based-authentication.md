@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345732"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927414"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 id를 사용 하 여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ Azure Cosmos DB 키를 복사할 필요 없이 Azure Cosmos DB 데이터에 액�
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="함수 앱에 대 한 플랫폼 기능 및 Id 옵션을 보여 주는 스크린샷":::
 
-1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고 **Status** **저장** 을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
+1. **Id** 탭에서 시스템 id 상태 **를 설정 하** 고  **저장** 을 선택 합니다. **Id** 창은 다음과 같이 표시 됩니다.  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="시스템 id 상태를 설정으로 보여 주는 스크린샷":::
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-시스템이 할당 한 관리 되는 id 토큰을 가져오려면 [Microsoft. Azure. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 라이브러리를 사용 합니다. 토큰을 가져오고 라이브러리에 대 한 자세한 정보를 확인 하는 다른 방법을 알아보려면 `Microsoft.Azure.Service.AppAuthentication` [서비스 간 인증](../key-vault/general/service-to-service-authentication.md) 문서를 참조 하세요.
+시스템이 할당 한 관리 되는 id 토큰을 가져오려면 [Microsoft. Azure. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 라이브러리를 사용 합니다. 토큰을 가져오고 라이브러리에 대 한 자세한 정보를 확인 하는 다른 방법을 알아보려면 `Microsoft.Azure.Service.AppAuthentication` [서비스 간 인증](/dotnet/api/overview/azure/service-to-service-authentication) 문서를 참조 하세요.
 
 
 ```csharp

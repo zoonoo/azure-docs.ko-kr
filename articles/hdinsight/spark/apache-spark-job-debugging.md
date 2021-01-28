@@ -1,25 +1,22 @@
 ---
 title: Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 description: YARN UI, Spark UI 및 Spark 기록 서버를 사용하여 Azure HDInsight의 Spark 클러스터에서 실행 중인 작업을 추적하고 디버깅합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 366c77ff94773163b71845b1ccbc6072c503734a
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: f332416a10aa86cb7e0bc7ba560537955d9f2faa
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822304"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930579"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight에서 실행 중인 Apache Spark 작업 디버그
 
 이 문서에서는 HDInsight 클러스터에서 실행 되는 Apache Spark 작업을 추적 하 고 디버그 하는 방법에 대해 알아봅니다. Apache Hadoop YARN UI, Spark UI 및 Spark 기록 서버를 사용 하 여 디버그 합니다. Spark 클러스터에서 사용할 수 있는 Notebook을 통해 Spark 작업(**Machine Learning: MLLib를 사용하여 음식 검사 데이터에 대한 예측 분석**)을 시작합니다. 다음 단계를 사용 하 여 다른 방법 (예: **spark-제출)** 을 사용 하 여 제출한 응용 프로그램을 추적할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -104,7 +101,7 @@ Spark UI에서 이전에 시작한 애플리케이션에 의해 생성된 Spark 
 
     ![Spark 기록 서버 완료 응용 프로그램](./media/apache-spark-job-debugging/view-completed-applications.png "Spark 기록 시작")
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
 * [확장된 Spark 기록 서버를 사용하여 Apache Spark 작업 디버그](apache-azure-spark-history-server.md)

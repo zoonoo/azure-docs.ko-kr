@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/20/2020
-ms.openlocfilehash: ed5e4d05a693ff9b0bf8823ba31de17d000d0fb6
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 5bb072d0ea710e35b4f741836aed143e962a326e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706884"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927698"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복구
 
@@ -41,7 +41,7 @@ Log Analytics 작업 영역을 삭제하면 삭제가 우연인지 의도적인�
 > [!NOTE] 
 > 설치된 솔루션과 Azure Automation 계정과 같은 연결된 서비스는 삭제 시 작업 영역에서 영구적으로 제거되어 복구할 수 없습니다. 이전에 구성된 상태로 작업 영역을 가져오기 위해 복구 작업 후 다시 구성해야 합니다.
 
-[PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), [REST API](/rest/api/loganalytics/workspaces/delete) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 작업 영역을 삭제할 수 있습니다.
+[PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace), [REST API](/rest/api/loganalytics/workspaces/delete) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 작업 영역을 삭제할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 

@@ -1,19 +1,16 @@
 ---
 title: Spark Streaming & 정확히 한 번 이벤트 처리-Azure HDInsight
 description: Apache Spark 스트리밍을 설정 하 여 한 번만 이벤트를 처리 하는 방법입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
-ms.openlocfilehash: 8e0037f6aea4aef53efc192066027e0a0143bda1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ba7df665b24a3eba2cd185d85a17bd0ef456b0b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086180"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929661"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 
@@ -39,13 +36,13 @@ ms.locfileid: "86086180"
 
 ### <a name="replayable-sources"></a>재생 가능한 원본
 
-Spark Streaming 애플리케이션이 이벤트를 읽어 들이는 원본은 *재생 가능*해야 합니다. 즉, 메시지가 검색되지만 메시지를 유지하거나 처리할 수 있기도 전에 시스템이 실패하는 경우 원본은 같은 메시지를 다시 제공해야 합니다.
+Spark Streaming 애플리케이션이 이벤트를 읽어 들이는 원본은 *재생 가능* 해야 합니다. 즉, 메시지가 검색되지만 메시지를 유지하거나 처리할 수 있기도 전에 시스템이 실패하는 경우 원본은 같은 메시지를 다시 제공해야 합니다.
 
 Azure에서 HDInsight의 Azure Event Hubs와 [Apache Kafka](https://kafka.apache.org/)는 재생 가능한 원본을 제공합니다. 재생 가능한 원본의 또 다른 예는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob 또는 Azure Data Lake Storage와 같은 내결함성 파일 시스템으로, 이곳에 모든 데이터가 영원히 보관되고 언제든지 데이터 전체를 다시 읽을 수 있습니다.
 
 ### <a name="reliable-receivers"></a>신뢰할 수 있는 수신기
 
-Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 있는 수신기*가 있으며, 각 수신기는 원본을 읽는 진행을 추적합니다. 신뢰할 수 있는 수신기는 HDFS에 기록되는 [Apache ZooKeeper](https://zookeeper.apache.org/) 또는 Spark Streaming 검사점 내에 있는 내결함성 스토리지에 그 상태를 유지합니다. 그같은 수신기가 실패하고 나중에 다시 시작된다면 중지된 부분으로 계속할 수 있습니다.
+Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 있는 수신기* 가 있으며, 각 수신기는 원본을 읽는 진행을 추적합니다. 신뢰할 수 있는 수신기는 HDFS에 기록되는 [Apache ZooKeeper](https://zookeeper.apache.org/) 또는 Spark Streaming 검사점 내에 있는 내결함성 스토리지에 그 상태를 유지합니다. 그같은 수신기가 실패하고 나중에 다시 시작된다면 중지된 부분으로 계속할 수 있습니다.
 
 ### <a name="use-the-write-ahead-log"></a>Write-Ahead Log 사용
 

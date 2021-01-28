@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에서 Apache Spark 클러스터 관련 문제 해결
 description: Azure HDInsight의 Apache Spark 클러스터 관련 문제 및 이를 해결하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c92b55d3ac7f4476b7b74d25b40150a74c6ea1cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822202"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930160"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에 대한 알려진 문제
 
@@ -119,7 +116,7 @@ Spark 클러스터에 리소스가 부족 한 경우 Jupyter Notebook의 Spark �
 
 2. 시작하려는 노트북을 다시 시작합니다. 이제 세션을 만들기 위한 충분한 리소스를 사용할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
 

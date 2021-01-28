@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288e3f0c048bddb3f3378226889dc519de27764b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441505"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927891"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor 맵 기능과 System Center Operations Manager 통합
 
@@ -38,30 +38,30 @@ Operations Manager와 맵 기능의 통합은 Microsoft.SystemCenter.ServiceMap 
 
 ## <a name="configure-integration"></a>통합 구성
 
-서비스 맵 관리 팩을 설치하면 Operations Manager 운영 콘솔 **관리** 창의 **Operations Management Suite** 아래에 **Service Map**이라는 새 노드가 표시됩니다.
+서비스 맵 관리 팩을 설치하면 Operations Manager 운영 콘솔 **관리** 창의 **Operations Management Suite** 아래에 **Service Map** 이라는 새 노드가 표시됩니다.
 
 >[!NOTE]
 >[Operations Management Suite는 Log Analytics를 포함한 서비스 컬렉션](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)이었으며 현재는 [Azure Monitor](../overview.md)의 일부입니다.
 
 VM용 Azure Monitor 맵 통합을 구성하려면 다음을 수행합니다.
 
-1. 구성 마법사를 열려면 **서비스 맵 개요** 창에서 **작업 영역 추가**를 클릭합니다.  
+1. 구성 마법사를 열려면 **서비스 맵 개요** 창에서 **작업 영역 추가** 를 클릭합니다.  
 
     ![서비스 맵 개요 창](media/service-map-scom/scom-configuration.png)
 
-2. **연결 구성** 창에서 서비스 주체의 테넌트 이름 또는 ID, 애플리케이션 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력한 후, **다음**을 클릭합니다. 자세한 내용은 서비스 주체 만들기를 참조하세요.
+2. **연결 구성** 창에서 서비스 주체의 테넌트 이름 또는 ID, 애플리케이션 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력한 후, **다음** 을 클릭합니다. 자세한 내용은 서비스 주체 만들기를 참조하세요.
 
     ![연결 구성 창](media/service-map-scom/scom-config-spn.png)
 
-3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택한 후, **다음**을 클릭합니다.
+3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택한 후, **다음** 을 클릭합니다.
 
     ![Operations Manager 구성 작업 영역](media/service-map-scom/scom-config-workspace.png)
 
-4. **컴퓨터 그룹 선택** 창에서 Operations Manager에 동기화하려는 [서비스 맵 컴퓨터 그룹]을 선택합니다. **컴퓨터 그룹 추가/제거**를 클릭하고, **사용 가능한 컴퓨터 그룹** 목록에서 그룹을 선택하고, **추가**를 클릭합니다.  그룹 선택이 완료되면 **확인**을 클릭하여 완료합니다.
+4. **컴퓨터 그룹 선택** 창에서 Operations Manager에 동기화하려는 [서비스 맵 컴퓨터 그룹]을 선택합니다. **컴퓨터 그룹 추가/제거** 를 클릭하고, **사용 가능한 컴퓨터 그룹** 목록에서 그룹을 선택하고, **추가** 를 클릭합니다.  그룹 선택이 완료되면 **확인** 을 클릭하여 완료합니다.
 
     ![Operations Manager 구성 컴퓨터 그룹](media/service-map-scom/scom-config-machine-groups.png)
 
-5. **서버 선택** 창에서 Operations Manager 및 맵 기능 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거**를 클릭합니다.
+5. **서버 선택** 창에서 Operations Manager 및 맵 기능 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거** 를 클릭합니다.
 
     통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
@@ -71,7 +71,7 @@ VM용 Azure Monitor 맵 통합을 구성하려면 다음을 수행합니다.
 
      ![Operations Manager 구성 그룹](media/service-map-scom/scom-config-group.png)
 
-6. 선택 사항: Log Analytics와 통신할 모든 관리 서버 리소스 풀을 선택한 다음, **작업 영역 추가**를 클릭합니다.
+6. 선택 사항: Log Analytics와 통신할 모든 관리 서버 리소스 풀을 선택한 다음, **작업 영역 추가** 를 클릭합니다.
 
     ![모든 관리 서버 리소스 풀을 선택한 Microsoft Operations Management Suite 작업 영역 추가에서 서버 풀 화면의 스크린샷](media/service-map-scom/scom-config-pool.png)
 
@@ -106,7 +106,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
 
-**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
+**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite **Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
 
 > [!NOTE]
 > [Operations Management Suite은 서비스 컬렉션](../terminology.md#april-2018---retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](../overview.md)의 일부입니다.
@@ -117,7 +117,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 ## <a name="configure-rules-and-overrides"></a>규칙 및 재정의 구성
 
-*Microsoft.SystemCenter.ServiceMapImport.Rule* 규칙은 VM용 Azure Monitor 맵 기능에서 주기적으로 정보를 가져옵니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes**로 수정하면 됩니다.
+*Microsoft.SystemCenter.ServiceMapImport.Rule* 규칙은 VM용 Azure Monitor 맵 기능에서 주기적으로 정보를 가져옵니다. 동기화 간격을 수정하려면 규칙을 재정의하고 매개 변수 값을 **IntervalMinutes** 로 수정하면 됩니다.
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
@@ -139,7 +139,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 서비스 주체 만들기에 대한 공식적인 Azure 설명서를 보려면 다음을 참조하세요.
 
 * [PowerShell을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Azure CLI를 사용하여 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Azure CLI를 사용하여 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)
 * [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 ### <a name="suggestions"></a>제안

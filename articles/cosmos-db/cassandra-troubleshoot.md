@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: thvankra
-ms.openlocfilehash: c969e4fac3ae30088cfe47a7b0edff22c578cb8b
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 75ce307056d24f84e9f72f746eb77b09b89e21b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802374"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927501"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB의 일반적인 문제 해결 Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB의 Cassandra API은 인기 있는 오픈 소스 Apache Cassandra 데이터베이스에 대 한 [유선 프로토콜 지원을](cassandra-support.md) 제공 하 고 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)으로 구동 되는 호환성 계층입니다. 완벽 하 게 관리 되는 클라우드 기본 서비스인 Azure Cosmos DB는 Cassandra API에 대 한 [가용성, 처리량 및 일관성을 보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) 합니다. 이러한 보장은 Apache Cassandra의 레거시 구현에서 가능 하지 않습니다. 또한 Cassandra API 유지 관리 플랫폼 작업과 제로 가동 중지 시간 패치를 용이 하 게 합니다. 따라서 대부분의 백엔드 작업은 Apache Cassandra와 다르므로 일반적인 오류를 방지 하기 위해 특정 설정 및 방법을 권장 합니다. 
+Azure Cosmos DB의 Cassandra API은 인기 있는 오픈 소스 Apache Cassandra 데이터베이스에 대 한 [유선 프로토콜 지원을](cassandra-support.md) 제공 하 고 [Azure Cosmos DB](./introduction.md)으로 구동 되는 호환성 계층입니다. 완벽 하 게 관리 되는 클라우드 기본 서비스인 Azure Cosmos DB는 Cassandra API에 대 한 [가용성, 처리량 및 일관성을 보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) 합니다. 이러한 보장은 Apache Cassandra의 레거시 구현에서 가능 하지 않습니다. 또한 Cassandra API 유지 관리 플랫폼 작업과 제로 가동 중지 시간 패치를 용이 하 게 합니다. 따라서 대부분의 백엔드 작업은 Apache Cassandra와 다르므로 일반적인 오류를 방지 하기 위해 특정 설정 및 방법을 권장 합니다. 
 
 이 문서에서는 Azure Cosmos DB Cassandra API를 사용 하는 응용 프로그램에 대 한 일반적인 오류 및 해결 방법을 설명 합니다.
 
@@ -97,4 +97,3 @@ datastax-java-driver {
 
 - Azure Cosmos DB Cassandra API에서 [지원 되는 기능](cassandra-support.md) 에 대해 알아봅니다.
 - [네이티브 Apache Cassandra에서 Azure Cosmos DB로 마이그레이션하](cassandra-migrate-cosmos-db-databricks.md) 는 방법에 대해 알아봅니다 Cassandra API
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: ab0ed536bd23aaf15d85af85e4f924bc2f51f3d4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bdbb4307f46566d1cac259cbdc4c81d1dfba5c7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96006630"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927779"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -66,7 +66,7 @@ Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* 는 Log Analytics 작업 영역에 대한 고유 식별자입니다. *서명* 은 요청에서 구성되고 [SHA256 알고리즘](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
+*WorkspaceID* 는 Log Analytics 작업 영역에 대한 고유 식별자입니다. *서명* 은 요청에서 구성되고 [SHA256 알고리즘](/dotnet/api/system.security.cryptography.sha256)을 사용하여 계산된 [해시 기반 메시지 인증 코드(HMAC)](/dotnet/api/system.security.cryptography.hmacsha256)입니다. 그런 다음 Base64 인코딩을 사용하여 인코딩합니다.
 
 이 형식을 사용하여 **SharedKey** 서명 문자열을 인코딩합니다.
 

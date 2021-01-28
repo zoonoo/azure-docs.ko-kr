@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에서 대화형 Spark 셸 사용
 description: 대화형 Spark 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 읽기 실행 인쇄 프로세스를 제공합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/10/2020
-ms.openlocfilehash: 84298c9073f00f0388a9bcb7405369d7c60bcce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 324852a967b5de015a9b1e9b465d4b4703e573cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929687"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
 
@@ -111,7 +108,7 @@ Spark Shell 명령 ( `spark-shell` 또는)은 `pyspark` 많은 명령줄 매개 
 | --- | --- | --- |
 | --master MASTER_URL | 마스터 URL을 지정합니다. HDInsight에서 이 값은 항상 `yarn`입니다. | `--master yarn`|
 | --jars JAR_LIST | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 로컬 jar의 목록입니다. HDInsight에서 이 목록은 Azure Storage 또는 Data Lake Storage에서 기본 파일 시스템에 대한 경로로 구성됩니다. | `--jars /path/to/examples.jar` |
-| --packages MAVEN_COORDS | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 jars의 maven 좌표의 목록입니다. 로컬 maven 리포지토리를 검색한 다음 maven 중앙을 검색한 후 `--repositories`로 지정된 모든 추가 원격 리포지토리를 검색합니다. 좌표 형식은 *그룹 ID*:*아티팩트 ID*:*버전*입니다. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --packages MAVEN_COORDS | 드라이버 및 실행기 클래스 경로에서 포함하도록 쉼표로 구분된 jars의 maven 좌표의 목록입니다. 로컬 maven 리포지토리를 검색한 다음 maven 중앙을 검색한 후 `--repositories`로 지정된 모든 추가 원격 리포지토리를 검색합니다. 좌표 형식은 *그룹 ID*:*아티팩트 ID*:*버전* 입니다. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py-files LIST | Python의 경우 PYTHONPATH에 배치하도록 쉼표로 구분된 .zip, .egg 또는 .py 파일의 목록입니다. | `--pyfiles "samples.py"` |
 
 ## <a name="next-steps"></a>다음 단계

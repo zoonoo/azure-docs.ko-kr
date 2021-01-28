@@ -4,12 +4,12 @@ description: SDK에 대 한 원격 분석 프로세서 및 원격 분석 이니�
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b3ccc3516d5b31f4c119c2d5a2bd11a63dbdc611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758033"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927746"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -497,7 +497,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>HttpContext에서 정보 추가
 
-다음 샘플 이니셜라이저는에서 데이터를 읽고 [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) 이를 인스턴스에 추가 합니다 `RequestTelemetry` . 는 `IHttpContextAccessor` 생성자 종속성 주입을 통해 자동으로 제공 됩니다.
+다음 샘플 이니셜라이저는에서 데이터를 읽고 [`HttpContext`](/aspnet/core/fundamentals/http-context) 이를 인스턴스에 추가 합니다 `RequestTelemetry` . 는 `IHttpContextAccessor` 생성자 종속성 주입을 통해 자동으로 제공 됩니다.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer

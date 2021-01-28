@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight의 Spark Streaming
 description: HDInsight Spark 클러스터에서 Apache Spark 스트리밍 응용 프로그램을 사용 하는 방법입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: a88d4893daa12ff2c35ee7cf8f4e5b7569f854f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929515"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
@@ -25,13 +22,13 @@ Spark 스트리밍 응용 프로그램은 `micro-batch` 처리를 위해 해당 
 
 ## <a name="introducing-the-dstream"></a>DStream 소개
 
-Spark 스트리밍은 DStream이라는 *불연속화 스트림*을 사용하여 들어오는 데이터의 연속 스트림을 나타냅니다. DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 만들 수 있습니다. 또는 다른 Dbstream에 변환을 적용 하 여.
+Spark 스트리밍은 DStream이라는 *불연속화 스트림* 을 사용하여 들어오는 데이터의 연속 스트림을 나타냅니다. DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 만들 수 있습니다. 또는 다른 Dbstream에 변환을 적용 하 여.
 
 DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을 제공합니다.
 
 단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. 이 이벤트가 Spark Streaming 응용 프로그램에 도착 하면 이벤트는 신뢰할 수 있는 방식으로 저장 되며,이는 여러 노드에 복제 됩니다. 이 내결함성은 단일 노드의 오류로 인해 이벤트가 손실 되지 않도록 합니다. Spark 코어는 클러스터의 여러 노드에 걸쳐 데이터를 배포 하는 데이터 구조를 사용 합니다. 최상의 성능을 위해 각 노드가 일반적으로 자체 데이터를 메모리 내에 유지 합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
 
-각 RDD는 *일괄 처리 간격*이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. Rds의 연속 집합은 DStream으로 수집 됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
+각 RDD는 *일괄 처리 간격* 이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. Rds의 연속 집합은 DStream으로 수집 됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
 ![온도 이벤트를 사용하는 예제 DStream](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
@@ -154,7 +151,7 @@ SELECT * FROM demo_numbers
 
 결과 출력은 다음과 같습니다.
 
-| value | time |
+| 값 | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +219,7 @@ ssc.start()
 
 처음 1분 후 12개 항목(윈도우에서 수집한 두 개의 각 일괄 처리에서 6개 항목)이 생성됩니다.
 
-| value | time |
+| 값 | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

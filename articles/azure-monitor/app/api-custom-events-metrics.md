@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678115"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927819"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -439,7 +439,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다. 
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
 
 ```kusto
 exceptions
@@ -502,7 +502,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다. 
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 *C#*
 
@@ -1068,7 +1068,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다. 
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1098,8 +1098,8 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [ASP.NET 참조](/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Java 참조](/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [ASP.NET 참조](/dotnet/api/overview/azure/insights)
+* [Java 참조](/java/api/overview/azure/appinsights)
 * [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## <a name="sdk-code"></a>SDK 코드

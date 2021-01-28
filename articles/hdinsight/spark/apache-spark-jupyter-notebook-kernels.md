@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에서 Spark 클러스터의 Jupyter Notebook에 대 한 커널
 description: Azure HDInsight의 Spark 클러스터에서 사용할 수 있는 Jupyter Notebook에 대 한 PySpark, PySpark3 및 Spark 커널에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822236"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930401"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터의 Jupyter Notebook에 대 한 커널
 
@@ -98,7 +95,7 @@ Spark HDInsight 클러스터에서 Jupyter Notebook와 함께 새 커널을 사�
 | -r |`-r <FRACTION>` |여기서 **FRACTION** 은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 포함하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
 | -n |`-n <MAXROWS>` |**MAXROWS** 는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS** 로 제한합니다. **MAXROWS** 가 **-1** 과 같은 음수인 경우에는 결과 집합의 행 수가 제한 되지 않습니다. |
 
-**예:**
+**예제:**
 
 ```sql
 %%sql -q -m sample -r 0.1 -n 500 -o query2

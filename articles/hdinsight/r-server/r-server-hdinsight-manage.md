@@ -1,25 +1,22 @@
 ---
 title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
 description: Azure HDInsight에서 ML 서비스 클러스터에 대 한 다양 한 작업을 관리 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e4c9124ebd0b61b8db1b1da964355a3c36b5bba5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536286"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930576"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
 이 문서에서는 여러 동시 사용자 추가, ML 서비스 클러스터에 원격 연결, 계산 컨텍스트 변경 등의 작업을 수행 하기 위해 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
@@ -31,8 +28,8 @@ RStudio Community 버전이 실행되는 에지 노드에 대해 더 많은 사�
 
 ![HDI Azure Portal 로그인 매개 변수](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **클러스터 로그인 사용자 이름** : 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
-- **Ssh (Secure Shell) 사용자 이름** : 보안 셸을 통해 클러스터에 액세스 하는 ssh 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
+- **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
+- **Ssh (Secure Shell) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스 하는 ssh 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
 
 HDInsight의 ML 서비스 클러스터에 사용되는 R Studio Server Community 버전은 로그인 메커니즘으로 Linux 사용자 이름과 암호만 허용하며, 토큰 전달은 지원하지 않습니다. 따라서 ML 서비스 클러스터에서 R Studio에 처음 액세스하려는 경우 두 번 로그인해야 합니다.
 
@@ -74,7 +71,7 @@ sudo passwd <yournewusername>
 
 `https://CLUSTERNAME.azurehdinsight.net/rstudio/`에서 RStudio에 액세스합니다. 클러스터를 만든 후 처음 로그인하는 경우, 클러스터 관리자 자격 증명을 입력한 후 만든 SSH 사용자 자격 증명을 입력합니다. 첫 번째 로그인이 아닌 경우 사용자가 만든 SSH 사용자의 자격 증명만 입력하면 됩니다.
 
-또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser* )을 사용하여 동시에 로그인할 수도 있습니다.
+또한 다른 브라우저 창에서 원래 자격 증명(기본적으로 *sshuser*)을 사용하여 동시에 로그인할 수도 있습니다.
 
 새로 추가된 사용자는 Linux 시스템에서 루트 권한을 가지고 있지 않지만 원격 HDFS 및 WASB 스토리지의 모든 파일에 동일한 액세스 권한을 가지고 있음에 유의하세요.
 
@@ -205,7 +202,7 @@ rxSparkDisconnect(myHadoopCluster)
 
    * **작업자** 확인란만 선택합니다.
 
-   * **매개 변수** : 설치할 R 패키지 예, `bitops stringr arules`
+   * **매개 변수**: 설치할 R 패키지 예를 들어 `bitops stringr arules`
 
    * **이 스크립트 작업 유지** 확인란을 선택합니다.  
 

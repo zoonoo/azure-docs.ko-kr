@@ -3,12 +3,12 @@ title: 독립 실행형 Azure Service Fabric에서 정기 백업/복원
 description: 응용 프로그램 데이터의 주기적인 데이터 백업을 사용 하도록 설정 하기 위해 독립 실행형 Service Fabric의 정기 백업 및 복원 기능을 사용 합니다.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538588"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927959"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>독립 실행형 Service Fabric에서 정기 백업 및 복원
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 응용 프로그램의 경우 응용 프로그램을 Service Fabric SDK 버전 3.1 이상으로 빌드해야 합니다.
-* 구성 호출을 위해 ServiceFabric 모듈 [미리 보기]를 설치 합니다.
+* 구성 호출을 위해 ServiceFabric 모듈 (미리 보기)을 설치 합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> PowerShellGet 버전이 1.6.0 미만인 경우 *-allowprerelease* 플래그에 대 한 지원을 추가 하도록 업데이트 해야 합니다.
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
@@ -62,7 +67,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 ```
 
 ## <a name="enabling-backup-and-restore-service"></a>Backup 및 Restore 서비스 사용
-먼저 클러스터에서 _Backup 및 Restore 서비스_를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)을 사용할 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_를 사용하도록 설정합니다.
+먼저 클러스터에서 _Backup 및 Restore 서비스_ 를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)을 사용할 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다.
 
 1. 다음 코드 조각과 같이 클러스터 구성 파일에서 `apiversion`이 `10-2017`로 설정되었는지 확인하고 이렇게 설정되어 있지 않으면 업데이트합니다.
 
@@ -75,7 +80,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
     }
     ```
 
-2. 이제 다음 코드 조각과 같이 다음 `addonFeatures` 섹션을 `properties` 섹션 아래에 추가하여 _Backup 및 Restore 서비스_를 사용하도록 설정합니다. 
+2. 이제 다음 코드 조각과 같이 다음 `addonFeatures` 섹션을 `properties` 섹션 아래에 추가하여 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다. 
 
     ```json
         "properties": {
@@ -201,7 +206,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![응용 프로그램 백업 사용][3] 
 
-2. 마지막으로 원하는 정책을 선택 하 고 *백업 사용*을 선택 합니다.
+2. 마지막으로 원하는 정책을 선택 하 고 *백업 사용* 을 선택 합니다.
 
     ![정책 선택][4]
 

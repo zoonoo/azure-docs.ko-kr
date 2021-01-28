@@ -1,19 +1,16 @@
 ---
 title: Python 구성 요소 Apache Storm-Azure HDInsight
 description: Azure HDInsight에서 Python 구성 요소를 사용 하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
-ms.openlocfilehash: e62e2583f8a4d3872a1342f0f702a1913f733e7f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e28d21ed71cf5f485165c639a8bd519b3a2736e1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545466"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928988"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -22,7 +19,7 @@ Python 구성 요소를 사용하는 [Apache Storm](https://storm.apache.org/) �
 > [!IMPORTANT]  
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 

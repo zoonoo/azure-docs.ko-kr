@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 정기적인 백업 및 복원
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 애플리케이션 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: 18d10b365cb2e4f4b4e3592233d5f467714bd5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d167b261f9b5915a970b4c219113f0765c039cb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538673"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927994"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기 백업 및 복원
 > [!div class="op_single_selector"]
@@ -48,11 +48,16 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 응용 프로그램의 경우 응용 프로그램을 Service Fabric SDK 버전 3.1 이상으로 빌드해야 합니다.
 * 애플리케이션 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
-* 구성 호출을 위해 ServiceFabric 모듈 [미리 보기]를 설치 합니다.
+* 구성 호출을 위해 ServiceFabric 모듈 (미리 보기)을 설치 합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> PowerShellGet 버전이 1.6.0 미만인 경우 *-allowprerelease* 플래그에 대 한 지원을 추가 하도록 업데이트 해야 합니다.
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
@@ -72,7 +77,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
-먼저 클러스터에서 _Backup 및 Restore 서비스_를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) 사용 하거나 리소스 관리자 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_를 사용하도록 설정합니다.
+먼저 클러스터에서 _Backup 및 Restore 서비스_ 를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) 사용 하거나 리소스 관리자 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다.
 
 1. `apiversion`리소스에 대해가로 설정 되어 있는지 확인 하 **`2018-02-01`** `Microsoft.ServiceFabric/clusters` 고 그렇지 않은 경우 다음 코드 조각과 같이 업데이트 합니다.
 
@@ -86,7 +91,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
     }
     ```
 
-2. 이제 다음 코드 조각과 같이 다음 `addonFeatures` 섹션을 `properties` 섹션 아래에 추가하여 _Backup 및 Restore 서비스_를 사용하도록 설정합니다. 
+2. 이제 다음 코드 조각과 같이 다음 `addonFeatures` 섹션을 `properties` 섹션 아래에 추가하여 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다. 
 
     ```json
         "properties": {
@@ -118,7 +123,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용
 Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 사용하도록 설정하는 단계를 살펴보겠습니다. 이러한 단계에서는 다음을 가정합니다.
-- 클러스터는 _Backup 및 Restore 서비스_와 함께 X.509 보안을 사용하여 설치됩니다.
+- 클러스터는 _Backup 및 Restore 서비스_ 와 함께 X.509 보안을 사용하여 설치됩니다.
 - Reliable Stateful 서비스가 클러스터에 배포됩니다. 이 빠른 시작 가이드의 목적에 맞게 애플리케이션 URI는 `fabric:/SampleApp`이며 이 애플리케이션에 속한 Reliable Stateful 서비스의 URI는 `fabric:/SampleApp/MyStatefulService`입니다. 이 서비스는 단일 파티션과 함께 배포되고 파티션 ID는 `974bd92a-b395-4631-8a7f-53bd4ae9cf22`입니다.
 - 관리자 역할이 있는 클라이언트 인증서는 아래 스크립트가 호출되는 컴퓨터의 _CurrentUser_ 인증서 저장소 위치의 _내_(_개인용_) 저장소 이름에 설치됩니다. 이 예에서는 `1b7ebe2174649c45474a4819dafae956712c31d3`를 인증서 지문으로 사용합니다. 클라이언트 인증서에 대한 자세한 내용은 [Service Fabric 클라이언트의 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
 

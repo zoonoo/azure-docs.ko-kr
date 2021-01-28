@@ -2,18 +2,15 @@
 title: 휴지 상태의 데이터에 대 한 이중 암호화
 titleSuffix: Azure HDInsight
 description: 이 문서에서는 Azure HDInsight 클러스터의 미사용 데이터에 사용할 수 있는 두 가지 암호화 계층을 설명 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359762"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927333"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -101,7 +98,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |설명|
+    |속성 |Description|
     |---|---|
     |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|
@@ -127,8 +124,8 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 클러스터를 만드는 동안 다음과 같은 방법으로 버전이 지정 된 키를 사용 하거나 versionless 키를 사용할 수 있습니다.
 
-- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
-- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`입니다.
+- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey`입니다.
 
 또한 관리 되는 id를 클러스터에 할당 해야 합니다.
 

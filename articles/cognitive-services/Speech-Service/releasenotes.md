@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2db93ec6806d4b9cc8c8ac17cfb2c15458bf4dc9
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 050c16670ea0c6df53345216d8dd450c159792ea
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401154"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927460"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -86,9 +86,9 @@ ms.locfileid: "97401154"
 - **Python/목표-C**: API에 대 한 지원이 추가 되었습니다 `KeywordRecognizer` . 설명서는 [여기](./custom-keyword-basics.md)에 있습니다.
 - **C + +/Java/C #**:를 `HttpHeader` 통해 키/값을 설정 하는 지원이 추가 되었습니다 `ServicePropertyChannel::HttpHeader` .
 - **JavaScript**: API에 대 한 지원이 추가 되었습니다 `ConversationTranscriber` . [여기](./how-to-use-conversation-transcription.md?pivots=programming-language-javascript)에서 설명서를 참조 하세요. 
-- **C + +/c #**: 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet)를 참조 하세요.
--  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) [+ +)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech), 여기 ( [Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python), 여기 ( [목적-C/Swift)](/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
-- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), 여기 ( [c + +)](/cpp/cognitive-services/speech/connection), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech.connection)에서 참조 설명서를 읽으십시오.
+- **C + +/c #**: 새 `AudioDataStream FromWavFileInput` 메서드 (읽기)를 추가 했습니다. WAV 파일) [여기 (c + +)](/cpp/cognitive-services/speech/audiodatastream) 및 [여기 (c #)](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream)를 참조 하세요.
+-  **C + +/c #/Java/Python/Objective-C/Swift**: `stopSpeakingAsync()` 텍스트-음성 합성을 중지 하는 메서드를 추가 했습니다. 여기 [(c](/dotnet/api/microsoft.cognitiveservices.speech) [+ +)](/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech), 여기 ( [Python)](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech), 여기 ( [목적-C/Swift)](/objectivec/cognitive-services/speech/)에서 참조 설명서를 읽으십시오.
+- **C #, c + +, Java**: `FromDialogServiceConnector()` `Connection` 에 대 한 연결 및 연결 끊기 이벤트를 모니터링 하는 데 사용할 수 있는 함수를 클래스에 추가 했습니다 `DialogServiceConnector` . 여기 ( [c #)](/dotnet/api/microsoft.cognitiveservices.speech.connection), 여기 ( [c + +)](/cpp/cognitive-services/speech/connection), 여기 ( [Java)](/java/api/com.microsoft.cognitiveservices.speech.connection)에서 참조 설명서를 읽으십시오.
 - **C + +/c #/Java/Python/Objective-C/Swift**: 음성 발음을 평가 하 고 음성 오디오의 정확도와 능숙에 대 한 발표자 피드백을 제공 하는 발음 평가에 대 한 지원이 추가 되었습니다. [여기](how-to-pronunciation-assessment.md)에서 설명서를 참조 하세요.
 
 **주요 변경 내용**
@@ -136,7 +136,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-september-release"></a>텍스트 음성 변환 2020-9 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망** 
     * **18 개의 새로운 언어/로캘을 지원 하도록 확장 되었습니다.** 불가리아어, 체코어, 독일어 (오스트리아), 독일어 (스위스), 그리스어, 영어 (아일랜드), 프랑스어 (스위스), 히브리어, 크로아티아어, 헝가리어, 인도네시아어, 말레이어, 루마니아어, 슬로바키아어, 슬로베니아어, 타밀어, 텔루구어 및 베트남어입니다. 
@@ -149,7 +149,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망: 새 말하기 스타일 `en-US` Aria 음성**. 뉴스는 뉴스를 읽을 때 AriaNeural 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
 
@@ -177,7 +177,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 * Vocoders는 다음과 같은 음성에 대해 향상 된 기능 및 전반적인 성능 속도를 40%로 업데이트 했습니다.
 
-    | 로캘 | 음성 |
+    | Locale | 음성 |
     |---|---|    
     | `en-GB` | Mia |
     | `es-MX` | Dalia |
@@ -196,7 +196,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>새 음성 텍스트 로캘: 2020-8 월 릴리스
 8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 되었습니다. 2 유럽 언어 `cs-CZ` 와 `hu-HU` , 영어 (미국) 로캘, 영어 (미국)를 포함 하는 스페인어 로캘이 모두 포함 됩니다. 다음은 새 로캘의 목록입니다. [여기](./language-support.md)에서 전체 언어 목록을 참조 하세요.
 
-| 로캘  | 언어                          |
+| Locale  | 언어                          |
 |---------|-----------------------------------|
 | `cs-CZ` | 체코어(체코)            | 
 | `en-HK` | 영어 (홍콩)               | 
@@ -257,7 +257,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](./language-support.md#neural-voices)는 모든 언어를 확인 합니다.  
 
@@ -387,18 +387,18 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 **새로운 기능**
 - Linux: Speech SDK 용 시스템을 구성 하는 방법에 대 한 [지침](./how-to-configure-rhel-centos-7.md) 과 함께 RED HAT ENTERPRISE LINUX (RHEL)/CentOS 7 x64에 대 한 지원이 추가 되었습니다.
 - Linux: Linux ARM32 및 ARM64의 .NET Core c #에 대 한 지원이 추가 되었습니다. 자세한 내용은 [여기](./speech-sdk.md?tabs=linux)를 읽어보세요. 
-- C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?preserve-view=true&view=azure-dotnet), [c + +](/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
+- C #, c + +: `UtteranceId` `ConversationTranscriptionResult` 모든 intermediates 및 최종 음성 인식 결과에서 일관 된 ID를에 추가 했습니다. [C #](/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult), [c + +](/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult)에 대 한 세부 정보입니다.
 - Python:에 대 한 지원이 추가 되었습니다 `Language ID` . [GitHub 리포지토리의](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)speech_sample py를 참조 하세요.
 - Windows: 모든 win32 콘솔 응용 프로그램에 대해 Windows 플랫폼에서 압축 된 오디오 입력 형식 지원을 추가 했습니다. 자세한 내용은 [여기](./how-to-use-codec-compressed-audio-input-streams.md)를 참조 하세요. 
 - JavaScript: NodeJS에서 음성 합성 (텍스트-음성)을 지원 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech)를 참조하세요. 
 - JavaScript: 모든 송신 및 수신 메시지를 검사할 수 있도록 새 API를 추가 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript)를 참조하세요. 
         
 **버그 수정**
-- C #, c + +: `SendMessageAsync` 이제 이진 메시지를 이진 형식으로 전송 하는 문제가 해결 되었습니다. [C #](/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [c + +](/cpp/cognitive-services/speech/connection)에 대 한 세부 정보입니다.
-- C #, c + +: `Connection MessageReceived` `Recognizer` 개체가 이전에 삭제 된 경우 이벤트를 사용 하 여 충돌이 발생할 수 있는 문제를 해결 함. `Connection` [C #](/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?preserve-view=true&view=azure-dotnet), [c + +](/cpp/cognitive-services/speech/connection#messagereceived)에 대 한 세부 정보입니다.
+- C #, c + +: `SendMessageAsync` 이제 이진 메시지를 이진 형식으로 전송 하는 문제가 해결 되었습니다. [C #](/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [c + +](/cpp/cognitive-services/speech/connection)에 대 한 세부 정보입니다.
+- C #, c + +: `Connection MessageReceived` `Recognizer` 개체가 이전에 삭제 된 경우 이벤트를 사용 하 여 충돌이 발생할 수 있는 문제를 해결 함. `Connection` [C #](/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived), [c + +](/cpp/cognitive-services/speech/connection#messagereceived)에 대 한 세부 정보입니다.
 - Android: 대기 시간을 개선 하기 위해 마이크의 오디오 버퍼 크기를 800ms에서 100ms로 줄였습니다.
 - Android: Android Studio의 x86 Android emulator [문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) 를 해결 했습니다.
-- JavaScript: API를 사용 하 여 중국의 지역에 대 한 지원이 추가 되었습니다 `fromSubscription` . 자세한 내용은 [여기](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest#fromsubscription-string--string-)를 참조 하세요. 
+- JavaScript: API를 사용 하 여 중국의 지역에 대 한 지원이 추가 되었습니다 `fromSubscription` . 자세한 내용은 [여기](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#fromsubscription-string--string-)를 참조 하세요. 
 - JavaScript: NodeJS의 연결 실패에 대 한 오류 정보를 추가 합니다.
         
 **샘플**
@@ -724,7 +724,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - Android
   - APK 생성 중에 ProGuard 지원이 설정되었습니다.
 
-**개선 사항**
+**향상 된 기능**
 
 - 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
 - 오류 보고/정보가 개선되었습니다. 일부 경우에는 오류 메시지가 모든 방식으로 전파 되지 않습니다.
@@ -756,7 +756,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 프록시 지원: 개체에서 `SpeechConfig` 이제 함수를 호출 하 여 프록시 정보 (호스트 이름, 포트, 사용자 이름 및 암호)를 설정할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
 - 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
 
-**개선 사항**
+**향상 된 기능**
 
 - 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
 - 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.

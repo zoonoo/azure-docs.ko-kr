@@ -1,19 +1,16 @@
 ---
 title: HDInsight의 Spark MLlib를 사용한 Machine Learning 예제 - Azure
 description: 로지스틱 회귀를 통해 분류를 사용하여 데이터 세트를 분석하는 Machine Learning 앱을 만드는 데 Spark MLlib를 사용하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822185"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930062"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
@@ -57,7 +54,7 @@ MLlib는 다음과 같은 기계 학습 작업에 유용한 여러 유틸리티�
     from pyspark.sql.types import *
     ```
 
-    PySpark 커널 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행 하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다.
+    PySpark 커널로 인해 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행 하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다.
 
 ## <a name="construct-the-input-dataframe"></a>입력 데이터 프레임 구축
 

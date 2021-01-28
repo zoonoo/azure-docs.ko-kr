@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 570fd7f356969bbd37ef6b661334501a062c36df
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 67534e70904c70f7bf9dda44502e723916bdce93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165691"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928809"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob Storage 핫, 쿨 및 보관에 대 한 액세스 계층
 
@@ -86,7 +86,7 @@ Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태
 - 오랜 시간 동안 저장 해야 하 고 자주 액세스 하지 않는 규정 준수 및 보관 데이터
 
 > [!NOTE]
-> 보관 계층은 ZRS, GZRS 또는 RA-GZRS 계정에 대해 지원 되지 않습니다.
+> 보관 계층은 ZRS, GZRS 또는 RA-GZRS 계정에 대해 지원 되지 않습니다. 저장소 계정에 보관 계층의 blob이 포함 되어 있는 경우 LRS에서 GRS로의 마이그레이션은 지원 되지 않습니다.
 
 ## <a name="account-level-tiering"></a>계정 수준 계층화
 

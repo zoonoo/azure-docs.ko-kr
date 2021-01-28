@@ -1,25 +1,22 @@
 ---
 title: Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 description: Linux 기반 HDInsight에서 스톰 대시보드를 사용 하 여 Apache Storm 토폴로지를 배포, 모니터링 및 관리 하는 방법을 알아봅니다. Visual Studio용 Hadoop 도구를 사용합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995593"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929176"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 

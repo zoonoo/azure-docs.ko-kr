@@ -1,18 +1,15 @@
 ---
 title: InvalidNetworkConfigurationErrorCode 오류-Azure HDInsight
 description: Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 실패 한 클러스터 만들기에 대 한 다양 한 이유
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/12/2021
-ms.openlocfilehash: 82e1c6bdcd508bf1844223b331bf8363efa7b573
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 83d4819ecb1da91bda5fb4f1cb445bbc34fd007f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555324"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927008"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 

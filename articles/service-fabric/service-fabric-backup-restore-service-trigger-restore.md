@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207396"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928017"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Azure Service Fabric에서 백업 복원
 
@@ -28,11 +28,16 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 - 복구를 트리거하려면 클러스터에 _FAS(Fault Analysis Service)_ 를 사용하도록 설정해야 합니다.
 - _BRS(Backup Restore Service)_ 가 백업을 생성합니다.
 - 복원은 파티션에서만 트리거할 수 있습니다.
-- 구성 호출을 위해 ServiceFabric 모듈 [미리 보기]를 설치 합니다.
+- 구성 호출을 위해 ServiceFabric 모듈 (미리 보기)을 설치 합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> PowerShellGet 버전이 1.6.0 미만인 경우 *-allowprerelease* 플래그에 대 한 지원을 추가 하도록 업데이트 해야 합니다.
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
@@ -47,8 +52,8 @@ Azure Service Fabric에서 Reliable Stateful 서비스 및 Reliable Actors는 �
 
 복원은 다음 시나리오 중 하나에 트리거될 수 있습니다.
 
-- _재해 복구_를 위한 데이터 복원.
-- _데이터 손상/데이터 손실_을 위한 데이터 복원.
+- _재해 복구_ 를 위한 데이터 복원.
+- _데이터 손상/데이터 손실_ 을 위한 데이터 복원.
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>재해 복구 시 데이터 복원.
 
@@ -154,7 +159,7 @@ FailureError            :
 
 대체 클러스터의 파티션 ID가 `1c42c47f-439e-4e09-98b9-88b8f60800c6`인 경우, _범위 분할(UniformInt64Partition)_ 에 대한 상위 키 및 하위 키를 비교하여 원래 클러스터 파티션 ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22`로 매핑할 수 있습니다.
 
-_이름 지정된 분할_의 경우 이름 값을 비교하여 대체 클러스터의 대상 파티션을 식별합니다.
+_이름 지정된 분할_ 의 경우 이름 값을 비교하여 대체 클러스터의 대상 파티션을 식별합니다.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Powershell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
 
@@ -207,13 +212,13 @@ Service Fabric Explorer에서 복원을 트리거할 수 있습니다. Service F
 
 ### <a name="data-restore-for-_data-corruption__data-loss_"></a>데이터 _손상_ / _데이터 손실_ 에 대 한 데이터 복원
 
-_데이터 손실_ 또는 _데이터 손상_의 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 백업을 선택한 백업으로 복원할 수 있습니다.
+_데이터 손실_ 또는 _데이터 손상_ 의 경우 Reliable Stateful 서비스 및 Reliable Actors의 파티션에 대한 백업을 선택한 백업으로 복원할 수 있습니다.
 
 다음 예제는 [Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)의 구성입니다. 이 예제에서는 백업 정책이 파티션에 사용하도록 설정되어 있으며, 서비스는 Azure Storage에서 원하는 빈도로 백업을 수행합니다.
 
 [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups)의 출력에서 백업을 선택합니다. 이 시나리오에서는 이전과 동일한 클러스터에서 백업이 생성됩니다.
 
-복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_ / _데이터 손상_의 경우 다음 백업을 선택 합니다.
+복원을 트리거하려면 목록에서 백업을 선택합니다. 현재 _데이터 손실_ / _데이터 손상_ 의 경우 다음 백업을 선택 합니다.
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -282,7 +287,7 @@ $restoreResponse | Format-List
 
 복원 요청은 다음 순서대로 진행됩니다.
 
-1. **수락**됨: _허용_ 된 복원 상태는 요청 된 파티션이 올바른 요청 매개 변수로 트리거 되었음을 나타냅니다.
+1. **수락** 됨: _허용_ 된 복원 상태는 요청 된 파티션이 올바른 요청 매개 변수로 트리거 되었음을 나타냅니다.
     ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -297,8 +302,8 @@ $restoreResponse | Format-List
     RestoredLsn   : 3552
     ```
     
-3. **성공**, **실패**또는 **시간 제한**: 다음 상태 중 하나를 수행 하 여 요청 된 복원을 완료할 수 있습니다. 각 상태에는 다음과 같은 중요도 및 응답 세부 정보가 있습니다.
-    - **성공**: _성공_ 복원 상태는 다시 회복 된 파티션 상태를 나타냅니다. 파티션은 시간(UTC)과 함께 _RestoredEpoch_ 및 _RestoredLSN_을 보고합니다.
+3. **성공**, **실패** 또는 **시간 제한**: 다음 상태 중 하나를 수행 하 여 요청 된 복원을 완료할 수 있습니다. 각 상태에는 다음과 같은 중요도 및 응답 세부 정보가 있습니다.
+    - **성공**: _성공_ 복원 상태는 다시 회복 된 파티션 상태를 나타냅니다. 파티션은 시간(UTC)과 함께 _RestoredEpoch_ 및 _RestoredLSN_ 을 보고합니다.
 
         ```
         RestoreState  : Success
@@ -325,7 +330,7 @@ $restoreResponse | Format-List
 
 ## <a name="automatic-restore"></a>자동 복원
 
-_자동 복원_을 위해 Service Fabric 클러스터의 Reliable Stateful 서비스 및 Reliable Actors 파티션을 구성할 수 있습니다. 백업 정책에서 `AutoRestore`를 _true_로 설정합니다. _자동 복원_을 사용하도록 설정하면 데이터 손실이 보고될 때 최신 파티션 백업에서 데이터가 자동으로 복원됩니다. 자세한 내용은 다음을 참조하세요.
+_자동 복원_ 을 위해 Service Fabric 클러스터의 Reliable Stateful 서비스 및 Reliable Actors 파티션을 구성할 수 있습니다. 백업 정책에서 `AutoRestore`를 _true_ 로 설정합니다. _자동 복원_ 을 사용하도록 설정하면 데이터 손실이 보고될 때 최신 파티션 백업에서 데이터가 자동으로 복원됩니다. 자세한 내용은 다음을 참조하세요.
 
 - [백업 정책에서 자동 복원을 사용하도록 설정](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [RestorePartition API 참조](/rest/api/servicefabric/sfclient-api-restorepartition)

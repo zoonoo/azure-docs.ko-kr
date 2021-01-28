@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 70fb502e45a6cdcc196f5fb97ee4c8c59ba6c27d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4d2f339f5a1339b5f249172170fed54c91f1dc24
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223553"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927188"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>빠른 시작: Azure CLI을 사용 하 여 공용 IP 주소 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "98223553"
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
-**Eastus2** 위치에 **myresourcegroup** 이라는 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 를 사용 하 여 리소스 그룹을 만듭니다.
+**Eastus2** 위치에 **myresourcegroup** 이라는 [az group create](/cli/azure/group#az-group-create) 를 사용 하 여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
   az group create \
@@ -46,7 +46,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 >[!NOTE]
 >다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
 
-[Az network 공공 ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 이라는 표준 영역 중복 공용 ip 주소를 만듭니다.
+[Az network 공공 ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에 **mystandardzrpublicip** 이라는 표준 영역 중복 공용 ip 주소를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -76,7 +76,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 >[!NOTE]
 >다음 명령은 API 버전 2020-08-01 이상에 대해 작동 합니다.  현재 사용 중인 API 버전에 대 한 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
 
-[Az network 공공 ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 ip 주소를 만듭니다.
+[Az network 공공 ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에서 **mystandardpublicip** 라는 비 영역 리소스로 표준 공용 ip 주소를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -88,7 +88,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 # <a name="basic-sku"></a>[**기본 SKU**](#tab/option-create-public-ip-basic)
 
-[Az network 공공 ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에 **mybasicpublicip** 이라는 기본 고정 공용 ip 주소를 만듭니다.  기본 공용 Ip에는 가용성 영역의 개념이 없습니다.
+[Az network 공공 ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 를 사용 하 여 **Myresourcegroup** 에 **mybasicpublicip** 이라는 기본 고정 공용 ip 주소를 만듭니다.  기본 공용 Ip에는 가용성 영역의 개념이 없습니다.
 
 ```azurecli-interactive
   az network public-ip create \

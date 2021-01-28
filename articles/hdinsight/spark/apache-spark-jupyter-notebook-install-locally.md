@@ -1,19 +1,16 @@
 ---
 title: Jupyter를 로컬로 설치하고 Azure HDInsight에서 Spark에 연결
 description: 컴퓨터에 로컬로 Jupyter Notebook를 설치 하 고 Apache Spark 클러스터에 연결 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: de11e6f9fd9acc81f7be6d23bb1019f88f9e1322
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657212"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930410"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter Notebook을 설치 하 고 HDInsight의 Apache Spark에 연결
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 965795b96deda03531504952fc8afbea0acb41bf
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221955"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927045"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -129,8 +129,8 @@ ms.locfileid: "98221955"
 IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 프로그래밍 방식으로 검색할 수 있습니다.
 
 - [REST (영문)](/rest/api/virtualnetwork/servicetags/list)
-- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
-- [Azure CLI](/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
+- [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2)
+- [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 > [!NOTE]
 > 퍼블릭 미리 보기로 제공되는 동안 검색 API는 JSON 다운로드에서 반환된 정보보다 최신이 아닌 정보를 반환할 수 있습니다. (다음 섹션을 참조하세요.)
