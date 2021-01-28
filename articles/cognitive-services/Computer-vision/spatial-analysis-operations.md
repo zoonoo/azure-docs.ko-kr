@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734542"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934744"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "98734542"
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. PersonCount가 정확한 합계를 기록 하도록 하려면 단일 카메라에서 영역을 완전히 검사 해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "98734542"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -43,7 +43,7 @@ ms.locfileid: "98734542"
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,11 +57,11 @@ ms.locfileid: "98734542"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| 설명|
+| 조작 매개 변수| Description|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
-| VIDEO_URL| 카메라 장치에 대 한 RTSP url입니다 (예: `rtsp://username:password@url` ). 공간 분석은 RTSP, http 또는 mp4를 통해 h.264로 인코딩된 스트림을 지원 합니다. AES 암호화를 사용 하 여 난독 처리 된 base64 문자열 값으로 Video_URL를 제공할 수 있으며, 비디오 URL이 난독 처리 된 후 `KEY_ENV` `IV_ENV` 환경 변수로 제공 되어야 합니다. 키 및 암호화를 생성 하는 샘플 유틸리티는 [여기](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0)에서 찾을 수 있습니다. |
+| VIDEO_URL| 카메라 장치에 대 한 RTSP url입니다 (예: `rtsp://username:password@url` ). 공간 분석은 RTSP, http 또는 mp4를 통해 h.264로 인코딩된 스트림을 지원 합니다. AES 암호화를 사용 하 여 난독 처리 된 base64 문자열 값으로 Video_URL를 제공할 수 있으며, 비디오 URL이 난독 처리 된 후 `KEY_ENV` `IV_ENV` 환경 변수로 제공 되어야 합니다. 키 및 암호화를 생성 하는 샘플 유틸리티는 [여기](/dotnet/api/system.security.cryptography.aesmanaged)에서 찾을 수 있습니다. |
 | VIDEO_SOURCE_ID | 카메라 장치 또는 비디오 스트림의 이름입니다. 이는 이벤트 JSON 출력과 함께 반환 됩니다.|
 | VIDEO_IS_LIVE| 카메라 장치에 대해 True 기록 된 비디오의 경우 false입니다.|
 | VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본적으로 0입니다. 는와 같은 `gpu_index` 다른 노드 구성의와 동일 해야 합니다 `VICA_NODE_CONFIG` `DETECTOR_NODE_CONFIG` .|
@@ -87,7 +87,7 @@ ms.locfileid: "98734542"
 }
 ```
 
-| 이름 | 유형| Description|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
@@ -122,7 +122,7 @@ ms.locfileid: "98734542"
 }
 ```
 
-| 이름 | 유형| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -167,7 +167,7 @@ ms.locfileid: "98734542"
 }
 ```
 
-| 이름 | 유형| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -213,7 +213,7 @@ ms.locfileid: "98734542"
 }
 ```
 
-| 이름 | 유형| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -247,7 +247,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | 유형| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -362,7 +362,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이벤트 필드 이름 | 유형| Description|
+| 이벤트 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -372,7 +372,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 유형| Description|
+| 검색 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -383,7 +383,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
 | `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
 
-| SourceInfo 필드 이름 | 유형| Description|
+| SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -396,7 +396,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `focalLength` | float | 카메라의 초점 길이 (픽셀)입니다. 자동 보정에서 유추 됩니다. |
 | `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 자동 보정에서 유추 됩니다.|
 
-| SourceInfo 필드 이름 | 유형| Description|
+| SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -461,7 +461,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
     "schemaVersion": "1.0"
 }
 ```
-| 이벤트 필드 이름 | 유형| Description|
+| 이벤트 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -471,7 +471,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `status` | 문자열| 줄 교차의 방향 (' 왼쪽으로 왼쪽 ' 또는 '가는 오른쪽 ')입니다.|
 | `zone` | 문자열 | 교차 된 줄의 "이름" 필드|
 
-| 검색 필드 이름 | 유형| Description|
+| 검색 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -482,7 +482,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
 | `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
 
-| SourceInfo 필드 이름 | 유형| Description|
+| SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -606,7 +606,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | 유형| Description|
+| 이벤트 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형입니다. 값은 _personZoneDwellTimeEvent_ 또는 _personZoneEnterExitEvent_ 수 있습니다.|
@@ -618,7 +618,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `durationMs` | float | 사용자가 영역에서 소비한 시간을 나타내는 밀리초 수입니다. 이 필드는 이벤트 유형이 _personZoneDwellTimeEvent_ 때 제공 됩니다.|
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 
-| 검색 필드 이름 | 유형| Description|
+| 검색 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -721,7 +721,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | 유형| Description|
+| 이벤트 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -736,7 +736,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `zone` | 문자열 | 사용자 간 distancing 대해 모니터링 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 유형| Description|
+| 검색 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -753,7 +753,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 이 예에서 `centerGroundPoint`는 `{x: 4, y: 5}`입니다. 즉, 카메라에서 4 피트 떨어진 사람이 있고 오른쪽이 5 미터 떨어져 있음을 의미 합니다.
 
 
-| SourceInfo 필드 이름 | 유형| Description|
+| SourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -964,7 +964,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| 이름 | 유형| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 

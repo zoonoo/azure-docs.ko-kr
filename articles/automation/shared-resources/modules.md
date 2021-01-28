@@ -3,14 +3,14 @@ title: Azure Automation에서 모듈 관리
 description: 이 문서에서는 PowerShell 모듈을 사용하여 DSC 구성의 Runbook 및 DSC 리소스에서 cmdlet을 사용하도록 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458152"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936626"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -25,10 +25,18 @@ Azure Automation은 많은 PowerShell 모듈을 사용하여 DSC 구성에서 Ru
 
 Automation 계정을 만들 때 Azure Automation은 기본적으로 일부 모듈을 가져옵니다. [기본 모듈](#default-modules)을 참조하세요.
 
+## <a name="sandboxes"></a>샌드박스
+
 Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실행할 수 있고 DSC 구성을 컴파일할 수 있는 샌드박스에 모듈을 로드합니다. 또한 Automation은 DSC 끌어오기 서버에 있는 모듈에 모든 DSC 리소스를 자동으로 배치합니다. 머신은 DSC 구성을 적용할 때 리소스를 끌어올 수 있습니다.
 
 >[!NOTE]
 >Runbook 및 DSC 구성에 필요한 모듈만 가져와야 합니다. 루트 Az 모듈은 가져오지 않는 것이 좋습니다. 여기에는 필요하지 않은 많은 다른 모듈이 포함되어 성능 문제가 발생할 수 있습니다. 대신 Az.Compute와 같은 개별 모듈을 가져옵니다.
+
+클라우드 샌드박스는 최대 48 개의 시스템 호출을 지원 하 고 다른 모든 호출은 보안상의 이유로 제한 합니다. 자격 증명 관리 및 일부 네트워킹 등의 기타 기능은 클라우드 샌드박스에서 지원 되지 않습니다.
+
+포함 된 모듈 및 cmdlet의 수로 인해 지원 되지 않는 호출을 수행 하는 cmdlet을 미리 파악 하기 어렵습니다. 일반적으로 높은 액세스를 필요로 하는 cmdlet 관련 문제를 확인 하거나, 매개 변수로 자격 증명을 요구 하거나, 네트워킹 관련 cmdlet을 사용 합니다. AIPService PowerShell 모듈의 [연결-aipservice](/powershell/module/aipservice/connect-aipservice) 및 dnsclient 모듈의 [DnsName](/powershell/module/dnsclient/resolve-dnsname) 을 포함 하 여 완전 한 스택 네트워크 작업을 수행 하는 모든 cmdlet은 샌드박스에서 지원 되지 않습니다.
+
+이는 샌드박스에서 알려진 제한 사항입니다. 권장 해결 방법은 [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) 을 배포 하거나 [Azure Functions](../../azure-functions/functions-overview.md)를 사용 하는 것입니다.
 
 ## <a name="default-modules"></a>기본 모듈
 
@@ -134,14 +142,14 @@ Automation 계정으로 Az 모듈을 가져와도 Runbook이 사용하는 PowerS
 
 Azure Portal에서 Az 모듈을 가져올 수 있습니다. 전체 Az.Automation 모듈이 아니라 필요한 Az 모듈만 가져와야 합니다. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0)는 다른 Az 모듈에 대한 종속성이기 때문에 이 모듈을 다른 모듈보다 먼저 가져와야 합니다.
 
-1. Automation 계정의 **공유 리소스** 아래에서 **모듈**을 선택합니다.
-2. **갤러리 찾아보기**를 선택합니다.  
+1. Automation 계정의 **공유 리소스** 아래에서 **모듈** 을 선택합니다.
+2. **갤러리 찾아보기** 를 선택합니다.  
 3. 검색 표시줄에서 모듈 이름(예: `Az.Accounts`)을 입력합니다.
-4. PowerShell 모듈 페이지에서 **가져오기**를 선택하여 Automation 계정으로 모듈을 가져옵니다.
+4. PowerShell 모듈 페이지에서 **가져오기** 를 선택하여 Automation 계정으로 모듈을 가져옵니다.
 
     ![Automation 계정으로 모듈을 가져오는 스크린샷](../media/modules/import-module.png)
 
-가져올 모듈을 검색하여 [PowerShell 갤러리](https://www.powershellgallery.com)를 통해 이 가져오기를 수행할 수도 있습니다. 모듈을 찾아 선택하고 **Azure Automation** 탭을 선택합니다. **Azure Automation에 배포**를 선택합니다.
+가져올 모듈을 검색하여 [PowerShell 갤러리](https://www.powershellgallery.com)를 통해 이 가져오기를 수행할 수도 있습니다. 모듈을 찾아 선택하고 **Azure Automation** 탭을 선택합니다. **Azure Automation에 배포** 를 선택합니다.
 
 ![PowerShell 갤러리에서 직접 모듈을 가져오는 스크린샷](../media/modules/import-gallery.png)
 
@@ -169,7 +177,7 @@ TestModule
 
 각 버전 폴더 내에서 모듈을 구성 하는 .psm1,. psd1 또는 PowerShell module **.dll** 파일을 해당 버전 폴더로 복사 합니다. 모듈 폴더를 압축 하 여 Azure Automation 단일 .zip 파일로 가져올 수 있도록 합니다. Automation은 가져온 모듈의 가장 높은 버전만 표시 하지만 모듈 패키지에 모듈의 side-by-side 버전이 포함 되어 있으면 모두 runbook 또는 DSC 구성에서 사용할 수 있습니다.  
 
-자동화는 동일한 패키지 내에서 side-by-side 버전을 포함 하는 모듈을 지원 하지만 모듈 패키지 가져오기에서 여러 버전의 모듈을 사용할 수 없습니다. 예를 들어 버전 1과 2가 포함 된 **모듈 A**를 Automation 계정으로 가져올 수 있습니다. 나중에 버전 3과 4를 포함 하도록 **모듈 A** 를 업데이트 하는 경우 Automation 계정으로 가져올 때 버전 3 및 4만 RUNBOOK 또는 DSC 구성 내에서 사용할 수 있습니다. 모든 버전-1, 2, 3 및 4를 사용 하도록 요구 하는 경우에는 가져올 .zip 파일에 버전 1, 2, 3, 4가 포함 되어야 합니다.
+자동화는 동일한 패키지 내에서 side-by-side 버전을 포함 하는 모듈을 지원 하지만 모듈 패키지 가져오기에서 여러 버전의 모듈을 사용할 수 없습니다. 예를 들어 버전 1과 2가 포함 된 **모듈 A** 를 Automation 계정으로 가져올 수 있습니다. 나중에 버전 3과 4를 포함 하도록 **모듈 A** 를 업데이트 하는 경우 Automation 계정으로 가져올 때 버전 3 및 4만 RUNBOOK 또는 DSC 구성 내에서 사용할 수 있습니다. 모든 버전-1, 2, 3 및 4를 사용 하도록 요구 하는 경우에는 가져올 .zip 파일에 버전 1, 2, 3, 4가 포함 되어야 합니다.
 
 Runbook 사이에 동일한 모듈의 서로 다른 버전을 사용 하려는 경우에는 cmdlet을 사용 하 여 runbook에서 사용 하려는 버전을 항상 선언 `Import-Module` 하 고 매개 변수를 포함 해야 합니다 `-RequiredVersion <version>` . 사용 하려는 버전이 최신 버전인 경우에도 마찬가지입니다. Runbook 작업은 동일한 샌드박스에서 실행 될 수 있기 때문입니다. 샌드박스에서 특정 버전 번호의 모듈을 이미 명시적으로 로드 한 경우 해당 샌드박스에서 이전 작업에서이 작업을 수행 했으므로 해당 샌드박스에서 이후의 작업에서 해당 모듈의 최신 버전을 자동으로 로드 하지 않습니다. 이는 일부 버전이 이미 샌드박스에서 로드 되었기 때문입니다.
 
@@ -316,10 +324,10 @@ Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
 Azure Portal에서 모듈을 가져오려면 다음을 수행합니다.
 
 1. Automation 계정으로 이동합니다.
-2. **공유 리소스**에서 **모듈**을 선택합니다.
-3. **모듈 추가**를 선택합니다.
+2. **공유 리소스** 에서 **모듈** 을 선택합니다.
+3. **모듈 추가** 를 선택합니다.
 4. 모듈을 포함하는 **.zip** 파일을 선택합니다.
-5. **확인**을 선택하여 가져오기 프로세스를 시작합니다.
+5. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
 
 ### <a name="import-modules-by-using-powershell"></a>PowerShell을 사용하여 모듈 가져오기
 
@@ -344,17 +352,17 @@ New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceG
 PowerShell 갤러리에서 직접 모듈을 가져오려면 다음을 수행합니다.
 
 1. https://www.powershellgallery.com 으로 이동하여 가져올 모듈을 검색합니다.
-2. **설치 옵션** 아래의 **Azure Automation** 탭에서 **Azure Automation에 배포**를 선택합니다. 이 작업을 수행하면 Azure Portal이 열립니다. 
-3. 가져오기 페이지에서 Automation 계정을 선택하고 **확인**을 선택합니다.
+2. **설치 옵션** 아래의 **Azure Automation** 탭에서 **Azure Automation에 배포** 를 선택합니다. 이 작업을 수행하면 Azure Portal이 열립니다. 
+3. 가져오기 페이지에서 Automation 계정을 선택하고 **확인** 을 선택합니다.
 
 ![PowerShell 갤러리 가져오기 모듈의 스크린샷](../media/modules/powershell-gallery.png)
 
 Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져오려면 다음을 수행합니다.
 
-1. **공유 리소스**에서 **모듈**을 선택합니다. 
-2. **갤러리 찾아보기**를 선택하고 갤러리에서 모듈을 검색합니다. 
-3. 가져올 모듈을 선택하고 **가져오기**를 선택합니다. 
-4. **확인**을 선택하여 가져오기 프로세스를 시작합니다.
+1. **공유 리소스** 에서 **모듈** 을 선택합니다. 
+2. **갤러리 찾아보기** 를 선택하고 갤러리에서 모듈을 검색합니다. 
+3. 가져올 모듈을 선택하고 **가져오기** 를 선택합니다. 
+4. **확인** 을 선택하여 가져오기 프로세스를 시작합니다.
 
 ![Azure Portal에서 PowerShell 갤러리 모듈을 가져오는 스크린샷](../media/modules/gallery-azure-portal.png)
 
@@ -366,9 +374,9 @@ Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져오려면 �
 
 Azure Portal에서 모듈을 제거하려면 다음을 수행합니다.
 
-1. Automation 계정으로 이동합니다. **공유 리소스**에서 **모듈**을 선택합니다.
+1. Automation 계정으로 이동합니다. **공유 리소스** 에서 **모듈** 을 선택합니다.
 2. 제거하려는 모듈을 선택합니다.
-3. 모듈 페이지에서 **삭제**를 선택합니다. 이 모듈이 [기본 모듈](#default-modules) 중 하나인 경우 Automation 계정을 만들 때 있었던 버전으로 롤백됩니다.
+3. 모듈 페이지에서 **삭제** 를 선택합니다. 이 모듈이 [기본 모듈](#default-modules) 중 하나인 경우 Automation 계정을 만들 때 있었던 버전으로 롤백됩니다.
 
 ### <a name="delete-modules-by-using-powershell"></a>PowerShell을 사용하여 모듈 삭제
 

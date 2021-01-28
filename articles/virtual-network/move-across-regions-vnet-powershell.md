@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: bc504034f8d4565dd365b8d92dc2b2e6eadc1dae
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fa89a458b23d18bc6fddfca9cf6d9f2a16f91669
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223332"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934917"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 가상 네트워크를 다른 지역으로 이동
 
@@ -20,7 +20,7 @@ ms.locfileid: "98223332"
 Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른 지역으로 이동 하는 것을 완료할 수 있습니다. 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여이 작업을 수행 합니다. 리소스 관리자 템플릿에 대 한 자세한 내용은 [템플릿으로 리소스 그룹 내보내기](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 가상 네트워크가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -42,19 +42,19 @@ Azure Resource Manager 템플릿을 사용 하 여 가상 네트워크를 다른
 
 PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 네트워크를 배포 하려면 다음을 수행 합니다.
 
-1. [AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시를 따릅니다.
+1. [AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용 하 여 Azure 구독에 로그인 하 고 화면의 지시를 따릅니다.
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-1. 대상 지역으로 이동 하려는 가상 네트워크의 리소스 ID를 가져온 다음 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)를 사용 하 여 변수에 저장 합니다.
+1. 대상 지역으로 이동 하려는 가상 네트워크의 리소스 ID를 가져온 다음 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용 하 여 변수에 저장 합니다.
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
     ```
 
-1. 원본 가상 네트워크를 [AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)명령을 실행 하는 디렉터리의 json 파일로 내보냅니다.
+1. 원본 가상 네트워크를 [AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup)명령을 실행 하는 디렉터리의 json 파일로 내보냅니다.
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,7 +98,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
 
     ```
   
-1. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)을 사용할 수 있습니다.
+1. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용할 수 있습니다.
 
     ```azurepowershell-interactive
 
@@ -195,20 +195,20 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
 
 1. *\<resource-group-name>.json* 파일을 저장합니다.
 
-1. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)를 사용 하 여 배포할 대상 가상 네트워크의 대상 지역에 리소스 그룹을 만듭니다.
+1. [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 배포할 대상 가상 네트워크의 대상 지역에 리소스 그룹을 만듭니다.
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 *\<resource-group-name> json* 파일을 배포 합니다.
+1. [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용 하 여 이전 단계에서 만든 리소스 그룹에 편집 된 *\<resource-group-name> json* 파일을 배포 합니다.
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     ```
 
-1. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 및 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)를 사용 합니다.
+1. 리소스가 대상 지역에 만들어졌는지 확인 하려면 [AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용 합니다.
     
     ```azurepowershell-interactive
 
@@ -224,7 +224,7 @@ PowerShell을 사용 하 여 가상 네트워크를 내보내고 대상 가상 �
 
 가상 네트워크를 배포한 후 대상 지역에서 가상 네트워크를 시작 하거나 삭제 하려면 대상 지역에서 만든 리소스 그룹을 삭제 하 고 이동한 가상 네트워크는 삭제 됩니다. 
 
-리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)을 사용합니다.
+리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용합니다.
 
 ```azurepowershell-interactive
 
@@ -235,14 +235,14 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 변경 내용을 커밋하고 가상 네트워크 이동을 완료 하려면 다음 중 하나를 수행 합니다.
 
-* [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)를 사용 하 여 리소스 그룹을 삭제 합니다.
+* [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)를 사용 하 여 리소스 그룹을 삭제 합니다.
 
     ```azurepowershell-interactive
 
     Remove-AzResourceGroup -Name <source-resource-group-name>
     ```
 
-* [AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0)를 사용 하 여 원본 가상 네트워크를 삭제 합니다.  
+* [AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)를 사용 하 여 원본 가상 네트워크를 삭제 합니다.  
     ``` azurepowershell-interactive
 
     Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>

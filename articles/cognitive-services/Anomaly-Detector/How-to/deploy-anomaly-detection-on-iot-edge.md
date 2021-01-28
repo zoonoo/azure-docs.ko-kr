@@ -10,21 +10,21 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
-ms.openlocfilehash: 370883b90902dad5a6e222897e68e1d3e9dd2acf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b4153b07b153a9ee0b16dc032ab5e7810e236d7d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738018"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936277"
 ---
 # <a name="deploy-an-anomaly-detector-module-to-iot-edge"></a>IoT Edge에 변칙 탐지기 모듈 배포
 
 IoT Edge 장치에 Cognitive Services [변칙 탐지기](../anomaly-detector-container-howto.md) 모듈을 배포 하는 방법에 대해 알아봅니다. IoT Edge에 배포 되 고 나면 모듈은 다른 모듈과 함께 IoT Edge에서 컨테이너 인스턴스로 실행 됩니다. 표준 docker 컨테이너 환경에서 실행 되는 변칙 탐지기 컨테이너 인스턴스와 정확히 동일한 Api를 노출 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독을 사용합니다. Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다.
+* Azure 구독을 사용합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+* [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) 및 [IoT Edge](../../../iot-edge/quickstart-linux.md) 장치
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]

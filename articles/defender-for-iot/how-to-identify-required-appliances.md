@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246573"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937135"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -104,7 +104,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720<br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 두 개의 후면 USB 3.0<br>전면 USB 2.0 하나<br>단일 내부 USB 3.0 |
-| 전력 | 2 x HPE 500 W 플렉스 슬롯 플래티넘 핫 플러그 저 Halogen 전원 공급 장치 키트 |
+| 고급 | 2 x HPE 500 W 플렉스 슬롯 플래티넘 핫 플러그 저 Halogen 전원 공급 장치 키트 |
 | 랙 지원 | HPE 1U Gen10 SFF Easy Install 레일 키트 |
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
@@ -140,7 +140,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
-| 전력 | 이중 핫 플러그 전원 공급 장치 500 W |
+| 고급 | 이중 핫 플러그 전원 공급 장치 500 W |
 | 랙 지원 | HPE 1U 짧은 마찰 레일 키트 |
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
@@ -175,7 +175,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb <br>온-보드: iLO 포트 카드 1gb <br>외부: 1 x HPE 이더넷 1-Gb 4-포트 366FLR 어댑터 |
 | 관리 | HPE iLO 고급 |
 | 장치 액세스 | 전면: 1 x USB 3.0, 1 x USB iLO 서비스 포트 <br>후면: 2 x USB 3.0 <br>내부: 1 x USB 3.0 |
-| 전력 | 핫 플러그 전원 공급 장치 290 W |
+| 고급 | 핫 플러그 전원 공급 장치 290 W |
 | 랙 지원 | HPE 1U 짧은 마찰 레일 키트 |
 
 ### <a name="appliance-bom"></a>어플라이언스 BOM
@@ -199,7 +199,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="sensors"></a>센서
 
-| Type | 회사 | Enterprise | SMB |
+| 형식 | 회사 | Enterprise | SMB |
 |--|--|--|--|
 | vCPU | 32 | 8 | 4 |
 | 메모리 | 32GB | 32GB | 8GB |
@@ -207,7 +207,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 
-| Type | Enterprise |
+| 형식 | Enterprise |
 |--|--|
 | Description | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
 | vCPU | 8 |
@@ -225,7 +225,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 이미지 | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="엔터프라이즈 배포 유형입니다."::: |
 | 모델 | Dell PowerEdge R340 XL |
 | 포트 모니터링 | 최대 9 개의 RJ45 또는 6 옵트인 |
-| 최대 대역폭 [1](#anchortext2)| 1G m b/초 |
+| 최대 대역폭 [1](#anchortext2)| 1 g b/초 |
 | 최대 보호 장치 | 10000 |
 
 <a id="anchortext2">One</a> 대역폭 용량은 프로토콜 배포에 따라 달라질 수 있습니다.
@@ -248,7 +248,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 | 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720 <br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
 | 관리 | iDRAC 9 Enterprise |
 | 장치 액세스 | 두 개의 후면 USB 3.0 <br> 전면 USB 3.0 하나 |
-| 전력 | 이중 핫 플러그 전원 공급 장치 350 W |
+| 고급 | 이중 핫 플러그 전원 공급 장치 350 W |
 | 랙 지원 | ReadyRails II는 도구 감소를 위한 슬라이딩 레일 4 개, 사각형 또는 스레드 없는 라운드 구멍이 나 4-포스트 스레드 구멍 랙을 사용 하는 포스트 랙 (선택적 도구-없음 케이블 관리 arm)을 지원 합니다. |
 
 ## <a name="dell-r340-bom"></a>Dell R340 BOM

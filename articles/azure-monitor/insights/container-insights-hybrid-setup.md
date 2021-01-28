@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d481af07013c0a5b4c5a381527c6f555400a2559
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12901b1d2d7edd85fbe1650600856d09105c15b2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890465"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936410"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -21,7 +21,7 @@ ms.locfileid: "92890465"
 - 에서는
 
     - Kubernetes 온-프레미스
-    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true) 을 참조 하세요.
+    - Azure의 AKS 엔진과 Azure Stack. 자세한 내용은 [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 을 참조 하세요.
     - [Openshift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) 버전 4 이상, 온-프레미스 또는 기타 클라우드 환경.
 
 - Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "92890465"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -92,7 +92,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 - **workspaceResourceId** -Log Analytics 작업 영역의 전체 리소스 ID입니다.
 - **workspaceRegion** -작업 영역을 만들 지역으로, Azure Portal에서 볼 때 작업 영역 속성에서 **위치** 라고도 합니다.
 
-먼저containerSolutionParams.js파일의 매개 변수 값에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 식별 하려면 `workspaceResourceId` 다음 단계를 수행한 후 PowerShell cmdlet 또는 Azure CLI 명령을 실행 하 여 솔루션을 추가 합니다. **containerSolutionParams.json**
+먼저containerSolutionParams.js파일의 매개 변수 값에 필요한 Log Analytics 작업 영역의 전체 리소스 ID를 식별 하려면 `workspaceResourceId` 다음 단계를 수행한 후 PowerShell cmdlet 또는 Azure CLI 명령을 실행 하 여 솔루션을 추가 합니다. 
 
 1. 다음 명령을 사용 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
 
@@ -202,7 +202,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list&preserve-view=true)를 실행 한 후 **지역** 값을 복사 합니다.
+7. 3 단계에서 복사한 값을 사용 하 여 **workspaceResourceId** 에 대 한 값을 편집 하 고 **workspaceRegion** 의 경우 Azure CLI 명령 [az monitor log-analytics 작업 영역 표시](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-list&preserve-view=true)를 실행 한 후 **지역** 값을 복사 합니다.
 
 8. 이 파일을 로컬 폴더에 containerSolutionParams.js로 저장 합니다.
 

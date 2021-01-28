@@ -3,16 +3,13 @@ title: Azure HDInsight에서 hbase hbck의 불일치를 반환 합니다.
 description: Azure HDInsight에서 hbase hbck의 불일치를 반환 합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: a3f6a709d3e0f1c71f89473b6ed8435c6eea7e1c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cbe4231bbecdf279c637cd334336437a020188d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540230"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936980"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>시나리오: `hbase hbck` 명령이 Azure HDInsight에서 불일치를 반환 합니다.
 
@@ -67,7 +64,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ### <a name="resolution"></a>해결 방법
 
-이러한 겹치는 영역을 수동으로 병합 합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동 하 여 문제가 있는 테이블 링크를 선택 합니다. 해당 테이블에 속하는 각 지역의 시작 키/끝 키가 표시 됩니다. 그런 다음 이러한 겹치는 영역을 병합 합니다. HBase shell에서를 수행 `merge_region 'xxxxxxxx','yyyyyyy', true` 합니다. 다음은 그 예입니다.
+이러한 겹치는 영역을 수동으로 병합 합니다. HBase HMaster 웹 UI 테이블 섹션으로 이동 하 여 문제가 있는 테이블 링크를 선택 합니다. 해당 테이블에 속하는 각 지역의 시작 키/끝 키가 표시 됩니다. 그런 다음 이러한 겹치는 영역을 병합 합니다. HBase shell에서를 수행 `merge_region 'xxxxxxxx','yyyyyyy', true` 합니다. 예를 들면 다음과 같습니다.
 
 ```
 RegionA, startkey:001, endkey:010,

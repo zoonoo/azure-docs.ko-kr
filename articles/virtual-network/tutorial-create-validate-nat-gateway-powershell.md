@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
-ms.openlocfilehash: d9f3fa67a0d3eee303ed307f1d64d30955348869
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
-ms.translationtype: HT
+ms.openlocfilehash: f319e77bd4801a2844a54ba8eba955c2b062fe7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222499"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934299"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -53,7 +53,7 @@ $rg = New-AzResourceGroup -Name $rgname -Location $loc
 
 ### <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPsource** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPsource** 라는 변수에 저장됩니다.
+인터넷에 액세스 하려면 NAT 게이트웨이에 대 한 공용 IP 주소가 하나 이상 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myPublicIPsource** 라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPsource** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsource'
@@ -67,7 +67,7 @@ New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.ResourceGroupName -A
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
 
- [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix?view=latest)를 사용하여 **myPublicIPprefixsource** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPPrefixsource** 라는 변수에 저장됩니다.
+ [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)를 사용하여 **myPublicIPprefixsource** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIPPrefixsource** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $prefixname = 'mypublicIPprefixsource'
@@ -104,7 +104,7 @@ New-AzNatGateway -Name $natname -ResourceGroupName $rg.ResourceGroupName -Public
 
 가상 네트워크를 만들고 서브넷을 게이트웨이에 연결합니다.
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroupNAT** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnetsource** 라는 서브넷이 있는 **myVnetsource** 라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnetsource** 및 **$vnetsource** 변수에 저장됩니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 **myResourceGroupNAT** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 **mySubnetsource** 라는 서브넷이 있는 **myVnetsource** 라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnetsource** 및 **$vnetsource** 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $subnetname = 'mySubnetsource'
@@ -128,7 +128,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="create-public-ip-for-source-vm"></a>원본 VM에 대한 공용 IP 만들기
 
-VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpsourceVM** 이라는 변수에 저장됩니다.
+VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myPublicIPVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpsourceVM** 이라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $sku = 'Standard'
@@ -142,7 +142,7 @@ New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.ResourceGroupName 
 
 ### <a name="create-an-nsg-and-expose-ssh-endpoint-for-vm"></a>NSG 만들기 및 VM에 대한 SSH 엔드포인트 공개
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만듭니다. NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup?view=latest)을 사용하여 **myNSGsource** 라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nsgsource** 라는 변수에 저장됩니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만듭니다. NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 **myNSGsource** 라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 **myResourceGroupNAT** 에 만듭니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nsgsource** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $rnm = 'ssh'
@@ -162,7 +162,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm 
 
 ### <a name="create-nic-for-source-vm"></a>원본 VM에 대한 NIC 만들기
 
-[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0)를 사용하여 **myNicsource** 라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹을 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nicsource** 라는 변수에 저장됩니다.
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 **myNicsource** 라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹을 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nicsource** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $nin = 'myNicsource'
@@ -226,7 +226,7 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigsource -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-구성 정의를 결합하여 [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0)을 통해 **myVMsource** 라는 VM을 **myResourceGroupNAT** 에 만듭니다.
+구성 정의를 결합하여 [New-AzVM](/powershell/module/az.compute/new-azvm)을 통해 **myVMsource** 라는 VM을 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigsource -Location $rg.Location
@@ -243,7 +243,7 @@ New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigsource -Location 
 
 대상 가상 머신이 있는 가상 네트워크를 만들어야 합니다.  이러한 명령은 원본 VM에 적용되는 단계와 동일합니다. 대상 엔드포인트를 공개하도록 작은 변경 내용이 추가되었습니다.
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork?view=latest)를 사용하여 **myResourceGroupNAT** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest)를 사용하여 **mySubnetdestination** 이라는 서브넷이 있는 **myVnetdestination** 이라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnetdestination** 및 **$vnetdestination** 변수에 저장됩니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 **myResourceGroupNAT** 에서 [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 **mySubnetdestination** 이라는 서브넷이 있는 **myVnetdestination** 이라는 가상 네트워크를 만듭니다. 가상 네트워크의 IP 주소 공간은 **192.168.0.0/16** 입니다. 가상 네트워크 내의 서브넷은 **192.168.0.0/24** 입니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$subnetdestination** 및 **$vnetdestination** 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $sbdn = 'mySubnetdestination'
@@ -261,7 +261,7 @@ New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.ResourceGroupName -Addres
 
 ### <a name="create-public-ip-for-destination-vm"></a>대상 VM에 대한 공용 IP 만들기
 
-대상 VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=latest)를 사용하여 **myPublicIPdestinationVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpdestinationVM** 이라는 변수에 저장됩니다.
+대상 VM에 액세스하는 데 사용할 공용 IP를 만듭니다.  [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 **myPublicIPdestinationVM** 이라는 공용 IP 주소 리소스를 **myResourceGroupNAT** 에 만듭니다.  이 명령의 결과는 나중에 사용할 수 있도록 **$publicIpdestinationVM** 이라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $sku = 'Standard'
@@ -275,7 +275,7 @@ New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.ResourceGroupName -Allo
 
 ### <a name="create-an-nsg-and-expose-ssh-and-http-endpoint-for-vm"></a>NSG 만들기 및 VM에 대한 SSH 및 HTTP 엔드포인트 공개
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만듭니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup?view=latest)을 사용하여 **myNSGdestination** 이라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 만듭니다.  [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest)를 사용하여 **http** 라는 HTTP 액세스에 대한 NSG 규칙을 만듭니다. 두 규칙이 모두 **myResourceGroupNAT** 에 만들어집니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nsgdestination** 이라는 변수에 저장됩니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만듭니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 **myNSGdestination** 이라는 NSG 리소스를 만듭니다. [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 **ssh** 라는 SSH 액세스에 대한 NSG 규칙을 만듭니다.  [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 **http** 라는 HTTP 액세스에 대한 NSG 규칙을 만듭니다. 두 규칙이 모두 **myResourceGroupNAT** 에 만들어집니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nsgdestination** 이라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $snm = 'ssh'
@@ -300,7 +300,7 @@ New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm 
 
 ### <a name="create-nic-for-destination-vm"></a>대상 VM에 대한 NIC 만들기
 
-[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0)를 사용하여 **myNicdestination** 이라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹에 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nicdestination** 라는 변수에 저장됩니다.
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 **myNicdestination** 이라는 네트워크 인터페이스를 만듭니다. 이 명령은 공용 IP 주소와 네트워크 보안 그룹에 연결합니다. 이 명령의 결과는 나중에 사용할 수 있도록 **$nicdestination** 라는 변수에 저장됩니다.
 
 ```azurepowershell-interactive
 $nnm = 'myNicdestination'
@@ -350,7 +350,7 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigdestination -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-구성 정의를 결합하여 [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0)을 통해 **myVMdestination** 이라는 VM을 **myResourceGroupNAT** 에 만듭니다.
+구성 정의를 결합하여 [New-AzVM](/powershell/module/az.compute/new-azvm)을 통해 **myVMdestination** 이라는 VM을 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurepowershell-interactive
 
@@ -362,7 +362,7 @@ New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigdestination -Loca
 
 ## <a name="prepare-a-web-server-and-test-payload-on-destination-vm"></a>대상 VM에서 웹 서버 및 테스트 페이로드 준비
 
-먼저 대상 VM의 IP 주소를 검색해야 합니다.  VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=latest)를 사용합니다. 
+먼저 대상 VM의 IP 주소를 검색해야 합니다.  VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용합니다. 
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPdestinationVM'
@@ -404,7 +404,7 @@ sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
 
 ## <a name="prepare-test-on-source-vm"></a>원본 VM에서 테스트 준비
 
-먼저 원본 VM의 IP 주소를 검색해야 합니다.  VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress?view=latest)를 사용합니다. 
+먼저 원본 VM의 IP 주소를 검색해야 합니다.  VM의 공용 IP 주소를 가져오려면 [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용합니다. 
 
 ```azurepowershell-interactive
 $pipname = 'myPublicIPsourceVM'
@@ -466,7 +466,7 @@ hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹 및 포함된 모든 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name $rg.ResourceGroupName

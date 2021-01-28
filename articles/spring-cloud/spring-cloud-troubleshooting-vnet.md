@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c2b0488663233546411b3a1b5ac1b1eb6c0b899c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8491eb02fd61f291904d57990b3785ce93239964
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935266"
 ---
 # <a name="troubleshooting-azure-spring-cloud-in-virtual-networks"></a>가상 네트워크에서 Azure 스프링 클라우드 문제 해결
 
@@ -39,7 +39,7 @@ Azure Portal를 사용 하 여 Azure 스프링 클라우드 서비스 인스턴�
 |------|------|
 | Azure 스프링 클라우드에서 만든 리소스는 정책에 의해 허용 되지 않았습니다. | 네트워크 리소스는 사용자 고유의 가상 네트워크에 Azure 스프링 클라우드를 배포할 때 생성 됩니다. 이러한 만들기를 차단 하도록 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) 정의 되어 있는지 확인 하세요. 리소스를 만들지 못했습니다. 오류 메시지에서 찾을 수 있습니다. |
 | 제공 된 서브넷이 경로 테이블과 연결 되어 있습니다. 연결을 해제 하십시오. | 현재는 기존 경로 테이블과 연결 된 서브넷에 Azure 스프링 클라우드를 배포 하는 것을 지원 하지 않습니다 .이를 분리 한 후 다시 시도 하세요. |
-| 필요한 트래픽은 허용 목록 되지 않습니다. | [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](spring-cloud-vnet-customer-responsibilities.md) 을 참조 하 여 필요한 트래픽을 허용 목록 확인 하세요. |
+| 필요한 트래픽은 나열 되지 않습니다. | [VNET에서 Azure 스프링 클라우드를 실행 하는 고객 책임](spring-cloud-vnet-customer-responsibilities.md) 을 참조 하 여 필요한 트래픽이 나열 되어 있는지 확인 하세요. |
 
 ## <a name="my-application-cant-be-registered"></a>응용 프로그램을 등록할 수 없습니다.
 

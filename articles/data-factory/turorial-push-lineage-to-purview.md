@@ -1,5 +1,5 @@
 ---
-title: Azure 부서의 범위에 Data Factory 계보 데이터 푸시
+title: Data Factory 계보 데이터를 Azure Purview에 푸시
 description: Azure 부서의 범위에 Data Factory 계보 데이터를 푸시하는 방법에 대해 알아봅니다.
 services: data-factory
 ms.author: lle
@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603444"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935460"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Azure 부서의 범위 (미리 보기)에 Data Factory 계보 데이터 푸시
 
@@ -29,7 +29,7 @@ ms.locfileid: "96603444"
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Data Factory**. Azure Data Factory 없는 경우 [Azure Data Factory 만들기](./quickstart-create-data-factory-portal.md)를 참조 하세요.
-* **Azure 부서의 범위 계정**. 부서의 범위 계정은 데이터 팩터리에서 생성 된 모든 계보 데이터를 캡처합니다. Azure 부서의 범위 계정이 없는 경우 [Azure 부서의 범위 만들기](https://docs.microsoft.com/azure/purview/create-catalog-portal)를 참조 하세요.
+* **Azure 부서의 범위 계정**. 부서의 범위 계정은 데이터 팩터리에서 생성 된 모든 계보 데이터를 캡처합니다. Azure 부서의 범위 계정이 없는 경우 [Azure 부서의 범위 만들기](../purview/create-catalog-portal.md)를 참조 하세요.
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Data Factory 작업을 실행 하 고 Azure 부서의 범위에 계보 데이터 푸시
@@ -76,6 +76,6 @@ SSIS 패키지 실행 작업에 대 한 계보 데이터도 볼 수 있습니다
 > SSIS 패키지 실행 작업의 계보의 경우 원본 및 대상만 지원 합니다. 변환에 대 한 계보는 아직 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[카탈로그 계보 사용자 가이드](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[카탈로그 계보 사용자 가이드](../purview/catalog-lineage-user-guide.md)
 
 [Azure 부서의 범위에 Data Factory 연결](connect-data-factory-to-azure-purview.md)

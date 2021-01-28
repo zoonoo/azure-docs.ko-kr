@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462930"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934396"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 사용량 대시보드
 
 이 문서에서는 파트너 센터의 사용량 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 모든 VM (가상 컴퓨터)에서 표준화 된 사용량, 원시 사용량 및 요금제 청구 메트릭을 3 개의 별도 탭 (VM 정규화 된 사용량, VM 원시 사용량 및 요금제 청구 사용량)으로 표시 합니다.
 
-파트너 센터의 사용량 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 사용량 분석을 선택 **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  **Usage** 합니다.
+파트너 센터의 사용량 대시보드에 액세스 하려면 **상업적 Marketplace** 에서 사용량 분석을 선택 **[](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)**  >  합니다.
 
 >[!NOTE]
 > 분석 용어에 대 한 자세한 정의는 [상업적 marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조 하세요.
@@ -135,7 +135,7 @@ _**표 1: 데이터 용어 사전**_
 | 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. |
 | DeploymentMethod | 사용되지 않음 | 사용 되지 않음 (제품 형식과 같은 정의)
  |
-| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에서 구/군/시와 다를 수 있습니다. |
+| 고객 회사 이름 | 고객 회사 이름 | 고객이 입력한 회사 이름입니다. 이름은 고객의 Azure 구독에 있는 이름과 다를 수 있습니다. |
 | 사용 날짜 | 사용 날짜 | 사용량 기반 자산에 대 한 사용 이벤트 생성 날짜입니다. |
 | IsMultisolution | Multisolution | 제품이 Multisolution 제품 유형 인지 여부를 나타냅니다. |
 | 새 고객 | 사용되지 않음 | 사용되지 않음 |

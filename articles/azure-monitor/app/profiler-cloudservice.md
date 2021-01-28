@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69a9ba316a1fda14a2e85d4d981321d4b2f9f289
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75927534bf62fa4733bb552906ffa7e3a6e76286
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930318"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935612"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
@@ -42,7 +42,7 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
 
       ![진단 구성 파일의 위치](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      파일을 찾을 수 없는 경우 [Azure Cloud Services 및 Virtual Machines에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019)을 참조하세요.
+      파일을 찾을 수 없는 경우 [Azure Cloud Services 및 Virtual Machines에 대한 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요.
 
     b. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다.  
 
@@ -64,7 +64,7 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
     > * ApplicationInsights 싱크에 사용되는 키 
     > * ApplicationInsightsProfiler 싱크에 사용되는 키 
     >
-    > `ApplicationInsights`Serviceconfiguration.cscfg에서 싱크에서 사용 하는 실제 계측 키 값을 찾을 수 있습니다. * \* .cscfg* 파일. 
+    > `ApplicationInsights`Serviceconfiguration.cscfg에서 싱크에서 사용 하는 실제 계측 키 값을 찾을 수 있습니다. *\* .cscfg* 파일. 
     > Visual Studio 15.5 Azure SDK 릴리스 후에는 애플리케이션과 ApplicationInsightsProfiler 싱크에 사용되는 계측 키만 서로 일치하면 됩니다.
 
 1. 새 진단 구성을 사용하여 서비스를 배포하면 서비스에서 실행되도록 Application Insights Profiler가 구성됩니다.

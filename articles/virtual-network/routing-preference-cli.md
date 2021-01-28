@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c3ce69dc9364d71a501f122a7150ad4a59869422
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 82057fa689692643e3cf9733dd70795e1030fa06
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534015"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934240"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Azure CLI를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "96534015"
 ```
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-아래에 표시 된 것과 같이 명령을 사용 하 여 **인터넷** 형식의 라우팅 기본 설정 명령을 사용 하 여 공용 ip [주소를 만듭니다](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create).
+아래에 표시 된 것과 같이 명령을 사용 하 여 **인터넷** 형식의 라우팅 기본 설정 명령을 사용 하 여 공용 ip [주소를 만듭니다](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 다음 명령은 **미국 동부** Azure 지역에서 **인터넷** 라우팅 기본 설정으로 새 공용 IP를 만듭니다.
 

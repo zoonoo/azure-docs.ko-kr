@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400259"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934508"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Azure IoT DPS IP 연결 필터 사용
 
@@ -258,5 +258,5 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 관리 DPS에 대해 자세히 살펴보려면 다음을 참조하세요.
 
 * [IoT DPS IP 주소 이해](iot-dps-understand-ip-address.md)
-* [Azure CLI를 사용하여 DPS 구성](how-to-manage-dps-with-cli.md)
+* [Azure CLI를 사용 하 여 DPS 설정](quick-setup-auto-provision-cli.md)
 * [DPS에 대한 액세스 제어](how-to-control-access.md)

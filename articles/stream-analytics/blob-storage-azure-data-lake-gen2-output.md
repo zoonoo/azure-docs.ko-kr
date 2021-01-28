@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882164"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935143"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Blob 저장소 및 Azure Data Lake Gen2 출력
 
@@ -44,7 +44,7 @@ Azure Blob Storage는 클라우드에서 대량의 비정형 데이터를 저장
 Blob 스토리지를 출력으로 사용할 때 새 파일이 Blob에 만들어지는 경우는 다음과 같습니다.
 
 * 파일이 허용되는 최대 블록 수(현재 50,000)를 초과합니다. 허용되는 최대 Blob 크기에 도달하지 않고 허용되는 최대 블록 수에 도달할 수 있습니다. 예를 들어 출력 속도가 높으면 블록당 더 많은 바이트를 볼 수 있으며 파일 크기는 더 커집니다. 출력 속도가 낮으면 각 블록의 데이터가 줄어들고 파일 크기도 작아집니다.
-* 출력의 스키마가 변경되고 출력 형식에 고정 스키마(CSV 및 Avro)가 필요한 경우
+* 출력에 스키마가 변경 되 고 출력 형식에 고정 스키마 (CSV, Avro, Parquet)가 필요한 경우
 * 작업이 다시 시작되는 경우 사용자가 외부적으로 또는 시스템 유지 관리 또는 오류 복구의 경우 내부적으로 중지하고 시작합니다.
 * 쿼리가 완전히 분할되고 각 출력 파티션에 대해 새 파일이 만들어지는 경우
 * 사용자가 스토리지 계정의 파일 또는 컨테이너를 삭제하는 경우

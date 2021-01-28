@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932603"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935344"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -39,7 +39,7 @@ ms.locfileid: "91932603"
 
   필요한 경우 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 또는 다른 도구를 사용 하 여 저장소 계정을 만듭니다. 
 
-  각 계정에서 아티팩트 전송을 위한 blob 컨테이너를 만듭니다. 예를 들어 *transfer*라는 컨테이너를 만듭니다. 두 개 이상의 전송 파이프라인이 동일한 저장소 계정을 공유할 수 있지만 다른 저장소 컨테이너 범위를 사용 해야 합니다.
+  각 계정에서 아티팩트 전송을 위한 blob 컨테이너를 만듭니다. 예를 들어 *transfer* 라는 컨테이너를 만듭니다. 두 개 이상의 전송 파이프라인이 동일한 저장소 계정을 공유할 수 있지만 다른 저장소 컨테이너 범위를 사용 해야 합니다.
 * **키 자격 증명 모음** -키 자격 증명 모음은 원본 및 대상 저장소 계정에 액세스 하는 데 사용 되는 SAS 토큰 암호를 저장 하는 데 필요 원본 및 대상 레지스트리와 동일한 Azure 구독 또는 구독에 원본 및 대상 키 자격 증명 모음을 만듭니다. 데모용으로이 문서에 사용 된 템플릿과 명령은 원본 및 대상 키 자격 증명 모음이 각각 원본 및 대상 레지스트리와 동일한 리소스 그룹에 있는 것으로 가정 합니다. 이러한 공용 리소스 그룹 사용은 필요 하지 않지만이 문서에서 사용 되는 템플릿 및 명령을 단순화 합니다.
 
    필요한 경우 [Azure CLI](../key-vault/secrets/quick-create-cli.md) 또는 다른 도구를 사용 하 여 키 자격 증명 모음을 만듭니다.
@@ -277,11 +277,11 @@ PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/
 |pipelineRunName     |  실행에 대해 선택 하는 이름       |
 |pipelineResourceId     |  내보내기 파이프라인의 리소스 ID입니다.<br/>예: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  원본 저장소 계정으로 내보낸 아티팩트 blob에 대해 선택 하는 이름 (예: *myblob* )
-|artifacts | 태그 또는 매니페스트 다이제스트로 전송할 소스 아티팩트의 배열<br/>예: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+|아티팩트 | 태그 또는 매니페스트 다이제스트로 전송할 소스 아티팩트의 배열<br/>예: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 동일한 속성을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 [Forceupdatetag](#redeploy-pipelinerun-resource) 속성도 사용 해야 합니다.
 
-[Az deployment group create][az-deployment-group-create] 를 실행 하 여 PipelineRun 리소스를 만듭니다. 다음 예에서는 배포 *exportPipelineRun*의 이름을로 합니다.
+[Az deployment group create][az-deployment-group-create] 를 실행 하 여 PipelineRun 리소스를 만듭니다. 다음 예에서는 배포 *exportPipelineRun* 의 이름을로 합니다.
 
 ```azurecli
 az deployment group create \
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Blob 전송 (옵션) 
 
-AzCopy 도구나 다른 방법을 사용 하 여 원본 저장소 계정에서 대상 저장소 계정으로 [blob 데이터를 전송](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) 합니다.
+AzCopy 도구나 다른 방법을 사용 하 여 원본 저장소 계정에서 대상 저장소 계정으로 [blob 데이터를 전송](../storage/common/storage-use-azcopy-v10.md#transfer-data) 합니다.
 
 예를 들어 다음 [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) 명령은 원본 계정의 *전송* 컨테이너에서 myblob을 대상 계정의 *전송* 컨테이너로 복사 합니다. 대상 계정에 blob이 있는 경우 덮어씁니다. 인증은 원본 및 대상 컨테이너에 대 한 적절 한 사용 권한이 있는 SAS 토큰을 사용 합니다. 토큰을 만드는 단계는 표시 되지 않습니다.
 
@@ -377,7 +377,7 @@ az acr repository list --name <target-registry-name>
 
 ## <a name="redeploy-pipelinerun-resource"></a>PipelineRun 리소스 다시 배포
 
-*동일한 속성*을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 **forceupdatetag** 속성을 활용 해야 합니다. 이 속성은 구성이 변경 되지 않은 경우에도 PipelineRun 리소스를 다시 만들어야 함을 나타냅니다. PipelineRun 리소스를 다시 배포할 때마다 forceUpdateTag가 서로 다른 지 확인 하세요. 아래 예제에서는 내보내기에 대해 PipelineRun를 다시 만듭니다. 현재 datetime은 forceUpdateTag를 설정 하는 데 사용 되므로이 속성은 항상 고유 합니다.
+*동일한 속성* 을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 **forceupdatetag** 속성을 활용 해야 합니다. 이 속성은 구성이 변경 되지 않은 경우에도 PipelineRun 리소스를 다시 만들어야 함을 나타냅니다. PipelineRun 리소스를 다시 배포할 때마다 forceUpdateTag가 서로 다른 지 확인 하세요. 아래 예제에서는 내보내기에 대해 PipelineRun를 다시 만듭니다. 현재 datetime은 forceUpdateTag를 설정 하는 데 사용 되므로이 속성은 항상 고유 합니다.
 
 ```console
 CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
