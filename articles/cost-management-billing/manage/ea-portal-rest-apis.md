@@ -3,17 +3,17 @@ title: Azure 엔터프라이즈 REST API
 description: 이 문서에서는 Azure 엔터프라이즈 등록에 사용되는 REST API에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1fdf64053a55eb33d80ed461c231e8c6dd84d63b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132587"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677734"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -37,7 +37,7 @@ Microsoft Enterprise Azure 고객은 REST API를 통해 사용량 및 청구 정
 
 ### <a name="enable-api-data-access"></a>API 데이터 액세스 사용
 
-역할 소유자는 Azure EA Portal에서 다음 단계를 수행할 수 있습니다. **보고서** > **사용량 다운로드** > **API 액세스 키**로 이동합니다. 그러면 다음을 수행할 수 있습니다.
+역할 소유자는 Azure EA Portal에서 다음 단계를 수행할 수 있습니다. **보고서** > **사용량 다운로드** > **API 액세스 키** 로 이동합니다. 그러면 다음을 수행할 수 있습니다.
 
 - 기본 및 보조 액세스 키를 생성합니다.
 - 액세스 키를 사용하지 않도록 설정합니다.
@@ -46,21 +46,21 @@ Microsoft Enterprise Azure 고객은 REST API를 통해 사용량 및 청구 정
 ### <a name="generate-or-retrieve-the-api-key"></a>API 키 생성 또는 검색
 
 1. 엔터프라이즈 관리자로 로그인합니다.
-2. 왼쪽 탐색 창에서 **보고서**를 클릭한 다음, **사용량 다운로드**를 클릭합니다.
-3. **API 액세스 키**를 클릭합니다.
+2. 왼쪽 탐색 창에서 **보고서** 를 클릭한 다음, **사용량 다운로드** 를 클릭합니다.
+3. **API 액세스 키** 를 클릭합니다.
 4. **등록 액세스 키** 아래에서 키 생성 기호를 선택하여 기본 키 또는 보조 키를 생성합니다.
-5. **키 확장**을 선택하여 생성된 전체 API 액세스 키를 살펴봅니다.
-6. 즉시 사용할 수 있도록 **복사**를 선택하여 API 액세스 키를 가져옵니다.
+5. **키 확장** 을 선택하여 생성된 전체 API 액세스 키를 살펴봅니다.
+6. 즉시 사용할 수 있도록 **복사** 를 선택하여 API 액세스 키를 가져옵니다.
 
 ![API 액세스 키 페이지를 보여주는 예제](./media/ea-portal-rest-apis/ea-create-generate-or-retrieve-the-api-key.png)
 
 등록에서 엔터프라이즈 관리자가 아닌 사용자에게 API 액세스 키를 제공하려면 다음 단계를 수행합니다.
 
-1. 왼쪽 탐색 창에서 **관리**를 클릭합니다.
+1. 왼쪽 탐색 창에서 **관리** 를 클릭합니다.
 2. **DA 요금 보기**(부서 관리자 요금 보기) 옆에 있는 연필 기호를 클릭합니다.
-3. **사용**을 선택한 다음, **저장**을 클릭합니다.
+3. **사용** 을 선택한 다음, **저장** 을 클릭합니다.
 4. **AO 요금 보기**(계정 소유자 요금 보기) 옆에 있는 연필 기호를 클릭합니다.
-5. **사용**을 선택한 다음, **저장**을 클릭합니다.
+5. **사용** 을 선택한 다음, **저장** 을 클릭합니다.
 
 ![DA 및 AO 요금 보기가 설정된 것을 보여주는 예제](./media/ea-portal-rest-apis/create-ea-generate-or-retrieve-api-key-enable-ao-do-view.png) 이전 단계에서는 API 액세스 키 보유자에게 사용량 보고서의 비용 및 가격 책정 정보에 대한 액세스 권한을 제공합니다.
 
@@ -93,14 +93,6 @@ API를 사용하는 경우 응답 상태 코드가 표시됩니다. 다음 표�
 
 사용량 및 청구 데이터 파일은 현재 청구 월의 24시간마다 업데이트됩니다. 그러나 최대 3일 동안 데이터 대기 시간이 발생할 수 있습니다. 예를 들어 월요일에 사용된 데이터가 목요일까지 데이터 파일에 표시되지 않을 수 있습니다.
 
-### <a name="test-enrollment-for-development"></a>개발을 위한 테스트 등록
-
-Azure 엔터프라이즈 등록이 없는 파트너 또는 개발자가 API에 액세스하려면 테스트 등록을 사용하면 됩니다. 등록 이름은 _EnrollmentNumber 100_이며, 2018년 6월까지 사용 정보를 찾아 테스트할 수 있습니다. 그런 후, 다음 키를 사용하여 API를 호출하고 샘플 데이터를 볼 수 있습니다.
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
-```
-
 ### <a name="azure-service-catalog"></a>Azure 서비스 카탈로그
 
 모든 Azure 서비스는 Azure 스토리지 블로그의 카탈로그에 CSV 형식으로 게시됩니다. 카탈로그는 시스템에 사용할 모든 Azure 서비스의 큐레이팅된 카탈로그를 만들어야 하는 경우에 유용합니다. 현재 카탈로그는 [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv)에 있습니다.
@@ -113,37 +105,37 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5
 
 JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 CSV 형식과 동일합니다. 열 이름은 wielded이므로 JSON 요약 데이터를 사용할 때 데이터 테이블로 역직렬화해야 합니다.
 
-| CSV 열 이름 | JSON 열 이름 | JSON 새 열 | 주석 |
+| CSV 열 이름 | JSON 열 이름 | JSON 새 열 | 의견 |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | 계정 이름 | AccountName | AccountName |   |
 | ServiceAdministratorId | ServiceAdministratorLiveId | ServiceAdministratorLiveId |   |
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
-| 구독 이름 | SubscriptionName | SubscriptionName |   |
+| Subscription Name | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | 서비스 카탈로그 보고서가 실행된 날짜를 표시합니다. 형식은 타임스탬프 없는 날짜 문자열입니다. |
-| Month | Month | Month |   |
-| 일 | 일 | 일 |   |
-| Year | Year | Year |   |
+| Month | 월 | 월 |   |
+| 일 | Day | Day |   |
+| 년 | 년 | 년 |   |
 | Product | BillableItemName | Product |   |
-| 측정기 ID | ResourceGUID | MeterId |   |
+| Meter ID | ResourceGUID | MeterId |   |
 | 미터 범주 | 서비스 | MeterCategory | 서비스를 찾는 데 도움이 됩니다. 여러 ServiceType이 있는 서비스와 관련이 있습니다. Virtual Machines를 예로 들 수 있습니다. |
-| 측정기 하위 범주 | ServiceType | MeterSubCategory | 서비스에 대한 두 번째 수준의 세부 정보를 제공합니다. A1 VM(Windows 외)을 예로 들 수 있습니다.  |
-| 미터 영역 | ServiceRegion | MeterRegion | 서비스에 필요한 세 번째 수준의 세부 정보입니다. ResourceGUID의 영역 컨텍스트를 찾는 데 유용합니다. |
-| 미터 이름 | ServiceResource | MeterName | 서비스의 이름입니다. |
-| 사용량 | ResourceQtyConsumed | ConsumedQuantity |   |
+| Meter Sub-Category | ServiceType | MeterSubCategory | 서비스에 대한 두 번째 수준의 세부 정보를 제공합니다. A1 VM(Windows 외)을 예로 들 수 있습니다.  |
+| Meter Region | ServiceRegion | MeterRegion | 서비스에 필요한 세 번째 수준의 세부 정보입니다. ResourceGUID의 영역 컨텍스트를 찾는 데 유용합니다. |
+| Meter Name | ServiceResource | MeterName | 서비스의 이름입니다. |
+| Consumed Quantity | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
-| 리소스 위치 | ServiceSubRegion | ResourceLocation |   |
-| 사용되는 서비스 | ServiceInfo | ConsumedService |   |
-| 인스턴스 ID | 구성 요소 | InstanceId |   |
+| Resource Location | ServiceSubRegion | ResourceLocation |   |
+| Consumed Service | ServiceInfo | ConsumedService |   |
+| Instance ID | 구성 요소 | InstanceId |   |
 | ServiceInfo1 | ServiceInfo1 | ServiceInfo1 |   |
 | ServiceInfo2 | ServiceInfo2 | ServiceInfo2 |   |
 | AdditionalInfo | AdditionalInfo | AdditionalInfo |   |
-| 태그들 | 태그들 | 태그들 |   |
-| 스토어 서비스 식별자   | OrderNumber | StoreServiceIdentifier   |   |
+| 태그 | 태그 | 태그 |   |
+| Store Service Identifier   | OrderNumber | StoreServiceIdentifier   |   |
 | 부서 이름 | DepartmentName | DepartmentName |   |
-| 비용 센터 | CostCenter | CostCenter |   |
+| Cost Center | CostCenter | CostCenter |   |
 | 측정 단위 | UnitOfMeasure | UnitOfMeasure | 예제 값: 시간, GB, 이벤트, 푸시, 단위, 단위 시간, MB, 일별 단위 |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
@@ -155,30 +147,30 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | 계정 이름 | AccountName | AccountName |
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
-| 구독 이름 | SubscriptionName |  SubscriptionName |
+| Subscription Name | SubscriptionName |  SubscriptionName |
 | Date | BillingCycle |  날짜(날짜 문자열만 있음. 타임스탬프 없음)
-| Month | Month |  Month |
-| 일 | 일 |  일 |
-| Year | Year |  Year |
-| 측정기 ID | MeterResourceId |  MeterId |
+| Month | 월 |  월 |
+| 일 | Day |  Day |
+| 년 | 년 |  년 |
+| Meter ID | MeterResourceId |  MeterId |
 | 게시자 이름 | PublisherFriendlyName |  PublisherName |
 | 제품 이름 | OfferFriendlyName |  OfferName |
 | 플랜 이름 | PlanFriendlyName |  PlanName |
-| 사용량 | BilledQty |  ConsumedQuantity |
+| Consumed Quantity | BilledQty |  ConsumedQuantity |
 | ResourceRate | ResourceRate | ResourceRate |
 | ExtendedCost | ExtendedCost | ExtendedCost |
 | 측정 단위 | UnitOfMeasure | UnitOfMeasure |
-| 인스턴스 ID | InstanceId | InstanceId |
+| Instance ID | InstanceId | InstanceId |
 | 추가 정보 | AdditionalInfo | AdditionalInfo |
-| 태그들 | 태그들 | 태그들 |
+| 태그 | 태그 | 태그 |
 | 주문 번호 | OrderNumber | OrderNumber |
 | 부서 이름 | DepartmentNames | DepartmentName |
-| 비용 센터 | CostCenters |  CostCenter |
+| Cost Center | CostCenters |  CostCenter |
 | 리소스 그룹 | ResourceGroup |  ResourceGroup |
 
 #### <a name="price-sheet"></a>가격표
 
-| CSV 열 이름 | JSON 열 이름 | 주석 |
+| CSV 열 이름 | JSON 열 이름 | 의견 |
 | --- | --- | --- |
 | 서비스 | 서비스 |  가격 변경 없음 |
 | 측정 단위 | UnitOfMeasure |   |
