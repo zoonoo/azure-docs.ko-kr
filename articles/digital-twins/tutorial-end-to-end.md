@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049219"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684008"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -117,49 +117,9 @@ NuGet 패키지 관리자가 열립니다. *업데이트* 탭을 선택하고 �
 
 ### <a name="publish-the-app"></a>앱 게시
 
-_**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아가서 *솔루션 탐색기* 창에서 _**SampleFunctionsApp**_ 프로젝트 파일을 마우스 오른쪽 단추로 선택하고 **게시** 를 누릅니다.
+_**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아가서 *솔루션 탐색기* 창에서 _**SampleFunctionsApp**_ 프로젝트를 찾습니다.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: 프로젝트 게시":::
-
-다음에 나오는 *게시* 페이지에서 기본 대상 선택 항목인 **Azure** 를 그대로 두고 *다음* 을 누릅니다. 
-
-특정 대상에 대해 **Azure 함수 앱(Windows)** 을 선택하고 *다음* 을 누릅니다.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Visual Studio에서 Azure 함수 게시: 특정 대상":::
-
-*Functions 인스턴스* 페이지에서 구독을 선택합니다. 그러면 구독의 *리소스 그룹* 으로 상자가 채워집니다.
-
-인스턴스의 리소스 그룹을 선택하고 *+* 를 눌러 새 Azure 함수를 만듭니다.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Visual Studio에서 Azure 함수 게시: Functions 인스턴스(함수 앱 전)":::
-
-*함수 앱(Windows) - 새 만들기* 창에서 다음과 같이 필드를 입력합니다.
-* **이름** 은 Azure에서 Azure Functions 앱을 호스트하는 데 사용하는 소비 계획의 이름입니다. 이는 실제 함수를 보유하는 함수 앱의 이름도 됩니다. 고유 값을 선택하거나 기본 제안을 그대로 둘 수 있습니다.
-* **구독** 이 사용하려는 구독과 일치하는지 확인합니다. 
-* **리소스 그룹** 이 사용하려는 리소스 그룹과 일치하는지 확인합니다.
-* **계획 유형** 을 *소비* 로 둡니다.
-* 리소스 그룹의 위치와 일치하는 **위치** 를 선택합니다.
-* *새로 만들기...* 링크를 사용하여 새 **Azure Storage** 리소스를 만듭니다. 리소스 그룹에 맞게 위치를 설정하고, 다른 기본값을 사용한 다음, "확인"을 누릅니다.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Visual Studio에서 Azure 함수 게시: 함수 앱(Windows) - 새로 만들기":::
-
-그런 다음 **만들기** 를 선택합니다.
-
-그러면 이제 리소스 그룹 아래에 새 함수 앱이 표시되는 *Functions 인스턴스* 페이지로 돌아갑니다. *마침* 을 누릅니다.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Visual Studio에서 Azure 함수 게시: Functions 인스턴스(함수 앱 후)":::
-
-주 Visual Studio 창에서 다시 열리는 *게시* 창에서 모든 정보가 올바른지 확인하고 **게시** 를 선택합니다.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Visual Studio에서 Azure 함수 게시: 게시":::
-
-> [!NOTE]
-> 다음과 같은 팝업이 표시되는 경우: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Visual Studio에서 Azure 함수 게시: 자격 증명 게시" border="false":::
-> **Azure에서 자격 증명 검색 시도** 와 **저장** 을 선택합니다.
->
-> *Azure에서 Functions 버전 업그레이드* 또는 *함수 런타임 버전이 Azure에서 실행되는 버전과 일치하지 않음* 경고가 표시되는 경우:
->
-> 프롬프트에 따라 최신 Azure Functions 런타임 버전으로 업그레이드합니다. 이 문제는 이 자습서의 시작 부분에 있는 *필수 구성 요소* 섹션에서 권장하는 것보다 이전 버전의 Visual Studio를 사용하는 경우 발생할 수 있습니다.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### <a name="assign-permissions-to-the-function-app"></a>함수 앱에 사용 권한 할당
 
@@ -167,11 +127,13 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Digital Twins 인스턴스를 참조하는 데 사용할 애플리케이션 설정을 지정합니다.
+Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Digital Twins 인스턴스를 참조하는 데 사용할 애플리케이션 설정을 지정합니다. 리소스의 세부 정보를 자리 표시자에 입력합니다(Azure Digital Twins 인스턴스 URL은 *https://* 로 시작하는 호스트 이름임).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 *ADT_SERVICE_URL* 이라는 항목을 포함합니다.
 
 다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 *principalId* 필드를 기록해 둡니다.
 

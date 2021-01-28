@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369531"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733497"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -968,7 +968,8 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 `translate` 엔드포인트에서 음역을 가져오려면 `toScript` 매개 변수를 사용합니다.
 
-> ![참고] 사용 가능한 언어 및 음역 옵션의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
+> [!NOTE]
+> 사용 가능한 언어 및 음차 옵션의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 `transliterate` 엔드포인트를 사용하여 음역을 가져올 수도 있습니다. 음역 엔드포인트를 사용하는 경우 원본 언어(`language`), 원본 스크립트/알파벳(`fromScript`) 및 출력 스크립트/알파벳(`toScript`)을 매개 변수로 제공해야 합니다. 다음 예제에서는 สวัสดี에 대한 음역을 가져옵니다. 
 
-> ![참고] 사용 가능한 언어 및 음역 옵션의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
+> [!NOTE]
+> 사용 가능한 언어 및 음차 옵션의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

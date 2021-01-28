@@ -120,6 +120,10 @@
       href: azure-monitor.md
     - name: 재해 복구 계획 설정
       href: disaster-recovery.md
+    - name: KDC 프록시 설정
+      href: key-distribution-center-proxy.md
+    - name: RD 게이트웨이 역할 설정
+      href: rd-gateway-role.md
 - name: 개념
   items:
     - name: 기본 제공 역할
@@ -170,6 +174,10 @@
       href: azure-monitor-glossary.md
     - name: 데이터 위치
       href: data-locations.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 문제 해결
   items:
     - name: '문제 해결 개요, 피드백 및 지원'

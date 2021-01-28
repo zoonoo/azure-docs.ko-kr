@@ -601,24 +601,24 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
+    - name: 스폿 가상 머신
+      displayName: 'pre-empt, preempt, spot'
+      items:
+        - name: 개요
+          href: spot-vms.md
+        - name: CLI
+          href: ./linux/spot-cli.md
+        - name: 포털
+          href: spot-portal.md
+        - name: PowerShell
+          href: ./windows/spot-powershell.md
+        - name: ARM 템플릿
+          displayName: template ARM
+          href: ./linux/spot-template.md
+        - name: 오류 코드
+          href: error-codes-spot.md
     - name: 구매 옵션
       items:
-        - name: 스폿 VM
-          displayName: 'pre-empt, preempt, spot'
-          items:
-            - name: 개요
-              href: spot-vms.md
-            - name: CLI
-              href: ./linux/spot-cli.md
-            - name: 포털
-              href: spot-portal.md
-            - name: PowerShell
-              href: ./windows/spot-powershell.md
-            - name: ARM 템플릿
-              displayName: template ARM
-              href: ./linux/spot-template.md
-            - name: 오류 코드
-              href: error-codes-spot.md
         - name: Azure 하이브리드 혜택
           items:
             - name: Linux
@@ -1747,7 +1747,7 @@
         - name: 가격 책정
           href: ../backup/azure-backup-pricing.md
         - name: FAQ
-          href: ../backup/backup-azure-vm-backup-faq.md
+          href: ../backup/backup-azure-vm-backup-faq.yml
     - name: 재해 복구
       items:
         - name: 개요

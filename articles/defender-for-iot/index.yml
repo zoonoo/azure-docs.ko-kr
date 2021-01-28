@@ -11,12 +11,12 @@ metadata:
   author: mlottner
   ms.author: mlottner
   ms.date: 09/07/2020
-  ms.openlocfilehash: 89bab2cde338cdabe47f70ee084aa5365b1f1877
-  ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+  ms.openlocfilehash: a56e82d81839d94029bc34dcdec30544e7158ea1
+  ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/06/2021
-  ms.locfileid: "97935974"
+  ms.lasthandoff: 01/26/2021
+  ms.locfileid: "98802678"
 landingContent:
 - title: Azure Defender for IoT 시작
   linkLists:
@@ -26,7 +26,7 @@ landingContent:
       url: overview.md
     - text: 솔루션 아키텍처
       url: architecture.md
-    - text: 설치 개요
+    - text: 솔루션 설치 개요
       url: getting-started.md
     - text: 새로운 기능
       url: release-notes.md
@@ -50,8 +50,6 @@ landingContent:
       url: how-to-investigate-sensor-detections-in-a-device-inventory.md
     - text: 경고 조사
       url: how-to-work-with-alerts-on-your-sensor.md
-    - text: 보고서 생성
-      url: how-to-generate-reports.md
     - text: 검색된 트래픽 제어
       url: how-to-control-what-traffic-is-monitored.md
     - text: Azure Sentinel에 연결

@@ -3,13 +3,12 @@
 - name: 개요
   href: overview.md
   items:
-    - name: 새로운 기능
-      href: release-notes.md
     - name: 솔루션 아키텍처
       href: architecture.md
-- name: 빠른 시작
-  expanded: true
-  items:
+    - name: 새로운 기능
+      href: release-notes.md
+    - name: 빠른 시작
+      expanded: true
     - name: 조직을 위한 에이전트 없는 솔루션
       items:
         - name: 시스템 필수 구성 요소
@@ -154,6 +153,16 @@
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
         - name: 온-프레미스 관리 콘솔의 경고 작업
           href: how-to-work-with-alerts-on-premises-management-console.md
+        - name: 보고서 만들기
+          items:
+            - name: 위험 평가 보고서 만들기
+              href: how-to-create-risk-assessment-reports.md
+            - name: 공격 벡터 보고서 만들기
+              href: how-to-create-attack-vector-reports.md
+            - name: 데이터 마이닝 보고서 만들기
+              href: how-to-create-data-mining-queries.md
+            - name: 추세 및 통계 보고서 만들기
+              href: how-to-create-data-mining-queries.md
         - name: 디바이스 정보 보강
           items:
             - name: 디바이스 알림 작업
@@ -168,8 +177,6 @@
         - name: 센서 동작 추적
           href: how-to-track-sensor-activity.md
           displayName: 'timeline, time line, time-line, event'
-        - name: 보고서 생성
-          href: how-to-generate-reports.md
         - name: 센서 및 온-프레미스 관리 콘솔 문제 해결
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: SNMP MIB 모니터링 설정

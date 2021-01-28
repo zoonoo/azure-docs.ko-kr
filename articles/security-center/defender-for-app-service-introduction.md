@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791841"
+ms.locfileid: "98796625"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Azure Defender for App Service 소개
 
@@ -62,9 +62,9 @@ Azure Defender는 App Service 리소스에 대한 여러 위협을 모니터링�
 
 ### <a name="dangling-dns-detection"></a>현수 DNS 검색
 
-또한 Azure Defender for App Service는 App Service 웹 사이트가 해제될 때 DNS 등록자에 남아있는 모든 DNS 항목을 식별합니다. 이러한 항목을 현수 DNS 항목이라고 합니다. 현재 DNS 항목은 존재하지 않는 리소스를 가리키고 있으며 하위 도메인은 인수에 취약합니다. Azure Defender는 DNS 등록자에서 *기존* 현수 DNS 항목을 검색하지 않습니다. App Service 웹 사이트가 서비스 해제되고 해당 사용자 지정 도메인(DNS 항목)이 삭제되지 않으면 이를 경고합니다.
+또한 Azure Defender for App Service는 App Service 웹 사이트가 해제될 때 DNS 등록자에 남아있는 모든 DNS 항목을 식별합니다. 이러한 항목을 현수 DNS 항목이라고 합니다. 웹 사이트를 제거하고 DNS 등록자에서 사용자 지정 도메인을 제거하지 않으면 DNS 항목이 존재하지 않는 리소스를 가리키고 하위 도메인이 인수에 취약해집니다. Azure Defender는 DNS 등록자에서 *기존* 현수 DNS 항목을 검색하지 않습니다. App Service 웹 사이트가 서비스 해제되고 해당 사용자 지정 도메인(DNS 항목)이 삭제되지 않으면 이를 경고합니다.
 
-하위 도메인 인수는 조직에 일반적이고 심각도가 높은 위협입니다. 위협 행위자가 현수 DNS 항목을 검색하면 대상 주소에 자체 사이트를 만듭니다. 그런 다음, 조직의 도메인을 대상으로 하는 트래픽은 위협 행위자의 사이트로 보내지고 광범위한 악의적인 활동에 해당 트래픽을 사용할 수 있습니다. 
+하위 도메인 인수는 조직에 일반적이고 심각도가 높은 위협입니다. 위협 행위자가 현수 DNS 항목을 검색하면 대상 주소에 자체 사이트를 만듭니다. 그런 다음, 조직의 도메인을 대상으로 하는 트래픽은 위협 행위자의 사이트로 보내지고 광범위한 악의적인 활동에 해당 트래픽을 사용할 수 있습니다.
 
 현수 DNS 보호는 도메인이 Azure DNS 또는 외부 도메인 등록 기관으로 관리되는지 여부에 관계없이 사용할 수 있고 Windows의 App Service 및 Linux의 App Service 모두에 적용합니다.
 
@@ -98,6 +98,6 @@ Azure Defender for App Service를 사용하여 Azure App Service 요금제를 �
 
 - 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)의 지침을 따릅니다.
 - Azure Defender for App Service 경고 목록은 [경고 참조 테이블](alerts-reference.md#alerts-azureappserv)를 참조하세요.
-- App Service 요금제에 대한 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
+- App Service 계획에 대한 자세한 내용은 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md)
+> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)

@@ -796,6 +796,10 @@
       href: /python/api/overview/azure/datafactory
 - name: 리소스
   items:
+    - name: 데이터 흐름 예약 용량 개요
+      href: data-flow-reserved-capacity-overview.md
+    - name: 데이터 흐름 이해 예약 요금
+      href: data-flow-understand-reservation-charges.md
     - name: 백서
       href: whitepapers.md
     - name: FAQ

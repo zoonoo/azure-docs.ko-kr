@@ -134,7 +134,7 @@
               items:
                 - name: 개요
                   href: explore-data.md
-                - name: Azure Blob Storage 탐색
+                - name: Azure Blob Storage 살펴보기
                   href: explore-data-blob.md
                 - name: VM의 SQL 탐색
                   href: explore-data-sql-server.md
@@ -144,7 +144,7 @@
               items:
                 - name: 개요
                   href: sample-data.md
-                - name: Blob Storage 사용
+                - name: Blob 스토리지 사용
                   href: sample-data-blob.md
                 - name: SQL Server 사용
                   href: sample-data-sql-server.md

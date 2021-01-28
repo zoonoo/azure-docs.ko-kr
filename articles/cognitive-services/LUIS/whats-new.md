@@ -4,13 +4,13 @@ description: 이 문서는 Azure Cognitive Services Language Understanding API�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/12/2021
-ms.openlocfilehash: 4bcd25e96aba1ca103737679540cb9ff67674914
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 01/21/2021
+ms.openlocfilehash: 5fdde81d31eae4c50b86a5553742f9b599f32505
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179132"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693598"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -21,6 +21,7 @@ ms.locfileid: "98179132"
 ### <a name="january-2021"></a>2021년 1월
 
 * V3 예측 API는 이제 [Bing Spellcheck API](luis-how-to-publish-app.md#spelling-correction)를 지원합니다.
+* 지역 포털(au.luis.ai 및 eu.luis.ai)은 단일 포털 및 URL로 통합됩니다. 이러한 포털 중 하나를 사용 중인 경우 자동으로 luis.ai로 리디렉션됩니다.
 
 ### <a name="december-2020"></a>2020년 12월
 
