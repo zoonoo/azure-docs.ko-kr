@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044291"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951719"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>자습서: Azure Virtual Machines에서 SQL Server에 가용성 그룹을 만들기 위한 필수 구성 요소
 
@@ -91,9 +91,9 @@ Azure Portal에서 가상 네트워크를 만들려면 다음을 수행 합니�
    | **필드** | 값 |
    | --- | --- |
    | **이름** |autoHAVNET |
-   | **주소 공간** |10.33.0.0/24 |
+   | **주소 공간** |10.0.0.0/24 |
    | **서브넷 이름** |Admin |
-   | **서브넷 주소 범위** |10.33.0.0/29 |
+   | **서브넷 주소 범위** |10.0.0.0/29 |
    | **구독** |사용하려는 구독을 지정합니다. 하나의 구독만 있는 경우 **구독** 은 비어 있습니다. |
    | **리소스 그룹** |**기존 항목 사용** 을 선택하고 리소스 그룹의 이름을 선택합니다. |
    | **위치** |Azure 위치를 지정합니다. |

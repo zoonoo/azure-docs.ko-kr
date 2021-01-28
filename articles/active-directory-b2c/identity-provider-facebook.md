@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598872"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952677"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -84,6 +84,21 @@ Azure Active Directory B2C (Azure AD B2C)에서 Facebook 계정을 사용 하는
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="create-a-policy-key"></a>정책 키 만들기
+
+이전에 Azure AD B2C 테 넌 트에 기록한 앱 암호를 저장 해야 합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 최상위 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
+4. 개요 페이지에서 **ID 경험 프레임워크** 를 선택합니다.
+5. **정책 키**, **추가** 를 차례로 선택합니다.
+6. **옵션** 으로는 `Manual`을 선택합니다.
+7. 정책 키의 **이름** 을 입력합니다. 예들 들어 `FacebookSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+8. **비밀** 에서 이전에 기록한 앱 암호를 입력 합니다.
+9. **키 사용** 에서 `Signature`를 선택합니다.
+10. **만들기** 를 클릭합니다.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성
 

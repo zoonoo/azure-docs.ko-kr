@@ -1,16 +1,16 @@
 ---
 title: 수련 여 모드-Personalizer
-description: ''
+description: 코드를 변경 하지 않고 모델에서 확신을 얻기 위해 수련 여 된 모드를 사용 하는 방법을 알아봅니다.
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f793535f04b36d231cec384b7acd66e38a7eb039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253533"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951330"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>기존 응용 프로그램에 영향을 주지 않고 Personalizer를 학습 하려면 수련 한 모드를 사용 합니다.
 
@@ -32,7 +32,7 @@ Personalizer를 학습 하 고 특정 수준의 이해를 획득 한 후에는 �
 
 수련 생 모드를 사용 하는 두 가지 주요 이유는 다음과 같습니다.
 
-* **콜드 시작**완화: 수련 여가 "새로운" 모델의 학습 시간에 대 한 비용을 관리 하 고 평가 하는 데 도움이 60-80 됩니다.
+* **콜드 시작** 완화: 수련 여가 "새로운" 모델의 학습 시간에 대 한 비용을 관리 하 고 평가 하는 데 도움이 60-80 됩니다.
 * **작업 및 컨텍스트 기능 유효성 검사**: 작업 및 컨텍스트에 전송 된 기능이 부적절 하거나 부정확 하거나 너무 많거나, 너무 많거나, 잘못 되었거나, 너무 Personalizer 교육 하 여 이상적인 효율성을 얻을 수 있습니다. 기능 [평가](concept-feature-evaluation.md) 를 사용 하 여 기능 관련 문제를 찾고 해결할 수 있습니다.
 
 ## <a name="when-should-you-use-apprentice-mode"></a>수련 여를 사용 해야 하는 경우
@@ -62,7 +62,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 |영역|실습생 모드|온라인 모드|
 |--|--|--|
 |사용자 경험에 미치는 영향|기존 사용자 동작을 사용 하 여 **기본 작업이** 수행 된 것과 획득 한 보상을 관찰 (영향을 주지 않음) 하도록 하 여 Personalizer를 교육할 수 있습니다. 즉, 사용자의 경험과 비즈니스 결과는 영향을 받지 않습니다.|사용자 동작에 영향을 주기 위해 Rank 호출에서 반환 된 상위 작업을 표시 합니다.|
-|학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업**에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|
+|학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업** 에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|
 |"천장" 학습 효율성|Personalizer는 대략적으로 거의 일치 하지 않으며 기본 비즈니스 논리 (각 순위 호출의 **기본 작업** 에서 달성 한 보상 합계)의 성능을 초과할 수 없습니다.|Personalizer는 응용 프로그램 기준을 초과 해야 하며, 지연 되는 시간에 따라 모델에 대 한 향상 된 기능을 계속 사용할 수 있도록 오프 라인 평가 및 기능 평가를 수행 해야 합니다. |
 |RewardActionId에 대 한 순위 API 값|_RewardActionId_ 는 항상 순위 요청에서 전송 하는 첫 번째 작업 이므로 사용자 환경이 영향을 받지 않습니다. 즉, 순위 API는 응용 프로그램에 대해 수련 여가 표시 되지 않습니다. 응용 프로그램의 보상 Api는 한 모드와 다른 모드 사이에 보상 API를 사용 하는 방법을 변경 해서는 안 됩니다.|사용자 환경은 응용 프로그램에 대해 Personalizer에서 선택 하는 _rewardActionId_ 에서 변경 됩니다. |
 |평가|Personalizer는 기본 비즈니스 논리가 가져오는 보상 합계를 비교 하 고, 해당 시점에 온라인 모드에서 보상 합계 Personalizer을 가져옵니다. 비교는 해당 리소스에 대 한 Azure Portal에서 사용할 수 있습니다.|[오프 라인 평가](concepts-offline-evaluation.md)를 실행 하 여 Personalizer의 효율성을 평가 합니다 .이를 통해 Personalizer는 응용 프로그램 기준의 잠재적 보상에 대해 달성 한 총 보상을 비교할 수 있습니다.|
@@ -88,7 +88,7 @@ Personalizer를 수련 여 설정 하 고 기록 데이터의 작업 및 컨텍�
 
 유효성을 검사 하 고 온라인 모드에서 학습 하는 경우 Personalizer 처리가의 A/B 테스트를 수행 하는 데만 유용 합니다. 수련 한 모드에서는 **기본 동작만** 사용 됩니다. 즉, 모든 사용자가 제어 환경을 효과적으로 볼 수 있습니다.
 
-Personalizer만 _처리_하는 경우에도 데이터의 유효성 검사가 Personalizer 학습에 적합 한 경우에도 동일한 과제가 제공 됩니다. 대신 100%의 트래픽을 포함 하 고 모든 사용자가 제어 (영향을 받지 않음) 환경을 얻는 경우에는 수련 한 모드를 사용할 수 있습니다.
+Personalizer만 _처리_ 하는 경우에도 데이터의 유효성 검사가 Personalizer 학습에 적합 한 경우에도 동일한 과제가 제공 됩니다. 대신 100%의 트래픽을 포함 하 고 모든 사용자가 제어 (영향을 받지 않음) 환경을 얻는 경우에는 수련 한 모드를 사용할 수 있습니다.
 
 Personalizer 및 learning을 사용 하는 사용 사례가 있으면 A/B 실험을 통해 보상에 사용 되는 신호 보다 더 복잡 한 결과의 제어 된 코 호트 및 과학적 비교를 수행할 수 있습니다. A/B 테스트에서 답변할 수 있는 예제 질문은 다음과 같습니다. `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
 

@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796625"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916716"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Azure Defender for App Service 소개
 
@@ -98,6 +98,6 @@ Azure Defender for App Service를 사용하여 Azure App Service 요금제를 �
 
 - 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍](export-to-siem.md)의 지침을 따릅니다.
 - Azure Defender for App Service 경고 목록은 [경고 참조 테이블](alerts-reference.md#alerts-azureappserv)를 참조하세요.
-- App Service 계획에 대한 자세한 내용은 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
+- App Service 요금제에 대한 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
 > [!div class="nextstepaction"]
 > [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)

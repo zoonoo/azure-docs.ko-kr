@@ -1,17 +1,17 @@
 ---
 title: 서버 매개 변수-Azure Database for MySQL
 description: 이 항목에서는 Azure Database for MySQL에서 서버 매개 변수를 구성 하기 위한 지침을 제공 합니다.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534911"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951313"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -261,6 +261,18 @@ Lower_case_table_name은 기본적으로 1로 설정 되며 MySQL 5.6 및 MySQL 
 |메모리 최적화|8|16777216|1024|536870912|
 |메모리 최적화|16|16777216|1024|1073741824|
 |메모리 최적화|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>InnoDB 버퍼 풀 준비
+Azure Database for MySQL server를 다시 시작한 후에는 테이블이 쿼리 될 때 디스크에 있는 데이터 페이지가 로드 됩니다. 이로 인해 쿼리를 처음 실행 하는 경우 대기 시간이 늘어나고 성능이 저하 될 수 있습니다. 대기 시간이 중요 한 작업에는이 작업이 허용 되지 않을 수 있습니다. InnoDB 버퍼 풀 준비를 활용 하면 DML 또는 SELECT 작업에서 해당 행에 액세스할 때까지 기다리지 않고 다시 시작 하기 전에 버퍼 풀에 있던 디스크 페이지를 다시 로드 하 여 준비 시간을 단축 합니다.
+
+[InnoDB 버퍼 풀 서버 매개 변수](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html)를 구성 하 여 성능 이점을 나타내는 Azure Database for MySQL 서버를 다시 시작한 후 준비 기간을 줄일 수 있습니다. InnoDB 서버를 종료할 때 각 버퍼 풀에 대해 가장 최근에 사용 된 페이지의 백분율을 절약 하 고 서버 시작 시이 페이지를 복원 합니다.
+
+또한 서버에 대 한 시작 시간이 길어질 수 있으므로 성능 향상이 중요 합니다. 이 매개 변수를 사용 하도록 설정 하면 서버에서 프로 비전 된 IOPS에 따라 서버 시작 및 다시 시작 시간이 증가할 것으로 예상 됩니다. 해당 시간 동안 서버를 사용할 수 없어 시작/다시 시작 성능이 허용 되는지 확인 하기 위해 다시 시작 시간을 테스트 하 고 모니터링 하는 것이 좋습니다. 프로 비전 된 IOPS가 1000 IOPS 보다 작은 경우에는이 매개 변수를 사용 하지 않는 것이 좋습니다 (즉, 프로 비전 된 저장소가 335GB 미만인 경우).
+
+서버 종료 시 버퍼 풀의 상태를로 저장 하려면 서버 매개 변수 `innodb_buffer_pool_dump_at_shutdown` 를로 설정 `ON` 합니다. 마찬가지로 서버 `innodb_buffer_pool_load_at_startup` `ON` 시작 시 버퍼 풀 상태를 복원 하려면 서버 매개 변수를로 설정 합니다. 서버 매개 변수 값을 낮추고 미세 조정 하 여 시작/다시 시작에 대 한 영향을 제어할 수 있습니다 `innodb_buffer_pool_dump_pct` . 기본적으로이 매개 변수는로 설정 됩니다 `25` .
+
+> [!Note]
+> InnoDB buffer pool 워밍업 매개 변수는 최대 16TB의 저장소를 포함 하는 범용 저장소 서버 에서만 지원 됩니다. [Azure Database for MySQL 저장소 옵션](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)에 대 한 자세한 내용은 여기를 참조 하세요.
 
 ### <a name="time_zone"></a>time_zone
 

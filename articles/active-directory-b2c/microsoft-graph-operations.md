@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938485"
+ms.locfileid: "98952236"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
 Microsoft Graph를 사용 하 여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. 다음 Microsoft Graph API 작업은 사용자, id 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 비롯 한 Azure AD B2C 리소스 관리에 대해 지원 됩니다. 다음 섹션의 각 링크는 해당 작업에 대 한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 작용 하려면 권한을 부여 하는 응용 프로그램 등록이 필요 합니다. 관리 응용 프로그램에서 사용할 수 있는 응용 프로그램 등록을 만들려면 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md) 문서의 단계를 수행 합니다. 
 
@@ -45,9 +45,13 @@ MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 �
 - [업데이트](/graph/api/phoneauthenticationmethod-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
+[목록](/graph/api/authentication-list-phonemethods) 작업은 사용 하도록 설정 된 전화 번호만 반환 합니다. 목록 작업과 함께 사용 하려면 다음 전화 번호를 사용 하도록 설정 해야 합니다. 
+
+![휴대폰 로그인 사용](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
 ## <a name="self-service-password-reset-email-address-beta"></a>셀프 서비스 암호 재설정 전자 메일 주소 (베타)
 
-사용자가 사용자 [이름 로그인 계정](identity-provider-local.md#username-sign-in)에 대 한 암호를 저장 하는 데 사용할 수 있는 전자 메일 주소입니다. 자세한 내용은 [AZURE AD 인증 방법 API](/graph/api/resources/emailauthenticationmethod)를 참조 하세요.
+[사용자 이름 로그인 계정](identity-provider-local.md#username-sign-in) 에서 암호를 재설정 하는 데 사용할 수 있는 전자 메일 주소입니다. 자세한 내용은 [AZURE AD 인증 방법 API](/graph/api/resources/emailauthenticationmethod)를 참조 하세요.
 
 - [추가](/graph/api/emailauthenticationmethod-post)
 - [목록](/graph/api/emailauthenticationmethod-list)

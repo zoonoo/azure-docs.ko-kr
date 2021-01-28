@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 92c5850c3e8c6db63bb5f6287078d2b0345a051c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 0981687b03344daf7a447cc4d9e50f0923341340
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538040"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98952294"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정
 
@@ -59,7 +59,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-salesforce-account-as-an-identity-provider"></a>Salesforce 계정을 id 공급자로 구성
+## <a name="configure-salesforce-as-an-identity-provider"></a>Salesforce를 id 공급자로 구성
 
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
@@ -85,6 +85,17 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
     - **전자 메일**: *전자 메일*
 
 1. **저장** 을 선택합니다.
+
+## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>사용자 흐름에 Salesforce id 공급자 추가 
+
+1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
+1. Salesforce id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
+1. **소셜 id 공급자** 아래에서 **Salesforce** 를 선택 합니다.
+1. **저장** 을 선택합니다.
+1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
+1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **사용자 흐름 실행** 을 클릭 합니다.
+
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -104,9 +115,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
 9. **키 사용** 에서 `Signature`를 선택합니다.
 10. **만들기** 를 클릭합니다.
 
-## <a name="add-a-claims-provider"></a>클레임 공급자 추가
+## <a name="configure-salesforce-as-an-identity-provider"></a>Salesforce를 id 공급자로 구성
 
-사용자가 Salesforce 계정을 사용 하 여 로그인 하도록 하려면 Azure AD B2C 끝점을 통해 통신할 수 있는 클레임 공급자로 계정을 정의 해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 Salesforce 계정을 사용 하 여 로그인 할 수 있도록 하려면 해당 계정을 사용 하 여 끝점을 통해 통신할 수 Azure AD B2C 하는 클레임 공급자로 계정을 정의 해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
 정책의 확장 파일에서 **ClaimsProviders** 요소에 Salesforce 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
 
@@ -119,7 +130,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
       <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="Salesforce-OIDC">
+        <TechnicalProfile Id="Salesforce-OpenIdConnect">
           <DisplayName>Salesforce</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
@@ -159,80 +170,29 @@ Azure Active Directory B2C (Azure AD B2C)에서 Salesforce 계정이 있는 사�
 5. **client_id** 를 애플리케이션 등록의 애플리케이션 ID로 설정합니다.
 6. 파일을 저장합니다.
 
-### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-지금까지 Azure AD B2C에서 Salesforce 계정과 통신하는 방법을 알 수 있도록 정책을 구성했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
-1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책** 을 선택합니다.
-2. **정책이 있는 경우 덮어쓰기** 를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
-3. **업로드** 를 클릭합니다.
-
-## <a name="register-the-claims-provider"></a>클레임 공급자 등록
-
-이 시점에서 ID 공급자가 설정되었지만 등록/로그인 화면에서 사용할 수는 없습니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 Salesforce ID 공급자도 포함하도록 수정합니다.
-
-1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
-3. *TrustFrameworkExtensions.xml* 을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
-4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. 예들 들어 `SignUpSignInSalesforce`입니다.
-
-### <a name="display-the-button"></a>단추 표시
-
-**ClaimsProviderSelection** 요소는 등록/로그인 화면의 ID 공급자 단추와 비슷합니다. Salesforce 계정에 대 한 **ClaimsProviderSelection** 요소를 추가 하면 사용자가 페이지를 열면 새 단추가 표시 됩니다.
-
-1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
-2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `SalesforceExchange`)으로 설정합니다.
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>작업에 단추 연결
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OpenIdConnect" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에 작업을 통해 Azure AD B2C에서 Salesforce 계정과 통신하여 토큰을 수신할 수 있게 됩니다.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep** 을 찾습니다.
-2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId** 에 사용한 것과 같은 값을 사용해야 합니다.
-
-    ```xml
-    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-OIDC" />
-    ```
-
-    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예들 들어 `Salesforce-OIDC`입니다.
-
-3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
-
-## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>사용자 흐름에 Salesforce id 공급자 추가 
-
-1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
-1. Salesforce id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.
-1. **소셜 id 공급자** 아래에서 **Salesforce** 를 선택 합니다.
-1. **저장** 을 선택합니다.
-1. 정책을 테스트 하려면 **사용자 흐름 실행** 을 선택 합니다.
-1. **응용 프로그램** 의 경우 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **사용자 흐름 실행** 을 클릭 합니다.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
-
-만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
-
-1. 작업 디렉터리에서 *SignUpOrSignIn.xml* 의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInSalesforce.xml* 로 바꿉니다.
-1. 새 파일을 열고 **TrustFrameworkPolicy** 의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예들 들어 `SignUpSignInSalesforce`입니다.
-1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_Salesforce`으로 업데이트할 수 있습니다.
-1. 만든 새 사용자 경험의  ID (SignUpSignSalesforce)와 일치 하도록 **defaultuserjourney** 의 특성 값을 업데이트 합니다.
-1. 변경 내용을 저장 하 고 파일을 업로드 합니다.
-1. **사용자 지정 정책** 에서 **B2C_1A_signup_signin** 을 선택합니다.
-1. **응용 프로그램 선택** 에 대해 이전에 등록 한 *testapp1-development* 이라는 웹 응용 프로그램을 선택 합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
-1. **지금 실행** 을 선택 하 고 salesforce를 선택 하 여 salesforce에 로그인 하 고 사용자 지정 정책을 테스트 합니다.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end
 
