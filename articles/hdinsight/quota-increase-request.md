@@ -1,19 +1,16 @@
 ---
 title: CPU 코어 할당량 증가 요청 - Azure HDInsight
 description: 구독에 할당된 CPU 코어 수 증가를 요청하는 프로세스에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539414"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935837"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Azure HDInsight의 할당량 증가 요청
 
@@ -42,9 +39,9 @@ CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 �
 1. **새 지원 요청** 을 선택합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
 
-   - **문제 유형** : **서비스 및 구독 제한(할당량)**
-   - **구독** : 수정하려는 구독
-   - **할당량 유형** : **HDInsight**
+   - **문제 유형**: **서비스 및 구독 제한(할당량)**
+   - **구독**: 수정하려는 구독
+   - **할당량 유형**: **HDInsight**
 
      ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/quota-increase-request/hdinsight-quota-support-request.png)
 

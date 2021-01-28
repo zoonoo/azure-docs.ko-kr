@@ -2,19 +2,17 @@
 title: IntelliJ Azure 도구 키트를 사용 하 여 Spark 작업 디버그 (미리 보기)-HDInsight
 description: 응용 프로그램 디버깅을 위한 Azure Toolkit for IntelliJ의 HDInsight 도구 사용 지침
 keywords: IntelliJ 원격으로 디버그, IntelliJ 원격 디버깅, SSH, IntelliJ, HDInsight, IntelliJ 디버그, 디버깅
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: c8ce1a66d6dbf215c3d49740f2aec47ab01f7591
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822321"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942532"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)
 
@@ -54,7 +52,7 @@ ms.locfileid: "97822321"
 
    b. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.3.2** 클러스터용 **Java 1.8** 를 선택 합니다.
 
-   다. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
+   c. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
 
    d. **마침** 을 선택합니다.
 

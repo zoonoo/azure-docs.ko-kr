@@ -1,19 +1,16 @@
 ---
 title: Apache Kafka에서 Apache Spark 스트리밍 - Azure HDInsight
 description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook를 사용 하 여 데이터를 스트리밍합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 88a62b2d1ebee3bf933729ab82bc9e37a3db066b
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d14b96843b489b28fc7d83348e39638272c06da5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942761"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -53,7 +50,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     |속성 |값 |
     |---|---|
-    |리소스 그룹|그룹을 만들거나 기존 그룹을 선택합니다.|
+    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
     |위치|지리적으로 가까운 위치를 선택합니다.|
     |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming** 를 입력하면 __spark-hdistreaming__ 라는 Spark 클러스터와 **kafka-hdistreaming** 라는 Kafka 클러스터가 생성됩니다.|
     |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|

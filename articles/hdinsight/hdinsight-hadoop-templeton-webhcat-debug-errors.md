@@ -1,19 +1,16 @@
 ---
 title: HDInsight에서 WebHCat 오류 이해 및 해결 - Azure
 description: HDInsight의 WebHCat에서 반환된 일반 오류 및 문제를 해결하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285677"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945459"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight WebHCat에서 받은 오류 이해 및 해결
 
@@ -39,7 +36,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="too-many-requests"></a>너무 많은 요청
 
-**HTTP 상태 코드** : 429
+**HTTP 상태 코드**: 429
 
 | 원인 | 해결 방법 |
 | --- | --- |
@@ -47,7 +44,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="server-unavailable"></a>서버 사용할 수 없음
 
-**HTTP 상태 코드** : 503
+**HTTP 상태 코드**: 503
 
 | 원인 | 해결 방법 |
 | --- | --- |
@@ -55,7 +52,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없음
 
-**HTTP 상태 코드** : 400
+**HTTP 상태 코드**: 400
 
 | 원인 | 해결 방법 |
 | --- | --- |
@@ -65,7 +62,7 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 ## <a name="bad-gateway"></a>나쁜 게이트웨이
 
-**HTTP 상태 코드** : 502
+**HTTP 상태 코드**: 502
 
 | 원인 | 해결 방법 |
 | --- | --- |

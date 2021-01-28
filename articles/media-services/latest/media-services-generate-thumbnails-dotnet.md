@@ -1,5 +1,5 @@
 ---
-title: .NET에서 Azure Media Services Encoder Standard를 사용 하 여 미리 보기를 생성 하는 방법
+title: .NET에서 Media Services Encoder Standard를 사용 하 여 미리 보기 생성
 description: 이 문서에서는 .NET을 사용 하 여 자산을 인코딩하고 동시에 Media Encoder Standard를 사용 하 여 미리 보기를 생성 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 887ac4197321b4015eff7cc839abd8f57ae67760
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: fe051ceec43ec919ddf92a4d7f7e4bfab0b351f5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512021"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938759"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-net"></a>.NET에서 인코더 표준을 사용 하 여 미리 보기를 생성 하는 방법
 

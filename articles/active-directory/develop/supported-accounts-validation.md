@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752972"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937813"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>지원 되는 계정 유형 별 유효성 검사 차이 (signInAudience)
 
@@ -24,9 +24,9 @@ ms.locfileid: "98752972"
 
 다음과 같은 옵션이 있습니다.
 
-- *AzureADMyOrg*: 앱이 등록 된 조직 디렉터리의 계정만 (단일 테 넌 트)
-- *AzureADMultipleOrgs*: 모든 조직 디렉터리의 계정 (다중 테 넌 트)
-- *AzureADandPersonalMicrosoftAccount*: 모든 조직 디렉터리의 계정 (다중 테 넌 트) 및 개인 Microsoft 계정 (예: Skype, Xbox 및 Outlook.com)
+- **AzureADMyOrg**: 앱이 등록 된 조직 디렉터리의 계정만 (단일 테 넌 트).
+- **AzureADMultipleOrgs**: 모든 조직 디렉터리의 계정 (다중 테 넌 트).
+- **AzureADandPersonalMicrosoftAccount**: 모든 조직 디렉터리 (다중 테 넌 트)의 계정 및 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com).
 
 등록 된 응용 프로그램의 경우 응용 프로그램의 **인증** 섹션에서 지원 되는 계정 유형 값을 찾을 수 있습니다. 매니페스트의 속성 아래에서 찾을 수도 있습니다 `signInAudience` . 
 
@@ -44,11 +44,11 @@ ms.locfileid: "98752972"
 | 이 API로 정의 된 범위 ( `oauth2Permissions` ) | 최대 범위 이름 길이 120 문자 <br><br> 정의 된 범위 수에 제한 없음 * | 최대 범위 이름 길이 120 문자 <br><br> 정의 된 범위 수에 제한 없음 * |  최대 범위 이름 길이 40 문자 <br><br> 최대 100 범위가 정의 되었습니다. | 
 | 권한 있는 클라이언트 응용 프로그램 ( `preAuthorizedApplications` ) | 제한 없음 * | 제한 없음 * | 총 500 <br><br> 정의 된 최대 100 클라이언트 앱 <br><br> 클라이언트 당 최대 30 개 범위 정의 | 
 | appRoles | 지원됨 <br> 제한 없음 * | 지원됨 <br> 제한 없음 * | 지원되지 않음 | 
-| 로그아웃 URL | http://localhost 허용 됨 <br><br> 최대 255 문자 길이 | http://localhost 허용 됨 <br><br> 최대 255 문자 길이 | <br><br> https://localhost 허용 됨, http://localhost MSA 실패 <br><br> 최대 255 문자 길이 <br><br> HTTP 체계가 허용 되지 않습니다. <br><br> 와일드 카드는 지원 되지 않습니다. | 
+| 프런트 채널 로그 아웃 URL | https://localhost 허용 됨 <br><br> `http` 구성표를 사용할 수 없습니다. <br><br> 최대 255 문자 길이 | https://localhost 허용 됨 <br><br> `http` 구성표를 사용할 수 없습니다. <br><br> 최대 255 문자 길이 | <br><br> https://localhost 허용 됨, http://localhost MSA 실패 <br><br> 최대 255 문자 길이 <br><br> `http` 구성표를 사용할 수 없습니다. <br><br> 와일드 카드는 지원 되지 않습니다. | 
 
 * 앱 개체의 모든 컬렉션 속성에서 약 1000 항목의 전역 제한이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [응용 프로그램 등록](app-objects-and-service-principals.md) 에 대 한 자세한 정보
-- [애플리케이션 매니페스트](reference-app-manifest.md)에 대해 알아봅니다.
+- [응용 프로그램 등록](app-objects-and-service-principals.md)에 대해 알아봅니다.
+- [응용 프로그램 매니페스트에](reference-app-manifest.md)대해 알아봅니다.

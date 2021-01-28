@@ -4,12 +4,12 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET 성�
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918522"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937381"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -41,7 +41,7 @@ ASP.NET/ASP.NET Core 웹 애플리케이션에 대해 수집되도록 구성된 
 
     `Get-Counter -ListSet *`
 
-    ([`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1) 참조)
+    ([`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter) 참조)
 2. ApplicationInsights.config를 엽니다.
 
    * 앱에 개발 중인 Application Insights를 추가한 경우 프로젝트에서 ApplicationInsights.config를 편집한 후 서버에 다시 배포합니다.
@@ -122,7 +122,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 ![Application Insights 분석의 메모리 시간 차트](./media/performance-counters/analytics-available-memory.png)
 
-다른 원격 분석과 마찬가지로 **performanceCounters**에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 예를 들어, 서로 다른 컴퓨터에서 앱의 성능을 비교하려면: 
+다른 원격 분석과 마찬가지로 **performanceCounters** 에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 예를 들어, 서로 다른 컴퓨터에서 앱의 성능을 비교하려면: 
 
 ![Application Insights 분석에서 역할 인스턴스에 의해 분할된 성능](./media/performance-counters/analytics-metrics-role-instance.png)
 

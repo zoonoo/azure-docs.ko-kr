@@ -6,12 +6,12 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 11/01/2018
-ms.openlocfilehash: bb5caafea944d21547a904b99f9043aef63a6ffa
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: df3ed451776f30e8b7c13b95618f1a7f0c7688db
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656469"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937546"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Azure 애플리케이션 Insights Java SDK에서 마이크로 측정기를 사용 하는 방법 (권장 하지 않음)
 
@@ -281,4 +281,4 @@ pom.xml 또는 build.gradle 파일에 다음 종속성을 추가합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 마이크로 측정기에 대해 자세히 알아보려면 공식 [마이크로 측정기 설명서](https://micrometer.io/docs)를 참조 하세요.
-* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](/java/azure/spring-framework/?view=azure-java-stable)를 참조 하세요.
+* Azure의 스프링에 대해 알아보려면 [azure의 공식 스프링 설명서](/java/azure/spring-framework/)를 참조 하세요.

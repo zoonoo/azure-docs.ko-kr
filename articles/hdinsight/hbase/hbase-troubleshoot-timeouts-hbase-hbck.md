@@ -3,16 +3,13 @@ title: Azure HDInsight에서 'hbase hbck' 명령을 사용하여 시간 제한
 description: 지역 할당을 수정할 때 ' hbase hbck ' 명령에 대 한 시간 제한 문제
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/16/2019
-ms.openlocfilehash: c1269f159a23d5fd23e08e7abfbd9a05ddd533ba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: acf4d1237841f8c20c014598e00a5e8961e2a012
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539941"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936698"
 ---
 # <a name="scenario-timeouts-with-hbase-hbck-command-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 ' hbase hbck ' 명령을 사용 하 여 시간 제한
 

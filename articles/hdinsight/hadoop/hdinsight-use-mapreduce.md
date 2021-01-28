@@ -1,19 +1,16 @@
 ---
 title: HDInsight에서 Apache Hadoop과 MapReduce
 description: HDInsight 클러스터의 Apache Hadoop에서 Apache MapReduce 작업을 실행 하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 8b683f12a17d6aabbcdce3190a34675951567f64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d96262ca2e2ff3003fbf2b40ce9ceb496337ae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075844"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944257"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
 
@@ -107,7 +104,7 @@ public class WordCount {
 
 HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-| **사용**방법 | **... 이렇게 하려면** |  ... **클라이언트 운영 체제** |
+| **사용** 방법 | **... 이렇게 하려면** |  ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux, Unix, Mac OS X, 또는 Windows |
