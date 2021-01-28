@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752998"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937842"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -222,19 +222,19 @@ def _get_token_from_cache(scope=None):
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-응용 프로그램을 등록 하는 동안 사후 로그 아웃 URI를 등록 합니다. 이 자습서에서는 `https://localhost:44321/signout-oidc` **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [ webApp 앱 등록](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp)을 참조 하세요.
+응용 프로그램을 등록 하는 동안 전면 채널 로그 아웃 URL을 등록 합니다. 이 자습서에서는 `https://localhost:44321/signout-oidc` **인증** 페이지의 **전면 채널 로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [webApp 앱 등록](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal)을 참조 하세요.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-응용 프로그램을 등록 하는 동안 사후 로그 아웃 URI를 등록 합니다. 이 자습서에서는 `https://localhost:44308/Account/EndSession` **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet)을 참조 하세요.
+응용 프로그램을 등록 하는 동안 추가 프런트 채널 로그 아웃 URL을 등록할 필요가 없습니다. 앱이 주 URL로 다시 호출 됩니다. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-응용 프로그램을 등록 하는 동안 사후 로그 아웃 URI를 등록 합니다. 이 자습서에서는 `http://localhost:8080/msal4jsample/sign_out` **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다.
+응용 프로그램 등록에는 프런트 채널 로그 아웃 URL이 필요 하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
-응용 프로그램 등록 중에는 추가 로그 아웃 URL을 등록할 필요가 없습니다. 앱이 주 URL로 다시 호출 됩니다.
+응용 프로그램을 등록 하는 동안 추가 프런트 채널 로그 아웃 URL을 등록할 필요가 없습니다. 앱이 주 URL로 다시 호출 됩니다.
 
 ---
 
@@ -336,7 +336,7 @@ Python 빠른 시작에서 로그 아웃 단추는 [templates/index.html # L10](
 - `Signout()`Openid connect 연결 미들웨어가 Microsoft id 플랫폼 끝점에 연결할 수 있도록 하는를 호출 합니다 `logout` . 그러면 끝점은 다음과 같습니다.
 
   - 브라우저에서 세션 쿠키를 지웁니다.
-  - 로그 아웃 URL을 다시 호출 합니다. 기본적으로 로그 아웃 URL은 [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)보기 페이지를 표시 합니다. 이 페이지는 또한 MIcrosoft. Identity. Web의 일부로 제공 됩니다.
+  - 사후 로그 아웃 리디렉션 URI를 다시 호출 합니다. 기본적으로 로그 아웃 리디렉션 URI는 로그 아웃 된 보기 페이지 [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs)를 표시 합니다. 이 페이지는 또한 Microsoft. Identity. Web의 일부로 제공 됩니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

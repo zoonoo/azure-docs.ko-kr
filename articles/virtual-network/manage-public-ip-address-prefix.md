@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 3b86f9bcbc863a78fd5f8f748e973a20ea709636
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e32faad698fbf316d51123cc8b7845a3b262c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573173"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938656"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -48,7 +48,7 @@ ms.locfileid: "96573173"
 
    |설정|필수 여부|세부 정보|
    |---|---|---|
-   |Subscription|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
+   |구독|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
    |Resource group|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
    |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |지역|예|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다.|
@@ -82,8 +82,8 @@ ms.locfileid: "96573173"
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
-|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)|
 
 ## <a name="view-or-delete-a-prefix"></a>접두사 보기 또는 삭제
 

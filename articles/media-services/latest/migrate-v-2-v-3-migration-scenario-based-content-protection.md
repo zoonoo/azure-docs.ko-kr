@@ -1,5 +1,5 @@
 ---
-title: 콘텐츠 보호 시나리오 기반 마이그레이션 지침
+title: 콘텐츠 보호 마이그레이션 지침
 description: 이 문서는 Azure Media Services v 2에서 v 2로의 마이그레이션에 도움이 되는 콘텐츠 보호 시나리오 기반 지침을 제공 합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1e8c8d1f7f710acff75fa1d78aab68df03c954d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9c0040c0ad34b019eaa90bbd1571377ad3539578
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898293"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940122"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>콘텐츠 보호 시나리오 기반 마이그레이션 지침
 

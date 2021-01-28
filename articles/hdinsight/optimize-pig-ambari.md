@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 apache Ambari를 사용 하 여 Apache Pig 최적화
 description: Apache Ambari 웹 UI를 사용 하 여 Apache Pig를 구성 하 고 최적화 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: d6f20780ccd90d83631ce07411820fb8c9280c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 690cfc66d0f08e63ac6ef1d21b6722fed59eca14
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084089"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939022"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache Pig 최적화
 
@@ -37,13 +34,13 @@ Pig 스크립트를 실행하기 위해 두 개의 실행 엔진 즉, MapReduce 
 
 1. 실행 엔진을 수정하려면 **Advanced pig-properties**(고급 Pig 속성) 창에서 `exectype` 속성을 찾습니다.
 
-1. 기본값은 **MapReduce**입니다. 이것을 **Tez**로 변경합니다.
+1. 기본값은 **MapReduce** 입니다. 이것을 **Tez** 로 변경합니다.
 
 ## <a name="enable-local-mode"></a>로컬 모드 사용
 
 Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 작업 속도를 높이는 데 사용됩니다.
 
-1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 false입니다.
+1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true** 로 설정합니다. 기본값은 false입니다.
 
 1. 입력 데이터 크기가 `pig.auto.local.input.maxbytes` 속성 값보다 작은 작업은 작은 작업으로 간주됩니다. 기본값은 1GB입니다.
 

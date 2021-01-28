@@ -1,18 +1,15 @@
 ---
 title: Apache Kafka 워크 로드를 Azure HDInsight 4.0로 마이그레이션
 description: HDInsight 3.6에서 Apache Kafka 작업을 HDInsight 4.0로 마이그레이션하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 0a31c6cf32222277e033aacf7d04622c54aef9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80437007"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939124"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Apache Kafka 워크 로드를 Azure HDInsight 4.0로 마이그레이션
 
@@ -23,7 +20,7 @@ Azure HDInsight 4.0는 성능, 연결 및 보안이 크게 향상 된 최신 오
 HDInsight 3.6은 두 가지 버전의 Kafka (1.0.0 및 1.1.0)를 지원 합니다. HDInsight 4.0은 1.1.0 및 2.1.0 버전을 지원 합니다. 어떤 버전의 Kafka 및 실행 하려는 HDInsight 버전에 따라 지원 되는 마이그레이션 경로가 여러 개 있습니다. 이러한 경로는 아래에 설명 되어 있으며 아래 다이어그램에 나와 있습니다.
 
 * **최신 버전에서 kafka 및 HDInsight 모두 실행 (권장)**: kafka 2.1.0 (아래 경로 및 E)를 사용 하 여 hdinsight 3.6 및 kafka 1.0.0 또는 1.1.0 응용 프로그램을 hdinsight 4.0로 마이그레이션 합니다.
-* **최신 버전에서 hdinsight를 실행 하 되 최신 버전에만**적용: hdinsight 3.6 및 kafka 1.0.0 응용 프로그램을 kafka 1.1.0 (아래 경로 B)를 사용 하 여 hdinsight 4.0로 마이그레이션합니다.
+* **최신 버전에서 hdinsight를 실행 하 되 최신 버전에만** 적용: hdinsight 3.6 및 kafka 1.0.0 응용 프로그램을 kafka 1.1.0 (아래 경로 B)를 사용 하 여 hdinsight 4.0로 마이그레이션합니다.
 * **최신 버전에서 hdinsight를 실행 하 고 kafka 버전 유지**: kafka 1.1.0 (아래 경로 C)를 사용 하 여 hdinsight 3.6 및 kafka 1.1.0 응용 프로그램을 hdinsight 4.0로 마이그레이션 합니다.
 * **더 최신 버전의 Kafka를 실행 하 고 hdinsight 버전 유지**: kafka 1.0.0 응용 프로그램을 1.1.0로 마이그레이션하고 hdinsight 3.6 (아래 경로)에 유지 합니다. 이 옵션은 여전히 새 클러스터를 배포 해야 합니다. 기존 클러스터에서 Kafka 버전 업그레이드는 지원 되지 않습니다. 원하는 버전으로 클러스터를 만든 후 새 클러스터를 사용 하도록 Kafka 클라이언트를 마이그레이션합니다.
 

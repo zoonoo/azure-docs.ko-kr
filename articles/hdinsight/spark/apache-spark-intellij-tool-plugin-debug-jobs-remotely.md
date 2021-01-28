@@ -1,19 +1,16 @@
 ---
 title: 'Azure 도구 키트: 원격으로 Apache Spark 앱 디버그-Azure HDInsight'
 description: Azure Toolkit for IntelliJ에서 HDInsight 도구를 사용 하 여 VPN을 통해 HDInsight 클러스터에서 실행 되는 Spark 응용 프로그램을 원격으로 디버그 하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 63d46298de2f480d97d25de2ec7e1ec78fbebd8d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1daf59c47bf71ad019011036bf42bf6727754345
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789466"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940346"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -27,7 +24,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 * **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -127,7 +124,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ 아이디어 다운로드 라이브러리](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
-    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -177,7 +174,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     </property>
     ```
 
-   다. 파일을 저장합니다.
+   c. 파일을 저장합니다.
 
 1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기** 에서 **src** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** 를 가리킨 다음 **Scala 클래스** 를 선택합니다.
 

@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: aahi
-ms.openlocfilehash: 3b6c2a5a50cedadd8818eae735df55b661e794ef
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97034023"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940052"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -341,9 +341,6 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
 
 IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다. 사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의된 대로)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는, 및으로 시작 하는 주소가 포함 됩니다 `10.*` `172.16.*`  -  `172.31.*` `192.168.*` .
 
-   > [!NOTE]
-   > IP 네트워크 규칙은 Cognitive Services 리소스와 동일한 Azure 지역에서 시작 되는 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
-
 현재 IPv4 주소만 지원됩니다. 각 Cognitive Services 리소스는 [가상 네트워크 규칙과](#grant-access-from-a-virtual-network)결합 될 수 있는 최대 100 IP 네트워크 규칙을 지원 합니다.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>온-프레미스 네트워크에서의 액세스 구성
@@ -508,7 +505,7 @@ Cognitive Services 리소스 소유자는 [Azure Portal](https://portal.azure.co
 
 * [Azure Portal에서 개인 링크 센터를 사용 하 여 개인 끝점을 만듭니다.](../private-link/create-private-endpoint-portal.md)
 * [Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-cli.md)
-* [Azure PowerShell를 사용 하 여 개인 끝점 만들기](../private-link/create-private-endpoint-powershell.md)
+* [Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-powershell.md)
 
 ### <a name="connecting-to-private-endpoints"></a>전용 끝점에 연결
 

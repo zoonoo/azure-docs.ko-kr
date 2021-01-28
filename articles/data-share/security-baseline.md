@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 22654d49d02809460adc4013c2c92ac857805cf7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199804"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937169"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Azure 데이터 공유에 대 한 azure 보안 기준
 
@@ -108,7 +108,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure 데이터 공유는 AZURE ACTIVE DIRECTORY로 SSO 인증을 지원 합니다. 조직의 기존 id를 사용 하 여 서비스에 대해 SSO를 사용 하도록 설정 하 여 사용자가 관리 해야 하는 id 및 자격 증명의 수를 줄입니다.
 
-- [Azure AD를 사용 하 여 SSO 이해](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

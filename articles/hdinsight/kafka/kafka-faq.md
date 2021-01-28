@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight의 Apache Kafka에 대 한 FAQ
 description: 관리 되는 Hadoop 클라우드 서비스인 Azure HDInsight의 Apache Kafka에 대 한 일반적인 질문에 대 한 답변을 받으세요.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 851d7ceb44d2466ed31e26c1442fde9acea9fd22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532537"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939099"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight의 Apache Kafka에 대한 질문과 대답
 

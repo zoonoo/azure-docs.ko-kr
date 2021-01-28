@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a577b50a561cb5b829e453c523e0bd18a70e1a
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dcfaef2f518028762958477a5b0d326acc237d1f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741680"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938435"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Azure Active Directory에서 결합된 보안 정보 등록 사용
 
 결합 된 등록 전에 사용자는 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사람들은 Azure AD Multi-Factor Authentication 및 SSPR에도 유사한 방법이 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Azure AD Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
 
 > [!NOTE]
-> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 12 월 14 일 2020부터 한 사용자가 있는 모든 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
+> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 
 
 새 환경을 사용 하기 전에 기능 및 효과를 이해 하려면 [결합 된 보안 정보 등록 개념](concept-registration-mfa-sspr-combined.md)을 참조 하세요.
 

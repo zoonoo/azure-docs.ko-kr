@@ -1,19 +1,16 @@
 ---
 title: 여러 HDInsight 클러스터 & Azure Data Lake Storage 계정 하나
 description: 단일 Data Lake Storage 계정으로 하나 이상의 HDInsight 클러스터를 사용하는 방법에 대해 알아봅니다
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: df28374d0f124ceb46d2f97d55218d428275deca
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6e220592f53103320c3bdb586fcbd0106219bfed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533090"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939533"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
 
@@ -34,9 +31,9 @@ HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려�
 
 |폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |관리자 |관리자  |서비스 주체 |--x  |FINGRP   |r-x         |
-|/클러스터 | rwxr-x--x |관리자 |관리자 |서비스 주체 |--x  |FINGRP |r-x         |
-|/클러스터/재무 | rwxr-x--t |관리자 |FINGRP  |서비스 주체 |rwx  |-  |-     |
+|/ | rwxr-x--x  |관리자 |관리자  |서비스 사용자 |--x  |FINGRP   |r-x         |
+|/클러스터 | rwxr-x--x |관리자 |관리자 |서비스 사용자 |--x  |FINGRP |r-x         |
+|/클러스터/재무 | rwxr-x--t |관리자 |FINGRP  |서비스 사용자 |rwx  |-  |-     |
 
 테이블에서,
 
@@ -48,9 +45,9 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 
 몇 가지 고려할 주요 사항은 다음과 같습니다.
 
-- 두 수준 폴더 구조( **/클러스터/재무/** )는 클러스터의 스토리지 계정을 사용하기 **전에** Data Lake Storage 관리자에 의해 적절한 권한으로 생성 및 프로비전되어야 합니다. 이 구조는 클러스터를 만드는 동안 자동으로 생성 되지 않습니다.
+- 두 수준 폴더 구조(**/클러스터/재무/**)는 클러스터의 스토리지 계정을 사용하기 **전에** Data Lake Storage 관리자에 의해 적절한 권한으로 생성 및 프로비전되어야 합니다. 이 구조는 클러스터를 만드는 동안 자동으로 생성 되지 않습니다.
 - 위의 예제에서는 **FINGRP** 로 **/클러스터/재무** 의 소유 그룹 설정 및 루트에서 시작하는 전체 폴더 계층에 대한 FINGRP에 **r-x** 액세스 허용을 권장합니다. 이렇게 하면 FINGRP의 멤버는 루트에서 시작하는 폴더 구조를 탐색할 수 있습니다.
-- 다른 AAD 서비스 주체에서 **/클러스터/재무** 에 클러스터를 만들 수 있는 경우, 고정 비트( **재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
+- 다른 AAD 서비스 주체에서 **/클러스터/재무** 에 클러스터를 만들 수 있는 경우, 고정 비트(**재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
 - 폴더 구조 및 사용 권한이 준비 되 면 HDInsight 클러스터 만들기 프로세스에서 **/clusters/finance/** 아래에 클러스터 관련 저장소 위치를 만듭니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 스토리지는 **/클러스터/재무/fincluster01** 이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
 
     |폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
@@ -87,7 +84,7 @@ Resource XXXX is not publicly accessible and as such cannot be part of the publi
 
 #### <a name="workaround"></a>해결 방법
 
-계층을 통해 **다른 사용자** 에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무** ).
+계층을 통해 **다른 사용자** 에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
 ## <a name="see-also"></a>추가 정보
 

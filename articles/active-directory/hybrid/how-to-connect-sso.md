@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408008"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937622"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -35,8 +35,13 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->원활한 SSO 사용을 위해서는 사용자의 디바이스가 **도메인 조인** 되어야만 하지만, [Azure AD 조인된](../devices/concept-azure-ad-join.md) 디바이스 또는 [하이브리드 Azure AD 조인된](../devices/concept-azure-ad-join-hybrid.md) 디바이스에서는 사용되지 않습니다. Azure AD 조인된 디바이스, 하이브리드 Azure AD 조인된 디바이스 및 Azure AD 등록된 디바이스의 SSO는 [기본 새로 고침 토큰](../devices/concept-primary-refresh-token.md)을 기반으로 작동합니다.
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>기본 새로 고침 토큰과 원활한 SSO를 통한 SSO
+
+Windows 10의 경우 기본 새로 고침 토큰 (PRT)을 통해 SSO를 사용 하는 것이 좋습니다. Windows 7 및 8.1의 경우 원활한 SSO를 사용 하는 것이 좋습니다.
+원활한 SSO는 사용자의 장치가 도메인에 가입 되어 있어야 하지만 Windows 10 [AZURE ad 조인 장치](../devices/concept-azure-ad-join.md) 또는 [하이브리드 Azure ad 조인 장치](../devices/concept-azure-ad-join-hybrid.md)에서 사용 되지 않습니다. Azure AD 조인, 하이브리드 Azure AD 조인 및 Azure AD 등록 장치에 대 한 SSO는 [주 새로 고침 토큰 (PRT)](../devices/concept-primary-refresh-token.md) 을 기반으로 작동 합니다.
+
+PRT를 통한 SSO는 회사 또는 학교 계정을 추가 하 여 장치를 하이브리드 Azure ad 조인, Azure AD 조인 또는 개인 등록 장치에 대해 Azure AD에 등록 한 후 작동 합니다. PRT를 사용 하 여 Windows 10에서 SSO를 작동 하는 방법에 대 한 자세한 내용은 [prt (주 새로 고침 토큰) 및 AZURE AD](../devices/concept-primary-refresh-token.md) 를 참조 하세요.
+
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -78,9 +83,6 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 \*\*\*[추가 구성이](how-to-connect-sso-quick-start.md#browser-considerations)필요 합니다.
 
 \*\*\*\*Microsoft Edge 버전 77 이상이 필요 합니다.
-
->[!NOTE]
->Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../devices/concept-azure-ad-join.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

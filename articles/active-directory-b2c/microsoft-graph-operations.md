@@ -8,22 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805231"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938485"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
 Microsoft Graph를 사용 하 여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. 다음 Microsoft Graph API 작업은 사용자, id 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 비롯 한 Azure AD B2C 리소스 관리에 대해 지원 됩니다. 다음 섹션의 각 링크는 해당 작업에 대 한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 작용 하려면 권한을 부여 하는 응용 프로그램 등록이 필요 합니다. 관리 응용 프로그램에서 사용할 수 있는 응용 프로그램 등록을 만들려면 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md) 문서의 단계를 수행 합니다. 
 
@@ -35,18 +35,29 @@ MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 �
 - [사용자 업데이트](/graph/api/user-update)
 - [사용자 삭제](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>사용자 전화 번호 관리
+## <a name="user-phone-number-management-beta"></a>사용자 전화 번호 관리 (베타)
+
+사용자가 [SMS 또는 음성 통화](identity-provider-local.md#phone-sign-in-preview)를 사용 하 여 로그인 하거나 [multi-factor authentication](multi-factor-authentication.md)을 사용 하 여 로그인 하는 데 사용할 수 있는 전화 번호입니다. 자세한 내용은 [AZURE AD 인증 방법 API](/graph/api/resources/phoneauthenticationmethod)를 참조 하세요.
 
 - [추가](/graph/api/authentication-post-phonemethods)
-- [가져오기](/graph/api/b2cauthenticationmethodspolicy-get)
-- [업데이트](/graph/api/b2cauthenticationmethodspolicy-update)
+- [목록](/graph/api/authentication-list-phonemethods)
+- [가져오기](/graph/api/phoneauthenticationmethod-get)
+- [업데이트](/graph/api/phoneauthenticationmethod-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-사용자의 로그인 전화 번호를 관리 하는 방법에 대 한 자세한 내용은 [B2C 인증 방법](/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
+## <a name="self-service-password-reset-email-address-beta"></a>셀프 서비스 암호 재설정 전자 메일 주소 (베타)
 
-## <a name="identity-providers-user-flow"></a>Id 공급자 (사용자 흐름)
+사용자가 사용자 [이름 로그인 계정](identity-provider-local.md#username-sign-in)에 대 한 암호를 저장 하는 데 사용할 수 있는 전자 메일 주소입니다. 자세한 내용은 [AZURE AD 인증 방법 API](/graph/api/resources/emailauthenticationmethod)를 참조 하세요.
 
-Azure AD B2C 테 넌 트에서 사용자 흐름에서 사용할 수 있는 id 공급자를 관리 합니다.
+- [추가](/graph/api/emailauthenticationmethod-post)
+- [목록](/graph/api/emailauthenticationmethod-list)
+- [가져오기](/graph/api/emailauthenticationmethod-get)
+- [업데이트](/graph/api/emailauthenticationmethod-update)
+- [Delete](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>ID 공급자
+
+Azure AD B2C 테 넌 트에서 사용자 흐름에서 사용할 수 있는 [id 공급자](add-identity-provider.md) 를 관리 합니다.
 
 - [Azure AD B2C 테 넌 트에 등록 된 id 공급자 나열](/graph/api/identityprovider-list)
 - [Id 공급자 만들기](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +73,13 @@ Azure AD B2C 테 넌 트에서 사용자 흐름에서 사용할 수 있는 id �
 - [사용자 흐름 만들기](/graph/api/identitycontainer-post-b2cuserflows)
 - [사용자 흐름 가져오기](/graph/api/b2cidentityuserflow-get)
 - [사용자 흐름 삭제](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>사용자 흐름 인증 방법 (베타)
+
+사용자가 로컬 계정을 통해 등록할 수 있도록 허용 하는 메커니즘을 선택 합니다. 로컬 계정은 Azure AD가 id 어설션을 수행 하는 계정입니다. 자세한 내용은 [b2cAuthenticationMethodsPolicy 리소스 형식](/graph/api/resources/b2cauthenticationmethodspolicy)을 참조 하세요.
+
+- [가져오기](/graph/api/b2cauthenticationmethodspolicy-get)
+- [업데이트](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>사용자 지정 정책
 

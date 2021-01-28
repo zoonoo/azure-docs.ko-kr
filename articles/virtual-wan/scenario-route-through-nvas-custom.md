@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938568"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>시나리오: 사용자 지정 설정을 사용 하 여 Nva를 통해 트래픽 라우팅
 
@@ -29,7 +29,7 @@ Azure 가상 WAN 가상 허브 라우팅을 사용 하는 경우 다양 한 옵�
 
 다음 표에서는이 시나리오에서 지원 되는 연결을 요약 합니다.
 
-| 시작          | 대상|스포크|서비스 VNet|분기|인터넷|
+| From          | 대상|스포크|서비스 VNet|분기|인터넷|
 |---|---|:---:|:---:|:---:|:---:|:---:|
 | **스포크**| ->| 직접 제출 |직접 제출 | 서비스 VNet을 통해 |경계 VNet을 통해 |
 | **서비스 VNet**| ->| 직접 제출 |해당 없음| 직접 제출 | |
@@ -58,29 +58,32 @@ Azure 가상 WAN 가상 허브 라우팅을 사용 하는 경우 다양 한 옵�
   * 연결 된 경로 테이블: **기본값**
   * 경로 테이블에 전파: **RT_SHARED** 및 **기본값**
 
+> [!NOTE] 
+> 스포크 Vnet 기본 레이블에 전파 되지 않는지 확인 하세요. 이렇게 하면 분기에서 스포크 Vnet의 트래픽이 Nva으로 전달 됩니다.
+
 이러한 고정 경로는 가상 네트워크 및 분기에서 들어오고 나가는 트래픽이 서비스 VNet (VNet 4)에서 NVA를 통과 하도록 합니다.
 
-| 설명 | 경로 테이블 | 고정 경로              |
+| Description | 경로 테이블 | 고정 경로              |
 | ----------- | ----------- | ------------------------- |
 | 분기    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| NVA 스포크  | Default     | 10.1.0.0/16-> vnet4conn  |
+| NVA 스포크  | 기본값     | 10.1.0.0/16-> vnet4conn  |
 
 이제 가상 WAN을 사용 하 여 패킷을 보낼 올바른 연결을 선택할 수 있습니다. 또한 가상 WAN을 사용 하 여 이러한 패킷을 받을 때 수행할 올바른 작업을 선택 해야 합니다. 다음과 같이이에 대 한 연결 경로 테이블을 사용 합니다.
 
-| 설명 | 연결 | 고정 경로            |
+| Description | 연결 | 고정 경로            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |
 
 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 다음은이 문서의 앞부분에서 설명한 아키텍처의 다이어그램입니다.
 
-허브 **1**이라고 하는 허브가 하나 있습니다.
+허브 **1** 이라고 하는 허브가 하나 있습니다.
 
-* **허브 1** 은 Nva vnet **VNet 4** 및 **vnet 5**에 직접 연결 됩니다.
+* **허브 1** 은 Nva vnet **VNet 4** 및 **vnet 5** 에 직접 연결 됩니다.
 
 * Vnet 1, 2, 3 및 분기 사이의 트래픽은 **VNet 4 NVA** 10.4.0.5를 통해 전달 될 것으로 예상 됩니다.
 
@@ -94,11 +97,11 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
 1. 인터넷 바인딩 트래픽이 VNet 5를 통해 이동 하려면 Vnet 1, 2, 3이 필요 합니다. 가상 네트워크 피어 링을 통해 VNet 5에 직접 연결 해야 합니다. 또한 0.0.0.0/0 및 다음 홉 10.5.0.5에 대 한 가상 네트워크에서 사용자 정의 경로를 설정 해야 합니다. 현재 가상 WAN은 0.0.0.0/0에 대 한 가상 허브에서 다음 홉 NVA를 허용 하지 않습니다.
 
-1. Azure Portal에서 가상 허브로 이동 하 여 **RT_Shared**라는 사용자 지정 경로 테이블을 만듭니다. 이 표에서는 모든 가상 네트워크 및 분기 연결의 전파를 통해 경로를 학습 합니다. 다음 다이어그램에서이 빈 테이블을 볼 수 있습니다.
+1. Azure Portal에서 가상 허브로 이동 하 여 **RT_Shared** 라는 사용자 지정 경로 테이블을 만듭니다. 이 표에서는 모든 가상 네트워크 및 분기 연결의 전파를 통해 경로를 학습 합니다. 다음 다이어그램에서이 빈 테이블을 볼 수 있습니다.
 
    * **경로:** 정적 경로를 추가할 필요는 없습니다.
 
-   * **연결:** Vnet 4 및 5를 선택 합니다 .이는 이러한 가상 네트워크의 연결이 경로 테이블 **RT_Shared**연결 되는 것을 의미 합니다.
+   * **연결:** Vnet 4 및 5를 선택 합니다 .이는 이러한 가상 네트워크의 연결이 경로 테이블 **RT_Shared** 연결 되는 것을 의미 합니다.
 
    * **전파:** 모든 분기 및 가상 네트워크 연결에서 경로를이 경로 테이블에 동적으로 전파 하려고 하므로 분기 및 모든 가상 네트워크를 선택 합니다.
 
@@ -108,9 +111,9 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
    * **연결:** 모든 Vnet 1, 2, 3을 선택 합니다. 이는 VNet 연결 1, 2, 3이이 경로 테이블에 연결 되 고이 경로 테이블에서 경로 (정적 및 동적 via 전파)를 학습할 수 있음을 의미 합니다.
 
-   * **전파:** 연결은 경로 테이블에 경로를 전파 합니다. Vnet 1, 2, 3을 선택 하면 Vnet 1, 2, 3의 경로를이 경로 테이블에 전파할 수 있습니다. 분기 가상 네트워크 트래픽이 VNet 4에서 NVA를 통해 이동 하기 때문에 분기 연결의 경로를 **RT_V2B**로 전파할 필요가 없습니다.
+   * **전파:** 연결은 경로 테이블에 경로를 전파 합니다. Vnet 1, 2, 3을 선택 하면 Vnet 1, 2, 3의 경로를이 경로 테이블에 전파할 수 있습니다. 분기 가상 네트워크 트래픽이 VNet 4에서 NVA를 통해 이동 하기 때문에 분기 연결의 경로를 **RT_V2B** 로 전파할 필요가 없습니다.
   
-1. 기본 경로 테이블 **DefaultRouteTable**를 편집 합니다.
+1. 기본 경로 테이블 **DefaultRouteTable** 를 편집 합니다.
 
    모든 VPN, Azure Express 경로 및 사용자 VPN 연결은 기본 경로 테이블에 연결 됩니다. 모든 VPN, Express 경로 및 사용자 VPN 연결은 경로를 동일한 경로 테이블 집합으로 전파 합니다.
 
@@ -120,7 +123,7 @@ NVA를 통해 라우팅을 설정 하려면 다음 단계를 고려해 야 합�
 
    * **전파 위치:** 분기 (VPN/ER/P2S) 옵션을 선택 하 여 온-프레미스 연결이 경로를 기본 경로 테이블에 전파 하는지 확인 합니다.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="네트워크 아키텍처 다이어그램." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="워크플로 다이어그램." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

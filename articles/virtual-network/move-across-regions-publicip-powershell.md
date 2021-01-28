@@ -7,12 +7,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 0a3fdb776643e2cf817c50fb9b716f7315151e21
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a21d088680855b74e7259028ed7ef55165707c56
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223417"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938692"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 퍼블릭 IP 구성을 다른 지역으로 이동
 
@@ -44,19 +44,19 @@ ms.locfileid: "98223417"
 
 ### <a name="export-the-template-and-deploy-from-a-script"></a>템플릿 내보내기 및 스크립트에서 배포
 
-1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-2. 대상 지역으로 이동하려는 퍼블릭 IP의 리소스 ID를 가져온 후 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)를 사용하여 변수에 넣습니다.
+2. 대상 지역으로 이동하려는 퍼블릭 IP의 리소스 ID를 가져온 후 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 변수에 넣습니다.
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
 
     ```
-3. [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0) 명령을 실행하는 디렉터리의 .json 파일로 원본 가상 네트워크를 내보냅니다.
+3. [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup) 명령을 실행하는 디렉터리의 .json 파일로 원본 가상 네트워크를 내보냅니다.
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -109,7 +109,7 @@ ms.locfileid: "98223417"
              ]             
     ```
   
-7. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0)을 사용할 수 있습니다.
+7. 지역 위치 코드를 가져오려면 다음 명령을 실행하여 Azure PowerShell cmdlet [Get-AzLocation](/powershell/module/az.resources/get-azlocation)을 사용할 수 있습니다.
 
     ```azurepowershell-interactive
 
@@ -165,12 +165,12 @@ ms.locfileid: "98223417"
 
 9. **\<resource-group-name>.json** 파일을 저장합니다.
 
-10. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)을 사용하여 배포할 대상 퍼블릭 IP에 대한 대상 지역에 리소스 그룹을 만듭니다.
+10. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 배포할 대상 퍼블릭 IP에 대한 대상 지역에 리소스 그룹을 만듭니다.
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
+11. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)를 사용하여 이전 단계에서 만든 리소스 그룹에 편집된 **\<resource-group-name>.json** 파일을 배포합니다.
 
     ```azurepowershell-interactive
 
@@ -178,7 +178,7 @@ ms.locfileid: "98223417"
     
     ```
 
-12. 대상 지역에서 리소스를 만들었는지 확인하려면 [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) 및 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0)를 사용합니다.
+12. 대상 지역에서 리소스를 만들었는지 확인하려면 [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용합니다.
     
     ```azurepowershell-interactive
 
@@ -193,7 +193,7 @@ ms.locfileid: "98223417"
     ```
 ## <a name="discard"></a>취소 
 
-배포 후 대상에서 퍼블릭 IP를 시작하거나 삭제하려는 경우 대상에서 만든 리소스 그룹을 삭제하면 이동한 퍼블릭 IP가 삭제됩니다.  리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)을 사용합니다.
+배포 후 대상에서 퍼블릭 IP를 시작하거나 삭제하려는 경우 대상에서 만든 리소스 그룹을 삭제하면 이동한 퍼블릭 IP가 삭제됩니다.  리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용합니다.
 
 ```azurepowershell-interactive
 
@@ -203,7 +203,7 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>정리
 
-변경 내용을 커밋하고 가상 네트워크의 이동을 완료하려면 원본 가상 네트워크 또는 리소스 그룹을 삭제하고, [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0) 또는 [Remove-AzPublicIPAddress](/powershell/module/az.network/remove-azpublicipaddress?view=azps-2.6.0)를 사용합니다.
+변경 내용을 커밋하고 가상 네트워크의 이동을 완료하려면 원본 가상 네트워크 또는 리소스 그룹을 삭제하고, [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 또는 [Remove-AzPublicIPAddress](/powershell/module/az.network/remove-azpublicipaddress)를 사용합니다.
 
 ```azurepowershell-interactive
 

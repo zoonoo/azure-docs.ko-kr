@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621796"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938462"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Azure Active Directory 개요에 대 한 결합 된 보안 정보 등록
 
 결합 된 등록 전에 사용자는 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
 
 > [!NOTE]
-> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 12 월 14 일 2020부터 한 사용자가 있는 모든 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다.
+> 2020 년 8 월 15 일부터 모든 새 Azure AD 테 넌 트가 결합 된 등록에 대해 자동으로 사용 하도록 설정 됩니다. 
 
 이 문서에서는 결합 된 보안 등록을 간략하게 설명 합니다. 결합 된 보안 등록을 시작 하려면 다음 문서를 참조 하세요.
 
@@ -51,18 +51,18 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 독일 또는 Azure 중국 
 
 결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
 
-| 메서드 | 등록 | 변경 | DELETE |
+| 메서드 | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 예 | yes |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 예 | yes |
-| 하드웨어 토큰 | 예 | 예 | yes |
-| 전화 | yes | yes | yes |
-| 대체 전화 | yes | yes | yes |
-| 사무실 전화 | yes | yes | yes |
-| 메일 | yes | yes | yes |
-| 본인 확인 질문 | yes | 예 | yes |
-| 앱 암호 | yes | 예 | yes |
-| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| yes | yes | yes |
+| Microsoft Authenticator | 예 (최대 5 개) | 아니요 | 예 |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 아니요 | 예 |
+| 하드웨어 토큰 | 아니요 | 아니요 | 예 |
+| Phone | 예 | 예 | 예 |
+| 대체 전화 | 예 | 예 | 예 |
+| 사무실 전화 | 예 | 예 | 예 |
+| 메일 | 예 | 예 | 예 |
+| 본인 확인 질문 | 예 | 아니요 | 예 |
+| 앱 암호 | 예 | 아니요 | 예 |
+| FIDO2 보안 키<br />*관리 모드는 [보안 정보](https://mysignins.microsoft.com/security-info) 페이지 에서만*| 예 | 예 | 예 |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.

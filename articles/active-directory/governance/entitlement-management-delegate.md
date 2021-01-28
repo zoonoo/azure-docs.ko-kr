@@ -3,7 +3,7 @@ title: 자격 관리의 위임 및 역할-Azure AD
 description: IT 관리자의 액세스 관리 권한을 부서 관리자와 프로젝트 관리자에 게 위임 하 여 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746680"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937680"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
@@ -92,7 +92,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| 작업 | 관리자 | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
+| 작업 | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -118,7 +118,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>카탈로그에 리소스를 추가 하는 데 필요한 역할
 
-전역 관리자는 카탈로그에서 그룹 (클라우드로 생성 된 보안 그룹 또는 클라우드 생성 Microsoft 365 그룹), 응용 프로그램 또는 SharePoint Online 사이트를 추가 하거나 제거할 수 있습니다. 사용자 관리자는 디렉터리 역할에 할당할 수 있도록 구성 된 그룹을 제외 하 고 카탈로그에서 그룹 또는 응용 프로그램을 추가 하거나 제거할 수 있습니다.
+전역 관리자는 카탈로그에서 그룹 (클라우드로 생성 된 보안 그룹 또는 클라우드 생성 Microsoft 365 그룹), 응용 프로그램 또는 SharePoint Online 사이트를 추가 하거나 제거할 수 있습니다. 사용자 관리자는 디렉터리 역할에 할당할 수 있도록 구성 된 그룹을 제외 하 고 카탈로그에서 그룹 또는 응용 프로그램을 추가 하거나 제거할 수 있습니다. 사용자 관리자는 디렉터리 역할에 할당할 수 있도록 구성 된 그룹을 포함 하는 카탈로그의 액세스 패키지를 관리할 수 있습니다.
 
 전역 관리자 또는 사용자 관리자가 아닌 사용자의 경우 카탈로그에 그룹, 응용 프로그램 또는 SharePoint Online 사이트를 추가 하려면 해당 사용자에 게 필요한 Azure AD 디렉터리 역할과 카탈로그 소유자 자격 관리 역할이 *둘 다* 있어야 합니다. 다음 표에는 카탈로그에 리소스를 추가 하는 데 필요한 역할 조합이 나와 있습니다. 카탈로그에서 리소스를 제거 하려면 동일한 역할이 있어야 합니다.
 
@@ -131,7 +131,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [팀 서비스 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [SharePoint 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 > [!NOTE]

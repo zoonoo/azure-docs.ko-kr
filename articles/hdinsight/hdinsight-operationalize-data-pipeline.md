@@ -1,23 +1,20 @@
 ---
 title: 데이터 분석 파이프라인 운영 - Azure
 description: 새 데이터에 의해 트리거되고 간결한 결과를 생성하는 예제 데이터 파이프라인을 설정하고 실행합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: 1e73c403a03eef9a47bc0550b37769db302a599c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504421"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939520"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
-*데이터 파이프라인*은 많은 데이터 분석 솔루션의 토대가 됩니다. 이름에서 알 수 있듯이 데이터 파이프라인은 원시 데이터를 사용 하 여 필요에 따라 정리 하 고 스트림으로 다시 만드는 다음 처리 된 데이터를 저장 하기 전에 계산 또는 집계를 수행 합니다. 처리된 데이터는 클라이언트, 보고서 또는 API에서 사용됩니다. 데이터 파이프라인은 일정에 따르든, 새 데이터에 의해 트리거되든, 반복 가능한 결과를 제공해야 합니다.
+*데이터 파이프라인* 은 많은 데이터 분석 솔루션의 토대가 됩니다. 이름에서 알 수 있듯이 데이터 파이프라인은 원시 데이터를 사용 하 여 필요에 따라 정리 하 고 스트림으로 다시 만드는 다음 처리 된 데이터를 저장 하기 전에 계산 또는 집계를 수행 합니다. 처리된 데이터는 클라이언트, 보고서 또는 API에서 사용됩니다. 데이터 파이프라인은 일정에 따르든, 새 데이터에 의해 트리거되든, 반복 가능한 결과를 제공해야 합니다.
 
 이 문서에서는 HDInsight Hadoop 클러스터에서 실행되는 Oozie를 사용하여 반복성을 구현하도록 데이터 파이프라인을 운영하는 방법을 설명합니다. 예제 시나리오는 항공기 비행 시계열 데이터를 준비하고 처리하는 데이터 파이프라인을 안내합니다.
 
@@ -39,7 +36,7 @@ ms.locfileid: "89504421"
 
 이 파이프라인은 HDInsight Hadoop 클러스터에서 실행되는 Apache Oozie를 사용합니다.
 
-Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 파이프라인을 설명합니다. 작업은 Hive 쿼리 실행과 같이 수행하는 실제 작업을 결정합니다. 워크플로는 작업 시퀀스를 정의합니다. 코디네이터는 워크플로가 실행되는 시기에 대한 일정을 정의합니다. 또한 코디네이터는 워크플로 인스턴스를 시작하기 전에 새 데이터가 사용 가능해질 때까지 대기할 수도 있습니다.
+Oozie는 *작업*, *워크플로* 및 *코디네이터* 의 측면에서 해당 파이프라인을 설명합니다. 작업은 Hive 쿼리 실행과 같이 수행하는 실제 작업을 결정합니다. 워크플로는 작업 시퀀스를 정의합니다. 코디네이터는 워크플로가 실행되는 시기에 대한 일정을 정의합니다. 또한 코디네이터는 워크플로 인스턴스를 시작하기 전에 새 데이터가 사용 가능해질 때까지 대기할 수도 있습니다.
 
 다음 다이어그램에서는 이 예제 Oozie 파이프라인의 개략적인 디자인을 보여 줍니다.
 
@@ -53,7 +50,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 1. Azure SQL Database를 만듭니다. [Azure Portal에서 Azure SQL Database 만들기](../azure-sql/database/single-database-create-quickstart.md)를 참조 하세요.
 
-1. HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다. **서버 방화벽 설정**을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 Azure 서비스 및 리소스 **에서** Azure SQL Database에 대해 **이 서버에 액세스할 수 있도록 허용** 을 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
+1. HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다. **서버 방화벽 설정** 을 선택 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 Azure 서비스 및 리소스 **에서** Azure SQL Database에 대해 **이 서버에 액세스할 수 있도록 허용** 을 선택 합니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)를 참조하세요.
 
 1. [쿼리 편집기](../azure-sql/database/single-database-create-quickstart.md#query-the-database) 를 사용 하 여 다음 SQL 문을 실행 하 여 `dailyflights` 각 파이프라인 실행에서 요약 된 데이터를 저장할 테이블을 만듭니다.
 
@@ -78,7 +75,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 ### <a name="provision-an-apache-hadoop-cluster"></a>Apache Hadoop 클러스터 프로 비전
 
-사용자 지정 metastore를 사용 하 여 Apache Hadoop 클러스터를 만듭니다. 포털에서 클러스터를 만드는 동안 **저장소** 탭에서 **Metastore 설정**아래에서 SQL Database를 선택 했는지 확인 합니다. Metastore를 선택 하는 방법에 대 한 자세한 내용은 [클러스터를 만드는 동안 사용자 지정 Metastore 선택](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation)을 참조 하세요. 클러스터 만들기에 대 한 자세한 내용은 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
+사용자 지정 metastore를 사용 하 여 Apache Hadoop 클러스터를 만듭니다. 포털에서 클러스터를 만드는 동안 **저장소** 탭에서 **Metastore 설정** 아래에서 SQL Database를 선택 했는지 확인 합니다. Metastore를 선택 하는 방법에 대 한 자세한 내용은 [클러스터를 만드는 동안 사용자 지정 Metastore 선택](./hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation)을 참조 하세요. 클러스터 만들기에 대 한 자세한 내용은 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조 하세요.
 
 ## <a name="verify-ssh-tunneling-set-up"></a>SSH 터널링 설정 확인
 
@@ -97,7 +94,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
     `http://headnodehost:8080`
 
-1. Ambari 내에서 **Oozie 웹 콘솔** 에 액세스 하려면 **Oozie**  >  **빠른 링크** > [Active server] > **Oozie 웹 UI**로 이동 합니다.
+1. Ambari 내에서 **Oozie 웹 콘솔** 에 액세스 하려면 **Oozie**  >  **빠른 링크** > [Active server] > **Oozie 웹 UI** 로 이동 합니다.
 
 ## <a name="configure-hive"></a>Hive 구성
 
@@ -132,11 +129,11 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 1. `http://headnodehost:8080`으로 이동하여 Ambari로 로그인합니다.
 
-2. 서비스 목록에서 **Hive**를 선택합니다.
+2. 서비스 목록에서 **Hive** 를 선택합니다.
 
     ![Hive를 선택 하는 Apache Ambari services 목록](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
 
-3. Hive View 2.0 레이블 옆의 **보기로 이동**을 선택합니다.
+3. Hive View 2.0 레이블 옆의 **보기로 이동** 을 선택합니다.
 
     ![Ambari Apache Hive 요약 목록](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
 
@@ -165,7 +162,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     LOCATION '/example/data/flights'
     ```
 
-5. **실행**을 선택하여 테이블을 만듭니다.
+5. **실행** 을 선택하여 테이블을 만듭니다.
 
     ![hdi ambari services hive 쿼리](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
 
@@ -195,7 +192,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     );
     ```
 
-7. **실행**을 선택하여 테이블을 만듭니다.
+7. **실행** 을 선택하여 테이블을 만듭니다.
 
 ## <a name="create-the-oozie-workflow"></a>Oozie 워크플로 만들기
 
@@ -416,11 +413,11 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
     oozie job -config job.properties -run
     ```
 
-1. Oozie 웹 콘솔을 사용하여 상태를 관찰합니다. Ambar 내에서 **Oozie**, **빠른 링크**, **Oozie 웹 콘솔**을 차례로 선택합니다. **워크플로 작업** 탭 아래에서 **모든 작업**을 선택합니다.
+1. Oozie 웹 콘솔을 사용하여 상태를 관찰합니다. Ambar 내에서 **Oozie**, **빠른 링크**, **Oozie 웹 콘솔** 을 차례로 선택합니다. **워크플로 작업** 탭 아래에서 **모든 작업** 을 선택합니다.
 
     ![hdi oozie 웹 콘솔 워크플로](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
 
-1. 상태가 성공 이면 SQL Database 테이블을 쿼리하여 삽입 된 행을 확인 합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구**를 선택하고 **쿼리 편집기**를 엽니다.
+1. 상태가 성공 이면 SQL Database 테이블을 쿼리하여 삽입 된 행을 확인 합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구** 를 선택하고 **쿼리 편집기** 를 엽니다.
 
     ```sql
     SELECT * FROM dailyflights
@@ -507,7 +504,7 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서 코디네이터는 2017 년 1 월 1 일에서 2017 년 1 월 5 일로 작업을 실행 하도록 구성 되어 있습니다. 빈도는 [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency 식으로 1 일로 설정 됩니다 `${coord:days(1)}` . 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간*이라고 합니다. 예를 들어 2017 년 1 월 1 일에 대 한 데이터를 처리 하기 위해 코디네이터는 명목상 시간 2017-01-01T00:00:00 GMT로 작업을 예약 합니다.
+    코디네이터는 `frequency` 특성으로 지정된 간격에 따라, `start` 및 `end` 데이터 범위 내에서 작업을 예약합니다. 예약된 각 작업은 구성된 대로 워크플로를 다시 실행합니다. 위의 코디네이터 정의에서 코디네이터는 2017 년 1 월 1 일에서 2017 년 1 월 5 일로 작업을 실행 하도록 구성 되어 있습니다. 빈도는 [Oozie Expression Language](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) frequency 식으로 1 일로 설정 됩니다 `${coord:days(1)}` . 이로 인해 코디네이터는 작업(및 워크플로)이 하루에 1번 실행되도록 예약합니다. 이 예제에서와 같이, 이전 날짜 범위에서는 작업이 지연 없이 실행되도록 예약됩니다. 작업이 실행되도록 예약된 날짜 시작을 *명목 시간* 이라고 합니다. 예를 들어 2017 년 1 월 1 일에 대 한 데이터를 처리 하기 위해 코디네이터는 명목상 시간 2017-01-01T00:00:00 GMT로 작업을 예약 합니다.
 
 * 핵심 사항 2: 워크플로의 날짜 범위 내에서 `dataset` 요소는 HDFS에서 특정 날짜 범위의 데이터를 조회할 위치를 지정하고, Oozie가 처리를 위해 해당 데이터를 사용할 수 있는지 여부를 확인하는 방법을 구성합니다.
 
@@ -594,7 +591,7 @@ sqlDatabaseTableName=dailyflights
     oozie job -config job.properties -run
     ```
 
-5. Oozie 웹 콘솔을 사용하여 상태를 확인합니다. 이번에는 **코디네이터 작업** 탭, **모든 작업**을 차례로 선택합니다.
+5. Oozie 웹 콘솔을 사용하여 상태를 확인합니다. 이번에는 **코디네이터 작업** 탭, **모든 작업** 을 차례로 선택합니다.
 
     ![Oozie 웹 콘솔 코디네이터 작업](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
 

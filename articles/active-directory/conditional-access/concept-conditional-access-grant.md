@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219949"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938378"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -121,7 +121,9 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 이 권한 부여 컨트롤을 활용 하기 위해 조건부 액세스를 사용 하려면 장치를 Azure Active Directory에 등록 해야 합니다. 그러면 broker 앱을 사용 해야 합니다. 브로커 앱은 iOS의 경우 Microsoft Authenticator, Android 디바이스의 경우 Microsoft 회사 포털일 수 있습니다. 사용자가 인증을 시도할 때 broker 앱이 장치에 설치 되어 있지 않은 경우 사용자는 broker 앱을 설치 하기 위해 앱 스토어로 리디렉션됩니다.
 
-이 설정은 다음 클라이언트 앱에 적용됩니다.
+응용 프로그램에는 **INTUNE SDK** 에서 **정책 보증** 을 구현 하 고이 설정을 지원 하기 위해 다른 특정 요구 사항을 충족 해야 합니다. Intune SDK를 사용 하 여 응용 프로그램을 구현 하는 개발자는 이러한 요구 사항에 대 한 SDK 설명서에서 자세한 내용을 확인할 수 있습니다.
+
+다음 클라이언트 앱이이 설정을 지원 하도록 확인 되었습니다.
 
 - Microsoft Cortana
 - Microsoft Edge

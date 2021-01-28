@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight에 대한 가상 네트워크 계획
 description: Azure Virtual Network 배포를 계획 하 여 다른 클라우드 리소스 또는 데이터 센터의 리소스에 HDInsight를 연결 하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 429f0b2ffe486279a1c429fc7a153e6528642f54
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: fe974a96b7f349c9d525d0cd0bb01a83ace57a4f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131664"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939278"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대한 가상 네트워크 계획
 

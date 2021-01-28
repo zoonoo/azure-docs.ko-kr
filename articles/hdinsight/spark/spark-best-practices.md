@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에 대 한 Apache Spark 지침
 description: Azure HDInsight에서 Apache Spark 사용에 대 한 지침을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545568"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938803"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark 지침
 
@@ -37,7 +34,7 @@ ms.locfileid: "92545568"
 
 | 옵션 | 문서 |
 |---|---|
-| IntelliJ용 Azure 도구 키트 | [Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)](apache-spark-intellij-tool-failure-debug.md) |
+| Azure Toolkit for IntelliJ | [Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)](apache-spark-intellij-tool-failure-debug.md) |
 | SSH를 통해 Azure Toolkit for IntelliJ | [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md) |
 | VPN을 통한 Azure Toolkit for IntelliJ | [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) |
 | Apache Spark 기록 서버의 작업 그래프 | [확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단](./apache-azure-spark-history-server.md) |

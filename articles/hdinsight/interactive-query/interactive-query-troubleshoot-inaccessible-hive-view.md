@@ -3,16 +3,13 @@ title: Apache 사육 아웃에 연결 Apache Hive-Azure HDInsight
 description: Azure HDInsight의 Apache 사육 사 문제로 인해 Apache Hive 보기에 액세스할 수 없음
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 1ac237edeea777225b7cf99946d359c921331b18
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 42fb9f5389cbc31e772dc9cf36b6a975c5e18d3c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288912"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939295"
 ---
 # <a name="scenario-apache-hive-fails-to-establish-a-connection-to-apache-zookeeper-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 Apache 사육 사에 대 한 연결을 설정 하지 못한 Apache Hive
 

@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 Apache Ambari를 사용 하 여 Apache Hive 최적화
 description: Apache Ambari 웹 UI를 사용 하 여 Apache Hive를 구성 하 고 최적화 합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084361"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939245"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 Apache Hive 최적화
 
@@ -20,18 +17,18 @@ Apache Ambari는 HDInsight 클러스터를 관리 하 고 모니터링 하는 �
 
 다음 섹션에서는 전반적인 Apache Hive 성능을 최적화하기 위한 구성 옵션을 설명합니다.
 
-1. Hive 구성 매개 변수를 수정하려면 서비스 사이드바에서 **Hive**를 선택합니다.
+1. Hive 구성 매개 변수를 수정하려면 서비스 사이드바에서 **Hive** 를 선택합니다.
 1. **Configs**(구성) 탭으로 이동합니다.
 
 ## <a name="set-the-hive-execution-engine"></a>Hive 실행 엔진 설정
 
 Hive는 Apache Hadoop MapReduce 및 Apache TEZ의 두 가지 실행 엔진을 제공 합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
 
-1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
+1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진** 을 입력합니다.
 
     ![Apache Ambari 검색 실행 엔진](./media/optimize-hive-ambari/ambari-search-execution.png)
 
-1. **Optimization**(최적화) 속성의 기본값은 **Tez**입니다.
+1. **Optimization**(최적화) 속성의 기본값은 **Tez** 입니다.
 
     ![최적화-Apache Tez 엔진](./media/optimize-hive-ambari/optimization-apache-tez.png)
 
@@ -68,7 +65,7 @@ Apache ORC 및 Snappy는 모두 고성능을 제공합니다. 하지만 Hive는 
 
     ![리 듀 서 당 Apache Ambari 데이터](./media/optimize-hive-ambari/ambari-data-per-reducer.png)
 
-1. **편집**을 선택하여 값을 128MB(134,217,728바이트)로 수정한 다음 **Enter**를 눌러 저장합니다.
+1. **편집** 을 선택하여 값을 128MB(134,217,728바이트)로 수정한 다음 **Enter** 를 눌러 저장합니다.
 
     ![리 듀 서 당 Ambari 데이터-편집 됨](./media/optimize-hive-ambari/data-per-reducer-edited.png)
   
@@ -80,7 +77,7 @@ Apache ORC 및 Snappy는 모두 고성능을 제공합니다. 하지만 Hive는 
 
 Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단계를 병렬로 실행할 수 있으면 쿼리 성능이 향상됩니다.
 
-1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
+1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter** 를 눌러서 값을 저장합니다.
 
 1. 동시에 실행 되는 작업 수를 제한 하려면 속성을 수정 `hive.exec.parallel.thread.number` 합니다. 기본값은 8입니다.
 
@@ -100,7 +97,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 기본적으로 Hive는 일련의 규칙에 따라 하나의 최적 쿼리 실행 계획을 찾습니다. CBO (비용 기반 최적화)는 여러 계획을 평가 하 여 쿼리를 실행 합니다. 및는 각 계획에 비용을 할당 한 다음 쿼리를 실행 하기에 가장 저렴 한 계획을 결정 합니다.
 
-CBO를 사용 하도록 설정 하려면 **Hive**Configs 설정으로 이동 하 여  >  **Configs**  >  **Settings** **비용 기반 최적화 프로그램 사용**을 찾은 다음 설정/해제 단추를 **켜기**로 전환 합니다.
+CBO를 사용 하도록 설정 하려면 **Hive** Configs 설정으로 이동 하 여  >    >   **비용 기반 최적화 프로그램 사용** 을 찾은 다음 설정/해제 단추를 **켜기** 로 전환 합니다.
 
 ![HDInsight 비용 기반 최적화 프로그램](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
 
@@ -132,7 +129,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 사용 가능한 압축 유형은 다음과 같습니다.
 
-| 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
+| 서식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | --- | --- | --- | --- | --- |
 | Gzip | Gzip | DEFLATE | `.gz` | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |`.bz2` | 예 |
@@ -152,13 +149,13 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 사용자 지정 설정을 추가하려면:
 
-    a. **Hive**  >  **Configs**  >  **고급**  >  **사용자 지정 hive 사이트로**이동 합니다.
+    a. **Hive**  >  **Configs**  >  **고급**  >  **사용자 지정 hive 사이트로** 이동 합니다.
 
     b. 사용자 지정 hive 사이트 창의 맨 아래에 있는 **속성 추가** ...를 선택 합니다.
 
-    다. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
+    c. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
-    d. **추가**를 선택합니다.
+    d. **추가** 를 선택합니다.
 
     ![' Apache Hive 사용자 지정 속성 추가 '](./media/optimize-hive-ambari/hive-custom-property.png)
 
@@ -193,7 +190,7 @@ Hive를 사용 하면 테이블에 레코드를 삽입할 때 모든 파티션�
 
 1. Hive에서 동적 파티션을 수행하려면 `hive.exec.dynamic.partition` 매개 변수 값이 true(기본값)여야 합니다.
 
-1. 동적 파티션 모드를 *strict*로 변경합니다. strict 모드에서는 적어도 하나의 파티션이 static이어야 합니다. 이 설정은 WHERE 절에서 파티션 필터 없이 쿼리를 방지 합니다. 즉, 모든 파티션을 검색 하는 쿼리를 *엄격* 하 게 방지 합니다. Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.dynamic.partition.mode`를 **strict**로 설정합니다. 기본값은 **nonstrict**입니다.
+1. 동적 파티션 모드를 *strict* 로 변경합니다. strict 모드에서는 적어도 하나의 파티션이 static이어야 합니다. 이 설정은 WHERE 절에서 파티션 필터 없이 쿼리를 방지 합니다. 즉, 모든 파티션을 검색 하는 쿼리를 *엄격* 하 게 방지 합니다. Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.dynamic.partition.mode`를 **strict** 로 설정합니다. 기본값은 **nonstrict** 입니다.
 
 1. 생성되는 동적 파티션 수를 제한하려면 `hive.exec.max.dynamic.partitions` 매개 변수를 수정합니다. 기본값은 5000입니다.
 
@@ -221,7 +218,7 @@ Hive를 사용 하면 테이블에 레코드를 삽입할 때 모든 파티션�
 
 ### <a name="join-optimizations"></a>조인 최적화
 
-Hive의 기본 조인 유형은 *순서 섞기 조인*입니다. Hive에서는 특수 매퍼가 입력을 읽어서 조인 키/값 쌍을 중간 파일로 내보냅니다. Hadoop은 이러한 쌍을 순서 섞기 단계에서 정렬하고 병합합니다. 순서 섞기 단계는 비용이 높습니다. 데이터를 기반으로 올바른 조인을 선택하면 성능이 상당히 향상될 수 있습니다.
+Hive의 기본 조인 유형은 *순서 섞기 조인* 입니다. Hive에서는 특수 매퍼가 입력을 읽어서 조인 키/값 쌍을 중간 파일로 내보냅니다. Hadoop은 이러한 쌍을 순서 섞기 단계에서 정렬하고 병합합니다. 순서 섞기 단계는 비용이 높습니다. 데이터를 기반으로 올바른 조인을 선택하면 성능이 상당히 향상될 수 있습니다.
 
 | 조인 유형 | When | 방법 | Hive 설정 | 의견 |
 | --- | --- | --- | --- | --- |

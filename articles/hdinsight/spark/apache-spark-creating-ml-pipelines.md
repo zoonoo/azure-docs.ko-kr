@@ -2,22 +2,19 @@
 title: Apache Spark machine learning 파이프라인 만들기-Azure HDInsight
 description: Apache Spark machine learning 라이브러리를 사용 하 여 Azure HDInsight에서 데이터 파이프라인을 만듭니다.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
-ms.openlocfilehash: c270e9865aff30184ea236f56ab20ede78c5d577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9897c7ba14e6190698cf10792a94acc759699d4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075453"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940178"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
-Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. Spark 패키지는 [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) 데이터 프레임을 기반으로 하는 상위 수준의 api 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
+Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. Spark 패키지는 [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) 데이터 프레임을 기반으로 하는 상위 수준의 api 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습* 은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
 
 ML(기계 학습) 파이프라인은 여러 기계 학습 알고리즘을 결합한 완벽한 워크플로입니다. 데이터를 처리하고 학습하는 데 필요한 여러 단계가 있을 수 있으며 일련의 알고리즘이 필요합니다. 파이프라인은 기계 학습 프로세스의 단계와 순서를 정의합니다. MLlib에서 파이프라인의 단계는 변환기와 평가기에서 각각 작업을 수행하는 PipelineStages의 특정 시퀀스로 표시됩니다.
 
@@ -132,6 +129,6 @@ only showing top 20 rows
 
 이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 애플리케이션의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 * [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)

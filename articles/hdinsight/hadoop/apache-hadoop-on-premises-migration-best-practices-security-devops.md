@@ -1,19 +1,17 @@
 ---
 title: '보안: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 보안 및 DevOps 모범 사례를 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545262"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939746"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -42,7 +40,7 @@ ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Q
 
 - 다음 매개 변수를 설정하여 HDInsight ESP 클러스터를 배포합니다.
 
-    |매개 변수 |설명 |
+    |매개 변수 |Description |
     |---|---|
     |도메인 이름|Azure AD DS와 연결된 도메인 이름입니다.|
     |도메인 사용자 이름|이전 섹션에서 만든 Azure AD DS DC 관리되는 도메인의 서비스 계정입니다(예: `hdiadmin@contoso.onmicrosoft.com`). 이 도메인 사용자는 이 HDInsight 클러스터의 관리자가 됩니다.|

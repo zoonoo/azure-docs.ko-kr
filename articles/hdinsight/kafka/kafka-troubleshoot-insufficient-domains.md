@@ -3,16 +3,13 @@ title: Azure HDInsight에서 지역 오류에 장애 도메인이 부족 합니�
 description: Azure HDInsight의 지역에 장애 도메인이 충분 하지 않아 클러스터를 만들지 못했습니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/09/2019
-ms.openlocfilehash: 070ba5ecb6f151099c13082eee650c5720e63b2a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3f7d866d1c9b8c8437bc0f84acca47e0b8631895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532597"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939041"
 ---
 # <a name="scenario-cluster-creation-failed-due-to-not-sufficient-fault-domains-in-region-in-azure-hdinsight"></a>시나리오: `not sufficient fault domains in region` Azure HDInsight에서로 인해 클러스터를 만들지 못했습니다.
 

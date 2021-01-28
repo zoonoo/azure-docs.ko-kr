@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 01/05/2021
-ms.openlocfilehash: 8833c27421dfbfd4799828bce79afcad7c377fd8
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 41acfb2465382e8de4751b54c5b93e77bd12daaf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197356"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937330"
 ---
 # <a name="cognitive-services-docs-whats-new-for-december-1-2020---december-31-2020"></a>Cognitive Services docs: 2020 년 12 월 1 일, 2020 년 12 월 31 일의 새로운 기능
 
@@ -32,37 +32,37 @@ ms.locfileid: "98197356"
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [변칙 탐지기 REST API 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=windows&pivots=rest-api)
+- [변칙 탐지기 REST API 빠른 시작](./anomaly-detector/quickstarts/client-libraries.md?pivots=rest-api&tabs=windows)
 
 ## <a name="bing-visual-search"></a>Bing Visual Search
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기](/azure/cognitive-services/bing-visual-search/use-insights-token)
+- [Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기](./bing-visual-search/use-insights-token.md)
 
 ## <a name="containers"></a>컨테이너
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [Azure Container Instance에서 컨테이너 배포 및 실행](/azure/cognitive-services/containers/azure-container-instance-recipe)
+- [Azure Container Instance에서 컨테이너 배포 및 실행](./containers/azure-container-instance-recipe.md)
 
 ## <a name="form-recognizer"></a>Form Recognizer
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [폼 인식기 방문 페이지](/azure/cognitive-services/form-recognizer/)
-- [빠른 시작: Form Recognizer 클라이언트 라이브러리 사용](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [폼 인식기 방문 페이지](./form-recognizer/index.yml)
+- [빠른 시작: Form Recognizer 클라이언트 라이브러리 사용](./form-recognizer/quickstarts/client-library.md)
 
 ## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
-- [텍스트 분석 API v3 언어 지원](/azure/cognitive-services/text-analytics/language-support)
-- [텍스트 분석 REST API를 호출하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
-- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
-- [예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-keyword-extraction)
-- [텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs](/azure/cognitive-services/text-analytics/)
-- [빠른 시작: Text Analytics 클라이언트 라이브러리 및 REST API 사용](/azure/cognitive-services/text-analytics/quickstarts/client-libraries-rest-api)
+- [텍스트 분석 API v3 언어 지원](./text-analytics/language-support.md)
+- [텍스트 분석 REST API를 호출하는 방법](./text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [예: Text Analytics을 사용 하 여 키 구를 추출 하는 방법](./text-analytics/how-tos/text-analytics-how-to-keyword-extraction.md)
+- [텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs](./text-analytics/index.yml)
+- [빠른 시작: Text Analytics 클라이언트 라이브러리 및 REST API 사용](./text-analytics/quickstarts/client-libraries-rest-api.md)
 
 ## <a name="community-contributors"></a>커뮤니티 기여자
 

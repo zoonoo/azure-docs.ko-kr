@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756275"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937880"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
-이 문서에서는 사용자를 로그인 하는 웹 앱에 대 한 앱 등록 세부 사항을 설명 합니다.
+이 문서에서는 사용자를 로그인 하는 웹 앱에 대 한 앱 등록 단계를 설명 합니다.
 
 응용 프로그램을 등록 하려면 다음을 사용할 수 있습니다.
 
-- [웹 앱](#register-an-app-by-using-the-quickstarts)빠른 시작입니다. 응용 프로그램을 만들 때 뛰어난 첫 번째 경험이 될 뿐만 아니라, Azure Portal의 빠른 시작에는 **이 변경을 위해** 이름이 지정 된 단추가 포함 되어 있습니다. 이 단추를 사용 하 여 기존 응용 프로그램의 경우에도 필요한 속성을 설정할 수 있습니다. 이러한 속성의 값은 사용자의 사례에 맞게 조정 해야 합니다. 특히 앱에 대 한 web API URL은 제안 된 기본값과 다를 수 있으며,이는 로그 아웃 URI에도 영향을 줍니다.
+- [웹 앱](#register-an-app-by-using-the-quickstarts)빠른 시작입니다. 응용 프로그램을 만들 때 뛰어난 첫 번째 경험이 될 뿐만 아니라, Azure Portal의 빠른 시작에는 **이 변경을 위해** 이름이 지정 된 단추가 포함 되어 있습니다. 이 단추를 사용 하 여 기존 응용 프로그램의 경우에도 필요한 속성을 설정할 수 있습니다. 이러한 속성의 값을 고유한 사례에 맞게 조정 합니다. 특히 앱에 대 한 web API URL은 제안 된 기본값과 다를 수 있으며,이는 로그 아웃 URI에도 영향을 줍니다.
 - [응용 프로그램을 수동으로 등록](#register-an-app-by-using-the-azure-portal)하는 Azure Portal입니다.
 - PowerShell 및 명령줄 도구.
 
@@ -56,8 +56,8 @@ ms.locfileid: "98756275"
    1. **등록** 을 선택합니다.
 1. **관리** 에서 **인증** 을 선택 하 고 다음 정보를 추가 합니다.
    1. **웹** 섹션에서를 `https://localhost:44321/signin-oidc` **리디렉션 URI** 로 추가 합니다.
-   1. 을 `https://localhost:44321/signout-oidc` **로그 아웃 URL** 로 추가 합니다.
-   1. **암시적 허용** 에서 **ID 토큰** 을 선택합니다.
+   1. **전면 채널 로그 아웃 URL** 에을 입력 `https://localhost:44321/signout-oidc` 합니다.
+   1. **암시적 허용 및 하이브리드 흐름** 에서 **ID 토큰** 을 선택 합니다.
    1. **저장** 을 선택합니다.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ ms.locfileid: "98756275"
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `MailApp-openidconnect-v2`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
-   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **https://localhost:44326/** 합니다.
+   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고의 **리디렉션 uri** 를 입력 `https://localhost:44326/` 합니다.
    1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 권한 부여** 섹션에서 **ID 토큰** 을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
+1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
 1. **저장** 을 선택합니다.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ ms.locfileid: "98756275"
 1. **웹** 을 선택합니다.
 1. **리디렉션 URI** 에 대해 동일한 호스트 및 포트 번호를 입력 하 고 그 뒤 `/msal4jsample/secure/aad` 에 로그인 페이지를 입력 합니다. 
 1. **구성** 을 선택합니다.
-1. **웹** 섹션에서 호스트 및 포트 번호를 사용 하 고, 사용자 정보 페이지의 **리디렉션 URI** 로 **/msal4jsample/graph/me** 를 사용 합니다.
+1. **웹** 섹션에서 호스트 및 포트 번호를 사용 하 고 뒤에 `/msal4jsample/graph/me` 사용자 정보 페이지의 **리디렉션 URI** 를 사용 합니다.
 기본적으로이 샘플은 다음을 사용 합니다.
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. **저장** 을 선택합니다.
 1. **관리** 에서 **인증서 및 암호** 를 선택합니다.
@@ -100,7 +100,7 @@ ms.locfileid: "98756275"
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `python-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
    1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서** **지원 되는 계정 유형을** 계정으로 변경 합니다.
-   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken** 합니다.
+   1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 `http://localhost:5000/getAToken` 합니다.
    1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
 1. **관리** 에서 **인증서 및 암호** 를 선택합니다.
