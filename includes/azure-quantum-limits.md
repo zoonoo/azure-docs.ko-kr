@@ -6,12 +6,12 @@ ms.service: azure-quantum
 ms.topic: include
 ms.date: 01/08/2021
 ms.author: dasto
-ms.openlocfilehash: c312ee63f9f00e4eef726924fc01f2862ba2884f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2106a48a583f120f8b4dde4eb32a30f1a1b1d85b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920474"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947916"
 ---
 ### <a name="provider-limits--quota"></a>공급자 제한 & 할당량
 
@@ -32,11 +32,11 @@ SKU & 개발 하는 방법을 사용 하는 경우 할당량 한도 증가를 �
 
 #### <a name="performance-at-scale-sku"></a>SKU 규모의 성능
 
-| 리소스 | 제한 |
-| --- | --- |
-| CPU 기반 동시 작업 | 최대 100 동시 작업 |
-| FPGA 기반 동시 작업 | 최대 10 개의 동시 작업 |
-| 해 찾기 시간 | 월 5만 시간  |
+| 리소스 | 기본 제한 | 최대 제한 |
+| --- | --- | --- |
+| CPU 기반 동시 작업 | 최대 100 동시 작업 | 기본 제한과 동일 |
+| FPGA 기반 동시 작업 | 최대 10 개의 동시 작업 | 기본 제한과 동일 |
+| 해 찾기 시간 | 월 1000 시간  | 매월 최대 5만 시간 |
 
 제한 증가를 요청 해야 하는 경우 Azure 지원에 문의 하세요. 
 

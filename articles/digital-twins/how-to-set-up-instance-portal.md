@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882455"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947009"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -40,7 +40,7 @@ ms.locfileid: "98882455"
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Azure Digital Twins 서비스 페이지에서 ' 만들기 ' 선택":::
 
-다음 *리소스 만들기* 페이지에서 아래 지정 된 값을 입력 합니다.
+다음 **리소스 만들기** 페이지에서 아래 지정 된 값을 입력 합니다.
 * **구독**: 사용 중인 Azure 구독
   - **리소스 그룹**: 인스턴스를 배포할 리소스 그룹입니다. 기존 리소스 그룹이 아직 없는 경우 *새로* 만들기 링크를 선택 하 고 새 리소스 그룹의 이름을 입력 하 여 여기에서 하나를 만들 수 있습니다.
 * **Location**: 배포를 위한 Azure Digital twins 지원 지역입니다. 지역별 지원에 대 한 자세한 내용은 [*지역별 사용 가능한 azure 제품 (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조 하세요.
@@ -48,11 +48,21 @@ ms.locfileid: "98882455"
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="설명 된 값을 입력 하 여 Azure Digital Twins 리소스 만들기":::
 
-완료 되 면 _검토 + 만들기_ 를 선택 합니다. 그러면 입력 한 인스턴스 세부 정보를 검토 하 고 _만들기_ 를 누르면 요약 페이지로 이동 합니다. 
+완료 되 면 인스턴스에 대 한 추가 설정을 구성 하지 않으려는 경우 **검토 + 만들기** 를 선택할 수 있습니다. 그러면 입력 한 인스턴스 세부 정보를 검토 하 고 **만들기** 를 완료할 수 있는 요약 페이지로 이동 합니다. 
+
+인스턴스에 대 한 자세한 정보를 구성 하려는 경우 다음 섹션에서 나머지 설정 탭을 설명 합니다.
+
+### <a name="additional-setup-options"></a>추가 설치 옵션
+
+다음은 설치 중에 **리소스 만들기** 프로세스의 다른 탭을 사용 하 여 구성할 수 있는 추가 옵션입니다.
+
+* **네트워킹**:이 탭에서는 [Azure 개인 링크](../private-link/private-link-overview.md) 를 사용 하 여 개인 끝점을 사용 하도록 설정 하 여 인스턴스에 대 한 공용 네트워크 노출을 제거할 수 있습니다. 자세한 내용은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation)을 참조 하세요.
+* **고급**:이 탭에서 이벤트를 [끝점](concepts-route-events.md)으로 전달할 때 사용할 수 있는 인스턴스에 대해 [시스템 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [*방법: 라우팅 이벤트에 관리 Id 사용*](how-to-enable-managed-identities.md)을 참조 하세요.
+* **태그**:이 탭에서 인스턴스에 태그를 추가 하 여 Azure 리소스에서 구성 하는 데 도움을 줍니다. Azure 리소스 태그에 대 한 자세한 내용은 [*논리 조직에 대 한 리소스, 리소스 그룹 및 구독 태그*](../azure-resource-manager/management/tag-resources.md)를 참조 하세요.
 
 ### <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요 한 값 수집
 
-*만든* 후에는 포털 아이콘 표시줄을 따라 Azure 알림에서 인스턴스의 배포 상태를 볼 수 있습니다. 배포에 성공 하면 알림이 표시 되 고, _리소스로 이동_ 단추를 선택 하 여 생성 된 인스턴스를 볼 수 있습니다.
+**만들기** 를 선택 하 여 인스턴스 설치를 완료 한 후에는 포털 아이콘 표시줄을 따라 Azure 알림에서 인스턴스의 배포 상태를 볼 수 있습니다. 배포에 성공 하면 알림이 표시 되 고, _리소스로 이동_ 단추를 선택 하 여 생성 된 인스턴스를 볼 수 있습니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="성공적인 배포를 표시 하 고 ' 리소스로 이동 ' 단추를 강조 표시 하는 Azure 알림 보기":::
 

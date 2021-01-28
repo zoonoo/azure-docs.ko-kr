@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 972609b0a1b2249c9da9ab6da9309c0950e76734
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: a01afdcb54ff124bf4141d6ceb34b77303bef104
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698032"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947376"
 ---
 .NET용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "98698032"
 * [사용자 그룹 만들기](#create-a-person-group)
 * [얼굴 식별](#identify-a-face)
 
-[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [샘플](/samples/browse/?products=azure&term=face)
+[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [샘플](/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -110,12 +110,12 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 |Name|Description|
 |---|---|
-|[FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | 이 클래스는 Face 서비스를 사용할 수 있는 권한의 부여를 나타내며 모든 Face 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. |
-|[FaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|이 클래스는 사람 얼굴을 사용하여 수행할 수 있는 기본 감지 및 인식 작업을 처리합니다. |
-|[DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)|이 클래스는 이미지의 한 얼굴에서 감지된 모든 데이터를 나타냅니다. 얼굴에 대한 자세한 정보를 검색하는 데 사용할 수 있습니다.|
-|[FaceListOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)|이 클래스는 분류된 얼굴 세트를 저장하는 클라우드 저장 **FaceList** 구문을 관리합니다. |
-|[PersonGroupPersonExtensions](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongrouppersonextensions?view=azure-dotnet)| 이 클래스는 한 사람에게 속한 얼굴 세트를 저장하는 클라우드 저장 **Person** 구문을 관리합니다.|
-|[PersonGroupOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| 이 클래스는 분류된 **Person** 개체 세트를 저장하는 클라우드 저장 **PersonGroup** 구문을 관리합니다. |
+|[FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) | 이 클래스는 Face 서비스를 사용할 수 있는 권한의 부여를 나타내며 모든 Face 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다. |
+|[FaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations)|이 클래스는 사람 얼굴을 사용하여 수행할 수 있는 기본 감지 및 인식 작업을 처리합니다. |
+|[DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface)|이 클래스는 이미지의 한 얼굴에서 감지된 모든 데이터를 나타냅니다. 얼굴에 대한 자세한 정보를 검색하는 데 사용할 수 있습니다.|
+|[FaceListOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations)|이 클래스는 분류된 얼굴 세트를 저장하는 클라우드 저장 **FaceList** 구문을 관리합니다. |
+|[PersonGroupPersonExtensions](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongrouppersonextensions)| 이 클래스는 한 사람에게 속한 얼굴 세트를 저장하는 클라우드 저장 **Person** 구문을 관리합니다.|
+|[PersonGroupOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations)| 이 클래스는 분류된 **Person** 개체 세트를 저장하는 클라우드 저장 **PersonGroup** 구문을 관리합니다. |
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -129,7 +129,7 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-새 메서드에서 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** 개체를 만들고, 엔드포인트에서 이를 사용하여 **[FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 개체를 만듭니다.
+새 메서드에서 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials)** 개체를 만들고, 엔드포인트에서 이를 사용하여 **[FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient)** 개체를 만듭니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_auth)]
 
@@ -147,16 +147,16 @@ Face .NET 클라이언트 라이브러리의 주요 기능 중 일부를 처리�
 
 ### <a name="get-detected-face-objects"></a>검색된 얼굴 개체 가져오기
 
-얼굴을 감지하는 새 메서드를 만듭니다. `DetectFaceExtract` 메서드는 지정된 URL에서 세 개의 이미지를 처리하고 **[DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** 개체의 목록을 프로그램 메모리에 만듭니다. **[FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 값 목록은 추출할 기능을 지정합니다. 
+얼굴을 감지하는 새 메서드를 만듭니다. `DetectFaceExtract` 메서드는 지정된 URL에서 세 개의 이미지를 처리하고 **[DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface)** 개체의 목록을 프로그램 메모리에 만듭니다. **[FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype)** 값 목록은 추출할 기능을 지정합니다. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
 > [!TIP]
-> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) 메서드(예: **DetectWithStreamAsync**)를 참조하세요.
+> 로컬 이미지에서 얼굴을 검색할 수도 있습니다. [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations) 메서드(예: **DetectWithStreamAsync**)를 참조하세요.
 
 ### <a name="display-detected-face-data"></a>검색된 얼굴 데이터 표시
 
-나머지 `DetectFaceExtract` 메서드는 검색된 각 얼굴에 대한 특성 데이터를 구문 분석하고 출력합니다. 각 특성은 원래 얼굴 검색 API 호출( **[FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 목록의)에서 별도로 지정해야 합니다. 다음 코드는 모든 특성을 처리하지만 하나 또는 몇 가지를 사용해야 할 가능성이 높습니다.
+나머지 `DetectFaceExtract` 메서드는 검색된 각 얼굴에 대한 특성 데이터를 구문 분석하고 출력합니다. 각 특성은 원래 얼굴 검색 API 호출( **[FaceAttributeType](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype)** 목록의)에서 별도로 지정해야 합니다. 다음 코드는 모든 특성을 처리하지만 하나 또는 몇 가지를 사용해야 할 가능성이 높습니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_parse)]
 
@@ -205,7 +205,7 @@ Identify(식별) 작업은 사람(또는 여러 사람)의 이미지를 가져�
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
 > [!TIP]
-> 로컬 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet) 메서드(예: **AddFaceFromStreamAsync**)를 참조하세요.
+> 로컬 이미지에서 **PersonGroup** 을 만들 수도 있습니다. [IPersonGroupPerson](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson) 메서드(예: **AddFaceFromStreamAsync**)를 참조하세요.
 
 ### <a name="train-the-persongroup"></a>PersonGroup 학습
 
@@ -264,7 +264,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 이 빠른 시작에서는 .NET용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
 
 > [!div class="nextstepaction"]
-> [Face API 참조(.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
+> [Face API 참조(.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
 
 * [Face 서비스란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs)에서 확인할 수 있습니다.

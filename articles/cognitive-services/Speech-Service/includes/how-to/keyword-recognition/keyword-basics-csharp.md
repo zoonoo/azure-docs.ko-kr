@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
 ms.author: trbye
-ms.openlocfilehash: c770ca3d619ea443fd5a320f91f3bfae56732bac
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4ec9c847158c9b8a1160cb6f4510912ed83a9fae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792390"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947193"
 ---
 먼저을 반환 하는 정적 함수를 사용 하 여 키워드 모델 파일을 로드 `FromFile()` `KeywordRecognitionModel` 합니다. `.table`Speech Studio에서 다운로드 한 파일의 경로를 사용 합니다. 또한 `AudioConfig` 기본 마이크를 사용 하 여를 만든 다음, `KeywordRecognizer` 오디오 구성을 사용 하 여 새를 인스턴스화합니다.
 
@@ -37,4 +37,4 @@ KeywordRecognitionResult result = await keywordRecognizer.RecognizeOnceAsync(key
 
 음성 텍스트의 경우 [빠른](../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=script%2cbrowser%2cwindowsinstall#continuous-recognition) 시작에 표시 된 것과 동일한 디자인 패턴을 따라 연속 인식을 설정 합니다. 그런 다음에 대 한 호출을로 바꾸고 `recognizer.StartContinuousRecognitionAsync()` `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` 개체를 전달 `KeywordRecognitionModel` 합니다. 발견 키워드를 사용 하 여 연속 인식을 중지 하려면 대신을 사용 `recognizer.StopKeywordRecognitionAsync()` `recognizer.StopContinuousRecognitionAsync()` 합니다.
 
-의도 인식에서는 및 함수와 동일한 패턴을 [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) 사용 [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync) 합니다.
+의도 인식에서는 및 함수와 동일한 패턴을 [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) 사용 [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync) 합니다.

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af8fec56c32b52e2af584e59f08db6cc7129c9c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689793"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948579"
 ---
 ## <a name="install-the-container"></a>컨테이너 설치
 
@@ -62,7 +62,7 @@ Logging:Disk:Format=json
 > [!NOTE]
 > 데모는 상태 컨테이너의 Text Analytics 에서만 사용할 수 있습니다.
 
-컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.  컨테이너의 끝점에 추가 하 여 액세스할 수 있는 시각화 도구를 컨테이너에 제공 했습니다 `/demo` . 다음은 그 예입니다. 
+컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.  컨테이너의 끝점에 추가 하 여 액세스할 수 있는 시각화 도구를 컨테이너에 제공 했습니다 `/demo` . 예를 들면 다음과 같습니다.
 
 ```
 http://<serverURL>:5000/demo
@@ -112,7 +112,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 또한 ACI (Azure Container Instance)를 사용 하 여 배포를 보다 쉽게 만들 수 있습니다. ACI는 서버를 사용 하지 않는 관리 되는 Azure 환경에서 주문형 Docker 컨테이너를 실행할 수 있는 리소스입니다. 
 
-Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure Container Instances 사용 방법을](../how-tos/text-analytics-how-to-use-container-instances.md) 참조 하세요. 컨테이너 이미지를 사용 하 여 구독에서 ACI를 만드는 Azure CLI를 사용 하 여 아래 PowerShell 스크립트를 사용할 수도 있습니다.  첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).  최대 Cpu 수에 대 한 제한으로 인해 요청 당 5 개 이상의 매우 많은 문서 (각각 5000 자)를 전송 하려는 경우이 옵션을 선택 하지 마십시오.
+Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure Container Instances 사용 방법을](../../containers/azure-container-instance-recipe.md) 참조 하세요. 컨테이너 이미지를 사용 하 여 구독에서 ACI를 만드는 Azure CLI를 사용 하 여 아래 PowerShell 스크립트를 사용할 수도 있습니다.  첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).  최대 Cpu 수에 대 한 제한으로 인해 요청 당 5 개 이상의 매우 많은 문서 (각각 5000 자)를 전송 하려는 경우이 옵션을 선택 하지 마십시오.
 가용성 정보는 [ACI 지역 지원](../../../container-instances/container-instances-region-availability.md) 문서를 참조 하세요. 
 
 > [!NOTE] 
@@ -213,4 +213,3 @@ docker-compose up
 ```
 
 자세한 내용은 [NGINX SSL 종료](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/)에 대 한 NGINX 설명서를 참조 하세요.
-

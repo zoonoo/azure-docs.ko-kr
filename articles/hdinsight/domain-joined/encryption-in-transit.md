@@ -1,18 +1,15 @@
 ---
 title: 전송 중인 Azure HDInsight 암호화
 description: Azure HDInsight 클러스터에 대 한 전송 암호화를 제공 하는 보안 기능에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049782"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946852"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Azure HDInsight에 대 한 전송에서 IPSec 암호화
 
@@ -28,7 +25,7 @@ HDInsight에서 전송 중인 데이터의 암호화는 클러스터 게이트�
 
 ## <a name="enable-encryption-in-transit"></a>전송 중 암호화 사용
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal를 사용 하 여 전송 중 암호화가 설정 된 새 클러스터를 만들려면 다음 단계를 수행 합니다.
 
