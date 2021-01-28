@@ -1,19 +1,16 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight
 description: Azure HDInsight에서 Phoenix Query Server를 위한 REST SDK를 설치 및 사용합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/01/2020
-ms.openlocfilehash: 051d7b37f5f78ce28134fa7c4ee188f3dde81812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ce459e2820cfd2ea5cacb036f5d6885c9c5afa0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504845"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933359"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix Query Server REST SDK
 
@@ -25,7 +22,7 @@ ms.locfileid: "89504845"
 
 ## <a name="install-the-sdk"></a>SDK 설치
 
-Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔**에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
+Apache Phoenix Query Server용 Microsoft .NET 드라이버는 다음 명령으로 Visual Studio **NuGet 패키지 관리자 콘솔** 에서 설치할 수 있는 NuGet 패키지로 제공됩니다.
 
 ```console
 Install-Package Microsoft.Phoenix.Client
@@ -40,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new PhoenixClient(credentials);
 ```
 
-CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 사용자 이름 및 암호는 클러스터 만들기에 지정된 Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin**입니다.
+CLUSTERNAME은 HDInsight HBase 클러스터 이름으로, 그리고 사용자 이름 및 암호는 클러스터 만들기에 지정된 Hadoop 자격 증명으로 바꿉니다. 기본 Hadoop 사용자 이름은 **admin** 입니다.
 
 ## <a name="generate-unique-connection-identifier"></a>고유한 연결 식별자 생성
 

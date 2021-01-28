@@ -1,28 +1,25 @@
 ---
 title: Azure HDInsight에서 SparkCruise을 사용 하 여 Apache Spark 쿼리 속도 향상
 description: SparkCruise 최적화 플랫폼을 사용 하 여 Apache Spark 쿼리의 효율성을 높이는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f07ea3007d2e72c179abe38cca56178b564bc231
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649060"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928285"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>Azure HDInsight의 SparkCruise
 
-이 문서에서는 Apache Spark 계산을 자동으로 재사용 하 여 쿼리 효율성을 높이는 Azure HDInsight 기능 *SparkCruise*에 대해 설명 합니다.
+이 문서에서는 Apache Spark 계산을 자동으로 재사용 하 여 쿼리 효율성을 높이는 Azure HDInsight 기능 *SparkCruise* 에 대해 설명 합니다.
 
 ## <a name="overview"></a>개요
 
 Apache Spark와 같은 분석 플랫폼에서 실행 되는 쿼리는 작은 하위 쿼리를 포함 하는 쿼리 계획으로 분해 됩니다. 이러한 하위 쿼리는 여러 쿼리에 대해 쿼리 계획에서 반복적으로 표시 될 수 있습니다. 오류가 발생할 때마다 결과를 반환 하기 위해 다시 실행 됩니다. 그러나 동일한 쿼리를 다시 실행 하는 것은 비효율적 이며 불필요 한 계산 비용을 발생 시킬 수 있습니다.
 
-*SparkCruise* 은 일반적인 계산을 다시 사용 하 여 전체 쿼리 실행 시간 및 데이터 전송 비용을 줄일 수 있는 워크 로드 최적화 플랫폼입니다. 플랫폼은 *구체화 된 뷰의*개념을 사용 합니다 .이는 결과가 미리 계산 된 형식으로 저장 되는 쿼리입니다. 결과를 다시 계산 하는 대신 나중에 쿼리 자체가 다시 표시 될 때 해당 결과를 다시 사용할 수 있습니다.
+*SparkCruise* 은 일반적인 계산을 다시 사용 하 여 전체 쿼리 실행 시간 및 데이터 전송 비용을 줄일 수 있는 워크 로드 최적화 플랫폼입니다. 플랫폼은 *구체화 된 뷰의* 개념을 사용 합니다 .이는 결과가 미리 계산 된 형식으로 저장 되는 쿼리입니다. 결과를 다시 계산 하는 대신 나중에 쿼리 자체가 다시 표시 될 때 해당 결과를 다시 사용할 수 있습니다.
 
 ## <a name="setup-and-installation"></a>설정 및 설치
 
@@ -36,7 +33,7 @@ SparkCruise는 Spark 2.3 또는 2.4를 사용 하는 모든 HDInsight 4.0 클러
 다음 샘플 시나리오에서는 *SparkCruise* 를 사용 하 여 Apache Spark 쿼리를 최적화 하는 방법을 보여 줍니다. 
 
 1. Spark 클러스터의 헤드 노드로 SSH를 이동 합니다.
-1. `spark-shell`을 입력합니다.
+1. `spark-shell`.
 1. 클러스터의 샘플 데이터를 사용 하 여 몇 가지 기본 쿼리를 실행 하는 다음 코드 조각을 실행 합니다.
 
     ```scala
@@ -87,7 +84,7 @@ Found 4 items
 
 최적화를 테스트 하려면 다른 샘플 쿼리 집합을 실행 합니다.
 
-1. `spark-shell`을 입력합니다.
+1. `spark-shell`.
 1. 다음 코드 조각을 실행 합니다.
 
     ```scala

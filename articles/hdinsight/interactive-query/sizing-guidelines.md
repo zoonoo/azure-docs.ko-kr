@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight의 대화형 쿼리 클러스터 크기 조정 가이드
 description: Azure HDInsight의 대화형 쿼리 크기 조정 가이드
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: a81eff1dcf48996c319933aa4dd46170043b943b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7baa9340a1f0a99b94bfcbe535c73d0b502e2a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83663651"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933060"
 ---
 # <a name="interactive-query-cluster-sizing-guide-in-azure-hdinsight"></a>Azure HDInsight의 대화형 쿼리 클러스터 크기 조정 가이드
 
@@ -53,40 +50,40 @@ ms.locfileid: "83663651"
 
 이 값을 = [노드의 총 실제 메모리] – [OS + 기타 서비스에 사용할 메모리]로 설정하세요.
 
-이 값을 가용 RAM의 90% 이하로 설정하는 것이 좋습니다. D14 v2의 경우 권장 값은 **102400MB**입니다.
+이 값을 가용 RAM의 90% 이하로 설정하는 것이 좋습니다. D14 v2의 경우 권장 값은 **102400MB** 입니다.
 
 ### <a name="yarnschedulermaximum-allocation-mb"></a>yarn.scheduler.maximum-allocation-mb
 
 이 값은 Resource Manager의 모든 컨테이너 요청에 제공되는 최대 할당량(MB)을 나타냅니다. 지정된 값보다 높은 메모리 요청은 적용되지 않습니다. Resource Manager는 `yarn.scheduler.minimum-allocation-mb` 단위로만 컨테이너에 메모리를 제공할 수 있으며, `yarn.scheduler.maximum-allocation-mb`에 지정된 크기를 초과할 수 없습니다. 이 값은 노드에 제공되는 총 메모리를 초과할 수 없으며, 총 메모리는 `yarn.nodemanager.resource.memory-mb`에서 지정합니다.
 
-D14 v2 작업자 노드의 경우 권장 값은 **102400MB**입니다.
+D14 v2 작업자 노드의 경우 권장 값은 **102400MB** 입니다.
 
 ### <a name="yarnschedulermaximum-allocation-vcores"></a>yarn.scheduler.maximum-allocation-vcores
 
 이 구성은 Resource Manager의 모든 컨테이너 요청에 제공되는 최대 가상 CPU 코어 수입니다. 이 구성보다 높은 값을 요청할 수 없습니다. 이 구성은 YARN 스케줄러의 글로벌 속성입니다. LLAP 디먼 컨테이너의 경우 이 값을 가용 가상 코어(vCORE)의 75%로 설정할 수 있습니다. 나머지 25%는 NodeManager, DataNode 및 작업자 노드에서 실행되는 기타 서비스를 위해 남겨 두어야 합니다.  
 
-D14 v2 작업자 노드의 경우 vCORE 16개가 있으며 vCORE 16개의 75%를 제공할 수 있습니다. 따라서 LLAP 디먼 컨테이너의 권장 값은 **12**입니다.
+D14 v2 작업자 노드의 경우 vCORE 16개가 있으며 vCORE 16개의 75%를 제공할 수 있습니다. 따라서 LLAP 디먼 컨테이너의 권장 값은 **12** 입니다.
 
 ### <a name="hiveserver2tezsessionsperdefaultqueue"></a>hive.server2.tez.sessions.per.default.queue
 
 이 구성 값은 `hive.server2.tez.default.queues`에 지정된 큐마다 병렬로 실행해야 하는 Tez 세션 수를 결정합니다. 이 값은 Tez AM(쿼리 코디네이터) 수에 해당합니다. 작업자 노드 수와 동일하게 노드당 Tez AM 하나가 좋습니다. Tez AM 수는 LLAP 디먼 노드 수보다 많아도 됩니다. 주요 역할은 쿼리 실행을 조정하고 쿼리 계획 조각을 해당 LLAP 디먼에 할당하여 실행하는 것입니다. 더 높은 처리량을 얻을 수 있도록 LLAP 디먼 노드의 배수로 유지하는 것이 좋습니다.  
 
-기본 HDInsight 클러스터는 4개의 작업자 노드에서 4개의 LLAP 디먼이 실행되므로 권장 값은 **4**입니다.  
+기본 HDInsight 클러스터는 4개의 작업자 노드에서 4개의 LLAP 디먼이 실행되므로 권장 값은 **4** 입니다.  
 
 ### <a name="tezamresourcememorymb-hivetezcontainersize"></a>tez.am.resource.memory.mb, hive.tez.container.size
 
 `tez.am.resource.memory.mb`는 Tez 애플리케이션 마스터 크기를 정의합니다.  
-권장 값은 **4096MB**입니다.
+권장 값은 **4096MB** 입니다.
 
 `hive.tez.container.size`는 Tez 컨테이너에 제공되는 메모리 양을 정의합니다. 이 값은 YARN 최소 컨테이너 크기(`yarn.scheduler.minimum-allocation-mb`)와 YARN 최대 컨테이너 크기 (`yarn.scheduler.maximum-allocation-mb`) 사이에서 설정해야 합니다.  
-**4096MB**로 설정하는 것이 좋습니다.  
+**4096MB** 로 설정하는 것이 좋습니다.  
 
 컨테이너당 프로세서 하나를 고려하여 프로세서당 메모리 양보다 작게 유지하는 것이 일반적입니다. LLAP 디먼에 사용할 메모리를 제공하기 전에 노드의 Tez AM 수에 제공하는 `Rreserve` 메모리입니다. 예를 들어 노드당 Tez AM 2개(각각 4GB)를 사용하는 경우 90GB 중 82GB를 LLAP 디먼에 제공하고 8GB는 Tez AM 2개를 위해 남겨 둡니다.
 
 ### <a name="yarnschedulercapacityrootllapcapacity"></a>yarn.scheduler.capacity.root.llap.capacity
 
 이 값은 LLAP 큐에 제공되는 용량의 백분율을 나타냅니다. HDInsights 대화형 쿼리 클러스터는 총 용량의 90%를 LLAP 큐에 제공하며, 나머지 10%는 다른 컨테이너 할당의 기본 큐로 설정됩니다.  
-D14 v2 작업자 노드의 경우 LLAP 큐에 권장하는 값은 **90**입니다.
+D14 v2 작업자 노드의 경우 LLAP 큐에 권장하는 값은 **90** 입니다.
 
 ### <a name="hivellapdaemonyarncontainermb"></a>hive.llap.daemon.yarn.container.mb
 
@@ -105,7 +102,7 @@ LLAP 디먼의 총 메모리 크기는 다음 구성 요소에 따라 다릅니�
 * 헤드룸
 
     Java VM 오버헤드(메타스페이스, 스레드 스택, gc 데이터 구조 등)에 사용되는 오프힙 메모리의 일부입니다. 이 부분은 힙 크기(Xmx)의 약 6%를 차지하는 것으로 관찰됩니다. 총 LLAP 디먼 메모리 크기의 6%로 계산하는 것이 안전합니다. SSD 캐시를 사용할 경우 LLAP 디먼이 모든 가용 메모리 내 공간을 힙에만 사용할 수 있기 때문입니다.  
-    D14 v2의 경우 권장 값은 ceil(86GB x 0.06) ~= **6GB**입니다.  
+    D14 v2의 경우 권장 값은 ceil(86GB x 0.06) ~= **6GB** 입니다.  
 
 디먼당 메모리 = [메모리 내 캐시 크기] + [힙 크기] + [헤드룸]입니다.
 
@@ -114,14 +111,14 @@ LLAP 디먼의 총 메모리 크기는 다음 구성 요소에 따라 다릅니�
 노드당 Tez AM 메모리 = [(Tez AM 수/LLAP 디먼 노드 수) * Tez AM 크기].
 LLAP 디먼 컨테이너 크기 = [YARN 최대 컨테이너 메모리의 90%] – [노드당 Tez AM 메모리].
 
-D14 v2 작업자 노드 HDI 4.0의 경우 권장 값은 (90 - (1/1 * 4GB)) = **86GB**입니다.
-(HDI 3.6의 경우 슬라이더 AM 용량으로 ~2GB를 남겨 두어야 하므로 권장 값은 **84GB**입니다.)  
+D14 v2 작업자 노드 HDI 4.0의 경우 권장 값은 (90 - (1/1 * 4GB)) = **86GB** 입니다.
+(HDI 3.6의 경우 슬라이더 AM 용량으로 ~2GB를 남겨 두어야 하므로 권장 값은 **84GB** 입니다.)  
 
 ### <a name="hivellapiomemorysize"></a>hive.llap.io.memory.size
 
 이 구성은 LLAP 디먼의 캐시로 사용 가능한 메모리 양입니다. LLAP 디먼은 SSD를 캐시로 사용할 수 있습니다. `hive.llap.io.allocator.mmap`을 true로 설정하면 SSD 캐싱이 사용됩니다. D14 v2는 SSD ~800GB를 기본 제공하며, 대화형 쿼리 클러스터(LLAP)에 SSD 캐싱이 기본적으로 사용됩니다. 오프힙 캐시에 SSD 공간의 50%를 사용하도록 구성되어 있습니다.
 
-D14 v2의 경우 권장 값은 **409600MB**입니다.  
+D14 v2의 경우 권장 값은 **409600MB** 입니다.  
 
 SSD 캐싱을 사용하지 않는 다른 VM의 경우 보다 나은 성능을 얻을 수 있도록 LLAP 캐싱에 가용 RAM의 일부를 제공하는 것이 좋습니다. LLAP 디먼의 총 메모리 크기를 다음과 같이 조정하세요.  
 
@@ -135,7 +132,7 @@ SSD 캐싱을 사용하지 않는 다른 VM의 경우 보다 나은 성능을 �
 
 D14 v2의 경우 vCORE 16개가 있지만 모든 vCORE를 제공할 수 있는 것은 아닙니다. 작업자 노드는 NodeManager, DataNode, Metrics Monitor 등의 다른 서비스도 실행하며 이러한 서비스에도 사용 가능한 vCORE의 일부가 필요합니다. 이 값은 해당 노드에서 사용할 수 있는 총 vCORE의 75%까지 구성할 수 있습니다.
 
-D14 v2의 경우 권장 값은 (.75 X 16) = **12**입니다.
+D14 v2의 경우 권장 값은 (.75 X 16) = **12** 입니다.
 
 실행기 하나마다 힙 공간 ~6GB를 남겨 두는 것이 좋습니다. 사용 가능한 LLAP 디먼 크기와 노드당 사용 가능한 vCORE 수에 따라 실행기 수를 조정합니다.  
 
@@ -143,7 +140,7 @@ D14 v2의 경우 권장 값은 (.75 X 16) = **12**입니다.
 
 이 값은 실행기의 스레드 풀 크기를 지정합니다. 실행기는 지정된 값으로 고정되므로 LLAP 디먼당 실행기 수와 동일합니다.
 
-D14 v2의 경우 이 값을 **12**로 설정하는 것이 좋습니다.
+D14 v2의 경우 이 값을 **12** 로 설정하는 것이 좋습니다.
 
 이 구성은 `yarn.nodemanager.resource.cpu-vcores` 값을 초과할 수 없습니다.
 
@@ -151,7 +148,7 @@ D14 v2의 경우 이 값을 **12**로 설정하는 것이 좋습니다.
 
 이 매개 변수를 적용하려면 `hive.auto.convert.join.noconditionaltask`를 사용하도록 설정해야 합니다. 이렇게 구성하면 사용자는 맵 조인을 수행하는 데 필요한 메모리에 적합하도록 테이블 크기를 지정할 수 있습니다. n방향 조인에 사용할 `tables/partitions`의 n-1 크기 합계가 구성된 값보다 작으면 맵 조인이 선택됩니다. 맵 조인으로 자동 변환하는 임계값을 계산할 때는 LLAP 실행기 메모리 크기를 사용해야 합니다.
 
-D14 v2의 경우 이 값을 **2048MB**로 설정하는 것이 좋습니다.
+D14 v2의 경우 이 값을 **2048MB** 로 설정하는 것이 좋습니다.
 
 이 값을 너무 낮게 설정하면 자동 변환 기능을 사용할 수 없으므로 워크로드에 적당한 값으로 조정하는 것이 좋습니다. 이 값을 너무 높게 설정하면 GC가 일시 중지될 수 있으며, 이로 인해 쿼리 성능에 부정적인 영향을 줄 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007999"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927573"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure Diagnostics 확장 개요
 Azure Diagnostics 확장은 가상 머신을 포함한 Azure 컴퓨팅 리소스에서 모니터링 데이터를 수집하는 [Azure Monitor의 에이전트](agents-overview.md)입니다. 이 문서에서는 지원하는 특정 기능과, 설치 및 구성 옵션을 포함한 Azure Diagnostics 확장의 개요를 제공합니다. 
@@ -50,7 +50,7 @@ Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한
 | 성능 카운터 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값 |
 | IIS 로그             | 게스트 운영 체제에서 실행되는 IIS 웹 사이트에 대한 사용 정보 |
 | 애플리케이션 로그 전송 사용     | 애플리케이션에서 작성한 추적 메시지 |
-| .NET EventSource 로그 |.NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) 클래스를 사용하여 이벤트를 작성하는 코드 |
+| .NET EventSource 로그 |.NET [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | [매니페스트 기반 ETW 로그](/windows/desktop/etw/about-event-tracing) |모든 프로세스에서 생성된 Windows용 이벤트 추적 이벤트 |
 | 크래시 덤프(로그)   | 애플리케이션 작동이 중단된 경우 프로세스 상태에 대한 정보 |
 | 파일 기반 로그    | 애플리케이션 또는 서비스에서 생성된 로그입니다. |
@@ -68,7 +68,7 @@ Azure Diagnostic 확장에 대한 비용은 없지만 데이터 수집에 대한
 ## <a name="data-destinations"></a>데이터 대상
 Windows 및 Linux용 Azure 진단 확장은 항상 데이터를 Azure Storage 계정에 수집합니다. 이 데이터가 수집되는 특정 테이블 및 Blob 목록은 [WAD(Windows Azure Diagnostics) 확장](diagnostics-extension-windows-install.md) 및 [Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md)을 참조하세요.
 
-하나 이상의 *데이터 싱크*를 구성하여 다른 추가 대상에 데이터를 보냅니다. 다음 섹션에서는 Windows 및 Linux 진단 확장에 사용할 수 있는 싱크를 나열합니다.
+하나 이상의 *데이터 싱크* 를 구성하여 다른 추가 대상에 데이터를 보냅니다. 다음 섹션에서는 Windows 및 Linux 진단 확장에 사용할 수 있는 싱크를 나열합니다.
 
 ### <a name="windows-diagnostics-extension-wad"></a>WAD(Windows 진단 확장)
 
@@ -95,7 +95,7 @@ LAD는 Azure Storage의 테이블에 데이터를 씁니다. 다음 표의 싱�
 ## <a name="installation-and-configuration"></a>설치 및 구성
 진단 확장은 Azure에서 [가상 머신 확장](../../virtual-machines/extensions/overview.md)으로 구현되므로 Resource Manager 템플릿, PowerShell 및 CLI를 사용한 동일한 설치 옵션을 지원합니다. 가상 머신 확장 설치 및 유지 관리에 대한 일반 세부 사항은 [Windows용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md) 및 [Linux용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-linux.md)을 참조하세요.
 
-Azure Portal의 가상 머신 메뉴에 있는 **모니터링** 섹션의 **진단 설정**에서 Windows 및 Linux 진단 확장을 설치 및 구성할 수도 있습니다.
+Azure Portal의 가상 머신 메뉴에 있는 **모니터링** 섹션의 **진단 설정** 에서 Windows 및 Linux 진단 확장을 설치 및 구성할 수도 있습니다.
 
 Windows 및 Linux용 진단 확장을 설치 및 구성하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

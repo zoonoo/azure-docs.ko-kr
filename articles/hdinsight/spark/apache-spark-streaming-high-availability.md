@@ -1,19 +1,16 @@
 ---
 title: YARN의 항상 사용 가능한 Spark 스트리밍 작업-Azure HDInsight
 description: Azure HDInsight에서 고가용성 시나리오에 대 한 Apache Spark 스트리밍을 설정 하는 방법
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 2ec0bf460a73f95e18e2e9221e8cbd8d4e14ff77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3eb761a793c41c2e2cc2cb952e4fb9f241b41ab6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086214"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929695"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Apache Spark Streaming 작업 만들기
 
@@ -37,7 +34,7 @@ Spark Structured Streaming은 구조화된 데이터를 스트리밍하는 데 �
 
 ![Spark Structured Streaming](./media/apache-spark-streaming-high-availability/structured-streaming.png)
 
-Structured Streaming에서 데이터는 시스템에 도착하는 즉시, 입력 테이블에 수집됩니다. 이 입력 테이블에 대해 작업을 수행하는 쿼리를 작성합니다. 쿼리 결과는 결과 테이블이라는 또 다른 테이블을 생성합니다. 결과 테이블은 쿼리의 결과를 포함합니다. 사용자는 여기에서 데이터를 인출하여 관계형 데이터베이스와 같은 외부 데이터 저장소로 전송하게 됩니다. *트리거 간격*은 입력 테이블에서 데이터거 처리되는 타이밍을 설정합니다. 기본적으로 Structured Streaming은 데이터가 도착하는 즉시, 처리합니다. 그러나 좀 더 긴 간격으로 실행되도록 트리거를 구성하여 스트리밍 데이터가 시간에 따라 일괄로 처리되도록 할 수도 있습니다. 스트리밍 쿼리가 시작 된 이후의 모든 출력 데이터를 포함 하거나 (*전체 모드*) 쿼리를 마지막으로 처리 한 이후 새로 추가 된 데이터만 포함할 수 있도록 새 데이터가 있을 때마다 결과 테이블의 데이터를 새로 고칠 수 있습니다 (*추가 모드*).
+Structured Streaming에서 데이터는 시스템에 도착하는 즉시, 입력 테이블에 수집됩니다. 이 입력 테이블에 대해 작업을 수행하는 쿼리를 작성합니다. 쿼리 결과는 결과 테이블이라는 또 다른 테이블을 생성합니다. 결과 테이블은 쿼리의 결과를 포함합니다. 사용자는 여기에서 데이터를 인출하여 관계형 데이터베이스와 같은 외부 데이터 저장소로 전송하게 됩니다. *트리거 간격* 은 입력 테이블에서 데이터거 처리되는 타이밍을 설정합니다. 기본적으로 Structured Streaming은 데이터가 도착하는 즉시, 처리합니다. 그러나 좀 더 긴 간격으로 실행되도록 트리거를 구성하여 스트리밍 데이터가 시간에 따라 일괄로 처리되도록 할 수도 있습니다. 스트리밍 쿼리가 시작 된 이후의 모든 출력 데이터를 포함 하거나 (*전체 모드*) 쿼리를 마지막으로 처리 한 이후 새로 추가 된 데이터만 포함할 수 있도록 새 데이터가 있을 때마다 결과 테이블의 데이터를 새로 고칠 수 있습니다 (*추가 모드*).
 
 ## <a name="create-fault-tolerant-spark-streaming-jobs"></a>내결함성 Spark Streaming 작업 만들기
 
@@ -67,7 +64,7 @@ HDInsight에서 클러스터 작업은 YARN(*Yet Another Resource Negotiator*)�
 
 **실행자** 에 오류가 발생 하면 해당 태스크 및 수신기가 Spark에 의해 자동으로 다시 시작 되므로 구성 변경이 필요 하지 않습니다.
 
-그러나 **드라이버**가 실패하면 관련 실행기가 모두 실패하고, 수신된 모든 블록 및 계산 결과가 손실됩니다. 드라이버 오류에서 복구 하려면 [정확히 한 번 이벤트 처리를 사용 하 여 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)에 설명 된 대로 *6stream 검사점* 을 사용 합니다. DStream 검사점은 DStream의 DAG(*방향성 비순환 그래프*)를 Azure Storage와 같은 내결함성 있는 스토리지에 주기적으로 저장합니다.  검사점 기능은 Spark Structured Streaming이 검사점 정보에서 실패한 드라이버를 다시 시작할 수 있도록 합니다.  이러한 드라이버 다시 시작으로 인해 새 실행기가 시작되고 수신기도 다시 시작됩니다.
+그러나 **드라이버** 가 실패하면 관련 실행기가 모두 실패하고, 수신된 모든 블록 및 계산 결과가 손실됩니다. 드라이버 오류에서 복구 하려면 [정확히 한 번 이벤트 처리를 사용 하 여 Spark 스트리밍 작업 만들기](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers)에 설명 된 대로 *6stream 검사점* 을 사용 합니다. DStream 검사점은 DStream의 DAG(*방향성 비순환 그래프*)를 Azure Storage와 같은 내결함성 있는 스토리지에 주기적으로 저장합니다.  검사점 기능은 Spark Structured Streaming이 검사점 정보에서 실패한 드라이버를 다시 시작할 수 있도록 합니다.  이러한 드라이버 다시 시작으로 인해 새 실행기가 시작되고 수신기도 다시 시작됩니다.
 
 DStream 검사점을 사용하여 드라이버를 복구하려면
 
@@ -110,7 +107,7 @@ DStream 검사점을 사용하여 드라이버를 복구하려면
 
 * 장기 실행 작업은 분할해야 합니다.  Spark Streaming 애플리케이션이 클러스터에 제출될 때 작업이 실행되는 YARN 큐를 정의해야 합니다. [YARN Capacity Scheduler](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)를 사용하여 장기 실행 작업을 별도 큐에 제출할 수 있습니다.
 
-* 스트리밍 애플리케이션을 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 애플리케이션 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 애플리케이션을 중지할 수 있습니다. 한 가지 방법은 *n*초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 애플리케이션을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일*을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 애플리케이션에서 사용하세요.
+* 스트리밍 애플리케이션을 정상적으로 종료합니다. 오프셋을 알고 있으며, 모든 애플리케이션 상태가 외부에 저장되는 경우 적절한 위치에서 프로그래밍 방식으로 스트리밍 애플리케이션을 중지할 수 있습니다. 한 가지 방법은 *n* 초 간격으로 외부 플래그를 확인하여 Spark에서 "스레드 후크"를 사용하는 것입니다. 애플리케이션을 시작할 때 HDFS에서 만들어진 후, 사용자가 중지하려고 할 때 제거되는 *마커 파일* 을 사용할 수도 있습니다. 마커 파일 방식을 위해서는, 다음과 비슷한 코드를 호출하는 별도 스레드를 Spark 애플리케이션에서 사용하세요.
 
     ```scala
     streamingContext.stop(stopSparkContext = true, stopGracefully = true)

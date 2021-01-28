@@ -5,27 +5,32 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247900"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928046"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric의 주문형 백업
 
 Reliable Stateful 서비스 및 Reliable Actors의 데이터를 백업하여 재해 또는 데이터 손실 시나리오를 해결할 수 있습니다.
 
-Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 및 필요 시 데이터를 백업하는 기능을 포함합니다. 주문형 백업은 _data loss_ / 기본 서비스 또는 해당 환경에서 계획 된 변경 사항으로 인해 데이터 손실_데이터 손상을_ 방지 하기 때문에 유용 합니다.
+Azure Service Fabric은 [정기적 데이터 백업](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 및 필요 시 데이터를 백업하는 기능을 포함합니다. 주문형 백업은  / 기본 서비스 또는 해당 환경에서 계획 된 변경 사항으로 인해 데이터 손실 _데이터 손상을_ 방지 하기 때문에 유용 합니다.
 
 주문형 백업 기능은 서비스 또는 서비스 환경 작업을 수동으로 트리거하기 전에 서비스 상태를 캡처하는 데 유용합니다. 예를 들어 서비스를 업그레이드하거나 다운그레이드할 때 서비스 바이너리를 변경하는 경우가 있습니다. 이러한 경우 주문형 백업은 애플리케이션 코드 버그로 인한 손상에 대해 데이터를 보호하는 데 도움이 될 수 있습니다.
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-- 구성 호출을 위해 ServiceFabric 모듈 [미리 보기]를 설치 합니다.
+- 구성 호출을 위해 ServiceFabric 모듈 (미리 보기)을 설치 합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> PowerShellGet 버전이 1.6.0 미만인 경우 *-allowprerelease* 플래그에 대 한 지원을 추가 하도록 업데이트 해야 합니다.
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
 
@@ -139,7 +144,7 @@ $backupResponse
 
 주문형 백업 요청은 다음 상태 중 하나일 수 있습니다.
 
-- **수락**됨: 파티션에서 백업이 시작 되어 진행 중입니다.
+- **수락** 됨: 파티션에서 백업이 시작 되어 진행 중입니다.
   ```
   BackupState             : Accepted
   TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -149,8 +154,8 @@ $backupResponse
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **성공**, **실패**또는 **시간 제한**: 요청 된 주문형 백업은 다음과 같은 상태에서 완료할 수 있습니다.
-  - **성공**: _성공_ 백업 상태는 파티션 상태가 성공적으로 백업 되었음을 나타냅니다. 응답에는 시간(UTC)과 함께 파티션의 _BackupEpoch_ 및 _BackupLSN_이 제공됩니다.
+- **성공**, **실패** 또는 **시간 제한**: 요청 된 주문형 백업은 다음과 같은 상태에서 완료할 수 있습니다.
+  - **성공**: _성공_ 백업 상태는 파티션 상태가 성공적으로 백업 되었음을 나타냅니다. 응답에는 시간(UTC)과 함께 파티션의 _BackupEpoch_ 및 _BackupLSN_ 이 제공됩니다.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z
@@ -170,7 +175,7 @@ $backupResponse
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **시간**제한: _시간 제한_ 백업 상태는 지정 된 시간 내에 파티션 상태 백업을 만들 수 없음을 나타냅니다. 시간 제한은 기본적으로 10분입니다. 이 시나리오에서는 새로운 주문형 백업 요청의 [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 값을 더 높게 설정하여 시작합니다.
+  - **시간** 제한: _시간 제한_ 백업 상태는 지정 된 시간 내에 파티션 상태 백업을 만들 수 없음을 나타냅니다. 시간 제한은 기본적으로 10분입니다. 이 시나리오에서는 새로운 주문형 백업 요청의 [BackupTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) 값을 더 높게 설정하여 시작합니다.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z

@@ -1,19 +1,16 @@
 ---
 title: Apache Spark에 대한 데이터 스토리지 최적화 - Azure HDInsight
 description: Azure HDInsight에서 Apache Spark와 함께 사용할 데이터 스토리지를 최적화하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ad09cdc2c0054c9d9a58e6bfa00252862f1e8c0f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 10f99bdc4a5d418ae1b432a6799c5979e473c5ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028226"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926991"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Apache Spark에 대 한 데이터 저장소 최적화
 

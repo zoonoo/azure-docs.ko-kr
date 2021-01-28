@@ -1,19 +1,16 @@
 ---
 title: HDInsight의 Kafka로 Azure Kubernetes Service 사용
 description: AKS(Azure Kubernetes Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485684"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933022"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -58,45 +55,45 @@ AKS 클러스터가 아직 없으면 다음 문서 중 하나를 사용하여 �
 * [AKS(Azure Kubernetes Service) 클러스터 배포-CLI](../../aks/kubernetes-walkthrough.md)
 
 > [!IMPORTANT]  
-> AKS는 **추가** 리소스 그룹에 설치하는 동안 가상 네트워크를 만듭니다. 추가 리소스 그룹은 **MC_resourceGroup_AKSclusterName_location**의 명명 규칙을 따릅니다.  
+> AKS는 **추가** 리소스 그룹에 설치하는 동안 가상 네트워크를 만듭니다. 추가 리소스 그룹은 **MC_resourceGroup_AKSclusterName_location** 의 명명 규칙을 따릅니다.  
 > 이 네트워크는 다음 섹션에서 HDInsight용으로 생성되는 네트워크와 피어링됩니다.
 
 ## <a name="configure-virtual-network-peering"></a>가상 네트워크 피어링 구성
 
 ### <a name="identify-preliminary-information"></a>예비 정보 식별
 
-1. [Azure Portal](https://portal.azure.com)에서 AKS 클러스터에 대한 가상 네트워크가 포함된 추가 **리소스 그룹**을 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 AKS 클러스터에 대한 가상 네트워크가 포함된 추가 **리소스 그룹** 을 찾습니다.
 
 2. 리소스 그룹에서 __가상 네트워크__ 리소스를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
 
-3. __설정__에서 **주소 공간**을 선택합니다. 나열된 주소 공간에 유의합니다.
+3. __설정__ 에서 **주소 공간** 을 선택합니다. 나열된 주소 공간에 유의합니다.
 
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-1. HDInsight용 가상 네트워크를 만들려면 __+ 리소스 만들기__ > __네트워킹__ > __가상 네트워크__로 이동합니다.
+1. HDInsight용 가상 네트워크를 만들려면 __+ 리소스 만들기__ > __네트워킹__ > __가상 네트워크__ 로 이동합니다.
 
 1. 특정 속성에 대한 다음 지침을 사용하여 네트워크를 만듭니다.
 
     |속성 | 값 |
     |---|---|
     |주소 공간|AKS 클러스터 네트워크에 사용되는 값과 겹치지 않는 주소 공간을 사용해야 합니다.|
-    |위치|AKS 클러스터에 사용한 가상 네트워크와 동일한 __위치__를 사용합니다.|
+    |위치|AKS 클러스터에 사용한 가상 네트워크와 동일한 __위치__ 를 사용합니다.|
 
 1. 다음 단계로 이동하기 전에 가상 네트워크가 생성될 때까지 기다립니다.
 
 ### <a name="configure-peering"></a>피어링 구성
 
-1. HDInsight 네트워크와 AKS 클러스터 네트워크 간에 피어링을 구성하려면 가상 네트워크를 선택한 다음, __피어링__을 선택합니다.
+1. HDInsight 네트워크와 AKS 클러스터 네트워크 간에 피어링을 구성하려면 가상 네트워크를 선택한 다음, __피어링__ 을 선택합니다.
 
-1. __+ 추가__를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
+1. __+ 추가__ 를 선택하고 다음 값을 사용하여 양식에 정보를 입력합니다.
 
     |속성 |값 |
     |---|---|
     |에서 \<this VN> 원격 가상 네트워크로의 피어 링 이름|피어링 구성에 대한 고유 이름을 입력합니다.|
-    |가상 네트워크|**AKS 클러스터**의 가상 네트워크를 선택합니다.|
+    |가상 네트워크|**AKS 클러스터** 의 가상 네트워크를 선택합니다.|
     |에서로의 피어 링 이름 \<AKS VN>\<this VN>|고유한 이름을 입력합니다.|
 
-    다른 필드는 모두 기본값으로 남겨두고 __확인__을 선택하여 피어링을 구성합니다.
+    다른 필드는 모두 기본값으로 남겨두고 __확인__ 을 선택하여 피어링을 구성합니다.
 
 ## <a name="create-apache-kafka-cluster-on-hdinsight"></a>HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -110,11 +107,11 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
     메시지가 표시되면, 클러스터의 HTTPS 사용자 이름 및 암호를 입력합니다. 클러스터에 대한 Ambari Web UI가 표시됩니다.
 
-2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__를 선택합니다.
+2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__ 를 선택합니다.
 
     ![Kafka가 강조 표시된 서비스 목록](./media/apache-kafka-azure-container-services/select-kafka-service.png)
 
-3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__를 선택합니다.
+3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__ 를 선택합니다.
 
     ![Apache Ambari Services 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
 
@@ -136,19 +133,19 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 7. 모든 네트워크 인터페이스에서 수신 대기하도록 Kafka를 구성하려면 __수신기__ 필드의 값을 `PLAINTEXT://0.0.0.0:9092`로 변경합니다.
 
-8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__을 선택합니다.
+8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__ 을 선택합니다.
 
     ![Apache Ambari 구성 저장](./media/apache-kafka-azure-container-services/save-configuration-button.png)
 
-9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
+9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__ 를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
     ![유지 관리 모드 켜기가 강조 표시된 서비스 작업](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
 
-10. Kafka를 다시 시작하려면 __다시 시작__ 단추를 사용하고 __영향 받은 모든 항목 다시 시작__을 선택합니다. 다시 시작을 확인하고 작업이 완료되면 __확인__ 단추를 사용합니다.
+10. Kafka를 다시 시작하려면 __다시 시작__ 단추를 사용하고 __영향 받은 모든 항목 다시 시작__ 을 선택합니다. 다시 시작을 확인하고 작업이 완료되면 __확인__ 단추를 사용합니다.
 
     ![영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추](./media/apache-kafka-azure-container-services/restart-required-button.png)
 
-11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 끄기__를 선택합니다. **확인**을 선택하여 이 작업을 완료합니다.
+11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 끄기__ 를 선택합니다. **확인** 을 선택하여 이 작업을 완료합니다.
 
 ## <a name="test-the-configuration"></a>구성 테스트
 
@@ -212,7 +209,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
     kubectl get service kafka-aks-test --watch
     ```
 
-    외부 IP 주소가 할당되면 __CTRL + C__를 사용하여 감시를 종료합니다.
+    외부 IP 주소가 할당되면 __CTRL + C__ 를 사용하여 감시를 종료합니다.
 
 11. 웹 브라우저를 열고 서비스의 외부 IP 주소를 입력합니다. 다음 이미지와 유사한 페이지가 열립니다.
 

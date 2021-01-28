@@ -1,18 +1,15 @@
 ---
 title: Azure HDInsight에서 말아를 사용 하 여 Apache Sqoop로 데이터 내보내기
 description: 말아 넘기기를 사용 하 여 Azure HDInsight에 Apache Sqoop 작업을 원격으로 제출 하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 9104be9975568c52f6a96994a0afb782a406fe4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de42bf30824fd71228aa27cc478a54ec3741da9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076269"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928359"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>' 말아 '를 사용 하 여 HDInsight에서 Apache Sqoop 작업 실행
 
@@ -22,7 +19,7 @@ HDInsight의 Apache Hadoop 클러스터에서 Curl을 사용하여 Apache Sqoop 
 
 Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HTTP 요청을 사용하여 HDInsight와 상호 작용하는 방법을 설명하는 데 Curl을 사용합니다. 이 Curl은 HDInsight 클러스터에서 제공하는 WebHCat REST API(이전의 Templeton)를 사용하여 작동합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [HDInsight에서 Hadoop과 함께 Apache Sqoop 사용](./hdinsight-use-sqoop.md)에서 [테스트 환경 설정](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) 완료.
 
@@ -99,12 +96,12 @@ REST API는 [기본 인증](https://en.wikipedia.org/wiki/Basic_access_authentic
     curl -G -u %USERNAME%:%PASSWORD% -d user.name=%USERNAME% https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/jobs/%JOBID% | C:\HDI\jq-win64.exe .status.state
     ```
 
-    작업이 완료되면 상태는 **SUCCEEDED**가 됩니다.
+    작업이 완료되면 상태는 **SUCCEEDED** 가 됩니다.
 
    > [!NOTE]  
    > 이 Curl 요청은 작업에 관한 정보가 있는 JSON(JavaScript Object Notation) 문서를 반환합니다. jq는 상태 값을 검색하는 데만 사용됩니다.
 
-1. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `wasb:///example/data/sqoop/curl`)가 포함됩니다. 이 주소는 `example/data/sqoop/curl` HDInsight 클러스터에서 사용 하는 기본 저장소 컨테이너의 디렉터리에 작업의 출력을 저장 합니다.
+1. 작업 상태가 **SUCCEEDED** 로 변경되면 Azure Blob Storage에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 경우 `wasb:///example/data/sqoop/curl`)가 포함됩니다. 이 주소는 `example/data/sqoop/curl` HDInsight 클러스터에서 사용 하는 기본 저장소 컨테이너의 디렉터리에 작업의 출력을 저장 합니다.
 
     Azure Portal을 사용하여 stderr 및 stdout Blob에 액세스할 수 있습니다.
 

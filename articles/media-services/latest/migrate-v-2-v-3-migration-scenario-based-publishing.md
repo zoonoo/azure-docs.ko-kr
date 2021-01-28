@@ -1,5 +1,5 @@
 ---
-title: 패키징 및 배달 시나리오 기반 마이그레이션 지침
+title: 패키징 및 배달 마이그레이션 지침
 description: 이 문서에서는 Azure Media Services v 2에서 v3로 마이그레이션하는 데 도움이 되는 패키지 및 배달에 대 한 시나리오 기반 지침을 제공 합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 78f3e6ee53d5158096882f5554054c3ff06a32b4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895240"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928197"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>패키징 및 배달 시나리오 기반 마이그레이션 지침
 

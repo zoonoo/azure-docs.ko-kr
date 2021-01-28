@@ -1,19 +1,16 @@
 ---
 title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight
 description: Azure HDInsight에서 최상의 Apache Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d808339dd842e88e74efce5d56d12bc5250eb238
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 567fc2637538408d9727d07d3185a5b0e3cf20c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929934"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 

@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight의 클러스터 용량 계획
 description: Azure HDInsight 클러스터의 용량 및 성능 계획에 대한 주요 질문을 확인합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 8e76f767470b9052b25cd2b2958f3f9e9780881b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45cfa90f2156dba87cbec2b6313bc24e5d030572
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714749"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933236"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -66,7 +63,7 @@ Azure Storage에는 일부 [용량 제한](../azure-resource-manager/management/
 
 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 VM 크기 및 유형에 대한 특정 옵션을 제공합니다.
 
-사용하는 애플리케이션에 대해 최적의 클러스터 크기를 결정하려면 클러스터 용량을 벤치마킹하고 지정된 대로 크기를 늘릴 수 있습니다. 예를 들어 시뮬레이트한 워크로드 또는 *카나리아 쿼리*를 사용할 수 있습니다. 다른 크기의 클러스터에서 시뮬레이트한 워크로드를 실행합니다. 의도된 성능에 도달할 때까지 점차적으로 크기를 늘립니다. 카나리아 쿼리는 다른 프로덕션 쿼리 간에 주기적으로 삽입하여 클러스터에 충분한 리소스가 있는지 여부를 표시할 수 있습니다.
+사용하는 애플리케이션에 대해 최적의 클러스터 크기를 결정하려면 클러스터 용량을 벤치마킹하고 지정된 대로 크기를 늘릴 수 있습니다. 예를 들어 시뮬레이트한 워크로드 또는 *카나리아 쿼리* 를 사용할 수 있습니다. 다른 크기의 클러스터에서 시뮬레이트한 워크로드를 실행합니다. 의도된 성능에 도달할 때까지 점차적으로 크기를 늘립니다. 카나리아 쿼리는 다른 프로덕션 쿼리 간에 주기적으로 삽입하여 클러스터에 충분한 리소스가 있는지 여부를 표시할 수 있습니다.
 
 워크로드에 적합한 VM 제품군을 선택하는 방법에 대한 자세한 내용은 [클러스터에 적합한 VM 크기 선택](hdinsight-selecting-vm-size.md)을 참조하세요.
 
@@ -87,7 +84,7 @@ Azure Storage에는 일부 [용량 제한](../azure-resource-manager/management/
 
 ### <a name="isolate-cluster-job-errors"></a>클러스터 작업 오류 격리
 
-경우에 따라 여러 맵의 병렬 실행으로 인해 오류가 발생하고, 다중 노드 클러스터의 구성 요소를 줄일 수 있습니다. 문제를 격리하려면 분산 테스트를 시도합니다. 단일 작업자 노드 클러스터에서 동시에 여러 작업을 실행합니다. 그런 다음, 이 방법을 확대하여 여러 노드가 포함된 클러스터에서 여러 작업을 동시에 실행합니다. Azure에서 단일 노드 HDInsight 클러스터를 만들려면 *`Custom(size, settings, apps)`* 옵션을 사용하고, 포털에서 새 클러스터를 프로비저닝할 때 **클러스터 크기** 섹션의 *작업자 노드 수*에 1 값을 사용합니다.
+경우에 따라 여러 맵의 병렬 실행으로 인해 오류가 발생하고, 다중 노드 클러스터의 구성 요소를 줄일 수 있습니다. 문제를 격리하려면 분산 테스트를 시도합니다. 단일 작업자 노드 클러스터에서 동시에 여러 작업을 실행합니다. 그런 다음, 이 방법을 확대하여 여러 노드가 포함된 클러스터에서 여러 작업을 동시에 실행합니다. Azure에서 단일 노드 HDInsight 클러스터를 만들려면 *`Custom(size, settings, apps)`* 옵션을 사용하고, 포털에서 새 클러스터를 프로비저닝할 때 **클러스터 크기** 섹션의 *작업자 노드 수* 에 1 값을 사용합니다.
 
 ## <a name="quotas"></a>할당량
 

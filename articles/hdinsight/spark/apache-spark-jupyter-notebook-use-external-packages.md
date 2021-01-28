@@ -1,19 +1,16 @@
 ---
 title: Spark에서 Jupyter와 함께 사용자 지정 Maven 패키지 사용-Azure HDInsight
 description: 사용자 지정 Maven 패키지를 사용 하도록 HDInsight Spark 클러스터에서 사용할 수 있는 Jupyter 노트북을 구성 하는 방법에 대 한 단계별 지침입니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 82c61fe77e7bffea6a20e47c71561ab6dc86d12b
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: a3d787059345b5971d99ebd7a1e26a9135b61bed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822253"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930346"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter 노트북과 함께 외부 패키지 사용
 
@@ -61,7 +58,7 @@ ms.locfileid: "97822253"
 
     ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
 
-    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```scala
     com.databricks:spark-csv_2.11:1.5.0

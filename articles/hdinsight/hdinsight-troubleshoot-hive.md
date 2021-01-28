@@ -3,17 +3,14 @@ title: Azure HDInsight를 사용한 Hive 문제 해결
 description: Apache Hive 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 keywords: Azure HDInsight, Hive, FAQ, 문제 해결 가이드, 일반적인 질문
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931448"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hive 문제 해결
 
@@ -21,7 +18,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive 메타스토어를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+### <a name="resolution-steps"></a>해결 단계
 
 1. SSH(Secure Shell) 클라이언트를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
@@ -41,13 +38,13 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
 
 해결 단계의 코드는 새 클러스터의 데이터 경로가 이전 클러스터의 데이터 경로와 동일하다고 가정합니다. 데이터 경로가 다르면 생성 된 파일을 수동으로 편집 `alltables.sql` 하 여 변경 내용을 반영할 수 있습니다.
 
-### <a name="additional-reading"></a>추가 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>클러스터에서 Hive 로그를 찾으려면 어떻게 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+### <a name="resolution-steps"></a>해결 단계
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 **더 보기** 를 참조하세요.
 
@@ -69,13 +66,13 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /var/log/hive/hiveserver2.log
    ```
 
-### <a name="additional-reading"></a>추가 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>클러스터에서 특정 구성으로 Hive 셸을 시작하려면 어떻게 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+### <a name="resolution-steps"></a>해결 단계
 
 1. Hive 셸을 시작할 때 구성 키-값 쌍을 지정합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
@@ -95,13 +92,13 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    hive -hiveconf hive.root.logger=ALL,console
    ```
 
-### <a name="additional-reading"></a>추가 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [Hive configuration properties](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)(Hive 구성 속성)
 
 ## <a name="how-do-i-analyze-apache-tez-dag-data-on-a-cluster-critical-path"></a><a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>클러스터 중요 경로에서 Apache Tez DAG 데이터를 분석하려면 어떻게 하나요?
 
-### <a name="resolution-steps"></a>해결 단계:
+### <a name="resolution-steps"></a>해결 단계
 
 1. 클러스터에 중요한 그래프에서 Apache Tez DAG(방향성 비순환 그래프)를 분석하려면 SSH를 사용하여 HDInsight 클러스터에 연결합니다. 자세한 내용은 [더 보기](#additional-reading-end)를 참조하세요.
 
@@ -120,25 +117,25 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    예제 프로그램을 첫 번째 인수로 제공해야 합니다.
 
    올바른 프로그램의 이름은 다음과 같습니다.
-    - **ContainerReuseAnalyzer** : DAG에 컨테이너 다시 사용 세부 정보를 출력합니다.
-    - **CriticalPath** : DAG의 중요한 경로를 찾습니다.
-    - **LocalityAnalyzer** : DAG에 위치 정보를 인쇄합니다.
-    - **ShuffleTimeAnalyzer** : DAG에서 순서 섞기 시간 정보를 분석합니다.
-    - **SkewAnalyzer** : DAG에서 기울이기 정보를 분석합니다.
-    - **SlowNodeAnalyzer** : DAG에 노드 정보를 출력합니다.
-    - **SlowTaskIdentifier** : DAG에 느린 작업 정보를 출력합니다.
-    - **SlowestVertexAnalyzer** : DAG에 가장 느린 꼭지점 정보를 출력합니다.
-    - **SlowNodeAnalyzer** : DAG에 분산 정보를 출력합니다.
-    - **TaskConcurrencyAnalyzer** : DAG에 작업 동시성 정보를 출력합니다.
-    - **VertexLevelCriticalPathAnalyzer** : DAG에서 꼭짓점 수준의 중요 경로를 찾습니다.
+    - **ContainerReuseAnalyzer**: DAG에 컨테이너 다시 사용 세부 정보를 출력합니다.
+    - **CriticalPath**: DAG의 중요한 경로를 찾습니다.
+    - **LocalityAnalyzer**: DAG에 위치 정보를 인쇄합니다.
+    - **ShuffleTimeAnalyzer**: DAG에서 순서 섞기 시간 정보를 분석합니다.
+    - **SkewAnalyzer**: DAG에서 기울이기 정보를 분석합니다.
+    - **SlowNodeAnalyzer**: DAG에 노드 정보를 출력합니다.
+    - **SlowTaskIdentifier**: DAG에 느린 작업 정보를 출력합니다.
+    - **SlowestVertexAnalyzer**: DAG에 가장 느린 꼭지점 정보를 출력합니다.
+    - **SlowNodeAnalyzer**: DAG에 분산 정보를 출력합니다.
+    - **TaskConcurrencyAnalyzer**: DAG에 작업 동시성 정보를 출력합니다.
+    - **VertexLevelCriticalPathAnalyzer**: DAG에서 꼭짓점 수준의 중요 경로를 찾습니다.
 
-### <a name="additional-reading"></a>추가 자료
+### <a name="additional-reading"></a>추가 참조 항목
 
 - [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>클러스터에서 Tez DAG 데이터를 다운로드하려면 어떻게 하나요?
 
-#### <a name="resolution-steps"></a>해결 단계:
+#### <a name="resolution-steps"></a>해결 단계
 
 Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다.
 
@@ -157,7 +154,7 @@ Tez DAG 데이터를 수집하는 방법에는 다음 두 가지가 있습니다
   3. 보려는 DAG를 선택합니다.
   4. **데이터 다운로드** 를 선택합니다.
 
-### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 자료
+### <a name="additional-reading"></a><a name="additional-reading-end"></a>추가 참조 항목
 
 [SSH를 사용하여 HDInsight 클러스터 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 

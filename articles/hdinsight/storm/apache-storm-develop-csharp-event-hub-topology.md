@@ -1,19 +1,16 @@
 ---
 title: Storm으로 Event Hubs에서 이벤트 처리 - Azure HDInsight
 description: HDInsight Tools for Visual Studio를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 Azure Event Hubs의 데이터를 처리하는 방법에 대해 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dac56059455a75f4d64a698c416dc22793432bc8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545602"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929191"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
@@ -43,10 +40,10 @@ Microsoft는 Storm 토폴로지의 Event Hubs와 통신하는 데 사용할 수 
 
 이 예제에서는 다음 구성 요소가 사용됩니다.
 
-* __EventHubSpout__ : Event Hubs에서 데이터를 읽습니다.
-* __EventHubBolt__ : Event Hubs에 데이터를 씁니다.
-* __EventHubSpoutConfig__ : EventHubSpout를 구성하는 데 사용됩니다.
-* __EventHubBoltConfig__ : EventHubBolt를 구성하는 데 사용됩니다.
+* __EventHubSpout__: Event Hubs에서 데이터를 읽습니다.
+* __EventHubBolt__: Event Hubs에 데이터를 씁니다.
+* __EventHubSpoutConfig__: EventHubSpout를 구성하는 데 사용됩니다.
+* __EventHubBoltConfig__: EventHubBolt를 구성하는 데 사용됩니다.
 
 ### <a name="example-spout-usage"></a>예제 Spout 사용
 
@@ -97,7 +94,7 @@ topologyBuilder.SetJavaBolt(
 
 이 문서에서 만든 전체 버전의 프로젝트는 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub)에서 다운로드할 수 있습니다. 그러나이 문서의 단계에 따라 구성 설정을 제공 해야 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
@@ -124,9 +121,9 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책** 을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
 
-   | 속성 | 권한 |
+   | 이름 | 사용 권한 |
    | --- | --- |
-   | 기록기 |보내기 |
+   | 기록기 |Send |
    | 판독기 |수신 대기 |
 
     ![공유 액세스 정책 창의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
@@ -143,7 +140,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
    | 키 | 값 |
    | --- | --- |
-   | EventHubPolicyName |기록기( *보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
+   | EventHubPolicyName |기록기(*보내기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |기록기 정책에 대한 키 |
    | EventHubNamespace |이벤트 허브가 포함된 네임스페이스 |
    | EventHubName |이벤트 허브 이름 |
@@ -159,7 +156,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
    | 키 | 값 |
    | --- | --- |
-   | EventHubPolicyName |판독기( *수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
+   | EventHubPolicyName |판독기(*수신 대기* 권한이 있는 정책에 다른 이름을 사용한 경우 대신 사용) |
    | EventHubPolicyKey |판독기 정책에 대한 키 |
    | EventHubNamespace |이벤트 허브가 포함된 네임스페이스 |
    | EventHubName |이벤트 허브 이름 |
@@ -173,7 +170,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
     ![HDInsight의 Storm에 제출이 강조 표시된 솔루션 탐색기 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-to-apache-storm.png)
 
-2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로** , **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
+2. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
 
     ![토폴로지 제출 대화 상자의 스크린샷](./media/apache-storm-develop-csharp-event-hub-topology/submit-storm-topology.png)
 
@@ -183,7 +180,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 4. **솔루션 탐색기** 에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **HDInsight에서 스톰에 제출을** 선택 합니다.
 
-5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로** , **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
+5. **토폴로지 제출** 대화 상자에서 **Storm 클러스터** 를 선택합니다. **추가 구성** 을 확장하고 **Java 파일 경로**, **...** 을 차례로 선택한 다음 이전에 다운로드한 JAR 파일이 포함된 디렉터리를 선택합니다. 마지막으로 **제출** 을 클릭합니다.
 
 6. 토폴로지가 제출되었으면 **Storm Topologies Viewer** 에서 토폴로지 목록을 새로 고쳐 두 토폴로지 모두 클러스터에서 실행되는지 확인합니다.
 

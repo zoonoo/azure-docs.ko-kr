@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
-ms.translationtype: HT
+ms.openlocfilehash: 457749b353b9b7fabfb137ebe907463bb17158ba
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221842"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926936"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>자습서: Azure CLI를 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -61,7 +61,7 @@ ms.locfileid: "98221842"
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
 
-하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create)를 사용하여 **myPublicIPprefixsource** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.
+하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)를 사용하여 **myPublicIPprefixsource** 라는 공용 IP 접두사를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -77,7 +77,7 @@ ms.locfileid: "98221842"
   - NAT 게이트웨이 리소스에서 변환하는 아웃바운드 흐름에 사용할 공용 IP 풀 및 공용 IP 접두사입니다.
   - 유휴 시간 제한을 4분(기본값)에서 10분으로 변경합니다.
 
-[az network nat gateway create](/cli/azure/network/nat?view=azure-cli-latest)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 또한 유휴 시간 제한을 10분으로 변경합니다.
+[az network nat gateway create](/cli/azure/network/nat)를 사용하여 **myNATgateway** 라는 글로벌 Azure NAT 게이트웨이를 만듭니다. 이 명령은 **myPublicIP** 공용 IP 주소와 **myPublicIPprefix** 공용 IP 접두사를 모두 사용합니다. 또한 유휴 시간 제한을 10분으로 변경합니다.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -144,7 +144,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="create-an-nsg-for-source-vm"></a>원본 VM에 대한 NSG 만들기
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다.  Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGsource** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh 액세스에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다.  Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 **myNSGsource** 라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ NAT 게이트웨이를 테스트하려면 먼저 원본 VM을 만들어야 합�
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>원본 VM에서 SSH 엔드포인트 공개
 
-NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGsource** 라는 NSG에 만들어집니다.
+NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGsource** 라는 NSG에 만들어집니다.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -237,7 +237,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="create-an-nsg-for-destination-vm"></a>대상 VM에 대한 NSG 만들기
 
-표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)를 사용하여 **myNSGdestination** 이라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
+표준 공용 IP 주소는 '기본적으로 보안'되므로 ssh에 대한 인바운드 액세스를 허용하는 NSG를 만들어야 합니다. Azure NAT 서비스는 흐름 방향을 인식합니다. NAT 게이트웨이가 동일한 서브넷에 구성되면 이 NSG는 아웃바운드에 사용되지 않습니다. [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 **myNSGdestination** 이라는 NSG 리소스를 **myResourceGroupNAT** 에 만듭니다.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ NSG에서 원본 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>대상 VM에서 SSH 엔드포인트 공개
 
-NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGdestination** 이라는 NSG에 만들어집니다.
+NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 **ssh** 라는 NSG 규칙을 만듭니다. 이 규칙은 **myResourceGroupNAT** 리소스 그룹의 **myNSGdestination** 이라는 NSG에 만들어집니다.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ NSG에서 대상 VM에 대한 SSH 액세스 규칙을 만듭니다. [az network 
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>대상 VM에서 HTTP 엔드포인트 공개
 
-NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)를 사용하여 **http** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSGdestination** 이라는 NSG에 만듭니다.
+NSG에서 대상 VM에 대한 HTTP 액세스 규칙을 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)를 사용하여 **http** 라는 NSG 규칙을 **myResourceGroupNAT** 의 **myNSGdestination** 이라는 NSG에 만듭니다.
 
 ```azurecli-interactive
     az network nsg rule create \
