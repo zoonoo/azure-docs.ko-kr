@@ -3,12 +3,12 @@ title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9d1ef158b8096c12c36673b62f87e1d02be69175
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f1cc7db7eea4485ad40062a0e11a76dc14234b41
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936456"
+ms.locfileid: "98956051"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
@@ -33,6 +33,7 @@ ms.locfileid: "98936456"
 
 [Azure Portal](https://portal.azure.com)에 로그인 하 고 Application Insights 리소스를 만듭니다.
 
+[!div class="mx-imgBorder"]
 ![작업 영역 기반 Application Insights 리소스](./media/create-workspace-resource/create-workspace-based.png)
 
 기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../learn/quick-create-workspace.md).

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bf73640c1a4014b61809f407e1873686c229273f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635911"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954634"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
 
@@ -50,7 +50,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
 이 방법에서는 네임 스페이스와 사용자를 만듭니다. 그런 다음 사용자를 네임 스페이스와 연결 합니다. 또한 Kubernetes client를 사용 하 여 Azure Stack Edge Pro 장치의 PowerShell 인터페이스에 연결 하지 않고도 만든 Kubernetes 클러스터와 직접 통신할 수 있도록 하는 *구성* 파일을 가져와야 합니다.
 
-1. 네임스페이스 만들기 형식:
+1. 네임스페이스 만들기 유형:
 
     `New-HcsKubernetesNamespace -Namespace <string>` 
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
     `[10.100.10.10]: PS> New-HcsKubernetesNamespace -Namespace "myasetest1"`
 
-2. 사용자를 만들고 구성 파일을 가져옵니다. 형식:
+2. 사용자를 만들고 구성 파일을 가져옵니다. 유형:
 
     `New-HcsKubernetesUser -UserName <string>`
 
@@ -105,7 +105,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
     ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
 
-5. 만든 사용자와 네임 스페이스를 연결 합니다. 형식:
+5. 만든 사용자와 네임 스페이스를 연결 합니다. 유형:
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <string> -UserName <string>`
 
@@ -165,9 +165,9 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
 ## <a name="remove-kubernetes-cluster"></a>Kubernetes 클러스터 제거
 
-Kubernetes 클러스터를 제거 하려면 계산 구성을 제거 해야 합니다.
+Kubernetes 클러스터를 제거 하려면 IoT Edge 구성을 제거 해야 합니다.
 
-자세한 지침은 [계산 구성 제거](azure-stack-edge-j-series-manage-compute.md#remove-compute-configuration)로 이동 합니다.
+자세한 지침은 [IoT Edge 구성 제거](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service)로 이동 합니다.
    
 
 ## <a name="next-steps"></a>다음 단계

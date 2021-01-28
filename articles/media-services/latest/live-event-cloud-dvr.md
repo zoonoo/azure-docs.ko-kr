@@ -1,5 +1,5 @@
 ---
-title: 시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
+title: 주문형 비디오 재생을 만들려면 시간 이동 사용
 description: 이 문서에서는 시간 이동 및 라이브 출력을 사용 하 여 라이브 스트림을 기록 하 고 주문형 재생을 만드는 방법을 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a2bb876c164f0df56a8b7f3c4a3666ff306e9416
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897869"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955939"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
 

@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0a96d20d1b614f444ffa36cd6f8d83393c7c4f7a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956024"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -133,7 +133,8 @@ Debian 7 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://s
 Debian 8 | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 3.16.0-amd64 to 3.16.0-11-amd64, 4.9.0 64,-amd64 to 4.9.0 64,. bpo |
 |||
 Debian 9.1 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.9.0-1-amd64 to 4.9.0-14-amd64 </br> 4.19.0 64,-amd64 to 4.19.0 64,. bpo </br> 4.19.0 64,-cloud-amd64 to 4.19.0 64,. bpo-amd64 </br>
-Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 to 4.9.0-14-amd64 </br> 4.19.0 64,-amd64에서 4.19.0 64,-amd64로 </br> 4.19.0 64,-4.19.0 64,-amd64를 합니다. bpo </br> Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 to 4.9.0-13-amd64 </br> 4.19.0 64,-amd64 to 4.19.0 64,. bpo </br> 4.19.0 64,-4.19.0 64,. bpo. bpo-amd64 </br> 
+Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64 to 4.9.0-14-amd64 </br> 4.19.0 64,-amd64에서 4.19.0 64,-amd64로 </br> 4.19.0 64,-4.19.0 64,-amd64를 합니다. bpo </br> 
+Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64 to 4.9.0-13-amd64 </br> 4.19.0 64,-amd64 to 4.19.0 64,. bpo </br> 4.19.0 64,-4.19.0 64,. bpo. bpo-amd64 </br> 
 Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-amd64에서 4.9.0-13, 4.19.0 64,,-amd64에서 4.19.0 64, 4.19.0 64, 4.19.0 64,. bpo. bpo. 10-amd64
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전

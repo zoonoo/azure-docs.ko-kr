@@ -7,30 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
-ms.openlocfilehash: ab6408621616a4be62631391456f73e90fced752
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/27/2021
+ms.openlocfilehash: 5567cf3bf606b08ce430f9189467d796498ae691
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499002"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953906"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 .NET (c #) 코드 샘플
 
-Azure Cognitive Search의 기능을 보여 주는 c # 코드 샘플에 대해 알아봅니다. 기본 리포지토리는 다음과 같습니다.
+Azure Cognitive Search 솔루션의 기능 및 워크플로를 보여 주는 c # 코드 샘플에 대해 알아봅니다. 이러한 샘플은 azure [**SDK for .net**](/dotnet/azure/)에 대 한 [**azure Cognitive Search 클라이언트 라이브러리**](/dotnet/api/overview/azure/search) 를 사용 하 여 다음 링크를 탐색할 수 있습니다.
 
-| 리포지토리 | 설명 |
-|------------|-------------|
-| [azure-.net/sdk/search/Azure.Search.Documents/samples/](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/samples) | SDK에서 Azure.Search.Documents client 라이브러리와 함께 제공 되는 Azure SDK 팀이 생성 한 샘플입니다. 클라이언트 라이브러리에 대 한 [단위 테스트](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) 를 검토 하 여 다양 한 api를 호출 하는 방법을 확인할 수도 있습니다. |
-| [Azure-샘플/azure-검색-dotnet-샘플](https://github.com/Azure-Samples/azure-search-dotnet-samples) | [.Net 클라이언트 라이브러리를 사용 하는 방법을](search-howto-dotnet-sdk.md)비롯 하 여 설명서에서 방법 문서와 함께 제공 되는 샘플입니다.|
-| [Azure-샘플/검색-dotnet-시작](https://github.com/Azure-Samples/search-dotnet-getting-started) | 설명서의 빠른 시작 및 자습서와 함께 제공 되는 샘플입니다.|
+| 대상 | 링크 |
+|--------|------|
+| 패키지 다운로드 | [www.nuget.org/packages/Azure.Search.Documents/](https://www.nuget.org/packages/Azure.Search.Documents/) |
+| API 참조 | [azure.search.documents](/dotnet/api/azure.search.documents)  |
+| API 테스트 사례 | [github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/테스트](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/tests) |
+| 소스 코드 | [github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/src](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search/Azure.Search.Documents/src)  |
 
-> [!Tip]
-> [샘플 브라우저](/samples/browse/?languages=csharp&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
+## <a name="sdk-samples"></a>SDK 샘플
 
-## <a name="net-sdk-samples"></a>.NET SDK 샘플
-
-.NET 용 Azure SDK에는 다양 한 샘플과 각각을 설명 하는 [샘플 추가](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/README.md) 정보가 포함 되어 있습니다. 이 목록은 사용자 편의를 위해 아래에 제공 됩니다.
+Azure SDK 개발 팀의 코드 샘플에서는 API 사용을 보여 줍니다. 이러한 샘플은 GitHub의 [**azure/azure-uments/tree/master/sdk/search/Azure.Search.Doc/샘플**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/) 에서 찾을 수 있습니다.
 
 | 샘플 | Description |
 |---------|-------------|
@@ -42,23 +40,28 @@ Azure Cognitive Search의 기능을 보여 주는 c # 코드 샘플에 대해 �
 | [문서 인덱싱 (푸시 모델)](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample05_IndexingDocuments.md) | JSON 페이로드를 서비스의 인덱스에 보내는 "푸시" 모델 인덱싱   |
 | [암호화 키 샘플](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/samples/Sample06_EncryptedIndex.md) | 고객이 관리 하는 암호화 키를 사용 하 여 중요 한 콘텐츠에 대 한 추가 보호 계층을 추가 하는 방법을 보여 줍니다.  |
 
-## <a name="documentation-samples"></a>설명서 샘플
+## <a name="doc-samples"></a>Doc 샘플
 
-다음 샘플에는 [Azure Cognitive Search 설명서](./index.yml)에 관련 된 문서가 있습니다.
+Cognitive Search 팀의 코드 샘플에서는 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조 됩니다. 이러한 샘플은 [**azure-samples/azure-dotnet-samples**](https://github.com/Azure-Samples/azure-search-dotnet-samples) 및 GitHub의 [**azure-samples/search-dotnet-시작**](https://github.com/Azure-Samples/search-dotnet-getting-started/) 에서 찾을 수 있습니다.
 
-| 샘플 | Description |
+| 샘플 | 기사  |
 |---------|-------------|
-| [빠른](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | 빠른 시작에 대 한 소스 코드 [: 검색 인덱스를 만듭니다 ](search-get-started-dotnet.md).  |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [.Net 클라이언트 라이브러리를 사용 하는 방법](search-howto-dotnet-sdk.md) 에 대 한 소스 코드 |
-| [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | 동의어 목록은 인덱스 외부에 있는 같아야 용어를 제공 하는 쿼리 확장에 사용 됩니다. 이 샘플은 [c #에서 동의어 추가 예제](search-synonyms-tutorial-sdk.md)에 포함 되어 있습니다. |
-| [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | 다양 한 문서에서 인덱서 관련 조각 뒤의 소스 코드입니다. 이 예에서는 일정, 필드 매핑 및 매개 변수를 포함 하는 인덱서를 구성 하는 방법을 보여 줍니다.  |
-| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | [데이터 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법](search-security-manage-encryption-keys.md) 에 대 한 소스 코드 |
+| [빠른](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | 빠른 시작에 대 한 소스 코드 [: 검색 인덱스를 만듭니다 ](search-get-started-dotnet.md). 이 문서에서는 샘플 데이터를 사용 하 여 검색 인덱스를 만들고 로드 하 고 쿼리 하는 기본 워크플로를 다룹니다. |
+| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | [.Net 클라이언트 라이브러리를 사용 하는 방법](search-howto-dotnet-sdk.md)에 대 한 소스 코드입니다. 이 문서에서는 기본 워크플로를 단계별로 안내 하지만 API 사용에 대해 자세히 설명 합니다.  |
+| [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | 소스 코드 [예: c #에서 동의어 추가](search-synonyms-tutorial-sdk.md) 동의어 목록은 인덱스 외부에 있는 같아야 용어를 제공 하는 쿼리 확장에 사용 됩니다. |
+| [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | 자습서의 소스 코드 [: .NET SDK를 사용 하 여 AZURE SQL 데이터를 인덱싱합니다](search-indexer-tutorial.md). 이 문서에서는 일정, 필드 매핑 및 매개 변수를 포함 하는 Azure SQL 인덱서를 구성 하는 방법을 보여 줍니다.  |
+| [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | [데이터 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법](search-security-manage-encryption-keys.md)에 대 한 소스 코드입니다. |
 | [C에서 첫 번째 앱 만들기 #](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) |  [자습서: 첫 번째 검색 앱 만들기](tutorial-csharp-create-first-app.md)에 대 한 소스 코드입니다. 대부분의 샘플은 콘솔 응용 프로그램 이지만이 MVC 샘플은 웹 페이지를 사용 하 여 샘플 호텔 인덱스를 앞으로 사용 하 여 기본 검색, 페이지 매김, 자동 완성 및 제안 된 쿼리, 패싯 및 필터를 보여 줍니다. |
 | [다중 데이터 원본](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources)  | 자습서의 소스 코드 [: 여러 데이터 소스의 인덱스](tutorial-multiple-data-sources.md)입니다. |
 |  [최적화-데이터 인덱싱](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing) | 자습서의 소스 코드 [: PUSH API를 사용 하 여 인덱싱을 최적화](tutorial-optimize-indexing-push-api.md)합니다.  |
 | [자습서-ai-보강](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | 자습서의 소스 코드 [: .NET SDK를 사용 하 여 Azure blob에서 AI 생성 검색 가능 콘텐츠](cognitive-search-tutorial-blob-dotnet.md)  |
 
-## <a name="standalone-samples-and-solutions"></a>독립 실행형 샘플 및 솔루션
+> [!Tip]
+> [샘플 브라우저](/samples/browse/?languages=csharp&products=azure-cognitive-search) 에서 제품, 서비스 및 언어를 기준으로 필터링 된 Microsoft 코드 샘플을 검색 해 보세요.
+
+## <a name="other-samples"></a>기타 샘플
+
+다음 샘플도 Cognitive Search 팀에서 게시 하지만 설명서에서 참조 되지 않습니다. 관련 된 추가 정보 파일은 사용 지침을 제공 합니다.
 
 | 샘플 | Description |
 |---------|-------------|

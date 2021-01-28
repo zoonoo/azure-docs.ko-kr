@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d04075b415bace4104a58e8221d764355d3318d0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9276fca62e96395150c9545b8f4dcb5c8c0afb87
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744281"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954245"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory OATH 토큰의 인증 방법
 
@@ -41,21 +41,21 @@ OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. �
 
 ![OATH 토큰을 MFA OATH 토큰 블레이드에 업로드](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-토큰이 확보되면 아래 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델이 포함된 CSV(쉼표로 구분된 값) 파일 형식으로 업로드해야 합니다.
+토큰을 얻은 후에는 다음 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델을 포함 하 여 쉼표로 구분 된 값 (CSV) 파일 형식으로 업로드 해야 합니다.
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
-```
+```  
 
 > [!NOTE]
 > CSV 파일에 머리글 행을 포함해야 합니다.
 
 CSV 파일로 올바르게 형식이 지정되면 관리자는 Azure Portal에 로그인하여 **Azure Active Directory > 보안 > MFA > OATH 토큰** 으로 이동하고 CSV 파일을 업로드할 수 있습니다.
 
-CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 있습니다. 현재 상태를 가져오려면 **새로 고침** 단추를 선택합니다. 파일에 오류가 있는 경우 오류가 나열된 CSV 파일을 다운로드하여 해결할 수 있습니다. 다운로드한 CSV 파일의 필드 이름은 업로드된 버전과 다릅니다.
+CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 있습니다. 현재 상태를 가져오려면 **새로 고침** 단추를 선택합니다. 파일에 오류가 있는 경우 오류가 나열된 CSV 파일을 다운로드하여 해결할 수 있습니다. 다운로드한 CSV 파일의 필드 이름은 업로드된 버전과 다릅니다.  
 
-오류가 모두 처리되면 관리자는 토큰에 대해 **활성화** 를 선택하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다.
+오류가 모두 처리되면 관리자는 토큰에 대해 **활성화** 를 선택하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다. 5 분 마다 최대 200 OATH 토큰을 활성화할 수 있습니다. 
 
 사용자는 언제든지 사용할 수 있도록 구성된 Microsoft Authenticator 앱과 같은 인증자 애플리케이션 또는 최대 5개의 OATH 하드웨어 토큰을 조합할 수 있습니다.
 

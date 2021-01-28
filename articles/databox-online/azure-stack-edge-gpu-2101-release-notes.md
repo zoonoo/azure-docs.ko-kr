@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 6fff5b9d41c960ebe37098695c694725de0226e0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805194"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954617"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 릴리스 정보
 
@@ -64,7 +64,7 @@ Azure Stack Edge 2101 릴리스에서는 다음과 같은 새로운 기능을 �
 |**3.**|제한|조정 하는 동안 장치에 대 한 새 쓰기가 허용 되지 않는 경우 NFS 클라이언트의 쓰기가 "권한 거부" 오류로 인해 실패 합니다.| 오류는 다음과 같이 표시 됩니다.<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: ' test ' 디렉터리를 만들 수 없습니다. 사용 권한이 거부 되었습니다.|
 |**4.**|Blob Storage 수집|Blob storage 수집에 AzCopy 버전 10을 사용 하는 경우 다음 인수를 사용 하 여 AzCopy를 실행 합니다. `Azcopy <other arguments> --cap-mbps 2000`| AzCopy에 대해 이러한 제한을 제공 하지 않으면 장치에 많은 요청을 전송 하 여 서비스에 문제가 발생할 수 있습니다.|
 |**5.**|계층화 된 저장소 계정|계층화 된 저장소 계정을 사용 하는 경우 다음이 적용 됩니다.<ul><li> 블록 blob만 지원 됩니다. 페이지 Blob은 지원되지 않습니다.</li><li>스냅숏 또는 복사 API는 지원 되지 않습니다.</li><li> 에서 `distcp` 복사 작업을 많이 사용 하므로 Hadoop 워크 로드 수집은 지원 되지 않습니다.</li></ul>||
-|**6.**|NFS 공유 연결|여러 프로세스에서 동일한 공유로 복사 하 고 특성을 사용 하지 않는 경우 복사 하는 `nolock` 동안 오류가 표시 될 수 있습니다.|`nolock`NFS 공유에 파일을 복사 하려면 특성을 탑재 명령에 전달 해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**6.**|NFS 공유 연결|여러 프로세스에서 동일한 공유로 복사 하 고 특성을 사용 하지 않는 경우 복사 하는 `nolock` 동안 오류가 표시 될 수 있습니다.|`nolock`NFS 공유에 파일을 복사 하려면 특성을 탑재 명령에 전달 해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`|
 |**7.**|Kubernetes 클러스터|Kubernetes 클러스터를 실행 하는 장치에 업데이트를 적용 하는 경우 kubernetes 가상 머신이 다시 시작 되 고 재부팅 됩니다. 이 인스턴스에서 지정 된 복제본과 함께 배포 되는 pod만 업데이트 후 자동으로 복원 됩니다.  |복제 세트를 지정 하지 않고 복제 컨트롤러 외부에서 개별 pod를 만든 경우 이러한 pod는 장치 업데이트 후 자동으로 복원 되지 않습니다. 이러한 pod를 복원 해야 합니다.<br>복제 세트는 노드 실패 또는 중단 노드 업그레이드와 같은 어떤 이유로 든 삭제 되었거나 종료 된 pod를 대체 합니다. 따라서 응용 프로그램에 단일 pod만 필요한 경우에도 복제본 집합을 사용 하는 것이 좋습니다.|
 |**8.**|Kubernetes 클러스터|Kubernetes on Azure Stack Edge Pro는 투구 v3 이상 에서만 지원 됩니다. 자세한 내용은 질문과 [대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조 하세요.|
 |**9.**|Azure Arc를 지원하는 Kubernetes |GA 릴리스의 경우 Azure Arc enabled Kubernetes는 버전 0.1.18에서 0.2.9로 업데이트 됩니다. Azure Arc enabled Kubernetes 업데이트는 Azure Stack Edge 장치에서 지원 되지 않으므로 Azure Arc enabled Kubernetes를 다시 배포 해야 합니다.|다음 단계를 수행하세요.<ol><li>[장치 소프트웨어 및 Kubernetes 업데이트를 적용](azure-stack-edge-gpu-install-update.md)합니다.</li><li>[장치의 PowerShell 인터페이스](azure-stack-edge-gpu-connect-powershell-interface.md)에 연결 합니다.</li><li>기존 Azure Arc 에이전트를 제거 합니다. 다음을 입력합니다. `Remove-HcsKubernetesAzureArcAgent`</li><li>[Azure Arc를 새 리소스에](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)배포 합니다. 기존 Azure Arc 리소스를 사용 하지 마세요.</li></ol>|
@@ -77,8 +77,7 @@ Azure Stack Edge 2101 릴리스에서는 다음과 같은 새로운 기능을 �
 |**x.**|인증서 |특정 한 경우 로컬 UI에서 인증서 상태를 업데이트 하는 데 몇 초 정도 걸릴 수 있습니다. |로컬 UI의 다음 시나리오에 영향을 줄 수 있습니다.<ul><li>**인증서** 페이지의 **상태** 열입니다.</li><li>**시작** 페이지의 **보안** 타일입니다.</li><li>**개요** 페이지의 **구성** 타일입니다.</li></ul>  |
 |**17.**|IoT Edge |IoT Edge를 통해 배포 된 모듈은 호스트 네트워크를 사용할 수 없습니다. | |
 |**개가.**|Compute + Kubernetes |Compute/Kubernetes는 NTLM 웹 프록시를 지원 하지 않습니다. ||
-|**mb.**|Compute + 웹 프록시 + 업데이트 |웹 프록시로 구성 된 계산이 있는 경우 계산 업데이트가 실패할 수 있습니다. |업데이트 전에 계산을 사용 하지 않도록 설정 하는 것이 좋습니다. |
-|**720.**|Kubernetes + 업데이트 |2008 릴리스와 같은 이전 버전의 소프트웨어 버전에는 업데이트를 ClusterConnectionException과 함께 실패 시키는 경합 상태 업데이트 문제가 있습니다. |최신 빌드를 사용 하면이 문제를 방지할 수 있습니다. 이 문제가 계속 발생 하는 경우 해결 방법은 업그레이드를 다시 시도 하 고 작동 해야 합니다.|
+|**mb.**|Kubernetes + 업데이트 |2008 릴리스와 같은 이전 버전의 소프트웨어 버전에는 업데이트를 ClusterConnectionException과 함께 실패 시키는 경합 상태 업데이트 문제가 있습니다. |최신 빌드를 사용 하면이 문제를 방지할 수 있습니다. 이 문제가 계속 발생 하는 경우 해결 방법은 업그레이드를 다시 시도 하 고 작동 해야 합니다.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->

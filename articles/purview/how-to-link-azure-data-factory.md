@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723883"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954188"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -69,12 +69,22 @@ ms.locfileid: "98723883"
 >[!Note]
 >이제 10 개 이하의 데이터 팩터리를 한 번에 추가할 수 있습니다. 10 개 이상의 데이터 팩터리를 한 번에 추가 하려면 지원 티켓을 제출 하세요.
 
+### <a name="how-does-the-authentication-work"></a>인증은 어떻게 작동 하나요?
+
+부서의 범위 사용자가 액세스 권한이 있는 Data Factory를 등록 하면 백 엔드에서 다음 작업이 수행 됩니다.
+
+1. **DATA FACTORY MSI** 가 부서의 범위 RBAC 역할: **부서의 범위 Data 큐레이터** 에 추가 됩니다.
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="MSI Azure Data Factory를 보여 주는 스크린샷" lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. 계보 메타 데이터를 부서의 범위에 다시 푸시할 수 있도록 Data Factory 파이프라인을 다시 실행 해야 합니다.
+3. 실행 후 Data Factory 메타 데이터가 부서의 범위에 푸시됩니다.
 
 ### <a name="remove-data-factory-connections"></a>데이터 팩터리 연결 제거
 Data factory 연결을 제거 하려면 다음을 수행 합니다.
 
 1. **Data Factory 연결** 페이지에서 하나 이상의 데이터 팩터리 연결 옆에 있는 **제거** 단추를 선택 합니다.
-1. 선택한 data factory 연결을 삭제 하려면 팝업에서 **확인** 을 선택 합니다.
+2. 선택한 data factory 연결을 삭제 하려면 팝업에서 **확인** 을 선택 합니다.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="데이터 팩터리를 선택 하 여 연결을 제거 하는 방법을 보여 주는 스크린샷" lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 

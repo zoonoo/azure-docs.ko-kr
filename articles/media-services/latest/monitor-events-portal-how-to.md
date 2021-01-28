@@ -1,5 +1,5 @@
 ---
-title: 포털에서 Event Grid를 사용 하 여 Azure Media Services 이벤트 모니터링
+title: Event Grid 포털을 사용 하 여 Media Services 이벤트 모니터링
 description: 이 문서에서는 Azure Media Services 이벤트를 모니터링하기 위해 Event Grid를 구독하는 방법을 설명합니다.
 services: media-services
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1a74ee1668594d2e28bed0ad36793bf47653fe
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294376"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955261"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
@@ -32,7 +32,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서
 
 작업을 완료하면 이벤트 데이터가 웹앱에 보내진 것을 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 * 활성 Azure 구독.
 * [이 빠른 시작](./create-account-howto.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
@@ -41,7 +41,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서
 
 Media Services 계정에 대한 이벤트를 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 문서에서는 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
-1. **Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
+1. **Azure에 배포** 를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
    [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 
@@ -55,20 +55,20 @@ Media Services 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 
 항목을 구독하여 Event Grid에 추적하려는 이벤트와 이벤트를 보낼 위치를 알립니다.
 
-1. 포털에서 Media Services 계정을 선택하고 **이벤트**를 선택합니다.
+1. 포털에서 Media Services 계정을 선택하고 **이벤트** 를 선택합니다.
 1. 이벤트 뷰어 앱에 이벤트를 보내려면 엔드포인트에 대한 웹 후크를 사용합니다. 
 
    ![웹 후크 선택](./media/monitor-events-portal/select-web-hook.png)
 
 1. 이벤트 구독은 Media Services 계정에 대한 값으로 미리 채워집니다. 
-1. **끝점 형식**에 대해 ' 웹 후크 '를 선택 합니다.
-1. 이 항목에서는 **모든 이벤트 유형 구독**을 선택한 상태로 둡니다. 그러나 이 옵션을 선택 취소하고 특정 이벤트 유형을 필터링할 수 있습니다. 
+1. **끝점 형식** 에 대해 ' 웹 후크 '를 선택 합니다.
+1. 이 항목에서는 **모든 이벤트 유형 구독** 을 선택한 상태로 둡니다. 그러나 이 옵션을 선택 취소하고 특정 이벤트 유형을 필터링할 수 있습니다. 
 1. **엔드포인트 선택** 링크를 클릭합니다.
 
     웹 후크 엔드포인트의 경우 웹앱의 URL을 제공하고 `api/updates`를 홈 페이지 URL에 추가합니다. 
 
-1. **선택 확인**을 누릅니다.
-1. **만들기**를 누릅니다.
+1. **선택 확인** 을 누릅니다.
+1. **만들기** 를 누릅니다.
 1. 구독에 이름을 지정합니다.
 
    ![로그 선택](./media/monitor-events-portal/create-subscription.png)

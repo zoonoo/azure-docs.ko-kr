@@ -1,5 +1,5 @@
 ---
-title: 다중 DRM 콘텐츠 보호 시스템-Azure Media Services v3
+title: 다중 DRM 콘텐츠 보호 시스템
 description: 이 문서에서는 Azure Media Services를 사용 하 여 다중 DRM 콘텐츠 보호 시스템을 설계 하는 방법에 대 한 자세한 설명을 제공 합니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298201"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954904"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계
 
@@ -229,7 +229,7 @@ Azure AD에 대한 내용:
     <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
     ```
 
-    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss**가 나타납니다.
+    [JWT 디코더](http://jwt.calebb.net/)에서 JWT에 다음과 같이 **aud** 및 **iss** 가 나타납니다.
 
     ![JWT](./media/design-multi-drm-system-with-access-control/media-services-1st-gotcha.png)
 

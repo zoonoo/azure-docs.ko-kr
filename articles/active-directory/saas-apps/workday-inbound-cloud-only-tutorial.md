@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358595"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954092"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>자습서: Workday에서 Azure AD로 사용자 프로비저닝 구성
 이 자습서에서는 작업자 데이터를 Workday에서 Azure Active Directory로 프로비저닝하기 위해 수행해야 하는 단계를 보여 줍니다. 
@@ -208,11 +208,11 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure AD 및 Workday 통합 시나리오 및 웹 서비스 호출에 대 한 자세한 정보](../app-provisioning/workday-integration-reference.md)
 * [인바운드 프로비저닝에 지원되는 Workday 특성에 대해 자세히 알아봅니다.](../app-provisioning/workday-attribute-reference.md)
 * [Workday 쓰기 저장을 구성하는 방법을 알아봅니다.](workday-writeback-tutorial.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
-* [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 * [프로비저닝 구성을 내보내고 가져오는 방법을 알아봅니다.](../app-provisioning/export-import-provisioning-configuration.md)
 
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 251b15f72c3216ad3ff4b2983c8cbbd2d9ec6579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3497551616b96dc04e2dbdec28d0bf84a11afde0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618253"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954600"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에 대 한 배포 검사 목록  
 
@@ -25,7 +25,7 @@ ms.locfileid: "91618253"
 
 | 단계                             | 매개 변수                                                                                                                                                                                                                           | 세부 정보                                                                                                           |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| 장치 관리               | <li>Azure 구독</li><li>등록 된 리소스 공급자</li><li>Azure Storage 계정</li>|<li>Edge Pro/Data Box Gateway, 소유자 또는 참가자 액세스를 Azure Stack 사용할 수 있습니다.</li><li>Azure Portal에서 **구독 > 리소스 공급자 > 홈 > 구독**으로 이동 합니다. 을 검색 `Microsoft.DataBoxEdge` 하 고 등록 합니다. `Microsoft.Devices`IoT 작업을 배포 하는 경우 반복 합니다.</li><li>액세스 자격 증명이 필요 합니다.</li> |
+| 장치 관리               | <li>Azure 구독</li><li>등록 된 리소스 공급자</li><li>Azure Storage 계정</li>|<li>Edge Pro/Data Box Gateway, 소유자 또는 참가자 액세스를 Azure Stack 사용할 수 있습니다.</li><li>Azure Portal에서 **구독 > 리소스 공급자 > 홈 > 구독** 으로 이동 합니다. 을 검색 `Microsoft.DataBoxEdge` 하 고 등록 합니다. `Microsoft.Devices`IoT 작업을 배포 하는 경우 반복 합니다.</li><li>액세스 자격 증명이 필요 합니다.</li> |
 | 장치 설치               | 패키지의 전원 케이블 <br>우리에 게는 125 V에 대 한 SVE 18/3 케이블과 NEMA 5-15P to C13 (입/출력) 커넥터가 포함 된 15 암페어가 제공 됩니다. | 자세한 내용은 [국가별로 지원 되는 전원 코드](azure-stack-edge-technical-specifications-power-cords-regional.md) 의 목록을 참조 하세요.  |
 |                                   | <li>포트 1에 대 한 하나 이상의 X 1-GbE RJ-45 네트워크 케이블  </li><li> 포트 3, 포트 4, 포트 5 또는 포트 6의 경우 최소 1 X 25gbe SFP + 구리 케이블</li>| 고객은 이러한 케이블을 조달 해야 합니다.<br>장치 네트워크 카드에 대해 지원 되는 네트워크 케이블, 스위치 및 트랜시버의 전체 목록은 [Cavium FastlinQ 41000 시리즈 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) 및 [Mellanox 이중 포트 25g connectx-3-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)을 참조 하세요.| 
 | 첫 번째 장치 연결      | <li>IPv4 설정을 변경할 수 있는 랩톱입니다. 이 랩톱은 스위치 또는 USB에서 이더넷 어댑터를 통해 포트 1에 연결 합니다.  </li><!--<li> A minimum of 1 GbE switch must be used for the device once the initial setup is complete. The local web UI will not be accessible if the connected switch is not at least 1 Gbe.</li>-->|   |
@@ -41,7 +41,7 @@ ms.locfileid: "91618253"
 | 정품 인증  | Azure Stack Edge Pro/Data Box Gateway 리소스의 정품 인증 키가 필요 합니다.    | 생성 된 키는 3 일 후에 만료 됩니다. |
 
 <!--
-| (Optional) MAC Address            | If MAC address needs to be whitelisted, get the address of the connected port from local UI of the device. |                                                                                                                   |
+| (Optional) MAC Address            | If MAC address needs to be on the allowed list, get the address of the connected port from local UI of the device. |                                                                                                                   |
 | (Optional) Network switch port    | Device hosts Hyper-V VMs for compute. Some network switch port configurations don’t accommodate these setups by default.                                                                                                        |                                                                                                                   |-->
 
 

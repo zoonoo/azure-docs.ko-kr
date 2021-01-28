@@ -1,5 +1,5 @@
 ---
-title: HTTPS URL에서 Azure Media Services 작업 입력 만들기
+title: HTTPS URL에서 작업 입력 만들기
 description: 이 항목에서는 HTTPS URL에서 Azure Media Services 작업 입력을 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: b71262b57e9e07c58eb6b3f6e0506151063d77d5
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1073a13f477894e1b35d732fd1cd6191747a62a2
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895359"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955990"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>HTTPS URL에서 작업 입력 만들기
 

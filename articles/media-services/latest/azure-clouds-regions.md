@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 클라우드 및 지역 가용성
+title: Azure Media Services v3 영역 가용성
 description: 이 문서에서는 Azure Media Services v3를 사용할 수 있는 Azure 클라우드 및 지역에 대해 설명합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 20c025cfabf6ed3cedd838f8be964bec06ad595e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 91df515703b4b6b368b07482fad1aa8b781281f6
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242592"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954449"
 ---
 # <a name="azure-media-services-v3-clouds-and-regions-availability"></a>Azure Media Services v3 클라우드 및 지역 가용성
 
@@ -66,7 +66,7 @@ Azure Media Services v3은 Azure Resource Manager를 통해 사용할 수 있습
 ## <a name="see-also"></a>참고 항목
 
 * [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
-* [지역 코드 이름 및 끝점](azure-regions-code-names.md)
+* [지역 코드 이름 및 엔드포인트](azure-regions-code-names.md)
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)
 

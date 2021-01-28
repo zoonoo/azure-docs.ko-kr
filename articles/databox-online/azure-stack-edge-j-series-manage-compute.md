@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743678"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955457"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 계산 관리
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge Pro에서 계산을 관리 하는 방법을 설명 합니다. 로컬 웹 UI 또는 Azure Portal을 통해 컴퓨팅을 관리할 수 있습니다. Azure Portal에서 모듈, 트리거 및 컴퓨팅 구성을 관리하고 로컬 웹 UI를 사용하여 컴퓨팅 설정을 관리합니다.
+이 문서에서는 Azure Stack Edge Pro GPU 장치에서 IoT Edge 서비스를 통해 계산을 관리 하는 방법을 설명 합니다. 로컬 웹 UI 또는 Azure Portal을 통해 컴퓨팅을 관리할 수 있습니다. Azure Portal를 사용 하 여 모듈, 트리거 및 IoT Edge 구성을 관리 하 고, 로컬 웹 UI를 사용 하 여 계산 네트워크 설정을 관리할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 트리거 관리
-> * 컴퓨팅 구성 관리
+> * IoT Edge 구성 관리
 
 
 ## <a name="manage-triggers"></a>트리거 관리
@@ -33,14 +33,14 @@ ms.locfileid: "91743678"
 이벤트는 작업을 수행하려는 클라우드 환경 또는 디바이스에서 발생하는 상황입니다. 예를 들어, 공유에서 파일이 만들어지는 것도 이벤트에 해당합니다. 트리거는 이벤트를 발생시킵니다. Azure Stack Edge Pro의 경우 트리거는 파일 이벤트 또는 일정에 응답할 수 있습니다.
 
 - **파일**: 이러한 트리거는 파일 생성, 파일 수정과 같은 파일 이벤트에 대 한 응답으로 수행 됩니다.
-- **예약**됨: 이러한 트리거는 시작 날짜, 시작 시간 및 반복 간격으로 정의할 수 있는 일정에 대 한 응답으로 진행 됩니다.
+- **예약** 됨: 이러한 트리거는 시작 날짜, 시작 시간 및 반복 간격으로 정의할 수 있는 일정에 대 한 응답으로 진행 됩니다.
 
 
 ### <a name="add-a-trigger"></a>트리거 추가
 
 트리거를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **edge compute > 트리거로**이동 합니다. 명령 모음에서 **+ 트리거 추가**를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **IoT Edge** 으로 이동 합니다. **트리거** 로 이동 하 여 명령 모음에서 **+ 트리거 추가** 를 선택 합니다.
 
     ![트리거 추가 선택](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -48,7 +48,7 @@ ms.locfileid: "91743678"
     
     <!--Trigger names can only contain numbers, lowercase letters, and hyphens. The share name must be between 3 and 63 characters long and begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character.-->
 
-3. 트리거의 **유형**을 선택합니다. 트리거가 파일 이벤트에 대한 응답일 경우 **파일**을 선택합니다. 트리거를 정의된 시간에 시작하고 지정된 반복 간격으로 실행하려는 경우 **예약됨**을 선택합니다. 선택한 항목에 따라 다른 옵션 세트가 표시됩니다.
+3. 트리거의 **유형** 을 선택합니다. 트리거가 파일 이벤트에 대한 응답일 경우 **파일** 을 선택합니다. 트리거를 정의된 시간에 시작하고 지정된 반복 간격으로 실행하려는 경우 **예약됨** 을 선택합니다. 선택한 항목에 따라 다른 옵션 세트가 표시됩니다.
 
     - **파일 트리거** - 드롭다운 목록에서 탑재된 공유를 선택합니다. 이 공유에서 파일 이벤트가 발생하면 트리거는 Azure 함수를 호출합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "91743678"
 
         ![NFS 공유 추가](media/azure-stack-edge-j-series-manage-compute/add-scheduled-trigger.png)
 
-4. **추가**를 선택하여 트리거를 만듭니다. 알림은 트리거 생성이 진행 중임을 나타냅니다. 트리거를 만든 후 새 트리거를 반영하도록 블레이드가 업데이트됩니다.
+4. **추가** 를 선택하여 트리거를 만듭니다. 알림은 트리거 생성이 진행 중임을 나타냅니다. 트리거를 만든 후 새 트리거를 반영하도록 블레이드가 업데이트됩니다.
  
     ![업데이트된 트리거 목록](media/azure-stack-edge-j-series-manage-compute/add-trigger-2.png)
 
@@ -72,42 +72,42 @@ ms.locfileid: "91743678"
 
     ![트리거 선택](media/azure-stack-edge-j-series-manage-compute/delete-trigger-1.png)
 
-2. 마우스 오른쪽 단추를 클릭한 다음, **삭제**를 선택합니다.
+2. 마우스 오른쪽 단추를 클릭한 다음, **삭제** 를 선택합니다.
 
     ![삭제 선택](media/azure-stack-edge-j-series-manage-compute/delete-trigger-2.png)
 
-3. 확인 메시지가 표시되면 **예**를 클릭합니다.
+3. 확인 메시지가 표시되면 **예** 를 클릭합니다.
 
     ![삭제 확인](media/azure-stack-edge-j-series-manage-compute/delete-trigger-3.png)
 
 트리거 목록이 삭제를 반영하도록 업데이트됩니다.
 
-## <a name="manage-compute-configuration"></a>컴퓨팅 구성 관리
+## <a name="manage-iot-edge-configuration"></a>IoT Edge 구성 관리
 
 Azure Portal를 사용 하 여 계산 구성을 보거나, 기존 계산 구성을 제거 하거나, 계산 구성을 새로 고쳐 Azure Stack Edge Pro 용 IoT 장치 및 IoT Edge 장치에 대 한 액세스 키를 동기화 합니다.
 
-### <a name="view-compute-configuration"></a>컴퓨팅 구성 보기
+### <a name="view-iot-edge-configuration"></a>IoT Edge 구성 보기
 
-디바이스의 컴퓨팅 구성을 보려면 Azure Portal에서 다음 단계를 수행합니다.
+Azure Portal에서 다음 단계를 수행 하 여 장치에 대 한 IoT Edge 구성을 확인 합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **edge compute > 모듈**로 이동 합니다. 명령 모음에서 **컴퓨팅 보기**를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **IoT Edge** 으로 이동 합니다. 장치에서 IoT Edge 서비스를 사용 하도록 설정 하면 개요 페이지에서 IoT Edge 서비스가 정상적으로 실행 되 고 있음을 나타냅니다.
 
     ![컴퓨팅 보기 선택](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. 디바이스의 컴퓨팅 구성을 기록해 둡니다. 컴퓨팅 구성할 때 IoT Hub 리소스를 만들었을 것입니다. 해당 IoT Hub 리소스 아래에 IoT 디바이스 및 IoT Edge 디바이스가 구성되어 있습니다. IoT Edge 디바이스에서는 Linux 모듈만 실행이 지원됩니다.
+2. **속성** 으로 이동 하 여 장치에서 IoT Edge 구성을 확인 합니다. 컴퓨팅 구성할 때 IoT Hub 리소스를 만들었을 것입니다. 해당 IoT Hub 리소스 아래에 IoT 디바이스 및 IoT Edge 디바이스가 구성되어 있습니다. IoT Edge 디바이스에서는 Linux 모듈만 실행이 지원됩니다.
 
     ![구성 보기](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>컴퓨팅 구성 제거
+### <a name="remove-iot-edge-service"></a>IoT Edge 서비스 제거
 
-디바이스의 기존 Edge 컴퓨팅 구성을 제거하려면 Azure Portal에서 다음 단계를 수행합니다.
+Azure Portal에서 다음 단계를 수행 하 여 장치에 대 한 기존 IoT Edge 구성을 제거 합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **edge > compute**로 이동 하 여 시작 합니다. 명령 모음에서 **컴퓨팅 제거**를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **IoT Edge** 으로 이동 합니다. **개요** 로 이동 하 고 명령 모음에서 **제거** 를 선택 합니다.
 
     ![컴퓨팅 제거 선택](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. 컴퓨팅 구성을 제거한 경우 컴퓨팅을 다시 사용해야 할 때 디바이스를 다시 구성해야 합니다. 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+2. IoT Edge 서비스를 제거 하면 작업이 되돌릴 수 없으며 실행 취소할 수 없습니다. 만든 모듈과 트리거도 삭제 됩니다. IoT Edge를 다시 사용 해야 하는 경우 장치를 다시 구성 해야 합니다. 확인 메시지가 표시 되 면 **확인** 을 선택 합니다.
 
     ![계산 제거 2 선택](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
@@ -121,11 +121,11 @@ IoT 장치와 IoT Edge 장치 키를 회전 한 경우 최신 액세스 키를 �
 
 디바이스의 액세스 키를 동기화하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **edge > compute**로 이동 하 여 시작 합니다. 명령 모음에서 **구성 새로 고침**을 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **IoT Edge compute** 로 이동 합니다. **개요** 로 이동 하 여 명령 모음에서 **구성 새로 고침** 을 선택 합니다.
 
     ![구성 새로 고침 선택](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 
-2. 확인하라는 메시지가 표시되면 **예**를 선택합니다.
+2. 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
 
     ![확인 메시지에서 예 선택](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
 

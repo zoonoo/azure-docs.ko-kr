@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 38a93d5db6f8331da6e7afdef3e91b2764537459
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570165"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954024"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Azure Active Directory 프로비저닝이 Workday와 통합 되는 방법
 
@@ -43,7 +43,7 @@ Azure AD 프로 비전 서비스와 Workday 간의 연결을 더욱 안전 하 �
 1. *AddressPrefixes* 요소 내에 나열 된 모든 ip 주소 범위를 복사 하 고 범위를 사용 하 여 ip 주소 목록을 작성 합니다.
 1. Workday 관리 포털에 로그인 합니다. 
 1. **Ip 범위 유지 관리** 작업에 액세스 하 여 Azure 데이터 센터에 대 한 새 ip 범위를 만듭니다. IP 범위 (CIDR 표기법 사용)를 쉼표로 구분 된 목록으로 지정 합니다.  
-1. 인증 정책 **관리** 작업에 액세스 하 여 새 인증 정책을 만듭니다. 인증 정책에서 **Authentication 허용 목록** 를 사용 하 여 AZURE AD ip 범위 및이 ip 범위에서 액세스를 허용 하는 보안 그룹을 지정 합니다. 변경 내용을 저장합니다. 
+1. 인증 정책 **관리** 작업에 액세스 하 여 새 인증 정책을 만듭니다. 인증 정책에서 인증 허용 목록을 사용 하 여 Azure AD IP 범위 및이 IP 범위에서 액세스를 허용 하는 보안 그룹을 지정 합니다. 변경 내용을 저장합니다. 
 1. 변경 내용을 확인 하려면 **모든 보류 중인 인증 정책 변경 내용 활성화** 작업에 액세스 합니다.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>제한 된 보안 그룹을 사용 하 여 Workday의 작업자 데이터에 대 한 액세스 제한
@@ -348,7 +348,7 @@ Azure AD 프로 비전 서비스는 각 페이지를 처리 하 고 전체 동�
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>작업자 데이터 특성 검색
+## <a name="retrieving-worker-data-attributes"></a>작업자 데이터 특성 검색
 
 *Get_Workers* API는 작업자와 연결 된 다른 데이터 집합을 반환할 수 있습니다. 프로 비전 스키마에 구성 된 [XPATH API 식](workday-attribute-reference.md) 에 따라 Azure AD 프로 비전 서비스는 Workday에서 검색할 데이터 집합을 결정 합니다. 따라서 *Response_Group* 플래그는 *Get_Workers* 요청에 설정 됩니다. 
 
@@ -402,6 +402,9 @@ Azure AD 프로 비전 서비스는 각 페이지를 처리 하 고 전체 동�
 | 44 | 인재 평가 데이터               | 아니요                  | wd: Worker \_ data/wd: 인재 \_ 평가 \_ 데이터                                   |
 | 45 | 사용자 계정 데이터                    | 아니요                  | wd: Worker \_ data/wd: 사용자 \_ 계정 \_ 데이터                                        |
 | 46 | 작업자 문서 데이터                 | 아니요                  | wd: Worker \_ data/wd: worker \_ 문서 \_ 데이터                                     |
+
+>[!NOTE]
+>테이블에 나열 된 각 Workday 엔터티는 Workday의 **도메인 보안 정책** 에 의해 보호 됩니다. 올바른 XPATH를 설정한 후 엔터티와 연결 된 특성을 검색할 수 없는 경우 Workday 관리자에 게 문의 하 여 해당 도메인 보안 정책이 프로 비전 앱과 연결 된 통합 시스템 사용자에 대해 구성 되어 있는지 확인 합니다. 예를 들어 *기술 데이터* 를 검색 하려면 Workday 도메인 *작업자 데이터: 기술 및 환경* 에 대 *한 액세스 권한이* 필요 합니다. 
 
 특정 요구 사항을 충족 하기 위해 Workday 통합을 확장 하는 방법에 대 한 몇 가지 예는 다음과 같습니다. 
 

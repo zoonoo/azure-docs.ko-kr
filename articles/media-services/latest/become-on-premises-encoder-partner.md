@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 인코더 파트너가 되기-Azure Media Services
+title: 온-프레미스 인코더 파트너가 됩니다.
 description: 이 문서에서는 온-프레미스 라이브 스트리밍 인코더를 확인 하는 방법을 설명 합니다.
 services: media-services
 author: johndeu
@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: 1383b6afac9ad2332169328ef71981e23e86bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e07831ce4a016d49e0343da66efc0345effafd94
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297453"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954364"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>온-프레미스 라이브 스트리밍 인코더를 확인 하는 방법
 
@@ -25,15 +25,15 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 
 ## <a name="pass-through-live-event-verification"></a>통과 라이브 이벤트 확인
 
-1. Media Services 계정에서 **스트리밍 엔드포인트**가 실행 중인지 확인합니다. 
+1. Media Services 계정에서 **스트리밍 엔드포인트** 가 실행 중인지 확인합니다. 
 2. **통과** 라이브 이벤트를 만들고 시작합니다. <br/> 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.
 3. 수집 URL을 가져오고, URL을 사용하여 다중 비트 전송률 라이브 스트림을 Media Services로 보내도록 온-프레미스 인코더를 구성합니다.
 4. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
 5. 새 **자산** 개체를 만듭니다.
 6. **실시간 출력** 을 만들고 사용자가 만든 자산 이름을 사용 합니다.
 7. 기본 제공 **스트리밍 정책** 형식을 사용 하 여 **스트리밍 로케이터** 를 만듭니다.
-8. **스트리밍 로케이터**의 경로를 나열하여 사용할 URL을 다시 가져옵니다.
-9. 스트림을 내보낼 **스트리밍 엔드포인트**의 호스트 이름을 가져옵니다.
+8. **스트리밍 로케이터** 의 경로를 나열하여 사용할 URL을 다시 가져옵니다.
+9. 스트림을 내보낼 **스트리밍 엔드포인트** 의 호스트 이름을 가져옵니다.
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다. 
@@ -44,15 +44,15 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 
 ## <a name="live-encoding-live-event-verification"></a>라이브 인코딩 라이브 이벤트 확인
 
-1. Media Services 계정에서 **스트리밍 엔드포인트**가 실행 중인지 확인합니다. 
+1. Media Services 계정에서 **스트리밍 엔드포인트** 가 실행 중인지 확인합니다. 
 2. **라이브 인코딩** 라이브 이벤트를 만들고 시작합니다. <br/> 자세한 내용은 [라이브 이벤트 상태 및 청구](live-event-states-billing.md)를 참조하세요.
 3. 수집 URL을 가져오고, 단일 비트 전송률 라이브 스트림을 Media Services로 푸시하도록 인코더를 구성합니다.
 4. 미리 보기 URL을 가져와서 인코더의 입력이 실제로 수신되고 있는지 확인하는 데 사용합니다.
 5. 새 **자산** 개체를 만듭니다.
 6. **실시간 출력** 을 만들고 사용자가 만든 자산 이름을 사용 합니다.
 7. 기본 제공 **스트리밍 정책** 형식을 사용 하 여 **스트리밍 로케이터** 를 만듭니다.
-8. **스트리밍 로케이터**의 경로를 나열하여 사용할 URL을 다시 가져옵니다.
-9. 스트림을 내보낼 **스트리밍 엔드포인트**의 호스트 이름을 가져옵니다.
+8. **스트리밍 로케이터** 의 경로를 나열하여 사용할 URL을 다시 가져옵니다.
+9. 스트림을 내보낼 **스트리밍 엔드포인트** 의 호스트 이름을 가져옵니다.
 10. 8단계의 URL을 9단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 11. 약 10분 동안 라이브 인코더를 실행합니다.
 12. 라이브 이벤트를 중지합니다.
@@ -69,7 +69,7 @@ Media Services는 Azure Media Services 온-프레미스 인코더 파트너로�
 
 마지막으로, 메일을 통해 기록된 설정 및 라이브 보관 매개 변수를 amshelp@microsoft.com의 Azure Media Services에 모든 자체 확인 검사가 통과되었다는 알림으로 보냅니다. 또한 후속 작업을 위해 연락처 정보를 기재해 주세요. 이 프로세스와 관련된 질문이 있는 경우 Azure Media Services 팀에 문의할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [테스트 된 온-프레미스 인코더](recommended-on-premises-live-encoders.md)
 

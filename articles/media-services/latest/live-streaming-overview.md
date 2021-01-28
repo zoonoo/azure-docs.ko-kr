@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3로 라이브 스트리밍 개요
+title: 라이브 스트리밍 개요
 description: 이 문서에서는 Azure Media Services v3를 사용하는 라이브 스트리밍 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: ad3a14cff13395f4d59ab2ed59ae1cc26eaad866
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955922"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 

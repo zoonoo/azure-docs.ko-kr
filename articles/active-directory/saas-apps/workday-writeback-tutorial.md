@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: 3a623a487dd31caf8c85b18771d90e3a6306df68
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359734"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954007"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>자습서: Azure AD에서 Workday로 특성 쓰기 저장 구성
 이 자습서에서는 Azure AD에서 Workday로 특성을 쓰기 저장하기 위해 수행해야 하는 단계를 보여 줍니다. Workday 쓰기 저장 프로비저닝 앱은 값을 다음 Workday 특성에 할당하도록 지원합니다.
@@ -172,6 +172,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure AD 및 Workday 통합 시나리오 및 웹 서비스 호출에 대 한 자세한 정보](../app-provisioning/workday-integration-reference.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)

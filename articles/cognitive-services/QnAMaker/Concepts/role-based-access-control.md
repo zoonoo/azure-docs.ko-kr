@@ -1,16 +1,16 @@
 ---
 title: 다른 사용자와 공동 작업-QnA Maker
-description: ''
+description: Azure 역할 기반 액세스 제어를 사용 하 여 다른 작성자 및 편집기와 공동 작업 하는 방법을 알아봅니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ecf81152605d77e1036c9fbf5d3308af2b1fb988
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cb6d0ee9c651ca1dcc554f5951a5733727af2d6b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346158"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954109"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -35,7 +35,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 > [!div class="mx-imgBorder"]
 > ![다음 다이어그램에서는 작성자의 관점에서 QnA Maker 포털에 로그인 하 고 제작 Api를 사용 하는 흐름을 보여 줍니다.](../media/qnamaker-how-to-collaborate-knowledge-base/rbac-flow-from-portal-to-service.png)
 
-|단계|설명|
+|단계|Description|
 |--|--|
 |1|포털에서 QnA Maker 리소스에 대 한 토큰을 가져옵니다.|
 |2|포털은 키 대신 토큰을 전달 하는 적절 한 APIM (QnA Maker authoring API)를 호출 합니다.|

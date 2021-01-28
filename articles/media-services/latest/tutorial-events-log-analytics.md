@@ -1,8 +1,23 @@
 ---
-제목: Azure Log Analytics에 Azure Media Services 이벤트 저장: Azure Media Services 설명: Azure Log Analytics에서 Azure Media Services 이벤트를 저장 하는 방법을 알아봅니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft manager: femila ms.date editor: ' ' ms. 서비스: media services ms. 워크 로드: 밀리초. 항목: 자습서 ms. 날짜: 08/24/2020. 작성자: inhenkel
+title: Azure Log Analytics에 Media Services 이벤트 저장
+description: Azure Log Analytics에 Azure Media Services 이벤트를 저장하는 방법을 알아봅니다.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: ''
+ms.topic: tutorial
+ms.date: 08/24/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2bfd1064a02f0fb4982c9d2747b85707e98b5bcd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954532"
 ---
-
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>자습서: Azure Log Analytics에 Azure Media Services 이벤트 저장
 
 ## <a name="azure-media-services-events"></a>Azure Media Services 이벤트

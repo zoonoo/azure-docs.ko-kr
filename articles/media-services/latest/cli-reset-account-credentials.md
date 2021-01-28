@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 예제-계정 자격 증명 다시 설정
+title: 계정 자격 증명 다시 설정-CLI
 description: Azure CLI 스크립트를 사용하여 계정 자격 증명을 다시 설정하고 app.config 설정을 다시 가져옵니다.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b9b95af79b8aac11f56fe576f860d719b5fb50e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6fe958c9300d6a6feeb6926f84dbecf565dfafc1
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897682"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954347"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Azure CLI 예제: 계정 자격 증명을 다시 설정합니다.
 

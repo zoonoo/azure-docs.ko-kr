@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 24d1992db5f1826045fdb47397e44dc2e2fbdaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 94506c4107a157c2b3265a28ffdf5d1eedddd256
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962164"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954769"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -59,7 +59,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 * VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이로 인해 확장이 전환 상태로 유지 되 고 시간이 초과 될 수 있습니다.
 * 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 스크립트를 사용 하 여 SystemD 서비스 단위를 만들 수 있습니다.
-* VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행 하려면 사용자 지정 스크립트 확장을 제거 하 고 업데이트 된 스크립트를 사용 하 여 다시 적용 해야 합니다. 
+* VM에는 하나의 확장 버전만 적용할 수 있습니다. 두 번째 사용자 지정 스크립트를 실행 하기 위해 새 구성으로 기존 확장을 업데이트할 수 있습니다. 또는 사용자 지정 스크립트 확장을 제거 하 고 업데이트 된 스크립트를 사용 하 여 다시 적용할 수 있습니다.
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다. 
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원 하지 않지만 스크립트 내의 프록시 서버를 지 원하는 파일 전송 도구 (예: *말아 넘기기*)를 사용할 수 있습니다. 
@@ -113,7 +113,7 @@ Linux 용 사용자 지정 스크립트 확장은 지원 되는 확장의 확장
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 | 
+| Name | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | publisher | Microsoft.Compute.Extensions | 문자열 |

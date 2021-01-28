@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-ms.translationtype: HT
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569608"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954222"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -157,7 +157,7 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 1. 이전 단계에서 만든 보안 그룹을 찾아 선택합니다. 
    >[!div class="mx-imgBorder"]
-   >![보안 그룹 선택](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![보안 그룹 선택](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. 그룹 이름 옆에 있는 줄임표(...)를 클릭하고 메뉴에서 **보안 그룹 > 보안 그룹에 대한 도메인 권한 유지** 를 선택합니다.
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>프로비저닝 에이전트 설치 필수 구성 요소
 
-다음 섹션으로 진행하기 전에 [에이전트 설치 필수 구성 요소 프로비저닝](../cloud-provisioning/how-to-prerequisites.md)을 검토합니다. 
+다음 섹션으로 진행하기 전에 [에이전트 설치 필수 구성 요소 프로비저닝](../cloud-sync/how-to-prerequisites.md)을 검토합니다. 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Workday에서 Active Directory로 사용자 프로비전 구성
 
@@ -267,7 +267,7 @@ Workday에서 Active Directory로 사용자 프로비저닝을 수행하도록 �
 
 Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 도메인 조인 서버에 프로비저닝 에이전트를 설치해야 합니다.
 
-다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [**설치 에이전트** 섹션](../cloud-provisioning/how-to-install.md)에 나열된 단계에 따라 에이전트 구성을 완료합니다.
+다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [**설치 에이전트** 섹션](../cloud-sync/how-to-install.md)에 나열된 단계에 따라 에이전트 구성을 완료합니다.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3부: 프로비저닝 앱에서 Workday 및 Active Directory에 대한 연결 구성
 이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정합니다. 
@@ -336,7 +336,7 @@ Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active D
       * 연산자: NULL이 아님
 
    > [!TIP]
-   > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. Workday의 몇몇 테스트 사용자로 매핑을 테스트하려면 **원본 개체 범위** 아래에 있는 범위 지정 필터를 사용하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
+   > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. **원본 개체 범위** 및 [주문형 프로 비전](../app-provisioning/provision-on-demand.md) 에 [범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) 를 사용 하 여 Workday에서 몇 가지 테스트 사용자로 매핑을 테스트 하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
    > 프로비저닝 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용하지 않도록 설정/삭제하는 것입니다. 이는 Workday-AD 통합 환경에서 적합하지 않을 수 있습니다. 이 기본 동작을 재정의하려면 범위를 [벗어난 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조하세요.
@@ -1065,7 +1065,8 @@ Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure AD 및 Workday 통합 시나리오 및 웹 서비스 호출에 대 한 자세한 정보](../app-provisioning/workday-integration-reference.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
-* [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
+* [Workday 쓰기 저장을 구성하는 방법을 알아봅니다.](workday-writeback-tutorial.md)
 * [Microsoft Graph API를 사용하여 프로비전 구성을 관리하는 방법 알아보기](/graph/api/resources/synchronization-overview)

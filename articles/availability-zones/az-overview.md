@@ -1,18 +1,19 @@
 ---
 title: Azure의 지역 및 가용성 영역
 description: 기술 및 규정 요구 사항을 충족 하기 위해 Azure에서 지역 및 가용성 영역에 대해 알아봅니다.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 08/27/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b19f5c3ae0666a0b0e9b0255f848f5924d9d3910
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: dae5319e6c8b87d6a9eef98875ad7e8da623e65c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874742"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955803"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Azure의 지역 및 가용성 영역
 
@@ -79,7 +80,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 | 영역 형식 | 비 지역별 | 기본 | 일반 | 특수화 | 가용성 영역 | 데이터 상주 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 권장 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | :heavy_check_mark: | :heavy_check_mark: |
-| 또 | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | 수요 중심 | 해당 없음 | :heavy_check_mark: |
+| 또 | :heavy_check_mark: | :heavy_check_mark: | 수요 중심 | 수요 중심 | N/A | :heavy_check_mark: |
 
 ### <a name="services-by-category"></a>범주별 서비스
 
@@ -118,7 +119,7 @@ Azure 서비스는 기본, 일반 및 특수 서비스의 세 가지 범주로 �
 > | 저장소: Managed Disks                | Azure DevTest Labs                                | Azure Machine Learning Studio (클래식)              |
 > | Virtual Machine Scale Sets            | Azure Firewall                                    | Spatial Anchors                                      |
 > | Virtual Machines                      | Azure Firewall Manager                            | 저장소: Archive Storage                             |
-> | Virtual Machines: Av2-Series          | Azure Functions                                   | StorSimple                                           |
+> | Virtual Machines: Av2-Series          | Azure 기능                                   | StorSimple                                           |
 > | Virtual Machines: Bs-Series           | Azure IoT Hub                                     | 울트라 디스크 저장소                                   |
 > | Virtual Machines: DSv2-Series         | AKS(Azure Kubernetes Service)                    | 비디오 인덱서                                        |
 > | Virtual Machines: DSv3-Series         | Azure Machine Learning                            | Virtual Machines: DASv4-Series                       |

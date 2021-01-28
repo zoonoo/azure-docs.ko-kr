@@ -5,12 +5,12 @@ author: naiteeks
 ms.topic: how-to
 ms.author: naiteeks
 ms.date: 12/14/2020
-ms.openlocfilehash: aa8657550c6475afd9f893acf8985c50cec0f199
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 49c17946203bc6c3655b1aaf7b04a1ee3ea67388
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98119461"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955652"
 ---
 # <a name="upgrading-live-video-analytics-on-iot-edge-from-10-to-20"></a>IoT Edge에서 Live Video Analytics를 1.0에서 2.0으로 업그레이드
 
@@ -19,7 +19,7 @@ ms.locfileid: "98119461"
 ## <a name="change-list"></a>목록 변경
 
 > [!div class="mx-tdCol4BreakAll"]
-> |제목|라이브 비디오 분석 1.0|라이브 비디오 분석 2.0|설명|
+> |Title|라이브 비디오 분석 1.0|라이브 비디오 분석 2.0|Description|
 > |-------------|----------|---------|---------|
 > |컨테이너 이미지|mcr.microsoft.com/media/live-video-analytics:1|mcr.microsoft.com/media/live-video-analytics:2|Azure IoT Edge에서 라이브 비디오 분석을 위해 Microsoft에서 게시 한 docker 이미지|
 > |**MediaGraph 노드** |    |   |   |
@@ -37,7 +37,7 @@ IoT Edge 모듈에서 Live Video Analytics를 업그레이드할 때 다음 정�
 "image": "mcr.microsoft.com/media/live-video-analytics:2"
 ```
 > [!TIP]
-IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않은 경우 `lvaEdge` 모듈 노드에서를 찾습니다.
+> IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않은 경우 `lvaEdge` 모듈 노드에서를 찾습니다.
 
 ### <a name="topology-file-changes"></a>토폴로지 파일 변경
 토폴로지 파일에서 **`apiVersion`** 가 2.0로 설정 되어 있는지 확인 합니다.
@@ -58,9 +58,9 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
 >는 **`outputSelectors`** 선택적 속성입니다. 이를 사용 하지 않는 경우 미디어 그래프가 RTSP 카메라 다운스트림에서 오디오 (사용 되는 경우) 및 비디오를 전달 합니다. 
 
 * `MediaGraphHttpExtension`및 `MediaGraphGrpcExtension` 프로세서에서 다음 변경 내용을 확인 합니다.  
-    * **이미지 속성**
-        * `MediaGraphImageFormatEncoded`은 더 이상 지원되지 않습니다. 
-        * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예제:
+    #### <a name="image-properties"></a>이미지 속성
+    * `MediaGraphImageFormatEncoded`은 더 이상 지원되지 않습니다. 
+      * 대신 **`MediaGraphImageFormatBmp`** 또는 또는를 **`MediaGraphImageFormatJpeg`** 사용 **`MediaGraphImageFormatPng`** 합니다. 예를 들면 다음과 같습니다.
         ```
         "image": {
                 "scale": 
@@ -94,14 +94,14 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
         >[!NOTE]
         > PixelFormat의 가능한 값에는,,,,,,,,, `yuv420p` `rgb565be` `rgb565le` `rgb555be` `rgb555le` `rgb24` `bgr24` `argb` `rgba` `abgr` , 등이 있습니다. `bgra`  
 
-    * **Grpc 확장 프로세서에 대 한 extensionConfiguration**  
-        * `MediaGraphGrpcExtension`프로세서에서 라는 새 속성을 사용할 수 있습니다 .이 속성은 **`extensionConfiguration`** grpc 계약의 일부로 사용할 수 있는 선택적 문자열입니다. 이 필드는 데이터를 유추 서버로 전달 하는 데 사용할 수 있으며 유추 서버에서 해당 데이터를 사용 하는 방법을 정의할 수 있습니다.  
-        이 속성의 한 가지 사용 사례는 단일 유추 서버에 여러 AI 모델을 패키징하는 경우입니다. 이 속성을 사용 하는 경우 모든 AI 모델에 대 한 노드를 노출할 필요가 없습니다. 대신, 그래프 인스턴스의 경우에는 속성을 사용 하 여 여러 AI 모델을 선택 하는 방법을 정의 하 **`extensionConfiguration`** 고 실행 하는 동안 LVA는이 문자열을 추론 서버로 전달 합니다. 그러면이 문자열을 사용 하 여 원하는 AI 모델을 호출할 수 있습니다.  
+    #### <a name="extensionconfiguration-for-grpc-extension-processor"></a>Grpc 확장 프로세서에 대 한 extensionConfiguration  
+    * `MediaGraphGrpcExtension`프로세서에서 라는 새 속성을 사용할 수 있습니다 .이 속성은 **`extensionConfiguration`** grpc 계약의 일부로 사용할 수 있는 선택적 문자열입니다. 이 필드는 데이터를 유추 서버로 전달 하는 데 사용할 수 있으며 유추 서버에서 해당 데이터를 사용 하는 방법을 정의할 수 있습니다.  
+    이 속성의 한 가지 사용 사례는 단일 유추 서버에 여러 AI 모델을 패키징하는 경우입니다. 이 속성을 사용 하는 경우 모든 AI 모델에 대 한 노드를 노출할 필요가 없습니다. 대신, 그래프 인스턴스의 경우에는 속성을 사용 하 여 여러 AI 모델을 선택 하는 방법을 정의 하 **`extensionConfiguration`** 고 실행 하는 동안 LVA는이 문자열을 추론 서버로 전달 합니다. 그러면이 문자열을 사용 하 여 원하는 AI 모델을 호출할 수 있습니다.  
 
-    * **AI 컴퍼지션**
-        * 이제 라이브 비디오 분석 2.0은 토폴로지 내에서 둘 이상의 미디어 그래프 확장 프로세서 사용을 지원 합니다. RTSP 카메라의 미디어 프레임을 여러 AI 모델에 순차적으로 또는 양쪽의 조합으로 순차적으로 전달할 수 있습니다. 순차적으로 사용 되는 두 AI 모델을 보여 주는 샘플 토폴로지를 참조 하세요.
+    #### <a name="ai-composition"></a>AI 컴퍼지션
+    * 이제 라이브 비디오 분석 2.0은 토폴로지 내에서 둘 이상의 미디어 그래프 확장 프로세서 사용을 지원 합니다. RTSP 카메라의 미디어 프레임을 여러 AI 모델에 순차적으로 또는 양쪽의 조합으로 순차적으로 전달할 수 있습니다. 순차적으로 사용 되는 두 AI 모델을 보여 주는 샘플 토폴로지를 참조 하세요.
 
-
+### <a name="disk-space-management-with-sink-nodes"></a>싱크 노드를 사용 하 여 디스크 공간 관리
 * 이제 **파일 싱크** 노드에서 IoT Edge 모듈의 라이브 비디오 분석에서 처리 된 이미지를 저장 하는 데 사용할 수 있는 디스크 공간의 크기를 지정할 수 있습니다. 이렇게 하려면 **`maximumSizeMiB`** FileSink 노드에 필드를 추가 합니다. 샘플 파일 싱크 노드는 다음과 같습니다.
     ```
     "sinks": [
@@ -154,6 +154,7 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
     >[!NOTE]
     >  **파일 싱크** 경로는 기본 디렉터리 경로 및 파일 이름 패턴으로 분할 되는 반면 **자산 싱크** 경로에는 기본 디렉터리 경로가 포함 됩니다.  
 
+### <a name="frame-rate-management"></a>프레임 주기 관리
 * **`MediaGraphFrameRateFilterProcessor`** 는 **IoT Edge 2.0 모듈의 Live Video Analytics** 에서 더 이상 사용 되지 않습니다.
     * 처리할 들어오는 비디오를 샘플링 하려면 **`samplingOptions`** MediaGraph 확장 프로세서 ( `MediaGraphHttpExtension` 또는)에 속성을 추가 합니다. `MediaGraphGrpcExtension`  
      ```
@@ -169,7 +170,7 @@ IoT Edge 모듈에서 라이브 비디오 분석의 이름을 수정 하지 않�
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/telemetry-schema/telegraf.png" alt-text="이벤트 분류":::
 
-Docker를 사용 하 여 쉽게 사용자 지정 구성을 사용 하 여 Telegraf 이미지를 생성할 수 있습니다. [모니터링 및 로깅](monitoring-logging.md#azure-monitor-collection-via-telegraf) 페이지에서이에 대해 자세히 알아보세요.
+Docker를 사용 하 여 쉽게 사용자 지정 구성을 사용 하 여 Telegraf 이미지를 생성할 수 있습니다. [모니터링 및 로깅](monitoring-logging.md#azure-monitor-collection-via-telegraf) 페이지에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

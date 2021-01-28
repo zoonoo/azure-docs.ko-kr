@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3를 사용할 수 있는 클라우드 및 지역
+title: Azure Media Services v3의 클라우드 및 지역
 description: 이 문서에서는 영역에 대 한 끝점 및 코드에 사용 되는 Url에 대해 설명 합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,14 +8,14 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319639"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954330"
 ---
-# <a name="regional-code-names-and-endpoints"></a>지역 코드 이름 및 끝점
+# <a name="regional-code-names-and-endpoints"></a>지역 코드 이름 및 엔드포인트
 
 ### <a name="region-code-name"></a>Azure 지역 코드 이름
 
@@ -84,7 +84,7 @@ az account list-locations
 ## <a name="see-also"></a>참고 항목
 
 * [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
-* [지역 코드 이름 및 끝점](azure-regions-code-names.md)
+* [지역 코드 이름 및 엔드포인트](azure-regions-code-names.md)
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)
 

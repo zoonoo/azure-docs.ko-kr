@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 6a73ecf18a4bd89567dc603758d9ff8501267a1f
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-ms.translationtype: HT
+ms.openlocfilehash: a39f7701d0244eff7f914908a6708dfc14873b35
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570044"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954858"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>자습서: SAP SuccessFactors에서 Active AD로 사용자 프로비저닝 구성
 이 자습서에서는 작업자 데이터를 SuccessFactors Employe Central에서 Azure Active Directory로 프로비저닝하기 위해 수행해야 하는 단계를 보여 주며, 선택적으로 이메일 주소가 SuccessFactors에 쓰기 저장됩니다. 
@@ -223,9 +223,8 @@ SuccessFactors 관리자 팀 또는 구현 파트너와 협력하여 OData API�
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
 
-  >[!NOTE]
-  >애플리케이션에서 지원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
-
+     >[!NOTE]
+     >애플리케이션에서 지원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
 
 1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가** 를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 

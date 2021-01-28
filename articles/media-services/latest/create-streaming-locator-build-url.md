@@ -1,5 +1,5 @@
 ---
-title: 스트리밍 로케이터 및 빌드 Url 만들기-Azure Media Services
+title: 스트리밍 로케이터 생성 및 URL 빌드
 description: 이 문서에서는 스트리밍 로케이터 및 빌드 Url을 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 916defd652ff9f4b3f372c609055d2a974126916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecbc42237326cb895c47e96eda13bbddcdeb558f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295719"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956126"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 생성 및 URL 빌드
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services에서 스트리밍 URL을 작성 하려면 먼저 [스트리밍 로케이터](streaming-locators-concept.md)를 만들어야 합니다. 그런 다음 [스트리밍 끝점](/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트**가 사용됩니다. 미디어 서비스 계정을 처음 만들 때이 *기본* **스트리밍 끝점** 은 중지 됨 상태가 되므로 **시작** 을 호출 하 여 스트리밍을 시작 해야 합니다.
+Azure Media Services에서 스트리밍 URL을 작성 하려면 먼저 [스트리밍 로케이터](streaming-locators-concept.md)를 만들어야 합니다. 그런 다음 [스트리밍 끝점](/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트** 가 사용됩니다. 미디어 서비스 계정을 처음 만들 때이 *기본* **스트리밍 끝점** 은 중지 됨 상태가 되므로 **시작** 을 호출 하 여 스트리밍을 시작 해야 합니다.
 
 이 문서에서는 Java 및 .NET Sdk를 사용 하 여 스트리밍 로케이터를 만들고 스트리밍 URL을 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisite"></a>필수 조건 
+## <a name="prerequisite"></a>필수 요소 
 
 [동적 패키징](dynamic-packaging-overview.md) 미리 보기
 
@@ -163,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [.NET을 사용하여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
 * [REST를 사용하여 필터 만들기](filters-dynamic-manifest-rest-howto.md)

@@ -1,5 +1,5 @@
 ---
-title: Media services를 사용 하 여 관리 되는 id 및 신뢰할 수 있는 저장소
+title: 관리 id 및 신뢰할 수 있는 저장소
 description: Media Services는 관리 id와 함께 사용 하 여 신뢰할 수 있는 저장소를 사용 하도록 설정할 수 있습니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291508a6beaa687b3a10f55df4591ce601ab51a0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499359"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956177"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Media services를 사용 하 여 관리 되는 id 및 신뢰할 수 있는 저장소
 
@@ -52,7 +52,7 @@ Media Services는 [관리 id](../../active-directory/managed-identities-azure-re
 
 이러한 자습서에는 위에서 언급 한 시나리오가 모두 포함 됩니다.
 
-- [Azure Portal를 사용 하 여 고객 관리 키 또는 BYOK를 Media Services 사용 합니다.](tutorial-byok-portal.md)
+- [Azure Portal을 사용하여 Media Services에서 고객 관리형 키 또는 BYOK 사용](tutorial-byok-portal.md)
 - [Media Services REST API에서 고객이 관리 하는 키 또는 BYOK를 사용](tutorial-byok-postman.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계

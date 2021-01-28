@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762765"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955686"
 ---
 # <a name="errors-in-the-connector-status-section"></a>커넥터 상태 섹션의 오류
 
@@ -66,6 +66,10 @@ ms.locfileid: "98762765"
 
 * **오류**: "오류가 발생 했습니다. 연결 정보를 가져올 수 없습니다. " 고객이 ITSM 작업 그룹을 정의 하는 경우이 오류가 표시 됩니다.
 
-    **원인**: 새로 만든 ITSM 커넥터에서 아직 초기 동기화를 완료 했습니다.
+    **원인**: 이러한 오류는 다음과 같은 경우에 표시 됩니다.
+    * 새로 만든 ITSM 커넥터는 아직 초기 동기화를 완료 해야 합니다.
+    * 커넥터가 올바르게 정의 되지 않았습니다.
 
-    **해결** 방법: 새 itsm 커넥터가 만들어지면 ITSM 커넥터는 작업 항목 템플릿 및 작업 항목과 같은 itsm 시스템의 정보를 동기화 하기 시작 합니다. [여기](./itsmc-resync-servicenow.md)에 설명 된 대로 ITSM 커넥터를 동기화 하 여 새로운 새로 고침 토큰을 생성 합니다.
+    **해결 방법**: 
+    * 새 ITSM 커넥터가 만들어지면 ITSM 커넥터는 작업 항목 템플릿 및 작업 항목과 같은 ITSM 시스템의 정보를 동기화 하기 시작 합니다. [여기](./itsmc-resync-servicenow.md)에 설명 된 대로 ITSM 커넥터를 동기화 하 여 새로운 새로 고침 토큰을 생성 합니다.
+    * [여기](./itsmc-connections-servicenow.md#create-a-connection) 에 설명 된 대로 itsm 커넥터에서 연결 정보를 검토 하 고 itsm 커넥터가 성공적으로 [동기화](./itsmc-resync-servicenow.md)될 수 있는지 확인 합니다.

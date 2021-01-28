@@ -1,11 +1,25 @@
 ---
-제목: Azure Monitor를 사용 하 여 메트릭 및 진단 로그 Media Services: Azure Media Services 설명: Azure Monitor를 통해 Azure Media Services 메트릭 및 진단 로그를 모니터링 하는 방법을 알아봅니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
-
-inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: na. 토픽: 개념 밀리초. 날짜: 11/02/2020 밀리초. 작성자:
-
+title: Azure Monitor 사용 하 여 메트릭 및 진단 로그
+description: Azure Monitor를 통해 Azure Media Services 메트릭 및 진단 로그를 모니터링 하는 방법에 대해 알아봅니다.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.author: inhenkel
+ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954989"
 ---
-
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Media Services 메트릭 및 진단 로그 모니터링
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -29,7 +43,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
@@ -47,7 +61,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 Media Services [스트리밍 끝점](/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
@@ -69,7 +83,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 동시성은 시간이 지남에 따라 단일 계정에 사용 되는 스트리밍 끝점의 수에 문제가 됩니다. 여러 프로토콜에 대 한 동적 패키징, 여러 DRM 암호화 등의 복잡 한 게시 매개 변수를 사용 하는 동시 스트림 수 간의 관계를 염두에 두어야 합니다. 게시 된 각 라이브 스트림은 스트리밍 끝점의 CPU 및 출력 대역폭에 추가 됩니다. 이러한 점을 염두에 두면 Azure Monitor를 사용 하 여 스트리밍 끝점의 사용률 (CPU 및 송신 용량)을 면밀히 감시 하 여 적절 하 게 크기를 조정 하 고 있는지 확인 해야 합니다 (또는 동시성이 매우 높은 경우 여러 스트리밍 끝점 간에 트래픽을 분할).
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 [Media Services 메트릭을 모니터링 하는 방법을](media-services-metrics-howto.md)참조 하세요.
 
@@ -83,7 +97,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|이름|설명|
+|Name|Description|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 
@@ -96,7 +110,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 * DRM 또는 정책 유형별 오류를 참조 하세요.
 * 클라이언트에서 승인 되지 않은 라이선스 요청 수를 확인 합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 [Media Service 진단 로그를 모니터링 하는 방법을](media-services-diagnostic-logs-howto.md)참조 하세요.
 

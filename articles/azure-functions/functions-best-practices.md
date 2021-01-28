@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697693"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954786"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -62,7 +62,7 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
-Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거 및 바인딩](functions-bindings-storage-queue-trigger.md#poison-messages)을 위한 설명서에서 **포이즌 큐 메시지 처리**를 참조하세요. 
+Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거 및 바인딩](functions-bindings-storage-queue-trigger.md#poison-messages)을 위한 설명서에서 **포이즌 큐 메시지 처리** 를 참조하세요. 
 
 ## <a name="scalability-best-practices"></a>확장성 모범 사례
 
@@ -112,7 +112,7 @@ C # 함수의 경우 형식을 강력한 형식의 배열로 변경할 수 있�
 
 호스트 런타임 및 트리거 동작의 구성에 함수 앱의 `host.json` 파일을 사용할 수 있습니다.  동작을 일괄 처리하는 것 외에도 여러 트리거에 대한 동시성을 관리할 수 있습니다. 이러한 옵션의 값을 조정하면 호출된 함수의 요구에 맞게 각 인스턴스의 크기를 조정할 수 있습니다.
 
-host.json 파일의 설정은 함수의 *단일 인스턴스* 내에서 앱 내의 모든 함수에 적용 됩니다. 예를 들어 두 개의 HTTP 함수를 사용 하는 함수 앱과 [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) 요청이 25로 설정 된 경우 http 트리거 중 하나에 대 한 요청은 공유 25 개의 동시 요청에 계산 됩니다.  해당 함수 앱의 크기가 10 개의 인스턴스로 조정 된 경우 두 함수는 250 동시 요청을 효과적으로 허용 합니다 (10 개 인스턴스 * 인스턴스당 동시 요청 25 개). 
+host.json 파일의 설정은 함수의 *단일 인스턴스* 내에서 앱 내의 모든 함수에 적용 됩니다. 예를 들어 두 개의 HTTP 함수를 사용 하는 함수 앱과 [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) 요청이 25로 설정 된 경우 http 트리거 중 하나에 대 한 요청은 공유 25 개의 동시 요청에 계산 됩니다.  함수 앱이 10 개의 인스턴스로 확장 되는 경우 10 개의 함수는 250 동시 요청을 효과적으로 허용 합니다 (10 개 인스턴스 * 인스턴스당 동시 요청 25 개). 
 
 기타 호스트 구성 옵션은 [ 구성의host.js문서](functions-host-json.md)에 있습니다.
 

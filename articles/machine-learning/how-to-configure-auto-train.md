@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6971d67204beb39ff0afa6c68dbecf278d86b299
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600066"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954718"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -203,15 +203,53 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 ### <a name="primary-metric"></a>기본 메트릭
 `primary metric`매개 변수는 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택하는 작업 유형에 따라 선택 가능한 메트릭이 결정되며, 다음 표에서는 각 작업 유형에 유효한 기본 메트릭을 보여줍니다.
 
+자동화 된 기계 학습에 대 한 기본 메트릭을 선택 하는 것은 많은 요인에 따라 다릅니다. 비즈니스 요구를 가장 잘 나타내는 메트릭을 선택 하는 것이 가장 중요 한 고려 사항입니다. 그런 다음 메트릭이 데이터 집합 프로필에 적합 한지 (데이터 크기, 범위, 클래스 분포 등)를 고려 합니다.
+
 [자동화된 Machine Learning 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 정의에 대해 알아보세요.
 
 |분류 | 회귀 | 시계열 예측
 |--|--|--
-|accuracy| spearman_correlation | spearman_correlation
-|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
-|average_precision_score_weighted | r2_score | r2_score
-|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
-|precision_score_weighted |
+|`accuracy`| `spearman_correlation` | `spearman_correlation`
+|`AUC_weighted` | `normalized_root_mean_squared_error` | `normalized_root_mean_squared_error`
+|`average_precision_score_weighted` | `r2_score` | `r2_score`
+|`norm_macro_recall` | `normalized_mean_absolute_error` | `normalized_mean_absolute_error`
+|`precision_score_weighted` |
+
+### <a name="primary-metrics-for-classification-scenarios"></a>분류 시나리오에 대 한 기본 메트릭 
+
+Thresholded 메트릭 (예:,, `accuracy` `average_precision_score_weighted` `norm_macro_recall` 및 `precision_score_weighted` )은 매우 작고, 매우 큰 클래스 기울이기 (클래스 불균형)를 포함 하거나, 예상 된 메트릭 값이 0.0 또는 1.0에 매우 근접 한 경우에도 최적화 되지 않을 수 있습니다. 이러한 경우 `AUC_weighted` 기본 메트릭에 대해를 선택 하는 것이 더 적합할 수 있습니다. 자동화 된 machine learning이 완료 되 면 비즈니스 요구에 가장 적합 한 메트릭을 기반으로 우위 모델을 선택할 수 있습니다.
+
+| 메트릭 | 사용 사례 예제 |
+| ------ | ------- |
+| `accuracy` | 이미지 분류, 감정 분석, 변동 예측 |
+| `AUC_weighted` | 사기 감지, 이미지 분류, 변칙 검색/스팸 감지 |
+| `average_precision_score_weighted` | 정서 분석 |
+| `norm_macro_recall` | 변동 예측 |
+| `precision_score_weighted` |  |
+
+### <a name="primary-metrics-for-regression-scenarios"></a>회귀 시나리오에 대 한 기본 메트릭
+
+및와 같은 메트릭은 `r2_score` `spearman_correlation` 값-예측의 눈금이 많은 크기의 주문을 처리 하는 경우 모델의 품질을 더 잘 나타낼 수 있습니다. 예를 들어 많은 사용자가 $20k ~ $10만의 급여를 가지 며 소수 자릿수가 $100M 범위에서 몇 가지 급여를 사용 하 여 매우 높은 경우 
+
+`normalized_mean_absolute_error``normalized_root_mean_squared_error`이 경우 $30k salary를 사용 하는 작업자와 $20M을 사용 하는 작업자에 대해 $20k 예측 오류를 동일 하 게 처리 합니다. 실제로는 $20M 급여에서 $20k off를 예측 하는 것이 매우 가깝습니다 (0.1% 상대적 차이가 작음), $30k에서 $20k off는 닫히지 않습니다 (큰 67% 상대적 차이). `normalized_mean_absolute_error` 및 `normalized_root_mean_squared_error` 는 예측할 값이 비슷한 크기에 있는 경우에 유용 합니다.
+
+| 메트릭 | 사용 사례 예제 |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | 가격 예측 (집/제품/팁), 점수 예측 검토 |
+| `r2_score` | 항공 지연, 급여 추정, 버그 해결 시간 |
+| `normalized_mean_absolute_error` |  |
+
+### <a name="primary-metrics-for-time-series-forecasting-scenarios"></a>시계열 예측 시나리오에 대 한 기본 메트릭
+
+위의 회귀 메모를 참조 하세요.
+
+| 메트릭 | 사용 사례 예제 |
+| ------ | ------- |
+| `spearman_correlation` | |
+| `normalized_root_mean_squared_error` | 가격 예측 (예측), 재고 최적화, 수요 예측 |
+| `r2_score` | 가격 예측 (예측), 재고 최적화, 수요 예측 |
+| `normalized_mean_absolute_error` | |
 
 ### <a name="data-featurization"></a>데이터 기능화
 

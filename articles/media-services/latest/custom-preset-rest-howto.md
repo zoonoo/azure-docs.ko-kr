@@ -1,5 +1,5 @@
 ---
-title: Media Services v3 REST를 사용 하 여 사용자 지정 변환 인코딩-Azure
+title: 사용자 지정 변환 REST 인코딩
 description: 이 항목에서는 Azure Media Services v 3을 사용 하 여 REST를 사용 하 여 사용자 지정 변환을 인코딩하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 7a2cfc0db2f95b21c872dd2ed0cf4fbf675a8d6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 2c0416e2787bc69465e18a71f6b9912f7571c24d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897614"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956092"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>사용자 지정 변환을 사용 하 여 인코딩하는 방법-REST
 

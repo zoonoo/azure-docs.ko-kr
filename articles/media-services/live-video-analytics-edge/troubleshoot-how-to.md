@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d23294c21d49b1c2ab83c4bf8f110d5d4bc7aafb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878293"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954415"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -97,6 +97,17 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
 
     > [!TIP]
     > 사용자 환경에서 Azure IoT Edge 모듈을 실행 하는 데 문제가 발생 하는 경우 **[Azure IoT Edge 표준 진단 단계](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** 를 문제 해결 및 진단에 대 한 지침으로 사용 합니다.
+
+**[라이브 비디오 분석 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)** 를 실행 하는 경우에도 문제가 발생할 수 있습니다. 몇 가지 일반적인 문제는 다음과 같습니다.
+
+* 소유자 권한이 없는 구독을 사용 합니다. 이렇게 하면 **ForbiddenError** 또는 **authorizationfailed** 오류로 인해 스크립트가 실패 합니다.
+    * 이 문제를 해결 하려면 사용 하려는 구독에 대 한 **소유자** 권한이 있는지 확인 합니다. 사용자가 직접 수행할 수 없는 경우 적절 한 권한을 부여 하려면 구독 관리자에 게 문의 하세요.
+* **정책 위반으로 인해 템플릿을 배포하지 못했습니다.**
+    * 이 문제를 해결 하려면 IT 관리자에 게 문의 하 여 가상 머신을 만들어 ssh 인증 차단을 무시 하도록 해야 합니다. Azure 리소스와 통신 하는 데 사용자 이름과 암호가 필요한 보안 요새 네트워크를 사용 하는 경우에는이 작업이 필요 하지 않습니다. 이러한 자격 증명은 가상 컴퓨터가 성공적으로 만들어지고 배포 되 고 IoT Hub 연결 되 면 Cloud Shell의 **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** 파일에 저장 됩니다.
+* 설치 스크립트에서 서비스 주체 및/또는 Azure 리소스를 만들 수 없습니다.
+    * 이 문제를 해결 하려면 구독과 Azure 테 넌 트가 최대 서비스 제한에 도달 하지 않았는지 확인 하세요. [AZURE AD 서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) [, azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) 에 대해 자세히 알아보세요.
+
+
 ### <a name="live-video-analytics-working-with-external-modules"></a>라이브 비디오 분석 외부 모듈 사용
 
 미디어 그래프 확장 프로세서를 통한 라이브 비디오 분석에서는 HTTP 또는 gRPC 프로토콜을 사용 하 여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 미디어 그래프를 확장할 수 있습니다. 특정 한 [예로](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension),이 미디어 그래프는 비디오 프레임을 yolo v3과 같은 외부 유추 모듈에 이미지로 보내고 HTTP 프로토콜을 사용 하 여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT hub입니다. 허브에 대 한 유추 이벤트가 표시 되지 않는 경우 다음을 확인 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Media Services 및 VOD (주문형 비디오)를 통한 고가용성
+title: 주문형 Media Services 비디오를 통한 고가용성
 description: 이 문서는 VOD 응용 프로그램의 고가용성을 지 원하는 데 사용할 수 있는 Azure 서비스의 개요입니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494956"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955854"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Media Services 및 VOD (주문형 비디오)를 통한 고가용성
 
@@ -36,7 +36,7 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 
 이 예제 아키텍처에서 사용 되는 서비스는 다음과 같습니다.
 
-| 아이콘 | Name | 설명 |
+| 아이콘 | Name | Description |
 | :--: | ---- | ----------- |
 |![미디어 서비스 계정 아이콘입니다.](media/media-services-high-availability-encoding/azure-media-services.svg)| Media services 계정 | **설명:**<br>Media Services 계정은 Azure에서 미디어 콘텐츠를 관리, 암호화, 인코딩, 분석 및 스트리밍하는 시작점입니다. Azure Storage 계정 리소스와 연결 되어 있습니다. 계정과 연결 된 모든 저장소는 동일한 Azure 구독에 있어야 합니다.<br><br>**VOD 사용:**<br>비디오 및 오디오 자산을 인코딩하고 배달 하는 데 사용 하는 서비스입니다.  고가용성을 위해 각각 다른 지역에 두 개 이상의 Media Services 계정을 설정 합니다. [Azure Media Services에 대해 자세히 알아보세요](media-services-overview.md). |
 |![저장소 계정 아이콘입니다.](media/media-services-high-availability-encoding/storage-account.svg)| 스토리지 계정 | **설명:**<br>Azure storage 계정에는 blob, 파일, 큐, 테이블 및 디스크 등 모든 Azure Storage 데이터 개체가 포함 되어 있습니다. 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있습니다.<br><br>각 Media Services 계정의 각 지역에는 동일한 지역에 저장소 계정이 있습니다.<br><br>**VOD 사용:**<br>VOD 처리 및 스트리밍을 위한 입력 및 출력 데이터를 저장할 수 있습니다. [Azure Storage에 대해 자세히 알아보세요](../../storage/common/storage-introduction.md). |
@@ -48,14 +48,14 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 |![App Service 아이콘입니다.](media/media-services-high-availability-encoding/application-service.svg)| App Service (및 계획)  | **설명:**<br>Azure App Service는 웹 애플리케이션, REST API 및 모바일 백 엔드를 호스트하는 HTTP 기반 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python을 지원 합니다. 응용 프로그램은 Windows 및 Linux 기반 환경에서 실행 되 고 확장 됩니다.<br><br>**VOD 사용:**<br>각 모듈은 App Service에서 호스팅됩니다. [App Service에 대해 자세히 알아보세요](../../app-service/overview.md). |
 |![Azure 전면 도어 아이콘입니다.](media/media-services-high-availability-encoding/azure-front-door.svg)| Azure Front Door | **설명:**<br>Azure Front 도어는 고가용성을 위한 최상의 성능 및 빠른 글로벌 장애 조치 (failover)를 최적화 하 여 웹 트래픽의 글로벌 라우팅을 정의, 관리 및 모니터링 하는 데 사용 됩니다.<br><br>**VOD 사용:**<br>Azure 전면 도어를 사용 하 여 트래픽을 스트리밍 끝점으로 라우팅할 수 있습니다. [Azure Front 도어에 대해 자세히 알아보세요](../../frontdoor/front-door-overview.md).  |
 |![Azure Event Grid 아이콘입니다.](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Azure Event Grid | **설명:**<br>이벤트 기반 아키텍처에 대해 생성 된 Event Grid에는 저장소 blob 및 리소스 그룹과 같은 Azure 서비스에서 들어오는 이벤트에 대 한 지원이 기본적으로 제공 됩니다. 또한 사용자 지정 토픽 이벤트를 지원 합니다. 필터를 사용 하 여 특정 이벤트를 여러 끝점으로 라우팅하고, 여러 끝점으로 멀티 캐스트 하 고, 이벤트가 안정적으로 전달 되도록 할 수 있습니다. 모든 지역 및 가용성 영역 간에 여러 장애 도메인에 분산 하 여 가용성을 극대화 합니다.<br><br>**VOD 사용:**<br>Event Grid를 사용 하 여 모든 응용 프로그램 이벤트를 추적 하 고 저장 하 여 작업 상태를 유지할 수 있습니다. [Azure Event Grid에 대해 자세히 알아보세요](../../event-grid/overview.md). |
-|![Application Insights 아이콘입니다.](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **설명:** <br>Azure Monitor의 기능인 Application Insights는 개발자와 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 응용 프로그램을 모니터링 하는 데 사용 됩니다. 성능 변칙을 검색 하 고, 문제를 진단 하 고 사용자가 앱으로 수행 하는 작업을 이해 하는 분석 도구를 포함 합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.<br><br>**VOD 사용:**<br>모든 로그를 Application Insights 보낼 수 있습니다. 성공적으로 생성 된 작업 메시지를 검색 하 여 각 작업을 처리 한 인스턴스를 확인할 수 있습니다. 여기에는 고유 식별자 및 인스턴스 이름 정보를 포함 하 여 제출 된 모든 작업 메타 데이터가 포함 될 수 있습니다. [Application Insights에 대해 자세히 알아보세요](../../azure-monitor/app/app-insights-overview.md). |
-## <a name="architecture"></a>아키텍처
+|![Application Insights 아이콘입니다.](media/media-services-high-availability-encoding/application-insights.svg)| 애플리케이션 정보 | **설명:** <br>Azure Monitor의 기능인 Application Insights는 개발자와 DevOps 전문가를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 라이브 응용 프로그램을 모니터링 하는 데 사용 됩니다. 성능 변칙을 검색 하 고, 문제를 진단 하 고 사용자가 앱으로 수행 하는 작업을 이해 하는 분석 도구를 포함 합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.<br><br>**VOD 사용:**<br>모든 로그를 Application Insights 보낼 수 있습니다. 성공적으로 생성 된 작업 메시지를 검색 하 여 각 작업을 처리 한 인스턴스를 확인할 수 있습니다. 여기에는 고유 식별자 및 인스턴스 이름 정보를 포함 하 여 제출 된 모든 작업 메타 데이터가 포함 될 수 있습니다. [Application Insights에 대해 자세히 알아보세요](../../azure-monitor/app/app-insights-overview.md). |
+## <a name="architecture"></a>Architecture
 
 이 개략적인 다이어그램은 고가용성 및 미디어 서비스를 시작 하기 위해 제공 되는 샘플의 아키텍처를 보여 줍니다.
 
 [![VOD (주문형 비디오) 개략적인 아키텍처 다이어그램 ](media/media-services-high-availability-encoding/high-availability-architecture.svg)](media/media-services-high-availability-encoding/high-availability-architecture.svg#lightbox)
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 ### <a name="regions"></a>영역
 

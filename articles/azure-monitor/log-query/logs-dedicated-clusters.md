@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920226"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954752"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>전용 클러스터 Azure Monitor 로그
 
@@ -81,10 +81,12 @@ Authorization: Bearer <token>
 
 *클러스터* 리소스를 만든 후 *Sku*, * keyVaultProperties, *billingType* 등의 추가 속성을 편집할 수 있습니다. 아래 세부 정보를 참조 하세요.
 
+지역별 구독 당 최대 2 개의 활성 클러스터가 있을 수 있습니다. 클러스터를 삭제 한 경우에도 14 일 동안 예약 됩니다. 지역별 구독 당 최대 4 개의 예약 된 클러스터 (활성 또는 최근 삭제 됨)를 사용할 수 있습니다.
+
 > [!WARNING]
 > 클러스터 만들기는 리소스 할당 및 프로 비전을 트리거합니다. 이 작업을 완료 하는 데 최대 한 시간이 걸릴 수 있습니다. 이를 비동기적으로 실행 하는 것이 좋습니다.
 
-클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한 `Microsoft.Resources/deployments/*` 및 클러스터 쓰기 권한이 있어야 `(Microsoft.OperationalInsights/clusters/write)` 합니다.
+클러스터를 만드는 사용자 계정에는 표준 Azure 리소스 만들기 권한이 있어야 `Microsoft.Resources/deployments/*` 하 고, 해당 `Microsoft.OperationalInsights/clusters/write` 역할에이 특정 작업을 할당 하 여 클러스터 쓰기 권한이 있어야 `Microsoft.OperationalInsights/*` 합니다 `*/write` .
 
 ### <a name="create"></a>만들기 
 
@@ -503,7 +505,9 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-nam
 
 ## <a name="limits-and-constraints"></a>제한 및 제약 조건
 
-- 하위 지역 및 구독 당 최대 클러스터 수는 2입니다.
+- 하위 지역 및 구독에 대 한 최대 활성 클러스터 수는 2입니다.
+
+- 지역 및 구독 당 예약 된 클러스터의 최대 수 (활성 또는 최근 삭제)는 4입니다. 
 
 - 클러스터에 연결 된 작업 영역의 최대값은 1000입니다.
 

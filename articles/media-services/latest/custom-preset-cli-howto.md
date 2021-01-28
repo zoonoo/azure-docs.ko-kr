@@ -1,5 +1,5 @@
 ---
-title: Media Services v3 Azure CLI를 사용 하 여 사용자 지정 변환 인코딩
+title: 사용자 지정 변환 CLI 인코딩
 description: 이 항목에서는 Azure CLI를 사용 하 여 사용자 지정 변환을 인코딩하는 Azure Media Services v3을 사용 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9758ed7403e11ca30732377a65bbde1944368cb2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897193"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956109"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>사용자 지정 변환-Azure CLI를 사용 하 여 인코딩하는 방법
 
@@ -142,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 지정 된 비디오 또는 오디오에 변환을 적용 하는 Media Services 해당 변환에서 작업을 제출 해야 합니다. 변환 하에서 작업을 제출 하는 방법을 보여 주는 전체 예제는 빠른 시작 [: 비디오 파일 스트리밍-Azure CLI](stream-files-cli-quickstart.md)를 참조 하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Azure CLI](/cli/azure/ams)

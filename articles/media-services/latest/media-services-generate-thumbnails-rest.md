@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 .NET을 사용 하 여 정책에서 서명 키 가져오기
+title: Media Encoder Standard REST를 사용 하 여 미리 보기 생성
 description: 이 문서에서는 REST를 사용 하 여 자산을 인코딩하고 동시에 Media Encoder Standard를 사용 하 여 미리 보기를 생성 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 75b8fd53836cce02816413afaeb656c3ac3f8796
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f4456a65f422c23da73f36dd74680fbb598db186
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935392"
+ms.locfileid: "98955837"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>REST를 사용 하 여 인코더 표준을 사용 하 여 미리 보기를 생성 하는 방법
 

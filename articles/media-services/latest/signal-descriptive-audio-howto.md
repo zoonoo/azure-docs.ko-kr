@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3로 설명 오디오 트랙 신호 보내기
+title: Media Services v3로 설명 오디오 트랙 신호 보내기
 description: 이 자습서의 단계에 따라 파일을 업로드 하 고, 비디오를 인코딩하고, 설명 오디오 트랙을 추가 하 고, Media Services v3로 콘텐츠를 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 155e79f8d42988d8498c52c0f930bc03bc599cf0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3d029f23a094646d20dd6ae8cb6560aeef4aed54
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898225"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954515"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
 

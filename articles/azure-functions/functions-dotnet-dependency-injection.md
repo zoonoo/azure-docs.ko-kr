@@ -4,15 +4,15 @@ description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 �
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706935"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955091"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
+
+## <a name="using-aspnet-core-user-secrets"></a>ASP.NET Core 사용자 비밀 사용
+
+로컬로 개발할 때 ASP.NET Core는 암호 정보를 프로젝트 루트 외부에 저장할 수 있는 [비밀 관리자 도구](/aspnet/core/security/app-secrets#secret-manager) 를 제공 합니다. 이를 통해 비밀이 실수로 소스 제어에 커밋될 가능성이 줄어듭니다. Azure Functions Core Tools (버전 3.0.3233 이상)는 ASP.NET Core Secret Manager에서 만든 비밀을 자동으로 읽습니다.
+
+사용자 암호를 사용 하도록 .NET Azure Functions 프로젝트를 구성 하려면 프로젝트 루트에서 다음 명령을 실행 합니다.
+
+```bash
+dotnet user-secrets init
+```
+
+그런 다음 `dotnet user-secrets set` 명령을 사용 하 여 암호를 만들거나 업데이트 합니다.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+함수 앱 코드에서 사용자 암호 값에 액세스 하려면 또는를 `IConfiguration` 사용 `IOptions` 합니다.
 
 ## <a name="customizing-configuration-sources"></a>구성 원본 사용자 지정
 

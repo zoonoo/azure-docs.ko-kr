@@ -1,5 +1,5 @@
 ---
-title: 1 단계-Media Services API V3로 마이그레이션하는 이점 이해
+title: Media Services API V3로 마이그레이션할 경우의 이점
 description: 이 문서에서는 Media Services v 2에서 v3로 마이그레이션하는 이점을 보여 줍니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5980da900cd1394d5d9a9ddf99063662cad3c88b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898378"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955074"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>1 단계-Media Services API V3로 마이그레이션하는 이점 이해
 

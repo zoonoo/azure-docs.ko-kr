@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947009"
+ms.locfileid: "98953753"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -56,8 +56,8 @@ ms.locfileid: "98947009"
 
 다음은 설치 중에 **리소스 만들기** 프로세스의 다른 탭을 사용 하 여 구성할 수 있는 추가 옵션입니다.
 
-* **네트워킹**:이 탭에서는 [Azure 개인 링크](../private-link/private-link-overview.md) 를 사용 하 여 개인 끝점을 사용 하도록 설정 하 여 인스턴스에 대 한 공용 네트워크 노출을 제거할 수 있습니다. 자세한 내용은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation)을 참조 하세요.
-* **고급**:이 탭에서 이벤트를 [끝점](concepts-route-events.md)으로 전달할 때 사용할 수 있는 인스턴스에 대해 [시스템 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [*방법: 라우팅 이벤트에 관리 Id 사용*](how-to-enable-managed-identities.md)을 참조 하세요.
+* **네트워킹**:이 탭에서는 [Azure 개인 링크](../private-link/private-link-overview.md) 를 사용 하 여 개인 끝점을 사용 하도록 설정 하 여 인스턴스에 대 한 공용 네트워크 노출을 제거할 수 있습니다. 자세한 내용은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation)을 참조 하세요.
+* **고급**:이 탭에서 이벤트를 [끝점](concepts-route-events.md)으로 전달할 때 사용할 수 있는 인스턴스에 대해 [시스템 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [*방법: 라우팅 이벤트에 대해 관리 Id 사용 (미리 보기)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation)을 참조 하세요.
 * **태그**:이 탭에서 인스턴스에 태그를 추가 하 여 Azure 리소스에서 구성 하는 데 도움을 줍니다. Azure 리소스 태그에 대 한 자세한 내용은 [*논리 조직에 대 한 리소스, 리소스 그룹 및 구독 태그*](../azure-resource-manager/management/tag-resources.md)를 참조 하세요.
 
 ### <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요 한 값 수집

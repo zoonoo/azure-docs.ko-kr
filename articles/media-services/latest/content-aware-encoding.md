@@ -1,5 +1,5 @@
 ---
-title: 콘텐츠 인식 인코딩에 대 한 사전 설정-Azure Media Services
+title: 내용 인식 인코딩에 대 한 사전 설정
 description: 이 문서에서는 Microsoft Azure Media Services v3의 콘텐츠 인식 인코딩에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5d08e09905841f6068f2bac45680a8e5a011c158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297368"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954432"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 미리 설정을 사용 하 여 지정 된 해상도에 대 한 최적의 비트 전송률 값을 찾습니다.
 

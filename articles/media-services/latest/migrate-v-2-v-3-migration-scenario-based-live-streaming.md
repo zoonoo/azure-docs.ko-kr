@@ -1,5 +1,5 @@
 ---
-title: 라이브 스트리밍에 대 한 v2에서 v3 마이그레이션 지침 Media Services
+title: Media Services 라이브 스트리밍 마이그레이션 지침
 description: 이 문서에서는 Azure Media Services v 2에서 v 2로의 최소 마이그레이션에 도움이 되는 라이브 스트리밍 시나리오 기반 지침을 제공 합니다.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 02ae0f7e8723e9c4543a4ef681e3a1164b183a7a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927118"
+ms.locfileid: "98955296"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>라이브 스트리밍 시나리오 기반 마이그레이션 지침
 

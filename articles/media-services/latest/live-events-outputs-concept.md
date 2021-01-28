@@ -1,9 +1,24 @@
 ---
-제목: Azure Media Services v3의 라이브 이벤트 및 라이브 출력 개념: Azure Media Services 설명:이 항목에서는 Azure Media Services v3에서 라이브 이벤트 및 라이브 출력에 대 한 개요를 제공 합니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
-
-inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na: na lang: ne:. 항목: 개념 밀리초. 날짜: 10/23/2020 밀리초. 작성자:
-
+title: 라이브 이벤트 및 라이브 출력 개념
+description: 이 항목에서는 Azure Media Services v 3에서 라이브 이벤트 및 라이브 출력에 대 한 개요를 제공 합니다.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: conceptual
+ms.date: 10/23/2020
+ms.author: inhenkel
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955956"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 통해 Media Services 진단 로그 모니터링
+title: Azure Monitor를 통해 진단 로그 모니터링
 description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅하고 표시 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953957"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -181,7 +181,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [진단 로그 Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)

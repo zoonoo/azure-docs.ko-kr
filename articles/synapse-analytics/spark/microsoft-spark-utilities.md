@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 262177d8cde3a5eee2721f2af8a0511c205da9b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890532"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954296"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -39,10 +39,6 @@ Synapse 파이프라인은 MSI (작업 영역 id)를 사용 하 여 저장소 �
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-<!-- ### Configure access to Azure Blob Storage  -->
-
-:::zone pivot = "programming-language-python"
-
 ### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대 한 액세스 구성  
 
 Synapse **SAS (공유 액세스 서명)** 를 활용 하 여 Azure Blob Storage에 액세스 합니다. 코드에서 SAS 키를 노출 하지 않도록 하려면 Synapse 작업 영역에서 액세스 하려는 Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 만드는 것이 좋습니다.
@@ -62,6 +58,8 @@ Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 추가 하려�
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 다음은 코드 예제입니다.
+
+:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -86,26 +84,6 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대 한 액세스 구성  
-
-Synapse **SAS (공유 액세스 서명)** 를 활용 하 여 Azure Blob Storage에 액세스 합니다. 코드에서 SAS 키를 노출 하지 않도록 하려면 Synapse 작업 영역에서 액세스 하려는 Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 만드는 것이 좋습니다.
-
-Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 추가 하려면 다음 단계를 수행 합니다.
-
-1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
-2. 왼쪽 패널에서 **관리** 를 선택 하 고 **외부 연결** 아래에서 **연결 된 서비스** 를 선택 합니다.
-3. 오른쪽의 **새 연결 된 서비스** 패널에서 **Azure Blob Storage** 를 검색 합니다.
-4. **계속** 을 선택합니다.
-5. 연결 된 서비스 이름에 액세스 하 고 구성 하려면 Azure Blob Storage 계정을 선택 합니다. **인증 방법** 에 **계정 키** 를 사용 하는 것이 좋습니다.
-6. **연결 테스트** 를 선택 하 여 설정이 올바른지 확인 합니다.
-7. 먼저 **만들기** 를 선택 하 고 **모두 게시** 를 클릭 하 여 변경 내용을 저장 합니다. 
-
-다음 URL을 통해 Synapse Spark를 사용 하 여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-다음은 코드 예제입니다.
-
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -123,27 +101,6 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
-
-
-### <a name="configure-access-to-azure-blob-storage"></a>Azure Blob Storage에 대 한 액세스 구성  
-
-Synapse **SAS (공유 액세스 서명)** 를 활용 하 여 Azure Blob Storage에 액세스 합니다. 코드에서 SAS 키를 노출 하지 않도록 하려면 Synapse 작업 영역에서 액세스 하려는 Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 만드는 것이 좋습니다.
-
-Azure Blob Storage 계정에 대 한 새 연결 된 서비스를 추가 하려면 다음 단계를 수행 합니다.
-
-1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
-2. 왼쪽 패널에서 **관리** 를 선택 하 고 **외부 연결** 아래에서 **연결 된 서비스** 를 선택 합니다.
-3. 오른쪽의 **새 연결 된 서비스** 패널에서 **Azure Blob Storage** 를 검색 합니다.
-4. **계속** 을 선택합니다.
-5. 연결 된 서비스 이름에 액세스 하 고 구성 하려면 Azure Blob Storage 계정을 선택 합니다. **인증 방법** 에 **계정 키** 를 사용 하는 것이 좋습니다.
-6. **연결 테스트** 를 선택 하 여 설정이 올바른지 확인 합니다.
-7. 먼저 **만들기** 를 선택 하 고 **모두 게시** 를 클릭 하 여 변경 내용을 저장 합니다. 
-
-다음 URL을 통해 Synapse Spark를 사용 하 여 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-다음은 코드 예제입니다.
 
 ```csharp
 var blob_account_name = "";  // replace with your blob name

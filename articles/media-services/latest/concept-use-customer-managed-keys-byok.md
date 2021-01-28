@@ -1,17 +1,17 @@
 ---
-title: Media Services를 사용 하 여 사용자 고유의 키 (고객 관리 키) 가져오기
+title: 사용자 고유의 키 (고객 관리 키) 가져오기
 description: Media Services를 사용 하 여 고객 관리 키 (즉, 고유한 키 가져오기)를 사용할 수 있습니다.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681825"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956143"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Media Services를 사용 하 여 사용자 고유의 키 (고객 관리 키) 가져오기
 
@@ -39,7 +39,7 @@ Media Services는 Media Services 계정의 관리 Id를 사용 하 여 사용자
 
 ## <a name="tutorials"></a>자습서
 
-- [Azure Portal를 사용 하 여 고객 관리 키 또는 BYOK를 Media Services 사용 합니다.](tutorial-byok-portal.md)
+- [Azure Portal을 사용하여 Media Services에서 고객 관리형 키 또는 BYOK 사용](tutorial-byok-portal.md)
 - [Media Services REST API에서 고객이 관리 하는 키 또는 BYOK를 사용](tutorial-byok-postman.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계

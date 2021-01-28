@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3cc38fad6f26bf6f382b4a275638c450c8333a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012787"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955735"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
 
@@ -122,7 +122,7 @@ OAuth 설정의 일부로 다음을 수행 하는 것이 좋습니다.
    | --- | --- |
    | **연결 이름**   | ITSMC에 연결 하려는 ServiceNow 인스턴스의 이름을 입력 합니다. 이 이름은 나중에 ITSM 작업 항목을 구성 하 고 자세한 분석을 볼 때 Log Analytics에서 사용 합니다. |
    | **파트너 유형**   | **ServiceNow** 를 선택합니다. |
-   | **서버 Url**   | ITSMC에 연결 하려는 ServiceNow 인스턴스의 URL을 입력 합니다. URL은 *servicenow.com* 를 사용 하 여 지원 되는 SaaS 버전을 가리켜야 합니다.|
+   | **서버 Url**   | ITSMC에 연결 하려는 ServiceNow 인스턴스의 URL을 입력 합니다. URL은 *servicenow.com* (예:)를 사용 하 여 지원 되는 SaaS 버전을 가리켜야 합니다 https://XXXXX.service-now.com/) .|
    | **사용자 이름**   | ITSMC에 대 한 연결을 지원 하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력 합니다.|
    | **암호**   | 이 사용자 이름과 연결 된 암호를 입력 하십시오. **참고**: 사용자 이름 및 암호는 인증 토큰을 생성 하는 데만 사용 됩니다. ITSMC 서비스 내의 어디에도 저장 되지 않습니다.  |
    | **클라이언트 Id**   | 이전에 생성 한 OAuth2 인증에 사용할 클라이언트 ID를 입력 합니다. 클라이언트 ID와 비밀을 생성 하는 방법에 대 한 자세한 내용은 [OAuth 설정](https://wiki.servicenow.com/index.php?title=OAuth_Setup)을 참조 하세요. |

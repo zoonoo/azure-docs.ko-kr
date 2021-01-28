@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services v3 .NET을 사용 하 여 정책에서 서명 키 가져오기
+title: 정책 .NET에서 서명 키 가져오기
 description: 이 항목에서는 Media Services v3 .NET SDK를 사용하여 기존 정책에서 서명 키를 가져오는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1436561f7c82446038c231fadec3bd62c94d4ff9
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427066"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955108"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 
@@ -39,7 +39,7 @@ v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드�
 
 ## <a name="get-contentkeypolicy-with-secrets"></a>비밀이 있는 ContentKeyPolicy 가져오기 
 
-키로 이동하려면 아래 예제와 같이 **GetPolicyPropertiesWithSecretsAsync**를 사용합니다.
+키로 이동하려면 아래 예제와 같이 **GetPolicyPropertiesWithSecretsAsync** 를 사용합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 

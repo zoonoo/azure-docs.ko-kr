@@ -4,12 +4,12 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757477"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954701"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Azure Disk Backup 지원 매트릭스 (미리 보기)
 
@@ -65,6 +65,8 @@ Azure Disk Backup은 미국 서 부 중부, 동부 미국, 대한민국 중부, 
 - Managed disks를 사용 하면 배포 시 또는 나중에 디스크 크기를 변경 하지 않고 성능 계층을 변경할 수 있습니다. Azure Disk Backup 솔루션은 백업 중인 원본 디스크의 성능 계층 변경 내용을 지원 합니다. 복원 하는 동안 복원 된 디스크의 성능 계층은 백업 시점의 원본 디스크와 동일 하 게 됩니다. 복원 작업 후 디스크의 성능 계층을 변경 하려면 [여기](../virtual-machines/disks-performance-tiers-portal.md) 의 설명서를 따르세요.
 
 - 관리 디스크에 대 한 [개인 링크](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) 지원을 통해 Azure virtual network 내 에서만 발생 하도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Azure Disk Backup은 개인 끝점이 사용 하도록 설정 된 디스크의 백업을 지원 합니다. 여기에는 개인 끝점을 통해 액세스할 수 있는 백업 데이터 또는 스냅숏이 포함 되지 않습니다.
+
+- 미리 보기 중에는 백업을 사용 하지 않도록 설정할 수 없으므로 백업 **중지 및 백업 데이터 보존** 옵션은 지원 되지 않습니다. 백업을 중지 하 고 모든 백업 데이터를 삭제 하는 백업 인스턴스를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

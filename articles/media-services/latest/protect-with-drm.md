@@ -1,9 +1,25 @@
 ---
-제목: Azure Media Services DRM 암호화 및 라이선스 배달 서비스: Azure Media Services 설명: DRM 동적 암호화 및 라이선스 배달 서비스를 사용 하 여 Microsoft PlayReady, Google Widevine Apple FairPlay 라이선스로 암호화 된 스트림을 제공 하는 방법에 대해 알아봅니다.
-서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
-
-inhenkel: media services ms. 워크 로드: media ms.tgt_pltfrm: na. devlang: na. 토픽: 자습서 ms. 날짜: 08/31/2020. 작성자:: seodec18
-
+title: Media Services DRM 암호화 및 라이선스 배달
+description: DRM 동적 암호화 및 라이선스 배달 서비스를 사용하여 Microsoft PlayReady, Google Widevine 또는 Apple FairPlay 라이선스로 암호화된 스트림을 제공하는 방법에 대해 알아봅니다.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: tutorial
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: seodec18
+ms.openlocfilehash: a4f5810f76af7116421bac3953b4eb65370055e3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955177"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 

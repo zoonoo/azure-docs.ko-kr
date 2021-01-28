@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: ce48d87c6e04e6c349b681e953647feb5e7ddda5
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-ms.translationtype: HT
+ms.openlocfilehash: 7b59e0ae2fbb73f341d5254fd2804d50ad141a19
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570119"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953804"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: SAP SuccessFactors에서 Active Directory로 사용자 프로비저닝 구성 
 이 자습서에서는 사용자를 SuccessFactors Employe Central에서 AD(Active Directory) 및 Azure AD로 프로비저닝하기 위해 수행해야 하는 단계를 보여 주며, 선택적으로 이메일 주소가 SuccessFactors에 쓰기 저장됩니다. 
@@ -186,7 +186,7 @@ SuccessFactors 관리자 팀 또는 구현 파트너와 협력하여 OData API�
 
 Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 도메인 조인 서버에 프로비저닝 에이전트를 설치해야 합니다.
 
-다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [설치 에이전트 섹션에](../cloud-provisioning/how-to-install.md) 나열된 단계에 따라 에이전트 구성을 완료합니다.
+다운로드한 에이전트 설치 관리자를 서버 호스트로 전송하고 [설치 에이전트 섹션에](../cloud-sync/how-to-install.md) 나열된 단계에 따라 에이전트 구성을 완료합니다.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>3부: 프로비저닝 앱에서 SuccessFactors 및 Active Directory에 대한 연결 구성
 이 단계에서는 Azure Portal에서 SuccessFactors 및 Active Directory와의 연결을 설정합니다. 
@@ -209,12 +209,12 @@ Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active D
         > 이 설정은 *parentDistinguishedName* 특성이 특성 매핑에 구성되지 않은 경우에만 사용자 계정 생성에 사용됩니다. 이 설정은 사용자 검색 또는 업데이트 작업에는 사용되지 않습니다. 전체 도메인 하위 트리는 검색 작업의 범위에 속합니다.
 
    * **알림 메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
-    > [!NOTE]
-    > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](../app-provisioning/application-provisioning-quarantine-status.md) 상태가 되면 이메일 알림을 보냅니다.
+     > [!NOTE]
+     > Azure AD 프로비전 서비스는 프로비전 작업이 [격리](../app-provisioning/application-provisioning-quarantine-status.md) 상태가 되면 이메일 알림을 보냅니다.
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패하면 에이전트 설치 시 구성된 SuccessFactors 자격 증명과 AD 자격 증명이 유효한지 다시 확인합니다.
-    >[!div class="mx-imgBorder"]
-    >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+     >[!div class="mx-imgBorder"]
+     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * 자격 증명이 성공적으로 저장되면 **매핑** 섹션에 **SuccessFactors 사용자를 온-프레미스 Active Directory에 동기화** 라는 기본 매핑이 표시됩니다.
 
@@ -250,9 +250,8 @@ Active Directory 온-프레미스에 프로비저닝하려면 원하는 Active D
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
 
-  >[!NOTE]
-  >애플리케이션에서 지원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
-
+     >[!NOTE]
+     >애플리케이션에서 지원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md)를 참조하세요.
 
 1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가** 를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 
