@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059135"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050688"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
@@ -90,6 +90,7 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 | ClaimsEndpointAccessTokenName | 아니요 | 액세스 토큰 쿼리 문자열 매개 변수의 이름입니다. 일부 ID 공급자의 클레임 엔드포인트가 GET HTTP 요청을 지원합니다. 이 경우 전달자 토큰은 권한 부여 헤더 대신 쿼리 문자열 매개 변수를 사용하여 전송됩니다. 기본값은 `access_token` 입니다. |
 | ClaimsEndpointFormatName | 아니요 | 형식 쿼리 문자열 매개 변수의 이름입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 이름을 `format`으로 설정할 수 있습니다. |
 | ClaimsEndpointFormat | 아니요 | 형식 쿼리 문자열 매개 변수의 값입니다. 예를 들어 이 LinkedIn 클레임 엔드포인트 `https://api.linkedin.com/v1/people/~?format=json`에서 값을 `json`으로 설정할 수 있습니다. |
+| BearerTokenTransmissionMethod | 아니요 | 토큰을 보내는 방법을 지정 합니다. 기본 메서드는 쿼리 문자열입니다. 토큰을 요청 헤더로 보내려면를로 설정 `AuthorizationHeader` 합니다. |
 | ProviderName | 아니요 | ID 공급자의 이름입니다. |
 | response_mode | 아니요 | ID 공급자가 결과를 다시 Azure AD B2C에 보내는 데 사용하는 방법입니다. 가능한 값은 `query`, `form_post`(기본값) 또는 `fragment`입니다. |
 | scope | 아니요 | OAuth2 id 공급자 사양에 따라 정의 된 요청의 범위입니다. 예를 들어 `openid`, `profile` 및 `email`입니다. |
@@ -107,7 +108,7 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타 데이터가로 설정 된 경우 `id_token` 암호화 키를 생략할 수 있습니다. |
 
@@ -115,6 +116,6 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 
 ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 을 `{tenant-name}` 테 넌 트의 이름 (예: contosob2c)으로 바꾸어야 합니다. 리디렉션 URI는 모두 소문자여야 합니다.
 
-예:
+예제:
 
 - [사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가](identity-provider-google.md)

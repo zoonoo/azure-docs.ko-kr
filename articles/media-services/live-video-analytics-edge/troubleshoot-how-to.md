@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954415"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051298"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics 문제 해결
 
@@ -107,7 +107,8 @@ IoT Edge 모듈에서 라이브 비디오 분석이 IoT Edge 장치에 올바르
 * 설치 스크립트에서 서비스 주체 및/또는 Azure 리소스를 만들 수 없습니다.
     * 이 문제를 해결 하려면 구독과 Azure 테 넌 트가 최대 서비스 제한에 도달 하지 않았는지 확인 하세요. [AZURE AD 서비스 제한 및 제한 사항](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) [, azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) 에 대해 자세히 알아보세요.
 
-
+> [!TIP]
+> 도움이 필요할 수 있는 추가 문제가 있으면 **[로그를 수집 하 여 지원 티켓을 제출](#collect-logs-for-submitting-a-support-ticket)** 하세요. 에서 전자 메일을 보내 microsoft에 연락할 수도 있습니다 **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>라이브 비디오 분석 외부 모듈 사용
 
 미디어 그래프 확장 프로세서를 통한 라이브 비디오 분석에서는 HTTP 또는 gRPC 프로토콜을 사용 하 여 다른 IoT Edge 모듈에서 데이터를 보내고 받도록 미디어 그래프를 확장할 수 있습니다. 특정 한 [예로](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension),이 미디어 그래프는 비디오 프레임을 yolo v3과 같은 외부 유추 모듈에 이미지로 보내고 HTTP 프로토콜을 사용 하 여 JSON 기반 분석 결과를 받을 수 있습니다. 이러한 토폴로지에서 이벤트의 대상은 대부분 IoT hub입니다. 허브에 대 한 유추 이벤트가 표시 되지 않는 경우 다음을 확인 합니다.

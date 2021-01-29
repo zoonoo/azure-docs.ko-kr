@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895548"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051654"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
@@ -59,10 +59,10 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 | Azure Maps API | 요청의 최대 쿼리 수 | 영역 방지 | 트럭 및 전기 차량 라우팅 | Waypoints 및 여행 외판원 최적화 | 지원 요소 |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| 경로 방향 가져오기 | 1 | | X | X | |
-| 경로 게시 지침 | 1 | X | X | X | X |
-| 사후 경로 방향 일괄 처리 | 700 | | X | X | |
-| 경로 매트릭스 게시 | 700 | | X | | |
+| 경로 방향 가져오기 | 1 | | ✔ | ✔ | |
+| 경로 게시 지침 | 1 | ✔ | ✔ | ✔ | ✔ |
+| 사후 경로 방향 일괄 처리 | 700 | | ✔ | ✔ | |
+| 경로 매트릭스 게시 | 700 | | ✔ | | |
 
 전기 차량 라우팅 기능에 대해 자세히 알아보려면 [Python과 Azure Notebooks를 사용 하 여 전기 차량의 경로](tutorial-ev-routing.md)를 설정 하는 방법에 대 한 자습서를 참조 하세요.
 
@@ -74,7 +74,7 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | 설명|
+| 요소 | Description|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |

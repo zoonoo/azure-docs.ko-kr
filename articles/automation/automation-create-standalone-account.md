@@ -3,14 +3,14 @@ title: 독립 실행형 Azure Automation 계정 만들기
 description: 이 문서에서는 독립 실행형 Azure Automation 계정 및 클래식 실행 계정을 만드는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855395a305624bb2df96d183dc2bcac45f8e6b3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714648"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051467"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -31,28 +31,28 @@ Azure Portal에서 Automation 계정을 만드는 경우 **실행** 계정이 �
 Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
 
 * Automation 계정을 만들려면 Azure AD 사용자 계정을 `Microsoft.Automation` 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정**에서 **앱 등록**이 **예**로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록** 를 **아니요**로 설정 하면이 작업을 수행 하는 사용자에 게 적어도 Azure AD의 응용 프로그램 개발자 역할이 있어야 합니다.
+* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정** 에서 **앱 등록** 이 **예** 로 설정된 경우, Azure AD 테넌트에서 관리자가 아닌 사용자는 [Active Directory 애플리케이션을 등록](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)할 수 있습니다. **앱 등록** 를 **아니요** 로 설정 하면이 작업을 수행 하는 사용자에 게 적어도 Azure AD의 응용 프로그램 개발자 역할이 있어야 합니다.
 
 사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 Automation 계정 추가 창에 `You do not have permissions to create.` 메시지가 표시됩니다.
 
 사용자가 글로벌 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거할 수 있습니다. Active Directory의 사용자 역할에 해당 사용자를 다시 추가할 수 있습니다. 사용자 역할을 확인하려면 다음을 수행합니다.
 
 1. Azure Portal에서 Azure Active Directory 창으로 이동합니다.
-1. **사용자 및 그룹**을 선택합니다.
-1. **모든 사용자**를 선택합니다.
-1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트**가 아니어야 합니다.
+1. **사용자 및 그룹** 을 선택합니다.
+1. **모든 사용자** 를 선택합니다.
+1. 특정 사용자를 선택한 후에 **프로필** 을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트** 가 아니어야 합니다.
 
 ## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
 
 Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완료합니다.
 
 1. 구독 관리자 역할의 멤버 및 구독의 공동 관리자인 계정으로 Azure Portal에 로그인합니다.
-1. **+ 리소스 만들기**를 선택합니다.
-1. **Automation**을 검색합니다. 검색 결과에서 **Automation**을 선택합니다.
+1. **+ 리소스 만들기** 를 선택합니다.
+1. **Automation** 을 검색합니다. 검색 결과에서 **Automation** 을 선택합니다.
 
    ![Azure Marketplace에서 Automation & Control 검색 및 선택](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
-1. 다음 화면에서 **새로 만들기**를 선택합니다.
+1. 다음 화면에서 **새로 만들기** 를 선택합니다.
 
    ![Automation 계정 추가](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
@@ -67,19 +67,19 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
     > Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정의 이름을 즉시 사용하지 못할 수도 있습니다.
 
 1. 구독이 하나 이상인 경우는 **구독** 필드를 사용하여 새 계정에 사용할 구독을 지정합니다.
-1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
-1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.
-1. **Azure 실행 계정 만들기** 옵션에서 **예**를 선택한 다음, **만들기**를 클릭합니다.
+1. **리소스 그룹** 에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
+1. **위치** 에서 Azure 데이터 센터 위치를 선택합니다.
+1. **Azure 실행 계정 만들기** 옵션에서 **예** 를 선택한 다음, **만들기** 를 클릭합니다.
 
    > [!NOTE]
-   > **Azure 실행 계정 만들기**에서 **아니요**를 선택하여 실행 계정을 만들지 않는 경우 Automation 계정 추가 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
+   > **Azure 실행 계정 만들기** 에서 **아니요** 를 선택하여 실행 계정을 만들지 않는 경우 Automation 계정 추가 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' Azure Active directory에 실행 계정을 만들 수 있는 권한이 없습니다. ' 라는 프롬프트의 스크린샷":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' 실행 계정을 만들지 않기로 선택 했습니다. ' 메시지가 표시 된 프롬프트 스크린샷":::
    >
    > 서비스 주체가 생성되지 않은 경우 참여자 역할은 할당되지 않습니다.
    >
 
-1. Automation 계정을 생성하는 진행률을 추적하려면 메뉴에서 **알림**을 선택합니다.
+1. Automation 계정을 생성하는 진행률을 추적하려면 메뉴에서 **알림** 을 선택합니다.
 
 Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
@@ -93,16 +93,16 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 
 ## <a name="create-a-classic-run-as-account"></a>클래식 실행 계정 만들기
 
-클래식 실행 계정은 Azure Automation 계정을 만들 때 더 이상 기본적으로 생성되지 않습니다. 클래식 실행 계정이 계속 필요한 경우 다음을 수행합니다.
+클래식 실행 계정은 Azure Automation 계정을 만들 때 기본적으로 생성 되지 않습니다. 클래식 실행 계정을 통해 Azure 클래식 리소스를 관리 해야 하는 경우 다음 단계를 수행 합니다.
 
-1. Automation 계정에서 **계정 설정** 아래의 **실행 계정**을 선택합니다.
-2. **Azure 클래식 실행 계정**을 선택합니다.
-3. **만들기**를 클릭하여 클래식 실행 계정 만들기를 계속 진행합니다.
+1. Automation 계정에서 **계정 설정** 아래의 **실행 계정** 을 선택합니다.
+2. **Azure 클래식 실행 계정** 을 선택합니다.
+3. **만들기** 를 클릭하여 클래식 실행 계정 만들기를 계속 진행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 그래픽 작성에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 Runbook 작성](automation-graphical-authoring-intro.md)을 참조하세요.
 * PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [자습서: PowerShell 워크플로 Runbook 만들기](learn/automation-tutorial-runbook-textual.md)를 참조하세요.
-* Python 2 Runbook을 시작하려면 [자습서: Python 2 Runbook 만들기](learn/automation-tutorial-runbook-textual-python2.md)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation)을 참조하세요.
+* Python 3 runbook을 시작 하려면 [자습서: python 3 Runbook 만들기](learn/automation-tutorial-runbook-textual-python-3.md)를 참조 하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation&preserve-view=true#automation)을 참조하세요.

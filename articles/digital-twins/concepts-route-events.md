@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049289"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050518"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -50,12 +50,12 @@ Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다�
 
 ## <a name="create-an-endpoint"></a>엔드포인트 만들기
 
-개발자는 이벤트 경로를 정의 하기 위해 먼저 끝점을 정의 해야 합니다. **끝점** 은 경로 연결을 지 원하는 Azure Digital twins 외부의 대상입니다. 지원 되는 대상은 다음과 같습니다.
+이벤트 경로를 정의하려면 개발자는 먼저 엔드포인트를 정의해야 합니다. **끝점** 은 경로 연결을 지 원하는 Azure Digital twins 외부의 대상입니다. 지원 되는 대상은 다음과 같습니다.
 * Event Grid 사용자 지정 항목
 * 이벤트 허브
 * Service Bus
 
-끝점을 만들려면 Azure Digital Twins [**제어 평면 api**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI 명령**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)또는 [**Azure Portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)를 사용할 수 있습니다. 
+끝점을 만들려면 Azure Digital Twins [REST api, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)를 사용할 수 있습니다.
 
 끝점을 정의 하는 경우 다음을 제공 해야 합니다.
 * 끝점의 이름입니다.
@@ -71,7 +71,7 @@ Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다�
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
  
-이벤트 경로를 만들려면 Azure Digital Twins [**데이터 평면 api**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI 명령**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)또는 [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다. 
+이벤트 경로를 만들려면 Azure Digital Twins [REST api, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-event-route)또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다.
 
 다음은 `CreateOrReplaceEventRouteAsync` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
 
@@ -85,8 +85,6 @@ Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다�
 
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
-
-[Azure Digital Twins CLI](how-to-use-cli.md)를 사용 하 여 경로를 만들 수도 있습니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b980624ebf55c3666bcc7dd1d60f681d788c95ae
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 866af8b992374492286f47357f108a01f35e560b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987049"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051044"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Azure Active Directory B2C 서비스 제한 및 제한 사항
 
@@ -40,17 +40,15 @@ ms.locfileid: "98987049"
 |범주  |제한  |
 |---------|---------|
 |Azure AD B2C 테 넌 트 당 응용 프로그램 수   |250           |
-|Azure AD B2C 테 넌 트 당 정책 수       |200          |
-|최대 정책 파일 크기      |400 KB          |
 |응용 프로그램당 범위 수        |1000          |
-|사용자 당 사용자 지정 특성 수 <sup>1</sup>       |100         |
+|사용자 당 사용자 [지정 특성](user-profile-attributes.md#extension-attributes)   수 <sup>1</sup>       |100         |
 |응용 프로그램당 리디렉션 Url 수       |100         |
 |응용 프로그램당 로그 아웃 Url 수        |1          |
 |특성 당 문자열 제한      |250 문자          |
 |구독 당 B2C 테 넌 트 수      |20         |
 |사용자 지정 정책의 [상속](custom-policy-overview.md#inheritance-model) 수준     |10         |
-|Azure AD B2C 테 넌 트 당 정책 수      |200         |
-|최대 정책 파일 크기      |400 KB         |
+|Azure AD B2C 테 넌 트 당 정책 수      |200          |
+|최대 정책 파일 크기      |400 KB          |
 
 <sup>1</sup> [Azure AD 서비스 제한 및 제한 사항](../active-directory/enterprise-users/directory-service-limits-restrictions.md)도 참조 하세요.
 

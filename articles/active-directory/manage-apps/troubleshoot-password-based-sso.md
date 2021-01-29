@@ -10,19 +10,19 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: d122cedbad41d6984614a0edccb2fd98269710f2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 84aec5031dd8d19f8f2ad0aa32185002add378b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618079"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053982"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Azure AD에서 암호 기반 Single Sign-On 문제 해결
 
 내 앱에서 SSO (암호 기반 Single Sign-On)를 사용 하려면 브라우저 확장을 설치 해야 합니다. 암호 기반 SSO 용으로 구성 된 앱을 선택 하면 확장이 자동으로 다운로드 됩니다. 최종 사용자 관점에서 내 앱을 사용 하는 방법에 대해 알아보려면 [내 앱 포털 도움말](../user-help/my-apps-portal-end-user-access.md)을 참조 하세요.
 
 ## <a name="my-apps-browser-extension-not-installed"></a>내 앱 브라우저 확장이 설치 되어 있지 않음
-브라우저 확장이 설치 되어 있는지 확인 합니다. 자세히 알아보려면 [내 앱 배포 Azure Active Directory 계획](access-panel-deployment-plan.md)을 참조 하세요. 
+브라우저 확장이 설치 되어 있는지 확인 합니다. 자세히 알아보려면 [내 앱 배포 Azure Active Directory 계획](my-apps-deployment-plan.md)을 참조 하세요. 
 
 ## <a name="single-sign-on-not-configured"></a>Single sign-on이 구성 되지 않음
 암호 기반 Single Sign-On 구성 되어 있는지 확인 합니다. 자세히 알아보려면 [암호 기반 Single Sign-On 구성](configure-password-single-sign-on-non-gallery-applications.md)을 참조 하세요.
@@ -247,4 +247,4 @@ SSO를 설정 하 고 사용자를 할당 하는 경우 오류 메시지가 표�
 
 ## <a name="next-steps"></a>다음 단계
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-* [내 앱 배포 계획](access-panel-deployment-plan.md)
+* [내 앱 배포 계획](my-apps-deployment-plan.md)

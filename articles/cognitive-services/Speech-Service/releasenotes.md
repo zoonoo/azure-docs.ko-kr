@@ -8,17 +8,67 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/17/2020
+ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 050c16670ea0c6df53345216d8dd450c159792ea
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eec2919eddc4c9631c3153d6016485d64d368902
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927460"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050857"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
+
+## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0:2021-1 월 릴리스
+
+**참고**: Windows의 Speech SDK는 Visual Studio 2015, 2017 및 2019에 대 한 공유 Microsoft Visual C++ 재배포 가능 패키지에 따라 달라 집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하세요.
+
+**향상 된 기능**
+- 음성 SDK의 메모리 사용량 및 디스크 공간을 줄이기 위해 여러 릴리스 작업을 시작 했습니다. 첫 번째 단계로 대부분의 플랫폼에서 공유 라이브러리의 중요 한 파일 크기를 단축 했습니다. 1.14 릴리스와 비교:
+  - 64 비트 UWP 호환 Windows 라이브러리의 약 30% 작음;
+  - 32 비트 Windows 라이브러리는 아직 크기를 개선 하지 않습니다.
+  - Linux 라이브러리는 20-25% 더 작습니다.
+  - Android 라이브러리는 3-5% 더 작음;
+
+**새로운 기능**
+- **모두**: 사용자 지정 TTS 음성에 대해 48khz 형식을 추가 하 여 네이티브 출력 샘플 속도가 24khz 보다 높은 사용자 지정 음성의 오디오 품질을 향상 시킵니다.
+- **모두**: via `EndpointId` ([c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setendpointid), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#endpointId), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id))를 통한 사용자 지정 음성 설정을 위한 지원이 추가 되었습니다. 이 변경 전에 사용자 지정 음성 사용자는 메서드를 통해 끝점 URL을 설정 해야 합니다 `FromEndpoint` . 이제 고객이 `FromSubscription` 공용 음성 처럼 메서드를 사용 하 고를 설정 하 여 배포 id를 제공할 수 있습니다 `EndpointId` . 이렇게 하면 사용자 지정 음성 설정이 간단해 집니다. 
+- **C + +/c #/Java/Objective-C/Python**: `IntentRecognizer` 이제 `LanguageUnderstandingModel FromEndpoint` uri 매개 변수를 사용 하 여 메서드를 통한 상위 점수 매기기 의도가 아니라 모든 의도를 포함 하는 JSON 결과 구성을 지원 `verbose=true` 합니다. 이 [#880 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880)를 해결 합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition/#add-a-languageunderstandingmodel-and-intents)에서 업데이트 된 설명서를 참조 하세요.
+- **C + +/c #/java**: `DialogServiceConnector` ([c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet), [java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable))에는 이제 함께 제공 되는 `StopListeningAsync()` 메서드가 있습니다 `ListenOnceAsync()` . 그러면 오디오 캡처가 즉시 중지 되 고 결과가 정상적으로 대기 하 여 "지금 중지" 단추 누르기 시나리오와 함께 사용 하기에 적합 합니다.
+- **C + +/c #/Java/JavaScript**: `DialogServiceConnector` ([c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector?view=azure-node-latest))에는 이제 새 `TurnStatusReceived` 이벤트 처리기가 있습니다. 이러한 선택적 이벤트는 [`ITurnContext`](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.iturncontext?view=botbuilder-dotnet-stable) Bot의 모든 해상도에 해당 하며, 발생 하는 경우 실행 실패를 보고 합니다. 예를 들어 처리 되지 않은 예외, 시간 제한 또는 직접 줄 음성 및 봇 간의 네트워크 drop의 결과로 발생 합니다. `TurnStatusReceived` 를 사용 하면 오류 조건에 더 쉽게 대응할 수 있습니다. 예를 들어, 봇이 백 엔드 데이터베이스 쿼리 (예: 제품 조회)에 너무 오래 걸리는 경우 `TurnStatusReceived` 클라이언트는 "죄송 합니다. 다시 시도할 수 있습니다." 라는 메시지가 표시 될 수 있습니다.
+- **C + +/c #**: [speech sdk nuget 패키지](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) 는 이제 Windows ARM/ARM64 desktop 네이티브 이진 파일 (UWP가 이미 지원 됨)을 지원 하 여 더 많은 컴퓨터 형식에서 음성 sdk를 더 유용 하 게 만들 수 있습니다.
+- **Java**: [`DialogServiceConnector`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable) 이제 이전에 `setSpeechActivityTemplate()` 언어에서 실수로 제외 된 메서드가 있습니다. 이는 속성을 설정 하는 것과 동일 `Conversation_Speech_Activity_Template` 하며, 직접 라인 음성 서비스에서 발생 한 모든 향후 봇 프레임 워크 활동은 제공 된 콘텐츠를 해당 JSON 페이로드에 병합 하도록 요청 합니다.
+- **Java**: [`Connection`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable) 이제 클래스에는 `MessageReceived` 다른 프로그래밍 언어와 유사한 이벤트 (c + +, c #)가 있습니다. 이 이벤트는 서비스에서 들어오는 데이터에 대 한 하위 수준 액세스를 제공 하며 진단 및 디버깅에 유용할 수 있습니다.
+- **JavaScript**: [`BotFrameworkConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/botframeworkconfig) 이제 `fromHost()` 및 `fromEndpoint()` 팩터리 메서드를 사용 하 여 사용자 지정 서비스 위치의 사용을 간소화 하 고 속성을 수동으로 설정 합니다. 또한 `botId` 구성 팩터리에 대해 기본이 아닌 봇을 사용 하기 위해의 선택적 사양을 표준화 합니다.
+- **JavaScript**: websocket 압축을 위한 문자열 컨트롤 속성을 추가 했습니다. 성능상의 이유로, 기본적으로 websocket 압축을 사용 하지 않도록 설정 했습니다. 낮은 대역폭 시나리오에 대 한 했다가 다시 설정할 수 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/propertyid)에 있습니다. 이 [#242 GitHub 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/242)를 해결 합니다.
+- **JavaScript**: 음성 발음을 평가할 수 있도록 발음 평가에 대 한 지원이 추가 되었습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment?pivots=programming-language-javascript)에서 빠른 시작을 참조 하세요.
+
+**버그 수정**
+- **모두** (JavaScript 제외): 인식기에서 너무 많은 메모리를 할당 한 버전 1.14에서 회귀를 수정 했습니다.
+- **C + +**:에서의 가비지 수집 문제 `DialogServiceConnector` 를 해결 하 고 [GitHub 문제 #794](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/794)해결 합니다.
+- **C #**: 삭제 시 개체가 두 번째에 대해 차단 되도록 하는 스레드 종료와 관련 된 문제를 해결 했습니다.
+- **C + +/c #/Java**: 응용 프로그램이에서 음성 권한 부여 토큰 또는 활동 템플릿을 두 번 이상 설정 하는 것을 방지 하는 예외를 수정 했습니다 `DialogServiceConnector` .
+- **C + +/c #/Java**: 해체의 경합 상태로 인 한 인식기 충돌을 수정 했습니다.
+- **JavaScript**: [`DialogServiceConnector`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector) `botId` 의 팩터리에 지정 된 선택적 매개 변수를 이전에 인식 하지 못했습니다 `BotFrameworkConfig` . 이 경우 `botId` 기본이 아닌 봇을 사용 하도록 쿼리 문자열 매개 변수를 수동으로 설정 해야 했습니다. 버그가 수정 되었고 `botId` 공장에 제공 된 값 `BotFrameworkConfig` 이 신규 및 추가를 포함 하 여 사용 및 사용 됩니다 `fromHost()` `fromEndpoint()` . 이는 `applicationId` 에 대 한 매개 변수에도 적용 됩니다 `CustomCommandsConfig` .
+- **JavaScript**: [GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/881)를 수정 했습니다. 인식기 개체를 다시 사용 하도록 허용 하는 #881.
+- **JavaScript**: `speech.config` 하나의 TTS 세션에서 SKD를 여러 번 전송 하 여 대역폭을 낭비 하는 문제를 해결 했습니다.
+- **JavaScript**: 마이크 권한 부여에 대 한 오류 처리를 간소화 하 여 사용자가 브라우저에서 마이크 입력을 허용 하지 않는 경우 더 많은 설명 메시지를 표시할 수 있도록 합니다.
+- **JavaScript**:에서 형식 오류가 발생 하 고 [](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/249) `ConversationTranslator` `ConversationTranscriber` TypeScript 사용자에 대 한 컴파일 오류가 발생 하는 #249 GitHub 문제가 수정 되었습니다.
+- GStreamer: Xcode 11.4에서 iOS에 대 한 빌드에 실패 하는 문제를 해결 [#911 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/911)를 해결 **합니다.**
+- **Python**: [GitHub 문제 #870](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/870)수정, "DeprecationWarning: 맞도록 of importlib에서 imp 모듈이 더 이상 사용 되지 않습니다."
+
+**샘플**
+- [JavaScript 브라우저의 파일 기반 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/browser/from-file/index.html) 은 이제 음성 인식을 위해 파일을 사용 합니다. 이 [#884 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/884)를 해결 합니다.
+
+## <a name="speech-cli-also-known-as-spx-2021-january-release"></a>Speech CLI (SPX 라고도 함): 2021-1 월 릴리스
+
+**새로운 기능**
+- 이제 Speech CLI를 [NuGet 패키지로](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) 사용할 수 있으며, shell/명령줄에서 호출할 수 있는 .net 전역 도구로 .net cli를 통해 설치할 수 있습니다.
+- [Custom Speech DevOps 템플릿 리포지토리](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) 는 Custom Speech 워크플로에 대해 음성 CLI를 사용 하도록 업데이트 되었습니다.
+
+**Covid-19 요약 테스트**: 지속적인 전염병 엔지니어가 집에서 작업 하는 데 계속 필요 하므로 사전 전염병 수동 확인 스크립트가 크게 줄었습니다. 구성 수가 더 적고 환경 특정 버그가 지연 될 가능성이 더 낮은 장치에서 테스트 합니다. 여전히 많은 자동화를 사용 하 여 엄격한 유효성 검사를 수행 합니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
+정상 상태를 유지 하세요.
 
 ## <a name="text-to-speech-2020-december-release"></a>텍스트 음성 변환 2020-12 월 릴리스
 

@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063657"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053468"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)로 응용 프로그램 마이그레이션
 
@@ -61,7 +61,7 @@ __Q: 어떤 앱이 ADAL을 사용 하 고 있는지 알 어떻게 할까요? 있
 A: 응용 프로그램에 대 한 소스 코드가 있는 경우 위의 마이그레이션 가이드를 참조 하 여 앱에서 사용 하는 라이브러리와 MSAL으로 마이그레이션하는 방법을 확인할 수 있습니다. ISV와 파트너 관계를 맺고 있는 경우 해당 사용자에 게 직접 연락 하 여 MSAL에 대 한 마이그레이션 경험을 이해 하는 것이 좋습니다.
 
 __Q: MSAL으로 이동 하는 데 투자 해야 하는 이유는 무엇 인가요?__  
-A: MSAL에는 증분 동의, Single Sign-On 및 토큰 캐시 관리를 포함 하 여 ADAL에 없는 새로운 기능이 포함 되어 있습니다. 또한 ADAL과 달리 MSAL은 2022 년 6 월 30 일까 지 보안 패치를 계속 받을 수 있습니다. [자세히 알아보기](msal-overview.md).
+A: MSAL에는 증분 동의, Single Sign-On 및 토큰 캐시 관리를 포함 하 여 ADAL에 없는 새로운 기능이 포함 되어 있습니다. 또한 ADAL과 달리 MSAL은 2022 년 6 월 30 일까 지 보안 패치를 계속 받을 수 있습니다. [자세한 정보를 알아보세요](msal-overview.md).
 
 __Q: Microsoft는 자신의 앱을 MSAL으로 업데이트 하나요?__  
 예. Microsoft는 지원 종료 최종 기한에 의해 응용 프로그램을 MSAL로 마이그레이션하는 과정을 진행 하 여 MSAL의 지속적인 보안 및 기능 향상을 활용할 수 있도록 합니다.
@@ -70,10 +70,10 @@ __Q: 앱을 ADAL에서 MSAL으로 이동 하는 데 도움이 되는 도구를 �
 A: 아니요. 라이브러리 간의 차이점으로 인해 MSAL을 개선 하는 데 사용할 수 있는 도구를 개발 하 고 유지 관리 하는 데에는 전용 리소스가 필요 합니다. 그러나 응용 프로그램에서 필요한 변경을 수행 하는 데 도움이 되는 이전 마이그레이션 가이드 집합을 제공 합니다.
 
 __Q: MSAL은 AD FS에서 어떻게 작동 하나요?__  
-A: MSAL.NET는 AD FS 2019에 대 한 인증을 위한 특정 시나리오를 지원 합니다. 앱이 이전 버전의 AD FS에서 직접 토큰을 획득 해야 하는 경우 ADAL에 남아 있어야 합니다. [자세히 알아보기](msal-net-adfs-support.md).
+A: MSAL.NET는 AD FS 2019에 대 한 인증을 위한 특정 시나리오를 지원 합니다. 앱이 이전 버전의 AD FS에서 직접 토큰을 획득 해야 하는 경우 ADAL에 남아 있어야 합니다. [자세한 정보를 알아보세요](msal-net-adfs-support.md).
 
 __Q: 내 응용 프로그램을 마이그레이션하는 데 도움이 어떻게 할까요??__  
-A:이 문서의 [마이그레이션 지침](#migration-guidance) 섹션을 참조 하세요. 앱의 플랫폼에 대 한 가이드를 읽은 후 추가 질문이 있으면 태그를 사용 하 여 Stack Overflow에 게시 `[adal-deprecation]` 하거나 라이브러리의 GitHub 리포지토리에서 문제를 열 수 있습니다. 각 라이브러리 리포지토리의 링크는 MSAL 개요 문서의 [언어 및 프레임 워크](msal-overview.md#languages-and-frameworks) 섹션을 참조 하세요.
+A:이 문서의 [마이그레이션 지침](#migration-guidance) 섹션을 참조 하세요. 앱의 플랫폼에 대 한 가이드를 읽은 후에 추가 질문이 있으면 Microsoft Q&A에 태그를 게시 `[azure-ad-adal-deprecation]` 하거나 라이브러리의 GitHub 리포지토리에서 문제를 열 수 있습니다. 각 라이브러리 리포지토리의 링크는 MSAL 개요 문서의 [언어 및 프레임 워크](msal-overview.md#languages-and-frameworks) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

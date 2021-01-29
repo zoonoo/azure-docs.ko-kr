@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565602"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052863"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
 Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
-
-> [!NOTE]
->Azure AD Premium 및 Basic 버전은 Azure Active Directory의 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure AD Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Azure 서비스에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 사용하여 문의하세요.
 
 Active Directory Premium 1 또는 Premium 2에 등록하기 전에 먼저 기존 구독 또는 플랜 중 사용할 항목을 결정해야 합니다.
 
@@ -55,7 +52,7 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 
 - **250개 이상 라이선스.** [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-- **5~250개 라이선스.** [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **5~250개 라이선스.** [볼륨 라이선스 열기](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
 볼륨 라이선싱 구매 옵션에 대한 자세한 내용은 [볼륨 라이선싱을 통해 구매하는 방법](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
 
@@ -63,13 +60,13 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 새 Azure AD 라이선스 플랜을 사용하여 등록한 경우에는 구매 후에 받은 확인 메일을 사용하여 조직을 위해 해당 라이선스 플랜을 활성화해야 합니다.
 
 ### <a name="to-activate-your-license-plan"></a>라이선스 플랜을 활성화하려면
-- 등록한 후 Microsoft에서 받은 확인 메일을 열고 **로그인** 또는 **등록**을 클릭합니다.
+- 등록한 후 Microsoft에서 받은 확인 메일을 열고 **로그인** 또는 **등록** 을 클릭합니다.
    
     ![로그인 및 가입 링크가 포함된 확인 이메일](media/active-directory-get-started-premium/MOLSEmail.png)
 
-    - **로그인.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
+    - **서명하세요.** 기존 테넌트가 있는 경우 이 링크를 선택한 후 기존 관리자 계정을 사용하여 로그인합니다. 라이선스가 활성화되는 테넌트의 글로벌 관리자여야 합니다.
 
-    - **등록.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
+    - **등록하세요.** **계정 프로필 만들기** 페이지를 열려면 이 링크를 선택하고 라이선싱 플랜을 위한 새 Azure AD 테넌트를 만듭니다.
 
         ![샘플 정보를 사용한 계정 프로필 만들기 페이지](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
@@ -78,16 +75,16 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
 ![감사 인사가 포함된 확인 상자](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Azure AD 액세스 활성화
-기존 구독에 새 Azure AD Premium 라이선스를 추가하는 경우 Azure AD 액세스가 이미 활성화되어 있어야 합니다. 그렇지 않으면 **환영 전자 메일**을 받은 후 Azure AD 액세스를 활성화해야 합니다.  
+기존 구독에 새 Azure AD Premium 라이선스를 추가하는 경우 Azure AD 액세스가 이미 활성화되어 있어야 합니다. 그렇지 않으면 **환영 전자 메일** 을 받은 후 Azure AD 액세스를 활성화해야 합니다.  
 
-라이선스를 구매하고 디렉터리에서 프로비전한 후 **환영 메일**을 받게 됩니다. 이 메일은 Azure AD Premium 또는 Enterprise Mobility + Security 라이선스 및 기능에 대한 관리를 시작할 수 있다는 것을 확인해 줍니다. 
+라이선스를 구매하고 디렉터리에서 프로비전한 후 **환영 메일** 을 받게 됩니다. 이 메일은 Azure AD Premium 또는 Enterprise Mobility + Security 라이선스 및 기능에 대한 관리를 시작할 수 있다는 것을 확인해 줍니다. 
 
 > [!TIP]
 > 환영 메일에서 Azure AD 디렉터리 액세스를 활성화할 때까지 새 테넌트에 대한 Azure AD에 액세스할 수 없습니다.
 
 ### <a name="to-activate-your-azure-ad-access"></a>Azure AD 액세스를 활성화하려면
 
-1. **환영 메일**을 연 후 **로그인**을 클릭합니다.
+1. **환영 메일** 을 연 후 **로그인** 을 클릭합니다.
    
     ![로그인 링크가 강조 표시된 환영 이메일](media/active-directory-get-started-premium/AADEmail.png)
 

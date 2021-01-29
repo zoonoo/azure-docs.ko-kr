@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586349"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053400"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제
 아래의 로그인 문제를 해결 하려면 다음을 수행 하 여 진단 및 해결 단계를 자동화 하는 것이 좋습니다.
 
-- [내 앱 보안 브라우저 확장](./access-panel-deployment-plan.md)을 설치하면 Azure AD(Azure Active Directory)가 Azure Portal에서 테스트 환경을 사용할 때 더 나은 진단 및 해결 방법을 제공할 수 있습니다.
+- [내 앱 보안 브라우저 확장](my-apps-deployment-plan.md)을 설치하면 Azure AD(Azure Active Directory)가 Azure Portal에서 테스트 환경을 사용할 때 더 나은 진단 및 해결 방법을 제공할 수 있습니다.
 - Azure Portal의 App Configuration 페이지에서 테스트 환경을 사용하여 오류를 재현합니다. [SAML 기반 Single Sign-On 응용 프로그램 디버그](./debug-saml-sso-issues.md) 에 대 한 자세한 정보
 
 내 앱 보안 브라우저 확장을 사용 하 여 Azure Portal에서 [테스트 환경을](./debug-saml-sso-issues.md) 사용 하는 경우 아래 단계를 수동으로 수행 하 여 SAML 기반 Single Sign-On 구성 페이지를 열 필요가 없습니다.

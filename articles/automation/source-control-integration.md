@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579456"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050773"
 ---
 # <a name="use-source-control-integration"></a>원본 제어 통합 사용
 
@@ -29,7 +29,7 @@ Azure Automation은 3가지 유형의 소스 제어를 지원합니다.
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 소스 제어 리포지토리(GitHub 또는 Azure Repos)
-* [실행 계정](manage-runas-account.md)
+* [실행 계정](automation-security-overview.md#run-as-accounts)
 * `Az.Accounts` 모듈(Az 모듈은 `AzureRM.Profile`에 해당)을 포함한 Automation 계정의 [최신 Azure 모듈](automation-update-azure-modules.md)
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure Portal을 사용하여 소스 제어를 구성하려면 다음 절차를 �
     |소스 제어 형식     | 소스 제어 메커니즘의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> * GitHub</br>* Azure Repos(Git)</br> * Azure Repos(TFVC)        |
     |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 처음 200개의 리포지토리가 검색됩니다. 리포지토리를 검색하려면 필드에 이름을 입력하고 **GitHub에서 검색** 을 클릭합니다.|
     |Branch     | 소스 파일을 끌어올 분기입니다. 분기 대상 지정은 TFVC 소스 제어 형식에 사용할 수 없습니다.          |
-    |폴더 경로     | 동기화할 Runbook을 포함하는 폴더(예: **/Runbooks** )입니다. 지정된 폴더의 Runbook만 동기화됩니다. 재귀는 지원되지 않습니다.        |
+    |폴더 경로     | 동기화할 Runbook을 포함하는 폴더(예: **/Runbooks**)입니다. 지정된 폴더의 Runbook만 동기화됩니다. 재귀는 지원되지 않습니다.        |
     |자동 동기화<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 켜거나 끄는 설정입니다.        |
     |Runbook 게시     | 소스 제어에서 동기화한 후 Runbook이 자동으로 게시되는 경우 켜짐 설정이고, 그렇지 않으면 꺼짐 설정입니다.           |
     |Description     | 소스 제어에 대한 추가 세부 정보를 지정하는 텍스트입니다.        |
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 소스 제어를 구성하려면 다음 절차를 �
    ![소스 제어 요약](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> 소스 제어 리포지토리의 로그인은 Azure Portal 로그인과 다를 수도 있습니다. 소스 제어를 구성할 때는 소스 제어 리포지토리의 올바른 계정을 사용하여 로그인해야 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 **dev.azure.com** , **visualstudio.com** 또는 **github.com** 에서 로그아웃한 후 소스 제어를 다시 연결합니다.
+> 소스 제어 리포지토리의 로그인은 Azure Portal 로그인과 다를 수도 있습니다. 소스 제어를 구성할 때는 소스 제어 리포지토리의 올바른 계정을 사용하여 로그인해야 합니다. 계정이 올바른지 확실치 않으면 브라우저에서 새 탭을 열고 **dev.azure.com**, **visualstudio.com** 또는 **github.com** 에서 로그아웃한 후 소스 제어를 다시 연결합니다.
 
 ### <a name="configure-source-control-in-powershell"></a>PowerShell에서 소스 제어 구성
 
@@ -209,4 +209,4 @@ New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Automation에서 소스 제어를 통합하려면 [Azure Automation: Azure Automation에서 소스 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)을 참조하세요.  
-* Runbook 소스 제어를 Visual Studio Online과 통합하려면 [Azure Automation: Visual Studio Online을 사용하여 Runbook 소스 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)을 참조하세요.
+* Visual Studio Codespaces runbook 소스 제어를 통합 하는 방법에 대 한 자세한 내용은 [Azure Automation: Visual Studio Codespaces를 사용 하 여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)을 참조 하세요.

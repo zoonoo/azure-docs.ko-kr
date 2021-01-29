@@ -2,19 +2,15 @@
 title: Azure Automation State Configuration 시작하기
 description: 이 문서에서는 Azure Automation State Configuration에서 가장 일반적인 작업을 수행하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897244"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051501"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 시작하기
 
@@ -26,7 +22,7 @@ ms.locfileid: "98897244"
 
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
-- Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](./manage-runas-account.md)을 참조하세요.
+- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대 한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조 하세요.
 - [지원되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>DSC 구성 만들기

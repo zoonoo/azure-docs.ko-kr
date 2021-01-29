@@ -4,15 +4,15 @@ description: Automation의 Azure 보안 기준
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737255"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052756"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -336,11 +336,11 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center Windo
 
 **지침**: 명시적으로 할당 될 수 있고 쿼리할 수 있는 Azure Active Directory 기본 제공 관리자 역할을 사용 합니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다. Runbook에 Automation 계정 실행 계정을 사용 하는 경우 항상 상승 된 권한이 있는 경우에도 이러한 서비스 사용자를 인벤토리에 추적 해야 합니다. 노출 된 공격 노출 영역을 최소화 하려면 사용 하지 않는 실행 계정을 삭제 합니다.
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./delete-run-as-account.md)
 
 * [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
@@ -364,7 +364,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 * [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
-* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./delete-run-as-account.md)
 
 * [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
@@ -454,7 +454,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 * [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./delete-run-as-account.md)
 
 * [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
@@ -696,7 +696,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription)
 
 * [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -724,7 +724,7 @@ Azure virtual machines에서 지원 되는 Hybrid Runbook Worker를 사용 하�
 
 * [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-* [실행 또는 클래식 실행 계정 삭제](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [실행 또는 클래식 실행 계정 삭제](./delete-run-as-account.md)
 
 * [Azure Automation 실행 계정 관리](./manage-runas-account.md)
 
@@ -836,7 +836,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 **지침**: Hybrid Runbook Worker 기능을 사용할 때 스크립트의 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한할 수 있습니다. Azure Security Center 적응 응용 프로그램 제어를 활용 하 여 권한 있는 소프트웨어만 실행 되 고 권한이 없는 모든 소프트웨어가 Azure Virtual Machines에서 실행 되지 않도록 차단할 수도 있습니다.
 
-* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
@@ -878,7 +878,7 @@ Azure Virtual Machines에서 지 원하는 Hybrid Runbook Worker를 사용 하�
 
 Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구성 기준으로 사용할 수도 있습니다.
 
-* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias)
 
 * [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
@@ -942,7 +942,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 * [ARM 템플릿 만들기에 대 한 정보](../virtual-machines/windows/ps-template.md)
 
-* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Azure에 사용자 지정 VM VHD를 업로드 하는 방법](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -952,7 +952,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 배포에 대 한 Azure 가
 
 **지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책, Azure Resource Manager 템플릿 및 필요한 상태 구성 스크립트와 같은 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 Azure Active Directory에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다. 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
 * [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
@@ -1134,7 +1134,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 * [Azure Automation 소개](./automation-intro.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1160,7 +1160,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 * [Azure Automation 소개](./automation-intro.md)
 
-* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1176,7 +1176,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 * [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1190,7 +1190,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure 용 Microsoft 맬웨�
 
 원본 제어 통합 기능을 사용 하 여 소스 제어 리포지토리의 스크립트를 사용 하 여 자동화 계정의 runbook을 최신 상태로 유지 합니다.
 
-* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
 * [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 

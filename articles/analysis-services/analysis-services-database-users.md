@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013596"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054096"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -28,13 +28,15 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 테이블 형식 모델 프로젝트를 만들 때 Visual Studio에서 역할 관리자를 사용 하 여 Analysis Services 프로젝트에 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [PowerShell cmdlet Analysis Services](/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
 
-**보안 그룹**을 추가할 때를 사용 `obj:groupid@tenantid` 합니다.
+**보안 그룹** 을 추가할 때를 사용 `obj:groupid@tenantid` 합니다.
+
+**서비스 사용자** 를 추가할 때를 사용 `app:appid@tenantid` 합니다.
 
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Visual Studio에서 역할 및 사용자를 추가 하거나 관리 하려면  
   
-1.  **테이블 형식 모델 탐색기**에서 **역할**을 마우스 오른쪽 단추로 클릭 합니다.  
+1.  **테이블 형식 모델 탐색기** 에서 **역할** 을 마우스 오른쪽 단추로 클릭 합니다.  
   
-2.  **역할 관리자**에서 **새로 만들기**를 클릭 합니다.  
+2.  **역할 관리자** 에서 **새로 만들기** 를 클릭 합니다.  
   
 3.  역할의 이름을 입력합니다.  
   
@@ -52,9 +54,9 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
   
 5.  만들려는 역할에 읽기 또는 읽기 및 처리 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터** 탭을 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드를 클릭하고 DAX 수식을 입력합니다.
   
-6.  **멤버**  >  **외부 추가**를 클릭 합니다.  
+6.  **멤버**  >  **외부 추가** 를 클릭 합니다.  
   
-8.  **외부 멤버 추가**에서 Azure AD 테넌트의 사용자 또는 그룹을 메일 주소로 입력합니다. [확인]을 클릭하고 [역할 관리자]를 닫으면 역할 및 역할 멤버가 [테이블 형식 모델 탐색기]에 나타납니다. 
+8.  **외부 멤버 추가** 에서 Azure AD 테넌트의 사용자 또는 그룹을 메일 주소로 입력합니다. [확인]을 클릭하고 [역할 관리자]를 닫으면 역할 및 역할 멤버가 [테이블 형식 모델 탐색기]에 나타납니다. 
  
      ![테이블 형식 모델 탐색기의 역할 및 사용자](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
@@ -65,23 +67,23 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 배포된 model 데이터베이스에 역할 및 사용자를 추가하려면 서버 관리자로 서버에 연결되어 있거나 관리자 권한이 있는 데이터베이스 역할이 이미 있어야 합니다.
 
-1. 개체 탐색기에서 **역할**  >  **새 역할**을 마우스 오른쪽 단추로 클릭 합니다.
+1. 개체 탐색기에서 **역할**  >  **새 역할** 을 마우스 오른쪽 단추로 클릭 합니다.
 
-2. **역할 만들기**에서 역할 이름 및 설명을 입력합니다.
+2. **역할 만들기** 에서 역할 이름 및 설명을 입력합니다.
 
 3. 사용 권한을 선택합니다.
 
-   |사용 권한|설명|  
+   |사용 권한|Description|  
    |----------------|-----------------|  
    |**모든 권한(관리자)**|멤버는 모델 스키마, 프로세스를 수정할 수 있으며 모든 데이터를 쿼리할 수 있습니다.| 
    |**Process Database**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
    |**읽기**|멤버는 행 필터를 기반으로 데이터를 쿼리할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
   
-4. **멤버 자격**을 클릭한 다음 Azure AD 테넌트의 사용자나 그룹을 메일 주소로 입력합니다.
+4. **멤버 자격** 을 클릭한 다음 Azure AD 테넌트의 사용자나 그룹을 메일 주소로 입력합니다.
 
      ![사용자 추가](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
-5. 만들려는 역할에 읽기 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터**를 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드에 DAX 수식을 입력합니다. 
+5. 만들려는 역할에 읽기 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터** 를 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드에 DAX 수식을 입력합니다. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>TMSL 스크립트를 사용하여 역할 및 사용자를 추가하려면
 
@@ -121,7 +123,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 
 [SqlServer](/analysis-services/powershell/analysis-services-powershell-reference) 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet 및 작업 관련 데이터베이스 관리 cmdlet을 제공합니다. 다음 cmdlet은 데이터베이스 역할 및 사용자 관리에 사용됩니다.
   
-|cmdlet|Description|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
 |[Remove-RoleMember](/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
@@ -141,7 +143,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 |-----------|--------------------|  
 |지역|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|의|=Transactions[Year]=2016|  
+|트랜잭션|=Transactions[Year]=2016|  
   
  결과적으로 멤버는 고객이 USA에 있고, 제품 범주는 bicycles이며, 연도는 2016년인 데이터 행을 쿼리할 수 있습니다. 사용자는 이러한 권한을 부여하는 다른 역할의 멤버가 아닌 한 USA 외부의 거래, bicycles가 아닌 거래 또는 2016년에 수행되지 않은 거래를 쿼리할 수 없습니다.
   

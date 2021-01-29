@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896277"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053587"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>작업 시간 외 VM 중지/시작 문제 해결
 
@@ -109,7 +109,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* [실행 계정](../manage-runas-account.md)에 시작 또는 중지하려는 VM에 대한 적절한 권한이 있는지 확인합니다. 리소스에 대한 권한을 확인하는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용하여 사용자에게 할당된 역할 보기](../../role-based-access-control/check-access.md)를 참조하세요. 실행 계정에서 사용하는 서비스 주체의 애플리케이션 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하여 이 값을 검색할 수 있습니다. **계정 설정** 아래에서 **실행 계정** 을 선택하고 적절한 실행 계정을 선택합니다.
+* [실행 계정](../automation-security-overview.md#run-as-accounts)에 시작 또는 중지하려는 VM에 대한 적절한 권한이 있는지 확인합니다. 리소스에 대한 권한을 확인하는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용하여 사용자에게 할당된 역할 보기](../../role-based-access-control/check-access.md)를 참조하세요. 실행 계정에서 사용하는 서비스 주체의 애플리케이션 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하여 이 값을 검색할 수 있습니다. **계정 설정** 아래에서 **실행 계정** 을 선택하고 적절한 실행 계정을 선택합니다.
 
 * VM을 명시적으로 제외한 경우에는 시작 또는 중지되지 않을 수 있습니다. 제외된 VM은 기능이 배포되는 Automation 계정의 `External_ExcludeVMNames` 변수에 설정됩니다. 다음 예제에서는 PowerShell 사용하여 해당 값을 쿼리하는 방법을 보여 줍니다.
 
@@ -201,7 +201,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 
 실행 계정이 제대로 구성되어 있는지 확인하려면 Azure Portal에서 Automation 계정으로 이동한 후 **계정 설정** 아래에서 **실행 계정** 을 선택합니다. 실행 계정이 잘못 구성되었거나 만료된 경우 상태에 조건이 표시됩니다.
 
-실행 계정이 잘못 구성된 경우 실행 계정을 삭제한 후 다시 만드세요. 자세한 내용은 [Azure Automation 실행 계정 관리](../manage-runas-account.md)를 참조하세요.
+실행 계정이 잘못 구성된 경우 실행 계정을 삭제한 후 다시 만드세요. 자세한 내용은 [Azure Automation 실행 계정](../automation-security-overview.md#run-as-accounts)을 참조 하세요.
 
 실행 계정에 대한 인증서가 만료되면 [자체 서명된 인증서 갱신](../manage-runas-account.md#cert-renewal)의 단계에 따라 인증서를 갱신합니다.
 

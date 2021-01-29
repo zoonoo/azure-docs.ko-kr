@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a998491729a1d3bd472ecc3de9722c142f8dc182
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953787"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050450"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
@@ -29,7 +29,7 @@ ms.locfileid: "98953787"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -45,7 +45,7 @@ Azure AD B2C에서 Twitter 계정을 사용 하는 사용자에 대 한 로그�
 1. **인증 설정** 에서 **편집** 을 선택 합니다.
     1. **3-직선 OAuth 사용** 확인란을 선택 합니다.
     1. **사용자의 메일 주소 요청** 확인란을 선택 합니다.
-    1. **콜백 url** 에 대해를 입력 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다. `your-tenant`는 실제 테넌트 이름으로, `your-user-flow-Id`는 사용자 흐름의 식별자로 바꿉니다. 예들 들어 `b2c_1A_signup_signin_twitter`입니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 합니다.
+    1. **콜백 url** 에 대해를 입력 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다. `your-tenant`는 실제 테넌트 이름으로, `your-user-flow-Id`는 사용자 흐름의 식별자로 바꿉니다. 예들 들어 `b2c_1a_signup_signin_twitter`입니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 합니다.
     1. **웹 사이트 URL** 에 대해를 입력 `https://your-tenant.b2clogin.com` 합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예들 들어 `https://contosob2c.b2clogin.com`입니다.
     1. **서비스 약관** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/tos` . 정책 URL은 응용 프로그램에 대 한 사용 약관을 제공 하기 위해 유지 관리 하는 페이지입니다.
     1. **개인 정보 취급 방침** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/privacy` . 정책 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.

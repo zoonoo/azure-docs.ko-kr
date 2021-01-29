@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03f24bf4cf379504479e554b129f34d94ca423cd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896362"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054249"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -45,7 +45,7 @@ ms.locfileid: "98896362"
 
 이 예제에서는 VM에서 발생한 경고를 사용합니다. 페이로드에서 VM 데이터를 검색한 다음 해당 정보를 사용하여 VM을 중지합니다. Runbook이 실행되는 Automation 계정에서 연결을 설정해야 합니다. 경고를 사용하여 Runbook을 트리거하는 경우 트리거되는 Runbook에서 경고 상태를 확인하는 것이 중요합니다. 경고 상태가 변경될 때마다 Runbook이 트리거됩니다. 경고에는 여러 상태가 있으며 가장 일반적인 두 가지 상태는 활성화됨 및 해결됨입니다. Runbook 논리의 상태를 확인하여 Runbook이 두 번 이상 실행되지 않도록 합니다. 이 문서의 예제에서는 활성화된 상태인 경고만 찾는 방법을 보여 줍니다.
 
-Runbook은 연결 자산 `AzureRunAsConnection` [실행 계정](./manage-runas-account.md)을 사용하여 VM에 대한 관리 작업을 수행하도록 Azure를 인증합니다.
+Runbook은 연결 자산 `AzureRunAsConnection` [실행 계정](./automation-security-overview.md)을 사용하여 VM에 대한 관리 작업을 수행하도록 Azure를 인증합니다.
 
 이 예제를 사용하여 Runbook에서 호출한 **Stop-AzureVmInResponsetoVMAlert** 을 만듭니다. PowerShell 스크립트를 수정하고 여러 다른 리소스와 함께 사용할 수 있습니다.
 

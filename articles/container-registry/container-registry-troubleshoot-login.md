@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure container registry에 로그인 할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379505"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052081"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -39,6 +39,8 @@ ms.locfileid: "93379505"
 [Az acr check-health](/cli/azure/acr#az-acr-check-health) 명령을 실행 하 여 레지스트리 환경의 상태에 대 한 자세한 정보를 가져오고 선택적으로 대상 레지스트리에 액세스 합니다. 예를 들어 Docker 구성 오류를 진단 하거나 로그인 문제를 Azure Active Directory 합니다. 
 
 명령 예제는 [Azure container registry의 상태 확인](container-registry-check-health.md) 을 참조 하세요. 오류가 보고 되 면 [오류 참조](container-registry-health-error-reference.md) 및 다음 섹션에서 권장 해결 방법을 검토 합니다.
+
+Registry 붙일 Azure Kubernetes Service를 사용 하는 데 문제가 발생 하는 경우 [az aks check-acr](/cli/azure/aks#az_aks_check_acr) 명령을 실행 하 여 aks 클러스터에서 레지스트리에 액세스할 수 있는지 확인 합니다.
 
 > [!NOTE]
 > 일부 인증 또는 권한 부여 오류는 레지스트리 액세스를 방해 하는 방화벽 또는 네트워크 구성이 있는 경우에도 발생할 수 있습니다. [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)을 참조 하세요.
@@ -79,7 +81,7 @@ az acr login --name myregistry
 * Active Directory 서비스 주체를 사용 하는 경우 Active Directory 테 넌 트에서 올바른 자격 증명을 사용 해야 합니다.
   * 사용자 이름-서비스 사용자 응용 프로그램 ID ( *클라이언트 id* 라고도 함)
   * 암호 서비스 주체 암호 ( *클라이언트 암호* 라고도 함)
-* Azure Kubernetes Service 또는 Azure DevOps와 같은 Azure 서비스를 사용 하 여 레지스트리에 액세스 하는 경우 서비스에 대 한 레지스트리 구성을 확인 합니다.
+* Azure Kubernetes Service 또는 Azure DevOps와 같은 Azure 서비스를 사용 하 여 레지스트리에 액세스 하는 경우 서비스에 대 한 레지스트리 구성을 확인 합니다. 
 * `az acr login` `--expose-token` Docker 디먼을 사용 하지 않고 레지스트리 로그인을 사용 하도록 설정 하는 옵션을 실행 한 경우 사용자 이름으로 인증 해야 `00000000-0000-0000-0000-000000000000` 합니다.
 * [익명 끌어오기 액세스](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)를 사용 하도록 레지스트리를 구성 하면 이전 docker 로그인에서 저장 된 기존 docker 자격 증명이 익명 액세스를 차단할 수 있습니다. `docker logout`레지스트리에서 익명 끌어오기 작업을 시도 하기 전에를 실행 합니다.
 
@@ -143,7 +145,7 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
-  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
 * [Microsoft Q&A](/answers/products/)
 * 제공 된 정보에 따라 [지원 티켓을 엽니다](https://azure.microsoft.com/support/create-ticket/) . 레지스트리에서 인증 오류에 대 한 빠른 진단을 실행할 수 있습니다.

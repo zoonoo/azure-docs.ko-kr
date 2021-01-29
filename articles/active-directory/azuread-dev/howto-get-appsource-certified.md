@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116327"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052247"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 
@@ -34,7 +34,7 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 
 ## <a name="multi-tenant-applications"></a>다중 테넌트 애플리케이션
 
-*다중 테넌트 애플리케이션*은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 애플리케이션입니다. AppSource에서는 애플리케이션이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
+*다중 테넌트 애플리케이션* 은 별도 인스턴스, 구성 또는 배포를 요구하지 않고 Azure AD가 있는 모든 회사 또는 조직에서 사용자의 로그인을 허용하는 애플리케이션입니다. AppSource에서는 애플리케이션이 *단일 클릭* 평가판 체험을 활성화하도록 다중 테넌트를 구현하는 것을 권장합니다.
 
 애플리케이션에서 다중 테넌트를 활성화하려면 다음 단계를 수행합니다.
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)의 애플리케이션 등록 정보에서 `Multi-Tenanted` 속성을 `Yes`로 설정합니다. 기본적으로 Azure Portal에서 만든 애플리케이션은 *[단일 테넌트](#single-tenant-applications)* 로 구성됩니다.
@@ -45,7 +45,7 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 
 ### <a name="single-tenant-applications"></a>단일 테넌트 애플리케이션
 
-*단일 테넌트 애플리케이션*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
+*단일 테넌트 애플리케이션* 은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
 
 [Azure AD B2B 협업](../external-identities/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](../external-identities/self-service-portal.md)을 참조하세요.
 
@@ -102,7 +102,7 @@ Open ID connect를 사용 하 여 응용 프로그램을 Azure AD와 통합 하�
 </tr>
 </table>
 
-### <a name="more-information"></a>자세한 정보
+### <a name="more-information"></a>추가 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
 
@@ -113,9 +113,9 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 ## <a name="get-support"></a>지원 받기
 
-Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)를 사용합니다.
+Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](https://docs.microsoft.com/answers/products/) 사용 하 여 지원을 제공 합니다.
 
-먼저 Stack Overflow에 질문하고 이전에 다른 사용자가 질문했는지 확인하기 위해 기존 문제를 찾아보는 것이 좋습니다. 질문이 나 주석에 [ `[azure-active-directory]` 및 `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)로 태그를 지정 해야 합니다.
+Microsoft Q&에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 65fa226b368baa3b1d4f376600e610a518c48c02
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 915a0d75622a98b33f647041f3c3b622cb5236b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900324"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053723"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Runbook에서 이메일 보내기
 
@@ -21,7 +21,7 @@ PowerShell을 통해 [SendGrid](https://sendgrid.com/solutions)를 사용하여 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)할 수 있습니다.
 * [SendGrid 계정](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account)
 * **Az** 모듈이 있는 [Automation 계정](./index.yml)
-* Runbook을 저장하고 실행하는 [실행 계정](./manage-runas-account.md)
+* Runbook을 저장하고 실행하는 [실행 계정](./automation-security-overview.md#run-as-accounts)
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault 만들기
 
@@ -74,7 +74,7 @@ Runbook 내에서 Azure Key Vault를 사용하려면 Automation 계정으로 다
 
 ## <a name="create-the-runbook-to-send-an-email"></a>이메일을 보내는 Runbook 만들기
 
-Key Vault를 만들고 `SendGrid` API 키를 저장한 후에는 API 키를 검색하고 이메일을 보내는 Runbook을 만들 수 있습니다. `AzureRunAsConnection`을 [실행 계정](./manage-runas-account.md)으로 사용하여 Azure Key Vault에서 비밀을 검색하도록 Azure를 인증하는 Runbook을 사용해봅니다. Runbook **Send-GridMailMessage** 를 호출합니다. 예제 목적으로 사용되는 PowerShell 스크립트를 수정하여 다른 시나리오에서 재사용할 수 있습니다.
+Key Vault를 만들고 `SendGrid` API 키를 저장한 후에는 API 키를 검색하고 이메일을 보내는 Runbook을 만들 수 있습니다. `AzureRunAsConnection`을 [실행 계정](./automation-security-overview.md#run-as-accounts)으로 사용하여 Azure Key Vault에서 비밀을 검색하도록 Azure를 인증하는 Runbook을 사용해봅니다. Runbook **Send-GridMailMessage** 를 호출합니다. 예제 목적으로 사용되는 PowerShell 스크립트를 수정하여 다른 시나리오에서 재사용할 수 있습니다.
 
 1. Azure Automation 계정으로 이동합니다.
 2. **프로세스 자동화** 아래에서 **Runbook** 을 선택합니다.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078836"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053910"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -112,7 +112,7 @@ Log Analytics 에이전트 및 **nxautomation** 계정에서 사용할 수 있�
 
 ## <a name="runbook-permissions"></a>Runbook 사용 권한
 
-Runbook이 자격 증명을 통해 Azure에 대해 인증되려면 권한이 필요합니다. [Azure Automation 실행 계정 관리](manage-runas-account.md)를 참조하세요.
+Runbook이 자격 증명을 통해 Azure에 대해 인증되려면 권한이 필요합니다. [Azure Automation 인증 개요](automation-security-overview.md)를 참조 하세요.
 
 ## <a name="modules"></a>모듈
 
@@ -139,6 +139,7 @@ Azure Automation은 동일한 Automation 계정에서 작업을 실행하는 환
 
 | 상태 | Description |
 |:--- |:--- |
+| 토폴로지만 |작업이 활성화 되 고 있습니다. |
 | Completed |작업이 완료되었습니다. |
 | 실패 |그래픽 또는 PowerShell 워크플로 Runbook을 컴파일하지 못했습니다. PowerShell Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. [Azure Automation Runbook 형식](automation-runbook-types.md)을 참조하세요.|
 | Failed, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |

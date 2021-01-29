@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c1f46e3aed1309e51bf1ea8607a9db8a71550ce5
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9b014775f55671ef1297e040620390c23f842ce0
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033207"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053251"
 ---
 # <a name="configure-permission-classifications"></a>권한 분류 구성
 
@@ -126,4 +126,4 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q의 Azure AD&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

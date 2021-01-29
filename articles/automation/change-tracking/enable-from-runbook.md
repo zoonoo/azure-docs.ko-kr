@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 842b0a92ba4a2cb6b3ceb54675ef95f9c8275311
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9f7a37fa2101e4a386c9c6f2338f185b3ecdc986
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210082"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052620"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Runbook에서 변경 내용 추적 및 인벤토리 사용
 
@@ -42,11 +42,11 @@ ms.locfileid: "92210082"
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
-1. Azure Portal에서 **Automation 계정**으로 이동 합니다. **Automation 계정** 페이지의 목록에서 계정을 선택 합니다.
+1. Azure Portal에서 **Automation 계정** 으로 이동 합니다. **Automation 계정** 페이지의 목록에서 계정을 선택 합니다.
 
-1. Automation 계정의 **구성 관리**아래에서 **인벤토리** 또는 **변경 내용 추적** 를 선택 합니다.
+1. Automation 계정의 **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적** 를 선택 합니다.
 
-1. Log Analytics 작업 영역을 선택한 다음, **사용**을 클릭합니다. 인벤토리 또는 변경 내용 추적을 사용 하도록 설정 하는 동안 배너가 표시 됩니다.
+1. Log Analytics 작업 영역을 선택한 다음, **사용** 을 클릭합니다. 인벤토리 또는 변경 내용 추적을 사용 하도록 설정 하는 동안 배너가 표시 됩니다.
 
     ![변경 내용 추적 및 인벤토리 사용](media/enable-from-automation-account/enable-feature.png)
 
@@ -54,17 +54,17 @@ ms.locfileid: "92210082"
 
 Runbook을 사용 하 여 Vm에 대 한 업데이트 관리를 성공적으로 사용 하려면 최신 Azure 모듈로 업데이트 하 고 [Az. OperationalInsights](/powershell/module/az.operationalinsights) 모듈을 가져와야 합니다.
 
-1. Automation 계정의 **공유 리소스**에서 **모듈**을 선택합니다.
+1. Automation 계정의 **공유 리소스** 에서 **모듈** 을 선택합니다.
 
-2. **Azure 모듈 업데이트**를 선택하여 Azure 모듈을 최신 버전으로 업데이트합니다.
+2. **Azure 모듈 업데이트** 를 선택하여 Azure 모듈을 최신 버전으로 업데이트합니다.
 
-3. **예**를 클릭하여 기존의 모든 Azure 모듈을 최신 버전으로 업데이트합니다.
+3. **예** 를 클릭하여 기존의 모든 Azure 모듈을 최신 버전으로 업데이트합니다.
 
     ![모듈 업데이트](media/enable-from-runbook/update-modules.png)
 
-4. **공유 리소스**에서 **모듈**로 돌아갑니다.
+4. **공유 리소스** 에서 **모듈** 로 돌아갑니다.
 
-5. **갤러리 찾아보기**를 선택하여 모듈 갤러리를 엽니다.
+5. **갤러리 찾아보기** 를 선택하여 모듈 갤러리를 엽니다.
 
 6. `Az.OperationalInsights`를 검색하고 이 모듈을 Automation 계정으로 가져옵니다.
 
@@ -74,11 +74,11 @@ Runbook을 사용 하 여 Vm에 대 한 업데이트 관리를 성공적으로 �
 
 변경 내용 추적 및 인벤토리를 사용하도록 설정하면 기능별로 관리할 Azure VM을 추가할 수 있습니다.
 
-1. Automation 계정의 **Configuration Management**에서 **변경 내용 추적** 또는 **인벤토리**를 선택합니다.
+1. Automation 계정의 **Configuration Management** 에서 **변경 내용 추적** 또는 **인벤토리** 를 선택합니다.
 
-2. **Azure VM 추가**를 클릭하여 VM을 추가합니다.
+2. **Azure VM 추가** 를 클릭하여 VM을 추가합니다.
 
-3. 목록에서 VM을 선택하고 **사용**을 클릭합니다. 이 작업을 수행하면 VM에 대한 변경 내용 추적 및 인벤토리를 사용할 수 있습니다.
+3. 목록에서 VM을 선택하고 **사용** 을 클릭합니다. 이 작업을 수행하면 VM에 대한 변경 내용 추적 및 인벤토리를 사용할 수 있습니다.
 
    ![VM에 대한 변경 내용 추적 및 인벤토리 사용](media/enable-from-runbook/enable-azure-vm.png)
 
@@ -87,19 +87,19 @@ Runbook을 사용 하 여 Vm에 대 한 업데이트 관리를 성공적으로 �
 
 ## <a name="import-a-runbook-to-enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리를 사용하도록 설정하기 위해 Runbook 가져오기
 
-1. Automation 계정의 **프로세스 자동화**에서 **Runbook**을 선택합니다.
+1. Automation 계정의 **프로세스 자동화** 에서 **Runbook** 을 선택합니다.
 
-2. **갤러리 찾아보기**를 선택합니다.
+2. **갤러리 찾아보기** 를 선택합니다.
 
-3. **업데이트 및 변경 내용 추적**을 검색 합니다.
+3. **업데이트 및 변경 내용 추적** 을 검색 합니다.
 
 4. Runbook을 선택 하 고 **원본 보기** 페이지에서 **가져오기** 를 클릭 합니다.
 
-5. **확인**을 클릭하여 Runbook을 Automation 계정으로 가져옵니다.
+5. **확인** 을 클릭하여 Runbook을 Automation 계정으로 가져옵니다.
 
    ![설정할 Runbook 가져오기](media/enable-from-runbook/import-from-gallery.png)
 
-6. **Runbook** 페이지에서 **enable-multiplesolution** Runbook을 선택한 다음 **편집**을 클릭 합니다. 텍스트 편집기에서  **게시**를 선택 합니다.
+6. **Runbook** 페이지에서 **enable-multiplesolution** Runbook을 선택한 다음 **편집** 을 클릭 합니다. 텍스트 편집기에서  **게시** 를 선택 합니다.
 
 7. 확인 메시지가 표시 되 면 **예** 를 클릭 하 여 runbook을 게시 합니다.
 
@@ -118,11 +118,11 @@ Runbook을 사용 하 여 Vm에 대 한 업데이트 관리를 성공적으로 �
    * **SUBSCRIPTIONID** - 사용하도록 설정할 새 VM의 구독 ID입니다. 작업 영역의 구독을 사용하려면 이 필드를 비워 두세요. 다른 구독 ID를 사용하는 경우 Automation 계정의 실행 계정을 구독의 기여자로 추가합니다.
    * **ALREADYONBOARDEDVM** - 이미 수동으로 업데이트를 사용하도록 설정한 VM의 이름입니다.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - VM이 속한 리소스 그룹의 이름입니다.
-   * **SOLUTIONTYPE** - **ChangeTracking**을 입력합니다.
+   * **SOLUTIONTYPE** - **ChangeTracking** 을 입력합니다.
 
    ![Enable-MultipleSolution Runbook 매개 변수](media/enable-from-runbook/runbook-parameters.png)
 
-3. **확인**을 선택하여 Runbook 작업을 시작합니다.
+3. **확인** 을 선택하여 Runbook 작업을 시작합니다.
 
 4. **작업** 페이지에서 runbook 작업 및 모든 오류에 대 한 진행률을 모니터링 합니다.
 

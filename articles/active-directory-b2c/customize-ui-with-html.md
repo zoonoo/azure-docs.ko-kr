@@ -1,33 +1,33 @@
 ---
-title: 사용자 인터페이스 사용자 지정
+title: HTML 템플릿을 사용 하 여 사용자 인터페이스 사용자 지정
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C를 사용 하는 응용 프로그램에 대 한 사용자 인터페이스를 사용자 지정 하는 방법을 알아봅니다.
+description: Azure Active Directory B2C를 사용 하는 응용 프로그램에 대 한 HTML 템플릿으로 사용자 인터페이스를 사용자 지정 하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058670"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050552"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿으로 사용자 인터페이스 사용자 지정
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 고객에 게 표시 되 Azure Active Directory B2C는 사용자 인터페이스 (Azure AD B2C)의 브랜딩 및 사용자 지정은 응용 프로그램에서 원활한 사용자 환경을 제공 하는 데 도움이 됩니다. 이러한 환경에는 등록, 로그인, 프로필 편집 및 암호 재설정이 포함 됩니다. 이 문서에서는 UI (사용자 인터페이스) 사용자 지정의 메서드를 소개 합니다. 
 
 > [!TIP]
-> 배너 로고, 배경 이미지 및 사용자 흐름 페이지의 배경색을 수정 하려는 경우 [회사 브랜딩](company-branding.md) 기능을 사용해 볼 수 있습니다.
+> 배너 로고, 배경 이미지 및 사용자 흐름 페이지의 배경색을 수정 하려는 경우 [회사 브랜딩](customize-ui.md) 기능을 사용해 볼 수 있습니다.
 
 ## <a name="custom-html-and-css-overview"></a>사용자 지정 HTML 및 CSS 개요
 
@@ -59,7 +59,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 
 다음 표에서는 Azure AD B2C에서 제공 하는 기본 페이지 콘텐츠를 나열 합니다. 파일을 다운로드 하 여 고유한 사용자 지정 페이지를 만들기 위한 시작 지점으로 사용 합니다.
 
-| 기본 페이지 | 설명 | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
+| 기본 페이지 | Description | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
 |:-----------------------|:--------|-------------|
 | [exception.html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **자체 어설션된 페이지**. 이 파일은 소셜 계정 등록 페이지, 로컬 계정 등록 페이지, 로컬 계정 로그인 페이지, 암호 다시 설정 등의 사용자 지정 페이지 콘텐츠로 사용 합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. | api. *localaccountsignin*, *localaccountsignup*, *localaccountpasswordreset*, *selfasserted* |
@@ -116,7 +116,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 사용자 지정 정책 콘텐츠 URI에 대 한 정책을 가리킵니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -379,7 +379,7 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    작업
+    대상
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -387,7 +387,15 @@ git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
 1. 이제 앞에서 설명한 것 처럼 HTML 파일을 가리키는 정책을 수정 합니다.
 1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 .html 파일의 참조를 확인 합니다. \*
 
+## <a name="use-company-branding-assets-in-custom-html"></a>사용자 지정 HTML에서 회사 브랜딩 자산 사용
+
+사용자 지정 HTML에서 [회사 브랜딩](customize-ui.md#configure-company-branding) 자산을 사용 하려면 태그 외부에 다음 태그를 추가 합니다 `<div id="api">` . 이미지 소스는 배경 이미지 및 배너 로고의 소스로 바뀝니다.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>다음 단계
 
 [클라이언트 쪽 JavaScript 코드](javascript-and-page-layout.md)를 사용 하도록 설정 하는 방법을 알아봅니다.
-

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob 스토리지 참조
-description: Azure Blob storage API 참조, 추가 정보 파일 및 클라이언트 라이브러리 패키지를 찾습니다.
+title: Azure Blob Storage 참조
+description: Azure Blob Storage API 참조, 추가 정보 파일 및 클라이언트 라이브러리 패키지를 찾습니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/10/2020
@@ -8,25 +8,25 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 04eca391fd02e18d4faed5e4f435e44e5675c4bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 70178a955fe4afcfc0c695d34e3c1466773d802d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912283"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054079"
 ---
-# <a name="azure-blob-storage-reference"></a>Azure Blob 스토리지 참조
+# <a name="azure-blob-storage-reference"></a>Azure Blob Storage 참조
 
-Azure Blob storage API 참조, 라이브러리 패키지, 추가 정보 파일 및 시작 문서를 찾습니다.
+Azure Blob Storage API 참조, 라이브러리 패키지, 추가 정보 파일 및 시작 문서를 찾습니다.
 
 ## <a name="net-client-libraries"></a>.NET 클라이언트 라이브러리
 
-다음 표에는 Azure Blob storage .NET Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
+다음 표에서는 Azure Blob Storage .NET Api에 대 한 참조 및 샘플 설명서를 나열 합니다.
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [.NET 용 Azure Blob storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage.blobs-readme) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12](./storage-quickstart-blobs-dotnet.md) |
-| 11.x | [Microsoft Azure. Blob 네임 스페이스](/dotnet/api/microsoft.azure.storage.blob) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11](./storage-quickstart-blobs-dotnet-legacy.md) |
+| 12.x | [.NET 용 Azure Blob Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage.blobs-readme) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [빠른 시작: Azure Blob Storage client library v12 for .NET](./storage-quickstart-blobs-dotnet.md) |
+| 11.x | [Microsoft Azure. Blob 네임 스페이스](/dotnet/api/microsoft.azure.storage.blob) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [빠른 시작: Azure Blob Storage client library v11 for .NET](./storage-quickstart-blobs-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>스토리지 관리
 
@@ -46,7 +46,7 @@ Azure Blob storage API 참조, 라이브러리 패키지, 추가 정보 파일 �
 
 ## <a name="java-client-libraries"></a>Java 클라이언트 라이브러리
 
-다음 표에는 Azure Blob storage Java Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
+다음 표에는 Azure Blob Storage Java Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -63,7 +63,7 @@ Azure Blob storage API 참조, 라이브러리 패키지, 추가 정보 파일 �
 
 ## <a name="python-client-libraries"></a>Python 클라이언트 라이브러리
 
-다음 표에는 Azure Blob storage Python Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
+다음 표에는 Azure Blob Storage Python Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -72,7 +72,7 @@ Azure Blob storage API 참조, 라이브러리 패키지, 추가 정보 파일 �
 
 ## <a name="javascript-client-libraries"></a>JavaScript 클라이언트 라이브러리
 
-다음 표에는 Azure Blob storage JavaScript Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
+다음 표에서는 Azure Blob Storage JavaScript Api에 대 한 참조 및 샘플 설명서를 제공 합니다.
 
 |  버전  | 참조 설명서 | 패키지 | 빠른 시작 |
 | :-------: | ----------------------- | ------- | ---------- |
@@ -81,7 +81,7 @@ Azure Blob storage API 참조, 라이브러리 패키지, 추가 정보 파일 �
 
 ## <a name="rest-apis"></a>REST API
 
-다음 표에는 Azure Blob storage REST Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
+다음 표에는 Azure Blob Storage REST Api에 대 한 참조 및 샘플 설명서가 나와 있습니다.
 
 | 참조 설명서 | 개요 |
 | ----------------------- | -------- |

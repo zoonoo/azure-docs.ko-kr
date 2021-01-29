@@ -3,12 +3,12 @@ title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351796"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052164"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -41,6 +41,8 @@ ms.locfileid: "96351796"
 
 명령 예제는 [Azure container registry의 상태 확인](container-registry-check-health.md) 을 참조 하세요. 오류가 보고 되 면 [오류 참조](container-registry-health-error-reference.md) 및 다음 섹션에서 권장 해결 방법을 검토 합니다.
 
+Registry 붙일 Azure Kubernetes Service를 사용 하는 데 문제가 발생 하는 경우 [az aks check-acr](/cli/azure/aks#az_aks_check_acr) 명령을 실행 하 여 aks 클러스터에서 레지스트리에 액세스할 수 있는지 확인 합니다.
+
 > [!NOTE]
 > 일부 네트워크 연결 증상은 레지스트리 인증 또는 권한 부여에 문제가 있는 경우에도 발생할 수 있습니다. [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md)을 참조 하세요.
 
@@ -61,7 +63,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 관련 링크:
 
-* [방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성](container-registry-firewall-access-rules.md)
+* [방화벽 뒤에 있는 Azure container registry에 액세스 하는 규칙 구성](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS 프록시 구성](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [지리적 replicationin Azure Container Registry](container-registry-geo-replication.md)
 * [진단 평가 및 감사에 대 한 Azure Container Registry 로그](container-registry-diagnostics-audit-logs.md)
@@ -136,7 +138,7 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md) 
-  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
 * [Microsoft Q&A](/answers/products/)
 * [지원 티켓 열기](https://azure.microsoft.com/support/create-ticket/)

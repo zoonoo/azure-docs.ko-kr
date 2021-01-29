@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 8855969a9f1e431fc45b831063732501eead7e99
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832627"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051790"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -50,7 +50,7 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 자동으로 프로 비전 하려는 응용 프로그램에 적합 한 라이선스가 필요 합니다. 응용 프로그램에 할당 된 사용자에 게 응용 프로그램 역할에 대 한 적절 한 라이선스가 있는지 여부를 응용 프로그램 소유자와 논의 합니다. Azure AD에서 역할에 따라 자동 프로 비전을 관리 하는 경우 Azure AD에서 할당 된 역할이 응용 프로그램 라이선스에 맞게 조정 되어야 합니다. 응용 프로그램에서 소유한 잘못 된 라이선스는 사용자의 프로 비전/업데이트 중에 오류가 발생할 수 있습니다.
 
-### <a name="terms"></a>용어
+### <a name="terms"></a>사용 약관
 
 이 문서에서는 다음과 같은 용어를 사용 합니다.
 
@@ -322,7 +322,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 * [Azure AD의 새로운 기능을 최신 상태로 유지](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [스택 오버플로 Azure AD 포럼](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&Azure AD 포럼](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>다음 단계
 * [자동 사용자 프로 비전 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)

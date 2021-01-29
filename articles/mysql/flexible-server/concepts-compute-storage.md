@@ -1,17 +1,17 @@
 ---
 title: Compute 및 storage 옵션-Azure Database for MySQL 유연한 서버
 description: 이 문서에서는 Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션을 설명 합니다.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954684"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052349"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
 
@@ -72,7 +72,7 @@ ms.locfileid: "98954684"
 사용 가능한 계산 시리즈에 대 한 자세한 내용은 Azure VM 설명서 ( [B 시리즈)](../../virtual-machines/sizes-b-series-burstable.md), [범용 (Ddsv4 시리즈)](../../virtual-machines/ddv4-ddsv4-series.md)및 [메모리 최적화 (Edsv4 시리즈)](../../virtual-machines/edv4-edsv4-series.md)를 참조 하세요.
 
 >[!NOTE]
->사용자 시작, 계획 또는 계획 되지 않은 유지 관리와 같은 이유로 서버가 다시 시작 되는 [경우에는](../../virtual-machines/sizes-b-series-burstable.md) 누적 된 크레딧이 손실 될 수 있습니다. 그 이유는 Azure Database for MySQL를 다시 시작할 때마다 누적 크레딧이 유지 되는 것입니다. 반면 Azure Database for MySQL 서버가 새 노드에서 새로 시작 될 때마다 초기 크레딧을 가져옵니다. 자세한 내용은 [기병 양성소 (B 시리즈) FAQ](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)를 참조 하십시오.
+>VM을 시작/중지 하거나 다시 시작 하는 경우 [안정적인 (B 시리즈) 계산 계층](../../virtual-machines/sizes-b-series-burstable.md) 의 경우 크레딧이 손실 될 수 있습니다. 자세한 내용은 [급수 안정적인 (B 시리즈) FAQ](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)를 참조 하세요.
 
 ## <a name="storage"></a>스토리지
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498577"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053774"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -56,6 +56,12 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 > [!IMPORTANT]
 > **데이터 팩터리 참가자** 역할을 통해 Resource Manager 템플릿을 배포하더라도 권한이 상승되지는 않습니다. 예를 들어 가상 머신 생성 권한이 없는데 Azure Virtual Machine을 만드는 템플릿을 배포하면 배포가 실패하며 권한 부여 오류가 표시됩니다.
+
+> [!IMPORTANT]
+> 게시 컨텍스트 내에서 두 모드 모두에 **DataFactory/factory/write** 권한이 필요 합니다.
+
+- 이 권한은 고객이 전역 매개 변수를 수정 하는 경우에만 라이브 모드 에서만 필요 합니다.
+- 최종 커밋 id가 있는 팩터리 개체가 업데이트 되기 때문에 고객이 게시 한 후에는 항상 Git 모드에서이 사용 권한이 필요 합니다.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>사용자 지정 시나리오 및 사용자 지정 역할
 

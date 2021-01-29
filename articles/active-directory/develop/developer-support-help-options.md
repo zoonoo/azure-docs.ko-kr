@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: af363bb30d6515ce969afe146c780baa4b31cd83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d50e0ed6ac67ed1595b289d27bd08a089840308
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117212"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051909"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -26,51 +26,51 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 > [!div class="checklist"]
 > * 커뮤니티에서 질문에 응답하지 않았는지 여부 또는 구현하려는 기능에 대한 기존 문서가 이미 있는지 여부를 검색하는 방법을 포함하여 이러한 옵션을 파악하는 데 도움이 됩니다.
 > * 특정 문제를 디버그하기 위해 지원 도구를 사용하려는 경우도 있습니다.
-> * 필요한 답변을 찾을 수 없으면 *Stack Overflow*에서 질문할 수 있습니다.
+> * 필요한 답을 찾을 수 없는 경우 *Microsoft Q&* 에 대 한 질문을 할 수 있습니다.
 > * 인증 라이브러리 중 하나에서 문제가 발생하면 *GitHub* 문제를 제기합니다.
 > * 마지막으로 누군가와 대화할 필요가 있으면 지원 요청을 열 수 있습니다.
 
 ## <a name="search"></a>검색
 
-개발 관련 질문이 있으면 문서, [GitHub 샘플](https://github.com/azure-samples) 또는 [Stack Overflow](https://www.stackoverflow.com) FAQ에서 답변을 찾을 수 있습니다.
+개발 관련 질문이 있는 경우 설명서, [GitHub 샘플](https://github.com/azure-samples)또는 [Microsoft Q&](https://docs.microsoft.com/answers/products/) 질문에 대 한 답변을 찾을 수 있습니다.
 
 ### <a name="scoped-search"></a>범위 지정 검색
 
-빠른 결과를 얻으려면 즐겨 찾는 검색 엔진에서 다음 쿼리를 사용하여 Stack Overflow, 문서 및 코드 샘플로 검색 범위를 지정합니다.
+더 빠른 결과를 위해 즐겨 찾는 검색 엔진에서 다음 쿼리를 사용 하 여 Microsoft Q&A, 설명서 및 코드 샘플에 대 한 검색 범위를 합니다.
 
 ```
-{Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
+{Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
 ```
 
 여기서 *{Your Search Terms}* 는 검색 키워드입니다.
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| 도구  | 설명  |
+| 도구  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
 
-## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
+## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&에 질문을 게시 합니다.
 
-Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 개발자 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
+Microsoft Q&A는 개발 관련 질문에 대 한 기본 채널입니다. 여기서는 개발자 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
 
-검색을 통해 질문에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
+검색을 통해 질문에 대 한 답변을 찾을 수 없는 경우 Microsoft Q&A에 새 질문을 제출 합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
-|구성 요소/영역  | 태그 |
+|구성 요소/영역  | 태그들 |
 |---------|---------|
-| ADAL 라이브러리 | [adal](https://stackoverflow.com/questions/tagged/adal) |
-| MSAL 라이브러리     | [msal](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN 미들웨어  | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft 그래프]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| ADAL 라이브러리 | [adal](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
+| MSAL 라이브러리     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
+| OWIN 미들웨어  | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
+| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-그래프]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
+| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
 
-Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
+Microsoft Q&의 다음 게시물에는 질문을 하 고 소스 코드를 추가 하는 방법에 대 한 팁이 포함 되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
 
-* [좋은 질문을 어떻게 할까요?](https://stackoverflow.com/help/how-to-ask)
-* [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
+* [좋은 질문을 어떻게 할까요?](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
+* [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
@@ -87,6 +87,6 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 
 * Azure 지원 계획이 이미 있는 경우 [여기서 지원 요청을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-* Azure 고객이 아닌 경우 [상용 지원](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
+* Azure 고객이 아닌 경우 [상용 지원](https://support.serviceshub.microsoft.com/supportforbusiness)을 통해 Microsoft 지원 요청을 열 수도 있습니다.
 
 [가상 에이전트](https://support.microsoft.com/contactus/?ws=support)를 사용하여 지원을 받거나 질문할 수도 있습니다.

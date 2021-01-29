@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 59c69e88fb64cbb00063534be9fd41b86dce0b62
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861680"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053383"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대한 사용자 할당 관리
 
@@ -148,7 +148,7 @@ Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거
 ## <a name="related-articles"></a>관련 문서
 
 - [애플리케이션에 대한 최종 사용자 액세스에 대해 자세히 알아보기](end-user-experiences.md)
-- [Azure AD 내 앱 배포 계획](access-panel-deployment-plan.md)
+- [Azure AD 내 앱 배포 계획](my-apps-deployment-plan.md)
 - [앱에 대한 액세스 관리](what-is-access-management.md)
  
 ## <a name="next-steps"></a>다음 단계

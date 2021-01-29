@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44e14bed3158fac1f8bed15f913dc8b7eddbbb96
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 6250aef5ec69c65dcdfe457a56d4e077b31af4d1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985957"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051671"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 끝점에 대 한 프로 비전 개발 및 계획
 
@@ -56,7 +56,7 @@ SCIM 2.0(RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.i
 |--|--|--|
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
-|lastName|name.lastName|lastName|
+|lastName|name.familyName|성|
 |workMail|전자 메일 [type eq "work"]. value|Mail|
 |manager|manager|manager|
 |tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
@@ -1244,7 +1244,7 @@ OAuth 코드 부여 흐름의 단계:
 
 ## <a name="related-articles"></a>관련 문서
 
-* [샘플 SCIM 끝점 개발](use-scim-to-build-users-and-groups-endpoints.md)
+* [샘플 SCIM 엔드포인트 개발](use-scim-to-build-users-and-groups-endpoints.md)
 * [SaaS 앱에 사용자 프로비저닝 및 프로비저닝 해제 자동화](user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](customize-application-attributes.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)

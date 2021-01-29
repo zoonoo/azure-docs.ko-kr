@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8deb249dc042701ec02c3e5e30f3603be132d0ec
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733997"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054266"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
@@ -35,7 +35,7 @@ Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니
 * `AzureServicePrincipal` - Azure 실행 계정에서 사용하는 연결을 나타냅니다.
 * `AzureClassicCertificate` - 클래식 Azure 실행 계정에서 사용하는 연결을 나타냅니다.
 
-대부분의 경우 연결 리소스는 [실행 계정](manage-runas-account.md)을 만들 때 생성되므로 별도로 생성할 필요가 없습니다.
+대부분의 경우 연결 리소스는 [실행 계정](automation-security-overview.md)을 만들 때 생성되므로 별도로 생성할 필요가 없습니다.
 
 ## <a name="powershell-cmdlets-to-access-connections"></a>연결에 액세스하는 데 사용되는 PowerShell cmdlet
 

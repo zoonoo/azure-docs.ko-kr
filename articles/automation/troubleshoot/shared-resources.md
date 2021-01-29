@@ -3,14 +3,14 @@ title: Azure Automation 공유 리소스 문제 해결
 description: 이 문서에서는 Azure Automation 공유 리소스와 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
 ms.subservice: ''
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896294"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053622"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>공유 리소스 문제 해결
 
@@ -131,7 +131,7 @@ You do not have permissions to create…
 
 #### <a name="resolution"></a>해결 방법
 
-실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용되는 다양한 리소스에 대한 적절한 [권한](../manage-runas-account.md#permissions)이 있어야 합니다. 
+실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용되는 다양한 리소스에 대한 적절한 [권한](../automation-security-overview.md#permissions)이 있어야 합니다.
 
 잠금으로 인해 문제가 발생한 경우 잠금을 제거할 수 있는지 확인합니다. 그런 다음, Azure Portal에서 잠겨 있는 리소스로 이동하여 마우스 오른쪽 단추로 잠금을 클릭하고, **삭제** 를 선택합니다.
 
@@ -147,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>원인
 
-이 오류는 잘못 구성된 [실행 계정](../manage-runas-account.md)으로 인해 발생할 수 있습니다.
+이 오류는 잘못 구성된 [실행 계정](../automation-security-overview.md)으로 인해 발생할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -166,4 +166,3 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 * [Azure 포럼](https://azure.microsoft.com/support/forums/)을 통해 Azure 전문가의 답변을 얻습니다.
 * [@AzureSupport](https://twitter.com/azuresupport)에 연결합니다. 이는 Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하기 위한 공식 Microsoft Azure 계정입니다.
 * Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.
-

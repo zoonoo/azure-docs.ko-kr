@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 11/03/2020
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896311"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053672"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>원인
 
-실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 관리](../manage-runas-account.md)를 참조하세요.
+실행 계정을 사용하지 않거나 실행 계정이 만료되었으면 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Automation 실행 계정 개요](../automation-security-overview.md#run-as-accounts)를 참조 하세요.
 
 이 오류에는 다음 두 가지 주요 원인이 있습니다.
 

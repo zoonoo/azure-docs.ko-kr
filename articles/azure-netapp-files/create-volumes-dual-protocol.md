@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70b42fb5522b31b5e7e15b5715717f0d010d56dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726683"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052416"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -51,6 +51,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
     | `Unix`    | NFS   | NFSv3 모드 비트   | UNIX  | NFS 및 Windows   |
     | `Ntfs`    | Windows   | NTFS Acl     | NTFS  |NFS 및 Windows|
 * NFS를 사용 하 여 NTFS 보안 스타일 볼륨을 탑재 하는 UNIX 사용자는 `root` unix `root` 및 `pcuser` 기타 모든 사용자로 인증 됩니다. NFS를 사용 하는 경우 볼륨을 탑재 하기 전에 Active Directory에 이러한 사용자 계정이 존재 하는지 확인 합니다. 
+* 토폴로지가 크고 `Unix` 확장 그룹이 있는 LDAP 또는 이중 프로토콜 볼륨이 포함 된 보안 스타일을 사용 하는 경우 Azure NetApp Files 토폴로지에서 모든 서버에 액세스 하지 못할 수 있습니다.  이러한 상황이 발생 하면 계정 팀에 문의 하 여 도움을 받으세요.  <!-- NFSAAS-15123 --> 
 * 이중 프로토콜 볼륨을 만들기 위한 서버 루트 CA 인증서가 필요 하지 않습니다. TLS를 통한 LDAP를 사용 하는 경우에만 필요 합니다.
 
 

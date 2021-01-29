@@ -3,17 +3,17 @@ title: 대칭 키를 사용 하 여 장치 프로 비전-Azure IoT Hub 장치 �
 description: 장치 프로 비전 서비스 (DPS) 인스턴스로 대칭 키를 사용 하 여 장치를 프로 비전 하는 방법
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967315"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051112"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용 하 여 장치를 프로 비전 하는 방법
 
@@ -21,9 +21,7 @@ ms.locfileid: "94967315"
 
 일부 장치에는 장치를 안전 하 게 식별 하는 데 사용할 수 있는 인증서, TPM 또는 기타 보안 기능이 없을 수 있습니다. 장치 프로 비전 서비스에는 [대칭 키 증명이](concepts-symmetric-key-attestation.md)포함 됩니다. 대칭 키 증명을 사용 하 여 MAC 주소 또는 일련 번호와 같은 고유한 정보를 기반으로 장치를 식별할 수 있습니다.
 
-[HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. 해당 방법을 통해 모든 디바이스에 배포되는 코드를 업데이트하지 않을 수 있으므로 디바이스 이미지에 포함된 비밀 키가 없습니다.
-
-이 문서에서는 HSM 또는 인증서가 모두 실행 가능한 옵션이 아니라고 가정합니다. 그러나 이러한 디바이스를 프로비전하는 디바이스 프로비저닝 서비스를 사용하기 위해 디바이스 코드를 업데이트하는 몇 가지 방법이 있다고 가정합니다. 
+[HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. HSM을 사용 하면 모든 장치에 배포 된 코드의 업데이트를 무시할 수 있으며 장치 이미지에 비밀 키가 포함 되어 있지 않습니다. 이 문서에서는 HSM 또는 인증서가 모두 실행 가능한 옵션이 아니라고 가정합니다. 그러나 이러한 디바이스를 프로비전하는 디바이스 프로비저닝 서비스를 사용하기 위해 디바이스 코드를 업데이트하는 몇 가지 방법이 있다고 가정합니다. 
 
 이 문서는 또한 마스터 그룹 키 또는 파생된 디바이스 키에 대한 무단 액세스를 방지하기 위해 보안 환경에서 디바이스 업데이트가 수행된다고 가정합니다.
 
@@ -43,7 +41,7 @@ ms.locfileid: "94967315"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 
@@ -142,39 +140,18 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-디바이스에 대한 고유한 등록 ID를 만듭니다. 유효한 문자는 소문자 영숫자 및 대시('-')입니다.
+각 장치에 대해 고유한 등록 Id를 만듭니다. 유효한 문자는 소문자 영숫자 및 대시('-')입니다.
 
 
 ## <a name="derive-a-device-key"></a>디바이스 키 파생 
 
-디바이스 키를 생성하려면 그룹 마스터 키를 사용하여 디바이스에 대한 고유한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다.
+장치 키를 생성 하려면 등록 그룹 마스터 키를 사용 하 여 각 장치에 대 한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 합니다. 그러면 결과는 각 장치에 대해 Base64 형식으로 변환 됩니다.
 
 > [!WARNING]
-> 장치 코드는 개별 장치에 대해 파생 된 장치 키만 포함 해야 합니다. 디바이스 코드에 그룹 마스터 키는 포함하지 않습니다. 손상 된 마스터 키로 인해 인증 되는 모든 장치의 보안이 손상 될 수 있습니다.
+> 각 장치에 대 한 장치 코드는 해당 장치에 해당 하는 파생 된 장치 키만 포함 해야 합니다. 디바이스 코드에 그룹 마스터 키는 포함하지 않습니다. 손상 된 마스터 키로 인해 인증 되는 모든 장치의 보안이 손상 될 수 있습니다.
 
 
-#### <a name="linux-workstations"></a>Linux 워크스테이션
-
-Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
-
-**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
-
-**REG_ID** 의 값을 등록 ID로 바꿉니다.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Windows 기반 워크스테이션
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-디바이스는 고유한 등록 ID로 파생된 디바이스 키를 사용하여 프로비전하는 동안 등록 그룹과의 대칭 키 증명을 수행합니다.
+Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
+
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
+
+**REG_ID** 의 값을 등록 ID로 바꿉니다.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+각 장치는 프로 비전 하는 동안 해당 파생 된 장치 키 및 고유 등록 ID를 사용 하 여 등록 그룹으로 대칭 키 증명을 수행 합니다.
 
 
 
@@ -206,7 +204,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample** 이라는 프로비저닝 샘플을 업데이트합니다. 
 
-이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다.
+이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다. 이는 등록 그룹을 사용 하 여 프로 비전 되는 각 장치에 대해 완료 됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
@@ -280,10 +278,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ## <a name="security-concerns"></a>보안에 대한 우려
 
-이렇게 하면 파생된 디바이스 키를 이미지의 부분으로 포함된 채로 두므로 권장되는 보안 모범 사례가 아닙니다. 이것이 보안과 사용 편의성이 장단점인 이유 중 하나입니다. 
-
-
-
+이는 파생 된 장치 키를 각 장치에 대 한 이미지의 일부로 포함 하 고 있으므로 권장 되는 보안 모범 사례가 아닙니다. 이것은 보안과 사용 편의성이 대체로 절충 하는 한 가지 이유입니다. 사용자의 요구 사항에 따라 장치의 보안을 완벽 하 게 검토 해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

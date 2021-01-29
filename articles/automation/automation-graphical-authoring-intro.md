@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987321"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051584"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
 
@@ -51,7 +51,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 ## <a name="use-activities"></a>활동 사용
 
-활동은 Runbook의 구성 요소입니다. 활동은 PowerShell cmdlet, 자식 Runbook 또는 워크플로일 수 있습니다. 라이브러리 컨트롤에서 활동을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 Runbook에 활동을 추가할 수 있습니다. 그런 다음 활동을 클릭하고 끌어서 캔버스의 원하는 위치에 배치할 수 있습니다. 캔버스에서 활동의 위치는 Runbook의 작업에 영향을 주지 않습니다. 해당 작업을 시각화하는 데 가장 적합한 곳에 Runbook을 배치할 수 있습니다.
+활동은 Runbook의 구성 요소입니다. 활동은 PowerShell cmdlet, 자식 Runbook 또는 워크플로일 수 있습니다. 라이브러리 컨트롤에서 활동을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가** 를 선택하여 Runbook에 활동을 추가할 수 있습니다. 그런 다음 활동을 클릭하고 끌어서 캔버스의 원하는 위치에 배치할 수 있습니다. 캔버스에서 활동의 위치는 Runbook의 작업에 영향을 주지 않습니다. 해당 작업을 시각화하는 데 가장 적합한 곳에 Runbook을 배치할 수 있습니다.
 
 ![캔버스에 추가](media/automation-graphical-authoring-intro/add-to-canvas-cmdlet.png)
 
@@ -59,9 +59,9 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 ### <a name="parameter-sets"></a>매개 변수 집합
 
-매개 변수 집합은 특정 cmdlet에 대한 값을 허용하는 필수 및 선택적 매개 변수를 정의합니다. 모든 cmdlet에는 적어도 하나의 매개 변수 집합이 있으며, 여러 개의 집합이 있는 cmdlet도 있습니다. cmdlet에 여러 매개 변수 집합이 있는 경우 매개 변수를 구성하려면 먼저 사용할 집합을 선택해야 합니다. **매개 변수 집합**을 선택하고 다른 집합을 선택하여 활동에서 사용하는 매개 변수 집합을 변경할 수 있습니다. 이 경우 이미 구성한 모든 매개 변수 값이 손실됩니다.
+매개 변수 집합은 특정 cmdlet에 대한 값을 허용하는 필수 및 선택적 매개 변수를 정의합니다. 모든 cmdlet에는 적어도 하나의 매개 변수 집합이 있으며, 여러 개의 집합이 있는 cmdlet도 있습니다. cmdlet에 여러 매개 변수 집합이 있는 경우 매개 변수를 구성하려면 먼저 사용할 집합을 선택해야 합니다. **매개 변수 집합** 을 선택하고 다른 집합을 선택하여 활동에서 사용하는 매개 변수 집합을 변경할 수 있습니다. 이 경우 이미 구성한 모든 매개 변수 값이 손실됩니다.
 
-다음 예제에서 [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet**라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
+다음 예제에서 [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet에는 세 개의 매개 변수 집합이 있습니다. 이 예제에서는 리소스 그룹의 모든 가상 머신을 반환하기 위해 **ListVirtualMachineInResourceGroupParamSet** 라는 한 개의 집합을 선택적 매개 변수 하나와 함께 사용합니다. 또한 이 예제에서는 반환할 가상 머신을 지정하기 위해 **GetVirtualMachineInResourceGroupParamSet** 매개 변수 집합을 사용합니다. 이 집합에는 필수 매개 변수 두 개와 선택적 매개 변수 하나가 있습니다.
 
 ![매개 변수 집합](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -95,7 +95,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 
 다시 시도 조건은 작업이 실행된 이후 매번 평가되는 PowerShell 식입니다. 식이 True로 확인되면 작업을 다시 실행합니다. 식이 False로 확인되면 작업이 다시 실행되지 않고 Runbook이 다음 작업으로 이동합니다.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="다시 시도 기능 설정 사용의 스크린샷":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="이 조건이 true 일 때까지 다시 시도 및 재시도 조건에 사용할 수 있는 PowerShell 식의 예를 보여 주는 스크린샷":::
 
 다시 시도 조건은 활동 다시 시도 정보에 대한 액세스를 제공하는 `RetryData`라는 변수를 사용할 수 있습니다. 이 변수는 다음 테이블의 속성을 가집니다.
 
@@ -236,7 +236,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="use-checkpoints"></a>검사점 사용
 
-활동에서 **검사점 Runbook**을 선택하여 그래픽 PowerShell 워크플로 Runbook에 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 설정할 수 있습니다. 활동을 실행한 후에 검사점을 설정하게 됩니다.
+활동에서 **검사점 Runbook** 을 선택하여 그래픽 PowerShell 워크플로 Runbook에 [검사점](automation-powershell-workflow.md#use-checkpoints-in-a-workflow)을 설정할 수 있습니다. 활동을 실행한 후에 검사점을 설정하게 됩니다.
 
 ![검사점](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -248,7 +248,7 @@ Runbook에는 Azure Portal을 통해 Runbook을 시작하는 사용자의 입력
 
 Runbook은 하나 이상의 입력 매개 변수를 정의하여 입력을 수락합니다. 사용자는 Runbook이 시작될 때마다 이러한 매개 변수의 값을 제공합니다. 사용자가 Azure Portal을 사용하여 Runbook을 시작하면 Runbook에서 지원하는 각 입력 매개 변수의 값을 제공하라는 메시지가 사용자에게 표시됩니다.
 
-Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력**을 클릭하여 해당 입력 매개 변수에 액세스할 수 있습니다. 이렇게 하면 입력 및 출력 컨트롤이 열리며, 여기에서 기존 입력 매개 변수를 편집하거나 **입력 추가**를 클릭하여 새 입력 매개 변수를 만들 수 있습니다.
+Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력** 을 클릭하여 해당 입력 매개 변수에 액세스할 수 있습니다. 이렇게 하면 입력 및 출력 컨트롤이 열리며, 여기에서 기존 입력 매개 변수를 편집하거나 **입력 추가** 를 클릭하여 새 입력 매개 변수를 만들 수 있습니다.
 
 ![입력 추가](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -373,7 +373,7 @@ $h
 
 ## <a name="authenticate-to-azure-resources"></a>Azure 리소스 인증
 
-Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. [실행 계정](./manage-runas-account.md)(서비스 주체라고도 함)은 Automation Runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 메커니즘입니다. PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet을 사용하는 `AzureRunAsConnection` 연결 자산을 캔버스에 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에서 설명합니다.
+Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. [실행 계정](./automation-security-overview.md)(서비스 주체라고도 함)은 Automation Runbook을 사용하여 구독의 Azure Resource Manager 리소스에 액세스하는 기본 메커니즘입니다. PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet을 사용하는 `AzureRunAsConnection` 연결 자산을 캔버스에 추가하여 그래픽 Runbook에 이 기능을 추가할 수 있습니다. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에서 설명합니다.
 
 ![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -416,11 +416,11 @@ Azure Automation의 각 그래픽 Runbook에는 초안 버전과 게시된 버�
 
 게시된 버전을 변경하지 않고 Azure Portal에서 Runbook의 초안 버전을 테스트할 수 있습니다. 또는 Runbook이 게시되기 전에 새 Runbook을 테스트하여 버전 교체 전에 Runbook이 제대로 작동하는지 확인할 수 있습니다. Runbook 테스트는 초안 버전을 실행하고 수행한 모든 작업이 완료되도록 합니다. 작업 기록은 생성되지 않지만 테스트 출력 창에는 출력이 표시됩니다.
 
-편집을 위해 Runbook을 열고 **테스트 창**을 클릭하여 그래픽 Runbook에 대한 테스트 컨트롤을 엽니다. 테스트 컨트롤에서 입력 매개 변수를 묻는 메시지가 표시되면 **시작**을 클릭하여 Runbook을 시작할 수 있습니다.
+편집을 위해 Runbook을 열고 **테스트 창** 을 클릭하여 그래픽 Runbook에 대한 테스트 컨트롤을 엽니다. 테스트 컨트롤에서 입력 매개 변수를 묻는 메시지가 표시되면 **시작** 을 클릭하여 Runbook을 시작할 수 있습니다.
 
 ## <a name="publish-a-graphical-runbook"></a>그래픽 Runbook 게시
 
-편집용 Runbook을 열고 **게시**를 클릭하여 그래픽 Runbook을 게시할 수 있습니다. Runbook에서 가능한 상태는 다음과 같습니다.
+편집용 Runbook을 열고 **게시** 를 클릭하여 그래픽 Runbook을 게시할 수 있습니다. Runbook에서 가능한 상태는 다음과 같습니다.
 
 * 신규 - Runbook이 아직 게시되지 않았습니다. 
 * 게시됨 - Runbook이 게시되었습니다.

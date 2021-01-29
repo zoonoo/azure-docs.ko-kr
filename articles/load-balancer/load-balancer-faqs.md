@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222992"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051875"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
 
@@ -48,6 +48,10 @@ nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 �
  
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>동일한 가용성 집합의 VM을 Load Balancer의 여러 백 엔드 풀에 추가할 수 있나요?
 아니요, 이는 불가능합니다.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Azure Load Balancer를 통해 얻을 수 있는 최대 데이터 처리량은 무엇 인가요?
+Azure LB는 통과 네트워크 부하 분산 장치 이므로 처리량 제한은 백 엔드 풀에 사용 되는 가상 컴퓨터의 유형에 따라 결정 됩니다. 다른 네트워크 처리량 관련 정보에 대 한 자세한 내용은 [가상 머신 네트워크 처리량](../virtual-network/virtual-machine-network-throughput.md)을 참조 하세요.
+
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>동일한 지역에서 Azure Storage에 대 한 연결은 어떻게 작동 하나요?
 위의 시나리오를 통한 아웃바운드 연결은 VM과 동일한 지역에 있는 스토리지에 연결하는 데 필요하지 않습니다. 이를 원하지 않는 경우 위에서 설명한 대로 NSG(네트워크 보안 그룹)를 사용합니다. 다른 지역의 스토리지에 연결하려면 아웃바운드 연결이 필요합니다. 동일한 지역의 VM에서 스토리지에 연결하는 경우 스토리지 진단 로그의 원본 IP 주소는 VM의 공용 IP 주소가 아니라 내부 공급자 주소가 됩니다. 동일한 지역에서 하나 이상의 Virtual Network 서브넷에 있는 VM에 대한 스토리지 계정에 액세스를 제한하려면 스토리지 계정 방화벽을 구성할 때 공용 IP 주소가 아니라 [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용합니다. 서비스 엔드포인트가 구성되면 내부 공급자 주소가 아닌 스토리지 진단 로그에 Virtual Network 개인 IP 주소가 표시됩니다.

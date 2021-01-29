@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d1632c66791dd5e697b95a2c5aaaddea81629abf
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878225"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052825"
 ---
 # <a name="using-snat-for-outbound-connections"></a>아웃 바운드 연결에 SNAT 사용
 
@@ -80,7 +80,7 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
 
  | 연결 | 방법 | IP 프로토콜 |
  | ------------ | ------ | ------------ |
- | 공용 부하 분산 장치 | [SNAT](#snat)에 대 한 부하 분산 장치 프런트 엔드 ip 사용.| TCP </br> UDP |
+ | 표준 공용 부하 분산 장치 | [SNAT](#snat)에 대 한 부하 분산 장치 프런트 엔드 ip 사용.| TCP </br> UDP |
 
 
  #### <a name="description"></a>Description
@@ -103,8 +103,18 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
 
  이 컨텍스트에서 SNAT에 사용되는 임시 포트를 SNAT 포트라고 부릅니다. [아웃 바운드 규칙](./outbound-rules.md) 은 명시적으로 구성 하는 것이 좋습니다. 부하 분산 규칙을 통해 기본 SNAT를 사용 하는 경우 [기본 snat 포트 할당 테이블](#snatporttable)에 설명 된 대로 snat 포트는 미리 할당 됩니다.
 
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-standard-internal-load-balancer"></a><a name="scenario3"></a>시나리오 3: 공용 IP가 없고 표준 내부 Load Balancer 뒤에 있는 가상 컴퓨터
 
- ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>시나리오 3: 공용 IP가 없고 기본 Load Balancer 뒤에 있는 가상 컴퓨터
+
+ | 연결 | 방법 | IP 프로토콜 |
+ | ------------ | ------ | ------------ |
+ | 표준 내부 부하 분산 장치 | 인터넷에 연결 되지 않습니다.| 없음 |
+
+ #### <a name="description"></a>Description
+ 
+표준 내부 부하 분산 장치를 사용 하는 경우 SNAT에 대 한 임시 IP 주소를 사용 하지 않습니다. 이는 기본적으로 보안을 지원 하 고 리소스에 사용 되는 모든 IP 주소를 구성할 수 있으며 예약할 수 있는지 확인 하기 위한 것입니다. 표준 내부 부하 분산 장치를 사용 하는 경우 인터넷에 대 한 아웃 바운드 연결을 설정 하려면 인스턴스 수준 공용 IP 주소를 구성 하 여 (시나리오 1) [#scenario1]의 동작을 수행 하거나, 또한에서 내부 부하 분산 장치에 구성 된 아웃 바운드 규칙을 사용 하 여 표준 공용 부하 분산 장치에 백 엔드 인스턴스를 추가 합니다 (시나리오 2) [#scenario2]. 
+
+ ### <a name="scenario-4-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario4"></a>시나리오 4: 공용 IP가 없고 기본 Load Balancer 뒤에 있는 가상 컴퓨터
 
 
  | 연결 | 방법 | IP 프로토콜 |
@@ -126,7 +136,6 @@ SNAT 백 엔드 인스턴스의 **IP** 를 가장 하는 것을 가능 하 게 �
 
 
  허용 목록에 Ip를 추가 하는 경우에는이 시나리오를 사용 하지 마세요. 아웃 바운드 동작을 명시적으로 선언 하는 시나리오 1 또는 2를 사용 합니다. [Snat](#snat) 포트는 [기본 snat 포트 할당 테이블](#snatporttable)에 설명 된 대로 미리 할당 된 됩니다.
-
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> 포트 소모
 

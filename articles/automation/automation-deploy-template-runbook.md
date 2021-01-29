@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 18f1d4ced2a80f9adb5da2c209987fc1997a3f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9b443d1840840d3d6202140da235589c73453cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304154"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051399"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "91304154"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
-* [Automation 계정](./manage-runas-account.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
+* [Automation 계정](./automation-security-overview.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * 리소스 관리자 템플릿을 저장할 [Azure Storage 계정](../storage/common/storage-account-create.md) 입니다.
 * 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
@@ -84,7 +84,7 @@ ms.locfileid: "91304154"
 }
 ```
 
-파일을 로컬에서 **TemplateTest.json**으로 저장합니다.
+파일을 로컬에서 **TemplateTest.json** 으로 저장합니다.
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Azure Storage에 Resource Manager 템플릿 저장
 
@@ -113,7 +113,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>PowerShell Runbook 스크립트 만들기
 
-이제 Azure Storage에서 파일 ** 의TemplateTest.js** 를 가져오고 템플릿을 배포 하 여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.
+이제 Azure Storage에서 파일 **의TemplateTest.js** 를 가져오고 템플릿을 배포 하 여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.
 
 텍스트 편집기에서 다음 텍스트를 붙여넣습니다.
 
@@ -160,13 +160,13 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ```
 
-파일을 로컬에서 **DeployTemplate.ps1**로 저장합니다.
+파일을 로컬에서 **DeployTemplate.ps1** 로 저장합니다.
 
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Azure Automation 계정으로 Runbook 가져오기 및 게시
 
 이제 PowerShell을 사용하여 Runbook을 Azure Automation 계정으로 가져온 다음 이 Runbook을 게시합니다. Azure Portal에서 Runbook을 가져오고 게시하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 
-**DeployTemplate.ps1**을 PowerShell Runbook으로 Automation 계정에 가져오려면 다음 PowerShell 명령을 실행합니다.
+**DeployTemplate.ps1** 을 PowerShell Runbook으로 Automation 계정에 가져오려면 다음 PowerShell 명령을 실행합니다.
 
 ```powershell
 # MyPath is the path where you saved DeployTemplate.ps1

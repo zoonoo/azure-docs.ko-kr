@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890733"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053570"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>원하는 상태로 머신 구성
 
@@ -27,7 +27,7 @@ Azure Automation 상태 구성을 사용하면 서버 구성을 지정하고 시
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](./manage-runas-account.md)을 참조하세요.
+- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대 한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조 하세요.
 - Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)를 참조하세요.
 - Azure PowerShell 모듈 버전 3.6 이상 - `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 - DSC(필요한 상태 구성)와 익숙함. DSC에 대한 자세한 내용은 [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
@@ -49,7 +49,6 @@ Connect-AzAccount
 ```
 
 ## <a name="create-and-upload-a-configuration-to-azure-automation"></a>Azure Automation에 구성 만들기 및 업로드
-
 
 텍스트 편집기에서 다음을 입력하고 로컬에서 **TestConfig.ps1** 로 저장합니다.
 

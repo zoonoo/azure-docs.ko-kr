@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4185ffd644d54c419f42c78326ca10bf100443c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672384"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051433"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.
@@ -39,7 +39,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 | 기능 | Description|
 | -| - |
 | [Single Sign-On](../manage-apps/plan-sso-deployment.md)| Single sign-on을 사용 하면 사용자가 한 번만 로그인 하면 비즈니스를 수행 하는 데 필요한 앱과 리소스에 액세스할 수 있습니다. 로그인 한 후에는 두 번째로 자격 증명을 입력 하지 않고도 Microsoft Office에서 SalesForce to Box로 이동 하 여 내부 응용 프로그램에 연결할 수 있습니다. |
-| [액세스 패널](../manage-apps/access-panel-deployment-plan.md)| 사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다. |
+| [내 앱](../manage-apps/my-apps-deployment-plan.md)| 사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다. |
 | [디바이스](../devices/plan-device-deployment.md) | 이 문서를 통해 장치를 Azure AD와 통합 하는 방법을 평가 하 고, 구현 계획을 선택 하 고, 지원 되는 장치 관리 도구에 대 한 주요 링크를 제공할 수 있습니다. |
 
 

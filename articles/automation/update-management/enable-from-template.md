@@ -1,18 +1,16 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용 | Microsoft Docs
+title: Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 업데이트 관리를 사용하도록 설정하는 방법을 설명합니다.
-ms.service: automation
+services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/18/2020
-ms.openlocfilehash: e2ebdd3d0f4a4461521ee5f412d5b4c4f872b8a0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 47c982bff45838617b9a55f9129d4dc55d58b0d2
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183237"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050334"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -29,7 +27,7 @@ ms.locfileid: "98183237"
 구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 이 템플릿을 사용 하 여 성공적으로 링크를 만들고 업데이트 관리를 배포 합니다.
 
 >[!NOTE]
->ARM 템플릿을 사용하는 경우 Automation 실행 계정 만들기가 지원되지 않습니다. 포털에서 또는 PowerShell을 사용하여 실행 계정을 수동으로 만들려면 [실행 계정 관리](../manage-runas-account.md)를 참조하세요.
+>ARM 템플릿을 사용하는 경우 Automation 실행 계정 만들기가 지원되지 않습니다. 포털에서 또는 PowerShell을 사용 하 여 실행 계정을 수동으로 만들려면 [실행 계정 만들기](../create-run-as-account.md)를 참조 하세요.
 
 이러한 단계를 완료한 후에는 Automation 계정에 대한 [진단 설정을 구성](../automation-manage-send-joblogs-log-analytics.md)하여 Runbook 작업 상태 및 작업 스트림을 연결된 Log Analytics 작업 영역으로 보내도록 해야 합니다.
 

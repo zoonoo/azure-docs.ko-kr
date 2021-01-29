@@ -3,15 +3,15 @@ title: Azure Event Grid의 시스템 항목
 description: Azure Event Grid의 시스템 항목에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297286"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052968"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 항목
-Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시 하는 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 blob 이벤트** 를 나타내거나 **특정 저장소 계정**에 대해 게시 된 **blob 및 blob** **삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 blob을 저장소 계정에 업로드 하면 Azure Storage 서비스는 **blob created** 이벤트를 Event Grid의 system 토픽에 게시 합니다. 그러면 이벤트를 수신 하 고 처리 하는 토픽의 [구독자](event-handlers.md) 에 게 이벤트를 전달 합니다. 
+Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시 하는 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 blob 이벤트** 를 나타내거나 **특정 저장소 계정** 에 대해 게시 된 **blob 및 blob** **삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 blob을 저장소 계정에 업로드 하면 Azure Storage 서비스는 **blob created** 이벤트를 Event Grid의 system 토픽에 게시 합니다. 그러면 이벤트를 수신 하 고 처리 하는 토픽의 [구독자](event-handlers.md) 에 게 이벤트를 전달 합니다. 
 
 > [!NOTE] 
 > Azure 서비스만 시스템 항목에 이벤트를 게시할 수 있습니다. 따라서 사용자 지정 토픽 또는 도메인에 대해 수행 하는 것 처럼 이벤트를 게시 하는 데 사용할 수 있는 끝점 또는 액세스 키는 가져오지 않습니다.
@@ -34,6 +34,7 @@ Event Grid의 시스템 항목은 Azure Storage 및 Azure Event Hubs와 같은 A
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure 구독](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## <a name="system-topics-as-azure-resources"></a>Azure 리소스로 서의 시스템 항목
 이전에는 시스템 항목이 암시적이 고 간단 하 게 노출 되지 않았습니다. 이제 시스템 항목이 Azure 리소스로 표시 되 고 다음과 같은 기능을 제공 합니다.

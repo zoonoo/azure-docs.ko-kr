@@ -2,19 +2,15 @@
 title: Azure Automation 계정을 다른 구독으로 이동
 description: 이 문서에서는 Automation 계정을 다른 구독으로 이동하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896649"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051027"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Azure Automation 계정을 다른 구독으로 이동
 
@@ -108,7 +104,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 ## <a name="re-create-run-as-accounts"></a>실행 계정 다시 만들기
 
-[실행 계정](../manage-runas-account.md)은 Azure Active Directory에서 서비스 주체를 만들어 Azure 리소스에 인증합니다. 구독을 변경하면 Automation 계정에서 기존 실행 계정을 더 이상 사용하지 않습니다. 실행 계정을 다시 만들려면 다음을 수행합니다.
+[실행 계정](../automation-security-overview.md#run-as-accounts)은 Azure Active Directory에서 서비스 주체를 만들어 Azure 리소스에 인증합니다. 구독을 변경하면 Automation 계정에서 기존 실행 계정을 더 이상 사용하지 않습니다. 실행 계정을 다시 만들려면 다음을 수행합니다.
 
 1. 새 구독의 Automation 계정에서 **계정 설정** 아래의 **실행 계정** 을 선택합니다. 지금은 실행 계정이 불완전하게 표시됩니다.
 
@@ -117,7 +113,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 2. **속성** 페이지에서 **삭제** 를 선택하여 실행 계정을 한 번에 하나씩 삭제합니다. 
 
     > [!NOTE]
-    > 실행 계정을 만들거나 볼 권한이 없는 경우 다음과 같은 메시지가 표시됩니다. `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` 자세한 내용은 [실행 계정을 구성하는 데 필요한 권한](../manage-runas-account.md#permissions)을 참조하세요.
+    > 실행 계정을 만들거나 볼 권한이 없는 경우 다음과 같은 메시지가 표시됩니다. `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` 자세한 내용은 [실행 계정을 구성하는 데 필요한 권한](../automation-security-overview.md#permissions)을 참조하세요.
 
 3. 실행 계정을 삭제한 후 **Azure 실행 계정** 에서 **만들기** 를 선택합니다. 
 
