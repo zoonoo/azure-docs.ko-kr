@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927045"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055045"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ ms.locfileid: "98927045"
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 퍼블릭 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |
 | **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 데이터 원본에 대한 보안 액세스 권한을 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](../search/search-indexer-troubleshooting.md#connection-errors) 를 참조 하세요. <br/><br/> *참고*: 검색 서비스의 IP는 이 서비스 태그의 IP 범위 목록에 포함되지 않으므로 데이터 원본의 IP 방화벽에 **도 추가해야 합니다**. | 인바운드 | 예 | 예 |
-| **AzureConnectors** | 프로브/백 엔드 연결용 Azure Logic Apps 커넥터입니다. | 인바운드 | 예 | 예 |
+| **AzureConnectors** | 이 태그는 Azure Logic Apps 서비스에 대 한 인바운드 webhook 콜백과 개별 서비스에 대 한 아웃 바운드 호출을 만드는 관리 되는 커넥터에 사용 되는 IP 주소 (예: Azure Storage 또는 Azure Event Hubs)를 나타냅니다. | 인바운드/아웃 바운드 | 예 | 예 |
 | **AzureContainerRegistry** | Azure Container Registry입니다. | 아웃바운드 | 예 | 예 |
 | **AzureCosmosDB** | Azure Cosmos DB | 아웃바운드 | 예 | 예 |
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |

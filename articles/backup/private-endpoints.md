@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986974"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054875"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -32,7 +32,7 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 
 개인 끝점은 자격 증명 모음에 대해 사용 하도록 설정 되어 있지만 Azure VM 및 MARS 에이전트 백업 에서만 SQL 및 SAP HANA 워크 로드의 백업 및 복원에 사용 됩니다. 다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업에 대 한 파일 복구를 수행 하는 데 사용 됩니다. 자세한 내용은 다음 표를 참조하세요.
 
-| Azure VM에서 워크 로드 백업 (SQL, SAP HANA), MARS 에이전트를 사용 하 여 백업 | 가상 네트워크에서 Azure Backup 또는 Azure Storage에 대 한 Ip/Fqdn을 허용 하지 않고 백업 및 복원을 허용 하려면 개인 끝점을 사용 하는 것이 좋습니다. |
+| Azure VM에서 워크 로드 백업 (SQL, SAP HANA), MARS 에이전트를 사용 하 여 백업 | 가상 네트워크에서 Azure Backup 또는 Azure Storage에 대 한 Ip/Fqdn을 allowlist 하지 않고도 백업 및 복원을 허용 하려면 개인 끝점을 사용 하는 것이 좋습니다. 이 시나리오에서는 SQL 데이터베이스를 호스트 하는 Vm이 Azure AD Ip 또는 Fqdn에 도달할 수 있는지 확인 합니다. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Azure VM 백업**                                         | VM 백업에는 Ip 또는 Fqdn에 대 한 액세스를 허용 하지 않아도 됩니다. 따라서 디스크의 백업 및 복원을 위한 개인 끝점은 필요 하지 않습니다.  <br><br>   그러나 개인 끝점을 포함 하는 자격 증명 모음에서 파일 복구는 자격 증명 모음에 대 한 개인 끝점을 포함 하는 가상 네트워크로 제한 됩니다. <br><br>    ACL'ed 관리 되지 않는 디스크를 사용 하는 경우 디스크를 포함 하는 저장소 계정에서 ACL'ed 경우 **신뢰할 수 있는 Microsoft 서비스** 에 대 한 액세스를 허용 하는지 확인 합니다. |
 | **백업 Azure Files**                                      | Azure Files 백업은 로컬 저장소 계정에 저장 됩니다. 따라서 백업 및 복원에 대 한 개인 끝점은 필요 하지 않습니다. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>사용자 지정 DNS 서버에 대 한 DNS 영역 만들기
 
-세 개의 개인 DNS 영역을 만들고 가상 네트워크에 연결 해야 합니다.
+세 개의 개인 DNS 영역을 만들고 가상 네트워크에 연결 해야 합니다. Blob 및 큐와 달리 백업 서비스 공용 Url은 개인 링크 DNS 영역으로 리디렉션하는 Azure 공용 DNS에 등록 되지 않는다는 점에 유의 하세요. 
 
 | **영역**                                                     | **서비스** |
 | ------------------------------------------------------------ | ----------- |

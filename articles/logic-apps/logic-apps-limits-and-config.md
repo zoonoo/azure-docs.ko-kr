@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726518"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054757"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -380,27 +380,42 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>방화벽 구성: IP 주소 및 서비스 태그
 
-인바운드 및 아웃 바운드 호출에 사용 하는 Azure Logic Apps IP 주소는 논리 앱이 있는 지역에 따라 달라 집니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다. **HTTP** 및 **HTTP + OpenAPI** 요청 같은 일부 [Power Automate](/power-automate/getting-started) 호출은 Azure Logic Apps 서비스를 바로 통과하여 여기에 나열된 IP 주소로 들어옵니다. Power Automate에서 사용하는 IP 주소에 대한 자세한 내용은 [Power Automate의 제한 및 구성](/flow/limits-and-config#ip-address-configuration)을 참조하세요.
+논리 앱이 특정 IP 주소에 대 한 트래픽을 제한 하는 방화벽을 통해 통신 해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 Logic Apps 서비스 또는 런타임에서 사용 하는 [인바운드](#inbound) 및 [아웃 바운드](#outbound) IP 주소에 *대 한 액세스* 를 허용 해야 합니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다.
 
-> [!TIP]
-> 보안 규칙을 만들 때 지역마다 Logic Apps IP 주소를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md)를 사용하면 복잡성을 줄일 수 있으며, 자세한 방법은 이 섹션의 뒷부분에서 설명합니다.
-> 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
->
-> * **LogicAppsManagement**: Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
-> * **LogicApps**: Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
+예를 들어 [HTTP 트리거 또는 작업과](../connectors/connectors-native-http.md)같은 기본 제공 트리거와 작업을 통해 전송 또는 수신 하는 미국 서 부 지역에서 논리 앱의 호출을 지원 하려면 방화벽에서 미국 서 부 지역에 있는 *모든* Logic Apps 서비스 인바운드 ip 주소 *및* 아웃 바운드 ip 주소에 대 한 액세스를 허용 해야 합니다.
 
-* [Azure 중국 21Vianet](/azure/china/)의 경우 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 및 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)(예: Azure Storage, SQL Server, Office 365 Outlook 등)에 고정 또는 예약된 IP 주소를 사용할 수 없습니다.
+논리 앱에서 Office 365 Outlook connector 또는 SQL connector와 같은 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용 하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용 하는 경우에는 논리 앱의 Azure 지역에서 *모든* [관리 커넥터 아웃 바운드 IP 주소](#outbound) 에 대 한 액세스를 허용 해야 합니다. 또한 [Azure에서 온-프레미스 데이터 게이트웨이 리소스](logic-apps-gateway-connection.md)를 통해 온-프레미스 리소스에 액세스 하는 사용자 지정 커넥터를 사용 하는 경우 해당 *관리 되는 커넥터 [아웃 바운드 IP 주소](#outbound)* 에 대 한 액세스를 허용 하도록 게이트웨이 설치를 설정 해야 합니다.
 
-* 논리 앱이 [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) 및 기타 HTTP 요청을 통해 직접 만드는 호출을 지원하려면 논리 앱이 있는 지역에 따라 Logic Apps 서비스에서 사용하는 모든 [인바운드](#inbound) *및* [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+게이트웨이에서 통신 설정을 설정 하는 방법에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
-* [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)가 만드는 호출을 지원하려면 논리 앱이 있는 지역에 따라 이러한 커넥터에서 사용하는 *모든* [아웃바운드](#outbound) IP 주소가 포함되도록 방화벽을 설정합니다. 이러한 주소는 이 섹션의 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
+* [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](/data-integration/gateway/service-gateway-communication)
+* [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)
 
-* ISE(통합 서비스 환경)에서 실행되는 논리 앱에 통신을 사용하려면 [이 포트를 열어야 합니다](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* 논리 앱이 [방화벽 및 방화벽 규칙](../storage/common/storage-network-security.md)을 사용하는 Azure 스토리지 계정에 액세스하는 데 문제가 있는 경우 [액세스를 사용하도록 설정하는 다양한 옵션](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)이 있습니다.
+### <a name="firewall-ip-configuration-considerations"></a>방화벽 IP 구성 고려 사항
+
+IP 주소를 사용 하 여 방화벽을 설정 하기 전에 다음 사항을 검토 하십시오.
+
+* [전원 자동화](/power-automate/getting-started)를 사용 하는 경우 **http** 및 **http + openapi** 와 같은 일부 작업은 Azure Logic Apps 서비스를 통해 직접 이동 하 여 여기에 나열 된 IP 주소에서 제공 됩니다. 전원 자동화에 사용 되는 IP 주소에 대 한 자세한 내용은 [전원 자동화에 대 한 제한 및 구성](/flow/limits-and-config#ip-address-configuration)을 참조 하세요.
+
+* [Azure 중국 21vianet](/azure/china/)의 경우 고정 또는 예약 된 IP 주소는 Azure Storage, SQL Server, Office 365 Outlook 등의 [관리 커넥터](../connectors/apis-list.md#managed-api-connectors)및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 에 사용할 수 없습니다.
+
+* 논리 앱이 [ISE (integration service environment)](connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행 되는 경우 [이러한 포트를 열어야](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise)합니다.
+
+* 만들려는 보안 규칙을 단순화 하는 데 도움이 되도록 각 지역에 대 한 IP 주소 접두사를 지정 하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) 를 선택적으로 사용할 수 있습니다. 이러한 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다.
+
+  * **LogicAppsManagement**: Logic Apps 서비스의 인바운드 IP 주소 접두사를 나타냅니다.
+
+  * **LogicApps**: Logic Apps 서비스의 아웃바운드 IP 주소 접두사를 나타냅니다.
+
+  * **Azureconnectors**: Logic Apps 서비스에 대 한 인바운드 webhook 콜백과 Azure Storage 또는 Azure Event Hubs와 같은 해당 서비스에 대 한 아웃 바운드 호출을 만드는 관리 되는 커넥터의 IP 주소 접두사를 나타냅니다.
+
+* 논리 앱이 [방화벽 및 방화벽 규칙](../storage/common/storage-network-security.md)을 사용 하는 Azure storage 계정에 액세스 하는 데 문제가 있는 경우 [액세스를 사용 하도록 설정 하는 다양 한 옵션이](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)있습니다.
 
   예를 들어 논리 앱은 방화벽 규칙을 사용하고 동일한 지역에 있는 스토리지 계정에 직접 액세스할 수 없습니다. 그러나 [해당 지역의 관리형 커넥터에 대한 아웃바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 허용하면 Azure Table Storage 또는 Azure Queue Storage 커넥터를 사용하는 경우를 제외하고 논리 앱이 다른 지역에 있는 스토리지 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스하려면 HTTP 트리거와 작업을 대신 사용하면 됩니다. 다른 옵션은 [방화벽으로 보호되는 스토리지 계정 액세스](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls)를 참조하세요.
 
@@ -411,9 +426,7 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 이 섹션에서는 Azure Logic Apps 서비스의 인바운드 IP 주소만 나열합니다. Azure Government를 보유한 경우 [Azure Government - 인바운드 IP 주소](#azure-government-inbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement** 를 사용하면 복잡성을 줄일 수 있습니다.
-> 관리 되는 커넥터의 경우 필요에 따라 각 지역에 대해 인바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 **azureconnectors** 서비스 태그를 사용할 수 있습니다.
-> 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다.
+> 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement** 를 사용하면 복잡성을 줄일 수 있습니다. 필요에 따라 각 지역에 대 한 인바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 Logic Apps 서비스에 대 한 인바운드 webhook 콜백을 만드는 관리 커넥터용 **azureconnectors** service 태그를 사용할 수도 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 이 섹션에서는 Azure Logic Apps 서비스 및 관리형 커넥터의 아웃바운드 IP 주소를 나열합니다. Azure Government를 보유한 경우 [Azure Government - 아웃바운드 IP 주소](#azure-government-outbound)를 참조하세요.
 
 > [!TIP]
-> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps** 를 사용하면 복잡성을 줄일 수 있습니다.
-> 이 태그는 Logic Apps 서비스가 제공되는 지역에서 작동합니다. 
+> 보안 규칙을 만들 때 지역마다 아웃바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicApps** 를 사용하면 복잡성을 줄일 수 있습니다. 필요에 따라 각 지역에 대해 아웃 바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 Azure Storage 또는 Azure Event Hubs와 같이 해당 서비스에 대해 아웃 바운드 호출을 수행 하는 관리 커넥터용 **azureconnectors** 서비스 태그를 사용할 수도 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다.
 
 <a name="multi-tenant-outbound"></a>
 

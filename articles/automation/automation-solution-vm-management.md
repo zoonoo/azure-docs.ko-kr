@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372160"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055384"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
@@ -37,7 +37,7 @@ ms.locfileid: "92372160"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./manage-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
+- 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./automation-security-overview.md#run-as-accounts)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
 - 연결 된 Automation 계정 및 Log Analytics 작업 영역은 동일한 리소스 그룹에 있어야 합니다.
 
@@ -79,7 +79,7 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 앞 섹션에서 정의된 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
 - 구독에 대 한 Co-Administrator입니다. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
-- [Azure AD](../active-directory/roles/permissions-reference.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](manage-runas-account.md#permissions)을 참조하세요.
+- [Azure AD](../active-directory/roles/permissions-reference.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](automation-security-overview.md#permissions)을 참조하세요.
 - 구독에 대한 기여자 또는 다음과 같은 권한.
 
 | 사용 권한 |범위|
@@ -102,7 +102,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 다음 표에는 Automation 계정에 대한 배포를 포함하는 Runbook이 나와 있습니다. Runbook 코드를 변경하지 마세요. 대신, 새 기능에 대한 고유한 Runbook을 작성할 수는 있습니다.
 
 > [!IMPORTANT]
-> 이름 뒤에 **child**가 붙은 Runbook은 직접 실행하지 마세요.
+> 이름 뒤에 **child** 가 붙은 Runbook은 직접 실행하지 마세요.
 
 모든 부모 Runbook에는 `WhatIf` 매개 변수가 포함됩니다. 이 매개 변수가 True로 설정되면 이 매개 변수 없이 실행될 때 Runbook이 수행하는 정확한 동작에 대한 자세한 설명을 지원하며, 올바른 VM이 대상으로 지정되었는지 확인합니다. Runbook은 `WhatIf` 매개 변수가 False로 설정된 경우에만 정의된 작업을 수행합니다.
 
@@ -117,7 +117,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |ScheduledStartStop_Child | VMName <br> 작업: 시작 또는 중지 <br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 예약된 중지에서 시작 또는 중지 작업을 실행합니다.|
 |ScheduledStartStop_Child_Classic | VMName<br> 작업: 시작 또는 중지<br> ResourceGroupName | 부모 Runbook에서 호출됩니다. 클래식 VM의 예약된 중지에서 시작 또는 중지 작업을 실행합니다. |
 |ScheduledStartStop_Parent | 작업: 시작 또는 중지 <br>VMList <br> WhatIf: True 또는 False | 구독의 모든 VM을 시작 또는 중지합니다. 이러한 대상이 지정된 리소스 그룹에서만 실행되도록 하려면 변수 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames`를 편집합니다. `External_ExcludeVMNames` 변수를 업데이트하여 특정 VM을 제외할 수도 있습니다.|
-|SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| 시작/중지 작업을 시퀀스하려는 각 VM에서 **sequencestart** 및 **sequencestop**이라는 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그의 값은 `1,2,3` 시작 또는 중지 하려는 순서에 해당 하는 양의 정수 목록 (예:) 이어야 합니다. <br>**참고**: VM은 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에 정의된 리소스 그룹에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
+|SequencedStartStop_Parent | 작업: 시작 또는 중지 <br> WhatIf: True 또는 False<br>VMList| 시작/중지 작업을 시퀀스하려는 각 VM에서 **sequencestart** 및 **sequencestop** 이라는 태그를 만듭니다. 이 태그 이름은 대/소문자를 구분합니다. 태그의 값은 `1,2,3` 시작 또는 중지 하려는 순서에 해당 하는 양의 정수 목록 (예:) 이어야 합니다. <br>**참고**: VM은 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에 정의된 리소스 그룹에 있어야 합니다. 작업이 적용되려면 적절한 태그가 있어야 합니다.|
 
 ### <a name="variables"></a>variables
 
@@ -161,10 +161,10 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |일정 이름 | 빈도 | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | **AutoStop_CreateAlert_Parent** Runbook을 8시간 간격으로 실행합니다. 그러면 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수에서 VM 기반 값이 중지됩니다. 또는 `VMList` 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수도 있습니다.|
-|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Stop` 매개 변수를 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다.  변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다.  관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
-|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 시작합니다.  관련된 일정 **Scheduled-StopVM**을 사용하도록 설정합니다.|
-|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 `Stop` 매개 변수 값을 사용하여 **Sequenced_StopStop_Parent** Runbook을 실행합니다.  적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요.  관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
-|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **SequencedStopStart_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 변수 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.
+|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Stop` 매개 변수를 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다.  변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 중지합니다.  관련된 일정 **Scheduled-StartVM** 을 사용하도록 설정합니다.|
+|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **ScheduledStopStart_Parent** Runbook을 실행합니다. 변수 자산에 의해 정의된 규칙을 충족하는 모든 VM을 자동으로 시작합니다.  관련된 일정 **Scheduled-StopVM** 을 사용하도록 설정합니다.|
+|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 `Stop` 매개 변수 값을 사용하여 **Sequenced_StopStop_Parent** Runbook을 실행합니다.  적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요.  관련된 일정, **Sequenced-StartVM** 을 사용하도록 설정합니다.|
+|Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 `Start` 매개 변수 값을 사용하여 **SequencedStopStart_Parent** Runbook을 실행합니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 변수 자산에 대한 자세한 내용은 [Runbook](#runbooks)을 참조하세요. 관련된 일정, **Sequenced-StopVM** 을 사용하도록 설정합니다.
 
 ## <a name="use-the-feature-with-classic-vms"></a>클래식 VM에서 작업 시간 외 VM 시작/중지 기능 사용
 
@@ -174,7 +174,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 클라우드 서비스당 VM이 20개 이상인 경우에는 다음과 같은 권장 사항을 참조하세요.
 
-* 부모 Runbook **ScheduledStartStop_Parent**를 사용하여 여러 일정을 만들고 일정당 20개의 VM을 지정합니다. 
+* 부모 Runbook **ScheduledStartStop_Parent** 를 사용하여 여러 일정을 만들고 일정당 20개의 VM을 지정합니다. 
 * 일정 속성에서 매개 변수를 사용 `VMList` 하 여 VM 이름을 쉼표로 구분 된 목록 (공백 없음)으로 지정 합니다. 
 
 이렇게 하지 않으면 이 기능에 대한 Automation 작업이 3시간 이상 실행될 경우 [공평 분배](automation-runbook-execution.md#fair-share) 제한에 따라 일시적으로 언로드되거나 중지됩니다.
@@ -191,9 +191,9 @@ Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Reso
 
 다음 메커니즘 중 하나를 사용하여 사용하도록 설정된 기능에 액세스합니다.
 
-* Automation 계정의 **관련 리소스** 아래에서 **VM 시작/중지**를 선택합니다. VM 시작/중지 페이지의 **VM 시작/중지 솔루션 관리** 아래에서 **솔루션 관리**를 선택합니다.
+* Automation 계정의 **관련 리소스** 아래에서 **VM 시작/중지** 를 선택합니다. VM 시작/중지 페이지의 **VM 시작/중지 솔루션 관리** 아래에서 **솔루션 관리** 를 선택합니다.
 
-* Automation 계정에 연결된 Log Analytics 작업 영역으로 이동합니다. 작업 영역을 선택한 다음 왼쪽 창에서 **솔루션**을 선택합니다. 솔루션 페이지의 목록에서 **Start-Stop-VM[workspace]** 를 선택합니다.  
+* Automation 계정에 연결된 Log Analytics 작업 영역으로 이동합니다. 작업 영역을 선택한 다음 왼쪽 창에서 **솔루션** 을 선택합니다. 솔루션 페이지의 목록에서 **Start-Stop-VM[workspace]** 를 선택합니다.  
 
 기능을 선택하면 Start-Stop-VM[workspace] 페이지가 표시됩니다. 여기에서 **StartStopVM** 타일에 있는 정보와 같은 중요한 세부 정보를 검토할 수 있습니다. Log Analytics 작업 영역에서와 마찬가지로 이 타일에는 성공적으로 시작되고 완료된 기능에 대한 Runbook 작업의 수와 그래픽 표현이 나타납니다.
 
@@ -211,27 +211,27 @@ Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Reso
 
 작업 시간 외 VM 시작/중지를 삭제하려면:
 
-1. Automation 계정의 **관련 리소스** 아래에서 **연결된 작업 영역**을 선택합니다.
+1. Automation 계정의 **관련 리소스** 아래에서 **연결된 작업 영역** 을 선택합니다.
 
-2. **작업 영역으로 이동**을 선택합니다.
+2. **작업 영역으로 이동** 을 선택합니다.
 
-3. **일반** 아래에서 **솔루션**을 클릭합니다. 
+3. **일반** 아래에서 **솔루션** 을 클릭합니다. 
 
 4. 솔루션 페이지에서 **Start-Stop-VM[workspace]** 를 선택합니다. 
 
-5. VMManagementSolution[Workspace] 페이지의 메뉴에서 **삭제**를 선택합니다.<br><br> ![VM 관리 기능 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
+5. VMManagementSolution[Workspace] 페이지의 메뉴에서 **삭제** 를 선택합니다.<br><br> ![VM 관리 기능 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
 6. 솔루션 삭제 창에서 기능을 삭제할 것임을 확인합니다.
 
-7. 정보가 확인되고 기능이 삭제되는 동안 메뉴에서 **알림**을 선택하여 진행 상황을 추적할 수 있습니다. 제거 프로세스가 끝나면 솔루션 페이지가 표시됩니다.
+7. 정보가 확인되고 기능이 삭제되는 동안 메뉴에서 **알림** 을 선택하여 진행 상황을 추적할 수 있습니다. 제거 프로세스가 끝나면 솔루션 페이지가 표시됩니다.
 
 8. Automation 계정 및 Log Analytics 작업 영역은 이 프로세스의 일부로 삭제되지 않습니다. Log Analytics 작업 영역을 유지하지 않으려는 경우 Azure Portal에서 수동으로 삭제해야 합니다.
 
-    1. **Log Analytics 작업 영역**을 검색하여 선택합니다.
+    1. **Log Analytics 작업 영역** 을 검색하여 선택합니다.
 
     2. Log Analytics 작업 영역 페이지에서 작업 영역을 선택합니다.
 
-    3. 메뉴에서 **삭제**를 선택합니다.
+    3. 메뉴에서 **삭제** 를 선택합니다.
 
     4. Azure Automation 계정 [기능 구성 요소](#components)를 유지하지 않으려면 각각을 수동으로 삭제할 수 있습니다.
 

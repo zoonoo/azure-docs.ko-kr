@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 11/25/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896497"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055334"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -106,7 +106,7 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>원인
 
-이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../manage-runas-account.md)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker는 기본적으로 인증서 자산이 로컬에 없습니다. 실행 계정이 제대로 작동하려면 이 자산이 필요합니다.
+이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../automation-security-overview.md#run-as-accounts)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker는 기본적으로 인증서 자산이 로컬에 없습니다. 실행 계정이 제대로 작동하려면 이 자산이 필요합니다.
 
 #### <a name="resolution"></a>해결 방법
 

@@ -11,16 +11,18 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 330bd9b78c2f550ab40f1f4f3679b6c9788ddb64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859379"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055011"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>모든 애플리케이션 프록시 앱을 가져오고 자세한 정보 나열
 
-이 PowerShell 스크립트 예제에서는 애플리케이션 ID(AppId), 이름(DisplayName), 외부 URL(ExternalUrl), 내부 URL(InternalUrl) 및 인증 유형(ExternalAuthenticationType)을 비롯한 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션에 대한 정보를 나열합니다.
+이 PowerShell 스크립트 예제는 응용 프로그램 ID (AppId), 이름 (DisplayName), 외부 URL (ExternalUrl), 내부 URL (InternalUrl), 인증 유형 (ExternalAuthenticationType), SSO 모드 및 추가 설정을 포함 하 여 모든 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램에 대 한 정보를 나열 합니다.
+
+$SsoMode 변수의 값을 변경 하면 SSO 모드에서 필터링 된 출력을 사용할 수 있습니다. 자세한 내용은 스크립트에 설명 되어 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +30,7 @@ ms.locfileid: "96859379"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-이러한 샘플을 사용하려면 [Graph용 AzureAD V2 PowerShell 모듈](/powershell/azure/active-directory/install-adv2)(AzureAD) 또는 [Graph용 AzureAD V2 PowerShell 모듈 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview)(AzureADPreview)이 필요합니다.
+이 샘플에는 [AzureAD V2 PowerShell For Graph 모듈이](/powershell/azure/active-directory/install-adv2) 필요 합니다 (AzureAD).
 
 ## <a name="sample-script"></a>샘플 스크립트
 

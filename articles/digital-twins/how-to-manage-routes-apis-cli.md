@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fa699163fdf445624c918e714fda890a41a67f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682650"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054514"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -20,16 +20,16 @@ ms.locfileid: "98682650"
 
 Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 다운스트림 서비스 또는 연결 된 계산 리소스로 라우팅할 수 있습니다. 먼저 이벤트를 수신할 수 있는 ‘엔드포인트’를 설정하여 이 작업을 수행합니다. 그런 다음 Azure Digital Twins에 의해 생성 되는 이벤트를 지정 하는  [**이벤트 경로**](concepts-route-events.md) 를 끝점으로 전달할 수 있습니다.
 
-이 문서에서는 [이벤트 경로 api](/rest/api/digital-twins/dataplane/eventroutes), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)및 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
+이 문서에서는 [REST api](/rest/api/azure-digitaltwins/), [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)및 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 만드는 과정을 안내 합니다.
 
 또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 - Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-cli.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - 리소스 그룹
+    - Resource group
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
     
@@ -42,51 +42,31 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 다른 끝점 형식에 대 한 자세한 내용은 [*Azure 메시징 서비스 중에서 선택*](../event-grid/compare-messaging-services.md)을 참조 하세요.
 
-끝점을 Azure Digital Twins에 연결 하려면 끝점에 사용 하는 event grid 토픽, event hub 또는 Service Bus이 이미 존재 해야 합니다. 
+이 섹션에서는 Azure CLI를 사용 하 여 이러한 끝점을 만드는 방법을 설명 합니다. [DigitalTwinsEndpoint 제어 평면 api](/rest/api/digital-twins/controlplane/endpoints)를 사용 하 여 끝점을 관리할 수도 있습니다.
 
-### <a name="create-an-event-grid-endpoint"></a>Event Grid 끝점 만들기
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-다음 예제에서는 Azure CLI를 사용 하 여 event grid 형식 끝점을 만드는 방법을 보여 줍니다.
+### <a name="create-the-endpoint"></a>끝점 만들기
 
-먼저 event grid 토픽을 만듭니다. 다음 명령을 사용 하거나 *사용자 지정 이벤트* Event Grid 빠른 시작의 [ *사용자 지정 항목 만들기* 섹션](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 을 방문 하 여 단계를 더 자세히 볼 수 있습니다.
+끝점 리소스를 만든 후에는 Azure Digital Twins 끝점에 사용할 수 있습니다. 다음 예에서는 `az dt endpoint create` [Azure Digital TWINS CLI](how-to-use-cli.md)에 대해 명령을 사용 하 여 끝점을 만드는 방법을 보여 줍니다. 명령의 자리 표시자를 사용자 고유의 리소스의 세부 정보로 바꿉니다.
 
-```azurecli-interactive
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
-```
-
-> [!TIP]
-> Azure CLI 명령으로 전달할 수 있는 Azure 지역 이름 목록을 출력하려면 다음 명령을 실행합니다.
-> ```azurecli-interactive
-> az account list-locations -o table
-> ```
-
-토픽을 만든 후에는 다음 [Azure Digital TWINS CLI 명령을](how-to-use-cli.md)사용 하 여 Azure Digital twins에 연결할 수 있습니다.
+Event Grid 끝점을 만들려면:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-이제 event grid 토픽은 인수를 사용 하 여 지정 된 이름으로 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 해당 이름을 **이벤트 경로의** 대상으로 사용 합니다. [이는이 문서의 뒷부분에서](#create-an-event-route) Azure DIGITAL twins 서비스 API를 사용 하 여 만듭니다.
+Event Hubs 끝점을 만들려면:
+```azurecli-interactive
+az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
 
-### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Event Hubs 또는 Service Bus 엔드포인트 만들기
-
-Event Hubs 또는 Service Bus 끝점을 만드는 프로세스는 위에 표시 된 Event Grid 프로세스와 비슷합니다.
-
-먼저 끝점으로 사용할 리소스를 만듭니다. 필요한 항목은 다음과 같습니다.
-* Service Bus: _Service Bus 네임 스페이스_, _Service Bus 항목_, _권한 부여 규칙_
-* Event Hubs: _Event Hubs 네임 스페이스_, _이벤트 허브_, _권한 부여 규칙_
-
-그런 다음, 다음 명령을 사용 하 여 Azure Digital Twins에서 끝점을 만듭니다. 
-
-* Service Bus 토픽 끝점 추가 (미리 만든 Service Bus 리소스가 필요 함)
+Service Bus 토픽 끝점을 만들려면 다음을 수행 합니다.
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-* Event Hubs 끝점 추가 (미리 만든 Event Hubs 리소스 필요)
-```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
-```
+이러한 명령을 성공적으로 실행 한 후에는 인수를 사용 하 여 제공한 이름에 따라 event grid, event hub 또는 Service Bus 항목을 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의** 대상으로 사용 합니다.
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
 
@@ -121,15 +101,15 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
     
 #### <a name="configure-the-endpoint"></a>끝점 구성
 
-배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 Azure Resource Manager Api를 사용 하 여 끝점을 만들어야 합니다. 
+배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 Azure Resource Manager Api를 사용 하 여 끝점을 만들 수 있습니다. 
 
 1. 먼저 [Azure Resource Manager api 설명서](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 끝점을 만드는 요청을 설정 하 고 필요한 요청 매개 변수를 입력 합니다. 
 
-1. 그런 다음 `deadLetterSecret` 요청 **본문** 의 속성 개체에 필드를 추가 합니다. 아래 템플릿에 따라이 값을 설정 합니다. 그러면 [이전 섹션](#set-up-storage-resources)에서 수집한 저장소 계정 이름, 컨테이너 이름 및 SAS 토큰 값에서 URL을 사용할 수 있습니다.
+2. 그런 다음 `deadLetterSecret` 요청 **본문** 의 속성 개체에 필드를 추가 합니다. 아래 템플릿에 따라이 값을 설정 합니다. 그러면 [이전 섹션](#set-up-storage-resources)에서 수집한 저장소 계정 이름, 컨테이너 이름 및 SAS 토큰 값에서 URL을 사용할 수 있습니다.
       
   :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
 
-1. 끝점을 만들기 위한 요청을 보냅니다.
+3. 끝점을 만들기 위한 요청을 보냅니다.
 
 이 요청을 구조화 하는 방법에 대 한 자세한 내용은 Azure Digital Twins REST API 설명서: [끝점-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)를 참조 하세요.
 
@@ -169,10 +149,6 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
 
-실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로** 를 정의 해야 합니다. 개발자는 Azure Digital Twins **Eventroutes 경로 api** 를 사용 하 여 시스템 및 다운스트림 서비스 전체에서 이벤트 흐름을 연결할 수 있습니다. 이벤트 경로에 대 한 자세한 내용은 [*Azure Digital Twins 이벤트 라우팅*](concepts-route-events.md)을 참조 하세요.
-
-이 단원의 샘플에서는 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용 합니다.
-
 **필수 조건**: 경로 만들기로 이동 하기 전에이 문서의 앞부분에서 설명한 대로 끝점을 만들어야 합니다. 끝점 설정이 완료 되 면 이벤트 경로를 계속 만들 수 있습니다.
 
 > [!NOTE]
@@ -180,9 +156,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 >
 > 이 흐름을 스크립팅 하는 경우 경로 설정으로 이동 하기 전에 끝점 서비스의 배포를 완료 하는 데 2-3 분의 대기 시간으로 구축 하 여이를 고려해 볼 수 있습니다.
 
-### <a name="creation-code-with-apis-and-the-c-sdk"></a>Api 및 c # SDK를 사용 하 여 코드 작성
-
-이벤트 경로는 [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하 여 정의 됩니다. 
+실제로 Azure Digital Twins에서 끝점으로 데이터를 전송 하려면 **이벤트 경로** 를 정의 해야 합니다. 이벤트 경로는 시스템 및 다운스트림 서비스에서 이벤트 흐름을 연결 하는 데 사용 됩니다.
 
 경로 정의에는 다음 요소가 포함 될 수 있습니다.
 * 사용 하려는 경로 이름
@@ -193,6 +167,12 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 하나의 경로에서 여러 알림과 이벤트 유형을 선택할 수 있어야 합니다. 
 
+이벤트 경로는 Azure Digital Twins [ **eventroutes** 데이터 평면 api](/rest/api/digital-twins/dataplane/eventroutes) 또는 [ **az dt route** CLI 명령을](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true)사용 하 여 만들 수 있습니다. 이 섹션의 나머지 부분에서는 만들기 프로세스를 안내 합니다.
+
+### <a name="create-routes-with-the-apis-and-c-sdk"></a>Api 및 c # SDK를 사용 하 여 경로 만들기
+
+이벤트 경로를 정의 하는 한 가지 방법은 [데이터 평면 api](how-to-use-apis-sdks.md#overview-data-plane-apis)를 사용 하는 것입니다. 이 단원의 샘플에서는 [.net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용 합니다.
+
 `CreateOrReplaceEventRouteAsync` 는 이벤트 경로를 추가 하는 데 사용 되는 SDK 호출입니다. 사용법의 예는 다음과 같습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
@@ -200,11 +180,17 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-### <a name="event-route-sample-code"></a>이벤트 경로 샘플 코드
+#### <a name="event-route-sample-sdk-code"></a>이벤트 경로 샘플 SDK 코드
 
-다음 샘플 메서드는 이벤트 경로를 만들고 나열 하 고 삭제 하는 방법을 보여 줍니다.
+다음 샘플 메서드는 c # SDK를 사용 하 여 이벤트 경로를 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
+
+### <a name="create-routes-with-the-cli"></a>CLI를 사용 하 여 경로 만들기
+
+Azure Digital Twins CLI에 대해 [az dt route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 경로를 관리할 수도 있습니다. 
+
+CLI 사용 방법과 사용할 수 있는 명령에 대 한 자세한 내용은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)을 참조 하세요.
 
 ## <a name="filter-events"></a>이벤트 필터링
 
@@ -222,10 +208,6 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 다음은 지원 되는 경로 필터입니다. *텍스트 스키마 필터* 열의 세부 정보를 사용 하 여 `<filter-text>` 위의 요청 본문에서 자리 표시자를 바꿉니다.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
-
-## <a name="manage-endpoints-and-routes-with-cli"></a>CLI를 사용 하 여 끝점 및 경로 관리
-
-Azure Digital Twins CLI를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. CLI 사용 방법과 사용할 수 있는 명령에 대 한 자세한 내용은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)을 참조 하세요.
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

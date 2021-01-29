@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 01/20/2021
-ms.openlocfilehash: 337e242e3c194c8ec9f66e1888926e6a8f6a8375
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633081"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055181"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -866,7 +866,7 @@ TLS/SSL 자체 서명 인증서에 대 한 정보는 다음과 같습니다.
 
 * 논리 앱 IP 주소의 액세스를 제한합니다.
 
-  논리 앱이 엔드포인트로 보내는 모든 호출은 논리 앱의 지역을 기반으로 지정된 특정 IP 주소에서 시작됩니다. 이러한 IP 주소의 요청만 수락하는 필터링을 추가할 수 있습니다. 이러한 IP 주소를 알아보려면 [Azure Logic Apps에 대한 제한 및 구성](logic-apps-limits-and-config.md#configuration)을 참조하세요.
+  논리 앱이 엔드포인트로 보내는 모든 호출은 논리 앱의 지역을 기반으로 지정된 특정 IP 주소에서 시작됩니다. 이러한 IP 주소의 요청만 수락하는 필터링을 추가할 수 있습니다. 이러한 IP 주소를 알아보려면 [Azure Logic Apps에 대한 제한 및 구성](logic-apps-limits-and-config.md#firewall-ip-configuration)을 참조하세요.
 
 * 온-프레미스 시스템에 대한 연결 보안을 강화합니다.
 
@@ -1120,7 +1120,7 @@ Authorization: OAuth realm="Photos",
 
    **관리 되는 커넥터 트리거 및 작업**
 
-   | 속성(디자이너) | 필수 | 값 | 설명 |
+   | 속성(디자이너) | 필수 | 값 | Description |
    |---------------------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> ||
    | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |

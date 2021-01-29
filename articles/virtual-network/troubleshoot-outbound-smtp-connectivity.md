@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883115"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054857"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Azure의 아웃 바운드 SMTP 연결 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "97883115"
 
 ## <a name="recommended-method-of-sending-email"></a>이메일을 전송하는 권장 방법
 
-인증 된 SMTP 릴레이 서비스를 사용 하 여 Azure Vm 또는 Azure App Service에서 전자 메일을 보내는 것이 좋습니다. 이러한 릴레이 서비스는 일반적으로 TCP 포트 587 또는 443을 통해 연결 되지만 다른 포트를 지원 합니다. 이러한 서비스는 타사 전자 메일 공급자가 메시지를 거부할 가능성을 최소화 하기 위해 IP 또는 도메인 평판을 유지 하는 데 사용 됩니다. [SendGrid](https://sendgrid.com/partners/azure/) 는 이러한 SMTP 릴레이 서비스 이지만 다른는 있습니다. 또한 사용할 수 있는 온-프레미스에서 실행 되는 보안 SMTP 릴레이 서비스가 있을 수 있습니다.
+인증 된 SMTP 릴레이 서비스를 사용 하 여 Azure Vm 또는 Azure App Service에서 전자 메일을 보내는 것이 좋습니다. 이러한 릴레이 서비스는 일반적으로 TCP 포트 587을 통해 연결 되지만 다른 포트를 지원 합니다. 이러한 서비스는 타사 전자 메일 공급자가 메시지를 거부할 가능성을 최소화 하기 위해 IP 또는 도메인 평판을 유지 하는 데 사용 됩니다. [SendGrid](https://sendgrid.com/partners/azure/) 는 이러한 SMTP 릴레이 서비스 이지만 다른는 있습니다. 또한 사용할 수 있는 온-프레미스에서 실행 되는 보안 SMTP 릴레이 서비스가 있을 수 있습니다.
 
 이러한 이메일 배달 서비스를 사용하는 작업은 구독 형식에 상관없이 Azure에서 제한되지 않습니다.
 

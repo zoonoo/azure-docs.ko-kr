@@ -2,15 +2,16 @@
 title: Runbook에서 Azure Automation 업데이트 관리 사용
 description: 이 문서에서는 Runbook에서 업데이트 관리를 사용하도록 설정하는 방법을 설명합니다.
 services: automation
+ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 219efe05b399677c60922542f3d7acd76ca37d26
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95908366"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054892"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Runbook에서 업데이트 관리 사용
 

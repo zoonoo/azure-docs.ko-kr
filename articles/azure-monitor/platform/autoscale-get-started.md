@@ -1,20 +1,20 @@
 ---
 title: Azure에서 자동 크기 조정 시작
-description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신 또는 가상 머신 확장 집합의 크기를 조정하는 방법을 알아봅니다.
+description: Azure에서 리소스 웹 앱, 클라우드 서비스, 가상 머신 또는 가상 머신 확장 집합의 크기를 조정 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: ee36db3f657365036bb68f641be53fd434f1b64b
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 9bbd4da77d2892064906dc7ae272bcc770b6bdc4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694916"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055283"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
 
-Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용됩니다.
+Azure Monitor 자동 크기 조정은 [가상 머신 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/)및 [API Management 서비스](../../api-management/api-management-key-concepts.md)에만 적용 됩니다.
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>구독에서 자동 크기 조정 설정 검색
 
@@ -51,7 +51,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
 
     b. **연산자** 를 **보다 작음** 으로 설정합니다.
 
-    다. **임계값** 을 **20** 으로 설정합니다.
+    c. **임계값** 을 **20** 으로 설정합니다.
 
     d. **작업** 을 **다음을 기준으로 개수 줄이기** 로 설정합니다.
 
@@ -115,36 +115,9 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅 (App Service)
 
-여러 인스턴스로 확장 하는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로만 라우팅할 수 App Service. 이렇게 하려면 App Service 포털을 열고 **모니터링** 아래에서 **상태 확인** 을 선택 합니다. **사용** 을 선택 하 고 응용 프로그램에서 또는와 같은 올바른 URL 경로를 제공 `/health` `/api/health` 합니다. **저장** 을 클릭합니다.
+<a id="health-check-path"></a>
 
-ARM 템플릿을 사용 하 여 기능을 사용 하도록 설정 하려면 `healthcheckpath` 리소스의 속성을 `Microsoft.Web/sites` 사이트의 health check 경로 (예:)로 설정 `"/api/health/"` 합니다. 기능을 사용 하지 않도록 설정 하려면 속성을 다시 빈 문자열인로 설정 `""` 합니다.
-
-### <a name="health-check-path"></a>상태 검사 경로
-
-200에서 299 (포함) 사이의 상태 코드를 사용 하 여 경로가 1 분 이내에 응답 해야 합니다. 경로가 1 분 이내에 응답 하지 않거나 범위 밖의 상태 코드를 반환 하는 경우 인스턴스는 "비정상"으로 간주 됩니다. App Service는 상태 검사 경로에서 30 배 (301, 302, 307, 등) 리디렉션을 따르지 않습니다. 이러한 상태 코드는 **비정상** 으로 간주 됩니다. 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 되며, 이러한 보안 기능을 사용 하는 경우에도 시스템은 끝점에 연결 합니다. 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트에 HTTP **s** 만 사용 하도록 설정 된 경우 http **s** 를 통해 healthcheck 요청이 전송 됩니다.
-
-상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내기 위해 500 수준 응답 코드를 반환 해야 합니다.
-
-#### <a name="security"></a>보안 
-
-대기업의 개발 팀은 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 하는 경우가 많습니다. Healthcheck 끝점을 보호 하려면 먼저 [IP 제한](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램에 대 한 액세스를 제한 해야 합니다. 들어오는 요청의가와 일치 하도록 요구 하 여 healthcheck 끝점 자체의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능에서 요청을 이미 보호 했으므로 User-Agent는 스푸핑 될 수 없습니다.
-
-### <a name="behavior"></a>동작
-
-상태 검사 경로를 제공 하면 App Service는 모든 인스턴스의 경로를 ping 합니다. 5 개의 ping 후에 성공적인 응답 코드를 받지 못한 경우 해당 인스턴스는 "비정상"으로 간주 됩니다. 2 개 이상의 인스턴스로 확장 하 고 [기본 계층](../../app-service/overview-hosting-plans.md) 이상을 사용 하는 경우 부하 분산 장치 순환에서 비정상 인스턴스가 제외 됩니다. 앱 설정을 사용 하 여 필요한 실패 한 ping 수를 구성할 수 있습니다 `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` . 이 앱 설정은 2에서 10 사이의 정수로 설정할 수 있습니다. 예를 들어이가로 설정 된 경우 `2` 두 개의 ping이 실패 하면 부하 분산 장치에서 인스턴스가 제거 됩니다. 또한 확장 또는 App Service 축소 하는 경우에는 상태 검사 경로를 ping 하 여 새 인스턴스가 부하 분산 장치에 추가 되기 전에 요청에 대해 준비 되도록 할 수 있습니다.
-
-> [!NOTE]
-> App Service 요금제는 2 개 이상의 인스턴스로 규모를 확장 해야 하며 부하 분산 장치 제외를 발생 시킬 **기본 계층 이상** 이어야 합니다. 인스턴스가 1 개만 있는 경우 비정상 인 경우에도 부하 분산 장치에서 제거 되지 않습니다. 
-
-또한 확장 작업 중, 수동으로 다시 시작 하거나 SCM 사이트를 통해 코드를 배포 하는 경우와 같이 인스턴스를 추가 하거나 다시 시작할 때 상태 검사 경로를 ping 할 수 있습니다. 이러한 작업 중에 상태 검사가 실패 하는 경우 실패 한 인스턴스는 부하 분산 장치에 추가 되지 않습니다. 이렇게 하면 이러한 작업이 응용 프로그램의 가용성에 부정적인 영향을 주지 않습니다.
-
-Healthcheck를 사용 하는 경우 남아 있는 정상적인 인스턴스의 부하가 증가할 수 있습니다. 나머지 인스턴스가 과도 하 게 사용 되지 않도록 하려면 인스턴스 중 절반이 제외 됩니다. 예를 들어 App Service 계획을 4 개의 인스턴스로 확장 하 고 비정상 상태에서 3 개를 확장 하는 경우 최대 2 개는 loadbalancer 순환에서 제외 됩니다. 다른 두 인스턴스 (정상 및 비정상 1 개)는 계속 해 서 요청을 받습니다. 모든 인스턴스가 비정상 인 최악의 시나리오에서는 none이 제외 됩니다. 이 동작을 재정의 하려면 `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` 앱 설정을 및 사이의 값으로 설정 하면 `0` `100` 됩니다. 이 값을 큰 값으로 설정 하면 더 비정상 인스턴스가 제거 됩니다 (기본값은 50).
-
-1 시간 동안 인스턴스의 모든 앱에 대 한 상태 검사가 실패 하는 경우 인스턴스가 대체 됩니다. 최대 하나의 인스턴스만 시간당 교체 되며 App Service 요금제 당 최대 3 개의 인스턴스가 있습니다.
-
-### <a name="monitoring"></a>모니터링
-
-응용 프로그램의 상태 검사 경로를 제공한 후 Azure Monitor를 사용 하 여 사이트의 상태를 모니터링할 수 있습니다. 포털의 **상태 검사** 블레이드에서 상단 도구 모음에 있는 **메트릭을** 클릭 합니다. 그러면 사이트의 기록 상태를 확인 하 고 새 경고 규칙을 만들 수 있는 새 블레이드가 열립니다. 사이트 모니터링에 대 한 자세한 내용은 [Azure Monitor 가이드를 참조](../../app-service/web-sites-monitor.md)하세요.
+Azure 웹 앱이 여러 인스턴스로 확장 되는 경우 인스턴스에 대 한 상태 검사를 수행 하 여 트래픽을 정상 인스턴스로 라우트할 App Service 있습니다. 자세한 내용은 [App Service 상태 검사에 대 한이 문서](../../app-service/monitor-instances-health-check.md)를 참조 하세요.
 
 ## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
 이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.

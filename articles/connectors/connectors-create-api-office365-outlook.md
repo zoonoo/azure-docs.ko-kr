@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682998"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055079"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "94682998"
 
 트리거를 사용 하 여 워크플로를 시작할 수 있습니다. 예를 들어 새 전자 메일이 도착 하는 경우, 일정 항목이 업데이트 될 때 또는 Salesforce와 같은 차이점 서비스에서 이벤트가 발생 하는 경우를 들 수 있습니다. 트리거 이벤트에 응답 하는 동작 (예: 전자 메일 보내기 또는 새 일정 이벤트 만들기)을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [회사 또는 학교 계정](https://www.office.com/)으로 로그인 하는 Outlook 계정 또는 계정이 있는 경우 @outlook.com @hotmail.com [Outlook.com 커넥터](../connectors/connectors-create-api-outlook.md) 를 대신 사용 합니다. 다른 사용자 계정 (예: 서비스 계정)을 사용 하 여 Outlook에 연결 하려면 [다른 계정을 사용 하 여 연결](#connect-using-other-accounts)을 참조 하세요.
 
@@ -92,17 +92,19 @@ ms.locfileid: "94682998"
 
 ## <a name="connect-using-other-accounts"></a>다른 계정을 사용 하 여 연결
 
-현재 Azure에 로그인 한 계정이 아닌 다른 계정을 사용 하 여 Outlook에 연결을 시도 하는 경우 [SSO (Single Sign-On)](../active-directory/manage-apps/what-is-single-sign-on.md) 오류가 발생할 수 있습니다. 이 문제는 한 계정으로 Azure Portal에 로그인 했지만 다른 계정을 사용 하 여 연결을 만드는 경우에 발생 합니다. 논리 앱 디자이너는 Azure에 로그인 된 계정을 사용 해야 합니다. 이 문제를 해결 하려면 다음 옵션을 선택 합니다.
+현재 Azure에 로그인 한 계정이 아닌 다른 계정을 사용 하 여 Outlook에 연결을 시도 하는 경우 [SSO (Single Sign-On)](../active-directory/manage-apps/what-is-single-sign-on.md) 오류가 발생할 수 있습니다. 이 문제는 한 계정으로 Azure Portal에 로그인 했지만 다른 계정을 사용 하 여 연결을 만드는 경우에 발생 합니다. 디자이너에서 Azure Portal에 로그인 된 계정을 사용할 것으로 예상 합니다. 이 문제를 해결 하려면 다음 옵션을 선택 합니다.
 
-* 다른 계정을 논리 앱의 리소스 그룹에 대 한 **참가자로** 설정 합니다.
+* 논리 앱의 리소스 그룹에서 **참가자** 역할을 사용 하 여 다른 계정을 설정 합니다.
 
-  1. 논리 앱의 리소스 그룹 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. **참가자** 역할을 사용 하 여 다른 계정을 설정 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+  1. 논리 앱의 리소스 그룹 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. **참가자** 역할을 사용 하 여 다른 계정을 설정 합니다. 
+  
+     자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-  1. 회사 또는 학교 계정을 사용 하 여 Azure Portal에 로그인 한 경우 로그 아웃 하 고 다른 계정으로 다시 로그인 합니다. 이제 다른 계정을 사용 하 여 Outlook에 대 한 연결을 만들 수 있습니다.
+  1. 이 역할을 설정한 후에는 현재 참가자 권한이 있는 계정으로 Azure Portal에 로그인 합니다. 이제이 계정을 사용 하 여 Outlook에 대 한 연결을 만들 수 있습니다.
 
 * 회사 또는 학교 계정에 "다른 이름으로 보내기" 권한이 있도록 다른 계정을 설정 합니다.
 
-   관리자 권한이 있는 경우 서비스 계정의 사서함에서 사용 권한 대신 보내기 또는 **보내기** 를 사용 하 여 회사 또는 학교 **계정으로 설정** 합니다. 자세한 내용은 [다른 사용자에 게 사서함 사용 권한 부여-관리자 도움말](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user)을 참조 하십시오. 그런 다음 회사 또는 학교 계정을 사용 하 여 연결을 만들 수 있습니다. 이제 발신자를 지정할 수 있는 트리거 또는 작업에서 서비스 계정의 전자 메일 주소를 사용할 수 있습니다.
+   관리자 권한이 있는 경우 서비스 계정의 사서함에서 회사 또는 학교 계정을 사용 권한 대신 보내기 또는 **보내기** **로 설정** 합니다. 자세한 내용은 [다른 사용자에 게 사서함 사용 권한 부여-관리자 도움말](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user)을 참조 하십시오. 그런 다음 회사 또는 학교 계정을 사용 하 여 연결을 만들 수 있습니다. 이제 발신자를 지정할 수 있는 트리거 또는 작업에서 서비스 계정의 전자 메일 주소를 사용할 수 있습니다.
 
    예를 들어 **전자 메일 보내기** 작업에는 **(다른 이름으로 보내기)의** 선택적 매개 변수가 있습니다 .이 매개 변수를 사용 하 여 작업에 추가 하 고 서비스 계정의 전자 메일 주소를 발신자로 사용할 수 있습니다. 이 매개 변수를 추가 하려면 다음 단계를 수행 합니다.
 

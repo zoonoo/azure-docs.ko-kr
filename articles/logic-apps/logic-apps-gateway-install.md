@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322515"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054774"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -87,17 +87,17 @@ ms.locfileid: "91322515"
 
 1. [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 실행합니다](https://aka.ms/on-premises-data-gateway-installer).
 
-1. 최소 요구 사항을 검토하고, 기본 설치 경로를 유지하고, 사용 약관에 동의한 다음, **설치**를 선택합니다.
+1. 최소 요구 사항을 검토하고, 기본 설치 경로를 유지하고, 사용 약관에 동의한 다음, **설치** 를 선택합니다.
 
    ![요구 사항 검토 및 사용 약관 동의](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
-1. 게이트웨이가 성공적으로 설치되면 Azure 계정에 대한 이메일 주소를 제공한 다음, **로그인**을 선택합니다. 예를 들어 다음과 같습니다.
+1. 게이트웨이가 성공적으로 설치되면 Azure 계정에 대한 이메일 주소를 제공한 다음, **로그인** 을 선택합니다. 예를 들어 다음과 같습니다.
 
    ![회사 또는 학교 계정으로 로그인](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
    게이트웨이 설치는 하나의 Azure 계정에만 연결할 수 있습니다.
 
-1. **이 컴퓨터에 새 게이트웨이를 등록합니다.**  > **다음**을 차례로 선택합니다. 이 단계에서는 게이트웨이 설치를 [게이트웨이 클라우드 서비스](#gateway-cloud-service)에 등록합니다.
+1. **이 컴퓨터에 새 게이트웨이를 등록합니다.**  > **다음** 을 차례로 선택합니다. 이 단계에서는 게이트웨이 설치를 [게이트웨이 클라우드 서비스](#gateway-cloud-service)에 등록합니다.
 
    ![로컬 컴퓨터에서 게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -118,29 +118,35 @@ ms.locfileid: "91322515"
 
    ![게이트웨이 서비스 및 Service Bus에 대한 지역 확인](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
-1. 기본 지역을 그대로 적용하려면 **구성**을 선택합니다. 그러나 기본 지역이 가장 가까운 지역이 아니면 해당 지역을 변경할 수 있습니다.
+1. 기본 지역을 그대로 적용하려면 **구성** 을 선택합니다. 그러나 기본 지역이 가장 가까운 지역이 아니면 해당 지역을 변경할 수 있습니다.
 
    *게이트웨이 설치에 대한 지역을 변경하는 이유는 무엇인가요?*
 
-   예를 들어, 대기 시간을 줄이기 위해 논리 앱과 동일한 지역으로 게이트웨이 지역을 변경할 수 있습니다. 또는 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다. *Azure의 게이트웨이 리소스*와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
+   예를 들어, 대기 시간을 줄이기 위해 논리 앱과 동일한 지역으로 게이트웨이 지역을 변경할 수 있습니다. 또는 온-프레미스 데이터 원본에 가장 가까운 지역을 선택할 수 있습니다. *Azure의 게이트웨이 리소스* 와 논리 앱은 서로 다른 위치에 있을 수 있습니다.
 
-   1. 현재 지역 옆에 있는 **지역 변경**을 선택합니다.
+   1. 현재 지역 옆에 있는 **지역 변경** 을 선택합니다.
 
       ![현재 게이트웨이 지역 변경](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
-   1. 다음 페이지에서 **지역 선택** 목록을 열고, 원하는 지역을 선택한 다음, **완료**를 선택합니다.
+   1. 다음 페이지에서 **지역 선택** 목록을 열고, 원하는 지역을 선택한 다음, **완료** 를 선택합니다.
 
       ![게이트웨이 서비스에 대한 다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. 최종 확인 창에서 정보를 검토합니다. 이 예에서는 동일한 계정을 Logic Apps, Power BI, Power Apps 및 Power Automation에 사용하므로 게이트웨이를 이러한 모든 서비스에 사용할 수 있습니다. 준비가 되면 **닫기**를 선택합니다.
+1. 최종 확인 창에서 정보를 검토합니다. 이 예에서는 동일한 계정을 Logic Apps, Power BI, Power Apps 및 Power Automation에 사용하므로 게이트웨이를 이러한 모든 서비스에 사용할 수 있습니다. 준비가 되면 **닫기** 를 선택합니다.
 
    ![데이터 게이트웨이 정보 확인](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. 이제 [게이트웨이 설치에 대한 Azure 리소스를 만듭니다](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>통신 설정 확인 또는 조정
 
-온-프레미스 데이터 게이트웨이는 클라우드 연결에 대 한 [Azure Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md) 에 의존 하며 게이트웨이의 연결 된 Azure 지역에 해당 하는 아웃 바운드 연결을 설정 합니다. 회사 환경에서 인터넷에 액세스 하기 위해 트래픽이 프록시 또는 방화벽을 통과 해야 하는 경우이 제한으로 인해 온-프레미스 데이터 게이트웨이가 게이트웨이 클라우드 서비스 및 Azure Service Bus 메시징에 연결 하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+온-프레미스 데이터 게이트웨이는 클라우드 연결에 대 한 [Azure Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md) 에 의존 하며 게이트웨이의 연결 된 Azure 지역에 해당 하는 아웃 바운드 연결을 설정 합니다. 회사 환경에서 인터넷에 액세스 하기 위해 트래픽이 프록시 또는 방화벽을 통과 해야 하는 경우이 제한으로 인해 온-프레미스 데이터 게이트웨이가 게이트웨이 클라우드 서비스 및 Azure Service Bus 메시징에 연결 하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다.
+
+Azure에서 온-프레미스 데이터 게이트웨이 리소스를 사용 하 여 온-프레미스 리소스에 액세스 하는 사용자 지정 커넥터를 사용 하는 시나리오를 예로 들 수 있습니다. 특정 IP 주소에 대 한 트래픽을 제한 하는 방화벽을 사용 하는 경우 해당 *관리 커넥터 [아웃 바운드 IP 주소](logic-apps-limits-and-config.md#outbound)* 에 대 한 액세스를 허용 하도록 게이트웨이 설치를 설정 해야 합니다. 동일한 지역의 *모든* 논리 앱은 동일한 IP 주소 범위를 사용합니다.
+
+자세한 내용은 다음 항목을 참조하세요.
 
 * [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](/data-integration/gateway/service-gateway-communication)
 * [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)
@@ -155,7 +161,7 @@ ms.locfileid: "91322515"
 
 * 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
 
-기본 게이트웨이가 설정되면 다른 게이트웨이를 설치할 때 **기존 게이트웨이 클러스터에 추가**를 선택하고, 설치한 첫 번째 게이트웨이인 기본 게이트웨이를 선택하고, 해당 게이트웨이에 대한 복구 키를 제공합니다. 자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)를 참조하세요.
+기본 게이트웨이가 설정되면 다른 게이트웨이를 설치할 때 **기존 게이트웨이 클러스터에 추가** 를 선택하고, 설치한 첫 번째 게이트웨이인 기본 게이트웨이를 선택하고, 해당 게이트웨이에 대한 복구 키를 제공합니다. 자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster)를 참조하세요.
 
 <a name="update-gateway-installation"></a>
 
@@ -171,7 +177,7 @@ ms.locfileid: "91322515"
 
 1. 설치 관리자가 열리면 게이트웨이를 설치하는 데 사용한 것과 동일한 Azure 계정으로 로그인합니다.
 
-1. **기존 게이트웨이 마이그레이션, 복원 또는 인수** > **다음**을 차례로 선택합니다. 예를 들어 다음과 같습니다.
+1. **기존 게이트웨이 마이그레이션, 복원 또는 인수** > **다음** 을 차례로 선택합니다. 예를 들어 다음과 같습니다.
 
    ![Migrate, restore, or takeover an existing gateway(기존 게이트웨이 마이그레이션, 복원 또는 인수) 선택](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -181,7 +187,7 @@ ms.locfileid: "91322515"
 
 1. 지역을 변경하려면 **지역 변경**, 새 지역을 차례로 선택합니다.
 
-1. 준비가 되면 **구성**을 선택하여 작업을 완료합니다.
+1. 준비가 되면 **구성** 을 선택하여 작업을 완료합니다.
 
 ## <a name="tenant-level-administration"></a>테넌트 수준 관리
 

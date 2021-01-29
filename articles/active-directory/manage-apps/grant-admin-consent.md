@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9fd102bad45bf482cb9a9750bf05e862b9c91e8e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659083"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055215"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,7 +25,7 @@ ms.locfileid: "94659083"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "94659083"
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-여기서
+각 항목이 나타내는 의미는 다음과 같습니다.
 
 * `{client-id}` 응용 프로그램의 클라이언트 ID (앱 ID 라고도 함)입니다.
 * `{tenant-id}` 조직의 테 넌 트 ID 또는 확인 된 도메인 이름입니다.
@@ -101,4 +101,4 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 
 [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
-[StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Microsoft Q의 Azure AD&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

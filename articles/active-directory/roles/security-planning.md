@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740808"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055249"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -147,9 +147,10 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 사이버 공격자는 개인 이메일 계정을 정기적으로 피싱합니다. 이 위험으로 인해 개인 이메일 주소는 전역 관리자 계정에 사용할 수 없습니다. 관리자 권한에서 인터넷 위험을 분리하려면 관리자 권한이 있는 각 사용자에 대한 전용 계정을 만듭니다.
 
-* 사용자가 전역 관리자 작업을 수행할 수 있도록 별도의 계정을 만들어야 합니다.
-* 전역 관리자가 실수로 관리자 계정으로 이메일을 열거나 프로그램을 실행하지 않도록 합니다.
-* 이러한 계정의 이메일을 작업 사서함으로 전달해야 합니다.
+* 사용자가 전역 관리자 작업을 수행 하는 별도의 계정을 만들어야 합니다.
+* 전역 관리자가 실수로 메일을 열거나 관리자 계정으로 프로그램을 실행 하지 않는지 확인 합니다.
+* 이러한 계정에 작업 사서함으로 전달된 해당 이메일이 있는지 확인합니다.
+* 전역 관리자 및 기타 권한 있는 그룹 계정은 온-프레미스 Active Directory에 연결 되지 않은 클라우드 전용 계정 이어야 합니다.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>관리 계정의 암호가 최근에 변경되었는지 확인
 

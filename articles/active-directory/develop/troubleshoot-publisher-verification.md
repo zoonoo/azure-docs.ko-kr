@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dd1edc001e51bf20f3ff7745baa520b3844c139b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756192"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054672"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
@@ -149,87 +149,95 @@ HTTP/1.1 200 OK
 
 Microsoft Graph를 사용하여 문제를 해결하거나 앱 등록 포털에서 프로세스를 진행하는 경우 받을 수 있는 잠재적인 오류 코드의 목록은 다음과 같습니다.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-제공한 MPN ID(<MPNID>)가 없거나 이에 액세스할 수 없습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
+제공한 MPN ID(`MPNID`)가 없거나 이에 액세스할 수 없습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
     
 로그인 한 사용자가 파트너 센터에서 MPN 계정에 대 한 적절 한 역할의 멤버가 아닌 경우 가장 일반적으로 발생 하는 항목입니다. 자세한 내용은 [요구 사항](publisher-verification-overview.md#requirements) 역할 목록 및 [일반적인 문제](#common-issues) 를 참조 하세요. 앱이 등록 된 테 넌 트가 MPN 계정에 추가 되지 않았거나 잘못 된 MPN ID로 인해 발생할 수도 있습니다.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-제공한 MPN ID(<MPNID>)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
+제공한 MPN ID(`MPNID`)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
     
 가장 일반적으로는 PLA (파트너 위치 계정)에 해당 하는 MPN ID가 제공 될 때 발생 합니다. 파트너 전역 계정만 지원 됩니다. 자세한 내용은 [파트너 센터 계정 구조](/partner-center/account-structure) 를 참조 하세요.
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-제공한 MPN ID(<MPNID>)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
+제공한 MPN ID(`MPNID`)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
     
 잘못 된 MPN ID가 제공 되는 경우 가장 일반적으로 발생 합니다.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-제공한 MPN ID(<MPNID>)에서 심사 프로세스를 완료하지 않았습니다. 파트너 센터에서 이 프로세스를 완료하고 다시 시도하세요. 
+제공한 MPN ID(`MPNID`)에서 심사 프로세스를 완료하지 않았습니다. 파트너 센터에서 이 프로세스를 완료하고 다시 시도하세요. 
     
 MPN 계정이 [확인](/partner-center/verification-responses) 프로세스를 완료 하지 않은 경우에 가장 일반적으로 발생 합니다.
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-제공한 MPN ID(<MPNID>)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요. 
+제공한 MPN ID(`MPNID`)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요. 
    
 잘못 된 MPN ID가 제공 되는 경우 가장 일반적으로 발생 합니다.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-제공한 MPN ID(<MPNID>)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
+제공한 MPN ID(`MPNID`)가 잘못되었습니다. 유효한 MPN ID를 제공하고 다시 시도하세요.
     
 잘못 된 MPN ID가 제공 되는 경우 가장 일반적으로 발생 합니다.
 
-### <a name="applicationnotfound"></a>ApplicationNotFound  
+### <a name="applicationnotfound"></a>ApplicationNotFound
 
-대상 애플리케이션(<AppId>)을 찾을 수 없습니다. 유효한 애플리케이션 ID를 제공하고 다시 시도하세요.
+대상 애플리케이션(`AppId`)을 찾을 수 없습니다. 유효한 애플리케이션 ID를 제공하고 다시 시도하세요.
     
 가장 일반적으로는 Graph API을 통해 확인을 수행 하 고 제공 된 응용 프로그램의 id가 올바르지 않은 경우에 발생 합니다. 참고-응용 프로그램의 id는 AppId/ClientId가 아니라 제공 되어야 합니다.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-이 기능은 Azure AD B2C 테넌트에서 지원되지 않습니다. 
+이 기능은 Azure AD B2C 테넌트에서 지원되지 않습니다.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-이 기능은 이메일로 확인된 테넌트에서 지원되지 않습니다. 
+이 기능은 이메일로 확인된 테넌트에서 지원되지 않습니다.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-대상 응용 프로그램 ( \<AppId\> )에는 게시자 도메인 집합이 있어야 합니다. 게시자 도메인을 설정하고 다시 시도하세요.
+대상 응용 프로그램 ( `AppId` )에는 게시자 도메인 집합이 있어야 합니다. 게시자 도메인을 설정하고 다시 시도하세요.
 
 앱에서 [게시자 도메인이](howto-configure-publisher-domain.md) 구성 되지 않은 경우에 발생 합니다.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-애플리케이션의 게시자 도메인(<publisherDomain>)이 파트너 센터에서 이메일 확인을 수행하는 데 사용되는 도메인(<pcDomain>)과 일치하지 않습니다. 이러한 도메인이 일치하는지 확인하고 다시 시도하세요. 
+애플리케이션의 게시자 도메인(`publisherDomain`)이 파트너 센터에서 이메일 확인을 수행하는 데 사용되는 도메인(`pcDomain`)과 일치하지 않습니다. 이러한 도메인이 일치하는지 확인하고 다시 시도하세요. 
     
 앱의 [게시자 도메인](howto-configure-publisher-domain.md) 또는 Azure AD 테 넌 트에 추가 된 [사용자 지정 도메인](../fundamentals/add-custom-domain.md) 중 하나가 파트너 센터에서 전자 메일 확인을 수행 하는 데 사용 되는 도메인과 일치 하지 않는 경우에 발생 합니다.
 
-### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher
 
-애플리케이션(<AppId>)에서 확인된 게시자 속성을 설정할 수 있는 권한이 없습니다. 
+응용 프로그램에서 확인 된 게시자 속성을 설정할 수 있는 권한이 없습니다 (<`AppId` ). 
   
 로그인 [한 사용자](#common-issues) 가 Azure AD의 MPN 계정에 대 한 적절 한 역할의 멤버가 아닌 경우 가장 일반적으로 발생 하는 것입니다. 자세한 내용은 사용 가능한 역할 목록은 [요구 사항](publisher-verification-overview.md#requirements) 을 참조 하세요.
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-MPN ID가 요청 본문에 제공되지 않았거나 요청 콘텐츠 형식이 "application/json"이 아닙니다. 
+MPN ID가 요청 본문에 제공되지 않았거나 요청 콘텐츠 형식이 "application/json"이 아닙니다.
 
-### <a name="msanotsupported"></a>MSANotSupported  
+### <a name="msanotsupported"></a>MSANotSupported 
 
 이 기능은 Microsoft 소비자 계정에서 지원되지 않습니다. Azure AD 사용자가 Azure AD에 등록한 애플리케이션만 지원됩니다.
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-앱에 확인 된 게시자를 추가 하기 전에 multi-factor authentication을 수행 하지 않은 경우에 발생 합니다. 자세한 내용은 [일반적인 문제](#common-issues) 를 참조 하세요. 참고: MFA는 확인 된 게시자를 추가 하려고 할 때 동일한 세션에서 수행 해야 합니다. MFA를 사용 하도록 설정 했지만 세션에서 수행할 필요가 없는 경우 요청이 실패 합니다.   
+앱에 확인 된 게시자를 추가 하기 전에 multi-factor authentication을 수행 하지 않은 경우에 발생 합니다. 자세한 내용은 [일반적인 문제](#common-issues) 를 참조 하세요. 참고: MFA는 확인 된 게시자를 추가 하려고 할 때 동일한 세션에서 수행 해야 합니다. MFA를 사용 하도록 설정 했지만 세션에서 수행할 필요가 없는 경우 요청이 실패 합니다. 
 
 표시 되는 오류 메시지는 다음과 같습니다. "관리자의 구성 변경으로 인해 또는 새 위치로 이동 했으므로 계속 하려면 multi-factor authentication을 사용 해야 합니다."
+
+### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
+
+표시 되는 오류 메시지: "확인 된 게시자를이 응용 프로그램에 추가할 수 없습니다. 도움이 필요 하면 관리자에 게 문의 하십시오. "
+
+먼저 [게시자 확인 요구 사항을](publisher-verification-overview.md#requirements)충족 했는지 확인 합니다.
+
+확인 된 게시자를 추가 하 라는 요청이 생성 되 면 보안 위험 평가를 위해 다양 한 신호를 사용 합니다. 요청이 위험한 것으로 확인 되 면 오류가 반환 됩니다. 보안상의 이유로 Microsoft는 요청이 위험한 지 여부를 확인 하는 데 사용 되는 특정 기준을 공개 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

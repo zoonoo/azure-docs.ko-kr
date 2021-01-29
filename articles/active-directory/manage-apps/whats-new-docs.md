@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: bad312b777c57a48c3205de588325d477b5773af
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563401"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054824"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
@@ -90,7 +90,7 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 - [셀프 서비스 애플리케이션 액세스를 사용하는 방법](access-panel-manage-self-service-access.md)
 - [Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결](application-sign-in-other-problem-access-panel.md)
 - [Azure AD에서 암호 기반 Single Sign-On 문제 해결](troubleshoot-password-based-sso.md)
-- [내 앱 배포 Azure Active Directory 계획](access-panel-deployment-plan.md)
+- [내 앱 배포 Azure Active Directory 계획](my-apps-deployment-plan.md)
 - [SSO(Single Sign-On)란?](what-is-single-sign-on.md)
 - [Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.](manage-application-permissions.md)
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성](add-application-portal-configure.md)

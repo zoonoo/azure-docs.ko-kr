@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898514"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055198"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
@@ -53,7 +53,7 @@ Update-AzVM `
 1. 왼쪽 메뉴에서 **Virtual Machines** 을 선택합니다.
 1. 분리할 데이터 디스크가 있는 가상 머신을 선택합니다.
 1. **설정** 아래에서 **디스크** 를 선택합니다.
-1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **X** 삭제 단추를 클릭 합니다.
+1. **디스크** 창에서 분리할 데이터 디스크의 오른쪽 끝에 있는 **X 분리** 단추를 클릭 합니다.
 1. 페이지 맨 위에 있는 **저장** 을 선택하여 변경 내용을 저장합니다.
 
 디스크가 스토리지에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
