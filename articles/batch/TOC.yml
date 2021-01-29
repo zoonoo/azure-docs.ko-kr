@@ -101,13 +101,11 @@
   items:
     - name: Batch 계정 관리
       items:
-        - name: 계정 관리
-          href: batch-manage-account-basics.md
-        - name: 포털을 사용하여 Batch 계정 관리
+        - name: Azure Portal에서 배치 계정 관리
           href: batch-account-create-portal.md
         - name: Batch Management .NET을 사용하여 배치 계정 관리
           href: batch-management-dotnet.md
-        - name: 비용 분석 및 예산
+        - name: 비용 분석 가져오기 및 예산 설정
           href: budget.md
         - name: 배치 계정으로 프라이빗 엔드포인트 사용
           href: private-connectivity.md
@@ -291,16 +289,18 @@
       href: 'https://azure.microsoft.com/updates/'
     - name: Batch 커뮤니티
       href: 'https://github.com/Azure/Batch'
+    - name: Batch Explorer
+      href: 'https://azure.github.io/BatchExplorer/'
     - name: Batch 피드백
       href: 'https://feedback.azure.com/forums/269742-batch'
-    - name: Batch에 대한 Microsoft Q&A 질문 페이지
-      href: /answers/topics/azure-batch.html
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: 블로그
       href: /archive/blogs/windowshpc/
     - name: Azure의 HPC
       href: /azure/architecture/topics/high-performance-computing/
+    - name: Batch에 대한 Microsoft Q&A 질문 페이지
+      href: /answers/topics/azure-batch.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: 요금 계산기

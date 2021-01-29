@@ -10,8 +10,10 @@
 - name: 자습서
   expanded: true
   items:
-    - name: SCIM 엔드포인트 빌드 및 프로비저닝 구성
+    - name: SCIM 엔드포인트에 대한 프로비저닝 계획
       href: use-scim-to-provision-users-and-groups.md
+    - name: 샘플 SCIM 엔드포인트 개발
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: 특성 매핑 사용자 지정
       href: customize-application-attributes.md
     - name: 앱별 프로비저닝 자습서
