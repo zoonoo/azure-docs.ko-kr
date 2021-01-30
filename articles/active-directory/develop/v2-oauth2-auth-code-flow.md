@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756118"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090224"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -48,7 +48,7 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 
 ## <a name="request-an-authorization-code"></a>인증 코드 요청
 
-인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 사용자로부터 `openid`, `offline_access` 및 `https://graph.microsoft.com/mail.read ` 권한을 요청합니다.  예를 들어, `Directory.ReadWrite.All`을 사용하여 조직의 디렉터리에 데이터를 쓰는 것과 같은 일부 권한은 관리자가 제한합니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다. 관리자 제한 범위에 대한 액세스를 요청하려면 회사 관리자에게 직접 요청해야 합니다.  자세한 내용은 [관리자 제한 권한](v2-permissions-and-consent.md#admin-restricted-permissions)을 참조하세요.
+인증 코드 흐름은 클라이언트가 사용자를 `/authorize` 엔드포인트로 보내는 것으로 시작됩니다. 이 요청에서 클라이언트는 사용자로부터 `openid`, `offline_access` 및 `https://graph.microsoft.com/mail.read ` 권한을 요청합니다.  예를 들어, `Directory.ReadWrite.All`을 사용하여 조직의 디렉터리에 데이터를 쓰는 것과 같은 일부 권한은 관리자가 제한합니다. 애플리케이션이 조직 사용자에게 이러한 사용 권한 중 하나에 대한 액세스를 요청하는 경우 사용자에게는 앱의 사용 권한에 동의할 권한이 부여되지 않음을 나타내는 오류 메시지가 표시됩니다. 관리자 제한 범위에 대 한 액세스를 요청 하려면 전역 관리자에 게 직접 요청 해야 합니다.  자세한 내용은 [관리자 제한 권한](v2-permissions-and-consent.md#admin-restricted-permissions)을 참조하세요.
 
 ```
 // Line breaks for legibility only

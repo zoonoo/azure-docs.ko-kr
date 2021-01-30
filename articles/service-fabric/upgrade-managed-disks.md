@@ -3,12 +3,12 @@ title: Azure managed disks를 사용 하도록 클러스터 노드 업그레이�
 description: 클러스터를 거의 또는 전혀 가동 중지 하지 않고 Azure managed disks를 사용 하도록 기존 Service Fabric 클러스터를 업그레이드 하는 방법은 다음과 같습니다.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316152"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090657"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Azure managed disks를 사용 하도록 클러스터 노드 업그레이드
 
@@ -30,11 +30,11 @@ ms.locfileid: "92316152"
 > [!CAUTION]
 > 클러스터 DNS에 종속성이 있는 경우 (예: [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에 액세스할 때)에만이 절차를 중단 합니다. [프런트 엔드 서비스의 아키텍처 모범 사례](/azure/architecture/microservices/design/gateway) 는 중단 없이 노드 교환을 가능 하 게 하기 위해 노드 형식 앞에 일종의 [부하 분산 장치](/azure/architecture/guide/technology-choices/load-balancing-overview) 를 포함 하는 것입니다.
 
-다음은 업그레이드 시나리오를 완료 하는 데 사용 하는 Azure Resource Manager에 대 한 [템플릿 및 cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) 입니다. 템플릿의 변경 내용은 아래 [주 노드 유형의 업그레이드 된 확장 집합 배포](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  에서 설명 합니다.
+다음은 업그레이드 시나리오를 완료 하는 데 사용 하는 Azure Resource Manager에 대 한 [템플릿 및 cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) 입니다. 템플릿의 변경 내용은 아래 [주 노드 유형의 업그레이드 된 확장 집합 배포](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  에서 설명 합니다.
 
 ## <a name="set-up-the-test-cluster"></a>테스트 클러스터 설정
 
-초기 Service Fabric 테스트 클러스터를 설정 해 보겠습니다. 먼저이 시나리오를 완료 하는 데 사용할 Azure Resource Manager 샘플 템플릿을 [다운로드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) 합니다.
+초기 Service Fabric 테스트 클러스터를 설정 해 보겠습니다. 먼저이 시나리오를 완료 하는 데 사용할 Azure Resource Manager 샘플 템플릿을 [다운로드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) 합니다.
 
 다음으로, Azure 계정에 로그인합니다.
 
@@ -62,7 +62,7 @@ $parameterFilePath = "C:\Initial-1NodeType-UnmanagedDisks.parameters.json"
 > [!NOTE]
 > 새 Service Fabric 클러스터를 배포하는 명령을 실행하기 전에 로컬 머신에 `certOutputFolder` 위치가 있는지 확인합니다.
 
-다음으로 파일 [* 에*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) 대 한Initial-1NodeType-UnmanagedDisks.parameters.js를 열고 `clusterName` `dnsName` PowerShell에서 설정한 동적 값에 해당 하는 및에 대 한 값을 조정 하 고 변경 내용을 저장 합니다.
+다음으로 파일 [*에*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) 대 한Initial-1NodeType-UnmanagedDisks.parameters.js를 열고 `clusterName` `dnsName` PowerShell에서 설정한 동적 값에 해당 하는 및에 대 한 값을 조정 하 고 변경 내용을 저장 합니다.
 
 그런 다음, Service Fabric 테스트 클러스트를 배포합니다.
 
@@ -102,7 +102,7 @@ $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourc
 $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
 ```
 
-파일 [* 에서Initial-1NodeType-UnmanagedDisks.parameters.js*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) 을 열고 및의 값을 고유한 값으로 변경 합니다 `clusterName` `dnsName` .
+파일 [*에서Initial-1NodeType-UnmanagedDisks.parameters.js*](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Initial-1NodeType-UnmanagedDisks.parameters.json) 을 열고 및의 값을 고유한 값으로 변경 합니다 `clusterName` `dnsName` .
 
 마지막으로 클러스터에 대 한 리소스 그룹 이름을 지정 하 고 `templateFilePath` `parameterFilePath` *초기-1Nodetype-UnmanagedDisks* 파일의 및 위치를 설정 합니다.
 
@@ -156,7 +156,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>주 노드 유형에 대해 업그레이드 된 확장 집합 배포
 
-노드 유형을 업그레이드 하거나 *수직 확장*하려면 `nodeTypeRef` `subnet` `loadBalancerBackendAddressPools` 원하는 업그레이드/변경 내용 및 별도의 서브넷과 인바운드 NAT 주소 풀을 포함 하는 경우를 제외 하 고는 원래 확장 집합 (동일한, 및에 대 한 참조 포함)과 동일한 해당 노드 형식의 가상 머신 확장 집합의 복사본을 배포 해야 합니다. 주 노드 유형을 업그레이드 하는 중 이므로 새 확장 집합은 원래 확장 집합과 마찬가지로 주 ()로 표시 됩니다 `isPrimary: true` . 주 노드가 아닌 형식 업그레이드의 경우에는이를 생략 하면 됩니다.
+노드 유형을 업그레이드 하거나 *수직 확장* 하려면 `nodeTypeRef` `subnet` `loadBalancerBackendAddressPools` 원하는 업그레이드/변경 내용 및 별도의 서브넷과 인바운드 NAT 주소 풀을 포함 하는 경우를 제외 하 고는 원래 확장 집합 (동일한, 및에 대 한 참조 포함)과 동일한 해당 노드 형식의 가상 머신 확장 집합의 복사본을 배포 해야 합니다. 주 노드 유형을 업그레이드 하는 중 이므로 새 확장 집합은 원래 확장 집합과 마찬가지로 주 ()로 표시 됩니다 `isPrimary: true` . 주 노드가 아닌 형식 업그레이드의 경우에는이를 생략 하면 됩니다.
 
 편의를 위해 *업그레이드-1NodeType-2ScaleSets-ManagedDisks* [템플릿](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) 및 [매개 변수](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) 파일에 필요한 변경 내용이 이미 적용 되었습니다.
 
@@ -205,7 +205,7 @@ Get-ServiceFabricClusterHealth
 }
 ```
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>변수
 
 배포 템플릿 섹션에서 `variables` 새 확장 집합의 인바운드 NAT 주소 풀에 대 한 항목을 추가 합니다.
 
@@ -263,19 +263,19 @@ Get-ServiceFabricClusterHealth
 
 업데이트 된 구성을 배포 하려면 먼저 Key Vault에 저장 된 클러스터 인증서에 대 한 여러 참조를 가져옵니다. 이러한 값을 찾는 가장 쉬운 방법은 Azure Portal을 통하는 것입니다. 다음 도구가 필요합니다.
 
-* **클러스터 인증서의 Key Vault URL입니다.** Azure Portal의 Key Vault에서 **Certificates**  >  *원하는 인증서*  >  **비밀 식별자**를 선택 합니다.
+* **클러스터 인증서의 Key Vault URL입니다.** Azure Portal의 Key Vault에서   >  *원하는 인증서*  >  **비밀 식별자** 를 선택 합니다.
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **클러스터 인증서의 지문입니다.** [초기 클러스터에 연결](#connect-to-the-new-cluster-and-check-health-status) 하 여 상태를 확인할 수 있습니다. Azure Portal의 동일한 인증서 블레이드 (**Certificates**  >  *원하는 인증서*의 인증서)에서 **x.509 sha-1 지문 (16 진수)** 을 복사 합니다.
+* **클러스터 인증서의 지문입니다.** [초기 클러스터에 연결](#connect-to-the-new-cluster-and-check-health-status) 하 여 상태를 확인할 수 있습니다. Azure Portal의 동일한 인증서 블레이드 (  >  *원하는 인증서* 의 인증서)에서 **x.509 sha-1 지문 (16 진수)** 을 복사 합니다.
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
     ```
 
-* **Key Vault의 리소스 ID입니다.** Azure Portal의 Key Vault에서 **속성**  >  **리소스 ID**를 선택 합니다.
+* **Key Vault의 리소스 ID입니다.** Azure Portal의 Key Vault에서 **속성**  >  **리소스 ID** 를 선택 합니다.
 
     ```powershell
     $sourceVaultValue = "/subscriptions/########-####-####-####-############/resourceGroups/sftestupgradegroup/providers/Microsoft.KeyVault/vaults/sftestupgradegroup"
@@ -320,7 +320,7 @@ foreach($name in $nodeNames){
 }
 ```
 
-Service Fabric Explorer를 사용하여 시드 노드를 새 확장 집합으로 마이그레이션하고 원래 확장 집합의 노드 진행을 *사용하지 않도록 설정 중*에서 *사용 안 함* 상태로 모니터링합니다.
+Service Fabric Explorer를 사용하여 시드 노드를 새 확장 집합으로 마이그레이션하고 원래 확장 집합의 노드 진행을 *사용하지 않도록 설정 중* 에서 *사용 안 함* 상태로 모니터링합니다.
 
 ![비활성 노드의 상태를 보여 주는 Service Fabric Explorer](./media/upgrade-managed-disks/service-fabric-explorer-node-status.png)
 
@@ -347,7 +347,7 @@ Service Fabric Explorer에서 제거된 노드(따라서 *Cluster Health State*)
 
 ![오류 상태의 비활성 노드를 보여 주는 Service Fabric Explorer](./media/upgrade-managed-disks/service-fabric-explorer-disabled-nodes-error-state.png)
 
-클러스터 상태를 *정상*상태로 복원 하려면 Service Fabric 클러스터에서 사용 되지 않는 노드를 제거 합니다.
+클러스터 상태를 *정상* 상태로 복원 하려면 Service Fabric 클러스터에서 사용 되지 않는 노드를 제거 합니다.
 
 ```powershell
 # Remove node states for the deleted scale set
@@ -373,6 +373,6 @@ foreach($name in $nodeNames){
 
 참고 항목:
 
-* [샘플: Azure managed disks를 사용 하도록 클러스터 노드 업그레이드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [샘플: Azure managed disks를 사용 하도록 클러스터 노드 업그레이드](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [수직 크기 조정 관련 고려 사항](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

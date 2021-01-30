@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934597"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070664"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -203,12 +203,13 @@ ms.locfileid: "97934597"
 
 7. 경고 만들기 
 
+### <a name="example-email-alert"></a>예제 전자 메일 경고 
+
+> [!div class="mx-imgBorder"]
+> ![전자 메일 경고를 구성 하는 데 필요한 정보를 강조 표시 하는 스크린샷](../media/alert-20.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 축 하 합니다. 이제 모니터링 대시보드를 만들고 key vault에 대 한 경고를 구성 했습니다. 위의 모든 단계를 수행한 후에는 key vault가 구성 된 경고 조건을 충족 하는 경우 전자 메일 경고를 받게 됩니다. 아래에 예제가 나와 있습니다. 이 문서에서 설정한 도구를 사용 하 여 주요 자격 증명 모음의 상태를 적극적으로 모니터링 합니다. 
 
-### <a name="example-email-alert"></a>예제 전자 메일 경고 
 
-> [!div class="mx-imgBorder"]
-> ![전자 메일 경고를 구성 하는 데 필요한 정보를 강조 표시 하는 스크린샷](../media/alert-20.png)

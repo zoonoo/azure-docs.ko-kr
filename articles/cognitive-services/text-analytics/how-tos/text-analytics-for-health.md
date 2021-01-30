@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 01/21/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 8159010486371d619aa14a845050a0eb38aaeda8
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683536"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99088941"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -26,8 +26,8 @@ ms.locfileid: "97683536"
 
 상태에 대 한 Text Analytics는 의료 노트, 방전 요약, 임상 문서 및 전자 상태 레코드와 같은 구조화 되지 않은 텍스트에서 관련 의료 정보를 추출 하 고 레이블 하는 텍스트 분석 API 서비스의 기능입니다.  이 서비스를 활용 하는 방법에는 두 가지가 있습니다. 
 
-* 웹 기반 API (비동기) 
-* Docker 컨테이너 (동기)   
+* [웹 기반 API (비동기)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [Docker 컨테이너 (동기)](#hosted-asynchronous-web-api-response)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 

@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740604"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071269"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
 이 문서에서는 Azure AD (Azure Active Directory)에서 사용자 지정 역할에 부여 된 사용 권한을 사용 하 여 응용 프로그램 관리 요구 사항을 해결 하는 방법을 설명 합니다. Azure AD에서 다음과 같은 방법으로 응용 프로그램 만들기 및 관리 권한을 위임할 수 있습니다.
 
-- [응용 프로그램을 만들고 사용자가](#restrict-who-can-create-applications) 만드는 응용 프로그램을 관리할 수 있는 사용자를 제한 합니다. 기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램 등록을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 이는 사용 권한을 가진 사용자만 허용 하도록 제한할 수 있습니다.
+- [응용 프로그램을 만들고 사용자가](#restrict-who-can-create-applications) 만드는 응용 프로그램을 관리할 수 있는 사용자를 제한 합니다. 기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 이는 사용 권한을 가진 사용자만 허용 하도록 제한할 수 있습니다.
 - [하나 이상의 소유자를 응용 프로그램에 할당](#assign-application-owners)합니다. 이 방법은 사용자에 게 특정 응용 프로그램에 대 한 Azure AD 구성의 모든 측면을 관리할 수 있는 기능을 부여 하는 간단한 방법입니다.
 - 모든 응용 프로그램에 대해 Azure AD에서 구성을 관리 하는 액세스 권한을 부여 하는 [기본 제공 관리 역할을 할당](#assign-built-in-application-admin-roles) 합니다. 응용 프로그램 구성과 관련이 없는 Azure AD의 다른 부분을 관리 하기 위한 액세스 권한을 부여 하지 않고 광범위 한 응용 프로그램 구성 권한을 관리 하기 위해 IT 전문가에 게 액세스 권한을 부여 하는 데 권장 되는 방법입니다.
 - 매우 구체적인 사용 권한을 정의 하 고 사용자에 게 단일 응용 프로그램의 범위를 제한 된 소유자로 할당 하거나 디렉터리 범위 (모든 응용 프로그램)에서 제한 된 관리자로 할당 하 [는 사용자 지정 역할을 만듭니다](#create-and-assign-a-custom-role-preview) .
@@ -34,7 +34,7 @@ ms.locfileid: "98740604"
 
 ## <a name="restrict-who-can-create-applications"></a>응용 프로그램을 만들 수 있는 사용자 제한
 
-기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램 등록을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 또한 누구나 회사 데이터에 액세스 하는 앱에 동의할 수 있습니다. 전역 스위치를 ' 아니요 '로 설정 하 고 선택한 사용자를 응용 프로그램 개발자 역할에 추가 하 여 해당 권한을 선택적으로 부여 하도록 선택할 수 있습니다.
+기본적으로 Azure AD에서는 모든 사용자가 응용 프로그램을 등록 하 고 자신이 만든 응용 프로그램의 모든 측면을 관리할 수 있습니다. 또한 누구나 회사 데이터에 액세스 하는 앱에 동의할 수 있습니다. 전역 스위치를 ' 아니요 '로 설정 하 고 선택한 사용자를 응용 프로그램 개발자 역할에 추가 하 여 해당 권한을 선택적으로 부여 하도록 선택할 수 있습니다.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>응용 프로그램 등록을 만들거나 응용 프로그램에 동의할 수 있는 기본 기능을 사용 하지 않도록 설정 하려면
 

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664047"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071718"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
-Azure digital 쌍 솔루션에서 환경의 엔터티는 azure **digital 쌍** 로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프** 를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
+Azure digital 쌍 솔루션에서 환경의 엔터티는 **디지털** 쌍으로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프** 를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
 
 > [!TIP]
 > "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.

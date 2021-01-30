@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 0f7c97e5d84b3ee2d40c714625d0158fe60f2c95
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 520d572478074a86c9b5cececacd34d7cd41539d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986076"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071616"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -402,6 +402,15 @@ Azure Resource Manager에 대한 액세스를 구성하려면 다음 목록을 �
 | Azure Government | `https://database.usgovcloudapi.net/` | ![사용 가능][check] |
 | Azure Germany | `https://database.cloudapi.de/` | ![사용 가능][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![사용 가능][check] |
+
+### <a name="azure-data-explorer"></a>Azure Data Explorer
+
+| 클라우드 | 리소스 ID | 상태 |
+|--------|------------|:-:|
+| Azure 글로벌 | `https://<account>.<region>.kusto.windows.net` | ![사용 가능][check] |
+| Azure Government | `https://<account>.<region>.kusto.usgovcloudapi.net` | ![사용 가능][check] |
+| Azure Germany | `https://<account>.<region>.kusto.cloudapi.de` | ![사용 가능][check] |
+| Azure China 21Vianet | `https://<account>.<region>.kusto.chinacloudapi.cn` | ![사용 가능][check] |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 

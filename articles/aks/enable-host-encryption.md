@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 호스트 기반 
 services: container-service
 ms.topic: article
 ms.date: 01/27/2021
-ms.openlocfilehash: 1d071305b457cddde56a11982e08c9331e1d5463
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ac28c698a766f1f3febaff582038906f658d58dd
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919651"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071853"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service)의 호스트 기반 암호화 (미리 보기)
 
@@ -23,39 +23,9 @@ ms.locfileid: "98919651"
 > [!NOTE]
 > 호스트 기반 암호화는 azure [지역][supported-regions] 에서 사용할 수 있으며, azure 관리 디스크의 서버 쪽 암호화와 지원 되는 특정 [VM 크기만][supported-sizes]지원 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
-- `aks-preview`CLI 확장 v 0.4.73 이상을 설치 했는지 확인 합니다.
-- `EnableEncryptionAtHostPreview`사용 아래에 기능 플래그가 있는지 확인 `Microsoft.ContainerService` 합니다.
-
-호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독에 사용하도록 설정된 기능을 가져오려면 구독 ID를 사용하여 이메일을 encryptionAtHost@microsoft .com에 보냅니다.
-
-### <a name="register-encryptionathost--preview-features"></a>`EncryptionAtHost`미리 보기 기능 등록
-
-> [!IMPORTANT]
-> encryptionAtHost@microsoft계산 리소스에 대해 사용 하도록 설정 된 기능을 얻으려면 구독 id로 .com을 전자 메일로 보내야 합니다. 이러한 리소스에 대해 스스로를 사용 하도록 설정할 수 없습니다. 컨테이너 서비스에서 직접 사용 하도록 설정할 수 있습니다.
-
-호스트 기반 암호화를 사용 하는 AKS 클러스터를 만들려면 `EncryptionAtHost` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
-
-`EncryptionAtHost`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 기능 플래그를 등록 합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHost"
-```
-
-상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHost')].{Name:name,State:properties.state}"
-```
-
-준비가 되 면 `Microsoft.ContainerService` `Microsoft.Compute` [az provider register][az-provider-register] 명령을 사용 하 여 및 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+- `aks-preview`CLI 확장 v 0.4.73 이상 버전이 설치 되어 있는지 확인 합니다.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
 
@@ -77,23 +47,23 @@ az extension update --name aks-preview
 
 ## <a name="use-host-based-encryption-on-new-clusters-preview"></a>새 클러스터에서 호스트 기반 암호화 사용 (미리 보기)
 
-클러스터를 만들 때 호스트 기반 암호화를 사용 하도록 클러스터 에이전트 노드를 구성 합니다. 플래그를 사용 `--aks-custom-headers` 하 여 헤더를 설정 합니다 `EnableEncryptionAtHost` .
+클러스터를 만들 때 호스트 기반 암호화를 사용 하도록 클러스터 에이전트 노드를 구성 합니다. 
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-호스트 기반 암호화를 사용 하지 않고 클러스터를 만들려는 경우 사용자 지정 매개 변수를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` .
+호스트 기반 암호화를 사용 하지 않고 클러스터를 만들려는 경우 매개 변수를 생략 하 여이 작업을 수행할 수 있습니다 `--enable-encryption-at-host` .
 
 ## <a name="use-host-based-encryption-on-existing-clusters-preview"></a>기존 클러스터에서 호스트 기반 암호화 사용 (미리 보기)
 
-클러스터에 새 노드 풀을 추가 하 여 기존 클러스터에서 호스트 기반 암호화를 사용 하도록 설정할 수 있습니다. 플래그를 사용 하 여 호스트 기반 암호화를 사용 하도록 새 노드 풀을 구성 `--aks-custom-headers` 합니다.
+클러스터에 새 노드 풀을 추가 하 여 기존 클러스터에서 호스트 기반 암호화를 사용 하도록 설정할 수 있습니다. 매개 변수를 사용 하 여 호스트 기반 암호화를 사용 하도록 새 노드 풀을 구성 `--enable-encryption-at-host` 합니다.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-호스트 기반 암호화 기능 없이 새 노드 풀을 만들려면 사용자 지정 매개 변수를 생략 하 여 그렇게 할 수 있습니다 `--aks-custom-headers` .
+호스트 기반 암호화 기능 없이 새 노드 풀을 만들려면 매개 변수를 생략 하 여 그렇게 할 수 있습니다 `--enable-encryption-at-host` .
 
 ## <a name="next-steps"></a>다음 단계
 

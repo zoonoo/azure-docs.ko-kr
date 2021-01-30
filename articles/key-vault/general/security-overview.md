@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937763"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071571"
 ---
-# <a name="azure-key-vault-security-overview"></a>Azure Key Vault 보안 개요
+# <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
 Azure Key Vault를 사용 하 여 클라우드에서 인증서, 연결 문자열, 암호 등의 암호화 키와 암호를 보호 합니다. 중요 한 중요 한 데이터를 저장 하는 경우 자격 증명 모음 및 저장소에 저장 된 데이터의 보안을 최대화 하는 단계를 수행 해야 합니다.
 
-이 문서에서는 보안 기능 및 Azure Key Vault에 대 한 모범 사례에 대 한 개요를 제공 합니다. [Azure 보안 벤치 마크](../../security/benchmarks/introduction.md)를 기준으로 하는 포괄적인 권장 사항 목록은 [Azure Key Vault의 보안 기준](security-baseline.md)을 참조 하세요.
+이 문서에서는 보안 기능 및 Azure Key Vault에 대 한 모범 사례에 대 한 개요를 제공 합니다. 
 
-## <a name="general-guidance"></a>일반 지침
-
-환경 별로 응용 프로그램당 자격 증명 모음을 사용 하는 것이 좋습니다 (개발, 프로덕션 전 및 프로덕션). 이를 통해 환경에서 비밀을 공유 하지 않으며 위반 시 위협이 줄어듭니다.
+> [!NOTE]
+> Azure Key Vault 보안 권장 사항에 대 한 포괄적인 목록은 [Azure Key Vault의 보안 기준](security-baseline.md)을 참조 하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -109,20 +108,9 @@ Azure Key Vault 일시 삭제 및 보호 제거를 사용 하면 삭제 된 자�
 
 또한 자격 증명 모음 내에서 개체의 업데이트/삭제/만들기에 대 한 자격 증명 모음을 정기적으로 백업 해야 합니다.  
 
-Azure PowerShell 백업 명령:
-
-* [인증서 백업](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [백업 키](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [백업 비밀](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Azure CLI 백업 명령
-
-* [인증서 백업](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [백업 키](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [백업 비밀](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>다음 단계
 
+- [Azure Key Vault 보안 기준](security-baseline.md)
+- [Azure Key Vault 모범 사례](security-baseline.md)
 - [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
 - [Azure RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)

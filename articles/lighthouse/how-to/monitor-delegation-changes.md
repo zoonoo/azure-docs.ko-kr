@@ -1,14 +1,14 @@
 ---
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936110"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089423"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -16,10 +16,12 @@ ms.locfileid: "97936110"
 
 테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
 
-이 항목에서는 모든 고객에 대 한 위임 작업을 테 넌 트에 모니터링 하는 데 필요한 사용 권한 및이를 위한 모범 사례에 대해 설명 합니다. 또한이 데이터를 쿼리하고 보고 하는 한 가지 방법을 보여 주는 예제 스크립트도 제공 합니다.
+이 항목에서는 모든 고객에 대해 위임 작업을 테 넌 트에 모니터링 하는 데 필요한 권한을 설명 합니다. 또한이 데이터를 쿼리하고 보고 하는 한 가지 방법을 보여 주는 예제 스크립트도 제공 합니다.
 
 > [!IMPORTANT]
 > 이러한 모든 단계는 고객 테 넌 트가 아닌 관리 테 넌 트에서 수행 해야 합니다.
+>
+> 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용할 수 있습니다.
 
 ## <a name="enable-access-to-tenant-level-data"></a>테 넌 트 수준 데이터에 대 한 액세스 사용
 
@@ -33,24 +35,12 @@ ms.locfileid: "97936110"
 
 액세스 권한을 상승 한 후에는 사용자 계정에 Azure의 루트 범위에 대 한 사용자 액세스 관리자 역할이 있습니다. 이 역할 할당을 통해 모든 리소스를 보고, 디렉터리의 모든 구독 또는 관리 그룹에 대 한 액세스 권한을 할당 하 고, 루트 범위에서 역할을 할당 하는 작업을 수행할 수 있습니다.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>새 서비스 사용자 계정을 만들어 테 넌 트 수준 데이터에 액세스
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>루트 범위에서 모니터링 읽기 권한자 역할 할당
 
 액세스 권한을 상승 시킨 후에는 테 넌 트 수준 활동 로그 데이터를 쿼리할 수 있도록 계정에 적절 한 사용 권한을 할당할 수 있습니다. 이 계정에는 관리 테 넌 트의 루트 범위에서 할당 된 [모니터링 판독기](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure 기본 제공 역할이 있어야 합니다.
 
 > [!IMPORTANT]
-> 루트 범위에서 역할 할당을 부여 하는 것은 테 넌 트의 모든 리소스에 동일한 권한이 적용 됨을 의미 합니다.
-
-이는 광범위 한 액세스 이기 때문에 개별 사용자나 그룹이 아닌 서비스 주체 계정에이 역할을 할당 하는 것이 좋습니다.
-
- 또한 다음과 같은 모범 사례를 따르는 것이 좋습니다.
-
-- 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
-- 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
-- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) 하 고 [Azure Key Vault에 안전](../../key-vault/general/security-overview.md)하 게 저장 합니다.
-- 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
-
-> [!NOTE]
-> 또한 루트 범위에 있는 모니터링 판독기 Azure 기본 제공 역할을 개별 사용자 또는 사용자 그룹에 할당할 수 있습니다. 사용자가 [Azure Portal에서 직접 위임 정보를 볼](#view-delegation-changes-in-the-azure-portal)수 있도록 하려는 경우에 유용할 수 있습니다. 이 작업을 수행 하는 경우 가능한 사용자 수로 제한 해야 하는 광범위 한 액세스 권한이 있어야 합니다.
+> 루트 범위에서 역할 할당을 부여 하는 것은 테 넌 트의 모든 리소스에 동일한 권한이 적용 됨을 의미 합니다. 이는 광범위 한 액세스 이기 때문에 [서비스 주체 계정에이 역할을 할당 하 고 해당 계정을 사용 하 여 데이터를 쿼리](#use-a-service-principal-account-to-query-the-activity-log)하는 것이 좋습니다. 또한 루트 범위에서 개별 사용자 또는 사용자 그룹에 대 한 모니터링 읽기 권한자 역할을 할당 하 여 [Azure Portal에서 직접 위임 정보를 볼](#view-delegation-changes-in-the-azure-portal)수 있습니다. 이 작업을 수행 하는 경우 가능한 사용자 수로 제한 해야 하는 광범위 한 액세스 권한이 있어야 합니다.
 
 다음 방법 중 하나를 사용 하 여 루트 범위를 할당 합니다.
 
@@ -59,7 +49,7 @@ ms.locfileid: "97936110"
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>Azure CLI
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>전역 관리자 계정에 대 한 관리자 권한 액세스 제거
 
-서비스 주체 계정을 만들고 루트 범위에서 모니터링 독자 역할을 할당 한 후에는이 액세스 수준이 더 이상 필요 하지 않으므로 전역 관리자 계정에 대 한 [관리자 권한 액세스를 제거](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) 해야 합니다.
+루트 범위에서 원하는 계정으로 모니터링 읽기 권한자 역할을 할당 한 후에는이 액세스 수준이 더 이상 필요 하지 않으므로 전역 관리자 계정에 대 한 [관리자 액세스 권한을 제거](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) 해야 합니다.
 
-## <a name="query-the-activity-log"></a>활동 로그 쿼리
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Azure Portal에서 위임 변경 내용 보기
+
+루트 범위에서 모니터링 독자 역할이 할당 된 사용자는 Azure Portal에서 직접 위임 변경 내용을 볼 수 있습니다.
+
+1. **내 고객** 페이지로 이동한 다음 왼쪽 탐색 메뉴에서 **활동 로그** 를 선택 합니다.
+1. 화면 위쪽의 필터에서 **디렉터리 작업** 이 선택 되어 있는지 확인 합니다.
+
+위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류** 및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Azure Portal에서 위임 변경의 스크린샷":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>서비스 사용자 계정을 사용 하 여 활동 로그 쿼리
+
+루트 범위의 모니터링 판독기 역할은 광범위 한 액세스 권한 이므로 서비스 사용자 계정에 역할을 할당 하 고 아래 스크립트를 사용 하 여 해당 계정을 사용 하 여 데이터를 쿼리할 수 있습니다.
+
+> [!IMPORTANT]
+> 현재이 데이터를 쿼리할 때 많은 양의 위임 작업을 포함 하는 테 넌 트가 오류가 발생할 수 있습니다.
+
+서비스 사용자 계정을 사용 하 여 활동 로그를 쿼리 하는 경우 다음과 같은 모범 사례를 따르는 것이 좋습니다.
+
+- 다른 자동화에 사용 되는 기존 서비스 사용자에 게이 역할을 할당 하는 대신이 기능에만 사용할 [새 서비스 사용자 계정을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md) .
+- 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
+- [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) 하 고 [Azure Key Vault에 안전](../../key-vault/general/security-overview.md)하 게 저장 합니다.
+- 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
 
 관리 테 넌 트의 루트 범위에 대 한 액세스를 모니터링 하는 새 서비스 사용자 계정을 만든 후 테 넌 트의 위임 작업을 쿼리하고 보고 하는 데 사용할 수 있습니다.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용할 수 있습니다.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Azure Portal에서 위임 변경 내용 보기
-
-루트 범위에서 모니터링 판독기 Azure 기본 제공 역할이 할당 된 사용자는 Azure Portal에서 직접 위임 변경 내용을 볼 수 있습니다.
-
-1. **내 고객** 페이지로 이동한 다음 왼쪽 탐색 메뉴에서 **활동 로그** 를 선택 합니다.
-1. 화면 위쪽의 필터에서 **디렉터리 작업** 이 선택 되어 있는지 확인 합니다.
-
-위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류** 및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

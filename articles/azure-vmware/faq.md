@@ -2,13 +2,13 @@
 title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
-ms.date: 1/14/2021
-ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 1/27/2021
+ms.openlocfilehash: 3ef3d1b9e6fc76b5f09acf8c300dbea901b4aef2
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062090"
+ms.locfileid: "99072271"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -79,6 +79,12 @@ Azure는 Azure VMware 솔루션을 인터넷에 노출 하지 않도록 하기 �
 
 ### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>기존 Express 경로 게이트웨이를 Azure VMware 솔루션에 연결 하는 데 사용할 수 있나요?
 예. 가상 네트워크 당 4 개의 Express 경로 회로 제한을 초과 하지 않는 한 기존 Express 경로 게이트웨이를 사용 하 여 Azure VMware 솔루션에 연결 합니다. Express 경로를 통해 온-프레미스에서 Azure VMware 솔루션에 액세스 하려면 Express 경로 게이트웨이가 연결 된 회로 간에 전이적 라우팅을 제공 하지 않으므로 Express 경로 Global Reach 있어야 합니다.
+
+### <a name="why-does-azure-vmware-solution-use-a-public-4-byte-autonomous-system-number-asn"></a>Azure VMware 솔루션이 공용 ASN (자치 시스템 번호)을 사용 하는 이유는 무엇 인가요?
+Azure VMware 솔루션은 공식적으로 등록 된 공용 4 바이트 ASNs를 사용 하 여 Azure VMware 솔루션에 대 한 고객의 라우팅 경로에서 개인 ASNs의 온-프레미스 사용과 충돌 하지 않도록 합니다.
+ 
+### <a name="how-can-i-use-expressroute-to-connect-to-azure-vmware-solution-if-the-on-premises-expressroute-carrier-partnersisps-dont-support-4-byte-asn"></a>온-프레미스 Express 경로-캐리어 파트너/Isp에서 4 바이트 ASN을 지원 하지 않는 경우 Express 경로를 사용 하 여 Azure VMware 솔루션에 연결 하는 방법
+Express 경로를 통해 Azure VMware 솔루션에 연결 하는 유일한 방법은 사용자 환경에 적합 하 고 온-프레미스 Express 경로-캐리어 파트너/Isp는 4 바이트 ASN을 지원 하거나 BGP 접두사 ASN 경로 알림에서 4 바이트에서 2 바이트 ASN으로의 이전 버전과의 호환성을 갖습니다.
 
 ## <a name="compute-network-storage-and-backup"></a>계산, 네트워크, 저장소 및 백업
 

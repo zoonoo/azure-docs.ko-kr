@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881789"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070647"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 이 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .
+
+`Publish-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
+
+- **경로**: 게시할 패키지의 위치
+- **ResourceGroupName**: 저장소 계정이 있는 리소스 그룹의 이름입니다.
+- **Storageaccountname**: 패키지를 게시 해야 하는 저장소 계정의 이름입니다.
+- **Storagecontainername 선언을 찾아**: (기본값: *guestconfiguration*) 저장소 계정의 저장소 컨테이너 이름
+- **Force**: 저장소 계정에서 이름이 같은 기존 패키지를 덮어씁니다.
+
+아래 예제에서는 패키지를 저장소 컨테이너 이름 ' guestconfiguration '에 게시 합니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName

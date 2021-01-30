@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/26/2021
 ms.author: yohaddad
-ms.openlocfilehash: 7384b902e1bde46c55bcfa30b2aa46122445b05e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7873a1b9fa8a404285f39736a4e6ba758fbf22b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877512"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089210"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
@@ -1578,7 +1578,7 @@ ms.locfileid: "98877512"
 | 해당 없음 | [4014511] |5월 .NET 비보안 롤업 |2.63 |2017년 5월 9일 |
 | 해당 없음 | [4014514] |5월 .NET 비보안 롤업 |2.63 |2017년 5월 9일 |
 | 해당 없음 | [4019216] |5월 비보안 롤업 |3.50 |2017년 5월 9일 |
-| 해당 없음 | [4014503] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
+| 해당 없음 | 4014503 |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
 | 해당 없음 | [4014506] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
 | 해당 없음 | [4014509] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
 | 해당 없음 | [4014513] |5월 .NET 비보안 롤업 |3.50 |2017년 5월 9일 |
@@ -2327,7 +2327,6 @@ ms.locfileid: "98877512"
 [4014511]: https://support.microsoft.com/kb/4014511
 [4014514]: https://support.microsoft.com/kb/4014514
 [4019216]: https://support.microsoft.com/kb/4019216
-[4014503]: https://support.microsoft.com/kb/4014503
 [4014506]: https://support.microsoft.com/kb/4014506
 [4014509]: https://support.microsoft.com/kb/4014509
 [4014513]: https://support.microsoft.com/kb/4014513
@@ -2679,7 +2678,7 @@ ms.locfileid: "98877512"
 [3035126]: https://support.microsoft.com/kb/3035126
 
 [3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
+[3057110]:https://mskb.pkisolutions.com/kb/3057110
 [3046002]:https://support.microsoft.com/kb/3046002
 [3057134]:https://support.microsoft.com/kb/3057134
 [3055642]:https://support.microsoft.com/kb/3055642
@@ -2689,7 +2688,7 @@ ms.locfileid: "98877512"
 [3051768]:https://support.microsoft.com/kb/3051768
 [3061518]:https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
+[3038314]:https://web.archive.org/web/20180920122209/https:/support.microsoft.com/en-us/help/3038314/ms15-032-cumulative-security-update-for-internet-explorer-april-14-201
 [3042553]:https://support.microsoft.com/kb/3042553
 [3046306]:https://support.microsoft.com/kb/3046306
 [3046269]:https://support.microsoft.com/kb/3046269

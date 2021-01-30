@@ -1,6 +1,6 @@
 ---
-title: Azure Blob storage 모니터링 | Microsoft Docs
-description: Azure Blob storage의 성능 및 가용성을 모니터링 하는 방법에 대해 알아봅니다. Azure Blob storage 데이터를 모니터링 하 고, 구성에 대해 알아보고, 메트릭 및 로그 데이터를 분석 합니다.
+title: 모니터링 Azure Blob Storage | Microsoft Docs
+description: Azure Blob Storage의 성능 및 가용성을 모니터링 하는 방법에 대해 알아봅니다. Azure Blob Storage 데이터를 모니터링 하 고, 구성에 대해 알아보고, 메트릭 및 로그 데이터를 분석 합니다.
 author: normesta
 services: storage
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 9224d02e36dbca96d3e54946330d3135ff811829
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590769"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071667"
 ---
-# <a name="monitoring-azure-blob-storage"></a>Azure Blob storage 모니터링
+# <a name="monitoring-azure-blob-storage"></a>모니터링 Azure Blob Storage
 
-Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Blob storage에 의해 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터에 대 한 경고를 분석 하는 방법을 설명 합니다.
+Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Blob Storage에서 생성 되는 모니터링 데이터 및 Azure Monitor의 기능을 사용 하 여이 데이터에 대 한 경고를 분석 하는 방법을 설명 합니다.
 
 > [!NOTE]
 > Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
@@ -28,7 +28,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 각 Blob storage 리소스에 대 한 Azure Portal의 **개요** 페이지에는 요청 및 시간당 청구와 같은 리소스 사용에 대 한 간략 한 보기가 포함 되어 있습니다. 이 정보는 유용하지만, 사용할 수 있는 모니터링 데이터의 양이 적습니다. 이러한 데이터 중 일부는 자동으로 수집 되며, 리소스를 만드는 즉시 분석에 사용할 수 있습니다. 약간의 구성을 통해 추가적인 데이터 수집 형식을 사용할 수 있습니다.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
-Azure Blob storage는 Azure의 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다. 
+Azure Blob Storage는 Azure에서 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다. 
 
 다음을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md) 문서를 시작 합니다.
 
@@ -42,9 +42,9 @@ Azure Blob storage는 Azure의 전체 스택 모니터링 서비스인 [Azure Mo
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Azure Blob storage는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)에 설명 되어 있습니다. 
+Azure Blob Storage는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)에 설명 되어 있습니다. 
 
-Azure Blob storage에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure blob storage 모니터링 데이터 참조](monitor-blob-storage-reference.md) 를 참조 하세요.
+Azure Blob Storage에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md) 를 참조 하세요.
 
 Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계정만 지원합니다. Azure Monitor는 클래식 스토리지 계정을 지원하지 않습니다. 클래식 스토리지 계정에서 메트릭 또는 로그를 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](../../virtual-machines/migration-classic-resource-manager-overview.md)을 참조하세요.
 
@@ -56,7 +56,7 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 리소스 로그를 수집 하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 로그를 사용 하도록 설정 하려는 저장소 유형으로 **blob** 을 선택 합니다. 그런 다음 로그를 수집 하려는 작업의 다음 범주 중 하나를 지정 합니다. 
 
-| 범주 | Description |
+| Category | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
@@ -279,12 +279,12 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 Azure Storage에서 지원하는 차원의 전체 목록은 [메트릭 차원](monitor-blob-storage-reference.md#metrics-dimensions)을 참조하세요.
 
-Azure Blob 저장소에 대 한 메트릭은 다음 네임 스페이스에 있습니다. 
+Azure Blob Storage에 대 한 메트릭은 다음 네임 스페이스에 있습니다. 
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
-Azure Blob storage를 포함 하는 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 Azure Monitor 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
+Azure Blob Storage를 포함 하는 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 메트릭 Azure Monitor](../../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
 
 
 ### <a name="accessing-metrics"></a>메트릭 액세스
@@ -483,7 +483,7 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 리소스 로그는 스토리지 계정의 BLOB으로, 이벤트 데이터로 또는 로그 분석 쿼리를 통해 액세스할 수 있습니다.
 
-이러한 로그에 표시 되는 필드에 대 한 자세한 내용은 [Azure Blob storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)를 참조 하세요.
+이러한 로그에 표시 되는 필드에 대 한 자세한 내용은 [데이터 참조 Azure Blob Storage 모니터링](monitor-blob-storage-reference.md)을 참조 하세요.
 
 > [!NOTE]
 > Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 BLOB(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블, 범용 v1의 프리미엄 스토리지 계정, 범용 v2 스토리지 계정에 로그를 사용할 수 있습니다. 클래식 스토리지 계정은 지원되지 않습니다.
@@ -601,6 +601,6 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Blob storage에서 만든 로그 및 메트릭에 대 한 참조는 [Azure blob storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)를 참조 하세요.
+- Azure Blob Storage에서 만든 로그 및 메트릭에 대 한 참조는 [Azure Blob Storage 모니터링 데이터 참조](monitor-blob-storage-reference.md)를 참조 하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용한 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
 - 메트릭 마이그레이션에 대한 자세한 내용은 [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)을 참조하세요.
