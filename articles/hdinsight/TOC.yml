@@ -278,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Azure Policy 기본 제공 기능
+          href: ./policy-reference.md
     - name: 리소스
       items:
         - name: 릴리스

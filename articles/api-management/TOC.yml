@@ -64,6 +64,8 @@
           href: api-management-error-handling-policies.md
     - name: 보안
       items:
+        - name: Azure Policy의 보안 컨트롤
+          href: ./security-controls-policy.md
         - name: 보안 기준
           href: security-baseline.md
     - name: Subscriptions

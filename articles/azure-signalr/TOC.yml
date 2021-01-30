@@ -86,6 +86,8 @@
       items:
         - name: 보안 기준
           href: security-baseline.md
+        - name: Azure Policy의 보안 컨트롤
+          href: ./security-controls-policy.md
 - name: 방법 가이드
   items:
     - name: 확장

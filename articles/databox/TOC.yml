@@ -76,6 +76,8 @@
               items:
                 - name: 보안 기준
                   href: security-baseline.md
+                - name: Azure Policy의 보안 컨트롤
+                  href: ./security-controls-policy.md
                 - name: 보안 검토
                   href: data-box-security.md
             - name: ACL 및 메타데이터 전송

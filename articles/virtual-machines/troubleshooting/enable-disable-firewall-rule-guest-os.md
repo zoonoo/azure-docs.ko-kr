@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058769"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092371"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Azure VM 게스트 OS에서 방화벽 규칙 사용 또는 사용 안 함
 
@@ -95,9 +95,9 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
 #### <a name="mitigation-4-remote-registry"></a>해결 방법 4: 원격 레지스트리
 
-VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 액세스할 수 있는 경우 다른 VM에서 [원격 레지스트리](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)를 사용할 수 있습니다.
+VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 액세스할 수 있는 경우 다른 VM에서 [원격 레지스트리](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837)를 사용할 수 있습니다.
 
-1.  문제 해결 VM에서 레지스트리 편집기 (regedit.exe)를 시작 하 고 **파일**  >  **연결 네트워크 레지스트리**를 선택 합니다.
+1.  문제 해결 VM에서 레지스트리 편집기 (regedit.exe)를 시작 하 고 **파일**  >  **연결 네트워크 레지스트리** 를 선택 합니다.
 
 2.  *대상 컴퓨터*\SYSTEM branch를 열고 다음 값을 지정 합니다.
 
@@ -105,7 +105,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
     
-        그런 다음, 문자열에서 **Active=FALSE**를 **Active=TRUE**로 변경합니다.
+        그런 다음, 문자열에서 **Active=FALSE** 를 **Active=TRUE** 로 변경합니다.
 
         `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
     
@@ -113,7 +113,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        그런 다음, **Active =TRUE**를 **Active=FALSE**로 변경합니다.
+        그런 다음, **Active =TRUE** 를 **Active=FALSE** 로 변경합니다.
         
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
@@ -142,7 +142,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 7.  \windows\system32\config\SYSTEM 파일을 찾아 엽니다. 
 
     > [!Note]
-    > 이름을 묻는 메시지가 표시됩니다. **BROKENSYSTEM**를 입력 한 다음 **HKEY_LOCAL_MACHINE**를 확장 합니다. 이제 이름이 **BROKENSYSTEM**인 추가 키가 표시 됩니다. 이 문제 해결을 위해 이러한 문제 하이브를 **BROKENSYSTEM**으로 탑재 합니다.
+    > 이름을 묻는 메시지가 표시됩니다. **BROKENSYSTEM** 를 입력 한 다음 **HKEY_LOCAL_MACHINE** 를 확장 합니다. 이제 이름이 **BROKENSYSTEM** 인 추가 키가 표시 됩니다. 이 문제 해결을 위해 이러한 문제 하이브를 **BROKENSYSTEM** 으로 탑재 합니다.
 
 8.  BROKENSYSTEM 분기에서 다음과 같이 변경합니다.
 
@@ -152,7 +152,7 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
     
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
-        그런 다음, **Active=FALSE**를 **Active=True**로 변경합니다.
+        그런 다음, **Active=FALSE** 를 **Active=True** 로 변경합니다.
         
         `v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
@@ -160,11 +160,11 @@ VM이 온라인 상태이고 동일한 가상 네트워크의 다른 VM에서 �
 
         HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
-        그런 다음, **Active=True**를 **Active=FALSE**로 변경합니다.
+        그런 다음, **Active=True** 를 **Active=FALSE** 로 변경합니다.
         
         `v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|`
 
-9.  **BROKENSYSTEM**를 강조 표시 한 다음 **File**  >  메뉴에서 파일**언로드 Hive** 를 선택 합니다.
+9.  **BROKENSYSTEM** 를 강조 표시 한 다음   >  메뉴에서 파일 **언로드 Hive** 를 선택 합니다.
 
 10. [시스템 디스크를 분리하고 VM을 다시 만듭니다](troubleshoot-recovery-disks-portal-windows.md).
 

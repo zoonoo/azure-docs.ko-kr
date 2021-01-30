@@ -1742,7 +1742,7 @@
         - name: 여러 VM 백업
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: 복원 옵션
-          href: ../backup/backup-azure-arm-restore-vms.md
+          href: /azure/backup/backup-azure-arm-restore-vms
         - name: 지원 매트릭스
           href: ../backup/backup-support-matrix-iaas.md
         - name: 가격 책정

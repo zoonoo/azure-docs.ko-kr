@@ -43,9 +43,11 @@
   items:
     - name: 기본 개념
       href: basic-concepts.md
+    - name: 모범 사례
+      href: best-practices.md
     - name: 보안
       items:
-        - name: 보안 개요
+        - name: 개요
           href: security-overview.md
         - name: Key vault에 대한 액세스 보안
           href: secure-your-key-vault.md
@@ -170,7 +172,7 @@
       href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault-index?view=azure-python
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
