@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 99fd79fb6c51f577d9b62d15ac006b068a685bcf
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 04ee4ccc3b0553d6532869d6403000fdedd93b5f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756549"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062714"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -32,20 +32,17 @@ ms.locfileid: "98756549"
 
 이러한 작업을 수행 하는 방법을 고객에 게 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)을 참조 하세요.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>다음 단계
-
-자세히 알아보는 데 도움이 되는 몇 가지 링크는 다음과 같습니다.
+## <a name="code-samples"></a>코드 샘플
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-- 빠른 시작: [응용 프로그램의 id를 사용 하 여 콘솔 앱에서 토큰을 획득 하 고 MICROSOFT GRAPH API를 호출](./quickstart-v2-netcore-daemon.md)합니다.
 - 참조 설명서:
   - [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)인스턴스화.
   - [AcquireTokenForClient](/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)를 호출 합니다.
 - 기타 샘플/자습서:
-  - [microsoft-](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) --platform-디먼 기능 Microsoft Graph 쿼리 하는 테 넌 트의 사용자를 표시 하는 간단한 .net Core 디먼 콘솔 응용 프로그램입니다.
+  - [microsoft-](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) --platform-디먼 기능 Microsoft Graph 쿼리 하는 테 넌 트의 사용자를 표시 하는 작은 .net Core 디먼 콘솔 응용 프로그램입니다.
 
     ![샘플 디먼 앱 토폴로지](media/scenario-daemon-app/daemon-app-sample.svg)
 
@@ -57,12 +54,18 @@ ms.locfileid: "98756549"
 
     ![토폴로지](media/scenario-daemon-app/damon-app-sample-web.svg)
 
+---
+
+## <a name="next-steps"></a>다음 단계
+
+자세히 알아보는 데 도움이 되는 몇 가지 링크는 다음과 같습니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 [응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-python-daemon.md)합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Msal Java dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)을 참조 하세요.
+퀵 스타트에서 [토큰 획득을 시도 하 고 앱의 id를 사용 하 여 Java 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-java-daemon.md)합니다.
 
 ---

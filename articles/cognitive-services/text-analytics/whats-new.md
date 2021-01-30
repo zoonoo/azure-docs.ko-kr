@@ -8,19 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652849"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090674"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+
+## <a name="january-2021"></a>2021년 1월
+
+* 에서 `2021-01-15` 제공 하는 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3. x에 대 한 모델 버전 
+  * [몇 가지 일반 엔터티 범주](named-entity-types.md)에 대 한 확장 된 언어 지원 
+  * 지원 되는 모든 v3 언어에 대 한 일반 엔터티 범주의 향상 된 AI 품질 
+
+* `2021-01-05` [언어 검색](how-tos/text-analytics-how-to-language-detection.md)에 대 한 모델 버전으로, 추가 [언어 지원을](language-support.md?tabs=language-detection)제공 합니다.
 
 ## <a name="december-2020"></a>2020년 12월
 
@@ -66,7 +74,7 @@ ms.locfileid: "97652849"
 ### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
 
 다음 업데이트는 상태 컨테이너에 대 한 Text Analytics 9 월 릴리스에만 적용 됩니다.
-* 새 모델 버전의 태그가 포함 된 새 컨테이너 이미지가 `1.1.013530001-amd64-preview` `2020-09-03` containerpreview 리포지토리로 릴리스 되었습니다. 
+* 새 모델 버전의 태그가 있는 새 컨테이너 이미지가 `1.1.013530001-amd64-preview` `2020-09-03` 컨테이너 미리 보기 리포지토리에 릴리스 되었습니다. 
 * 이 모델 버전은 엔터티 인식, 약어 검색 및 대기 시간 향상의 향상 된 기능을 제공 합니다.
 
 > [!div class="nextstepaction"]
@@ -237,7 +245,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [텍스트 분석 API란?](overview.md)  
+* [텍스트 분석 API 이란?](overview.md)  
 * [사용자 시나리오 예](text-analytics-user-scenarios.md)
 * [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [언어 감지](how-tos/text-analytics-how-to-language-detection.md)

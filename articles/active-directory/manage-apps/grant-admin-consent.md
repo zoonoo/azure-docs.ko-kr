@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fd102bad45bf482cb9a9750bf05e862b9c91e8e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055215"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089956"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -27,7 +27,7 @@ ms.locfileid: "99055215"
 
 ## <a name="prerequisites"></a>전제 조건
 
-테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 로그인 해야 합니다.
+테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
 > [!IMPORTANT]
 > 응용 프로그램에 테 넌 트 전체 관리자 동의가 부여 되 면 사용자 할당을 요구 하도록 구성 되지 않은 한 모든 사용자가 앱에 로그인 할 수 있습니다. 응용 프로그램에 로그인 할 수 있는 사용자를 제한 하려면 사용자 할당을 요구 하 고 응용 프로그램에 사용자 또는 그룹을 할당 합니다. 자세한 내용은 [사용자 및 그룹을 할당하는 메서드](./assign-user-or-group-access-portal.md)를 참조하세요.
@@ -47,7 +47,7 @@ ms.locfileid: "99055215"
 
 **엔터프라이즈 응용 프로그램** 에 나열 된 앱에 대 한 테 넌 트 전체 관리자 동의를 부여 하려면:
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 2. **Azure Active Directory** 다음 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 3. 테 넌 트 전체 관리자 동의를 부여 하려는 응용 프로그램을 선택 합니다.
 4. **권한** 을 선택 하 고 **관리자 동의 부여** 를 클릭 합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "99055215"
 
 **앱 등록** 에서 테 넌 트 전체 관리자 동의를 부여 하려면 다음을 수행 합니다.
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 2. **Azure Active Directory** 선택한 다음 **앱 등록** 합니다.
 3. 테 넌 트 전체 관리자 동의를 부여 하려는 응용 프로그램을 선택 합니다.
 4. **API 권한** 을 선택한 다음 **관리자 동의 부여** 를 클릭 합니다.

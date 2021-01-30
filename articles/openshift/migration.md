@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: 마이그레이션, aro, openshift, red hat
-ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9bfc924581d5dbe33c7c2683a0f6083cb2abc23
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469748"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071038"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
 
@@ -75,11 +75,11 @@ az aro create \
 
 사용자가 Azure Red Hat OpenShift와 상호 작용 하려면 먼저 클러스터에 인증 해야 합니다. 인증 계층은 Azure Red Hat OpenShift API에 대 한 요청과 연결 된 사용자를 식별 합니다. 그러면 권한 부여 계층에서 요청 하는 사용자에 대 한 정보를 사용 하 여 요청이 허용 되는지 확인 합니다.
 
-Azure Red Hat OpenShift 4 클러스터가 만들어지면 임시 관리자가 만들어집니다. [클러스터에 연결](tutorial-connect-cluster.md)하 고, 사용자 및 그룹을 추가 하 고, 둘 다에 대 한 [적절 한 권한을 구성](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) 합니다.
+Azure Red Hat OpenShift 4 클러스터가 만들어지면 임시 관리자가 만들어집니다. [클러스터에 연결](tutorial-connect-cluster.md)하 고, 사용자 및 그룹을 추가 하 고, 둘 다에 대 한 [적절 한 권한을 구성](https://docs.openshift.com/container-platform/4.6/authentication/understanding-authentication.html) 합니다.
 
 ### <a name="networking"></a>네트워킹
 
-Azure Red Hat OpenShift 4는 클러스터에서 네트워크를 설정 하는 데 [클러스터 네트워크 운영자](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [DNS 연산자](https://docs.openshift.com/aro/4/networking/dns-operator.html)및 [수신 운영자](https://docs.openshift.com/aro/4/networking/ingress-operator.html)와 같은 몇 가지 연산자를 사용 합니다. Azure Red Hat OpenShift 4 클러스터에서 네트워킹을 설정 하는 방법에 대 한 자세한 내용은 [네트워킹 다이어그램](concepts-networking.md) 및 [네트워킹 이해](https://docs.openshift.com/aro/4/networking/understanding-networking.html)를 참조 하세요.
+Azure Red Hat OpenShift 4는 클러스터에서 네트워크를 설정 하는 데 [클러스터 네트워크 운영자](https://docs.openshift.com/container-platform/4.6/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [DNS 연산자](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html)및 [수신 운영자](https://docs.openshift.com/container-platform/4.6/networking/ingress-operator.html)와 같은 몇 가지 연산자를 사용 합니다. Azure Red Hat OpenShift 4 클러스터에서 네트워킹을 설정 하는 방법에 대 한 자세한 내용은 [네트워킹 다이어그램](concepts-networking.md) 및 [네트워킹 이해](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html)를 참조 하세요.
 
 ### <a name="storage"></a>스토리지
 Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원 합니다.
@@ -98,13 +98,13 @@ Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원 합
 
 ### <a name="registry"></a>레지스트리
 
-Azure Red Hat OpenShift 4는 소스 코드에서 이미지를 빌드하고, 배포 하 고, 해당 수명 주기를 관리할 수 있습니다. 이를 사용 하도록 설정 하기 위해 Azure Red Hat OpenShift는 Azure Red Hat OpenShift 환경에 배포 하 여 이미지를 로컬로 관리할 수 있는 4 개의 [내부 통합 컨테이너 이미지 레지스트리](https://docs.openshift.com/aro/4/registry/registry-options.html) 를 제공 합니다.
+Azure Red Hat OpenShift 4는 소스 코드에서 이미지를 빌드하고, 배포 하 고, 해당 수명 주기를 관리할 수 있습니다. 이를 사용 하도록 설정 하기 위해 Azure Red Hat OpenShift는 Azure Red Hat OpenShift 환경에 배포 하 여 이미지를 로컬로 관리할 수 있는 4 개의 [내부 통합 컨테이너 이미지 레지스트리](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) 를 제공 합니다.
 
-[Azure Container Registry](../container-registry/index.yml), [red hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
+[Azure Container Registry](../container-registry/index.yml), [red hat](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
 
 ### <a name="monitoring"></a>모니터링
 
-Azure Red Hat OpenShift에는 프로메테우스 오픈 소스 프로젝트 및 더 광범위 한 에코 시스템을 기반으로 하는 미리 구성 되 고 사전 설치 된 자동 업데이트 모니터링 스택이 포함 됩니다. 클러스터 구성 요소에 대 한 모니터링을 제공 하며, 발생 하는 문제와 Grafana 대시보드의 집합에 대해 클러스터 관리자에 게 즉시 알리기 위한 경고 집합을 포함 합니다. 클러스터 모니터링 스택은 Azure Red Hat OpenShift 클러스터 모니터링에만 지원 됩니다. 자세한 내용은 [Azure Red Hat OpenShift에 대 한 클러스터 모니터링](https://docs.openshift.com/aro/4/monitoring/cluster_monitoring/about-cluster-monitoring.html)을 참조 하세요.
+Azure Red Hat OpenShift에는 프로메테우스 오픈 소스 프로젝트 및 더 광범위 한 에코 시스템을 기반으로 하는 미리 구성 되 고 사전 설치 된 자동 업데이트 모니터링 스택이 포함 됩니다. 클러스터 구성 요소에 대 한 모니터링을 제공 하며, 발생 하는 문제와 Grafana 대시보드의 집합에 대해 클러스터 관리자에 게 즉시 알리기 위한 경고 집합을 포함 합니다. 클러스터 모니터링 스택은 Azure Red Hat OpenShift 클러스터 모니터링에만 지원 됩니다. 자세한 내용은 [Azure Red Hat OpenShift에 대 한 클러스터 모니터링](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html)을 참조 하세요.
 
 [Azure Red Hat openshift 3.11 용 컨테이너에 Azure Monitor](../azure-monitor/insights/container-insights-azure-redhat-setup.md)를 사용한 경우 [Azure Red hat openshift 4 클러스터](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) 의 컨테이너에 대해 Azure Monitor을 사용 하도록 설정 하 고 동일한 Log Analytics 작업 영역을 계속 사용할 수도 있습니다.
 
@@ -127,4 +127,4 @@ az openshift delete --name $CLUSTER_NAME
                     [--yes]
 ```
 ## <a name="next-steps"></a>다음 단계
-Red Hat이 제공 하는 Azure Red Hat OpenShift 설명서를 [여기](https://docs.openshift.com/aro/4/welcome/index.html)에서 확인 하세요.
+[여기](https://docs.openshift.com/container-platform/4.6/welcome/index.html)에서 Red Hat openshift 설명서를 확인 하세요.

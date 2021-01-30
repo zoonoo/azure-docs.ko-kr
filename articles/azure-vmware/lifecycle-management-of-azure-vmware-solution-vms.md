@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: ff1032900fa936895f3adfcb0d8a872f24948aca
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326814"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062899"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -81,13 +81,13 @@ Azure Security Center는 배포가 필요 하지 않습니다. 자세한 내용�
 
 Azure Arc는 azure 관리를 Azure VMware 솔루션, 온-프레미스 또는 기타 클라우드 플랫폼을 비롯 한 모든 인프라로 확장 합니다.
 
-- 여러 Windows 또는 Linux Vm에 대 한 Azure Arc 사용 서버를 사용 하려면 [하이브리드 컴퓨터를 azure에 연결](../azure-arc/servers/onboard-service-principal.md) 을 참조 하세요.
+- 여러 Windows 또는 Linux Vm에 대해 Azure Arc 사용 서버를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [대규모 azure에 하이브리드 컴퓨터 연결](../azure-arc/servers/onboard-service-principal.md)을 참조 하세요.
 
 ### <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Arc enabled Kubernetes를 사용 하 여 하이브리드 Kubernetes 클러스터 등록
 
 Azure Arc enabled Kubernetes를 사용 하 여 Azure VMware 솔루션 환경에서 호스트 되는 Kubernetes 클러스터를 연결할 수 있습니다. 
 
-- [Azure Arc 사용 온 보 딩 서비스 주체 만들기](../azure-arc/kubernetes/create-onboarding-service-principal.md)를 참조 하세요.
+- 자세한 내용은 [Azure Arc 사용 온 보 딩 서비스 주체 만들기](../azure-arc/kubernetes/create-onboarding-service-principal.md)를 참조 하세요.
 
 ### <a name="deploy-the-log-analytics-agent"></a>Log Analytics 에이전트 배포
 

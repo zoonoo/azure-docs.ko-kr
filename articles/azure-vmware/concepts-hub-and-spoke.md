@@ -3,12 +3,12 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포를 통합 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901388"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062748"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -76,7 +76,7 @@ Express 경로 게이트웨이는 연결 된 회로 간에 전이적 라우팅�
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="허브 가상 네트워크 트래픽 흐름에 대 한 Azure VMware 솔루션" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-Azure vmware 솔루션 네트워킹 및 연결 개념에 대 한 자세한 내용은 [Azure Vmware 솔루션 제품 설명서](./concepts-networking.md)에서 확인할 수 있습니다.
+Azure VMware 솔루션 네트워킹 및 연결 개념에 대 한 자세한 내용은 [Azure Vmware 솔루션 제품 설명서](./concepts-networking.md)를 참조 하세요.
 
 ### <a name="traffic-segmentation"></a>트래픽 조각화
 
@@ -103,7 +103,7 @@ Azure vmware 솔루션 네트워킹 및 연결 개념에 대 한 자세한 내�
 
 Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔루션 Vm에서 실행 되는 웹 앱을 사용 하 여 테스트 되었습니다. Application Gateway는 현재 Azure VMware 솔루션 Vm에서 실행 되는 웹 앱을 인터넷에 노출 하는 유일한 지원 방법입니다. 또한 앱을 내부 사용자에 게 안전 하 게 노출할 수 있습니다.
 
-세부 정보 및 요구 사항은 [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) 에서 Azure VMware 솔루션 관련 문서를 검토 합니다.
+자세한 내용은 [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md)에서 Azure VMware 솔루션 관련 문서를 참조 하세요.
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="네트워크 보안 그룹을 사용 하는 두 번째 트래픽 조각화 수준" border="false":::
 

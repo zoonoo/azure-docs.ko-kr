@@ -12,12 +12,12 @@ ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd2bd67774eb55051e55e4433984c0fd1fda5240
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3bf9ffeb8da8e877a27ab8758572b2c8277146d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755580"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090318"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 서명 키 롤오버
 이 문서에서는 Microsoft id 플랫폼에서 보안 토큰에 서명 하는 데 사용 되는 공개 키에 대해 알아야 할 사항을 설명 합니다. 이러한 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있다는 점에 유의 해야 합니다. Microsoft id 플랫폼을 사용 하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
@@ -297,7 +297,7 @@ WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록
 
 구성을 업데이트하기 위해 FedUtil을 사용하는 지침:
 
-1. Visual Studio 2008 또는 2010의 개발 컴퓨터에 WIF v1.0 SDK가 설치되어 있는지 확인합니다. 아직 설치되어 있지 않은 경우 [여기에서 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=4451) 할 수 있습니다.
+1. Visual Studio 2008 또는 2010의 개발 컴퓨터에 WIF v1.0 SDK가 설치되어 있는지 확인합니다. 아직 설치되어 있지 않은 경우 [여기에서 다운로드](https://www.softpedia.com/get/Programming/Other-Programming-Files/Windows-Identity-Foundation-SDK.shtml) 할 수 있습니다.
 2. Visual Studio에서 솔루션을 연 다음 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **페더레이션 메타데이터 업데이트** 를 선택합니다. 이 옵션을 사용할 수 없는 경우 FedUtil 및/또는 WIF v1.0 SDK가 설치되지 않은 것입니다.
 3. 표시된 메시지에서 **업데이트** 를 선택하여 페더레이션 메타데이터 업데이트를 시작합니다. 애플리케이션이 호스팅되는 서버 환경에 대한 액세스 권한이 있는 경우 필요에 따라 FedUtil의 [자동 메타데이터 업데이트 스케줄러](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))를 사용할 수 있습니다.
 4. **마침** 을 클릭하여 업데이트 프로세스를 완료합니다.

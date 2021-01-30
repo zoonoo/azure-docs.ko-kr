@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a3474d62a28ea8c2214a9da5d517c679ba976130
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736274"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090403"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure PowerShell
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [AzCopy v10의 최신 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드 합니다.
 - [Azure PowerShell 모듈을 설치](/powershell/azure/install-Az-ps)합니다.
 - 온-프레미스에서 VHD를 업로드 하려는 경우: [Azure에 대해 준비](prepare-for-upload-vhd-image.md)된 고정 크기 VHD는 로컬에 저장 됩니다.
 - 또는 복사 작업을 수행 하려는 경우 Azure에서 관리 되는 디스크입니다.
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 GUI를 통해 디스크를 업로드 하는 것을 선호 하는 경우 Azure Storage 탐색기를 사용 하 여이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Storage 탐색기를 사용 하 여 Azure managed disks 관리](../disks-use-storage-explorer-managed-disks.md) 를 참조 하세요.
 
@@ -49,7 +49,7 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 ,을 (를) 바꾼 `<yourdiskname>` `<yourresourcegroupname>` `<yourregion>` 후 다음 명령을 실행 합니다.
 
 > [!TIP]
-> OS 디스크를 만드는 경우에는-HyperVGeneration ' '를 추가 <yourGeneration> `New-AzDiskConfig` 합니다.
+> OS 디스크를 만드는 경우 `-HyperVGeneration '<yourGeneration>'` 를에 추가 `New-AzDiskConfig` 합니다.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 25515c29ae3e5623b447232ed6f935a668a58c3a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658488"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090072"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 
@@ -35,7 +35,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 * **AADSTS90093:** &lt;clientAppDisplayName&gt;은 사용 권한이 부여되지 않은 하나 이상의 사용 권한을 요청합니다. 사용자 대신 이 애플리케이션에 동의할 수 있는 관리자에게 문의합니다.
 * **AADSTS90094:** &lt;clientAppDisplayName&gt;에는 관리자만 권한을 부여할 수 있는 조직의 리소스에 대한 액세스 권한이 필요합니다. 이 앱을 사용하려면 먼저 관리자에게 앱의 사용 권한을 부여하도록 요청하세요.
 
-이 오류는 회사 관리자가 아닌 사용자가 관리자만이 부여할 수 있는 사용 권한을 요청하는 애플리케이션을 사용하려고 할 때 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
+이 오류는 전역 관리자가 아닌 사용자가 관리자만 부여할 수 있는 권한을 요청 하는 응용 프로그램을 사용 하려고 할 때 발생 합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
 
 이 오류는 Microsoft가 권한 요청을 위험한 것으로 검색 하 여 사용자가 응용 프로그램에 동의 하지 못하도록 하는 경우에도 발생할 수 있습니다. 이 경우 감사 이벤트는 "ApplicationManagement" 범주, "응용 프로그램에 대 한 동의"의 활동 유형 및 "위험한 응용 프로그램 검색 됨" 상태 이유에도 기록 됩니다.
 
@@ -44,7 +44,7 @@ Azure Active Directory와 통합되는 많은 애플리케이션을 작동시키
 ## <a name="policy-prevents-granting-permissions-error"></a>사용 권한 부여를 방지하는 정책 오류
 * **AADSTS90093:**&lt;tenantDisplayName&gt;의 관리자는 사용 권한이 요청하는 &lt;앱의 이름&gt;을 부여하지 못하도록 방지하는 정책을 설정했습니다. 사용자 대신 이 앱에 대한 권한을 부여할 수 있는 &lt;tenantDisplayName&gt;의 관리자에게 문의하세요.
 
-회사 관리자가 애플리케이션에 대해 동의하는 사용자의 기능을 해제한 다음, 관리자가 아닌 사용자가 동의를 필요로 하는 애플리케이션을 사용하려는 경우에 이 오류가 발생합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
+이 오류는 전역 관리자가 응용 프로그램에 동의할 수 있는 기능을 해제 한 다음 관리자가 아닌 사용자가 동의를 필요로 하는 응용 프로그램을 사용 하려고 시도 하는 경우에 발생 합니다. 해당 조직을 대신하여 애플리케이션에 대한 액세스 권한을 부여하는 관리자가 이 오류를 해결할 수 있습니다.
 
 ## <a name="intermittent-problem-error"></a>일시적인 문제 오류
 * **AADSTS90090:** 로그인 프로세스에서 &lt;clientAppDisplayName&gt;에 부여하려고 한 권한을 기록하는 일시적인 문제가 발생했습니다. 나중에 다시 시도하세요.

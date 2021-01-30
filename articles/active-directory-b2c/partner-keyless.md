@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702957"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090369"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 키가 없는 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "98702957"
 
 ![키가 없는 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-keyless/keyless-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 로그인/등록을 선택 하 고 사용자 이름을 입력 합니다.
 | 2. | 응용 프로그램은 id 확인을 위해 Azure AD B2C 사용자 특성을 보냅니다.
@@ -85,11 +85,11 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
    |속성 | 값 |
    |:-----| :-----------|
-   | 이름   | 키가 없는 |
-   | 메타데이터 URL | 호스트 된 키가 없는 인증 앱의 URI와 그 뒤에 특정 경로를 삽입 합니다. https://keyless.auth/.well-known/openid-configuration |
+   | 이름   | Keyless |
+   | 메타데이터 URL | 호스트 된 키가 없는 인증 앱의 URI 뒤에 ' '과 같은 특정 경로를 삽입 합니다. https://keyless.auth/.well-known/openid-configuration |
    | 클라이언트 암호 | 키가 없는 인증 인스턴스와 연결 된 비밀입니다. 이전에 구성 된 것과 동일 하지 않습니다. 선택한 복합 문자열을 삽입 합니다. 이 비밀은 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
    | 클라이언트 ID | 클라이언트의 ID입니다. 이 ID는 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
-   | 범위 | openid |
+   | Scope | openid |
    | 응답 형식 | id_token |
    | 응답 모드 | form_post|
 
@@ -99,7 +99,7 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
 5. 양식을 작성 하 여 Id 공급자를 매핑합니다.
 
-   |속성 | Value |
+   |속성 | 값 |
    |:-----| :-----------|
    | UserID    | 원본 구독 |
    | 표시 이름 | 원본 구독 |
@@ -147,7 +147,7 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
    b. 회신 URL: 리디렉션 URL을 선택 합니다.
 
-   다. 사용자 흐름 실행을 선택합니다.
+   c. 사용자 흐름 실행을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 

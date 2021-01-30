@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756047"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090190"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
@@ -164,7 +164,7 @@ Microsoft 리소스의 일부 높은 권한 권한은 *관리 제한* 으로 설
 
 관리자 동의 끝점을 사용 하 여 관리자 동의를 부여 하면 작업이 완료 된 것입니다. 사용자는 추가 작업을 수행할 필요가 없습니다. 관리자 동의가 부여 되 면 사용자는 일반적인 인증 흐름을 통해 액세스 토큰을 가져올 수 있습니다. 결과 액세스 토큰에는 동의한 권한이 있습니다.
 
-회사 관리자가 응용 프로그램을 사용 하 고 권한 부여 끝점으로 전송 되는 경우 Microsoft id 플랫폼에서 사용자의 역할을 검색 합니다. 회사 관리자가 요청한 사용 권한에 대해 전체 테 넌 트를 대신 하 여 동의할 지 묻는 메시지를 표시 합니다. 대신 전용 관리자 동의 끝점을 사용 하 여 전체 테 넌 트를 대신 하 여 권한을 부여 하도록 관리자에 게 사전에 요청할 수 있습니다. 이 끝점은 응용 프로그램 사용 권한을 요청 하는 데에도 필요 합니다. 권한 부여 끝점을 사용 하 여 응용 프로그램 사용 권한을 요청할 수 없습니다.
+전역 관리자가 응용 프로그램을 사용 하 고 권한 부여 끝점으로 전송 되는 경우 Microsoft id 플랫폼에서 사용자의 역할을 검색 합니다. 전역 관리자가 요청 된 권한에 대해 전체 테 넌 트를 대신 하 여 동의할 지 묻는 메시지를 표시 합니다. 대신 전용 관리자 동의 끝점을 사용 하 여 전체 테 넌 트를 대신 하 여 권한을 부여 하도록 관리자에 게 사전에 요청할 수 있습니다. 이 끝점은 응용 프로그램 사용 권한을 요청 하는 데에도 필요 합니다. 권한 부여 끝점을 사용 하 여 응용 프로그램 사용 권한을 요청할 수 없습니다.
 
 다음 단계를 따르는 경우 앱은 관리 제한 범위를 포함하여 테넌트의 모든 사용자에 대한 사용 권한을 요청할 수 있습니다. 이 작업은 높은 권한입니다. 시나리오에 필요한 경우에만 작업을 사용 합니다.
 

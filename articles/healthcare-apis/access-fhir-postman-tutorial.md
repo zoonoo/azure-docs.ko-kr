@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.openlocfilehash: b0acfbf9636c2ad1df7df3197a0a1a83ec91b5c3
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145653"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99081813"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Postman을 사용하여 Azure API for FHIR 액세스
 
@@ -32,7 +32,7 @@ Postman을 사용하기 위해 다음 정보가 필요합니다.
 
 - 사용자의 FHIR 서버 URL(예: `https://MYACCOUNT.azurehealthcareapis.com`)
 - FHIR 서버에 대한 ID 공급자 `Authority`(예: `https://login.microsoftonline.com/{TENANT-ID}`)
-- 구성된 `audience`. 이는 일반적으로 FHIR 서버의 URL입니다(예: `https://MYACCOUNT.azurehealthcareapis.com` 또는 `https://azurehealthcareapis.com`).
+- 구성된 `audience`. 이는 일반적으로 FHIR 서버의 URL (예: 또는) `https://<FHIR-SERVER-NAME>.azurehealthcareapis.com` `https://azurehealthcareapis.com` 입니다.
 - FHIR 서비스에 액세스하는 데 사용할 [클라이언트 애플리케이션](register-confidential-azure-ad-client-app.md)의 `client_id`(또는 애플리케이션 ID).
 - 클라이언트 애플리케이션의 `client_secret`(또는 애플리케이션 비밀).
 

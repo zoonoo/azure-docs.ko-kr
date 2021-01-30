@@ -3,12 +3,12 @@ title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: adc40db493c701a21fd30d10a4452edee1b87ab9
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951272"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062916"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -36,8 +36,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기** 를 선택 합니다.
 
-[!div class="mx-imgBorder"]
-![필수 필드에 값을 입력 하 고 "검토 + 만들기"를 선택 합니다.](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![필수 필드에 값을 입력 하 고 "검토 + 만들기"를 선택 합니다.](./media/create-new-resource/review-create.png)
 
 앱이 만들어지면 새 창이 열립니다. 이 창에는 모니터링 되는 응용 프로그램에 대 한 성능 및 사용 데이터가 표시 됩니다. 
 

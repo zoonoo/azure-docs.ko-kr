@@ -3,19 +3,17 @@ title: 인덱서의 필드 매핑
 titleSuffix: Azure Cognitive Search
 description: 필드 이름과 데이터 표현의 차이를 고려 하 여 인덱서에 필드 매핑을 구성 합니다.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358935"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063182"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -46,7 +44,7 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 > [!NOTE]
 > 필드 매핑이 추가 되지 않은 경우 인덱서는 데이터 원본 필드가 동일한 이름의 인덱스 필드에 매핑되어야 한다고 가정 합니다. 필드 매핑을 추가 하면 원본 및 대상 필드에 대 한 기본 필드 매핑이 제거 됩니다. [Blob 저장소 인덱서와](search-howto-indexing-azure-blob-storage.md)같은 일부 인덱서는 인덱스 키 필드에 대 한 기본 필드 매핑을 추가 합니다.
 
-## <a name="map-fields-using-the-rest-api"></a>REST API를 사용 하 여 필드 매핑
+## <a name="map-fields-using-rest"></a>REST를 사용 하 여 필드 매핑
 
 [인덱서 만들기](/rest/api/searchservice/create-Indexer) API 요청을 사용 하 여 새 인덱서를 만들 때 필드 매핑을 추가할 수 있습니다. [Update 인덱서](/rest/api/searchservice/update-indexer) API 요청을 사용 하 여 기존 인덱서의 필드 매핑을 관리할 수 있습니다.
 
@@ -77,9 +75,8 @@ api-key: [admin key]
 > [!NOTE]
 > Azure Cognitive Search는 대/소문자를 구분 하지 않는 비교를 사용 하 여 필드 매핑의 필드 및 함수 이름을 확인 합니다. 이는 편리(모든 대/소문자를 올바르게 할 필요가 없음)하지만 데이터 원본 또는 인덱스가 대/소문자만으로 다른 필드를 가질 수 없음을 의미합니다.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>.NET SDK를 사용 하 여 필드 매핑
+## <a name="map-fields-using-net"></a>.NET을 사용 하 여 필드 매핑
 
 속성과 및 선택적 참조를 포함 하는 [Fieldmapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 `SourceFieldName` `TargetFieldName` `MappingFunction` 합니다.
 
@@ -201,7 +198,7 @@ Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다
 
 Azure Cognitive Search는 URL 안전 base64 인코딩 및 일반 base64 인코딩을 지원 합니다. 인덱싱을 수행 하는 동안 base64로 인코딩된 문자열은 나중에 동일한 인코딩 옵션을 사용 하 여 디코딩해야 합니다. 그렇지 않으면 결과가 원본과 일치 하지 않습니다.
 
-`useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` 인코딩 및 디코딩에 대 한 또는 매개 변수가 각각로 설정 된 경우는 HttpServerUtility와 같은 동작을 수행 하 `true` `base64Encode` [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) 고 `base64Decode` [HttpServerUtility UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode)처럼 동작 합니다.
+`useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` 인코딩 및 디코딩에 대 한 또는 매개 변수가 각각로 설정 된 경우는 HttpServerUtility와 같은 동작을 수행 하 `true` `base64Encode` [](/dotnet/api/system.web.httpserverutility.urltokenencode) 고 `base64Decode` [HttpServerUtility UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode)처럼 동작 합니다.
 
 > [!WARNING]
 > `base64Encode`키 값을 생성 하는 데를 사용 하는 경우에는를 `useHttpServerUtilityUrlTokenEncode` true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합은 [Azure Cognitive Search&#41;&#40;명명 규칙 ](/rest/api/searchservice/naming-rules) 을 참조 하세요.

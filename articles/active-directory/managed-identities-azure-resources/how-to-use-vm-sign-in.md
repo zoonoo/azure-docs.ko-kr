@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08fe856fd43baad4189d81f7743396a71cd5de48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e83bd27c9434c4222e0161e3b643b183d1aa84
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266326"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090963"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하는 방법 
 
@@ -30,7 +30,7 @@ ms.locfileid: "89266326"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -90,12 +90,7 @@ Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스
 - PowerShell: *Invoke-WebRequest: 원격 서버에 연결할 수 없습니다.*
 - CLI: *MSI: `http://localhost:50342/oauth2/token` ' HTTPConnectionPool (host = ' localhost ', port = 50342) 오류가 발생 하 여에서 토큰을 검색 하지 못했습니다.* 
 
-이러한 오류 중 하나를 수신하면 [Azure Portal](https://portal.azure.com)에서 Azure VM에 반환됩니다.
-
-- **ID** 페이지로 이동한 후 **시스템 할당**이 "예"로 설정되어 있는지 확인합니다.
-- **확장** 페이지로 이동하여 Azure 리소스 확장 **(2019년 1월에 더 이상 사용되지 않을 예정)** 의 관리 ID가 성공적으로 배포되었는지 확인합니다.
-
-이 두 항목 중 하나가 올바르지 않으면 리소스에서 Azure 리소스의 관리 ID를 재배포하거나 배포 오류 관련 문제를 해결해야 할 수 있습니다. VM 구성에 대 한 지원이 필요한 경우 [Azure Portal을 사용 하 여 vm에서 Azure 리소스에 대 한 관리 되는 Id 구성](qs-configure-portal-windows-vm.md) 을 참조 하세요.
+이러한 오류 중 하나를 수신 하면 [Azure Portal](https://portal.azure.com) 에서 Azure VM으로 돌아가서 **id** 페이지로 이동 하 여 **시스템 할당** 됨이 "예"로 설정 되었는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

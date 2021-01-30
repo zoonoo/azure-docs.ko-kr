@@ -3,16 +3,16 @@ title: 공동 판매 파트너 참여 - Microsoft 상업용 Marketplace
 description: 파트너를 위한 Microsoft 파트너 센터 공동 판매 프로그램은 방대한 고객 기반에 도달 하 고 새 판매를 창출 하는 데 도움이 될 수 있습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/2/2020
-ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 1/29/2021
+ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880290"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063082"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -22,7 +22,7 @@ ms.locfileid: "98880290"
 
 - **공동 판매 준비** 제안은 Microsoft 현장 판매자에 게 제공 됩니다. Microsoft 판매자로 작업할 때 공동 판매 프로그램을 사용 하면 비즈니스 성장을 가속화 하는 영업 기회에 대해 공동 작업을 수행 하는 Microsoft 관리 고객의 방대한 커뮤니티에 연결할 수 있습니다.
 
-    ![판매 잠재 고객이 Microsoft에서 관리 하는 고객에 대해 공유, 승인 및 적용 될 때 공동 판매를 수행 하는 방법을 보여 주는 다이어그램입니다.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+    :::image type="content" source="./media/marketplace-publishers-guide/marketplace-co-sell-v2.png" alt-text="판매 잠재 고객이 Microsoft에서 관리 하는 고객에 대해 공유, 승인 및 적용 될 때 공동 판매를 수행 하는 방법을 보여 주는 다이어그램입니다.":::
 
 - **공동 판매 incentivized** IP 제품은 아래 나열 된 marketplace 혜택 외에도 Microsoft 영업 팀과 협력 하 여 판매 될 때 Microsoft 현장 판매자의 성과급을 얻을 수 있습니다.</li></ul>
 
@@ -63,7 +63,7 @@ ms.locfileid: "98880290"
 
 1. 왼쪽 메뉴에서 **Microsoft와 공동 판매** 를 선택 합니다.
 
-    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.":::
+    [![이 이미지는 Microsoft와 공동 판매 탭의 위치를 보여 줍니다.](media/co-sell/co-sell-with-microsoft-tab.png)](media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
 1. Microsoft 판매자가 **목록** 섹션에서 제품을 신속 하 게 정렬 하 고 검색 하는 데 도움이 되는 기본 목록 세부 정보를 제공 합니다. (*필수: 모든 필드*)
 
@@ -71,29 +71,20 @@ ms.locfileid: "98880290"
 
 1. 제품에 대 한 세부 정보를 제공 하 고 **문서** 섹션에서 참고 자료를 업로드 합니다. Microsoft 판매자는이 정보를 사용 하 여 제품을 권장 하 고 판매 합니다. *(필수: 솔루션/제안 1-호출기 및 솔루션/제안 피치 데크. Azure IP 공동 판매 incentivized 상태를 얻기 위해 필요 합니다. 참조 아키텍처 다이어그램.*
 
-    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="이 이미지는 공동 판매 탭의 문서 섹션을 보여 줍니다.":::
+    [![이 이미지는 공동 판매 탭의 문서 섹션을 보여 줍니다.](media/co-sell/co-sell-documents-section.png)](media/co-sell/co-sell-documents-section.png#lightbox)
 
 1. **연락처** 섹션에서 판매 담당자 정보를 업로드 합니다. Microsoft 판매자는 이러한 연락처에 연락 하 여 제품에 대 한 추가 정보를 요청할 수 있습니다. (*필수: 제품을 사용할 수 있는 각 지리에 대 한 연락처입니다.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="이 이미지는 공동 판매 탭의 연락처 섹션을 보여 줍니다.":::
+    [![이 이미지는 공동 판매 탭의 연락처 섹션을 보여 줍니다.](media/co-sell/co-sell-contacts-section.png)](media/co-sell/co-sell-contacts-section.png#lightbox)
 
 1. 계속 하기 전에 초안을 저장 합니다.
 1. 제품의 모든 필수 섹션이 완료되면 검토 및 게시를 위해 제출할 수 있습니다. 오른쪽 위에서 **검토 및 게시** 를 선택 합니다. 제품 세부 정보를 검토 한 다음 **게시** 를 선택 합니다.
-1. [공동 판매 상태에 대 한 조건을](#co-sell-publishing-steps-and-requirements)충족 하는지 확인 한 후 다음 지침에 따라 공동 판매를 위한 제품을 추천.
-    1. **Microsoft 파트너 관리자 (예: PDM)가 있는 경우** 도움을 받으려면 파트너 관리자에 게 문의 하세요. 공동 판매 준비 상태와 Azure IP 공동 판매 또는 Business Applications 공동 판매 incentivized (해당 하는 경우)에 대 한 추천 프로세스를 안내 합니다.
-
-    1. **Microsoft 파트너 관리자 (예: PDM)가 없는 경우** [클라우드 지원 센터 (추천)를 통한 자체](https://aka.ms/cednominate). "Desired 서비스" 드롭다운 목록에서 "공동 판매 준비 완료"를 선택 합니다.
-
-        :::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="이 이미지는 공동 판매 리뷰를 요청 하는 대상 드롭다운을 보여 줍니다.":::
-
-    이렇게 하면 프로세스를 완료 하는 데 도움이 됩니다.
 
 ## <a name="see-your-offers-co-sell-status"></a>제품의 공동 판매 상태 확인
 
 [상업적 marketplace에서 공동 판매 옵션이](commercial-marketplace-co-sell.md)제공 되는 제품의 경우 제품 개요 페이지에서 제품의 현재 공동 판매 상태를 확인할 수 있습니다.
 
- :::image type="content" source="media/co-sell/co-sell-status.png" alt-text="이 이미지는 제품의 현재 공동 판매 상태를 보여 줍니다.":::
-
+[![이 이미지는 제품의 현재 공동 판매 상태를 보여 줍니다.](media/co-sell/co-sell-status.png)](media/co-sell/co-sell-status.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

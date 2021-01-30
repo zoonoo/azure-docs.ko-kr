@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964714"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071055"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -81,7 +81,7 @@ Azure Red Hat OpenShift는 업스트림 OpenShift Container Platform의 부 릴�
 
 ### <a name="can-i-use-prometheus-to-monitor-my-applications"></a>프로메테우스를 사용 하 여 내 응용 프로그램을 모니터링할 수 있나요?
 
-프로메테우스는 Azure Red Hat OpenShift 4.x 클러스터에 대해 미리 설치 되 고 구성 됩니다. [클러스터 모니터링](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html)에 대해 자세히 알아보세요.
+프로메테우스는 Azure Red Hat OpenShift 4.x 클러스터에 대해 미리 설치 되 고 구성 됩니다. [클러스터 모니터링](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html)에 대해 자세히 알아보세요.
 
 Azure Red Hat OpenShift 3.11 클러스터의 경우 네임 스페이스에 프로메테우스를 배포 하 고 네임 스페이스에서 응용 프로그램을 모니터링할 수 있습니다. 자세한 내용은 [Azure Red Hat OpenShift 클러스터에 프로메테우스 인스턴스 배포](howto-deploy-prometheus.md)를 참조 하세요.
 
@@ -97,7 +97,7 @@ Azure Red Hat OpenShift 3.11: 아니요.
 
 ### <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-azure-red-hat-openshift-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 크기를 조정 하 고 문제를 디버그 하는 작업을 수행 하는 방법 Azure Red Hat OpenShift 클러스터에서 kubectl top을 실행할 수 없습니다.
 
-Azure Red Hat OpenShift 4.x 클러스터의 경우 OpenShift 웹 콘솔에는 노드 수준의 모든 메트릭이 포함 됩니다. 자세한 내용은 [클러스터 정보 보기](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html)에 대 한 Red Hat 설명서를 참조 하세요.
+Azure Red Hat OpenShift 4.x 클러스터의 경우 OpenShift 웹 콘솔에는 노드 수준의 모든 메트릭이 포함 됩니다. 자세한 내용은 [클러스터 정보 보기](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html)에 대 한 Red Hat 설명서를 참조 하세요.
 
 Azure Red Hat OpenShift 3.11 클러스터의 경우 고객은 명령 `oc adm top nodes` 또는 `kubectl top nodes` 고객 관리 클러스터 역할을 사용 하 여 노드 수준에서 CPU/메모리 메트릭에 액세스할 수 있습니다. 또한 `pods` 또는 명령을 사용 하 여의 CPU/메모리 메트릭에 액세스할 수 `oc adm top pods` 있습니다 `kubectl top pods` .
 
@@ -116,14 +116,14 @@ Azure에서 가상 머신 확장 집합을 사용 하는 경우 기본적으로 
 - 호스트 이름을 사용 하지 않아야 합니다. 호스트 이름은 업그레이드 및 업데이트로 자주 회전 되며 변경 될 수 있습니다.
 - 고객이 특정 레이블이나 배포 전략에 대 한 요청을 수행 하는 경우이 작업은 가능 하지만 엔지니어링 노력이 필요 하며 현재 지원 되지 않습니다.
 
-자세한 내용은 [pod 배치 제어](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html)를 참조 하세요.
+자세한 내용은 [pod 배치 제어](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html)를 참조 하세요.
 
 ### <a name="is-the-image-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>이미지 레지스트리는 외부에서 사용할 수 있으므로 Jenkins와 같은 도구를 사용할 수 있나요?
 
 4.x 클러스터의 경우 보안 레지스트리를 노출 하 고 인증을 구성 해야 합니다. 자세한 내용은 다음 Red Hat 설명서를 참조 하세요.
 
-- [레지스트리 노출](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
-- [레지스트리에 액세스](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+- [레지스트리 노출](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+- [레지스트리에 액세스](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
 
 3.11 클러스터의 경우 Docker 이미지 레지스트리를 사용할 수 있습니다. Docker 레지스트리는에서 사용할 수 있습니다 `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . Azure Container Registry를 사용할 수도 있습니다.
 
@@ -181,24 +181,24 @@ oc adm policy \
 
 자세한 내용은 OpenShift 설명서에서 클러스터 버전에 대 한 자체 프로 비전 비활성화를 참조 하세요.
 
-- [4.3 클러스터에서 자체 프로 비전 사용 안 함](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [4.6 클러스터에서 자체 프로 비전 사용 안 함](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
 - [3.11 클러스터에서 자체 프로 비전 사용 안 함](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>마스터/인프라/앱 노드에 사용할 수 있는 UNIX 권한 (IaaS)은 무엇 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 통해 노드 액세스를 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터의 경우 노드 액세스는 사용할 수 없습니다.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>어떤 OCP 권한이 있나요? 클러스터 관리자 인가요? 프로젝트 관리자 인가요?
 
-4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html)를 참조 하세요.
+4.x 클러스터의 경우 클러스터 관리자 역할을 사용할 수 있습니다. 자세한 내용은 [KUBERNETES RBAC 개요](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html)를 참조 하세요.
 
 3.11 클러스터는 [클러스터 관리 개요](https://docs.openshift.com/aro/admin_guide/index.html) 에서 자세한 내용을 참조 하세요.
 
 ### <a name="which-identity-providers-are-available"></a>사용할 수 있는 id 공급자는 무엇입니까?
 
-4.x 클러스터의 경우 고유한 id 공급자를 구성 합니다. 자세한 내용은 [id prodivers 구성](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html)에 대 한 Red Hat 설명서를 참조 하세요.
+4.x 클러스터의 경우 고유한 id 공급자를 구성 합니다. 자세한 내용은 [id 공급자 구성](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html)에 대 한 Red Hat 설명서를 참조 하세요.
 
 3.11 클러스터의 경우 Azure AD 통합을 사용할 수 있습니다. 
 
@@ -210,13 +210,13 @@ oc adm policy \
 
 ### <a name="is-data-stored-in-etcd-encrypted-on-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에서 암호화 된 데이터가 etcd에 저장 되나요?
 
-Azure Red Hat OpenShift 4 클러스터의 경우 데이터는 기본적으로 암호화 되지 않지만 암호화를 사용 하도록 설정 하는 옵션이 있습니다. 자세한 내용은 [etcd 암호화](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html)가이드를 참조 하세요.
+Azure Red Hat OpenShift 4 클러스터의 경우 데이터는 기본적으로 암호화 되지 않지만 암호화를 사용 하도록 설정 하는 옵션이 있습니다. 자세한 내용은 [etcd 암호화](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html)가이드를 참조 하세요.
 
 3.11 클러스터의 경우 데이터가 etcd 수준에서 암호화 되지 않습니다. 암호화를 설정 하는 옵션은 현재 지원 되지 않습니다. OpenShift는이 기능을 지원 하지만도로 지도에서 엔지니어링 노력을 해야 합니다. 데이터는 디스크 수준에서 암호화 됩니다. 자세한 내용은 [데이터 저장소 계층에서 데이터 암호화](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) 를 참조 하세요.
 
 ### <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>OCS와 같은 영구 저장소 솔루션을 선택할 수 있나요? 
 
-4.x 클러스터의 경우 Azure Disk (Premium_LRS)는 기본 저장소 클래스로 구성 됩니다. 추가 저장소 공급자 및 구성 세부 정보 (Azure 파일 포함)는 [영구 저장소](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html)에 대 한 red Hat 설명서를 참조 하세요.
+4.x 클러스터의 경우 Azure Disk (Premium_LRS)는 기본 저장소 클래스로 구성 됩니다. 추가 저장소 공급자 및 구성 세부 정보 (Azure 파일 포함)는 [영구 저장소](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html)에 대 한 red Hat 설명서를 참조 하세요.
 
 3.11 클러스터의 경우 기본적으로 두 개의 저장소 클래스 (예: Azure Disk (Premium_LRS)와 Azure File 용)가 제공 됩니다.
 

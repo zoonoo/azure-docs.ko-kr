@@ -4,12 +4,12 @@ description: 모니터링을 위해 함수 앱을 Application Insights에 연결
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684711"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070143"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -271,6 +271,30 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 > [!NOTE]
 > Functions 초기 버전에서는 기본 제공 모니터링을 사용했지만, 더 이상 권장하지 않습니다. 또한 이러한 함수 앱에 Application Insights 통합을 사용하도록 설정할 때 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)해야 합니다.  
+
+## <a name="query-scale-controller-logs"></a>쿼리 크기 조정 컨트롤러 로그
+
+크기 조정 컨트롤러 로깅 및 Application Insights 통합을 모두 사용 하도록 설정한 후 Application Insights 로그 검색을 사용 하 여 내보낸 크기 조정 컨트롤러 로그를 쿼리할 수 있습니다. 크기 조정 컨트롤러 로그는 컬렉션의 `traces` **ScaleControllerLogs** 범주에 저장 됩니다.
+
+다음 쿼리를 사용 하 여 지정 된 기간 내에 현재 함수 앱에 대 한 모든 크기 조정 컨트롤러 로그를 검색할 수 있습니다.
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+다음 쿼리는 이전 쿼리를 확장 하 여 규모 변경을 나타내는 로그만 가져오는 방법을 보여 줍니다.
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
 

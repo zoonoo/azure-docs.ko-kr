@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b1c0e91b08fff80c0308c0ead5fabce903421adc
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649571"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090123"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -108,7 +108,7 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 커넥터를 처음 설정할 때 다음과 같은 흐름 이벤트가 발생합니다.
 
 1. 커넥터 설치 과정의 일부로 서비스에 커넥터 등록이 발생합니다. 사용자에게 Azure AD 관리자 자격 증명을 입력하라는 메시지가 표시됩니다.  이 인증에서 얻은 토큰이 Azure AD 애플리케이션 프록시 서비스에 제공됩니다.
-2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테넌트의 회사 관리자인지 확인합니다.  관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
+2. 애플리케이션 프록시 서비스에서 토큰을 평가합니다. 사용자가 테 넌 트의 전역 관리자 인지 여부를 확인 합니다.  관리자가 아닌 사용자인 경우 프로세스가 종료됩니다.
 3. 커넥터에서 클라이언트 인증서 요청을 생성하고, 토큰과 함께 이 요청을 애플리케이션 프록시 서비스에 전달합니다. 서비스에서 차례로 토큰을 확인하고 클라이언트 인증서 요청에 서명합니다.
 4. 커넥터는 나중에 애플리케이션 프록시 서비스와 통신하는 데 이 클라이언트 인증서를 사용합니다.
 5. 커넥터는 해당 클라이언트 인증서를 사용하여 처음으로 서비스로부터 시스템 구성 데이터 끌어오기를 수행하고 이제 요청을 받을 준비가 됩니다.

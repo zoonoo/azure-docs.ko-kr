@@ -4,12 +4,12 @@ description: Azure container registry의 미사용 암호화 및에 저장 된 �
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: 708a42a4f965f484060d42d89ea4f535c4365a10
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620451"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062731"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -48,7 +48,7 @@ ms.locfileid: "96620451"
 
 자세한 내용은이 문서의 뒷부분에 나오는 키 [버전을 사용 하거나 사용 하지 않고 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 키 [버전 업데이트](#update-key-version)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 Azure CLI 단계를 사용 하려면 버전이 2.2.0 이상 이거나 Azure Cloud Shell Azure CLI 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -566,21 +566,31 @@ Key Vault 방화벽을 사용 하 여 구성 된 key vault에 액세스 하려�
 
 ## <a name="troubleshoot"></a>문제 해결
 
-### <a name="removing-user-assigned-identity"></a>사용자 할당 id 제거
+### <a name="removing-managed-identity"></a>관리 id 제거
 
-암호화에 사용 되는 레지스트리에서 사용자 할당 id를 제거 하려고 하면 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
+
+암호화를 구성 하는 데 사용 되는 레지스트리에서 사용자 할당 또는 시스템 할당 관리 id를 제거 하려고 하면 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
  
 ```
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-또한 암호화 키를 변경 (회전) 할 수 없습니다. 이 문제가 발생 하면 먼저 오류 메시지에 표시 된 GUID를 사용 하 여 id를 다시 할당 합니다. 예를 들면 다음과 같습니다.
+또한 암호화 키를 변경 (회전) 할 수 없습니다. 해결 단계는 암호화에 사용 되는 id 유형에 따라 달라 집니다.
+
+**사용자가 할당한 ID**
+
+사용자 할당 id에서이 문제가 발생 하는 경우 먼저 오류 메시지에 표시 된 GUID를 사용 하 여 id를 다시 할당 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
 ```
         
 그런 다음 키를 변경 하 고 다른 id를 할당 한 후에 원래 사용자 할당 id를 제거할 수 있습니다.
+
+**시스템이 할당한 ID**
+
+시스템 할당 id에서이 문제가 발생 하는 경우 id를 복원 하는 데 도움이 되는 [Azure 지원 티켓을 만드세요](https://azure.microsoft.com/support/create-ticket/) .
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292458"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062998"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -46,7 +46,7 @@ ms.locfileid: "91292458"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. 디자이너의 검색 상자 아래에서 **기본 제공**을 선택 합니다. 검색 상자에서 필터로 `http`을 입력합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
+1. 디자이너의 검색 상자 아래에서 **기본 제공** 을 선택 합니다. 검색 상자에서 필터로 `http`을 입력합니다. **트리거** 목록에서 **HTTP** 트리거를 선택 합니다.
 
    ![HTTP 트리거 선택](./media/connectors-native-http/select-http-trigger.png)
 
@@ -56,7 +56,7 @@ ms.locfileid: "91292458"
 
    ![HTTP 트리거 매개 변수 입력](./media/connectors-native-http/http-trigger-parameters.png)
 
-   **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 다음 항목을 참조 하세요.
+   **없음** 이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
    * [아웃바운드 호출에 대한 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [관리 id를 사용 하 여 리소스에 대 한 액세스 인증](../logic-apps/create-managed-service-identity.md)
@@ -65,7 +65,7 @@ ms.locfileid: "91292458"
 
 1. 트리거가 발생할 때 실행되는 작업을 사용하여 논리 앱의 워크플로를 계속해서 작성합니다.
 
-1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 <a name="http-action"></a>
 
@@ -77,11 +77,11 @@ ms.locfileid: "91292458"
 
    이 예제에서는 첫 번째 단계로 HTTP 트리거를 사용 합니다.
 
-1. HTTP 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
+1. HTTP 작업을 추가 하려는 단계 아래에서 **새 단계** 를 선택 합니다.
 
-   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
-1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `http`을 입력합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
+1. **작업 선택** 아래에서 **기본 제공** 을 선택합니다. 검색 상자에서 필터로 `http`을 입력합니다. **작업** 목록에서 **HTTP** 작업을 선택 합니다.
 
    ![HTTP 작업 선택](./media/connectors-native-http/select-http-action.png)
 
@@ -91,20 +91,20 @@ ms.locfileid: "91292458"
 
    ![HTTP 작업 매개 변수 입력](./media/connectors-native-http/http-action-parameters.png)
 
-   **없음**이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 다음 항목을 참조 하세요.
+   **없음** 이외의 인증 유형을 선택 하는 경우 인증 설정은 선택 사항에 따라 달라 집니다. HTTP에 사용할 수 있는 인증 유형에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 
    * [아웃바운드 호출에 대한 인증 추가](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
    * [관리 id를 사용 하 여 리소스에 대 한 액세스 인증](../logic-apps/create-managed-service-identity.md)
 
 1. 다른 사용 가능한 매개 변수를 추가하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택합니다.
 
-1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
+1. 완료 되 면 논리 앱을 저장 해야 합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 ## <a name="trigger-and-action-outputs"></a>트리거 및 작업 출력
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | Description |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -209,7 +209,7 @@ HTTP 요청에 대 한 본문에 양식 x-www-form-urlencoded 데이터를 제�
 
 1. 논리 앱 디자이너에서 HTTP 작업의 제목 표시줄에 있는 줄임표 (**...**) 단추를 선택 하 여 작업의 설정을 엽니다.
 
-1. **비동기 패턴** 설정을 찾고, 설정 된 경우 **해제** 로 설정 하 고, **완료**를 선택 합니다.
+1. **비동기 패턴** 설정을 찾고, 설정 된 경우 **해제** 로 설정 하 고, **완료** 를 선택 합니다.
 
    !["비동기 패턴" 설정을 사용 하지 않도록 설정](./media/connectors-native-http/disable-asynchronous-pattern-setting.png)
 
@@ -249,7 +249,7 @@ HTTP 트리거 또는 작업에 이러한 헤더가 포함 된 경우 Logic Apps
 
 * `Accept-*` 다음을 제외한 헤더 `Accept-version`
 * `Allow`
-* `Content-Disposition`, `Content-Encoding` 및 `Content-Type`과 같은 예외가 있는 `Content-*`
+* `Content-*``Content-Disposition` `Content-Encoding` `Content-Type` POST 및 PUT 작업을 사용 하지만 GET 작업에는 포함 되지 않는, 및를 제외한 헤더
 * `Cookie`
 * `Expires`
 * `Host`

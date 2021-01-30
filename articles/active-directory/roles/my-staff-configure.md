@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740145"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090946"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>내 직원 (미리 보기)을 사용 하 여 사용자 관리
 
@@ -89,7 +89,7 @@ Azure AD 조건부 액세스 정책을 사용 하 여 내 직원 포털을 보�
 
 - [인증 관리자](permissions-reference.md#authentication-administrator)
 - [권한 있는 인증 관리자](permissions-reference.md#privileged-authentication-administrator)
-- [전역 관리자](permissions-reference.md#global-administrator--company-administrator)
+- [전역 관리자](permissions-reference.md#global-administrator)
 - [기술 지원팀 관리자](permissions-reference.md#helpdesk-administrator)
 - [사용자 관리자](permissions-reference.md#user-administrator)
 - [암호 관리자](permissions-reference.md#password-administrator)
@@ -117,7 +117,7 @@ Azure AD 조건부 액세스 정책을 사용 하 여 내 직원 포털을 보�
 
 - [인증 관리자](permissions-reference.md#authentication-administrator)
 - [권한 있는 인증 관리자](permissions-reference.md#privileged-authentication-administrator)
-- [전역 관리자](permissions-reference.md#global-administrator--company-administrator)
+- [전역 관리자](permissions-reference.md#global-administrator)
 
 ## <a name="search"></a>검색
 

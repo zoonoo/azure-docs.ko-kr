@@ -3,12 +3,12 @@ title: 개념-저장소
 description: Azure VMware 솔루션 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8ad1fc3ff2e514330a9ffc680494b5564b1184e4
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289260"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062798"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 솔루션 저장소 개념
 
@@ -30,9 +30,9 @@ Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클�
 
 vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키는 암호화 되어 Azure Key Vault 마스터 키로 래핑됩니다. 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
-클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud] 를 참조 하세요.
+클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud]를 참조 하세요.
 
 ## <a name="azure-storage-integration"></a>Azure storage 통합
 

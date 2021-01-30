@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9b014775f55671ef1297e040620390c23f842ce0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c07cc08f086b87e6b4ad35b569eef1a0d6b509ce
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053251"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090022"
 ---
 # <a name="configure-permission-classifications"></a>권한 분류 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "99053251"
 
 Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계를 따르세요.
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator--company-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator) 으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator) 으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **권한 분류** 를 선택합니다.
 1. 다른 권한을 "낮은 영향"으로 분류하려면 **권한 추가** 를 선택합니다.
 1. API를 선택한 후 위임된 권한을 선택합니다.

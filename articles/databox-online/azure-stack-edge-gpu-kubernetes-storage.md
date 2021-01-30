@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 34165071238ca3edf78ab9cca43639c23ce5ed2a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d079f2fa3e67f1ec915a02de3e195ccac538209
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448703"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063319"
 ---
 # <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 저장소 관리 Kubernetes
 
@@ -79,11 +79,11 @@ Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방�
 
 Azure Stack Edge Pro 장치에서 정적으로 프로 비전 `PersistentVolumes` 된 장치는 장치의 저장소 기능을 사용 하 여 만들어집니다. 공유를 프로 비전 하 고 **Edge compute로 공유** 옵션을 사용 하는 경우이 작업은 Kubernetes 클러스터에서 자동으로 PV 리소스를 만듭니다.
 
-![정적 프로 비전을 위한 Azure Portal의 로컬 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
+![정적 프로 비전을 위한 Azure Portal의 로컬 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
 클라우드 계층화를 사용 하려면에 지 계산 옵션을 사용 하도록 설정 하 여 Edge 클라우드 공유를 만들 수 있습니다. 이 공유에 대해 PV가 자동으로 다시 생성 됩니다. 에 지 공유에 쓰는 모든 응용 프로그램 데이터는 클라우드에 계층화 됩니다. 
 
-![정적 프로 비전을 위한 Azure Portal의 클라우드 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
+![정적 프로 비전을 위한 Azure Portal의 클라우드 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
 SMB 및 NFS 공유를 모두 만들어 Azure Stack Edge Pro 장치에서 PVs를 정적으로 프로 비전 할 수 있습니다. PV가 프로 비전 되 면이 저장소를 요청 하는 PVC를 제출 합니다. `yaml`저장소를 클레임 하 고 프로 비전 한 공유를 사용 하는 PVC 배포의 예는 다음과 같습니다.
 

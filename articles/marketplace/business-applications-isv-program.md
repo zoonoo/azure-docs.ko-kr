@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 11/19/2020
-ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2d58ed26a4d2c03c8d0261426a410fcb11c09ee5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537138"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063048"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
@@ -79,6 +79,6 @@ Business Applications ISV Connect 프로그램에서 등록 하는 마지막 단
 
 - [Isv Business Applications](https://partner.microsoft.com/solutions/business-applications/isv-overview) (온라인 문서)
 - [Business Applications isv 용 새 프로그램 개요](https://aka.ms/BizAppsISVProgram) (PDF)
-- [BUSINESS APPLICATIONS ISV 연결 프로그램 FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
 - [Business Applications isv 용 예정 된 프로그램](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (블로그 게시물)
 - [ISV 연결 프로그램 정책](https://aka.ms/bizappsisvpolicies) (PDF)
+<!-- - [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF) AWAITING NEW LINK; MAKE 3rd BULLET-->

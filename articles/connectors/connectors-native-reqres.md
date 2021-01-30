@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920824"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063015"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Azure Logic Apps에서 인바운드 HTTPS 요청 수신 및 응답
 
@@ -216,7 +216,7 @@ ms.locfileid: "96920824"
 > 응답 작업에 이러한 헤더가 포함된 경우 Logic Apps는 경고 또는 오류를 표시하지 않고 생성된 응답 메시지에서 이러한 헤더를 제거합니다.
 >
 > * `Allow`
-> * `Content-Disposition`, `Content-Encoding` 및 `Content-Type`과 같은 예외가 있는 `Content-*`
+> * `Content-*``Content-Disposition` `Content-Encoding` `Content-Type` POST 및 PUT 작업을 사용 하지만 GET 작업에는 포함 되지 않는, 및를 제외한 헤더
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: d38b395ec4e4a3e9f3550e6a891ad4785dae8597
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 215f907edb01cc35ffa4e9bb683964f8eda11d94
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919751"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089328"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -35,6 +35,7 @@ Dv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
 <br>
 
 | Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/네트워크 대역폭 |
@@ -60,6 +61,7 @@ Dsv3 시리즈 Vm은 Intel® Hyper-Threading 기술을 기능 합니다.
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 
 | Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>1</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>1</sup> | 최대 Nic/예상 네트워크 대역폭 (Mbps) |

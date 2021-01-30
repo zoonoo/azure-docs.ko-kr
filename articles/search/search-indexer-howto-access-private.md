@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340056"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063199"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>개인 끝점을 통해 인덱서 연결 만들기
 
@@ -27,7 +27,7 @@ Azure storage 계정과 같은 많은 Azure 리소스는 가상 네트워크 목
 
 ## <a name="shared-private-link-resources-management-apis"></a>공유 개인 링크 리소스 관리 Api
 
-Azure Cognitive Search Api를 통해 생성 된 보안 리소스의 개인 끝점을 *공유 개인 링크 리소스*라고 합니다. 이는 [Azure 개인 링크 서비스](https://azure.microsoft.com/services/private-link/)와 통합 된 저장소 계정과 같은 리소스에 대 한 액세스를 "공유" 하는 것입니다.
+Azure Cognitive Search Api를 통해 생성 된 보안 리소스의 개인 끝점을 *공유 개인 링크 리소스* 라고 합니다. 이는 [Azure 개인 링크 서비스](https://azure.microsoft.com/services/private-link/)와 통합 된 저장소 계정과 같은 리소스에 대 한 액세스를 "공유" 하는 것입니다.
 
 Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인덱서에서 액세스를 구성 하는 데 사용할 수 있는 [Createorupdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) 작업을 제공 합니다.
 
@@ -47,14 +47,14 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 지원 되는 [api 목록을](/rest/api/searchmanagement/privatelinkresources/listsupported)사용 하 여 아웃 바운드 개인 끝점 연결이 지원 되는 Azure 리소스를 쿼리할 수도 있습니다.
 
-이 문서의 나머지 부분에서는 [ARMClient](https://github.com/projectkudu/ARMClient) 및 [postman](https://www.postman.com/) api를 함께 사용 하 여 REST API 호출을 보여 줍니다.
+이 문서의 나머지 부분에서는 REST API 호출을 보여 주기 위해 [Azure CLI](https://docs.microsoft.com/cli/azure/) (또는 원하는 경우 [ARMClient](https://github.com/projectkudu/ARMClient) ) 및 [POSTMAN](https://www.postman.com/) (또는 기타 HTTP 클라이언트 (예: [말아 말아](https://curl.se/) ))을 함께 사용 합니다.
 
 > [!NOTE]
 > 이 문서의 예는 다음과 같은 가정을 기반으로 합니다.
-> * 검색 서비스의 이름은 _contoso-search_이며 구독 ID가 _00000000-0000-0000-0000-000000000000_인 구독의 _contoso_ 리소스 그룹에 있습니다. 
-> * 이 검색 서비스의 리소스 ID는 _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_입니다.
+> * 검색 서비스의 이름은 _contoso-search_ 이며 구독 ID가 _00000000-0000-0000-0000-000000000000_ 인 구독의 _contoso_ 리소스 그룹에 있습니다. 
+> * 이 검색 서비스의 리소스 ID는 _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search_ 입니다.
 
-예제의 나머지 부분에서는 해당 인덱서가 보안 저장소 계정 _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_의 데이터에 액세스할 수 있도록 _contoso search_ 서비스를 구성 하는 방법을 보여 줍니다.
+예제의 나머지 부분에서는 해당 인덱서가 보안 저장소 계정 _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage_ 의 데이터에 액세스할 수 있도록 _contoso search_ 서비스를 구성 하는 방법을 보여 줍니다.
 
 ## <a name="secure-your-storage-account"></a>저장소 계정 보호
 
@@ -69,7 +69,11 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>1 단계: 저장소 계정에 대 한 공유 개인 링크 리소스 만들기
 
-저장소 계정에 대 한 아웃 바운드 개인 끝점 연결을 만들도록 Azure Cognitive Search를 요청 하려면 다음 API 호출을 수행 합니다. 
+저장소 계정에 대 한 아웃 바운드 개인 끝점 연결을 만들도록 Azure Cognitive Search를 요청 하려면 다음과 같이 [Azure CLI](https://docs.microsoft.com/cli/azure/)와 같은 API 호출을 수행 합니다. 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+또는 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용 하는 것이 좋습니다.
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -98,7 +102,11 @@ API에 대 한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-이 URI를 주기적으로 폴링하여 작업 상태를 가져올 수 있습니다. 계속 하기 전에 공유 개인 링크 리소스 작업의 상태가 터미널 상태에 도달할 때까지 기다리는 것이 좋습니다. 즉, 작업 상태가 *succeeded*로 표시 됩니다.
+이 URI를 주기적으로 폴링하여 작업 상태를 가져올 수 있습니다. 계속 하기 전에 공유 개인 링크 리소스 작업의 상태가 터미널 상태에 도달할 때까지 기다리는 것이 좋습니다. 즉, 작업 상태가 *succeeded* 로 표시 됩니다.
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+또는 ARMClient를 사용 합니다.
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -119,7 +127,7 @@ API에 대 한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 
 
    !["개인 끝점 연결" 창이 표시 된 Azure Portal의 스크린샷](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Azure Cognitive Search 만든 개인 끝점을 선택 합니다. **개인 끝점** 열에서, 이전 API에 지정 된 이름으로 개인 끝점 연결을 식별 하 고, **승인**을 선택한 후 적절 한 메시지를 입력 합니다. 메시지 내용이 중요 하지 않습니다. 
+1. Azure Cognitive Search 만든 개인 끝점을 선택 합니다. **개인 끝점** 열에서, 이전 API에 지정 된 이름으로 개인 끝점 연결을 식별 하 고, **승인** 을 선택한 후 적절 한 메시지를 입력 합니다. 메시지 내용이 중요 하지 않습니다. 
 
    다음 스크린샷에 표시 된 것 처럼 개인 끝점 연결이 표시 되는지 확인 합니다. 포털에서 상태를 업데이트 하는 데 1 ~ 2 분 정도 걸릴 수 있습니다.
 
@@ -130,6 +138,10 @@ API에 대 한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>2b 단계: 공유 개인 링크 리소스의 상태 쿼리
 
 승인 후 공유 개인 링크 리소스가 업데이트 되었는지 확인 하려면 [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용 하 여 해당 리소스의 상태를 가져옵니다.
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+또는 ARMClient를 사용 합니다.
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -173,7 +185,7 @@ API에 대 한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 
 ## <a name="troubleshooting"></a>문제 해결
 
 - "데이터 원본 자격 증명이 잘못 되었습니다."와 같은 오류 메시지와 함께 인덱서를 만들지 못한 경우 개인 끝점 연결의 상태가 아직 *승인* 되지 않았거나 연결이 작동 하지 않는 것을 의미 합니다. 문제를 해결 하려면 다음을 수행 합니다. 
-  * [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용 하 여 공유 개인 링크 리소스의 상태를 가져옵니다. 상태가 *승인*됨 인 경우 `properties.provisioningState` 리소스의를 확인 합니다. 여기에 상태가 인 경우 `Incomplete` 리소스에 대 한 기본 종속성 중 일부를 설정 하지 못했음을 의미 합니다. `PUT`공유 개인 링크 리소스를 다시 만드는 요청을 다시 발급 하면 문제를 해결 해야 합니다. 다시 승인이 필요할 수 있습니다. 리소스 상태를 다시 확인 하 여 문제가 해결 되었는지 확인 합니다.
+  * [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용 하 여 공유 개인 링크 리소스의 상태를 가져옵니다. 상태가 *승인* 됨 인 경우 `properties.provisioningState` 리소스의를 확인 합니다. 여기에 상태가 인 경우 `Incomplete` 리소스에 대 한 기본 종속성 중 일부를 설정 하지 못했음을 의미 합니다. `PUT`공유 개인 링크 리소스를 다시 만드는 요청을 다시 발급 하면 문제를 해결 해야 합니다. 다시 승인이 필요할 수 있습니다. 리소스 상태를 다시 확인 하 여 문제가 해결 되었는지 확인 합니다.
 
 - 속성을 설정 하지 않고 인덱서를 만드는 경우 `executionEnvironment` 에는 성공적으로 만들 수 있지만 실행 기록은 인덱서 실행이 실패 했음을 보여 줍니다. 문제를 해결 하려면 다음을 수행 합니다.
    * [인덱서를 업데이트](/rest/api/searchservice/update-indexer) 하 여 실행 환경을 지정 합니다.

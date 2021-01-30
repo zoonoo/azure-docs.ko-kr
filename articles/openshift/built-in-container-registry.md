@@ -6,16 +6,16 @@ ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 9ed53721b66dc03bad24e0510e0c8a970c61aec1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492423"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070613"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에 대한 기본 제공 컨테이너 레지스트리 구성
 
-Azure Red Hat OpenShift는 새 이미지 리포지토리를 요청 시 자동으로 프로 비전 하는 기능을 추가 하는 [openshift Container Registry (OCR)](https://docs.openshift.com/aro/4/registry/architecture-component-imageregistry.html) 라는 통합 컨테이너 이미지 레지스트리를 제공 합니다. 그러면 사용자가 응용 프로그램 빌드에 대 한 기본 제공 위치를 제공 하 여 결과 이미지를 푸시할 수 있습니다.
+Azure Red Hat OpenShift는 새 이미지 리포지토리를 요청 시 자동으로 프로 비전 하는 기능을 추가 하는 [openshift Container Registry (OCR)](https://docs.openshift.com/container-platform/4.6/registry/architecture-component-imageregistry.html) 라는 통합 컨테이너 이미지 레지스트리를 제공 합니다. 그러면 사용자가 응용 프로그램 빌드에 대 한 기본 제공 위치를 제공 하 여 결과 이미지를 푸시할 수 있습니다.
 
 이 문서에서는 Azure Red Hat OpenShift (ARO) 4 클러스터에 대 한 기본 제공 컨테이너 이미지 레지스트리를 구성 합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 

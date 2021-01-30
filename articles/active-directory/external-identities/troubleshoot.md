@@ -14,19 +14,19 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe34de0fa7847a23d9335dcdb0a38a33e006fdc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355208"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090640"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B 협업 문제 해결
 
 Azure AD(Azure Active Directory) B2B 협업과 관련된 일반적인 문제에 대한 몇 가지 해결책은 다음과 같습니다.
 
    > [!IMPORTANT]
-   > - Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
    > - **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>외부 사용자를 추가했지만 [전체 주소 목록]이나 사용자 선택에서 볼 수 없습니다.
@@ -92,7 +92,7 @@ Azure Active Directory를 사용하는 조직의 사용자를 초대하였으나
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
 ```
 
-사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에는 전역 또는 회사 관리자가 없습니다.
+사용자에 게는 Azure 사용자 계정이 있고, 중단 또는 관리 되지 않는 바 이럴 테 넌 트가 있습니다. 또한 테 넌 트에 전역 관리자가 없습니다.
 
 이 문제를 해결 하려면 중단 된 테 넌 트를 수행 해야 합니다. [Azure Active Directory 관리 되지 않는 디렉터리를 관리자 권한으로 사용](../enterprise-users/domains-admin-takeover.md)을 참조 하세요. 또한 네임 스페이스를 제어 하 고 있는 직접적인 증거를 제공 하기 위해 해당 도메인 접미사에 대 한 인터넷 연결 DNS에 액세스 해야 합니다. 테 넌 트가 관리 되는 상태로 반환 된 후 사용자와 확인 된 도메인 이름이 조직에 가장 적합 한 옵션 인지 여부를 고객과 논의 하십시오.
 

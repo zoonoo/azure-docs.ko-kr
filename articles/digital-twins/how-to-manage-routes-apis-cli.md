@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054514"
+ms.locfileid: "99071701"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -48,7 +48,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 ### <a name="create-the-endpoint"></a>끝점 만들기
 
-끝점 리소스를 만든 후에는 Azure Digital Twins 끝점에 사용할 수 있습니다. 다음 예에서는 `az dt endpoint create` [Azure Digital TWINS CLI](how-to-use-cli.md)에 대해 명령을 사용 하 여 끝점을 만드는 방법을 보여 줍니다. 명령의 자리 표시자를 사용자 고유의 리소스의 세부 정보로 바꿉니다.
+끝점 리소스를 만든 후에는 Azure Digital Twins 끝점에 사용할 수 있습니다. 다음 예제에서는 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) 명령을 사용 하 여 끝점을 만드는 방법을 보여 줍니다. 명령의 자리 표시자를 사용자 고유의 리소스의 세부 정보로 바꿉니다.
 
 Event Grid 끝점을 만들려면:
 
@@ -56,21 +56,39 @@ Event Grid 끝점을 만들려면:
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Event Hubs 끝점을 만들려면:
+Event Hubs 끝점을 만들려면 (키 기반 인증):
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Service Bus 토픽 끝점을 만들려면 다음을 수행 합니다.
+Service Bus 토픽 끝점 (키 기반 인증)을 만들려면 다음을 수행 합니다.
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 이러한 명령을 성공적으로 실행 한 후에는 인수를 사용 하 여 제공한 이름에 따라 event grid, event hub 또는 Service Bus 항목을 Azure Digital Twins 내부의 끝점으로 사용할 수 있습니다 `--endpoint-name` . 일반적으로 [이 이름은이 문서의 뒷부분에서](#create-an-event-route)만들 **이벤트 경로의** 대상으로 사용 합니다.
 
+#### <a name="create-an-endpoint-with-identity-based-authentication"></a>Id 기반 인증을 사용 하 여 끝점 만들기
+
+Id 기반 인증을 사용 하는 끝점을 만들어 [관리 id](concepts-security.md#managed-identity-for-accessing-other-resources-preview)가 있는 끝점을 사용할 수도 있습니다. 이 옵션은 이벤트 허브 및 Service Bus 형식 끝점에 대해서만 사용할 수 있습니다 (Event Grid에는 지원 되지 않음).
+
+이 유형의 끝점을 만드는 CLI 명령은 다음과 같습니다. 명령에서 자리 표시자에 연결 하려면 다음 값이 필요 합니다.
+* Azure Digital Twins 인스턴스의 Azure 리소스 ID
+* 끝점 이름
+* 끝점 유형
+* 끝점 리소스의 네임 스페이스입니다.
+* 이벤트 허브 또는 Service Bus 항목의 이름
+* Azure Digital Twins 인스턴스의 위치
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 ### <a name="create-an-endpoint-with-dead-lettering"></a>배달 못 한 문자를 사용 하 여 끝점 만들기
 
 끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다.
+
+배달 못 한 편지 처리를 사용 하는 끝점은 Azure Digital Twins [CLI](how-to-use-cli.md) 또는 [제어 평면 api](how-to-use-apis-sdks.md#overview-control-plane-apis)를 사용 하 여 설정할 수 있습니다.
 
 배달 못 한 편지에 대해 자세히 알아보려면 [*개념: 이벤트 경로*](concepts-route-events.md#dead-letter-events)를 참조 하세요. 배달 못 한 문자를 사용 하 여 끝점을 설정 하는 방법에 대 한 지침은이 섹션의 나머지 부분을 계속 진행 합니다.
 
@@ -78,7 +96,7 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 
 배달 못 한 편지 위치를 설정 하기 전에 Azure 계정에 [컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 를 설정 하는 [저장소 계정이](../storage/common/storage-account-create.md?tabs=azure-portal) 있어야 합니다. 
 
-나중에 끝점을 만들 때이 컨테이너에 대 한 URL을 제공 합니다. 배달 못 한 편지 위치는 [SAS 토큰](../storage/common/storage-sas-overview.md)을 포함 하는 컨테이너 URL로 끝점에 제공 됩니다. 해당 토큰에는 `write` 저장소 계정 내의 대상 컨테이너에 대 한 권한이 필요 합니다. 완전히 구성 된 URL은 형식으로 됩니다 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
+나중에 끝점을 만들 때이 컨테이너에 대 한 URI를 제공 합니다. 배달 못 한 편지 위치는 [SAS 토큰](../storage/common/storage-sas-overview.md)을 사용 하 여 컨테이너 URI로 끝점에 제공 됩니다. 해당 토큰에는 `write` 저장소 계정 내의 대상 컨테이너에 대 한 권한이 필요 합니다. 완전히 구성 된 **배달 못 한 편지 SAS URI** 는: 형식입니다 `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>` .
 
 다음 섹션에서 끝점 연결 설정 준비를 위해 다음 단계에 따라 Azure 계정에 이러한 저장소 리소스를 설정 합니다.
 
@@ -99,25 +117,44 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="배달 못 한 문자 암호에 사용할 SAS 토큰을 복사 합니다." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
-#### <a name="configure-the-endpoint"></a>끝점 구성
+#### <a name="create-the-dead-letter-endpoint"></a>배달 못 한 편지 엔드포인트 만들기
 
-배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 Azure Resource Manager Api를 사용 하 여 끝점을 만들 수 있습니다. 
+배달 못 한 편지 처리를 사용 하는 끝점을 만들려면 [Azure Digital Twins CLI](how-to-use-cli.md)에 대해 [az dt endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) 명령에 다음 배달 못한 편지 매개 변수를 추가 합니다.
 
-1. 먼저 [Azure Resource Manager api 설명서](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 사용 하 여 끝점을 만드는 요청을 설정 하 고 필요한 요청 매개 변수를 입력 합니다. 
+매개 변수의 값은 [이전 섹션](#set-up-storage-resources)에서 수집한 저장소 계정 이름, 컨테이너 이름 및 SAS 토큰으로 구성 된 **배달 못 한 편지 sas URI** 입니다. 이 매개 변수는 키 기반 인증을 사용 하 여 끝점을 만듭니다.
 
-2. 그런 다음 `deadLetterSecret` 요청 **본문** 의 속성 개체에 필드를 추가 합니다. 아래 템플릿에 따라이 값을 설정 합니다. 그러면 [이전 섹션](#set-up-storage-resources)에서 수집한 저장소 계정 이름, 컨테이너 이름 및 SAS 토큰 값에서 URL을 사용할 수 있습니다.
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+```azurecli
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+```
 
-3. 끝점을 만들기 위한 요청을 보냅니다.
+이전에 [*끝점 만들기*](#create-the-endpoint) 섹션에서 끝점 생성 명령의 끝에이 매개 변수를 추가 하 여 배달 못 한 편지 처리를 사용 하도록 설정 된 원하는 형식의 끝점을 만듭니다.
 
-이 요청을 구조화 하는 방법에 대 한 자세한 내용은 Azure Digital Twins REST API 설명서: [끝점-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate)를 참조 하세요.
+또는 CLI 대신 [Azure 디지털 Twins 제어 평면 api](how-to-use-apis-sdks.md#overview-control-plane-apis) 를 사용 하 여 배달 못 한 편지 끝점을 만들 수 있습니다. 이렇게 하려면 [DigitalTwinsEndpoint 설명서](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) 를 참조 하 여 요청을 구조화 하 고 배달 못 한 편지 매개 변수를 추가 하는 방법을 확인 합니다.
 
-### <a name="message-storage-schema"></a>메시지 저장소 스키마
+#### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Id 기반 인증을 사용 하 여 배달 못 한 편지 끝점 만들기
+
+Id 기반 인증을 사용 하는 배달 못 한 편지 처리 끝점을 만들어 [관리 id](concepts-security.md#managed-identity-for-accessing-other-resources-preview)와 함께 끝점을 사용할 수도 있습니다. 이 옵션은 이벤트 허브 및 Service Bus 형식 끝점에 대해서만 사용할 수 있습니다 (Event Grid에는 지원 되지 않음).
+
+이러한 유형의 끝점을 만들려면 앞에서 설명한 것과 동일한 CLI 명령을 사용 하 여에 대 한 JSON 페이로드의 추가 필드가 있는 [id 기반 인증을 사용 하 여 끝점](#create-an-endpoint-with-identity-based-authentication)을 만듭니다 `deadLetterUri` .
+
+명령에서 자리 표시자에 연결 하는 데 필요한 값은 다음과 같습니다.
+* Azure Digital Twins 인스턴스의 Azure 리소스 ID
+* 끝점 이름
+* 끝점 유형
+* 끝점 리소스의 네임 스페이스입니다.
+* 이벤트 허브 또는 Service Bus 항목의 이름
+* **배달 못한 편지 SAS URI** 세부 정보: storage 계정 이름, 컨테이너 이름
+* Azure Digital Twins 인스턴스의 위치
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
+#### <a name="message-storage-schema"></a>메시지 저장소 스키마
 
 배달 못 한 편지의 끝점이 설정 되 면 배달 못 한 메시지는 저장소 계정에 다음 형식으로 저장 됩니다.
 
-`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
 
 배달 못 한 편지 메시지는 원래 끝점에 전달 하기 위한 원래 이벤트의 스키마와 일치 합니다.
 
@@ -128,7 +165,7 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
   "specversion": "1.0",
   "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
     "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
