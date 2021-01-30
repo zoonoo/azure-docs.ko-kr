@@ -145,7 +145,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 
 1. 설정 값을 이해 합니다.
 
-    | Setting       | Type         | Description  |
+    | 설정       | Type         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 
