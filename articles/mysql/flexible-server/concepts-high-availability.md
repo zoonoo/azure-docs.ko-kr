@@ -1,17 +1,17 @@
 ---
 title: Azure Database for MySQL 유연한 서버를 사용 하는 영역 중복 고가용성 개요
 description: Azure Database for MySQL 유연한 서버를 사용 하 여 영역 중복 고가용성의 개념에 대해 알아봅니다.
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241187"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097120"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 고가용성 개념
 
@@ -48,7 +48,7 @@ HA의 상태는 개요 페이지에서 지속적으로 모니터링 되 고 보�
 -   대기 복제본은 vCores, storage, 네트워크 설정 (VNET, 방화벽) 등의 기본 VM 구성으로 정확한 VM 구성에 배포 됩니다.
 -   고가용성을 사용 하지 않도록 설정 하 여 대기 복제본을 제거할 수 있습니다.
 -   자동 백업은 스냅숏 기반으로, 주 데이터베이스 서버에서 수행 되 고 영역 중복 저장소에 저장 됩니다.
--   장애 조치 (failover) 이벤트가 있는 경우 새 대기 복제본은 원래 주 가용성 영역에 프로 비전 됩니다.
+-   장애 조치 (failover) 시 유연한 서버는 고가용성이 사용 되는 경우 대기 복제본으로 자동 장애 조치 (failover)를 Azure Database for MySQL 합니다. 고가용성 설치 프로그램은 주 서버를 모니터링 하 고 다시 온라인 상태로 전환 합니다.
 -   클라이언트는 항상 주 데이터베이스 서버에 연결 합니다.
 -   데이터베이스 충돌 또는 노드 오류가 발생 하는 경우 다시 시작은 동일한 노드에서 먼저 시도 됩니다. 실패 하면 자동 장애 조치 (failover)가 트리거됩니다.
 -   서버를 다시 시작 하 여 정적 서버 매개 변수 변경을 선택 하는 기능

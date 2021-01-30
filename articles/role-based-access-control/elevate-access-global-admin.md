@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 6e57e495d34a265b5e0691106996206029656c5a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371123"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091666"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory)의 글로벌 관리자로서 디렉터리에 �
 
 ## <a name="how-does-elevated-access-work"></a>상승 된 액세스는 어떻게 작동 하나요?
 
-Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azure AD 역할을 할당해도 Azure 리소스에 대한 액세스가 부여되지 않고, Azure 역할을 할당해도 Azure AD에 대한 액세스가 부여되지 않습니다. 그러나 Azure AD의 [전역 관리자](../active-directory/roles/permissions-reference.md#company-administrator-permissions) 인 경우 디렉터리의 모든 Azure 구독 및 관리 그룹에 대 한 액세스 권한을 자신에 게 할당할 수 있습니다. 가상 머신이나 스토리지 계정 같은 Azure 구독 리소스에 액세스할 수 없고, 글로벌 관리자 권한을 사용하여 이러한 리소스에 대한 액세스 권한을 얻고 싶으면 이 기능을 사용하세요.
+Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azure AD 역할을 할당해도 Azure 리소스에 대한 액세스가 부여되지 않고, Azure 역할을 할당해도 Azure AD에 대한 액세스가 부여되지 않습니다. 그러나 Azure AD의 [전역 관리자](../active-directory/roles/permissions-reference.md#global-administrator-permissions) 인 경우 디렉터리의 모든 Azure 구독 및 관리 그룹에 대 한 액세스 권한을 자신에 게 할당할 수 있습니다. 가상 머신이나 스토리지 계정 같은 Azure 구독 리소스에 액세스할 수 없고, 글로벌 관리자 권한을 사용하여 이러한 리소스에 대한 액세스 권한을 얻고 싶으면 이 기능을 사용하세요.
 
 액세스 권한을 높이면 Azure의 루트 범위(`/`)에서 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할이 할당됩니다.이를 통해 모든 리소스를 살펴보고, 디렉터리에 있는 구독 또는 관리 그룹에 대한 액세스 권한을 할당할 수 있습니다. 사용자 액세스 관리자 역할 할당은 Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 제거할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 ![액세스 권한 상승](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 ### <a name="elevate-access-for-a-global-administrator"></a>전역 관리자에 대한 액세스 권한 상승
 
@@ -51,24 +51,24 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
     Azure AD Privileged Identity Management를 사용 하는 경우 [전역 관리자 역할 할당을 활성화](../active-directory/privileged-identity-management/pim-how-to-activate-role.md)합니다.
 
-1. **Azure Active Directory**를 엽니다.
+1. **Azure Active Directory** 를 엽니다.
 
-1. **관리**아래에서 **속성**을 선택 합니다.
+1. **관리** 에서 **속성** 을 선택합니다.
 
    ![Azure Active Directory 속성에 대 한 속성 선택-스크린샷](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
-1. **Azure 리소스에 대한 액세스 관리**에서 토글을 **예**로 설정합니다.
+1. **Azure 리소스에 대한 액세스 관리** 에서 토글을 **예** 로 설정합니다.
 
    ![Azure 리소스에 대한 액세스 관리 - 스크린샷](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   설정/해제를 **예**로 설정 하면 루트 범위 (/)에서 Azure RBAC의 사용자 액세스 관리자 역할이 할당 됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 토글은 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
+   설정/해제를 **예** 로 설정 하면 루트 범위 (/)에서 Azure RBAC의 사용자 액세스 관리자 역할이 할당 됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 토글은 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-   토글을 **아니요**로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
+   토글을 **아니요** 로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
     > [!NOTE]
-    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No**로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
+    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No** 로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
     
-1. **Save**를 클릭하여 설정을 저장합니다.
+1. **Save** 를 클릭하여 설정을 저장합니다.
 
    이 설정은 글로벌 속성이 아니며 현재 로그인된 사용자에게만 적용됩니다. 글로벌 관리자 역할의 모든 멤버에 대한 액세스 권한을 상승시킬 수 없습니다.
 
@@ -90,9 +90,9 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 1. 액세스 권한을 상승 시키는 데 사용 된 것과 동일한 사용자로 로그인 합니다.
 
-1. 탐색 목록에서 **Azure Active Directory**를 클릭한 다음, **속성**을 클릭합니다.
+1. 탐색 목록에서 **Azure Active Directory** 를 클릭한 다음, **속성** 을 클릭합니다.
 
-1. **Azure 리소스에 대 한 액세스 관리** **를 다시**설정/해제로 설정 합니다. 사용자별 설정이므로 액세스 권한을 상승시키는 데 사용했던 동일한 사용자로 로그인해야 합니다.
+1. **Azure 리소스에 대 한 액세스 관리** **를 다시** 설정/해제로 설정 합니다. 사용자별 설정이므로 액세스 권한을 상승시키는 데 사용했던 동일한 사용자로 로그인해야 합니다.
 
     액세스 제어 (IAM) 창에서 사용자 액세스 관리자 역할 할당을 제거 하려고 하면 다음과 같은 메시지가 표시 됩니다. 역할 할당을 제거 하려면 다시 토글을 **아니요** 로 설정 하거나 Azure PowerShell, Azure CLI 또는 REST API를 사용 해야 합니다.
 
@@ -103,7 +103,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
     Privileged Identity Management를 사용 하는 경우 전역 관리자 역할 할당을 비활성화 합니다.
 
     > [!NOTE]
-    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No**로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
+    > [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)사용 하는 경우 역할 할당을 비활성화 해도 **Azure 리소스에 대 한 액세스 관리** 가 **No** 로 변경 되지 않습니다. 최소 권한 액세스를 유지 하려면 역할 할당을 비활성화 하기 전에이 토글을 **아니요** 로 설정 하는 것이 좋습니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

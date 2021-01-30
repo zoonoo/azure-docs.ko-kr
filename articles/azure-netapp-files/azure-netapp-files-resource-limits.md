@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: aaffc63690894f43329763064ae89a105274953c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: c82e834c0af3737c1e5ef19c7aa789b94d87f6d8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511936"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095394"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
 Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리하는 데 도움이 됩니다.
 
-## <a name="resource-limits"></a>리소스 제한
+## <a name="resource-limits"></a>리소스 한계
 
 다음 표에서는 Azure NetApp Files에 대 한 리소스 제한을 설명 합니다.
 
@@ -48,6 +48,8 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  수동 QoS 볼륨에 할당 된 최소 처리량     |    1 MiB/s   |    아니요    |    
 |  수동 QoS 볼륨에 대해 할당 된 최대 처리량     |    4500 MiB/s    |    아니요    |    
 |  지역 간 복제 데이터 보호 볼륨 (대상 볼륨) 수     |    5    |    예    |     
+
+디렉터리가 디렉터리 메타 데이터에 대 한 최대 크기 제한 (320 MB)에 근접 하 고 있는지 확인 하려면 [어떻게 할까요? 디렉터리가 제한 크기에 근접](azure-netapp-files-faqs.md#how-do-i-determine-if-a-directory-is-approaching-the-limit-size)하 고 있는지 확인을 참조 하세요.   
 
 자세한 내용은 [용량 관리 faq](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조 하세요.
 

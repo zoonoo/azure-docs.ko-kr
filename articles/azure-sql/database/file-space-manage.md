@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
 ms.date: 12/22/2020
-ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7bb754b892715adffc6ead99f3d866f9f9d8af9b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233596"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096494"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대 한 파일 공간 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -219,7 +219,7 @@ DBCC SHRINKDATABASE (N'db1');
 
 또한 데이터베이스 파일 축소의 잠재적 부정적 성능 영향에 대해 알고 있어야 합니다. 아래의 [**인덱스 다시 작성**](#rebuild-indexes) 섹션을 참조 하십시오.
 
-이 명령에 대한 자세한 내용은 [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md)를 참조하세요.
+이 명령에 대한 자세한 내용은 [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요.
 
 ### <a name="auto-shrink"></a>자동 축소
 

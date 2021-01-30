@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917254"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097693"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -28,6 +28,7 @@ B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 * *<br>
+[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 
 * B 시리즈 Vm은 안정적으로 변화 하므로 ACU 숫자는 워크 로드 및 코어 사용량에 따라 다릅니다.<br>
 * * 가속화 된 네트워킹은 *Standard_B12ms*, *Standard_B16ms* 및 *Standard_B20ms* 에만 지원 됩니다.

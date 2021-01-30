@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222890"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096392"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -87,7 +87,7 @@ ms.locfileid: "98222890"
 자세한 내용은 [Service 연결](./virtual-network-peering-overview.md#service-chaining)을 참조하세요.
 
 > [!Note]
-> NVA 설정에 도움이 필요한 경우 [NVA 공급업체에 문의](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+> NVA 설정에 도움이 필요한 경우 [NVA 공급업체에 문의](https://mskb.pkisolutions.com/kb/2984655)하세요.
 
 NVA 디바이스 설정 및 라우팅 문제 해결에 도움이 필요한 경우 [Azure의 네트워크 가상 어플라이언스 문제](./virtual-network-troubleshoot-nva.md)를 참조하세요.
 
@@ -190,7 +190,7 @@ NVA 디바이스 설정 및 라우팅 문제 해결에 도움이 필요한 경�
 
 허브 네트워크에 NVA가 있어야 합니다. 스포크에서 다음 홉으로 NVA가 있는 UDR을 구성하고, 허브 가상 네트워크에서 **전달된 트래픽 허용** 을 사용하도록 설정합니다.
 
-자세한 내용은 [서비스 연결](./virtual-network-peering-overview.md#service-chaining)을 참조하고, 원하는 [NVA 공급업체](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)와 요구 사항을 논의하세요.
+자세한 내용은 [서비스 연결](./virtual-network-peering-overview.md#service-chaining)을 참조하고, 원하는 [NVA 공급업체](https://mskb.pkisolutions.com/kb/2984655)와 요구 사항을 논의하세요.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>서로 다른 지역에 있는 스포크 가상 네트워크 간의 허브-스포크 네트워크 연결 문제 해결
 

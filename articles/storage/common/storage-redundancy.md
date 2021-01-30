@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573362"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094912"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -71,8 +71,8 @@ ZRS는 데이터를 일시적으로 사용할 수 없는 경우 탁월한 성능
 | Storage 계정 유형 | 지원되는 지역 | 지원되는 서비스 |
 |--|--|--|
 | 범용 v2<sup>1</sup> | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br />  서유럽<br /> 프랑스 중부<br /> 일본 동부<br /> 남아프리카 북부<br /> 영국 남부<br /> 미국 중부<br /> 미국 동부<br /> 미국 동부 2<br /> 미국 서부 2 | 블록 Blob<br /> 페이지 Blob<sup>2</sup><br /> 파일 공유(표준)<br /> 테이블<br /> 큐<br /> |
-| BlockBlobStorage<sup>1</sup> | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 일본 동부<br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2| 프리미엄 블록 blob만 |
-| FileStorage | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 일본 동부<br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2 | 프리미엄 파일만 공유 |
+| BlockBlobStorage<sup>1</sup> | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 프랑스 중부 <br /> 일본 동부<br /> 영국 남부 <br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2| 프리미엄 블록 blob만 |
+| FileStorage | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 프랑스 중부 <br /> 일본 동부<br /> 영국 남부 <br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2 | 프리미엄 파일만 공유 |
 
 <sup>1</sup> 보관 계층은 현재 ZRS 계정에 지원되지 않습니다.<br />
 <sup>2</sup> 가상 컴퓨터에 대한 Azure 관리 디스크를 포함하는 저장소 계정은 항상 LRS를 사용합니다. Azure 비관리 디스크는 LRS도 사용해야 합니다. GRS를 사용하는 Azure 비관리 디스크에 대한 저장소 계정을 만들 수 있지만 비동기 지역에서 복제에 대한 일관성 문제로 인해 권장되지는 않습니다. 관리 디스크 및 비관리 디스크는 모두 ZRS 또는 GZRS를 지원하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure 관리 디스크의 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.

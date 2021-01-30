@@ -4,12 +4,12 @@ description: Azure HDInsight의 인증 문제
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: a0ca7cb8797b90d8cf933733c48be299e79be8aa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b5a55b3b5f9affcd9f34e1c0d4c439a7ada8c0b9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933623"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095127"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Azure HDInsight의 인증 문제
 
@@ -35,7 +35,7 @@ Azure AD 오류 코드 50126은 `AllowCloudPasswordValidation` 테 넌 트가 �
 
 ### <a name="resolution"></a>해결 방법
 
-Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자에 대 한 암호 해시를 사용 하도록 설정 해야 합니다.  `AllowCloudPasswordValidationPolicy` [HDInsight의 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)문서에 표시 된 대로를 적용 합니다.
+Azure AD 테 넌 트의 전역 관리자는 Azure AD에서 ADFS 지원 사용자에 대 한 암호 해시를 사용 하도록 설정 해야 합니다.  `AllowCloudPasswordValidationPolicy` [HDInsight의 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)문서에 표시 된 대로를 적용 합니다.
 
 ---
 

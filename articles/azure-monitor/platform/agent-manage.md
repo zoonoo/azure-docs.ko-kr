@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 15d01a8ac21264bf57ee7e65147e3989cd631b15
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011883"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095559"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -243,7 +243,7 @@ Linux 컴퓨터가 프록시 서버 또는 Log Analytics 게이트웨이를 통�
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `extract MMASetup-<platform>.exe`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다. `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` 인수를 전달하여 경로를 지정할 수도 있습니다. IExpress에서 지원하는 명령줄 스위치에 대한 자세한 내용은 [IExpress의 명령줄 스위치](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages)를 참조하고 필요에 맞게 예제를 업데이트하세요.
+2. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `extract MMASetup-<platform>.exe`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다. `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>` 인수를 전달하여 경로를 지정할 수도 있습니다. IExpress에서 지원하는 명령줄 스위치에 대한 자세한 내용은 [IExpress의 명령줄 스위치](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/197147)를 참조하고 필요에 맞게 예제를 업데이트하세요.
 
 3. 프롬프트에 `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`를 입력합니다.
 

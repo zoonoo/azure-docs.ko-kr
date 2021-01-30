@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 619f2c2670d8e376ad0bca7cf8b93b971be067a0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: fd39f5e0af34c702cddc8e08b6a94e428c7f0167
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880728"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092053"
 ---
 # <a name="security-control-v2-privileged-access"></a>보안 제어 V2: 권한 있는 액세스
 
@@ -26,7 +26,7 @@ ms.locfileid: "98880728"
 
 권한 수준이 높은 사용자 계정 수를 제한 하 고 관리자 권한으로 이러한 계정을 보호 합니다. 이러한 두 역할에 할당 된 사용자는 관리자 역할을 위임할 수 있으므로 Azure AD의 가장 중요 한 기본 제공 역할은 전역 관리자 및 권한 있는 역할 관리자입니다. 이러한 권한을 통해 사용자는 Azure 환경의 모든 리소스를 직접 또는 간접적으로 읽고 수정할 수 있습니다.
 
-- 전역 관리자/회사 관리자:이 역할의 사용자는 azure ad id를 사용 하는 서비스 뿐만 아니라 Azure AD의 모든 관리 기능에 액세스할 수 있습니다.
+- 전역 관리자:이 역할의 사용자는 azure ad id를 사용 하는 서비스 뿐만 아니라 Azure AD의 모든 관리 기능에 액세스할 수 있습니다.
 
 - 권한 있는 역할 관리자:이 역할의 사용자는 Azure AD 뿐만 아니라 Azure AD Privileged Identity Management (PIM) 내에서 역할 할당을 관리할 수 있습니다. 또한이 역할을 통해 PIM 및 관리 단위의 모든 측면을 관리할 수 있습니다.
 

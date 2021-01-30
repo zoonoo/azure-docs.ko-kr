@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656957"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096324"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
 
@@ -46,9 +46,6 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 ### <a name="feature-changes"></a>기능 변경
 
-> [!NOTE] 
-> 현재 [v3 엔터티 범주](named-entity-types.md) 는 영어와 스페인어 텍스트 에서만 반환 됩니다. API는 버전 2.1에서 지원 되는 경우 다른 언어로 된 요청에 대 한 버전 2.1 결과를 반환 합니다.
-
 버전 2.1에서 텍스트 분석 API는 NER (명명 된 엔터티 인식) 및 엔터티 연결에 대해 하나의 끝점을 사용 합니다. 버전 3은 확장 된 명명 된 엔터티 검색을 제공 하 고 NER 및 엔터티 연결 요청에 대해 별도의 끝점을 사용 합니다. V 3.1-preview. 1부터 NER는 개인 `pii` 정보 및 상태 정보를 추가로 검색할 수 있습니다. `phi` 
 
 ### <a name="steps-to-migrate"></a>마이그레이션 단계
@@ -73,6 +70,35 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>버전 2.1 엔터티 범주
+
+다음 표에는 NER v 2.1에 대해 반환 된 엔터티 범주가 나와 있습니다.
+
+| Category   | Description                          |
+|------------|--------------------------------------|
+| Person   |   사람의 이름입니다.  |
+|위치    | 자연 스러운 랜드마크, 구조, 지리적 기능 및 지정 학적 엔터티 |
+|조직 | 회사, 정치적 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. Nationalities 및 religions는이 엔터티 형식에 포함 되지 않습니다. |
+| PhoneNumber | 전화 번호 (미국과 EU 전화 번호만 해당). |
+| 메일 | 전자 메일 주소. |
+| URL | 웹 사이트에 대 한 Url입니다. |
+| IP | 네트워크 IP 주소. |
+| DateTime | 날짜 및 시간입니다.| 
+| Date | 일정 날짜 |
+| 시간 | 하루 중 시간 |
+| DateRange | 날짜 범위. |
+| TimeRange | 시간 범위. |
+| 기간 | 기간 |
+| 설정 | 반복 횟수를 설정 합니다. |
+| 수량 | 숫자 및 숫자 수량. |
+| 숫자 | 숫자 |
+| 백분율 | 백분율.|
+| 서수 | 서 수 번호입니다. |
+| 나이 | 에이징을. |
+| 통화 | 환산. |
+| 차원 | 차원과 측정. |
+| 온도 | 낮게. |
 
 ## <a name="language-detection"></a>[언어 감지](#tab/language-detection)
 
@@ -105,7 +131,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 #### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

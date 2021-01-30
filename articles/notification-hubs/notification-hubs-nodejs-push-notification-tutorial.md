@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ef6ef85ea9d256303852e4b281071da455ebb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250422"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097676"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 
@@ -82,10 +82,10 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 
 다음 단계를 수행하여 [Azure Portal]에서 `connectionstring` 연결 값을 가져옵니다.
 
-1. 왼쪽 탐색 창에서 **찾아보기**를 클릭합니다.
-2. **Notification Hubs**를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
-3. **설정**을 선택합니다.
-4. **액세스 정책**을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
+1. 왼쪽 탐색 창에서 **찾아보기** 를 클릭합니다.
+2. **Notification Hubs** 를 선택한 다음 샘플로 사용하려는 허브를 찾습니다. 새 알림 허브를 만드는 데 도움이 필요한 경우 [Windows 스토어 시작 자습서](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 를 참조할 수 있습니다.
+3. **설정** 을 선택합니다.
+4. **액세스 정책** 을 클릭합니다. 공유 및 전체 액세스 연결 문자열이 모두 표시됩니다.
 
 ![Azure Portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
@@ -109,7 +109,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 - **Payload** - 메시지의 JSON 또는 원시 문자열 페이로드
 - **Callback** - 콜백 함수.
 
-페이로드 형식에 대 한 자세한 내용은 [페이로드 설명서](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload)를 참조 하세요.
+페이로드 형식에 대 한 자세한 내용은 [페이로드 설명서](https://payload.readthedocs.io/en/latest/)를 참조 하세요.
 
 다음 코드는 `NotificationHubService`에서 공개하는 `GcmService` 인스턴스를 사용하여 등록된 모든 클라이언트에 푸시 알림을 보냅니다.
 
@@ -155,7 +155,7 @@ notificationHubService.apns.send(null, payload, function(error){
 
 - **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 - **Payload** - 메시지의 XML 페이로드
-- **TargetName**  -  TargetName `toast` 알림 메시지의 경우 `token` - 타일 알림 메시지인 경우.
+-   -  TargetName `toast` 알림 메시지의 경우 `token` - 타일 알림 메시지인 경우.
 - **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) 섹션을 참조하세요.
 - **Options** - 선택적 요청 헤더
 - **Callback** - 콜백 함수.

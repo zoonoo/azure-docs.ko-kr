@@ -3,12 +3,12 @@ title: Azure Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에
 description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 사용하여 Azure Service Bus 데이터에 액세스하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: eb6610945ba4b09543308ab351d3a36ec7e587dd
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 06bc2ffffc6b467aa730e16599099bc95117dac9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684844"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092220"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 
@@ -37,9 +37,9 @@ Service Bus 탐색기 도구를 사용 하려면 다음 작업을 수행 해야 
     - [빠른 시작 - 큐 만들기](service-bus-quickstart-portal.md)
     - [빠른 시작 - 토픽 만들기](service-bus-quickstart-topics-subscriptions-portal.md)
 - 네임 스페이스에서 다음 역할 중 하나의 멤버 인지 확인 합니다. 
-    - [Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    - [기여자](../role-based-access-control/built-in-roles.md#contributor) 
-    - [소유자](/role-based-access-control/built-in-roles.md#owner)
+    - [Service Bus 데이터 소유자](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 
+    - [기여자](/azure/role-based-access-control/built-in-roles#contributor) 
+    - [소유자](/azure/role-based-access-control/built-in-roles#owner)
 
 
 ## <a name="using-the-service-bus-explorer"></a>Service Bus 탐색기 사용

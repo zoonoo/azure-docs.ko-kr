@@ -2,19 +2,19 @@
 title: C# 자습서 - 푸시 API를 사용하여 인덱싱 최적화
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 푸시 API를 사용하여 데이터를 효율적으로 인덱싱하는 방법을 알아봅니다. 이 자습서 및 샘플 코드는 C#에 있습니다.
-manager: liamca
+manager: luisca
 author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/12/2020
+ms.date: 1/29/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d22ff5c863617a3feb2a08d4b1889d0a7c10cd3a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
-ms.translationtype: HT
+ms.openlocfilehash: f97a99bf2d055805ee665ab51aff8cff12dc5a69
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693402"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094195"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>자습서: 푸시 API를 사용하여 인덱싱 최적화
 

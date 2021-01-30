@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015983"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094089"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -43,7 +43,7 @@ Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음�
 4. 원하는 호환성 수준 값을 선택 합니다.
 5. 페이지 맨 아래에서 **저장** 을 선택 합니다.
 
-![Azure Portal의 Stream Analytics 호환성 수준](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Azure Portal의 Stream Analytics 호환성 수준](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 호환성 수준을 업데이트할 때 T-컴파일러는 선택한 호환성 수준에 해당 하는 구문을 사용 하 여 작업의 유효성을 검사 합니다.
 
@@ -125,7 +125,7 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 

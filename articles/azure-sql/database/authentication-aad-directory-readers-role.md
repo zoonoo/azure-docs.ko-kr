@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675064"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094559"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL용 Azure Active Directory의 Directory Readers 역할
 
@@ -37,7 +37,7 @@ Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에
 
 ## <a name="assigning-the-directory-readers-role"></a>디렉터리 판독기 역할 할당
 
-[**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 id에 할당 하려면 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 권한이 있는 사용자가 필요 합니다. SQL Database, SQL Managed Instance 또는 Azure Synapse를 종종 관리 하거나 배포 하는 사용자는 이러한 높은 권한 있는 역할에 액세스할 수 없습니다. 이로 인해 사용자가 계획 되지 않은 Azure SQL 리소스를 만들거나 종종 큰 조직에서 액세스할 수 없는 높은 권한이 있는 역할 멤버의 도움을 받아야 하는 경우가 종종 있습니다.
+[**디렉터리 판독기**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 id에 할당 하려면 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 권한이 있는 사용자가 필요 합니다. SQL Database, SQL Managed Instance 또는 Azure Synapse를 종종 관리 하거나 배포 하는 사용자는 이러한 높은 권한 있는 역할에 액세스할 수 없습니다. 이로 인해 사용자가 계획 되지 않은 Azure SQL 리소스를 만들거나 종종 큰 조직에서 액세스할 수 없는 높은 권한이 있는 역할 멤버의 도움을 받아야 하는 경우가 종종 있습니다.
 
 SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리자를 설정](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)하려면 먼저 관리형 인스턴스 ID에 **디렉터리 읽기 권한자** 역할을 할당해야 합니다. 
 
@@ -45,7 +45,7 @@ SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Azure AD 그룹에 디렉터리 판독기 역할 부여
 
-현재 **공개 미리 보기로** 제공 되는 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 가 Azure AD 그룹을 만들고 해당 그룹에 대 한 [**디렉터리 독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 할당할 수 있습니다. 이렇게 하면이 그룹의 구성원에 대 한 Azure AD Graph API에 액세스할 수 있습니다. 또한이 그룹의 소유자 인 Azure AD 사용자는 Azure SQL 논리 서버의 id를 포함 하 여이 그룹의 새 구성원을 할당할 수 있습니다.
+현재 **공개 미리 보기로** 제공 되는 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 가 Azure AD 그룹을 만들고 해당 그룹에 대 한 [**디렉터리 독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 권한을 할당할 수 있습니다. 이렇게 하면이 그룹의 구성원에 대 한 Azure AD Graph API에 액세스할 수 있습니다. 또한이 그룹의 소유자 인 Azure AD 사용자는 Azure SQL 논리 서버의 id를 포함 하 여이 그룹의 새 구성원을 할당할 수 있습니다.
 
 이 솔루션에는 그룹을 만들고 사용자를 일회성 작업으로 할당 하기 위해 높은 권한 사용자 (전역 관리자 또는 권한 있는 역할 관리자)가 필요 하지만 Azure AD 그룹 소유자는 향후 추가 구성원을 할당할 수 있습니다. 이렇게 하면 나중에 Azure AD 테 넌 트에서 모든 SQL 데이터베이스, SQL 관리 되는 인스턴스 또는 Azure Synapse 서버를 구성할 수 있는 높은 권한 사용자를 포함할 필요가 없습니다.
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 1/19/2021
+ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1932cd02cae5e92ee1f6011f952a3e59260388
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054943"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091935"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Azure Portal의 프로 비전 로그 개요 (미리 보기)
 
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 이러한 사용자는 프로 비전 로그의 데이터에 액세스할 수 있습니다.
 
 * 응용 프로그램 소유자 (자체 응용 프로그램에 대 한 로그)
-* 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
+* 보안 관리자, 보안 읽기 권한자, 보고서 구독자, 보안 운영자, 응용 프로그램 관리자 및 클라우드 응용 프로그램 관리자 역할의 사용자
 * [ProvisioningLogs 권한이](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions) 있는 사용자 지정 역할의 사용자
 * 전역 관리자
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d06d3d4aaa0d76b80257d2148fb62f71c3fdb0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87009767"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093198"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -47,7 +47,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 >   ```
 > * 방화벽이 Active Directory 정책을 통해 설정된 경우 다음 스크립트를 실행하여 임시로 액세스할 수 있습니다. 
 >   ```
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
@@ -88,9 +88,9 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 #### <a name="mitigation-4-remote-registry"></a>해결 방법 4: 원격 레지스트리 
 
-다음 단계에 따라 [원격 레지스트리](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)를 사용합니다.
+다음 단계에 따라 [원격 레지스트리](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837)를 사용합니다.
 
-1.  문제 해결을 위한 VM에서 레지스트리 편집기를 시작한 다음, **파일** > **네트워크 레지스트리 연결**로 이동합니다.
+1.  문제 해결을 위한 VM에서 레지스트리 편집기를 시작한 다음, **파일** > **네트워크 레지스트리 연결** 로 이동합니다.
 
 2.  *TARGET MACHINE*\SYSTEM 분기를 열고, 다음 값을 지정합니다.
 
@@ -106,7 +106,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 5.  **서비스(로컬)** 을 클릭합니다.
 
-6.  **다른 컴퓨터에 연결**을 선택합니다.
+6.  **다른 컴퓨터에 연결** 을 선택합니다.
 
 7.  문제가 있는 VM의 **프라이빗 IP 주소(DIP)** 를 입력합니다.
 
@@ -126,7 +126,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 4.  변경 내용을 롤백해야 하는 경우를 대비하여 변경 전에 \windows\system32\config 폴더의 복사본을 만듭니다.
 
-5.  문제 해결을 위한 VM에서 레지스트리 편집기(regedit.exe)를 시작합니다. 
+5.  문제 해결을 위한 VM에서 레지스트리 편집기(regedit.exe)를 시작합니다. 
 
 6.  이 문제 해결 절차에서는 하이브를 BROKENSYSTEM 및 BROKENSOFTWARE로 탑재합니다.
 

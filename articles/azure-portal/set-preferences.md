@@ -4,12 +4,12 @@ description: 기본 설정에 맞게 Azure Portal 기본 설정을 변경할 수
 keywords: 설정, 시간 제한, 언어, 지역
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 07dd3eb5cb132adf87852f29d867be772294d189
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745641"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094113"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure Portal 설정 및 기본 설정 관리
 
@@ -91,7 +91,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 ### <a name="change-the-directory-timeout-setting-admin"></a>디렉터리 제한 시간 설정 변경 (관리)
 
-[전역 관리자 역할](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 의 관리자는 세션이 로그 아웃 되기 전에 최대 유휴 시간을 적용할 수 있습니다. 비활성 시간 제한 설정은 디렉터리 수준에서 적용 됩니다. 이 설정은 새 세션에 적용 됩니다. 이미 로그인 한 사용자에 게는 즉시 적용 되지 않습니다. 디렉터리에 대 한 자세한 내용은 [Active Directory Domain Services 개요](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)를 참조 하세요.
+[전역 관리자 역할](../active-directory/roles/permissions-reference.md#global-administrator) 의 관리자는 세션이 로그 아웃 되기 전에 최대 유휴 시간을 적용할 수 있습니다. 비활성 시간 제한 설정은 디렉터리 수준에서 적용 됩니다. 이 설정은 새 세션에 적용 됩니다. 이미 로그인 한 사용자에 게는 즉시 적용 되지 않습니다. 디렉터리에 대 한 자세한 내용은 [Active Directory Domain Services 개요](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)를 참조 하세요.
 
 전역 관리자 인 경우 Azure Portal의 모든 사용자에 대해 유휴 시간 제한 설정을 적용 하려면 다음 단계를 수행 합니다.
 

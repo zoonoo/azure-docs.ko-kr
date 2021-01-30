@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725789"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093311"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Azure SQL Database 차단 문제 이해 및 해결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -371,7 +371,7 @@ SSMS에서 [확장 이벤트 새 세션 마법사](/sql/relational-databases/ext
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝](/monitor-tune-overview.md)
+* [Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝](/azure/azure-sql/database/monitor-tune-overview)
 * [쿼리 저장소를 사용한 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [트랜잭션 잠금 및 행 버전 관리 지침](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)
