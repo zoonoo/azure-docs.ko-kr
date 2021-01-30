@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 50b47e5f1a5ba0b663b585b88156d596e5765b66
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bb1a4618fad4ef9ff852374aae74790258ba2a72
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806619"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097405"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[인증서는 지정된 통합 인증 기관에서 발급해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) |Digicert 또는 GlobalSign과 같은 키 자격 증명 모음에 인증서를 발급할 수 있는 Azure 통합 인증 기관을 지정하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_SupportedCAs.json) |
 |[인증서는 지정된 비통합 인증 기관에서 발급해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) |키 자격 증명 모음에 인증서를 발급할 수 있는 사용자 지정 또는 내부 인증 기관을 지정하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_Issuers_CustomCAs.json) |
@@ -38,7 +38,7 @@ ms.locfileid: "98806619"
 |[키는 지정된 기간(일)을 초과하는 활성 상태가 아니어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) |키가 활성 상태여야 하는 기간(일)을 지정합니다. 기간을 초과하여 키를 사용하면 공격자가 키를 손상시킬 가능성이 높아집니다. 보안상 키가 2년을 초과하는 활성 상태가 아닌지 확인하는 것이 좋습니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ActivePeriod.json) |
 |[타원 곡선 암호화를 사용하는 키에는 지정된 곡선 이름이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fff25f3c8-b739-4538-9d07-3d6d25cfb255) |타원 곡선 암호화로 지원되는 키는 다른 곡선 이름을 사용할 수 있습니다. 일부 애플리케이션은 특정 타원 곡선 키와만 호환됩니다. 환경에서 만들 수 있는 타원 곡선 키 유형을 적용합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_EC_AllowedCurveNames.json) |
 |[RSA 암호화를 사용하는 키에는 지정된 최소 키 크기가 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82067dbb-e53b-4e06-b631-546d197452d9) |키 자격 증명 모음에 사용하는 데 허용되는 최소 키 크기를 설정합니다. 작은 키 크기의 RSA 키를 사용하는 것은 안전한 방법이 아니며 많은 업계 인증 요구 사항을 충족하지 않습니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_RSA_MinimumKeySize.json) |
-|[Key Vault의 프라이빗 엔드포인트를 구성해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) |프라이빗 링크는 공용 인터넷을 통해 트래픽을 보내지 않고 Key Vault를 Azure 리소스에 연결하는 방법을 제공합니다. 프라이빗 링크는 데이터 반출에 대한 심층 방어 기능을 제공합니다. |감사, 사용 안 함 |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultPrivateEndpointEnabled_Audit.json) |
+|[Key Vault의 프라이빗 엔드포인트를 구성해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) |프라이빗 링크는 공용 인터넷을 통해 트래픽을 보내지 않고 Key Vault를 Azure 리소스에 연결하는 방법을 제공합니다. 프라이빗 링크는 데이터 반출에 대한 심층 방어 기능을 제공합니다. |감사, 거부, 사용 안 함 |[1.1.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultPrivateEndpointEnabled_Audit.json) |
 |[비밀에는 콘텐츠 형식이 설정되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3) |콘텐츠 형식 태그는 비밀이 암호, 연결 문자열 등인지 여부를 식별하는 데 도움이 됩니다. 비밀마다 회전 요구 사항이 다릅니다. 콘텐츠 형식 태그는 비밀에 설정되어야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ContentTypeSet.json) |
 |[비밀에는 만료 전에 지정된 기간(일)보다 더 많은 기간이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0eb591a-5e70-4534-a8bf-04b9c489584a) |비밀이 만료에 너무 가까운 경우 조직에서 비밀 회전 지연이 발생하여 운영이 중단될 수 있습니다. 비밀은 오류에 대응할 수 있는 충분한 시간을 제공하기 위해 만료 전 지정된 일 수에서 회전되어야 합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_Expiry_ByDays.json) |
 |[비밀에는 지정된 최대 유효 기간이 있어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) |키 자격 증명 모음 내에서 비밀이 유효한 최대 일 수를 지정하여 조직의 규정 준수 요구 사항을 관리합니다. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ValidityPeriod.json) |
