@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6e2d33ec3239233a7896e78c1201cfd09d152cf6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 96b22afcdc90e07d007276f52c967d1621bcc45e
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808335"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99213951"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -36,7 +36,7 @@ ms.locfileid: "98808335"
 |[Kubernetes 클러스터 Pod 및 컨테이너는 허용된 SELinux 옵션만 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) |이 정책은 Pod 및 컨테이너가 Kubernetes 클러스터에서 허용되는 SELinux 옵션만 사용하도록 합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[3.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/SELinux.json) |
 |[Kubernetes 클러스터 Pod는 허용된 볼륨 유형만 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec) |이 정책은 Pod가 Kubernetes 클러스터에서 허용되는 볼륨 유형만 사용하도록 합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AllowedVolumeTypes.json) |
 |[Kubernetes 클러스터 Pod는 승인된 호스트 네트워크와 포트 범위만 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe) |이 정책은 Kubernetes 클러스터에서 호스트 네트워크 및 허용 가능한 호스트 포트 범위에 대한 Pod 액세스를 제어합니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/HostNetworkPorts.json) |
-|[Kubernetes 클러스터 서비스는 허용 된 외부 Ip만 사용 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd46c275d-1680-448d-b2ec-e495a3b6cc89) |허용 되는 외부 Ip를 사용 하 여 Kubernetes 클러스터에서 잠재적 공격 (CVE-2020-8554)을 방지 합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 참조하세요. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AllowedExternalIPs.json) |
+|[Kubernetes 클러스터 서비스는 허용 된 외부 Ip만 사용 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd46c275d-1680-448d-b2ec-e495a3b6cc89) |허용 되는 외부 Ip를 사용 하 여 Kubernetes 클러스터에서 잠재적 공격 (CVE-2020-8554)을 방지 합니다. 자세한 내용은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)을(를) 참조하세요. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/AllowedExternalIPs.json) |
 |[Kubernetes 클러스터는 자동 탑재 API 자격 증명을 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F423dd1ba-798e-40e4-9c4d-b6902674b423) |잠재적으로 손상된 Pod 리소스가 Kubernetes 클러스터에 대해 API 명령을 실행할 수 없도록 자동 탑재 API 자격 증명을 사용하지 않도록 설정합니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)로 이동하세요. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/BlockAutomountToken.json) |
 |[Kubernetes 클러스터는 컨테이너 권한 상승을 허용해서는 안 됨](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) |이 정책은 컨테이너가 Kubernetes 클러스터에서 권한 에스컬레이션을 사용하는 것을 허용하지 않습니다. 이 정책은 일반적으로 AKS(Kubernetes Service)에서 사용할 수 있으며 AKS 엔진 및 Azure Arc 지원 Kubernetes에 대한 미리 보기입니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerNoPrivilegeEscalation.json) |
 |[Kubernetes 클러스터는 특정 보안 기능을 사용하지 않아야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa27c700f-8a22-44ec-961c-41625264370b) |Kubernetes 클러스터의 특정 보안 기능을 차단하여 Pod 리소스에 대해 부여되지 않은 권한을 방지합니다. 이 정책 사용에 대한 지침은 [https://aka.ms/kubepolicydoc](https://aka.ms/kubepolicydoc)를 방문하세요. |감사, 거부, 사용 안 함 |[1.0.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Kubernetes/ContainerDisallowedCapabilities.json) |

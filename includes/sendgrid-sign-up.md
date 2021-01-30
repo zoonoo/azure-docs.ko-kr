@@ -4,15 +4,13 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc00f4de95d22eec71f9b1b2504b00f506232dc
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015431"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99213747"
 ---
-Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 수 있습니다. 이러한 25000 무료 월별 전자 메일을 통해 고급 보고 및 분석과 [모든 api][all APIs] (WEB, SMTP, Event, Parse 등)에 액세스할 수 있습니다. SendGrid에서 제공하는 추가 서비스를 보려면 [SendGrid 솔루션][SendGrid Solutions] 페이지를 방문하세요.
-
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid 계정을 등록하려면
 1. [Azure Portal][Azure portal]에 로그인합니다.
 2. Azure Portal 메뉴나 홈 페이지에서 **리소스 만들기** 를 선택 합니다.
@@ -30,7 +28,7 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 8. 새 **리소스 그룹** 을 만들거나 기존 그룹을 선택합니다.
 9. **가격 책정 계층** 섹션에서 등록할 SendGrid 플랜을 선택합니다.
 
-    ![가격 책정 계층 선택 섹션이 열리고 무료 가격 책정 계층이 선택 된 새 SendGrid 계정 만들기 대화 상자 스크린샷][sendgrid-pricing]
+    ![가격 책정 계층 선택 섹션이 열린 새 SendGrid 계정 만들기 대화 상자의 스크린샷][sendgrid-pricing]
 10. 프로모션 코드를 갖고 있는 경우 **프로모션 코드** 를 입력합니다.
 11. **연락처 정보** 를 입력 합니다.
 12. **약관** 을 검토 하 고 동의 합니다.
