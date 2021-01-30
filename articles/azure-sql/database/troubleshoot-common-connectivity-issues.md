@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791361"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093760"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 해결
 
@@ -134,9 +134,9 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 **SqlConnection** 개체에 대한 [연결 문자열](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
-- **ConnectRetryCount** : &nbsp; &nbsp; 기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval** : &nbsp; &nbsp; 기본값은 10 초입니다. 범위는 1에서 60입니다.
-- **연결 시간 제한** : &nbsp; &nbsp; 기본값은 15 초입니다. 범위는 0에서 2147483647입니다.
+- **ConnectRetryCount**: &nbsp; &nbsp; 기본값은 1입니다. 범위는 0에서 255입니다.
+- **ConnectRetryInterval**: &nbsp; &nbsp; 기본값은 10 초입니다. 범위는 1에서 60입니다.
+- **연결 시간 제한**: &nbsp; &nbsp; 기본값은 15 초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -331,7 +331,7 @@ Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이
 일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 애플리케이션 블록 사용](/previous-versions/msp-n-p/dn440719(v=pandp.60))을 참조하세요.
 
 > [!NOTE]
-> EntLib60에 대한 소스 코드는 [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
+> EntLib60에 대한 소스 코드는 [다운로드 센터](https://github.com/MicrosoftArchive/enterprise-library)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 

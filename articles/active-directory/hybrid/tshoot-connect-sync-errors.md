@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a668fa9bf0ef4fd3b5451ff4c815b676fe237e51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410626"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092652"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -34,7 +34,7 @@ Azure AD Connect \(2016년 8월 이상\)의 최신 버전에서는 [Azure Portal
 Azure AD Connect는 가져오기, 동기화, 내보내기 등, 동기 상태를 유지하는 디렉터리로부터 3가지 유형의 작업을 수행합니다. 오류는 모든 작업에서 발생할 수 있습니다. 이 문서는 주로 Azure AD로 내보내는 중 발생하는 오류에 초점을 맞춥니다.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Azure AD로 내보내는 중 오류
-다음 섹션에서는 Azure AD 커넥터를 사용하여 Azure AD로의 내보내기 작업 중 발생할 수 있는 여러 동기화 오류 유형을 설명합니다. 이 커넥터는 "contoso. *onmicrosoft.com* " 이름 형식으로 식별할 수 있습니다.
+다음 섹션에서는 Azure AD 커넥터를 사용하여 Azure AD로의 내보내기 작업 중 발생할 수 있는 여러 동기화 오류 유형을 설명합니다. 이 커넥터는 "contoso.*onmicrosoft.com*" 이름 형식으로 식별할 수 있습니다.
 Azure AD로 내보내는 중 오류는 Azure Active Directory에서 Azure AD Connect \(동기화 엔진\)이 시도한 \(추가, 업데이트, 삭제 등\)의 작업이 실패했음을 나타냅니다.
 
 ![내보내기 오류 개요](./media/tshoot-connect-sync-errors/Export_Errors_Overview_01.png)
@@ -195,13 +195,13 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
 
 #### <a name="how-to-fix"></a>수정 방법
-사용자의 UserPrincipalName 접미사가 bob@ **contoso.com** 에서 bob fabrikam.com로 업데이트 된 경우 \@ **fabrikam.com** **contoso.com** 와 **fabrikam.com** 모두 **페더레이션된 도메인** 인 경우 다음 단계에 따라 동기화 오류를 수정 합니다.
+사용자의 UserPrincipalName 접미사가 bob@**contoso.com** 에서 bob fabrikam.com로 업데이트 된 경우 \@  **contoso.com** 와 **fabrikam.com** 모두 **페더레이션된 도메인** 인 경우 다음 단계에 따라 동기화 오류를 수정 합니다.
 
 1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
 
 #### <a name="related-articles"></a>관련 문서
-* [다른 페더레이션된 도메인을 사용 하도록 사용자 계정의 UPN을 변경한 후에는 Azure Active Directory 동기화 도구에 의해 변경 내용이 동기화 되지 않습니다.](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [다른 페더레이션된 도메인을 사용 하도록 사용자 계정의 UPN을 변경한 후에는 Azure Active Directory 동기화 도구에 의해 변경 내용이 동기화 되지 않습니다.](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Description

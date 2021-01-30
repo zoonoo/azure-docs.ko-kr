@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734599"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093968"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 azure 보안 기준
 
@@ -220,7 +220,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 **지침**: 가장 중요 한 기본 제공 Azure Active Directory 역할은 전역 관리자이 고, 권한 있는 역할 관리자는 이러한 두 역할에 할당 된 사용자가 관리자 역할을 위임할 수 있습니다.
 
-- 전역 관리자/회사 관리자:이 역할의 사용자는 azure ad id를 사용 하는 서비스 뿐만 아니라 Azure AD의 모든 관리 기능에 액세스할 수 있습니다.
+- 전역 관리자:이 역할의 사용자는 azure ad id를 사용 하는 서비스 뿐만 아니라 Azure AD의 모든 관리 기능에 액세스할 수 있습니다.
 
 - 권한 있는 역할 관리자:이 역할의 사용자는 Azure Active Directory (Azure AD) 뿐만 아니라 PIM (Azure AD Privileged Identity Management)에서 역할 할당을 관리할 수 있습니다. 또한이 역할을 통해 PIM 및 관리 단위의 모든 측면을 관리할 수 있습니다.
 

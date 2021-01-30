@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 1/29/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6da71db47e396ee1d699cbc72dd51b5c7f9b1a12
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724223"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99091465"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -38,6 +38,190 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요. 6 개월 보다 오래 된 항목을 찾는 경우 [Azure Active Directory의 새로운 기능에 대 한 보관](whats-new-archive.md)에서 찾을 수 있습니다.
 
 ---
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="secret-token-will-be-a-mandatory-field-when-configuring-provisioning"></a>프로 비전을 구성할 때 비밀 토큰은 필수 필드입니다.
+
+**유형:** 변경 계획  
+**서비스 범주:** 앱 프로비전  
+**제품 기능:** Id 수명 주기 관리
+
+이전에는 사용자 지정/BYOA 응용 프로그램에서 프로 비전을 설정할 때 비밀 토큰 필드를 비워 둘 수 있습니다. 이 함수는 테스트용 으로만 사용 하기 위한 것입니다. 필요한 필드가 되도록 UI를 업데이트 합니다. 
+
+고객은 브라우저 URL에 기능 플래그를 사용 하 여 테스트 목적으로이 요구 사항을 해결할 수 있습니다. [자세한 정보를 알아보세요](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery).
+ 
+---
+
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>공개 미리 보기-대규모로 Firstline 작업자를 위한 Android 공유 장치 사용자 지정 및 구성
+
+**유형:** 새로운 기능  
+**서비스 범주:** 장치 등록 및 관리  
+**제품 기능:** Id 보안 & 보호
+ 
+Azure AD 및 Microsoft 끝점 관리자 팀은 Firstline Worker 장치를 사용자 지정 하 고, 크기를 조정 하 고, 보호 하는 기능을 결합 했습니다.
+
+다음 미리 보기 기능을 사용 하 여 다음을 수행할 수 있습니다.
+- Microsoft Endpoint Manager를 사용 하 여 대규모로 Android 공유 장치 프로 비전
+- 장치 기반 조건부 액세스를 사용 하 여 이동 작업자에 대 한 액세스 보호
+- 관리 되는 홈 화면을 사용 하 여 이동 작업자의 로그인 환경 사용자 지정
+
+자세히 알아보려면 [대규모의 Firstline worker에 대 한 공유 장치 사용자 지정 및 구성](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708)을 참조 하세요.
+
+---
+
+### <a name="public-preview---provisioning-logs-can-now-be-downloaded-as-a-csv-or-json"></a>공개 미리 보기-이제 프로 비전 로그를 CSV 또는 JSON으로 다운로드할 수 있습니다.
+
+**유형:** 새로운 기능  
+**서비스 범주:** 앱 프로비전  
+**제품 기능:** Id 수명 주기 관리
+
+고객은 UI 및 graph API를 통해 프로 비전 로그를 CSV 또는 JSON 파일로 다운로드할 수 있습니다. 자세히 알아보려면 [Azure Active Directory 포털에서 보고서 프로 비전](../reports-monitoring/concept-provisioning-logs.md)을 참조 하세요.
+
+---
+
+### <a name="public-preview---assign-cloud-groups-to-azure-ad-custom-roles-and-admin-unit-scoped-roles"></a>공개 미리 보기-Azure AD 사용자 지정 역할 및 관리 단위 범위 역할에 클라우드 그룹 할당
+
+**유형:** 새로운 기능  
+**서비스 범주:** RBAC  
+**제품 기능:** 액세스 제어
+ 
+고객은 Azure AD 사용자 지정 역할 또는 관리 단위 범위 역할에 클라우드 그룹을 할당할 수 있습니다. 이 기능을 사용 하는 방법을 알아보려면 [클라우드 그룹을 사용 하 여 Azure Active Directory에서 역할 할당 관리](../roles/groups-concept.md)를 참조 하세요.
+
+---
+
+### <a name="general-availability---azure-ad-connect-cloud-sync-previously-known-as-cloud-provisioning"></a>일반 가용성-Azure AD Connect 클라우드 동기화 (이전에는 클라우드 프로 비전 이라고 함)
+
+**유형:** 새로운 기능  
+**서비스 범주:** Azure AD Connect 클라우드 동기화  
+**제품 기능:** Id 수명 주기 관리
+ 
+Azure AD Connect 클라우드 동기화는 이제 모든 고객에 게 일반 공급 됩니다.
+
+Azure AD Connect 클라우드는 대량 변환 논리를 클라우드로 이동 하 여 온-프레미스 공간을 줄입니다. 또한 더 높은 동기화 가용성을 위해 여러 개의 경량 에이전트 배포를 사용할 수 있습니다. [자세한 정보를 알아보세요](https://aka.ms/cloudsyncGA).
+ 
+---
+### <a name="general-availability---attack-simulation-administrator-and-attack-payload-author-built-in-roles"></a>일반 가용성-공격 시뮬레이션 관리자 및 공격 페이로드 작성자 기본 제공 역할
+
+**유형:** 새로운 기능  
+**서비스 범주:** RBAC  
+**제품 기능:** 액세스 제어
+ 
+Role-Based Access Control의 새로운 두 역할은 사용자, 공격 시뮬레이션 관리자 및 공격 페이로드 작성자에 게 할당 하는 데 사용할 수 있습니다. 
+
+[공격 시뮬레이션 관리자](../roles/permissions-reference.md#attack-simulation-administrator) 역할의 사용자는 테 넌 트의 모든 시뮬레이션에 대 한 액세스 권한을 가지 며 다음 작업을 수행할 수 있습니다.
+- 공격 시뮬레이션 생성의 모든 측면을 만들고 관리 합니다.
+- 시뮬레이션 시작/예약
+-  시뮬레이션 결과를 검토 합니다. 
+
+[공격 페이로드 작성자](../roles/permissions-reference.md#attack-payload-author) 역할의 사용자는 공격 페이로드를 만들 수 있지만 실제로 시작 하거나 예약할 수는 없습니다. 그러면 테 넌 트의 모든 관리자가이를 사용 하 여 시뮬레이션을 만들 수 있습니다.
+
+---
+
+### <a name="general-availability---usage-summary-reports-reader-built-in-role"></a>일반 가용성-사용 요약 보고서 판독기 기본 제공 역할
+
+**유형:** 새로운 기능  
+**서비스 범주:** RBAC  
+**제품 기능:** 액세스 제어
+ 
+사용 요약 보고서 구독자 역할을 가진 사용자는 사용 및 생산성 점수에 대해 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 데이터 및 관련 정보에 액세스할 수 있습니다. 그러나 사용자 수준 정보 또는 정보에는 액세스할 수 없습니다. 
+
+두 보고서에 대 한 Microsoft 365 관리 센터에서 테 넌 트 수준 집계 된 데이터와 사용자 수준 세부 정보를 구분 합니다. 이 역할은 개별 사용자 식별 가능 데이터에 추가 보호 계층을 추가 합니다. [자세한 정보를 알아보세요](../roles/permissions-reference.md#usage-summary-reports-reader).
+
+---
+
+### <a name="general-availability---require-app-protection-policy-grant-in-azure-ad-conditional-access"></a>일반 가용성-Azure AD 조건부 액세스에 앱 보호 정책 부여 필요
+
+**유형:** 새 기능  
+**서비스 범주:** 조건부 액세스  
+**제품 기능:** Id 보안 & 보호
+ 
+"앱 보호 정책을 요구 합니다."에 대 한 Azure AD 조건부 액세스 권한 부여는 이제 GA입니다. 
+
+정책은 다음과 같은 기능을 제공 합니다.
+- Intune 앱 보호를 지 원하는 모바일 응용 프로그램을 사용 하는 경우에만 액세스 허용
+- 사용자에 게 모바일 응용 프로그램에 대 한 Intune 앱 보호 정책이 제공 된 경우에만 액세스를 허용 합니다.
+
+앱 보호에 대 한 조건부 액세스 정책을 설정 하는 방법에 대 한 자세한 내용은 [여기](../conditional-access/app-protection-based-conditional-access.md)를 참조 하세요.
+ 
+---
+
+### <a name="general-availability---email-one-time-passcode"></a>일반 공급-전자 메일 One-Time 암호
+
+**유형:** 새로운 기능  
+**서비스 범주:** B2B  
+**제품 기능:** B2B/B2C
+ 
+전자 메일 OTP를 사용 하면 전 세계의 조직이 전자 메일을 통해 링크나 초대를 전송 하 여 누구와도 공동 작업할 수 있습니다. 초대 된 사용자는 파트너의 리소스에 액세스 하기 위해 전자 메일에 전송 된 일회용 암호를 사용 하 여 id를 확인할 수 있습니다. [자세한 정보를 알아보세요](../external-identities/one-time-passcode.md). 
+ 
+---
+
+ ### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---january-2021"></a>Azure AD 응용 프로그램 갤러리의 새로운 프로 비전 커넥터-1 월 2021
+
+**유형:** 새로운 기능  
+**서비스 범주:** 앱 프로비전  
+**제품 기능:** 타사 통합
+ 
+다음과 같은 통합된 새 앱에 대한 사용자 계정을 만들고, 업데이트하고, 삭제하는 작업을 자동화할 수 있습니다.
+- [Fortes Change Cloud](../saas-apps/fortes-change-cloud-provisioning-tutorial.md)
+- [Gtmhub](../saas-apps/gtmhub-provisioning-tutorial.md)
+- [monday.com](../saas-apps/mondaycom-provisioning-tutorial.md)
+- [Splashtop](../saas-apps/splashtop-provisioning-tutorial.md)
+- [Templafy OpenID Connect](../saas-apps/templafy-openid-connect-provisioning-tutorial.md)
+- [WEDO](../saas-apps/wedo-provisioning-tutorial.md)
+
+자세한 내용은 [AZURE AD에서 자동화 된 SaaS 앱 사용자 프로 비전 이란?](../app-provisioning/user-provisioning.md) 을 참조 하세요.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---january-2021"></a>Azure AD 응용 프로그램 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-2021 년 1 월
+
+**유형:** 새로운 기능  
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** 타사 통합
+
+2021 년 1 월에 앱 갤러리에 페더레이션 지원이 포함 된 다음 29 개의 새로운 응용 프로그램이 추가 되었습니다.
+
+[Myscview](https://dev.myscview.com/), [Talentech](https://talentech.com/contact/), [bipsync](https://www.bipsync.com/), [OroTimesheet](https://app.orotimesheet.com/login.php), [Mio](https://app.m.io/auth/install/microsoft?scopetype=hub), [Sovelto Easy](https://login.soveltoeasy.fi/), [SUPPORTBENCH](https://account.supportbench.net/agent/login/),[Bienvenue 대형](https://formation.bienvenue.pro/login), [AIDA 의료 SSO](https://aidaforparents.com/login/organizations), [국제 SOS 지원 제품](../saas-apps/international-sos-assistance-products-tutorial.md), [NAVEX ONE](../saas-apps/navex-one-tutorial.md), [](../saas-apps/lablog-tutorial.md)EPHOTO, [Oktopost saml](../saas-apps/oktopost-saml-tutorial.md), [DAM](../saas-apps/ephoto-dam-tutorial.md), [개념](../saas-apps/notion-tutorial.md), [Syndio](../saas-apps/syndio-tutorial.md), [Yello Enterprise](../saas-apps/yello-enterprise-tutorial.md), [Timeclock 365 SAML](../saas-apps/timeclock-365-saml-tutorial.md), [NALCO E-데이터](https://www.ecolab.com/), [공석 필러](https://app.vacancy-filler.co.uk/VFMVC/Account/Login), [sybse AI 성장 에코 시스템](../saas-apps/synerise-ai-growth-ecosystem-tutorial.md), [Imperva data Security](../saas-apps/imperva-data-security-tutorial.md), [Illusive Networks](../saas-apps/illusive-networks-tutorial.md), [proware](../saas-apps/proware-tutorial.md), [splan 방문자](../saas-apps/splan-visitor-tutorial.md), [아루바 사용자 환경](../saas-apps/aruba-user-experience-insight-tutorial.md)정보, [contentsquare SSO](../saas-apps/contentsquare-sso-tutorial.md), [경계 81](../saas-apps/perimeter-81-tutorial.md), [삼 트 p Suite Enterprise Edition](https://docs.microsoft.com/azure/active-directory/saas-apps/burp-suite-enterprise-edition-tutorial)
+
+여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
+
+Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 세부 정보를 참조 하세요. https://aka.ms/AzureADAppRequest 
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>공개 미리 보기-두 번째 수준 관리자를 대체 승인자로 설정할 수 있습니다.
+
+**유형:** 변경된 기능  
+**서비스 범주:** 사용자 액세스 관리  
+**제품 기능:** 자격 관리
+ 
+이제 승인자를 선택할 때 추가 옵션을 권한 관리에서 사용할 수 있습니다. 첫 번째 승인자에 대해 "관리자를 승인자"로 선택 하는 경우 대체 승인자 필드에서 선택할 수 있는 또 다른 옵션인 "두 번째 수준 관리자를 대체 승인자로 사용" 하 게 됩니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다. [자세한 정보](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)
+ 
+---
+
+### <a name="general-availability---navigate-to-teams-directly-from-my-access-portal"></a>일반 가용성-내 Access 포털에서 직접 팀으로 이동
+
+**유형:** 변경된 기능  
+**서비스 범주:** 사용자 액세스 관리  
+**제품 기능:** 자격 관리
+ 
+이제 내 액세스 포털에서 팀을 직접 시작할 수 있습니다. 
+
+이렇게 하려면 내 액세스에 로그인 하 고 https://myaccess.microsoft.com/) , "액세스 패키지"로 이동한 다음 "활성" 탭으로 이동 하 여 이미 액세스 하 고 있는 모든 액세스 패키지를 확인 합니다. 선택한 액세스 패키지를 확장 하 고 팀을 마우스로 가리키면 "열기" 단추를 클릭 하 여 시작할 수 있습니다. [자세한 정보를 알아보세요](../governance/entitlement-management-request-access.md).
+ 
+---
+
+### <a name="improved-logging--end-user-prompts-for-risky-guest-users"></a>위험한 게스트 사용자에 대 한 End-User 프롬프트 & 로깅 향상
+
+**유형:** 변경된 기능  
+**서비스 범주:** Id 보호  
+**제품 기능:** Id 보안 & 보호
+ 
+
+위험한 게스트 사용자에 대 한 로깅 및 End-User 메시지가 업데이트 되었습니다. [Id 보호 및 B2B 사용자](../identity-protection/concept-identity-protection-b2b.md)에 대해 자세히 알아보세요.
+ 
+---
+ 
 ## <a name="december-2020"></a>2020년 12월
 
 ### <a name="public-preview---azure-ad-b2c-phone-sign-up-and-sign-in-using-built-in-policy"></a>공개 미리 보기-기본 제공 정책을 사용 하 여 전화 등록 및 로그인 Azure AD B2C
@@ -46,7 +230,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 **서비스 범주:** B2C - 소비자 ID 관리  
 **제품 기능:** B2B/B2C
  
-B2C Phone 등록 및 로그인 기본 제공 정책을 사용 하 여 IT 관리자와 조직의 개발자는 최종 사용자가 사용자 흐름의 전화 번호를 사용 하 여 로그인 하 고 등록할 수 있습니다. 자세한 내용은 [사용자 흐름에 대 한 전화 등록 및 로그인 설정 (미리 보기)](../../active-directory-b2c/phone-authentication-user-flows.md) 을 참조 하세요.
+B2C 전화 등록 및 로그인 기본 제공 정책을 사용 하면 IT 관리자와 조직의 개발자가 최종 사용자가 사용자 흐름의 전화 번호를 사용 하 여 로그인 하 고 등록할 수 있습니다. 자세한 내용은 [사용자 흐름에 대 한 전화 등록 및 로그인 설정 (미리 보기)](../../active-directory-b2c/phone-authentication-user-flows.md) 을 참조 하세요.
 
 ---
 
@@ -120,7 +304,7 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
 
 여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
 
-Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 세부 정보를 참조 하세요. https://aka.ms/AzureADAppRequest
+Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에서 세부 정보를 읽으십시오. https://aka.ms/AzureADAppRequest
 
 ---
 
@@ -141,7 +325,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 �
 **서비스 범주:** 사용자 액세스 관리  
 **제품 기능:** 자격 관리
 
-이제 권한 관리의 승인 프로세스에서 추가 옵션을 사용할 수 있습니다. 첫 번째 승인자에 대 한 승인자로 관리자를 선택 하는 경우 대체 승인자 인 다른 두 번째 수준 관리자를 선택 하 여 대체 승인자 필드에서 선택할 수 있습니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다.
+이제 권한 관리의 승인 프로세스에서 추가 옵션을 사용할 수 있습니다. 첫 번째 승인자에 대 한 승인자로 관리자를 선택 하는 경우 대체 승인자 인 다른 옵션인 두 번째 수준 관리자를 사용 하 여 대체 승인자 필드에서 선택할 수 있습니다. 이 옵션을 선택 하는 경우 시스템에서 두 번째 수준 관리자를 찾을 수 없는 경우에 요청을 전달 하는 대체 승인자를 추가 해야 합니다.
 
 자세한 내용은 [AZURE AD 자격 관리에서 액세스 패키지에 대 한 승인 설정 변경](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers)을 참조 하세요.
 
@@ -355,7 +539,7 @@ SCIM [프로 비전 서비스](../app-provisioning/user-provisioning.md) 에의 
 날짜가 완료 되 면 업데이트를 제공 합니다. 이 사용 중단은 2020 년에 계획 되지 않습니다. 
 
 > [!NOTE]
-> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
+> 이는 프로 비전 서비스에서 내보낸 동기화 이벤트 외부의 감사 로그에 있는 이벤트에는 영향을 주지 않습니다. 응용 프로그램 생성, 조건부 액세스 정책, 디렉터리의 사용자 등의 이벤트는 감사 로그에서 계속 내보내집니다. [자세한 정보를 알아보세요](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
  
 
 ---
@@ -497,7 +681,7 @@ Azure AD 액세스 검토에서 검토를 만드는 관리자는 이제 검토�
 
  이제 연결 된 모든 조직에는 "State" 라는 추가 속성이 있습니다. 상태는 "모든 구성 된 연결 된 조직"을 참조 하는 정책에서 연결 된 조직을 사용 하는 방법을 제어 합니다. 이 값은 "구성" (조직이 "all" 절을 사용 하는 정책 범위에 있음) 또는 "제안 됨" (조직이 범위에 있지 않음을 의미 함)입니다.  
 
-수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세히 알아보기](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
+수동으로 만든 연결 된 조직의 기본 설정은 "구성 됨"입니다. 한편, 인터넷의 모든 사용자가 액세스를 요청 하도록 허용 하는 정책을 통해 생성 된 자동으로 생성 된 항목은 기본적으로 "제안 됨"으로 나타납니다.  9 월 9 2020 일 이전에 생성 된 모든 연결 된 조직은 "구성 됨"으로 설정 됩니다. 관리자는 필요에 따라이 속성을 업데이트할 수 있습니다. [자세한 정보를 알아보세요](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
  
 
 ---
@@ -554,7 +738,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 여기에�
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
-이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세히 알아보기](../reports-monitoring/concept-provisioning-logs.md).
+이제 응용 프로그램 소유자가 프로 비전 서비스에서 작업을 모니터링 하 고, 권한 있는 역할을 제공 하거나 병목 상태를 제공 하지 않고 문제를 해결할 수 있습니다. [자세한 정보를 알아보세요](../reports-monitoring/concept-provisioning-logs.md).
  
 ---
 
@@ -956,173 +1140,5 @@ Insights 관리자 역할의 사용자는 [M365 Insights 응용 프로그램](ht
 
 ---
  
-## <a name="july-2020"></a>2020년 7월
 
-### <a name="as-an-it-admin-i-want-to-target-client-apps-using-conditional-access"></a>IT 관리자는 조건부 액세스를 사용 하 여 클라이언트 앱을 대상으로 합니다.
-
-**유형:** 변경 계획   
-**서비스 범주:** 조건부 액세스  
-**제품 기능:** Id 보안 & 보호
- 
-조건부 액세스에서 클라이언트 앱 조건의 GA 릴리스를 사용 하면 이제 모든 클라이언트 응용 프로그램에 새 정책이 기본적으로 적용 됩니다. 여기에는 레거시 인증 클라이언트가 포함 됩니다. 기존 정책은 변경 되지 않고 그대로 유지 되지만, 정책에 따라 적용 되는 클라이언트 앱을 쉽게 확인 하기 위해 기존 정책에서 *예/아니요 구성* 토글이 제거 됩니다. 
-
-새 정책을 만들 때 여전히 레거시 인증을 사용 하는 사용자 및 서비스 계정을 제외 해야 합니다. 그렇지 않으면 차단 됩니다. [자세히 알아보기](../conditional-access/concept-conditional-access-conditions.md).
- 
----
-
-### <a name="upcoming-scim-compliance-fixes"></a>예정 된 SCIM 준수 픽스
-
-**유형:** 변경 계획  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** Id 수명 주기 관리
- 
-Azure AD 프로 비전 서비스는 응용 프로그램과 통합 하기 위해 SCIM 표준을 활용 합니다. SCIM 표준의 구현은 진화 하 고 있으며, 패치 작업을 수행 하는 방법에 대 한 동작을 변경 하 고 리소스에 "active" 속성을 설정 하는 것이 좋습니다. [자세히 알아보기](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
- 
----
-
-### <a name="group-owner-setting-on-azure-admin-portal-will-be-changed"></a>Azure 관리 포털의 그룹 소유자 설정이 변경 됨
-
-**유형:** 변경 계획  
-**서비스 범주:** 그룹 관리  
-**제품 기능:** 협업
-
-그룹에 대 한 소유자 설정 일반 설정 페이지는 Azure 관리 포털 및 액세스 패널에서 소유자 할당 권한을 제한 된 사용자 그룹으로 제한 하도록 구성할 수 있습니다. 이러한 두 UX 포털 뿐만 아니라 그룹 소유자 권한을 할당 하는 기능이 곧 제공 될 예정 이며, PowerShell 및 Microsoft Graph 같은 끝점에서 일관 된 동작을 제공 하기 위해 백 엔드에서 정책을 적용할 수 있습니다. 
-
-Microsoft는이를 사용 하지 않는 고객에 대 한 현재 설정을 사용 하지 않도록 설정 하 고, 향후 몇 개월 동안 그룹 소유자 권한으로 사용자의 범위를 설정 하는 옵션을 제공 합니다. 그룹 설정 업데이트에 대 한 지침은 [Azure Active Directory](./active-directory-groups-settings-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)를 사용 하 여 그룹 정보 편집을 참조 하세요.
-
----
-
-### <a name="azure-active-directory-registration-service-is-ending-support-for-tls-10-and-11"></a>Azure Active Directory 등록 서비스가 TLS 1.0 및 1.1에 대 한 지원을 종료 합니다.
-
-**유형:** 변경 계획  
-**서비스 범주:** 장치 등록 및 관리  
-**제품 기능:** 플랫폼
-
-TLS (전송 계층 보안) 1.2 및 업데이트 서버와 클라이언트는 Azure Active Directory Device Registration 서비스와 곧 통신할 수 있습니다. Azure AD Device Registration service와 통신 하는 TLS 1.0 및 1.1에 대 한 지원은 사용 중지 됩니다.
-- 모든 소 버린 클라우드의 2020 년 8 월 31 일 (GCC High, DoD 등)
-- 모든 상용 클라우드의 2020 년 10 월 30 일
-
-Azure AD 등록 서비스에 대 한 TLS 1.2에 대해 [자세히 알아보세요](../devices/reference-device-registration-tls-1-2.md) .
-
----
-
-### <a name="windows-hello-for-business-sign-ins-visible-in-azure-ad-sign-in-logs"></a>Azure AD 로그인 로그에 표시 되는 비즈니스용 Windows Hello 로그인
-
-**유형:** 고정  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
- 
-비즈니스용 windows Hello를 사용 하면 최종 사용자가 제스처 (예: PIN 또는 생체 인식)를 사용 하 여 Windows 컴퓨터에 로그인 할 수 있습니다. Azure AD 관리자는 조직의 경험을 통해 다른 Windows 로그인의 비즈니스용 Windows Hello 로그인을 암호 없는 인증으로 구분할 수 있습니다. 
-
-이제 관리자는 Azure Portal의 Azure AD Sign-Ins 블레이드에서 Windows 로그인 이벤트에 대 한 인증 세부 정보 탭을 확인 하 여 Windows 인증에서 비즈니스용 Windows Hello를 사용 했는지 여부를 확인할 수 있습니다. 비즈니스용 Windows Hello 인증에는 인증 방법 필드에 "WindowsHelloForBusiness"가 포함 됩니다. Sign-In 로그를 해석 하는 방법에 대 한 자세한 내용은 [로그인 로그 설명서](../reports-monitoring/concept-sign-ins.md)를 참조 하세요.
- 
----
-
-### <a name="fixes-to-group-deletion-behavior-and-performance-improvements"></a>그룹 삭제 동작 및 성능 향상에 대 한 수정
-
-**유형:** 고정  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** Id 수명 주기 관리
- 
-이전에는 그룹이 "범위 내"에서 "범위를 벗어났습니다."로 변경 되 고 관리자가 변경을 완료 하기 전에 다시 시작을 클릭 했을 때 그룹 개체를 삭제 하지 않았습니다. 이제 범위를 벗어나면 (사용 안 함, 삭제 됨, 할당 되지 않음 또는 범위 지정 필터를 전달 하지 않음) 그룹 개체가 대상 응용 프로그램에서 삭제 됩니다. [자세히 알아보기](../app-provisioning/how-provisioning-works.md#incremental-cycles).
- 
----
-
-### <a name="public-preview-admins-can-now-add-custom-content-in-the-email-to-reviewers-when-creating-an-access-review"></a>공개 미리 보기: 이제 관리자가 액세스 검토를 만들 때 검토자에 게 전자 메일의 사용자 지정 콘텐츠를 추가할 수 있습니다.
-
-**유형:** 새로운 기능  
-**서비스 범주:** 액세스 검토  
-**제품 기능:** Id 거 버 넌 스
- 
-새 액세스 검토가 만들어지면 검토자는 액세스 검토를 완료 하도록 요청 하는 전자 메일을 받습니다. 대부분의 고객은 전자 메일에 사용자 지정 콘텐츠를 추가 하는 기능 (예: 연락처 정보 또는 기타 추가 지원 콘텐츠)을 요청 하 여 검토자를 안내 합니다. 
-
-이제 공개 미리 보기로 제공 되는 관리자는 Azure AD 액세스 검토의 "고급" 섹션에서 콘텐츠를 추가 하 여 검토자에 게 보내는 전자 메일의 사용자 지정 콘텐츠를 지정할 수 있습니다. 액세스 검토를 만드는 방법에 대 한 지침은 [AZURE AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기](../governance/create-access-review.md)를 참조 하세요.
- 
----
-
-### <a name="authorization-code-flow-for-single-page-apps-available"></a>단일 페이지 앱에 대 한 인증 코드 흐름 사용 가능
-
-**유형:** 새로운 기능  
-**서비스 범주:** 인증 (로그인)  
-**제품 기능:** 개발자 환경
- 
-최신 브라우저에서 Safari ITP와 같은 타사 쿠키 제한 사항 때문에, SPAs는 SSO를 유지 관리 하기 위해 암시적 흐름이 아닌 권한 부여 코드 흐름을 사용 해야 하 고 MSAL.js v 2. x는 이제 인증 코드 흐름을 지원 합니다. 
-
-Azure Portal에 대 한 해당 업데이트가 있으므로 SPA를 "spa" 형식으로 업데이트 하 고 인증 코드 흐름을 사용할 수 있습니다. 추가 지침은 [인증 코드 흐름을 사용 하 여 사용자 로그인 및 JAVASCRIPT SPA에서 액세스 토큰 가져오기](../develop/quickstart-v2-javascript-auth-code.md) 를 참조 하세요.
- 
----
-
-### <a name="azure-ad-application-proxy-now-supports-the-remote-desktop-services-web-client"></a>이제 Azure AD 응용 프로그램 프록시 원격 데스크톱 서비스 웹 클라이언트를 지원 합니다.
-
-**유형:** 새로운 기능  
-**서비스 범주:** 응용 프로그램 프록시  
-**제품 기능:** 액세스 제어
-
-이제 Azure AD 응용 프로그램 프록시는 RDS (원격 데스크톱 서비스) 웹 클라이언트를 지원 합니다. 사용자는 RDS 웹 클라이언트를 사용 하 여 Microsoft Edge, Internet Explorer 11, Google Chrome 등의 HTLM5 지원 브라우저를 통해 원격 데스크톱 인프라에 액세스할 수 있습니다. 사용자는 어디서 나 로컬 장치를 사용 하는 것 처럼 원격 앱 또는 데스크톱과 상호 작용할 수 있습니다. Azure AD 응용 프로그램 프록시을 사용 하 여 모든 유형의 리치 클라이언트 앱에 대 한 사전 인증 및 조건부 액세스 정책을 적용 하 여 RDS 배포의 보안을 강화할 수 있습니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용 하 여 원격 데스크톱 게시](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md)를 참조 하세요.
- 
----
-
-### <a name="next-generation-azure-ad-b2c-user-flows-in-public-preview"></a>공개 미리 보기로 제공 되는 다음 세대 Azure AD B2C 사용자 흐름
-
-**유형:** 새로운 기능  
-**서비스 범주:** B2C - 소비자 ID 관리  
-**제품 기능:** B2B/B2C
- 
-간소화 된 사용자 흐름 환경에는 미리 보기 기능을 제공 하는 기능 패리티가 제공 되며 새로운 모든 기능을 위한 홈입니다. 사용자는 동일한 사용자 흐름 내에서 새로운 기능을 사용 하도록 설정할 수 있으므로 모든 새 기능 릴리스에서 여러 버전을 만들 필요가 없습니다. 마지막으로, 사용자에 게 친숙 한 새 UX를 사용 하면 사용자 흐름을 간편 하 게 선택 하 고 만들 수가 있습니다. 이제 [사용자 흐름을 만들어](../../active-directory-b2c/tutorial-create-user-flows.md)사용해 보세요. 
-
-사용자 흐름에 대 한 자세한 내용은 [Azure Active Directory B2C 사용자 흐름 버전](../../active-directory-b2c/user-flow-versions.md)을 참조 하세요.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-application-gallery---july-2020"></a>Azure AD 응용 프로그램 갤러리에서 사용할 수 있는 새로운 페더레이션된 앱-7 월 2020
-
-**유형:** 새로운 기능  
-**서비스 범주:** 엔터프라이즈 앱  
-**제품 기능:** 타사 통합
- 
-7 월 2020에 앱 갤러리에 페더레이션 지원과 함께 다음 55 새 응용 프로그램을 추가 했습니다.
-
-[사용자의 손을 ap](http://www.rmit.com.ar/), [Appreiz](https://microsoftteams.appreiz.com/), [Inextor 자격 증명 모음](https://inexto.com/inexto-suite/inextor) [Beekast](https://my.beekast.com/), [Templafy openid connect Connect](https://app.templafy.com/), [PeterConnects 접수원](https://msteams.peterconnects.com/), a [Hac-coa](https://appfusions.alohacloud.com/auth), [Control 타워](https://bpm.tnxcorp.com/sso/microsoft), [cocoom](https://start.cocoom.com/), [동전 건설 클라우드](https://sso.coinsconstructioncloud.com/#login/), [Medxnote MT](https://task.teamsmain.medx.im/authorization), [Reflekt](https://reflekt.konsolute.com/login), [rever](https://app.reverscore.net/access), [MyCompanyArchive](https://login.mycompanyarchive.com/), [GReminders](https://app.greminders.com/o365-oauth), [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US), OpenText  [Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [Coite](../saas-apps/datasite-tutorial.md), [blogin](../saas-apps/blogin-tutorial.md), [IntSights](../saas-apps/intsights-tutorial.md), [Kpifire](../saas-apps/kpifire-tutorial.md), [Textline](../saas-apps/textline-tutorial.md), [Cloud 아카데미-SSO](../saas-apps/cloud-academy-sso-tutorial.md), [Community Spark](../saas-apps/community-spark-tutorial.md), [작업](../saas-apps/chatwork-tutorial.md), [cloudsign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud Control](../saas-apps/c3m-cloud-control-tutorial.md), [SmartHR](https://smarthr.jp/), [numlyengage](../saas-apps/numlyengage-tutorial.md), [Michigan Data hubs Single Sign-on](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md), [송신](../saas-apps/egress-tutorial.md), [Sendsafely](../saas-apps/sendsafely-tutorial.md), [Eletive](https://app.eletive.com/), [Right 사이버 보안 ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [verme](../saas-apps/verme-tutorial.md), [Lenses.io](../saas-apps/lensesio-tutorial.md), [Momenta](../saas-apps/momenta-tutorial.md), [uprise](https://app.uprise.co/sign-in), [Q](https://q.moduleq.com/login), [cloudsign](../saas-apps/cloudcords-tutorial.md), [TellMe 봇](https://tellme365liteweb.azurewebsites.net/), [영감](https://app.inspiresoftware.com/), [maverics id Orchestrator SAML 커넥터](https://www.strata.io/identity-fabric/), [smartschool (school Management System)](https://smartschoolz.com/login), [Zepto-Intelligent 계측](https://user.zepto-ai.com/signin), [Studi.ly](https://studi.ly/), [plan](http://www.trackplanfm.com/), [Skedda](../saas-apps/skedda-tutorial.md) [, WhosOnLocation,](../saas-apps/whos-on-location-tutorial.md) [Coggle](../saas-apps/coggle-tutorial.md), [kemp loadmaster](https://kemptechnologies.com/cloud-load-balancer/), [browserstack Single sign-on](../saas-apps/browserstack-single-sign-on-tutorial.md)
-
-여기에서 모든 응용 프로그램의 설명서를 찾을 수도 있습니다. https://aka.ms/AppsTutorial
-
-Azure AD 앱 갤러리에 응용 프로그램을 나열 하려면 여기에서 세부 정보를 참조 하세요. https://aka.ms/AzureADAppRequest
-
----
-
-### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---july-2020"></a>Azure AD 응용 프로그램 갤러리의 새로운 프로 비전 커넥터-7 월 2020
-
-**유형:** 새로운 기능  
-**서비스 범주:** 앱 프로비전  
-**제품 기능:** 타사 통합
-
-이제 새로 통합 된 앱 [LinkedIn Learning](../saas-apps/linkedin-learning-provisioning-tutorial.md)에 대 한 사용자 계정을 만들고, 업데이트 하 고, 삭제할 수 있습니다.
-
-자동화된 사용자 계정 프로비저닝을 사용하여 조직의 보안을 강화하는 방법에 대한 자세한 내용은 [Azure AD를 사용하여 SaaS 애플리케이션에 대한 사용자 프로비저닝 자동화](../app-provisioning/user-provisioning.md)를 참조하세요.
-
----
-
-### <a name="view-role-assignments-across-all-scopes-and-ability-to-download-them-to-a-csv-file"></a>모든 범위에서 역할 할당을 확인 하 고 csv 파일로 다운로드할 수 있습니다.
-
-**유형:** 변경된 기능  
-**서비스 범주:** Azure AD 역할  
-**제품 기능:** 액세스 제어
- 
-이제 Azure AD 포털의 "역할 및 관리자" 탭에서 역할에 대 한 모든 범위에서 역할 할당을 볼 수 있습니다. 각 역할에 대 한 역할 할당을 CSV 파일로 다운로드할 수도 있습니다. 역할 할당을 보고 추가 하는 방법에 대 한 지침은 [Azure Active Directory에서 관리자 역할 보기 및 할당](../roles/manage-roles-portal.md)을 참조 하세요.
- 
----
-
-### <a name="azure-multi-factor-authentication-software-development-azure-mfa-sdk-deprecation"></a>Azure Multi-Factor Authentication 소프트웨어 개발 (Azure MFA SDK) 사용 중단
-
-**유형:** 사용되지 않음  
-**서비스 범주:** MFA  
-**제품 기능:** Id 보안 & 보호
- 
-Azure MFA SDK (Multi-Factor Authentication 소프트웨어 개발)는 11 월 2017에 처음 발표 된 2018 년 11 월 14 일에 종료 되었습니다. Microsoft는 2020 년 9 월 30 일에 적용 되는 SDK 서비스를 종료 합니다. SDK에 대 한 모든 호출이 실패 합니다.
-
-조직에서 Azure MFA SDK를 사용 하는 경우 2020 년 9 월 30 일까 지 마이그레이션 해야 합니다.
-- MIM 용 Azure MFA SDK: MIM에서 SDK를 사용 하는 경우 다음 [지침](/microsoft-identity-manager/working-with-mfaserver-for-mim)에 따라 Azure mfa 서버로 마이그레이션하고 PAM (Privileged Access Management)을 활성화 해야 합니다.   
-- 사용자 지정 된 앱 용 azure MFA SDK: Azure AD에 앱을 통합 하 고 조건부 액세스를 사용 하 여 MFA를 적용 하는 것이 좋습니다. 시작 하려면이 [페이지](../manage-apps/plan-an-application-integration.md)를 검토 합니다. 
-
----
 

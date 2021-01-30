@@ -1,27 +1,27 @@
 ---
-title: Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트 관리
+title: Azure Lighthouse를 사용 하 여 대규모로 Azure Migrate 프로젝트 관리
 description: 위임 된 고객 리소스에 대 한 Azure Migrate를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 12/4/2020
+ms.date: 01/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8e8ba21881ea5dad36ae640632b6307cd9a22a73
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788946"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093611"
 ---
-# <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Azure Migrate를 사용 하 여 대규모 마이그레이션 프로젝트 관리
+# <a name="manage-azure-migrate-projects-at-scale-with-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 대규모로 Azure Migrate 프로젝트 관리
 
-서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용 하면 서비스 공급자가 Azure Active Directory 여러 Azure AD (Azure AD) 테 넌 트에서 한 번에 대규모 작업을 수행 하 여 관리 작업을 보다 효율적으로 만들 수 있습니다.
+이 항목에서는 [Azure Lighthouse](../overview.md) 를 사용 하 여 여러 Azure Active Directory (azure AD) 테 넌 트에서 확장 가능한 방식으로 [Azure Migrate](../../migrate/migrate-services-overview.md) 를 사용 하는 방법에 대 한 개요를 제공 합니다.
 
-[Azure Migrate](../../migrate/migrate-services-overview.md) 는 Azure 온-프레미스 서버, 인프라, 응용 프로그램 및 데이터를 평가 하 고 마이그레이션하는 중앙 집중식 허브를 제공 합니다. 일반적으로 여러 고객에 대 한 대규모 평가 및 마이그레이션을 수행 하는 파트너는 [CSP (클라우드 솔루션 공급자) 구독 모델](/partner-center/customers-revoke-admin-privileges) 을 사용 하거나 [고객 테 넌 트에서 게스트 사용자를 만들어](../../active-directory/external-identities/what-is-b2b.md)각 고객 구독에 개별적으로 액세스 해야 합니다.
+Azure Lighthouse를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
+
+Azure Migrate는 온-프레미스 서버, 인프라, 애플리케이션 및 데이터를 평가하고 Azure로 마이그레이션할 수 있는 중앙 허브를 제공합니다. 일반적으로 여러 고객에 대 한 대규모 평가 및 마이그레이션을 수행 하는 파트너는 [CSP (클라우드 솔루션 공급자) 구독 모델](/partner-center/customers-revoke-admin-privileges) 을 사용 하거나 [고객 테 넌 트에서 게스트 사용자를 만들어](../../active-directory/external-identities/what-is-b2b.md)각 고객 구독에 개별적으로 액세스 해야 합니다.
 
 Azure Lighthouse를 Azure Migrate와 통합 하면 서비스 공급자가 규모에 따라 여러 고객에 대 한 워크 로드를 검색, 평가 및 마이그레이션할 수 있을 뿐만 아니라 고객에 게 환경을 완벽 하 게 표시 하 고 제어할 수 있습니다. Azure 위임 된 리소스 관리를 통해 서비스 공급자는 여러 고객 테 넌 트에서 관리 하는 모든 Azure Migrate 프로젝트의 단일 뷰를 제공 합니다.
 
 > [!NOTE]
 > 파트너는 Azure Lighthouse를 통해 온-프레미스 VMware Vm, Hyper-v Vm, 물리적 서버 및 AWS/GCP 인스턴스에 대 한 검색, 평가 및 마이그레이션을 수행할 수 있습니다. [VMWARE VM 마이그레이션](../../migrate/server-migrate-overview.md)에는 두 가지 옵션이 있습니다. 현재 위임 된 고객 구독의 마이그레이션 프로젝트에서 작업 하는 경우에는 에이전트 기반 마이그레이션 메서드만 사용할 수 있습니다. 에이전트 없는 복제를 사용한 마이그레이션은 현재 고객 범위에 대 한 위임 된 액세스를 통해 지원 되지 않습니다.
-
-이 항목에서는 [Azure Migrate](../../migrate/migrate-services-overview.md) 을 확장 가능한 방법으로 사용 하는 방법에 대 한 개요를 제공 합니다.
 
 > [!TIP]
 > 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
@@ -72,11 +72,11 @@ Azure Lighthouse를 사용할 때 한 가지 옵션은 고객 테 넌 트에 Azu
 
 ## <a name="partner-recognition-for-customer-migrations"></a>고객 마이그레이션을 위한 파트너 인식
 
-[Microsoft 파트너 네트워크](https://partner.microsoft.com)의 멤버로, 위임 된 고객 리소스를 관리 하는 데 사용 되는 자격 증명과 파트너 ID를 연결할 수 있습니다. PAL (파트너 관리자 링크)을 통해 Microsoft는 마이그레이션 프로젝트를 비롯 하 여 고객에 대해 수행 하는 작업을 기반으로 하 여 조직에 영향을 주고 Azure에서 사용 하는 수익에 대 한 영향을
+[Microsoft 파트너 네트워크](https://partner.microsoft.com)의 멤버로, 위임 된 고객 리소스를 관리 하는 데 사용 되는 자격 증명과 파트너 ID를 연결할 수 있습니다. 이를 통해 Microsoft는 마이그레이션 프로젝트를 비롯 하 여 고객에 대해 수행 하는 작업을 기반으로 하 여 조직에 대 한 영향 및 Azure 사용 수익을 관리할 수 있습니다.
 
 자세한 내용은 [파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적](partner-earned-credit.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Migrate](../../migrate/migrate-services-overview.md)에 대해 알아봅니다.
-- [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
+- [Azure Migrate](../../migrate/migrate-services-overview.md)에 대해 자세히 알아보세요.
+- Azure Lighthouse에서 지 원하는 다른 [교차 테 넌 트 관리 환경](../concepts/cross-tenant-management-experience.md) 에 대해 알아봅니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: d623d7b7ec25c096ebf54c030cf302e0a72e7fb2
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064073"
+ms.locfileid: "99072407"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -39,19 +39,19 @@ ms.locfileid: "99064073"
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
 
-VM으로 SSH(Secure Shell) 세션을 만들려면 다음 명령을 사용합니다. IP 주소 및 호스트 이름 조합을 VM에 대한 `<publicIpAddress>` 값으로 바꿉니다.
+1. VM으로 SSH(Secure Shell) 세션을 만들려면 다음 명령을 사용합니다. IP 주소 및 호스트 이름 조합을 VM에 대한 `<publicIpAddress>` 값으로 바꿉니다.
     
    ```bash
    ssh azureuser@<publicIpAddress>
    ```
    
-*루트* 사용자로 전환 합니다.
+1. *루트* 사용자로 전환 합니다.
 
    ```bash
    sudo su -
    ```
     
-*/Etc/sudoers* 파일에 oracle 사용자를 추가 합니다.
+1. */Etc/sudoers* 파일에 oracle 사용자를 추가 합니다.
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
@@ -59,9 +59,9 @@ VM으로 SSH(Secure Shell) 세션을 만들려면 다음 명령을 사용합니�
 
 ### <a name="prepare-the-database"></a>데이터베이스 준비
 
-1. 이 단계에서는 *vmoracle19c* 이라는 VM에서 실행 되는 Oracle 인스턴스 (*테스트*)가 있다고 가정 합니다.
+이 단계에서는 *vmoracle19c* 이라는 VM에서 실행 되는 Oracle 인스턴스 (*테스트*)가 있다고 가정 합니다.
 
-   사용자를 *oracle* 사용자로 전환 합니다.
+1. 사용자를 *oracle* 사용자로 전환 합니다.
  
    ```bash
     sudo su - oracle
@@ -205,19 +205,19 @@ Azure Backup 서비스는 데이터를 백업하고 Microsoft Azure 클라우드
 
 Azure Backup 서비스는 Oracle, MySQL, Mongo DB, SAP HANA 및 PostGreSQL와 같은 다양 한 응용 프로그램에 대해 Windows 및 Linux Vm을 백업 하는 동안 응용 프로그램 일관성을 얻기 위한 [프레임 워크](../../../backup/backup-azure-linux-app-consistent.md) 를 제공 합니다. 이렇게 하려면 스냅숏이 완료 된 후 디스크의 스냅숏을 만들고 사후 스크립트 (응용 프로그램을 고정 해제 하는 명령)를 호출 하기 전에 사전 스크립트를 호출 하 여 응용 프로그램을 표준 모드로 되돌리는 작업을 수행 해야 합니다. 샘플 사전 스크립트 및 사후 스크립트는 GitHub에서 제공 되지만 이러한 스크립트를 만들고 유지 관리 하는 것은 사용자의 책임입니다. 
 
-이제 Azure Backup은 향상 된 사전 스크립트 및 사후 스크립트 프레임 워크를 제공 합니다 .이 프레임 워크에서는 Azure Backup 서비스가 패키지 된 사전 스크립트와 선택한 응용 프로그램에 대 한 사후 스크립트를 제공 합니다. Azure Backup 사용자가 응용 프로그램의 이름을 지정한 후에 Azure VM Backup은 관련 사전 사후 스크립트를 자동으로 호출 합니다. 패키지 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리 하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상 된 프레임 워크에 대해 지원 되는 응용 프로그램은 향후에 더 많은 응용 프로그램 유형을 기대 하는 ***Oracle 및 MySQL** _입니다.
+이제 Azure Backup은 향상 된 사전 스크립트 및 사후 스크립트 프레임 워크를 제공 합니다 .이 프레임 워크에서는 Azure Backup 서비스가 패키지 된 사전 스크립트와 선택한 응용 프로그램에 대 한 사후 스크립트를 제공 합니다. Azure Backup 사용자가 응용 프로그램의 이름을 지정한 후에 Azure VM Backup은 관련 사전 사후 스크립트를 자동으로 호출 합니다. 패키지 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리 하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상 된 프레임 워크에 대해 지원 되는 응용 프로그램은 *Oracle* 및 *MySQL* 입니다.
 
-이 섹션에서는 Azure Backup 향상 된 프레임 워크를 사용 하 여 실행 중인 VM 및 Oracle 데이터베이스의 응용 프로그램 일치 스냅숏을 수행 합니다. 데이터베이스는 트랜잭션 측면에서 일관 된 온라인 백업을 수행 하는 동안 Azure Backup VM 디스크의 스냅숏을 만드는 데 사용할 수 있도록 백업 모드로 전환 됩니다. 스냅숏은 저장소의 전체 복사본이 며 쓰기 스냅숏에 대 한 증분 또는 복사는 아니므로에서 데이터베이스를 복원 하는 것이 효과적인 미디어입니다. 응용 프로그램 일치 스냅숏을 Azure Backup 사용 하는 경우의 장점은 데이터베이스의 크기에 관계 없이 작업을 수행 하는 것이 매우 빠르지만, 스냅숏을 Recovery Services 자격 증명 모음으로 전송 될 때까지 기다릴 필요 없이 수행 되는 즉시 복원 작업에 사용 될 수 있다는 것입니다.
+이 섹션에서는 Azure Backup 향상 된 프레임 워크를 사용 하 여 실행 중인 VM 및 Oracle 데이터베이스의 응용 프로그램 일치 스냅숏을 수행 합니다. 데이터베이스는 트랜잭션 측면에서 일관 된 온라인 백업을 수행 하는 동안 Azure Backup VM 디스크의 스냅숏을 만드는 데 사용할 수 있도록 백업 모드로 전환 됩니다. 스냅숏은 저장소의 전체 복사본이 며 쓰기 스냅숏에 대 한 증분 또는 복사는 아니므로에서 데이터베이스를 복원 하는 것이 효과적인 미디어입니다. 응용 프로그램에 일관 된 스냅숏을 Azure Backup 사용 하는 경우의 장점은 데이터베이스의 크기에 관계 없이 작업을 수행 하는 것이 매우 빠르지만, 스냅숏이 Recovery Services 자격 증명 모음으로 전송 될 때까지 기다릴 필요 없이 수행 되는 즉시 복원 작업에 사용 될 수 있다는 것입니다.
 
 Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단계를 완료 합니다.
 
-1. 응용 프로그램 일치 백업을 위해 환경을 준비 합니다.
+1. 응용 프로그램 일치 백업을 위한 환경을 준비 합니다.
 1. 응용 프로그램 일치 백업을 설정 합니다.
-1. VM의 응용 프로그램 일치 백업 트리거
+1. VM의 응용 프로그램 일치 백업을 트리거합니다.
 
-### <a name="prepare-the-environment-for-application-consistent-backup"></a>응용 프로그램 일치 백업에 대 한 환경 준비
+### <a name="prepare-the-environment-for-an-application-consistent-backup"></a>응용 프로그램 일치 백업에 대 한 환경 준비
 
-1. _ *Root** 사용자로 전환 합니다.
+1. *루트* 사용자로 전환 합니다.
 
    ```bash
    sudo su -
@@ -229,7 +229,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    useradd -G backupdba azbackup
    ```
    
-2. 백업 사용자 환경 설정:
+2. 백업 사용자 환경을 설정 합니다.
 
    ```bash
    echo "export ORACLE_SID=test" >> ~azbackup/.bashrc
@@ -237,10 +237,9 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    echo export PATH='$ORACLE_HOME'/bin:'$PATH' >> ~azbackup/.bashrc
    ```
    
-3. 새 백업 사용자에 대 한 외부 인증을 설정 합니다. 
-   백업 사용자는 외부 인증을 사용 하 여 데이터베이스에 액세스할 수 있어야 하므로 암호를 사용 하 여 문제가 되지 않습니다.
+3. 새 백업 사용자에 대 한 외부 인증을 설정 합니다. 백업 사용자는 외부 인증을 사용 하 여 데이터베이스에 액세스할 수 있어야 하므로 암호를 사용 하 여 문제가 되지 않습니다.
 
-   먼저 **oracle** 사용자로 다시 전환 합니다.
+   먼저 *oracle* 사용자로 다시 전환 합니다.
 
    ```bash
    su - oracle
@@ -254,7 +253,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    SQL> show parameter remote_os_authent
    ```
    
-   출력에 다음이 표시 됩니다. 
+   출력은 다음 예제와 같이 표시 됩니다. 
 
    ```output
    NAME                                 TYPE        VALUE
@@ -263,23 +262,30 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    remote_os_authent                    boolean     FALSE
    ```
 
-   이제 외부적으로 인증 된 데이터베이스 사용자 azbackup을 만들고 sysbackup 권한을 부여 합니다.
+   이제 외부적으로 인증 된 *azbackup* 데이터베이스 사용자를 만들고 sysbackup 권한을 부여 합니다.
    
    ```bash
    SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
    SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
    ```
 
-   >[!IMPORTANT] 
-   >"ORA-46953: 암호 파일이 12.2 형식이 아닙니다." 오류가 표시 되는 경우  위의 GRANT 문을 실행 하는 경우 다음 단계에 따라 orapwd 파일을 12.2 형식으로 마이그레이션합니다.
+   > [!IMPORTANT] 
+   > 문을 실행할 때 오류가 표시 되 면 `ORA-46953: The password file is not in the 12.2 format.` `GRANT` 다음 단계에 따라 orapwd 파일을 12.2 형식으로 마이그레이션합니다.
    >
-   >Sqlplus를 종료 하 고 암호 파일을 이전 형식으로 새 이름으로 이동 하 여 암호 파일을 마이그레이션한 후 이전 파일을 제거 합니다. 아래 명령을 실행 한 후 sqlplus에서 위의 grant 작업을 다시 실행 합니다.
-   
-   ```bash
-   mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
-   orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
-   rm $ORACLE_HOME/dbs/orapwtest.tmp
-   ```
+   > 1. Sqlplus를 종료 합니다.
+   > 1. 이전 형식의 암호 파일을 새 이름으로 이동 합니다.
+   > 1. 암호 파일을 마이그레이션합니다.
+   > 1. 이전 파일을 제거 합니다.
+   > 1. 다음 명령 실행:
+   >
+   >    ```bash
+   >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
+   >    orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
+   >    rm $ORACLE_HOME/dbs/orapwtest.tmp
+   >    ```
+   >
+   > 1. `GRANT`Sqlplus에서 작업을 다시 실행 합니다.
+   >
    
 4. 데이터베이스 경고 로그에 백업 메시지를 기록 하는 저장 프로시저를 만듭니다.
 
@@ -302,18 +308,22 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    
 ### <a name="set-up-application-consistent-backups"></a>응용 프로그램 일치 백업 설정  
 
-1. 루트 사용자로 전환 
+1. *루트* 사용자로 전환 합니다.
+
    ```bash
    sudo su -
    ```
 
-2. 응용 프로그램 일치 백업 작업 디렉터리 만들기
+2. 응용 프로그램 일치 백업 작업 디렉터리를 만듭니다.
+
    ```bash
    if [ ! -d "/etc/azure" ]; then
       sudo mkdir /etc/azure
    fi
    ```
-3. 다음 **내용이 포함 된** /etc/azure 디렉터리에 파일을 만듭니다 .이 파일은로 시작 해야 합니다 `[workload]` . 다음 명령은 파일을 만들고 콘텐츠를 채웁니다.
+
+3. 다음 *내용이 포함 된* */etc/azure* 디렉터리에 파일을 만듭니다 .이 파일은로 시작 해야 합니다 `[workload]` . 다음 명령은 파일을 만들고 콘텐츠를 채웁니다.
+
    ```bash
    echo "[workload]
    workload_name = oracle
@@ -321,14 +331,16 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
-1. [GitHub 리포지토리에서](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) PreOracleMaster 및 postOracleMaster 스크립트를 다운로드 하 고/etc/azure 디렉터리에 복사 합니다.
 
-4. 파일 사용 권한 변경
-   ```bash
+4. [GitHub 리포지토리에서](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) PreOracleMaster 및 postOracleMaster 스크립트를 다운로드 하 여 */etc/azure* 디렉터리에 복사 합니다.
+
+5. 파일 사용 권한 변경
+
+```bash
    chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
-### <a name="trigger-application-consistent-backup-of-the-vm"></a>VM의 응용 프로그램 일치 백업 트리거
+### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>VM의 응용 프로그램 일치 백업 트리거
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -375,7 +387,8 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    ```azurecli
    az backup vault create --location eastus --name myVault --resource-group rg-oracle
    ```
-2. VM에 대 한 백업 보호 사용
+
+2. VM에 대 한 백업 보호 사용:
 
    ```azurecli
    az backup protection enable-for-vm \
@@ -384,6 +397,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
       --vm vmoracle19c \
       --policy-name DefaultPolicy
    ```
+
 3. 기본 일정 (오전 5 시 UTC)에 백업이 트리거될 때까지 기다리지 않고 지금 실행 되도록 백업을 트리거합니다. 
 
    ```azurecli
@@ -394,7 +408,8 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
       --container-name vmoracle19c \
       --item-name vmoracle19c 
    ```
-   및를 사용 하 여 백업 작업의 진행률을 모니터링할 수 있습니다. `az backup job list``az backup job show`
+
+   및를 사용 하 여 백업 작업의 진행률을 모니터링할 수 있습니다 `az backup job list` `az backup job show` .
 
 ---
 
@@ -433,15 +448,15 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure Portal에서 *Myvault* Recovery Services 자격 증명 모음 항목을 검색 하 고 클릭 합니다.
+1. Azure Portal에서 *Myvault* Recovery Services 자격 증명 모음 항목을 검색 하 고 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 myVault 백업 항목](./media/oracle-backup-recovery/recovery-service-06.png)
 
-2. **개요** 블레이드에서 **백업 항목** 및 선택 **_Azure Virtual Machine_* _을 선택 합니다. 여기에는 1 개의 백업 항목 수가 나열 되어 있어야 합니다.
+2. **개요** 블레이드에서 **백업 항목** 을 선택 하 고, **Azure Virtual Machine** 을 선택 합니다. 여기에는 0이 아닌 백업 항목 수가 나열 됩니다.
 
     ![Recovery Services 자격 증명 모음 Azure Virtual Machine 백업 항목 수](./media/oracle-backup-recovery/recovery-service-07.png)
 
-3. 백업 항목 (Azure Virtual Machines) 페이지에서 VM _ *vmoracle19c**가 나열 됩니다. 오른쪽에 있는 줄임표를 클릭 하 여 메뉴를 표시 하 고 **파일 복구** 를 선택 합니다.
+3. 백업 항목 (Azure Virtual Machines) 페이지에서 VM **vmoracle19c** 나열 됩니다. 오른쪽에 있는 줄임표를 클릭 하 여 메뉴를 표시 하 고 **파일 복구** 를 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 파일 복구 페이지의 스크린샷](./media/oracle-backup-recovery/recovery-service-08.png)
 
@@ -455,6 +470,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
 
     > [!IMPORTANT]
     > 다음 예제에서는 IP 주소와 폴더 값을 업데이트했는지 확인합니다. 값은 파일이 저장된 폴더를 매핑해야 합니다.
+    >
 
     ```bash
     $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -500,6 +516,7 @@ Py 파일을 VM에 복사 합니다.
 
 > [!IMPORTANT]
 > 다음 예제에서는 IP 주소와 폴더 값을 업데이트했는지 확인합니다. 값은 파일이 저장된 폴더를 매핑해야 합니다.
+>
 
 ```bash
 $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -510,7 +527,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 1. 복원 탑재 지점을 만들고 스크립트를 복사 합니다.
 
-    다음 예제에서는 탑재할 스냅숏에 대 한 **_/restore_* _ 디렉터리를 만들고 파일을 디렉터리로 이동한 다음 루트 사용자가 소유 하 고 실행 파일을 소유 하도록 파일을 변경 합니다.
+    다음 예제에서는 탑재할 스냅숏의 */restore* 디렉터리를 만들고, 파일을 디렉터리로 이동 하 고, 루트 사용자가 소유 하 고 실행 파일을 생성 하도록 파일을 변경 합니다.
 
     ```bash 
     ssh azureuser@<publicIpAddress>
@@ -528,7 +545,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     ./vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
     ```
 
-    다음 예제에서는 이전 스크립트를 실행한 후 표시되는 내용이 나옵니다. 계속할 것인지 묻는 메시지가 표시 되 면 _ * Y * *를 입력 합니다.
+    다음 예제에서는 이전 스크립트를 실행한 후 표시되는 내용이 나옵니다. 계속할 것인지 묻는 메시지가 표시되면 **Y** 를 입력합니다.
 
     ```output
     Microsoft Azure VM Backup - File Recovery
@@ -676,30 +693,28 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 준비에 대 한 저장소 계정 만들기:
-   
-   Azure Portal에서 File Storage 구성
+1. Azure Portal 준비에 대 한 저장소 계정을 만듭니다.
 
-   Azure Portal에서 **_+ 리소스 만들기_* _를 선택 하 고 _*_저장소 계정_*_ 을 검색 하 여 선택 합니다.
+   1. Azure Portal에서 **+ 리소스 만들기** 를 선택 하 고 **저장소 계정** 을 검색 하 여 선택 합니다.
     
-   ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/storage-1.png)
+      ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/storage-1.png)
     
     
-   저장소 계정 만들기 페이지에서 기존 리소스 그룹 _*_rg-oracle_*_ 을 선택 하 고, 저장소 계정의 이름을 _*_oracrestore_*_ 하 고, 계정 종류에 대해 _*_저장소 V2 (일반 용도 V2)_*_ 를 선택 합니다. 복제를 _*_LRS (로컬 중복 저장소)_*_ 로 변경 하 고 성능을 _*_Standard_*_ 로 설정 합니다. 위치가 리소스 그룹의 다른 모든 리소스와 동일한 지역으로 설정 되어 있는지 확인 합니다. 
+   1. 저장소 계정 만들기 페이지에서 기존 리소스 그룹 **rg-oracle** 을 선택 하 고, 저장소 계정의 이름을 **oracrestore** 하 고, 계정 종류에 대해 **저장소 V2 (일반 용도 V2)** 를 선택 합니다. 복제를 **LRS (로컬 중복 저장소)** 로 변경 하 고 성능을 **Standard** 로 설정 합니다. 위치가 리소스 그룹의 다른 모든 리소스와 동일한 지역으로 설정 되어 있는지 확인 합니다. 
     
-   ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/recovery-storage-1.png)
+      ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/recovery-storage-1.png)
    
-   검토 + 만들기를 클릭 한 다음 만들기를 클릭 합니다.
+   1. 검토 + 만들기를 클릭 한 다음 만들기를 클릭 합니다.
 
-2. Azure Portal에서 _myVault * Recovery Services 자격 증명 모음 항목을 검색 하 고 클릭 합니다.
+2. Azure Portal에서 *Myvault* Recovery Services 자격 증명 모음 항목을 검색 하 고 클릭 합니다.
 
     ![Recovery Services 자격 증명 모음 myVault 백업 항목](./media/oracle-backup-recovery/recovery-service-06.png)
     
-3.  **개요** 블레이드에서 **백업 항목** 및 선택 **_Azure Virtual Machine_* _을 선택 합니다. 여기에는 1 개의 백업 항목 수가 나열 되어 있어야 합니다.
+3.  **개요** 블레이드에서 **백업 항목** 을 선택 하 고, **Azure Virtual Machine** 을 선택 합니다. 여기에는 0이 아닌 백업 항목 수가 나열 됩니다.
 
     ![Recovery Services 자격 증명 모음 Azure Virtual Machine 백업 항목 수](./media/oracle-backup-recovery/recovery-service-07.png)
 
-4.  백업 항목 (Azure Virtual Machines)에서 VM _ *vmoracle19c** 페이지가 나열 됩니다. VM 이름을 클릭 합니다.
+4.  백업 항목 (Azure Virtual Machines)에서 VM **vmoracle19c** 이 나열 됩니다. VM 이름을 클릭 합니다.
 
     ![VM 복구 페이지](./media/oracle-backup-recovery/recover-vm-02.png)
 
@@ -916,11 +931,11 @@ VM을 복원한 후에는 원래 IP 주소를 새 VM에 다시 할당 해야 합
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
 
-* VM에 연결하려면 다음 스크립트를 사용합니다.
+VM에 연결하려면 다음 스크립트를 사용합니다.
 
-    ```azurecli
-    ssh <publicIpAddress>
-    ```
+```azurecli
+ssh <publicIpAddress>
+```
 
 ### <a name="start-the-database-to-mount-stage-and-perform-recovery"></a>데이터베이스를 시작 하 여 단계를 탑재 하 고 복구를 수행 합니다.
 

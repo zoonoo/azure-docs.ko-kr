@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055249"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090793"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -40,7 +40,7 @@ ms.locfileid: "99055249"
 권한 있는 액세스를 관심 있는 Microsoft 서비스에서 관리되고 보고되는 방식으로 보호합니다. 온-프레미스 관리자 계정이 있는 경우 [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에서 Active Directory의 온-프레미스 및 하이브리드 권한 액세스에 대한 지침을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 지침은 주로 Azure Active Directory Premium 계획 P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure Active Directory Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한이 문서 전체에서 전역 관리자 (또는 전역 관리자) 라는 용어는 "회사 관리자" 또는 "테 넌 트 관리자"와 동일한 의미를 의미 합니다.
+> 이 문서의 지침은 주로 Azure Active Directory Premium 계획 P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure Active Directory Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한이 문서 전체에서 전역 관리자 라는 용어는 "회사 관리자" 또는 "테 넌 트 관리자"와 같은 것을 의미 합니다.
 
 ## <a name="develop-a-roadmap"></a>로드맵 개발
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 
 
 Azure AD Privileged Identity Management가 설정되면 다음을 수행합니다.
 
-1. Azure AD 프로덕션 조직의 전역 관리자 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Azure AD 프로덕션 조직의 전역 관리자 인 계정으로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
 2. Privileged Identity Management를 사용하려는 Azure AD 조직을 선택하려면 Azure Portal의 오른쪽 위 모서리에서 사용자 이름을 선택합니다.
 
@@ -93,7 +93,7 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 * Exchange 관리자
 * SharePoint 관리자
 
-조직에 Azure AD Privileged Identity Management가 없으면 [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember)를 사용할 수 있습니다. 전역 관리자에게는 조직에서 가입한 모든 클라우드 서비스에 걸쳐 동일한 권한이 있으므로 전역 관리자 역할부터 시작합니다. 이러한 권한은 할당된 위치에 관계없이, 즉 Microsoft 365 관리 센터, Azure Portal 또는 Microsoft PowerShell용 Azure AD 모듈에서 부여됩니다.
+조직에 Azure AD Privileged Identity Management가 없으면 [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember)를 사용할 수 있습니다. 전역 관리자는 조직에서 구독 한 모든 클라우드 서비스에서 동일한 권한을 가지 므로 전역 관리자 역할부터 시작 합니다. 이러한 권한은 할당된 위치에 관계없이, 즉 Microsoft 365 관리 센터, Azure Portal 또는 Microsoft PowerShell용 Azure AD 모듈에서 부여됩니다.
 
 이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 
@@ -110,7 +110,7 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 응급 액세스 계정은 Azure AD 조직 내에서 권한 있는 액세스를 제한하는 데 도움이 됩니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 "비상" 시나리오의 긴급한 상황으로 제한됩니다. 응급 계정의 사용을 제어하고 필요한 시간으로만 줄여야 합니다.
 
-전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. \*.onmicrosoft.com 도메인("비상" 응급 액세스용)을 사용하는 클라우드 전용 계정이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](security-emergency-access.md)를 참조하세요.
+전역 관리자 역할에 할당 되거나 적합 한 계정을 평가 합니다. \*.onmicrosoft.com 도메인("비상" 응급 액세스용)을 사용하는 클라우드 전용 계정이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](security-emergency-access.md)를 참조하세요.
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
@@ -141,11 +141,11 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별
 
-초기 전역 관리자가 Azure AD 사용을 시작할 때 기존 Microsoft 계정 자격 증명을 다시 사용하는 경우 Microsoft 계정을 개별 클라우드 기반 계정 또는 동기화된 계정으로 바꿉니다.
+초기 전역 관리자가 Azure AD를 사용 하기 시작할 때 기존 Microsoft 계정 자격 증명을 다시 사용 하는 경우 Microsoft 계정을 개별 클라우드 기반 또는 동기화 된 계정으로 바꿉니다.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>전역 관리자 계정에 대해 별도의 사용자 계정 및 메일 전달 보장
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>전역 관리자 계정에 대 한 별도의 사용자 계정 및 메일 전달 보장
 
-사이버 공격자는 개인 이메일 계정을 정기적으로 피싱합니다. 이 위험으로 인해 개인 이메일 주소는 전역 관리자 계정에 사용할 수 없습니다. 관리자 권한에서 인터넷 위험을 분리하려면 관리자 권한이 있는 각 사용자에 대한 전용 계정을 만듭니다.
+개인 전자 메일 계정은 사이버 공격자가 정기적으로 피싱 전역 관리자 계정에 대해 개인 전자 메일 주소를 사용할 수 없게 되는 위험이 있습니다. 관리자 권한에서 인터넷 위험을 분리하려면 관리자 권한이 있는 각 사용자에 대한 전용 계정을 만듭니다.
 
 * 사용자가 전역 관리자 작업을 수행 하는 별도의 계정을 만들어야 합니다.
 * 전역 관리자가 실수로 메일을 열거나 관리자 계정으로 프로그램을 실행 하지 않는지 확인 합니다.
@@ -431,7 +431,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 **Q:** 보안 액세스 구성 요소가 아직 구현 되지 않은 경우 어떻게 해야 하나요?
 
-**답변:** 둘 이상의 비상 계정을 정의하고, 권한 있는 관리자 계정에 MFA를 할당하고, 사용자 계정과 전역 관리자 계정을 분리합니다.
+**답변:** 두 개 이상의 고 정의 계정을 정의 하 고, 권한 있는 관리자 계정에 MFA를 할당 하 고, 전역 관리자 계정에서 별도의 사용자 계정을 정의 합니다.
 
 **Q:** 위반이 발생되면 가장 먼저 해결해야 하는 문제는 무엇인가요?
 
@@ -439,7 +439,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 **Q:** 권한 있는 관리자가 비활성화되면 어떻게 되나요?
 
-**답변:** 항상 최신 상태로 유지되는 전역 관리자 계정을 만듭니다.
+**답변:** 항상 최신 상태로 유지 되는 전역 관리자 계정을 만듭니다.
 
 **Q:** 전역 관리자가 한 명 뿐 이며 연결할 수 없는 경우 어떻게 되나요?
 

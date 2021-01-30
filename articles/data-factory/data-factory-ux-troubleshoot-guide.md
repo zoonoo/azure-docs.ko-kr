@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bb4ff3198764a35bebc124ee1ce99a93428693d
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632570"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095958"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Azure Data Factory UX 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "92632570"
 
 ### <a name="third-party-cookies-blocked"></a>차단 된 타사 쿠키
 
-ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 고 대화형 개발 및 모니터링 환경을 가능 하 게 합니다. Incognito 세션을 사용 하 고 있거나 ad 차단을 사용 하도록 설정 했기 때문에 브라우저에서 타사 쿠키를 차단할 수 있습니다. 타사 쿠키를 차단 하면 빈 페이지로 리디렉션되는 등의 방법으로 포털을 로드 https://adf.azure.com/accesstoken.html 하거나 타사 쿠키가 차단 되었다는 경고 메시지를 받을 때 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 단계를 사용 하 여 브라우저에서 타사 쿠키 옵션을 사용 하도록 설정 합니다.
+ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 고 대화형 개발 및 모니터링 환경을 가능 하 게 합니다. Incognito 세션을 사용 하 고 있거나 ad 차단을 사용 하도록 설정 했기 때문에 브라우저에서 타사 쿠키를 차단할 수 있습니다. 타사 쿠키를 차단 하면 빈 페이지 ' '로 리디렉션되는 등의 방법으로 포털을 로드 https://adf.azure.com/accesstoken.html 하거나 타사 쿠키가 차단 되었다는 경고 메시지를 가져올 때 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 단계를 사용 하 여 브라우저에서 타사 쿠키 옵션을 사용 하도록 설정 합니다.
 
 ### <a name="google-chrome"></a>Google Chrome
 
@@ -71,7 +71,7 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 ## <a name="connection-failed-on-adf-ux"></a>ADF UX에서 연결 실패
 
-경우에 따라 **연결 테스트** , **미리 보기** 등을 클릭 한 후 아래 스크린샷 처럼 ADF UX에서 "연결 하지 못했습니다." 오류가 표시 될 수 있습니다.
+경우에 따라 **연결 테스트**, **미리 보기** 등을 클릭 한 후 아래 스크린샷 처럼 ADF UX에서 "연결 하지 못했습니다." 오류가 표시 될 수 있습니다.
 
 ![연결 실패](media/data-factory-ux-troubleshoot-guide/connection-failed.png)
 
@@ -81,7 +81,7 @@ ADF UX는 브라우저 쿠키를 사용 하 여 사용자 세션을 유지 하 �
 
 ![실패 한 요청](media/data-factory-ux-troubleshoot-guide/failed-request.png)
 
-그런 다음 실패 한 요청의 **요청 URL** 에서 **호스트 이름** (이 경우 **dpnortheurope.svc.datafactory.azure.com** )을 찾습니다.
+그런 다음 실패 한 요청의 **요청 URL** 에서 **호스트 이름** (이 경우 **dpnortheurope.svc.datafactory.azure.com**)을 찾습니다.
 
 브라우저의 주소 표시줄에 직접 **호스트 이름을** 입력 합니다. 브라우저에서 404이 표시 되는 경우이는 일반적으로 클라이언트 쪽이 양호 하 고 ADF 서비스 쪽에 문제가 있음을 의미 합니다. ADF UX 오류 메시지의 **활동 ID** 를 사용 하 여 지원 티켓을 제출 합니다.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: pull 비밀, aro, openshift, red hat
-ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a8e45a2eab1b7b4c8a5936049f404d5bd3441c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294750"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071089"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Red Hat pull 비밀 추가 또는 업데이트
 
@@ -47,7 +47,7 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
     }
     ```
 
-2. [Red Hat OpenShift 클러스터 관리자 포털로](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) 이동 하 여 **pull 비밀 다운로드**를 선택 합니다. Red Hat pull 비밀은 다음과 같습니다. 실제 비밀 값은 제거 되었습니다.
+2. [Red Hat OpenShift 클러스터 관리자 포털로](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) 이동 하 여 **pull 비밀 다운로드** 를 선택 합니다. Red Hat pull 비밀은 다음과 같습니다. 실제 비밀 값은 제거 되었습니다.
 
     ```json
     {
@@ -231,6 +231,6 @@ openshift-marketplace   redhat-operators      Red Hat Operators     grpc   Red H
 끌어오기 암호를 업데이트 하 고 올바르게 작동 하는지 확인 하려면 OperatorHub를 열고 Red Hat 확인 된 운영자를 확인 합니다. 예를 들어 OpenShift Container Storage 연산자를 사용할 수 있는지 확인 하 고, 설치할 권한이 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Red Hat pull 비밀에 대해 자세히 알아보려면 [이미지 끌어오기 비밀 사용](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html)을 참조 하세요.
+Red Hat pull 비밀에 대해 자세히 알아보려면 [이미지 끌어오기 비밀 사용](https://docs.openshift.com/container-platform/4.6/openshift_images/managing_images/using-image-pull-secrets.html)을 참조 하세요.
 
-Red Hat OpenShift 4에 대해 자세히 알아보려면 [Azure Red Hat openshift 4](https://docs.openshift.com/aro/4/welcome/index.html)를 참조 하세요.
+Red Hat OpenShift 4에 대 한 자세한 내용은 [Red Hat Openshift Container Platform 설명서](https://docs.openshift.com/container-platform/4.6/welcome/index.html)를 참조 하세요.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 210d5b06cfe417f581995ad5b356d62e1c35a6d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 995fe7bc81b0fae75ebf93338722c21bd12bde49
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972620"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095576"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Managed Instance로 오프라인 마이그레이션
 
@@ -66,7 +66,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
     >[!NOTE]
     >기본적으로 Azure Database Migration Service는 SQL 로그인 마이그레이션만 지원합니다. 하지만 다음과 같은 방법으로 Windows 로그인을 마이그레이션하는 기능을 사용하도록 설정할 수 있습니다.
     >
-    >- 대상 SQL Managed Instance에 AAD 읽기 액세스 권한이 있는지 확인합니다. 이 권한은 **회사 관리자** 또는 **전역 관리자**" 역할이 있는 사용자가 Azure Portal을 통해 구성할 수 있습니다.
+    >- 대상 SQL Managed Instance에 AAD 읽기 액세스 권한이 있는지 확인 합니다 .이 액세스는 **전역 관리자** 역할이 있는 사용자가 Azure Portal를 통해 구성할 수 있습니다.
     >- Windows 사용자/그룹 로그인 마이그레이션이 가능하도록 Azure Database Migration Service 인스턴스를 구성합니다. 이 구성은 Azure Portal을 통해 구성 페이지에서 설정할 수 있습니다. 이 설정을 사용하도록 설정한 후 서비스를 다시 시작하면 변경 사항이 적용됩니다.
     >
     > 서비스를 다시 시작하면 마이그레이션에 사용할 수 있는 로그인 목록에 Windows 사용자/그룹 로그인이 나타납니다. 마이그레이션하는 Windows 사용자/그룹 로그인에 대해서는 연결된 도메인 이름을 입력하라는 메시지가 표시됩니다. 서비스 사용자 계정(도메인 이름이 NT AUTHORITY인 계정) 및 가상 사용자 계정(도메인 이름이 NT SERVICE인 계정 이름)은 지원 되지 않습니다.

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347485"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096443"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>IoT Edge 모듈 제품 만들기
 
@@ -184,7 +184,7 @@ IoT Edge 모듈 제품에는 설명의 맨 아래에 다음과 같은 최소 하
 
 **지원 연락처** 섹션에서 글로벌 Azure, Azure Government 또는 둘 다에서 제품을 사용할 수 있는지에 따라 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 웹 사이트** 의 웹 주소를 제공합니다.
 
-**CSP 프로그램 연락처** 섹션에서 CSP 파트너가 제품에 대한 마케팅 자료를 찾을 수 있는 링크( **CSP 프로그램 마케팅 자료** )를 제공합니다.
+**CSP 프로그램 연락처** 섹션에서 CSP 파트너가 제품에 대한 마케팅 자료를 찾을 수 있는 링크(**CSP 프로그램 마케팅 자료**)를 제공합니다.
 
 #### <a name="additional-marketplace-listing-resources"></a>리소스를 나열하는 추가 Marketplace
 
@@ -305,8 +305,8 @@ Azure 구독 ID GUID와 각각에 대한 선택적 설명과 함께 미리 보�
 
 플랜 개요에서 사용할 수 있는 작업은 플랜의 현재 상태에 따라 달라집니다. 해당 기능은 아래와 같습니다.
 
-- **초안 삭제** : 계획 상태가 초안인 경우입니다.
-- **계획 판매 중지** : 계획 상태가 라이브로 게시되는 경우입니다.
+- **초안 삭제**: 계획 상태가 초안인 경우입니다.
+- **계획 판매 중지**: 계획 상태가 라이브로 게시되는 경우입니다.
 
 ### <a name="create-new-plan"></a>새 계획 만들기
 
@@ -403,15 +403,15 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 **이미지 리포지토리 세부 정보** 탭에서 다음 정보를 제공합니다.
 
-**이미지 원본 선택** : **Azure Container Registry** 옵션을 선택합니다.
+**이미지 원본 선택**: **Azure Container Registry** 옵션을 선택합니다.
 
-**Azure 구독 ID** : 구독 ID를 제공하여 리소스 사용량이 보고되고 컨테이너 이미지를 포함하는 Azure Container Registry에 대한 서비스 요금이 청구될 수 있도록 합니다. 이 ID는 Azure Portal의 [구독 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 찾을 수 있습니다.
+**Azure 구독 ID**: 구독 ID를 제공하여 리소스 사용량이 보고되고 컨테이너 이미지를 포함하는 Azure Container Registry에 대한 서비스 요금이 청구될 수 있도록 합니다. 이 ID는 Azure Portal의 [구독 페이지](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 찾을 수 있습니다.
 
-**Azure 리소스 그룹 이름** : 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
+**Azure 리소스 그룹 이름**: 컨테이너 이미지로 Azure Container Registry를 포함하는 [리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md) 이름을 제공합니다. 리소스 그룹은 위의 구독 ID에서 액세스할 수 있어야 합니다. Azure Portal의 [리소스 그룹](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) 페이지에서 이름을 찾을 수 있습니다.
 
-**Azure Container Registry 이름** : 컨테이너 이미지를 포함하는 [Azure Container Registry](../../container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 제공합니다. 이름에서 **azurecr.io** 를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
+**Azure Container Registry 이름**: 컨테이너 이미지를 포함하는 [Azure Container Registry](../../container-registry/container-registry-intro.md)의 이름을 제공합니다. 컨테이너 레지스트리는 앞에서 제공한 Azure 리소스 그룹에 있어야 합니다. 전체 로그인 서버 이름이 아닌 레지스트리 이름만 제공합니다. 이름에서 **azurecr.io** 를 생략해야 합니다. Azure Portal의 [컨테이너 레지스트리 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries)에서 레지스트리 이름을 찾을 수 있습니다.
 
-**Azure Container Registry에 대 한 관리자 사용자 이름** : 컨테이너 이미지를 포함 하는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
+**Azure Container Registry에 대 한 관리자 사용자 이름**: 컨테이너 이미지를 포함 하는 Azure Container Registry에 연결 된 [관리자 사용자 이름을](../../container-registry/container-registry-authentication.md#admin-account)제공 합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. 관리 사용자 이름 및 암호를 가져오려면 Azure CLI(명령줄 인터페이스)를 사용하여 **admin enabled** 속성을 **True** 로 설정합니다. 필요에 따라 Azure Portal에서 **관리 사용자** 를 **사용** 으로 설정할 수 있습니다.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="컨테이너 레지스트리 업데이트 대화 상자를 보여 줍니다.":::
 
@@ -419,7 +419,7 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 
 1. 관리 사용자
 
-<br>**Azure Container Registry에 대한 암호** : Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다.
+<br>**Azure Container Registry에 대한 암호**: Azure Container Registry와 연결되고 컨테이너 이미지가 있는 관리 사용자 이름의 암호를 제공합니다. 회사에서 레지스트리에 액세스할 수 있도록 하려면 사용자 이름 및 암호가 필요합니다. **Container Registry** > **액세스 키** 로 이동하거나 Azure CLI에서 [show 명령](/cli/azure/acr/credential#az-acr-credential-show)을 사용하여 Azure Portal의 암호를 가져올 수 있습니다.
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Azure Portal의 선택 키 화면을 보여 줍니다.":::
 
@@ -430,6 +430,9 @@ Azure Government 서비스는 특정 정부 규정 및 요구 사항이 적용�
 3. 암호
 
 **Azure Container Registry 내 리포지토리 이름입니다**. 이미지를 포함하는 Azure Container Registry 리포지토리의 이름을 제공합니다. 레지스트리에 이미지를 푸시할 때 리포지토리의 이름을 지정합니다. [Container Registry](https://azure.microsoft.com/services/container-registry/) > **리포지토리 페이지** 로 이동하여 리포지토리의 이름을 찾을 수 있습니다. 자세한 내용은 [Azure Portal에서 컨테이너 레지스트리 리포지토리 보기](../../container-registry/container-registry-repositories.md)를 참조하세요. 이름이 설정되면 변경할 수 없습니다. 계정의 각 제품마다 고유한 이름을 사용합니다.
+
+> [!NOTE]
+> Edge 모듈 인증에 대 한 암호화 된 Azure Container Registry 지원 하지 않습니다. 암호화를 사용 하지 않고 Azure Container Registry를 만들어야 합니다.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>제품의 새 버전에 대한 이미지 태그
 

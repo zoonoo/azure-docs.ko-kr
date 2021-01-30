@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: d1360589fe2c2ec13c341dd14793db0ca8b809c4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358880"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094012"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -86,7 +86,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
@@ -96,7 +96,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |설명  |
+|기술 |Description  |
 |---------|---------|
 |[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 
@@ -172,7 +172,7 @@ SQL Managed Instance에 포함 된 고가용성 아키텍처 외에도 관리 �
 
 기본적으로 Azure Database Migration Service는 SQL 로그인 마이그레이션만 지원합니다. 하지만 다음과 같은 방법으로 Windows 로그인을 마이그레이션하는 기능을 사용하도록 설정할 수 있습니다.
 
-대상 SQL Managed Instance에 Azure AD 읽기 액세스 권한이 있는지 확인 합니다 .이 액세스는 **회사 관리자** 또는 **전역 관리자** 역할을 가진 사용자가 Azure Portal를 통해 구성할 수 있습니다.
+대상 SQL Managed Instance에 Azure AD 읽기 액세스 권한이 있는지 확인 합니다 .이 액세스는 **전역 관리자** 역할이 있는 사용자가 Azure Portal를 통해 구성할 수 있습니다.
 Windows 사용자/그룹 로그인 마이그레이션이 가능하도록 Azure Database Migration Service 인스턴스를 구성합니다. 이 구성은 Azure Portal을 통해 구성 페이지에서 설정할 수 있습니다. 이 설정을 사용하도록 설정한 후 서비스를 다시 시작하면 변경 사항이 적용됩니다.
 
 서비스를 다시 시작하면 마이그레이션에 사용할 수 있는 로그인 목록에 Windows 사용자/그룹 로그인이 나타납니다. 마이그레이션하는 Windows 사용자/그룹 로그인에 대해서는 연결된 도메인 이름을 입력하라는 메시지가 표시됩니다. 서비스 사용자 계정(도메인 이름이 NT AUTHORITY인 계정) 및 가상 사용자 계정(도메인 이름이 NT SERVICE인 계정 이름)은 지원 되지 않습니다.

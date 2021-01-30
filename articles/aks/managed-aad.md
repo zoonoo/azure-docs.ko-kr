@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: f229075d0bad4f9522e02e30bdabc1d42bb086cf
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 534c355961bb87a816f5ba50a3cc2d397e544a15
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684188"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072311"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 * AKS로 관리 되는 Azure AD 통합에 대 한 Kubernetes RBAC 사용 클러스터가 지원 되지 않음
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure CLI 버전 2.11.0 이상
 * Kubectl [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin) 의 최소 버전
@@ -46,7 +46,6 @@ kubelogin --version
 ```
 
 다른 운영 체제에 대한 [지침](https://kubernetes.io/docs/tasks/tools/install-kubectl/)을 사용합니다.
-
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -188,6 +187,50 @@ AKS로 관리 되는 Azure AD 클러스터의 성공적인 마이그레이션에
 
 현재 kubectl에서 사용할 수 없는 지속적인 통합 파이프라인과 같은 일부 비 대화형 시나리오가 있습니다. [`kubelogin`](https://github.com/Azure/kubelogin)를 사용 하 여 비 대화형 서비스 사용자 로그인으로 클러스터에 액세스할 수 있습니다.
 
+## <a name="use-conditional-access-with-azure-ad-and-aks"></a>Azure AD 및 AKS를 사용 하 여 조건부 액세스 사용
+
+AKS 클러스터와 Azure AD를 통합 하는 경우 [조건부 액세스][aad-conditional-access] 를 사용 하 여 클러스터에 대 한 액세스를 제어할 수도 있습니다.
+
+> [!NOTE]
+> Azure AD 조건부 액세스는 Azure AD Premium 기능입니다.
+
+AKS와 함께 사용할 예제 조건부 액세스 정책을 만들려면 다음 단계를 완료 합니다.
+
+1. Azure Portal 맨 위에서 Azure Active Directory를 검색 하 고 선택 합니다.
+1. 왼쪽의 Azure Active Directory에 대 한 메뉴에서 *엔터프라이즈 응용 프로그램* 을 선택 합니다.
+1. 왼쪽의 엔터프라이즈 응용 프로그램에 대 한 메뉴에서 *조건부 액세스* 를 선택 합니다.
+1. 왼쪽의 조건부 액세스에 대 한 메뉴에서 *정책* , *새 정책* 을 차례로 선택 합니다.
+    :::image type="content" source="./media/managed-aad/conditional-access-new-policy.png" alt-text="조건부 액세스 정책 추가":::
+1. 정책 이름 (예: *aks)* 을 입력 합니다.
+1. *사용자 및 그룹* 을 선택 하 고 *포함* 아래에서 *사용자 및 그룹 선택* 을 선택 합니다. 정책을 적용할 사용자 및 그룹을 선택 합니다. 이 예에서는 클러스터에 대 한 관리 액세스 권한이 있는 동일한 Azure AD 그룹을 선택 합니다.
+    :::image type="content" source="./media/managed-aad/conditional-access-users-groups.png" alt-text="조건부 액세스 정책을 적용할 사용자 또는 그룹을 선택 합니다.":::
+1. *클라우드 앱 또는 작업* 을 선택 하 고 *포함* 아래에서 *앱 선택* 을 선택 합니다. *Azure Kubernetes service* 를 검색 하 고 *AZURE Kubernetes service AAD 서버* 를 선택 합니다.
+    :::image type="content" source="./media/managed-aad/conditional-access-apps.png" alt-text="조건부 액세스 정책을 적용 하기 위해 Azure Kubernetes Service AD 서버 선택":::
+1. *액세스 제어* 에서 *권한 부여* 를 선택합니다. *액세스 허용* 을 선택 *하 고 장치를 규격으로 표시* 해야 합니다 .를 선택 합니다.
+    :::image type="content" source="./media/managed-aad/conditional-access-grant-compliant.png" alt-text="조건부 액세스 정책에 대해 규격 장치만 허용 하도록 선택":::
+1. *정책 사용* 아래에서 *설정* 을 선택 하 고 *만들기* 를 선택 합니다.
+    :::image type="content" source="./media/managed-aad/conditional-access-enable-policy.png" alt-text="조건부 액세스 정책 사용":::
+
+클러스터에 액세스 하기 위한 사용자 자격 증명을 가져옵니다. 예를 들면 다음과 같습니다.
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+지침에 따라 로그인합니다.
+
+명령을 사용 `kubectl get nodes` 하 여 클러스터의 노드를 봅니다.
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+지침에 따라 다시 로그인 합니다. 로그인에 성공 했음을 나타내는 오류 메시지가 표시 되지만 관리자에 게 리소스에 액세스 하기 위해 Azure AD에서 관리 하는 액세스 권한을 요청 하는 장치가 필요 합니다.
+
+Azure Portal에서 Azure Active Directory로 이동 하 여 *엔터프라이즈 응용 프로그램* 을 선택한 다음 *작업* 에서 *로그인* 을 선택 합니다. 위쪽의 항목에 *실패* *상태* 와 *조건부 액세스* *성공* 이 표시 됩니다. 항목을 선택 하 고 *세부 정보* 에서 *조건부 액세스* 를 선택 합니다. 조건부 액세스 정책이 나열 되어 있는지 확인 합니다.
+
+:::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="조건부 액세스 정책으로 인 한 로그인 항목 실패":::
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Kubernetes 권한 부여에 대 한 AZURE RBAC 통합][azure-rbac-integration] 에 대해 알아보기
@@ -202,6 +245,7 @@ AKS로 관리 되는 Azure AD 클러스터의 성공적인 마이그레이션에
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
 
 <!-- LINKS - Internal -->
+[aad-conditional-access]: ../active-directory/conditional-access/overview.md
 [azure-rbac-integration]: manage-azure-rbac.md
 [aks-concepts-identity]: concepts-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

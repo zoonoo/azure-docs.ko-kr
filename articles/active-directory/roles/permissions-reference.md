@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 01/29/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879480"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090861"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
 Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한이 적은 역할로 ID 작업을 관리하도록 지정할 수 있습니다. 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리, 도메인 이름 관리 등의 목적으로 관리자를 할당할 수 있습니다. [기본 사용자 권한](../fundamentals/users-default-permissions.md)은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
 
-## <a name="limit-use-of-global-administrator"></a>전역 관리자 사용 제한
+## <a name="limit-use-of-global-administrator"></a>전역 관리자의 사용 제한
 
-전역 관리자 역할에 할당된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 사용자가 Microsoft 클라우드 서비스에 등록할 때 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 기존 테 넌 트에 구독을 추가 하면 전역 관리자 역할에 할당 되지 않습니다. 전역 관리자와 권한 있는 역할 관리자만이 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 조직 내 극소수의 사람에게만 이 역할을 할당하는 것이 좋습니다.
+전역 관리자 역할에 할당 된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 사용자가 Microsoft 클라우드 서비스에 등록할 때 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 기존 테 넌 트에 구독을 추가 하면 전역 관리자 역할에 할당 되지 않습니다. 전역 관리자 및 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 조직 내 극소수의 사람에게만 이 역할을 할당하는 것이 좋습니다.
 
 모범 사례에 따라 조직 내에서 5명 미만의 사람에게만 이 역할을 할당하는 것이 좋습니다. 조직에서 전역 관리자 역할에 할당된 관리자가 5명을 초과하는 경우 다음과 같은 방법으로 수를 줄일 수 있습니다.
 
@@ -35,9 +35,9 @@ Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한�
 
 수많은 역할 목록에서 필요한 역할을 찾기가 어려우면 Azure AD에서 역할 범주에 따라 역할의 하위 집합을 표시할 수 있습니다. 선택한 유형의 역할만 표시하는 [Azure AD 역할 및 관리자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)에 대한 새 **유형** 필터를 살펴보세요.
 
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>지금은 있지만 전역 관리자 역할을 할당할 당시에는 없던 역할
+### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>전역 관리자 역할을 할당할 때 존재 하지 않는 역할이 있습니다.
 
-사용자를 전역 관리자로 승격하던 당시에는 없던 세분화된 권한을 제공하는 Azure AD에 역할이 추가되었을 수 있습니다. 시간이 지나면서 이전에는 전역 관리자 역할만이 수행할 수 있었던 작업을 수행하는 역할이 점점 추가됩니다. 다음 [사용 가능한 역할](#available-roles)에서 이러한 내용이 반영된 것을 볼 수 있습니다.
+일부 사용자를 전역 관리자로 승격 시킬 때 옵션이 아닌 보다 세분화 된 사용 권한을 제공 하는 Azure AD에 역할 또는 역할을 추가할 수 있습니다. 시간이 지남에 따라 전역 관리자 역할만이 수행할 수 있는 작업을 수행 하는 추가 역할을 배포 합니다. 다음 [사용 가능한 역할](#available-roles)에서 이러한 내용이 반영된 것을 볼 수 있습니다.
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 
@@ -59,7 +59,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 또한이 역할은 Microsoft Graph API에 대 한 응용 프로그램 권한을 제외 하 고 위임 된 권한 및 응용 프로그램 권한에 _동의_ 하는 기능을 부여 합니다.
 
 > [!IMPORTANT]
-> 이 예외는 _다른_ 앱(예: 타사 앱 또는 사용자가 등록한 앱)에 대한 권한에는 동의할 수 있지만, Azure AD 자체에 대한 권한에는 동의할 수 없다는 뜻입니다. 여전히 앱을 등록할 때 이 권한을 _요청_ 할 수 있지만, 이 권한을 _부여_ 하려면 Azure AD 관리자여야 합니다. 즉, 악의적인 사용자가 자신의 권한을 쉽게 상승시킬 수 없습니다. 예를 들어 전체 디렉터리에 쓸 수 있는 앱을 만들고 동의한 다음, 해당 앱의 권한을 통해 자신을 전역 관리자로 승격할 수 없습니다.
+> 이 예외는 _다른_ 앱(예: 타사 앱 또는 사용자가 등록한 앱)에 대한 권한에는 동의할 수 있지만, Azure AD 자체에 대한 권한에는 동의할 수 없다는 뜻입니다. 앱 등록의 일부로 이러한 권한을 계속 _요청할_ 수 있지만 이러한 권한을 _부여_ (즉, 동의) 하려면 Azure AD 관리자가 필요 합니다. 즉, 악의적인 사용자는 자신의 권한을 쉽게 상승 시킬 수 없습니다. 예를 들어 전체 디렉터리에 쓸 수 있는 앱을 만들고 동의 하 여 해당 앱의 사용 권한을 통해 자신을 전역 관리자가 되도록 승격 시킬 수 있습니다.
 >
 >이 역할은 애플리케이션 자격 증명을 관리하는 기능을 부여합니다. 이 역할이 할당된 사용자는 애플리케이션에 자격 증명을 추가하고 해당 자격 증명을 사용하여 애플리케이션의 ID를 가장할 수 있습니다. 응용 프로그램의 id에 사용자 또는 다른 개체를 만들거나 업데이트 하는 기능과 같은 리소스에 대 한 액세스 권한이 부여 된 경우이 역할에 할당 된 사용자는 응용 프로그램을 가장 하는 동안 이러한 작업을 수행할 수 있습니다. 응용 프로그램의 id를 가장 하는이 기능은 사용자가 해당 역할 할당을 통해 수행할 수 있는 작업에 대 한 권한 상승 일 수 있습니다. 애플리케이션 관리자 역할에 사용자를 할당하면 애플리케이션의 ID를 가장하는 기능이 해당 사용자에게 부여된다는 점을 이해해야 합니다.
 
@@ -166,7 +166,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="customer-lockbox-access-approver"></a>[고객 Lockbox 액세스 승인자](#customer-lockbox-access-approver-permissions)
 
-조직에서 [고객 Lockbox 요청](/office365/admin/manage/customer-lockbox-requests)을 관리합니다. 이러한 고객 Lockbox 요청에 대한 이메일 알림을 수신하고 Microsoft 365 관리 센터에서 요청을 승인 및 거부할 수 있습니다. 고객 Lockbox 기능을 켜거나 끌 수도 있습니다. 글로벌 관리자만 이 역할에 할당된 사용자의 암호를 재설정할 수 있습니다.
+조직에서 [고객 Lockbox 요청](/office365/admin/manage/customer-lockbox-requests)을 관리합니다. 이러한 고객 Lockbox 요청에 대한 이메일 알림을 수신하고 Microsoft 365 관리 센터에서 요청을 승인 및 거부할 수 있습니다. 고객 Lockbox 기능을 켜거나 끌 수도 있습니다. 전역 관리자만이 역할에 할당 된 사용자의 암호를 다시 설정할 수 있습니다.
 
 ### <a name="desktop-analytics-administrator"></a>[Desktop Analytics 관리자](#desktop-analytics-administrator-permissions)
 
@@ -222,18 +222,13 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 직원 및 파트너를 위한 Azure AD 조직: 페더레이션을 추가하면(예: Gmail을 사용하여) 아직 사용되지 않은 모든 게스트 초대에 즉시 영향을 줍니다. [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](../external-identities/google-federation.md)를 참조하세요.
 * Azure Active Directory B2C 조직: 페더레이션을 추가해도(예: Facebook 또는 다른 Azure AD 조직을 사용하여) 사용자 흐름(기본 제공 정책이라고도 함)에서 ID 공급자를 옵션으로 추가하기 전에는 최종 사용자 흐름에 즉시 영향을 주지 않습니다. 관련 예제는 [Microsoft 계정을 ID 공급자로 구성](../../active-directory-b2c/identity-provider-microsoft-account.md)을 참조하세요.  사용자 흐름을 변경하려면 "B2C 사용자 흐름 관리자"의 제한된 역할이 필요합니다.
 
-### <a name="global-administrator--company-administrator"></a>[전역 관리자/회사 관리자](#company-administrator-permissions)
+### <a name="global-administrator"></a>전역 관리자
 
-이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. 또한 전역 관리자는 모든 Azure 구독 및 관리 그룹을 관리 하기 위해 [액세스 권한을 상승](../../role-based-access-control/elevate-access-global-admin.md) 시킬 수 있습니다. 이렇게 하면 전역 관리자가 각 Azure AD 테 넌 트를 사용 하 여 모든 Azure 리소스에 대 한 전체 액세스 권한을 얻을 수 있습니다. Azure AD 조직에 가입하는 사람은 전역 관리자가 됩니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
-
-> [!NOTE]
-> Microsoft Graph API 및 Azure AD PowerShell에서 이 역할은 "회사 관리자"로 식별됩니다. [Azure portal](https://portal.azure.com)에서는 "전역 관리자"입니다.
->
->
+이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. 또한 전역 관리자는 모든 Azure 구독 및 관리 그룹을 관리 하기 위해 [액세스 권한을 상승](../../role-based-access-control/elevate-access-global-admin.md) 시킬 수 있습니다. 이렇게 하면 전역 관리자가 각 Azure AD 테 넌 트를 사용 하 여 모든 Azure 리소스에 대 한 전체 액세스 권한을 얻을 수 있습니다. Azure AD 조직에 등록 하는 사람은 전역 관리자가 됩니다. 회사에 전역 관리자가 두 명 이상 있을 수 있습니다. 전역 관리자는 모든 사용자 및 다른 모든 관리자에 대 한 암호를 다시 설정할 수 있습니다.
 
 ### <a name="global-reader"></a>[글로벌 읽기 권한자](#global-reader-permissions)
 
-이 역할의 사용자는 모든 Microsoft 365 서비스의 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 글로벌 읽기 권한자는 전역 관리자에 대응되는 읽기 전용 역할입니다. 계획, 감사 또는 조사에는 전역 관리자 대신 글로벌 읽기 권한자를 할당하세요. 전역 관리자 역할을 할당하지 말고 Exchange 관리자처럼 제한된 다른 관리자 역할과 함께 글로벌 읽기 권한자를 사용하면 작업을 쉽게 수행할 수 있습니다. 글로벌 읽기 권한자는 Microsoft 365 관리 센터, Exchange 관리 센터, SharePoint 관리 센터, Teams 관리 센터, 보안 센터, 규정 준수 센터, Azure AD 관리 센터 및 디바이스 관리 센터에서 작동합니다.
+이 역할의 사용자는 모든 Microsoft 365 서비스의 설정 및 관리 정보를 읽을 수 있지만 관리 작업을 수행할 수는 없습니다. 전역 판독기는 전역 관리자에 해당 하는 읽기 전용입니다. 계획, 감사 또는 조사를 위해 전역 관리자 대신 전역 판독기를 할당 합니다. 전역 관리자 역할을 할당하지 말고 Exchange 관리자처럼 제한된 다른 관리자 역할과 함께 글로벌 읽기 권한자를 사용하면 작업을 쉽게 수행할 수 있습니다. 글로벌 읽기 권한자는 Microsoft 365 관리 센터, Exchange 관리 센터, SharePoint 관리 센터, Teams 관리 센터, 보안 센터, 규정 준수 센터, Azure AD 관리 센터 및 디바이스 관리 센터에서 작동합니다.
 
 > [!NOTE]
 > 글로벌 읽기 권한자 역할에는 현재 다음과 같은 제한이 있습니다.
@@ -327,7 +322,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 * **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](/microsoft-365/commerce/subscriptions/self-service-purchase-faq)을 참조하세요.  
 * **Microsoft 상업적 marketplace에서 구매**  – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
-* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 관리자 센터에 액세스 하려면 제안서를 완료 하 고 최신 상거래 사용자 역할을 모두 할당 합니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
+* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 해당 제안서를 완료 하 고 최신 상거래 사용자 역할을 할당 하 여 관리 센터에 액세스 하기 위한 상거래 역할을 모두 할당 받습니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
 * **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.  
 
 최신 상거래 사용자 역할이 사용자에 게 할당 되지 않은 경우에는 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다.
@@ -376,7 +371,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ### <a name="privileged-authentication-administrator"></a>[권한 있는 인증 관리자](#privileged-authentication-administrator-permissions)
 
-이 역할의 사용자는 전역 관리자를 비롯한 모든 사용자의 암호가 아닌 자격 증명을 설정하거나 초기화하고, 모든 사용자의 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 다시 등록하고 ‘디바이스에 MFA 저장’을 철회하도록 강제 적용한 다음, 모든 사용자가 다음에 로그인할 때 MFA를 요청할 수 있습니다. [인증 관리자](#authentication-administrator) 역할은 관리자가 아닌 사용자와 다음 Azure AD 역할이 할당된 사용자에게만 다시 등록하고 MFA를 수행하도록 강제할 수 있습니다.
+이 역할을 가진 사용자는 전역 관리자를 비롯 한 모든 사용자에 대해 암호 이외의 자격 증명을 설정 하거나 다시 설정할 수 있으며 모든 사용자에 대 한 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 다시 등록하고 ‘디바이스에 MFA 저장’을 철회하도록 강제 적용한 다음, 모든 사용자가 다음에 로그인할 때 MFA를 요청할 수 있습니다. [인증 관리자](#authentication-administrator) 역할은 관리자가 아닌 사용자와 다음 Azure AD 역할이 할당된 사용자에게만 다시 등록하고 MFA를 수행하도록 강제할 수 있습니다.
 
 * 인증 관리자
 * 디렉터리 읽기 권한자
@@ -445,7 +440,7 @@ Windows Defender ATP 및 EDR | 보안 읽기 권한자 역할의 모든 권한<b
 --- | ---
 [Microsoft 365 보안 센터](https://protection.office.com) | Microsoft 365 서비스 전반에서 보안 관련 정책 확인<br>보안 위협 및 경고 확인<br>보고서 보기
 ID 보호 센터 | 모든 보안 보고서 및 보안 기능에 대한 설정 정보를 읽습니다.<br><ul><li>스팸 방지<li>암호화<li>데이터 손실 방지<li>맬웨어 방지<li>Advanced Threat Protection<li>피싱 방지<li>메일 흐름 규칙
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Azure AD Privileged Identity Management에 표시되는 다음과 같은 모든 정보에 대한 읽기 전용 액세스 권한이 있습니다. Azure AD 역할 할당 및 보안 검토에 대한 정책 및 보고서.<br>Azure AD Privileged Identity Management에 가입하거나 변경할 수 **없습니다**. 이 역할에 속한 사람은 Privileged Identity Management 포털 또는 PowerShell에서 적격 사용자를 대상으로 전역 관리자, 권한 있는 역할 관리자 등의 추가 역할을 활성화할 수 있습니다.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Azure AD Privileged Identity Management에 표시되는 다음과 같은 모든 정보에 대한 읽기 전용 액세스 권한이 있습니다. Azure AD 역할 할당 및 보안 검토에 대한 정책 및 보고서.<br>Azure AD Privileged Identity Management에 가입하거나 변경할 수 **없습니다**. Privileged Identity Management 포털 또는 PowerShell을 통해이 역할의 누군가가 사용자에 게 적합 한 경우 추가 역할 (예: 전역 관리자 또는 권한 있는 역할 관리자)을 활성화할 수 있습니다.
 [Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 보안 정책 보기<br>보안 위협 확인/조사<br>보고서 보기
 Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 역할 기반 액세스 제어를 켜면 Azure AD 보안 읽기 권한자 역할처럼 읽기 전용 권한이 있는 사용자는 Windows Defender ATP 역할에 할당될 때까지 액세스 권한을 잃게 됩니다.
 [Intune](/intune/role-based-access-control) | 사용자, 디바이스, 등록, 구성 및 애플리케이션 정보 확인. Intune을 변경할 수는 없음
@@ -747,9 +742,9 @@ Azure AD에서 디바이스를 관리하기 위한 모든 권한입니다.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 
-### <a name="company-administrator-permissions"></a>회사 관리자 권한
+### <a name="global-administrator-permissions"></a>전역 관리자 권한
 
-Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을 관리할 수 있습니다. 이 역할을 전역 관리자 역할이라고도 합니다. 
+Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1749,10 +1744,12 @@ Microsoft Search 설정의 모든 것을 만들고 관리할 수 있습니다.
 | microsoft. directory/cloudAppSecurity/allProperties/Allproperties | Microsoft Cloud App Security를 읽고 구성합니다. |
 | microsoft. directory/identityProtection/allProperties/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
 | microsoft. directory/privilegedIdentityManagement/allProperties/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
+| microsoft.directory/provisioningLogs/allProperties/read | 프로 비전 로그의 모든 속성을 읽습니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | 보안 및 준수 센터를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Windows Defender Advanced Threat Protection을 읽고 구성합니다. |
+
 
 ### <a name="security-reader-permissions"></a>보안 읽기 권한자 권한
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219286"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095644"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -30,7 +30,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 타사 NVA 및 Azure 플랫폼과의 통합에 대한 기술 지원은 NVA 공급 업체에서 제공합니다.
 
 > [!NOTE]
-> NVA와 관련된 연결 또는 라우팅 문제가 있는 경우 직접 [NVA 공급 업체에 문의](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)해야 합니다.
+> NVA와 관련된 연결 또는 라우팅 문제가 있는 경우 직접 [NVA 공급 업체에 문의](https://mskb.pkisolutions.com/kb/2984655)해야 합니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ Microsoft Azure에서 타사 NVA(네트워크 가상 어플라이언스)를 사�
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Azure에서 NVA의 최소 구성 요구 사항 확인
 
-NVA마다 Azure에서 올바르게 작동하기 위한 기본 구성 요구 사항이 있습니다. 다음 섹션에서는 이러한 기본 구성을 확인하는 단계를 제공합니다. 자세한 내용은 [NVA 공급업체에 문의](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+NVA마다 Azure에서 올바르게 작동하기 위한 기본 구성 요구 사항이 있습니다. 다음 섹션에서는 이러한 기본 구성을 확인하는 단계를 제공합니다. 자세한 내용은 [NVA 공급업체에 문의](https://mskb.pkisolutions.com/kb/2984655)하세요.
 
 **NVA에서 IP 전달이 사용되는지 확인**
 
@@ -112,17 +112,17 @@ PowerShell 사용
     ```console
    netstat -an | grep -i listen
     ```
-2. NVA 소프트웨어에서 사용하는 TCP 포트가 결과에 나타나지 않으면 이 포트에 도달하는 트래픽에 응답하도록 NVA 및 VM에서 애플리케이션을 구성해야 합니다. [필요에 따라 NVA 공급업체에 문의하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. NVA 소프트웨어에서 사용하는 TCP 포트가 결과에 나타나지 않으면 이 포트에 도달하는 트래픽에 응답하도록 NVA 및 VM에서 애플리케이션을 구성해야 합니다. [필요에 따라 NVA 공급업체에 문의하세요](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>NVA 성능 확인
 
 ### <a name="validate-vm-cpu"></a>VM CPU 유효성 검사
 
-CPU 사용량이 100%에 근접 한 경우 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 이러한 문제 중 하나에 대해 필요한 경우 [NVA 공급 업체에 지원을 문의 하세요](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+CPU 사용량이 100%에 근접 한 경우 네트워크 패킷 삭제에 영향을 주는 문제가 발생할 수 있습니다. VM은 Azure Portal에서 특정 시간대의 평균 CPU 사용량을 보고합니다. CPU가 급증하는 시간에 게스트 VM의 어떤 프로세스 때문에 CPU 사용량이 높아지는지 확인하고, 가능하다면 사용량을 줄입니다. 또한 VM 크기를 좀 더 큰 SKU로 조정하거나, 가상 머신 확장 집합의 경우 인스턴스 수를 늘리거나 CPU 사용량에 따라 자동으로 크기를 조정하도록 설정해야 합니다. 이러한 문제 중 하나에 대해 필요한 경우 [NVA 공급 업체에 지원을 문의 하세요](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="validate-vm-network-statistics"></a>VM 네트워크 통계 유효성 검사
 
-VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많은 것으로 나타나면 VM의 SKU 크기를 늘려서 처리량을 늘릴 필요가 있습니다. 가속 네트워킹을 사용하여 VM을 배포할 수도 있습니다. 필요에 따라 NVA에서 가속 네트워킹 기능을 지원하는지 확인하려면 [NVA 공급 업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많은 것으로 나타나면 VM의 SKU 크기를 늘려서 처리량을 늘릴 필요가 있습니다. 가속 네트워킹을 사용하여 VM을 배포할 수도 있습니다. 필요에 따라 NVA에서 가속 네트워킹 기능을 지원하는지 확인하려면 [NVA 공급 업체에 지원을 요청](https://mskb.pkisolutions.com/kb/2984655)하세요.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>고급 네트워크 관리자 문제 해결
 
@@ -146,4 +146,4 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 백 엔드 VM 추적으로 들어오는 패킷이 보이지 않으면 NSG 또는 UDR 방해가 있거나 NVA 라우팅 테이블이 잘못된 것일 수 있습니다.
 
-들어오는 패킷이 표시되지만 응답하지 않으면 VM 애플리케이션 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+들어오는 패킷이 표시되지만 응답하지 않으면 VM 애플리케이션 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://mskb.pkisolutions.com/kb/2984655)하세요.

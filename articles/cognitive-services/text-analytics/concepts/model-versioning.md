@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7ab2e037cc7593431a668a216fcc152c0511c410
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 4c191ac79b6cf483fcfae2ca4da74a59e78090bc
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965088"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093562"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>텍스트 분석 API의 모델 버전 관리
 
@@ -29,9 +29,9 @@ ms.locfileid: "94965088"
 | 엔드포인트                        | 지원되는 버전                                     | 최신 버전 |
 |---------------------------------|--------------------------------------------------------|----------------|
 | `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`               | `2020-09-01`   |
+| `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-15` | `2021-01-15`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,              | `2020-04-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-05`  | `2021-01-05`   |
 | `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
 | `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
@@ -39,7 +39,7 @@ ms.locfileid: "94965088"
 
 이러한 모델에 대 한 업데이트에 대 한 세부 정보는 [새로운 기능](../whats-new.md)에서 찾을 수 있습니다.
 
-## <a name="text-analytics-for-health"></a>의료 분야 Text Analytics
+## <a name="text-analytics-for-health"></a>Text Analytics for health
 
 [상태 컨테이너의 Text Analytics](../how-tos/text-analytics-for-health.md) 는 위의 API 끝점과 별도의 모델 버전 관리를 사용 합니다.  컨테이너 이미지 마다 하나의 모델 버전만 사용할 수 있습니다.
 
