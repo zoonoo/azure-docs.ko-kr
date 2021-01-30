@@ -27,7 +27,7 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
-    - name: 아키텍처
+    - name: Architecture
       items:
         - name: Virtual WAN으로 마이그레이션
           href: migrate-from-hub-spoke-topology.md
@@ -41,22 +41,22 @@
       items:
         - name: 가상 허브 라우팅 정보
           href: about-virtual-hub-routing.md
-        - name: 라우팅 시나리오
-          items:
-            - name: 보편적 연결(Any-to-Any)
-              href: scenario-any-to-any.md
-            - name: VNet 격리
-              href: scenario-isolate-vnets.md
-            - name: VNet 격리 - 사용자 지정
-              href: scenario-isolate-vnets-custom.md
-            - name: 공유 서비스 VNet
-              href: scenario-shared-services-vnet.md
-            - name: NVA를 통한 라우팅
-              href: scenario-route-through-nva.md
-            - name: NVA를 통한 라우팅 - 사용자 지정
-              href: scenario-route-through-nvas-custom.md
-            - name: Azure Firewall - 사용자 지정
-              href: scenario-route-between-vnets-firewall.md
+    - name: 라우팅 시나리오
+      items:
+        - name: 보편적 연결(Any-to-Any)
+          href: scenario-any-to-any.md
+        - name: VNet 격리
+          href: scenario-isolate-vnets.md
+        - name: VNet 격리 - 사용자 지정
+          href: scenario-isolate-vnets-custom.md
+        - name: 공유 서비스 VNet
+          href: scenario-shared-services-vnet.md
+        - name: NVA를 통한 라우팅
+          href: scenario-route-through-nva.md
+        - name: NVA를 통한 라우팅 - 사용자 지정
+          href: scenario-route-through-nvas-custom.md
+        - name: Azure Firewall - 사용자 지정
+          href: scenario-route-between-vnets-firewall.md
     - name: 모니터링
       items:
         - name: Virtual WAN에 대한 Azure Monitor Insights 정보

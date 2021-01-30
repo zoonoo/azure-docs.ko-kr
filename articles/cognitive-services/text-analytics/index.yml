@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 5b1955d1de44ca66613d4e577f587b193aa31b38
-  ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+  ms.openlocfilehash: 48d045fb89a4b04826ecb9fd0c7d0b2ac676d64a
+  ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/15/2020
-  ms.locfileid: "97504868"
+  ms.lasthandoff: 01/28/2021
+  ms.locfileid: "98944964"
 landingContent:
 - title: Text Analytics API 정보
   linkLists:
@@ -145,7 +145,7 @@ landingContent:
     - text: 상태 컨테이너용 Text Analytics 사용
       url: How-tos/text-analytics-for-health.md
     - text: Azure에 컨테이너 인스턴스 배포
-      url: how-tos/text-analytics-how-to-use-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
     - text: AKS(Azure Kubernetes Service)에 컨테이너 배포
       url: how-tos/text-analytics-how-to-use-kubernetes-service.md
 - title: 도움말 및 피드백

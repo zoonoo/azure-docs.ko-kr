@@ -957,8 +957,6 @@
               href: ./linux/cloudinit-configure-swapfile.md
             - name: 기존 Bash 스크립트 실행
               href: ./linux/cloudinit-bash-script.md
-            - name: Cloud-init를 위해 기존 VM 준비
-              href: ./linux/cloudinit-prepare-custom-image.md
         - name: 프로비저닝 에이전트 없이 Linux 이미지 만들기
           href: ./linux/no-agent.md
         - name: Linux 에이전트 프로비저닝 비활성화
@@ -1070,6 +1068,10 @@
               href: ./windows/image-builder.md
         - name: PowerShell
           href: ./windows/image-builder-powershell.md
+        - name: 보안
+          items:
+            - name: Azure Policy의 보안 컨트롤
+              href: ./security-controls-policy-image-builder.md
         - name: VNET 사용
           items:
             - name: CLI
@@ -1508,7 +1510,6 @@
               href: ../bastion/create-host-cli.md
             - name: Bastion SSH 연결
               href: ../bastion/bastion-connect-vm-ssh.md
-              items: null
             - name: Bastion RDP 연결
               href: ../bastion/bastion-connect-vm-rdp.md
         - name: 액세스 제어 사용
@@ -1741,7 +1742,7 @@
         - name: 여러 VM 백업
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: 복원 옵션
-          href: /backup/backup-azure-arm-restore-vms.md
+          href: ../backup/backup-azure-arm-restore-vms.md
         - name: 지원 매트릭스
           href: ../backup/backup-support-matrix-iaas.md
         - name: 가격 책정

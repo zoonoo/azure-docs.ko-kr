@@ -188,14 +188,17 @@
       items:
         - name: 사용자 입력 구성
           href: configure-user-input.md
-        - name: 회사 브랜딩을 사용하여 UI 사용자 지정
-          href: company-branding.md
+        - name: UI 사용자 지정
+          displayName: company branding
+          href: customize-ui.md
         - name: HTML 템플릿을 사용하여 UI 사용자 지정
+          displayName: content definitions
           href: customize-ui-with-html.md
         - name: JavaScript 및 페이지 레이아웃
           href: javascript-and-page-layout.md
         - name: 언어 사용자 지정
           href: language-customization.md
+          displayName: localization
         - name: 암호 복잡성
           href: password-complexity.md
         - name: 메일 확인을 사용하지 않도록 설정
@@ -259,12 +262,13 @@
           items:
             - name: Application Insights를 사용하여 로그 수집
               href: troubleshoot-with-application-insights.md
-              displayName: troubleshooting
+              displayName: 'troubleshooting, app insights'
             - name: 정책 유효성 검사
               href: troubleshoot-custom-policies.md
               displayName: troubleshooting
         - name: 사용량 현황 분석
           href: analytics-with-application-insights.md
+          displayName: 'application insights, app insights'
         - name: 참조
           items:
             - name: TrustFrameworkPolicy
@@ -452,6 +456,8 @@
           href: user-migration.md
 - name: 참조
   items:
+    - name: 서비스 제한 및 제한 사항
+      href: service-limits.md
     - name: 앱 등록
       href: app-registrations-training-guide.md
     - name: 청구 모델

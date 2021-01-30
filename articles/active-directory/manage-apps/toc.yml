@@ -50,7 +50,7 @@
         - name: 갤러리에 나열되지 않은 앱에 대한 계획
           href: non-gallery-apps.md
         - name: 내 앱 배포 계획
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Single Sign-On
       items:
         - name: Single Sign-On 배포 계획
