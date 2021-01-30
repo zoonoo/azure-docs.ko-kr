@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944577"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062191"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -48,7 +48,7 @@ Azure Data Factory에 대 한 개인 링크를 지 원하는 경우 다음을 �
 * 가상 네트워크에서 개인 끝점을 만듭니다.
 * 특정 data factory 인스턴스에 대 한 개인 연결을 사용 하도록 설정 합니다. 
 
-Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동 하 여 안전한 개인 연결을 제공 합니다. 리소스를 안전 하 게 보호 하는 방법을 제공 하기 위해 가상 네트워크 또는 회사 방화벽에서 이전 도메인 및 포트를 구성할 필요가 없습니다.  
+Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동 하 여 안전한 개인 연결을 제공 합니다. 
 
 ![Azure Data Factory 아키텍처에 대 한 개인 링크 다이어그램](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -62,6 +62,9 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
    > [!NOTE]
    > 현재 지원 되지 않는 기능의 경우에도 이전에 언급 한 도메인 및 포트를 가상 네트워크 또는 회사 방화벽에서 구성 해야 합니다. 
+
+   > [!NOTE]
+   > 개인 끝점을 통해 Azure Data Factory에 연결 하는 것은 Data Factory의 자체 호스팅 통합 런타임에만 적용 됩니다. Synapse에서 지원 되지 않습니다.
 
 > [!WARNING]
 > 연결 된 서비스를 만들 때 자격 증명이 Azure key vault에 저장 되어 있는지 확인 합니다. 그렇지 않으면 Azure Data Factory에서 개인 링크를 사용 하도록 설정 하는 경우 자격 증명이 작동 하지 않습니다.

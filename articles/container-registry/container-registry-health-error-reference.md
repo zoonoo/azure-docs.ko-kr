@@ -2,17 +2,19 @@
 title: 레지스트리 상태 검사에 대 한 오류 참조
 description: Azure Container Registry에서 az acr check 상태 진단 명령을 실행 하 여 발견 된 문제에 대 한 오류 코드 및 가능한 해결 방법
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565601"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061871"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조
 
 다음은 [az acr check 상태][az-acr-check-health] 명령에서 반환 하는 오류 코드에 대 한 세부 정보입니다. 각 오류에 대해 가능한 해결 방법이 나열 됩니다.
+
+실행에 대 한 자세한 내용은 `az acr check-healh` [Azure container registry의 상태 확인](container-registry-check-health.md)을 참조 하세요.
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -50,6 +52,12 @@ ms.locfileid: "91565601"
 
 *잠재적 해결 방법*: 최신 Azure CLI 버전 또는 권장 된 투구 버전으로 업데이트 합니다. 명령을 수동으로 실행 하 고 오류 메시지를 조사 합니다.
 
+## <a name="cmk_error"></a>CMK_ERROR
+
+이 오류는 레지스트리가 고객이 관리 하는 키로 레지스트리 암호화를 구성 하는 데 사용 되는 사용자 할당 또는 sysem 할당 관리 id에 액세스할 수 없음을 의미 합니다. 관리 id가 삭제 되었을 수 있습니다.  
+
+*잠재적 해결 방법*: 문제를 해결 하 고 다른 관리 id를 사용 하 여 키를 회전 하려면 [사용자 할당 id](container-registry-customer-managed-keys.md#troubleshoot)문제를 해결 하는 단계를 참조 하세요.
+
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 
 이 오류는 지정 된 레지스트리 로그인 서버에 대 한 DNS를 ping 했지만 응답 하지 않았음을 의미 합니다. 즉, 사용할 수 없습니다. 이는 일부 연결 문제를 나타낼 수 있습니다. 또는 레지스트리가 없거나, 사용자에 게 레지스트리에 대 한 권한이 없거나 (로그인 서버를 제대로 검색할 수 있음), 대상 레지스트리가 Azure CLI에 사용 된 것과 다른 클라우드에 있는 것일 수 있습니다.
@@ -72,7 +80,7 @@ ms.locfileid: "91565601"
 
 이 오류는 대상 레지스트리의 챌린지 끝점에서 챌린지를 발행 했지만 레지스트리가 Azure Active Directory 인증을 지원 하지 않음을 의미 합니다.
 
-*잠재적 해결*방법: 관리자 자격 증명을 사용 하는 등의 다른 방법으로 인증을 시도 합니다. 사용자가 Azure Active Directory를 사용 하 여 인증 해야 하는 경우에서 문제를 여세요 https://aka.ms/acr/issues .
+*잠재적 해결* 방법: 관리자 자격 증명을 사용 하는 등의 다른 방법으로 인증을 시도 합니다. 사용자가 Azure Active Directory를 사용 하 여 인증 해야 하는 경우에서 문제를 여세요 https://aka.ms/acr/issues .
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 

@@ -3,12 +3,12 @@ title: Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 
 description: Azure Security Center의 단일 대시보드에서 Azure의 기본 보안 도구를 사용 하 여 Azure VMware 솔루션 Vm을 보호 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937341"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061467"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호
 
@@ -45,7 +45,7 @@ Log Analytics 작업 영역에서 로그를 수집한 후에는 Azure Security C
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-다양 한 원본에서 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)의 단계를 참조 하세요. 
+다양 한 원본에서 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm Security Center 배포 및 구성
 
@@ -77,7 +77,7 @@ Azure Defender는 온-프레미스와 클라우드 모두에서 하이브리드 
 
 5. **리소스 세부 정보** 탭에서 다음 세부 정보를 입력 합니다. 
     - Subscription
-    - 리소스 그룹
+    - Resource group
     - 지역 
     - 운영 체제
     - 프록시 서버 정보
@@ -154,9 +154,9 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 4. **일반** 탭에서 필요한 정보를 입력 합니다.
 
-    - Name
+    - 이름
     - Description
-    - 공학적
+    - 전술
     - 심각도
     - 상태
 
@@ -173,7 +173,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
         |where count_ > 3
         ```
         
-    - 엔터티 매핑
+    - 맵 엔터티
     - 쿼리 예약
     - 경고 임계값
     - 이벤트 그룹화
@@ -225,11 +225,11 @@ Azure 센티널을 사용 하 여 생성 된 인시던트를 볼 수 있습니�
 
 2. 다음 정보를 입력 하 여 사용자 지정 쿼리를 만듭니다.
 
-    - Name
+    - 이름
     - Description
     - 사용자 지정 쿼리
     - 매핑 입력
-    - 공학적
+    - 전술
     
 3. **만들기** 를 선택합니다. 그런 다음 생성 된 쿼리를 선택 하 고 **쿼리를 실행** 하 고 결과를 **볼** 수 있습니다.
 

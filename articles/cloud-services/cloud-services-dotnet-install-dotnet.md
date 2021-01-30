@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: aa05fc9f02c26192762ed34db54b60b4760bf3bf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742780"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061854"
 ---
 # <a name="install-net-on-azure-cloud-services-classic-roles"></a>Azure Cloud Services (클래식) 역할에 .NET 설치
 
@@ -32,7 +32,7 @@ ms.locfileid: "98742780"
 ## <a name="add-the-net-installer-to-your-project"></a>프로젝트에 .NET 설치 관리자 추가
 .NET Framework의 웹 설치 관리자를 다운로드하려면 설치하려는 버전을 선택합니다.
 
-* [.NET Framework 4.8 웹 설치 관리자](https://dotnet.microsoft.com/download/thank-you/net48)
+* [.NET Framework 4.8 웹 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [.NET Framework 4.7.2 웹 설치 관리자](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET Framework 4.6.2 웹 설치 관리자](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -224,7 +224,7 @@ ms.locfileid: "98742780"
 ## <a name="deploy-your-cloud-service"></a>클라우드 서비스 배포
 클라우드 서비스를 배포하면 .NET Framework가 아직 설치되어 있지 않은 경우 시작 작업이 .NET Framework를 설치합니다. 프레임워크가 설치되고 있는 동안에는 클라우드 서비스 역할이 *사용 중* 상태입니다. 프레임워크 설치를 다시 시작해야 하는 경우 서비스 역할도 다시 시작될 수 있습니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [.NET Framework 설치][Installing the .NET Framework]
 * [설치된 .NET Framework 버전 확인][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework 설치 문제 해결][Troubleshooting .NET Framework Installations]

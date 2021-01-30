@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448582"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061813"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -54,7 +54,7 @@ Azure Stack Edge Pro 장치에 대 한 액세스는 장치 암호를 사용 하 
 
 1. Azure Portal에서 **개요 > 관리자 암호 재설정** 으로 이동합니다.
 
-    ![장치 암호 다시 설정이 선택 된 장치를 보여 주는 스크린샷](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![장치 암호 다시 설정이 선택 된 장치를 보여 주는 스크린샷](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. 새 암호를 입력하고 확인합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. **재설정** 을 선택합니다.

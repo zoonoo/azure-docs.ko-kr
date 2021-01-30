@@ -4,12 +4,12 @@ description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배�
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917810"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062220"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "98917810"
 
 이 문서에서는 *Azure CNI* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크 서브넷을 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * AKS 클러스터 `169.254.0.0/16` `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` 는 Kubernetes 서비스 주소 범위, pod 주소 범위 또는 클러스터 가상 네트워크 주소 범위에 대해,, 또는를 사용할 수 없습니다. 
@@ -63,7 +63,7 @@ AKS 클러스터에서 노드당 최대 pod 수는 250입니다. 노드당 *기�
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | 예 (최대 250) |
 | Resource Manager 템플릿 | 110 | 30 | 예 (최대 250) |
-| 포털 | 110 | 30 | 예 |
+| 포털 | 110 | 110 (노드 풀 탭에서 구성 됨) | 아니요 |
 
 ### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
 

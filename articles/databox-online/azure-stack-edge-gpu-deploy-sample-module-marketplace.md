@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760062"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062506"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
@@ -28,11 +28,11 @@ ms.locfileid: "91760062"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음을 확인합니다.
 
-- GPU 사용 1 노드 Azure Stack Edge 장치에 액세스할 수 있습니다. 이 장치는 Azure의 리소스를 사용 하 여 활성화 됩니다. 
+- GPU 사용 1 노드 Azure Stack Edge 장치에 액세스할 수 있습니다. 이 디바이스는 Azure의 리소스를 사용하여 활성화됩니다. 
 - 이 장치에서 계산을 구성 했습니다. [자습서: Azure Stack Edge 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 단계를 따릅니다.
 - Windows 클라이언트에서 다음과 같은 개발 리소스가 있습니다.
     - [Visual Studio Code](https://code.visualstudio.com/)  
@@ -45,15 +45,15 @@ ms.locfileid: "91760062"
 
     ![Azure Marketplace에서 앱 찾아보기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/browse-apps-marketplace-1.png)
 
-2. **Gpu 시작**을 검색 합니다.
+2. **Gpu 시작** 을 검색 합니다.
 
     ![GPU 샘플 모듈 검색](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/search-gpu-sample-module-1.png)
 
-3. **지금 가져오기**를 선택합니다.
+3. **지금 가져오기** 를 선택합니다.
 
     ![샘플 모듈 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
-4.  **계속** 을 선택 하 여 공급자의 사용 약관 및 개인 정보 취급 방침을 승인 합니다. 
+4. **계속** 을 선택 하 여 공급자의 사용 약관 및 개인 정보 취급 방침을 승인 합니다. 
 
     ![샘플 모듈 2 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
@@ -63,43 +63,41 @@ ms.locfileid: "91760062"
 
 6. Edge Pro 장치 Azure Stack 구성할 때 만든 IoT Hub 서비스의 이름을 입력 합니다. 이 IoT Hub 서비스 이름을 찾으려면 Azure Portal에서 장치와 연결 된 Azure Stack Edge 리소스로 이동 합니다. 
 
-    1. 왼쪽 창 메뉴 옵션에서 **가장자리 계산 > 시작**으로 이동 합니다. 
-
-    1. **Edge 계산 구성** 타일에서 **구성 보기**를 선택 합니다. 
+    1. 왼쪽 창 메뉴 옵션에서 **Edge services > IoT Edge** 로 이동 합니다. 
 
         ![계산 구성 보기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. **Edge 계산 구성** 블레이드에서 다음을 수행 합니다.
+    1. **속성** 으로 이동 합니다. 
 
         1. Azure Stack Edge Pro 장치에서 계산을 구성할 때 생성 된 IoT Hub 서비스를 적어 둡니다.
         2. 계산을 구성할 때 생성 된 IoT Edge 장치의 이름을 적어둡니다. 이후 단계에서이 이름을 사용 합니다.
 
         ![Edge 계산 구성](media/azure-stack-edge-gpu-deploy-sample-module/view-compute-config-1.png)
 
-10. **디바이스에 배포**를 선택합니다.
+10. **디바이스에 배포** 를 선택합니다.
 
-11. IoT Edge 장치의 이름을 입력 하거나 **장치 찾기**   를 선택 하 여 허브에 등록 된 장치 중 하나를 찾습니다.
+11. IoT Edge 장치의 이름을 입력 하거나 **장치 찾기** 를 선택 하 여 허브에 등록 된 장치 중 하나를 찾습니다.
 
     ![장치 찾기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/find-device-1.png)
 
-12.  **만들기**   를 선택 하 여 필요한 경우 다른 모듈 추가를 포함 하 여 배포 매니페스트를 구성 하는 표준 프로세스를 계속 합니다. 이미지 URI, 만들기 옵션 및 desired 속성과 같은 새 모듈에 대한 세부 정보가 미리 정의되어 있지만 변경할 수 있습니다.
+12. **만들기** 를 선택 하 여 필요한 경우 다른 모듈 추가를 포함 하 여 배포 매니페스트를 구성 하는 표준 프로세스를 계속 합니다. 이미지 URI, 만들기 옵션 및 desired 속성과 같은 새 모듈에 대한 세부 정보가 미리 정의되어 있지만 변경할 수 있습니다.
 
     ![만들기 선택](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/target-devices-iot-edge-module-1.png)
 
 
-13. 모듈이 Azure Portal의 IoT Hub에 배포 되었는지 확인 합니다. 장치를 선택 하 고 모듈 **설정**을 선택 하면   모듈은 **IoT Edge 모듈**섹션에 나열 됩니다   .
+13. 모듈이 Azure Portal의 IoT Hub에 배포 되었는지 확인 합니다. 장치를 선택 하 고 모듈 **설정** 을 선택 하면 모듈은 **IoT Edge 모듈** 섹션에 나열 됩니다.
 
     ![만들기 2 선택](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
 ## <a name="monitor-the-module"></a>모듈 모니터링  
 
-1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다.
+1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 을 실행합니다.
 
 2. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 이 경우 Azure Stack Edge Pro 장치를 배포 하는 데 사용 되는 구독을 선택 하 고 Azure Stack Edge Pro 장치에 대해 생성 된 IoT Edge 장치를 선택 합니다. 이는 이전 단계의 Azure Portal를 통해 compute를 구성 하는 경우에 발생 합니다.
 
-3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치**에 Azure Stack Edge Pro 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
+3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치** 에 Azure Stack Edge Pro 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
 
-    1. 해당 장치를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **기본 제공 모니터링 시작 이벤트 끝점**을 선택 합니다.
+    1. 해당 장치를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **기본 제공 모니터링 시작 이벤트 끝점** 을 선택 합니다.
   
         ![모니터링 시작](media/azure-stack-edge-gpu-deploy-sample-module/monitor-builtin-event-endpoint-1.png)  
 

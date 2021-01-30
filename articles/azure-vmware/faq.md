@@ -3,12 +3,12 @@ title: 질문과 대답
 description: Azure VMware 솔루션에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 ms.topic: conceptual
 ms.date: 1/14/2021
-ms.openlocfilehash: 8245cd8da983ce48ba88d7faef76ab9b7ceb8c26
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218589"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062090"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 질문과 대답
 
@@ -258,7 +258,7 @@ VMware HCX Enterprise는 *미리 보기* 기능/서비스로 Azure vmware 솔루
 
 ### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 호스트 할당량 증가를 요청 어떻게 할까요??
 
-CSP 관리 구독의 경우 고객은 파트너에 게 요청을 제출 해야 합니다. 파트너 팀은 Microsoft에 참여 하 여 구독에 대 한 할당량을 늘립니다. 자세한 내용은 [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법 문서](enable-azure-vmware-solution.md) 를 참조 하세요. 
+CSP 관리 구독의 경우 고객은 파트너에 게 요청을 제출 해야 합니다. 파트너 팀은 Microsoft에 참여 하 여 구독에 대 한 할당량을 늘립니다. 자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md)을 참조하세요. 
 
 EA 구독의 경우 다음 절차를 사용 합니다. 먼저 다음이 필요 합니다.
 
