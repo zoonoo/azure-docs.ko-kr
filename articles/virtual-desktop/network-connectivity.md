@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639341"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221213"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Windows 가상 데스크톱 네트워크 연결 이해
 
@@ -50,7 +50,7 @@ Windows 가상 데스크톱 세션 호스트를 시작할 때 원격 데스크�
 
 ## <a name="connection-security"></a>연결 보안
 
-TLS 1.2은 클라이언트에서 시작 된 모든 연결과 Windows 가상 데스크톱 인프라 구성 요소에 대 한 세션 호스트에서 사용 됩니다.
+TLS 1.2은 클라이언트에서 시작 된 모든 연결과 Windows 가상 데스크톱 인프라 구성 요소에 대 한 세션 호스트에서 사용 됩니다. Windows 가상 데스크톱은 [Azure Front 문과](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door)동일한 TLS 1.2 암호화를 사용 합니다. 클라이언트 컴퓨터와 세션 호스트가 이러한 암호화를 사용할 수 있는지 확인 하는 것이 중요 합니다.
 역방향 연결 전송의 경우 클라이언트 및 세션 호스트는 모두 Windows 가상 데스크톱 게이트웨이에 연결 합니다. TCP 연결을 설정 하 고 나면 클라이언트 또는 세션 호스트에서 Windows 가상 데스크톱 게이트웨이의 인증서의 유효성을 검사 합니다.
 기본 전송을 설정 하면 RDP에서 세션 호스트의 인증서를 사용 하 여 클라이언트와 세션 호스트 간에 중첩 된 TLS 연결을 설정 합니다. 기본적으로 RDP 암호화에 사용 되는 인증서는 배포 하는 동안 OS에 의해 자체 생성 됩니다. 원할 경우 고객은 엔터프라이즈 인증 기관에서 발급 한 중앙에서 관리 되는 인증서를 배포할 수 있습니다. 인증서 구성에 대 한 자세한 내용은 [Windows Server 설명서](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations)를 참조 하십시오.
 

@@ -1,14 +1,14 @@
 ---
 title: '자습서: 규정 준수를 적용하는 정책 빌드'
 description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005438"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221196"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -71,6 +71,10 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 1. **수정 작업 만들기** 를 선택하지 않은 상태로 둡니다. 이 상자에서는 새 리소스 또는 업데이트된 리소스 외에도 기존 리소스를 변경하는 작업을 만들 수 있습니다. 자세한 내용은 [리소스 수정](../how-to/remediate-resources.md)을 참조하세요.
 
 1. 이 정책 정의는 [수정](../concepts/effects.md#modify) 효과를 사용하므로 **관리 ID 만들기** 가 자동으로 선택됩니다. **권한** 은 정책 정의에 따라 자동으로 _기여자_ 로 설정됩니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+
+1. 마법사 위쪽의 **비호환 메시지** 탭을 선택 합니다.
+
+1. **비호환 메시지** 를이 리소스에 대 한 _필수 태그가_ 없습니다 .로 설정 합니다. 이 사용자 지정 메시지는 리소스가 거부 되거나 정기적으로 평가 하는 동안 비준수 리소스에 대해 표시 됩니다.
 
 1. 마법사 맨 위에 있는 **검토 + 만들기** 탭을 선택합니다.
 

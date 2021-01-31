@@ -2,20 +2,20 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 01/27/2021
 ms.author: rogarana
-ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7da7c2fbb49a9dd936762b23f3c251d2142c52fd
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026627"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221780"
 ---
 | 리소스 | 표준 파일 공유\* | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
 | 파일 공유의 최소 크기 | 최솟값 없음, 종량제 | 100GiB, 프로비저닝됨 |
 | 파일 공유의 최대 크기 | 100 TiB\*\*, 5 TiB | 100TiB |
-| 파일 공유의 최대 파일 크기 | 1TiB | 4TiB |
+| 파일 공유의 최대 파일 크기 | 4TiB | 4TiB |
 | 파일 공유의 최소 파일 수 | 제한 없음 | 제한 없음 |
 | 공유당 최대 IOPS | 100ms에 10,000 IOPS\*\*, 1,000 IOPS 또는 100개의 요청 | 100,000 IOPS |
 | 파일 공유당 저장된 액세스 정책의 최대 수 | 5 | 5 |

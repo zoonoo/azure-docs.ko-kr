@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1e6033f9a8f4cecd2429eca67a3d58e54d7ae1f6
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785598"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221111"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용하여 대기 시간 문제 해결
 
@@ -27,7 +27,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
 ## <a name="recommended-steps"></a>권장되는 단계
 
-1. [스토리지 분석 로그](./storage-analytics-logging.md#download-storage-logging-log-data)를 다운로드 합니다.
+1. [스토리지 분석 로그](./manage-storage-analytics-logs.md#download-storage-logging-log-data)를 다운로드 합니다.
 
 2. 원시 형식 로그를 테이블 형식으로 변환 하려면 다음 PowerShell 스크립트를 사용 합니다.
 
@@ -97,7 +97,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    다음 표에서는 대기 시간이 긴 OperationType 및 RequestStatus 결과에 대 한 정보를 제공 합니다.
 
-   | Blob 유형 |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장|
+   | Blob 유형 |RequestStatus =<br>Success|RequestStatus =<br>SAS NetworkError|권장|
    |---|---|---|---|
    |GetBlob|예|아니요|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
    |GetBlob|아니요|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

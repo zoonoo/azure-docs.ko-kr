@@ -3,14 +3,14 @@ title: Hybrid Runbook Worker에서 Azure Automation Runbook 실행
 description: 이 문서에서는 Hybrid Runbook Worker를 사용 하 여 로컬 데이터 센터 또는 다른 클라우드 공급자의 컴퓨터에서 runbook을 실행 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a080505f780e724bfd2ab997f5c823e467c4bec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896972"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220976"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -94,6 +94,10 @@ Hybrid Runbook Worker 그룹에 실행 계정을 지정하려면 다음 절차�
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>실행 계정 인증서 설치
 
 Azure에서 리소스를 배포하는 자동화된 빌드 프로세스의 일부로 배포 시퀀스의 작업 또는 단계 집합을 지원하기 위해 온-프레미스 시스템에 대한 액세스가 필요할 수 있습니다. 실행 계정을 사용하여 Azure에 대해 인증을 제공하려면 실행 계정 인증서를 설치해야 합니다.
+
+>[!NOTE]
+>이 PowerShell runbook은 현재 LInux 컴퓨터에서 실행 되지 않습니다. Windows 컴퓨터 에서만 실행 됩니다.
+>
 
 PowerShell Runbook인 다음 **Export-RunAsCertificateToHybridWorker** 는 Azure Automation 계정에서 실행 인증서를 내보내고 다운로드하며 동일한 계정에 연결된 Hybrid Runbook Worker의 로컬 머신 인증서 저장소로 가져옵니다. 이 단계가 완료되면 Runbook은 Worker가 실행 계정을 사용하여 Azure를 성공적으로 인증할 수 있는지 확인합니다.
 

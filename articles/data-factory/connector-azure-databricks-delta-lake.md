@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507475"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221145"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Databricks Delta Lake 간 데이터 복사
 
@@ -37,12 +37,12 @@ ms.locfileid: "97507475"
 - [매핑 데이터 흐름](concepts-data-flow-overview.md) 은 코드 없는 ETL의 델타 파일을 읽고 쓰기 위한 원본 및 싱크로 Azure Storage의 일반 [델타 형식을](format-delta.md) 지원 하 고 관리 되는 Azure Integration Runtime에서 실행 됩니다.
 - [Databricks 활동](transform-data-databricks-notebook.md) 은 델타 lake 위에서 코드 중심 ETL 또는 기계 학습 워크 로드를 오케스트레이션 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 Azure Databricks 델타 Lake connector를 사용 하려면 Azure Databricks에서 클러스터를 설정 해야 합니다.
 
-- 델타 lake에 데이터를 복사 하기 위해 복사 작업은 Azure Databricks 클러스터를 호출 하 여 Azure Storage에서 데이터를 읽습니다. 즉, 원본 원본 또는 준비 영역인 Data Factory는 먼저 기본 제공 준비 복사본을 통해 원본 데이터를 기록 합니다. [델타 lake에서 원본으로](#delta-lake-as-source)자세히 알아보세요.
-- 마찬가지로, 델타 lake에서 데이터를 복사 하기 위해 복사 작업은 Azure Databricks 클러스터를 호출 하 여 Azure Storage에 데이터를 씁니다 .이는 원본 싱크 이거나 기본 제공 되는 준비 복사본을 통해 최종 싱크로 데이터를 계속 해 서 Data Factory 하는 준비 영역입니다. [델타 lake에서 싱크로](#delta-lake-as-sink)자세히 알아보세요.
+- 델타 lake에 데이터를 복사 하기 위해 복사 작업은 Azure Databricks 클러스터를 호출 하 여 Azure Storage에서 데이터를 읽습니다. 즉, 원본 원본 또는 준비 영역인 Data Factory는 먼저 기본 제공 준비 복사본을 통해 원본 데이터를 기록 합니다. [델타 lake에서 싱크로](#delta-lake-as-sink)자세히 알아보세요.
+- 마찬가지로, 델타 lake에서 데이터를 복사 하기 위해 복사 작업은 Azure Databricks 클러스터를 호출 하 여 Azure Storage에 데이터를 씁니다 .이는 원본 싱크 이거나 기본 제공 되는 준비 복사본을 통해 최종 싱크로 데이터를 계속 해 서 Data Factory 하는 준비 영역입니다. [델타 lake에서 원본으로](#delta-lake-as-source)자세히 알아보세요.
 
 Databricks 클러스터는 Azure Blob 또는 Azure Data Lake Storage Gen2 계정에 대 한 액세스 권한이 있어야 합니다. 여기에는 원본/싱크/스테이징에 사용 되는 저장소 컨테이너/파일 시스템과 델타 Lake 테이블을 작성 하려는 컨테이너/파일 시스템이 모두 있어야 합니다.
 
@@ -79,11 +79,11 @@ Databricks 클러스터는 Azure Blob 또는 Azure Data Lake Storage Gen2 계정
 
 다음은 Azure Databricks Delta Lake 연결 된 서비스에 대해 지원 되는 속성입니다.
 
-| 속성    | 설명                                                  | 필수 |
+| 속성    | Description                                                  | 필수 |
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | Type 속성은 **AzureDatabricksDeltaLake** 로 설정 해야 합니다. | 예      |
 | 도메인      | Azure Databricks 작업 영역 URL (예:)을 지정 `https://adb-xxxxxxxxx.xx.azuredatabricks.net` 합니다. |          |
-| clusterId   | 기존 클러스터의 클러스터 ID를 지정 합니다. 이미 생성 된 대화형 클러스터 여야 합니다. <br>Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세히 알아보기](/azure/databricks/clusters/configure#cluster-tags). |          |
+| clusterId   | 기존 클러스터의 클러스터 ID를 지정 합니다. 이미 생성 된 대화형 클러스터 여야 합니다. <br>Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보를 알아보세요](/azure/databricks/clusters/configure#cluster-tags). |          |
 | accessToken | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾기 위한 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 찾을 수 있습니다. |          |
 | connectVia  | 데이터 저장소에 연결 하는 데 사용 되는 [통합 런타임](concepts-integration-runtime.md) 입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure integration runtime을 사용 합니다. | 예       |
 
@@ -112,7 +112,7 @@ Databricks 클러스터는 Azure Blob 또는 Azure Data Lake Storage Gen2 계정
 
 Azure Databricks Delta Lake 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성  | 설명                                                  | 필수                    |
+| 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 집합의 type 속성은 **AzureDatabricksDeltaLakeDataset** 로 설정 해야 합니다. | 예                         |
 | 데이터베이스 | 데이터베이스의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
@@ -146,15 +146,15 @@ Azure Databricks Delta Lake 데이터 집합에 대해 지원 되는 속성은 �
 
 Azure Databricks Delta Lake에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성                     | 설명                                                  | 필수 |
+| 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **AzureDatabricksDeltaLakeSource** 로 설정 해야 합니다. | 예      |
-| Query          | 데이터를 읽을 SQL 쿼리를 지정 합니다. 시간 이동 컨트롤의 경우 다음 패턴을 따릅니다.<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | 예       |
-| exportSettings | 델타 테이블에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. | 예       |
+| Query          | 데이터를 읽을 SQL 쿼리를 지정 합니다. 시간 이동 컨트롤의 경우 다음 패턴을 따릅니다.<br>- `SELECT * FROM events TIMESTAMP AS OF timestamp_expression`<br>- `SELECT * FROM events VERSION AS OF version` | 아니요       |
+| exportSettings | 델타 테이블에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. | 아니요       |
 | ***`exportSettings` :** _ |  |  |
 | 형식 | 내보내기 명령의 유형으로 _ * AzureDatabricksDeltaLakeExportCommand * *로 설정 합니다. | 예 |
-| dateFormat | 날짜 형식을 날짜 형식의 문자열로 지정 합니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd` 합니다. | 예 |
-| timestampFormat | 타임 스탬프 형식을 타임 스탬프 형식으로 문자열 형식으로 지정 합니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` 합니다. | 예 |
+| dateFormat | 날짜 형식을 날짜 형식의 문자열로 지정 합니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd` 합니다. | 아니요 |
+| timestampFormat | 타임 스탬프 형식을 타임 스탬프 형식으로 문자열 형식으로 지정 합니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` 합니다. | 아니요 |
 
 #### <a name="direct-copy-from-delta-lake"></a>델타 lake에서 직접 복사
 
@@ -175,7 +175,7 @@ Azure Databricks Delta Lake에서 데이터를 복사 하기 위해 복사 작�
 - 복사 작업 싱크에서 데이터를 분리 된 텍스트로 복사 하는 경우 `fileExtension` ".csv" 여야 합니다.
 - 복사 활동 매핑에서 유형 변환이 사용 되지 않습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -216,7 +216,7 @@ Azure Databricks Delta Lake에서 데이터를 복사 하기 위해 복사 작�
 >[!NOTE]
 >Azure Databricks 클러스터 구성에서 준비 저장소 계정 자격 증명을 미리 구성 해야 합니다. [필수 구성 요소](#prerequisites)를 자세히 알아보세요.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -260,15 +260,15 @@ Azure Databricks Delta Lake에서 데이터를 복사 하기 위해 복사 작�
 
 Azure Databricks Delta Lake에 데이터를 복사 하기 위해 복사 작업 **싱크에서** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | :------------ | :----------------------------------------------------------- | :------- |
 | type          | 복사 작업 싱크의 type 속성은 **AzureDatabricksDeltaLakeSink** 로 설정 됩니다. | 예      |
-| preCopyScript | 각 실행에서 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용 하 여 미리 로드 된 데이터를 정리 하거나 truncate table 또는 진공 문을 추가할 수 있습니다. | 예       |
-| importSettings | 델타 테이블에 데이터를 쓰는 데 사용 되는 고급 설정입니다. | 예 |
+| preCopyScript | 각 실행에서 Databricks 델타 테이블에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용 하 여 미리 로드 된 데이터를 정리 하거나 truncate table 또는 진공 문을 추가할 수 있습니다. | 아니요       |
+| importSettings | 델타 테이블에 데이터를 쓰는 데 사용 되는 고급 설정입니다. | 아니요 |
 | **_`importSettings` :_* _ |                                                              |  |
 | 형식 | Import 명령의 유형으로 _ * AzureDatabricksDeltaLakeImportCommand * *로 설정 합니다. | 예 |
-| dateFormat | 날짜 형식의 날짜 형식에 대 한 형식 문자열입니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd` 합니다. | 예 |
-| timestampFormat | 타임 스탬프 형식에 대 한 형식 문자열을 타임 스탬프 형식으로 바꿉니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` 합니다. | 예 |
+| dateFormat | 날짜 형식의 날짜 형식에 대 한 형식 문자열입니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd` 합니다. | 아니요 |
+| timestampFormat | 타임 스탬프 형식에 대 한 형식 문자열을 타임 스탬프 형식으로 바꿉니다. 사용자 지정 날짜 형식은 [날짜/시간 패턴](https://spark.apache.org/docs/latest/sql-ref-datetime-pattern.html)의 형식을 따릅니다. 지정 하지 않으면 기본값을 사용 `yyyy-MM-dd'T'HH:mm:ss[.SSS][XXX]` 합니다. | 아니요 |
 
 #### <a name="direct-copy-to-delta-lake"></a>델타 lake로 직접 복사
 
@@ -293,7 +293,7 @@ Azure Databricks Delta Lake에 데이터를 복사 하기 위해 복사 작업 *
 
 - 복사 활동 매핑에서 유형 변환이 사용 되지 않습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -333,7 +333,7 @@ Azure Databricks Delta Lake에 데이터를 복사 하기 위해 복사 작업 *
 >[!NOTE]
 >Azure Databricks 클러스터 구성에서 준비 저장소 계정 자격 증명을 미리 구성 해야 합니다. [필수 구성 요소](#prerequisites)를 자세히 알아보세요.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[

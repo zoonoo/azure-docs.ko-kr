@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998569"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221029"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>포털을 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork* 를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -99,7 +99,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 Azure에서 Azure Database for MySQL 서버를 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 Azure Database for MySQL **리소스 데이터베이스 만들기** 를 선택  >  **Databases**  >  **Azure Database for MySQL** 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 Azure Database for MySQL **리소스 데이터베이스 만들기** 를 선택  >    >  합니다.
 
 1. **Azure Database for MySQL** 에서 다음 정보를 제공 합니다.
 
@@ -223,6 +223,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Azure Database for MySQL-단일 서버의 방화벽 설정에서 공용 액세스를 사용 하지 않도록 설정 합니다. 이러한 ping 및 텔넷 테스트는 방화벽 설정에 관계 없이 성공 합니다. 이러한 테스트는 네트워크 연결을 보장 합니다.
 
 3. 사용 가능한 모든 클라이언트를 사용 하 여 MySQL server에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [MySQL 워크 벤치](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 를 사용 하 여 작업을 수행 했습니다.
 
