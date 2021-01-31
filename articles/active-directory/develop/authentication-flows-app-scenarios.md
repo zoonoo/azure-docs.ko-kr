@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c302e10a169a190d11f016620ec048cc58e3ac28
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755777"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220167"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
@@ -42,8 +42,8 @@ Microsoft id 플랫폼은 다양 한 종류의 최신 응용 프로그램 아키
 
 인증 시나리오에는 두 가지 작업이 포함됩니다.
 
-- **보호 된 WEB API에 대 한 보안 토큰 가져오기**: [Microsoft에서 지 원하는 클라이언트 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 를 사용 하 여 토큰을 얻는 것이 좋습니다. 특히 MSAL (Microsoft 인증 라이브러리) 제품군을 권장 합니다.
-- **WEB API 또는 웹 앱 보호**: 이러한 리소스를 보호 하는 한 가지 문제는 보안 토큰의 유효성을 검사 하는 것입니다. 일부 플랫폼의 경우 Microsoft에서 [미들웨어 라이브러리](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)를 제공합니다.
+- **보호 된 WEB API에 대 한 보안 토큰 획득**: microsoft에서 개발 하 고 지 원하는 [Msal (microsoft 인증 라이브러리)](reference-v2-libraries.md)을 사용 하는 것이 좋습니다.
+- **WEB API 또는 웹 앱 보호**: 이러한 리소스를 보호 하는 한 가지 문제는 보안 토큰의 유효성을 검사 하는 것입니다. 일부 플랫폼의 경우 Microsoft에서 [미들웨어 라이브러리](reference-v2-libraries.md)를 제공합니다.
 
 ### <a name="with-users-or-without-users"></a>사용자 포함 또는 사용자 없음
 
@@ -65,7 +65,7 @@ Microsoft id 플랫폼은 다양 한 종류의 최신 응용 프로그램 아키
   - 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 데스크톱 앱
   - 모바일 앱
   - IoT에서 실행 하는 것과 같이 브라우저가 없는 장치에서 실행 되는 앱
-  
+
 - **기밀 클라이언트 응용 프로그램**:이 범주의 앱은 다음과 같습니다.
   - 웹 API를 호출 하는 웹 앱
   - 웹 API를 호출 하는 웹 Api
@@ -95,7 +95,7 @@ Microsoft id 플랫폼은 다음과 같은 앱 아키텍처에 대 한 인증을
 
 많은 최신 웹 앱은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 이러한 응용 프로그램은 각도, Vue 및 반응과 같은 JavaScript 또는 프레임 워크를 사용 합니다. 이러한 애플리케이션은 웹 브라우저에서 실행됩니다.
 
-단일 페이지 응용 프로그램은 인증 특성 측면에서 기존의 서버 쪽 웹 앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다. Microsoft id 플랫폼은 JavaScript 응용 프로그램에 대 한 두 가지 권한 부여 유형을 제공 합니다. 
+단일 페이지 응용 프로그램은 인증 특성 측면에서 기존의 서버 쪽 웹 앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다. Microsoft id 플랫폼은 JavaScript 응용 프로그램에 대 한 두 가지 권한 부여 유형을 제공 합니다.
 
 | MSAL.js (2.x) | MSAL.js (1.x) |
 |---|---|
@@ -160,7 +160,7 @@ MSAL iOS 및 MSAL Android는 기본적으로 시스템 웹 브라우저를 사�
 
 ### <a name="protected-web-api"></a>보호된 웹 API
 
-Microsoft id 플랫폼을 사용 하 여 앱의 RESTful web API와 같은 웹 서비스를 보호할 수 있습니다. 보호 된 웹 API는 액세스 토큰을 통해 호출 됩니다. 토큰은 API의 데이터를 보호 하 고 들어오는 요청을 인증 하는 데 도움이 됩니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
+Microsoft id 플랫폼 끝점을 사용 하 여 앱의 RESTful web API와 같은 웹 서비스를 보호할 수 있습니다. 보호 된 웹 API는 액세스 토큰을 통해 호출 됩니다. 토큰은 API의 데이터를 보호 하 고 들어오는 요청을 인증 하는 데 도움이 됩니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
 
 ASP.NET 또는 ASP.NET Core web API를 보호 하려는 경우 액세스 토큰의 유효성을 검사 해야 합니다. 이 유효성 검사를 위해 ASP.NET JWT 미들웨어를 사용합니다. 유효성 검사는 MSAL.NET이 아니라 [.NET용 IdentityModel 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) 라이브러리에서 수행합니다.
 
@@ -309,7 +309,7 @@ Microsoft 인증 라이브러리는 여러 플랫폼을 지원 합니다.
 | [디먼 앱](scenario-daemon-overview.md) <br/> [![디먼 앱](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [웹 API를 호출하는 웹 API](scenario-web-api-call-api-overview.md) <br/><br/> [![웹 API를 호출하는 Web API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-자세한 내용은 [Microsoft 지원 라이브러리 BY OS/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)를 참조 하세요.
+자세한 내용은 [Microsoft id 플랫폼 인증 라이브러리](reference-v2-libraries.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,19 +3,24 @@ title: 배포 RD 게이트웨이 역할 Windows 가상 데스크톱-Azure
 description: Windows 가상 데스크톱에서 RD 게이트웨이 역할을 배포 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798437"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220822"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 RD 게이트웨이 역할 배포
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Windows Virtual Desktop (미리 보기)에서 RD 게이트웨이 역할 배포
 
-이 문서에서는 사용자 환경에 원격 데스크톱 게이트웨이 서버를 배포 하는 방법을 설명 합니다. 온-프레미스, 클라우드 기반 또는 하이브리드 중에서 어떤 환경을 만드는지에 따라 물리적 컴퓨터 또는 가상 머신에서 서버 역할을 설치할 수 있습니다.
+> [!IMPORTANT]
+> 이 기능은 현재 공개 미리 보기로 제공됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+이 문서에서는 RD 게이트웨이 역할 (미리 보기)을 사용 하 여 사용자 환경에 원격 데스크톱 게이트웨이 서버를 배포 하는 방법을 설명 합니다. 온-프레미스, 클라우드 기반 또는 하이브리드 환경을 만드는 지 여부에 따라 물리적 컴퓨터 또는 가상 컴퓨터에 서버 역할을 설치할 수 있습니다.
 
 ## <a name="install-the-rd-gateway-role"></a>RD 게이트웨이 역할 설치
 

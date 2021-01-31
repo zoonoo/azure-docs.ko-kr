@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755251"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219963"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Microsoft ID 플랫폼 모범 사례 및 권장 사항
 
@@ -44,7 +44,7 @@ ms.locfileid: "98755251"
 
 ![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 응용 프로그램에 대 한 의미 있는 이름 및 로고를 제공 합니다. 이 정보는 [응용 프로그램의 동의 프롬프트](application-consent-experience.md)에 표시 됩니다. 사용자가 합리적인 의사 결정을 내릴 수 있도록 이름 및 로고가 회사/제품을 대표 하는지 확인 합니다. 모든 상표를 위반 하지 않는지 확인 합니다.
 
-## <a name="privacy"></a>개인 정보 보호
+## <a name="privacy"></a>개인 정보 취급 방침
 
 ![확인란](./media/active-directory-integration-checklist/checkbox-two.svg) 앱의 서비스 약관 및 개인 정보 취급 방침에 대 한 링크를 제공 합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "98755251"
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)최신 인증 솔루션 (OAuth 2.0, [openid connect Connect](v2-protocols-oidc.md))을 사용 하 여 안전 하 게 사용자에 게 로그인 합니다.
 
-![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 OAuth 2.0 및 OPEN ID와 같은 프로토콜에 대해 직접 프로그래밍할 필요가 없습니다. 대신 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 활용 하세요. MSAL 라이브러리는 사용 하기 쉬운 라이브러리에서 보안 프로토콜을 안전 하 게 래핑하고 [조건부 액세스](../conditional-access/overview.md) 시나리오, 장치 차원의 [SSO (Single Sign-On](../manage-apps/what-is-single-sign-on.md)) 및 기본 제공 토큰 캐싱 지원에 대 한 지원을 기본적으로 제공 합니다. 자세한 내용은 Microsoft 지원 되는 [클라이언트 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 및 [미들웨어 라이브러리](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) 목록과 [호환 되는 타사 클라이언트 라이브러리](reference-v2-libraries.md#compatible-client-libraries)목록을 참조 하십시오.<br/><br/>인증 프로토콜에 대 한 코드를 직접 실행 해야 하는 경우 [MICROSOFT SDL](https://www.microsoft.com/sdl/default.aspx)과 같은 방법을 따라야 합니다. 각 프로토콜에 대 한 표준 사양에서 보안 고려 사항에 주의 하세요.
+![checkbox ](./media/active-directory-integration-checklist/checkbox-two.svg) 는 OAuth 2.0 및 OPEN ID와 같은 프로토콜에 대해 직접 프로그래밍할 필요가 없습니다. 대신 [MSAL (Microsoft 인증 라이브러리)](msal-overview.md)을 활용 하세요. MSAL 라이브러리는 사용 하기 쉬운 라이브러리에서 보안 프로토콜을 안전 하 게 래핑하고 [조건부 액세스](../conditional-access/overview.md) 시나리오, 장치 차원의 [SSO (Single Sign-On](../manage-apps/what-is-single-sign-on.md)) 및 기본 제공 토큰 캐싱 지원에 대 한 지원을 기본적으로 제공 합니다. 자세한 내용은 Microsoft 지원 [클라이언트 라이브러리](reference-v2-libraries.md)목록을 참조 하십시오. 인증 프로토콜에 대 한 코드를 직접 코딩 해야 하는 경우 [MICROSOFT SDL](https://www.microsoft.com/sdl/default.aspx) 또는 유사한 개발 방법론을 따라야 합니다. 각 프로토콜에 대 한 표준 사양에서 보안 고려 사항에 주의 하세요.
 
 ![확인란 ](./media/active-directory-integration-checklist/checkbox-two.svg) [ADAL (Azure Active Directory Authentication library)](../azuread-dev/active-directory-authentication-libraries.md) 에서 [Microsoft 인증 라이브러리로](msal-overview.md)기존 앱을 마이그레이션합니다. MSAL은 Microsoft의 최신 id 플랫폼 솔루션 이며 ADAL에서 선호 됩니다. 이 버전은 .NET, JavaScript, Android, iOS, macOS에서 사용할 수 있으며 Python 및 Java에 대 한 공개 미리 보기에도 있습니다. [ADAL.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md), [ADAL.NET 및 iOS broker](msal-net-migration-ios-broker.md) 앱 마이그레이션에 대해 자세히 알아보세요.
 

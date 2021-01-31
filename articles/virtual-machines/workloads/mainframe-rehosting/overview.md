@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f62cb6d5277ae202e8ea864aa99a3e19c3beef22
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835530"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220754"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
 
@@ -70,7 +70,7 @@ Azure의 에뮬레이션 환경에서는 ADCDs (응용 프로그램 개발자 �
 
 IBM DB2 pureScale 환경은 Azure에 대 한 데이터베이스 클러스터를 제공 합니다. 원래 환경과 동일 하지는 않지만 병렬 Sysplex 설정에서 실행 되는 z/OS 용 IBM d b 2로 유사한 가용성 및 규모를 제공 합니다.
 
-시작 하려면 [Azure에서 IBM DB2 pureScale](../../linux/ibm-db2-purescale-azure.md)를 참조 하세요.
+시작 하려면 [Azure에서 IBM DB2 pureScale](.//ibm/ibm-db2-purescale-azure.md)를 참조 하세요.
 
 ## <a name="considerations"></a>고려 사항
 
@@ -98,7 +98,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 [메인프레임 저장소를 Azure로 이동](./concepts/mainframe-storage-azure.md)하는 방법을 알아봅니다.
 
-### <a name="backup-and-recovery"></a>백업 및 복구
+### <a name="backup-and-recovery"></a>Backup 및 복구
 
 자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](../../../backup/backup-overview.md), [복구](../../../site-recovery/site-recovery-overview.md)및 [중복성](../../../storage/common/storage-redundancy.md) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
 

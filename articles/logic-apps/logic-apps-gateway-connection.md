@@ -3,19 +3,19 @@ title: 온-프레미스 데이터 원본 액세스
 description: Azure에서 데이터 게이트웨이 리소스를 만들어 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009259"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218997"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
-[로컬 컴퓨터에 온 *-프레미스 데이터 게이트웨이* 를 설치](../logic-apps/logic-apps-gateway-install.md) 하 고 논리 앱에서 온-프레미스의 데이터 원본에 액세스 하려면 먼저 게이트웨이 설치를 위해 Azure에서 게이트웨이 리소스를 만들어야 합니다. 그런 다음 Azure Logic Apps에서 사용할 수 있는 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 에 사용 하려는 트리거와 작업에서이 게이트웨이 리소스를 선택할 수 있습니다. Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
+[로컬 컴퓨터에 온 *-프레미스 데이터 게이트웨이* 를 설치](../logic-apps/logic-apps-gateway-install.md) 하 고 논리 앱에서 온-프레미스 데이터 원본에 액세스 하려면 먼저 게이트웨이를 설치 하기 위해 Azure에서 게이트웨이 리소스를 만들어야 합니다. 그런 다음 Azure Logic Apps에서 사용할 수 있는 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 에 사용 하려는 트리거와 작업에서이 게이트웨이 리소스를 선택할 수 있습니다. Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업에는 [페이로드 크기 제한](/data-integration/gateway/service-gateway-onprem#considerations)이 있습니다.
 
 이 문서에서는 [로컬 컴퓨터에](../logic-apps/logic-apps-gateway-install.md)이전에 설치 된 게이트웨이에 대 한 Azure 게이트웨이 리소스를 만드는 방법을 보여 줍니다. 게이트웨이에 대 한 자세한 내용은 [게이트웨이의 작동](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service)원리를 참조 하세요.
 
@@ -48,17 +48,20 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 * SQL Server
 * Teradata
 
-REST 또는 SOAP를 사용 하 여 HTTP 또는 HTTPS를 통해 데이터 원본에 연결 하는 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 를 만들 수도 있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
+REST 또는 SOAP를 사용 하 여 HTTP 또는 HTTPS를 통해 데이터 원본에 연결 하는 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md) 를 만들 수도 있습니다. 게이트웨이 자체에는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다. 이 게이트웨이 설치는이 설치에 연결 되는 게이트웨이 리소스를 만들기 전에 존재 해야 합니다.
 
 * 게이트웨이 설치에 사용한 것 [과 동일한 Azure 계정 및 구독이](../logic-apps/logic-apps-gateway-install.md#requirements) 있습니다. 이 Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에만 속해야 합니다. 게이트웨이 관리자만 Azure에서 게이트웨이 리소스를 만들 수 있기 때문에 Azure에서 게이트웨이 리소스를 만들려면 동일한 Azure 계정 및 구독을 사용 해야 합니다. 서비스 사용자는 현재 지원 되지 않습니다.
 
   * Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치를 선택 하 여 게이트웨이 리소스 및 해당 게이트웨이 리소스에만 연결 합니다. 각 게이트웨이 리소스는 하나의 게이트웨이 설치에만 연결할 수 있습니다. 다른 게이트웨이 리소스와 이미 연결 되어 있는 게이트웨이 설치는 선택할 수 없습니다.
-  
-  * 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 구독 액세스 권한이 있는 경우 온-프레미스 데이터 원본에 액세스할 수 있는 트리거 및 작업에서 게이트웨이 리소스가 있는 다른 Azure 구독을 선택할 수 있습니다.
+
+  * 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 게이트웨이 리소스를 사용할 수 있는 트리거와 작업에서 게이트웨이 리소스를 포함 하는 다른 Azure 구독을 선택할 수 있습니다. 단, 해당 구독이 논리 앱과 동일한 Azure AD 테 넌 트 또는 디렉터리에 있는 경우에만 해당 합니다. 또한 다른 관리자가 설정할 수 있는 게이트웨이에 대 한 관리자 권한이 있어야 합니다. 자세한 내용은 [데이터 게이트웨이: PowerShell을 사용 하 여 자동화-1 부](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) 및 [Powershell: Data gateway-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser)를 참조 하세요.
+
+    > [!NOTE]
+    > 현재 여러 구독에서 게이트웨이 리소스 또는 설치를 공유할 수 없습니다. 제품 피드백을 제출 하려면 [Microsoft Azure 피드백 포럼](https://feedback.azure.com/forums/34192--general-feedback)을 참조 하세요.
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ REST 또는 SOAP를 사용 하 여 HTTP 또는 HTTPS를 통해 데이터 원본�
 
 1. **온-프레미스 데이터 게이트웨이를 통해 연결** 을 선택합니다.
 
-1. 게이트웨이 **의** **구독** 목록에서 원하는 게이트웨이 리소스가 있는 Azure 구독을 선택 합니다.
+1. **게이트웨이** 의 **구독** 목록에서 원하는 게이트웨이 리소스가 있는 Azure 구독을 선택 합니다.
 
-   구독 액세스 권한이 있는 경우 각각 다른 게이트웨이 리소스와 연결 된 다양 한 Azure 구독에서 선택할 수 있습니다. 논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다.
-
+   논리 앱 및 게이트웨이 리소스는 동일한 Azure 구독에 존재 하지 않아도 됩니다. 각각 게이트웨이 리소스가 있는 다른 Azure 구독에서 선택할 수 있지만, 이러한 구독이 논리 앱과 동일한 Azure AD 테 넌 트 또는 디렉터리에 있는 경우에만 다른 관리자가 설정할 수 있는 게이트웨이에 대 한 관리자 권한이 있어야 합니다. 자세한 내용은 [데이터 게이트웨이: PowerShell을 사용 하 여 자동화-1 부](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) 및 [Powershell: Data gateway-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser)를 참조 하세요.
+  
 1. 선택한 구독에서 사용 가능한 게이트웨이 리소스를 보여 주는 **연결 게이트웨이** 목록에서 원하는 게이트웨이 리소스를 선택 합니다. 각 게이트웨이 리소스는 단일 게이트웨이 설치에 연결 됩니다.
 
    > [!NOTE]
@@ -116,7 +119,7 @@ REST 또는 SOAP를 사용 하 여 HTTP 또는 HTTPS를 통해 데이터 원본�
 
    고유한 연결 이름을 사용 하면 나중에 여러 연결을 만드는 경우 해당 연결을 쉽게 찾을 수 있습니다. 해당하는 경우 사용자 이름의 정규화된 도메인도 포함됩니다.
 
-   다음은 예제입니다.
+   예를 들면 다음과 같습니다.
 
    ![논리 앱과 데이터 게이트웨이 간에 연결 만들기](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
@@ -152,7 +155,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이** 를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제** 를 선택 합니다.
 
-   예들 들어 다음과 같습니다.
+   예를 들면 다음과 같습니다.
 
    ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

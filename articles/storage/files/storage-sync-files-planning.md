@@ -4,16 +4,16 @@ description: 온-프레미스 Windows Server 또는 클라우드 VM에서 다양
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 65293df5fae523bff36240273afb93c4dd8485df
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898107"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219479"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 
@@ -302,48 +302,16 @@ Azure 스토리지 계정에는 전송 중 암호화를 요구하는 스위치�
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
 ## <a name="azure-file-sync-region-availability"></a>Azure 파일 동기화 지역 가용성
-Azure 파일 동기화를 사용할 수 있는 지역은 다음과 같습니다.
 
-| Azure 클라우드 | 지리적 지역 | Azure 지역 | 지역 코드 |
-|-------------|-------------------|--------------|-------------|
-| 공용 | 아시아 | 동아시아 | `eastasia` |
-| 공용 | 아시아 | 동남아시아 | `southeastasia` |
-| 공용 | 오스트레일리아 | 오스트레일리아 동부 | `australiaeast` |
-| 공용 | 오스트레일리아 | 오스트레일리아 남동부 | `australiasoutheast` |
-| 공용 | 브라질 | 브라질 남부 | `brazilsouth` |
-| 공용 | Canada | 캐나다 중부 | `canadacentral` |
-| 공용 | Canada | 캐나다 동부 | `canadaeast` |
-| 공용 | 유럽 | 북유럽 | `northeurope` |
-| 공용 | 유럽 | 서유럽 | `westeurope` |
-| 공용 | 프랑스 | 프랑스 중부 | `francecentral` |
-| 공용 | 프랑스 | 프랑스 남부* | `francesouth` |
-| 공용 | 인도 | 인도 중부 | `centralindia` |
-| 공용 | 인도 | 인도 남부 | `southindia` |
-| 공용 | 일본 | 일본 동부 | `japaneast` |
-| 공용 | 일본 | 일본 서부 | `japanwest` |
-| 공용 | 한국 | 한국 중부 | `koreacentral` |
-| 공용 | 한국 | 한국 남부 | `koreasouth` |
-| 공용 | 남아프리카 | 남아프리카 북부 | `southafricanorth` |
-| 공용 | 남아프리카 | 남아프리카 공화국 서부* | `southafricawest` |
-| 공용 | 아랍에미리트 | 아랍에미리트 중부* | `uaecentral` |
-| 공용 | 아랍에미리트 | 아랍에미리트 북부 | `uaenorth` |
-| 공용 | 영국 | 영국 남부 | `uksouth` |
-| 공용 | 영국 | 영국 서부 | `ukwest` |
-| 공용 | US | 미국 중부 | `centralus` |
-| 공용 | US | 미국 동부 | `eastus` |
-| 공용 | US | 미국 동부 2 | `eastus2` |
-| 공용 | US | 미국 중북부 | `northcentralus` |
-| 공용 | US | 미국 중남부 | `southcentralus` |
-| 공용 | US | 미국 중서부 | `westcentralus` |
-| 공용 | US | 미국 서부 | `westus` |
-| 공용 | US | 미국 서부 2 | `westus2` |
-| US Gov | US | US Gov 애리조나 | `usgovarizona` |
-| US Gov | US | US Gov 텍사스 | `usgovtexas` |
-| US Gov | US | US Gov 버지니아 | `usgovvirginia` |
+지역별 가용성에 대해서는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조 하세요.
 
-Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
+다음 지역에서는 Azure Storage에 대 한 액세스를 요청 하 여 Azure 파일 동기화를 사용할 수 있도록 해야 합니다.
 
-별표로 표시된 지역의 경우 Azure 지원에 문의하여 해당 지역에서 Azure Storage에 액세스할 수 있도록 요청해야 합니다. 프로세스는 [이 문서](https://azure.microsoft.com/global-infrastructure/geographies/)에 요약되어 있습니다.
+- 프랑스 남부
+- 남아프리카 공화국 서부
+- 아랍에미리트 중부
+
+이러한 지역에 대 한 액세스를 요청 하려면 [이 문서의](https://azure.microsoft.com/global-infrastructure/geographies/)프로세스를 따르세요.
 
 ## <a name="redundancy"></a>중복
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]

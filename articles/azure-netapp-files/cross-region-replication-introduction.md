@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696094"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220907"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -28,26 +29,31 @@ Azure NetApp Files 복제 기능은 지역 간 볼륨 복제를 통해 데이터
 > [!IMPORTANT]
 > 지역 간 복제 기능은 현재 공개 미리 보기로 제공 됩니다. [Azure NetApp Files 지역 간 복제 waitlist 제출 페이지](https://aka.ms/anfcrrpreviewsignup)를 통해 기능에 액세스 하기 위한 waitlist 요청을 제출 해야 합니다. 지역 간 복제 기능을 사용 하기 전에 Azure NetApp Files 팀의 공식 확인 전자 메일을 기다리십시오.
 
-## <a name="supported-region-pairs"></a>지원 되는 지역 쌍
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>지원 되는 지역 간 복제 쌍
 
-볼륨 복제는 현재 다음 고정 지역 쌍에서 사용할 수 Azure NetApp Files.  
+Azure NetApp Files 볼륨 복제는 다양 한 [Azure 지역 쌍](/azure/best-practices-availability-paired-regions#azure-regional-pairs) 과 비 쌍 간에 지원 됩니다. Azure NetApp Files 볼륨 복제는 현재 다음 지역에서 사용할 수 있습니다.  
 
-* 미국 서 부 및 미국 동부
-* 미국 서 부 2 및 미국 동부 
-* 미국 중 남부 중부 및 미국 중부 
-* 미국 남부 중부 및 미국 동부
-* 미국 남부 중부 및 미국 동부 2 
-* 미국 동부 및 미국 동부 2  
-* 미국 동부 2와 미국 중부 
+### <a name="azure-regional-pairs"></a>Azure 지역 쌍
+
+* 미국 동부 및 미국 서 부
+* 미국 동부 2와 미국 중부
 * 오스트레일리아 동부 및 오스트레일리아 남동쪽
 * 캐나다 중부 및 캐나다 동부
-* 인도 중부 및 인도 남부
+* 인도 남부 및 인도 중부 
 * 독일 중서부 및 독일 북부
 * 일본 동부 및 일본 서 부
 * 북유럽 및 서유럽
-* 동남 아시아 및 오스트레일리아 동부
-* 영국 남부 및 독일 중서부
 * 영국 남부 및 영국 서부
+
+### <a name="azure-regional-non-pairs"></a>Azure 지역 비 쌍
+
+*   미국 서 부 2 및 미국 동부
+*   미국 중 남부, 미국 중부
+*   미국 중 남부 및 미국 동부
+*   미국 중부 및 미국 동부 2
+*   미국 동부 및 미국 동부 2
+*   오스트레일리아 동부 및 동남 아시아 
+*   독일 중서부 및 영국 남부
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 

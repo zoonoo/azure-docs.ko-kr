@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c8807f0200f96dc12a3b3d43fa50a91bec85ed38
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071185"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219912"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -538,11 +538,11 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-azure-services"></a>Azure 서비스에 대 한 액세스 권한 부여 
+## <a name="grant-access-to-trusted-azure-services"></a>신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한 부여 
 
-일부 Azure 서비스는 네트워크 규칙에 포함할 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Azure 서비스의 하위 집합을 저장소 계정에 부여 하 고 다른 앱에 대 한 네트워크 규칙을 유지 관리할 수 있습니다. 이러한 신뢰할 수 있는 서비스는 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결 합니다. 
+일부 Azure 서비스는 네트워크 규칙에 포함할 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Azure 서비스의 하위 집합을 저장소 계정에 부여 하 고 다른 앱에 대 한 네트워크 규칙을 유지 관리할 수 있습니다. 이러한 신뢰할 수 있는 서비스는 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결 합니다.
 
-네트워크 규칙 예외를 만들어 신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한을 부여할 수 있습니다. 단계별 지침은이 문서의 [예외 관리](#manage-exceptions) 섹션을 참조 하세요. 
+네트워크 규칙 예외를 만들어 신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한을 부여할 수 있습니다. 단계별 지침은이 문서의 [예외 관리](#manage-exceptions) 섹션을 참조 하세요.
 
 신뢰할 수 있는 Azure 서비스에 대 한 액세스 권한을 부여 하는 경우 다음 유형의 액세스를 부여 합니다.
 
@@ -583,17 +583,23 @@ az storage account network-rule list \
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | 정책을 사용 하 여 방화벽 뒤에 있는 저장소 계정에 대 한 Api Management 서비스 액세스를 활성화 합니다. [자세한 정보를 알아보세요](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Cognitive Search 서비스를 사용하여 인덱싱, 처리 및 쿼리를 위해 스토리지 계정에 액세스할 수 있습니다. |
-| Azure Cognitive Services       | CognitiveService             | Cognitive Services에서 저장소 계정에 액세스할 수 있습니다. |
+| Azure Cognitive Services       | CognitiveService/계정    | Cognitive Services에서 저장소 계정에 액세스할 수 있습니다. |
 | Azure Container Registry 작업 | Microsoft.ContainerRegistry/registries | ACR 태스크는 컨테이너 이미지를 빌드할 때 스토리지 계정에 액세스할 수 있습니다. |
 | Azure 데이터 팩터리             | Microsoft.DataFactory/factories        | ADF 런타임을 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Data Share를 통해 스토리지 계정에 액세스할 수 있도록 합니다. |
+| Azure DevTest Labs             | Microsoft.DevTestLab/labs              | DevTest Labs를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | COPY 문이나 PolyBase (전용 풀) 또는 `openrowset` 서버 리스 풀의 함수 및 외부 테이블을 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오거나 내보낼 수 있습니다. [자세한 정보를 알아보세요](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
-| Azure SQL Database       | Microsoft.Sql                          | 방화벽 뒤에 있는 저장소 계정에 감사 데이터를 [쓸](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) 수 있습니다. |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Azure Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
+| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Media Services           | Microsoft.Media/mediaservices          | Media Services를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Migrate                  | Microsoft. 마이그레이션/migrateprojects      | Azure Migrate를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Purview                  | 부서의 범위/계정             | 부서의 범위에서 저장소 계정에 액세스할 수 있도록 허용 합니다. |
+| Azure Remote Rendering         | MixedReality/remoteRenderingAccounts | 원격 렌더링을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Site Recovery를 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure SQL Database             | Microsoft.Sql                          | 방화벽 뒤에 있는 저장소 계정에 감사 데이터를 [쓸](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) 수 있습니다. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | COPY 문이나 PolyBase (전용 풀) 또는 `openrowset` 서버 리스 풀의 함수 및 외부 테이블을 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오거나 내보낼 수 있습니다. [자세히 알아보기](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics              | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Azure Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |
 
 ## <a name="grant-access-to-storage-analytics"></a>저장소 분석에 대 한 액세스 권한 부여
 

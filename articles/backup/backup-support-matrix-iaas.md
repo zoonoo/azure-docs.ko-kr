@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3d1238bffd785a47b6e0ffab70366a15dfff0ef3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757409"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218114"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -150,6 +150,7 @@ Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/u
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | 지원됨
+독립 실행형 Azure Vm의 Windows 저장소 공간 구성 | 지원됨 
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 

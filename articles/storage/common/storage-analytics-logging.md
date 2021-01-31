@@ -5,22 +5,32 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f0f9832a8128a447970535f18cceca3cd4dccc69
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 217a804b0155d7886a068283f8669ace0bc81856
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880256"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218522"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 스토리지 분석 로깅
 
 스토리지 분석은 Storage 서비스에 대해 성공한 요청과 실패한 요청 관련 상세 정보를 기록합니다. 이 정로를 사용하면 개별 요청을 모니터링하고 스토리지 서비스의 문제를 진단할 수 있습니다. 요청은 최상의 노력을 기준으로 기록됩니다.
 
- 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. 이 작업은 [Azure Portal](https://portal.azure.com/)에서 수행할 수 있습니다. 자세한 내용은 [Azure Portal에서 스토리지 계정 모니터링](./storage-monitor-storage-account.md)을 참조하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다.
+> [!NOTE]
+> 스토리지 분석 로그 대신 Azure Monitor에서 Azure Storage 로그를 사용 하는 것이 좋습니다. Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 자세히 알아보려면 다음 문서를 참조 하세요.
+>
+> - [모니터링 Azure Blob Storage](../blobs/monitor-blob-storage.md)
+> - [모니터링 Azure Files](../files/storage-files-monitoring.md)
+> - [Azure Queue Storage 모니터링](../queues/monitor-queue-storage.md)
+> - [Azure 테이블 저장소 모니터링](../tables/monitor-table-storage.md)
+
+ 스토리지 분석 로깅은 Storage 계정에 대해 기본적으로 사용하지 않도록 설정됩니다. [Azure Portal](https://portal.azure.com/) 또는 PowerShell을 사용 하거나 Azure CLI를 사용 하 여 사용 하도록 설정할 수 있습니다. 단계별 지침은 [Azure 스토리지 분석 로그 설정 및 관리 (클래식)](manage-storage-analytics-logs.md)를 참조 하세요. 
+
+REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석 로그를 사용 하도록 설정할 수도 있습니다. 또한 [Blob Service 속성 가져오기](/rest/api/storageservices/Blob-Service-REST-API), [큐 서비스 속성 가져오기](/rest/api/storageservices/Get-Queue-Service-Properties) 및 [테이블 서비스 속성 가져오기](/rest/api/storageservices/Get-Table-Service-Properties) 작업을 사용하여 각 서비스에 대해 스토리지 분석을 사용하도록 설정할 수 있습니다. .NET을 사용 하 여 스토리지 분석 로그를 사용 하도록 설정 하는 예제를 보려면 [로그 사용](manage-storage-analytics-logs.md) 을 참조 하세요.
 
  서비스 엔드포인트에 대한 요청이 있는 경우에만 로그 항목이 만들어집니다. 예를 들어 스토리지 계정의 활동이 Blob 엔드포인트에는 있지만 테이블 또는 큐 엔드포인트에는 없는 경우 Blob service와 관련된 로그만 만들어집니다.
 
@@ -125,91 +135,10 @@ ms.locfileid: "98880256"
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-## <a name="enable-storage-logging"></a>Storage 로깅 사용
-
-Azure Portal, PowerShell 및 Storage SDK를 사용하여 Storage 로깅을 사용하도록 설정할 수 있습니다.
-
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Azure Portal을 사용하여 Storage 로깅 사용  
-
-Azure Portal에서 **진단 설정(클래식)** 블레이드를 사용하여 스토리지 계정의 **메뉴 블레이드** 의 **모니터링(클래식)** 섹션에서 액세스할 수 있는 Storage 로깅을 제어합니다.
-
-기록할 스토리지 서비스와 기록된 데이터의 보존 기간(일)을 지정할 수 있습니다.  
-
-### <a name="enable-storage-logging-using-powershell"></a>PowerShell을 사용하여 Storage 로깅을 사용하도록 설정하는 방법  
-
- **AzStorageServiceLoggingProperty** cmdlet을 사용 하 여 현재 설정을 검색 하 고 **AzStorageServiceLoggingProperty** cmdlet을 Azure PowerShell 사용 하 여 현재 설정을 변경 하 여 저장소 계정에서 저장소 로깅을 구성 하려면 로컬 컴퓨터에서 PowerShell을 사용할 수 있습니다.  
-
- Storage 로깅을 제어하는 cmdlet은 로그에 대한 요청 유형의 쉼표로 구분된 목록이 포함된 문자열인 **LoggingOperations** 매개 변수를 사용합니다. 가능한 세 가지 요청 유형은 **읽기**, **쓰기** 및 **삭제** 입니다. 로깅을 해제하려면 **LoggingOperations** 매개 변수에 **none** 값을 사용합니다.  
-
- 다음 명령은 기본 스토리지 계정의 큐 서비스의 읽기, 쓰기 및 삭제 요청에 대해 보존 기간이 5일로 설정된 로깅을 설정합니다.  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
-
- 다음 명령은 기본 스토리지 계정의 테이블 서비스에 대해 로깅을 해제합니다.  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
-
- Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
-
-### <a name="enable-storage-logging-programmatically"></a>프로그래밍 방식으로 Storage 로깅을 사용하도록 설정하는 방법  
-
- Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Storage 로깅을 제어하는 방법 외에 Azure Storage API 중 하나를 사용할 수도 있습니다. 예를 들어 .NET 언어를 사용 중인 경우 Storage 클라이언트 라이브러리를 사용할 수 있습니다.  
-
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
-
-queueClient.SetServiceProperties(serviceProperties);  
-```  
-
----
-
-
- .NET 언어를 사용하여 Storage 로깅을 구성하는 방법에 대한 자세한 내용은 [Storage 클라이언트 라이브러리 참조](/previous-versions/azure/dn261237(v=azure.100))를 참조하세요.  
-
- REST API를 사용하여 Storage 로깅을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요.  
-
-## <a name="download-storage-logging-log-data"></a>스토리지 로깅 로그 데이터 다운로드
-
- 로그 데이터를 보고 분석하려면 관심 있는 로그 데이터가 포함된 Blob을 로컬 컴퓨터에 다운로드해야 합니다. 많은 스토리지 검색 도구를 사용하여 스토리지 계정에서 blob을 다운로드할 수 있습니다. 또한 Azure Storage 팀에서 제공한 명령줄 Azure 복사 도구([AzCopy](storage-use-azcopy-v10.md))를 사용하여 로그 데이터를 다운로드할 수 있습니다.  
- 
->[!NOTE]
-> `$logs` 컨테이너는 Event Grid와 통합되지 않으므로 로그 파일이 기록될 때 알림을 수신하지 않습니다. 
-
- 관심 있는 로그 데이터를 다운로드하고 동일한 로그 데이터를 두 번 이상 다운로드하지 않으려면  
-
--   로그 데이터가 포함된 Blob에 날짜 및 시간 명명 규칙을 사용하여 분석을 위해 이미 다운로드한 Blob을 추적함으로써 동일한 데이터를 두 번 이상 다시 다운로드하는 것을 방지합니다.  
-
--   로그 데이터가 포함된 Blob에 메타데이터를 사용하여 Blob이 로그 데이터를 저장하는 특정 기간을 식별함으로써 다운로드해야 하는 정확한 Blob을 식별합니다.  
-
-AzCopy를 시작하려면 [AzCopy 시작](storage-use-azcopy-v10.md)을 참조하세요. 
-
-다음 예에서는 2014년 5월 20일 오전 9시, 오전 10시 및 오전 11시에 시작하는 시간 동안 큐 서비스에 대한 로그 데이터를 다운로드하는 방법을 보여 줍니다.
-
-```
-azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
-```
-
-특정 파일을 다운로드하는 방법에 대한 자세한 내용은 [특정 파일 다운로드](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#transfer-data)를 참조하세요.
-
-로그 데이터를 다운로드하면 파일의 로그 항목을 볼 수 있습니다. 이러한 로그 파일은 많은 로그 읽기 도구가 구문 분석할 수 있는 분리 된 텍스트 형식을 사용 합니다 (자세한 내용은 [모니터링, 진단 및 문제 Microsoft Azure Storage 해결](storage-monitoring-diagnosing-troubleshooting.md)가이드 참조). 다양한 도구에는 로그 파일의 콘텐츠를 형식 지정, 필터링, 정렬 및 검색하기 위한 다양한 기능이 포함되어 있습니다. 스토리지 로깅 로그 파일 형식 및 콘텐츠에 대한 자세한 내용은 [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format) 및 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure 스토리지 분석 로그 사용 및 관리 (클래식)](manage-storage-analytics-logs.md)
 * [스토리지 분석 로그 형식](/rest/api/storageservices/storage-analytics-log-format)
 * [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [스토리지 분석 메트릭(클래식)](storage-analytics-metrics.md)

@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861867"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219675"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-기술 프로필은 Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 정책을 사용 하 여 다른 종류의 당사자와 통신 하는 기본 제공 메커니즘을 프레임 워크에 제공 합니다. 기술 프로필은 Azure AD B2C 테넌트와 통신하거나, 사용자를 만들거나, 사용자 프로필을 읽는 데 사용됩니다. 기술 프로필은 사용자와 상호 작용이 가능하도록 자체 어설션될 수 있습니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집한 후 등록 페이지 또는 암호 재설정 페이지를 렌더링합니다.
+기술 프로필은 여러 종류의 당사자와 통신 하는 기본 제공 메커니즘으로 프레임 워크를 제공 합니다. 기술 프로필은 Azure AD B2C 테넌트와 통신하거나, 사용자를 만들거나, 사용자 프로필을 읽는 데 사용됩니다. 기술 프로필은 사용자와 상호 작용이 가능하도록 자체 어설션될 수 있습니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집한 후 등록 페이지 또는 암호 재설정 페이지를 렌더링합니다.
 
 ## <a name="type-of-technical-profiles"></a>기술 프로필 유형
 
 기술 프로필은 다음 유형의 시나리오를 가능하게 합니다.
 
-- [Application Insights](../azure-monitor/app/app-insights-overview.md)에 이벤트 데이터를 [Application Insights](application-insights-technical-profile.md) 보냅니다.
+- [Application Insights](../azure-monitor/app/app-insights-overview.md)에 이벤트 데이터를 [Application Insights](analytics-with-application-insights.md) 보냅니다.
 - [Azure Active Directory](active-directory-technical-profile.md) - Azure Active Directory B2C 사용자 관리를 지원합니다.
 - [AZURE ad Multi-Factor Authentication](multi-factor-auth-technical-profile.md) -azure ad MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하 여 전화 번호를 확인 하는 기능을 제공 합니다. 
 - [클레임 변환](claims-transformation-technical-profile.md) - 출력 클레임 변환을 호출하여 클레임 값을 조작하거나, 클레임의 유효성을 검사하거나, 출력 클레임 집합의 기본값을 설정합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "97861867"
 
 ## <a name="technical-profile-flow"></a>기술 프로필 흐름
 
-모든 유형의 기술 프로필은 동일한 개념을 공유합니다. 입력 클레임을 보내고, 클레임 변환을 실행하고, ID 공급자, REST API 또는 Azure AD 디렉터리 서비스와 같은 구성된 당사자와 통신합니다. 프로세스가 완료 된 후 기술 프로필은 출력 클레임을 반환 하 고 출력 클레임 변환을 실행할 수 있습니다. 다음 다이어그램은 기술 프로필에서 참조되는 변환 및 매핑이 처리되는 방법을 보여 줍니다. 기술 프로필이 상호 작용하는 당사자와 관계없이 모든 클레임 변환이 실행된 후 기술 프로필의 출력 클레임은 즉시 클레임 모음에 저장됩니다.
+모든 유형의 기술 프로필은 동일한 개념을 공유합니다. 먼저 입력 클레임을 읽고 클레임 변환을 실행 합니다. 그런 다음 id 공급자, REST API 또는 Azure AD 디렉터리 서비스와 같은 구성 된 파티와 통신 합니다. 프로세스가 완료 된 후 기술 프로필은 출력 클레임을 반환 하 고 출력 클레임 변환을 실행할 수 있습니다. 다음 다이어그램은 기술 프로필에서 참조되는 변환 및 매핑이 처리되는 방법을 보여 줍니다. 클레임 변환이 실행 된 후에는 출력 클레임이 클레임 모음에 즉시 저장 됩니다. 기술 프로필은와 상호 작용 합니다.
 
 ![기술 프로필 흐름을 보여 주는 다이어그램](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "97861867"
 1. **출력 클레임 변환** -기술 프로필이 완료 된 후 Azure AD B2C 출력 [클레임 변환을](claimstransformations.md)실행 합니다. 
 1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 세션에 대 한 기술 프로필의 데이터를 유지 합니다.
 
-**TechnicalProfiles** 요소는 클레임 공급자가 지원하는 기술 프로필 집합을 포함합니다. 모든 클레임 공급자에는 엔드포인트를 결정하는 하나 이상의 기술 프로필 및 클레임 공급자와 통신하는 데 필요한 프로토콜이 있어야 합니다. 하나의 클레임 공급자가 여러 개의 기술 프로필을 포함할 수 있습니다.
+**TechnicalProfiles** 요소는 클레임 공급자가 지원하는 기술 프로필 집합을 포함합니다. 모든 클레임 공급자에는 기술 프로필이 하나 이상 있어야 합니다. 기술 프로필은 끝점 및 클레임 공급자와 통신 하는 데 필요한 프로토콜을 결정 합니다. 하나의 클레임 공급자가 여러 개의 기술 프로필을 포함할 수 있습니다.
 
 ```xml
 <ClaimsProvider>
@@ -84,26 +84,26 @@ ms.locfileid: "97861867"
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 |---------|---------|---------|
 | Id | 예 | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile** 입니다. |
 
 **TechnicalProfile** 에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
 | DisplayName | 1:1 | 기술 프로필의 표시 이름입니다. |
-| 설명 | 0:1 | 기술 프로필에 대 한 설명입니다. |
+| Description | 0:1 | 기술 프로필에 대 한 설명입니다. |
 | 프로토콜 | 1:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
-| 메타데이터 | 0:1 | 트랜잭션 과정에서 엔드포인트와 통신하기 위해 프로토콜에서 사용하는 키/값 쌍의 컬렉션입니다. |
+| 메타데이터 | 0:1 | 기술 프로필의 동작을 제어 하는 키/값의 컬렉션입니다. |
 | InputTokenFormat | 0:1 | 입력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. `JWT` 값은 IETF 사양을 기준으로 JSON Web Token을 나타냅니다. `SAML11` 값은 OASIS 사양을 기준으로 SAML 1.1 보안 토큰을 나타냅니다.  `SAML2` 값은 OASIS 사양을 기준으로 SAML 2.0 보안 토큰을 나타냅니다. |
 | OutputTokenFormat | 0:1 | 출력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. |
 | CryptographicKeys | 0:1 | 기술 프로필에 사용되는 암호화 키 목록입니다. |
 | InputClaimsTransformations | 0:1 | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환에 대한 이전에 정의된 참조 목록입니다. |
 | InputClaims | 0:1 | 기술 프로필에서 입력으로 사용되는 클레임 유형에 대한 이전에 정의된 참조 목록입니다. |
-| PersistedClaims | 0:1 | 기술 프로필과 관련된 클레임 공급자가 저장하는 클레임 유형에 대한 이전에 정의된 참조 목록입니다. |
-| DisplayClaims | 0:1 | [자체 어설션된 기술 프로필과](self-asserted-technical-profile.md)관련 된 클레임 공급자가 제공 하는 클레임 유형에 대 한 이전에 정의 된 참조 목록입니다. DisplayClaims 기능은 현재 **미리 보기** 상태입니다. |
+| PersistedClaims | 0:1 | 기술 프로필에 의해 유지 되는 클레임 형식에 대해 이전에 정의 된 참조 목록입니다. |
+| DisplayClaims | 0:1 | [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)에 의해 제공 되는 클레임 유형에 대 한 이전에 정의 된 참조 목록입니다. DisplayClaims 기능은 현재 **미리 보기** 상태입니다. |
 | OutputClaims | 0:1 | 기술 프로필에서 출력으로 사용되는 클레임 유형에 대한 이전에 정의된 참조 목록입니다. |
 | OutputClaimsTransformations | 0:1 | 클레임 공급자로부터 클레임이 수신된 후에 실행해야 하는 클레임 변환에 대한 이전에 정의된 참조 목록입니다. |
 | ValidationTechnicalProfiles | 0:n | 기술 프로필이 유효성 검사를 위해 사용하는 다른 기술 프로필에 대한 참조 목록입니다. 자세한 내용은 [유효성 검사 기술 프로필](validation-technical-profile.md) 을 참조 하세요.|
@@ -118,10 +118,10 @@ ms.locfileid: "97861867"
 
 **프로토콜** 은 다른 당사자와 통신 하는 데 사용할 프로토콜을 지정 합니다. **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` 또는 `None` 입니다. |
-| Handler | 아니요 | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
+| Handler | 아니요 | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
 
 ## <a name="metadata"></a>메타데이터
 
@@ -129,7 +129,7 @@ ms.locfileid: "97861867"
 
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
-| 항목 | 0:n | 기술 프로필과 관련된 메타데이터입니다. 기술 프로필 유형마다 다른 메타데이터 항목 집합이 있습니다. 자세한 내용은 기술 프로필 유형 섹션을 참조하세요. |
+| 항목 | 0:n | 기술 프로필과 관련된 메타데이터입니다. 기술 프로필 유형마다 다른 메타데이터 항목 집합이 있습니다. 자세한 내용은 기술 프로필 유형 섹션을 참조 하세요.  |
 
 ### <a name="item"></a>항목
 
@@ -173,7 +173,7 @@ ms.locfileid: "97861867"
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
-Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) 형식으로 저장 하 여 통합 하는 서비스와의 트러스트를 설정 합니다. 기술 프로필을 실행 하는 동안 Azure AD B2C는 Azure AD B2C 정책 키에서 암호화 키를 검색 한 다음, 해당 키를 사용 하 여 신뢰, 암호화 또는 토큰을 설정 합니다. 이러한 트러스트는 다음으로 구성 됩니다.
+와 통합 하는 서비스와의 트러스트를 설정 하기 위해 Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md)형식으로 저장 합니다. 기술 프로필을 실행 하는 동안 Azure AD B2C는 Azure AD B2C 정책 키에서 암호화 키를 검색 합니다. 그런 다음는 트러스트 설정, 암호화 또는 토큰 서명 키를 사용 합니다. 이러한 트러스트는 다음으로 구성 됩니다.
 
 - [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)및 [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys) id 공급자와 페더레이션
 - [REST API services](secure-rest-api.md) 를 사용 하 여 연결 보호
@@ -189,7 +189,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **Key** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | Id | 아니요 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
 | StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
@@ -198,11 +198,11 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **InputClaimsTransformations** 요소에는 입력 클레임을 수정 하거나 새로 생성 하는 데 사용 되는 입력 클레임 변환 요소의 컬렉션이 포함 될 수 있습니다. 
 
-클레임 변환 컬렉션에서 이전 클레임 변환의 출력 클레임은 후속 입력 클레임 변환의 입력 클레임이 될 수 있으므로 서로에 따라 일련의 클레임 변환을 사용할 수 있습니다.
+클레임 변환 컬렉션에서 이전 클레임 변환의 출력 클레임은 후속 입력 클레임 변환에 대 한 입력 클레임 일 수 있습니다 .이를 통해 서로에 따라 일련의 클레임 변환을 수행할 수 있습니다.
 
 **InputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -210,7 +210,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **InputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
@@ -241,7 +241,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -249,15 +249,15 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimTypeReferenceId | 예 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의 되어 있습니다. |
 | DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
 | PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="display-claims"></a>클레임 표시
 
-**DisplayClaims** 요소에는 사용자 로부터 데이터를 수집 하기 위해 화면에 표시 하기 위해 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 에 정의 된 클레임 목록이 포함 됩니다. 표시 클레임 컬렉션에서 [클레임 형식](claimsschema.md)에 대 한 참조 나 사용자가 만든 [DisplayControl](display-controls.md) 를 포함할 수 있습니다. 
+**DisplayClaims** 요소에는 사용자 로부터 데이터를 수집 하기 위해 화면에 표시할 클레임 목록이 포함 되어 있습니다. 표시 클레임 컬렉션에서 [클레임 형식](claimsschema.md)에 대 한 참조 나 사용자가 만든 [DisplayControl](display-controls.md) 를 포함할 수 있습니다. 
 
 - 클레임 유형은 화면에 표시할 클레임에 대 한 참조입니다. 
   - 사용자가 특정 클레임에 대 한 값을 제공 하도록 강제 하려면 **DisplayClaim** 요소의 **필수** 특성을로 설정 `true` 합니다.
@@ -269,7 +269,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **DisplayClaims** 요소에는 다음 요소가 포함 됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -277,7 +277,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **DisplayClaim** 요소는 다음 특성을 포함 합니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DisplayControlReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
@@ -315,7 +315,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **PersistedClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 저장할 클레임 유형입니다. |
 
@@ -323,10 +323,10 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **PersistedClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
 | PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 다음 예제에서는 새 로컬 계정을 만드는 **AAD UserWriteUsingLogonEmail** 기술 프로필 또는 [스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts)이 다음 클레임을 유지 합니다.
@@ -346,7 +346,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **Outputclaims** 은 기술 프로필이 완료 된 후 클레임 모음으로 다시 반환 되는 클레임의 컬렉션입니다. 다음 오케스트레이션 단계 또는 출력 클레임 변환에서 해당 클레임을 사용할 수 있습니다. **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 필요한 출력 클레임 유형입니다. |
 
@@ -354,22 +354,22 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
 |AlwaysUseDefaultValue |아니요 |기본값을 강제로 사용합니다.  |
-| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. 파트너 클레임 유형 특성을 지정 하지 않으면 지정 된 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="output-claims-transformations"></a>출력 클레임 변환
 
-**OutputClaimsTransformations** 요소는 출력 클레임을 수정하거나 새 출력 클레임을 생성하는 데 사용되는 **OutputClaimsTransformation** 요소 컬렉션을 포함할 수 있습니다. 실행 후 출력 클레임이 다시 청구 모음에 저장됩니다. 이러한 클레임은 다음 오케스트레이션 단계에서 사용할 수 있습니다.
+**OutputClaimsTransformations** 요소는 **OutputClaimsTransformation** 요소의 컬렉션을 포함할 수 있습니다. 출력 클레임 변환은 출력 클레임을 수정 하거나 새로 생성 하는 데 사용 됩니다. 실행 후 출력 클레임이 다시 청구 모음에 저장됩니다. 이러한 클레임은 다음 오케스트레이션 단계에서 사용할 수 있습니다.
 
 클레임 변환 컬렉션에서 이전 클레임 변환의 출력 클레임은 후속 입력 클레임 변환의 입력 클레임이 될 수 있으므로 서로에 따라 일련의 클레임 변환을 사용할 수 있습니다.
 
 **OutputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -377,7 +377,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **OutputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
@@ -404,7 +404,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 ## <a name="validation-technical-profiles"></a>유효성 검사 기술 프로필
 
-유효성 검사 기술 프로필은 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md#validation-technical-profiles)의 참조에 대 한 일부 또는 모든 출력 클레임의 유효성을 검사 하는 데 사용 됩니다. 유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환 하거나 오류 코드를 반환 합니다. 오류 메시지는 화면에 사용자에 게 렌더링 되어 사용자가 다시 시도할 수 있습니다.
+유효성 검사 기술 프로필은 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md#validation-technical-profiles)에서 출력 클레임의 유효성을 검사 하는 데 사용 됩니다. 유효성 검사 기술 프로필은 [Azure Active Directory](active-directory-technical-profile.md) 또는 [REST API](restful-technical-profile.md)와 같은 모든 프로토콜의 일반적인 기술 프로필입니다. 유효성 검사 기술 프로필은 출력 클레임을 반환 하거나 오류 코드를 반환 합니다. 오류 메시지는 화면에 사용자에 게 렌더링 되어 사용자가 다시 시도할 수 있습니다.
 
 다음 다이어그램에서는 Azure AD B2C 유효성 검사 기술 프로필을 사용 하 여 사용자 자격 증명의 유효성을 검사 하는 방법을 보여 줍니다.
 
@@ -412,7 +412,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **ValidationTechnicalProfiles** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조 기술 프로필의 일부 또는 모든 출력 클레임 유효성을 검사하는 데 사용되는 기술 프로필의 식별자입니다. 참조된 기술 프로필의 모든 입력 클레임이 참조 기술 프로필의 출력 클레임에 표시되어야 합니다. |
 
@@ -420,7 +420,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
@@ -428,17 +428,19 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 제목 **Naminginfo** 는 [신뢰 당사자 정책의](relyingparty.md#subjectnaminginfo)토큰에 사용 되는 주체 이름을 정의 합니다. **SubjectNamingInfo** 에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 
 ## <a name="include-technical-profile"></a>기술 프로필 포함
 
-기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다. **IncludeTechnicalProfile** 요소는 기술 프로필이 파생 되는 일반적인 기술 프로필에 대 한 참조입니다. 정책 요소의 중복성과 복잡성을 줄이려면 핵심 요소를 공유 하는 여러 기술 프로필을 사용 하는 경우 포함을 사용 합니다. 공통 기술 프로필을 포함 하는 특정 작업 기술 프로필과 함께 일반적인 구성 집합과 공통 기술 프로필을 사용 합니다. 예를 들어 다양 한 시나리오에 대해 서로 다른 클레임 집합을 보내야 하는 단일 끝점을 포함 하는 [REST API 기술 프로필이](restful-technical-profile.md) 있다고 가정 합니다. REST API 끝점 URI, 메타 데이터, 인증 유형 및 암호화 키와 같은 공유 기능을 사용 하 여 일반적인 기술 프로필을 만듭니다. 그런 다음 일반적인 기술 프로필을 포함 하는 특정 작업 기술 프로필을 만들거나 입력 클레임을 추가 하거나 클레임을 출력 하거나 해당 기술 프로필에 관련 된 REST API 끝점 URI를 덮어씁니다.
+기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다. **IncludeTechnicalProfile** 요소는 기술 프로필이 파생 되는 일반적인 기술 프로필에 대 한 참조입니다. 정책 요소의 중복성과 복잡성을 줄이려면 핵심 요소를 공유 하는 여러 기술 프로필을 사용 하는 경우 포함을 사용 합니다. 공통 기술 프로필을 포함 하는 특정 작업 기술 프로필과 함께 일반적인 구성 집합과 공통 기술 프로필을 사용 합니다. 
+
+여러 시나리오에 대해 서로 다른 클레임 집합을 보내야 하는 단일 끝점을 포함 하는 [REST API 기술 프로필이](restful-technical-profile.md) 있다고 가정 합니다. REST API 끝점 URI, 메타 데이터, 인증 유형 및 암호화 키와 같은 공유 기능을 사용 하 여 일반적인 기술 프로필을 만듭니다. 일반적인 기술 프로필을 포함 하는 특정 작업 기술 프로필을 만듭니다. 그런 다음 입력 클레임을 추가 하거나 클레임을 출력 하거나 해당 기술 프로필과 관련 된 REST API 끝점 URI를 덮어씁니다.
 
 **IncludeTechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의 된 기술 프로필의 식별자입니다. |
 
@@ -547,7 +549,7 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 
 [Single sign-on 세션 기술 프로필](custom-policy-reference-sso.md)에 대 한 **UseTechnicalProfileForSessionManagement** 요소 참조입니다. **UseTechnicalProfileForSessionManagement** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
@@ -561,7 +563,10 @@ Azure AD B2C는 암호 및 인증서를 [정책 키](policy-keys-overview.md) �
 - **OnItemExistenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 있는 경우에만 실행합니다.
 - **OnItemAbsenceInStringCollectionClaim** - 문자열 컬렉션 클레임에 항목이 없는 경우에만 실행합니다.
 
-**OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** 또는 **OnItemAbsenceInStringCollectionClaim** 을 사용하려면 다음 메타데이터를 제공해야 합니다. **ClaimTypeOnWhichToEnable** 은 평가할 클레임 유형을 지정하고, **ClaimValueOnWhichToEnable** 은 비교할 값을 지정합니다.
+**OnclaimOnItemExistenceInStringCollectionClaim isto,** 또는 **OnItemAbsenceInStringCollectionClaim** 를 사용 하려면 다음 메타 데이터를 제공 해야 합니다. 
+
+- **ClaimTypeOnWhichToEnable** -평가할 클레임의 유형을 지정 합니다.
+- **ClaimValueOnWhichToEnable** -비교할 값을 지정 합니다.
 
 다음 기술 프로필은 **identityProviders** 문자열 컬렉션에 `facebook.com` 값이 포함된 경우에만 실행됩니다.
 

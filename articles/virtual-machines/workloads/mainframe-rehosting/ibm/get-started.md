@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: efc4f6293623278314df3ac55b2fecae2e28f7d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968352"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219997"
 ---
 # <a name="ibm-workloads-on-azure"></a>Azure에서 IBM 워크 로드
 
 Z/OS를 기반으로 하는 많은 IBM 메인프레임 워크 로드는 기능 손실 없이 Azure에 복제 될 수 있으며, 사용자가 기본 시스템의 변경 내용을 확인할 수도 있습니다. Azure의 재호스팅 응용 프로그램은 필요한 메인프레임 기능과 탄력성, 가용성 및 클라우드의 잠재적 비용 절감을 제공 합니다.
 
-Azure는 기존 IBM 메인프레임 환경과의 통합을 지원 하 여 적절 한 applicates를 마이그레이션하고, 필요한 경우 하이브리드 솔루션을 실행 하 고, 시간에 따라 마이그레이션하는 데 사용할 수 있습니다. Azure에 대 한 기존 메인프레임 기반 프로그램을 완전히 다시 작성할 수 있지만 rehost 하는 것이 더 일반적입니다. 재작성은 마이그레이션 프로젝트에 비용, 복잡성 및 시간을 추가 합니다. 재호스팅를 사용 하 여 다음을 수행할 수 있습니다.
+Azure는 기존 IBM 메인프레임 환경과의 통합을 지원 하 여 적합 한 응용 프로그램을 마이그레이션하고, 필요한 경우 하이브리드 솔루션을 실행 하 고, 시간에 따라 마이그레이션하는 작업을 수행할 수 있도록 지원 합니다. Azure에 대 한 기존 메인프레임 기반 프로그램을 완전히 다시 작성할 수 있지만 rehost 하는 것이 더 일반적입니다. 재작성은 마이그레이션 프로젝트에 비용, 복잡성 및 시간을 추가 합니다. 재호스팅를 사용 하 여 다음을 수행할 수 있습니다.
 
 - 응용 프로그램을 클라우드 기반 에뮬레이터로 이동 합니다.
 
@@ -41,4 +41,4 @@ Azure는 기존 IBM 메인프레임 환경과의 통합을 지원 하 여 적절
 - [메인프레임 마이그레이션: myths 및 팩트](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Azure에서 IBM zD&T 개발/테스트 환경 설치](./install-ibm-z-environment.md)
 - [IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.](./demo.md)
-- [Azure에서 IBM DB2 pureScale](../../../linux/ibm-db2-purescale-azure.md)
+- [Azure에서 IBM DB2 pureScale](ibm-db2-purescale-azure.md)

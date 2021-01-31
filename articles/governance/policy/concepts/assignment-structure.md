@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904087"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219569"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -22,6 +22,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 - 적용 모드
 - 제외 된 범위
 - 정책 정의
+- 비호환 메시지
 - 매개 변수
 
 예를 들어 다음 JSON은 동적 매개 변수를 사용 하는 _DoNotEnforce_ 모드의 정책 할당을 보여 줍니다.
@@ -37,6 +38,11 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -53,7 +59,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
-**DisplayName** 및 **description** 을 사용 하 여 정책 할당을 식별 하 고 특정 리소스 집합과 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName**은 최대 길이가 _128_자이고 **description**은 최대 길이가 _512_자입니다.
+**DisplayName** 및 **description** 을 사용 하 여 정책 할당을 식별 하 고 특정 리소스 집합과 함께 사용 하기 위한 컨텍스트를 제공 합니다. **displayName** 은 최대 길이가 _128_ 자이고 **description** 은 최대 길이가 _512_ 자입니다.
 
 ## <a name="enforcement-mode"></a>적용 모드
 
@@ -61,16 +67,16 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|모드 |JSON 값 |유형 |수동으로 재구성 |활동 로그 항목 |설명 |
+|모드 |JSON 값 |Type |수동으로 재구성 |활동 로그 항목 |Description |
 |-|-|-|-|-|-|
-|사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
+|사용 |Default |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
 |사용 안 함 |DoNotEnforce |문자열 |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
 
-**EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
+**EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_ 로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
 
 ## <a name="excluded-scopes"></a>제외 된 범위
 
-할당의 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함 합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용 되지 않아야 하는 경우에는 **Notscopes**을 설정 하 여 계산에서 _제외할_ 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **Notscopes** 은 초기 할당을 만든 후 추가 하거나 업데이트할 수 있습니다.
+할당의 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함 합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용 되지 않아야 하는 경우에는 **Notscopes** 을 설정 하 여 계산에서 _제외할_ 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **Notscopes** 은 초기 할당을 만든 후 추가 하거나 업데이트할 수 있습니다.
 
 > [!NOTE]
 > _제외_ 된 리소스 _는 제외 된 리소스와_ 다릅니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요.
@@ -79,6 +85,32 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 필드는 정책 정의 또는 이니셔티브 정의의 전체 경로 이름 이어야 합니다.
 `policyDefinitionId` 는 배열이 아니라 문자열입니다. 여러 정책을 함께 할당 하는 것이 아니라 [이니셔티브](./initiative-definition-structure.md) 를 사용 하는 것이 좋습니다.
+
+## <a name="non-compliance-messages"></a>비호환 메시지
+
+리소스가 정책 또는 이니셔티브 정의와 호환 되지 않는 이유를 설명 하는 사용자 지정 메시지를 설정 하려면 `nonComplianceMessages` 할당 정의에서를 설정 합니다. 이 노드는 항목의 배열입니다 `message` . 이 사용자 지정 메시지는 비준수에 대 한 기본 오류 메시지 외에도 선택적입니다.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+이니셔티브에 대 한 할당 인 경우 이니셔티브의 각 정책 정의에 대해 서로 다른 메시지를 구성할 수 있습니다. 이 메시지는 `policyDefinitionReferenceId` 이니셔티브 정의에 구성 된 값을 사용 합니다. 자세한 내용은 [속성 정의 속성](./initiative-definition-structure.md#policy-definition-properties)을 참조 하세요.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>매개 변수
 
@@ -95,7 +127,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 }
 ```
 
-이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 `prefix` 및 `suffix` 입니다. 이 특정 정책 할당 `prefix` **DeptA** `suffix` **은 비-LC**로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
+이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 `prefix` 및 `suffix` 입니다. 이 특정 정책 할당 `prefix`  `suffix` **은 비-LC** 로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

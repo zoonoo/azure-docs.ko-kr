@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090674"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220703"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -29,6 +29,11 @@ ms.locfileid: "99090674"
   * 지원 되는 모든 v3 언어에 대 한 일반 엔터티 범주의 향상 된 AI 품질 
 
 * `2021-01-05` [언어 검색](how-tos/text-analytics-how-to-language-detection.md)에 대 한 모델 버전으로, 추가 [언어 지원을](language-support.md?tabs=language-detection)제공 합니다.
+
+이러한 모델 버전은 현재 미국 동부 지역에서 사용할 수 없습니다. 
+
+> [!div class="nextstepaction"]
+> [새 NER 모델에 대 한 자세한 정보](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>2020년 12월
 

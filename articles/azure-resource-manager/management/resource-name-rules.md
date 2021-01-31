@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: d298688dbd13cc32c9cca078b5e20e6a5f054450
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 01/27/2021
+ms.openlocfilehash: dbe19dae4509e1dd6aa95763e4d034c339bb0531
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806891"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220856"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -92,7 +92,7 @@ ms.locfileid: "98806891"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | automationAccounts | 리소스 그룹 | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | automationAccounts | 리소스 그룹 & 지역 <br>(아래 참고 참조) | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
 > | automationAccounts / certificates | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다.  |
 > | automationAccounts / connections | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
 > | automationAccounts / credentials | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
@@ -101,6 +101,9 @@ ms.locfileid: "98806891"
 > | automationAccounts / variables | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
 > | automationAccounts / watchers | Automation 계정 | 1-63 |  영숫자, 밑줄 및 하이픈<br><br>문자로 시작합니다. |
 > | automationAccounts / webhooks | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
+
+> [!NOTE]
+> Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정의 이름을 즉시 사용하지 못할 수도 있습니다.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 

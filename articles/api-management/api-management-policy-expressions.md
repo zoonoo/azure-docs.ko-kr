@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: aec1967f0652e18c4a24ca258c14a103355b22af
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076864"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219318"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
 이 문서에서는 c # 7의 정책 식 구문에 대해 설명 합니다. 각 식에서는 암시적으로 제공된 [context](api-management-policy-expressions.md#ContextVariables) 변수 및 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스할 수 있습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "92076864"
 }
 ```
 
-## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>사용량
+## <a name="usage"></a><a name="PolicyExpressionsUsage"></a>보려면
 정책 참조에서 다르게 지정하지 않는 한, 식은 어떤 API Management [정책](api-management-policies.md)에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다.
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ ms.locfileid: "92076864"
 ## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
 다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
 
-|형식|지원되는 멤버|
+|Type|지원되는 멤버|
 |--------------|-----------------------|
 |Newtonsoft.Js합니다. 서식 지정|모두|
 |Newtonsoft.Json.JsonConvert|SerializeObject,는 deserializeobject|
@@ -156,7 +156,7 @@ ms.locfileid: "92076864"
 |System.security.cryptography.symmetricalgorithm.|모두|
 |System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
 |System.security.cryptography.x509certificates.x509certificate2. RSACertificateExtensions|모두|
-|System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|Name|
+|System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|이름|
 |System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|모두|
 |System.security.cryptography.x509certificates.x509certificate2. X509ContentType|모두|
@@ -210,7 +210,7 @@ ms.locfileid: "92076864"
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|컨텍스트|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [lastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [제품](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [Response](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string<string, object><br /><br /> void Trace(message: string)|
+|컨텍스트|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [제품](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string<string, object><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [Iurl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
@@ -220,7 +220,7 @@ ms.locfileid: "92076864"
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 요청 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
 |<a id="ref-context-response"></a>context.Response|본문: [IMessageBody](#ref-imessagebody)<br /><br /> [헤더](#ref-context-response-headers): ireadonlydictionary<string<string, string [] ><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> 쉼표로 구분된 응답 헤더 값 또는 `defaultValue`(헤더가 없는 경우)를 반환합니다.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
+|<a id="ref-context-subscription"></a>context.Subscription|Subscription.createddate: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Key: string<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> 그룹: IEnumerable<[Igroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Id: IEnumerable<[Iuseridentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [Iurl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|

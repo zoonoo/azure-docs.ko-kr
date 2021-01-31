@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 5567cf3bf606b08ce430f9189467d796498ae691
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cbb84a4934eed4d258cf07772753315785f98019
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953906"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218165"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 .NET (c #) 코드 샘플
 
@@ -69,3 +69,4 @@ Cognitive Search 팀의 코드 샘플에서는 기능 및 워크플로를 보여
 | [지식 마이닝 솔루션 가속기](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | 에는 포괄적인 기술 자료 마이닝 솔루션을 프로토타입 하는 데 도움이 되는 템플릿, 지원 파일 및 분석 보고서가 포함 되어 있습니다.  |
 | [Covid-19 검색 앱 리포지토리](https://github.com/liamca/covid19search) | Cognitive Search 기반 [Covid-19 검색 앱](https://covid19search.azurewebsites.net/) 에 대 한 소스 코드 리포지토리 |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | [Jfk 솔루션](https://www.microsoft.com/ai/ai-lab-jfk-files)에 대해 자세히 알아보세요. |
+| [검색 + QnA Maker 액셀러레이터 키](https://github.com/Azure-Samples/search-qna-maker-accelerator) | 검색 기능과 QnA Maker의 기능을 결합 하는 [솔루션](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) 입니다. 라이브 [데모 사이트](https://aka.ms/qnaWithAzureSearchDemo)를 참조 하세요. |

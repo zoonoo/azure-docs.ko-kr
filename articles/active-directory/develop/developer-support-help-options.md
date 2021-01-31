@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1d50e0ed6ac67ed1595b289d27bd08a089840308
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051909"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219946"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ### <a name="scoped-search"></a>범위 지정 검색
 
-더 빠른 결과를 위해 즐겨 찾는 검색 엔진에서 다음 쿼리를 사용 하 여 Microsoft Q&A, 설명서 및 코드 샘플에 대 한 검색 범위를 합니다.
+더 빠른 결과를 위해 자주 사용 하는 검색 엔진에서 다음 쿼리를 사용 하 여 [Microsoft Q&](https://docs.microsoft.com/answers/products/)문서 및 코드 샘플을 검색 범위에 추가 합니다.
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,9 +53,9 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Microsoft Q&에 질문을 게시 합니다.
 
-Microsoft Q&A는 개발 관련 질문에 대 한 기본 채널입니다. 여기서는 개발자 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
+[Microsoft Q&A](https://docs.microsoft.com/answers/products/) 는 개발 관련 질문에 대 한 기본 채널입니다. 여기서는 개발자 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
 
-검색을 통해 질문에 대 한 답변을 찾을 수 없는 경우 Microsoft Q&A에 새 질문을 제출 합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
+검색을 통해 질문에 대 한 답변을 찾을 수 없는 경우 [Microsoft Q&a](https://docs.microsoft.com/answers/products/) 에 새 질문을 제출 합니다. 질문할 때 다음 태그 중 하나를 사용하면 커뮤니티에서 질문을 더 빠르게 식별하고 답변하는 데 도움이 됩니다.
 
 |구성 요소/영역  | 태그들 |
 |---------|---------|
@@ -65,9 +65,9 @@ Microsoft Q&A는 개발 관련 질문에 대 한 기본 채널입니다. 여기�
 | [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[azure-ad-그래프]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
+| 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-Microsoft Q&의 다음 게시물에는 질문을 하 고 소스 코드를 추가 하는 방법에 대 한 팁이 포함 되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
+[Microsoft Q&](https://docs.microsoft.com/answers/products/) 의 다음 게시물에는 질문을 하 고 소스 코드를 추가 하는 방법에 대 한 팁이 포함 되어 있습니다. 커뮤니티 구성원이 질문을 빠르게 평가하고 답변할 가능성을 높이려면 다음 지침을 따르세요.
 
 * [좋은 질문을 어떻게 할까요?](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
 * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)

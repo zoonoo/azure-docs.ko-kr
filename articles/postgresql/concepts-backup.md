@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706773"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219726"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
 
@@ -82,6 +82,16 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 마지막 5분 내의 특정 시점으로 복원하려면, 다음 트랜잭션 로그 백업이 완료될 때까지 기다려야 할 수도 있습니다.
 
+삭제 된 테이블을 복원 하려면 
+1. 지정 시간 메서드를 사용 하 여 원본 서버를 복원 합니다.
+2. 복원 된 서버에서를 사용 하 여 테이블을 덤프 `pg_dump` 합니다.
+3. 원본 서버에서 원본 테이블의 이름을 바꿉니다.
+4. 원본 서버에서 psql 명령줄을 사용 하 여 테이블을 가져옵니다.
+5. 복원 된 서버를 선택적으로 삭제할 수 있습니다.
+
+>[!Note]
+> 동일한 서버에 대해 동시에 여러 복원을 만들지 않는 것이 좋습니다. 
+
 ### <a name="geo-restore"></a>지역 복원
 
 지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4tb의 저장소를 지 원하는 서버는 지리적으로 쌍을 이루는 지역 또는 최대 16TB의 저장소를 지 원하는 지역으로 복원할 수 있습니다. 최대 16tb의 저장소를 지 원하는 서버의 경우 16 TB 서버를 지 원하는 모든 지역에서 지역 백업을 복원할 수 있습니다. 지원 되는 지역 목록에 대 한 [Azure Database for PostgreSQL 가격 책정 계층](concepts-pricing-tiers.md) 을 검토 합니다.
@@ -97,7 +107,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 복구 메커니즘에서 복원한 후에 다음 작업을 수행하여 사용자 및 애플리케이션이 다시 백업 및 실행되도록 해야 합니다.
 
-- 새 서버가 원래 서버를 교체하기 위한 것이라면 클라이언트와 클라이언트 애플리케이션을 새 서버로 리디렉션합니다.
+- 새 서버에서 원래 서버를 교체 하려는 경우 클라이언트와 클라이언트 응용 프로그램을 새 서버로 리디렉션합니다. 또한 사용자 이름도로 변경 `username@new-restored-server-name` 합니다.
 - 사용자가 연결할 수 있도록 적절 한 서버 수준 방화벽 및 VNet 규칙이 준비 되어 있는지 확인 합니다. 이러한 규칙은 원래 서버에서 복사 되지 않습니다.
 - 적절한 로그인 및 데이터베이스 수준 권한이 있는지 확인합니다.
 - 필요에 따라 경고를 구성합니다.

@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f32c81d4d247eb6c819adf5015cf36c846f4e83b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053468"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218233"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)로 응용 프로그램 마이그레이션
 
@@ -73,7 +73,7 @@ __Q: MSAL은 AD FS에서 어떻게 작동 하나요?__
 A: MSAL.NET는 AD FS 2019에 대 한 인증을 위한 특정 시나리오를 지원 합니다. 앱이 이전 버전의 AD FS에서 직접 토큰을 획득 해야 하는 경우 ADAL에 남아 있어야 합니다. [자세한 정보를 알아보세요](msal-net-adfs-support.md).
 
 __Q: 내 응용 프로그램을 마이그레이션하는 데 도움이 어떻게 할까요??__  
-A:이 문서의 [마이그레이션 지침](#migration-guidance) 섹션을 참조 하세요. 앱의 플랫폼에 대 한 가이드를 읽은 후에 추가 질문이 있으면 Microsoft Q&A에 태그를 게시 `[azure-ad-adal-deprecation]` 하거나 라이브러리의 GitHub 리포지토리에서 문제를 열 수 있습니다. 각 라이브러리 리포지토리의 링크는 MSAL 개요 문서의 [언어 및 프레임 워크](msal-overview.md#languages-and-frameworks) 섹션을 참조 하세요.
+A:이 문서의 [마이그레이션 지침](#migration-guidance) 섹션을 참조 하세요. 앱의 플랫폼에 대 한 가이드를 읽은 후에 추가 질문이 있으면 [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) 에 태그를 게시 `[azure-ad-adal-deprecation]` 하거나 라이브러리의 GitHub 리포지토리에서 문제를 열 수 있습니다. 각 라이브러리 리포지토리의 링크는 MSAL 개요 문서의 [언어 및 프레임 워크](msal-overview.md#languages-and-frameworks) 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

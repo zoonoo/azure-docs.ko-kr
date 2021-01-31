@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
-ms.openlocfilehash: dc19b95e891235ac35c703adef50a23a9f70fbdb
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: 62ef47e7d8f98241009c1c1f3d8c111113be432c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706799"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220771"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -56,8 +56,6 @@ ms.locfileid: "97706799"
 재해 복구 계획에 지역 간 복제본을 사용하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지하고 물리적 격리 및 데이터 보존의 우선 순위를 지정합니다.  
 
 다음 사항을 고려해 야 합니다. 
-
-* 지역별 가용성: Azure Database for PostgreSQL는 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
     
 * 단방향 쌍: 일부 Azure 지역은 한 방향으로만 쌍으로 연결됩니다. 이러한 지역에는 인도 서 부, 브라질 남부가 포함 됩니다. 
    즉, 인도 서 부의 주 서버는 남부 인도에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 주 서버는 인도 서 부에서 복제본을 만들 수 없습니다. 이는 인도 서부의 보조 지역은 인도 남부이지만 인도 남부의 보조 지역은 인도 서부가 아니기 때문입니다.
@@ -146,7 +144,7 @@ SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
 
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.

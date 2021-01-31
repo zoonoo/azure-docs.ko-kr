@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516096"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218777"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "97516096"
 ## <a name="features-that-are-generally-available"></a>일반 공급된 기능
 
 - 사용자 지정 정책을 사용하여 사용자 지정 인증 사용자 경험을 작성 및 업로드합니다.
-    - 클레임 공급자 간의 교환으로 사용자 경험을 단계별로 설명합니다.
+    - 클레임 공급자 간의 교환으로 사용자 경험를 단계별로 설명 합니다.
     - 사용자 경험에서 조건부 분기를 정의합니다.
 - 사용자 지정 인증 사용자 경험에서 REST API 사용 서비스를 상호 운용합니다.
 - OpenIDConnect 프로토콜과 호환되는 ID 공급자와 페더레이션합니다.
@@ -37,14 +37,14 @@ ms.locfileid: "97516096"
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>사용자 지정 정책 기능 집합 개발자의 책임
 
-수동 정책 구성은 Azure AD B2C의 기본 플랫폼에 대해 낮은 수준의 액세스 권한을 부여하여 고유한 보안 프레임워크를 생성합니다. 다각적인 사용자 지정 ID 공급자, 트러스트 관계, 외부 서비스와의 통합 및 단계별 워크플로를 사용하려면 설계 및 구성에 대한 체계적인 접근 방식이 필요합니다.
+수동 정책 구성은 Azure AD B2C의 기본 플랫폼에 대해 낮은 수준의 액세스 권한을 부여하여 고유한 보안 프레임워크를 생성합니다. 사용자 지정 id 공급자의 가능한 여러 순열, 트러스트 관계, 외부 서비스와의 통합 및 단계별 워크플로를 사용 하려면 디자인 및 구성에 대 한 체계적인 방법이 필요 합니다.
 
 사용자 지정 정책 기능 집합을 사용하는 개발자는 다음 지침을 준수해야 합니다.
 
 - 사용자 지정 정책 및 키/비밀 관리의 구성 언어에 익숙해집니다. 자세한 내용은 [TrustFrameworkPolicy](trustframeworkpolicy.md)를 참조하세요.
 - 시나리오 및 사용자 지정 통합을 직접 소유합니다. 작업을 문서화하고 라이브 사이트 조직에 알립니다.
 - 체계적인 시나리오 테스트를 수행합니다.
-- 최소 1개의 개발/테스트 환경과 1개의 프로덕션 환경을 구축하여 소프트웨어 개발 및 스테이징 모범 사례를 준수합니다.
+- 소프트웨어 개발 및 스테이징 모범 사례를 따릅니다. 최소한 하나의 개발 및 테스트 환경을 권장 합니다.
 - 사용자와 통합된 ID 공급자 및 서비스에 대한 새로운 개발 정보를 바로 입수합니다. 예를 들어 기밀 변경 내용과 예정되었거나 갑작스럽게 진행되는 서비스 변경 내용을 추적합니다.
 - 활성 모니터링을 설정하고 프로덕션 환경의 응답성을 모니터링합니다. Application Insights와 통합하는 방법에 대한 자세한 내용은 [Azure Active Directory B2C: 로그 수집](analytics-with-application-insights.md)을 참조하세요.
 - Azure 구독에서 연락처 전자 메일 주소를 최신 상태로 유지하고 Microsoft 라이브 사이트 팀 전자 메일에 즉시 응답합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "97516096"
 
 ## <a name="features-by-stage-and-known-issues"></a>단계 및 알려진 문제별 기능
 
-사용자 지정 정책/Identity Experience Framework 기능은 지속적으로 빠르게 개발되고 있습니다. 다음 표는 기능 및 구성 요소 가용성 색인입니다.
+사용자 지정 정책 기능은 일정 개발 아래에 있습니다. 다음 표는 기능 및 구성 요소 가용성 색인입니다.
 
 
 ### <a name="protocols-and-authorization-flows"></a>프로토콜 및 인증 흐름
@@ -144,7 +144,7 @@ ms.locfileid: "97516096"
 | Azure Portal-IEF UX |  |  | X |  |
 | 정책 업로드 |  |  | X |  |
 | [Application Insights 사용자 경험 로그](troubleshoot-with-application-insights.md) |  | X |  | 개발 중 문제를 해결하는 데 사용됨  |
-| [Application Insights 이벤트 로그](application-insights-technical-profile.md) |  | X |  | 프로덕션에서 사용자 흐름을 모니터링하는 데 사용됨 |
+| [Application Insights 이벤트 로그](analytics-with-application-insights.md) |  | X |  | 프로덕션에서 사용자 흐름을 모니터링하는 데 사용됨 |
 
 
 ## <a name="next-steps"></a>다음 단계

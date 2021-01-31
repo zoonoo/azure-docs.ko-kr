@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170619"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219233"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
@@ -31,6 +31,10 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
 이 문서에서는 Azure Log Analytics 작업 영역으로 로그를 전송 하는 방법에 대해 알아봅니다. 그런 다음 Azure AD B2C 사용자의 활동을 기반으로 하 여 대시보드를 만들거나 경고를 만들 수 있습니다.
+
+> [!IMPORTANT]
+> Azure AD B2C 로그를 다른 모니터링 솔루션 또는 리포지토리로 전송할 계획인 경우 다음 사항을 고려 하세요. Azure AD B2C 로그는 개인 데이터를 포함 합니다. 이러한 데이터는 적절 한 기술 또는 조직 측정을 사용 하 여 무단 또는 불법적인 처리에 대 한 보호를 포함 하 여 개인 데이터의 적절 한 보안을 보장 하는 방식으로 처리 되어야 합니다.
+
 
 ## <a name="deployment-overview"></a>배포 개요
 
@@ -99,8 +103,8 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 
    | 필드   | 정의 |
    |---------|------------|
-   | 구독 |  *Azure b2c-monitor* 리소스 그룹이 만들어진 azure 구독이 포함 된 디렉터리를 선택 합니다. |
-   | Azure 지역| 리소스가 배포 될 지역을 선택 합니다.  | 
+   | Subscription |  *Azure b2c-monitor* 리소스 그룹이 만들어진 azure 구독이 포함 된 디렉터리를 선택 합니다. |
+   | 지역| 리소스가 배포 될 지역을 선택 합니다.  | 
    | Msp 제안 이름| 이 정의를 설명하는 이름입니다. 예를 들어 *모니터링을 Azure AD B2C* 합니다.  |
    | Msp 제품 설명| 제안에 대 한 간단한 설명입니다. 예를 들어는 *Azure AD B2C에서 Azure Monitor를 사용 하도록 설정* 합니다.|
    | 테 넌 트 Id로 관리| Azure AD B2C 테 넌 트의 **테 넌 트 id** (디렉터리 id 라고도 함)입니다. |
@@ -224,7 +228,7 @@ AuditLogs
 
 ### <a name="62-create-a-workbook"></a>6.2 통합 문서 만들기
 
-통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭 하 여 통합 된 대화형 환경으로 결합할 수 있습니다. 자세한 내용은 [Azure Monitor 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 참조 하세요.
+통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭하여 통합된 대화형 환경으로 결합할 수 있습니다. 자세한 내용은 [Azure Monitor 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 참조 하세요.
 
 JSON 갤러리 템플릿을 사용 하 여 새 통합 문서를 만들려면 아래 지침을 따르세요. 이 통합 문서는 Azure AD B2C 테 넌 트에 대 한 **사용자 정보** 및 **인증** 대시보드를 제공 합니다.
 
