@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 05/29/2020
+ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: a1c6b054a9caac8ba223bc81e164e7ebf34bd267
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-ms.translationtype: HT
+ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413329"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222220"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 
@@ -34,7 +34,7 @@ ms.locfileid: "94413329"
 
 다음은 프로세스의 개요입니다. 구체적인 단계는 이 문서의 뒷부분에서 설명합니다.
 
-* Key Vault에서 키( *KEK(키 교환 키)* 라고 함)를 생성합니다. KEK는 `import` 키 작업만 포함하는 RSA-HSM 키여야 합니다. Key Vault Premium SKU만 RSA-HSM 키를 지원합니다.
+* Key Vault에서 키(*KEK(키 교환 키)* 라고 함)를 생성합니다. KEK는 `import` 키 작업만 포함하는 RSA-HSM 키여야 합니다. Key Vault Premium SKU만 RSA-HSM 키를 지원합니다.
 * KEK 공개 키를 .pem 파일로 다운로드합니다.
 * KEK 공개 키를 온-프레미스 HSM에 연결된 오프라인 컴퓨터로 전송합니다.
 * 오프라인 컴퓨터에서, HSM 공급업체에서 제공한 BYOK 도구를 사용하여 BYOK 파일을 만듭니다. 
@@ -65,6 +65,7 @@ ms.locfileid: "94413329"
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[Cryptomathic BYOK 도구 및 설명서](https://www.cryptomathic.com/azurebyok)|
 |Securosys SA|제조업체, 서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 StorMagic 사이트](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)를 참조하세요.|[SvKMS 및 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
+|IBM|제조업체|IBM 476x, CryptoExpress|[IBM Enterprise 키 관리 파운데이션](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
 ||||
 
 
@@ -86,7 +87,7 @@ ms.locfileid: "94413329"
 
 ### <a name="step-1-generate-a-kek"></a>1단계: KEK 생성
 
-KEK는 Key Vault HSM에서 생성되는 RSA 키입니다. KEK는 가져오려는 키( *대상* 키)를 암호화하는 데 사용됩니다.
+KEK는 Key Vault HSM에서 생성되는 RSA 키입니다. KEK는 가져오려는 키(*대상* 키)를 암호화하는 데 사용됩니다.
 
 KEK는 다음과 같아야 합니다.
 - RSA HSM 키(2048비트, 3072비트 또는 4096비트)이어야 함
@@ -121,7 +122,7 @@ BYOK 파일을 연결된 컴퓨터로 전송합니다.
 > [!NOTE] 
 > RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. 현재 타원 곡선(Elliptic Curve) 키 가져오기는 지원되지 않습니다.
 > 
-> **알려진 문제** : Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
+> **알려진 문제**: Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>4단계: Azure Key Vault에 키 전송
 

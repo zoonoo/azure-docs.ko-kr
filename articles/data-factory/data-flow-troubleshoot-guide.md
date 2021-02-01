@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: 5f29474705919f402b1c114c3fd2df0df037cdae
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: cc87694686bd5143b03d690286bd3171cf8b0e18
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696067"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222152"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -127,11 +127,144 @@ ms.locfileid: "94696067"
 - **원인**: 매핑 데이터 흐름에서 현재 여러 줄 CSV 소스가 \r\n as 행 구분 기호로 작동 하지 않습니다. 캐리지의 추가 줄에서 중단 소스 값을 반환 하는 경우가 있습니다. 
 - **권장 사항**: 원본에서 \r\n이 아닌 행 구분 기호로 \n을 사용 하 여 파일을 생성 합니다. 또는 복사 작업을 사용 하 여 행 구분 기호로 \r\n을 사용 하 여 CSV 파일을 \n로 변환 합니다.
 
-## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>오류 코드: DF-Executor-SourceInvalidPayload
+- **메시지**: 컨테이너가 없어 데이터 미리 보기, 디버그, 파이프라인 데이터 흐름 실행 실패
+- **원인**: 데이터 세트에 스토리지에 없는 컨테이너가 포함된 경우
+- **권장 사항**: 데이터 세트에서 참조되는 컨테이너가 있거나 액세스할 수 있는지 확인합니다.
 
+
+ ### <a name="error-code-df-executor-systemimplicitcartesian"></a>오류 코드: DF-Executor-SystemImplicitCartesian
+- **메시지**: INNER 조인에 대한 암시적 카테시안 제품은 지원되지 않습니다. 대신 CROSS 조인을 사용하세요. 조인에 사용된 열은 행에 대해 고유 키를 만들어야 합니다.
+- **원인**: 논리 계획 사이의 INNER 조인에 대한 암시적 카테시안 제품은 지원되지 않습니다. 조인에 사용 된 열이 고유 키를 만드는 경우
+- **권장 사항**: 같지 않음 기반 조인의 경우 크로스 조인을 사용 하도록 선택 해야 합니다.
+
+
+ ### <a name="error-code-df-executor-systeminvalidjson"></a>오류 코드: DF-Executor-SystemInvalidJson
+- **메시지**: JSON 구문 분석 오류, 지원되지 않는 인코딩 또는 여러 줄
+- **원인**: JSON 파일의 가능한 문제: 지원되지 않은 인코딩, 손상된 바이트, 여러 중첩 줄에 단일 문서로 JSON 원본 사용
+- **권장 사항**: JSON 파일의 인코딩이 지원되는지 확인합니다. JSON 데이터 세트를 사용하는 원본 변환에서 ‘JSON 설정’을 확장하고 ‘단일 문서’를 설정합니다.
+
+
+ ### <a name="error-code-df-executor-broadcasttimeout"></a>오류 코드: DF-Executor-BroadcastTimeout
+- **메시지**: 브로드캐스트 조인 시간 초과 오류입니다 .이 문제를 방지 하려면 조인/존재/조회 변환에서 브로드캐스트 옵션의 ' 해제 '를 선택할 수 있습니다. 성능을 향상 시키기 위해 조인 옵션을 브로드캐스트하려면 브로드캐스트 스트림이 디버그 실행에서 60 초 내에 데이터를 생성할 수 있고 작업 실행에서 300 초 내에 데이터를 생성할 수 있는지 확인 합니다.
+- **원인**: 브로드캐스트의 기본 시간 제한은 디버그 실행에서 60초, 작업 실행에서 300초입니다. 브로드캐스트 조인 시 브로드캐스트에 대해 선택한 스트림이 너무 커서이 제한 내에 데이터를 생성할 수 없습니다. 브로드캐스트 조인을 사용 하지 않는 경우 데이터 흐름에서 수행 되는 기본 브로드캐스트는 동일한 제한에 도달할 수 있습니다.
+- **권장 사항**: 브로드캐스트 옵션을 해제 하거나 대량 데이터 스트림을 브로드캐스트하는 것을 방지 합니다 .이는 처리에 60 초 넘게 걸릴 수 있습니다. 대신 브로드캐스트할 더 작은 스트림을 선택 합니다. 일반적으로 규모가 많은 SQL/DW 테이블 및 소스 파일은 잘못 된 후보입니다. 브로드캐스트 조인이 없으면 오류가 발생 하는 경우 더 큰 클러스터를 사용 합니다.
+
+
+ ### <a name="error-code-df-executor-conversion"></a>오류 코드: DF-Executor-Conversion
+- **메시지**: 잘못된 문자로 인해 날짜 또는 시간 변환 실패
+- **원인**: 데이터가 예상된 형식이 아님
+- **권장 사항**: 올바른 데이터 형식 사용
+
+
+ ### <a name="error-code-df-executor-invalidcolumn"></a>오류 코드: DF-Executor-InvalidColumn
+- **메시지**: 쿼리에 열 이름을 지정해야 합니다. SQL 함수를 사용하는 경우 별칭 설정
+- **원인**: 열 이름이 지정 되지 않았습니다.
+
+
+ ### <a name="error-code-df-executor-drivererror"></a>오류 코드: DF-실행자-DriverError
+- **메시지**: INT96은 ADF 데이터 흐름에서 지원 하지 않는 레거시 타임 스탬프 유형입니다. 열 유형을 최신 유형으로 업그레이드 하십시오.
+- **원인**: 드라이버 오류입니다.
+- **권장 사항**: INT96은 ADF 데이터 흐름에서 지원 하지 않는 레거시 타임 스탬프 유형입니다. 열 유형을 최신 유형으로 업그레이드 하십시오.
+
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>오류 코드: DF-BlockCountExceedsLimitError
+- **메시지**: 커밋되지 않은 블록 수는 최대 제한인 10만 블록을 초과할 수 없습니다. Blob 구성을 확인 하세요.
+- **원인**: blob에 최대 10만 개의 커밋되지 않은 블록이 있을 수 있습니다.
+- **권장 사항**: 자세한 내용은이 문제와 관련 된 Microsoft 제품 팀에 문의 하세요.
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>오류 코드: DF
+- **메시지**: 지정 된 원본 경로에 분할 된 디렉터리가 여러 개 있습니다 (예: <Source Path> /<Partition Root Directory 1>/a = 10/b = 20). <Source Path> /<파티션 루트 디렉터리 2>/c = 10/d = 30) 또는 분할 된 디렉터리 (예: <Source Path> /<파티션 루트 디렉터리 1>/a = 10/b = 20, <Source Path> /디렉터리 2/file1), 소스 경로에서 파티션 루트 디렉터리를 제거 하 고 별도의 원본 변환을 통해 읽습니다.
+- **원인**: 소스 경로에 다른 파일 또는 분할 되지 않은 디렉터리와 분할 된 디렉터리가 여러 개 있거나 분할 된 디렉터리가 있습니다.
+- **권장 사항**: 원본 경로에서 분할 된 루트 디렉터리를 제거 하 고 별도의 원본 변환을 통해 읽습니다.
+
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>오류 코드: DF-OutOfMemoryError
+- **메시지**: 실행 하는 동안 클러스터에 메모리 부족 문제가 발생 했습니다. 더 큰 코어 개수 및/또는 메모리 최적화 계산 형식으로 통합 런타임을 사용 하 여 다시 시도 하세요.
+- **원인**: 클러스터에 메모리가 부족 합니다.
+- **권장 사항**: 디버그 클러스터는 개발 용도로 사용 됩니다. 데이터 샘플링 적절 한 계산 유형과 크기를 활용 하 여 페이로드를 실행 합니다. 최상의 성능을 위해 데이터 흐름을 튜닝 하려면 [데이터 흐름 성능 가이드](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) 를 참조 하세요.
+
+
+ ### <a name="error-code-df-executor-illegalargument"></a>오류 코드: DF-illegalArgument
+- **메시지**: 연결 된 서비스의 액세스 키가 올바른지 확인 하세요.
+- **원인**: 계정 이름 또는 액세스 키가 잘못 되었습니다.
+- **권장 사항**: 올바른 계정 이름 또는 액세스 키를 제공 하세요.
+
+
+ ### <a name="error-code-df-executor-invalidtype"></a>오류 코드: DF-InvalidType
+- **메시지**: 매개 변수 유형이 전달 된 값 유형과 일치 하는지 확인 하세요. 파이프라인에서 float 매개 변수를 전달 하는 것은 현재 지원 되지 않습니다.
+- **원인**: 선언 된 형식과 실제 매개 변수 값 사이에 호환 되지 않는 데이터 형식이 있습니다.
+- **권장 사항**: 올바른 데이터 형식을 제공 하세요.
+
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>오류 코드: DF-Executor-ColumnUnavailable 수 없음
+- **메시지**: 식에 사용 된 열 이름을 사용할 수 없거나 잘못 되었습니다.
+- **원인**: 식에 잘못 되었거나 사용할 수 없는 열 이름이 사용 되었습니다.
+- **권장 사항**: 식에 사용 된 열 이름을 확인 합니다.
+
+
+ ### <a name="error-code-df-executor-parseerror"></a>오류 코드: DF-실행자-ParseError
+- **메시지**: 식을 구문 분석할 수 없습니다.
+- **원인**: 식의 형식 지정으로 인해 구문 분석 오류가 발생 했습니다.
+- **권장 사항**: 식의 형식을 선택 합니다.
+
+
+ ### <a name="error-code-df-executor-outofdiskspaceerror"></a>오류 코드: DF-OutOfDiskSpaceError
+- **메시지**: 내부 서버 오류
+- **원인**: 클러스터의 디스크 공간이 부족 합니다.
+- **권장 사항**: 파이프라인을 다시 시도 하세요. 문제가 지속 되 면 고객 지원에 문의 하세요.
+
+
+ ### <a name="error-code-df-executor-storeisnotdefined"></a>오류 코드: DF-StoreIsNotDefined
+- **메시지**: 저장소 구성이 정의 되어 있지 않습니다. 이 오류는 파이프라인에서 잘못 된 매개 변수 할당으로 인해 발생할 수 있습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 파이프라인의 매개 변수 값 할당을 확인 하세요. 매개 변수 식에 잘못 된 문자가 포함 되어 있을 수 있습니다.
+
+
+ ### <a name="error-code-df-excel-invalidconfiguration"></a>오류 코드: DF-Excel-InvalidConfiguration
+- **메시지**: Excel 시트 이름 또는 인덱스가 필요 합니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 매개 변수 값을 확인 하 고 시트 이름 또는 인덱스를 지정 하 여 Excel 데이터를 읽어 보세요.
+
+
+ ### <a name="error-code-df-excel-invalidconfiguration"></a>오류 코드: DF-Excel-InvalidConfiguration
+- **메시지**: Excel 시트 이름 및 인덱스는 동시에 존재할 수 없습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 매개 변수 값을 확인 하 고 시트 이름 또는 인덱스를 지정 하 여 Excel 데이터를 읽어 보세요.
+
+
+ ### <a name="error-code-df-excel-invalidconfiguration"></a>오류 코드: DF-Excel-InvalidConfiguration
+- **메시지**: 잘못 된 범위를 제공 했습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 범위 (참조)를 지정 하십시오. [Excel 속성](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+
+
+ ### <a name="error-code-df-excel-invaliddata"></a>오류 코드: DF-Excel-InvalidData
+- **메시지**: Excel 워크시트가 없습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 시트 이름 또는 인덱스를 지정 하 여 Excel 데이터를 읽어 보세요.
+
+ ### <a name="error-code-df-excel-invaliddata"></a>오류 코드: DF-Excel-InvalidData
+- **메시지**: 다른 스키마를 사용 하 여 excel 파일 읽기는 현재 지원 되지 않습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: 올바른 Excel 파일을 사용 합니다.
+
+
+ ### <a name="error-code-df-excel-invaliddata"></a>오류 코드: DF-Excel-InvalidData
+- **메시지**: 데이터 형식이 지원 되지 않습니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: Excel 파일의 올바른 데이터 형식을 사용 합니다.
+
+ ### <a name="error-code-df-excel-invalidconfiguration"></a>오류 코드: DF-Excel-InvalidConfiguration
+- **메시지**: .xlsx 및 .xls만 지원 되는 동안 잘못 된 excel 파일이 제공 됩니다.
+- **원인**: 결정 되지 않음
+- **권장 사항**: Excel 파일 확장명이 .xlsx 또는 .Xls 인지 확인 합니다.
+
+## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 1. 데이터 세트 연결의 상태를 확인합니다. 각 원본 및 싱크 변환에서 사용 중인 각각의 데이터 세트에 대해 연결된 서비스를 방문하고 연결을 테스트합니다.
-1. 데이터 흐름 디자이너에서 파일과 테이블의 연결 상태를 확인합니다. 디버그로 전환하고 원본 변환에서 데이터 미리 보기를 클릭하여 데이터에 액세스할 수 있는지 확인합니다.
-1. 데이터 미리 보기에서 모든 항목이 양호하면 파이프라인 디자이너로 이동하여 파이프라인 활동에 데이터 흐름을 배치합니다. 엔드투엔드 테스트에 대해 파이프라인을 디버깅합니다.
+2. 데이터 흐름 디자이너에서 파일과 테이블의 연결 상태를 확인합니다. 디버그로 전환하고 원본 변환에서 데이터 미리 보기를 클릭하여 데이터에 액세스할 수 있는지 확인합니다.
+3. 데이터 미리 보기에서 모든 항목이 양호하면 파이프라인 디자이너로 이동하여 파이프라인 활동에 데이터 흐름을 배치합니다. 엔드투엔드 테스트에 대해 파이프라인을 디버깅합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

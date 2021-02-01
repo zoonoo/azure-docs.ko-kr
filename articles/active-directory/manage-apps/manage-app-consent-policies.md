@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f8fe027b350968a99aab5458fc2d7c1699fb50e3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 62a8b48d6b33a92b62bc4c3634794190585615b7
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052518"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222029"
 ---
 # <a name="manage-app-consent-policies"></a>앱 동의 정책 관리
 
@@ -152,4 +152,4 @@ ID가 "microsoft-"로 시작 하는 앱 승인 정책은 기본 제공 정책입
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [StackOverflow의 Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Microsoft Q의 Azure AD&A](https://docs.microsoft.com/answers/products/)

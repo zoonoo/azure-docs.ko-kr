@@ -1,5 +1,5 @@
 ---
-title: AI를 사용 하 여 Blob 저장소 데이터 이해
+title: AI를 사용 하 여 blob 콘텐츠 보강
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 자연어 및 이미지 분석 기능과 이러한 프로세스가 Azure blob에 저장 된 콘텐츠에 적용 되는 방식에 대해 알아봅니다.
 manager: nitinme
@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 3d427d80e502eed0825165e640acc0755515c5b0
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362800"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222051"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>AI를 사용 하 여 Blob 저장소 데이터 이해
+# <a name="use-ai-to-process-and-analyze-blob-content-in-azure-cognitive-search"></a>AI를 사용 하 여 Azure Cognitive Search에서 Blob 콘텐츠 처리 및 분석
 
-Azure Blob storage의 데이터는 종종 이미지, 긴 텍스트, Pdf 및 Office 문서와 같은 구조화 되지 않은 다양 한 콘텐츠입니다. Azure Cognitive Search의 AI 기능을 사용 하면 다양 한 방식으로 blob에서 중요 한 정보를 이해 하 고 추출할 수 있습니다. Blob 콘텐츠에 AI를 적용 하는 예는 다음과 같습니다.
+이미지로 구성 된 Azure Blob storage의 콘텐츠 또는 구분 되지 않는 긴 텍스트는 심층 학습 분석을 통해 다운스트림 응용 프로그램에 유용한 정보를 노출 하 고 추출할 수 있습니다. [AI 보강](cognitive-search-concept-intro.md)를 사용 하 여 다음을 수행할 수 있습니다.
 
 + OCR (광학 문자 인식)을 사용 하 여 이미지에서 텍스트 추출
 + 사진에서 장면 설명 또는 태그를 생성 합니다.
@@ -26,23 +26,23 @@ Azure Blob storage의 데이터는 종종 이미지, 긴 텍스트, Pdf 및 Offi
 
 이러한 AI 기능 중 하나만 필요할 수도 있지만 이러한 기능 중 여러 개를 동일한 파이프라인으로 결합 하는 것이 일반적입니다. 예를 들어 스캔 한 이미지에서 텍스트를 추출한 다음 해당 위치에서 참조 되는 모든 날짜와 위치를 찾습니다. 또한 사용자 지정 AI 또는 기계 학습 처리를 데이터와 요구 사항에 맞게 제공 되는 최첨단 외부 패키지 또는 사내 모델 형식으로 포함 하는 것이 일반적입니다.
 
-AI 보강는 필드로 캡처된 새 정보를 필드에 저장 합니다. 보강는 전체 텍스트 검색을 통해 검색 인덱스에서이 정보에 액세스 하거나, 보강 문서를 Azure storage로 다시 보내 검색 또는 분석 시나리오에 대 한 데이터 탐색을 포함 하는 새로운 응용 프로그램 환경을 만들 수 있습니다. 
+검색 인덱서에서 지 원하는 모든 데이터 원본에 AI 보강을 적용할 수 있지만 blob는 보강 파이프라인에서 가장 자주 사용 되는 구조입니다. 결과는 전체 텍스트 검색을 위해 검색 인덱스로 끌어오고, 검색 또는 분석 시나리오에 대 한 데이터 탐색을 포함 하는 새 응용 프로그램 환경을 제공 하기 위해 다시 Azure Storage으로 다시 라우팅됩니다. 
 
 이 문서에서는 광범위 한 렌즈를 통해 AI 보강를 확인 하 여 blob의 원시 데이터를 변환 하는 과정에서 검색 인덱스 또는 지식 저장소의 쿼리 가능한 정보로 전체 프로세스를 신속 하 게 파악할 수 있습니다.
 
 ## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>AI를 사용 하 여 blob 데이터를 "보강" 하는 것을 의미 합니다.
 
-*Ai 보강* 는 사용자가 제공 하는 Microsoft 또는 사용자 지정 ai의 기본 제공 ai를 통합 하는 Azure Cognitive Search 인덱싱 아키텍처의 일부입니다. Blob을 처리 해야 하는 종단 간 시나리오를 구현 하는 데 도움이 됩니다 .이 시나리오에서는 blob (기존 항목과 새 항목 모두)을 처리 하 고, 이미지 및 텍스트를 추출 하 고, 다양 한 AI 기능을 사용 하 여 원하는 정보를 추출 하 고, 빠른 검색, 검색 및 탐색을 위해 검색 인덱스에서 인덱스를 인덱싱합니다. 
+*AI 보강* 는 사용자가 제공 하는 Microsoft 또는 사용자 지정 학습 모델에서 기계 학습 모델을 통합 하는 Azure Cognitive Search 인덱싱 아키텍처의 일부입니다. Blob을 처리 해야 하는 종단 간 시나리오를 구현 하는 데 도움이 됩니다 .이 시나리오에서는 blob (기존 항목과 새 항목 모두)을 처리 하 고, 이미지 및 텍스트를 추출 하 고, 다양 한 AI 기능을 사용 하 여 원하는 정보를 추출 하 고, 빠른 검색, 검색 및 탐색을 위해 검색 인덱스에서 인덱스를 인덱싱합니다. 
 
 입력은 Azure Blob Storage의 단일 컨테이너에 있는 Blob입니다. Blob은 거의 모든 종류의 텍스트 또는 이미지 데이터 일 수 있습니다. 
 
 출력은 항상 클라이언트 응용 프로그램에서 빠른 텍스트 검색, 검색 및 탐색에 사용 되는 검색 인덱스입니다. 또한 출력은 Power BI 또는 데이터 과학 워크 로드와 같은 도구에서 다운스트림 분석용으로 문서를 Azure blob 또는 Azure 테이블에 보강 하는 [*정보 저장소*](knowledge-store-concept-intro.md) 일 수도 있습니다.
 
-Between은 파이프라인 아키텍처 자체입니다. 파이프라인은 *인덱서* 기능을 기반으로 하며,이 기능을 사용 하 여 AI를 제공 하는 하나 이상의 *기술로* 구성 된 *기술*를 할당할 수 있습니다. 파이프라인의 목적은 원시 콘텐츠로 입력 하는 *보강 문서* 를 생성 하는 것이 고 파이프라인을 통해 이동 하는 동안 추가 구조, 컨텍스트 및 정보를 선택 하는 것입니다. 보강 문서는 인덱싱 중에 사용 되어 전체 텍스트 검색 또는 탐색 및 분석에 사용 되는 반전 된 인덱스 및 기타 구조를 만드는 데 사용 됩니다.
+Between은 파이프라인 아키텍처 자체입니다. 파이프라인은 [*기술*](cognitive-search-working-with-skillsets.md)를 할당할 수 있는 [*인덱서*](search-indexer-overview.md)를 기반으로 합니다 .이는 AI를 제공 하는 하나 이상의 *기술로* 구성 됩니다. 파이프라인의 목적은 파이프라인을 원시 콘텐츠로 입력 하지만 파이프라인을 통해 이동 하는 동안 추가 구조, 컨텍스트 및 정보를 선택 하는 *보강 문서* 를 생성 하는 것입니다. 보강 문서는 인덱싱 중에 사용 되어 전체 텍스트 검색 또는 탐색 및 분석에 사용 되는 반전 된 인덱스 및 기타 구조를 만드는 데 사용 됩니다.
 
 ## <a name="required-resources"></a>필요한 리소스
 
-Azure Blob storage, Azure Cognitive Search 및 AI를 제공 하는 세 번째 서비스 또는 메커니즘이 필요 합니다.
+Azure Blob storage 및 Azure Cognitive Search 외에도 AI를 제공 하는 세 번째 서비스 또는 메커니즘이 필요 합니다.
 
 + 기본 제공 AI의 경우 Cognitive Search는 Azure Cognitive Services 비전 및 자연어 처리 Api와 통합 됩니다. [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md) 하 여 OCR (광학 문자 인식), 이미지 분석 또는 자연어 처리 (언어 검색, 텍스트 번역, 엔터티 인식, 키 구 추출)를 추가할 수 있습니다. 
 
@@ -50,7 +50,7 @@ Azure Blob storage, Azure Cognitive Search 및 AI를 제공 하는 세 번째 �
 
 + 사용자 지정 비 Azure AI의 경우에는 HTTP를 통한 인덱서에 모델 또는 모듈에 액세스할 수 있어야 합니다.
 
-모든 서비스를 즉시 사용할 수 없는 경우 저장소 계정 포털 페이지에서 직접 시작 합니다. 왼쪽 탐색 페이지의 **Blob service**에서 **Azure Cognitive Search 추가**를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
+모든 서비스를 즉시 사용할 수 없는 경우 저장소 계정 포털 페이지에서 직접 시작 합니다. 왼쪽 탐색 페이지의 **Blob service** 에서 **Azure Cognitive Search 추가** 를 클릭하여 새 서비스를 만들거나 기존 서비스를 선택합니다. 
 
 Azure Cognitive Search를 저장소 계정에 추가한 후에는 표준 프로세스에 따라 Azure 데이터 원본의 데이터를 보강 할 수 있습니다. AI 보강을 쉽게 초기 소개 하기 위해 Azure Cognitive Search에서 **데이터 가져오기** 마법사를 권장 합니다. 워크플로 중에 Cognitive Services 리소스를 연결할 수 있습니다. 이 빠른 시작에서는 [포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)의 단계를 안내 합니다. 
 
@@ -58,7 +58,7 @@ Azure Cognitive Search를 저장소 계정에 추가한 후에는 표준 프로�
 
 ## <a name="use-a-blob-indexer"></a>Blob 인덱서 사용
 
-AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Cognitive Search에서 이러한 파이프라인은 *인덱서*위에 빌드됩니다. ‘인덱서’는 데이터를 샘플링하고, 메타데이터를 읽고, 데이터를 검색하며, 후속 가져오기를 위해 네이티브 형식의 데이터를 JSON 문서로 직렬화하기 위한 내부 논리를 포함하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서가 강조 표시 되어 있습니다. 다음 섹션에서는 기술력과에 대해 중점적으로 설명 합니다.
+AI 보강는 인덱싱 파이프라인에 대 한 추가 기능이 며, Azure Cognitive Search에서 이러한 파이프라인은 *인덱서* 위에 빌드됩니다. ‘인덱서’는 데이터를 샘플링하고, 메타데이터를 읽고, 데이터를 검색하며, 후속 가져오기를 위해 네이티브 형식의 데이터를 JSON 문서로 직렬화하기 위한 내부 논리를 포함하는 데이터 원본 인식 하위 서비스입니다. 인덱서는 AI와는 별도로 가져오기에 사용 되는 경우가 많지만 AI 보강 파이프라인을 빌드 하려는 경우에는 인덱서와 기술가 필요 합니다. 이 섹션에서는 인덱서가 강조 표시 되어 있습니다. 다음 섹션에서는 기술력과에 대해 중점적으로 설명 합니다.
 
 Azure Storage blob은 [blob 인덱서](search-howto-indexing-azure-blob-storage.md)를 사용 하 여 인덱싱됩니다. **데이터 가져오기** 마법사, REST API 또는 SDK를 사용 하 여이 인덱서를 호출할 수 있습니다. 인덱서에서 사용 하는 데이터 원본이 Azure Blob 컨테이너인 경우 blob 인덱서가 호출 됩니다. 가상 디렉터리를 만들어 blob의 하위 집합을 인덱싱할 수 있습니다. 그런 다음 매개 변수로 전달 하거나 파일 형식 확장명을 기준으로 필터링 할 수 있습니다.
 

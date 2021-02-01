@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131341"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222186"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -21,7 +21,7 @@ ms.locfileid: "98131341"
 
 [Kubernetes 허용 제어를 사용 하 여 작업 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control) 에서 이러한 기능에 대해 자세히 알아보세요.
 
-Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 많은 컨테이너 보안 기능을 제공 합니다. 특히 다음에 대한 내용을 설명합니다.
+Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 많은 컨테이너 보안 기능을 제공 합니다. 특히:
 
 - 컨테이너 [레지스트리에 대 한 Azure Defender의](defender-for-container-registries-introduction.md) 취약성에 대 한 컨테이너 레지스트리를 검색 합니다.
 - [Kubernetes 용 Azure Defender](defender-for-kubernetes-introduction.md) K8s 클러스터에 대 한 실시간 위협 검색 경고 가져오기
@@ -62,7 +62,7 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
         > [!TIP]
         > 권장 사항은 다섯 가지 보안 제어에 포함 되며, 다음 단계에서 어떤 것을 선택 하 든 중요 하지 않습니다.
 
-    1. 보안 제어에서 권장 사항을 선택 하 여 추가를 설치할 수 있는 리소스를 확인 합니다.
+    1. 보안 제어에서 권장 사항을 선택 하 여 추가 기능을 설치할 수 있는 리소스를 확인 합니다.
     1. 관련 클러스터를 선택 하 고 **재구성** 합니다.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Kubernetes에 대 한 * * Azure Policy 추가 기능에 대 한 권장 사항 정보 페이지를 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다. * *":::

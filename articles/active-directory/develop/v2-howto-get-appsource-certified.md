@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3dfeca64804ceb522046e5c0dc10702575f60aad
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d366664981894933f9afb177e9147ccae6695872
+ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054588"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222169"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증 된 AppSource 가져오기
 
@@ -106,7 +106,7 @@ AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https:/
 
 Azure AD 통합의 경우 커뮤니티와 함께 [Microsoft Q&를](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 사용 하 여 지원을 제공 합니다.
 
-Microsoft Q&에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 합니다.
+[Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 에 대 한 질문을 먼저 확인 하 고 기존 문제를 검색 하 여 누군가가 이전에 질문을 요청 했는지 확인 하는 것이 좋습니다. 질문이 나 주석에 태그가 지정 되어 있는지 확인 [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) 합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
