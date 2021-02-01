@@ -39,9 +39,9 @@
         - name: zD&T에서 ADCD 설정
           href: ibm/demo.md
         - name: IBM DB2 pureScale
-          href: ../../linux/ibm-db2-purescale-azure.md?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+          href: ibm/ibm-db2-purescale-azure.md
         - name: IBM DB2 pureScale 배포
-          href: ../../linux/deploy-ibm-db2-purescale-azure.md?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+          href: ibm/deploy-ibm-db2-purescale-azure.md
     - name: 리소스
       items:
         - name: 백서
