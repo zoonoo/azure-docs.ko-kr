@@ -11,12 +11,12 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: b32f9dd10d9bd03a7e446616d9941e7bd1a9c3ed
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: bc3b041e44fad66a4edc6ff34c0e534dc423de86
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724911"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226593"
 ---
 # <a name="increase-the-resilience-of-authentication-and-authorization-in-client-applications-you-develop"></a>개발 하는 클라이언트 응용 프로그램에서 인증 및 권한 부여의 복원 력 향상
 
@@ -97,7 +97,7 @@ MSAL을 사용 하지 않는 경우 이러한 복원 력 패턴을 토큰 처리
 
 ### <a name="cache-tokens"></a>캐시 토큰
 
-앱은 Microsoft Id에서 받은 토큰을 적절 하 게 캐시 해야 합니다. 앱에서 토큰을 수신 하는 경우 토큰을 포함 하는 HTTP 응답에는 토큰을 캐시 하 고 다시 사용 하는 데 걸리는 시간을 응용 프로그램에 알려 주는 "expires_in" 속성도 포함 됩니다. 응용 프로그램에서는 "expires_in" 속성을 사용 하 여 토큰의 수명을 확인 하는 것이 중요 합니다. 응용 프로그램은 API 액세스 토큰을 디코딩하 려 면 안 됩니다.
+앱은 Microsoft Id에서 받은 토큰을 적절 하 게 캐시 해야 합니다. 앱에서 토큰을 수신 하는 경우 토큰을 포함 하는 HTTP 응답에는 토큰을 캐시 하 고 다시 사용 하는 데 걸리는 시간을 응용 프로그램에 알려 주는 "expires_in" 속성도 포함 됩니다. 응용 프로그램에서 "expires_in" 속성을 사용 하 여 토큰의 수명을 확인 하는 것이 중요 합니다. 응용 프로그램은 API 액세스 토큰을 디코딩하 려 면 안 됩니다.
 
 ![Microsoft id를 호출 하지만 응용 프로그램을 실행 하는 장치에서 토큰 캐시를 통해 호출 되는 응용 프로그램](media/resilience-client-app/token-cache.png)
 

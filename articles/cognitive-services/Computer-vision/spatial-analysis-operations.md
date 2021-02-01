@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934744"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226058"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "98934744"
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. PersonCount가 정확한 합계를 기록 하도록 하려면 단일 카메라에서 영역을 완전히 검사 해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "98934744"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -43,7 +43,7 @@ ms.locfileid: "98934744"
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "98934744"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| Description|
+| 조작 매개 변수| 설명|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
@@ -87,7 +87,7 @@ ms.locfileid: "98934744"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
@@ -122,7 +122,7 @@ ms.locfileid: "98934744"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -130,7 +130,7 @@ ms.locfileid: "98934744"
 | `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
 | `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-personcount** 여야 `count` 합니다.|
 | `trigger` | 문자열| 이벤트를 보내기 위한 트리거의 유형입니다. 지원 되는 값은 개수가 변경 `event` `interval` 되었는지 여부에 관계 없이 이벤트가 변경 되거나 정기적으로 이벤트를 보낼 때 이벤트를 전송 하는 데 사용할 수 있습니다.
-| `interval` | 문자열| 이벤트를 발생 하기 전에 사용자 수가 집계 되는 시간 (초)입니다. 작업은 계속 해 서 일정 한 속도로 장면을 분석 하 고 해당 간격에 대해 가장 일반적인 개수를 반환 합니다. 집계 간격은 및에 모두 적용 됩니다 `event` `interval` .|
+| `output_frequency` | int | 이벤트가 egressed는 속도입니다. `output_frequency`= X 인 경우 x 이벤트는 모두 egressed, 예: `output_frequency` = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. 는 `output_frequency` 및에 모두 적용 `event` 됩니다 `interval` . |
 | `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Cognitiveservices account에 대 한 줄 구성 spatialanalysis-personcrossingline
@@ -167,7 +167,7 @@ ms.locfileid: "98934744"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -213,7 +213,7 @@ ms.locfileid: "98934744"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -247,7 +247,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -255,8 +255,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
 | `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-persondistance** 여야 `people_distance` 합니다.|
 | `trigger` | 문자열| 이벤트를 보내기 위한 트리거의 유형입니다. 지원 되는 값은 개수가 변경 `event` `interval` 되었는지 여부에 관계 없이 이벤트가 변경 되거나 정기적으로 이벤트를 보낼 때 이벤트를 전송 하는 데 사용할 수 있습니다.
-| `interval` | 문자열 | 이벤트가 발생 하기 전에 위반이 집계 되는 시간 (초)입니다. 집계 간격은 및에 모두 적용 됩니다 `event` `interval` .|
-| `output_frequency` | int | 이벤트가 egressed는 속도입니다. `output_frequency`= X 인 경우 x 이벤트는 모두 egressed, 예: `output_frequency` = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. Output_frequency은 및 둘 다에 적용 됩니다 `event` `interval` .|
+| `output_frequency` | int | 이벤트가 egressed는 속도입니다. `output_frequency`= X 인 경우 x 이벤트는 모두 egressed, 예: `output_frequency` = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. 는 `output_frequency` 및에 모두 적용 `event` 됩니다 `interval` .|
 | `minimum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooClose" 이벤트를 트리거할 거리 (미터)입니다.|
 | `maximum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooFar" 이벤트를 트리거하는 거리 (미터)입니다.|
 | `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
@@ -362,7 +361,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -372,7 +371,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -383,7 +382,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
 | `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -396,7 +395,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `focalLength` | float | 카메라의 초점 길이 (픽셀)입니다. 자동 보정에서 유추 됩니다. |
 | `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 자동 보정에서 유추 됩니다.|
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -461,7 +460,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
     "schemaVersion": "1.0"
 }
 ```
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -471,7 +470,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `status` | 문자열| 줄 교차의 방향 (' 왼쪽으로 왼쪽 ' 또는 '가는 오른쪽 ')입니다.|
 | `zone` | 문자열 | 교차 된 줄의 "이름" 필드|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -482,7 +481,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
 | `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -606,7 +605,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형입니다. 값은 _personZoneDwellTimeEvent_ 또는 _personZoneEnterExitEvent_ 수 있습니다.|
@@ -618,7 +617,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `durationMs` | float | 사용자가 영역에서 소비한 시간을 나타내는 밀리초 수입니다. 이 필드는 이벤트 유형이 _personZoneDwellTimeEvent_ 때 제공 됩니다.|
 | `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -721,7 +720,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | 형식| Description|
+| 이벤트 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
@@ -736,7 +735,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `zone` | 문자열 | 사용자 간 distancing 대해 모니터링 된 영역을 나타내는 polygon의 "이름" 필드|
 | `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
 
-| 검색 필드 이름 | 형식| Description|
+| 검색 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 검색 ID|
 | `type` | 문자열| 검색 유형|
@@ -753,7 +752,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 이 예에서 `centerGroundPoint`는 `{x: 4, y: 5}`입니다. 즉, 카메라에서 4 피트 떨어진 사람이 있고 오른쪽이 5 미터 떨어져 있음을 의미 합니다.
 
 
-| SourceInfo 필드 이름 | 형식| Description|
+| SourceInfo 필드 이름 | Type| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -964,7 +963,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
 

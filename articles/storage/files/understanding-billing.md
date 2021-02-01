@@ -4,20 +4,42 @@ description: Azure 파일 공유에 대해 프로 비전 된 종 량 제 청구 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632481"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226644"
 ---
-# <a name="understanding-azure-files-billing"></a>Azure Files 청구 이해
+# <a name="understand-azure-files-billing"></a>Azure Files 청구 이해
 Azure Files는 프로 비전 되 고 종 량 제 인 두 개의 고유한 청구 모델을 제공 합니다. 프로 비전 된 모델은 **FileStorage** storage 계정 종류에 배포 된 파일 공유 인 프리미엄 파일 공유에만 사용할 수 있습니다. 종 량 제 모델은 **GPv2 (범용 버전 2)** 저장소 계정 종류에 배포 된 파일 공유 인 표준 파일 공유에만 사용할 수 있습니다. 이 문서에서는 월간 Azure Files 청구서를 이해 하는 데 도움이 되도록 두 모델의 작동 방식을 설명 합니다.
 
-Azure Files에 대 한 현재 가격은 [Azure Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)에서 찾을 수 있습니다.
+가격 책정 정보를 Azure Files [Azure Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/)를 참조 하세요.
+
+## <a name="storage-units"></a>스토리지 단위    
+Azure Files은 2 가지 측정 단위를 사용 하 여 저장소 용량 (KiB, MiB, GiB 및 TiB)을 나타냅니다. 운영 체제가 동일한 측정 단위 또는 계산 시스템을 사용 하거나 사용 하지 않을 수도 있습니다.
+
+### <a name="windows"></a>Windows
+
+Windows 운영 체제와 Azure Files는 2 차 계산 시스템을 사용 하 여 저장소 용량을 측정 하지만 단위 레이블을 지정할 때 차이가 있습니다. Azure Files는 기본-2 단위로 저장소 용량을 레이블 하는 반면, Windows는 기본-10 단위 단위로 저장소 용량을 레이블 합니다. 저장소 용량을 보고 하는 경우 Windows는 저장소 용량을 base-2에서 base-10으로 변환 하지 않습니다.
+
+|머리글자어  |정의  |단위  |Windows가 다음으로 표시 됨  |
+|---------|---------|---------|---------|
+|KiB     |1024 바이트         |kibibyte         |KB (킬로바이트)         |
+|MiB     |1024 KiB (1048576 바이트)         |mebibyte         |MB (메가바이트)         |
+|GiB     |1024 MiB (1073741824 바이트)         |기비바이트         |GB (기가바이트)         |
+|TiB     |1024 GiB (1099511627776 바이트)         |tebibyte         |TB (테라바이트)         |
+
+### <a name="macos"></a>macOS
+
+[IOS 및 macos](https://support.apple.com/HT201402) 에서 Apple 웹 사이트의 저장소 용량을 보고 하 여 사용 되는 계산 시스템을 확인 하는 방법을 참조 하세요.
+
+### <a name="linux"></a>Linux
+
+각 운영 체제 또는 소프트웨어의 개별 부분에서 다른 계산 시스템을 사용할 수 있습니다. 해당 설명서를 참조 하 여 저장소 용량을 보고 하는 방법을 확인 하세요.
 
 ## <a name="provisioned-model"></a>프로 비전 된 모델
 Azure Files는 프리미엄 파일 공유에 프로 비전 된 모델을 사용 합니다. 프로 비전 된 비즈니스 모델에서 사용 하는 내용에 따라 비용이 청구 되는 것이 아니라 Azure Files 서비스에 저장소 요구 사항을 사전에 지정 합니다. 이는 온-프레미스에서 하드웨어를 구입 하는 것과 유사 합니다. 즉, 특정 양의 저장소로 Azure 파일 공유를 프로 비전 할 때 공간 사용을 시작 하는 경우 온-프레미스에서 실제 미디어의 비용을 지불 하지 않는 것과 마찬가지로 사용 여부에 관계 없이 해당 저장소에 대 한 비용을 지불 합니다. 온-프레미스에서 물리적 미디어를 구매 하는 것과 달리 프로 비전 된 파일 공유는 저장소 및 IO 성능 특성에 따라 동적으로 확장 또는 축소할 수 있습니다.
@@ -92,7 +114,7 @@ Azure Files는 표준 파일 공유에 종 량 제 비즈니스 모델을 사용
 > [!Note]  
 > NFS 4.1은 프로 비전 된 청구 모델을 사용 하는 프리미엄 파일 공유에만 사용할 수 있으며, 트랜잭션은 프리미엄 파일 공유에 대 한 청구에 영향을 주지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 - [가격 책정 페이지를 Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)합니다.
 - [Azure Files 배포를 계획](./storage-files-planning.md) 하 고 [Azure 파일 동기화 배포를 계획](./storage-sync-files-planning.md)합니다.
 - [파일 공유를 만들고](./storage-how-to-create-file-share.md) [Azure 파일 동기화를 배포](./storage-sync-files-deployment-guide.md)합니다.

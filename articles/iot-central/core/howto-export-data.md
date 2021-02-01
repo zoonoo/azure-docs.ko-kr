@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760901"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226065"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
@@ -96,10 +96,10 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
 
     |성능 계층|계정 유형|
     |-|-|
-    |Standard|범용 V2|
-    |Standard|범용 V1|
-    |Standard|Blob 스토리지|
-    |Premium|블록 Blob 저장소|
+    |표준|범용 V2|
+    |표준|범용 V1|
+    |표준|Blob 스토리지|
+    |프리미엄|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.
 
@@ -166,7 +166,7 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
 
 1. 내보내기 설정을 완료 한 후 **저장** 을 선택 합니다. 몇 분 후에 데이터가 대상에 표시 됩니다.
 
-## <a name="export-contents-and-format"></a>콘텐츠 내보내기 및 형식
+## <a name="destinations"></a>대상
 
 ### <a name="azure-blob-storage-destination"></a>Azure Blob Storage 대상
 
@@ -187,7 +187,7 @@ Azure Portal에서 내보낸 파일을 찾아보려면 해당 파일로 이동 �
 
 웹 후크 대상의 경우 데이터를 거의 실시간으로 내보낼 수 있습니다. 메시지 본문의 데이터는 Event Hubs 및 Service Bus와 동일한 형식입니다.
 
-### <a name="telemetry-format"></a>원격 분석 형식
+## <a name="telemetry-format"></a>원격 분석 형식
 
 내보낸 각 메시지에는 장치에서 메시지 본문으로 보낸 전체 메시지의 정규화 된 형식이 포함 되어 있습니다. 메시지는 JSON 형식이 며 u t f-8로 인코딩됩니다. 각 메시지에 포함 되는 정보는 다음과 같습니다.
 
@@ -231,6 +231,102 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
     "messageProperties": {
       "messageProp": "value"
     }
+}
+```
+
+### <a name="message-properties"></a>메시지 속성
+
+원격 분석 메시지에는 원격 분석 페이로드 외에 메타 데이터에 대 한 속성도 있습니다. 위의 코드 조각에서는 및와 같은 시스템 메시지의 예를 보여 줍니다 `deviceId` `enqueuedTime` . 시스템 메시지 속성에 대해 자세히 알아보려면 [D2C IoT Hub 메시지의 시스템 속성](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages)을 참조 하세요.
+
+원격 분석 메시지에 사용자 지정 메타 데이터를 추가 해야 하는 경우 원격 분석 메시지에 속성을 추가할 수 있습니다. 예를 들어 장치가 메시지를 만들 때 타임 스탬프를 추가 해야 합니다.
+
+다음 코드 조각에서는 `iothub-creation-time-utc` 장치에서 속성을 만들 때 메시지에 속성을 추가 하는 방법을 보여 줍니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+async function sendTelemetry(deviceClient, index) {
+  console.log('Sending telemetry message %d...', index);
+  const msg = new Message(
+    JSON.stringify(
+      deviceTemperatureSensor.updateSensor().getCurrentTemperatureObject()
+    )
+  );
+  msg.properties.add("iothub-creation-time-utc", new Date().toISOString());
+  msg.contentType = 'application/json';
+  msg.contentEncoding = 'utf-8';
+  await deviceClient.sendEvent(msg);
+}
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```java
+private static void sendTemperatureTelemetry() {
+  String telemetryName = "temperature";
+  String telemetryPayload = String.format("{\"%s\": %f}", telemetryName, temperature);
+
+  Message message = new Message(telemetryPayload);
+  message.setContentEncoding(StandardCharsets.UTF_8.name());
+  message.setContentTypeFinal("application/json");
+  message.setProperty("iothub-creation-time-utc", Instant.now().toString());
+
+  deviceClient.sendEventAsync(message, new MessageIotHubEventCallback(), message);
+  log.debug("My Telemetry: Sent - {\"{}\": {}°C} with message Id {}.", telemetryName, temperature, message.getMessageId());
+  temperatureReadings.put(new Date(), temperature);
+}
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
+private async Task SendTemperatureTelemetryAsync()
+{
+  const string telemetryName = "temperature";
+
+  string telemetryPayload = $"{{ \"{telemetryName}\": {_temperature} }}";
+  using var message = new Message(Encoding.UTF8.GetBytes(telemetryPayload))
+  {
+      ContentEncoding = "utf-8",
+      ContentType = "application/json",
+  };
+  message.Properties.Add("iothub-creation-time-utc", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"));
+  await _deviceClient.SendEventAsync(message);
+  _logger.LogDebug($"Telemetry: Sent - {{ \"{telemetryName}\": {_temperature}°C }}.");
+}
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def send_telemetry_from_thermostat(device_client, telemetry_msg):
+    msg = Message(json.dumps(telemetry_msg))
+    msg.custom_properties["iothub-creation-time-utc"] = datetime.now(timezone.utc).isoformat()
+    msg.content_encoding = "utf-8"
+    msg.content_type = "application/json"
+    print("Sent message")
+    await device_client.send_message(msg)
+```
+
+---
+
+다음 코드 조각은 Blob storage로 내보낸 메시지에서이 속성을 보여 줍니다.
+
+```json
+{
+  "applicationId":"5782ed70-b703-4f13-bda3-1f5f0f5c678e",
+  "messageSource":"telemetry",
+  "deviceId":"sample-device-01",
+  "schema":"default@v1",
+  "templateId":"urn:modelDefinition:mkuyqxzgea:e14m1ukpn",
+  "enqueuedTime":"2021-01-29T16:45:39.143Z",
+  "telemetry":{
+    "temperature":8.341033560421833
+  },
+  "messageProperties":{
+    "iothub-creation-time-utc":"2021-01-29T16:45:39.021Z"
+  },
+  "enrichments":{}
 }
 ```
 

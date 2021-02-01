@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753098"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226307"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -383,7 +383,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **리디렉션 URI** 에서 추가합니다.
 1. **등록** 을 선택합니다.
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 권한 부여** 섹션에서 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
+1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택한 다음 **저장** 을 선택 합니다.
 1. 루트 폴더에 있는 web.config 파일의 `configuration\appSettings` 섹션에 다음을 추가합니다.
 
     ```xml

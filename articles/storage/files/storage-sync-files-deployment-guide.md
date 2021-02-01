@@ -1,18 +1,18 @@
 ---
 title: Azure 파일 동기화 배포 | Microsoft Docs
-description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 처음부터 끝까지 Azure File Sync를 배포 하는 방법에 대해 알아봅니다.
+description: Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 처음부터 끝까지 Azure 파일 동기화를 배포 하는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 11/05/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2af8db1a6e8c774f1004b380c8aaaa06ba61d8c3
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 4814a12a870d5317ad91c3514327ba0daad7ed69
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862347"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225373"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -23,19 +23,19 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+1. Azure 파일 동기화 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
-1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+1. Azure 파일 동기화와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+1. Azure 파일 동기화 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
-1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+1. Azure 파일 동기화와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
 
-1. Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure File Sync에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell 원격을 통해 수행할 수 있습니다. Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. \* **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인 합니다.
+1. Az PowerShell module은 PowerShell 5.1 또는 PowerShell 6 +와 함께 사용할 수 있습니다. Windows 이외의 시스템을 비롯 하 여 지원 되는 모든 시스템에서 Azure 파일 동기화에 대해 Az PowerShell 모듈을 사용할 수 있지만, 서버 등록 cmdlet은 항상 등록 하는 Windows Server 인스턴스에서 실행 해야 합니다 .이 작업은 직접 또는 PowerShell 원격을 통해 수행할 수 있습니다. Windows Server 2012 r 2에서는 PowerShell 5.1 이상이 실행 되 고 있는지 확인할 수 있습니다. \* **$PSVersionTable** 개체의 **PSVersion** 속성 값을 확인 합니다.
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -63,10 +63,10 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
+1. Azure 파일 동기화 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#azure-file-sync-region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
-1. Azure File Sync와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
+1. Azure 파일 동기화와 동기화 할 수 있는 Windows Server 또는 Windows Server 클러스터의 지원 되는 인스턴스가 하나 이상 있습니다. 지원 되는 버전의 Windows Server 및 권장 시스템 리소스에 대 한 자세한 내용은 [windows 파일 서버 고려 사항](storage-sync-files-planning.md#windows-file-server-considerations)을 참조 하세요.
 
 1. [Azure CLI 설치](/cli/azure/install-azure-cli)
 
@@ -107,7 +107,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 > [!Note]  
-> Windows Server Core에 Azure File Sync을 배포 하는 경우이 단계를 건너뛸 수 있습니다.
+> Windows Server Core에 Azure 파일 동기화을 배포 하는 경우이 단계를 건너뛸 수 있습니다.
 
 1. 서버 관리자를 엽니다.
 2. **로컬 서버** 를 클릭합니다.  
@@ -153,14 +153,14 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 > 저장소 동기화 서비스는 배포 된 구독 및 리소스 그룹의 액세스 권한을 상속 합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 스토리지 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure Storage로 데이터가 흐르도록 만들 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
-저장소 동기화 서비스를 배포 하려면 [Azure Portal](https://portal.azure.com/)으로 이동 하 여 *리소스 만들기* 를 클릭 한 다음 Azure File Sync를 검색 합니다. 검색 결과에서 **Azure File Sync** 를 선택 하 고 **만들기** 를 선택 하 여 **저장소 동기화 배포** 탭을 엽니다.
+저장소 동기화 서비스를 배포 하려면 [Azure Portal](https://portal.azure.com/)으로 이동 하 여 *리소스 만들기* 를 클릭 한 다음 Azure 파일 동기화를 검색 합니다. 검색 결과에서 **Azure 파일 동기화** 를 선택 하 고 **만들기** 를 선택 하 여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
 
 - **이름**: Storage 동기화 서비스의 고유한 이름 (지역별)입니다.
 - **구독**: 스토리지 동기화 서비스를 만들 구독입니다. 조직의 구성 전략에 따라 하나 이상의 구독에 대한 액세스 권한이 있을 수 있습니다. Azure 구독은 각 클라우드 서비스(예: Azure Files)에 대한 비용을 청구하는 가장 기본적인 컨테이너입니다.
-- **리소스 그룹**: 리소스 그룹은 스토리지 계정 또는 스토리지 동기화 서비스와 같은 Azure 리소스의 논리적 그룹입니다. 새 리소스 그룹을 만들거나 Azure File Sync에 대 한 기존 리소스 그룹을 사용할 수 있습니다. (리소스 그룹을 컨테이너로 사용 하 여 특정 프로젝트에 대 한 HR 리소스 또는 리소스를 그룹화 하는 등의 조직에 대 한 리소스를 논리적으로 격리 하는 것이 좋습니다.)
-- **Location**: Azure File Sync을 배포 하려는 지역입니다. 지원 되는 영역만이 목록에서 사용할 수 있습니다.
+- **리소스 그룹**: 리소스 그룹은 스토리지 계정 또는 스토리지 동기화 서비스와 같은 Azure 리소스의 논리적 그룹입니다. 새 리소스 그룹을 만들거나 Azure 파일 동기화에 대 한 기존 리소스 그룹을 사용할 수 있습니다. (리소스 그룹을 컨테이너로 사용 하 여 특정 프로젝트에 대 한 HR 리소스 또는 리소스를 그룹화 하는 등의 조직에 대 한 리소스를 논리적으로 격리 하는 것이 좋습니다.)
+- **Location**: Azure 파일 동기화을 배포 하려는 지역입니다. 지원 되는 영역만이 목록에서 사용할 수 있습니다.
 
 작업이 끝나면 **만들기** 를 선택하여 스토리지 동기화 서비스를 배포합니다.
 
@@ -224,11 +224,11 @@ Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure 파일 동기화 에이전트 설치를 시작합니다.
 
 > [!Important]  
-> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure File Sync를 사용 하려면 클러스터의 각 노드를 등록 해야 합니다.
+> 장애 조치(Failover) 클러스터에서 Azure 파일 동기화를 사용하려는 경우 Azure 파일 동기화 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure 파일 동기화를 사용 하려면 클러스터의 각 노드를 등록 해야 합니다.
 
 다음을 수행하는 것이 좋습니다.
 - 문제 해결 및 서버 유지 관리를 간소화하려면 기본 설치 경로(C:\Program Files\Azure\StorageSyncAgent)를 유지하세요.
-- Azure 파일 동기화를 최신 상태로 유지하도록 Microsoft 업데이트를 사용하도록 설정하세요. 기능 업데이트 및 핫픽스를 비롯한 Azure 파일 동기화 에이전트에 대한 모든 업데이트는 Microsoft 업데이트에서 수행됩니다. Azure File Sync에 대 한 최신 업데이트를 설치 하는 것이 좋습니다. 자세한 내용은 [Azure File Sync 업데이트 정책](storage-sync-files-planning.md#azure-file-sync-agent-update-policy)을 참조 하세요.
+- Azure 파일 동기화를 최신 상태로 유지하도록 Microsoft 업데이트를 사용하도록 설정하세요. 기능 업데이트 및 핫픽스를 비롯한 Azure 파일 동기화 에이전트에 대한 모든 업데이트는 Microsoft 업데이트에서 수행됩니다. Azure 파일 동기화에 대 한 최신 업데이트를 설치 하는 것이 좋습니다. 자세한 내용은 [Azure 파일 동기화 업데이트 정책](storage-sync-files-planning.md#azure-file-sync-agent-update-policy)을 참조 하세요.
 
 Azure 파일 동기화 에이전트 설치를 마치면 서버 등록 UI가 자동으로 열립니다. 등록하려면 스토리지 동기화 서비스가 있어야 합니다. 스토리지 동기화 서비스를 만드는 방법은 다음 섹션을 참조하세요.
 
@@ -506,7 +506,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 ![Azure File sync를 사용 하도록 방화벽 및 가상 네트워크 설정 구성](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
 ## <a name="onboarding-with-azure-file-sync"></a>Azure 파일 동기화를 사용한 온보딩
-전체 파일 충실도와 ACL(액세스 제어 목록)을 유지하면서 가동 중지 시간 없이 Azure 파일 동기화에 처음 온보딩하는 권장 단계는 다음과 같습니다.
+전체 파일 충실도 및 ACL (액세스 제어 목록)을 유지 하는 동안 가동 중지 시간 없이 Azure 파일 동기화 처음으로 등록 하는 권장 단계는 다음과 같습니다.
  
 1. 스토리지 동기화 서비스를 배포합니다.
 1. 동기화 그룹을 만듭니다.
@@ -516,7 +516,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 1. 초기 업로드가 완료된 후 나머지 서버에 각각 Azure 파일 동기화 에이전트를 설치합니다.
 1. 나머지 서버에 각각 새 파일 공유를 만듭니다.
 1. 원하는 경우 클라우드 계층화 정책을 사용하여 새 파일 공유에 서버 엔드포인트를 만듭니다. 이 단계를 수행하려면 초기 설정에 사용할 수 있는 추가 스토리지가 필요합니다.
-1. Azure File Sync 에이전트가 실제 데이터 전송 없이 전체 네임 스페이스를 신속 하 게 복원할 수 있습니다. 전체 네임스페이스가 동기화된 후 동기화 엔진은 서버 엔드포인트에 대한 클라우드 계층화 정책에 따라 로컬 디스크 공간을 채웁니다. 
+1. Azure 파일 동기화 에이전트가 실제 데이터 전송 없이 전체 네임 스페이스를 신속 하 게 복원할 수 있습니다. 전체 네임스페이스가 동기화된 후 동기화 엔진은 서버 엔드포인트에 대한 클라우드 계층화 정책에 따라 로컬 디스크 공간을 채웁니다. 
 1. 동기화를 완료하고 필요에 따라 토폴로지를 테스트합니다. 
 1. 사용자와 애플리케이션을 이 새로운 공유로 리디렉션합니다.
 1. 필요에 따라 서버에서 중복 공유를 삭제할 수 있습니다.
@@ -531,7 +531,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
  
 현재 사전 시드 방법에는 몇 가지 제한 사항이 있습니다. 
 - 동기화 토폴로지가 완전히 작동되어 실행하기 전의 서버 데이터 변경으로 인해 서버 엔드포인트에서 충돌이 발생할 수 있습니다.  
-- 클라우드 끝점을 만든 후에는 초기 동기화를 시작 하기 전에 클라우드에서 파일을 검색 하는 프로세스를 실행 Azure File Sync. 이 프로세스를 완료 하는 데 걸리는 시간은 네트워크 속도, 사용 가능한 대역폭, 파일 및 폴더 수와 같은 다양 한 요소에 따라 다릅니다. 미리 보기 릴리스의 대략적인 추정에서 검색 프로세스는 약 10개 파일/초의 속도로 실행됩니다. 따라서 클라우드에 데이터를 사전 시드할 경우 사전 시드가 빠르게 실행되더라도 시스템이 정상적으로 실행되기까지 오랜 시간이 걸릴 수 있습니다.
+- 클라우드 끝점을 만든 후에는 초기 동기화를 시작 하기 전에 클라우드에서 파일을 검색 하는 프로세스를 실행 Azure 파일 동기화. 이 프로세스를 완료 하는 데 걸리는 시간은 네트워크 속도, 사용 가능한 대역폭, 파일 및 폴더 수와 같은 다양 한 요소에 따라 다릅니다. 미리 보기 릴리스의 대략적인 추정에서 검색 프로세스는 약 10개 파일/초의 속도로 실행됩니다. 따라서 클라우드에 데이터를 사전 시드할 경우 사전 시드가 빠르게 실행되더라도 시스템이 정상적으로 실행되기까지 오랜 시간이 걸릴 수 있습니다.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>이전 버전 및 VSS를 통한 셀프 서비스 복원 (볼륨 섀도 복사본 서비스)
 
@@ -541,7 +541,7 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
 이전 버전은 볼륨의 서버 쪽 VSS 스냅숏을 사용 하 여 파일의 복원 가능한 버전을 SMB 클라이언트에 제공 하는 Windows 기능입니다.
 이를 통해 IT 관리자의 복원에 의존 하는 대신 일반적으로 셀프 서비스 복원 이라고 하는 강력한 시나리오를 정보 근로자에 게 직접 사용할 수 있습니다.
 
-VSS 스냅숏과 이전 버전은 Azure File Sync 독립적으로 작동 합니다. 그러나 클라우드 계층화는 호환 모드로 설정 되어야 합니다. 많은 Azure File Sync 서버 끝점이 동일한 볼륨에 있을 수 있습니다. 클라우드 계층화를 계획 하거나 사용 하 고 있는 서버 끝점을 하나만 포함 하는 볼륨당 다음 PowerShell 호출을 수행 해야 합니다.
+VSS 스냅숏과 이전 버전은 Azure 파일 동기화 독립적으로 작동 합니다. 그러나 클라우드 계층화는 호환 모드로 설정 되어야 합니다. 많은 Azure 파일 동기화 서버 끝점이 동일한 볼륨에 있을 수 있습니다. 클라우드 계층화를 계획 하거나 사용 하 고 있는 서버 끝점을 하나만 포함 하는 볼륨당 다음 PowerShell 호출을 수행 해야 합니다.
 
 ```powershell
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
@@ -583,7 +583,7 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 
 ### <a name="scenario"></a>시나리오
 
-전 세계에 분산 된 회사에는 미국 및 인도의 지사가 있습니다. 아침 (미국 표준시) 정보 근로자는 새로운 새 폴더와 새 파일을 만들어 모든 날에 사용할 수 있습니다. Azure File Sync는 폴더와 파일을 Azure 파일 공유 (클라우드 끝점)와 동기화 합니다. 인도의 정보 근로자는 표준 시간대에서 프로젝트에 대 한 작업을 계속 합니다. 매일 Azure File Sync 아침에 도착 하면 인도 팀에서 로컬 캐시를 효율적으로 사용할 수 있도록 이러한 새 파일을 로컬에서 사용할 수 있도록 설정 해야 합니다. 이 모드를 사용 하도록 설정 하면 요청 시 회수로 인해 초기 파일 액세스 속도가 느려지고 서버에서 Azure 파일 공유에 변경 되거나 생성 되는 즉시 파일을 사전에 회수할 수 있습니다.
+전 세계에 분산 된 회사에는 미국 및 인도의 지사가 있습니다. 아침 (미국 표준시) 정보 근로자는 새로운 새 폴더와 새 파일을 만들어 모든 날에 사용할 수 있습니다. Azure 파일 동기화는 폴더와 파일을 Azure 파일 공유 (클라우드 끝점)와 동기화 합니다. 인도의 정보 근로자는 표준 시간대에서 프로젝트에 대 한 작업을 계속 합니다. 매일 Azure 파일 동기화 아침에 도착 하면 인도 팀에서 로컬 캐시를 효율적으로 사용할 수 있도록 이러한 새 파일을 로컬에서 사용할 수 있도록 설정 해야 합니다. 이 모드를 사용 하도록 설정 하면 요청 시 회수로 인해 초기 파일 액세스 속도가 느려지고 서버에서 Azure 파일 공유에 변경 되거나 생성 되는 즉시 파일을 사전에 회수할 수 있습니다.
 
 > [!IMPORTANT]
 > 서버에 긴밀 하 게 Azure 파일 공유의 변경 내용을 추적 하는 것은 Azure에서 송신 트래픽 및 청구를 늘릴 수 있다는 것을 인식 하는 것이 중요 합니다. 서버로 회수 된 파일이 실제로 로컬에서 필요 하지 않은 경우에는 서버에 대 한 불필요 한 회수로 부정적인 결과가 발생할 수 있습니다. 클라우드의 최근 변경 내용이 있는 서버에서 캐시를 미리 채우는 것을 알고 있는 경우이 모드를 사용 하 여 해당 서버의 파일을 사용 하는 사용자 또는 응용 프로그램에 긍정적인 영향을 미칠 수 있습니다.

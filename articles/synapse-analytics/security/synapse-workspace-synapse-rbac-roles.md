@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: a978113265e5e61c0fc09ef0daeb1da9826f294d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 1ffbb5579ea19d7d608dd9c9d600342cd89d371c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572799"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225077"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -39,7 +39,7 @@ ms.locfileid: "96572799"
 
 |역할 |사용 권한|범위|
 |---|---|-----|
-|Synapse 관리자  |서버를 사용 하지 않는 SQL 풀, Apache Spark 풀 및 통합 런타임에 대 한 전체 Synapse 액세스.  게시 된 모든 코드 아티팩트에 대 한 만들기, 읽기, 업데이트 및 삭제 액세스 권한을 포함 합니다.  작업 영역 시스템 id 자격 증명에 대 한 계산 연산자, 연결 된 Data Manager 및 자격 증명 사용자 권한이 포함 되어 있습니다.  Synapse RBAC 역할 할당을 포함 합니다.  계산 리소스를 만들고, 삭제 하 고, 관리 하려면 Azure 권한이 필요 합니다. </br></br>_아티팩트를 읽고 쓸 수 있는 </br> 작업은 Spark 작업에 대 한 모든 작업을 수행할 수 있습니다. </br> Spark 풀 로그 보기는 </br> 저장 된 노트북을 볼 수 있고, 파이프라인 출력 </br> 은 연결 된 서비스에서 저장 한 암호를 사용할 수 있습니다. 또는 자격 증명은 </br> sql,, 및 사용 권한이 있는 sql server가 아닌 끝점에 연결할 수 있습니다. `db_datareader` `db_datawriter` `connect` `grant` </br> 현재 범위에서 Synapse RBAC 역할을 할당 하 고_|작업 영역 </br> Spark 풀<br/>통합 런타임 </br>연결된 서비스</br>자격 증명 |
+|Synapse 관리자  |서버를 사용 하지 않는 SQL 풀, Apache Spark 풀 및 통합 런타임에 대 한 전체 Synapse 액세스.  게시 된 모든 코드 아티팩트에 대 한 만들기, 읽기, 업데이트 및 삭제 액세스 권한을 포함 합니다.  작업 영역 시스템 id 자격 증명에 대 한 계산 연산자, 연결 된 Data Manager 및 자격 증명 사용자 권한이 포함 되어 있습니다.  Synapse RBAC 역할 할당을 포함 합니다. Synapse 관리자 외에도 Azure 소유자는 Synapse RBAC 역할을 할당할 수 있습니다. 계산 리소스를 만들고, 삭제 하 고, 관리 하려면 Azure 권한이 필요 합니다. </br></br>_아티팩트를 읽고 쓸 수 있는 </br> 작업은 Spark 작업에 대 한 모든 작업을 수행할 수 있습니다. </br> Spark 풀 로그 보기는 </br> 저장 된 노트북을 볼 수 있고, 파이프라인 출력 </br> 은 연결 된 서비스에서 저장 한 암호를 사용할 수 있습니다. 또는 자격 증명은 </br> sql,, 및 사용 권한이 있는 sql server가 아닌 끝점에 연결할 수 있습니다. `db_datareader` `db_datawriter` `connect` `grant` </br> 현재 범위에서 Synapse RBAC 역할을 할당 하 고_|작업 영역 </br> Spark 풀<br/>통합 런타임 </br>연결된 서비스</br>자격 증명 |
 |Synapse Apache Spark 관리자</br>|Apache Spark 풀에 대 한 전체 Synapse 액세스.  게시 된 Spark 작업 정의, 노트북 및 해당 출력, 라이브러리, 연결 된 서비스 및 자격 증명에 대 한 액세스를 만들고, 읽고, 업데이트 하 고, 삭제 합니다.  다른 모든 게시 된 코드 아티팩트에 대 한 읽기 액세스를 포함 합니다. 자격 증명을 사용 하 고 파이프라인을 실행할 수 있는 권한을 포함 하지 않습니다. 액세스 부여는 포함 하지 않습니다. </br></br>_Spark 아티팩트의 모든 작업을 수행할 수 있습니다. </br> spark 작업에 대 한 모든 작업을 수행할 수 있습니다._|작업 영역</br>Spark 풀|
 |Synapse SQL 관리자|서버를 사용 하지 않는 SQL 풀에 대 한 전체 Synapse 액세스.  게시 된 SQL 스크립트, 자격 증명 및 연결 된 서비스에 대 한 액세스를 만들고, 읽고, 업데이트 하 고, 삭제 합니다.  다른 모든 게시 된 코드 아티팩트에 대 한 읽기 액세스를 포함 합니다.  자격 증명을 사용 하 고 파이프라인을 실행할 수 있는 권한을 포함 하지 않습니다. 액세스 부여는 포함 하지 않습니다. </br></br>*Sql 스크립트에 대 한 모든 작업을 수행할 수 있습니다 sql <br/> `db_datareader` , `db_datawriter` , `connect` 및 `grant` 사용 권한을 사용 하 여 sql server가 아닌 끝점에 연결할 수 있습니다.*|작업 영역|
 |Synapse 기여자|서버를 사용 하지 않는 SQL 풀, Apache Spark 풀, 통합 런타임에 대 한 전체 Synapse 액세스.  에는 자격 증명 및 연결 된 서비스를 비롯 하 여 게시 된 모든 코드 아티팩트와 해당 출력에 대 한 만들기, 읽기, 업데이트 및 삭제 권한이 포함 되어 있습니다.  Compute 연산자 사용 권한을 포함 합니다. 자격 증명을 사용 하 고 파이프라인을 실행할 수 있는 권한을 포함 하지 않습니다. 액세스 부여는 포함 하지 않습니다. </br></br>_아티팩트를 읽고 쓸 수 있는 경우 </br> 저장 된 노트북 및 파이프라인 출력을 볼 수 있습니다. </br> spark 작업에 대 한 모든 작업은 </br> spark 풀 로그를 볼 수 있습니다._|작업 영역 </br> Spark 풀<br/> 통합 런타임|
@@ -58,7 +58,7 @@ ms.locfileid: "96572799"
 
 다음 표에서는 기본 제공 역할 및 각 역할에서 지 원하는 작업/사용 권한을 보여 줍니다.
 
-Role|작업
+역할|동작
 --|--
 Synapse 관리자|작업 영역/읽기</br>작업 영역/역할 할당/쓰기, 삭제</br>workspace/managedPrivateEndpoint/write, delete</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/integrationRuntimes/useCompute/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>workspace/sqlScripts/write, delete</br>workspace/데이터 흐름/write, delete</br>작업 영역/파이프라인/쓰기, 삭제</br>작업 영역/트리거/쓰기, 삭제</br>작업 영역/데이터 집합/쓰기, 삭제</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/파이프라인/viewOutputs/작업</br>workspace/Linkedservices.json 및 datasets.json/useSecret/작업</br>작업 영역/자격 증명/기능/작업|
 |Synapse Apache Spark 관리자|작업 영역/읽기</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제|
@@ -75,7 +75,7 @@ Synapse 관리자|작업 영역/읽기</br>작업 영역/역할 할당/쓰기, �
 
 다음 표에서는 Synapse 작업 및 이러한 작업을 허용 하는 기본 제공 역할을 보여 줍니다.
 
-작업|Role
+작업|역할
 --|--
 작업 영역/읽기|Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse 기여자</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자</br>Synapse Compute 연산자 </br>Synapse 자격 증명 사용자</br>Synapse 연결 된 Data Manager</br>Synapse 사용자 
 작업 영역/역할 할당/쓰기, 삭제|Synapse 관리자
@@ -106,7 +106,7 @@ workspace/Linkedservices.json 및 datasets.json/useSecret/작업|Synapse 관리�
 >[!note]
 >개체를 만들거나 삭제 하려면 상위 수준 범위에서 사용 권한이 있어야 합니다.
 
-범위|역할
+Scope|역할
 --|--
 작업 영역 |Synapse 관리자</br>Synapse Apache Spark 관리자</br>Synapse SQL 관리자</br>Synapse 기여자</br>Synapse 아티팩트 게시자</br>Synapse 아티팩트 사용자</br>Synapse Compute 연산자 </br>Synapse 자격 증명 사용자</br>Synapse 연결 된 Data Manager</br>Synapse 사용자
 Apache Spark 풀 | Synapse 관리자 </br>Synapse 기여자 </br> Synapse Compute 연산자

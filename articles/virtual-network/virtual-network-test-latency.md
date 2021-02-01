@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219261"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226408"
 ---
 # <a name="test-vm-network-latency"></a>VM 네트워크 대기 시간 테스트
 
@@ -45,7 +45,7 @@ Ping과 같은 다른 일반적인 연결 도구는 대기 시간을 측정할 �
 ### <a name="tools-for-testing"></a>테스트용 도구
 대기 시간을 측정 하기 위한 두 가지 도구 옵션은 다음과 같습니다.
 
-* Windows 기반 시스템: [latte.exe (windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* Windows 기반 시스템: [latte.exe (windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * Linux 기반 시스템: [SockPerf (linux)](https://github.com/mellanox/sockperf)
 
 이러한 도구를 사용 하 여 TCP 또는 UDP 페이로드 배달 시간만 측정 되 고 ICMP (Ping) 또는 응용 프로그램에서 사용 되지 않으며 성능에 영향을 주지 않는 다른 패킷 유형이 아닌 것을 확인할 수 있습니다.

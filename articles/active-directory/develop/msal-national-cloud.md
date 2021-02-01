@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178622"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225819"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -84,7 +84,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 1. **개요** 페이지에서 나중에 사용할 **응용 프로그램 (클라이언트) ID** 값을 적어 둡니다.
     이 자습서에서는 [암시적 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용 하도록 설정 해야 합니다. 
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 권한 부여** 에서 **ID 토큰** 및 **액세스 토큰** 을 선택 합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
+1. **암시적 허용 및 하이브리드 흐름** 에서 **ID 토큰** 및 **액세스 토큰** 을 선택 합니다. ID 토큰 및 액세스 토큰은이 앱이 사용자에 게 로그인 하 고 API를 호출 해야 하기 때문에 필요 합니다.
 1. **저장** 을 선택합니다.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>2 단계: 웹 서버 또는 프로젝트 설정

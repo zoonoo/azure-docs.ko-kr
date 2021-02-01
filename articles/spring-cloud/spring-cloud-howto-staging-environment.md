@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991a335207fc29cef7b243d7e520dd5f62ff691f
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053112"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226114"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
 
@@ -20,8 +20,9 @@ ms.locfileid: "99053112"
 
 이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파란색/녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps 지속적인 업데이트 패턴입니다. 이 문서에서는 프로덕션 배포를 직접 변경 하지 않고 스테이징 배포를 프로덕션 환경에 배치 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
+* *표준* **가격 책정 계층** 을 사용 하는 Azure 스프링 클라우드 인스턴스입니다.
 * 실행 중인 응용 프로그램입니다.  [빠른 시작: 첫 번째 Azure 스프링 클라우드 응용 프로그램 배포를](spring-cloud-quickstart.md)참조 하세요.
 * Azure CLI [asc 확장](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
 
@@ -78,7 +79,7 @@ az extension add --name spring-cloud
 1. Azure CLI에서 새 배포를 만들고 스테이징 배포 이름 "green"을 지정 합니다.
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app <appName> -n green --jar-path gateway/target/gateway.jar
     ```
 
 1. CLI 배포가 성공적으로 완료 되 면 **응용 프로그램 대시보드에서** 앱 페이지에 액세스 하 고 왼쪽의 **배포** 탭에서 모든 인스턴스를 확인 합니다.
@@ -113,11 +114,11 @@ az extension add --name spring-cloud
 
    [![배포에서 스테이징 배포 설정](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. **배포 관리** 페이지로 돌아갑니다.  `green`배포 배포 상태가 표시 되어야 합니다 . 이제 프로덕션 빌드를 실행 하 고 있습니다.
+1. **배포 관리** 페이지로 돌아갑니다. 배포를 `green` 로 설정 `production` 합니다. 설정이 완료 되 면 `green` 배포 상태가 표시 *됩니다*. 이제 프로덕션 빌드를 실행 하 고 있습니다.
 
    [![배포 준비 배포 결과 설정](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
 
-1. URL을 복사 하 여 새 브라우저 창에 붙여 넣고 새 응용 프로그램 페이지가 변경 내용과 함께 표시 되어야 합니다.
+1. 앱의 URL에 변경 내용이 표시 되어야 합니다.
 
 >[!NOTE]
 > 녹색 배포를 프로덕션 환경으로 설정한 후에는 이전 배포가 스테이징 배포가 됩니다.

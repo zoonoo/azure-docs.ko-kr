@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
-ms.openlocfilehash: 76bb4ffb4ebeb01baf8236d6be84c900b23ffbc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790817"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225346"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제 (미리 보기)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "92790817"
 
 ### <a name="components"></a>구성 요소
 
-트랜잭션 복제의 주요 구성 요소는 다음 그림에 표시 된 것 처럼 **게시자** , **배포자** 및 **구독자** 입니다.  
+트랜잭션 복제의 주요 구성 요소는 다음 그림에 표시 된 것 처럼 **게시자**, **배포자** 및 **구독자** 입니다.  
 
 ![SQL Database를 사용한 복제](./media/replication-transactional-overview/replication-to-sql-database.png)
 
@@ -106,10 +106,10 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>트랜잭션 복제와 데이터 동기화 비교
 
-| Category | 데이터 동기화 | 트랜잭션 복제 |
+| 범주 | 데이터 동기화 | 트랜잭션 복제 |
 |---|---|---|
 | 장점 | - 활성-활성 지원<br/>- 온-프레미스 및 Azure SQL Database 간 양방향 | - 낮은 대기 시간<br/>- 트랜잭션 일관성<br/>- 마이그레이션 후 기존 토폴로지 다시 사용 |
-| 단점 | - 5분 이상의 대기 시간<br/>- 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
+| 단점 | - 트랜잭션 일관성 부족<br/>- 성능에 더 많은 영향을 미침 | -Azure SQL Database에서 게시할 수 없음 <br/>- 높은 유지 관리 비용 |
 
 ## <a name="common-configurations"></a>일반 구성
 
@@ -199,7 +199,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 - [게시를 만듭니다](/sql/relational-databases/replication/publish/create-a-publication).
 - 서버 이름을 구독자로 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription) (예 `N'azuresqldbdns.database.windows.net` : **Adventureworks** 와 같이 Azure SQL Database 이름의 데이터베이스를 대상 데이터베이스로 사용 합니다. )
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 - [SQL Managed Instance 및 장애 조치 (failover) 그룹으로 복제](transact-sql-tsql-differences-sql-server.md#replication)
 - [SQL Database로 복제](../database/replication-to-sql-database.md)

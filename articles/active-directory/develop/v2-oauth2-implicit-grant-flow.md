@@ -12,12 +12,12 @@ ms.date: 11/30/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 97f4642d69d4a432b823bd1cd7cdbdd9fc7f270d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f3598c6f072d09d7e427db66dcfbf8721b92a3a1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752740"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226491"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft id 플랫폼 및 암시적 허용 흐름
 
@@ -44,7 +44,7 @@ Microsoft id 플랫폼은 [oauth 2.0 사양](https://tools.ietf.org/html/rfc6749
 처음에 사용자를 앱에 로그인 하기 위해 [Openid connect Connect](v2-protocols-oidc.md) 인증 요청을 보내고 `id_token` Microsoft id 플랫폼에서를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> ID 토큰 및/또는 액세스 토큰을 성공적으로 요청 하려면 **암시적 권한** 부여 섹션에서 **id 토큰** 및. 또는 **액세스 토큰** 을 선택 하 여 [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지의 앱 등록에서 해당 하는 암시적 권한 부여 흐름을 사용 하도록 설정 해야 합니다. 사용 하도록 설정 되지 않은 경우에는 `unsupported_response` 오류가 반환 됩니다. **입력 매개 변수 ' response_type '에 대해 제공 된 값이이 클라이언트에 허용 되지 않습니다. 필요한 값은 ' 코드 '입니다** .
+> ID 토큰 및/또는 액세스 토큰을 성공적으로 요청 하려면 **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **id 토큰** 및 **액세스 토큰** 을 선택 하 여 [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지의 앱 등록에서 해당 하는 암시적 권한 부여 흐름을 사용 하도록 설정 해야 합니다. 사용 하도록 설정 되지 않은 경우 `unsupported_response` 다음과 같은 오류가 반환 됩니다. `The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'`
 
 ```
 // Line breaks for legibility only
@@ -92,7 +92,7 @@ code=0.AgAAktYV-sfpYESnQynylW_UKZmH-C9y_G1A
 &state=12345
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `code` | `response_type`이 `code`을 포함하는 경우 포함됩니다. 이는 [인증 코드 흐름](v2-oauth2-auth-code-flow.md)에서 사용 하기에 적합 한 인증 코드입니다.  |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
@@ -165,7 +165,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fdirectory.read
 ```
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |

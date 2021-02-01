@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 369ec11050fa7dbc09159d88793685ad5fbdb3e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053963"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226525"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
 
@@ -238,7 +238,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
    - IOS의 **설정** 에서 자동 채우기 설정 섹션에서 **자동 채우기 설정 방법** 을 선택 하 여 기본 자동 채우기 공급자로 인증자를 설정 하는 방법을 알아봅니다.
    - Android의 **설정** 에서 자동 채우기 설정 섹션에서 자동 **채우기 공급자로 설정** 을 선택 합니다.
 
-**Q**: 설정에서 자동 **채우기** 스위치를 사용할 수 없는 경우는 어떻게 되나요?
+**Q**: 설정에서 자동 **채우기를** 사용할 수 없는 경우 어떻게 되나요?
 
 **A**: 인증자에서 자동 채우기를 사용할 수 없는 경우 조직 또는 계정 유형에 대해 자동 채우기가 아직 허용 되지 않았기 때문일 수 있습니다. 회사 또는 학교 계정이 추가 되지 않은 장치에서이 기능을 사용할 수 있습니다. 조직에서 자동 채우기를 허용 하는 방법에 대 한 자세한 내용은 [IT 관리자를 위한 자동 채우기](#autofill-for-it-admins)를 참조 하세요.
 

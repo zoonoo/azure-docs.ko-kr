@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5d656a27017f3c7ec97362efc6207917ffcd1a56
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 8449c5437bad6d0036d332ca5c35709b5d571cfa
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111409"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225161"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 다단계 인증 사용 | Microsoft Docs
 
@@ -40,7 +40,9 @@ Azure Active Directory B2C (Azure AD B2C)는 [AZURE AD Multi-Factor Authenticati
 1. **사용자 흐름** 을 선택합니다.
 1. MFA를 사용 하도록 설정할 사용자 흐름을 선택 합니다. 예를 들어 *B2C_1_signinsignup* 합니다.
 1. **속성** 을 선택합니다.
-1. **다단계 인증** 섹션에서 원하는 **mfa 방법을** 선택한 다음 **mfa 적용** 에서 **Always on** 또는 **[조건부](conditional-access-user-flow.md) (권장)** 를 선택 합니다. 조건에 대해 [조건부 액세스 정책](conditional-access-identity-protection-setup.md) 정책을 만들고 정책을 적용할 앱을 지정 합니다. 
+1. **다단계 인증** 섹션에서 원하는 **mfa 방법을** 선택한 다음 **mfa 적용** 에서 **Always on** 또는 **조건부 (권장)** 를 선택 합니다.
+  > [!NOTE]
+  > **조건부 (권장)** 를 선택 하는 경우 [조건부 액세스 정책을 추가](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) 하 고 정책을 적용할 앱을 지정 해야 합니다.
 1. [저장]을 선택합니다. 이제이 사용자 흐름에 대해 MFA를 사용할 수 있습니다.
 
 **사용자 흐름 실행** 을 사용하여 환경을 확인할 수 있습니다. 다음 시나리오를 확인합니다.

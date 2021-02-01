@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 27cc55978582468c759603571bd8b0e69f29db5d
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221445"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226576"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>대역폭/처리량 테스트(NTTTCP)
 
@@ -52,9 +52,9 @@ VM의 코어 수를 기록해 둡니다. 이것을 "\#num\_cores"로 지칭하�
 
 #### <a name="get-ntttcp-onto-the-vms"></a>VM에 NTTTCP를 가져옵니다.
 
-최신 버전을 다운로드합니다(<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>).
+최신 버전을 다운로드합니다(https://github.com/microsoft/ntttcp/releases/download/v5.35/NTttcp.exe).
 
-또는 이동된 경우 검색합니다(<https://www.bing.com/search?q=ntttcp+download>\<). 첫 번째로 검색되는 항목입니다.
+또는 최상위 GitHub 페이지를 봅니다. <https://github.com/microsoft/ntttcp>\
 
 NTTTCP를 c:\\tools와 같은 별도 폴더에 추가하는 것을 고려합니다.
 

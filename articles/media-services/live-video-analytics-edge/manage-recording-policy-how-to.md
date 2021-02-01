@@ -3,12 +3,12 @@ title: 기록 정책 관리-Azure
 description: 이 항목에서는 기록 정책을 관리 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: d3a1be915dc1cc8714e49cc7b2fe68bbe9cad161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011484"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99224992"
 ---
 # <a name="manage-recording-policy"></a>녹음/녹화 정책 관리
 
@@ -45,7 +45,7 @@ ms.locfileid: "87011484"
 * Blob이 30 일이 넘은 경우 [핫 액세스 계층에서 쿨로](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal)이동 하도록 지정 합니다.
 * Blob이 90 일을 초과 하면 삭제 됩니다.
 
-Live Video Analytics는 지정 된 시간 단위로 비디오를 보관 하므로 자산에는 세그먼트 당 하나의 blob 인 일련의 blob이 포함 됩니다. 수명 주기 관리 정책이 실행 되 고 이전 blob를 삭제 하는 경우 Media Service Api를 통해 나머지 blob에 계속 액세스 하 고 재생할 수 있습니다. 자세한 내용은 [재생 기록](playback-recordings-how-to.md)을 참조 하세요. 
+Live Video Analytics를 사용 하 여 자산에 기록 하는 경우 `segmentLength` 클라우드에 기록 되기 전의 최소 비디오 기간 (초)을 집계 하도록 모듈에 지시 하는 속성을 지정 합니다. 자산에는 일련의 세그먼트가 포함 되며, 각 세그먼트는 이전 보다 새 타임 스탬프를 사용 `segmentLength` 합니다. 수명 주기 관리 정책은 지정 된 임계값 보다 오래 된 세그먼트를 삭제 합니다. 그러나 Media Service Api를 통해 나머지 세그먼트에 계속 액세스 하 고 재생할 수 있습니다. 자세한 내용은 [녹음/녹화 재생](playback-recordings-how-to.md)을 참조 하세요. 
 
 ## <a name="limitations"></a>제한 사항
 

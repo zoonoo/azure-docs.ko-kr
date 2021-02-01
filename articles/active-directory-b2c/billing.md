@@ -7,23 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2020
+ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: edff5354d0565bd32cd0332b4aa0f215c2980d73
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949788"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225211"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
 
 Azure Active Directory B2C (Azure AD B2C) 가격은 월별 활성 사용자 (MAU)를 기반으로 하며,이는 일정 월 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 청구 모델은 Azure AD B2C 테 넌 트와 [AZURE AD 게스트 사용자 공동 작업 (B2B)](../active-directory/external-identities/external-identities-pricing.md)모두에 적용 됩니다. MAU 청구는 무료 계층과 유연 하 고 예측 가능한 가격을 제공 하 여 비용을 절감 하는 데 도움이 됩니다. 이 문서에서는 MAU 청구에 대해 알아보고, Azure AD B2C 테 넌 트를 구독에 연결 하 고, 가격 책정 계층을 변경 합니다.
 
 > [!IMPORTANT]
-> 이 문서에는 가격 정보가 포함 되어 있지 않습니다. 사용량 청구 및 가격 책정에 대 한 최신 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조 하세요.
+> 이 문서에는 가격 정보가 포함 되어 있지 않습니다. 사용량 청구 및 가격 책정에 대 한 최신 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조 하세요. Azure AD B2C 서비스를 사용할 수 있는 위치 및 사용자 데이터가 저장 되는 위치에 대 한 자세한 내용은 [Azure AD B2C 지역 가용성 및 데이터 상주](data-residency.md) 를 참조 하세요.
 
 ## <a name="what-do-i-need-to-do"></a>무엇을 해야 하나요?
 
@@ -125,7 +125,7 @@ MAU (월간 활성 사용자) 청구는 **취소할** 수 없습니다. Azure AD
 
 MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하는 즉시 사용 하도록 설정 됩니다. 월별 청구서는 변경 될 때까지 청구 되는 인증 단위와 변경으로 시작 하는 MAU의 새 단위를 반영 합니다.
 
-사용자는 전환 월 중에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 사용자는 구독 청구 주기의 나머지 부분에 대해 MAU 계산에 포함 되지 않습니다. 예를 들면 다음과 같습니다.
+사용자는 전환 월 중에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 사용자는 구독 청구 주기의 나머지 부분에 대해 MAU 계산에 포함 되지 않습니다. 예:
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.

@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955786"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226627"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
 
@@ -47,16 +47,16 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 ## <a name="azure-regions-with-availability-zones"></a>가용성 영역 Azure 지역
 
 
-| 아메리카           | 유럽         | 독일              | 아프리카              | 아시아 태평양   |
-|--------------------|----------------|----------------------|---------------------|----------------|
-|                    |                |                      |                     |                |
-| 캐나다 중부     | 프랑스 중부 | 독일 중서부 | 남아프리카 공화국 북부 * | 일본 동부     |
-| 미국 중부         | 북유럽   |                      |                     | 동남 아시아 |
-| 미국 동부            | 영국 남부       |                      |                     | 오스트레일리아 동부 |
-| 미국 동부 2          | 서유럽    |                      |                     |                |
-| 미국 중 남부 |                |                      |                     |                |
-| US Gov 버지니아 * |                |                      |                     |                |
-| 미국 서 부 2        |                |                      |                     |                |
+| 아메리카           | 유럽               | 아프리카              | 아시아 태평양   |
+|--------------------|----------------------|---------------------|----------------|
+|                    |                      |                     |                |
+| 캐나다 중부     | 프랑스 중부       | 남아프리카 공화국 북부 * | 일본 동부     |
+| 미국 중부         | 독일 중서부 |                     | 동남 아시아 |
+| 미국 동부            | 북유럽         |                     | 오스트레일리아 동부 |
+| 미국 동부 2          | 영국 남부             |                     |                |
+| 미국 중 남부 | 서유럽          |                     |                |
+| US Gov 버지니아 * |                      |                     |                |
+| 미국 서 부 2        |                      |                     |                |
 
 
 \* 이러한 지역에서 가용성 영역 및 사용 가능한 서비스 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하세요. 가용성 영역를 지원할 예정 된 지역에 대해서는 [Azure 지역](https://azure.microsoft.com/en-us/global-infrastructure/geographies/)을 참조 하세요.
@@ -88,7 +88,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 |     Azure 공용 IP                                           | : large_blue_diamond:  |
 |     Azure SQL Database (일반 용도 계층)                 | : large_blue_diamond:  |
 |     Azure SQL Database (Premium & 중요 비즈니스용 계층)     | : large_blue_diamond:  |
-|     Disk Storage                                                | : large_blue_diamond:  |
+|     디스크 스토리지                                                | : large_blue_diamond:  |
 |     Event Hubs                                                  | : large_blue_diamond:  |
 |     Key Vault                                                   | : large_blue_diamond:  |
 |     Load Balancer                                               | : large_blue_diamond:  |

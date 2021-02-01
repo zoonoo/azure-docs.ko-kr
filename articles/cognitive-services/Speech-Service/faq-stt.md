@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: a6f75a80fd73844c975b332db8a0e8919cde9f0d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072176"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226559"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -83,7 +83,7 @@ ms.locfileid: "98072176"
 
 **Q: 내 요청이 기록되나요?**
 
-**A**: 기본적으로 요청은 기록 되지 않습니다 (오디오, 기록도 아님). 필요한 경우 [사용자 지정 끝점을 만들](./how-to-custom-speech-train-model.md)때 *이 끝점에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 사용자 지정 끝점을 만들지 않고도 요청 별로 [음성 SDK](speech-sdk.md) 에서 오디오 로깅을 사용 하도록 설정할 수도 있습니다. 두 경우 모두 요청의 오디오 및 인식 결과가 보안 저장소에 저장 됩니다. Microsoft 소유의 저장소를 사용 하는 구독의 경우 30 일 동안 사용할 수 있습니다.
+**A**: 기본적으로 요청은 기록 되지 않습니다 (오디오, 기록도 아님). 필요한 경우 [사용자 지정 끝점을 만들](how-to-custom-speech-train-model.md#deploy-a-custom-model)때 *이 끝점에서 콘텐츠 기록* 옵션을 선택할 수 있습니다. 사용자 지정 끝점을 만들지 않고도 요청 별로 [음성 SDK](how-to-use-logging.md) 에서 오디오 로깅을 사용 하도록 설정할 수도 있습니다. 두 경우 모두 요청의 오디오 및 인식 결과가 보안 저장소에 저장 됩니다. Microsoft 소유의 저장소를 사용 하는 구독의 경우 30 일 동안 사용할 수 있습니다.
 
 *이 끝점의 로그 콘텐츠* 를 사용 하는 사용자 지정 끝점을 사용 하는 경우 Speech Studio의 배포 페이지에서 로깅되는 파일을 내보낼 수 있습니다. SDK를 통해 오디오 로깅이 사용 되는 경우 [API](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs) 를 호출 하 여 파일에 액세스 합니다.
 

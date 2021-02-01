@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-ms.openlocfilehash: 0beaef9162f4bdb540764a100243c579b40d1324
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 11f32d893ccc26dd30d9997d4348661d45f84eb8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755947"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225482"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Microsoft id 플랫폼 문서: 새로운 기능
 
@@ -24,13 +24,25 @@ Microsoft id 플랫폼 설명서의 새로운 기능을 시작 합니다. 이 �
 
 ## <a name="january-2021"></a>2021년 1월
 
+### <a name="new-articles"></a>새 문서
+
+- [Android용 MSAL에서 로깅](msal-logging-android.md)
+- [MSAL.NET의 로깅](msal-logging-dotnet.md)
+- [iOS/macOS용 MSAL에서 로깅](msal-logging-ios.md)
+- [Java용 MSAL에서 로깅](msal-logging-java.md)
+- [MSAL.js의 로깅](msal-logging-js.md)
+- [Python용 MSAL에서 로깅](msal-logging-python.md)
+
 ### <a name="updated-articles"></a>업데이트된 문서
 
+- [게시자 확인 문제 해결](troubleshoot-publisher-verification.md)
+- [애플리케이션 모델](application-model.md)
 - [인증과 권한 부여의 차이점](authentication-vs-authorization.md)
 - [방법: azure ad 테 넌 트에서 사용자 집합으로 Azure AD 앱 제한](howto-restrict-your-app-to-a-set-of-users.md)
 - [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](v2-permissions-and-consent.md)
 - [Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)
 - [토큰 수명 정책 구성 (미리 보기)](configure-token-lifetimes.md)
+- [Microsoft id 플랫폼 인증 라이브러리](reference-v2-libraries.md)
 - [Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)
 
 ## <a name="december-2020"></a>2020년 12월

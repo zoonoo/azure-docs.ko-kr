@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756505"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226358"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
 
@@ -39,7 +39,7 @@ Microsoft id 플랫폼을 사용 하 여 한 번에 여러 리소스에 대 한 
 - `https://mytenant.onmicrosoft.com/customerapi` 범위 `customer.read` 및 `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` 범위 `vendor.read` 및 `vendor.write`
 
-이 예제에서는 `.WithAdditionalPromptToConsent` 매개 변수가 있는 한정자를 사용 합니다 `extraScopesToConsent` .
+이 예제에서는 `.WithExtraScopesToConsent` 매개 변수가 있는 한정자를 사용 합니다 `extraScopesToConsent` .
 
 예를 들면 다음과 같습니다.
 
@@ -106,6 +106,11 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 Microsoft 개인 계정 사용자의 경우 권한 부여를 위해 각 native client (데스크톱 또는 모바일 앱) 호출에 대 한 동의를 다시 확인 하는 것은 의도 된 동작입니다. Native client id는 본질적으로 안전 하지 않습니다 .이는 기밀 클라이언트 응용 프로그램 id와 반대입니다. 기밀 클라이언트 응용 프로그램은 Microsoft Id 플랫폼과 암호를 교환 하 여 해당 id를 증명 합니다. Microsoft id 플랫폼은 응용 프로그램에 권한이 부여 될 때마다 사용자에 게 동의 하 라는 메시지를 표시 하 여이 입력할 소비자 서비스를 완화 하도록 선택 했습니다.
 
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+추가 샘플을 보려면 [데스크톱 및 모바일 공용 클라이언트 앱](sample-v2-code.md#desktop-and-mobile-public-client-apps)을 참조 하세요.
+
+
+
