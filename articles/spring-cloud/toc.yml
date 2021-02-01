@@ -45,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: 보안 컨트롤
-      href: spring-cloud-concept-security-controls.md
+    - name: 보안
+      items:
+        - name: 보안 컨트롤
+          href: spring-cloud-concept-security-controls.md
+        - name: Azure Policy의 보안 컨트롤
+          href: ./security-controls-policy.md
     - name: 앱 상태 이해
       href: spring-cloud-concept-app-status.md
     - name: 재해 복구 계획
@@ -99,6 +103,8 @@
           href: spring-cloud-howto-application-insights.md
         - name: Resilience4J 회로 차단기 메트릭
           href: spring-cloud-howto-circuit-breaker-metrics.md
+        - name: 구조화된 애플리케이션 로그
+          href: spring-cloud-structured-app-log.md
     - name: 네트워크
       items:
         - name: 가상 네트워크에 Azure Spring Cloud 배포

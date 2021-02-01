@@ -384,15 +384,15 @@
       href: /rest/api/cost-management
     - name: Azure Consumption REST API
       href: /rest/api/consumption
-    - name: Resource Manager 템플릿
+    - name: 소비 REST API ARM 예산 템플릿
       href: /azure/templates/microsoft.consumption/budgets
     - name: Cost Management REST API 샘플
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
-    - name: Cost Management - Azure PowerShell
+    - name: Cost Management용 Azure PowerShell cmdlet
       href: /powershell/module/Az.CostManagement
     - name: 청구 자동화 시나리오
       href: manage/cost-management-automation-scenarios.md
-    - name: Azure 청구 API 개요
+    - name: Azure Retail Prices REST API
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: Azure Billing REST API
       href: /rest/api/billing
@@ -400,11 +400,7 @@
       href: manage/consumption-api-overview.md
     - name: Azure Consumption REST API
       href: /rest/api/consumption
-    - name: RateCard REST API
-      href: /previous-versions/azure/reference/mt219005(v=azure.100)
-    - name: REST API 사용
-      href: /previous-versions/azure/reference/mt219003(v=azure.100)
-    - name: Enterprise Reporting 개요
+    - name: Enterprise Reporting REST API 개요
       href: manage/enterprise-api.md
     - name: Enterprise Reporting REST API
       href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
@@ -412,13 +408,13 @@
       items:
         - name: 예약 REST API
           href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-        - name: 예약 - Azure PowerShell
+        - name: 예약용 Azure PowerShell cmdlet
           href: /powershell/module/azurerm.reservations
-        - name: 예약- CLI
+        - name: 예약용 Azure CLI
           href: /cli/azure/reservations/reservation
-        - name: Cost Management - 사용량 세부 정보 REST API
+        - name: 사용량 세부 정보 REST API
           href: /rest/api/consumption/usagedetails
-        - name: Cost Management - 사용량 예약 세부 정보 REST API
+        - name: 예약 세부 정보 REST API
           href: /rest/api/consumption/reservationsdetails
 - name: 리소스
   items:

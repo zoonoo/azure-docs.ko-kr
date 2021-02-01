@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: ee7fedffd58ffb9e98f8c412833d151eb1a95530
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547154"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223460"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 
@@ -44,11 +44,11 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 ### <a name="limitations"></a>제한 사항
 
-- 동일한 구독 및 지역 내에서 암호화 된 Vm을 백업 하 고 복원할 수 있습니다.
+- 동일한 구독 및 지역 내에서 ADE 암호화 된 Vm을 백업 하 고 복원할 수 있습니다.
 - Azure Backup는 독립 실행형 키를 사용 하 여 암호화 된 Vm을 지원 합니다. VM을 암호화 하는 데 사용 되는 인증서의 일부인 키는 현재 지원 되지 않습니다.
-- Recovery Services 백업 자격 증명 모음과 동일한 구독 및 지역 내에서 암호화 된 Vm을 백업 하 고 복원할 수 있습니다.
-- 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 파일 및 폴더를 복원 하려면 전체 VM을 복구 해야 합니다.
-- VM을 복원 하는 경우 암호화 된 Vm에 대해 [기존 vm 바꾸기](backup-azure-arm-restore-vms.md#restore-options) 옵션을 사용할 수 없습니다. 이 옵션은 암호화 되지 않은 managed disks에 대해서만 지원 됩니다.
+- Recovery Services 백업 자격 증명 모음과 동일한 구독 및 지역 내에서 ADE 암호화 된 Vm을 백업 하 고 복원할 수 있습니다.
+- ADE 암호화 된 Vm은 파일/폴더 수준에서 복구할 수 없습니다. 파일 및 폴더를 복원 하려면 전체 VM을 복구 해야 합니다.
+- VM을 복원 하는 경우 ADE 암호화 된 Vm에 대해 [기존 vm 바꾸기](backup-azure-arm-restore-vms.md#restore-options) 옵션을 사용할 수 없습니다. 이 옵션은 암호화 되지 않은 managed disks에 대해서만 지원 됩니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -70,7 +70,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
     ![백업 창](./media/backup-azure-vms-encryption/select-backup.png)
 
-1. **Backup goal**  >  **워크 로드가 실행 되는** 백업 목표에서 **Azure** 를 선택 합니다.
+1.   >  **워크 로드가 실행 되는** 백업 목표에서 **Azure** 를 선택 합니다.
 1. **백업할 항목** 에서 **가상 컴퓨터** 를 선택 합니다. 그런 다음 **백업** 을 선택 합니다.
 
       ![시나리오 창](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
@@ -125,6 +125,17 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 1. Azure Portal에서 **모든 서비스** 를 선택 하 고 **키 자격 증명 모음** 을 검색 합니다.
 1. 백업 중인 암호화 된 VM과 연결 된 key vault를 선택 합니다.
+
+    >[!TIP]
+    >VM의 연결 된 key vault를 식별 하려면 다음 PowerShell 명령을 사용 합니다. 리소스 그룹 이름 및 VM 이름으로 대체 합니다.
+    >
+    >`Get-AzVm -ResourceGroupName "MyResourceGroup001" -VMName "VM001" -Status`
+    >
+    > 다음 줄에서 키 자격 증명 모음 이름을 찾습니다.
+    >
+    >`SecretUrl            : https://<keyVaultName>.vault.azure.net`
+    >
+
 1. **액세스** 정책  >  **추가 액세스 정책** 을 선택 합니다.
 
     ![액세스 정책 추가](./media/backup-azure-vms-encryption/add-access-policy.png)
@@ -148,7 +159,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 암호화 된 Vm을 다음과 같이 복원 합니다.
 
 1. [VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks).
-2. 다음 중 하나를 수행 하 여 가상 머신 인스턴스를 다시 만듭니다.
+2. 다음 작업 중 하나를 수행 하 여 가상 머신 인스턴스를 다시 만듭니다.
     1. 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     2. PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설치 합니다.

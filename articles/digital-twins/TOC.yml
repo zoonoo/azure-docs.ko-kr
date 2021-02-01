@@ -4,8 +4,6 @@
   items:
     - name: Azure Digital Twins 정보
       href: overview.md
-    - name: 이전 릴리스와의 차이점
-      href: overview-differences.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -53,6 +51,8 @@
               href: how-to-set-up-instance-powershell.md
             - name: 스크립팅된 버전
               href: how-to-set-up-instance-scripted.md
+        - name: Private Link를 통한 프라이빗 액세스 사용
+          href: how-to-enable-private-link.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
         - name: 앱 등록 만들기
@@ -107,6 +107,8 @@
               href: how-to-manage-routes-apis-cli.md
             - name: 포털 버전
               href: how-to-manage-routes-portal.md
+        - name: 라우팅 이벤트에 관리 ID 사용
+          href: how-to-enable-managed-identities.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합
@@ -153,6 +155,20 @@
       href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
 - name: 리소스
   items:
+    - name: Digital Twins 서비스 제한
+      href: reference-service-limits.md
+    - name: 가격 책정 및 가용성
+      items:
+        - name: 가격 책정
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
+        - name: SLA
+          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
+        - name: 지역 및 가용성
+          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
+    - name: 고객 데이터 요청
+      href: resources-customer-data-requests.md
+    - name: 원본 릴리스와의 차이점
+      href: resources-compare-original-release.md
     - name: API 및 SDK
       items:
         - name: 컨트롤 플레인
@@ -243,22 +259,10 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DTMI 사양
           href: 'https://github.com/Azure/digital-twin-model-identifier'
-    - name: 고객 데이터 요청
-      href: resources-customer-data-requests.md
-    - name: Digital Twins 서비스 제한
-      href: reference-service-limits.md
-    - name: 가격 책정 및 가용성
-      items:
-        - name: 가격 책정
-          href: 'https://azure.microsoft.com/pricing/details/digital-twins'
-        - name: SLA
-          href: 'https://azure.microsoft.com/support/legal/sla/digital-twins'
-        - name: 지역 및 가용성
-          href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
-    - name: 고객 사례
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Channel 9 동영상
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: 고객 사례
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell
@@ -267,7 +271,5 @@
           href: /powershell/azure/
         - name: Azure portal
           href: 'https://portal.azure.com'
-    - name: Azure RBAC 설명서
-      href: ../role-based-access-control/overview.md
     - name: 지원 및 도움말 옵션
       href: ../iot-fundamentals/iot-support-help.md

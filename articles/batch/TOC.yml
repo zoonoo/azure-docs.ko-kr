@@ -143,7 +143,9 @@
           href: batch-sig-images.md
         - name: 관리형 이미지 리소스를 사용하여 풀 만들기
           href: batch-custom-images.md
-        - name: 디스크 암호화가 사용된 풀 생성
+        - name: 가용성 영역에 풀 만들기
+          href: create-pool-availability-zones.md
+        - name: 디스크 암호화가 사용된 풀 만들기
           href: disk-encryption.md
         - name: 가상 네트워크에서 풀 만들기
           href: batch-virtual-network.md

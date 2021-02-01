@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 221678da819d32539d0078b72a87c61851ed3e8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089261"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223392"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 ServiceNow 연결
 
 이 문서에서는 ITSMC (IT Service Management) 작업 항목을 중앙에서 관리할 수 있도록 Log Analytics의 ServiceNow 인스턴스와 IT 서비스 관리 커넥터 (ITSMC) 간에 연결을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 연결에 대 한 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 
 ### <a name="itsmc-installation"></a>ITSMC 설치
@@ -29,10 +29,11 @@ ITSMC를 설치 하는 방법에 대 한 자세한 내용은 [IT 서비스 관�
 
 ### <a name="oauth-setup"></a>OAuth 설정
 
-ServiceNow 지원 버전에는 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키 및 Geneva가 있습니다.
+ServiceNow 지원 버전에는 파리, 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키 및 Geneva가 있습니다.
 
 ServiceNow 관리자는 ServiceNow 인스턴스에 대 한 클라이언트 ID 및 클라이언트 암호를 생성 해야 합니다. 필요에 따라 다음 정보를 참조 하세요.
 
+- [파리에 대해 OAuth 설정](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [올랜도에 대 한 OAuth 설정](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [New York에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Madrid에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

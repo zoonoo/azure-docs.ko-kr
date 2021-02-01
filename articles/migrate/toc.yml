@@ -190,6 +190,8 @@
           href: how-to-delete-project.md
         - name: 이전 버전의 Azure Migrate 사용
           href: migrate-v1.md
+        - name: Azure Lighthouse를 사용하여 마이그레이션 프로젝트 관리
+          href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: 문제 해결
   items:
     - name: 일반

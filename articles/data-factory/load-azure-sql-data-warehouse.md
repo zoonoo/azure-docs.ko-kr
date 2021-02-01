@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 12630e5e4b332d875a75c59d2fdafecd23be0b17
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 01/29/2020
+ms.openlocfilehash: 8071b0fb08f6456b4eb59a3dae875ab0c90ab64d
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005432"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223504"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에 데이터 로드
 
@@ -126,7 +126,7 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 
     b. **새 연결 된 서비스** 페이지에서 저장소 계정을 선택 하 고 **만들기** 를 선택 하 여 연결 된 서비스를 배포 합니다.
 
-    c. **고급 설정** 섹션에서 **형식 기본값 사용** 옵션의 선택을 취소한 다음, **다음** 을 선택합니다.
+    c. **유형 기본값 사용** 옵션을 선택 취소 하 **고 다음을 선택 합니다**.
 
     ![PolyBase 구성](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 

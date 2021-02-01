@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931308"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223100"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 REST 끝점에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "96931308"
 이 REST 커넥터, [HTTP 커넥터](connector-http.md)및 [웹 테이블 커넥터](connector-web-table.md) 간의 차이점은 다음과 같습니다.
 
 - **REST 커넥터** 는 RESTful api에서 데이터를 복사 하는 것을 구체적으로 지원 합니다. 
-- **Http 커넥터** 는 파일을 다운로드 하는 등 모든 http 끝점에서 데이터를 검색 하는 데 일반적입니다. 이 REST 커넥터를 사용할 수 있게 되기 전에는 HTTP 커넥터를 사용하여 지원은 되지만 REST 커넥터와 비교할 때 기능이 적은 RESTful API에서 데이터를 복사할 수도 있습니다.
+- **Http 커넥터** 는 파일을 다운로드 하는 등 모든 http 끝점에서 데이터를 검색 하는 데 일반적입니다. 이 REST 커넥터 전에는 HTTP 커넥터를 사용 하 여 RESTful API에서 데이터를 복사 하는 것이 발생할 수 있습니다 .이는 지원 되지만 REST 커넥터와 비교 하 여 기능이 낮습니다.
 - **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -179,7 +179,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` 는 그대로 지원 되지만 앞으로 `additionalHeaders` `requestBody` `paginationRules` 작업에서 새 모델을 사용 하는 것이 좋습니다.
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -317,7 +317,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 ]
 ```
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -370,7 +370,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 페이지 매김 규칙의 **지원되는 키** 는 다음과 같습니다.
 
-| 키 | Description |
+| Key | Description |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url** 일 수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에서 하나의 쿼리 매개 변수 이름을 참조 하는 사용자 정의입니다. |
@@ -383,7 +383,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | Headers.*response_header* OR Headers['response_header'] | "response_header"은 현재 HTTP 응답의 헤더 이름 하나를 참조 하는 사용자 정의입니다 .이 값은 다음 요청을 발급 하는 데 사용 됩니다. |
 | "$"(응답 본문의 루트를 나타냄)로 시작하는 JSONPath 식 | 응답 본문은 JSON 개체를 하나만 포함해야 합니다. JSONPath 식은 다음 요청을 실행하는 데 사용되는 단일 기본 값을 반환해야 합니다. |
 
-**예:**
+**예제:**
 
 Facebook Graph API는 다음 구조의 응답을 반환 합니다 .이 경우 다음 페이지의 URL은 * paging에 표시 됩니다 *_. 다음_* _:
 

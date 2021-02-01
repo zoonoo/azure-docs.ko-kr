@@ -83,6 +83,8 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: C++/WinRT에서
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: 앵커 세션 없이 광역 위치 재결정 사용
+      href: how-tos/use-coarse-relocalization-without-anchor-session.md
     - name: 프로젝트 설정
       items:
         - name: C++/WinRT

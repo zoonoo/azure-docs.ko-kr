@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013686"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222919"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API)에서 데이터 복사 및 변환
 
@@ -120,8 +120,8 @@ Azure Cosmos DB (SQL API) 데이터 집합에 대해 지원 되는 속성은 다
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 **type** 속성은 **CosmosDbSqlApiCollection** 로 설정 해야 합니다. |Yes |
-| collectionName |Azure Cosmos DB 문서 컬렉션의 이름입니다. |Yes |
+| type | 데이터 집합의 **type** 속성은 **CosmosDbSqlApiCollection** 로 설정 해야 합니다. |예 |
+| collectionName |Azure Cosmos DB 문서 컬렉션의 이름입니다. |예 |
 
 "DocumentDbCollection" 형식 데이터 집합을 사용 하는 경우 복사 및 조회 작업에 대해 이전 버전과의 호환성을 위해 계속 지원 되지만 데이터 흐름에는 지원 되지 않습니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
 
@@ -157,9 +157,10 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **CosmosDbSqlApiSource** 로 설정 해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 기본 영역 목록입니다. | No |
-| pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 "-1" 이며,이는 서비스 쪽 동적 페이지 크기를 최대 1000까지 사용 함을 의미 합니다. | No |
+| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예제:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 기본 영역 목록입니다. | 아니요 |
+| pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 "-1" 이며,이는 서비스 쪽 동적 페이지 크기를 최대 1000까지 사용 함을 의미 합니다. | 아니요 |
+| detectDatetime | 문서에 있는 문자열 값에서 datetime을 검색할지 여부를 지정 합니다. 허용되는 값은 **true**(기본값), **false** 입니다. | 예 |
 
 "DocumentDbCollectionSource" 형식 원본을 사용 하는 경우 이전 버전과의 호환성을 위해 그대로 계속 지원 됩니다. Cosmos DB에서 데이터를 복사 하는 다양 한 기능을 제공 하는 새 모델을 사용 하는 것이 좋습니다.
 
@@ -209,8 +210,8 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbSqlApiSink** 로 설정 해야 합니다. |예 |
-| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |No<br />기본값은 **insert** 입니다. |
-| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **Writebatchsize** 속성은 ADF가 라이브러리에 제공 하는 문서 크기를 제어 합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |No<br />(기본값: **10,000**) |
+| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert** 입니다.<br/><br/>**upsert** 의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert** 가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />기본값은 **insert** 입니다. |
+| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **Writebatchsize** 속성은 ADF가 라이브러리에 제공 하는 문서 크기를 제어 합니다. 성능을 개선하기 위해 **writeBatchSize** 에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아니요<br />(기본값: **10,000**) |
 | disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Cosmos DB RUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
 
 >[!TIP]
@@ -295,13 +296,16 @@ Azure Cosmos DB 관련 된 설정은 싱크 변환의 **설정** 탭에서 사�
 * 없음: 컬렉션에 대 한 작업이 수행 되지 않습니다.
 * 다시 만들기: 컬렉션을 삭제 하 고 다시 만듭니다.
 
-**일괄 처리 크기**: 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
+**일괄 처리 크기**: 각 일괄 처리에서 컬렉션 Cosmos DB에 기록 되는 개체의 수를 나타내는 정수입니다. 일반적으로 기본 일괄 처리 크기로 시작 하는 것으로 충분 합니다. 이 값을 추가로 조정 하려면 다음을 참고 하세요.
+
+- Cosmos DB는 단일 요청의 크기를 2MB로 제한합니다. 수식은 "요청 크기 = 단일 문서 크기 * 일괄 처리 크기"입니다. "요청 크기가 너무 큼" 이라는 오류 메시지가 나타나면 일괄 처리 크기 값을 줄입니다.
+- 일괄 처리 크기가 클수록 더 나은 처리량은 ADF가 될 수 있으며, 작업을 수용할 수 있도록 충분 한 RUs를 할당 해야 합니다.
 
 **파티션 키:** 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예: ```/movies/title```
 
 **처리량:** 이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
 
-**쓰기 처리량 예산:** 대량 수집 Spark 작업에 할당 하려는 RUs의 수를 나타내는 정수입니다. 이 수는 컬렉션에 할당 된 총 처리량을 초과 합니다.
+**쓰기 처리량 예산:** 컬렉션에 할당 된 총 처리량을 초과 하 여이 데이터 흐름 쓰기 작업에 할당 하려는 RUs를 나타내는 정수입니다.
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

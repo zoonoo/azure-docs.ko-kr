@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
-ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/01/2021
+ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325199"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223443"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -185,11 +185,9 @@ SQL Database 백업 복구에 대해 자세히 알아보려면 [SQL Database에�
 
 ## <a name="high-availability-with-customer-managed-tde"></a>고객 관리 TDE를 사용 하는 고가용성
 
-서버에 대해 구성 된 지역 중복이 없는 경우에도 동일한 키 자료를 사용 하 여 서로 다른 두 지역에 두 개의 다른 키 자격 증명 모음을 사용 하도록 서버를 구성 하는 것이 좋습니다. 서버와 동일한 지역에 있는 기본 키 자격 증명 모음을 사용 하 여 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제 하 여 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 합니다. 그러면 데이터베이스가 실행 되는 동안 기본 키 자격 증명 모음에 가동 중단이 발생 해야 합니다.
+서버에 대해 구성 된 지역 중복이 없는 경우에도 동일한 키 자료를 사용 하 여 서로 다른 두 지역에 두 개의 다른 키 자격 증명 모음을 사용 하도록 서버를 구성 하는 것이 좋습니다. 다른 지역의 보조 키 자격 증명 모음에 있는 키는 TDE 보호기로 표시 되지 않아야 하며 허용 되지 않습니다. 기본 키 자격 증명 모음에 영향을 주는 작동 중단이 발생 하는 경우에만 시스템은 보조 키 자격 증명 모음에 있는 동일한 지문이 있는 다른 연결 된 키로 자동으로 전환 됩니다 (있는 경우). 이 스위치는 취소 된 액세스 권한으로 인해 TDE 보호기에 액세스할 수 없거나, 키 또는 키 자격 증명 모음이 삭제 되어 고객이 의도적으로 서버에서 키에 액세스를 제한 하는 것을 의미할 수 있으므로 발생 하지 않습니다. 키 자격 증명 모음 외부에 키를 만들고 두 키 자격 증명 모음으로 가져오는 방법으로 다른 지역에 있는 두 개의 주요 자격 증명 모음에 동일한 키 자료를 제공할 수 있습니다. 
 
-Backup-AzKeyVaultKey cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 Restore-AzKeyVaultKey cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 다른 지역의 보조 키 자격 증명 모음에 있는 키는 TDE 보호기로 표시 되지 않아야 하며 허용 되지 않습니다.
-
-기본 키 자격 증명 모음에 영향을 주는 작동 중단이 발생 하는 경우에만 시스템은 보조 키 자격 증명 모음에 있는 동일한 지문이 있는 다른 연결 된 키로 자동으로 전환 됩니다 (있는 경우). 이 스위치는 취소 된 액세스 권한으로 인해 TDE 보호기에 액세스할 수 없거나, 키 또는 키 자격 증명 모음이 삭제 되어 고객이 의도적으로 서버에서 키에 액세스를 제한 하는 것을 의미할 수 있으므로 발생 하지 않습니다.
+또는 서버와 동일한 지역에 공동 배치 된 기본 key vault를 사용 하 여 키를 생성 하 고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제 하 여 수행할 수 있습니다. [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) cmdlet을 사용 하 여 기본 키 자격 증명 모음에서 암호화 된 형식으로 키를 검색 한 다음 [AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet을 사용 하 고 두 번째 지역에서 키 자격 증명 모음을 지정 하 여 키를 복제 합니다. 또는 Azure Portal를 사용 하 여 키를 백업 하 고 복원 합니다. 키 백업/복원 작업은 동일한 Azure 구독 및 [azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/)내에서 키 자격 증명 모음 간에만 허용 됩니다.  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

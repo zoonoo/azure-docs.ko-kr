@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98724019"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223409"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -363,7 +363,7 @@ Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을
 
 **DNS 새로 고침을 수행할 수 있나요?**
 
-현재 SQL Managed Instance에 대 한 DNS 서버 구성을 새로 고치는 기능을 제공 하지 않습니다.
+예. [SQL Managed Instance 가상 클러스터의 가상 네트워크 DNS 서버 동기화 설정을](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md)참조 하세요.
 
 DNS 구성은 결국 새로 고쳐집니다.
 

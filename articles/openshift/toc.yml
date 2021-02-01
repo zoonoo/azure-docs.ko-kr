@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: 방법 가이드
   items:
+    - name: 클러스터 작업
+      items:
+        - name: ARO 클러스터 업그레이드
+          href: howto-upgrade.md
     - name: 네트워킹
       items:
         - name: 프라이빗 ARO 클러스터 만들기
@@ -28,6 +32,8 @@
           href: howto-create-a-storageclass.md
         - name: 기본 제공 컨테이너 레지스트리 사용
           href: built-in-container-registry.md
+        - name: Azure Container Registry 사용
+          href: howto-use-acr-with-aro.md
     - name: 보안 및 인증
       items:
         - name: Azure Active Directory 인증 구성(CLI)

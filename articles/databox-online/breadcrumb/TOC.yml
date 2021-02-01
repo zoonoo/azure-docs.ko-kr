@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: 스토리지/Data Box 온라인 전송
+      tocHref: /azure/databox-gateway/
+      topicHref: /azure/databox-online/index

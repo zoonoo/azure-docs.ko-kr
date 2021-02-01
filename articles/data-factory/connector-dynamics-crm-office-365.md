@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/23/2020
-ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 02/01/2021
+ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638179"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223477"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,12 +56,12 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 
 이 커넥터는 재무, 작업 및 인재 같은 다른 응용 프로그램 유형을 지원 하지 않습니다.
 
-이 Dynamics 커넥터는 [DYNAMICS XRM 도구](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
-
 >[!TIP]
 >Dynamics 365 재무 및 작업에서 데이터를 복사 하려면 [DYNAMICS AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+이 Dynamics 커넥터는 [DYNAMICS XRM 도구](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
@@ -326,7 +326,7 @@ Dynamics에 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션은
 | writeBehavior | 작업의 쓰기 동작입니다. 값은 "Upsert" 이어야 합니다. | 예 |
 | alternateKeyName | Upsert을 수행 하기 위해 엔터티에 정의 된 대체 키 이름입니다. | 아니요. |
 | writeBatchSize | 각 일괄 처리에서 Dynamics에 작성된 데이터의 행 수입니다. | 아니요. 기본값은 10입니다. |
-| ignoreNullValues | 쓰기 작업 중에 키 필드가 아닌 입력 데이터에서 null 값을 무시할지 여부를 지정 합니다.<br/><br/>유효한 값은 **TRUE** 및 **FALSE** 입니다.<ul><li>**TRUE** : upsert 또는 update 작업을 수행할 때 대상 개체의 데이터를 변경 하지 않고 유지 합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.</li><li>**FALSE** : upsert 또는 Update 작업을 수행할 때 대상 개체의 데이터를 null 값으로 업데이트 합니다. 삽입 작업을 수행 하는 경우 null 값을 삽입 합니다.</li></ul> | 아니요. 기본값은 **FALSE** 입니다. |
+| ignoreNullValues | 쓰기 작업 중에 키 필드가 아닌 입력 데이터에서 null 값을 무시할지 여부를 지정 합니다.<br/><br/>유효한 값은 **TRUE** 및 **FALSE** 입니다.<ul><li>**TRUE**: upsert 또는 update 작업을 수행할 때 대상 개체의 데이터를 변경 하지 않고 유지 합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.</li><li>**FALSE**: upsert 또는 Update 작업을 수행할 때 대상 개체의 데이터를 null 값으로 업데이트 합니다. 삽입 작업을 수행 하는 경우 null 값을 삽입 합니다.</li></ul> | 아니요. 기본값은 **FALSE** 입니다. |
 
 >[!NOTE]
 >Dynamics 싱크에 대 한 싱크 **Writebatchsize** 및 복사 작업 **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** 의 기본값은 10입니다. 따라서 100 레코드는 기본적으로 Dynamics에 동시에 전송 됩니다.
@@ -383,21 +383,21 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.EntityName | 문자열 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.ManagedProperty | 부울 | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Memo | 문자열 | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.String | 문자열 | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Dynamics 데이터 형식 **attributetype. CalendarRules** , **Attributetype. Multiselectpicklist** 및 **attributetype.partylist** 는 지원 되지 않습니다.
+> Dynamics 데이터 형식 **attributetype. CalendarRules**, **Attributetype. Multiselectpicklist** 및 **attributetype.partylist** 는 지원 되지 않습니다.
 
 ## <a name="writing-data-to-a-lookup-field"></a>조회 필드에 데이터 쓰기
 
@@ -420,7 +420,7 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 
 복사-작업 열 매핑에서 두 열을 다음과 같이 매핑합니다.
 
-- **CustomerField** Customerfield를 **customerfield** 로 이 매핑은 표준 필드 매핑입니다.
+-  Customerfield를 **customerfield** 로 이 매핑은 표준 필드 매핑입니다.
 - **Customerfield \@ EntityReference** 를 **대상** 으로 합니다. 싱크 열은 엔터티 참조를 나타내는 가상 열입니다. 스키마를 가져오면 표시 되지 않으므로 매핑에 이러한 필드 이름을 입력 합니다.
 
 ![Dynamics 조회-필드 열 매핑](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)

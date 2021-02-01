@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353173"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222868"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -94,13 +94,13 @@ QnA Maker 리소스에 대해 만들어진 첫 번째 기술 자료는 리소스
 
 ### <a name="ingest-data-sources"></a>데이터 원본 수집
 
-다음 수집 [데이터 원본](../index.yml) 중 하나를 사용 하 여 기술 자료를 만들 수 있습니다.
+다음 수집 [데이터 원본](../Concepts/data-sources-and-content.md) 중 하나를 사용 하 여 기술 자료를 만들 수 있습니다.
 
 * 공용 URL
 * 비공개 SharePoint URL
 * 파일
 
-수집 프로세스는 [지원 되는 콘텐츠 형식을](../index.yml) markdown로 변환 합니다. *답변* 의 모든 편집은 markdown를 사용 하 여 수행 됩니다. 기술 자료를 만든 후에는 [서식 있는 텍스트 작성](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)기능을 사용 하 여 QnA Maker 포털에서 [QnA 쌍](question-answer-set.md) 을 편집할 수 있습니다.
+수집 프로세스는 [지원 되는 콘텐츠 형식을](../reference-document-format-guidelines.md) markdown로 변환 합니다. *답변* 의 모든 편집은 markdown를 사용 하 여 수행 됩니다. 기술 자료를 만든 후에는 [서식 있는 텍스트 작성](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)기능을 사용 하 여 QnA Maker 포털에서 [QnA 쌍](question-answer-set.md) 을 편집할 수 있습니다.
 
 ### <a name="data-format-considerations"></a>데이터 형식 고려 사항
 
@@ -124,7 +124,7 @@ QnA 쌍의 최종 형식은 markdown 이므로 [markdown 지원을](../reference
 
 협력자는 기술 자료 응용 프로그램의 전체 개발 스택을 공유 하거나 기술 자료를 제작 하는 것으로 제한 될 수 있는 다른 개발자 일 수 있습니다.
 
-기술 자료 제작에서는 Azure Portal에 적용 하는 여러 [역할 기반 액세스 권한을](../index.yml) 통해 협력자의 기능 범위를 제한 합니다.
+기술 자료 제작에서는 Azure Portal에 적용 하는 여러 [역할 기반 액세스 권한을](../reference-role-based-access-control.md) 통해 협력자의 기능 범위를 제한 합니다.
 
 ## <a name="integration-with-client-applications"></a>클라이언트 응용 프로그램과 통합
 

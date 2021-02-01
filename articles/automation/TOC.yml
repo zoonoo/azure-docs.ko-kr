@@ -66,14 +66,20 @@
           href: automation-create-standalone-account.md
         - name: Resource Manager 템플릿을 사용하여 Automation 계정 만들기
           href: quickstart-create-automation-account-template.md
+        - name: 실행 계정
+          items:
+            - name: 실행 계정 만들기
+              href: create-run-as-account.md
+            - name: 실행 계정 삭제
+              href: delete-run-as-account.md
+            - name: 실행 계정 관리
+              href: manage-runas-account.md
         - name: Amazon Web Services로 인증 구성
           href: automation-config-aws-account.md
         - name: Azure AD를 사용하여 인증 구성
           href: automation-use-azure-ad.md
         - name: Automation에서 사용되는 DNS 레코드 관리
           href: how-to/automation-region-dns-records.md
-        - name: Automation 실행 계정 관리
-          href: manage-runas-account.md
         - name: 자동화 계정에 비공개로 연결
           href: how-to/private-link-security.md
         - name: 역할 권한 및 보안 관리

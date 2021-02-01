@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: 계정 백업 및 복구
       href: user-help-auth-app-backup-recovery.md
+    - name: Authenticator 앱으로 암호 가져오기
+      href: user-help-authenticator-app-import-passwords.md
     - name: FAQ
       href: user-help-auth-app-faq.md
 - name: 내 계정 포털 도움말

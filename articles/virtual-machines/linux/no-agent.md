@@ -1,5 +1,5 @@
 ---
-title: 프로 비전 에이전트 없이 Linux 이미지 만들기
+title: 프로비저닝 에이전트 없이 Linux 이미지 만들기
 description: Azure에서 프로 비전 에이전트 없이 일반화 된 Linux 이미지를 만듭니다.
 author: danielsollondon
 ms.service: virtual-machines-linux
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: edbcabfe4d0b633a784163562f52b303120916ca
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 1c9ac872587804adbd9e62a3dc3ef3daed9e0c25
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685068"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223054"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
 
@@ -154,7 +154,7 @@ wireserver_conn.close()
 
 VM에 Python이 설치 되어 있지 않거나 사용할 수 없는 경우 다음 단계를 사용 하 여 프로그래밍 방식으로이 스크립트 논리를 재현할 수 있습니다.
 
-1. `ContainerId` `InstanceId` WireServer:에서 응답을 구문 분석 하 여 및를 검색 `curl -X GET -H 'x-ms-version: 2012-11-30' http://$168.63.129.16/machine?comp=goalstate` 합니다.
+1. `ContainerId` `InstanceId` WireServer:에서 응답을 구문 분석 하 여 및를 검색 `curl -X GET -H 'x-ms-version: 2012-11-30' http://168.63.129.16/machine?comp=goalstate` 합니다.
 
 2. 다음 XML 데이터를 생성 하 여 구문 분석 된 `ContainerId` 와 `InstanceId` 위의 단계에서 삽입 합니다.
    ```xml

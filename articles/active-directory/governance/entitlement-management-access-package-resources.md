@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567421"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223297"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
 
@@ -37,7 +37,7 @@ ms.locfileid: "89567421"
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **카탈로그** 를 클릭 한 다음 카탈로그를 엽니다.
 
@@ -53,11 +53,11 @@ ms.locfileid: "89567421"
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. 왼쪽 메뉴에서 **리소스 역할**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **리소스 역할** 을 클릭 합니다.
 
 1. **리소스 역할 추가** 를 클릭 하 여 패키지에 액세스할 수 있도록 리소스 역할 추가 페이지를 엽니다.
 
@@ -86,24 +86,24 @@ ms.locfileid: "89567421"
 
     ![액세스 패키지-리소스 역할 추가-그룹 선택](./media/entitlement-management-access-package-resources/group-select.png)
 
-1. **선택**을 클릭합니다.
+1. **선택** 을 클릭합니다.
 
     그룹이 나 팀을 선택 하면 **하위 유형** 열에 다음 하위 유형 중 하나가 나열 됩니다.
 
-    | 하위 유형 | 설명 |
+    | 하위 유형 | Description |
     | --- | --- |
     | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
     | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
     | Microsoft 365 | 팀에서 사용 하도록 설정 되지 않은 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
     | 팀 | 팀에서 사용 하도록 설정 된 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
 
-1. **역할** 목록에서 **소유자** 또는 **멤버**를 선택 합니다.
+1. **역할** 목록에서 **소유자** 또는 **멤버** 를 선택 합니다.
 
     일반적으로 멤버 역할을 선택 합니다. 소유자 역할을 선택 하면 사용자가 다른 멤버나 소유자를 추가 하거나 제거할 수 있습니다.
 
     ![액세스 패키지-그룹 또는 팀에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자는이 그룹 또는 팀이 추가 될 때 자동으로 구성원이 됩니다.
 
@@ -128,13 +128,13 @@ ms.locfileid: "89567421"
 
     ![액세스 패키지-리소스 역할 추가-응용 프로그램 선택](./media/entitlement-management-access-package-resources/application-select.png)
 
-1. **선택**을 클릭합니다.
+1. **선택** 을 클릭합니다.
 
 1. **역할** 목록에서 응용 프로그램 역할을 선택 합니다.
 
     ![액세스 패키지-응용 프로그램에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자에 게는 추가 될 때이 응용 프로그램에 대 한 액세스 권한이 자동으로 부여 됩니다.
 
@@ -144,17 +144,23 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 1. **액세스 패키지에 리소스 역할 추가** 페이지에서 **sharepoint 사이트** 를 클릭 하 여 sharepoint Online 사이트 선택 창을 엽니다.
 
-1. 액세스 패키지에 포함 하려는 SharePoint Online 사이트를 선택 합니다.
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 사이트 선택-포털 보기":::
+
+1. [여러 지역](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) 에서 SharePoint를 사용 하도록 설정한 경우 사이트를 선택할 환경을 선택 합니다.
+    
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 다중 지역 사이트 선택":::
+
+1. 다중 지역을 사용 하지 않는 경우 환경을 선택할 필요가 없습니다. 액세스 패키지에 포함 하려는 SharePoint Online 사이트를 선택 합니다.
 
     ![액세스 패키지-리소스 역할 추가-SharePoint Online 사이트 선택](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 
-1. **선택**을 클릭합니다.
+1. **선택** 을 클릭합니다.
 
 1. **역할** 목록에서 SharePoint Online 사이트 역할을 선택 합니다.
 
     ![액세스 패키지-SharePoint Online 사이트에 대 한 리소스 역할 추가](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 
     액세스 패키지에 대 한 기존 할당을 사용 하는 모든 사용자에 게는이 SharePoint Online 사이트를 추가할 때 해당 사이트에 대 한 액세스 권한이 자동으로 부여 됩니다.
 
@@ -162,15 +168,15 @@ Azure AD는 액세스 패키지에 할당 된 경우 사용자에 게 SharePoint
 
 **필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
 
-1. 왼쪽 메뉴에서 **리소스 역할**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **리소스 역할** 을 클릭 합니다.
 
 1. 리소스 역할 목록에서 제거 하려는 리소스 역할을 찾습니다.
 
-1. 줄임표 (**...**)를 클릭 한 다음 **리소스 역할 제거**를 클릭 합니다.
+1. 줄임표 (**...**)를 클릭 한 다음 **리소스 역할 제거** 를 클릭 합니다.
 
     액세스 패키지에 대 한 기존 할당을 가진 사용자는 제거 될 때이 리소스 역할에 대 한 액세스 권한이 자동으로 취소 됩니다.
 
