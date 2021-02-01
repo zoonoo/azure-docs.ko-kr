@@ -96,6 +96,8 @@
           href: ./cicd/continuous-integration-deployment.md
         - name: 보안
           items:
+            - name: Azure Policy의 보안 컨트롤
+              href: ./security-controls-policy.md
             - name: 암호화
               href: ./security/workspaces-encryption.md
             - name: 네트워크 보안

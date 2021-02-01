@@ -698,10 +698,12 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: 연속 창 트리거 종속성 만들기
           href: tumbling-window-trigger-dependency.md
-    - name: 계보
+    - name: Data Catalog 및 거버넌스
       items:
         - name: Azure Purview에 Data Factory 연결
           href: connect-data-factory-to-azure-purview.md
+        - name: Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
+          href: how-to-discover-explore-purview-data.md
     - name: 시나리오
       items:
         - name: 데이터 레이크 및 EDW용 데이터 마이그레이션
@@ -796,10 +798,6 @@
       href: /python/api/overview/azure/datafactory
 - name: 리소스
   items:
-    - name: 데이터 흐름 예약 용량 개요
-      href: data-flow-reserved-capacity-overview.md
-    - name: 데이터 흐름 이해 예약 요금
-      href: data-flow-understand-reservation-charges.md
     - name: 백서
       href: whitepapers.md
     - name: FAQ

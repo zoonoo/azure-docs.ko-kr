@@ -68,6 +68,8 @@
           href: quickstart-v2-netcore-daemon.md
         - name: Python 콘솔 디먼
           href: quickstart-v2-python-daemon.md
+        - name: Java 콘솔 디먼
+          href: quickstart-v2-java-daemon.md
 - name: 자습서
   items:
     - name: SPA(Single-page app)
