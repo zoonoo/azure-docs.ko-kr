@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 79791bf2db888912d5c1f016f4bf357e76bddcba
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681653"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475103"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,10 +42,7 @@ Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱�
 
 * 인덱스 크기는 인덱싱 정책에 따라 달라 집니다. 모든 속성이 인덱싱되는 경우 인덱스 크기는 데이터 크기 보다 클 수 있습니다.
 * 데이터가 삭제 되 면 인덱스는 거의 연속 해 서 압축 됩니다. 그러나 작은 데이터 삭제의 경우 인덱스 크기가 감소 하지 않을 수 있습니다.
-* 인덱스 크기는 다음과 같은 경우에 늘어날 수 있습니다.
-
-  * 파티션 분할 기간-파티션 분할이 완료 된 후 인덱스 공간이 해제 됩니다.
-  * 파티션이 분할 되 면 파티션이 분할 되는 동안 인덱스 공간이 일시적으로 증가 합니다. 
+* 실제 파티션이 분할 되 면 인덱스 크기가 일시적으로 늘어날 수 있습니다. 인덱스 공간은 파티션 분할이 완료 된 후에 해제 됩니다.
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>속성 경로 포함 및 제외
 
@@ -186,33 +183,35 @@ Azure Cosmos DB에서 사용된 총 스토리지는 데이터 크기와 인덱�
 
 쿼리가 둘 이상의 속성에 대 한 필터를 포함 하는 경우 이러한 속성에 대 한 복합 인덱스를 만드는 것이 유용할 수 있습니다.
 
-예를 들어 다음 쿼리는 두 속성에 대 한 같음 필터를 포함 합니다.
+예를 들어 같음 필터와 범위 필터를 모두 포함 하는 다음 쿼리를 살펴보세요.
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age = 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18
 ```
 
-(Name ASC, age ASC)에서 복합 인덱스를 활용할 수 있는 경우이 쿼리는 더 효율적이 고 시간을 적게 차지 하며 더 적게 사용 됩니다.
+에서 복합 인덱스를 활용할 수 있는 경우이 쿼리를 사용 하는 것이 더 효율적 이며, 시간이 줄어들고 사용이 더 적게 사용 됩니다 `(name ASC, age ASC)` .
 
-범위 필터를 사용 하는 쿼리는 복합 인덱스를 사용 하 여 최적화할 수도 있습니다. 그러나이 쿼리에는 단일 범위 필터만 있을 수 있습니다. 범위 필터 `>` 에는,, `<` `<=` , `>=` 및 `!=` 가 포함 됩니다. 범위 필터는 복합 인덱스에서 마지막으로 정의 되어야 합니다.
+여러 범위 필터를 사용 하는 쿼리는 복합 인덱스를 사용 하 여 최적화할 수도 있습니다. 그러나 개별 복합 인덱스는 단일 범위 필터만 최적화할 수 있습니다. 범위 필터 `>` 에는,, `<` `<=` , `>=` 및 `!=` 가 포함 됩니다. 범위 필터는 복합 인덱스에서 마지막으로 정의 되어야 합니다.
 
-같음 필터와 범위 필터를 모두 사용 하는 다음 쿼리를 살펴보십시오.
+같음 필터와 두 개의 범위 필터를 사용 하는 다음 쿼리를 살펴보십시오.
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" AND c.age > 18
+SELECT *
+FROM c
+WHERE c.name = "John" AND c.age > 18 AND c._ts > 1612212188
 ```
 
-이 쿼리는 (name ASC, age ASC)의 복합 인덱스를 사용 하 여 더 효율적입니다. 그러나 복합 인덱스에서 같음 필터를 먼저 정의 해야 하므로 쿼리는 (age ASC, name ASC)에 복합 인덱스를 사용 하지 않습니다.
+이 쿼리는 및의 복합 인덱스를 사용 하 여 더 효율적 `(name ASC, age ASC)` `(name ASC, _ts ASC)` 입니다. 그러나 `(age ASC, name ASC)` 일치 필터가 있는 속성은 먼저 복합 인덱스에서 정의 되어야 하므로이 쿼리에서는 복합 인덱스를 사용 하지 않습니다. `(name ASC, age ASC, _ts ASC)`각 복합 인덱스는 단일 범위 필터만 최적화할 수 있기 때문에에서 단일 복합 인덱스 대신 별도의 복합 인덱스 두 개가 필요 합니다.
 
 여러 속성에 대 한 필터가 있는 쿼리에 대 한 복합 인덱스를 만들 때 다음 사항을 고려해 야 합니다.
 
+- 필터 식은 여러 복합 인덱스를 사용할 수 있습니다.
 - 쿼리의 필터에 있는 속성은 복합 인덱스의 속성과 일치 해야 합니다. 속성이 복합 인덱스에 있지만 쿼리에 필터로 포함 되지 않은 경우 쿼리는 복합 인덱스를 사용 하지 않습니다.
 - 쿼리에 복합 인덱스에서 정의 되지 않은 추가 속성이 필터에 있는 경우 복합 인덱스와 범위 인덱스의 조합을 사용 하 여 쿼리를 계산 합니다. 범위 인덱스를 사용 하는 경우 보다 덜 필요 합니다.
-- 속성에 범위 필터 ( `>` ,, `<` , 또는)가 있는 경우 `<=` `>=` `!=` 이 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다. 쿼리에 둘 이상의 범위 필터가 있는 경우 복합 인덱스를 사용 하지 않습니다.
+- 속성에 범위 필터 ( `>` ,, `<` , 또는)가 있는 경우 `<=` `>=` `!=` 이 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다. 쿼리에 둘 이상의 범위 필터가 있는 경우 여러 복합 인덱스의 이점을 누릴 수 있습니다.
 - 여러 필터를 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 `ORDER` 복합 인덱스의는 결과에 영향을 주지 않습니다. 이 속성은 선택 사항입니다.
-- 여러 속성에서 필터를 사용 하 여 쿼리에 대 한 복합 인덱스를 정의 하지 않은 경우에도 쿼리는 성공적으로 수행 됩니다. 그러나 복합 인덱스를 사용 하 여 쿼리 비용을 줄일 수 있습니다.
-- 집계를 사용 하는 쿼리 (예: COUNT 또는 SUM)와 필터는 복합 인덱스를 사용 하는 경우에도 유용 합니다.
-- 필터 식은 여러 복합 인덱스를 사용할 수 있습니다.
 
 복합 인덱스가 속성 이름, 나이 및 타임 스탬프에 정의 되어 있는 다음 예제를 고려 합니다.
 
@@ -227,43 +226,76 @@ SELECT * FROM c WHERE c.name = "John" AND c.age > 18
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp = 123049923``` | ```No```            |
 | ```(name ASC, age ASC) and (name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age < 18 AND c.timestamp > 123049923``` | ```Yes```            |
 
-### <a name="queries-with-a-filter-as-well-as-an-order-by-clause"></a>필터 및 ORDER BY 절이 포함된 쿼리
+### <a name="queries-with-a-filter-and-order-by"></a>필터 및 ORDER BY를 사용 하는 쿼리
 
 쿼리가 하나 이상의 속성에 대해 필터링 하 고 ORDER BY 절에서 다른 속성을 갖는 경우 필터의 속성을 절에 추가 하면 도움이 될 수 있습니다 `ORDER BY` .
 
-예를 들어 필터의 속성을 ORDER BY 절에 추가 하면 다음 쿼리를 다시 작성 하 여 복합 인덱스를 활용할 수 있습니다.
+예를 들어 필터의 속성을 절에 추가 하면 `ORDER BY` 다음 쿼리를 다시 작성 하 여 복합 인덱스를 활용할 수 있습니다.
 
 범위 인덱스를 사용 하 여 쿼리:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp
+SELECT *
+FROM c 
+WHERE c.name = "John" 
+ORDER BY c.timestamp
 ```
 
 복합 인덱스를 사용 하 여 쿼리:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John" ORDER BY c.name, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John"
+ORDER BY c.name, c.timestamp
 ```
 
-동일한 패턴 및 쿼리 최적화는 여러 개의 같음 필터를 사용 하는 쿼리에 대해 일반화 될 수 있습니다.
+`ORDER BY`개별 복합 인덱스는 최대 하나의 범위 필터만 지원할 수 있으므로 필터를 사용 하는 모든 쿼리에 대해 동일한 쿼리 최적화를 일반화할 수 있습니다.
 
 범위 인덱스를 사용 하 여 쿼리:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.timestamp
 ```
 
 복합 인덱스를 사용 하 여 쿼리:
 
 ```sql
-SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.timestamp
+SELECT * 
+FROM c 
+WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 1611947901 
+ORDER BY c.name, c.age, c.timestamp
+```
+
+또한 복합 인덱스를 사용 하 여 시스템 함수 및 ORDER BY를 사용 하 여 쿼리를 최적화할 수 있습니다.
+
+범위 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.lastName
+```
+
+복합 인덱스를 사용 하 여 쿼리:
+
+```sql
+SELECT * 
+FROM c 
+WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true) 
+ORDER BY c.firstName, c.lastName
 ```
 
 다음은 필터 및 절을 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 사용 하는 고려 사항입니다 `ORDER BY` .
 
-* 쿼리가 속성을 필터링 하는 경우 이러한 속성은 먼저 절에 포함 되어야 합니다 `ORDER BY` .
-* 쿼리가 여러 속성을 필터링 하는 경우 같음 필터는 절의 첫 번째 속성 이어야 합니다. `ORDER BY`
 * 한 속성에 대 한 필터와 다른 속성을 사용 하는 별도의 절이 있는 쿼리에 복합 인덱스를 정의 하지 않으면 `ORDER BY` 쿼리는 성공 합니다. 그러나 특히 절의 속성에 높은 카디널리티가 있는 경우 복합 인덱스를 사용 하 여 쿼리의 사용 비용을 줄일 수 있습니다 `ORDER BY` .
+* 쿼리가 속성을 필터링 하는 경우 이러한 속성은 먼저 절에 포함 되어야 합니다 `ORDER BY` .
+* 쿼리가 여러 속성을 필터링 하는 경우 같음 필터는 절의 첫 번째 속성 이어야 합니다 `ORDER BY` .
+* 쿼리가 여러 속성에 대해 필터링 하는 경우 복합 인덱스 마다 최대 하나의 범위 필터나 시스템 함수를 사용할 수 있습니다. 범위 필터 또는 시스템 함수에 사용 되는 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다.
 * 여러 속성을 포함 하는 쿼리에 대해서도 복합 인덱스를 만들 때의 모든 고려 사항은 `ORDER BY` 계속 적용 됩니다.
 
 
@@ -276,6 +308,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
 
 ## <a name="modifying-the-indexing-policy"></a>인덱싱 정책 수정
 

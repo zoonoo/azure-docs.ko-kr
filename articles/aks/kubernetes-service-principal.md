@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 Azure Ac
 services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: c6f50b152174cee1ee2cc37baa22432957107d2c
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b7f8060666612049026f2602ab7c8511aea22757
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614798"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475440"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -128,7 +128,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 추가 AKS CLI 명령에서 서비스 주체를 특별히 전달 하지 않으면에 있는 기본 서비스 주체가 `~/.azure/aksServicePrincipal.json` 사용 됩니다.  
 - 필요에 따라 파일에서 aksServicePrincipal.js를 제거 하 고 AKS에서 새 서비스 주체를 만들 수도 있습니다.
 - [az aks create][az-aks-create]로 만든 AKS 클러스터를 삭제하는 경우 자동으로 생성된 서비스 주체는 삭제되지 않습니다.
-    - 서비스 주체를 삭제하려면 클러스터에 *servicePrincipalProfile.clientId* 를 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
+    - 서비스 주체를 삭제 하려면 클러스터 *servicePrincipalProfile* 를 쿼리 한 다음 [az ad sp delete] [az-ad-sp-delete]를 사용 하 여 삭제 합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)

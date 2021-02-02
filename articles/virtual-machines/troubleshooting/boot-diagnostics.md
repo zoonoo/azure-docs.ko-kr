@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: fa133e7c62b7970a1c48c7fd86c877bcf699e034
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9030adb9904095ac9b909e650ec6f11dcdf85ed3
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201606"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475525"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>부팅 진단을 사용하여 Azure의 가상 머신 문제를 해결하는 방법
 
@@ -52,7 +52,7 @@ Linux 가상 머신의 경우 포털에서 콘솔 로그의 출력을 볼 수 �
 ![VM 만들기](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
-> 부팅 진단 기능은 premium storage 계정 또는 영역 중복 저장소 계정 유형을 지원 하지 않습니다. 부팅 진단에 프리미엄 스토리지 계정을 사용하는 경우 VM을 시작할 때 StorageAccountTypeNotSupported 오류가 발생할 수 있습니다.
+> 부팅 진단 기능은 premium storage 계정 또는 영역 중복 저장소 계정 유형을 지원 하지 않습니다. 부팅 진단에 프리미엄 스토리지 계정을 사용하는 경우 VM을 시작할 때 StorageAccountTypeNotSupported 오류가 발생할 수 있습니다. 
 >
 
 ### <a name="deploying-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 배포

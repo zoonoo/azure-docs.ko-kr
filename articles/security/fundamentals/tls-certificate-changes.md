@@ -9,16 +9,16 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bb49523858f07e54887a67d9df68eb894e27ad34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881251"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475355"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
-Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다.
+Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이 변경은 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수 하지 않으며 2021 년 2 월 15 일에 해지 되기 때문에 수행 됩니다.
 
 ## <a name="when-will-this-change-happen"></a>언제 변경되나요?
 

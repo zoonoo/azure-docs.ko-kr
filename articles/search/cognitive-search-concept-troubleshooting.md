@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403384"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475491"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강에 대 한 팁
 
@@ -37,7 +37,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>팁 3: 일부 오류가 있는 경우라도 작동 조건 참조
 경우에 따라 작은 오류가 해당 트랙에서 인덱서를 중지합니다. 차례로 문제를 해결하려는 경우 괜찮습니다. 그러나 특정 유형의 오류를 무시하고 어떤 흐름이 실제로 작동하는지 확인할 수 있도록 인덱서를 계속 허용하려 할 수 있습니다.
 
-이 경우 인덱서에게 오류를 무시하라고 명령하고 싶을 수 있습니다. *maxFailedItems* 및 *maxFailedItemsPerBatch*를 -1로 인덱서 정의의 일부로 설정하여 그렇게 합니다.
+이 경우 인덱서에게 오류를 무시하라고 명령하고 싶을 수 있습니다. *maxFailedItems* 및 *maxFailedItemsPerBatch* 를 -1로 인덱서 정의의 일부로 설정하여 그렇게 합니다.
 
 ```
 {
@@ -100,7 +100,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 최대 실행 시간은 무료 계층에는 몇 분 인덱싱, 청구 가능 계층에는 24시간 인덱싱 등 계층에 따라 다릅니다. 요청 시 처리를 위해 처리를 24시간 내에 완료하지 못하면 인덱서가 중단된 경우 처리를 선택할 수 있도록 일정을 전환합니다. 
 
-예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대 한 자세한 내용은 [Step 3: Create-인덱서](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) 또는 [Azure Cognitive Search에 대 한 인덱서를 예약 하는 방법](search-howto-schedule-indexers.md)을 참조 하세요.
+예약된 인덱서의 경우 인덱싱은 마지막으로 알려진 좋은 문서에서 일정에 따라 다시 시작합니다. 처리되지 않은 이미지를 모두 처리할 때까지, 인덱서는 반복 일정을 사용하여 일련의 시간 또는 일이 지나는 동안 이미지 백로그를 통해 자기 방식대로 작동할 수 있습니다. 일정 구문에 대 한 자세한 내용은 [인덱서 예약](search-howto-schedule-indexers.md)을 참조 하세요.
 
 > [!NOTE]
 > 인덱서가 특정 일정으로 설정 되어 있지만 실행 될 때마다 같은 문서를 반복 해 서 반복 해 서 실패 하는 경우 인덱서는 성공적으로 다시 진행 될 때까지 빈도가 낮은 간격으로 (최대 24 시간까지) 실행을 시작 합니다.  특정 지점에서 인덱서를 발생 시킨 문제를 해결 한 것으로 판단 되는 경우 인덱서의 요청 시 실행을 수행할 수 있으며, 성공적으로 진행 되 면 인덱서가 설정 된 일정 간격으로 다시 반환 됩니다.
@@ -109,12 +109,12 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 ## <a name="tip-8-increase-indexing-throughput"></a>팁 8: 인덱싱 처리량 증가
 
-[병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음, 여러 데이터 원본 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
+[병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음 여러 개의 데이터 소스 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [빠른 시작: 포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: AI 보강 REST Api 학습](cognitive-search-tutorial-blob.md)
-+ [데이터 원본 자격 증명 지정](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Blob 인덱서를 구성 하는 방법](search-howto-indexing-azure-blob-storage.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

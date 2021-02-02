@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83871926"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474950"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ SharePoint Online 목록에서 지원되는 모든 싱크 데이터 저장소로
 특히 이 SharePoint Online 목록 커넥터는 서비스 주체 인증을 사용하고 OData 프로토콜을 통해 데이터를 검색합니다.
 
 > [!TIP]
-> 이 커넥터는 파일이 아닌 SharePoint Online **목록**에서의 데이터 복사를 지원합니다. [SharePoint Online에서 파일을 복사](#copy-file-from-sharepoint-online)하는 방법에 대해 알아봅니다.
+> 이 커넥터는 파일이 아닌 SharePoint Online **목록** 에서의 데이터 복사를 지원합니다. [SharePoint Online에서 파일을 복사](#copy-file-from-sharepoint-online)하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -81,10 +81,10 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 | **속성**        | **설명**                                              | **필수** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| type                | type 속성은  **SharePointOnlineList**로 설정해야 합니다.  | 예          |
+| type                | type 속성은  **SharePointOnlineList** 로 설정해야 합니다.  | 예          |
 | siteUrl             | SharePoint Online 사이트 URL(예: `https://contoso.sharepoint.com/sites/siteName`) | 예          |
 | servicePrincipalId  | Azure Active Directory에 등록된 애플리케이션의 애플리케이션(클라이언트) ID입니다. | 예          |
-| servicePrincipalKey | 애플리케이션의 키입니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예          |
+| servicePrincipalKey | 애플리케이션의 키입니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예          |
 | tenantId            | 애플리케이션이 있는 테넌트 ID입니다.          | 예          |
 | connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 이 문서 앞부분의 [필수 구성 요소](#prerequisites)에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. | 예           |
 
@@ -114,7 +114,7 @@ SharePoint Online 목록에 연결된 서비스에 다음 속성이 지원됩니
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource**로 설정해야 합니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **SharePointOnlineLResource** 로 설정해야 합니다. | 예 |
 | listName | SharePoint Online 목록의 이름입니다. | 예 |
 
 **예제**
@@ -147,7 +147,7 @@ SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 **type** 속성은 **SharePointOnlineListSource** 로 설정해야 합니다. | 예 |
 | Query | 데이터 필터링을 위한 사용자 지정 OData 쿼리 옵션입니다. 예: `"$top=10&$select=Title,Number"`. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(초)입니다. 기본값은 300(5분)입니다. | 예 |
 
@@ -183,6 +183,9 @@ SharePoint Online 목록에서 데이터를 복사하기 위해 복사 작업 **
 ]
 ```
 
+> [!NOTE]
+> Azure Data Factory에서는 SharePoint Online 목록 원본에 대해 둘 이상의 *선택* 데이터 형식을 선택할 수 없습니다.
+
 ## <a name="data-type-mapping-for-sharepoint-online-list"></a>SharePoint Online 목록에 대한 데이터 형식 매핑
 
 SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Online 목록 데이터 형식과 Azure Data Factory 중간 데이터 형식 사이에서 다음 매핑이 사용됩니다. 
@@ -207,13 +210,13 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
 
 ## <a name="copy-file-from-sharepoint-online"></a>SharePoint Online에서 파일 복사
 
-**웹 작업**을 사용하여 인증하고 SPO에서 액세스 토큰을 구한 다음, 이후의 **복사 작업**에 전달하여 **HTTP 커넥터를 원본**으로 데이터를 복사함으로써 SharePoint Online에서 파일을 복사할 수 있습니다.
+**웹 작업** 을 사용하여 인증하고 SPO에서 액세스 토큰을 구한 다음, 이후의 **복사 작업** 에 전달하여 **HTTP 커넥터를 원본** 으로 데이터를 복사함으로써 SharePoint Online에서 파일을 복사할 수 있습니다.
 
 ![Sharepoint 파일 복사 흐름](media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png)
 
 1. [필수 구성 요소](#prerequisites) 섹션에 따라 AAD 애플리케이션을 만들고 SharePoint Online에 권한을 부여합니다. 
 
-2. SharePoint Online에서 액세스 토큰을 가져오는 **웹 작업**을 만듭니다.
+2. SharePoint Online에서 액세스 토큰을 가져오는 **웹 작업** 을 만듭니다.
 
     - **URL**: `https://accounts.accesscontrol.windows.net/[Tenant-ID]/tokens/OAuth/2`. 테넌트 ID를 바꿉니다.
     - **메서드**: POST
@@ -224,7 +227,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
     > [!CAUTION]
     > 웹 작업에서 보안 출력 옵션을 true로 설정하여 토큰 값이 일반 텍스트로 기록되지 않게 합니다. 이 값을 사용하는 추가 작업의 경우 보안 입력 옵션을 true로 설정해야 합니다.
 
-3. HTTP 커넥터를 원본으로 사용하여 SharePoint Online 파일 콘텐츠를 복사하는 **복사 작업**과의 체인
+3. HTTP 커넥터를 원본으로 사용하여 SharePoint Online 파일 콘텐츠를 복사하는 **복사 작업** 과의 체인
 
     - HTTP 연결 서비스:
         - **기준 URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. 사이트 URL 및 상대 경로를 파일로 바꿉니다. 파일의 샘플 상대 경로는 `/sites/site2/Shared Documents/TestBook.xlsx`입니다.

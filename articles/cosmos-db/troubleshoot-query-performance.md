@@ -4,16 +4,16 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 42f01b140a44d7aa6d75dece9a4398fd7b41bf5a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905114"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475729"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,6 +62,8 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 - [인덱싱 정책에 필요한 경로를 포함합니다.](#include-necessary-paths-in-the-indexing-policy)
 
 - [인덱스를 사용하는 시스템 함수를 파악합니다.](#understand-which-system-functions-use-the-index)
+
+- [문자열 시스템 함수 실행을 향상 시킵니다.](#improve-string-system-function-execution)
 
 - [인덱스를 사용하는 집계 쿼리를 파악합니다.](#understand-which-aggregate-queries-use-the-index)
 
@@ -198,10 +200,11 @@ WHERE c.description = "Malabar spinach, cooked"
 
 대부분의 시스템 함수는 인덱스를 사용 합니다. 인덱스를 사용 하는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
 
-- STARTSWITH(str_expr1, str_expr2, bool_expr)  
-- CONTAINS(str_expr, str_expr, bool_expr)
-- LEFT(str_expr, num_expr) = str_expr
-- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if the first num_expr is 0
+- StartsWith
+- 포함
+- RegexMatch
+- 왼쪽
+- 부분 문자열-하지만 첫 번째 num_expr 0 인 경우에만
 
 인덱스를 사용하지 않고 각 문서를 로드해야 하는 몇 가지 일반적인 시스템 함수는 다음과 같습니다.
 
@@ -210,11 +213,21 @@ WHERE c.description = "Malabar spinach, cooked"
 | UPPER/LOWER                             | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
 | 수학 함수(비집계) | 쿼리에서 값을 자주 계산해야 하는 경우 JSON 문서에 속성으로 값을 저장하는 것이 좋습니다. |
 
-------
+### <a name="improve-string-system-function-execution"></a>문자열 시스템 함수 실행 향상
 
-시스템 함수에서 인덱스를 사용 하 고 있는 경우에도 항상 높은 수준의 요금이 발생 하면 쿼리에 추가 해 볼 수 있습니다 `ORDER BY` . 경우에 따라를 추가 하면 `ORDER BY` 특히 쿼리가 장기 실행 되거나 여러 페이지에 걸쳐 있는 경우 시스템 함수 인덱스 사용률을 향상 시킬 수 있습니다.
+인덱스를 사용 하는 일부 시스템 함수의 경우 쿼리에 절을 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다 `ORDER BY` . 
 
-예를 들어를 사용 하는 다음 쿼리를 살펴보세요 `CONTAINS` . `CONTAINS` 는 인덱스를 사용 해야 하지만, 관련 인덱스를 추가한 후에도 아래 쿼리를 실행 하는 경우 매우 높은 수준의 요금이 계속 표시 된다고 가정해 보겠습니다.
+더 구체적으로 말해서, 속성의 카디널리티에 따라 더 많은 시스템 함수는 쿼리를 통해 얻을 수 있는 이점을 얻을 수 있습니다 `ORDER BY` . 이러한 쿼리는 인덱스 검색을 수행 하므로 쿼리 결과를 정렬 하 여 쿼리를 보다 효율적으로 만들 수 있습니다.
+
+이러한 최적화는 다음과 같은 시스템 함수에 대 한 실행을 향상 시킬 수 있습니다.
+
+- StartsWith (대/소문자 구분 안 함 = true)
+- StringEquals (대/소문자 구분 안 함 = true)
+- 포함
+- RegexMatch
+- EndsWith
+
+예를 들어를 사용 하는 다음 쿼리를 살펴보세요 `CONTAINS` . `CONTAINS` 는 인덱스를 사용 하지만 경우에 따라 관련 된 인덱스를 추가한 후에도 아래 쿼리를 실행할 때 매우 높은 수준의 요금이 계속 표시 될 수 있습니다.
 
 원본 쿼리:
 
@@ -224,13 +237,32 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-업데이트 된 쿼리 `ORDER BY` :
+다음을 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다 `ORDER BY` .
 
 ```sql
 SELECT *
 FROM c
 WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
+```
+
+추가 필터를 사용 하는 쿼리에서는 동일한 최적화를 사용할 수 있습니다. 이 경우 같음 필터를 사용 하는 속성을 절에 추가 하는 것이 좋습니다 `ORDER BY` .
+
+원본 쿼리:
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+```
+
+`ORDER BY`(C.name, c. 타운)에 대 한 [복합 인덱스](index-policy.md#composite-indexes) 를 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다.
+
+```sql
+SELECT *
+FROM c
+WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
+ORDER BY c.name, c.town
 ```
 
 ### <a name="understand-which-aggregate-queries-use-the-index"></a>인덱스를 사용하는 집계 쿼리를 파악

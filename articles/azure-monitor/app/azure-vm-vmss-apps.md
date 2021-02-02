@@ -3,18 +3,20 @@ title: Azure Vm에서 성능 모니터링-Azure 애플리케이션 정보
 description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프로그램 성능 모니터링. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 0ea005427348e5265867a9e7ee805b0e6aa202f2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 01583cf5ecb85e4f66538afaba6984bff455ea99
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933901"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475457"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
 
-이제 [azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) 및 [azure 가상 머신 확장 집합](../../virtual-machine-scale-sets/index.yml) 에서 실행 되는 .net 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 더 쉬워졌습니다. 코드를 수정 하지 않고 Application Insights를 사용 하는 모든 혜택을 받으세요.
+이제 [azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) 및 [azure 가상 머신 확장 집합](../../virtual-machine-scale-sets/index.yml) 에서 실행 되는 .net 또는 Java 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 이전 보다 쉬워졌습니다. 코드를 수정 하지 않고 Application Insights를 사용 하는 모든 혜택을 받으세요.
 
 이 문서에서는 Application Insights 에이전트를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
+> [!IMPORTANT]
+> Azure Vm 및 VMSS에서 실행 되는 **java** 기반 응용 프로그램은 일반적으로 사용할 수 있는 **[Application Insights java 3.0 에이전트로](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** 모니터링 됩니다.
 
 > [!IMPORTANT]
 > Azure Vm에서 실행 되는 ASP.NET 응용 프로그램 **및 VMSS** 에 대 한 Azure 애플리케이션 Insights 에이전트는 현재 공개 미리 보기로 제공 됩니다. 온 **-프레미스에서** 실행 되는 ASP.Net 응용 프로그램을 모니터링 하려면 일반적으로 사용 가능 하 고 완전히 지원 되는 [온-프레미스 서버에 대해 Azure 애플리케이션 Insights 에이전트](./status-monitor-v2-overview.md)를 사용 합니다.
@@ -25,23 +27,47 @@ ms.locfileid: "98933901"
 
 Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프로그램에 대해 응용 프로그램 모니터링을 사용 하도록 설정 하는 방법에는 두 가지가 있습니다.
 
-* Application Insights 에이전트를 통한 **코드 없는**
-    * 이 방법은 사용 하기 가장 쉽고 고급 구성이 필요 하지 않습니다. 이를 종종 "런타임" 모니터링 이라고 합니다.
+### <a name="auto-inctrumentation-via-application-insights-agent"></a>Application Insights 에이전트를 통한 자동 inctrumentation
 
-    * Azure virtual machines 및 Azure virtual machine scale sets의 경우이 모니터링 수준을 최소한으로 설정 하는 것이 좋습니다. 그런 다음 특정 시나리오에 따라 수동 계측이 필요한 지 여부를 평가할 수 있습니다.
+* 이 방법은 사용 하기 가장 쉽고 고급 구성이 필요 하지 않습니다. 이를 종종 "런타임" 모니터링 이라고 합니다.
 
-    * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](./auto-collect-dependencies.md#net) 을 참조 하세요.
-        > [!NOTE]
-        > 현재 .Net IIS에서 호스트 되는 응용 프로그램만 지원 됩니다. SDK를 사용 하 여 Azure 가상 머신과 가상 머신 확장 집합에서 호스트 되는 ASP.NET Core, Java 및 Node.js 응용 프로그램을 계측할 수 있습니다.
-
-* SDK **를 통한 코드 기반**
-
-    * 이 방법은 훨씬 더 사용자 지정이 가능 하지만 [APPLICATION INSIGHTS SDK NuGet 패키지에 대 한 종속성을 추가](./asp-net.md)해야 합니다. 또한이 메서드는 최신 버전의 패키지에 대 한 업데이트를 직접 관리 해야 함을 의미 합니다.
-
-    * 에이전트 기반 모니터링을 사용 하 여 기본적으로 캡처되지 않는 이벤트/종속성을 추적 하기 위해 사용자 지정 API 호출을 수행 해야 하는 경우이 방법을 사용 해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭 용 API 문서](./api-custom-events-metrics.md) 를 확인 하세요.
+* Azure virtual machines 및 Azure virtual machine scale sets의 경우이 모니터링 수준을 최소한으로 설정 하는 것이 좋습니다. 그런 다음 특정 시나리오에 따라 수동 계측이 필요한 지 여부를 평가할 수 있습니다.
 
 > [!NOTE]
-> 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 된 경우에는 수동 계측 설정만 검색 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](#troubleshooting) 을 확인 하세요.
+> 자동 계측은 현재 .NET IIS에서 호스트 되는 응용 프로그램 및 Java에 대해서만 사용할 수 있습니다. SDK를 사용 하 여 Azure 가상 머신과 가상 머신 확장 집합에서 호스트 되는 ASP.NET Core, Node.js 및 Python 응용 프로그램을 계측할 수 있습니다.
+
+
+#### <a name="net"></a>.NET
+
+  * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 자동으로 수집 합니다. 자세히 알아보려면 [종속성 자동 수집](./auto-collect-dependencies.md#net) 을 참조 하세요.
+        
+#### <a name="java"></a>Java
+  * Java의 경우 **[Application Insights java 3.0 에이전트가](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)** 권장 되는 방법입니다. 가장 인기 있는 라이브러리 및 프레임 워크와 로그 및 종속성은 다 수의 [추가 구성](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config) 으로 [자동 수집](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#auto-collected-requests-dependencies-logs-and-metrics)됩니다.
+
+### <a name="code-based-via-sdk"></a>SDK를 통한 코드 기반
+    
+#### <a name="net"></a>.NET
+  * .NET 앱의 경우이 방법은 훨씬 더 사용자 지정이 가능 하지만 [APPLICATION INSIGHTS SDK NuGet 패키지에 대 한 종속성을 추가](./asp-net.md)해야 합니다. 또한이 메서드는 최신 버전의 패키지에 대 한 업데이트를 직접 관리 해야 함을 의미 합니다.
+
+  * 에이전트 기반 모니터링을 사용 하 여 기본적으로 캡처되지 않는 이벤트/종속성을 추적 하기 위해 사용자 지정 API 호출을 수행 해야 하는 경우이 방법을 사용 해야 합니다. 자세한 내용은 [사용자 지정 이벤트 및 메트릭 용 API 문서](./api-custom-events-metrics.md) 를 확인 하세요.
+
+    > [!NOTE]
+    > .NET 앱에만 해당-에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 되 면 수동 계측 설정만 적용 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용은 아래의 [문제 해결 섹션](#troubleshooting) 을 확인 하세요.
+
+#### <a name="net-core"></a>.NET Core
+.NET Core 응용 프로그램을 모니터링 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 를 사용 합니다. 
+
+#### <a name="java"></a>Java 
+
+Java 응용 프로그램에 대 한 추가 사용자 지정 원격 분석이 필요한 경우 [사용 가능한](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent#send-custom-telemetry-from-your-application)기능, [사용자 지정 차원](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#custom-dimensions)추가 또는 [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-telemetry-processors)사용을 참조 하세요. 
+
+#### <a name="nodejs"></a>Node.js
+
+Node.js 응용 프로그램을 계측 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)를 사용 합니다.
+
+#### <a name="python"></a>Python
+
+Python 앱을 모니터링 하려면 [SDK](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)를 사용 합니다.
 
 ## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machines-using-powershell"></a>PowerShell을 사용 하 여 Azure virtual machines에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 
@@ -49,7 +75,7 @@ Azure 가상 머신과 Azure virtual machine scale sets 호스팅된 응용 프�
 > Application Insights 에이전트를 설치 하기 전에 연결 문자열이 필요 합니다. [새 Application Insights 리소스를 만들거나](./create-new-resource.md) 기존 application Insights 리소스에서 연결 문자열을 복사 합니다.
 
 > [!NOTE]
-> Powershell을 처음 접하는 가요? [시작 가이드](/powershell/azure/get-started-azureps)를 확인 하세요.
+> PowerShell을 처음 접하는 가요? [시작 가이드](/powershell/azure/get-started-azureps)를 확인 하세요.
 
 Azure 가상 컴퓨터에 대 한 확장으로 Application Insights 에이전트 설치 또는 업데이트
 ```powershell
@@ -77,7 +103,7 @@ Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" 
 ```
 
 > [!NOTE]
-> Powershell 루프를 사용 하 여 여러 Virtual Machines의 확장으로 Application Insights 에이전트를 설치 하거나 업데이트할 수 있습니다.
+> PowerShell 루프를 사용 하 여 여러 Virtual Machines의 확장으로 Application Insights 에이전트를 설치 하거나 업데이트할 수 있습니다.
 
 Azure 가상 머신에서 Application Insights 에이전트 확장 제거
 ```powershell
@@ -104,7 +130,7 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 > [!NOTE]
 > Application Insights 에이전트 확장을 배포 하는 데 사용한 연결 문자열과 연결 된 Application Insights 리소스 내의 라이브 메트릭 스트림를 클릭 하 여 설치를 확인 합니다. 여러 Virtual Machines에서 데이터를 보내는 경우 서버 이름 아래에서 대상 Azure Virtual Machines를 선택 합니다. 데이터 흐름이 시작 되는 데 최대 1 분 정도 걸릴 수 있습니다.
 
-## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>Powershell을 사용 하 여 Azure 가상 머신 확장 집합에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
+## <a name="manage-application-insights-agent-for-net-applications-on-azure-virtual-machine-scale-sets-using-powershell"></a>PowerShell을 사용 하 여 Azure 가상 머신 확장 집합에서 .NET 응용 프로그램에 대 한 Application Insights 에이전트 관리
 
 Azure 가상 머신 확장 집합에 대 한 확장으로 Application Insights 에이전트 설치 또는 업데이트
 ```powershell
@@ -168,7 +194,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Azure 가상 머신 및 가상 머신 확장 집합에서 실행 되는 .NET 응용 프로그램에 대 한 Application Insights 모니터링 에이전트 확장에 대 한 문제 해결 팁을 확인 하세요.
 
 > [!NOTE]
-> .NET Core, Java 및 Node.js 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure virtual machines 및 Azure virtual machine scale sets 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
+> .NET Core, Node.js 및 Python 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure virtual machines 및 Azure virtual machine scale sets 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
 
 확장 실행 출력은 다음 디렉터리에 있는 파일에 기록됩니다.
 ```Windows

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 5098d897d84ff6af31d430c0ddd2e26d8d6b08a7
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: d6dd2b891cb3bf9ebb5442f541021c20a34ce1a1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814298"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99474849"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
 
@@ -37,7 +37,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 | 입력 | 허용되는 값 | Description |
 |-----------------|----------------|-------------|
 | `parsingMode`   | `default` <br/> `text` <br/> `json`  | `default`순수한 텍스트 또는 json이 아닌 파일에서 문서 추출을 위해를로 설정 합니다. `text`일반 텍스트 파일의 성능을 향상 시키려면를로 설정 합니다. `json`Json 파일에서 구조화 된 콘텐츠를 추출 하려면로 설정 합니다. `parsingMode`가 명시적으로 정의 되지 않은 경우로 설정 됩니다 `default` . |
-| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | `contentAndMetadata`각 파일에서 모든 메타 데이터 및 텍스트 콘텐츠를 추출 하려면로 설정 합니다. `allMetadata` [콘텐츠 형식 특정 메타](search-howto-indexing-azure-blob-storage.md#ContentSpecificMetadata) 데이터만 추출 하려면로 설정 합니다 (예: .png 파일에만 고유한 메타 데이터). `dataToExtract`가 명시적으로 정의 되지 않은 경우로 설정 됩니다 `contentAndMetadata` . |
+| `dataToExtract` | `contentAndMetadata` <br/> `allMetadata` | `contentAndMetadata`각 파일에서 모든 메타 데이터 및 텍스트 콘텐츠를 추출 하려면로 설정 합니다. `allMetadata` [콘텐츠 형식에 대 한 메타 데이터 속성만](search-blob-metadata-properties.md) 추출 하려면로 설정 합니다 (예: .png 파일에만 고유한 메타 데이터). `dataToExtract`가 명시적으로 정의 되지 않은 경우로 설정 됩니다 `contentAndMetadata` . |
 | `configuration` | 아래 내용을 참조하세요. | 문서 추출을 수행 하는 방법을 조정 하는 선택적 매개 변수의 사전입니다. 지원 되는 구성 속성에 대 한 설명은 아래 표를 참조 하세요. |
 
 | 구성 매개 변수   | 허용되는 값 | Description |

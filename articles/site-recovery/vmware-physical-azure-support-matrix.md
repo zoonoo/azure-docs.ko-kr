@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f525666e91a482a6c23128e266b4f5669437a502
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 48eba42548287b54d99d1a2188786437f4b05a2b
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956024"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475474"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -231,7 +231,7 @@ Docker 디스크 구성 | 아니요
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
 게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
+게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 32 TB (9.40 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
 4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
@@ -292,7 +292,7 @@ Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 수 | 1 </br> 서로 다른 디스크의 부팅 및 시스템 파티션이 지원 되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.
-데이터 디스크 크기 | 관리 디스크 (9.26 버전 이상)에 복제 하는 경우 최대 8192 GB<br></br>저장소 계정으로 복제 하는 경우 최대 4095 GB| 지원되지 않는 경우 확인이 실패합니다.
+데이터 디스크 크기 | 관리 디스크에 복제 하는 경우 최대 32 TB (9.40 버전 이상)<br></br>저장소 계정으로 복제 하는 경우 최대 4095 GB| 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
 공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
 FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.

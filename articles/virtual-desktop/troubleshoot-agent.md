@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 5f9d772a4cc5722201891450707a68fe487acc3a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540646"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475255"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>일반적인 Windows 가상 데스크톱 에이전트 문제 해결
 
@@ -207,7 +207,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 관리자 권한으로 PowerShell 창을 열고 다음 cmdlet을 실행 합니다.
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object*
+Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
 ```
 
 호스트 풀에서 세션 호스트 또는 호스트에 대해 나열 된 상태가 항상 **사용할 수 없음** 또는 **업그레이드** 인 경우 에이전트 또는 스택 설치가 실패 했을 수 있습니다.

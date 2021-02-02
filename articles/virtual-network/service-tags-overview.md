@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055045"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475187"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -97,6 +97,7 @@ ms.locfileid: "99055045"
 | **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
+| **PowerBI** | PowerBi. *참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 아니요|
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |

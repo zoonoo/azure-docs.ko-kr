@@ -3,12 +3,12 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 9369c0fff31de4c6575d8e4903420cfa01461bf4
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062123"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475423"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
@@ -58,8 +58,11 @@ Azure VMware 솔루션 사설 클라우드의 사용 사례는 다음과 같습�
 사설 클라우드에 대 한 전체 상호 연결과 경우 Express 경로 Global Reach를 사용 하도록 설정 하 고 Azure Portal의 Global Reach에 대 한 인증 키 및 개인 피어 링 ID를 요청 합니다. 권한 부여 키 및 피어 링 ID는 구독의 Express 경로 회로와 새 사설 클라우드의 Express 경로 회로 간에 Global Reach를 설정 하는 데 사용 됩니다. 연결 되 면 두 개의 Express 경로 회로에서 온-프레미스 환경 간의 네트워크 트래픽을 사설 클라우드로 라우팅합니다.  권한 부여 키 및 피어 링 ID를 요청 하 고 사용 하는 절차에 대 한 자세한 내용은 [사설 클라우드로의 express 경로 Global Reach 피어 링을 만드는 방법에 대 한 자습서](tutorial-expressroute-global-reach-private-cloud.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계 
-[사설 클라우드 저장소 개념](concepts-storage.md)에 대해 알아봅니다.
 
+이제 이러한 네트워크 및 상호 연결과 개념을 설명 했으므로 다음에 대해 알아볼 수 있습니다.
+
+- [Azure VMware 솔루션 저장소 개념](concepts-storage.md).
+- [Azure VMware 솔루션 id 개념](concepts-identity.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

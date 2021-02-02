@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 02/02/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9276fca62e96395150c9545b8f4dcb5c8c0afb87
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954245"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475001"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory OATH 토큰의 인증 방법
 
@@ -49,7 +49,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
-> CSV 파일에 머리글 행을 포함해야 합니다.
+> CSV 파일에 머리글 행을 포함해야 합니다. UPN에 작은따옴표가 있으면 다른 작은따옴표를 사용 하 여 이스케이프 합니다. 예를 들어, UPN이 my ' 이면 user@domain.com 파일을 업로드할 때 ' '로 변경 user@domain.com 합니다.
 
 CSV 파일로 올바르게 형식이 지정되면 관리자는 Azure Portal에 로그인하여 **Azure Active Directory > 보안 > MFA > OATH 토큰** 으로 이동하고 CSV 파일을 업로드할 수 있습니다.
 

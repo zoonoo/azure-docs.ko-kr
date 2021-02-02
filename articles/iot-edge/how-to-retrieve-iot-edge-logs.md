@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: abd30c22aa2b4df20cdb795013768cd175cfef4c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780742"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475542"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
 
@@ -51,8 +51,8 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -63,15 +63,15 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
     }
 ```
 
-| 이름 | 유형 | 설명 |
+| 속성 | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | 및 튜플을 포함 하는 배열 `id` `filter` 입니다. |
 | ID | 문자열 | 모듈 이름을 제공 하는 정규식입니다. Edge 장치에서 여러 모듈을 일치 시킬 수 있습니다. [.Net 정규식](/dotnet/standard/base-types/regular-expressions) 형식이 필요 합니다. |
 | filter | JSON 섹션 | 튜플의 정규식과 일치 하는 모듈에 적용할 로그 필터 `id` 입니다. |
 | 비상 | integer | 최근부터 검색 하는 과거의 로그 줄 수입니다. 옵션. |
-| since | integer | 이 시간 이후에만 로그를 duration (1 d, 90 m, 2 일 3 시간 2 분), rfc3339 timestamp 또는 UNIX 타임 스탬프로 반환 합니다.  및를 모두 지정 하는 경우에는 `tail` `since` 먼저 값을 사용 하 여 로그를 검색 합니다 `since` . 그런 다음 `tail` 값이 결과에 적용 되 고 최종 결과가 반환 됩니다. 옵션. |
-| until | integer | 지정 된 시간 이전에 rfc3339 타임 스탬프, UNIX 타임 스탬프 또는 기간 (1 d, 90 m, 2 일 3 시간 2 분)의 로그만 반환 합니다. 옵션. |
+| since | 문자열 | 이 시간 이후에만 로그를 duration (1 d, 90 m, 2 일 3 시간 2 분), rfc3339 timestamp 또는 UNIX 타임 스탬프로 반환 합니다.  및를 모두 지정 하는 경우에는 `tail` `since` 먼저 값을 사용 하 여 로그를 검색 합니다 `since` . 그런 다음 `tail` 값이 결과에 적용 되 고 최종 결과가 반환 됩니다. 옵션. |
+| until | 문자열 | 지정 된 시간 이전에 rfc3339 타임 스탬프, UNIX 타임 스탬프 또는 기간 (1 d, 90 m, 2 일 3 시간 2 분)의 로그만 반환 합니다. 옵션. |
 | 로그 수준 | integer | 지정 된 로그 수준 보다 작거나 같은 로그 줄을 필터링 합니다. 로그 줄은 권장 되는 로깅 형식을 따르고 [Syslog 심각도 수준](https://en.wikipedia.org/wiki/Syslog#Severity_level) 표준을 사용 해야 합니다. 옵션. |
 | regex | 문자열 | [.Net 정규식](/dotnet/standard/base-types/regular-expressions) 형식을 사용 하 여 지정 된 정규식과 일치 하는 내용이 있는 로그 줄을 필터링 합니다. 옵션. |
 | encoding | 문자열 | `gzip` 또는 `none`입니다. 기본값은 `none`입니다. |
@@ -82,7 +82,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
 
 로그를 성공적으로 검색 하면 **"status": 200** 다음에 모듈에서 검색 된 로그가 포함 된 페이로드가 반환 되어 요청에 지정 하는 설정에 따라 필터링 됩니다.
 
-예:
+다음은 그 예입니다. 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +123,7 @@ Azure Portal에서 메서드 이름 `GetModuleLogs` 및 다음 JSON 페이로드
 
 ![Azure Portal에서 직접 메서드 ' GetModuleLogs '를 호출 합니다.](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-CLI 출력을 [gzip](https://en.wikipedia.org/wiki/Gzip)과 같은 Linux 유틸리티로 파이프 하 여 압축 된 응답을 처리할 수도 있습니다. 예:
+CLI 출력을 [gzip](https://en.wikipedia.org/wiki/Gzip)과 같은 Linux 유틸리티로 파이프 하 여 압축 된 응답을 처리할 수도 있습니다. 다음은 그 예입니다. 
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -160,8 +160,8 @@ az iot hub invoke-module-method \
              "id": "regex string",
              "filter": {
                 "tail": "int",
-                "since": "int",
-                "until": "int",
+                "since": "string",
+                "until": "string",
                 "loglevel": "int",
                 "regex": "regex string"
              }
@@ -172,7 +172,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| 이름 | 유형 | 설명 |
+| 속성 | Type | Description |
 |-|-|-|
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -186,13 +186,13 @@ az iot hub invoke-module-method \
     }
 ```
 
-| 이름 | 유형 | Description |
+| 속성 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+다음은 그 예입니다. 
 
 다음 호출은 모든 모듈의 마지막 100 로그 줄을 압축 된 JSON 형식으로 업로드 합니다.
 
@@ -289,12 +289,12 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| 이름 | 유형 | 설명 |
+| 속성 | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | integer | 이 시간 이후에만 로그를 duration (1 d, 90 m, 2 일 3 시간 2 분), rfc3339 timestamp 또는 UNIX 타임 스탬프로 반환 합니다. 옵션. |
-| until | integer | 지정 된 시간 이전에 rfc3339 타임 스탬프, UNIX 타임 스탬프 또는 기간 (1 d, 90 m, 2 일 3 시간 2 분)의 로그만 반환 합니다. 옵션. |
+| since | 문자열 | 이 시간 이후에만 로그를 duration (1 d, 90 m, 2 일 3 시간 2 분), rfc3339 timestamp 또는 UNIX 타임 스탬프로 반환 합니다. 옵션. |
+| until | 문자열 | 지정 된 시간 이전에 rfc3339 타임 스탬프, UNIX 타임 스탬프 또는 기간 (1 d, 90 m, 2 일 3 시간 2 분)의 로그만 반환 합니다. 옵션. |
 | edgeRuntimeOnly | boolean | True 이면 Edge 에이전트, Edge Hub 및 Edge 보안 디먼의 로그만 반환 합니다. 기본값: false입니다.  옵션. |
 
 > [!IMPORTANT]
@@ -310,13 +310,13 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| 이름 | 유형 | Description |
+| 속성 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+다음은 그 예입니다. 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -368,13 +368,13 @@ Azure Portal에서 `UploadSupportBundle` sasURL을 사용자의 정보로 채운
     }
 ```
 
-| 이름 | 유형 | Description |
+| 속성 | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
 | correlationId | 문자열   | 업로드 요청의 상태를 쿼리할 ID입니다. |
 
-예:
+다음은 그 예입니다. 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
