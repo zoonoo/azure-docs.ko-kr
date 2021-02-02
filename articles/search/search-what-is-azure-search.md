@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 3f62ab20359273aec6743c27ab46b33027e82b55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 893bf37a5a4c8a314e5182bf2ac4bc28502b98d9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598399"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98699444"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
@@ -22,9 +22,9 @@ Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-n
 
 검색 서비스에는 다음과 같은 구성 요소가 있습니다.
 
-+ 인덱싱 및 쿼리 실행을 위한 검색 엔진
-+ 사용자 소유 검색 인덱스의 영구 스토리지
-+ 간단한 쿼리에서 복잡한 쿼리를 작성하기 위한 쿼리 언어
++ 전체 텍스트 검색을 위한 검색 엔진
++ 사용자 소유 인덱싱 콘텐츠의 영구 스토리지
++ 인덱싱 및 쿼리를 위한 API
 + 필요에 따라 [AI 기반 강화](cognitive-search-concept-intro.md), 이미지, 원시 텍스트, 애플리케이션 파일 중에서 검색 가능한 콘텐츠 만들기
 + 데이터, 기계 학습/AI 및 보안을 위해 다른 Azure 서비스와의 선택적 통합
 
@@ -32,15 +32,19 @@ Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-n
 
 ![Azure Cognitive Search 아키텍처](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search 아키텍처")
 
-외견상 검색은 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서* 의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트* 의 형태로도 통합할 수 있습니다.
+외부적으로 검색은 Azure 데이터 원본에서 데이터 수집/검색을 자동화하는 *인덱서* 의 형태로 통합됩니다. 또한 이미지와 텍스트 분석과 같은 Cognitive Services의 소모성 AI 또는 Azure Machine Learning에서 생성하거나 Azure Functions 내부에서 래핑하는 사용자 지정 AI를 통합하는 *기술 세트* 의 형태로도 통합할 수 있습니다.
+
+## <a name="inside-a-search-service"></a>검색 서비스 내부
 
 검색 서비스 자체의 두 가지 기본 워크로드는 *인덱싱* 및 *쿼리* 입니다. 
 
-+ 인덱싱에서는 텍스트를 검색 서비스로 수집하여 검색할 수 있게 합니다. 내부적으로 인바운드 텍스트는 토큰으로 처리되고 빠른 검색을 위해 반전된 인덱스에 저장됩니다. JSON 문서 형식의 모든 콘텐츠를 업로드할 수 있습니다.
++ [인덱싱](search-what-is-an-index.md)은 콘텐츠를 검색 서비스에 로드하여 검색 가능하게 만드는 흡입구 프로세스입니다. 내부적으로 인바운드 텍스트는 토큰으로 처리되고 빠른 검색을 위해 반전된 인덱스에 저장됩니다. JSON 문서 형식의 모든 텍스트를 업로드할 수 있습니다.
 
-  인덱싱 내에서 Microsoft 또는 사용자가 만든 사용자 지정 기술에서 미리 정의된 [인식 기술](cognitive-search-working-with-skillsets.md)을 통해 *AI 보강* 을 추가할 수 있습니다. 이후 분석과 변환은 이전에 존재하지 않았던 새로운 정보 및 구조를 초래하여 많은 검색 및 지식 마이닝 시나리오에 대한 높은 효용을 제공합니다.
+  또한 콘텐츠에 혼합된 파일이 포함된 경우 [인식 기술](cognitive-search-working-with-skillsets.md)을 통해 *AI 보강* 을 추가할 수 있습니다. AI 보강은 애플리케이션 파일에 포함된 텍스트를 추출할 수 있으며 콘텐츠를 분석하여 텍스트가 아닌 파일에서 텍스트와 구조를 유추할 수도 있습니다. 
 
-+ 인덱스가 검색 가능한 데이터로 채워지면 클라이언트 앱은 검색 서비스에 쿼리 요청을 보내고 응답을 처리합니다. 모든 쿼리 실행은 서비스에서 만들고 소유하고 저장하는 검색 인덱스를 통해 실행됩니다. 클라이언트 앱에서 검색 환경은 Azure Cognitive Search의 API를 사용하여 정의되며 관련성 튜닝, 자동 완성, 동의어 일치, 유사 일치, 패턴 일치, 필터 및 정렬을 포함할 수 있습니다.
+  분석을 제공하는 기술은 Microsoft에서 미리 정의된 기술이거나 사용자가 만든 사용자 지정 기술입니다. 이후 분석과 변환은 이전에 존재하지 않았던 새로운 정보 및 구조를 초래하여 많은 검색 및 지식 마이닝 시나리오에 대한 높은 효용을 제공합니다.
+
++ 인덱스가 검색 가능한 텍스트로 채워지면 클라이언트 앱이 검색 서비스에 쿼리 요청을 보내고 응답을 처리할 때 [쿼리](search-query-overview.md)가 발생할 수 있습니다. 모든 쿼리 실행은 서비스에서 만들고 소유하고 저장하는 검색 인덱스를 통해 실행됩니다. 클라이언트 앱에서 검색 환경은 Azure Cognitive Search의 API를 사용하여 정의되며 관련성 튜닝, 자동 완성, 동의어 일치, 유사 일치, 패턴 일치, 필터 및 정렬을 포함할 수 있습니다.
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. 또한 Azure Portal을 통해 인덱스와 기술 세트의 프로토타입 생성과 쿼리 수행을 위한 도구로 서비스 관리 및 컨텐츠 관리를 수행할 수 있습니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
@@ -73,7 +77,7 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 > [!TIP]
 > [**데이터 가져오기 마법사**](search-get-started-portal.md)와 Azure 데이터 원본으로 시작하여 인덱스를 몇 분 내에 만들고, 로드하고, 쿼리하여 단계를 최소화합니다.
 
-## <a name="how-it-compares"></a>비교 결과
+## <a name="compare-search-options"></a>검색 옵션 비교
 
 고객이 Azure Cognitive Search와 다른 검색 관련 솔루션을 비교하는 방법을 질문하는 경우가 많습니다. 다음 표에 주요 차이점이 요약되어 있습니다.
 

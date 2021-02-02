@@ -1,24 +1,51 @@
 ---
 title: Azure Active Directory 응용 프로그램 관리의 새로운 기능
 description: Azure Active Directory 응용 프로그램 관리를 위한 새롭고 업데이트 된 설명서입니다.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: ea2e08db91d23e9523b7bc95e01b7adc9c93b3cc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+manager: daveba
+ms.openlocfilehash: 53339623ee435362d248b794776681972000173e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054824"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258577"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
 Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 응용 프로그램 관리 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="new-articles"></a>새 문서
+- [내 앱 구성 Azure Active Directory 계획](my-apps-deployment-plan.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생](application-proxy-connector-installation-problem.md)
+- [Azure AD에서 암호 기반 Single Sign-On 문제 해결](troubleshoot-password-based-sso.md)
+- [애플리케이션 관리 모범 사례](application-management-fundamentals.md)
+- [애플리케이션과 Azure Active Directory 통합 시작 가이드](plan-an-application-integration.md)
+- [애플리케이션 관리란?](what-is-application-management.md)
+- [Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답](application-proxy-faq.md)
+- [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)
+- [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)
+- [Azure Active Directory용 기간 업무 앱 개발](developer-guidance-for-integrating-applications.md)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)
+- [연결 된 로그온 이해](configure-linked-sign-on.md)
+- [암호 기반 Single Sign-On 이해](configure-password-single-sign-on-non-gallery-applications.md)
+- [SAML 기반 Single Sign-On 이해](configure-saml-single-sign-on.md)
+- [Azure Active Directory에 응용 프로그램을 추가 하거나 제거 하는 일반적인 문제 해결](troubleshoot-adding-apps.md)
+- [Id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 앱 보기](application-types.md)
+- [Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해](ways-users-get-assigned-to-applications.md)
+- [빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제](delete-application-portal.md)
+- [Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시](application-proxy-integrate-with-remote-desktop-services.md)
+- [Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.](manage-application-permissions.md)
+
 
 ## <a name="december-2020"></a>2020년 12월
 

@@ -1,25 +1,11 @@
 ---
-title: Media Services 계정 ARM 템플릿
-titleSuffix: Azure Media Services
-description: 이 문서에서는 ARM 템플릿을 사용하여 미디어 서비스 계정을 만드는 방법을 보여줍니다.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185042"
+제목: Media Services 계정 ARM 템플릿 : Azure Media Services 설명: 이 문서에서는 ARM 템플릿을 사용하여 미디어 서비스 계정을 만드는 방법을 보여줍니다.
+services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
+
+ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 2020/11/24 ms.author: inhenkel ms.custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>빠른 시작: Media Services 계정 ARM 템플릿
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -41,7 +27,7 @@ ARM 템플릿에 익숙한 리더는 [배포 섹션](#deploy-the-template)을 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이전에 ARM 템플릿을 배포한 적이 없다면 [Azure ARM 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/templates/)에 대해 읽고 [자습서](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)를 살펴보는 것이 좋습니다.
+이전에 ARM 템플릿을 배포한 적이 없다면 [Azure ARM 템플릿](../../azure-resource-manager/templates/index.yml)에 대해 읽고 [자습서](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)를 살펴보는 것이 좋습니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -118,8 +104,8 @@ The syntax for the JSON code fence is:
 
 템플릿에 정의된 세 가지 Azure 리소스 유형은 다음과 같습니다.
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): Media Services 계정 만들기
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): 스토리지 계정 만들기
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): Media Services 계정 만들기
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): 스토리지 계정 만들기
 
 ## <a name="set-the-account"></a>계정 설정
 
@@ -277,4 +263,4 @@ az group delete --name {name of the resource group}
 매개 변수, 변수 등을 사용하여 템플릿을 만드는 프로세스를 수행하여 ARM 템플릿 사용에 대해 자세히 알아보려면 다음을 시도하세요.
 
 > [!div class="nextstepaction"]
-> [첫 번째 ARM 템플릿 만들기 및 배포](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [첫 번째 ARM 템플릿 만들기 및 배포](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

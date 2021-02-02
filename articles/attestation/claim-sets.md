@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: afe2cf288cd4a15091e8278309b3ecf74a2d35a4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572751"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762544"
 ---
 # <a name="claim-sets"></a>클레임 집합
 
@@ -55,6 +55,12 @@ policy_signer | x-ms-policy-signer
 [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
 - **"Nonce 클레임"(nonce)**
 
+아래 클레임은 들어오는 클레임에 따라 기본적으로 생성됩니다.
+- **x-ms-ver**: JWT 스키마 버전("1.0"이어야 함)
+- **x-ms-attestation-type**: 증명 유형을 나타내는 문자열 값 
+- **x-ms-policy-hash**: BASE64URL(SHA256(UTF8(BASE64URL(UTF8(정책 텍스트)))))로 계산된 정책 텍스트의 SHA256 해시가 포함된 문자열 값
+- **x-ms-policy-signer**: 서명된 정책 헤더에 있는 공개 키 또는 인증서 체인이 있는 JWK를 포함합니다. x-ms-policy-signer는 정책이 서명된 경우에만 추가됩니다.
+
 ## <a name="claims-specific-to-sgx-enclaves"></a>SGX enclave 관련 클레임
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>들어오는 SGX 증명 관련 클레임
@@ -71,7 +77,6 @@ SGX 증명 서비스에서 생성되고 사용자 지정 정책에서 권한 부
 서비스에서 생성되고 SGX 증명에 대한 응답 개체에 포함되는 클레임은 다음과 같습니다.
 - **x-ms-sgx-is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
 - **x-ms-sgx-product-id**
-- **x-ms-ver**
 - **x-ms-sgx-mrsigner**: quote의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
 - **x-ms-sgx-mrenclave**: quote의 "mrenclave" 필드에 대해 16진수로 인코딩된 값
 - **x-ms-sgx-svn**: quote로 인코딩된 보안 버전 번호 
@@ -99,36 +104,39 @@ maa-ehd | x-ms-sgx-ehd
 aas-ehd | x-ms-sgx-ehd
 maa-attestationcollateral | x-ms-sgx-collateral
 
-## <a name="claims-issued-specific-to-trusted-platform-module-tpm-attestation"></a>발급된 TPM(신뢰할 수 있는 플랫폼 모듈) 증명 관련 클레임
+## <a name="claims-specific-to-trusted-platform-module-tpm-vbs-attestation"></a>TPM(신뢰할 수 있는 플랫폼 모듈)/ VBS 증명 관련 클레임
 
-### <a name="incoming-claims-can-also-be-used-as-outgoing-claims"></a>들어오는 클레임(나가는 클레임으로도 사용 가능)
+### <a name="incoming-claims-for-tpm-attestation"></a>TPM 증명에 대한 들어오는 클레임
 
-- **aikValidated**:  AIK(증명 ID 키) 인증서의 유효성이 검사되었는지 여부에 대한 정보가 포함된 부울 값입니다.
-- **aikPubHash**:  base64(SHA256(DER 형식의 AIK 공개 키))가 포함된 문자열입니다.
-- **tpmVersion**:   TPM(신뢰할 수 있는 플랫폼 모듈) 주 버전이 포함된 정수 값입니다.
-- **secureBootEnabled**: 보안 부팅을 사용하도록 설정되는지 여부를 나타내는 부울 값입니다.
-- **iommuEnabled**:  Iommu(입력-출력 메모리 관리 단위)를 사용하도록 설정되는지 여부를 나타내는 부울 값입니다.
-- **bootDebuggingDisabled**: 부팅 디버깅을 사용하지 않도록 설정되는지 여부를 나타내는 부울 값입니다.
-- **notSafeMode**:  Windows가 안전 모드에서 실행되지 않는지 여부를 나타내는 부울 값입니다.
-- **notWinPE**:  Windows가 WinPE 모드에서 실행되지 않는지 여부를 나타내는 부울 값입니다.
-- **vbsEnabled**:  VBS를 사용하도록 설정되는지 여부를 나타내는 부울 값입니다.
-- **vbsReportPresent**:  VBS enclave 보고서를 사용할 수 있는지 여부를 나타내는 부울 값입니다.
+TPM 증명에 대해 Azure Attestation에서 발급한 클레임입니다. 클레임의 가용성은 증명을 위해 제공된 증명 정보에 따라 달라집니다.
+
+- **aikValidated**: AIK(증명 ID 키) 인증서의 유효성이 검사되었는지 여부에 대한 정보가 포함된 부울 값
+- **aikPubHash**:  base64(SHA256(DER 형식의 AIK 공개 키))가 포함된 문자열
+- **tpmVersion**:   TPM(신뢰할 수 있는 플랫폼 모듈) 주 버전이 포함된 정수 값
+- **secureBootEnabled**: 보안 부팅을 사용하도록 설정되는지 여부를 나타내는 부울 값
+- **iommuEnabled**:  Iommu(입력-출력 메모리 관리 단위)를 사용하도록 설정되는지 여부를 나타내는 부울 값
+- **bootDebuggingDisabled**: 부팅 디버깅을 사용하지 않도록 설정되는지 여부를 나타내는 부울 값
+- **notSafeMode**:  Windows가 안전 모드에서 실행되지 않는지 여부를 나타내는 부울 값
+- **notWinPE**:  Windows가 WinPE 모드에서 실행되지 않는지 여부를 나타내는 부울 값
+- **vbsEnabled**:  VBS를 사용하도록 설정되는지 여부를 나타내는 부울 값
+- **vbsReportPresent**:  VBS enclave 보고서를 사용할 수 있는지 여부를 나타내는 부울 값
+
+### <a name="incoming-claims-for-vbs-attestation"></a>VBS 증명에 대한 들어오는 클레임
+
+Azure Attestation for VBS 증명에서 발급한 클레임은 TPM 증명에 사용할 수 있는 클레임 외에도 적용됩니다. 클레임의 가용성은 증명을 위해 제공된 증명 정보에 따라 달라집니다.
+
 - **enclaveAuthorId**:  enclave 작성자 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 작성자 식별자입니다.
 - **enclaveImageId**:  enclave 이미지 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 이미지 식별자입니다.
 - **enclaveOwnerId**:  enclave 소유자 ID에 대해 Base64Url로 인코딩된 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 소유자 식별자입니다.
-- **enclaveFamilyId**:  Base64Url로 인코딩된 enclave 패밀리 ID 값이 포함된 문자열 값입니다. 이 ID는 enclave에 대한 주 모듈의 패밀리 식별자입니다.
-- **enclaveSvn**:  enclave에 대한 주 모듈의 보안 버전 번호가 포함된 정수 값입니다.
-- **enclavePlatformSvn**:  enclave를 호스팅하는 플랫폼의 보안 버전 번호가 포함된 정수 값입니다.
+- **enclaveFamilyId**:  Base64Url로 인코딩된 enclave 패밀리 ID 값이 포함된 문자열 값입니다. enclave에 대한 기본 모듈의 패밀리 식별자
+- **enclaveSvn**:  enclave에 대한 주 모듈의 보안 버전 번호가 포함된 정수 값
+- **enclavePlatformSvn**:  enclave를 호스팅하는 플랫폼의 보안 버전 번호가 포함된 정수 값
 - **enclaveFlags**:  enclaveFlags 클레임은 enclave에 대한 런타임 정책을 설명하는 플래그가 포함된 정수 값입니다.
-  
-### <a name="outgoing-claims-specific-to-tpm-attestation"></a>나가는 TPM 증명 관련 클레임
 
-- **policy_hash**:  BASE64URL(SHA256(BASE64URL(UTF8(정책 텍스트))))로 계산된 정책 텍스트의 SHA256 해시가 포함된 문자열 값입니다.
-- **policy_signer**:  서명된 정책 헤더에 있는 공개 키 또는 인증서 체인이 있는 JWK를 포함합니다.
-- **ver(버전)** :  보고서 버전이 포함된 문자열 값입니다. 현재 1.0입니다.
-- **cnf(확인) 클레임**:  "cnf" 클레임은 소유 증명 키를 식별하는 데 사용됩니다. RFC 7800에서 정의된 확인 클레임에는 JWK(JSON Web Key) 개체(RFC 7517)로 표현되는 증명된 enclave 키의 공개 부분이 포함됩니다.
-- **rp_data(신뢰 당사자 데이터)** :  요청에 지정된 신뢰 당사자 데이터(있는 경우)는 보고서의 최신 상태를 보장하기 위해 해당 신뢰 당사자가 nonce로 사용합니다.
-- **"jti"(JWT ID) 클레임**: "jti"(JWT ID) 클레임은 JWT에 대한 고유 식별자를 제공합니다. 식별자 값은 동일한 값이 실수로 다른 데이터 개체에 할당될 가능성을 무시할 수 있도록 하는 방식으로 할당됩니다.
+### <a name="outgoing-claims-specific-to-tpm-and-vbs-attestation"></a>TPM 및 VBS 증명과 관련된 나가는 클레임
+
+- **cnf(확인)** : "cnf" 클레임은 소유 증명 키를 식별하는 데 사용됩니다. RFC 7800에 정의된 확인 클레임에는 JWK(JSON Web Key) 개체(RFC 7517)로 표현되는 증명된 enclave 키의 공개 부분이 포함됩니다.
+- **rp_data(신뢰 당사자 데이터)** : 요청에 지정된 신뢰 당사자 데이터(있는 경우)는 보고서의 최신 상태를 보장하기 위해 해당 신뢰 당사자가 nonce로 사용합니다. rp_data는 rp_data가 있는 경우에만 추가됩니다.
 
 ### <a name="property-claims"></a>속성 클레임
 

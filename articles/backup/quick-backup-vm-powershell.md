@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 5e83c599ceed76927f2a313f78c83638d708f1bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985129"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737119"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -18,7 +18,7 @@ ms.locfileid: "90985129"
 
 [Azure Backup](backup-overview.md)은 온-프레미스 머신과 앱, Azure VM을 백업합니다. 이 문서에서는 AZ 모듈을 사용하여 Azure VM을 백업하는 방법을 보여 줍니다. 또는 [Azure CLI](quick-backup-vm-cli.md)를 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 VM을 백업할 수 있습니다.
 
-이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure PowerShell을 사용하여 VM을 만들](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) 수 있습니다.
+이 빠른 시작을 사용하면 기존 Azure VM에서 백업할 수 있습니다. VM을 생성해야 하는 경우 [Azure PowerShell을 사용하여 VM을 만들](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json) 수 있습니다.
 
 이 빠른 시작에는 Azure PowerShell AZ 모듈 버전 1.0.0 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "90985129"
 자격 증명 모음을 만드는 경우 다음을 수행합니다.
 
 - 리소스 그룹 및 위치에 대해 백업하려는 VM의 리소스 그룹과 위치를 지정합니다.
-- 이 [샘플 스크립트](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)를 사용하여 VM을 만든 경우 리소스 그룹은 **myResourceGroup**이고, VM은 ***myVM**이며, 리소스는 **WestEurope** 지역에 있습니다.
+- 이 [샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json)를 사용하여 VM을 만든 경우 리소스 그룹은 **myResourceGroup** 이고, VM은 **_myVM_* 이며, 리소스는 **WestEurope** 지역에 있습니다.
 - Azure Backup은 백업된 데이터에 대한 스토리지를 자동으로 처리합니다. 기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)를 사용합니다. 지역 중복은 주 지역에서 수백 마일 떨어져 있는 보조 Azure 지역에 백업된 데이터가 복제되도록 합니다.
 
 이제 자격 증명 모음을 만듭니다.

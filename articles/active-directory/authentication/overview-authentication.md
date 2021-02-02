@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: c6f4659b9ee809cc1f1caeb1cb9c0d626b1b3a3b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741255"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725657"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Azure Active Directory 인증이란?
 
@@ -27,6 +27,10 @@ ID 플랫폼의 주요 기능 중 하나는 사용자가 디바이스, 애플리
 * 온-프레미스 환경에 암호 변경 쓰기를 저장하기 위한 하이브리드 통합
 * 온-프레미스 환경에 암호 보호 정책을 적용하기 위한 하이브리드 통합
 * 암호 없는 인증
+
+이러한 인증 구성 요소에 대한 자세한 내용은 짧은 비디오를 참조하세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4KVJA]
 
 ## <a name="improve-the-end-user-experience"></a>최종 사용자 환경 개선
 

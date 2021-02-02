@@ -8,17 +8,15 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f85a76a7ce01c11255f54c6b956088f9328dfc9f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 55f0d2e8df36cc11f26c5ff6259ebe2215aaffc6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918471"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880545"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Azure Purview 계정 연결 
 
-> [!IMPORTANT]
-> Azure Synapse Analytics와 Azure Purview 간의 통합은 현재 미리 보기 상태입니다. Synapse에서 Azure Purview를 사용해 보려면 Microsoft 영업 담당자에게 문의하세요.
 
 이 빠른 시작에서는 Azure Purview 계정을 Synapse 작업 영역에 등록합니다. 이렇게 연결하면 Synapse 기능을 통해 Azure Purview 자산을 찾아서 상호 작용할 수 있습니다. 
 
@@ -34,11 +32,11 @@ Synapse에서는 다음과 같은 작업을 수행할 수 있습니다.
 
 ## <a name="signin-toa-synapse-workspace"></a>Synapse 작업 영역에 로그인 
 
-https://web.azuresynapse.net 으로 이동하여 작업 영역에 로그인합니다. 
+ [https://web.azuresynapse.net](https://web.azuresynapse.net)으로 이동하여 작업 영역에 로그인합니다. 
 
 ## <a name="permissions-for-connecting-an-azure-purview-account"></a>Azure Purview 계정에 연결할 수 있는 권한 
 
-- Azure Purview 계정을 Synapse 작업 영역에 연결하려면 Azure Portal IAM의 Synapse 작업 영역에서 **기여자** 역할이 있어야 하고 해당 Azure Purview 계정에 대한 액세스 권한이 필요합니다.
+- Azure Purview 계정을 Synapse 작업 영역에 연결하려면 Azure Portal IAM의 Synapse 작업 영역에서 **기여자** 역할이 있어야 하고 해당 Azure Purview 계정에 대한 액세스 권한이 필요합니다. 자세한 내용은 [Azure Purview 권한](../../purview/catalog-permissions.md)을 참조하세요.
 
 ## <a name="connect-an-azure-purview-account"></a>Azure Purview 계정 연결  
 

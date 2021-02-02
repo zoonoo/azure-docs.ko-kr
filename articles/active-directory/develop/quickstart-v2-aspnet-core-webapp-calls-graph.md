@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ae80ddd9efe8274a29a4b8dd91b7a3c391eefc3a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178690"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754495"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
@@ -166,7 +166,7 @@ ms.locfileid: "98178690"
 
 `AddAuthentication()` 메서드는 브라우저 시나리오에 사용되는 쿠키 기반 인증을 추가하고 챌린지를 OpenID Connect로 설정하도록 서비스를 구성합니다.
 
-`.AddMicrosoftIdentityWebApp`이 포함된 줄은 애플리케이션에 Microsoft ID 플랫폼 인증을 추가합니다. 이는 [Microsoft.Identity.Web](microsoft-identity-web.md)에서 제공합니다. 그런 다음, *appsettings.json* 구성 파일의 `AzureAD` 섹션에 있는 정보를 기반으로 Microsoft ID 플랫폼 엔드포인트를 사용하여 로그인하도록 구성됩니다.
+`.AddMicrosoftIdentityWebApp`가 포함된 줄은 애플리케이션에 Microsoft ID 플랫폼 인증을 추가합니다. 이는 [Microsoft.Identity.Web](microsoft-identity-web.md)에서 제공합니다. 그런 다음, *appsettings.json* 구성 파일의 `AzureAD` 섹션에 있는 정보를 기반으로 Microsoft ID 플랫폼을 사용하여 로그인하도록 구성됩니다.
 
 | *appsettings.json* 키 | 설명                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

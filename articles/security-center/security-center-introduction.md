@@ -12,18 +12,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709091"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806195"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Azure Security Center는 데이터 센터의 보안 상태를 강화하고, 온-프레미스뿐 아니라 Azure에 있는지 여부와 관계없이 클라우드의 전체 하이브리드 워크로드에 대해 지능형 위협 방지 기능을 제공하는 통합된 인프라 보안 관리 시스템입니다.
 
@@ -74,7 +72,7 @@ Security Center를 사용하면 **섀도 IT 구독을 확인** 할 수 있습니
 
 ### <a name="continuous-assessments"></a>연속 평가
 
-Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다.
+Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다. 이 권장 사항 목록은 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트인 [Azure Security Benchmark](../security/benchmarks/introduction.md)에서 활성화 및 지원됩니다. 널리 인정받는 이 벤치마크는 클라우드 중심 보안에 초점을 맞춘 [CIS(Center for Internet Security)](https://www.cisecurity.org/benchmark/azure/) 및 [NIST(National Institute of Standards and Technology)](https://www.nist.gov/)의 컨트롤을 기반으로 합니다.
 
 각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정** 하는 데 중요합니다.
 
@@ -107,9 +105,8 @@ Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분�
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>엔드포인트용 Microsoft Defender와 통합
 
-Security Center에는 엔드포인트용 Microsoft Defender와의 자동 네이티브 통합이 포함되어 있습니다. 따라서 별도 구성 없이도 Windows 및 Linux 머신이 Security Center의 권장 사항 및 평가와 완전히 통합됩니다.
+서버용 Azure Defender에는 엔드포인트용 Microsoft Defender와의 자동 네이티브 통합이 포함되어 있습니다. [Security Center의 통합 EDR 솔루션으로 엔드포인트를 보호: 엔드포인트용 Microsoft Defender](security-center-wdatp.md)를 자세히 알아봅니다.
 
-또한 Security Center를 사용하면 서버 환경에서 애플리케이션 제어 정책을 자동화할 수 있습니다. Security Center의 적응형 애플리케이션 제어를 통해 Windows 서버 전체의 엔드투엔드 앱 승인 목록을 만들 수 있습니다. 규칙을 만들고 위반을 확인할 필요가 없으며, 모든 작업이 자동으로 수행됩니다.
 
 ### <a name="protect-paas"></a>PaaS 보호
 

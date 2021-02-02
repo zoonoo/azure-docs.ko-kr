@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1825767d8140421d4f0e22f9ebfde42f8262da5e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201079"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258560"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -90,15 +90,11 @@ API Management가 배포된 서브넷으로의 인바운드 및 아웃바운드 
 
 참고: 이 기능은 API Management의 프리미엄 및 개발자 계층에서 사용할 수 있습니다.
 
-API Management 배포와 연결된 Vnet에서 Azure DDoS Protection 표준을 사용하도록 설정하여 DDoS(분산 서비스 거부) 공격으로부터 보호합니다.
-
 Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용되지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
 * [내부 VNET의 API Management를 Application Gateway와 통합하는 방법](./api-management-howto-integrate-internal-vnet-appgateway.md)
 
 * [Azure Application Gateway 이해](../application-gateway/index.yml)
-
-* [DDoS Protection 표준을 구성하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 * [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
@@ -184,8 +180,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
 
-**지침**: Azure API Management 배포와 관련된 네트워크 설정에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 및 "Microsoft.Network" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 배포 및 관련 리소스에 대한 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. Azure Virtual Networks에 대해 다음과 같은 기본 제공 정책 정의를 사용할 수도 있습니다.
-- DDoS Protection 표준을 사용하도록 설정해야 합니다.
+**지침**: Azure API Management 배포와 관련된 네트워크 설정에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 및 "Microsoft.Network" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 배포 및 관련 리소스에 대한 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. 
 
 또한 Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 단일 청사진 정의의 정책과 같은 주요 환경 아티팩트를 패키지 하 여 대규모 Azure 배포를 간소화할 수 있습니다. 청사진을 새 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어와 관리를 세부적으로 조정할 수 있습니다.
 

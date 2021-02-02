@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4610d4d677d2d340340aab5edcddb658ac32e5e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178208"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754051"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -124,7 +124,7 @@ ms.locfileid: "98178208"
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자를 로그인하고 보안 토큰을 요청하는 데 사용되는 라이브러리입니다. 보안 토큰은 개발자용 Microsoft ID 플랫폼으로 보호되는 API에 액세스할 때 사용됩니다. Visual Studio의 *패키지 관리자 콘솔* 에서 다음 명령을 실행하여 MSAL을 설치할 수 있습니다.
+MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자를 로그인하고 보안 토큰을 요청하는 데 사용되는 라이브러리입니다. 보안 토큰은 Microsoft ID 플랫폼으로 보호되는 API에 액세스하는 데 사용됩니다. Visual Studio의 *패키지 관리자 콘솔* 에서 다음 명령을 실행하여 MSAL을 설치할 수 있습니다.
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -155,7 +155,7 @@ MSAL에는 UWP 앱에서 토큰 획득을 위한 두 가지 메서드인 `Acquir
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼 엔드포인트와 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
+상황에 따라 사용자가 자격 증명의 유효성을 검사하거나 동의를 제공하기 위해 팝업 창을 통해 Microsoft ID 플랫폼과 상호 작용해야 합니다. 일부 사례:
 
 - 사용자가 애플리케이션에 처음으로 로그인하는 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우

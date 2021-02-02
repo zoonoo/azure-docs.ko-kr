@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작하기
+        - name: 시작
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -17,6 +17,7 @@
           href: azure-stack-edge-gpu-deploy-checklist.md
         - name: '1 - 주문, 준비'
           href: azure-stack-edge-gpu-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - 설치
           href: azure-stack-edge-gpu-deploy-install.md
         - name: 3 - 연결
@@ -73,6 +74,7 @@
           href: azure-stack-edge-pro-r-deploy-checklist.md
         - name: '1 - 주문, 준비'
           href: azure-stack-edge-pro-r-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - 설치
           href: azure-stack-edge-pro-r-deploy-install.md
         - name: 3 - 연결
@@ -119,6 +121,7 @@
           href: azure-stack-edge-mini-r-deploy-checklist.md
         - name: '1 - 주문, 준비'
           href: azure-stack-edge-mini-r-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - 설치
           href: azure-stack-edge-mini-r-deploy-install.md
         - name: 3 - 연결
@@ -315,6 +318,7 @@
       items:
         - name: 1 - 준비
           href: azure-stack-edge-deploy-prep.md
+          displayName: 'Azure CLI, az databoxedge device, az databoxedge order'
         - name: 2 - 설치
           href: azure-stack-edge-deploy-install.md
         - name: '3 - 연결, 설정, 활성화'

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/30/2020
+ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: 7099b0d303965b987fb316170738cc82568dc6d6
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 5b38c731db141052e6700472020cd60b6a4d13a5
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505600"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797793"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -57,7 +57,11 @@ Video Indexer와 함께 사용할 수 있는 파일 형식 목록은 [입력 컨
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="업로드가 업로드됨":::
- 
+
+## <a name="supported-browsers"></a>지원되는 브라우저
+
+자세한 내용은 [지원되는 브라우저](video-indexer-overview.md#supported-browsers)를 참조하세요.
+
 ## <a name="see-also"></a>참고 항목
 
 자세한 내용은 [비디오 업로드 및 인덱싱](upload-index-videos.md)을 참조하세요.

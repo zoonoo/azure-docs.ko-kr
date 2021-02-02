@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 유니버설 Windows 플랫폼 데스크톱 앱에서 사용자 로그인 및 Microsoft Graph 호출 | Azure'
-description: 이 빠른 시작에서는 Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 획득하고, Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 획득하고, Microsoft ID 플랫폼으로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178299"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754000"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -145,7 +145,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `AcquireT
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼 엔드포인트와 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
+상황에 따라 사용자가 팝업 창을 통해 Microsoft ID 플랫폼과 상호 작용하여 자격 증명의 유효성을 검사하거나 동의를 제공해야 합니다. 일부 사례:
 
 - 처음으로 사용자가 애플리케이션에 로그인한 경우
 - 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 경우

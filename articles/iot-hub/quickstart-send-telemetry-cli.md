@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub(CLI)에 원격 분석 보내기 빠른 시작
+title: 빠른 시작 - Azure IoT Hub(CLI)에 원격 분석 보내기 빠른 시작
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 IoT Hub를 만들고, 원격 분석을 전송하고, 디바이스와 허브 간에 메시지를 확인하여 시작하는 방법을 IoT Hub 신규 개발자에게 보여 줍니다.
 ms.service: iot-hub
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: ffcdf8d2baf7a449234ca14d603583f62949159d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 20e7998b4d0ec5a36f8fb8f1ddb04d591c54542b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150614"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624272"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 
@@ -45,17 +45,17 @@ Cloud Shell을 시작하려면 다음을 수행합니다.
     > [!NOTE]
     > Cloud Shell을 처음 사용하는 경우 Cloud Shell을 사용하는 데 필요한 스토리지를 만들라는 메시지가 표시됩니다.  구독을 선택하여 스토리지 계정 및 Microsoft Azure Files 공유를 만듭니다. 
 
-2. **환경 선택** 드롭다운에서 원하는 CLI 환경을 선택합니다. 이 빠른 시작에서는 **Bash** 환경을 사용합니다. 다음 CLI 명령은 모두 Powershell 환경에서도 작동합니다. 
+2. **환경 선택** 드롭다운에서 원하는 CLI 환경을 선택합니다. 이 빠른 시작에서는 **Bash** 환경을 사용합니다. 다음 CLI 명령은 모두 PowerShell 환경에서도 작동합니다. 
 
     ![CLI 환경 선택](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>두 CLI 세션 준비
 
-이 섹션에서는 두 개의 Azure CLI 세션을 준비합니다. Cloud Shell을 사용하는 경우 별도의 브라우저 탭에서 두 세션을 실행합니다. 로컬 CLI 클라이언트를 사용하는 경우 두 개의 개별 CLI 인스턴스를 실행합니다. 첫 번째 세션을 시뮬레이트된 디바이스로 사용하고 두 번째 세션을 사용하여 메시지를 모니터링하고 보냅니다. 명령을 실행하려면 **복사**를 선택하여 이 빠른 시작의 코드 블록을 복사한 후 셸 세션에 붙여 넣고 실행합니다.
+이 섹션에서는 두 개의 Azure CLI 세션을 준비합니다. Cloud Shell을 사용하는 경우 별도의 브라우저 탭에서 두 세션을 실행합니다. 로컬 CLI 클라이언트를 사용하는 경우 두 개의 개별 CLI 인스턴스를 실행합니다. 첫 번째 세션을 시뮬레이트된 디바이스로 사용하고 두 번째 세션을 사용하여 메시지를 모니터링하고 보냅니다. 명령을 실행하려면 **복사** 를 선택하여 이 빠른 시작의 코드 블록을 복사한 후 셸 세션에 붙여 넣고 실행합니다.
 
 Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CLI 셸 세션과 IoT Hub 간의 모든 통신을 인증하고 암호화합니다. 따라서 이 빠른 시작에는 연결 문자열과 같은 실제 디바이스에서 사용하는 추가 인증이 필요하지 않습니다.
 
-*  [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
+*  [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true) 명령을 실행하여 CLI 셸에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli
    az extension add --name azure-iot
@@ -65,7 +65,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 
    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-*  두 번째 CLI 세션을 엽니다.  Cloud Shell을 사용하는 경우 **새 세션 열기**를 선택합니다. CLI를 로컬로 사용하는 경우 두 번째 인스턴스를 엽니다. 
+*  두 번째 CLI 세션을 엽니다.  Cloud Shell을 사용하는 경우 **새 세션 열기** 를 선택합니다. CLI를 로컬로 사용하는 경우 두 번째 인스턴스를 엽니다. 
 
     >[!div class="mx-imgBorder"]
     >![새 Cloud Shell 세션 열기](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
@@ -76,13 +76,13 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 > [!TIP]
 > 필요에 따라 [Azure Portal](iot-hub-create-through-portal.md), [Visual Studio Code](iot-hub-create-use-iot-toolkit.md) 또는 기타 프로그래밍 방법을 사용하여 Azure 리소스 그룹, IoT Hub 및 기타 리소스를 만들 수 있습니다.  
 
-1. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup*이라는 리소스 그룹을 만듭니다. 
+1. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
 
     ```azurecli
     az group create --name MyResourceGroup --location eastus
     ```
 
-1. [az iot hub create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
+1. [az iot hub create](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create&preserve-view=true) 명령을 사용하여 IoT Hub를 만듭니다. IoT Hub를 만드는 데 몇 분 정도 걸릴 수 있습니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. IoT Hub 이름은 Azure에서 전역적으로 고유해야 합니다. 이 자리 표시자는 이 빠른 시작의 나머지 부분에서 IoT hub 이름을 표시하는 데 사용됩니다.
 
@@ -94,7 +94,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 이 섹션에서는 첫 번째 CLI 세션에서 시뮬레이트된 디바이스를 만듭니다. 시뮬레이트된 디바이스는 IoT Hub에 디바이스 원격 분석을 보냅니다. 두 번째 CLI 세션에서 이벤트 및 원격 분석을 모니터링하고 클라우드-디바이스 메시지를 시뮬레이트된 디바이스로 보냅니다.
 
 시뮬레이트된 디바이스를 만들고 시작 하려면 다음을 실행합니다.
-1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
+1. 첫 번째 CLI 세션에서 [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create&preserve-view=true) 명령을 실행합니다. 시뮬레이트된 디바이스 ID가 만들어집니다. 
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -104,7 +104,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. 첫 번째 CLI 세션에서 [az iot device simulate](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
+1. 첫 번째 CLI 세션에서 [az iot device simulate](/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate&preserve-view=true) 명령을 실행합니다.  그러면 시뮬레이트된 디바이스가 시작됩니다. 이 디바이스는 IoT Hub에 원격 분석을 보내고 메시지를 수신합니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -113,7 +113,7 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     ```
 
 디바이스를 모니터링하려면 다음을 수행합니다.
-1. 두 번째 CLI 세션에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
+1. 두 번째 CLI 세션에서 [az iot hub monitor-events](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events&preserve-view=true) 명령을 실행합니다. 그러면 시뮬레이트된 디바이스 모니터링이 시작됩니다. 출력은 시뮬레이트된 디바이스가 IoT Hub에 보내는 원격 분석을 보여 줍니다.
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
@@ -136,14 +136,14 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. 두 번째 CLI 세션에서 [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
+1. 두 번째 CLI 세션에서 [az iot device c2d-message send](/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send&preserve-view=true) 명령을 실행합니다. 그러면 IoT Hub에서 시뮬레이트된 디바이스로 클라우드-디바이스 메시지를 보냅니다. 이 메시지에는 문자열 1개와 키-값 쌍 2개가 포함됩니다.  
 
     *YourIotHubName*. 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다. 
 
     ```azurecli
     az iot device c2d-message send -d simDevice --data "Hello World" --props "key0=value0;key1=value1" -n {YourIoTHubName}
     ```
-    필요에 따라 Azure Portal을 사용하여 클라우드-디바이스 메시지를 보낼 수 있습니다. 이렇게 하려면 IoT Hub에 대한 개요 페이지로 이동하고, **IoT 디바이스**를 선택하고, 시뮬레이트된 디바이스를 선택한 후 , **디바이스에 메시지 전송**을 선택합니다. 
+    필요에 따라 Azure Portal을 사용하여 클라우드-디바이스 메시지를 보낼 수 있습니다. 이렇게 하려면 IoT Hub에 대한 개요 페이지로 이동하고, **IoT 디바이스** 를 선택하고, 시뮬레이트된 디바이스를 선택한 후 , **디바이스에 메시지 전송** 을 선택합니다. 
 
 1. 첫 번째 CLI 세션에서 시뮬레이트된 디바이스가 메시지를 받았는지 확인합니다. 
 
@@ -155,19 +155,19 @@ Azure CLI를 사용하려면 Azure 계정에 로그인해야 합니다. Azure CL
 Azure Portal을 사용하여 IoT Hub 및 디바이스의 모든 측면을 관리할 수 있습니다. 디바이스에서 원격 분석을 수집하는 일반적인 IoT Hub 애플리케이션에서는 디바이스를 모니터링하거나 디바이스 원격 분석에서 메트릭을 볼 수 있습니다. 
 
 Azure Portal에서 메시징 메트릭을 시각화하려면 다음을 수행합니다.
-1. 포털의 왼쪽 탐색 메뉴에서 **모든 리소스**를 선택합니다. 그러면 만든 IoT hub를 비롯하여 구독의 모든 리소스가 나열됩니다. 
+1. 포털의 왼쪽 탐색 메뉴에서 **모든 리소스** 를 선택합니다. 그러면 만든 IoT hub를 비롯하여 구독의 모든 리소스가 나열됩니다. 
 
 1. 만든 IoT hub에서 링크를 선택합니다. 포털에서 허브에 대한 개요 페이지가 표시됩니다.
 
-1. IoT Hub의 왼쪽 창에서 **메트릭**을 선택합니다. 
+1. IoT Hub의 왼쪽 창에서 **메트릭** 을 선택합니다. 
 
     ![IoT Hub 메시징 메트릭](media/quickstart-send-telemetry-cli/iot-hub-portal-metrics.png)
 
-1. **범위**에 IoT Hub 이름을 입력합니다.
+1. **범위** 에 IoT Hub 이름을 입력합니다.
 
-2. **메트릭 네임스페이스**에서*Iot Hub 표준 메트릭*을 선택합니다.
+2. **메트릭 네임스페이스** 에서 *Iot Hub 표준 메트릭* 을 선택합니다.
 
-3. *메트릭*에서 **사용된 전체 메시지 수**를 선택합니다. 
+3. *메트릭* 에서 **사용된 전체 메시지 수** 를 선택합니다. 
 
 4. 디바이스가 메시지를 보낸 타임라인 영역 위로 마우스 포인터를 가져갑니다. 특정 시점의 총 메시지 수가 타임라인의 왼쪽 아래 모서리에 나타납니다.
 
@@ -184,12 +184,12 @@ Azure Portal에서 메시징 메트릭을 시각화하려면 다음을 수행합
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
 리소스 그룹을 이름으로 삭제하려면:
-1. [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
+1. [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) 명령을 실행합니다. 그러면 만든 리소스 그룹, IoT Hub 및 디바이스 등록이 제거됩니다.
 
     ```azurecli
     az group delete --name MyResourceGroup
     ```
-1. [az group list](/cli/azure/group?view=azure-cli-latest#az-group-list) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
+1. [az group list](/cli/azure/group?view=azure-cli-latest#az-group-list&preserve-view=true) 명령을 실행하여 리소스 그룹을 삭제했는지 확인합니다.  
 
     ```azurecli
     az group list

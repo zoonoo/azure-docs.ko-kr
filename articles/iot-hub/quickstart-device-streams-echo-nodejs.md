@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 앱과 통신
+title: 빠른 시작 - Azure IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 앱과 통신
 description: 이 빠른 시작에서는 디바이스 스트림을 통해 IoT 디바이스와 통신하는 Node.js 서비스 쪽 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832010"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624391"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -79,7 +79,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     나중에 이 빠른 시작에서 사용할 수 있도록 반환된 서비스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.
@@ -154,4 +154,4 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 디바이스 스트림에 대해 자세히 알아보려면 아래 링크를 사용합니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 스트림 개요](./iot-hub-device-streams-overview.md) 
+> [디바이스 스트림 개요](./iot-hub-device-streams-overview.md)

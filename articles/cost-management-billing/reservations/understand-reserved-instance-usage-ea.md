@@ -1,24 +1,24 @@
 ---
-title: 기업계약의 Azure 예약 사용량 이해
-description: Enterprise 등록에서 Azure Reservation의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
+title: 기업계약 및 Microsoft 고객 계약에 대한 Azure 예약 사용량 이해
+description: 사용 정보를 읽고 Azure 예약이 기업계약 및 Microsoft 고객 계약 사용에 적용되는 방식을 이해하는 방법을 알아봅니다.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545607"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683720"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>기업계약과 Microsoft 고객 계약 예약 비용 및 사용량 가져오기
 
-예약 비용 및 사용량 데이터는 Azure Portal 및 REST API를 통해 기업계약 고객에게 제공됩니다. 이 문서는 다음 작업을 수행하는 데 도움이 됩니다.
+비용 관리에서 EA(기업계약) 및 MCA(Microsoft 고객 계약) 사용에 대한 향상된 예약 비용 및 사용량 데이터를 사용할 수 있습니다. 이 문서는 다음 작업을 수행하는 데 도움이 됩니다.
 
 - 예약 구매 데이터 가져오기
 - 예약을 사용한 구독, 리소스 그룹 또는 리소스 파악
@@ -61,9 +61,7 @@ Azure 사용량 데이터에 제공되는 다른 정보가 변경되었습니다
 
 API를 사용하여 데이터를 가져오거나 Azure Portal에서 데이터를 다운로드할 수 있습니다.
 
-새 데이터를 가져오려면 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 호출합니다. 용어에 대한 자세한 내용은 [사용 약관](../understand/understand-usage.md)을 참조하세요. 호출자는 [EA Portal](https://ea.azure.com)을 사용하는 기업계약의 엔터프라이즈 관리자여야 합니다. 읽기 전용 엔터프라이즈 관리자도 데이터를 가져올 수 있습니다.
-
-이 데이터는 [기업 고객을 위한 보고 API - 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)에서 사용할 수 없습니다.
+새 데이터를 가져오려면 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 호출합니다. 용어에 대한 자세한 내용은 [사용 약관](../understand/understand-usage.md)을 참조하세요.
 
 다음은 사용량 세부 정보 API에 대한 호출 예제입니다.
 
@@ -121,7 +119,7 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 - 리소스(예: VM)
 - Resource group
-- 태그들
+- 태그
 - Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>차지백의 혼합 비율 구하기
@@ -150,7 +148,7 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 사용량, 구매 및 환불 내역을 보려면 요금 유형별로 그룹화하고, 예약 및 주문형 비용 내역을 보려면 예약별로 그룹화합니다. 실제 비용을 살펴볼 때 표시되는 유일한 예약 비용은 구매입니다. 그러나 분할 상환 비용을 살펴볼 때에는 혜택을 사용한 개별 리소스에 비용이 할당됩니다. 분할 상환 비용을 살펴볼 때 새로운 **UnusedReservation** 요금 유형도 표시됩니다.
 
-## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

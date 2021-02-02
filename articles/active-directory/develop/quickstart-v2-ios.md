@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 2fbff2abeb454fe02aa4bd50615033b9a0b7f27b
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178605"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754291"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -181,7 +181,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 > |위치: | Description |
 > |---------|---------|
 > | `clientId` | _portal.azure.com*에 등록된 애플리케이션의 애플리케이션 ID |
-> | `authority` | Microsoft ID 플랫폼 엔드포인트. 대부분의 경우 이는 `https://login.microsoftonline.com/common`과 같습니다. |
+> | `authority` | Microsoft ID 플랫폼. 대부분의 경우 이는 `https://login.microsoftonline.com/common`과 같습니다. |
 > | `redirectUri` | 애플리케이션의 리디렉션 URI입니다. 'nil'을 전달하여 기본값을 사용하거나 사용자 지정 리디렉션 URI를 사용할 수 있습니다. |
 
 ### <a name="for-ios-only-additional-app-requirements"></a>iOS 전용, 추가 앱 요구 사항

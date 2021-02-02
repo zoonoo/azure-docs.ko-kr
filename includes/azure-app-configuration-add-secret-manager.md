@@ -1,14 +1,35 @@
 ---
-ms.openlocfilehash: c3c5b8ef94b507cad433e587c9ebfc2ec16c0ff9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b1be5e903994f0a2c4a3d457f0c2bb5572a889c3
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440416"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663032"
 ---
 ## <a name="add-secret-manager"></a>비밀 관리자 추가
 
 비밀 관리자라는 도구는 개발 작업에 대한 중요한 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드 내에서 앱 암호를 실수로 공유하는 경우를 방지할 수 있습니다. ASP.NET Core 프로젝트에서 비밀 관리자를 사용하도록 설정하려면 다음 단계를 완료합니다.
+
+#### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+
+프로젝트의 루트 디렉터리로 이동하고 다음 명령을 실행하여 프로젝트에서 비밀 스토리지를 사용하도록 설정합니다.
+
+```dotnetcli
+dotnet user-secrets init
+```
+
+GUID를 포함하는 `UserSecretsId` 요소가 *.csproj* 파일에 추가됩니다.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+    </PropertyGroup>
+
+</Project>
+```
 
 #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 

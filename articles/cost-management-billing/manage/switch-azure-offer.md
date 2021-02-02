@@ -1,30 +1,30 @@
 ---
 title: Azure 구독 제품 변경
-description: Azure 구독을 변경하고 Azure 계정 센터를 사용하여 다른 제품으로 전환하는 방법에 대해 알아봅니다.
+description: Azure 구독을 변경하고 다른 제품으로 전환하는 방법에 대해 알아봅니다.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686822"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685466"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
 
-[종량제 요금을 사용하는 개별 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)이 있는 고객은 Azure 구독을 [계정 센터](https://account.windowsazure.com/Subscriptions)의 다른 제품으로 전환할 수 있습니다. 예를 들어 이 기능을 사용하여 [Visual Studio 구독자를 위한 월간 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활용할 수 있습니다.
+[종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독을 사용하는 고객은 Azure Portal에서 Azure 구독을 다른 제품으로 전환할 수 있습니다. 예를 들어 이 기능을 사용하여 [Visual Studio 구독자를 위한 월간 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활용할 수 있습니다.
 
 **평가판에서 업그레이드를 원하세요?** [구독 업그레이드](upgrade-azure-subscription.md)를 참조하세요.
 
 ## <a name="whats-supported"></a>지원되는 내용:
 
-종량제 요금을 사용하는 개별 구독에서 다음으로 전환할 수 있습니다.
+종량제 구독에서 다음으로 전환할 수 있습니다.
 
 - [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ ms.locfileid: "88686822"
 
 > [!NOTE]
 > 다른 제품 변경 내용은 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
->
->
 
 ## <a name="switch-subscription-offer"></a>구독 제안 전환
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 종량제 요금을 사용하는 개별 구독을 선택합니다.
-1. **다른 제품으로 전환**을 클릭합니다. 이 옵션은 종량제 요금을 사용하는 개별 구독을 보유하고 첫 번째 청구 기간을 완료한 경우에만 사용할 수 있습니다.
-
-   ![페이지의 오른쪽에 있는 스위치 제품 단추를 확인합니다.](./media/switch-azure-offer/switchbutton.png)
-1. 구독을 전환할 수 있는 제안 목록에서 **원하는 제안**을 선택합니다. 이 목록은 계정이 연결된 멤버 자격에 따라 다릅니다. 사용 가능한 항목이 없는 경우 [전환할 수 있는 제품](#whats-supported) 목록을 확인하고 적합한 멤버 자격이 있는지 확인합니다.
-
-   ![전환하려는 제품을 선택합니다](./media/switch-azure-offer/selectoffer.png)
-1. 전환하려는 제안에 따라 전환의 영향에 대한 메모를 볼 수 있습니다. 계속하기 전에 이 목록을 꼼꼼히 살펴보고 지침을 따르세요.
-
-   ![메모를 검토합니다.](./media/switch-azure-offer/thingstonote.png)
-1. 구독 이름을 바꿀 수 있습니다. 기본적으로 새 제품 이름으로 설정되지 않습니다. 프로세스를 완료하려면 **제품 전환**을 클릭합니다.
-
-   ![녹색 단추를 클릭합니다.](./media/switch-azure-offer/confirmpage.png)
-1. 성공! 이제 구독이 새 제안으로 전환되었습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **구독** 으로 이동한 다음, 종량제 구독을 선택합니다.
+1. 페이지 맨 위에서 **제품 전환** 을 선택합니다. 이 옵션은 종량제 구독을 보유하고 첫 번째 청구 기간을 완료한 경우에만 사용할 수 있습니다.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="제품 전환 optionTEXT가 포함된 구독 정보를 보여주는 ALTImage" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. 구독을 전환할 수 있는 제품 목록에서 원하는 제품을 선택합니다. 이 목록은 계정이 연결된 멤버 자격에 따라 다릅니다. 사용 가능한 항목이 없는 경우 [전환할 수 있는 제품](#whats-supported) 목록을 확인하고 적합한 멤버 자격이 있는지 확인합니다. **다음** 을 선택합니다.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="전환하려는 제품을 선택합니다" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    전환하려는 제안에 따라 전환의 영향에 대한 메모를 볼 수 있습니다. 계속하기 전에 이 목록을 꼼꼼히 살펴보고 지침을 따르세요. 전화 번호를 확인해야 할 수도 있습니다.
+1. 메모를 검토하거나 전화 번호를 확인한 후 **제품 전환** 을 선택합니다.
+1. 이제 구독이 새 제안으로 전환되었습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 다음 섹션에서는 자주 묻는 질문에 대답합니다.
 
 ### <a name="what-is-an-azure-offer"></a>Azure 제품이란?
 
-Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다. 예를 들어 [종량제 요금을 사용하는 구독](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) 및 [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)는 모두 Azure 제품입니다. 각 제품은 서로 [조건](https://azure.microsoft.com/support/legal/offer-details/)이 다르며 몇 가지 특별 혜택이 있습니다. 구독의 제안은 계정 센터 구독 페이지에서 찾을 수 있습니다. 제품 이름을 클릭하면 자세한 내용을 볼 수 있습니다.
+Azure 제안은 사용자가 소유한 Azure 구독의 *유형* 을 말합니다. 예를 들어 [종량제 요금을 사용하는 구독](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) 및 [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)는 모두 Azure 제품입니다. 각 제품은 서로 [조건](https://azure.microsoft.com/support/legal/offer-details/)이 다르며 몇 가지 특별 혜택이 있습니다. 구독 제품은 구독 정보 페이지에 표시됩니다.
 
-   ![자세한 내용을 보려면 계정 센터에서 제품 링크 클릭](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="제품 유형을 표시하는 구독 정보 페이지" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>단추가 표시되지 않는 이유는 무엇입니까?
 
-다음과 같은 경우 **다른 제품으로 전환** 옵션이 표시되지 않을 수 있습니다.
+다음과 같은 경우 **제품 전환** 옵션이 표시되지 않을 수 있습니다.
 
 * [종량제 요금을 사용하는 개별 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)이 없습니다. 현재 종량제 요금을 사용하는 구독만 다른 상품으로 전환할 수 있습니다.
   * [평가판](https://azure.microsoft.com/free/)이 있는 경우 [종량제로 업그레이드](upgrade-azure-subscription.md)하는 방법을 알아보세요.
@@ -85,7 +73,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Azure 제품을 전환할 경우 내 서비스 및 요금 청구는 어떻게 되나요?
 
-계정 센터에서 Azure 제품을 전환할 경우 다음과 같은 상황이 발생합니다.
+Azure 제품을 전환할 때 발생하는 상황에 대한 세부 정보는 다음과 같습니다.
 
 #### <a name="no-service-downtime"></a>서비스 가동 중지 시간이 없습니다.
 
@@ -102,7 +90,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>종량제 요금을 사용하는 구독에서 CSP(클라우드 솔루션 공급자) 또는 EA(기업 계약)로 마이그레이션할 수 있나요?
 
 * CSP로 마이그레이션하려면 [구독자와 CSP 간에 Azure 구독 전송](transfer-subscriptions-subscribers-csp.md)을 참조하세요.
-* EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 전자 메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요. 자세한 내용은 EA 포털에서 [기존 계정 연결](https://ea.azure.com/helpdocs/associateExistingAccount)을 참조하세요.
+* EA로 전환하려면 등록 관리자에게 계정을 EA에 추가해 달라고 요청해야 합니다. 초대 이메일의 지침에 따라 구독을 EA 등록 아래로 이동하세요.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>데이터 및 서비스를 새 구독으로 마이그레이션할 수 있나요?
 

@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 12074b6dc5d27c0d28ceea5ab6d266d1f02ecbe2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8953f9ca174414c55e6e06774167d3951d0bbd41
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938190"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090241"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법
 
@@ -49,7 +49,7 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 
 테넌트의 컨텍스트에서 **앱 등록** 을 볼 경우 **모든 앱** 탭에 표시되는 애플리케이션의 하위 집합이 다른 테넌트의 것이고 동의 프로세스 중 해당 테넌트에 등록된 것입니다. 구체적으로 말하면 해당하는 애플리케이션 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 애플리케이션 및 서비스 주체 개체의 차이에 대한 자세한 내용은 [Azure AD의 애플리케이션 및 서비스 주체 개체](./app-objects-and-service-principals.md)를 참조하세요.
 
-(동의를 표시한 후에) 자사의 디렉토리에 대한 애플리케이션 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게는 글로벌 관리자 액세스 권한이 있어야 하고 Azure Portal을 통해 액세스 권한을 제거하거나 [Azure AD PowerShell Cmdlet](/previous-versions/azure/jj151815(v=azure.100))을 사용하여 애플리케이션을 제거할 수 있습니다.
+(동의를 표시한 후에) 자사의 디렉토리에 대한 애플리케이션 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게는 전역 관리자 액세스 권한이 있어야 하고 Azure Portal을 통해 애플리케이션을 제거하거나 [Azure AD PowerShell Cmdlet](/previous-versions/azure/jj151815(v=azure.100))을 사용하여 액세스 권한을 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

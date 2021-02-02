@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python 디먼에서 Microsoft Graph 호출 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 빠른 시작에서는 Python 프로세스가 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호된 API를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Python 프로세스가 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼으로 보호된 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 47aaf67c9ae2402e0445de60de439b77242bd87d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178231"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754069"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Python 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 

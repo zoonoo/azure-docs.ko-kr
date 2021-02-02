@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a4a2034d44d98de9696b435c68c97a8a54a1c351
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027770"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99215459"
 ---
 Azure는 Azure AD 및 OAuth를 사용하여 BLOB 및 큐 데이터에 대한 액세스 권한을 부여할 수 있도록 다음과 같은 Azure 기본 역할을 제공합니다.
 
@@ -31,4 +31,4 @@ Azure는 Azure AD 및 OAuth를 사용하여 BLOB 및 큐 데이터에 대한 액
 데이터 서비스 및 관리 서비스에 대한 Azure Storage의 Azure 기본 제공 역할에 대한 자세한 내용은 [Azure RBAC에 대한 Azure 기본 제공 역할](../articles/role-based-access-control/built-in-roles.md#storage)의 **스토리지** 섹션을 참조하세요. 또한 Azure에서 권한을 제공하는 여러 유형의 역할에 대한 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할](../articles/role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure 역할 할당을 전파하는 데 최대 5분이 걸릴 수 있습니다.
+> Azure 역할 할당이 전파되는 데 최대 30분이 걸릴 수 있습니다.

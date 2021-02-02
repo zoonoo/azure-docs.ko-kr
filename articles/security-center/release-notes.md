@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
-ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784951"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916469"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -46,6 +46,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 - [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 35개의 미리 보기 추천 사항이 추가됨](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [필터링된 권장 목록의 CSV 내보내기](#csv-export-of-filtered-list-of-recommendations)
 - [Azure Policy 평가에서 "해당 없음" 리소스가 이제 "준수"로 보고됨](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [연속 내보내기를 통해 보안 점수 및 규정 준수 데이터의 주간 스냅샷 내보내기(미리 보기)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Azure Security Benchmark는 이제 Azure Security Center의 기본 정책 이니셔티브입니다.
@@ -224,6 +225,18 @@ Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티�
 규정 준수 리소스의 수가 증가하는 Azure Policy에만 영향을 줍니다. Azure Security Center의 보안 점수에는 영향을 주지 않습니다.
 
 
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>연속 내보내기를 통해 보안 점수 및 규정 준수 데이터의 주간 스냅샷 내보내기(미리 보기)
+
+보안 점수 및 규정 준수 데이터의 주간 스냅샷을 내보내기 위한 [연속 내보내기](continuous-export.md) 도구에 새로운 미리 보기 기능을 추가했습니다.
+
+연속 내보내기를 정의할 때 내보내기 빈도를 설정합니다.
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="연속 내보내기의 빈도 선택":::
+
+- **스트리밍** – 리소스의 상태가 업데이트되면 평가가 실시간으로 전송됩니다(업데이트가 발생하지 않으면 데이터가 전송되지 않음).
+- **스냅샷** – 모든 규정 준수 평가의 현재 상태에 대한 스냅샷이 매주 전송됩니다(이는 보안 점수 및 규정 준수 데이터의 주간 스냅샷에 대한 미리 보기 기능임).
+
+[Security Center 데이터 연속 내보내기](continuous-export.md)에서 이 기능의 전체 기능에 대해 자세히 알아보세요.
 
 ## <a name="december-2020"></a>2020년 12월
 
@@ -700,7 +713,7 @@ Security Center의 포털 페이지에 대해 새로 고친 UI를 릴리스했�
 Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defender를 사용하도록 설정하면 다음 Defender 계획이 동시에 사용하도록 설정되어 환경의 컴퓨팅, 데이터 및 서비스 계층에 대한 포괄적인 방어 기능을 제공합니다.
 
 - [서버용 Azure Defender](defender-for-servers-introduction.md)
-- [Azure Defender for App Service](defender-for-app-service-introduction.md)
+- [App Service용 Azure Defender](defender-for-app-service-introduction.md)
 - [스토리지용 Azure Defender](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
 - [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)

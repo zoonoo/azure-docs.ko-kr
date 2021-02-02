@@ -1,29 +1,11 @@
 ---
-title: Azure Media Services v3 개요
-titleSuffix: Azure Media Services
-description: 빠른 시작, 자습서 및 코드 샘플에 대한 링크가 포함된 Azure Media Services v3에 대한 개략적인 개요입니다.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: Azure Media Services, 스트림, 브로드캐스트, 라이브, 오프라인
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308963"
+제목: Azure Media Services v3 개요 : Azure Media Services 설명: 빠른 시작, 자습서 및 코드 샘플에 대한 링크가 포함된 Azure Media Services v3에 대한 개략적인 개요입니다.
+services: media-services documentationcenter: na author: IngridAtMicrosoft manager: femila editor: '' tags: '' keywords: azure media services, stream, broadcast, live, offline
+
+ms.service: media-services ms.devlang: multiple ms.topic: overview ms.tgt_pltfrm: multiple ms.workload: media ms.date: 2020/08/31 ms.author: inhenkel ms.custom: mvc
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>고객 의도: 개발자 또는 콘텐츠 공급자는 고객이 다양한 브라우저 및 디바이스에서 콘텐츠를 보고, 녹화된 콘텐츠에서 귀중한 인사이트를 얻을수 있도록 미디어 콘텐츠를 인코딩, 스트리밍(주문형 또는 라이브)하고 분석하고자 합니다.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

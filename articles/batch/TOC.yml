@@ -118,9 +118,8 @@
         - name: Batch 관리 포함 Azure AD
           href: batch-aad-auth-management.md
         - name: Batch를 사용하여 Key Vault에 안전하게 액세스
+          displayName: 'credential, certificate'
           href: credential-access-key-vault.md
-        - name: Batch로 인증서 사용
-          href: batch-certificates.md
     - name: 파일 및 애플리케이션을 풀 노드에 복사
       items:
         - name: 풀 노드에 애플리케이션 및 데이터 복사

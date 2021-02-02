@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 C# 빠른 시작
+title: 빠른 시작 - Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 C# 빠른 시작
 description: 이 빠른 시작에서는 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 시나리오를 활성화하는 두 개의 C# 샘플 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 12e26818f86fc4abdc1873d031182fd994c04687
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831925"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624374"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -25,25 +25,6 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 [IoT Hub 디바이스 스트림](iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작 가이드에는 IoT Hub를 통해 설정된 디바이스 스트림을 통해 클라이언트-서버 애플리케이션 트래픽(예: SSH[Secure Shell] 및 RDP[원격 데스크톱 프로토콜])을 보낼 수 있는 두 개의 C# 애플리케이션이 포함되어 있습니다. 설정 개요는 [SSH 또는 RDP용 로컬 프록시 애플리케이션 샘플](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)을 참조하세요.
 
 이 문서에서는 먼저 SSH 설정(22 포트 사용)을 설명한 다음, 설정의 RDP 포트를 수정하는 방법을 설명합니다. 디바이스 스트림은 애플리케이션 및 프로토콜에 구속받지 않으므로 다른 유형의 애플리케이션 트래픽을 수용하도록 동일한 샘플을 수정할 수 있습니다. 이 수정은 일반적으로 통신 포트를 원하는 애플리케이션에서 사용하는 포트로만 변경하는 것과 관련이 있습니다.
-
-## <a name="how-it-works"></a>작동 방법
-
-다음 그림에서는 이 샘플의 디바이스-로컬 프록시 애플리케이션 및 서비스-로컬 프록시 애플리케이션에서 SSH 클라이언트와 SSH 디먼 간의 엔드투엔드 연결을 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 디먼이 디바이스-로컬 프록시 애플리케이션과 동일한 디바이스에서 실행되고 있다고 가정합니다.
-
-![로컬 프록시 애플리케이션 설정](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
-
-1. 서비스-로컬 프록시 애플리케이션에서 IoT Hub에 연결하고 대상 디바이스에 대한 디바이스 스트림을 시작합니다.
-
-1. 디바이스-로컬 프록시 애플리케이션에서 스트림 시작 핸드셰이크를 완료하고, IoT Hub의 스트리밍 엔드포인트를 통한 엔드투엔드 스트리밍 터널을 서비스 쪽에 설정합니다.
-
-1. 디바이스-로컬 프록시 애플리케이션에서 디바이스의 22 포트에서 수신 대기하는 SSH 디먼에 연결합니다. 이 설정은 "디바이스-로컬 프록시 애플리케이션 실행" 섹션에서 설명한 대로 구성할 수 있습니다.
-
-1. 서비스-로컬 프록시 애플리케이션에서 지정된 포트(이 경우 2222 포트)에서 수신 대기하여 사용자의 새 SSH 연결을 기다립니다. 이 설정은 "서비스-로컬 프록시 애플리케이션 실행" 섹션에서 설명한 대로 구성할 수 있습니다. 사용자가 SSH 클라이언트를 통해 연결하면 터널을 통해 SSH 클라이언트와 서버 애플리케이션 간에 SSH 애플리케이션 트래픽을 전송할 수 있습니다.
-
-> [!NOTE]
-> 디바이스 스트림을 통해 보내는 SSH 트래픽은 서비스와 디바이스 간에 직접 보내는 것이 아니라 IoT Hub의 스트리밍 엔드포인트를 통해 터널링됩니다. 자세한 내용은 [IoT Hub 디바이스 스트림 사용의 이점](iot-hub-device-streams-overview.md#benefits)을 참조하세요.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -72,6 +53,25 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
+## <a name="how-it-works"></a>작동 방법
+
+다음 그림에서는 이 샘플의 디바이스-로컬 프록시 애플리케이션 및 서비스-로컬 프록시 애플리케이션에서 SSH 클라이언트와 SSH 디먼 간의 엔드투엔드 연결을 사용하도록 설정하는 방법을 보여 줍니다. 여기서는 디먼이 디바이스-로컬 프록시 애플리케이션과 동일한 디바이스에서 실행되고 있다고 가정합니다.
+
+![로컬 프록시 애플리케이션 설정](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
+
+1. 서비스-로컬 프록시 애플리케이션에서 IoT Hub에 연결하고 대상 디바이스에 대한 디바이스 스트림을 시작합니다.
+
+1. 디바이스-로컬 프록시 애플리케이션에서 스트림 시작 핸드셰이크를 완료하고, IoT Hub의 스트리밍 엔드포인트를 통한 엔드투엔드 스트리밍 터널을 서비스 쪽에 설정합니다.
+
+1. 디바이스-로컬 프록시 애플리케이션에서 디바이스의 22 포트에서 수신 대기하는 SSH 디먼에 연결합니다. 이 설정은 "디바이스-로컬 프록시 애플리케이션 실행" 섹션에서 설명한 대로 구성할 수 있습니다.
+
+1. 서비스-로컬 프록시 애플리케이션에서 지정된 포트(이 경우 2222 포트)에서 수신 대기하여 사용자의 새 SSH 연결을 기다립니다. 이 설정은 "서비스-로컬 프록시 애플리케이션 실행" 섹션에서 설명한 대로 구성할 수 있습니다. 사용자가 SSH 클라이언트를 통해 연결하면 터널을 통해 SSH 클라이언트와 서버 애플리케이션 간에 SSH 애플리케이션 트래픽을 전송할 수 있습니다.
+
+> [!NOTE]
+> 디바이스 스트림을 통해 보내는 SSH 트래픽은 서비스와 디바이스 간에 직접 보내는 것이 아니라 IoT Hub의 스트리밍 엔드포인트를 통해 터널링됩니다. 자세한 내용은 [IoT Hub 디바이스 스트림 사용의 이점](iot-hub-device-streams-overview.md#benefits)을 참조하세요.
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -96,7 +96,7 @@ Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기�
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.

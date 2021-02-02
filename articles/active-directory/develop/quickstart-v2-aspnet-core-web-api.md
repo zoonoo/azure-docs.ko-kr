@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: ca22d4f1ff48222b33030eb44d7feb62b1d154cd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d38ee1782987afce703fbd8b4203186bbcbb505
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011887"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754474"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 ASP.NET Core 웹 API 보호
 
@@ -96,7 +96,7 @@ ms.locfileid: "98011887"
 
 `AddAuthentication()` 메서드는 JwtBearer 기반 인증을 추가하도록 서비스를 구성합니다.
 
-`.AddMicrosoftIdentityWebApi`가 포함된 줄은 웹 API에 Microsoft ID 플랫폼 권한 부여를 추가합니다. 그런 다음, *appsettings.json* 구성 파일의 `AzureAD` 섹션에 있는 정보를 기반으로 Microsoft ID 플랫폼 엔드포인트에서 발급한 액세스 토큰의 유효성을 검사하도록 구성됩니다.
+`.AddMicrosoftIdentityWebApi`가 포함된 줄은 웹 API에 Microsoft ID 플랫폼 권한 부여를 추가합니다. 그런 다음, *appsettings.json* 구성 파일의 `AzureAD` 섹션에 있는 정보를 기반으로 Microsoft ID 플랫폼에서 발급한 액세스 토큰의 유효성을 검사하도록 구성됩니다.
 
 | *appsettings.json* 키 | 설명                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

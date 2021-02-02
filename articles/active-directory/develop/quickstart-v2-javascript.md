@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 532fcc7db849af192ceddb1c239e99f31a2a3088
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178469"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754162"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -54,7 +54,7 @@ ms.locfileid: "98178469"
 > 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 > 1. **등록** 을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
-> 1. 이 빠른 시작에서는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다. 등록된 애플리케이션의 왼쪽 창에서 **인증** 을 선택합니다.
+> 1. 이 빠른 시작에서는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다. **관리** 에서 **인증** 을 선택합니다.
 > 1. **플랫폼 구성** 에서 **플랫폼 추가** 를 선택합니다. 왼쪽에 패널이 열립니다. 여기에서 **웹 애플리케이션** 영역을 선택합니다.
 > 1. 왼쪽에서 **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다. 그런 다음, **액세스 토큰** 및 **ID 토큰** 을 선택합니다.
 > 1. **구성** 을 선택합니다.
@@ -266,14 +266,14 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
+상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.
 
 대부분의 애플리케이션에 대해 권장되는 일반적인 패턴은 먼저 `acquireTokenSilent`를 호출하고, 예외를 catch한 다음, `acquireTokenPopup`(또는 `acquireTokenRedirect`)을 호출하여 대화형 요청을 시작하는 것입니다.
 
-`acquireTokenPopup`을 호출하면 로그인을 위한 팝업 창이 표시됩니다. (또는 `acquireTokenRedirect`는 Microsoft ID 플랫폼 엔드포인트로 사용자를 리디렉션합니다.) 해당 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 대한 동의를 제공하거나, 2단계 인증을 완료하여 상호 작용해야 합니다.
+`acquireTokenPopup`을 호출하면 로그인을 위한 팝업 창이 표시됩니다. (또는 `acquireTokenRedirect`는 Microsoft ID 플랫폼으로 사용자를 리디렉션합니다). 해당 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 대한 동의를 제공하거나, 2단계 인증을 완료하여 상호 작용해야 합니다.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.

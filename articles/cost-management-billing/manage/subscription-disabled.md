@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/19/2021
 ms.author: banders
-ms.openlocfilehash: cad3082981bcfc699bc230badf44e2ffc2e1bed3
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d7b5f1ae6db633bd1af10b1a0de1392c2a1fbcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94744428"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685540"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
 
@@ -23,21 +23,23 @@ ms.locfileid: "94744428"
 
 ## <a name="your-credit-is-expired"></a>크레딧이 만료됨
 
-Azure 체험 계정에 등록하면 30일 동안 사용할 수 있는 $200의 Azure 크레딧과 12개월 무료 서비스를 제공하는 평가판 구독을 받을 수 있습니다. 30일이 만료된 경우 Azure는 구독을 비활성화합니다. 구독에 포함된 크레딧과 체험 서비스를 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면[구독을 업그레이드](upgrade-azure-subscription.md)해야 합니다. 업그레이드한 후에도 구독은 12개월 동안 체험 서비스에 액세스할 수 있습니다. 체험 서비스 및 수량을 초과한 사용량에 대해서만 요금이 청구됩니다.
+Azure 체험 계정에 등록하면 30일 동안 사용할 수 있는 $200의 Azure 크레딧과 12개월 무료 서비스를 제공하는 평가판 구독을 받을 수 있습니다. 30일이 만료된 경우 Azure는 구독을 비활성화합니다. 구독에 포함된 크레딧과 체험 서비스를 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. Azure 서비스를 계속 사용하려면[구독을 업그레이드](upgrade-azure-subscription.md)해야 합니다. 업그레이드한 후에도 구독은 12개월 동안 체험 서비스에 액세스할 수 있습니다. 체험 서비스 수량 제한을 초과한 사용량에 대해서만 요금이 청구됩니다.
 
 ## <a name="you-reached-your-spending-limit"></a>지출 한도에 도달했습니다.
 
-평가판 및 Visual Studio Enterprise와 같은 크레딧이 포함된 Azure 구독에는 지출 한도가 있습니다. 이는 포함된 크레딧까지만 서비스를 사용할 수 있음을 의미합니다. 사용이 지출 한도에 도달하면 Azure는 해당 요금 청구 기간의 나머지 기간에 대해 구독을 비활성화합니다. 구독에 포함된 크레딧을 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. 지출 한도를 제거하려면 [계정 센터에서 지출 한도 제거](spending-limit.md#remove)를 참조하세요.
+평가판 및 Visual Studio Enterprise와 같은 크레딧이 포함된 Azure 구독에는 지출 한도가 있습니다. 포함된 크레딧까지만 서비스를 사용할 수 있습니다. 사용량이 지출 한도에 도달하면 Azure는 해당 요금 청구 기간의 나머지 기간에 대해 구독을 비활성화합니다. 구독에 포함된 크레딧을 벗어나는 사용량에 대한 요금을 실수로 부과하지 않도록 보호하기 위해 구독이 비활성화됩니다. 지출 한도를 제거하려면 [Azure Portal에서 지출 한도 제거](spending-limit.md#remove)를 참조하세요.
 
 > [!NOTE]
 > 평가판 구독을 사용하고 지출 한도를 제거한 경우 평가판이 끝날 때 구독은 종량제 요금을 사용하는 개별 구독으로 변환됩니다. 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
 Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비용 관리 계획](../understand/plan-manage-costs.md)을 참조하세요.
 
-
 ## <a name="your-bill-is-past-due"></a>청구 기한 경과
 
-미지불금액을 해결하려면 [Azure에서 전자 메일을 받은 후 Azure 구독의 미지불금액 해결](resolve-past-due-balance.md)을 참조하세요.
+연체 잔액을 해결하려면 다음 문서 중 하나를 참조하세요.
+
+- 종량제를 포함한 Microsoft 온라인 구독 프로그램 구독의 경우 [Azure에서 이메일을 받은 후 Azure 구독의 연체 잔액 해결](resolve-past-due-balance.md)을 참조하세요.
+- Microsoft 고객 계약 구독의 경우 [Microsoft Azure에 대한 청구서를 지불하는 방법](../understand/pay-bill.md)을 참조하세요.
 
 ## <a name="the-bill-exceeds-your-credit-card-limit"></a>신용 카드 한도 초과
 
@@ -45,19 +47,19 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 비�
 
 ## <a name="the-subscription-was-accidentally-canceled"></a>구독이 실수로 취소되었습니다.
 
-계정 관리자이며 실수로 종량제 요금을 사용하는 개별 구독을 취소한 경우 계정 센터에서 다시 활성화할 수 있습니다.
+계정 관리자인데 실수로 종량제 구독을 취소한 경우 Azure Portal에서 다시 활성화할 수 있습니다.
 
-1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 취소된 구독을 선택합니다.
-1. **다시 활성화** 를 클릭합니다.
-
-    ![오른쪽 창에서 다시 활성화 링크를 보여 주는 스크린샷](./media/subscription-disabled/reactivate-sub.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 구독으로 이동한 다음, 취소된 구독을 선택합니다.
+1. **다시 활성화** 를 선택합니다.
+1. **확인** 을 선택하여 다시 활성화를 확인합니다.  
+    :::image type="content" source="./media/subscription-disabled/reactivate-sub.png" alt-text="다시 활성화 확인을 보여주는 스크린샷" :::
 
 다른 구독 유형의 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 구독을 다시 활성화합니다.
 
 ## <a name="after-reactivation"></a>재활성화 후
 
-구독을 다시 활성화한 후에는 리소스를 만들거나 관리하는 데 지연이 발생할 수 있습니다. 지연 시간이 30분을 초과하는 경우 도움이 필요하면 [Azure 청구 지원](https://go.microsoft.com/fwlink/?linkid=2083458)에 문의하세요. 대부분의 Azure 리소스는 자동으로 다시 시작되며 어떤 조치도 필요하지 않습니다. 그러나 Azure 서비스 리소스를 확인하고 자동으로 다시 시작되지 않는 모든 리소스를 다시 시작하는 것이 좋습니다.
+구독을 다시 활성화한 후에는 리소스를 만들거나 관리하는 데 지연이 발생할 수 있습니다. 지연 시간이 30분을 초과하는 경우 [Azure 청구 지원](https://go.microsoft.com/fwlink/?linkid=2083458)에 도움을 요청하세요. 대부분의 Azure 리소스는 자동으로 다시 시작되며 어떤 조치도 필요하지 않습니다. 그러나 Azure 서비스 리소스를 확인하고 자동으로 다시 시작되지 않는 모든 리소스를 다시 시작하는 것이 좋습니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 

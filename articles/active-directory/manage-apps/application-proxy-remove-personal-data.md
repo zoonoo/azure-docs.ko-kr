@@ -3,7 +3,7 @@ title: 개인 데이터 제거-Azure Active Directory 응용 프로그램 프록
 description: Azure Active Directory 애플리케이션 프록시에 대해 설치된 커넥터에서 개인 데이터를 제거합니다.
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 90913ba8f7fbe8158a5cfea01e49a175180677b6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658420"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258951"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시에 대한 개인 데이터 제거
 

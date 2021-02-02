@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신
+title: 빠른 시작 - IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신
 description: 이 빠른 시작에서는 IoT Hub를 통해 설정된 디바이스 스트림을 통해 통신하는 두 개의 샘플 C# 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 8a8e6f12a8709935a6fa9551261c56fc8f2aabbd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3eb65db27e5b96f4b12973154bc860a2ab3df020
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832078"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624611"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -74,7 +74,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.

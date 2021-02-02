@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8faa6533ba4dc7fad61c045278c5504c5f78d900
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888966"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763041"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
@@ -96,6 +96,7 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 - [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
 - [호출 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기
 - [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js) 검토
+- [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토
 
 ## <a name="additional-reading"></a>추가 자료
 

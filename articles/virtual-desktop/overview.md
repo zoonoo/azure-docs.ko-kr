@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0fe9b3ddaee41802ced30e1898b46cefa2566771
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023193"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730788"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -130,7 +130,7 @@ Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다. 또한 Windows 7은 섹터 크기 제한으로 인해 관리되는 Azure Storage에서 호스팅되는 VHD 또는 VHDX 기반 프로필 솔루션을 지원하지 않습니다.
+Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N, Windows 10 Pro 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다. 또한 Windows 7은 섹터 크기 제한으로 인해 관리되는 Azure Storage에서 호스팅되는 VHD 또는 VHDX 기반 프로필 솔루션을 지원하지 않습니다.
 
 사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다.
 
@@ -138,12 +138,12 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 Enterprise(다중 세션) 버전 2004|예|예|예|예|
 |Windows 10 Enterprise(다중 세션) 버전 1909|예|예|예|예|
-|Windows 10 Enterprise(다중 세션) 버전 1903|예|예|예|아니요|
-|Windows 10 Enterprise(다중 세션) 버전 1809|예|예|예|예|
-|Windows 7 Enterprise|예|예|예|예|
-|Windows Server 2019|예|예|예|예|
+|Windows 10 Enterprise(다중 세션) 버전 1903|예|예|아니요|아니요|
+|Windows 10 Enterprise(다중 세션) 버전 1809|예|예|아니요|아니요|
+|Windows 7 Enterprise|예|예|아니요|아니요|
+|Windows Server 2019|예|예|아니요|예|
 |Windows Server 2016|예|예|예|예|
-|Windows Server 2012 R2|예|예|예|예|
+|Windows Server 2012 R2|예|예|아니요|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 

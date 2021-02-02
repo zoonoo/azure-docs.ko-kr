@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub에 원격 분석 전송 빠른 시작(C#) | Microsoft Docs
+title: 빠른 시작 - Azure IoT Hub에 원격 분석 전송 빠른 시작(C#) | Microsoft Docs
 description: 이 빠른 시작에서는 두 가지 샘플 C# 애플리케이션을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: b515274ef4bcf494c071ddb487590ff9cdccf4c0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 914df5b80dee7da041b268a3aaf25ac493d0cf5b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121488"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624442"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>빠른 시작: 디바이스에서 IoT 허브로 원격 분석을 보내고 서비스 애플리케이션(.NET)으로 읽습니다.
 

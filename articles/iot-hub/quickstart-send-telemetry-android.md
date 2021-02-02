@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub에 원격 분석 데이터 전송 빠른 시작(Android) | Microsoft Docs
+title: 빠른 시작 - Azure IoT Hub에 원격 분석 데이터 전송 빠른 시작(Android) | Microsoft Docs
 description: 이 빠른 시작에서는 샘플 Android 애플리케이션을 실행하여 시뮬레이션된 원격 분석 데이터를 IoT 허브로 보내고, 클라우드에서 처리할 원격 분석 데이터를 IoT 허브에서 읽습니다.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: d9598f7a0bc8e4a8b92ac53612023585eb19f4c4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dd622f0d55be000e2318c53f200bebf49c373724
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121534"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624323"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>빠른 시작: Android 디바이스에서 IoT 원격 분석 데이터 전송
 
@@ -100,7 +100,7 @@ ms.locfileid: "98121534"
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
+이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true)과 함께 Azure Cloud Shell을 사용하여 Android 디바이스에서 보내는 디바이스 메시지를 모니터링합니다.
 
 1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
 

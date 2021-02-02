@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092310"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258764"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -71,11 +71,11 @@ Azure Backup는 자격 증명 모음 (Recovery Services 및 백업 자격 증명
 * 워크 로드가 모두 단일 구독과 단일 리소스에 의해 관리 되는 경우 단일 자격 증명 모음을 사용 하 여 백업 공간을 모니터링 하 고 관리할 수 있습니다.
 
 * 워크 로드가 여러 구독에 걸쳐 분산 된 경우 구독 당 하나 이상의 자격 증명 모음을 만들 수 있습니다.
-  * Backup Center를 사용 하면 단일 창에서 백업과 관련 된 모든 작업을 관리할 수 있습니다. [자세한 내용은 여기를 참조]()하세요.
-  * 통합 문서 템플릿을 사용 하 여 보기를 사용자 지정할 수 있습니다. 백업 탐색기는 Azure Vm에 대 한 이러한 템플릿 중 하나입니다. [자세한 내용은 여기를 참조](monitor-azure-backup-with-backup-explorer.md)하세요.
-  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (구독 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
+  * Backup Center를 사용 하면 단일 창에서 백업과 관련 된 모든 작업을 관리할 수 있습니다. [여기를 참조하세요]().
+  * 통합 문서 템플릿을 사용 하 여 보기를 사용자 지정할 수 있습니다. 백업 탐색기는 Azure Vm에 대 한 이러한 템플릿 중 하나입니다. [여기를 참조하세요](monitor-azure-backup-with-backup-explorer.md).
+  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 또한이 Azure Policy 정의를 특정 범위 (구독 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있습니다. 그러면 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
 
-* 조직의 공간이 증가 함에 따라 백업 정책에 따라 정렬, 자격 증명 모음 통합, 저렴 한 중복성에 대 한 절충 (GRS에서 LRS로 이동) 등의 이유로 작업을 구독 간에 이동 하는 것이 좋습니다.  Azure Backup는 Azure 구독에서 또는 동일한 구독 내의 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원 합니다. [자세한 내용은 여기를 참조](backup-azure-move-recovery-services-vault.md)하세요.
+* 조직의 공간이 증가 함에 따라 백업 정책에 따라 정렬, 자격 증명 모음 통합, 저렴 한 중복성에 대 한 절충 (GRS에서 LRS로 이동) 등의 이유로 작업을 구독 간에 이동 하는 것이 좋습니다.  Azure Backup는 Azure 구독에서 또는 동일한 구독 내의 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원 합니다. [여기를 참조하세요](backup-azure-move-recovery-services-vault.md).
 
 ### <a name="review-default-settings"></a>기본 설정 검토
 
@@ -85,13 +85,13 @@ Azure Backup는 자격 증명 모음 (Recovery Services 및 백업 자격 증명
 
 * 새로 만든 자격 증명 모음에 대해 기본적으로 *일시 삭제* 를 사용 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 [다음](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) 단계를 수행 합니다.
 
-* *지역 간 복원을* 사용 하면 azure 쌍을 이루는 지역에 해당 하는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 감사 또는 규정 준수 요구 사항을 충족 하는 드릴을 수행 하 고 주 지역에 재해가 발생 한 경우 VM 또는 해당 디스크를 복원할 수 있습니다. CRR은 모든 GRS 자격 증명 모음에 대 한 옵트인 기능입니다. [자세한 내용은 여기를 참조](backup-create-rs-vault.md#set-cross-region-restore)하세요.
+* *지역 간 복원을* 사용 하면 azure 쌍을 이루는 지역에 해당 하는 보조 지역에서 azure vm을 복원할 수 있습니다. 이 옵션을 사용 하면 감사 또는 규정 준수 요구 사항을 충족 하는 드릴을 수행 하 고 주 지역에 재해가 발생 한 경우 VM 또는 해당 디스크를 복원할 수 있습니다. CRR은 모든 GRS 자격 증명 모음에 대 한 옵트인 기능입니다. [여기를 참조하세요](backup-create-rs-vault.md#set-cross-region-restore).
 
 * 자격 증명 모음 디자인을 완료 하기 전에 [자격 증명 모음 지원](backup-support-matrix.md#vault-support) 매트릭스를 검토 하 여 디자인 선택에 영향을 주거나 제한 될 수 있는 요인을 파악 합니다.
 
 ## <a name="backup-policy-considerations"></a>백업 정책 고려 사항
 
-Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 보존 기간)의 두 가지 구성 요소가 있습니다. 백업 중인 데이터 유형, RTO/RPO 요구 사항, 운영 또는 규정 준수 요구 사항 및 작업 유형 (예: VM, 데이터베이스, 파일)에 따라 정책을 정의할 수 있습니다. [자세한 내용은 여기를 참조](backup-architecture.md#backup-policy-essentials)하세요.
+Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 보존 기간)의 두 가지 구성 요소가 있습니다. 백업 중인 데이터 유형, RTO/RPO 요구 사항, 운영 또는 규정 준수 요구 사항 및 작업 유형 (예: VM, 데이터베이스, 파일)에 따라 정책을 정의할 수 있습니다. [여기를 참조하세요](backup-architecture.md#backup-policy-essentials).
 
 백업 정책을 만들 때 다음 지침을 고려 하십시오.
 
@@ -120,9 +120,9 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
   * 보존 기간을 줄이면 다음 정리 작업에서 복구 지점이 정리 되도록 표시 되 고 이후에 삭제 됩니다.
   * 최신 보존 규칙은 모든 보존 시점 (주문형 보존 지점은 제외)에 적용 됩니다. 따라서 보존 기간이 연장 된 경우 (예: 100 일), 백업이 수행 된 후 보존 감소 (예: 100 일 ~ 7 일)에 따라 모든 백업 데이터는 마지막으로 지정 된 보존 기간 (7 일)에 따라 보존 됩니다.
 
-* Azure Backup는 *백업을 보호 하 고 관리할*수 있는 유연성을 제공 합니다.
-  * *보호를 중지 하 고 백업 데이터를 보존*합니다. 데이터 원본 (VM, 응용 프로그램)을 사용 중지 하거나 서비스 해제 하는 경우 감사 또는 규정 준수를 위해 데이터를 유지 해야 하는 경우이 옵션을 사용 하 여 이후의 모든 백업 작업에서 데이터 원본을 보호 하 고 백업 된 복구 지점이 유지 되지 않도록 할 수 있습니다. 그런 다음 VM 보호를 복원 하거나 다시 시작할 수 있습니다.
-  * *보호를 중지 하 고 백업 데이터를 삭제*합니다. 이 옵션을 선택 하면 이후의 모든 백업 작업이 VM을 보호 하 고 모든 복구 지점이 삭제 되지 않습니다. VM을 복원 하거나 백업 다시 시작 옵션을 사용할 수 없습니다.
+* Azure Backup는 *백업을 보호 하 고 관리할* 수 있는 유연성을 제공 합니다.
+  * *보호를 중지 하 고 백업 데이터를 보존* 합니다. 데이터 원본 (VM, 응용 프로그램)을 사용 중지 하거나 서비스 해제 하는 경우 감사 또는 규정 준수를 위해 데이터를 유지 해야 하는 경우이 옵션을 사용 하 여 이후의 모든 백업 작업에서 데이터 원본을 보호 하 고 백업 된 복구 지점이 유지 되지 않도록 할 수 있습니다. 그런 다음 VM 보호를 복원 하거나 다시 시작할 수 있습니다.
+  * *보호를 중지 하 고 백업 데이터를 삭제* 합니다. 이 옵션을 선택 하면 이후의 모든 백업 작업이 VM을 보호 하 고 모든 복구 지점이 삭제 되지 않습니다. VM을 복원 하거나 백업 다시 시작 옵션을 사용할 수 없습니다.
 
   * 데이터 보관을 사용 하 여 중지 된 데이터 원본의 보호를 다시 시작 하는 경우 보존 규칙이 적용 됩니다. 예약 된 시간에 만료 된 복구 지점이 제거 됩니다.
 
@@ -130,7 +130,7 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
   * 백업 정책은 자격 증명 모음으로 범위가 지정 됩니다.
   * 정책 당 항목 수에는 제한이 있습니다 (예: 100 Vm). 크기를 조정 하려면 동일한 일정 또는 다른 일정으로 중복 된 정책을 만들 수 있습니다.
   * 특정 복구 지점은 선택적으로 삭제할 수 없습니다.
-  * 예약 된 백업을 완전히 사용 하지 않도록 설정 하 고 데이터 원본을 보호 된 상태로 유지할 수 없습니다. 정책을 사용 하 여 구성할 수 있는 가장 낮은 백업에는 매주 예약 된 백업이 하나 있습니다. 또는 백업을 수행 하 고, 주문형 백업을 수행 하 고, 보호를 해제 하 고, 백업 데이터를 보존 하려면 데이터 보존을 사용 하 여 보호를 중지 하 고 보호를 사용 하도록 설정 하는 것이 좋습니다. [자세한 내용은 여기를 참조](backup-azure-manage-vms.md#stop-protecting-a-vm)하세요.
+  * 예약 된 백업을 완전히 사용 하지 않도록 설정 하 고 데이터 원본을 보호 된 상태로 유지할 수 없습니다. 정책을 사용 하 여 구성할 수 있는 가장 낮은 백업에는 매주 예약 된 백업이 하나 있습니다. 또는 백업을 수행 하 고, 주문형 백업을 수행 하 고, 보호를 해제 하 고, 백업 데이터를 보존 하려면 데이터 보존을 사용 하 여 보호를 중지 하 고 보호를 사용 하도록 설정 하는 것이 좋습니다. [여기를 참조하세요](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
@@ -138,9 +138,9 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
 
 ### <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
-* Azure RBAC (역할 기반 액세스 제어)는 팀 내에서 분리 업무를 수행 하는 데 필요한 사용자 에게만 액세스 권한을 부여 하 고 세분화 된 액세스 관리를 가능 하 게 합니다. [자세한 내용은 여기를 참조](backup-rbac-rs-vault.md)하세요.
+* Azure RBAC (역할 기반 액세스 제어)는 팀 내에서 분리 업무를 수행 하는 데 필요한 사용자 에게만 액세스 권한을 부여 하 고 세분화 된 액세스 관리를 가능 하 게 합니다. [여기를 참조하세요](backup-rbac-rs-vault.md).
 
-* Azure Backup는 백업 관리 작업을 제어 하기 위한 세 가지 기본 제공 역할인 백업 참가자, 운영자 및 판독기를 제공 합니다. [자세한 내용은 여기를 참조](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions)하세요.
+* Azure Backup는 백업 관리 작업을 제어 하기 위한 세 가지 기본 제공 역할인 백업 참가자, 운영자 및 판독기를 제공 합니다. [여기를 참조하세요](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 
 * Azure Backup에는 보안 취약성을 예방, 감지 및 대응 하기 위해 서비스에 기본 제공 되는 몇 가지 보안 컨트롤이 있습니다 (자세한 정보).
 
@@ -154,19 +154,19 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
 
 * 백업 데이터는 Microsoft 관리 키를 사용하여 자동으로 암호화됩니다. 또는 [고객이 관리 하는 키](encryption-at-rest-with-cmk.md)라고도 하는 고유한 키를 사용할 수 있습니다.
 
-* Azure Backup은 ADE(Azure Disk Encryption)로 암호화된 OS/데이터 디스크가 있는 Azure VM의 백업 및 복원을 지원합니다. [자세한 내용은 여기를 참조](backup-azure-vms-encryption.md)하세요.
+* Azure Backup은 ADE(Azure Disk Encryption)로 암호화된 OS/데이터 디스크가 있는 Azure VM의 백업 및 복원을 지원합니다. [여기를 참조하세요](backup-azure-vms-encryption.md).
 
 ### <a name="protection-of-backup-data-from-unintentional-deletes"></a>의도하지 않은 삭제로부터 백업 데이터 보호
 
-Azure Backup은 삭제 후에도 백업 데이터를 보호하는 데 도움이 되는 보안 기능을 제공합니다. 일시 삭제를 사용 하는 경우 사용자가 백업 (VM, SQL Server 데이터베이스, Azure 파일 공유 SAP HANA 데이터베이스)을 삭제 하면 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 비용이 발생 하지 않습니다. [자세한 내용은 여기를 참조](backup-azure-security-feature-cloud.md)하세요.
+Azure Backup은 삭제 후에도 백업 데이터를 보호하는 데 도움이 되는 보안 기능을 제공합니다. 일시 삭제를 사용 하는 경우 사용자가 백업 (VM, SQL Server 데이터베이스, Azure 파일 공유 SAP HANA 데이터베이스)을 삭제 하면 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 비용이 발생 하지 않습니다. [여기를 참조하세요](backup-azure-security-feature-cloud.md).
 
 ### <a name="monitoring-and-alerts-of-suspicious-activity"></a>의심스러운 활동의 모니터링 및 경고
 
-Azure Backup은 Azure Backup과 관련된 이벤트에 대한 작업을 보고 구성할 수 있는 기본 제공 모니터링 및 경고 기능을 제공합니다. [자세한 내용은 여기를 참조](security-overview.md#monitoring-and-alerts-of-suspicious-activity)하세요.
+Azure Backup은 Azure Backup과 관련된 이벤트에 대한 작업을 보고 구성할 수 있는 기본 제공 모니터링 및 경고 기능을 제공합니다. [여기를 참조하세요](security-overview.md#monitoring-and-alerts-of-suspicious-activity).
 
 ### <a name="security-features-to-help-protect-hybrid-backups"></a>하이브리드 백업을 보호하기 위한 보안 기능
 
-Azure Backup 서비스는 MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 온-프레미스 컴퓨터에서 Azure로 파일, 폴더 및 볼륨 또는 시스템 상태를 백업하고 복원합니다. 이제 MARS는 보안 기능을 제공 합니다. 즉, Azure Backup에서 다운로드 한 후 업로드 하 고 암호 해독 하기 전에 암호화할 암호를 제공 합니다. 삭제 된 백업 데이터는 삭제 날짜부터 14 일 동안 보존 되며 중요 한 작업 (예: 암호 변경)은 유효한 Azure 자격 증명이 있는 사용자만 수행할 수 있습니다. [자세한 내용은 여기를 참조](backup-azure-security-feature.md)하세요.
+Azure Backup 서비스는 MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 온-프레미스 컴퓨터에서 Azure로 파일, 폴더 및 볼륨 또는 시스템 상태를 백업하고 복원합니다. 이제 MARS는 보안 기능을 제공 합니다. 즉, Azure Backup에서 다운로드 한 후 업로드 하 고 암호 해독 하기 전에 암호화할 암호를 제공 합니다. 삭제 된 백업 데이터는 삭제 날짜부터 14 일 동안 보존 되며 중요 한 작업 (예: 암호 변경)은 유효한 Azure 자격 증명이 있는 사용자만 수행할 수 있습니다. [여기를 참조하세요](backup-azure-security-feature.md).
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 
@@ -184,7 +184,7 @@ Azure Backup 작업에서 Recovery Services 자격 증명 모음으로 데이터
 
 Azure [개인 끝점](../private-link/private-endpoint-overview.md) 은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. Azure Backup를 사용 하면 개인 끝점을 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 안전 하 게 백업 하 고 복원할 수 있습니다.
 
-* 자격 증명 모음에 대 한 개인 끝점을 사용 하도록 설정 하는 경우 Azure VM 및 MARS 에이전트 백업의 SQL 및 SAP HANA 워크 로드의 백업 및 복원에만 사용 됩니다.  다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업 시 파일 복구를 수행 하는 데 사용 됩니다. [자세한 내용은 여기를 참조](private-endpoints.md#recommended-and-supported-scenarios)하세요.
+* 자격 증명 모음에 대 한 개인 끝점을 사용 하도록 설정 하는 경우 Azure VM 및 MARS 에이전트 백업의 SQL 및 SAP HANA 워크 로드의 백업 및 복원에만 사용 됩니다.  다른 워크 로드의 백업에도 자격 증명 모음을 사용할 수 있습니다. 단, 개인 끝점은 필요 하지 않습니다. MARS 에이전트를 사용 하 여 SQL 및 SAP HANA 작업과 백업 백업 외에도 개인 끝점은 Azure VM 백업 시 파일 복구를 수행 하는 데 사용 됩니다. [여기를 참조하세요](private-endpoints.md#recommended-and-supported-scenarios).
 
 * Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 Azure Active Directory에 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다. [여기에서 필수 구성 요소](./private-endpoints.md#before-you-start)에 대해 자세히 알아보세요.
 
@@ -194,9 +194,9 @@ Azure의 거 버 넌 스는 주로 [Azure Policy](../governance/policy/overview.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup 기본 제공 Azure Policy를 통해 두 가지 주요 시나리오를 지원 합니다.
 
-* 새로 만든 업무상 중요 한 컴퓨터가 올바른 보존 설정으로 자동으로 백업 되도록 합니다. Azure Backup는 구독 또는 리소스 그룹 내의 지정 된 위치에 있는 모든 Azure Vm에 할당 될 수 있는 기본 제공 정책 (Azure Policy 사용)을 제공 합니다. 이 정책이 지정 된 범위에 할당 되 면 해당 범위에서 만들어진 모든 새 Vm은 동일한 위치 및 구독의 기존 자격 증명 모음에 백업 하도록 자동으로 구성 됩니다. 사용자는 백업 된 Vm을 연결할 자격 증명 모음 및 보존 정책을 지정할 수 있습니다. [자세한 내용은 여기를 참조](backup-azure-auto-enable-backup.md)하세요.
+* 새로 만든 업무상 중요 한 컴퓨터가 올바른 보존 설정으로 자동으로 백업 되도록 합니다. Azure Backup는 구독 또는 리소스 그룹 내의 지정 된 위치에 있는 모든 Azure Vm에 할당 될 수 있는 기본 제공 정책 (Azure Policy 사용)을 제공 합니다. 이 정책이 지정 된 범위에 할당 되 면 해당 범위에서 만들어진 모든 새 Vm은 동일한 위치 및 구독의 기존 자격 증명 모음에 백업 하도록 자동으로 구성 됩니다. 사용자는 백업 된 Vm을 연결할 자격 증명 모음 및 보존 정책을 지정할 수 있습니다. [여기를 참조하세요](backup-azure-auto-enable-backup.md).
 
-* 새로 만든 자격 증명 모음이 보고서를 지원 하기 위해 진단을 사용 하도록 설정 되었는지 확인 합니다. 종종 자격 증명 모음 마다 진단 설정을 수동으로 추가 하는 작업은 복잡할 수 있습니다. 또한 생성 된 모든 새 자격 증명 모음에 대 한 보고서를 볼 수 있도록 진단 설정을 사용 하도록 설정 해야 합니다. Log Analytics를 대상으로 사용 하 여 대규모로 진단 설정 만들기를 간소화 하기 위해 Azure Backup 기본 제공 Azure Policy를 제공 합니다. 이 정책은 각 구독 또는 리소스 그룹의 모든 자격 증명 모음에 LA 진단 설정을 추가 합니다. 다음 섹션에서는이 정책을 사용 하는 방법에 대 한 지침을 제공 합니다. [자세한 내용은 여기를 참조](azure-policy-configure-diagnostics.md)하세요.
+* 새로 만든 자격 증명 모음이 보고서를 지원 하기 위해 진단을 사용 하도록 설정 되었는지 확인 합니다. 종종 자격 증명 모음 마다 진단 설정을 수동으로 추가 하는 작업은 복잡할 수 있습니다. 또한 생성 된 모든 새 자격 증명 모음에 대 한 보고서를 볼 수 있도록 진단 설정을 사용 하도록 설정 해야 합니다. Log Analytics를 대상으로 사용 하 여 대규모로 진단 설정 만들기를 간소화 하기 위해 Azure Backup 기본 제공 Azure Policy를 제공 합니다. 이 정책은 각 구독 또는 리소스 그룹의 모든 자격 증명 모음에 LA 진단 설정을 추가 합니다. 다음 섹션에서는이 정책을 사용 하는 방법에 대 한 지침을 제공 합니다. [여기를 참조하세요](azure-policy-configure-diagnostics.md).
 
 ### <a name="azure-backup-cost-considerations"></a>Azure Backup 비용 고려 사항
 
@@ -213,7 +213,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 
 * 선택적 백업 디스크: 디스크 제외 (미리 보기 기능)는 중요 한 데이터를 선택적으로 백업 하는 효율적이 고 비용 효율적인 선택 항목을 제공 합니다. 예를 들어 VM에 연결 된 나머지 디스크를 백업 하지 않으려는 경우 하나의 디스크만 백업 합니다. 이는 여러 백업 솔루션이 있는 경우에도 유용 합니다. 예를 들어 워크 로드 백업 솔루션을 사용 하 여 데이터베이스 또는 데이터를 백업 하는 경우 (Azure VM 백업의 SQL Server 데이터베이스), 선택한 디스크에 대해 Azure VM 수준 백업을 사용 하려는 경우를 예로 들 수 있습니다.
 
-* Azure Backup은 Azure Vm의 스냅숏을 만들어 디스크와 함께 저장 하 여 복구 지점 만들기를 강화 하 고 복원 작업의 속도를 향상 시킵니다. 이를 인스턴트 복원 이라고 합니다. 기본적으로 인스턴트 복원 스냅숏은 2 일 동안 유지 됩니다. 이 기능을 사용 하면 복원 시간을 줄여서 이러한 스냅숏의 복원 작업을 수행할 수 있습니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. 따라서 이 기간에 만든 스냅샷에 해당하는 스토리지 비용이 발생합니다. [자세한 내용은 여기를 참조](backup-instant-restore-capability.md#configure-snapshot-retention)하세요.
+* Azure Backup은 Azure Vm의 스냅숏을 만들어 디스크와 함께 저장 하 여 복구 지점 만들기를 강화 하 고 복원 작업의 속도를 향상 시킵니다. 이를 인스턴트 복원 이라고 합니다. 기본적으로 인스턴트 복원 스냅숏은 2 일 동안 유지 됩니다. 이 기능을 사용 하면 복원 시간을 줄여서 이러한 스냅숏의 복원 작업을 수행할 수 있습니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. 따라서 이 기간에 만든 스냅샷에 해당하는 스토리지 비용이 발생합니다. [여기를 참조하세요](backup-instant-restore-capability.md#configure-snapshot-retention).
 
 * 기본적으로 Azure Backup 자격 증명 모음의 저장소 복제 유형은 지역 중복 (GRS)으로 설정 됩니다. 항목을 보호 한 후에는이 옵션을 변경할 수 없습니다. GRS (지역 중복 저장소)는 LRS (로컬 중복 저장소) 보다 높은 수준의 데이터 내 구성을 제공 하므로 옵트인에서 지역 간 복원과 비용을 더 많이 사용할 수 있습니다. 저렴 한 비용과 높은 데이터 내구성 간의 장단점을 검토 하 고 시나리오에 가장 적합 한 것을 결정 합니다. [여기서 자세히 알아보세요.](backup-create-rs-vault.md#set-storage-redundancy)
 
@@ -225,36 +225,36 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 
 ### <a name="monitoring"></a>모니터링
 
-* Azure Backup는 백업 구성, 백업, 복원, 삭제 등의 작업에 대해 **빌드된 작업 모니터링 기능** 을 제공 합니다. 이는 자격 증명 모음으로 범위가 지정 되 고 단일 자격 증명 모음 모니터링에 적합 합니다. [자세한 내용은 여기를 참조](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault)하세요.
+* Azure Backup는 백업 구성, 백업, 복원, 삭제 등의 작업에 대해 **빌드된 작업 모니터링 기능** 을 제공 합니다. 이는 자격 증명 모음으로 범위가 지정 되 고 단일 자격 증명 모음 모니터링에 적합 합니다. [여기를 참조하세요](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
 
-* 규모에 따라 작업 활동을 모니터링 해야 하는 경우 **백업 탐색기** 는 전체 백업 공간에 대 한 집계 보기를 제공 하 여 세부적인 드릴 다운 분석과 문제 해결을 가능 하 게 합니다. Azure의 전체 백업 공간에서 작업 활동을 모니터링 하 고 테 넌 트, 위치, 구독, 리소스 그룹 및 자격 증명 모음을 확장 하는 데 사용할 수 있는 단일 중앙 위치를 제공 하는 기본 제공 Azure Monitor 통합 문서입니다. [자세한 내용은 여기를 참조](monitor-azure-backup-with-backup-explorer.md)하세요.
+* 규모에 따라 작업 활동을 모니터링 해야 하는 경우 **백업 탐색기** 는 전체 백업 공간에 대 한 집계 보기를 제공 하 여 세부적인 드릴 다운 분석과 문제 해결을 가능 하 게 합니다. Azure의 전체 백업 공간에서 작업 활동을 모니터링 하 고 테 넌 트, 위치, 구독, 리소스 그룹 및 자격 증명 모음을 확장 하는 데 사용할 수 있는 단일 중앙 위치를 제공 하는 기본 제공 Azure Monitor 통합 문서입니다. [여기를 참조하세요](monitor-azure-backup-with-backup-explorer.md).
   * 이를 사용 하 여 백업에 대해 구성 되지 않은 리소스를 식별 하 고 증가 하는 공간에서 중요 한 데이터를 보호 하지 않도록 합니다.
   * 대시보드는 지난 7 일간 (최대) 작업 활동을 제공 합니다. 이 데이터를 유지 해야 하는 경우 Excel 파일로 내보낸 후 유지할 수 있습니다.
   * Azure Lighthouse 사용자 인 경우 여러 테 넌 트 간에 정보를 보고 경계 없는 모니터링을 사용할 수 있습니다.
 
-* 장기 작업을 유지 하 고 확인 해야 하는 경우 **보고서**를 사용 합니다. 백업 관리자의 일반적인 요구 사항은 오랜 기간에 걸쳐 있는 데이터를 기반으로 백업에 대 한 정보를 얻는 것입니다. 이러한 솔루션에 대한 사용 사례는 다음과 같습니다.
+* 장기 작업을 유지 하 고 확인 해야 하는 경우 **보고서** 를 사용 합니다. 백업 관리자의 일반적인 요구 사항은 오랜 기간에 걸쳐 있는 데이터를 기반으로 백업에 대 한 정보를 얻는 것입니다. 이러한 솔루션에 대한 사용 사례는 다음과 같습니다.
   * 사용된 클라우드 스토리지를 할당하고 예측합니다.
   * 백업 및 복원을 감사합니다.
   * 여러 세분성 수준에서 주요 추세를 확인합니다.
 
 * 기타
-  * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)하세요.
-  * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [자세한 내용은 여기를 참조](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs)하세요.
-  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * **Log Analytics** 작업 영역에 데이터 (예: 작업, 정책 등)를 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용 하 여 Azure Monitor에서 수집 된 다른 모니터링 데이터와 데이터의 상관 관계를 설정 하 고, 여러 Azure 구독 및 테 넌 트의 로그 항목을 분석을 위해 하나의 위치로 통합 하 고, 로그 쿼리를 사용 하 여 복잡 한 분석을 수행 하 고 로그 항목에 대 한 심층 통찰력을 얻을 [여기를 참조하세요](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * 데이터를 이벤트 허브로 전송 하 여 타사 SIEM (보안 정보 및 이벤트 관리) 또는 다른 log analytics 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [여기를 참조하세요](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
+  * 감사, 정적 분석 또는 백업을 위해 90 일 보다 오래 된 로그 데이터를 보존 하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90 일 이내에 이벤트를 유지 해야 하는 경우 활동 로그 이벤트는 90 일 동안 Azure 플랫폼에 보관 되므로 저장소 계정에 보관을 설정할 필요가 없습니다. [자세히 알아보기](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 
 * 경고는 주로 관련 작업을 수행 하 라는 알림을 받는 방법입니다. 백업 경고 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다.
 
 * Azure Backup는 오류, 경고 및 중요 한 작업을 위해 전자 메일을 통해 **빌드된 경고** 알림 메커니즘을 제공 합니다. 경고가 생성 될 때 알림을 받을 개별 메일 주소 또는 메일 그룹을 지정할 수 있습니다. 각 경고에 대 한 알림을 받을지 또는 매시간 다이제스트로 그룹화 한 다음 알림을 받을 지를 선택할 수도 있습니다.
-  * 이러한 경고는 서비스에 의해 정의 되며 제한 된 시나리오에 대 한 지원을 제공 합니다. 백업/복원 실패, 데이터 보관/데이터 삭제로 보호 중지 등의 제한 된 시나리오에 대 한 지원을 제공 합니다. [자세한 내용은 여기를 참조](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)하세요.
+  * 이러한 경고는 서비스에 의해 정의 되며 제한 된 시나리오에 대 한 지원을 제공 합니다. 백업/복원 실패, 데이터 보관/데이터 삭제로 보호 중지 등의 제한 된 시나리오에 대 한 지원을 제공 합니다. [여기를 참조하세요](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
   * 데이터 삭제로 보호 중지와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 Recovery Services 자격 증명 모음에 대해 알림이 구성 **되지 않은** 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
-  * 특정 워크 로드는 오류 (예: 15 분 마다 SQL Server)의 높은 빈도를 생성할 수 있습니다. 각 실패 발생에 대해 발생 하는 경고를 지나치게 많이 방지 하기 위해 경고가 통합 됩니다. [자세한 내용은 여기를 참조](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)하세요.
+  * 특정 워크 로드는 오류 (예: 15 분 마다 SQL Server)의 높은 빈도를 생성할 수 있습니다. 각 실패 발생에 대해 발생 하는 경고를 지나치게 많이 방지 하기 위해 경고가 통합 됩니다. [여기를 참조하세요](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * 작성 된 경고는 사용자 지정할 수 없으며 Azure Portal에 정의 된 전자 메일로 제한 됩니다.
 
 * **사용자 지정 경고를 만들어야** 하는 경우 (예: 성공한 작업에 대 한 경고) Log Analytics 사용 합니다. Azure Monitor에서는 Log Analytics 작업 영역에 고유 경고를 만들 수 있습니다. 하이브리드 워크 로드 (DPM/MABS)는 데이터를 LA로 보내고 LA를 사용 하 여 Azure Backup에서 지 원하는 워크 로드 간에 일반적인 경고를 제공할 수도 있습니다.
 
-* 또한 기본 제공 Recovery Services 자격 증명 모음 **활동 로그**를 통해 알림을 받을 수 있습니다. 그러나 제한 된 시나리오를 지원 하며 예약 된 백업과 같은 작업에 적합 하지 않습니다 .이는 활동 로그 보다 리소스 로그에 더 잘 부합 합니다. 이러한 제한 사항 및 Azure Backup에서 보호 되는 모든 워크 로드에 대 한 규모의 모니터링 및 경고에 Log Analytics 작업 영역을 사용할 수 있는 방법에 대 한 자세한 내용은이 [문서](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale)를 참조 하세요.
+* 또한 기본 제공 Recovery Services 자격 증명 모음 **활동 로그** 를 통해 알림을 받을 수 있습니다. 그러나 제한 된 시나리오를 지원 하며 예약 된 백업과 같은 작업에 적합 하지 않습니다 .이는 활동 로그 보다 리소스 로그에 더 잘 부합 합니다. 이러한 제한 사항 및 Azure Backup에서 보호 되는 모든 워크 로드에 대 한 규모의 모니터링 및 경고에 Log Analytics 작업 영역을 사용할 수 있는 방법에 대 한 자세한 내용은이 [문서](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

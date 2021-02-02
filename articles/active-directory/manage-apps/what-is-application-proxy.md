@@ -3,7 +3,7 @@ title: Azure AD 애플리케이션 프록시를 사용하여 온-프레미스 �
 description: 온-프레미스 웹 애플리케이션을 외부에 원격 사용자에게 게시할 때 애플리케이션 프록시를 사용하는 이유를 이해합니다. 애플리케이션 프록시 아키텍처, 커넥터, 인증 방법 및 보안 이점에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 02b08e6fcdd6714886f8afea1c0a461eb6128fe4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 1569e577ec535a4680cfaec6f7975c056275ecbe
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832644"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258781"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 사용자용 온-프레미스 앱 게시
 

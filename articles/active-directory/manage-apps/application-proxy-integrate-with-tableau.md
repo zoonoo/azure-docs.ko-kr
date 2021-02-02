@@ -3,7 +3,7 @@ title: Azure Active Directory 애플리케이션 프록시 및 Tableau | Microso
 description: Azure AD(Azure Active Directory) 애플리케이션 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,18 +13,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6720a5ad963bc73e11ef7b46150e946521928c01
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764505"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258628"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 애플리케이션 프록시 및 Tableau 
 
 Azure Active Directory 애플리케이션 프록시 및 Tableau를 사용하여 Tableau 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다. 이 아티클에서는 이 시나리오를 구성하는 방법에 대해 설명합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 이 아티클의 시나리오에서는 다음을 가정합니다.
 
@@ -52,25 +52,25 @@ Tableau를 게시하려면 Azure Portal에서 애플리케이션을 게시해야
 
 1. 응용 프로그램 관리자로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 
 
-2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션**을 선택합니다. 
+2. **Azure Active Directory &gt; 엔터프라이즈 애플리케이션** 을 선택합니다. 
 
-3. 블레이드의 위쪽에서 **추가**를 선택합니다. 
+3. 블레이드의 위쪽에서 **추가** 를 선택합니다. 
 
-4. **온-프레미스 애플리케이션**을 선택합니다. 
+4. **온-프레미스 애플리케이션** 을 선택합니다. 
 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
 
-    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예: `https://adventure-works.tableau.com` 
+    - **내부 URL**: 이 애플리케이션에는 자체 Tableau URL인 내부 URL이 있어야 합니다. 예들 들어 `https://adventure-works.tableau.com`입니다. 
 
     - **사전 인증 방법**: Azure Active Directory(권장되지만 필수 아님)입니다. 
 
-6. 블레이드의 위쪽에서 **추가**를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
+6. 블레이드의 위쪽에서 **추가** 를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
 
-7. 빠른 시작 메뉴에서 **테스트할 사용자 지정**을 선택하고 애플리케이션에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다. 
+7. 빠른 시작 메뉴에서 **테스트할 사용자 지정** 을 선택하고 애플리케이션에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다. 
 
-8. **할당**을 선택하여 테스트 사용자 할당을 저장합니다. 
+8. **할당** 을 선택하여 테스트 사용자 할당을 저장합니다. 
 
-9. (선택 사항) 앱 관리 페이지에서 **Single Sign-On**을 선택합니다. 드롭다운 메뉴에서 **Windows 통합 인증**을 선택하고 Tableau 구성에 따라 필수 필드를 입력합니다. **저장**을 선택합니다. 
+9. (선택 사항) 앱 관리 페이지에서 **Single Sign-On** 을 선택합니다. 드롭다운 메뉴에서 **Windows 통합 인증** 을 선택하고 Tableau 구성에 따라 필수 필드를 입력합니다. **저장** 을 선택합니다. 
 
  
 

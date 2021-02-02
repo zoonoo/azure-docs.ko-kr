@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: banders
-ms.openlocfilehash: 662e1bf721c93ee1d59946d2fd603551f3f88ad3
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 0d0dd5342cfc57da776e38ddef3df3b9c2199ac2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503797"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735778"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -79,7 +79,7 @@ Azure 웹 사이트, Azure Portal을 통해 지원 플랜을 구입했거나 Mic
 
 ## <a name="reactivate-a-subscription"></a>구독 다시 활성화
 
-종량제 요금을 사용하는 구독을 실수로 취소한 경우 [계정 센터에서 다시 활성화](subscription-disabled.md)할 수 있습니다.
+종량제 요금을 사용하는 구독을 실수로 취소한 경우 [Azure Portal에서 다시 활성화](subscription-disabled.md)할 수 있습니다.
 
 종량제 요금을 사용하는 구독이 아닌 경우 구독을 다시 활성화하려면 취소 후 90일 이내에 지원 센터로 문의하세요.
 
@@ -101,4 +101,4 @@ Azure 웹 사이트, Azure Portal을 통해 지원 플랜을 구입했거나 Mic
 
 ## <a name="next-steps"></a>다음 단계
 
-- 필요한 경우 [계정 센터](subscription-disabled.md)에서 종량제 구독을 다시 활성화할 수 있습니다.
+- 필요한 경우 [Azure Portal](subscription-disabled.md)에서 종량제 구독을 다시 활성화할 수 있습니다.

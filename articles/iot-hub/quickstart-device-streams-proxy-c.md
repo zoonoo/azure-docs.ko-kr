@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 C 빠른 시작
+title: 빠른 시작 - Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 C 빠른 시작
 description: 이 빠른 시작에서는 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 시나리오를 활성화하는 프록시 역할을 하는 C 샘플 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2305a87b91160b5de90f4cbfbc9418adc50bb92a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831993"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624408"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -25,6 +25,22 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 [IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 설정 개요는 [로컬 프록시 샘플 페이지](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)를 참조하세요.
 
 이 빠른 시작에서는 디바이스 스트림을 통해 SSH(Secure Shell) 트래픽을 터널링(22 포트 사용)하도록 설정하는 방법에 대해 설명합니다. RDP(원격 데스크톱 프로토콜) 트래픽에 대한 설정도 비슷하지만 구성을 간단하게 변경할 필요가 있습니다. 디바이스 스트림은 애플리케이션 및 프로토콜에 구속받지 않으므로 다른 유형의 애플리케이션 트래픽을 수용하도록 이 빠른 시작을 수정할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
+
+  * 미국 중부
+  * 미국 중부 EUAP
+  * 북유럽
+  * 동남아시아
+
+* [C++를 사용한 데스크톱 개발](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정된 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
+* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -47,22 +63,6 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 > 디바이스 스트림을 통해 보내는 SSH 트래픽은 서비스와 디바이스 간에 직접 보내는 것이 아니라 IoT Hub의 스트리밍 엔드포인트를 통해 터널링됩니다. 자세한 내용은 [IoT Hub 디바이스 스트림 사용의 이점](iot-hub-device-streams-overview.md#benefits)을 참조하세요. 또한 그림에서는 디바이스-로컬 프록시와 동일한 디바이스(또는 머신)에서 실행되는 SSH 디먼을 보여 줍니다. 이 빠른 시작에서 SSH 디먼 IP 주소를 제공하면 디바이스-로컬 프록시와 디먼이 다른 머신에서도 실행될 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-* 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
-
-  * 미국 중부
-  * 미국 중부 EUAP
-  * 북유럽
-  * 동남아시아
-
-* [C++를 사용한 데스크톱 개발](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정된 [Visual Studio 2019](https://www.visualstudio.com/vs/)를 설치합니다.
-* 최신 버전의 [Git](https://git-scm.com/download/)을 설치합니다.
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
@@ -120,7 +120,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest)에서 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
+연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true)에서 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
 1. 디바이스 ID를 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
 
@@ -138,7 +138,7 @@ Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https:/
    > *YourIoTHubName* 자리 표시자를 IoT 허브에서 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     나중에 이 빠른 시작에서 사용할 수 있도록 반환된 디바이스 연결 문자열을 적어 두세요. 다음 예제와 유사합니다.

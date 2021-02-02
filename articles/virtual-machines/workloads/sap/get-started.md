@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/23/2021
+ms.date: 02/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61adb72d043821dfaedca5e5da0b2f880d56811e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873776"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258922"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -84,6 +84,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 02/01/2021: SAP HANA [RHEL의 ANF를 사용 하 여 SAP HANA HA](./sap-hana-high-availability-netapp-files-red-hat.md)를 변경 하 고, [RHEL의 Azure vm에서 Pacemaker](./sap-hana-high-availability-scale-out-hsr-rhel.md)를 사용 하 여 확장 hsr를 확장 하 SAP HANA 고 [SAP HANA, SLES에서 anf](./sap-hana-scale-out-standby-netapp-files-suse.md) 를 사용 하 여 azure vm의 대기 노드를 확장 하 고, RHEL를 사용 하는 [azure vm의 대기 노드](./sap-hana-scale-out-standby-netapp-files-rhel.md) 를 확장 하 여 Azure NetApp Files의 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 에 대 한 링크를 추가
 - 01/23/2021: SAP HANA Azure NetApp Files의 [azure virtual machine storage 구성](./hana-vm-operations-storage.md) 및 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) SAP HANA 문서에서 디스크 볼륨 관리자를 사용 하지 않고 여러 azure 디스크나 nfs 공유에서 hana 데이터 볼륨 분할의 기능을 기능으로 제공 합니다.
 - 01/18/2021: azure의 Oracle에 대 한 Azure net Apps 파일 기반 NFS의 지원이 추가 되었습니다. [SAP 워크 로드에 대 한 ORACLE DBMS 배포 Virtual Machines](./dbms_guide_oracle.md) 에 [대 한 Azure NetApp Files의 NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 문서에서 10 진수를 조정 SAP HANA
 - 01/11/2021: [sap 용 RHEL의 Azure vm에 대 한 ha](./high-availability-guide-rhel.md)의 사소한 변경 내용, [RHEL의](./high-availability-guide-rhel-netapp-files.md) Azure vm에 있는 azure vm의 azure vm에 대 한 Ha 및 [RHEL의 azure vm에](./high-availability-guide-rhel-multi-sid.md) 있는 azure vm의 HA에 대 한 ha 가이드 RHEL8 및 RHEL7 모두에 대해 작동 하는 명령을 조정 하 고 ENSA1 및 ENSA2

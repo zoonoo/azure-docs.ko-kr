@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: e8d0afab14d02ffe16db535f173456b55ab53d69
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: d5d2f83ddb4f37e1379bb7d60a76ddc70d61f99a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97860938"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785840"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -56,7 +56,7 @@ Azure Load Balancer는 OSI(Open Systems Interconnect) 모델의 계층 4에서 �
 
 - **[IPv6](../virtual-network/ipv6-overview.md)** 의 **[부하 분산](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** 을 위한 지원을 사용하도록 설정합니다.
 
-- 표준 Load Balancer는 [Azure Monitor](../azure-monitor/overview.md)를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 지정된 차원에 대해 필터링, 그룹화 및 나눌 수 있습니다.  이러한 메트릭은 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공합니다.  리소스 상태도 지원됩니다. 자세한 내용은 **[표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)** 을 검토하세요.
+- 표준 Load Balancer는 [Azure Monitor](../azure-monitor/overview.md)를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 지정된 차원에 대해 필터링, 그룹화 및 나눌 수 있습니다.  이러한 메트릭은 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공합니다. [Azure Load Balancer에 대한 인사이트] (https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) 는 이러한 메트릭에 대한 유용한 시각화가 포함된 미리 구성된 대시보드를 제공합니다.  리소스 상태도 지원됩니다. 자세한 내용은 **[표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)** 을 검토하세요.
 
 - 부하 분산 장치를 **[여러 포트, 여러 IP 주소 또는 둘 다](./load-balancer-multivip-overview.md)** 에서 사용합니다.
 

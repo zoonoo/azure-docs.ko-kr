@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - Xamarin'
-description: 이 빠른 시작에서는 Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, BLOB을 모바일 디바이스에 다운로드하는 방법과 컨테이너의 모든 BLOB을 나열하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - Xamarin'
+description: 이 빠른 시작에서는 Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, BLOB을 모바일 디바이스에 다운로드하는 방법과 컨테이너의 모든 BLOB을 나열하는 방법을 알아봅니다.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 10/09/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802358"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>빠른 시작: Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12
 
-Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12 시작 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12를 시작합니다. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
-Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
+Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
 
 * 컨테이너 만들기
 * Azure Storage에 Blob 업로드
@@ -44,7 +44,7 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 ## <a name="setting-up"></a>설치
     
-이 섹션에서는 Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하기 위한 프로젝트 준비 과정을 안내합니다.
+이 섹션에서는 Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하기 위한 프로젝트 준비 과정을 안내합니다.
     
 ### <a name="create-the-project"></a>프로젝트 만들기
 
@@ -80,7 +80,7 @@ Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
+Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 * 스토리지 계정
 * 스토리지 계정의 컨테이너
@@ -99,7 +99,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ## <a name="code-examples"></a>코드 예제
 
-이 예제 코드 조각은 Xamarin.Forms 앱에서 .NET용 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 예제 코드 조각은 Xamarin.Forms 앱에서 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 * [클래스 수준 변수 만들기](#create-class-level-variables)
 * [컨테이너 만들기](#create-a-container)
@@ -110,7 +110,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ### <a name="create-class-level-variables"></a>클래스 수준 변수 만들기
 
-아래 코드는 여러 클래스 수준 변수를 선언합니다. 이 샘플의 나머지 부분에서 Azure Blob 스토리지와 통신하는 데 필요합니다.
+아래 코드는 여러 클래스 수준 변수를 선언합니다. 이 샘플의 나머지 부분에서 Azure Blob Storage와 통신하는 데 필요합니다.
 
 다음 코드는 [스토리지 연결 문자열 구성](#configure-your-storage-connection-string) 섹션에서 설정한 스토리지 계정의 연결 문자열에 더해서 추가로 필요합니다.
 
@@ -269,12 +269,12 @@ Container Deleted
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Xamarin이 포함된 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하여 BLOB을 업로드, 다운로드 및 나열하는 방법을 알아보았습니다.
+이 빠른 시작에서는 Xamarin이 포함된 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 BLOB을 업로드, 다운로드 및 나열하는 방법을 알아보았습니다.
 
 Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지 SDK v12 Xamarin 샘플](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Azure Blob Storage SDK v12 Xamarin 샘플](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * 자습서, 샘플, 빠른 시작 및 기타 설명서는 [모바일 개발자용 Azure](/azure/mobile-apps)를 방문하세요.
 * Xamarin에 대한 자세한 내용은 [Xamarin 시작](/xamarin/get-started/)을 참조하세요.

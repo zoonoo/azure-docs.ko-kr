@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 애플리케이션 프록시 앱에 대한 자세한 
 description: 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션과 애플리케이션 ID(AppId), 이름(DisplayName), 외부 URL(ExternalUrl), 내부 URL(InternalUrl) 및 인증 유형(ExternalAuthenticationType)을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 62dae175b529bd54b2f139eece89bbde6f98cd38
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ccd0c7be7fd0dd533028faa0dc2bbdad30d74c79
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055011"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258696"
 ---
 # <a name="get-all-application-proxy-apps-and-list-extended-information"></a>모든 애플리케이션 프록시 앱을 가져오고 자세한 정보 나열
 

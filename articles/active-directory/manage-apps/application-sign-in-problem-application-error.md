@@ -4,7 +4,7 @@ description: 앱에서 오류 메시지를 반환 하는 경우 Azure AD 로그�
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,14 +16,14 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c96209f33491645510d8592997c418472d4f227c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651586"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258815"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인 하면 앱 페이지에서 오류 메시지를 표시 합니다.
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>사용자가 로그인하면 앱 페이지에 오류 메시지가 표시됨
 
 이 시나리오에서 Azure Active Directory (Azure AD)는에서 사용자에 게 서명 합니다. 그러나 응용 프로그램은 오류 메시지를 표시 하 고 사용자가 로그인 흐름을 완료 하지 않도록 합니다. 문제는 앱이 Azure AD에서 발급 한 응답을 수락 하지 않았기 때문입니다.
 

@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/03/2020
+ms.date: 01/20/2021
 ms.author: justinha
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 765aa10e57c472d7a1af0952364783bb1d711078
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 194a5420f38e99d45f74241f67ae8cfbbaaee8f4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861507"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661000"
 ---
 # <a name="what-is-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services란?
 
@@ -24,10 +24,14 @@ Azure AD DS(Active Directory Domain Services)는 도메인 조인, 그룹 정책
 
 Azure AD DS 관리형 도메인을 사용하면 최신 인증 방법을 사용할 수 없거나 디렉터리 조회가 항상 온-프레미스 AD DS 환경으로 돌아가지 않도록 하는 레거시 애플리케이션을 클라우드에서 실행할 수 있습니다. 클라우드에서 AD DS 환경을 관리할 필요 없이 레거시 애플리케이션을 온-프레미스 환경에서 관리되는 도메인으로 리프트 앤 시프트할 수 있습니다.
 
-Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을 통해 사용자는 기존 자격 증명을 사용하여 관리되는 도메인에 연결된 서비스 및 애플리케이션에 로그인 할 수 있습니다. 또한 기존 그룹 및 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수도 있습니다. 이러한 기능은 Azure에 대한 온-프레미스 리소스의 원활한 리프트 앤 시프트를 제공합니다.
+Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을 통해 사용자는 기존 자격 증명을 사용하여 관리되는 도메인에 연결된 서비스 및 애플리케이션에 로그인할 수 있습니다. 또한 기존 그룹 및 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수도 있습니다. 이러한 기능은 Azure에 대한 온-프레미스 리소스의 원활한 리프트 앤 시프트를 제공합니다.
 
 > [!div class="nextstepaction"]
 > [시작하려면 Azure Portal을 사용하여 Azure AD DS 관리형 도메인을 만듭니다][tutorial-create].
+
+Azure AD DS에 대해 자세히 알아보려면 짧은 비디오를 살펴보세요.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LblD]
 
 ## <a name="how-does-azure-ad-ds-work"></a>Azure AD DS의 작동 방식
 

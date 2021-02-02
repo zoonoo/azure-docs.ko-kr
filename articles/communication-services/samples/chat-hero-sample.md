@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888575"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760807"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
@@ -111,6 +111,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 - [채팅 개념](../concepts/chat/concepts.md)에 대한 자세한 정보
 - [채팅 클라이언트 라이브러리](../concepts/chat/sdk-features.md) 숙지
+- [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토
 
 ## <a name="additional-reading"></a>추가 자료
 

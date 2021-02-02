@@ -1,12 +1,14 @@
 ---
-ms.openlocfilehash: f0f04db80472785a4e50f8deefb43293b0888c0c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb35b21c607eadf0ee16487b7f06c6a1f22982c6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691170"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633385"
 ---
-* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
+  > [!NOTE]
+  > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요. 
 * [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)

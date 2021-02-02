@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: b00b5a46a0cdeb95c357da521326fe2bb678490b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 4b8b24bacaee87dc9868fab1d5d071201a7215b8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132621"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897733"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure Consumption API 개요
 
@@ -37,14 +37,14 @@ Azure Consumption API는 다음에 대한 액세스를 제공합니다.
 
 API에는 다음이 포함됩니다.
 
--   **미터 수준 소비량 데이터** - 사용 비용, 요금이 발생한 미터 및 요금이 어떤 Azure 리소스에 대한 것인지 등의 데이터를 확인합니다. 모든 사용량 세부 정보 레코드는 일별 버킷에 매핑됩니다.
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 사용량 세부 정보 레코드 집합으로 자릅니다.
+-    **미터 수준 소비량 데이터** - 사용 비용, 요금이 발생한 미터 및 요금이 어떤 Azure 리소스에 대한 것인지 등의 데이터를 확인합니다. 모든 사용량 세부 정보 레코드는 일별 버킷에 매핑됩니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 사용량 세부 정보 레코드 집합으로 자릅니다.
     - 사용 종료/사용 시작
     - 리소스 그룹
     - 리소스 이름
--   **데이터 집계** - OData로 식을 적용하여 태그 또는 필터 속성별로 사용량 세부 정보를 집계합니다.
--   **다양한 제품 유형에 대한 사용량** - 사용량 세부 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
+-    **데이터 집계** - OData로 식을 적용하여 태그 또는 필터 속성별로 사용량 세부 정보를 집계합니다.
+-    **다양한 제품 유형에 대한 사용량** - 사용량 세부 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
 
 자세한 내용은 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)의 기술 사양을 참조하세요.
 
@@ -54,13 +54,13 @@ Marketplace 요금 API를 사용하여 모든 Marketplace 리소스(Azure 타사
 
 API에는 다음이 포함됩니다.
 
--   **미터 수준 소비량 데이터** - 마켓플레이스 사용 비용, 요금이 발생한 미터 및 요금이 어떤 리소스에 대한 것인지 등의 데이터를 확인합니다. 모든 사용량 세부 정보 레코드는 일별 버킷에 매핑됩니다.
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 마켓플레이스 레코드 집합으로 자릅니다.
+-    **미터 수준 소비량 데이터** - 마켓플레이스 사용 비용, 요금이 발생한 미터 및 요금이 어떤 리소스에 대한 것인지 등의 데이터를 확인합니다. 모든 사용량 세부 정보 레코드는 일별 버킷에 매핑됩니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 마켓플레이스 레코드 집합으로 자릅니다.
     - 사용 시작/사용 종료
     - 리소스 그룹
     - 리소스 이름
--   **다양한 제품 유형에 대한 사용량** - Marketplace 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
+-    **다양한 제품 유형에 대한 사용량** - Marketplace 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
 
 자세한 내용은 [Marketplace 요금 API](/rest/api/consumption/marketplaces)의 기술 사양을 참조하세요.
 
@@ -70,8 +70,8 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다.
     - 고객이 이 API를 호출하려면 엔터프라이즈 관리자 권한이 있어야 합니다.
 
 자세한 내용은 [잔액 API](/rest/api/consumption/balances)의 기술 사양을 참조하세요.
@@ -82,15 +82,15 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다.
--   **구성 가능한 알림** - 예산이 초과될 때 알림을 받을 사용자를 지정합니다.
--   **사용량 또는 비용 기반 예산** - 시나리오에 의한 필요에 따라 소비량 및 비용 기반 예산을 만듭니다.
--   **필터링** - 다음 구성 가능한 필터를 사용하여 예산을 더 작은 리소스 하위 집합으로 필터링합니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다.
+-    **구성 가능한 알림** - 예산이 초과될 때 알림을 받을 사용자를 지정합니다.
+-    **사용량 또는 비용 기반 예산** - 시나리오에 의한 필요에 따라 소비량 및 비용 기반 예산을 만듭니다.
+-    **필터링** - 다음 구성 가능한 필터를 사용하여 예산을 더 작은 리소스 하위 집합으로 필터링합니다.
     - 리소스 그룹
     - 리소스 이름
     - 미터
--   **구성 가능한 예산 기간** - 예산 재설정 빈도와 예산 유효 기간을 지정합니다.
+-    **구성 가능한 예산 기간** - 예산 재설정 빈도와 예산 유효 기간을 지정합니다.
 
 자세한 내용은 [예산 API](/rest/api/consumption/budgets)의 기술 사양을 참조하세요.
 
@@ -100,11 +100,11 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **필터링** - 다음 필터를 사용하여 권장 사항 결과를 조정합니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **필터링** - 다음 필터를 사용하여 권장 사항 결과를 조정합니다.
     - 범위
     - 되돌아보기 기간
--   **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
+-    **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
 
 자세한 내용은 [예약 권장 사항 API](/rest/api/consumption/reservationrecommendations)의 기술 사양을 참조하세요.
 
@@ -114,10 +114,10 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 예약 집합으로 자릅니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **필터링** - 다음 필터를 사용하여 API 결과 집합을 더 작은 예약 집합으로 자릅니다.
     - 날짜 범위
--   **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
+-    **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
 
 자세한 내용은 [예약 세부 정보 API](/rest/api/consumption/reservationsdetails)의 기술 사양을 참조하세요.
 
@@ -127,11 +127,11 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **필터링** - 다음 필터를 사용하여 일별 단위를 사용할 때 결과를 조정합니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **필터링** - 다음 필터를 사용하여 일별 단위를 사용할 때 결과를 조정합니다.
     - 사용 날짜
--   **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
--   **일별 또는 월별 집계** – 호출자는 예약 요약 데이터를 일별 또는 월별 단위로 원하는지를 지정할 수 있습니다.
+-    **다양한 제품 유형에 대한 예약 정보** - 예약 정보는 현재 기업 및 웹 직접 고객에게 제공됩니다.
+-    **일별 또는 월별 집계** – 호출자는 예약 요약 데이터를 일별 또는 월별 단위로 원하는지를 지정할 수 있습니다.
 
 자세한 내용은 [예약 요약 API](/rest/api/consumption/reservationssummaries)의 기술 사양을 참조하세요.
 
@@ -140,8 +140,8 @@ API에는 다음이 포함됩니다.
 
 API에는 다음이 포함됩니다.
 
--   **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스를 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
--   **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다. 웹 직접 고객은 가격을 얻으려면 RateCard API를 사용해야 합니다.
+-    **Azure RBAC(Azure 역할 기반 액세스 제어)** - [Azure Portal](https://portal.azure.com), [Azure CLI](../../role-based-access-control/role-assignments-cli.md) 또는 [Azure PowerShell cmdlet](/powershell/azure/)을 통해 액세스 정책을 구성하여 사용자 또는 애플리케이션이 구독의 사용량 현황 데이터에 액세스 권한을 얻도록 지정할 수 있습니다. 호출자가 인증에 대한 표준 Azure Active Directory 토큰을 사용해야 합니다. 호출자가 특정 Azure 구독에 대한 사용량 현황 데이터에 액세스하려면 호출자를 청구서 읽기 권한자, 읽기 권한자, 소유자 또는 참가자 역할에 추가해야 합니다.
+-    **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다. 웹 직접 고객은 가격을 얻으려면 RateCard API를 사용해야 합니다.
 
 자세한 내용은 [가격표 API](/rest/api/consumption/pricesheet)의 기술 사양을 참조하세요.
 
@@ -149,13 +149,13 @@ API에는 다음이 포함됩니다.
 
 다음은 소비용 API를 통해 구성 가능한 몇 가지 시나리오입니다.
 
--   **청구서 조정** - Microsoft가 적절한 금액을 청구했나요?  내 청구서는 무엇이며 내가 직접 계산할 수 있나요?
--   **교차 청구** - 청구 금액은 알았는데, 조직에서 누가 지불해야 하나요?
--   **비용 최적화** - 청구 금액이 얼마인지 알고 있습니다... 어떻게 하면 Azure에서 지출하는 것보다 더 많은 돈을 벌 수 있나요?
--   **비용 추적** - Azure를 사용하여 내가 얼마나 지출하고 있는지를 시간별로 알고 싶습니다. 추세란 무엇인가요? 어떻게 더 개선할 수 있나요?
--   **해당월 Azure 소비** - 이번 달 현재까지 지출액은 얼마인가요? Azure의 지출 및/또는 사용량을 조정해야 하나요? 해당 월 중에 언제 나는 Azure를 가장 많이 소비했나요?
--   **경고 설정** - 예산에 따라 리소스 기반 소비 또는 통화 기반 알림을 설정하고 싶습니다.
+-    **청구서 조정** - Microsoft가 적절한 금액을 청구했나요?  내 청구서는 무엇이며 내가 직접 계산할 수 있나요?
+-    **교차 청구** - 청구 금액은 알았는데, 조직에서 누가 지불해야 하나요?
+-    **비용 최적화** - 청구 금액이 얼마인지 알고 있습니다... 어떻게 하면 Azure에서 지출하는 것보다 더 많은 돈을 벌 수 있나요?
+-    **비용 추적** - Azure를 사용하여 내가 얼마나 지출하고 있는지를 시간별로 알고 싶습니다. 추세란 무엇인가요? 어떻게 더 개선할 수 있나요?
+-    **해당월 Azure 소비** - 이번 달 현재까지 지출액은 얼마인가요? Azure의 지출 및/또는 사용량을 조정해야 하나요? 해당 월 중에 언제 나는 Azure를 가장 많이 소비했나요?
+-    **경고 설정** - 예산에 따라 리소스 기반 소비 또는 통화 기반 알림을 설정하고 싶습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 청구 API를 사용하여 Azure 사용량에 대한 정보를 프로그래밍 방식으로 얻는 방법에 대한 자세한 내용은 [Azure 청구 API 개요](usage-rate-card-overview.md)를 참조하세요.
+- REST API를 사용하여 모든 Azure 서비스의 가격을 검색하는 방법에 대한 자세한 내용은 [Azure 소매 가격 개요](/rest/api/cost-management/retail-prices/azure-retail-prices)를 참조하세요.

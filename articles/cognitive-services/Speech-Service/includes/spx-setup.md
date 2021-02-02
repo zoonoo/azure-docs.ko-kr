@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540469"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095187"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -19,9 +19,15 @@ ms.locfileid: "98540469"
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
 1. Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
-2. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
-3. `spx-zips`를 추출한 디렉터리로 이동합니다. 이 폴더에는 다양한 플랫폼의 Speech CLI용 프로그램 파일이 포함되어 있습니다. 
-4. 플랫폼에 대한 파일을 추출합니다(.NET Framework 4.7의 경우 `spx-net471` 또는 x64 CPU의 .NET Core 3.0의 경우 `spx-netcore-win-x64`). 이 디렉터리에서 `spx`를 실행한다는 점에 유의하세요.
+1. [.NET Core 3.1](/dotnet/core/install/linux.md)을 설치합니다.
+2. 다음 명령을 입력하여 NuGet을 통해 음성 CLI를 설치합니다.
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+`spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
+
+> [!NOTE]
+> NuGet의 대안으로, 음성 CLI [zip 보관](https://aka.ms/speech/spx-zips.zip) 파일을 다운로드하여 압축을 풀고, `spx-zips` 디렉터리에서 플랫폼을 찾아서 추출하고, `spx` 경로를 시스템 **PATH** 변수에 추가할 수 있습니다.
 
 ### <a name="run-the-speech-cli"></a>Speech CLI 실행
 
@@ -43,15 +49,16 @@ Windows에서 Speech CLI는 로컬 컴퓨터에서 명령 프롬프트에 사용
 
 x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-1. [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)을 설치합니다.
-2. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
-3. 다운로드에서 추출한 루트 디렉터리 `spx-zips`로 이동하여 `spx-netcore-30-linux-x64`를 새 `~/spx` 디렉터리로 추출합니다.
-4. 터미널에서 다음 명령을 입력합니다.
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. [.NET Core 3.1](/dotnet/core/install/linux.md)을 설치합니다.
+2. 다음 명령을 입력하여 NuGet을 통해 음성 CLI를 설치합니다.
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
+
+> [!NOTE]
+> NuGet의 대안으로, [zip 보관](https://aka.ms/speech/spx-zips.zip)에서 이진 파일을 다운로드하고, 새 `~/spx` 디렉터리로 `spx-netcore-30-linux-x64`를 추출하고, 이진에 `sudo chmod +r+x spx`를 입력하고, PATH 시스템 변수에 `~/spx` 경로를 추가할 수 있습니다.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Docker 설치(Windows, Linux, macOS)](#tab/dockerinstall)
 

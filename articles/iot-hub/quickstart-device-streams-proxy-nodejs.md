@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 Node.js 빠른 시작
+title: 빠른 시작 - Azure IoT Hub 디바이스 스트림을 통한 SSH 및 RDP의 Node.js 빠른 시작
 description: 이 빠른 시작에서는 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 시나리오를 활성화하는 프록시 역할을 하는 Node.js 샘플 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: f32882dcb423c6f42a21a242a7e628ef6acda006
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ef45a6277adeff09a34fe22b7abeb21d3e603167
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96902139"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624357"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 

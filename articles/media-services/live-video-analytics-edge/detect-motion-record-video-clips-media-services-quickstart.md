@@ -3,12 +3,12 @@ title: 동작을 감지하고 Azure Media Services에 비디오 녹화
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 33deabf27fe9b74fd01dba5d6fbe3883b54dda63
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 15a9def78c7dddda7e63db66d2b21794506f6a92
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060421"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632727"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>빠른 시작: 동작을 감지하고 Media Services에 비디오 녹화
 
@@ -19,6 +19,8 @@ ms.locfileid: "98060421"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  > [!NOTE]
+  > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요. 
 * 머신에 설치된 [Visual Studio Code](https://code.visualstudio.com/) 및 [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 * 이전에 [빠른 시작: 시작](get-started-detect-motion-emit-events-quickstart.md)을 완료하지 않은 경우 다음 단계를 수행합니다.
     * [Azure 리소스 설정](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)

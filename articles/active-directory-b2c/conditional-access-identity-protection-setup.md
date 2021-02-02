@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949771"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785484"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Azure AD B2C에서 ID 보호 및 조건부 액세스 설정
 
@@ -94,9 +94,7 @@ ID 보호 위험 검색을 기반으로 하는 조건부 액세스 정책을 추
 
 1. **보안** 아래에서 **조건부 액세스(미리 보기)** 를 선택합니다. **조건부 액세스 정책** 페이지가 열립니다. 
 
-1. **새 정책** 을 선택하고, Azure AD 조건부 액세스 설명서에 따라 새 정책을 만듭니다. 다음은 이에 대한 예입니다.
-
-   - [로그인 위험 기반 조건부 액세스: 조건부 액세스 정책을 통해 사용](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. **새 정책** 을 선택하고, Azure AD 조건부 액세스 설명서에 따라 새 정책을 만듭니다. 위험 기반 정책의 경우 조건으로 사용할 위험 유형에 따라 [사용자 위험](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) 또는 [로그인 위험](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)에 따라 별도의 정책을 구성해야 합니다. 단일 정책에서 두 위험 유형을 모두 사용하지 않는 것이 좋습니다.
 
    > [!IMPORTANT]
    > 정책을 적용하려는 사용자를 선택하는 경우 **모든 사용자** 만 선택하지 마세요. 그렇지 않으면 로그인하지 못하도록 차단될 수 있습니다.

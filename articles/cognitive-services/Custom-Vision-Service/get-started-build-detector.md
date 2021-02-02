@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132582"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221298"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 탐지기를 학습시키는 데 도움이 되는 이미지를 업로드하고 수동으로 태그를 지정합니다. 
 
-1. 이미지를 추가하려면 __이미지 추가__ 단추를 클릭하고 __로컬 파일 찾아보기__ 를 선택합니다. __열기__ 를 선택하여 이미지를 업로드합니다.
+1. 이미지를 추가하려면 __이미지 추가__ 를 선택한 다음, __로컬 파일 찾아보기__ 를 선택합니다. __열기__ 를 선택하여 이미지를 업로드합니다.
 
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![태그 없음 섹션에서 업로드된 이미지](./media/get-started-build-detector/images-untagged.png)
 
-1. 사각형을 클릭하여 이미지의 개체 주위에 끌어 놓습니다. 그런 다음, **+** 단추를 사용하여 새 태그 이름을 입력하거나 드롭다운 목록에서 기존 태그를 선택합니다. 탐지기는 학습에서 태그가 지정되지 않은 배경 영역을 부정적인 예제로 사용하므로 감지하려는 개체의 모든 인스턴스에 태그를 지정하는 것이 매우 중요합니다. 태그 지정이 완료되면 오른쪽의 화살표를 클릭하여 태그를 저장하고 다음 이미지로 이동합니다.
+1. 사각형을 클릭하여 이미지의 개체 주위에 끌어 놓습니다. 그런 다음, **+** 단추를 사용하여 새 태그 이름을 입력하거나 드롭다운 목록에서 기존 태그를 선택합니다. 탐지기는 학습에서 태그가 지정되지 않은 배경 영역을 부정적인 예로 사용하기 때문에 검색하려는 개체의 모든 인스턴스에 태그를 지정하는 것이 중요합니다. 태그 지정이 완료되면 오른쪽의 화살표를 클릭하여 태그를 저장하고 다음 이미지로 이동합니다.
 
     ![사각형 선택 영역을 사용하여 개체 태그 지정](./media/get-started-build-detector/image-tagging.png)
 

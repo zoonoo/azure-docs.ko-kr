@@ -2,15 +2,15 @@
 title: 템플릿 배포 - Azure Portal
 description: Azure Portal을 사용하여 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만들고 이를 배포하는 방법을 알아봅니다.
 author: mumian
-ms.date: 06/29/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349625"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892504"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 
@@ -33,9 +33,11 @@ ARM 템플릿을 처음부터 새로 만드는 작업은 쉽지 않으며 특히
 
     ![Azure Portal 메뉴에서 리소스 만들기 선택](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. **스토리지** > **스토리지 계정** 을 선택합니다.
+1. 검색 상자에서 **스토리지 계정** 을 입력한 다음, **[ENTER]** 를 누릅니다.
+1. **만들기** 를 선택합니다.
 
     ![Azure Storage 계정 만들기](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+
 1. 다음 정보를 입력합니다.
 
     |Name|값|
@@ -168,7 +170,7 @@ Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 �
     |**계정 유형**|이 빠른 시작에서는 **Standard_LRS** 를 입력합니다. |
     |**종류**|이 빠른 시작에서는 **StorageV2** 를 입력합니다. |
     |**액세스 계층**|이 빠른 시작에서는 **핫** 을 입력합니다. |
-    |**최소 Tls 버전**|**TLS1_0** 을 입력합니다. |
+    |**최소 TLS 버전**|**TLS1_0** 을 입력합니다. |
     |**Https 트래픽만 지원**| 이 빠른 시작에서는 **true** 를 선택합니다. |
     |**Blob 퍼블릭 액세스 허용**| 이 빠른 시작에서는 **false** 를 선택합니다. |
 
