@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시를 사용하는 애플리케�
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a9b43660889a318b2085f3aa8c1060daebe0244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec028dec2bf2e6295f59aae9c2e243da2209827
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764743"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257037"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
@@ -46,7 +46,7 @@ ms.locfileid: "84764743"
 
    ![Azure Portal에서 커넥터 그룹 선택](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-이러한 각 옵션에 대한 자세한 내용은 아래 해당 섹션을 참조하세요. 이 지침에서는 커넥터 관리 페이지에서 시작한다고 가정합니다. 위의 오류 메시지가 표시되면 경고 메시지를 클릭하여 이 페이지로 이동할 수 있습니다. 또한 **Azure Active Directory**로 이동하여 **엔터프라이즈 애플리케이션**, **애플리케이션 프록시**를 차례로 클릭하면 해당 페이지로 이동할 수 있습니다.
+이러한 각 옵션에 대한 자세한 내용은 아래 해당 섹션을 참조하세요. 이 지침에서는 커넥터 관리 페이지에서 시작한다고 가정합니다. 위의 오류 메시지가 표시되면 경고 메시지를 클릭하여 이 페이지로 이동할 수 있습니다. 또한 **Azure Active Directory** 로 이동하여 **엔터프라이즈 애플리케이션**, **애플리케이션 프록시** 를 차례로 클릭하면 해당 페이지로 이동할 수 있습니다.
 
    ![Azure Portal에서 커넥터 그룹 관리](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 

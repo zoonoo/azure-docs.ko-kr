@@ -3,19 +3,19 @@ title: Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이
 description: Id 관리를 위해 Azure Active Directory를 사용 하는 앱에 사용자가 할당 되는 방식을 이해 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: aedcecf528f07d9d7f89c1d5659d8fcd2cb36df2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 161df0446c9478ca0f2b135c1e426f3786b164fc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016731"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257443"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해
 이 문서에서는 테넌트의 애플리케이션에 사용자가 할당되는 방법을 이해하는 데 도움을 줍니다.

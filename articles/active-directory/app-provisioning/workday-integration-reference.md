@@ -3,19 +3,19 @@ title: Azure Active Directory 및 Workday 통합 참조
 description: Workday-HR 기반 프로 비전에 대 한 기술 심층 살펴보기
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 38a93d5db6f8331da6e7afdef3e91b2764537459
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f260bca196839a091ae7d12be6d5f85912bf92db
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954024"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255987"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Azure Active Directory 프로비저닝이 Workday와 통합 되는 방법
 
@@ -379,7 +379,7 @@ Azure AD 프로 비전 서비스는 각 페이지를 처리 하 고 전체 동�
 | 21 | 지불 그룹                            | 아니요                  | ' 지불 \_ 그룹 '                                                                  |
 | 22 | 프로그램                             | 아니요                  | 프로그램인                                                                    |
 | 23 | 프로그램 계층 구조                    | 아니요                  | ' 프로그램 \_ 계층 구조 '                                                          |
-| 24 | 지역                               | 아니요                  | ' 지역 \_ 계층 구조 '                                                           |
+| 24 | Region                               | 아니요                  | ' 지역 \_ 계층 구조 '                                                           |
 | 25 | 위치 계층 구조                   | 아니요                  | ' 위치 \_ 계층 구조 '                                                         |
 | 26 | 계정 프로 비전 데이터            | 아니요                  | wd: Worker \_ data/wd: 계정 \_ 프로 비전 \_ 데이터                                |
 | 27 | 백그라운드 확인 데이터                | 아니요                  | wd: Worker \_ data/wd: Background \_ Check \_ 데이터                                    |

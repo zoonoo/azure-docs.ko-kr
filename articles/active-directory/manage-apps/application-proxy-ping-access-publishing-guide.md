@@ -3,7 +3,7 @@ title: Azure AD 응용 프로그램 프록시에 대 한 액세스 권한이 있
 description: PingAccess 및 앱 프록시를 사용하여 애플리케이션을 게시하여 헤더 기반 인증을 지원합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: e09bb0b07112a962b709c380c48f2a656c16097b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 128e053016faf3ed2a9c53ad21f35a13f3ac1265
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663729"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258170"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -129,8 +129,8 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
    ![API 권한 요청 페이지를 표시 합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 1. **위임 된 권한**  >  **사용자** 사용자  >  **를 선택 합니다. 읽기**.
-1. **응용 프로그램 권한** 응용 프로그램 응용 프로그램  >  **Application**  >  **. ReadWrite를** 선택 합니다.
-1. **권한 추가** 를 선택합니다.
+1. **응용 프로그램 권한** 응용 프로그램 응용 프로그램  >    >  **. ReadWrite를** 선택 합니다.
+1. **모든 권한** 을 선택합니다.
 1. **API 사용 권한** 페이지에서 **\<your directory name> 에 대해 관리자 동의 부여** 를 선택 합니다.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
@@ -201,7 +201,7 @@ AzureAD에 없는 특성에 대 한 [클레임 매핑 정책 (미리 보기)](..
 >
 > PowerShell 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저를 사용 하 고를 사용 하 여 `New-AzureADPolicy` 응용 프로그램에 할당 해야 할 수 있습니다 `Add-AzureADServicePrincipalPolicy` . 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
 
-예:
+예제:
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 

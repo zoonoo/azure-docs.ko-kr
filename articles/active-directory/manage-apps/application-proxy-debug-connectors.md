@@ -3,7 +3,7 @@ title: 응용 프로그램 프록시 커넥터 디버깅-Azure Active Directory 
 description: Azure Active Directory (Azure AD) 응용 프로그램 프록시 커넥터를 사용 하 여 문제를 디버그 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: cbbb5328f2d7e814be9b5b94ec522bbb01df39e5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c656bfe7f9cc8923859a99f31210cd554aa66a41
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658250"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256969"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>애플리케이션 프록시 커넥터 디버그 이슈 
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 7a52d3971e4ec0cb8ec104a57ba7fb4057c23b72
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1f80da4014d4b6b27155db17d32800e54b51f40d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964646"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258068"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Azure 가상 WAN 허브 (미리 보기)에서 네트워크 가상 어플라이언스를 만드는 방법
 
@@ -21,8 +21,7 @@ ms.locfileid: "97964646"
 
 이 문서의 단계를 통해 가상 WAN 허브에 **Barracuda CloudGen WAN** 네트워크 가상 어플라이언스를 만들 수 있습니다. 이 연습을 완료 하려면 시작 하기 전에 허브에 배포 하는 Barracuda CloudGen WAN 어플라이언스에 대 한 Barracuda 클라우드 프레미스 장치 (CPE) 및 라이선스가 있어야 합니다.
 
-Azure 가상 WAN 내 **CISCO SD-WAN** 의 배포 설명서는 [다중 클라우드를 위한 Cisco Cloud onramp를](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701)참조 하세요. 계정을 등록 하 고 필요한 Cisco SD-WAN 라이선스를 얻으려면 다음 전자 메일 주소에서 Cisco로 전자 메일을 보내세요. vwan_public_preview@external.cisco.com
-
+Azure 가상 WAN 내 **CISCO SD-WAN** 의 배포 설명서는 [다중 클라우드를 위한 Cisco Cloud onramp를](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701)참조 하세요. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

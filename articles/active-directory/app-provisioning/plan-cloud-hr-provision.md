@@ -3,7 +3,7 @@ title: 사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 
 description: 이 문서에서는 Azure Active Directory와 함께 Workday 및 SuccessFactors와 같은 클라우드 HR 시스템을 통합 하는 배포 프로세스를 설명 합니다. Azure AD를 클라우드 HR 시스템과 통합 하면 완전 한 id 수명 주기 관리 시스템이 생성 됩니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 64418a727ecb9a300912a4766a9ea2066328ad31
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96174903"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256714"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -56,7 +56,7 @@ Azure AD 사용자 프로비저닝과 클라우드 HR 앱의 통합은 다음과
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
-### <a name="terms"></a>용어
+### <a name="terms"></a>사용 약관
 
 이 문서에서는 다음과 같은 용어를 사용 합니다.
 
@@ -73,13 +73,13 @@ HR 기반 IT 프로비저닝의 이 기능은 다음과 같은 중요한 비즈�
 - **주소 규정 준수 및 거버넌스:** Azure AD는 원본 및 대상 시스템 모두의 앱에서 수행하는 사용자 프로비저닝 요청에 대한 기본 감사 로그를 지원합니다. 감사를 사용하면 단일 화면에서 앱에 액세스할 수 있는 사용자를 추적할 수 있습니다.
 - **비용 관리:** 자동 프로비저닝은 수동 프로비저닝과 관련된 비효율성 및 인간 오류를 방지하여 비용을 절감합니다. 레거시 플랫폼 및 오래된 플랫폼을 사용하여 시간이 지남에 따라 빌드되는 사용자 지정 개발 사용자 프로비저닝 솔루션에 대한 필요성을 줄입니다.
 
-### <a name="licensing"></a>라이선싱
+### <a name="licensing"></a>라이선스
 
 클라우드 HR 앱을 Azure AD 사용자 프로 비전 통합에 구성 하려면 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱에 대 한 유효한 [Azure AD Premium 라이선스](https://azure.microsoft.com/pricing/details/active-directory/) 및 라이선스가 필요 합니다.
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../roles/permissions-reference.md#hybrid-identity-administrator)  입니다.
 - Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator) 역할

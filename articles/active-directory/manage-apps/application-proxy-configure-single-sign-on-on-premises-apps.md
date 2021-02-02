@@ -4,7 +4,7 @@ description: SAML 인증으로 보호 되는 온-프레미스 응용 프로그�
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,14 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d51aa7e75d7e94d1c2ac66d7edb92a3ef9395b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 03c688952f37bf9fc91e9dd25e09d9c31cd980d4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657468"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257071"
 ---
-# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
+# <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>애플리케이션 프록시를 사용하는 온-프레미스 애플리케이션에 대한 SAML Single Sign-On
 
 SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 SSO (Single Sign-On)를 제공 하 고 응용 프로그램 프록시를 통해 이러한 응용 프로그램에 대 한 원격 액세스를 제공할 수 있습니다. SAML Single Sign-On를 사용 하 여 Azure Active Directory (Azure AD)는 사용자의 Azure AD 계정을 사용 하 여 응용 프로그램을 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. 사용자가 SAML 클레임에서 정의한 규칙에 따라 특정 응용 프로그램 역할에 사용자를 매핑할 수도 있습니다. 사용자는 SAML SSO 외에도 응용 프로그램 프록시를 사용 하도록 설정 하 여 응용 프로그램에 대 한 외부 액세스와 원활한 SSO 환경을 제공 합니다.
 

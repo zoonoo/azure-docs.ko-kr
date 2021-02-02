@@ -3,19 +3,19 @@ title: Azure Active Directory에서 SAML 기반 Single Sign-On 문제 해결
 description: SAML 기반 Single Sign-On에 대해 구성 된 Azure AD 앱의 문제를 해결 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658879"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257529"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On 문제 해결
 애플리케이션을 구성할 때 문제가 발생 할 경우. 애플리케이션의 자습서에 있는 단계를 모두 수행했는지 확인합니다. 애플리케이션의 구성에는 애플리케이션 구성 방법에 관한 인라인 설명서가 있습니다. 또한 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "94658879"
     * 패턴이 지원되지 않으면 텍스트 상자에 값을 입력하려 할 때 빨간색 느낌표가 표시됩니다. 빨간색 느낌표 위에 마우스를 놓으면 지원되는 패턴이 표시됩니다.
     * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
-값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
+값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음 작업을 수행할 수 있습니다.
 -   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 -   또는 <aadapprequest@microsoft.com>으로 Azure AD 팀에 문의하거나 자습서에 애플리케이션에서 지원되는 패턴으로 업데이트해 달라는 요청을 남길 수 있습니다.
 
@@ -69,7 +69,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
 
-## <a name="customize-saml-claims-sent-to-an-application"></a>응용 프로그램에 전송 된 SAML 클레임 사용자 지정
+## <a name="customize-saml-claims-sent-to-an-application"></a>애플리케이션에 보낸 SAML 클레임 사용자 지정
 애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

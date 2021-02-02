@@ -4,7 +4,7 @@ titleSuffix: Azure Active Directory
 description: NDES 서버를 보호 하기 위해 Azure Active Directory 응용 프로그램 프록시를 배포 하는 방법에 대 한 지침입니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0793547c4eafcad256664546240a07c1bcb0e628
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 69193296069765ae6e94ffe97913c136a0d033d9
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709013"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257899"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>NDES (네트워크 장치 등록 서비스) 서버에서 Azure AD 응용 프로그램 프록시와 통합
 

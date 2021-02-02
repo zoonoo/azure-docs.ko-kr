@@ -3,7 +3,7 @@ title: Azure Active Directory에 대 한 자동 사용자 프로 비전 배포 �
 description: 자동 사용자 프로비저닝을 계획 하 고 실행 하기 위한 지침
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8855969a9f1e431fc45b831063732501eead7e99
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d36bcbd64c1169c923c6a1decdf907a8a9d6697b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051790"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255766"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 * **비용 절감**. 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
 
-### <a name="licensing"></a>라이선싱
+### <a name="licensing"></a>라이선스
 
 Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사용 하 여 모든 응용 프로그램의 셀프 서비스 통합을 제공 합니다. 라이선스 요구 사항에 대 한 전체 목록은 [AZURE AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
@@ -318,7 +318,7 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 #### <a name="resources"></a>리소스
 
-* [제품 사용자 의견 제공](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [제품 피드백 제공](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 * [Azure AD의 새로운 기능을 최신 상태로 유지](https://azure.microsoft.com/updates/?product=active-directory)
 

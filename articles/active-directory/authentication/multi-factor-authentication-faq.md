@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dfe99a2ed57ecc953c69d1bad89e2b2c8816ca3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a58fbf874339bf287ce1af62e1edb39ec6227d99
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741455"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257105"
 ---
 # <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication에 대 한 질문과 대답
 
@@ -124,7 +124,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 일부 경우에 그렇습니다.
 
-디렉터리에 *사용자당* Azure Multi-Factor Authentication 공급자가 있는 경우 MFA 라이선스를 추가할 수 있습니다. 라이선스가 있는 사용자는 사용자별 사용량 기반 청구 요금에 계산되지 않습니다. 라이선스가 없는 사용자는 계속해서 MFA 공급자를 통해 MFA 사용을 설정할 수 있습니다. Multi-Factor Authentication을 사용하도록 구성된 모든 사용자를 위한 라이선스를 구입 및 할당하면 Azure Multi-Factor Authentication 공급자를 삭제할 수 있습니다. 향후 라이선스보다 더 많은 사용자가 생기면 항상 다른 사용자 단위 MFA 공급자를 만들 수 있습니다.
+디렉터리에 *사용자당* Azure Multi-Factor Authentication 공급자가 있는 경우 MFA 라이선스를 추가할 수 있습니다. 라이선스가 있는 사용자는 사용자 단위 사용량 기반 청구에서 계산 되지 않습니다. 라이선스가 없는 사용자는 계속해서 MFA 공급자를 통해 MFA 사용을 설정할 수 있습니다. Multi-Factor Authentication을 사용하도록 구성된 모든 사용자를 위한 라이선스를 구입 및 할당하면 Azure Multi-Factor Authentication 공급자를 삭제할 수 있습니다. 향후 라이선스보다 더 많은 사용자가 생기면 항상 다른 사용자 단위 MFA 공급자를 만들 수 있습니다.
 
 디렉터리에 *인증 단위* Azure Multi-Factor Authentication 공급자가 있는 경우 MFA 공급자가 구독에 연결 되어 있기만 하면 항상 각 인증에 대해 요금이 청구 됩니다. 사용자에게 MFA 라이선스를 할당할 수 있지만 사용자의 MFA 라이선스 할당 여부에 관계없이 2단계 인증 요청마다 요금이 계속 청구됩니다.
 

@@ -1,16 +1,16 @@
 ---
-title: Azure Functions의 기존 함수에 바인딩 추가
-description: Azure Functions 프로젝트에서 기존 함수에 바인딩을 추가 하는 방법에 대해 알아봅니다.
+title: 함수를 다른 Azure 서비스에 연결
+description: Azure Functions 프로젝트의 기존 함수에 다른 Azure 서비스에 연결 하는 바인딩을 추가 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 23b7b05f9a9f9da5a48511ee555e3b6184a74179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c6f5bb8ca5fcf995b8a8d326abbec96f1d2e35
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654154"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258204"
 ---
-# <a name="add-bindings-to-an-existing-function-in-azure-functions"></a>Azure Functions의 기존 함수에 바인딩 추가
+# <a name="connect-functions-to-azure-services-using-bindings"></a>바인딩을 사용 하 여 Azure 서비스에 함수 연결
 
 함수를 만들 때 트리거 템플릿 집합에서 언어별 트리거 코드가 프로젝트에 추가 됩니다. 입력 또는 출력 바인딩을 사용 하 여 함수를 다른 서비스에 연결 하려면 함수에 특정 바인딩 정의를 추가 해야 합니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 

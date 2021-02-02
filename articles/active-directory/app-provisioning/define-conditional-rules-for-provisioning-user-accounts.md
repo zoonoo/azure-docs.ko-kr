@@ -3,19 +3,19 @@ title: 범위 지정 필터를 사용하여 앱 프로비전 | Microsoft Docs
 description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 88d004836d5311fc3a971df81a3dc6e6ab605ca9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7fff456b7ad6e980fc3c9bda36cfcab02e2ed863
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861394"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255834"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -78,7 +78,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    b. 같지 **않음** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   다. **이 TRUE 인** 경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   c. **이 TRUE 인** 경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **가 FALSE 인 경우** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
@@ -86,7 +86,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    f. **가 NULL이 아닌** 경우 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
-   g. **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
+   예: **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
 
    h. **NOT REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하지 않으면 "true"를 반환합니다.
    
@@ -116,14 +116,14 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 
 ## <a name="common-scoping-filters"></a>공통 범위 지정 필터
-| 대상 특성| 연산자 | 값 | Description|
+| 대상 특성| 연산자 | 값 | 설명|
 |----|----|----|----|
 |userPrincipalName|REGEX 일치|.\*@domain.com |도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위에 포함 됩니다.|
 |userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위를 벗어났습니다.|
 |department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
 |workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](../app-provisioning/user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](../app-provisioning/customize-application-attributes.md)
 * [특성 매핑 식 작성](functions-for-customizing-application-data.md)

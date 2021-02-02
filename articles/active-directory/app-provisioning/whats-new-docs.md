@@ -1,24 +1,36 @@
 ---
 title: 응용 프로그램 프로 비전 Azure Active Directory의 새로운 기능
 description: Azure Active Directory 응용 프로그램 프로 비전을 위한 새로운 설명서 및 업데이트 된 설명서입니다.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
-ms.openlocfilehash: 053d342c8fbdd506ac5d4ba0916a1ae9361e7189
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+manager: daveba
+ms.openlocfilehash: a127552c47b9e1ee86d2164926971c8628367dc0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562211"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256004"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 응용 프로그램 프로 비전: 새로운 기능
 
 Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. 프로 비전 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="new-articles"></a>새 문서
+- [Azure Active Directory 프로비저닝이 Workday와 통합 되는 방법](workday-integration-reference.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+- [자습서: 샘플 SCIM 끝점 개발](use-scim-to-build-users-and-groups-endpoints.md)
+- [자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)
+- [Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합 되는 방법](sap-successfactors-integration-reference.md)
+- [격리 상태의 응용 프로그램 프로 비전](application-provisioning-quarantine-status.md)
+
 
 ## <a name="december-2020"></a>2020년 12월
 

@@ -3,7 +3,7 @@ title: 사용자 및 관리자 권한 관리-Azure Active Directory | Microsoft 
 description: Azure AD에서 응용 프로그램에 대 한 사용 권한을 검토 하 고 관리 하는 방법을 알아봅니다. 예를 들어 응용 프로그램에 부여 된 모든 사용 권한을 해지할 수 있습니다.
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1284af82c0779ca57b49a0c4aef4b492a3bf20
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cbd2bc7b9ccc9efe0c6fdf8de02665160667cb8f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054605"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256935"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 overprivileged 또는 의심 스러운 응용 프로그램에 대 한 조치를 취합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "99054605"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 작업을 수행 하려면 전역 관리자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자 권한으로 로그인 해야 합니다.
 

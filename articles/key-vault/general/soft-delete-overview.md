@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 0f428954ac6ef74253e6e6e430977a85a3943f99
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589987"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257949"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -99,5 +99,6 @@ Key Vault 또는 Key Vault 개체를 복구하지 않으면 보존 간격이 끝
 
 다음 두 가이드는 일시 삭제 사용에 대한 기본 사용 시나리오를 제공합니다.
 
+- [포털에서 Key Vault 일시 삭제를 사용 하는 방법](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal)
 - [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](./key-vault-recovery.md) 
 - [CLI로 Key Vault 일시 삭제를 사용하는 방법](./key-vault-recovery.md)

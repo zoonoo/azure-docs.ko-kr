@@ -4,7 +4,7 @@ description: Azure Active Directory 애플리케이션 프록시에서 와일드
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2f3d1d47bd26167253296f06af5470818760850
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997514"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257983"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시의 와일드카드 애플리케이션
 
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 와일드카드 애플리케이션 생성은 다른 모든 애플리케이션에 사용할 수 있는 것과 동일한 [애플리케이션 게시 흐름](application-proxy-add-on-premises-application.md)을 기반으로 합니다. 유일한 차이점은 URL에 와일드카드를 포함하고 잠재적으로 SSO 구성이라는 것뿐입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 이러한 요구 사항을 충족 하는지 확인 합니다.
 

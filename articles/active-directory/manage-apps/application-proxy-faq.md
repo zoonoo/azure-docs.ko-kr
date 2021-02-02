@@ -3,7 +3,7 @@ title: Azure Active Directory 응용 프로그램 프록시 질문과 대답
 description: Azure AD 응용 프로그램 프록시을 사용 하 여 내부 온-프레미스 응용 프로그램을 원격 사용자에 게 게시 하는 방법에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f1a1d43f9bfc960628447a3c20e7dab2ac701dc5
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762568"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257780"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 

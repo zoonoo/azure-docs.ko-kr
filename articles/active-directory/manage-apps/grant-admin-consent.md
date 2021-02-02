@@ -3,7 +3,7 @@ title: 응용 프로그램에 테 넌 트 전체 관리자 동의 부여-Azure A
 description: 응용 프로그램에 로그인 할 때 최종 사용자에 게 동의 여부를 묻지 않도록 응용 프로그램에 테 넌 트 차원의 동의를 부여 하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 66a6317b0cb59d656cdb2e402c5ade1b78ed60aa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089956"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258323"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,7 +25,7 @@ ms.locfileid: "99089956"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "99089956"
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-각 항목이 나타내는 의미는 다음과 같습니다.
+여기서
 
 * `{client-id}` 응용 프로그램의 클라이언트 ID (앱 ID 라고도 함)입니다.
 * `{tenant-id}` 조직의 테 넌 트 ID 또는 확인 된 도메인 이름입니다.

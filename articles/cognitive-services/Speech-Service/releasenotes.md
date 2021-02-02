@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1c9c07d3770d2b71bee8f8e789022be6f831cc8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4393607d6714bc4c1b10ac89d5ac69c173f8fef4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092871"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257324"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "99092871"
 
 **하이라이트 요약**
 - 메모리 및 디스크 공간을 줄여서 SDK를 보다 효율적으로 만듭니다.
-- 향상 된 사용자 지정 음성 품질 및 사용 편의성. 
+- 사용자 지정 신경망 비공개 미리 보기에 사용할 수 있는 고품질 출력 형식입니다.
 - 이제 의도 인식기가 최고 의도 보다 더 많이 돌아올 수 있으므로 고객의 의도에 대 한 별도의 평가를 수행할 수 있습니다.
 - 이제 음성 도우미 나 봇을 보다 쉽게 설정할 수 있으며, 즉시 수신 대기를 중지 하 고 오류에 대응 하는 방법을 보다 효과적으로 제어할 수 있습니다.
 - 압축을 선택 하 여 장치 성능이 향상 되었습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "99092871"
   - Android 라이브러리는 3-5% 더 작습니다.
 
 **새로운 기능**
-- **모두**: 사용자 지정 음성 품질은 계속 향상 됩니다. 사용자 지정 TTS 음성에 대해 48kHz 형식을 추가 하 여 네이티브 출력 샘플 속도가 24kHz 보다 높은 사용자 지정 음성의 오디오 품질을 향상 시킵니다.
+- **모두**: TTS 음성 합성 API를 통해 사용자 지정 신경망의 비공개 미리 보기에 사용할 수 있는 새 48khz 출력 형식: Audio48Khz192KBitRateMonoMp3, audio-48khz-192kbitrate 전송률-mono-Mp3, Audio48Khz96KBitRateMonoMp3, audio-48khz-96kbitrate 전송률-mono-Mp3, Raw48Khz16BitMonoPcm, raw-48khz-16 비트-Mono, Riff48Khz16BitMonoPcm, riff-48khz-16 비트-mono-pcm.
 - **모든**: 사용자 지정 음성도 더 쉽게 사용할 수 있습니다. 사용자 지정 음성 via `EndpointId` ([c + +](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setendpointid), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#endpointId), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id))를 설정 하기 위한 지원이 추가 되었습니다. 이 변경 전에 사용자 지정 음성 사용자는 메서드를 통해 끝점 URL을 설정 해야 합니다 `FromEndpoint` . 이제 고객이 `FromSubscription` 공용 음성 처럼 메서드를 사용 하 고를 설정 하 여 배포 id를 제공할 수 있습니다 `EndpointId` . 이렇게 하면 사용자 지정 음성 설정이 간단해 집니다. 
 - **C + +/c #/Java/Objective-C/Python**:에서 가장 많이 발생 하는 의도 이상의 의도를 가져옵니다 `IntentRecognizer` . 이제 `LanguageUnderstandingModel FromEndpoint` uri 매개 변수를 사용 하 여 메서드를 통한 상위 점수 매기기 의도가 아니라 모든 의도를 포함 하는 JSON 결과 구성을 지원 `verbose=true` 합니다. 이 [#880 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880)를 해결 합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition/#add-a-languageunderstandingmodel-and-intents)에서 업데이트 된 설명서를 참조 하세요.
 - **C + +/c #/Java**: 음성 길잡이나 봇이 immediatedly 수신을 중지 하도록 합니다. `DialogServiceConnector` ([C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-java-stable))에는 이제 `StopListeningAsync()` 함께 제공할 메서드가 있습니다 `ListenOnceAsync()` . 그러면 오디오 캡처가 즉시 중지 되 고 결과가 정상적으로 대기 하 여 "지금 중지" 단추 누르기 시나리오와 함께 사용 하기에 적합 합니다.

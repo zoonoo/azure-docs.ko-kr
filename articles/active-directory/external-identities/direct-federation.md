@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5beae56a5d38c4620481c27c3f42c52602984e6b
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c9afb5a078d5359ed236b44c0a6712985bf8c305
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860629"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257188"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션(미리 보기)
 
@@ -78,7 +78,8 @@ ID 공급자 설정에서 메타데이터 URL을 지정하는 경우 Azure AD에
 파트너 조직과의 직접 페더레이션을 설정하는 경우 이 설정은 해당 조직의 새 게스트 사용자에 대한 일회용 이메일 암호 인증보다 우선적으로 적용됩니다. 게스트 사용자가 직접 페더레이션을 설정하기 전에 일회용 암호 인증을 사용하여 초대에 응한 경우 일회용 암호 인증을 계속 사용합니다. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>직접 페더레이션에서 부분적으로 동기화된 테넌트로 인한 로그인 문제를 해결하나요?
 아니요, 이 시나리오에서는 [일회용 이메일 암호](one-time-passcode.md) 기능을 사용해야 합니다. "부분적으로 동기화된 테넌트"는 온-프레미스 사용자 ID가 클라우드에 완전히 동기화되지 않은 파트너 Azure AD 테넌트를 나타냅니다. ID가 아직 클라우드에 없지만 B2B 초대에 응하려는 게스트는 로그인할 수 없습니다. 일회용 암호 기능을 사용하면 이 게스트가 로그인할 수 있습니다. 직접 페더레이션 기능은 게스트에 IdP에서 관리하는 자신의 조직 계정이 있지만 조직에 Azure AD가 전혀 없는 시나리오를 해결합니다.
-
+### <a name="once-direct-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>조직에서 직접 페더레이션을 구성 하 고 나면 각 게스트를 보내고 개별 초대를 교환 해야 하나요?
+직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 게스트 사용자 계정을 디렉터리에서 삭제 하 고 다시 초대 하 여 게스트 사용자의 인증 방법을 업데이트할 수 있습니다.
 ## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>1단계: 파트너 조직의 ID 공급자 구성
 먼저 파트너 조직에서 필요한 클레임 및 신뢰 당사자 트러스트를 통해 ID 공급자를 구성해야 합니다. 
 

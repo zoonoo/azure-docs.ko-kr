@@ -3,7 +3,7 @@ title: Azure Active Directory를 사용 하 여 요청 시 사용자 프로 비�
 description: 강제 동기화
 services: active-directory
 author: msmimart
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: f7cbe9e9f81b3b71ee7da2feac2908c36f1777e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629015"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255664"
 ---
 # <a name="on-demand-provisioning"></a>주문형 프로비저닝
 요청 시 프로 비전을 사용 하 여 몇 초 안에 응용 프로그램에 사용자를 프로 비전 합니다. 무엇 보다도이 기능을 사용 하 여 다음을 수행할 수 있습니다.
@@ -27,11 +27,11 @@ ms.locfileid: "91629015"
 
 ## <a name="how-to-use-on-demand-provisioning"></a>주문형 프로 비전을 사용 하는 방법
 
-1. **Azure Portal**에 로그인합니다.
-1. **모든 서비스**  >  **엔터프라이즈 응용 프로그램**으로 이동 합니다.
+1. **Azure Portal** 에 로그인합니다.
+1. **모든 서비스**  >  **엔터프라이즈 응용 프로그램** 으로 이동 합니다.
 1. 응용 프로그램을 선택한 다음 프로 비전 구성 페이지로 이동 합니다.
 1. 관리자 자격 증명을 제공 하 여 프로 비전을 구성 합니다.
-1. **주문형 프로 비전을**선택 합니다.
+1. **주문형 프로 비전을** 선택 합니다.
 1. 이름, 성, 표시 이름, 사용자 계정 이름 또는 전자 메일 주소를 사용 하 여 사용자를 검색 합니다.
    > [!NOTE]
    > 클라우드 HR 프로 비전 앱 (Workday/SuccessFactors에서 AD/Azure AD로)의 경우 입력 값이 다릅니다. Workday 시나리오의 경우 Workday에서 사용자의 "WID"를 제공 하십시오. SuccessFactors 시나리오의 경우 SuccessFactors에 사용자의 "personIdExternal"을 제공 하세요. 
@@ -82,7 +82,7 @@ ms.locfileid: "91629015"
 다음으로 프로 비전 서비스는 사용자가 프로 비전 [범위](./how-provisioning-works.md#scoping) 에 있는지 여부를 확인 합니다. 서비스는 다음과 같은 측면을 고려 합니다.
 
 * 사용자가 응용 프로그램에 할당 되었는지 여부입니다.
-* 범위가 **동기화 할당** 됨 또는 **모두 동기화**로 설정 되었는지 여부입니다.
+* 범위가 **동기화 할당** 됨 또는 **모두 동기화** 로 설정 되었는지 여부입니다.
 * 프로 비전 구성에 정의 된 범위 지정 필터입니다.  
 
 #### <a name="view-details"></a>세부 정보 보기
@@ -124,7 +124,7 @@ ms.locfileid: "91629015"
 
 다음은 사용자의 요청 시 프로 비전이 성공한 후 표시 될 수 있는 작업의 예입니다.
 
-:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="요청 시 사용자를 프로 비전 하기 위한 Azure Portal UI를 보여 주는 스크린샷":::
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="사용자의 성공적인 주문형 프로 비전을 보여 주는 스크린샷":::
 
 #### <a name="view-details"></a>세부 정보 보기
 
@@ -134,7 +134,7 @@ ms.locfileid: "91629015"
 
 * 변경 내용 내보내기에 대 한 오류는 크게 다를 수 있습니다. 일반적인 오류에 대 한 [프로 비전 로그를 보려면 설명서](../reports-monitoring/concept-provisioning-logs.md#error-codes) 를 참조 하십시오.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 * **주문형 프로 비전을 사용 하려면 프로 비전을 해제 해야 하나요?** 권한 부여를 위해 수명이 긴 전달자 토큰 또는 사용자 이름과 암호를 사용 하는 응용 프로그램의 경우 추가 단계가 필요 하지 않습니다. 권한 부여를 위해 OAuth를 사용 하는 응용 프로그램은 현재 주문형 프로 비전을 사용 하기 전에 프로 비전 작업을 중지 해야 합니다. G Suite, Box, Facebook 별 작업 공간 및 여유 공간과 같은 응용 프로그램은이 범주에 속합니다. 프로 비전 작업을 중지할 필요 없이 모든 응용 프로그램에 대 한 요청 시 프로 비전을 지원 하기 위해 작업이 진행 중입니다.
 

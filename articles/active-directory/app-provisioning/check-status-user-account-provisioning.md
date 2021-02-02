@@ -3,7 +3,7 @@ title: SaaS 응용 프로그램에 자동 사용자 계정 프로 비전 보고
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 3dcbb2567b9a92ea7d806acedb5d1cc6a31a966e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069809"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256680"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -40,15 +40,15 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure Portal에서 프로 비전 보고서 가져오기
 
-지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 **Azure Active Directory** 시작 하 고 &gt; **Enterprise Apps** &gt; **작업** 섹션에서 Enterprise Apps **프로 비전 로그 (미리 보기)** 를 Azure Active Directory 합니다. 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
+지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를  시작 하 고 &gt;  &gt; **작업** 섹션에서 Enterprise Apps **프로 비전 로그 (미리 보기)** 를 Azure Active Directory 합니다. 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 
 여기에서 아래에 설명 된 프로 비전 진행률 표시줄과 프로 비전 로그 모두에 액세스할 수 있습니다.
 
-## <a name="provisioning-progress-bar"></a>프로 비전 진행률 표시줄
+## <a name="provisioning-progress-bar"></a>프로비저닝 진행률 표시줄
 
-[프로 비전 진행률 표시줄이](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 지정 된 응용 프로그램의 **프로 비전** 탭에 표시 됩니다. **설정**아래의 **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
+[프로 비전 진행률 표시줄이](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 지정 된 응용 프로그램의 **프로 비전** 탭에 표시 됩니다. **설정** 아래의 **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
 * 동기화가 마지막으로 실행된 시간 - 일반적으로 동기화는 [초기 순환이](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 완료 된 후 20-40 분 마다 발생 합니다.
@@ -57,11 +57,11 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 **현재 상태** 는 관리자가 프로 비전 작업의 작동 상태를 확인 하는 첫 번째 위치 여야 합니다.
 
- ![요약 보고서](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![요약 보고서](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>로그 프로 비전 (미리 보기)
 
-프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록 됩니다. **Azure Active Directory** &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 기록되는 활동 이벤트 유형은 다음과 같습니다.
+프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록 됩니다.  &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)**  를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다. 원본 시스템이 나 대상 시스템에서 사용자의 이름 또는 식별자를 기반으로 프로 비전 데이터를 검색할 수 있습니다. 자세한 내용은 [로그 프로 비전 (미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요. 기록되는 활동 이벤트 유형은 다음과 같습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

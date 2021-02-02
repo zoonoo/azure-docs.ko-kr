@@ -3,19 +3,19 @@ title: 매핑을 위해 Azure AD에 특성 동기화
 description: 온-프레미스 Active Directory의 특성을 Azure AD로 동기화 하는 방법을 알아봅니다. SaaS 앱에 대 한 사용자 프로비저닝을 구성할 때 디렉터리 확장 기능을 사용 하 여 기본적으로 동기화 되지 않은 원본 특성을 추가 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 05/13/2019
 ms.author: kenwith
-ms.openlocfilehash: cecdda27139aa1dd0733b50898db9db70aa34dc3
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 62d035b85850f8ac455a85fd93e4d081bbd386e1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040978"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256088"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화
 

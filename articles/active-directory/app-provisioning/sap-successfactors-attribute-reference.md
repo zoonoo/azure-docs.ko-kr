@@ -3,7 +3,7 @@ title: SAP SuccessFactors 특성 참조
 description: SuccessFactors-HR 기반 프로비저닝에서 지원하는 SuccessFactors의 특성 알아보기
 services: active-directory
 author: cmmdesai
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d1a25f67d3550e79b2339ee060d37acaea0c1c4
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87808510"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255545"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>SAP SuccessFactors 특성 참조
 
@@ -45,35 +45,35 @@ ms.locfileid: "87808510"
 | 7  | PerPersonal                            | lastName                     | 읽기           |
 | 8  | PerPersonal                            | middleName                   | 읽기           |
 | 9  | PerPersonal                            | preferredName                | 읽기           |
-| 10 | 사용자                                   | addressLine1                 | 읽기           |
-| 11 | 사용자                                   | addressLine2                 | 읽기           |
+| 10 | User                                   | addressLine1                 | 읽기           |
+| 11 | User                                   | addressLine2                 | 읽기           |
 | 12 | 사용자                                   | addressLIne3                 | 읽기           |
-| 13 | 사용자                                   | 회사 전화                | 읽기           |
-| 14 | 사용자                                   | 휴대폰                    | 읽기           |
+| 13 | User                                   | 회사 전화                | 읽기           |
+| 14 | User                                   | 휴대폰                    | 읽기           |
 | 15 | 사용자                                   | city                         | 읽기           |
 | 16 | 사용자                                   | country                      | 읽기           |
-| 17 | 사용자                                   | custom01                     | 읽기           |
-| 18 | 사용자                                   | custom02                     | 읽기           |
-| 19 | 사용자                                   | custom03                     | 읽기           |
-| 20 | 사용자                                   | custom04                     | 읽기           |
-| 21 | 사용자                                   | custom05                     | 읽기           |
-| 22 | 사용자                                   | custom06                     | 읽기           |
-| 23 | 사용자                                   | custom07                     | 읽기           |
-| 24 | 사용자                                   | custom08                     | 읽기           |
-| 25 | 사용자                                   | custom09                     | 읽기           |
-| 26 | 사용자                                   | 사용자 지정 10                     | 읽기           |
-| 27 | 사용자                                   | custom11                     | 읽기           |
-| 28 | 사용자                                   | custom12                     | 읽기           |
-| 29 | 사용자                                   | custom13                     | 읽기           |
-| 30 | 사용자                                   | custom14                     | 읽기           |
-| 31 | 사용자                                   | empId                        | 읽기           |
-| 32 | 사용자                                   | homePhone                    | 읽기           |
-| 33 | 사용자                                   | jobFamily                    | 읽기           |
-| 34 | 사용자                                   | nickname                     | 읽기           |
+| 17 | User                                   | custom01                     | 읽기           |
+| 18 | User                                   | custom02                     | 읽기           |
+| 19 | User                                   | custom03                     | 읽기           |
+| 20 | User                                   | custom04                     | 읽기           |
+| 21 | User                                   | custom05                     | 읽기           |
+| 22 | User                                   | custom06                     | 읽기           |
+| 23 | User                                   | custom07                     | 읽기           |
+| 24 | User                                   | custom08                     | 읽기           |
+| 25 | User                                   | custom09                     | 읽기           |
+| 26 | User                                   | 사용자 지정 10                     | 읽기           |
+| 27 | User                                   | custom11                     | 읽기           |
+| 28 | User                                   | custom12                     | 읽기           |
+| 29 | User                                   | custom13                     | 읽기           |
+| 30 | User                                   | custom14                     | 읽기           |
+| 31 | User                                   | empId                        | 읽기           |
+| 32 | User                                   | homePhone                    | 읽기           |
+| 33 | User                                   | jobFamily                    | 읽기           |
+| 34 | User                                   | nickname                     | 읽기           |
 | 35 | 사용자                                   | state                        | 읽기           |
-| 36 | 사용자                                   | timeZone                     | 읽기           |
-| 37 | 사용자                                   | 사용자 이름                     | 읽기           |
-| 38 | 사용자                                   | zipCode                      | 읽기           |
+| 36 | User                                   | timeZone                     | 읽기           |
+| 37 | User                                   | 사용자 이름                     | 읽기           |
+| 38 | User                                   | zipCode                      | 읽기           |
 | 39 | PerPhone                               | areaCode                     | 읽기           |
 | 40 | PerPhone                               | countryCode                  | 읽기           |
 | 41 | PerPhone                               | 확장                    | 읽기           |
@@ -131,8 +131,8 @@ ms.locfileid: "87808510"
 | 7  | 사용자                                   | city                     | l                                       | 해당 없음                                                                                           |
 | 8  | 사용자                                   | country                  | co                                      | 해당 없음                                                                                           |
 | 9  | 사용자                                   | state                    | st                                      | 해당 없음                                                                                           |
-| 10 | 사용자                                   | 사용자 이름                 | samAccountName                          | 해당 없음                                                                                           |
-| 11 | 사용자                                   | zipCode                  | postalCode                              | 해당 없음                                                                                           |
+| 10 | User                                   | 사용자 이름                 | samAccountName                          | 해당 없음                                                                                           |
+| 11 | User                                   | zipCode                  | postalCode                              | 해당 없음                                                                                           |
 | 12 | PerEmail                               | emailAddress             | mail                                    | 해당 없음                                                                                           |
 | 13 | EmpJob                                 | jobTitle                 | title                                   | 해당 없음                                                                                           |
 | 14 | EmpJob                                 | managerId                | manager                                 | 해당 없음                                                                                           |

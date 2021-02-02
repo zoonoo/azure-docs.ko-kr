@@ -3,7 +3,7 @@ title: SCIM (도메인 간 Id 관리) 2.0 프로토콜 준수에 대 한 시스�
 description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure AD에 추가할 때 발생하는 일반적인 프로토콜 호환성 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052633"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256901"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -48,7 +48,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 ## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경 하기 위한 플래그
 기본 SCIM 클라이언트 동작을 변경 하려면 응용 프로그램의 테 넌 트 URL에서 아래 플래그를 사용 합니다.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.&quot;:::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.":::
 
 * 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다. 참고이 미리 보기 플래그는 현재 주문형 프로 비전에서 작동 하지 않습니다. 
   * **URL (SCIM 규격):** AzureAdScimPatch062020
@@ -58,29 +58,29 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
   ```json
    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-    &quot;schemas&quot;: [
-        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
-    &quot;Operations&quot;: [
+    "Operations": [
         {
-            &quot;op&quot;: &quot;remove&quot;,
-            &quot;path&quot;: &quot;members[value eq \&quot;16b083c0-f1e8-4544-b6ee-27a28dc98761\&quot;]&quot;
+            "op": "remove",
+            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
         }
     ]
    }
 
     PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    &quot;schemas&quot;: [
-        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
-    &quot;Operations&quot;: [
+    "Operations": [
         {
-            &quot;op&quot;: &quot;add&quot;,
-            &quot;path&quot;: &quot;members&quot;,
-            &quot;value&quot;: [
+            "op": "add",
+            "path": "members",
+            "value": [
                 {
-                    &quot;value&quot;: &quot;10263a6910a84ef9a581dd9b8dcc0eae&quot;
+                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
                 }
             ]
         }
@@ -89,25 +89,25 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    &quot;schemas&quot;: [
-        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
-    &quot;Operations&quot;: [
+    "Operations": [
         {
-            &quot;op&quot;: &quot;replace&quot;,
-            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].value&quot;,
-            &quot;value&quot;: &quot;someone@contoso.com&quot;
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "someone@contoso.com"
         },
         {
-            &quot;op&quot;: &quot;replace&quot;,
-            &quot;path&quot;: &quot;emails[type eq \&quot;work\&quot;].primary&quot;,
-            &quot;value&quot;: true
+            "op": "replace",
+            "path": "emails[type eq \"work\"].primary",
+            "value": true
         },
         {
-            &quot;op&quot;: &quot;replace&quot;,
-            &quot;value&quot;: {
-                &quot;active&quot;: false,
-                &quot;userName&quot;: &quot;someone&quot;
+            "op": "replace",
+            "value": {
+                "active": false,
+                "userName": "someone"
             }
         }
     ]
@@ -115,28 +115,28 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    &quot;schemas&quot;: [
-        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
-    &quot;Operations&quot;: [
+    "Operations": [
         {
-            &quot;op&quot;: &quot;replace&quot;,
-            &quot;path&quot;: &quot;active&quot;,
-            &quot;value&quot;: false
+            "op": "replace",
+            "path": "active",
+            "value": false
         }
     ]
     }
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
-    &quot;schemas&quot;: [
-        &quot;urn:ietf:params:scim:api:messages:2.0:PatchOp&quot;
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
     ],
-    &quot;Operations&quot;: [
+    "Operations": [
         {
-            &quot;op&quot;: &quot;add&quot;,
-            &quot;path&quot;: &quot;urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department&quot;,
-            &quot;value&quot;: &quot;Tech Infrastructure"
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
         }
     ]
     }
@@ -152,7 +152,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
  
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
-3. 기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
+3. 기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID** 를 복사합니다.
 4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 프로비저닝 작업의 ID를 찾습니다. “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
  
@@ -191,7 +191,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.
-3. 새 사용자 지정 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
+3. 새 사용자 지정 앱의 **속성** 섹션에서 **개체 ID** 를 복사합니다.
 4. 새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 앱의 프로비저닝 구성을 초기화합니다.
    “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.

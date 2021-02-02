@@ -3,7 +3,7 @@ title: Azure AD 갤러리 앱에 사용자 프로 비전을 구성 하는 문제
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2019
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 306c3771c0392bbc97260a726e153cfd385cebcd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 651bc199a43881add7faa00a9d1cf78000de6944
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994794"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99256275"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 
@@ -28,7 +28,7 @@ ms.locfileid: "95994794"
 
 서비스가 구성되면 서비스 작업에 대한 대부분의 정보는 다음 두 곳에서 확인할 수 있습니다.
 
--   **프로 비전 로그 (미리 보기)** – 프로 비전 [로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 프로 비전 범위에 있는 할당 된 사용자에 대해 Azure AD 쿼리를 비롯 하 여 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 시스템 간 사용자 개체를 비교하여 해당 사용자의 존재에 대해 대상 앱을 쿼리합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다. **Azure Active Directory** &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** **Activity** 를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다.
+-   **프로 비전 로그 (미리 보기)** – 프로 비전 [로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) 는 프로 비전 범위에 있는 할당 된 사용자에 대해 Azure AD 쿼리를 비롯 하 여 프로 비전 서비스에서 수행 하는 모든 작업을 기록 합니다. 시스템 간 사용자 개체를 비교하여 해당 사용자의 존재에 대해 대상 앱을 쿼리합니다. 그런 다음 비교를 기반으로 대상 시스템에서 사용자 계정을 추가, 업데이트 또는 비활성화합니다.  &gt; 작업 섹션에서 Azure Active Directory **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)**  를 선택 하 여 Azure Portal에서 프로 비전 로그에 액세스할 수 있습니다.
 
 -   **현재 상태 –** 지정 된 앱에 대 한 마지막 프로 비전 실행의 요약은 서비스 설정 아래의 화면 아래쪽에 있는 **Azure Active Directory &gt; Enterprise Apps &gt; \[ 응용 프로그램 이름 \] &gt; 프로 비전** 섹션에서 볼 수 있습니다. 현재 상태 섹션에서는 프로 비전 주기가 사용자 계정 프로 비전을 시작 했는지 여부를 표시 합니다. 주기의 진행 상태를 보고, 프로 비전 된 사용자 및 그룹의 수를 확인 하 고, 생성 된 역할 수를 확인할 수 있습니다. 오류가 있는 경우 세부 정보는 [프로 비전 로그 (.. /reports-monitoring/concept-provisioning-logs.md? context = azure/active directory/앱/컨텍스트/앱 관리-컨텍스트).
 

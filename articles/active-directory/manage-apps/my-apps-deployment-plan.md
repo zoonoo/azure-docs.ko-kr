@@ -3,7 +3,7 @@ title: 내 앱 구성 Azure Active Directory 계획
 description: 조직에서 내 앱을 효과적으로 사용 하기 위한 계획 가이드입니다.
 services: active-directory
 author: barbaraselden
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 2dbda9dd736bb26329b9cc3b614056c67739db17
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055938"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258289"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>내 앱 구성 Azure Active Directory 계획
 
@@ -139,7 +139,7 @@ SSO에 대 한 SaaS (software as a service) 응용 프로그램을 구성 하는
 
 확장에 대 한 자세한 내용은 [My Apps browser 확장 설치](../user-help/my-apps-portal-end-user-access.md)를 참조 하세요.
 
-이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
+이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 옵션은 다음과 같습니다.
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 
@@ -257,9 +257,9 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 | 가상 사용자| 역할| Azure AD 역할 |
 | - | - | - |
 | 기술 지원팀 관리자| 계층 1 지원| 없음 |
-| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
+| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 전역 관리자 |
 | 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
-| 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
+| 인프라 관리자| 인증서 롤오버 소유자| 전역 관리자 |
 | 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 
 

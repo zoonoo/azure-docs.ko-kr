@@ -3,19 +3,19 @@ title: Azure AD를 사용하는 앱에 대한 액세스 관리
 description: Azure Active Directory는 조직이 앱을 각 사용자가 액세스할 수 있도록 지정하는 방법을 설명합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5afc6aa8f52011eba6d7cfdfaa09b0ab995183e8
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367791"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257426"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 
@@ -45,7 +45,7 @@ Azure AD의 애플리케이션 할당은 두 가지 기본 할당 모드에 중�
 * Azure Active Directory 사전 인증을 사용하는 애플리케이션 프록시 애플리케이션
 * 사용자 또는 관리자가 해당 애플리케이션에 동의한 후 OAuth 2.0/OpenID Connect 인증을 사용하는 Azure AD 애플리케이션 플랫폼을 기반으로 하는 애플리케이션. 특정 엔터프라이즈 애플리케이션은 로그인이 허용된 사용자에 대한 추가 제어를 제공합니다.
 
-사용자 할당을 *요구 하지*않으면 할당 되지 않은 사용자는 내 앱에 앱이 표시 되지 않지만 응용 프로그램 자체 (SP에서 시작 된 로그온이 라고도 함)에 로그인 하거나 응용 프로그램의 **속성** 페이지에서 **사용자 액세스 URL** (IDP 시작 로그온이 라고도 함)을 사용할 수 있습니다.
+사용자 할당을 *요구 하지* 않으면 할당 되지 않은 사용자는 내 앱에 앱이 표시 되지 않지만 응용 프로그램 자체 (SP에서 시작 된 로그온이 라고도 함)에 로그인 하거나 응용 프로그램의 **속성** 페이지에서 **사용자 액세스 URL** (IDP 시작 로그온이 라고도 함)을 사용할 수 있습니다.
 
 일부 애플리케이션의 경우 사용자 할당을 요구하는 옵션을 애플리케이션의 속성에서 사용할 수 없습니다. 이러한 경우 PowerShell을 사용하여 서비스 주체에 대해 appRoleAssignmentRequired 속성을 설정할 수 있습니다.
 
@@ -88,7 +88,7 @@ Microsoft 응용 프로그램 (예: Exchange, SharePoint, Yammer 등)은 single 
 
 일부 애플리케이션에서는 이러한 방법이 결합됩니다. 예를 들어 특정 Microsoft 응용 프로그램은 Microsoft 365 구독의 일부 이지만 여전히 동의가 필요 합니다.
 
-사용자는 Office 365 포털을 통해 Microsoft 365 응용 프로그램에 액세스할 수 있습니다. 또한 디렉터리의 **사용자 설정**에서 [Office 365 표시 유형 토글](hide-application-from-user-portal.md) 을 사용 하 여 내 앱에 Microsoft 365 응용 프로그램을 표시 하거나 숨길 수 있습니다. 
+사용자는 Office 365 포털을 통해 Microsoft 365 응용 프로그램에 액세스할 수 있습니다. 또한 디렉터리의 **사용자 설정** 에서 [Office 365 표시 유형 토글](hide-application-from-user-portal.md) 을 사용 하 여 내 앱에 Microsoft 365 응용 프로그램을 표시 하거나 숨길 수 있습니다. 
 
 엔터프라이즈 앱과 마찬가지로 Azure Portal을 통해(또는 포털 옵션을 사용할 수 없는 경우 PowerShell을 사용하여) 특정 Microsoft 애플리케이션에 [사용자를 할당](assign-user-or-group-access-portal.md)할 수 있습니다.
 
