@@ -11,14 +11,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 02/01/2021
 ms.author: amverma
-ms.openlocfilehash: c0ec18ae4a7d6020299660adbeba6f993cd4eeca
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 767d6da7701261836b367ccad121bf3569b43b72
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966023"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260166"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows 용 InfiniBand 드라이버 확장
 
@@ -26,19 +26,19 @@ ms.locfileid: "94966023"
 
 [Linux vm](hpc-compute-infiniband-linux.md)에 대 한 InfiniBand 드라이버를 설치 하는 데에도 확장을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
-이 확장은 특정 OS 버전의 드라이버 지원에 따라 다음 OS 배포판을 지원합니다.
+이 확장은 특정 OS 버전의 드라이버 지원에 따라 다음 OS 배포판을 지원합니다. 원하는 H 및 N 시리즈 VM 크기에 적합 한 InfiniBand NIC를 확인 합니다.
 
-| 배포 | 버전 |
+| 배포 | InfiniBand NIC 드라이버 |
 |---|---|
-| Windows 10 | 코어 |
-| Windows Server 2019 | 코어 |
-| Windows Server 2016 | 코어 |
-| Windows Server 2012 R2 | 코어 |
-| Windows Server 2012 | 코어 |
+| Windows 10 | CX5, CX6 |
+| Windows Server 2019 | CX5, CX6 |
+| Windows Server 2016 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |
+| Windows Server 2012 | CX3-Pro, CX5, CX6 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

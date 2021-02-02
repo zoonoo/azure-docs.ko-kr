@@ -3,7 +3,7 @@ title: 온-프레미스 앱에 대 한 원격 액세스-Azure AD 응용 프로�
 description: Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애플리케이션에 대한 보안 원격 액세스를 제공합니다. Azure AD에 Single Sign-On 되면 사용자는 외부 URL 또는 내부 애플리케이션 포털을 통해 클라우드와 온-프레미스 애플리케이션에 모두 액세스할 수 있습니다. 예를 들어 애플리케이션 프록시는 원격 데스크톱, SharePoint, Teams, Tableau, Qlik 및 LOB(기간 업무) 애플리케이션에 대한 원격 액세스와 Single Sign-On을 제공할 수 있습니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9d620342d53bdae0b3a520000f6d240eb0e28d15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 40472dc2446133ec23d1d62343a93d2d69fc90cd
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180595"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260149"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격으로 액세스
 
@@ -63,7 +63,7 @@ Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애�
 >
 
 
-| 구성 요소 | Description |
+| 구성 요소 | 설명 |
 | --------- | ----------- |
 | 엔드포인트  | 엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
 | Azure AD | Azure AD는 클라우드에 저장된 테넌트 디렉터리를 사용하여 인증을 수행합니다. |

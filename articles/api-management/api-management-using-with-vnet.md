@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070966"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260251"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -117,7 +117,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 및 Azure keyvault 종속성                  | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
-| */433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Azure KeyVault에 대 한 액세스**                           | 외부 및 내부  |
+| * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK/AzureKeyVault                 | **Azure KeyVault에 대 한 액세스**                           | 외부 및 내부  |
 | * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | [이벤트 허브에 로그 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트의 종속성 | 외부 및 내부  |
 | * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md)의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
 | */443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장         | 외부 및 내부  |

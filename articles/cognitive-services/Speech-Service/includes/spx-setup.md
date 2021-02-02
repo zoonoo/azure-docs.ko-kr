@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d6ae9585ce5b5a6f666a96ae8c5e7e9e3c5e248a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095187"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427177"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -29,14 +29,6 @@ Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 > [!NOTE]
 > NuGet의 대안으로, 음성 CLI [zip 보관](https://aka.ms/speech/spx-zips.zip) 파일을 다운로드하여 압축을 풀고, `spx-zips` 디렉터리에서 플랫폼을 찾아서 추출하고, `spx` 경로를 시스템 **PATH** 변수에 추가할 수 있습니다.
 
-### <a name="run-the-speech-cli"></a>Speech CLI 실행
-
-1. 명령 프롬프트 또는 PowerShell을 연 다음, Speech CLI를 추출한 디렉터리로 이동합니다.  
-2. `spx`를 입력하여 Speech CLI에 대한 도움말 명령을 표시합니다.
-
-> [!NOTE]
-> Powershell은 명령을 찾을 때 로컬 디렉터리를 확인하지 않습니다. Powershell에서 디렉터리를 `spx` 위치로 변경하고 `.\spx`를 입력하여 도구를 호출합니다.
-> 경로에 이 디렉터리를 추가하면 Powershell 및 Windows 명령 프롬프트가 `.\` 접두사를 포함하지 않고 모든 디렉터리에서 `spx`를 찾습니다.
 
 ### <a name="font-limitations"></a>글꼴 제한 사항
 

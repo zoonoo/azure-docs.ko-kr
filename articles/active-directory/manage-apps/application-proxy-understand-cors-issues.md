@@ -3,7 +3,7 @@ title: Azure AD 응용 프로그램 프록시 CORS 문제 이해 및 해결
 description: Azure AD 응용 프로그램 프록시의 CORS 및 CORS 문제를 식별 하 고 해결 하는 방법에 대해 설명 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b57fc7e3af99819c9b27b6bc796e501d1db02818
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651858"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259171"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>CORS 문제 Azure Active Directory 응용 프로그램 프록시 이해 및 해결
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Azure Active Directory 애플리케이션 프록시 CORS 문제 이해 및 해결
 
 [CORS (크로스-원본 자원 공유)](https://www.w3.org/TR/cors/) 는 Azure Active Directory 응용 프로그램 프록시을 통해 게시 하는 앱 및 api에 대 한 문제를 종종 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
 
@@ -42,9 +42,9 @@ ms.locfileid: "94651858"
 
 브라우저 디버그 도구를 사용 하 여 CORS 문제를 식별할 수 있습니다.
 
-1. 브라우저를 시작 하 고 웹 앱으로 이동 합니다.
+1. 브라우저를 시작하고 웹앱으로 이동합니다.
 1. **F12** 키를 눌러 디버그 콘솔을 엽니다.
-1. 트랜잭션을 재현 하 고 콘솔 메시지를 검토 하십시오. CORS 위반으로 인해 원본에 대 한 콘솔 오류가 생성 됩니다.
+1. 트랜잭션을 재현하고 콘솔 메시지를 검토합니다. CORS 위반으로 인해 원본에 대한 콘솔 오류가 발생합니다.
 
 다음 스크린샷에는 **사용해 보기** 단추를 선택 하면 \/ corswebclient-contoso.msappproxy.net 헤더에서 https:/가 발견 되지 않았음을 나타내는 CORS 오류 메시지가 발생 했습니다.
 
@@ -112,9 +112,9 @@ X-구동: ASP.NET \
 
 ### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>옵션 5: 액세스 토큰의 수명 연장
 
-앱이 인증을 위해 *login.microsoftonline.com* 로 리디렉션되고 액세스 토큰이 만료 되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그런 다음 CORS 호출이 실패 합니다. 이 시나리오에 대 한 해결 방법은 사용자 세션 중에 만료 되지 않도록 액세스 토큰의 수명을 연장 하는 것입니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [AZURE AD의 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요.
+앱이 인증을 위해 *login.microsoftonline.com* 로 리디렉션되고 액세스 토큰이 만료 되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그러면 CORS 호출이 실패합니다. 이 시나리오에 대한 해결 방법은 사용자 세션 중에 만료되지 않도록 액세스 토큰의 수명을 연장하는 것입니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [AZURE AD의 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md) 
 - [Azure AD 애플리케이션 프록시 배포 계획](application-proxy-deployment-plan.md) 
 - [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md)

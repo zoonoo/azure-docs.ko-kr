@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/07/2021
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27f16ac7d7d799c5467b11fd93352dc5fdef666c
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 55f1e4c030dc0e7c8d0011dcff0cc1c9f8fec06e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028066"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260234"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 Global Reach 구성
 
@@ -54,9 +54,9 @@ az account set --subscription <your subscription ID>
 
 연결을 사용하도록 설정하는 명령을 실행하는 경우 매개 변수 값에 대한 다음 요구 사항에 유의하세요.
 
-* *peer-circuit* 은 전체 리소스 ID여야 합니다. 예를 들면 다음과 같습니다.
+* *peer-circuit* 은 전체 리소스 ID여야 합니다. 예:
 
-  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  > /subscriptions/{your_subscription_id}/Stggggggggggggs your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
 
 * *주소-접두사* 는 "/29" IPv4 서브넷 이어야 합니다 (예: "10.0.0.0/29"). 두 ExpressRoute 회로 간의 연결을 설정하는 데 이 서브넷의 IP 주소가 사용됩니다. Azure 가상 네트워크 또는 온-프레미스 네트워크에서이 서브넷의 주소를 사용할 수 없습니다.
 

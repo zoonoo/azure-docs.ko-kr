@@ -4,7 +4,7 @@ description: 애플리케이션에 대한 동의 프로세스 도중 발생할 �
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25515c29ae3e5623b447232ed6f935a668a58c3a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f829672f88ea848e4611000b54d9cc200bc166d
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090072"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259980"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>애플리케이션에 대한 동의를 수행할 때 예기치 않은 오류
 

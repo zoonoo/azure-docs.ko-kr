@@ -3,7 +3,7 @@ title: 응용 프로그램에 대 한 최종 사용자 환경-Azure Active Direc
 description: Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649231"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259256"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -72,5 +72,5 @@ Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 �
 ## <a name="next-steps"></a>다음 단계
 
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-* [Single Sign-On이란?](what-is-single-sign-on.md)
+* [Single Sign-On 이란?](what-is-single-sign-on.md)
 * [애플리케이션과 Azure Active Directory 통합 시작 가이드](plan-an-application-integration.md)

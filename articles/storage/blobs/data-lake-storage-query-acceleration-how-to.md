@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5d5278c33c24c7f95459b9c121bca9e960615b9c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879884"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260183"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
 
@@ -22,7 +22,7 @@ ms.locfileid: "98879884"
 
 쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다. 자세히 알아보려면 [쿼리 가속 Azure Data Lake Storage](data-lake-storage-query-acceleration.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "98879884"
 
   [Python](https://www.python.org/downloads/) 3.8 이상.
 
-  ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+  ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
   Node.js SDK를 사용 하는 데 필요한 추가 필수 구성 요소가 없습니다.
 
@@ -178,10 +178,10 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. `12.5.0-preview.6`명령을 사용 하 여 .net 용 Azure Blob storage 클라이언트 라이브러리 버전을 설치 합니다 `dotnet add package` . 
+2. `12.5.0-preview.6`명령을 사용 하 여 .net 용 Azure Blob storage 클라이언트 라이브러리 버전 이상을 설치 합니다 `dotnet add package` . 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.6.0
+   dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
 3. 이 문서에 표시 된 예제에서는 [CsvHelper](https://www.nuget.org/packages/CsvHelper/) 라이브러리를 사용 하 여 CSV 파일을 구문 분석 합니다. 해당 라이브러리를 사용 하려면 다음 명령을 사용 합니다.
@@ -221,7 +221,7 @@ Update-Module -Name Az
 pip install azure-storage-blob==12.4.0
 ```
 
-#### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+#### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 터미널 창을 열고 다음 명령을 입력 하 여 JavaScript 용 Data Lake 클라이언트 라이브러리를 설치 합니다.
 
@@ -286,7 +286,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 `storage-blob`이 문을 코드 파일의 맨 위에 배치 하 여 모듈을 포함 합니다. 
 
@@ -356,11 +356,11 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
-                    Console.Out.WriteLine(String.Join(" ", parser.Context.Record));
+                    Console.Out.WriteLine(String.Join(" ", parser.Parser.Record));
                 }
             }
         }
@@ -435,7 +435,7 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 이 예에서는 쿼리 가속 API로 쿼리를 전송 하 고 결과를 다시 스트리밍합니다. `blob`도우미 함수에 전달 된 개체는 `queryHemingway` [blockblobclient](/javascript/api/@azure/storage-blob/blockblobclient)유형입니다. [Blockblobclient](/javascript/api/@azure/storage-blob/blockblobclient) 개체를 가져오는 방법에 대 한 자세한 내용은 빠른 시작 [: JavaScript v12 SDK를 사용 하 여 Node.js에서 blob 관리 ](storage-quickstart-blobs-nodejs.md)를 참조 하세요.
 
@@ -526,7 +526,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -597,7 +597,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

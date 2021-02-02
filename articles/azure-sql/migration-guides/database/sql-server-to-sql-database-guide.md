@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: f4f54aa02fb56ba5bf5ae9fcec2dae07c7dc0a27
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a2ab63febbb4439e50ef0f7bcc0f9797dc50c62c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358982"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260031"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>마이그레이션 가이드: SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "97358982"
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있는지 확인 합니다. 
 
@@ -100,7 +100,7 @@ Data Migration Assistant에서는 분석을 위해 평가 보고서의 확장 �
 > [!IMPORTANT]
 > 여러 데이터베이스, 특히 대규모 데이터베이스에 대해 대규모 평가를 실행 하는 것은 [DMA 명령줄 유틸리티](/sql/dma/dma-commandline) 를 사용 하 여 자동화 하 고 추가 분석 및 대상 준비를 위해 [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 에 업로드할 수도 있습니다.
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
@@ -149,6 +149,18 @@ DMS를 사용 하 여 SQL Server에서 Azure SQL Database로 데이터베이스�
 
 > [!IMPORTANT]
 > DMS를 사용 하 여 마이그레이션의 일부로 수행 하는 것과 관련 된 특정 단계에 대 한 자세한 내용은 [마이그레이션](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)시작을 참조 하세요.
+
+## <a name="migration-recommendations"></a>마이그레이션 권장 사항
+
+Azure SQL Database로의 마이그레이션을 가속화 하려면 다음과 같은 권장 사항을 고려해 야 합니다.
+
+|  | 리소스 경합 | 권장 |
+|--|--|--|
+| **원본 (일반적으로 온-프레미스)** |원본에서 마이그레이션하는 동안 발생 하는 기본 병목 상태는 신중 하 게 모니터링 해야 하는 데이터 파일의 데이터 i/o 및 대기 시간입니다.  |데이터 IO 및 데이터 파일 대기 시간을 기반으로 하 고 가상 머신 또는 물리적 서버 인지에 따라 저장소 관리자와 탐색 옵션을 사용 하 여 병목 현상을 완화 해야 합니다. |
+|**대상 (Azure SQL Database)**|가장 큰 제한 요소는 로그 파일에 대 한 로그 생성 비율 및 대기 시간입니다. Azure SQL Database를 사용 하 여 최대 96 m b/초 로그 생성 률을 얻을 수 있습니다. | 마이그레이션의 속도를 높이려면 대상 SQL DB를 중요 비즈니스용 Gen5 8 vcore로 확장 하 여 최대 로그 생성 속도를 96 m b/s로 설정 하 고 로그 파일에 대 한 짧은 대기 시간을 확보 합니다. [Hyperscale](https://docs.microsoft.com/azure/azure-sql/database/service-tier-hyperscale) 서비스 계층은 선택한 서비스 수준에 관계 없이 100 m b/초 로그 비율을 제공 합니다. |
+|**Network** |필요한 네트워크 대역폭은 최대 로그 수집 율 96 m b/초 (768 m b/초)와 동일 합니다. |온-프레미스 데이터 센터에서 Azure로의 네트워크 연결에 따라 최대 로그 수집 률을 수용할 수 있도록 네트워크 대역폭 (일반적으로 [Azure express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction#bandwidth-options)경로)을 확인 합니다. |
+|**Data Migration Assistant (DMA)에 사용 되는 가상 컴퓨터** |CPU가 DMA를 실행 하는 가상 머신에 대 한 기본 병목 상태입니다. |를 사용 하 여 데이터 마이그레이션을 가속화 하기 위해 고려해 야 할 사항 </br>-Azure 계산 집약적 Vm </br>-DMA를 실행 하는 데 F8s_v2 (vcore 8 개 이상) VM 사용 </br>-VM이 대상과 동일한 Azure 지역에서 실행 되 고 있는지 확인 합니다. |
+|**Azure DMS(Database Migration Service)** |DMS에 대 한 계산 리소스 경합 및 데이터베이스 개체 고려 사항 |프리미엄 4 vCore를 사용 합니다. DMS는 외래 키, 트리거, 제약 조건 및 비클러스터형 인덱스와 같은 데이터베이스 개체를 자동으로 처리 하므로 수동 작업이 필요 하지 않습니다.  |
 
 
 ## <a name="post-migration"></a>마이그레이션 후

@@ -3,19 +3,19 @@ title: Id 관리를 위해 Azure Active Directory 테 넌 트를 사용 하 여 
 description: Id 관리를 위해 Azure Active Directory 테 넌 트를 사용 하 여 모든 응용 프로그램을 보는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: kenwith
-ms.openlocfilehash: 18e29ce8bf744cabb31c5634c9b0ca547bca5acc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 443e8c83ec29f9f0478e3881b9e6d6a8eb0bf403
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020675"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259789"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 앱 보기
 [응용 프로그램 관리에 대 한 빠른 시작 시리즈](view-applications-portal.md) 는 기본 사항을 안내 합니다. 여기서는 id 관리를 위해 Azure AD 테 넌 트를 사용 하 여 모든 앱을 보는 방법을 알아봅니다. 이 문서는 다이브 앱의 유형을 약간 자세히 설명 합니다.

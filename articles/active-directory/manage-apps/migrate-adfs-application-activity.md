@@ -3,7 +3,7 @@ title: 작업 보고서를 사용 하 여 AD FS 앱을 Azure Active Directory로
 description: Active Directory Federation Services (AD FS) 응용 프로그램 작업 보고서를 사용 하면 AD FS에서 Azure Active Directory (Azure AD)로 신속 하 게 응용 프로그램을 마이그레이션할 수 있습니다. AD FS에 대 한이 마이그레이션 도구는 Azure AD와의 호환성을 식별 하 고 마이그레이션 지침을 제공 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77a43d5bd5f2b228d5ed4384fc1efdca76f8ea0b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3665c5b82095004ddf7dc1f503b54f5164d49c7f
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573887"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260065"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>AD FS 응용 프로그램 작업 보고서 (미리 보기)를 사용 하 여 응용 프로그램을 Azure AD로 마이그레이션합니다.
 
@@ -33,7 +33,7 @@ Azure Portal의 AD FS 응용 프로그램 작업 보고서 (미리 보기)를 �
 
 전역 관리자, 보고서 읽기 권한자, 보안 읽기 권한자, 응용 프로그램 관리자 또는 클라우드 응용 프로그램 관리자와 같은 관리 역할이 할당 된 사용자는 AD FS 응용 프로그램 작업 데이터를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 조직에서 응용 프로그램에 액세스 하려면 현재 AD FS를 사용 해야 합니다.
 * Azure AD 테 넌 트에서 Azure AD Connect Health를 사용 하도록 설정 해야 합니다.
@@ -78,7 +78,7 @@ AD FS 응용 프로그램 작업 보고서는 Azure AD **사용량 & insights** 
 
 다음 표에는 AD FS 응용 프로그램에서 수행 되는 모든 구성 테스트가 나열 되어 있습니다.
 
-|결과  |성공/경고/실패  |Description  |
+|결과  |성공/경고/실패  |설명  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> AdditionalAuthentication에 대해 마이그레이션할 수 있고 규칙이 하나 이상 검색 되지 않았습니다.       | 통과/경고          | 신뢰 당사자에 게 MFA (multi-factor authentication)를 요구 하는 규칙이 있습니다. Azure AD로 이동 하려면 이러한 규칙을 조건부 액세스 정책으로 변환 합니다. 온-프레미스 MFA를 사용 하는 경우 Azure AD MFA로 이동 하는 것이 좋습니다. [조건부 액세스에 대해 자세히 알아보세요](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> 신뢰 당사자가 AdditionalWSFedEndpoint를 true로 설정 했습니다.       | 성공/실패          | AD FS 신뢰 당사자는 여러 WS-Fed 어설션 끝점을 허용 합니다.현재 Azure AD는 하나만 지원 합니다.이 결과가 마이그레이션을 차단 하는 시나리오를 [사용](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)하는 경우 알려주세요.     |
@@ -114,7 +114,7 @@ AD FS에서 응용 프로그램에 대 한 클레임 규칙을 구성한 경우�
 
 다음 표에는 AD FS 응용 프로그램에서 수행 되는 모든 클레임 규칙 테스트가 나열 되어 있습니다.
 
-|속성  |Description  |
+|속성  |설명  |
 |---------|---------|
 |UNSUPPORTED_CONDITION_PARAMETER      | 조건문은 정규식을 사용 하 여 클레임이 특정 패턴과 일치 하는지 여부를 평가 합니다.Azure AD에서 유사한 기능을 얻기 위해 IfEmpty (), StartWith (), Contains () 등의 미리 정의 된 변환을 사용할 수 있습니다. 자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조 하세요.          |
 |UNSUPPORTED_CONDITION_CLASS      | Condition 문에는 발급 문을 실행 하기 전에 평가 해야 하는 여러 조건이 있습니다.Azure AD는 클레임의 변환 함수를 사용 하 여 여러 클레임 값을 평가할 수 있는이 기능을 지원할 수 있습니다.자세한 내용은 [엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조 하세요.          |

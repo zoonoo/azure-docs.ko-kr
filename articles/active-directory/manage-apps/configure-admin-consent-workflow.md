@@ -3,7 +3,7 @@ title: 관리 동의 워크플로 구성-Azure Active Directory | Microsoft Docs
 description: 최종 사용자가 관리자 동의가 필요한 응용 프로그램에 대 한 액세스를 요청 하는 방법을 구성 하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9552d1a0c7bdb73dbcf739144a3ab9f746705664
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: b38b8cf38d2d75493ef50c4f206758c6289be079
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053366"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259590"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성 (미리 보기)
 

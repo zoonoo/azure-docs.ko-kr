@@ -4,7 +4,7 @@ description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지�
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87190e9a7aa3c3a26b77220dd0332d65c640bc2e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658998"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259222"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 
@@ -30,7 +30,7 @@ ms.locfileid: "94658998"
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>갤러리 및 비갤러리 애플리케이션에 대해 자동 생성된 인증서
 
-갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on** saml을 선택 하 여  >  **SAML** ) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
+갤러리에서 새 응용 프로그램을 추가 하 고 saml 기반 로그온을 구성 하는 경우 (응용 프로그램 개요 페이지에서 **Single sign-on** saml을 선택 하 여  >   ) Azure AD는 3 년 동안 유효한 응용 프로그램에 대 한 인증서를 생성 합니다. 활성 인증서를 보안 인증서 (**.cer**) 파일로 다운로드 하려면 해당 페이지로 돌아가 (**saml 기반 로그온**) **saml 서명 인증서** 제목에서 다운로드 링크를 선택 합니다. Raw (이진) 인증서 또는 Base64 (base 64 인코딩 텍스트) 인증서 중에서 선택할 수 있습니다. 갤러리 응용 프로그램의 경우이 섹션에는 응용 프로그램의 요구 사항에 따라 페더레이션 메타 데이터 XML ( **.xml** 파일)로 인증서를 다운로드 하는 링크가 표시 될 수도 있습니다.
 
 ![SAML 활성 서명 인증서 다운로드 옵션](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 

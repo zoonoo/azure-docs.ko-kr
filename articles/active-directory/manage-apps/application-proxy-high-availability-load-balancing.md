@@ -4,7 +4,7 @@ description: 트래픽 배포가 응용 프로그램 프록시 배포와 함께 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1fda858b0811eb6308b8e5588eaeae9bff5a1730
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658165"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259392"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>응용 프로그램 프록시 커넥터 및 응용 프로그램의 고가용성 및 부하 분산
 

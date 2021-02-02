@@ -4,7 +4,7 @@ description: Azure Portal에서 애플리케이션 프록시를 설정하고 역
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,17 +14,17 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9696d48db7d051f3a8bdf16f93438fb71f025dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a03f3c57d3fbc7efe20055343eab3db33aa8194
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760051"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259087"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 시나리오의 나머지 부분에서는 다음 작업을 완료했다고 가정합니다.
  
 - [Qlik Sense](https://community.qlik.com/docs/DOC-19822) 구성 
@@ -38,21 +38,21 @@ QlikSense를 게시하려면 Azure에서 두 개의 애플리케이션을 게시
 
 
 1. 전역 관리자 권한으로 Azure Portal에 로그인합니다. 
-2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램**을 선택 합니다. 
-3. 블레이드의 위쪽에서 **추가**를 선택합니다. 
-4. **온-프레미스 애플리케이션**을 선택합니다. 
+2. **Azure Active Directory**  >  **엔터프라이즈 응용 프로그램** 을 선택 합니다. 
+3. 블레이드의 위쪽에서 **추가** 를 선택합니다. 
+4. **온-프레미스 애플리케이션** 을 선택합니다. 
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다. 
    - **내부 URL**: 이 애플리케이션에는 자체 QlikSense URL인 내부 URL이 있어야 합니다. 예: **https&#58;//demo.qlikemm.com:4244** 
    - **사전 인증 방법**: Azure Active Directory (권장 되지만 필수는 아님) 
-1. 블레이드의 아래쪽에서 **추가**를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
-2. 빠른 시작 메뉴에서 **테스트할 사용자 지정**을 선택하고 애플리케이션에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다. 
-3. **할당**을 선택하여 테스트 사용자 할당을 저장합니다. 
-4. (선택 사항) 앱 관리 블레이드에서 Single Sign-On을 선택합니다. 드롭다운 메뉴에서 **Kerberos 제한된 위임**을 선택하고 Qlik 구성에 따라 필수 필드를 입력합니다. **저장**을 선택합니다. 
+1. 블레이드의 아래쪽에서 **추가** 를 선택합니다. 애플리케이션이 추가되고 빠른 시작 메뉴가 열립니다. 
+2. 빠른 시작 메뉴에서 **테스트할 사용자 지정** 을 선택하고 애플리케이션에 하나 이상의 사용자를 추가합니다. 이 테스트 계정에 온-프레미스 애플리케이션에 대한 액세스 권한이 있는지 확인합니다. 
+3. **할당** 을 선택하여 테스트 사용자 할당을 저장합니다. 
+4. (선택 사항) 앱 관리 블레이드에서 Single Sign-On을 선택합니다. 드롭다운 메뉴에서 **Kerberos 제한된 위임** 을 선택하고 Qlik 구성에 따라 필수 필드를 입력합니다. **저장** 을 선택합니다. 
 
 ### <a name="application-2"></a>애플리케이션 #2: 
 다음과 같은 예외가 포함된 애플리케이션 #1과 동일한 단계를 따릅니다. 
 
-**5단계**: 내부 URL은 애플리케이션에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 4244이 고, 4 2018 월 **4244** 일 이전 QlikSense 릴리스의 경우 **4248** 입니다. QlikSense 릴리스에 대 한 기본값은 2018, HTTPS의 경우 **443** , HTTP의 경우 **80** 입니다.  예: **https&#58;//demo.qlik.com:4244**</br></br>
+**5단계**: 내부 URL은 애플리케이션에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 4244이 고, 4 2018 월  일 이전 QlikSense 릴리스의 경우 **4248** 입니다. QlikSense 릴리스에 대 한 기본값은 2018, HTTPS의 경우 **443** , HTTP의 경우 **80** 입니다.  예: **https&#58;//demo.qlik.com:4244**</br></br>
 **#10 단계:** SSO를 설정 하지 않고 **Single sign-on을 사용 하지 않도록** 설정 합니다.
  
  
