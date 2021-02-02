@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563735"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428186"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -133,9 +133,6 @@ Azure 가상 WAN 허브는 하이브리드 네트워크에서 모든 네트워�
 
 **그림 5: Azure 방화벽으로 보호 된 가상 허브**
 
-> [!NOTE]
-> 방화벽이 있는 허브 간은 현재 지원 되지 않습니다. 허브 간의 트래픽은 각 허브에서 Azure 방화벽을 직접 우회 하 여 이동 합니다.
-
 가상 WAN에 대 한 Azure 방화벽은 다음과 같은 글로벌 보안 전송 연결 경로를 지원 합니다. 괄호 안의 문자는 그림 5에 매핑됩니다.
 
 * VNet 간 보안 전송 (e)
@@ -152,6 +149,23 @@ VNet 간 인터넷을 통해 Vnet는 가상 WAN 허브의 Azure 방화벽을 통
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>지점 및 인터넷 간 또는 타사 보안 서비스 (j)
 지점 및 인터넷을 통해 분기가 가상 WAN 허브의 Azure 방화벽을 통해 인터넷에 연결할 수 있습니다. 지원 되는 타사 보안 서비스를 통해 인터넷으로 전송 되는 트래픽은 Azure 방화벽을 통해 전달 되지 않습니다. Azure 방화벽 관리자를 사용 하 여 지원 되는 타사 보안 서비스를 통해 지점 및 인터넷 간 경로를 구성할 수 있습니다. 
+
+### <a name="branch-to-branch-secured-transit-cross-region-f"></a>분기 간 보안 전송 지역 간 (f)
+
+분기는 Express 경로 회로 및/또는 사이트 간 VPN 연결을 사용 하 여 Azure 방화벽으로 보호 된 가상 허브에 연결할 수 있습니다. 분기와 가장 가까운 지역에 있는 가상 WAN 허브에 분기를 연결할 수 있습니다.
+
+이 옵션을 통해 기업은 Azure 백본을 활용 하 여 분기를 연결할 수 있습니다. 그러나이 기능을 사용할 수 있는 경우에도 Azure 가상 WAN을 통해 분기를 연결 하는 이점 및 사설 WAN 사용의 이점을 비교 해야 합니다.  
+
+> [!NOTE]
+> 방화벽을 통한 트래픽의 허브 간 처리는 현재 지원 되지 않습니다. 허브 간의 트래픽은 보안 가상 허브 내의 적절 한 분기로 라우팅됩니다. 그러나 트래픽은 각 허브에서 Azure 방화벽을 우회 합니다.
+
+### <a name="branch-to-vnet-secured-transit-g"></a>지점 및 VNet 보안 전송 (g)
+
+분기 간 보안 전송에서는 분기가 가상 WAN 허브와 동일한 지역에 있는 가상 네트워크 및 다른 지역의 다른 가상 WAN 허브에 연결 된 다른 가상 네트워크와 통신할 수 있습니다.
+
+> [!NOTE]
+> 방화벽이 있는 허브 간은 현재 지원 되지 않습니다. 허브 간의 트래픽은 각 허브에서 Azure 방화벽을 직접 우회 하 여 이동 합니다.  동일한 지역의 가상 네트워크로 향하는 연결을 통한 트래픽은 보안 허브의 Azure 방화벽에 의해 처리 됩니다.
+
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>보안 된 가상 허브에서 기본 경로 (0.0.0.0/0)를 사용 하도록 설정 어떻게 할까요?
 

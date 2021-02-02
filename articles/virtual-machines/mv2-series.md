@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 7ef4a1542a050918249f602bbc63567cc8e13f2a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 962fb8cbd4c64aa2ef625b478afa587099234617
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091717"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427637"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -24,7 +24,7 @@ Mv2 시리즈 VM의 기능 Intel® Hyper-Threading 기술
 [Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
+[VM 생성 지원](generation-2.md): 2 세대<br>
 [쓰기 가속기](./how-to-enable-write-accelerator.md): 지원 됨<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>

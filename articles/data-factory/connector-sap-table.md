@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/01/2020
-ms.openlocfilehash: 4505deaa4cc11c00c7283ef686827d6893c2742a
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.date: 02/01/2021
+ms.openlocfilehash: b796b9eb065a221904fe4487c900efa2db1955af
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280420"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429546"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -82,7 +82,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 다음은 SAP BW 열려 있는 허브 연결 된 서비스에 대해 지원 되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTable`로 설정해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>를 사용 하 여 SAP 응용 프로그램 서버에 연결 합니다. | 아니요 |
@@ -102,7 +102,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 | `sncQop` | 적용할 보호 수준의 SNC입니다.<br/>가 On 일 때 적용 됩니다 `sncMode` . <br/>허용 되는 값은 `1` (인증), `2` (무결성), `3` (개인 정보), `8` (기본값), `9` (최대)입니다. | 예 |
 | `connectVia` | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 앞서 설명한 [필수 구성 요소](#prerequisites)에서 설명한 대로 자체 호스팅 통합 런타임이 필요 합니다. |예 |
 
-**예 1: SAP 응용 프로그램 서버에 연결**
+### <a name="example-1-connect-to-an-sap-application-server"></a>예 1: SAP 응용 프로그램 서버에 연결
 
 ```json
 {
@@ -190,7 +190,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableResource`로 설정해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
@@ -222,12 +222,12 @@ SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려�
 
 SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 속성                         | 설명                                                  | 필수 |
+| 속성                         | Description                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | 이 옵션을 사용하는 경우 `type` 속성은 `SapTableSource`로 설정해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 아니요       |
-| `rfcTableFields`                 | SAP 테이블에서 복사할 필드 (열)입니다. `column0, column1`)을 입력합니다. | 아니요       |
-| `rfcTableOptions`                | SAP 테이블의 행을 필터링 하는 옵션입니다. `COLUMN0 EQ 'SOMEVALUE'`)을 입력합니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
+| `rfcTableFields`                 | SAP 테이블에서 복사할 필드 (열)입니다. 예들 들어 `column0, column1`입니다. | 아니요       |
+| `rfcTableOptions`                | SAP 테이블의 행을 필터링 하는 옵션입니다. 예들 들어 `COLUMN0 EQ 'SOMEVALUE'`입니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
 | `customRfcReadTableFunctionModule` | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다.<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터를 검색 하 여 Data Factory로 반환 하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용 하는 기본 인터페이스인와 비슷한 구현 된 인터페이스 (가져오기, 내보내기, 테이블)가 있어야 합니다 `/SAPDS/RFC_READ_TABLE2` .<br>Data Factory | 아니요       |
 | `partitionOption`                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원되는 옵션은 다음과 같습니다. <ul><li>`None`</li><li>`PartitionOnInt` (와 같이 왼쪽의 안쪽 여백이 0 인 법선 정수 또는 정수 값 `0000012345` )</li><li>`PartitionOnCalendarYear` ("YYYY" 형식의 4 자리 숫자)</li><li>`PartitionOnCalendarMonth` ("YYYYMM" 형식의 6 자리 숫자)</li><li>`PartitionOnCalendarDate` ("YYYYMMDD" 형식의 8 진수)</li><li>`PartitionOntime` (와 같이 "HHMMSS" 형식의 6 자리 숫자 `235959` )</li></ul> | 아니요       |
 | `partitionColumnName`              | 데이터를 분할 하는 데 사용 되는 열의 이름입니다.                | 아니요       |
@@ -294,6 +294,60 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
     }
 ]
 ```
+
+## <a name="join-sap-tables"></a>SAP 테이블 조인
+
+현재 SAP 테이블 커넥터는 기본 함수 모듈을 사용 하는 하나의 테이블만 지원 합니다. 여러 테이블의 조인 된 데이터를 가져오려면 다음 단계를 수행 하 여 SAP 테이블 커넥터에서 [customRfcReadTableFunctionModule](#copy-activity-properties) 속성을 활용할 수 있습니다.
+
+- 쿼리를 옵션으로 사용 하 고 데이터를 검색 하는 고유한 논리를 적용할 수 있는 [사용자 지정 함수 모듈을 작성](#create-custom-function-module)합니다.
+- "사용자 지정 함수 모듈"의 경우 사용자 지정 함수 모듈의 이름을 입력 합니다.
+- "RFC 테이블 옵션"의 경우 함수 모듈에 제공할 테이블 조인 문을 " `<TABLE1>` COLUMN0의 INNER join"과 같은 옵션으로 지정 합니다 `<TABLE2>` .
+
+예제는 아래와 같습니다.
+
+![Sap 테이블 조인](./media/connector-sap-table/sap-table-join.png) 
+
+>[!TIP]
+>또한 SAP 테이블 커넥터에서 지 원하는 조인 된 데이터를 뷰에서 집계 하는 것을 고려할 수 있습니다.
+>관련 테이블을 추출 하 여 Azure (예: Azure Storage Azure SQL Database)에 등록 한 다음 데이터 흐름을 사용 하 여 추가 조인 또는 필터링을 진행할 수도 있습니다.
+
+## <a name="create-custom-function-module"></a>사용자 지정 함수 모듈 만들기
+
+SAP 테이블의 경우 현재는 사용자 고유의 논리를 활용 하 고 데이터를 처리할 수 있는 복사 원본에서 [customRfcReadTableFunctionModule](#copy-activity-properties) 속성을 지원 합니다.
+
+"사용자 지정 함수 모듈"을 시작 하기 위한 몇 가지 요구 사항은 다음과 같습니다.
+
+- 정의:
+
+    ![정의](./media/connector-sap-table/custom-function-module-definition.png) 
+
+- 데이터를 아래 테이블 중 하나로 내보냅니다.
+
+    ![테이블 내보내기 1](./media/connector-sap-table/export-table-1.png) 
+
+    ![테이블 내보내기 2](./media/connector-sap-table/export-table-2.png)
+ 
+다음은 SAP 테이블 커넥터가 사용자 지정 함수 모듈에서 작동 하는 방식을 보여 주는 그림입니다.
+
+1. Sap NCO를 통해 SAP server와의 연결을 빌드합니다.
+
+1. 아래와 같이 설정 된 매개 변수를 사용 하 여 "사용자 지정 함수 모듈"을 호출 합니다.
+
+    - QUERY_TABLE: ADF SAP 테이블 데이터 집합에 설정 된 테이블 이름입니다. 
+    - 구분 기호: ADF SAP 테이블 원본에서 설정 하는 구분 기호입니다. 
+    - ROWCOUNT/Option/Fields: ADF 테이블 원본에서 설정 하는 Rowcount/집계 옵션/필드입니다.
+
+1. 결과를 가져오고 아래의 방법으로 데이터를 구문 분석 합니다.
+
+    1. 필드 테이블의 값을 구문 분석 하 여 스키마를 가져옵니다.
+
+        ![필드의 값 구문 분석](./media/connector-sap-table/parse-values.png)
+
+    1. 출력 테이블의 값을 가져와 이러한 값이 포함 된 테이블을 확인 합니다.
+
+        ![출력 테이블에서 값 가져오기](./media/connector-sap-table/get-values.png)
+
+    1. OUT_TABLE의 값을 가져오고 데이터를 구문 분석 한 다음 싱크에 씁니다.
 
 ## <a name="data-type-mappings-for-an-sap-table"></a>SAP 테이블에 대 한 데이터 형식 매핑
 

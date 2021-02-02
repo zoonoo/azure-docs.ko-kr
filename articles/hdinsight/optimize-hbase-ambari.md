@@ -3,13 +3,13 @@ title: Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적
 description: Apache Ambari 웹 UI를 사용 하 여 Apache HBase를 구성 하 고 최적화 합니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/04/2020
-ms.openlocfilehash: 307e9decad35c20885fbe550cc1f7de58c9386c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942590"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428203"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
 
@@ -18,6 +18,9 @@ Apache Ambari는 HDInsight 클러스터를 관리 하 고 모니터링 하는 �
 Apache HBase 구성은 **HBase Configs** 탭에서 수정 됩니다. 다음 섹션에서는 HBase 성능에 영향을 주는 몇 가지 중요 한 구성 설정에 대해 설명 합니다.
 
 ## <a name="set-hbase_heapsize"></a>HBASE_HEAPSIZE 설정
+
+> [!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 용어 *마스터* 에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 크기를 메가 바이트 단위로 지정합니다. 기본값은 1,000MB입니다. 클러스터 작업에 대해이 값을 조정 해야 합니다.
 

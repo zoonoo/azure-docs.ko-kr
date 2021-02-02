@@ -11,15 +11,16 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2021
-ms.openlocfilehash: d11125ed00491f87844c7b0b344473825ad52a99
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/02/2021
+ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223477"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428490"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Microsoft Dynamics 365 및 Microsoft Dynamics CRM 간에 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대 한 일반적인 개요를 제공 하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
@@ -61,7 +62,7 @@ Dynamics 버전 및 제품에 대해 지원 되는 인증 유형 및 구성의 �
 
 이 Dynamics 커넥터는 [DYNAMICS XRM 도구](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure AD 서비스 주체 인증과 함께이 커넥터를 사용 하려면 Common Data Service 또는 Dynamics에서 S2S (서버 간) 인증을 설정 해야 합니다. 자세한 단계는 [이 문서](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) 를 참조 하세요.
 
@@ -88,7 +89,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalCredential | 서비스 주체 자격 증명입니다. <br/><br/>"ServicePrincipalKey"을 자격 증명 유형으로 사용 하는 경우은 `servicePrincipalCredential` 연결 된 서비스 배포 시 Azure Data Factory 암호화 하는 문자열일 수 있습니다. 또는 Azure Key Vault의 비밀에 대 한 참조일 수 있습니다. <br/><br/>자격 증명으로 "ServicePrincipalCert"를 사용 하는 경우은 `servicePrincipalCredential` Azure Key Vault의 인증서에 대 한 참조 여야 합니다. | 인증이 "AADServicePrincipal" 인 경우 예 |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름입니다. | 인증이 "Office365" 인 경우 예 |
 | password | 사용자 이름으로 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 인증이 "Office365" 인 경우 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값을 지정 하지 않으면 속성은 기본 Azure integration runtime을 사용 합니다. | 원본 연결 된 서비스에 통합 런타임이 없는 경우 원본에 대해 아니요, 싱크에 대해 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값을 지정 하지 않으면 속성은 기본 Azure integration runtime을 사용 합니다. | 아니요 |
 
 >[!NOTE]
 >Dynamics 커넥터는 이전에 선택적 **organizationName** 속성을 사용 하 여 dynamics CRM 또는 dynamics 365 online 인스턴스를 식별 했습니다. 해당 속성이 계속 작동 하는 동안에는 새 **serviceUri** 속성을 대신 지정 하 여 인스턴스 검색의 성능을 향상 시키는 것이 좋습니다.
@@ -184,7 +185,7 @@ Dynamics online과 비교 되는 추가 속성은 **호스트 이름** 및 **포
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. IFD를 사용하는 Dynamics 온-프레미스에 대해 "Ifd"를 지정합니다. | 예. |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름입니다. | 예. |
 | password | 사용자 이름에 대해 지정한 사용자 계정의 암호입니다. 이 필드를 "SecureString"으로 표시 하 여 Data Factory에 안전 하 게 저장할 수 있습니다. 또는 Key Vault에 암호를 저장 하 고 복사 작업이 데이터 복사를 수행할 때 거기에서 끌어올 수 있도록 합니다. [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 자세히 알아봅니다. | 예. |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값을 지정 하지 않으면 속성은 기본 Azure integration runtime을 사용 합니다. | 원본에는 아니요이 고 싱크에는 예입니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 값을 지정 하지 않으면 속성은 기본 Azure integration runtime을 사용 합니다. | 아니요 |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>예제: IFD 인증을 사용하여 IFD로 Dynamics 온-프레미스
 
@@ -383,16 +384,16 @@ Dynamics에서 데이터를 복사 하는 경우 다음 표에서는 Dynamics �
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | 문자열 | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.ManagedProperty | 부울 | ✓ | |
-| AttributeType.Memo | 문자열 | ✓ | ✓ |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ ( [지침](#writing-data-to-a-lookup-field)참조) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | 문자열 | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.date: 06/02/2020
-ms.openlocfilehash: aa1246a65dc6971107abe35f4a418b0bbb05641b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/01/2021
+ms.openlocfilehash: c3366b7ba0eb0b49d4d5b89481b7bed843e52c8e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486133"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429003"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Azure Data Factory의 관리 허브
 
@@ -40,7 +40,11 @@ Integration runtime은 여러 네트워크 환경에서 데이터 통합 기능�
 
 ### <a name="git-configuration"></a>Git 구성
 
-관리 허브에서 구성 된 git 리포지토리 설정을 보고 편집 합니다. 자세한 내용은 [Azure Data Factory의 원본 제어](source-control.md)에 대해 알아보세요.
+관리 허브의 Git 구성 설정에서 모든 Git 관련 정보를 보거나 편집할 수 있습니다. 
+
+마지막 게시 된 커밋 정보도 나열 되며, 환경에서 마지막으로 게시/배포 된 정확한 커밋을 이해 하는 데 도움이 될 수 있습니다. 프로덕션에서 핫 픽스를 수행 하는 경우에도 유용할 수 있습니다.
+
+자세한 내용은 [Azure Data Factory의 원본 제어](source-control.md)에 대해 알아보세요.
 
 ![Git 리포지토리 관리](media/author-management-hub/management-hub-git.png)
 

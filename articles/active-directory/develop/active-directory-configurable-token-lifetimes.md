@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 02/01/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1bd60a60aa5f6fffcc459f0e14d550740e48496d
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755299"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428152"
 ---
 # <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -77,16 +77,14 @@ ID 토큰은 웹 사이트 및 기본 클라이언트에 전달됩니다. ID 토
 
 ## <a name="token-lifetime-policies-for-refresh-tokens-and-session-tokens"></a>새로 고침 토큰 및 세션 토큰에 대 한 토큰 수명 정책
 
-새로 고침 토큰 및 세션 토큰에 대 한 토큰 수명 정책을 설정할 수 있습니다.
+새로 고침 토큰 및 세션 토큰에 대 한 토큰 수명 정책을 설정할 수 없습니다.
 
 > [!IMPORTANT]
-> 2020 년 5 월 새 테 넌 트는 새로 고침 및 세션 토큰 수명을 구성할 수 없습니다.  기존 구성이 있는 테 넌 트는 2021 년 1 월 30 일까 지 새로 고침 및 세션 토큰 정책을 수정할 수 있습니다.   Azure Active Directory은 2021 년 1 월 30 일 이후에 정책에서 기존 새로 고침 및 세션 토큰 구성을 다시 설정 하는 것을 중지 합니다. 사용 중지 후에도 액세스, SAML 및 ID 토큰 수명을 구성할 수 있습니다.
->
-> 사용자가 다시 로그인 하도록 요청 하는 시간 간격을 계속 정의 해야 하는 경우 조건부 액세스에서 로그인 빈도를 구성 합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스를 사용 하 여 인증 세션 관리 구성](../conditional-access/howto-conditional-access-session-lifetime.md)을 참조 하세요.
->
-> 사용 중지 날짜 후 조건부 액세스를 사용 하지 않으려는 경우 새로 고침 및 세션 토큰이 해당 날짜의 [기본 구성](#configurable-token-lifetime-properties-after-the-retirement) 으로 설정 되 고 더 이상 수명을 변경할 수 없게 됩니다.
+> 2021 년 1 월 30 일까 지 새로 고침 및 세션 토큰 수명을 구성할 수 없습니다. Azure Active Directory는 더 이상 기존 정책에서 새로 고침 및 세션 토큰 구성을 적용 하지 않습니다.  기존 토큰 만료 후 발급 된 새 토큰은 이제 [기본 구성](#configurable-token-lifetime-properties-after-the-retirement)으로 설정 됩니다. 새로 고침 및 세션 토큰 구성의 사용을 중지 한 후에도 액세스, SAML 및 ID 토큰 수명을 구성할 수 있습니다.
 >
 > 기존 토큰의 수명은 변경 되지 않습니다. 만료 된 후에는 기본값을 기반으로 새 토큰이 발급 됩니다.
+>
+> 사용자가 다시 로그인 하도록 요청 하는 시간 간격을 계속 정의 해야 하는 경우 조건부 액세스에서 로그인 빈도를 구성 합니다. 조건부 액세스에 대 한 자세한 내용은 [조건부 액세스를 사용 하 여 인증 세션 관리 구성](../conditional-access/howto-conditional-access-session-lifetime.md)을 참조 하세요.
 
 :::image type="content" source="./media/active-directory-configurable-token-lifetimes/roadmap.svg" alt-text="사용 중지 정보":::
 

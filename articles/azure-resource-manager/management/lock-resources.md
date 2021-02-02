@@ -2,18 +2,20 @@
 title: 변경을 방지하기 위해 리소스 잠그기
 description: 사용자가 모든 사용자 및 역할에 대 한 잠금을 적용 하 여 Azure 리소스를 업데이트 하거나 삭제 하지 못하도록 합니다.
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802443"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428320"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
-관리자는 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 할 수 있습니다. 잠금 수준을 **CanNotDelete** 또는 **ReadOnly** 로 설정할 수 있습니다. 포털에서 잠금은 각각 **삭제** 및 **읽기 전용** 으로 지칭됩니다.
+관리자는 조직의 다른 사용자가 실수로 중요 한 리소스를 삭제 하거나 수정 하지 못하도록 구독, 리소스 그룹 또는 리소스를 잠글 수 있습니다. 잠금은 사용자가 가질 수 있는 모든 사용 권한을 재정의 합니다.
+
+잠금 수준을 **CanNotDelete** 또는 **ReadOnly** 로 설정할 수 있습니다. 포털에서 잠금은 각각 **삭제** 및 **읽기 전용** 으로 지칭됩니다.
 
 * **CanNotDelete** 는 권한이 부여된 사용자가 리소스를 읽고 수정할 수 있지만 삭제할 수 없음을 의미합니다.
 * **ReadOnly** 는 권한이 부여된 사용자가 리소스를 읽을 수 있지만 해당 리소스를 삭제하거나 업데이트할 수 없음을 의미합니다. 이 잠금을 적용하는 것은 권한 있는 모든 사용자에게 **판독기** 역할에서 부여한 권한을 제한하는 것과 유사합니다.
@@ -24,7 +26,7 @@ ms.locfileid: "98802443"
 
 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대 한 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
-리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database 논리 서버에 대 한 ReadOnly 잠금은 서버를 삭제 하거나 수정 하는 것을 방지 합니다. 해당 서버의 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제 하는 것을 방지 하지 않습니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 트랜잭션이 허용됩니다.
+Resource Manager 잠금은 `https://management.azure.com`에 전송된 작업으로 구성된 관리 평면에서 수행되는 작업에만 적용됩니다. 리소스가 해당 기능을 수행하는 방법은 잠금을 통해 제한되지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database 논리 서버에 대 한 ReadOnly 잠금은 서버를 삭제 하거나 수정 하는 것을 방지 합니다. 해당 서버의 데이터베이스에서 데이터를 생성, 업데이트 또는 삭제 하는 것을 방지 하지 않습니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 트랜잭션이 허용됩니다.
 
 ## <a name="considerations-before-applying-locks"></a>잠금 적용 전 고려 사항
 

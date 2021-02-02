@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b7b67842e9ba385b34ea4d8fdbcac190076218
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398189"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428169"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 데이터 마이그레이션
 
@@ -55,7 +55,7 @@ ms.locfileid: "91398189"
 | 마이그레이션을 볼륨별로 단계적으로 접근할 수 있습니다.                                               | 이전 백업(5000/7000 시리즈에서 수행된)은 8000 시리즈 디바이스에서 사용할 수 없습니다.                                                                                                       |
 | 데이터를 Azure의 스토리지 계정 하나로 통합할 수 있습니다.                                                       | 8000 시리즈에서 클라우드에 처음으로 백업할 때 8000 시리즈의 모든 데이터를 Azure에 백업해야 하기 때문에 시간이 오래 걸립니다.                                                                     |
 | 마이그레이션이 성공하면 모든 데이터가 로컬 어플라이언스에 있습니다. 데이터에 액세스할 때 대기 시간이 없습니다. | 5000/7000 디바이스에서 데이터가 삭제될 때까지 Azure Storage 사용량이 증가합니다.                                                                                                        |
-|                                                                                                                           | 7000/5000 시리즈 디바이스에 대량의 데이터가 있는 경우 마이그레이션하는 동안 이 데이터를 azure에서 다운로드해야 하며, Azure에서 데이터를 다운로드하는 것과 관련된 비용과 대기 시간이 발생합니다. |
+|                                                                                                                           | 7000/5000 시리즈 장치에 많은 양의 데이터가 있는 경우 마이그레이션하는 동안 azure에서 데이터를 다운로드 하는 작업과 관련 된 비용 및 대기 시간이 발생 하는이 데이터를 Azure에서 다운로드 해야 합니다. |
 
 이 문서는 5000/7000 시리즈 디바이스에서 8000 시리즈 디바이스로 마이그레이션하는 기능만 집중적으로 다룹니다. 호스트 측 마이그레이션에 대한 자세한 내용은 [다른 스토리지 디바이스에서 마이그레이션](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf)을 참조하세요.
 
@@ -109,7 +109,7 @@ StorSimple 마이그레이션 도구는 StorSimple 5000-7000 시리즈 디바이
 컴퓨터가 인터넷에 연결되어 있습니다.
 
 * 다음 운영 체제를 실행하고 있습니다.
-    * Windows 10.
+    * Windows 10
     * StorSimple 마이그레이션 도구를 설치하려면 Windows Server 2012 R2(또는 이상).
 * .NET 4.5.2가 설치되어 있습니다.
 * 도구를 설치하고 사용하는 데 필요한 최소 여유 공간 5GB가 있습니다.
@@ -123,7 +123,7 @@ StorSimple 마이그레이션 도구는 StorSimple 5000-7000 시리즈 디바이
 
 1. _StorSimple8000SeriesMigrationTool_ 폴더를 Windows 컴퓨터에 복사합니다. 소프트웨어가 복사되는 드라이브에 충분한 공간이 있는지 확인합니다.
 
-    폴더에서 도구 구성 파일 _StorSimple8000SeriesMigrationTool.exe.config_를 엽니다. 다음은 파일의 코드 조각입니다.
+    폴더에서 도구 구성 파일 _StorSimple8000SeriesMigrationTool.exe.config_ 를 엽니다. 다음은 파일의 코드 조각입니다.
     
     ```xml
         <add key="UserName" value="username@xyz.com" />
@@ -137,11 +137,11 @@ StorSimple 마이그레이션 도구는 StorSimple 5000-7000 시리즈 디바이
 2. 키에 해당하는 값을 편집하고 다음 항목으로 바꿉니다.
 
     * `UserName` - Azure Portal에 로그인하는 사용자 이름.
-    * `SubscriptionName and SubscriptionId` –  Azure 구독의 이름 및 ID. StorSimple 디바이스 관리자 서비스 시작 페이지의 **일반** 아래에서 **속성**을 클릭합니다. 서비스와 연결된 구독 이름 및 구독 ID를 복사합니다.
+    * `SubscriptionName and SubscriptionId` –  Azure 구독의 이름 및 ID. StorSimple 디바이스 관리자 서비스 시작 페이지의 **일반** 아래에서 **속성** 을 클릭합니다. 서비스와 연결된 구독 이름 및 구독 ID를 복사합니다.
     * `ResourceName` - Azure Portal에서 StorSimple 디바이스 관리자 서비스의 이름. 서비스 속성 아래에도 표시됩니다.
     * `ResourceGroup` – Azure Portal의 StorSimple 디바이스 관리자 서비스와 연결된 리소스 그룹의 이름. 서비스 속성 아래에도 표시됩니다.
     ![대상 디바이스의 서비스 속성 확인](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
-    * `TenantId` – Azure Portal의 Azure Active Directory 테넌트 ID. 관리자 권한으로 Microsoft Azure에 로그인합니다. Microsoft Azure Portal에서 **Azure Active Directory**를 클릭합니다. **관리** 아래에서 **속성**을 클릭합니다. **디렉터리 ID** 상자에 테넌트 ID가 표시됩니다.
+    * `TenantId` – Azure Portal의 Azure Active Directory 테넌트 ID. 관리자 권한으로 Microsoft Azure에 로그인합니다. Microsoft Azure Portal에서 **Azure Active Directory** 를 클릭합니다. **관리** 아래에서 **속성** 을 클릭합니다. **디렉터리 ID** 상자에 테넌트 ID가 표시됩니다.
     ![Azure Active Directory의 테넌트 ID 확인](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  구성 파일의 변경 내용을 저장합니다.
@@ -150,4 +150,4 @@ StorSimple 마이그레이션 도구는 StorSimple 5000-7000 시리즈 디바이
   
 
 ## <a name="next-steps"></a>다음 단계
-[StorSimple 5000-7000 시리즈 디바이스에서 8000 시리즈 디바이스로 데이터를 마이그레이션](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)하는 방법에 대한 단계별 지침을 다운로드합니다.
+[StorSimple 5000-7000 시리즈 디바이스에서 8000 시리즈 디바이스로 데이터를 마이그레이션](https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_Migration_Guide_20171115.pdf)하는 방법에 대한 단계별 지침을 다운로드합니다.

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: d3f859590b30aaeeaebaed7b1f2f85e1a86a92c9
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: f58811411a447eae4ff9a5c0fd2a9888b4a39a34
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223409"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428676"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -364,13 +364,6 @@ Express 경로 회로 피어 링 및 글로벌 가상 네트워크 피어 링을
 **DNS 새로 고침을 수행할 수 있나요?**
 
 예. [SQL Managed Instance 가상 클러스터의 가상 네트워크 DNS 서버 동기화 설정을](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md)참조 하세요.
-
-DNS 구성은 결국 새로 고쳐집니다.
-
-- DHCP 임대가 만료 되는 경우
-- 플랫폼 업그레이드 시.
-
-해결 방법으로 SQL Managed Instance를 4 개 vCores로 다운 그레이드 하 고 나중에 다시 업그레이드 합니다. DNS 구성을 새로 고치면 부작용이 발생 합니다.
 
 ## <a name="change-time-zone"></a>표준 시간대 변경
 

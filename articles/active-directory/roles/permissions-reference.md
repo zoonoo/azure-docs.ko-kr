@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/01/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: da85c80dd6450fd4427f83586e75cf1e9d62a605
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090861"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428777"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -69,15 +69,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="authentication-administrator"></a>[인증 관리자](#authentication-administrator-permissions)
 
-이 역할이 할당된 사용자는 일부 사용자의 암호가 아닌 자격 증명을 설정하거나 초기화하고 모든 사용자의 암호를 업데이트할 수 있습니다. 인증 관리자는 관리자가 아닌 사용자 또는 일부 역할이 할당된 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 재등록하도록 요구할 수 있으며, 다음에 로그인할 때 MFA를 요청하도록 **디바이스에 MFA 저장** 을 철회할 수도 있습니다. 이러한 작업은 관리자가 아닌 사용자 또는 다음 역할 중 하나 이상에 할당된 사용자에게만 적용됩니다.
+이 역할이 할당된 사용자는 일부 사용자의 암호가 아닌 자격 증명을 설정하거나 초기화하고 모든 사용자의 암호를 업데이트할 수 있습니다. 인증 관리자는 관리자가 아닌 사용자 또는 일부 역할이 할당된 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 재등록하도록 요구할 수 있으며, 다음에 로그인할 때 MFA를 요청하도록 **디바이스에 MFA 저장** 을 철회할 수도 있습니다. 인증 관리자가 사용자의 암호를 다시 설정할 수 있는지 여부는 사용자에 게 할당 된 역할에 따라 달라 집니다. 인증 관리자가 암호를 다시 설정할 수 있는 역할 목록은 [암호 재설정 권한](#password-reset-permissions)을 참조 하세요.
 
-* 인증 관리자
-* 디렉터리 읽기 권한자
-* 게스트 초대자
-* 메시지 센터 읽기 권한자
-* 보고서 구독자
-
-[권한 있는 인증 관리자](#privileged-authentication-administrator) 역할은 모든 사용자에게 재등록 및 다단계 인증을 강제 적용할 수 있습니다.
+권한 있는 [인증 관리자](#privileged-authentication-administrator) 역할에는 모든 사용자가 다시 등록 하 고 multi-factor Authentication을 적용할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
@@ -253,14 +247,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="helpdesk-administrator"></a>[기술 지원팀 관리자](#helpdesk-administrator-permissions)
 
-이 역할을 가진 사용자는 암호를 변경하고, 새로 고침 토큰을 무효화하고, 서비스 요청을 관리하며, 서비스 상태를 모니터링할 수 있습니다. 새로 고침 토큰을 무효화하면 사용자가 다시 로그인해야 합니다. 기술 지원팀 관리자는 관리자가 아니거나 다음 역할만 할당된 다른 사용자의 암호를 재설정하고 새로 고침 토큰을 무효화할 수 있습니다.
-
-* 디렉터리 읽기 권한자
-* 게스트 초대자
-* 기술 지원팀 관리자
-* 메시지 센터 읽기 권한자
-* 암호 관리자
-* 보고서 구독자
+이 역할을 가진 사용자는 암호를 변경하고, 새로 고침 토큰을 무효화하고, 서비스 요청을 관리하며, 서비스 상태를 모니터링할 수 있습니다. 새로 고침 토큰을 무효화하면 사용자가 다시 로그인해야 합니다. 기술 지원팀 관리자가 사용자의 암호를 재설정 하 고 새로 고침 토큰이 무효화 될 수 있는지 여부는 사용자에 게 할당 된 역할에 따라 달라 집니다. 기술 지원팀 관리자가 암호를 다시 설정 하 고 새로 고침 토큰을 무효화할 수 있는 역할 목록은 [암호 재설정 권한](#password-reset-permissions)을 참조 하세요.
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 다음은 그 예입니다.
@@ -271,7 +258,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >- Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
 >- 중요한 프라이빗 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자.
 
-[관리 단위(현재 공개 미리 보기)](administrative-units.md)를 사용하여 일부 사용자에게 관리 권한을 위임하고 일부 사용자에게 정책을 적용할 수 있습니다.
+사용자의 하위 집합에 대해 관리 권한을 위임 하 고 일부 사용자에 게 정책을 적용 하는 것은 [관리 단위](administrative-units.md)에서 가능 합니다.
 
 이 역할을 이전에는 [Azure Portal](https://portal.azure.com/)에서 "암호 관리자"라고 했습니다. Azure AD의 "기술 지원팀 관리자" 이름이 이제는 Azure AD PowerShell 및 Microsoft Graph API의 이름과 일치합니다.
 
@@ -344,11 +331,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ### <a name="password-administrator"></a>[암호 관리자](#password-administrator-permissions)
 
-이 역할의 사용자는 제한적으로 암호를 관리할 수 있습니다. 이 역할은 서비스 요청을 관리하거나 서비스 상태를 모니터링하는 기능을 부여하지 않습니다. 암호 관리자는 관리자가 아니거나 다음 역할의 멤버인 다른 사용자의 암호만 재설정할 수 있습니다.
-
-* 디렉터리 읽기 권한자
-* 게스트 초대자
-* 암호 관리자
+이 역할의 사용자는 제한적으로 암호를 관리할 수 있습니다. 이 역할은 서비스 요청을 관리하거나 서비스 상태를 모니터링하는 기능을 부여하지 않습니다. 암호 관리자가 사용자의 암호를 다시 설정할 수 있는지 여부는 사용자에 게 할당 된 역할에 따라 달라 집니다. 암호 관리자가 암호를 재설정할 수 있는 역할 목록은 [암호 재설정 권한](#password-reset-permissions)을 참조 하세요.
 
 ### <a name="power-bi-administrator"></a>[Power BI 관리자](#power-bi-service-administrator-permissions)
 
@@ -371,13 +354,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 ### <a name="privileged-authentication-administrator"></a>[권한 있는 인증 관리자](#privileged-authentication-administrator-permissions)
 
-이 역할을 가진 사용자는 전역 관리자를 비롯 한 모든 사용자에 대해 암호 이외의 자격 증명을 설정 하거나 다시 설정할 수 있으며 모든 사용자에 대 한 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 다시 등록하고 ‘디바이스에 MFA 저장’을 철회하도록 강제 적용한 다음, 모든 사용자가 다음에 로그인할 때 MFA를 요청할 수 있습니다. [인증 관리자](#authentication-administrator) 역할은 관리자가 아닌 사용자와 다음 Azure AD 역할이 할당된 사용자에게만 다시 등록하고 MFA를 수행하도록 강제할 수 있습니다.
-
-* 인증 관리자
-* 디렉터리 읽기 권한자
-* 게스트 초대자
-* 메시지 센터 읽기 권한자
-* 보고서 구독자
+이 역할을 가진 사용자는 전역 관리자를 비롯 한 모든 사용자에 대해 암호 이외의 자격 증명을 설정 하거나 다시 설정할 수 있으며 모든 사용자에 대 한 암호를 업데이트할 수 있습니다. 권한 있는 인증 관리자는 사용자가 기존의 비암호 자격 증명(예: MFA 또는 FIDO)을 다시 등록하고 ‘디바이스에 MFA 저장’을 철회하도록 강제 적용한 다음, 모든 사용자가 다음에 로그인할 때 MFA를 요청할 수 있습니다.
 
 ### <a name="privileged-role-administrator"></a>[권한 있는 역할 관리자](#privileged-role-administrator-permissions)
 
@@ -500,11 +477,12 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 
 이 역할을 가진 사용자는 사용자를 만들고 몇 가지 제한 사항이 있는 사용자의 모든 측면을 관리할 수 있습니다 (표 참조). 암호 만료 정책을 업데이트할 수 있습니다. 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다. 사용자 관리자는 대부분의 관리자 역할에 속한 사용자의 일부 사용자 속성을 관리할 권한이 없습니다. 이 역할의 사용자는 MFA를 관리할 권한이 없습니다. 다음 표에는 이 제한이 적용되지 않는 예외적인 역할이 나열되어 있습니다.
 
-| **사용 권한** | **가능한 작업** |
+| 사용자 관리자 권한 | 참고 |
 | --- | --- |
-|일반적인 사용 권한|<p>사용자 및 그룹 만들기</p><p>사용자 보기 만들기 및 관리</p><p>Office 지원 티켓 관리<p>암호 만료 정책 업데이트|
-| <p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
-| 비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>그룹 관리자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>암호 관리자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 재설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
+| 사용자 및 그룹 만들기<br/>사용자 보기 만들기 및 관리<br/>Office 지원 티켓 관리<br/>암호 만료 정책 업데이트 |  |
+| 라이선스 관리<br/>사용자 계정 이름을 제외한 모든 사용자 속성 관리 | 모든 관리자를 포함 하 여 모든 사용자에 게 적용 됩니다. |
+| 삭제 및 복원<br/>사용 안 함 및 사용<br/>사용자 계정 이름을 포함한 모든 사용자 속성 관리<br/>(FIDO) 디바이스 키 업데이트 | 관리자가 아닌 사용자 또는 다음 역할의 사용자에 게 적용 됩니다.<ul><li>기술 지원팀 관리자</li><li>역할이 없는 사용자</li><li>사용자 관리자</li></ul> |
+| 새로 고침 토큰 무효화<br/>암호 재설정 | 사용자 관리자가 암호를 다시 설정 하 고 새로 고침 토큰을 무효화할 수 있는 역할 목록은 [암호 재설정 권한](#password-reset-permissions)을 참조 하세요. |
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 다음은 그 예입니다.
@@ -572,6 +550,7 @@ Windows Defender ATP 및 EDR | 경고 확인/조사 Windows Defender ATP에서 �
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="application-developer-permissions"></a>애플리케이션 개발자 권한
 
@@ -647,6 +626,7 @@ Azure Information Protection 서비스의 모든 것을 관리할 수 있습니�
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>B2C IEF 키 세트 관리자 권한
 
@@ -725,6 +705,7 @@ Identity Experience Framework에서 보안 프레임워크 정책을 만들고 �
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="cloud-device-administrator-permissions"></a>클라우드 디바이스 관리자 권한
 
@@ -2064,6 +2045,31 @@ API 이름 | Azure Portal 이름 | 메모
 제한된 게스트 사용자 | 사용하면 안되므로 표시되지 않습니다. | 해당 없음
 사용자 | 사용하면 안되므로 표시되지 않습니다. | 해당 없음
 작업 공간 디바이스 연결 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
+
+## <a name="password-reset-permissions"></a>암호 재설정 권한
+
+열 머리글은 암호를 다시 설정할 수 있는 역할을 나타냅니다. 테이블 행에는 암호를 다시 설정할 수 있는 역할이 포함 됩니다.
+
+암호를 다시 설정할 수 있습니다. | 인증 관리자 | 기술 지원팀 관리자 | 암호 관리자 | 사용자 관리 | 권한 있는 인증 관리자 | 전역 관리자
+------ | ------ | ------ | ------ | ------ | ------ | ------
+인증 관리자 | :heavy_check_mark: | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+디렉터리 읽기 권한자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+전역 관리자 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
+그룹 관리자 | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+게스트 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+게스트 초대자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+기술 지원팀 관리자 | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+메시지 센터 읽기 권한자 | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+암호 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+권한 있는 인증 관리자 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+권한 있는 역할 관리자 | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
+보고서 구독자 | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+제한 된 게스트 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+사용자 (관리자 역할 없음) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+사용자 관리 | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+사용 요약 보고서 판독기 | :heavy_check_mark: | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+
+\* 전역 관리자는 자신의 전역 관리자 할당을 제거할 수 없습니다. 이는 조직에 0 전역 관리자가 있는 상황을 방지 하기 위한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

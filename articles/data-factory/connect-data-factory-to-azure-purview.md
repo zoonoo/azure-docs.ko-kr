@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 36eac4c60e0d7fd54ec304f0f17c2ecb454f0629
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: ce37e26730fbef9e5e40fd95190727062f9044ac
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063456"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428942"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Azure 부서의 범위에 Data Factory 연결 (미리 보기)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -36,7 +36,7 @@ Azure 부서의 범위는 데이터 사용자가 클라우드 및 온-프레미�
 3. 연결 되 면 탭 **부서의 범위 계정** 에서 부서의 범위 계정의 이름을 확인할 수 있어야 합니다. 
 4. Azure Data Factory 포털의 위쪽 가운데에 있는 검색 표시줄을 사용 하 여 데이터를 검색할 수 있습니다. 
 
-Azure 부서의 범위 계정을 Data Factory에 등록 한 후 Azure 데이터 요소 포털에 경고가 표시 되는 경우 아래 단계에 따라 문제를 해결 합니다.
+Azure 부서의 범위 계정을 Data Factory에 등록 한 후 Azure Data Factory 포털에서 경고가 표시 되는 경우 아래 단계에 따라 문제를 해결 합니다.
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="부서의 범위 계정 등록 경고에 대 한 스크린샷":::
 

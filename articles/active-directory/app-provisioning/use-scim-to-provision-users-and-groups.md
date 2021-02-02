@@ -8,25 +8,24 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6895a47bc6d99a09408ca002ec48405a5c78682
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: ba000fd4cf79f2bb4a176bd7d5c33fc2dfff3781
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255681"
+ms.locfileid: "99428405"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 끝점에 대 한 프로 비전 개발 및 계획
 
 애플리케이션 개발자는 SCIM(도메인 간 ID 관리를 위한 시스템) 사용자 관리 API를 사용하여 애플리케이션과 Azure AD간에 사용자 및 그룹을 자동으로 프로비저닝할 수 있습니다. 이 문서에서는 SCIM 엔드포인트를 빌드하고 Azure AD 프로비저닝 서비스와 통합하는 방법을 설명합니다. SCIM 사양에서는 프로비저닝을 위한 일반 사용자 스키마를 제공합니다. SCIM은 SAML 또는 OpenID Connect와 같은 페더레이션 표준과 함께 사용하면 액세스 관리를 위한 전반적인 표준 기반 솔루션을 관리자에게 제공합니다.
 
-SCIM은 `/Users` 끝점 및 `/Groups` 끝점 이라는 두 끝점의 표준화 된 정의입니다. 일반 REST 동사를 사용하여 개체를 생성, 업데이트 및 삭제하며 그룹 이름, 사용자 이름, 이름, 성, 메일 등의 일반 특성에 대한 스키마를 사전 정의합니다. SCIM 2.0 REST API를 제공하는 앱은 독점적인 사용자 관리 API로 작업할 필요를 줄이거나 없앨 수 있습니다. 예를 들어 모든 규격 SCIM 클라이언트는 JSON 개체의 HTTP POST를 끝점으로 만들어 `/Users` 새 사용자 항목을 만드는 방법을 알고 있습니다. SCIM 표준을 준수하는 앱은 동일한 기본 작업에 대해 약간 다른 API를 사용하지 않고도 기존 클라이언트, 도구 및 코드를 바로 활용할 수 있습니다. 
-
 ![SCIM을 사용하여 Azure AD에서 앱으로 프로비저닝](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+
+SCIM은 `/Users` 끝점 및 `/Groups` 끝점 이라는 두 끝점의 표준화 된 정의입니다. 일반 REST 동사를 사용하여 개체를 생성, 업데이트 및 삭제하며 그룹 이름, 사용자 이름, 이름, 성, 메일 등의 일반 특성에 대한 스키마를 사전 정의합니다. SCIM 2.0 REST API를 제공하는 앱은 독점적인 사용자 관리 API로 작업할 필요를 줄이거나 없앨 수 있습니다. 예를 들어 모든 규격 SCIM 클라이언트는 JSON 개체의 HTTP POST를 끝점으로 만들어 `/Users` 새 사용자 항목을 만드는 방법을 알고 있습니다. SCIM 표준을 준수하는 앱은 동일한 기본 작업에 대해 약간 다른 API를 사용하지 않고도 기존 클라이언트, 도구 및 코드를 바로 활용할 수 있습니다. 
 
 SCIM 2.0(RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644))에 정의된 관리용 표준 사용자 개체 스키마 및 REST API를 사용하여 ID 공급자와 앱을 서로 쉽게 통합할 수 있습니다. SCIM 엔드포인트를 빌드하는 애플리케이션 개발자는 사용자 지정 작업을 수행하지 않고도 SCIM 규격 클라이언트와 통합할 수 있습니다.
 
@@ -70,6 +69,7 @@ SCIM 2.0(RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.i
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen@testuser.com",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "familyName":"Jensen",
@@ -914,7 +914,7 @@ https://docs.microsoft.com/aspnet/core/fundamentals/environments)
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>사용자의 프로비저닝 및 프로비저닝 해제 처리
 
-***예 1. 일치하는 사용자를 서비스에 쿼리** _
+***예제 1. 일치하는 사용자에 대해 서비스 쿼리***
 
 Azure Active Directory는 `externalId` 특성 값이 Azure AD의 사용자 mailNickname 특성 값과 일치하는 사용자를 서비스에 쿼리합니다. 쿼리는 이 예제처럼 HTTP(Hypertext Transfer Protocol) 요청으로 표현되며, 여기서 jyoung은 Azure Active Directory에서 사용자의 mailNickname 샘플입니다.
 
@@ -942,12 +942,12 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 
 `externalId` 특성의 값이 지정된 사용자에 대한 샘플 쿼리에서 QueryAsync 메서드에 전달된 인수의 값은 다음과 같습니다.
 
-_ parameters.AlternateFilters.Count: 1
+* parameters.AlternateFilters.Count: 1
 * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
 * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 
-***예 2. 사용자 프로비저닝** _
+***예제 2. 사용자 프로비저닝***
 
 `externalId` 특성 값이 사용자의 mailNickname 특성 값과 일치하는 사용자를 웹 서비스에 쿼리할 때 응답으로 사용자가 반환되지 않는 경우 Azure Active Directory는 서비스가 Azure Active Directory의 사용자에 해당하는 사용자를 프로비저닝하도록 요청합니다.  다음은 그러한 요청의 예제입니다. 
 
@@ -996,7 +996,7 @@ _ parameters.AlternateFilters.Count: 1
 
 사용자 프로비저닝 요청에서 리소스 인수의 값은 Microsoft.SCIM.Schemas 라이브러리에 정의된 Microsoft.SCIM.Core2EnterpriseUser 클래스의 인스턴스입니다.  사용자를 프로비저닝하기 위한 요청이 성공하는 경우 이 메서드의 구현은 Identifier 특성 값이 새로 프로비저닝된 사용자의 고유 식별자로 설정된 Microsoft.SCIM.Core2EnterpriseUser 클래스의 인스턴스를 반환해야 합니다.  
 
-_*_예제 3. 사용자의 현재 상태 쿼리_*_ 
+***예제 3. 사용자의 현재 상태 쿼리*** 
 
 SCIM에 의해 제어되는 ID 저장소에 있는 것으로 알려진 사용자를 업데이트하기 위해 Azure Active Directory는 다음과 같은 요청으로 서비스에서 해당 사용자의 현재 상태를 요청합니다. 
 
@@ -1020,14 +1020,14 @@ SCIM에 의해 제어되는 ID 저장소에 있는 것으로 알려진 사용자
 
 사용자의 현재 상태를 검색하는 요청 예제에서 매개 변수 인수 값으로 제공되는 개체의 속성 값은 다음과 같습니다. 
   
-_ Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* 식별자: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-***예 4. 업데이트할 참조 특성의 값 쿼리** _ 
+***예제 4. 업데이트할 참조 특성의 값 쿼리*** 
 
 참조 특성을 업데이트해야 하는 경우 Azure Active Directory는 서비스를 쿼리하여 서비스에 의해 제어되는 ID 저장소에 있는 참조 특성의 현재 값이 Azure Active Directory의 해당 특성 값과 이미 일치하는지를 확인합니다. 사용자의 경우 현재 값이 이 방식으로 쿼리된 유일한 특성은 관리자 특성입니다. 사용자 개체의 관리자 특성 값에 현재 특정 값이 있는지 여부를 결정하는 요청의 예는 다음과 같습니다. 샘플 코드에서 요청은 서비스 공급자의 QueryAsync 메서드에 대한 호출로 변환됩니다. 매개 변수 인수의 값으로 제공되는 개체의 속성 값은 다음과 같습니다. 
   
-_ parameters.AlternateFilters.Count: 2
+* parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
 * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
 * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1039,7 +1039,7 @@ _ parameters.AlternateFilters.Count: 2
 
 여기에서 필터 쿼리 매개 변수 식의 순서에 따라 인덱스 x의 값은 0이고 인덱스 y의 값은 1일 수 있습니다. 또는 x 값이 1이고 y 값이 0일 수 있습니다.   
 
-***예 5. 사용자를 업데이트 하기 위해 Azure AD에서 SCIM 서비스로 요청** _ 
+***예제 5. 사용자를 업데이트 하기 위해 Azure AD에서 SCIM 서비스로 요청*** 
 
 다음은 Azure Active Directory에서 SCIM 서비스로 사용자를 업데이트하는 요청의 예입니다. 
 
@@ -1078,7 +1078,7 @@ _ parameters.AlternateFilters.Count: 2
 
 사용자를 업데이트하는 요청의 예에서 패치 인수의 값으로 제공되는 개체는 다음과 같은 속성 값이 적용됩니다. 
   
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 * (PatchRequest as PatchRequest2).Operations.Count: 1
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
@@ -1087,7 +1087,7 @@ _ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-***예 6. 사용자 프로비저닝 해제** _
+***예제 6. 사용자 프로비저닝 해제***
 
 SCIM 서비스에 의해 제어되는 ID 저장소에서 사용자의 프로비저닝을 해제하기 위해 Azure AD에서 다음과 같은 요청을 보냅니다.
 
@@ -1110,7 +1110,7 @@ SCIM 서비스에 의해 제어되는 ID 저장소에서 사용자의 프로비�
 
 사용자의 프로비저닝을 해제하는 요청의 예에서 resourceIdentifier 인수의 값으로 제공되는 개체는 다음과 같은 속성 값이 적용됩니다. 
 
-_ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>4단계: SCIM 엔드포인트를 Azure AD SCIM 클라이언트와 통합
@@ -1151,8 +1151,8 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 7. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: `https://api.contoso.com/scim/`
 8. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다. 
    > [!NOTE]
-   > 이 필드를 비워두고 Azure AD에서 생성한 토큰을 사용하는 것은 권장되지 **_않습니다_*. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
-9. *연결 테스트**를 선택하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+   > 이 필드를 비워두고 Azure AD에서 생성한 토큰을 사용하는 것은 권장되지 ***않습니다***. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
+9. **연결 테스트** 를 선택하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
 
     > [!NOTE]
     > **테스트 연결** 은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다.

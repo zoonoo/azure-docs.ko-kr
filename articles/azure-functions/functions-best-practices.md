@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 89ff49b3ea5abae7ced046f714d34943a58c64a6
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954786"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99428303"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -63,6 +63,31 @@ Idempotent 함수는 특히 타이머 트리거 사용이 권장됩니다. 예�
 큐 항목을 이미 처리한 경우 함수는 수행되지 않습니다.
 
 Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제공된 방어 수단을 활용하세요. 예를 들어 [Azure Storage 큐 트리거 및 바인딩](functions-bindings-storage-queue-trigger.md#poison-messages)을 위한 설명서에서 **포이즌 큐 메시지 처리** 를 참조하세요. 
+
+## <a name="function-organization-best-practices"></a>함수 구성 모범 사례
+
+솔루션의 일부로 여러 함수를 개발 하 고 게시할 수 있습니다. 이러한 함수는 종종 단일 함수 앱으로 결합 되지만 별도의 함수 앱에서 실행할 수도 있습니다. 프리미엄 및 전용 (App Service) 호스팅 계획에서 여러 함수 앱은 동일한 계획에서를 실행 하 여 동일한 리소스를 공유할 수도 있습니다. 함수 및 함수 앱을 그룹화 하는 방법은 전체 솔루션의 성능, 크기 조정, 구성, 배포 및 보안에 영향을 줄 수 있습니다. 모든 시나리오에 적용 되는 규칙은 없으므로 함수를 계획 하 고 개발 하는 경우이 섹션의 정보를 고려 하세요.
+
+### <a name="organize-functions-for-performance-and-scaling"></a>성능 및 크기 조정을 위한 함수 구성
+
+사용자가 만드는 각 함수에는 메모리 공간이 사용 됩니다. 이 공간은 일반적으로 작지만 함수 앱 내에 너무 많은 함수가 있으면 새 인스턴스에서 앱을 시작 하는 속도가 느려질 수 있습니다. 또한 함수 앱의 전체 메모리 사용량이 높을 수도 있습니다. 특정 워크 로드에 따라 단일 앱에 있어야 하는 함수 수를 말하는 것은 어렵습니다. 그러나 함수에서 많은 양의 데이터를 메모리에 저장 하는 경우 단일 앱에서 함수 수를 줄이는 것이 좋습니다.
+
+단일 프리미엄 요금제 또는 전용 (App Service) 계획으로 여러 함수 앱을 실행 하는 경우 이러한 앱은 모두 함께 확장 됩니다. 다른 함수 앱 보다 메모리 요구 사항이 훨씬 더 높은 함수 앱이 있는 경우 앱이 배포 되는 각 인스턴스에 대해 불균형 하 게 메모리 리소스를 사용 합니다. 이로 인해 각 인스턴스의 다른 앱에 사용할 수 있는 메모리가 줄어들 수 있으므로 별도의 호스팅 계획에서이 처럼 메모리를 사용 하는 많은 함수 앱을 실행 하는 것이 좋습니다.
+
+> [!NOTE]
+> [소비 계획](./functions-scale.md)을 사용 하는 경우 앱이 독립적으로 크기 조정 되므로 항상 각 앱을 자체 계획에 배치 하는 것이 좋습니다.
+
+다른 부하 프로필을 사용 하 여 함수를 그룹화 할 지 여부를 고려 합니다. 예를 들어 많은 수의 큐 메시지를 처리 하는 함수를 포함 하는 함수를 포함 하 고 있지만 메모리 요구 사항이 높은 경우에는 별도의 함수 앱에 배포 하 여 고유한 리소스 집합을 가져오고 서로 독립적으로 확장할 수 있습니다.
+
+### <a name="organize-functions-for-configuration-and-deployment"></a>구성 및 배포를 위한 함수 구성
+
+함수 앱에는 `host.json` 함수 트리거의 고급 동작 및 Azure Functions 런타임을 구성 하는 데 사용 되는 파일이 있습니다. 파일에 대 한 변경 내용은 `host.json` 앱 내의 모든 함수에 적용 됩니다. 사용자 지정 구성이 필요한 일부 함수가 있는 경우 해당 함수를 자체 함수 앱으로 이동 하는 것이 좋습니다.
+
+로컬 프로젝트의 모든 함수는 Azure의 함수 앱에 파일 집합으로 함께 배포 됩니다. 개별 함수를 별도로 배포 하거나 일부 함수에 대해서는 [배포 슬롯과](./functions-deployment-slots.md) 같은 기능을 사용 해야 할 수도 있습니다. 이러한 경우 개별 코드 프로젝트에서 이러한 함수를 다양 한 함수 앱에 배포 해야 합니다.
+
+### <a name="organize-functions-by-privilege"></a>권한으로 함수 구성 
+
+애플리케이션 설정에 저장된 연결 문자열 및 기타 자격 증명은 함수 앱의 모든 함수에 연결된 리소스에 대한 동일한 권한 집합을 제공합니다. 이러한 자격 증명을 사용하지 않는 함수를 별도의 함수 앱으로 이동하여 특정 자격 증명에 액세스할 수 있는 함수의 수를 최소화하는 것이 좋습니다. 항상 [함수 체이닝](/learn/modules/chain-azure-functions-data-using-bindings/)과 같은 기술을 사용하여 다른 함수 앱에 있는 함수 사이에서 데이터를 전달할 수 있습니다.  
 
 ## <a name="scalability-best-practices"></a>확장성 모범 사례
 

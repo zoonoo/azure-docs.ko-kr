@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/06/2021
+ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120090"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427664"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -30,7 +30,23 @@ ms.locfileid: "98120090"
 * 버그 수정
 * 사용되지 않는 기능
 
-##  <a name="december-2020"></a>2020년 12월
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="video-indexer-is-deployed-on-us-government-cloud"></a>Video Indexer 미국 정부 클라우드에 배포 됨 
+
+이제 버지니아 및 애리조나 지역에서 미국 정부 클라우드의 Video Indexer 유료 계정을 만들 수 있습니다. Video Indexer 무료 평가판 제품을 언급 된 지역에서 사용할 수 없습니다. 자세한 내용은 Video Indexer 설명서를 참조 하세요. 
+
+### <a name="video-indexer-deployed-in-the-india-central-region"></a>인도 중부 지역에 배포 Video Indexer 
+
+이제 인도 중부 지역에서 Video Indexer 유료 계정을 만들 수 있습니다. 
+
+### <a name="new-dark-mode-for-the-video-indexer-website-experience"></a>Video Indexer 웹 사이트 환경의 새 어둡게 모드
+
+이제는 Video Indexer 웹 사이트 환경을 어둡게 모드로 사용할 수 있습니다. 어둡게 모드를 사용 하도록 설정 하려면 설정 패널을 열고 **어둡게 모드** 옵션을 설정/해제 합니다. 
+
+:::image type="content" source="./media/release-notes/dark-mode.png" alt-text="어두운 모드 설정":::
+
+## <a name="december-2020"></a>2020년 12월
 
 ### <a name="video-indexer-deployed-in-the-switzerland-west-and-switzerland-north"></a>스위스 서부 및 스위스 북부에 배포 Video Indexer
 
