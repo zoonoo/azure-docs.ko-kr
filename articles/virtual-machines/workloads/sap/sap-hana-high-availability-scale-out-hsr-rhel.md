@@ -14,14 +14,14 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 02/01/2021
 ms.author: radeltch
-ms.openlocfilehash: c97975d6920cd0f04a7d2d4e73c00104a2b13235
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6ce169eee4f931d02071a326c65ba94cfe723ae1
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685615"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259036"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux에서 SAP HANA 스케일 아웃 시스템의 고가용성 
 
@@ -91,7 +91,7 @@ ms.locfileid: "98685615"
   * [SAP HANA Scale-Out 및 시스템 복제를 위한 Red Hat Enterprise Linux 솔루션](https://access.redhat.com/solutions/4386601)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 * [Azure NetApp Files 설명서][anf-azure-doc] 
-
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 
 ## <a name="overview"></a>개요
 
@@ -149,7 +149,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 
     b. 왼쪽 창에서 **Virtual Machines** 을 선택 합니다. 가상 컴퓨터 이름 (예: **db1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
-    다. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
+    c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
     d. **네트워킹** 을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 및 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다 `inter` `hsr` .  
     
@@ -157,7 +157,7 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
  
     f. 나머지 가상 머신에 대해 b ~ e 단계를 반복 합니다 (이 예제에서는  **hana-s1-db2**, hana- **db3**, **hana-s2-db1**, **hana-s2** - **db3**).
  
-    g. 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하도록 설정 합니다.  
+    예: 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](../../../virtual-network/create-vm-accelerated-networking-cli.md) 을 사용 하도록 설정 합니다.  
 
 5. `inter`다음 단계를 수행 하 여 및 서브넷에 대 한 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다 `hsr` .  
 
@@ -1172,4 +1172,5 @@ Azure NetApp 볼륨은 별도의 서브넷에 배포 됩니다 ([Azure NetApp Fi
 * [SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 * Azure Vm에서 SAP HANA의 고가용성을 설정 하 고 재해 복구를 계획 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines (vm)의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요.
