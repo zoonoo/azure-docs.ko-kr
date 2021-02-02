@@ -1,45 +1,40 @@
 ---
-title: 관리 id 및 신뢰할 수 있는 저장소
-description: Media Services는 관리 id와 함께 사용 하 여 신뢰할 수 있는 저장소를 사용 하도록 설정할 수 있습니다.
+title: 관리 ID
+description: Media Services은 Azure 관리 되는 Id와 함께 사용할 수 있습니다.
+keywords: ''
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 291508a6beaa687b3a10f55df4591ce601ab51a0
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 71a2b8f0734de80f71dbb2372f8600b464d6c606
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956177"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258442"
 ---
-# <a name="managed-identities-and-trusted-storage-with-media-services"></a>Media services를 사용 하 여 관리 되는 id 및 신뢰할 수 있는 저장소
+# <a name="managed-identities"></a>관리 ID
 
-Media Services는 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 와 함께 사용 하 여 신뢰할 수 있는 저장소를 사용 하도록 설정할 수 있습니다. Media Services 계정을 만드는 경우 저장소 계정과 연결 해야 합니다. Media Services는 시스템 인증을 사용 하 여 해당 저장소 계정에 액세스할 수 있습니다. Media Services Media Services 계정과 저장소 계정이 동일한 구독에 있는지 확인 하 고 연결을 추가 하는 사용자가 Azure Resource Manager RBAC를 사용 하 여 저장소 계정에 액세스 하는지 확인 합니다.
+개발자는 일반적으로 서로 다른 서비스 간의 통신을 보호하기 위해 비밀과 자격 증명을 관리하는 데 어려움을 겪고 있습니다. Azure에서 관리 ID를 사용하면 개발자가 Azure AD에서 Azure 리소스에 대한 ID를 제공하고 이를 사용하여 Azure AD(Azure Active Directory) 토큰을 가져오는 방식으로 자격 증명을 관리할 필요가 없습니다.
 
-## <a name="trusted-storage"></a>신뢰할 수 있는 저장소
-
-그러나 방화벽을 사용 하 여 저장소 계정을 보호 하려면 관리 되는 id 인증을 사용 해야 합니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다.  신뢰할 수 있는 Microsoft 서비스에 대 한 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md#trusted-microsoft-services)을 참조 하세요.
-
-## <a name="media-services-managed-identity-scenarios"></a>Media services 관리 id 시나리오
-
-현재 관리 id를 Media Services와 함께 사용할 수 있는 두 가지 시나리오가 있습니다.
+현재 관리 Id를 Media Services와 함께 사용할 수 있는 두 가지 시나리오가 있습니다.
 
 - Media Services 계정의 관리 id를 사용 하 여 저장소 계정에 액세스 합니다.
 
 - Media Services 계정의 관리 id를 사용 하 여 고객 키에 액세스 하기 위한 Key Vault에 액세스 합니다.
 
-다음 두 섹션에서는 두 시나리오의 차이점을 설명 합니다.
+다음 두 섹션에서는 두 시나리오의 단계를 설명 합니다.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Media Services 계정의 관리 id를 사용 하 여 저장소 계정에 액세스
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-storage-accounts"></a>Media Services 계정의 관리 id를 사용 하 여 저장소 계정에 액세스
 
 1. 관리 id를 사용 하 여 Media Services 계정을 만듭니다.
 1. 소유 하 고 있는 저장소 계정에 대 한 관리 되는 id 사용자 액세스 권한을 부여 합니다.
 1. 그런 다음 관리 되는 id를 사용 하 여 사용자 대신 저장소 계정에 액세스할 수 Media Services.
 
-### <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Media Services 계정의 관리 id를 사용 하 여 고객 키에 액세스 하기 위한 Key Vault 액세스
+## <a name="use-the-managed-identity-of-the-media-services-account-to-access-key-vault-to-access-customer-keys"></a>Media Services 계정의 관리 id를 사용 하 여 고객 키에 액세스 하기 위한 Key Vault 액세스
 
 1. 관리 id를 사용 하 여 Media Services 계정을 만듭니다.
 1. 소유 하 고 있는 Key Vault에 대 한 관리 되는 id 사용자 액세스 권한을 부여 합니다.

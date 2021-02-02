@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 애플리케이션 프록시 앱의 사용자 및 그
 description: 특정 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션에 할당된 모든 사용자 및 그룹을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c9885e42dc81d81dddea6205ed85be8276ffbf94
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 6fc94a7e9c8ed222b7612db691c687b8daa85d9a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861717"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258425"
 ---
 # <a name="display-users-and-groups-assigned-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 할당된 사용자 및 그룹 표시
 

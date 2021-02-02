@@ -3,7 +3,7 @@ title: AD FS에서 Azure Active Directory로 응용 프로그램 인증 이동
 description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e15009dd935d91971ce4212ff44b67a1ca6fa363
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745386"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258391"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
@@ -141,7 +141,7 @@ SaaS 앱을 등록 하는 데 문제가 있는 경우 [Saas 응용 프로그램 
 
 * 사용자 계정 이름
 
-* 메일 주소
+* 전자 메일 주소
 
 * 이름
 
@@ -446,9 +446,9 @@ Azure Portal에서 신뢰할 수 있는 위치에 대 한 제외 옵션을 구�
 그런 다음 [Azure Portal](https://aad.portal.azure.com/) 로 이동 하 여 마이그레이션이 성공 했는지 테스트 합니다. 아래의 지침을 따르세요.
 1. **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램을 선택 하 고 목록에서 앱을 찾습니다.
 
-1. **Manage**  >  **사용자 및** 그룹 관리를 선택 하 여 하나 이상의 사용자 또는 그룹을 앱에 할당 합니다.
+1.   >  **사용자 및** 그룹 관리를 선택 하 여 하나 이상의 사용자 또는 그룹을 앱에 할당 합니다.
 
-1. **Manage**  >  **조건부 액세스** 관리를 선택 합니다. 정책 목록을 검토 하 고 [조건부 액세스 정책을](../conditional-access/overview.md)사용 하 여 응용 프로그램에 대 한 액세스를 차단 하지 않는지 확인 합니다.
+1.   >  **조건부 액세스** 관리를 선택 합니다. 정책 목록을 검토 하 고 [조건부 액세스 정책을](../conditional-access/overview.md)사용 하 여 응용 프로그램에 대 한 액세스를 차단 하지 않는지 확인 합니다.
 
 앱을 구성 하는 방법에 따라 SSO가 제대로 작동 하는지 확인 합니다.
 
@@ -458,7 +458,7 @@ Azure Portal에서 신뢰할 수 있는 위치에 대 한 제외 옵션을 구�
 ‎ |
 | SAML 기반 SSO| **Single sign-on** 아래에 있는 [SAML 설정 테스트](./debug-saml-sso-issues.md) 단추를 사용 합니다.
 ‎ |
-| Password-Based SSO| [Myapps 보안 로그인](../user-help/my-apps-portal-end-user-access.md)확장을 다운로드 하 여 설치 합니다 [-](../user-help/my-apps-portal-end-user-access.md) [in Extension](../user-help/my-apps-portal-end-user-access.md). 이 확장은 SSO 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다.
+| Password-Based SSO| [Myapps 보안 로그인](../user-help/my-apps-portal-end-user-access.md)확장을 다운로드 하 여 설치 합니다 [-](../user-help/my-apps-portal-end-user-access.md) [](../user-help/my-apps-portal-end-user-access.md). 이 확장은 SSO 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다.
 ‎ |
 | 애플리케이션 프록시| 커넥터가 실행 중이 고 응용 프로그램에 할당 되었는지 확인 합니다. 자세한 내용은 [응용 프로그램 프록시 문제 해결 가이드](./application-proxy-troubleshoot.md) 를 참조 하세요.
 ‎ |
