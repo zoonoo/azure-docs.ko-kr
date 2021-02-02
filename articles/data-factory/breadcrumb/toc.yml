@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: Azure 데이터 팩터리
+      tocHref: /azure/machine-learning/
+      topicHref: /azure/data-factory/index

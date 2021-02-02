@@ -1,7 +1,7 @@
 ---
 title: B2C (b2b) Azure Active Directory의 새로운 기능
 description: Azure Active Directory b2b (B2C)에 대 한 새롭고 업데이트 된 설명서입니다.
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,53 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 8805caad990cd472b3199bda27130d8d63be3071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 5e58f54d991cd190aba6eeb851e6cf2aec78e695
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559730"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255172"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: 새로운 기능
 
 Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. 이 문서에서는 지난 3 달 동안 추가 된 새 문서와 중요 한 업데이트가 있는 문서를 나열 합니다. B2C 서비스의 새로운 기능에 대 한 자세한 내용은 [Azure Active Directory의 새로운 기능](../active-directory/fundamentals/whats-new.md)을 참조 하세요.
+
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="new-articles"></a>새 문서
+
+- [Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정](customize-ui.md)
+- [Azure Active Directory B2C 서비스 제한 및 제한 사항](service-limits.md)
+- [다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정](identity-provider-azure-ad-b2c.md)
+- [로컬 계정 id 공급자 설정](identity-provider-local.md)
+- [Azure Active Directory B2C에서 로그인 흐름 설정](add-sign-in-policy.md)
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적](analytics-with-application-insights.md)
+- [TechnicalProfiles](technicalprofiles.md)
+- [Azure Active Directory B2C에서 HTML 템플릿으로 사용자 인터페이스 사용자 지정](customize-ui-with-html.md)
+- [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-operations.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS 추가](identity-provider-adfs.md)
+- [Azure Active Directory B2C에서 SAML 프로토콜을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-saml.md)
+- [자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록](tutorial-register-applications.md)
+- [Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인](identity-provider-amazon.md)
+- [다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정](identity-provider-azure-ad-b2c.md)
+- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정](identity-provider-azure-ad-multi-tenant.md)
+- [Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대 한 로그인을 설정 합니다.](identity-provider-azure-ad-single-tenant.md)
+- [Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인](identity-provider-facebook.md)
+- [Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인](identity-provider-github.md)
+- [Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인](identity-provider-google.md)
+- [Azure Active Directory B2C를 사용 하 여 ID.me 계정으로 등록 및 로그인 설정](identity-provider-id-me.md)
+- [Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인](identity-provider-linkedin.md)
+- [Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인](identity-provider-microsoft-account.md)
+- [Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인](identity-provider-qq.md)
+- [Azure Active Directory B2C를 사용 하 여 Salesforce 계정으로 등록 및 로그인 설정](identity-provider-salesforce.md)
+- [Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인](identity-provider-twitter.md)
+- [Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인](identity-provider-wechat.md)
+- [Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인](identity-provider-weibo.md)
+- [Azure AD B2C 사용자 지정 정책 개요](custom-policy-trust-frameworks.md)
+
 
 ## <a name="december-2020"></a>2020년 12월
 

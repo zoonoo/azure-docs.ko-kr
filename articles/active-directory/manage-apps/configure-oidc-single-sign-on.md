@@ -3,7 +3,7 @@ title: Azure Active Directory 앱에 대 한 OIDC 기반 Single Sign-On (SSO) �
 description: Azure Active Directory 앱에 대 한 OIDC 기반 SSO (Single Sign-On)를 이해 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d1acdc47d5a702faf7d5dbd5f2a4ea6826e97981
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: ffaa55d4aa482e8f0eda93b1b32db6310d17e2a3
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033241"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255252"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>OIDC 기반 Single Sign-On 이해
 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 에서는 응용 프로그램에 대 한 IdP (id 공급자)로 Azure AD를 사용 하는 방법을 알아보았습니다. 이 문서에서는 Openid connect Connect 표준을 사용 하 여 Single Sign-On를 구현 하는 앱에 대해 자세히 설명 합니다. 
@@ -35,7 +35,7 @@ Azure Active Directory에서 OIDC 기반 앱 추가
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
-사용자 및 관리자 동의에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조 하세요.
+사용자 및 관리자 동의에 대한 자세한 내용은 [사용자 및 관리자 동의 이해](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

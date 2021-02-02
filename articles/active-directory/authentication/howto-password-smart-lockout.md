@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a57e77ea572f899bf540714e8ac9968988f028
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741731"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255376"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금과 함께 공격 으로부터 사용자 계정 보호
 
@@ -89,6 +89,8 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [AD FS �
 스마트 잠금 임계값이 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 표시 됩니다.
 
 *무단 사용을 방지 하기 위해 계정이 임시로 잠겨 있습니다. 나중에 다시 시도 하세요. 문제가 계속 되 면 관리자에 게 문의 하세요.*
+
+스마트 잠금을 테스트 하는 경우 Azure AD 인증 서비스의 지리적으로 분산 되 고 부하가 분산 된 특성으로 인해 로그인 요청은 다른 데이터 센터에서 처리 될 수 있습니다. 이 시나리오에서 각 Azure AD 데이터 센터가 독립적으로 잠금을 추적 하기 때문에 잠금을 유발 하는 시도 횟수를 정의 하는 것 보다 더 많은 시간이 걸릴 수 있습니다. 잠금이 발생 하기 전에 사용자가 각 데이터 센터에 도달 하는 경우 사용자에 게 잘못 된 시도 수 (*threshold_limit * datacenter_count*)가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -716,6 +716,10 @@
               href: data-migration-guidance-hdfs-azure-storage.md
             - name: 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
               href: data-migration-guidance-netezza-azure-sqldw.md
+        - name: Azure Machine Learning
+          items:
+            - name: 데이터 수집
+              href: ../machine-learning/how-to-data-ingest-adf.md?toc=/azure/data-factory/toc.json&bc=/azure/data-factory/breadcrumb/toc.json
         - name: 데이터 흐름 매핑을 사용한 변환
           items:
             - name: 고정 너비 텍스트 파일 처리

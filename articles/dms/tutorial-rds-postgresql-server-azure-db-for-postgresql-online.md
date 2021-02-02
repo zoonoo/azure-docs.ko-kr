@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 3bd79dc4935f5dfeb65d80ada544139dc88e129c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 42c425963f0915004c4cd33c45429bf785baa5bc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021438"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255070"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>자습서: DMS를 사용하여 RDS PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -53,11 +53,11 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 * [Azure Database for PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) 또는 [Azure Database for PostgreSQL - 하이퍼스케일(Citus)](../postgresql/quickstart-create-hyperscale-portal.md)의 인스턴스를 만듭니다. pgAdmin을 사용하여 PostgreSQL 서버에 연결하는 방법에 대한 자세한 내용은 문서의 이 [섹션](../postgresql/quickstart-create-server-database-portal.md#connect-to-the-server-with-psql)을 참조하세요.
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
-* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
-* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+* 가상 네트워크 네트워크 보안 그룹 규칙에서 Azure Database Migration Service에 대 한 아웃 바운드 통신 포트 (443, 53, 9354, 445 및 12000)를 차단 하지 않는지 확인 합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules)을 구성합니다.
 * Windows 방화벽을 열고 Azure Database Migration Service가 기본적으로 5432 TCP 포트인 원본 PostgreSQL 서버에 액세스할 수 있도록 허용합니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
+* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for PostgreSQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>AWS RDS PostgreSQL에 복제 설정
 

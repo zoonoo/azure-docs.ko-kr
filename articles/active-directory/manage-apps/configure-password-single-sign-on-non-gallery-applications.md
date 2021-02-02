@@ -3,19 +3,19 @@ title: Azure Active Directory 앱에 대 한 SSO (암호 기반 Single Sign-On) 
 description: Azure Active Directory 앱에 대 한 SSO (암호 기반 Single Sign-On) 이해
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 2bb190ea01098e8e7b21a00f54fc37cd817f3743
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bac04bd70469d7b9c4d9485b6a87fd7133967154
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053282"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255308"
 ---
 # <a name="understand-password-based-single-sign-on"></a>암호 기반 Single Sign-On 이해
 

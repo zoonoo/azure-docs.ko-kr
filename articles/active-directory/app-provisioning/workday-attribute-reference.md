@@ -3,7 +3,7 @@ title: Workday 특성 참조
 description: XPATH 쿼리를 사용 하 여 Workday에서 인출할 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 5892100140c6022763453a4141d87e6a7ba4ed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266567"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99255477"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
 
@@ -117,9 +117,9 @@ ms.locfileid: "91266567"
 
 아래와 같이 연결 URL에서 WWS API v30.0 이상을 사용하는 경우:
 
-:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보 없음":::
+:::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-version-info.png" alt-text="Workday 버전 정보":::
 
-...프로비저닝 작업을 설정하기 전에 **특성 매핑 -> 고급 옵션 -> Workday 특성 목록 편집**에서 표에 나열된 값을 사용하여 **XPATH API** 식을 업데이트하세요. 
+...프로비저닝 작업을 설정하기 전에 **특성 매핑 -> 고급 옵션 -> Workday 특성 목록 편집** 에서 표에 나열된 값을 사용하여 **XPATH API** 식을 업데이트하세요. 
 
 
 추가 XPATH를 구성하려면 섹션 [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)를 참조하세요. 
@@ -243,7 +243,7 @@ Xpath API 식을 만드는 동안 사용할 수 있는 [MICROSOFT .NET xpath 라
 * true
 * not
 * false
-* number
+* 숫자
 * ceiling
 * sum
 * round
