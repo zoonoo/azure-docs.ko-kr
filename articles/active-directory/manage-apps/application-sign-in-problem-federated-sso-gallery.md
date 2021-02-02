@@ -3,7 +3,7 @@ title: SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관
 description: 를 사용 하 여 SAML 기반 페더레이션된 Single Sign-On에 대해 구성한 응용 프로그램에 로그인 할 때 특정 오류에 대 한 지침 Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: feeed07021e31dfee44fa9372927e45b53131d1e
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053400"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254056"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>SAML 기반 Single Sign-On이 구성된 앱에 로그인하는 것과 관련된 문제
 아래의 로그인 문제를 해결 하려면 다음을 수행 하 여 진단 및 해결 단계를 자동화 하는 것이 좋습니다.

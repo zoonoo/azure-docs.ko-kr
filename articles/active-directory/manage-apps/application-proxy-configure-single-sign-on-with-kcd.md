@@ -3,7 +3,7 @@ title: 응용 프로그램 프록시를 사용 하는 Azure Active Directory의 
 description: Azure Active Directory 응용 프로그램 프록시를 사용 하 여 Single Sign-On를 제공 하는 방법을 설명 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: bd657655d6857f1bb0e3c5a2d868169788e4998d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a4fdd8d16854e76cdf20d27a6048694c01de8499
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033530"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253886"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용 하 여 앱에 대 한 Single Sign-On (SSO)에 대 한 Kerberos 제한 위임
 

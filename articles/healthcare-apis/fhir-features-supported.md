@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 0ee32d37ca8e3a32ba603fd84cee81890ddac98b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747528"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252120"
 ---
 # <a name="features"></a>기능
 
@@ -41,8 +41,8 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       | 문제 [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | 아래 참조                                           |
-| 연결 된 검색                 | 아니요        | 예       | 아니요        |                                           |
-| 역방향 연결 된 검색         | 아니요        | 아니요        | 아니요        |                                            |
+| 연결 된 검색                 | 아니요        | 예       | 아니요        |                                                     |
+| 역방향 연결 된 검색         | 아니요        | 예       | 아니요        |                                                     |
 | capabilities                   | 예       | 예       | 예       |                                                     |
 | 일괄 처리                          | 예       | 예       | 예       |                                                     |
 | 트랜잭션                    | 아니요        | 예       | 아니요        |                                                     |
@@ -72,39 +72,39 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 |`:exact`               | 예       | 예       | 예       |         |
 |`:contains`            | 예       | 예       | 예       |         |
 |`:text`                | 예       | 예       | 예       |         |
+|`:[type]` 참조일  | 예       | 예       | 예       |         |
+|`:not`                 | 예       | 예       | 예       |         |
+|`:below` uri         | 예       | 예       | 예       |         |
+|`:above` uri         | 아니요        | 아니요        | 아니요        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 |`:in` 토큰          | 아니요        | 아니요        | 아니요        |         |
 |`:below` 토큰       | 아니요        | 아니요        | 아니요        |         |
 |`:above` 토큰       | 아니요        | 아니요        | 아니요        |         |
 |`:not-in` 토큰      | 아니요        | 아니요        | 아니요        |         |
-|`:[type]` 참조일  | 아니요        | 아니요        | 아니요        |         |
-|`:below` uri         | 예       | 예       | 예       |         |
-|`:not`                 | 아니요        | 아니요        | 아니요        |         |
-|`:above` uri         | 아니요        | 아니요        | 아니요        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | 공통 검색 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------| ----------| ----------| ----------|---------|
 | `_id`                   | 예       | 예       | 예       |         |
 | `_lastUpdated`          | 예       | 예       | 예       |         |
 | `_tag`                  | 예       | 예       | 예       |         |
-| `_profile`              | 부분   | Partial   | Partial   | STU3 에서만 지원 되며, 4 시에는 지원 되지 않습니다. |
+| `_list`                 | 예       | 예       | 예       |         |
+| `_type`                 | 예       | 예       | 예       | 문제 [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | 예       | 예       | 예       |         |
+| `_profile`              | Partial   | Partial   | Partial   | STU3 에서만 지원 되며, 4 시에는 지원 되지 않습니다. |
 | `_text`                 | 아니요        | 아니요        | 아니요        |         |
 | `_content`              | 아니요        | 아니요        | 아니요        |         |
-| `_list`                 | 예       | 예       | 예       |         |
 | `_has`                  | 아니요        | 아니요        | 아니요        |         |
-| `_type`                 | 예       | 예       | 예       |         |
 | `_query`                | 아니요        | 아니요        | 아니요        |         |
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
 
-| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 설명 |
+| 검색 결과 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
+| `_elements`             | 예       | 예       | 예       | 문제 [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
 | `_count`                | 예       | 예       | 예       | `_count` 는 100 자로 제한 됩니다. 100 보다 높게 설정 하면 100만 반환 되 고 번들에 경고가 반환 됩니다. |
 | `_include`              | 예       | 예       | 예       |포함 된 항목은 100 개로 제한 됩니다. PaaS 및 OSS에 포함 Cosmos DB에 포함 되지 않음: 반복 지원.|
-| `_revinclude`           | 예       | 예       | 예       | 포함 된 항목은 100 개로 제한 됩니다. PaaS 및 OSS에 포함 Cosmos DB에 포함 되지 않음: 반복 지원.|
+| `_revinclude`           | 예       | 예       | 예       | 포함 된 항목은 100 개로 제한 됩니다. PaaS 및 OSS에 포함 Cosmos DB에 포함 [되지 않음: 반복 지원](https://github.com/microsoft/fhir-server/issues/1313). 문제 [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
-| `_total`                | Partial   | Partial   | Partial   | _total = non _total = 정확성      |
-| `_elements`             | 예       | 예       | 예       |         |
+| `_total`                | Partial   | Partial   | Partial   | `_total=none` 및 `_total=accurate`      |
+| `_sort`                 | Partial   | Partial   | Partial   |   `_sort=_lastUpdated`가 지원됨       |
 | `_contained`            | 아니요        | 아니요        | 아니요        |         |
 | `containedType`         | 아니요        | 아니요        | 아니요        |         |
 | `_score`                | 아니요        | 아니요        | 아니요        |         |

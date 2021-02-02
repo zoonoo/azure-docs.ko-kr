@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 9b2fc61054c40f52f7e638117109ec556cc63a78
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678460"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254277"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 문제 해결
 
@@ -76,6 +76,7 @@ ms.locfileid: "98678460"
 | 지원되지 않는 SQL Database 데이터 형식   | [지원되지 않는 데이터 형식](sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types)을 참조하세요.        |
 | 저장 프로시저 제한 사항          | 저장 프로시저의 몇 가지 제한을 이해하려면 [저장 프로시저 제한 사항](sql-data-warehouse-develop-stored-procedures.md#limitations) 을 참조하세요. |
 | UDF가 SELECT 문을 지원하지 않음 | 이 문제가 UDF의 현재 제한 사항입니다.  지원되는 구문에 대해서는 [CREATE FUNCTION](/sql/t-sql/statements/create-function-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 을 참조하세요. |
+| 열에 대 한 sp_rename (미리 보기)가 *dbo* 외부의 스키마에서 작동 하지 않음 | 이는 [열에 대 한 Synapse sp_rename (미리 보기)](/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)의 현재 제한 사항입니다.  *Dbo* 스키마의 일부가 아닌 개체의 열은 ctas를 통해 새 테이블로 이름을 바꿀 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,7 +3,7 @@ title: Azure AD 애플리케이션 프록시 커넥터 이해 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시 커넥터에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2d4cec57eb6ac23c191e504c305c2c6d11268ac
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: f57d390ed71cb4e0e76972e02170afde7b13e4ae
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165005"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253462"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 

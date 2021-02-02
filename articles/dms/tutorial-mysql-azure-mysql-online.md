@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 1d3ab2df51e80b44dce6057b02975fe210ebaa24
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060387"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254328"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
@@ -49,7 +49,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [MySQL 커뮤니티 버전](https://dev.mysql.com/downloads/mysql/) 5.6 또는 5.7을 다운로드하여 설치합니다. 온-프레미스 MySQL 버전은 Azure Database for MySQL 버전과 일치해야 합니다. 예를 들어 MySQL 5.6은 Azure Database for MySQL 5.6으로만 마이그레이션할 수 있고, 5.7로는 업그레이드할 수 없습니다. MySQL 8.0으로의 마이그레이션은 지원되지 않습니다. MySQL 8.0으로의 마이그레이션은 지원되지 않습니다.
+* [MySQL 커뮤니티 버전](https://dev.mysql.com/downloads/mysql/) 5.6 또는 5.7을 다운로드하여 설치합니다. 온-프레미스 MySQL 버전은 Azure Database for MySQL 버전과 일치해야 합니다. 예를 들어 MySQL 5.6은 Azure Database for MySQL 5.6으로만 마이그레이션할 수 있고, 5.7로는 업그레이드할 수 없습니다. MySQL 8.0으로의 마이그레이션은 지원되지 않습니다.
 * [Azure Database for MySQL에 인스턴스를 만듭니다](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Azure Portal을 사용하여 데이터베이스를 연결하고 만드는 방법에 대한 자세한 내용은 [MySQL Workbench를 사용하여 데이터 연결 및 쿼리](../mysql/connect-workbench.md) 문서를 참조하세요.  
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 대한 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
@@ -62,8 +62,8 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     >
     > Azure Database Migration Service에는 인터넷 연결이 없으므로 이 구성이 필요합니다.
 
-* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
-* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
+* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 아웃바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* [데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules)을 구성합니다.
 * Azure Database Migration Service가 기본적으로 3306 TCP 포트인 원본 MySQL Server에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 * Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 Azure Database for MySQL에 대한 서버 수준 [방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.

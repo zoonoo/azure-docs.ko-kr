@@ -611,6 +611,8 @@
           items:
             - name: 모니터링 및 튜닝
               href: concepts-hyperscale-monitoring.md
+            - name: 감사 로그
+              href: concepts-hyperscale-audit.md
         - name: 구성 옵션
           href: concepts-hyperscale-configuration-options.md
         - name: 예약된 용량 선불

@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 애플리케이션 프록시 앱을 다른 그룹으�
 description: 현재 커넥터 그룹에 할당된 모든 애플리케이션을 다른 커넥터 그룹으로 이동하는 데 사용되는 Azure AD(Azure Active Directory) 애플리케이션 프록시 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a2215b3de6c6ad1286570dbbf168d93a7ed62b94
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 9a3338c01a6e665706ff7733be8fdc9f904c5a56
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861581"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253643"
 ---
 # <a name="move-all-apps-assigned-to-a-connector-group-to-another-connector-group"></a>커넥터 그룹에 할당된 모든 앱을 다른 커넥터 그룹으로 이동
 

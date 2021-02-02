@@ -1,14 +1,14 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 01/27/2021
+ms.date: 02/01/2021
 ms.topic: sample
-ms.openlocfilehash: 7865a3ea5be374f36de70e62c7bc215fc88d04a5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 17bacecf8fcf7c0f1969a489561a3a3ac976872e
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98915695"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225144"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -28,7 +28,7 @@ ms.locfileid: "98915695"
 | [FedRAMP High](./fedramp-h/index.md) | FedRAMP High를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md) | HIPAA HITRUST를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [IRS 1075](./irs-1075/index.md) | IRS 1075 규정 준수를 위한 가드레일을 제공합니다.|
-| [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
+| [ISO 27001](./iso-27001-2013.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 더 많은 인프라를 제공합니다. |
 | [미디어](./media/index.md) | Media MPAA를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |

@@ -3,7 +3,7 @@ title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리 - Az
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f605b2bb48855d70ea305dcda194b26da71ee9ec
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286214"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252477"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -33,13 +33,13 @@ ms.locfileid: "93286214"
 
 전체 솔루션은 다음 구성 요소로 구성됩니다.
 
-1. **AZURE ad** : `Restrict-Access-To-Tenants: <permitted tenant list>` 헤더가 있는 경우 azure ad는 허용 되는 테 넌 트에 대해서만 보안 토큰을 발급 합니다.
+1. **AZURE ad**: `Restrict-Access-To-Tenants: <permitted tenant list>` 헤더가 있는 경우 azure ad는 허용 되는 테 넌 트에 대해서만 보안 토큰을 발급 합니다.
 
-2. **온-프레미스 프록시 서버 인프라** : 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
+2. **온-프레미스 프록시 서버 인프라**: 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
 
-3. **클라이언트 소프트웨어** : 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 현재 브라우저 기반 Microsoft 365 응용 프로그램은 최신 인증을 사용 하는 Office 클라이언트 (예: OAuth 2.0)와 같이 테 넌 트 제한을 지원 합니다.
+3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 현재 브라우저 기반 Microsoft 365 응용 프로그램은 최신 인증을 사용 하는 Office 클라이언트 (예: OAuth 2.0)와 같이 테 넌 트 제한을 지원 합니다.
 
-4. **최신 인증** : 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하도록 Microsoft 365 cloud services를 구성 해야 합니다. 최신 인증에 대 한 Microsoft 365 지원에 대 한 최신 정보는 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조 하세요.
+4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하도록 Microsoft 365 cloud services를 구성 해야 합니다. 최신 인증에 대 한 Microsoft 365 지원에 대 한 최신 정보는 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조 하세요.
 
 다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테 넌 트 제한에는 Microsoft 365 cloud services가 아닌 Azure AD에 대 한 트래픽에만 TLS 검사가 필요 합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 
@@ -122,8 +122,8 @@ Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보�
 - **상태**
 - **Date**
 - **날짜(UTC)** (UTC는 협정 세계시임)
-- **MFA 인증 방법** (다단계 인증 방법)
-- **MFA 인증 세부 정보** (다단계 인증 세부 정보)
+- **MFA 인증 방법**(다단계 인증 방법)
+- **MFA 인증 세부 정보**(다단계 인증 세부 정보)
 - **MFA 결과**
 - **IP 주소**
 - **클라이언트**

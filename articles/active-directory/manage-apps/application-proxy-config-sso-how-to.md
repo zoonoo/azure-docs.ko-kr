@@ -3,7 +3,7 @@ title: 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱 Sing
 description: 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱 Single Sign-On 이해 합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10b722edbe8d70c92e617c78db3d2fb1d46da3a5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656295"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254107"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법
 

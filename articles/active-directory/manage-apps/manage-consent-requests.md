@@ -3,7 +3,7 @@ title: Azure Active Directory에서 응용 프로그램에 대 한 동의 관리
 description: 사용자 동의가 사용 하지 않도록 설정 되거나 제한 되는 경우 동의 요청을 관리 하는 방법 및 Azure Active Directory 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의에 대 한 요청을 평가 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.openlocfilehash: 4664bdd515c815dbd742c0d4e05f1e5c03978526
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 189a89276d922665dd1ad0fbacc77ba499137048
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649195"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253105"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
 

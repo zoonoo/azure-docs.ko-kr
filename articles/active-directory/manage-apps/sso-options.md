@@ -3,7 +3,7 @@ title: Azure AD의 Single Sign-On 옵션
 description: Azure Active Directory에서 SSO(Single Sign-On)에 사용할 수 있는 옵션에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: f7ec8a913634322be5a1eb854972cfa2a0217381
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2bf84a22a384e6079c2d85c833b34ba37eecaa46
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651926"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252358"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Azure AD의 Single Sign-On 옵션
 

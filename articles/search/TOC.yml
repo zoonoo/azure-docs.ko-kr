@@ -230,7 +230,7 @@
           items:
             - name: Blob 검색
               href: search-blob-storage-integration.md
-            - name: AI를 사용하여 Blob 이해
+            - name: Blob에 대한 AI 보강
               href: search-blob-ai-integration.md
             - name: Blob 인덱서 구성
               href: search-howto-indexing-azure-blob-storage.md

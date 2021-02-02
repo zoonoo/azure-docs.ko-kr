@@ -4,7 +4,7 @@ description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 �
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebef93455414c114fb60df9af8ebc629769a33e6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642064"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254431"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 사용자 지정 홈 페이지 설정
 
@@ -56,14 +56,14 @@ Azure Portal 또는 PowerShell을 사용 하 여 홈 페이지 URL을 설정할 
 Azure AD 포털을 통해 앱의 홈 페이지 URL을 변경 하려면 다음 단계를 수행 합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **Azure Active Directory**를 선택한 다음 **앱 등록**합니다. 등록 된 앱 목록이 표시 됩니다.
+1. **Azure Active Directory** 를 선택한 다음 **앱 등록** 합니다. 등록 된 앱 목록이 표시 됩니다.
 1. 목록에서 앱을 선택 합니다. 등록 된 앱의 세부 정보를 표시 하는 페이지가 표시 됩니다.
-1. **관리**에서 **브랜딩**을 선택 합니다.
+1. **관리** 에서 **브랜딩** 을 선택 합니다.
 1. 새 경로를 사용 하 여 **홈 페이지 URL**  을 업데이트 합니다.
 
    ![홈 페이지 URL 필드를 표시 하는 등록 된 앱에 대 한 브랜딩 페이지](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="change-the-home-page-with-powershell"></a>PowerShell을 사용하여 홈페이지 변경
 
@@ -75,7 +75,7 @@ PowerShell을 사용 하 여 앱의 홈 페이지를 구성 하려면 다음을 
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell 모듈 설치
 
-PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전에 Azure AD PowerShell 모듈을 설치합니다.Graph API 엔드포인트를 사용하는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)에서 패키지를 다운로드할 수 있습니다.
+PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전에 Azure AD PowerShell 모듈을 설치합니다. Graph API 엔드포인트를 사용하는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAD/2.0.2.16)에서 패키지를 다운로드할 수 있습니다.
 
 패키지를 설치하려면 다음 단계를 따르세요.
 
@@ -115,8 +115,8 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
    또는 모든 앱의 목록을 가져오고, 특정 표시 이름 또는 홈 페이지를 사용 하 여 앱 목록을 검색 하 고, 앱이 검색 되 면 앱의 ObjectId를 복사할 수 있습니다.
@@ -169,8 +169,8 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
    ```console
    DisplayName : SharePoint
-   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
-   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+   Homepage    : https://sharepoint-iddemo.msappproxy.net/hybrid/
+   ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
    ```
 
 1. 앱을 다시 시작 하 여 홈 페이지가 예상 대로 첫 번째 화면으로 표시 되는지 확인 합니다.

@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 모든 애플리케이션 프록시 커넥터 그룹 
 description: 사용자 디렉터리의 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 커넥터 그룹 및 커넥터를 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 544bdf1c4f9e000c79241418f5e6adefbc1b6121
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: f689cfd2cb2ba95bae2a2727f5b32279745eafd5
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253292"
 ---
 # <a name="get-all-connector-groups-and-connectors-in-the-directory"></a>디렉터리의 모든 커넥터 그룹 및 커넥터 가져오기
 

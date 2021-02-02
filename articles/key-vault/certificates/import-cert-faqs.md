@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: d7d34b61e584b63c517b6c0f8af4cb4adcc7fefe
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e75786c42b54882c249b5ed7100ebd12f3f78e78
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289511"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99254362"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Azure Key Vault 인증서 가져오기 FAQ
 
 이 문서에서는 Azure Key Vault 인증서 가져오기에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Azure Key Vault에서 인증서를 가져오려면 어떻게 해야 하나요?
 
@@ -62,6 +62,10 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 이 오류는 다음 두 가지 이유로 인해 발생할 수 있습니다.    
 * 인증서 주체 이름은 200 자로 제한 됩니다.
 * 인증서 암호는 200 자로 제한 됩니다.
+
+
+### <a name="error-the-specified-pem-x509-certificate-content-is-in-an-unexpected-format-please-check-if-certificate-is-in-valid-pem-format"></a>"지정한 PEM X. x.509 인증서 콘텐츠가 예기치 않은 형식입니다. 인증서가 유효한 PEM 형식 인지 확인 하세요. "
+PEM 파일의 내용이 UNIX 스타일의 줄 구분 기호를 사용 하는지 확인 하세요. `(\n)`
 
 ### <a name="can-i-import-an-expired-certificate-to-azure-key-vault"></a>Azure Key Vault 만료 된 인증서를 가져올 수 있나요?
     

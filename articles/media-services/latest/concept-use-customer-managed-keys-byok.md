@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2020
+ms.openlocfilehash: 7e58daf72522071eb7d0031d4ea236a21c6d8bfb
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956143"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252324"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Media Services를 사용 하 여 사용자 고유의 키 (고객 관리 키) 가져오기
 
@@ -36,6 +36,12 @@ Media Services는 Media Services 계정의 관리 Id를 사용 하 여 사용자
 
 > [!WARNING]
 > Media Services은 고객 키에 대 한 액세스를 모니터링 합니다. 사용자 키에 액세스할 수 없는 경우 (예: 키가 삭제 되었거나 Key Vault 삭제 되었거나 액세스 권한이 제거 된 경우) Media Services는 계정을 고객 키에 액세스할 수 없는 상태로 전환 합니다 (사실상 계정을 사용 하지 않도록 설정 함). 그러나이 상태에서는 계정을 삭제할 수 있습니다. 유일 하 게 지원 되는 작업은 account GET, LIST 및 DELETE입니다. 다른 모든 요청 (인코딩, 스트리밍 등)은 계정 키에 대 한 액세스가 복원 될 때까지 실패 합니다.
+
+## <a name="double-encryption"></a>이중 암호화
+
+Media Services는 이중 암호화를 지원 합니다.  이중 암호화에 대해 자세히 알아보려면 [Azure 이중 암호화](../../security/fundamentals/double-encryption.md)를 참조 하세요.
+
+Media Services 계정에서 이중 암호화가 자동으로 설정 됩니다. 그러나 저장소 계정에서 별도로 고객 관리 키 및 이중 암호화를 구성 해야 합니다.
 
 ## <a name="tutorials"></a>자습서
 

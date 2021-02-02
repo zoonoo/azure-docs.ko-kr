@@ -3,7 +3,7 @@ title: PowerShell 샘플 - 기본 도메인을 사용하는 애플리케이션 �
 description: 기본 도메인(.msappproxy.net)을 사용 중인 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 애플리케이션을 나열하는 PowerShell 예제입니다.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d332cff5c83b5081a362826e11d8385152fb89dc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: dbcee6e2f1a2b4dc955a141b669851d8367d0d0a
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861598"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253639"
 ---
 # <a name="get-all-application-proxy-apps-using-default-domains-msappproxynet"></a>기본 도메인(.msappproxy.net)을 사용하여 모든 애플리케이션 프록시 앱 가져오기
 

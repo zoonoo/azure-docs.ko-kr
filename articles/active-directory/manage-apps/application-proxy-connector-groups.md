@@ -3,7 +3,7 @@ title: 커넥터 그룹을 통해 별도의 네트워크에 앱 게시-Azure AD
 description: Azure AD 애플리케이션 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be3e99ca57957e1975313fed8609533f4a65b102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca42137192fefbc669fca775b0deff2f5226c5c
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764726"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99253835"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
 
@@ -32,7 +32,7 @@ ms.locfileid: "84764726"
 > [!TIP]
 > 대규모 애플리케이션 프록시 배포가 있는 경우 기본 커넥터 그룹에 애플리케이션을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 커넥터를 그룹화하려면 [여러 커넥터를 설치](application-proxy-add-on-premises-application.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 
@@ -41,19 +41,19 @@ ms.locfileid: "84764726"
 이 단계를 사용하여 원하는 수 만큼 커넥터 그룹을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**  >  **엔터프라이즈 응용**프로그램  >  **응용 프로그램 프록시**를 선택 합니다.
-1. **새 커넥터 그룹**을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
+1. **Azure Active Directory**  >  **엔터프라이즈 응용** 프로그램  >  **응용 프로그램 프록시** 를 선택 합니다.
+1. **새 커넥터 그룹** 을 선택합니다. 새 커넥터 그룹 블레이드가 표시됩니다.
 
    ![새 커넥터 그룹을 선택 하는 화면을 표시 합니다.](./media/application-proxy-connector-groups/new-group.png)
 
 1. 새 커넥터 그룹에 이름을 지정한 다음 드롭다운 메뉴를 사용하여 이 그룹에 속하는 커넥터를 선택합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="assign-applications-to-your-connector-groups"></a>커넥터 그룹에 애플리케이션 할당
 
 애플리케이션 프록시를 사용하여 게시한 각 애플리케이션에 대해 이 단계를 사용합니다. 처음으로 게시할 때 애플리케이션을 커넥터 그룹에 할당하거나 이 단계를 사용하여 언제든지 할당을 변경할 수 있습니다.
 
-1. 디렉터리에 대 한 관리 대시보드에서 **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램을 선택 하 여 커넥터 그룹 > **응용 프로그램 프록시**에 할당 하려는 응용 프로그램 > 합니다.
+1. 디렉터리에 대 한 관리 대시보드에서 **엔터프라이즈 응용 프로그램**  >  **모든 응용** 프로그램을 선택 하 여 커넥터 그룹 > **응용 프로그램 프록시** 에 할당 하려는 응용 프로그램 > 합니다.
 1. **커넥터 그룹** 드롭다운 메뉴를 사용하여 애플리케이션에서 사용할 그룹을 선택합니다.
 1. **저장** 을 선택하여 변경 내용을 적용합니다.
 
