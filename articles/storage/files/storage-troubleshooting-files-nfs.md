@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f684aff58f441fb0642779e54de39dff941e818c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878496"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430665"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Azure NFS 파일 공유 문제 해결
 
@@ -67,7 +67,6 @@ NFS는 다음 구성을 사용 하는 저장소 계정 에서만 사용할 수 �
 
 - 계층-프리미엄
 - 계정 종류-FileStorage
-- 중복성-LRS
 - 지역- [지원 되는 지역 목록](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>해결 방법
@@ -89,7 +88,7 @@ NFS는 다음 구성을 사용 하는 저장소 계정 에서만 사용할 수 �
 SMB와 달리 NFS는 사용자 기반 인증을 사용 하지 않습니다. 공유에 대 한 인증은 네트워크 보안 규칙 구성을 기반으로 합니다. 이로 인해 NFS 공유에 대 한 보안 연결만 설정 되도록 하려면 서비스 끝점이 나 개인 끝점을 사용 해야 합니다. 개인 끝점 외에도 온-프레미스에서 공유에 액세스 하려면 VPN 또는 Express 경로를 설정 해야 합니다. 방화벽에 대 한 저장소 계정의 허용 목록에 추가 된 Ip는 무시 됩니다. NFS 공유에 대 한 액세스를 설정 하려면 다음 방법 중 하나를 사용 해야 합니다.
 
 
-- [서비스 엔드포인트](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
+- [서비스 끝점](storage-files-networking-endpoints.md#restrict-public-endpoint-access)
     - 공용 끝점에서 액세스
     - 동일한 지역 에서만 사용할 수 있습니다.
     - VNet 피어 링은 공유에 대 한 액세스 권한을 부여 하지 않습니다.
@@ -150,6 +149,17 @@ NFS 프로토콜은 포트 2049을 통해 서버와 통신 하 고,이 포트가
 #### <a name="solution"></a>해결 방법
 
 다음 명령을 실행 하 여 클라이언트에서 포트 2049가 열려 있는지 확인 `telnet <storageaccountnamehere>.file.core.windows.net 2049` 합니다. 포트가 열려 있지 않으면 엽니다.
+
+## <a name="ls-list-files-shows-incorrectinconsistent-results"></a>ls (파일 나열)에 잘못 된/일치 하지 않는 결과가 표시 됨
+
+### <a name="cause-inconsistency-between-cached-values-and-server-file-metadata-values-when-the-file-handle-is-open"></a>원인: 파일 핸들이 열려 있는 경우 캐시 된 값과 서버 파일 메타 데이터 값이 일치 하지 않습니다.
+경우에 따라 "파일 나열" 명령은 예상 대로 0이 아닌 크기를 표시 하 고 그 다음에는 크기 0 또는 매우 오래 된 타임 스탬프를 표시 합니다. 파일이 열려 있는 동안 파일 메타 데이터 값의 일관성이 일치 하지 않아 발생 하는 알려진 문제입니다. 다음 해결 방법 중 하나를 사용 하 여이 문제를 해결할 수 있습니다.
+
+#### <a name="workaround-1-for-fetching-file-size-use-wc--c-instead-of-ls--l"></a>해결 방법 1: 파일 크기를 인출 하려면 ls-l 대신 wc.exe-c를 사용 합니다.
+Wc.exe-c를 사용 하면 항상 서버에서 최신 값이 페치 되며 불일치는 발생 하지 않습니다.
+
+#### <a name="workaround-2-use-noac-mount-flag"></a>해결 방법 2: "noac" 탑재 플래그 사용
+탑재 명령과 함께 "noac" 플래그를 사용 하 여 파일 시스템을 다시 탑재 합니다. 그러면 항상 서버에서 모든 메타 데이터 값이 인출 됩니다. 이 해결 방법을 사용 하는 경우 모든 메타 데이터 작업에 대해 약간의 성능 오버 헤드가 발생할 수 있습니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

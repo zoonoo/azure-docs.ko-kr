@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fb3a77291d8b24d5774094533f8c214f1527d771
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063182"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430448"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -51,7 +51,6 @@ Azure Cognitive Search 인덱서를 사용 하는 경우 입력 데이터가 대
 예를 들어 소스 필드를 다른 이름으로 대상 필드에 매핑하는 방법은 다음과 같습니다.
 
 ```JSON
-
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
 Content-Type: application/json
 api-key: [admin key]
@@ -212,7 +211,7 @@ Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제
 | Base64(패딩 있음) | `MDA+MDA/MDA=` | URL 지원 문자 사용 및 패딩 제거 | 표준 base64 문자 사용 및 패딩 추가 |
 | Base64(패딩 없음) | `MDA+MDA/MDA` | URL 지원 문자 사용 | 표준 base64 문자 사용 |
 | URL 지원 Base64(패딩 있음) | `MDA-MDA_MDA=` | 패딩 제거 | 패딩 추가 |
-| URL 지원 Base64(패딩 없음) | `MDA-MDA_MDA` | 없음 | 없음 |
+| URL 지원 Base64(패딩 없음) | `MDA-MDA_MDA` | None | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 

@@ -9,12 +9,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 10ed546e8f05f4a93e4523c7870f79d41aa1f622
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bfb61a5434089fffab9d8ceb9c7b0fbca528cac5
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045995"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430614"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -28,7 +28,7 @@ Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 
 
 대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](../iot-dps/concepts-tpm-attestation.md) 또는 [x.509 인증서](../iot-dps/concepts-x509-attestation.md) 를 사용 하는 장치 증명은 더 안전 하며 보다 엄격한 보안 요구 사항에 사용 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 IoT Hub
 * 실제 또는 가상 장치
@@ -51,18 +51,18 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 장치의 등록 ID를 사용 하 여 DPS에서 개별 등록을 만듭니다.
 
-DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
+DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 > [!TIP]
 > 대칭 키 증명을 사용 하 고 개별 등록와 동일한 결정을 포함 하는 경우에도 그룹 등록 가능 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다.
 
-1. **설정**에서 **등록 관리**를 선택합니다.
+1. **설정** 에서 **등록 관리** 를 선택합니다.
 
-1. 등록을 구성하려면 **개별 등록 추가**를 선택한 다음, 다음 단계를 완료합니다.  
+1. 등록을 구성하려면 **개별 등록 추가** 를 선택한 다음, 다음 단계를 완료합니다.  
 
-   1. **메커니즘**에서 **대칭 키**를 선택 합니다.
+   1. **메커니즘** 에서 **대칭 키** 를 선택 합니다.
 
    1. **키 자동 생성** 확인란을 선택 합니다.
 
@@ -77,11 +77,11 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. 장치 프로 비전 서비스의 할당 정책에서 **허브에 장치를 할당** 하거나이 등록과 관련 된 다른 값을 선택 하는 방법에 대 한 기본값을 적용 합니다.
 
-   1. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
+   1. 디바이스를 연결하려는 링크된 **IoT Hub** 를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
    1. 장치를 처음으로 프로 비전을 요청할 때 **다시 프로 비전 할 때 장치 데이터를 처리 하는 방법을** 선택 합니다.
 
-   1. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예:
+   1. 원하는 경우 **초기 디바이스 쌍 상태** 에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 다음은 그 예입니다. 
 
       ```json
       {
@@ -94,9 +94,9 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
       }
       ```
 
-   1. **항목 사용** 이 **사용**으로 설정 되어 있는지 확인 합니다.
+   1. **항목 사용** 이 **사용** 으로 설정 되어 있는지 확인 합니다.
 
-   1. **저장**을 선택합니다.
+   1. **저장** 을 선택합니다.
 
 이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. IoT Edge 런타임을 설치할 때 사용할 등록의 **기본 키** 값을 복사 하거나, 그룹 등록에 사용할 장치 키를 만들려는 경우에만 해야 합니다.
 
@@ -113,7 +113,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
 Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
-**KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
 **REG_ID** 의 값을 장치의 등록 ID로 바꿉니다.
 
@@ -133,7 +133,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
-**KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
+**KEY** 의 값을 이전에 적어 둔 **기본 키** 로 바꿉니다.
 
 **REG_ID** 의 값을 장치의 등록 ID로 바꿉니다.
 
@@ -193,7 +193,11 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
        method: "symmetric_key"
        registration_id: "<REGISTRATION_ID>"
        symmetric_key: "<SYMMETRIC_KEY>"
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
+
+   필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
 
 1. , 및의 값 `scope_id` 을 `registration_id` `symmetric_key` DPS 및 장치 정보로 업데이트 합니다.
 

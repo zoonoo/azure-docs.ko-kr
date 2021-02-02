@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: 755346c1da38f66c0c0fef6144d34eea62735273
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/02/2021
+ms.openlocfilehash: 91ab6ca1350a1c6964daeae401bf7b08c6b1cd91
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072086"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430767"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Salesforce 서비스 클라우드에서 데이터 복사
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Salesforce 서비스 클라우드에서 데이터를 복사 하는 방법을 설명 합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
@@ -39,7 +40,7 @@ Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 �
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 Salesforce에서 데이터를 복사 하는 경우 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 고 데이터 크기에 따라 REST 및 대량 api 간을 자동으로 선택 합니다. 결과 집합이 클 경우 대량 api를 사용 하 여 성능을 향상 시킬 수 있습니다. Salesforce에 데이터를 쓸 때 커넥터는 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 의 대량 API를 사용 합니다. 또한 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
 
@@ -62,7 +63,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type |Type 속성은 **SalesforceServiceCloud** 로 설정 해야 합니다. |예 |
 | environmentUrl | Salesforce 서비스 클라우드 인스턴스의 URL을 지정 합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
@@ -70,10 +71,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 | password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. <br/><br/>일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. Salesforce의 신뢰할 수 있는 [ip 주소 목록](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) 에 INTEGRATION RUNTIME의 ip를 추가 하는 경우에만 보안 토큰을 건너뛸 수 있습니다. Azure IR를 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](azure-integration-runtime-ip-addresses.md)를 참조 하세요.<br/><br/>보안 토큰을 가져오고 다시 설정 하는 방법에 대 한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조 하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | apiVersion | 사용할 Salesforce REST/Bulk API 버전을 지정 합니다 (예:). `48.0` 기본적으로 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 여 salesforce에서 데이터를 복사 하 고 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 를 사용 하 여 salesforce에 데이터를 복사 합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에 연결된 서비스에 통합 런타임이 없는 경우 원본은 아니요, 싱크는 예입니다. |
-
->[!IMPORTANT]
->Salesforce 서비스 클라우드로 데이터를 복사 하는 경우 기본 Azure Integration Runtime를 사용 하 여 복사를 실행할 수 없습니다. 즉, 원본에 연결 된 서비스에 지정 된 통합 런타임이 없는 경우 Salesforce 서비스 클라우드 인스턴스 근처의 위치를 사용 하 여 Azure Integration Runtime을 명시적으로 [만듭니다](create-azure-integration-runtime.md#create-azure-ir) . 다음 예제와 같이 Salesforce 서비스 클라우드 연결 된 서비스를 연결 합니다.
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 **예: 데이터 팩터리에 자격 증명 저장**
 
@@ -141,7 +139,7 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **SalesforceServiceCloudObject** 로 설정 해야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
@@ -151,7 +149,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 
 ![데이터 팩터리 Salesforce 연결 API 이름](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -170,7 +168,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 }
 ```
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **RelationalTable** 로 설정해야 합니다. | 예 |
 | tableName | Salesforce 서비스 클라우드의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -183,7 +181,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SalesforceServiceCloudSource** 로 설정 해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. Query를 지정 하지 않으면 데이터 집합의 "objectApiName"에 지정 된 Salesforce 서비스 클라우드 개체의 모든 데이터가 검색 됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
@@ -194,7 +192,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사
 
 ![데이터 팩터리 Salesforce 연결 API 이름 목록](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -230,7 +228,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사
 
 Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 작업 **싱크** 섹션에서 다음 속성이 지원 됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은 **SalesforceServiceCloudSink** 로 설정 해야 합니다. | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다.<br/>허용되는 값은 **Insert** 및 **Upsert** 입니다. | 아니요(기본값: 삽입) |
@@ -238,7 +236,7 @@ Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 �
 | writeBatchSize | 각 일괄 처리에서 Salesforce 서비스 클라우드에 기록 된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
 | ignoreNullValues | 쓰기 작업 중에 입력 데이터에서 NULL 값을 무시할지 여부를 나타냅니다.<br/>허용되는 값은 **true** 및 **false** 입니다.<br>- **True**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -298,7 +296,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL �
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>DateTime 열에서 Where 문을 사용하여 데이터를 검색합니다.
 
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들어:
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 다음은 그 예입니다. 
 
 * **SOQL 샘플**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL 샘플**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
@@ -324,7 +322,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 Salesf
 | 다중 선택 선택 목록 |String |
 | Number |Decimal |
 | 백분율 |Decimal |
-| 전화 |String |
+| Phone |String |
 | 선택 목록 |String |
 | 텍스트 |문자열 |
 | 텍스트 영역 |String |

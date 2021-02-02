@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4511ad979312d58e0a1b9cce9b1280e9ca059007
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ad2a27d1e41ba8e589aa98542c4a0cb3d92afbea
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744577"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430868"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Cloud Services에서 Windows Azure 진단 확장을 적용 합니다. (확장 지원) 
 클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. 클라우드 서비스의 역할에 적용 되는 Microsoft. Azure 진단 확장이 있는 경우 해당 역할은 추가 데이터 요소를 수집할 수 있습니다. 자세한 내용은 [확장 개요](extensions.md) 를 참조 하세요.
@@ -24,14 +24,15 @@ ms.locfileid: "98744577"
 
 ```powershell
 # Create WAD extension object
-$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
-$extensionProfile = @{extension = @($rdpExtension, $wadExtension)} 
+$storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "contosostorageaccount"
+$configFile = "<WAD public configuration file path>"
+$wadExtension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS" -StorageAccountName "contosostorageaccount" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true 
 
 # Get existing Cloud Service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
 
 # Add WAD extension to existing Cloud Service extension object
-$cloudService.ExtensionProfileExtension = $cloudService.ExtensionProfileExtension + $wadExtension
+$cloudService.ExtensionProfile.Extension = $cloudService.ExtensionProfile.Extension + $wadExtension
 
 # Update Cloud Service
 $cloudService | Update-AzCloudService

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 15bbab9c8ad83adc9047c812efe697a8ed49d34b
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072734"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430699"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Atea 구성
 
-이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Atea와 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 자동으로 프로 [비전 하 고](https://www.atea.com/) 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요. 
+이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Atea와 Azure Active Directory (Azure AD)에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 자동으로 프로 [비전 하 고](https://www.atea.com/) 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 Azure Active Directory를 [사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제를](../manage-apps/user-provisioning.md)참조 하세요. 
 
 
 ## <a name="capabilities-supported"></a>지원되는 기능
@@ -48,24 +48,24 @@ ms.locfileid: "99072734"
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD로 프로 비전을 지원 하도록 Atea 구성
 
-Azure AD로 프로 비전을 지원 하도록 Atea를 구성 하려면 전자 메일 servicedesk@atea.dk 합니다.
+Azure AD로의 프로 비전을 지원 하도록 Iri 인트라넷을 구성 하려면 [지원 팀](mailto:servicedesk@atea.dk)에 메일을 삭제 하 여 **테 넌 트 URL** 및 **암호 토큰** 을 가져와야 합니다. 이러한 값은 Azure Portal에서 Atea의 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 및 **테 넌 트 URL** 필드에 입력 됩니다.
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Atea 추가
 
-Azure AD 응용 프로그램 갤러리에서 Atea를 추가 하 여 Atea에 프로 비전 관리를 시작 합니다. 이전에 SSO 용 Atea를 설치 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 응용 프로그램 갤러리에서 Atea를 추가 하 여 Atea에 프로 비전 관리를 시작 합니다. 이전에 SSO 용 Atea를 설치 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음에 통합을 테스트할 때 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>4단계. 프로비저닝 범위에 있는 사용자 정의 
 
-Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
+Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 한 할당 또는 사용자 및 그룹의 특성을 기반으로 프로 비전 되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* Atea에 사용자 및 그룹을 할당 하는 경우 **기본 액세스** 이외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
+* Atea에 사용자 및 그룹을 할당 하는 경우 **기본 액세스** 이외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 응용 프로그램에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [응용 프로그램 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) 하 여 다른 역할을 추가할 수 있습니다. 
 
-* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
+* 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 세트로 테스트합니다. 프로비저닝 범위가 할당된 사용자 및 그룹으로 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 범위가 모든 사용자 및 그룹으로 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다. 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-atea"></a>5단계. Atea에 자동 사용자 프로 비전 구성 
 
-이 섹션에서는 Azure AD의 사용자 및/또는 그룹 할당에 따라 TestApp에서 사용자 및/또는 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
+이 섹션에서는 azure AD의 사용자 및 그룹 할당에 따라 Atea에서 사용자 및 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-atea-in-azure-ad"></a>Azure AD에서 Atea에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -97,7 +97,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
         
       ![Atea 테스트 연결](media/atea-provisioning-tutorial/test-connection.png)
 
-8. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
+8. **알림 전자 메일** 필드에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 합니다. 그런 다음 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
@@ -105,7 +105,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 10. **매핑** 섹션에서 **Azure Active Directory 사용자를 Atea에 동기화를** 선택 합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 atea로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 atea의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 ATEA API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 atea로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 atea의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 ATEA API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|필터링에 지원됨|
       |---|---|---|
@@ -125,21 +125,21 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 atea에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 관련 값을 선택 하 여 atea에 프로 비전 하려는 사용자 및 그룹을 정의 합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로 비전 할 준비가 되 면 **저장** 을 클릭 합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. 초기 주기는 Azure AD 프로비저닝 서비스가 실행되는 동안 약 40분마다 발생하는 후속 주기보다 더 많은 시간이 걸립니다. 
+이 작업은 **설정** 의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화 주기를 시작합니다. Azure AD 프로 비전 서비스가 실행 되는 동안 약 40 분 마다 발생 하는 초기 주기는 다음 주기 보다 완료 하는 데 더 오래 걸립니다. 
 
 ## <a name="step-6-monitor-your-deployment"></a>6단계. 배포 모니터링
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
-* [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+* [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
+* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) 에서 프로 비전 주기의 상태와 완료에 대 한 종료 시간을 확인 합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="additional-resources"></a>추가 리소스

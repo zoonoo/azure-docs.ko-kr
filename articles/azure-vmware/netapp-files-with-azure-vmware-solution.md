@@ -3,12 +3,12 @@ title: Azure VMware 솔루션으로 Azure NetApp Files
 description: Azure VMware 솔루션 Vm과 Azure NetApp Files를 사용 하 여 온-프레미스 서버, Azure VMware 솔루션 Vm 및 클라우드 인프라에서 데이터를 마이그레이션하고 동기화 합니다.
 ms.topic: how-to
 ms.date: 01/20/2021
-ms.openlocfilehash: b712b25130a8bed19bd784d2c45c18a55a582be6
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: b4ffea23606e1829fbf713488f08bc5618180072
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062981"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430065"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware 솔루션으로 Azure NetApp Files
 
@@ -37,7 +37,7 @@ Azure NetApp Files은 많은 Azure 지역에서 사용할 수 있으며 지역 �
 
 이 문서에서는 Azure VMware 솔루션 Vm에 대 한 파일 공유로 Azure NetApp Files 볼륨을 설정, 테스트 및 확인 하는 지침을 설명 합니다. 이 시나리오에서는 NFS 프로토콜을 사용 했습니다. Azure NetApp Files와 Azure VMware 솔루션은 동일한 Azure 지역에 생성 됩니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 > [!div class="checklist"]
 > * Azure NetApp Files 사용 하도록 설정 된 Azure 구독
@@ -102,7 +102,10 @@ Azure NetApp Files의 접근성을 Azure VMware 솔루션 VM에 보여주는 하
 - Azure VMware 솔루션의 파일 공유
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure NetApp Files에 대한 리소스 제한](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
-- [Azure NetApp Files 네트워크 계획 지침](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+
+Azure VMware 솔루션 워크 로드와 Azure NetApp Files를 통합 한 후에는 다음에 대 한 자세한 내용을 확인할 수 있습니다.
+
+- [Azure NetApp Files에 대 한 리소스 제한](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)입니다.
+- [Azure NetApp Files 네트워크 계획에 대 한 지침](../azure-netapp-files/azure-netapp-files-network-topologies.md)입니다.
 - [Azure NetApp Files 볼륨의 지역 간 복제](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [Azure NetApp Files에 대한 FAQ](../azure-netapp-files/azure-netapp-files-faqs.md)
+- [Azure NetApp Files에 대 한 faq](../azure-netapp-files/azure-netapp-files-faqs.md)입니다.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: c26529f48d03b8cd038ce4fea8164a305dfc17f3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ade5880a6b06f448df23eb77d81201a521f1d240
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097643"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430048"
 ---
 # <a name="create-a-search-indexer"></a>검색 인덱서 만들기
 
@@ -81,7 +81,7 @@ AI 보강는이 문서의 범위를 벗어났습니다. 자세한 내용은 [AI 
 
 원격 검색 서비스에서 인덱서를 만들 준비가 되 면 Azure Portal 또는 Postman과 같은 도구 형식 또는 인덱서 클라이언트를 인스턴스화하는 코드와 같은 검색 클라이언트가 필요 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 요청에 대 한 [관리 api 키](search-security-api-keys.md) 가 필요 합니다.
 
@@ -155,7 +155,7 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 
 ## <a name="know-your-index"></a>인덱스 파악
 
-인덱서는 인덱싱에 대 한 검색 문서를 검색 엔진에 전달 합니다. 인덱서에 실행 동작을 결정 하는 속성이 있는 것 처럼 인덱스 스키마에는 문자열의 인덱싱 방법에 이보다 효과를 주는 속성이 있습니다 (문자열만 분석 및 토큰화 됨). 분석기 할당에 따라 인덱싱된 문자열이 전달 된 문자열과 다를 수 있습니다. [분석 텍스트 (REST)](/rest/api/searchservice/test-analyzer)를 사용 하 여 분석기의 효과를 평가할 수 있습니다. 분석기에 대 한 자세한 내용은 [텍스트 처리 분석기](search-analyzers.md)를 참조 하세요.
+인덱서는 인덱싱에 대 한 검색 문서를 검색 엔진에 전달 합니다. 인덱서는 실행 동작을 결정 하는 속성을가지고 있는 것 처럼 인덱스 스키마에는 문자열의 인덱싱 방법에 영향을 이보다 하는 속성이 있습니다 (문자열만 분석 및 토큰화 됨). 분석기 할당에 따라 인덱싱된 문자열이 전달 된 문자열과 다를 수 있습니다. [분석 텍스트 (REST)](/rest/api/searchservice/test-analyzer)를 사용 하 여 분석기의 효과를 평가할 수 있습니다. 분석기에 대 한 자세한 내용은 [텍스트 처리 분석기](search-analyzers.md)를 참조 하세요.
 
 인덱서는 인덱스와 상호 작용 하는 방식에 따라 필드 이름과 형식만 검사 합니다. 인덱스의 해당 검색 필드에 대해 들어오는 내용이 올바른지 확인 하는 유효성 검사 단계가 없습니다. 확인 단계로 전체 문서 또는 선택한 필드를 반환 하는 채워진 인덱스에 대해 쿼리를 실행할 수 있습니다. 인덱스의 내용을 쿼리 하는 방법에 대 한 자세한 내용은 [기본 쿼리 만들기](search-query-create.md)를 참조 하세요.
 

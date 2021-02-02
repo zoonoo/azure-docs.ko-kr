@@ -4,12 +4,12 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e390458884a2cdad0ba422c09165c825eb76d28
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: d6a8276de9674266415604e8654034f129da8f50
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223326"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430950"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Azure Disk Backup 지원 매트릭스 (미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "99223326"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Disk Backup은 미국 서 부, 미국 서 부, 미국 동부 미국, 대한민국 중부, 대한민국 남부, 일본 서 부, 동아시아, 아랍에미리트 북부, 브라질 남부, 인도 중부와 같은 지역에서 미리 보기로 제공 됩니다. 
+Azure Disk Backup은 미국 서 부, 미국 서 부, 미국 미국, 캐나다 중부, 영국 서부, 오스트레일리아 중부, 대한민국 중부, 한국 남부, 일본 서 부, 동아시아, 아랍에미리트 북부, 브라질 남부, 인도 중부와 같은 지역에서 미리 보기로 제공 됩니다. 
 
 사용할 수 있게 되 면 더 많은 지역이 발표 됩니다.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: ceeaad64734099f8669590d39f1629b9f4173e19
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097151"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430465"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -47,6 +47,8 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 + [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 + [Azure Virtual Machines의 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+클라이언트 앱에 대 한 Azure 가상 네트워크를 사용 하는 경우 표준 인터넷 연결 (공용) 또는 암호화 된 개인 연결을 사용 하 여 원격 데이터 원본에 대 한 인덱서 연결을 만들 수 있습니다. 또한 신뢰할 수 있는 서비스 id를 사용 하 여 인증 하도록 연결을 설정할 수 있습니다. 보안 연결에 대 한 자세한 내용은 [개인 끝점을 통해 액세스 권한을 부여](search-indexer-securing-resources.md#granting-access-via-private-endpoints) 하 고 [관리 되는 id를 사용 하 여 데이터 원본에 연결](search-howto-managed-identities-data-sources.md)을 참조 하세요.
 
 ## <a name="stages-of-indexing"></a>인덱싱 단계
 

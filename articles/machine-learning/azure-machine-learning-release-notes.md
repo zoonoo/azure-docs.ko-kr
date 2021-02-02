@@ -9,17 +9,32 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788878"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99431000"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
 
+ ## <a name="2021-01-31"></a>2021-01-31
+### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Azure Machine Learning Studio 노트북 환경 (1 월 업데이트)
++ **새로운 기능**
+  + AzureML의 기본 Markdown 편집기입니다. 이제 사용자는 AzureML Studio에서 markdown 파일을 기본적으로 렌더링 하 고 편집할 수 있습니다.
+  + [스크립트에 대 한 실행 단추 (. py,. R 및 sh)](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#run-a-notebook-or-python-script). 이제 사용자가 AzureML에서 Python, R 및 Bash 스크립트를 쉽게 실행할 수 있습니다.
+  + [변수 탐색기](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#explore-variables-in-the-notebook). 팝업 패널에서 변수 및 데이터 프레임의 내용을 탐색 합니다. 사용자는 데이터 형식, 크기 및 내용을 쉽게 확인할 수 있습니다.
+  + [콘텐츠 테이블](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#navigate-with-a-toc)입니다. Markdown 헤더로 표시 된 노트북 섹션으로 이동 합니다.
+  + Latex/HTML/Py로 노트북을 내보냅니다. LaTex, HTML 또는 py로 내보내서 쉽게 공유할 수 있는 전자 필기장 파일 만들기
+  + Intellicode. ML 구동 결과는 향상 된 [지능형 자동 완성 환경을](https://docs.microsoft.com/visualstudio/intellicode/overview)제공 합니다.
+
++ **버그 수정 및 향상 된 기능**
+  + 페이지 로드 시간 향상
+  + 성능 향상 
+  + 향상 된 속도 및 커널 안정성
+  
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Azure Machine Learning SDK for Python v 1.21.0
@@ -98,7 +113,7 @@ ms.locfileid: "98788878"
     + New dnn-nlp package의 초기 PR
   + **azureml-자동 dnn-비전**
     + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
-  + **azureml-자동 ml-파이프라인-단계**
+  + **azureml-contrib-automl-pipeline-steps**
     + 이 새 패키지는 여러 모델 학습/유추 시나리오에 필요한 단계를 만드는 작업을 담당 합니다. 또한 큐 레이트 환경 릴리스를 통해 향후 수정 사항을 자동으로 사용할 수 있도록 학습/유추 코드를 azureml. 패키지로 이동 합니다.
   + **azureml-contrib-dataset**
     + "이미지-인스턴스-분할"의 새로운 AutoML 작업 유형을 소개 합니다.
@@ -178,7 +193,7 @@ ms.locfileid: "98788878"
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
+      [자세한 정보](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.

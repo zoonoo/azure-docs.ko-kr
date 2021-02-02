@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/01/2021
+ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760623"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430800"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
 
@@ -168,6 +168,8 @@ Azure Portal에서 새 논리 앱 유형을 만들거나 Visual Studio Code에�
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>변경 됨, 제한 됨, 사용할 수 없음 또는 지원 되지 않는 기능
 
 Azure Logic Apps 미리 보기에서는 이러한 기능이 변경 되었거나 현재 제한 되었거나 사용할 수 없거나 지원 되지 않습니다.
+
+* **OS 지원**: 현재 Visual Studio Code의 디자이너는 linux OS에서 작동 하지 않지만 Logic Apps Preview runtime을 사용 하는 논리 앱을 linux 기반 가상 머신에 계속 배포할 수 있습니다. 지금은 Windows 또는 macOS에서 Visual Studio Code 하 여 논리 앱을 빌드한 다음 Linux 기반 가상 머신에 배포할 수 있습니다.
 
 * **트리거 및 동작**: 슬라이딩 윈도우 및 일괄 처리와 같은 일부 기본 제공 트리거를 사용할 수 없습니다. 워크플로를 시작 하려면 [기본 제공 되는 되풀이, 요청, http, Http Webhook, Event Hubs 또는 Service Bus 트리거](../connectors/apis-list.md)를 사용 합니다. 기본 제공 트리거 및 작업은 Azure Logic Apps 미리 보기 런타임에 기본적으로 실행 되 고, 관리 되는 커넥터는 Azure에 배포 됩니다. 디자이너에서 기본 제공 트리거 및 작업은 **기본 제공** 탭 아래에 표시 되 고, 관리 되는 커넥터 트리거 및 작업은 **Azure** 탭 아래에 나타납니다.
 

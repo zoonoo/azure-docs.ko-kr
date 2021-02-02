@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 1bf6eebcfc43452dd9a62e4a49f9aacbcd517ffc
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 76b33d0c09df87196b8fc1f3cbbb0fd06bd30ce1
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352238"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430648"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서와 Url에 대 한 형식 지침
 
@@ -32,6 +32,9 @@ QnA Maker는 다음과 같은 시각적 단서를 기준으로 파일의 섹션�
 * 글꼴 스타일
 * 매기기
 * 색
+
+> [!NOTE]
+> 현재 업로드 된 문서에서 이미지 추출을 지원 하지 않습니다.
 
 ## <a name="product-manuals"></a>제품 설명서
 

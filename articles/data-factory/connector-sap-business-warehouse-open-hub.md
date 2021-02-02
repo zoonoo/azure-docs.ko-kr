@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 930c7e7881a00cd0cb1f4abc6b219c0fbdeebac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2020
+ms.openlocfilehash: ca8fad59e581ef3f5a3ebf585356564d539f0bbd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533413"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430733"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 Open Hub를 통해 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
@@ -38,8 +39,8 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 이 SAP Business Warehouse 커넥터는 구체적으로 다음 작업을 지원합니다.
 
-- SAP Business Warehouse **버전 7.01 이상 (2015 년 이후 출시 된 최근 Sap 지원 패키지 스택)** 이 커넥터는 SAP BW4/HANA를 지원 하지 않습니다.
-- Open Hub 대상 로컬 테이블(DSO, InfoCube, MultiProvider, DataSource 아래에 있을 수 있음)을 통해 데이터 복사
+- SAP Business Warehouse **버전 7.01 이상 (2015 년 이후 출시 된 최근 Sap 지원 패키지 스택)** 이 커넥터는 SAP BW/4HANA를 지원 하지 않습니다.
+- 열려 있는 허브 대상 로컬 테이블을 통해 데이터를 복사 하는 것은 DSO, InfoCube, MultiProvider, DataSource 등이 될 수 있습니다.
 - 기본 인증을 사용하여 데이터를 복사합니다.
 - SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
 - RFC를 통해 데이터를 검색 합니다.
@@ -69,7 +70,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 첫 번째 단계에서는 DTP이 실행 됩니다. 각 실행은 새 SAP 요청 ID를 만듭니다. 요청 ID는 열린 허브 테이블에 저장 되며 ADF 커넥터에서 델타를 식별 하는 데 사용 됩니다. 두 단계가 비동기적으로 실행 됩니다. DTP는 SAP에서 트리거되고 adf 데이터 복사본은 ADF를 통해 트리거됩니다. 
 
-기본적으로 ADF는 열려 있는 허브 테이블에서 최신 델타를 읽지 않습니다 ("마지막 요청 제외" 옵션은 true 임). ADF의 데이터는 열려 있는 허브 테이블의 데이터를 사용 하 여 100% 최신 상태가 아닙니다 (마지막 델타가 누락 됨). 반환 시이 프로시저는 비동기 추출으로 인 한 행이 손실 되지 않도록 합니다. 이 기능은 ADF가 여전히 동일한 테이블에 기록 하는 동안 열려 있는 허브 테이블을 읽는 경우에도 제대로 작동 합니다. 
+기본적으로 ADF는 열려 있는 허브 테이블에서 최신 델타를 읽지 않습니다 ("마지막 요청 제외" 옵션은 true 임). 즉, ADF의 데이터는 열려 있는 허브 테이블의 데이터를 사용 하 여 100% (마지막 델타가 누락 됨)로 설정 되어 있지 않습니다. 반환 시이 프로시저는 비동기 추출으로 인 한 행이 손실 되지 않도록 합니다. 이 기능은 ADF가 여전히 동일한 테이블에 기록 하는 동안 열려 있는 허브 테이블을 읽는 경우에도 제대로 작동 합니다. 
 
 일반적으로 최대 복사 된 요청 ID는 ADF가 준비 데이터 저장소에서 마지막으로 실행 한 후 (예: 위 다이어그램의 Azure Blob) 저장 됩니다. 따라서 동일한 요청은 나중에 실행 될 때 ADF에 의해 두 번째로 읽지 않습니다. 한편, 데이터는 열려 있는 허브 테이블에서 자동으로 삭제 되지 않습니다.
 
@@ -90,7 +91,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
     - RFC 및 SAP BW에 대해 부여된 권한 
     - 권한 부여 개체 "S_SDSAUTH"의 "실행" 작업에 대한 권한
 
-- "기술 키" 옵션을 선택하여 SAP Open Hub 대상 유형을 **데이터베이스 테이블**로 만듭니다.  테이블에서 데이터 삭제는 선택을 취소한 상태로 유지하는 것이 좋습니다(반드시 선택 취소해야 하는 것은 아님). DTP(직접 실행 또는 기존 프로세스 체인에 통합)를 활용해 큐브 등의 선택한 원본 개체에서 Open Hub 대상 테이블로 데이터를 전송합니다.
+- "기술 키" 옵션을 선택하여 SAP Open Hub 대상 유형을 **데이터베이스 테이블** 로 만듭니다.  테이블에서 데이터 삭제는 선택을 취소한 상태로 유지하는 것이 좋습니다(반드시 선택 취소해야 하는 것은 아님). DTP (기존 프로세스 체인에 직접 실행 또는 통합)을 사용 하 여 선택한 원본 개체 (예: 큐브)에서 열린 허브 대상 테이블로 데이터를 가져올 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -106,7 +107,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | 예 |
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
@@ -116,7 +117,7 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | systemId | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
 | logonGroup | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
-| 언어 | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
+| language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
 | userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
 | password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
@@ -150,11 +151,11 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP BW 열려 있는 허브 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
+| type | 이 속성은 **SapOpenHubTable** 로 설정해야 합니다.  | 예 |
 | openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | 예 |
 
 데이터 집합에서 및를 설정 하는 경우 계속 해 서 `excludeLastRequest` `baseRequestId` 는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
@@ -186,18 +187,18 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | 예 |
-| excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | 아니요 (기본값은 **true**임) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
+| type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource** 로 설정 해야 합니다. | 예 |
+| excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | 아니요 (기본값은 **true** 임) |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값 **보다 큰** 데이터만 검색됩니다.  | 아니요 |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
 
 데이터 로드 속도를 높이기 위해 복사 작업에서를 설정 하 여 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) SAP BW 열려 있는 허브에서 데이터를 병렬로 로드할 수 있습니다. 예를 들어를 4로 설정 하는 경우 `parallelCopies` Data Factory는 네 개의 rfc 호출을 동시에 실행 하 고 각 RFC 호출은 DTP 요청 id 및 패키지 id로 분할 된 SAP BW 열린 허브 테이블에서 데이터의 일부를 검색 합니다. 고유 DTP 요청 ID + 패키지 ID 수가의 값 보다 큰 경우에 적용 됩니다 `parallelCopies` . 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[

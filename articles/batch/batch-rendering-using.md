@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: e4f33f0974462197382ea6ac5d2b68d61909f73b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bf4d0ed2173d048d968f60dea72a1a0c25ab05
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079252"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429788"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch 렌더링 사용
 
@@ -51,15 +51,6 @@ Batch Explorer에 다양한 템플릿을 사용하면 풀, 작업, 태스크를 
 ### <a name="file-system-and-data-movement"></a>파일 시스템 및 데이터 이동
 
 Batch Explorer의 '데이터' 섹션을 통해 로컬 파일 시스템과 Azure Storage 계정 간에 파일을 복사할 수 있습니다.
-
-## <a name="client-application-plug-ins"></a>클라이언트 애플리케이션 플러그 인
-
-일부 클라이언트 애플리케이션에는 플러그 인을 사용할 수 있습니다.  플러그 인을 사용하면 풀 및 작업을 애플리케이션에서 직접 만들거나 Batch Explorer를 호출할 수 있습니다.
-
-* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
-* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-* [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
 ## <a name="next-steps"></a>다음 단계
 

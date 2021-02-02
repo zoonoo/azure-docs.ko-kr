@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/12/2020
-ms.openlocfilehash: 3874d3b2b0938b6fd0f763b42ef15f8250b42f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 9578b87e16f418a7923cd71aa0638fa4e9279cfd
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529622"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430885"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP Cloud for Customer(C4C) 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
@@ -54,10 +55,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 | url | SAP C4C OData 서비스의 URL입니다. | 예 |
 | 사용자 이름 | SAP C4C에 연결할 사용자 이름을 지정합니다. | 예 |
 | password | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
-
->[!IMPORTANT]
->SAP Cloud for Customer로 데이터를 복사하려면 다음 예제와 같이 SAP Cloud for Customer 근처 위치를 사용하여 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir) 연결된 서비스에서 연결합니다.
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 **예:**
 
@@ -86,7 +84,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP Cloud for Customer 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -118,7 +116,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
 
 ### <a name="sap-c4c-as-source"></a>SAP C4C를 원본으로 설정
 
-SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -162,13 +160,13 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 
 ### <a name="sap-c4c-as-sink"></a>SAP C4C를 싱크로 설정
 
-SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
+SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSink**  | 예 |
-| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |
-| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아니요. 기본값은 10입니다. |
+| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |
+| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아니요. 기본값은 10입니다. |
 
 **예:**
 
@@ -215,14 +213,14 @@ SAP Cloud for Customer에서 데이터를 복사하는 경우 SAP Cloud for Cust
 
 | SAP C4C OData 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

@@ -3,14 +3,14 @@ title: 렌더링 기능
 description: 표준 Azure Batch 기능은 렌더링 워크로드 및 앱을 실행하는 데 사용됩니다. Batch에는 렌더링 워크로드를 지원하는 특정 기능이 포함됩니다.
 author: mscurrell
 ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 02/01/2021
 ms.topic: how-to
-ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234276"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429805"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -32,7 +32,7 @@ ms.locfileid: "98234276"
 
 미리 설치된 애플리케이션만 사용해야 하는 경우 풀 구성에서 Azure Marketplace 렌더링 VM 이미지를 지정할 수 있습니다.
 
-Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 'batch rendering'(일괄 렌더링)를 검색하여 VM 이미지를 찾을 수 있습니다.
+Windows 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 'batch rendering'(일괄 렌더링)를 검색하여 VM 이미지를 찾을 수 있습니다.
 
 풀 구성 예제는 [Azure CLI 렌더링 자습서](./tutorial-rendering-cli.md)를 참조하세요.  Azure Portal 및 Batch Explorer는 풀을 만들 때 렌더링 VM 이미지를 선택하기 위한 GUI 도구를 제공합니다.  Batch API를 사용하는 경우 풀을 만들 때 [ImageReference](/rest/api/batchservice/pool/add#imagereference)에 대한 다음 속성 값을 지정합니다.
 
@@ -70,13 +70,10 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 
 |애플리케이션|애플리케이션 실행 파일|환경 변수|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Chaos Group V-Ray 독립 실행형|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 명령줄|kick.exe|ARNOLD_2017_EXEC|
-|Arnold 2018 명령줄|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Chaos Group V-Ray 독립 실행형|vray.exe|VRAY_4 VRAY_4.10.03_EXEC|
+|Arnold 2020 명령줄|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## <a name="azure-vm-families"></a>Azure VM 제품군

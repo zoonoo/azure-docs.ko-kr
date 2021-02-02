@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 385a67e117bf0cf9508b81d014e3accac4725744
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ee51b31246760e4619eef1e16e800b16ea886de0
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914912"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430716"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
 
@@ -29,7 +29,7 @@ ms.locfileid: "97914912"
 
 X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. 일반적으로 x.509 인증서는 신뢰의 인증서 체인에 정렬 됩니다. 자체 서명 되거나 신뢰할 수 있는 루트 인증서로 시작 하는 체인의 각 인증서는 다음으로 낮은 인증서에 서명 합니다. 이 패턴은 루트 인증서에서 각 중간 인증서를 통해 장치에 설치 된 최종 "리프" 인증서로 위임 된 신뢰 체인을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 IoT Hub
 * IoT Edge 장치에 대 한 실제 또는 가상 장치입니다.
@@ -104,7 +104,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다. 
 
       ```json
       {
@@ -189,7 +189,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
    * **이 장치를 할당할 수 있는 iot Hub 선택**: 장치를 연결 하려는 연결 된 iot hub를 선택 합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다.
 
-   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+   * **초기 장치 쌍 상태**: 원하는 경우 장치 쌍에 추가할 태그 값을 추가 합니다. 태그를 사용 하 여 자동 배포를 위한 장치 그룹을 대상으로 지정할 수 있습니다. 다음은 그 예입니다. 
 
       ```json
       {
@@ -248,11 +248,15 @@ X.509를 DPS로 프로 비전 하는 것은 IoT Edge 버전 1.0.9 이상 에서�
    #   registration_id: "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
        identity_cert: "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
        identity_pk: "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   #  always_reprovision_on_startup: true
+   #  dynamic_reprovisioning: false
    ```
+
+   필요에 따라 `always_reprovision_on_startup` 또는 줄을 사용 `dynamic_reprovisioning` 하 여 장치의 다시 프로 비전 동작을 구성 합니다. 시작 시 장치가 다시 구축로 설정 되 면 항상 DPS를 먼저 프로 비전 한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치가 동적으로 다시 구축 설정 된 경우에는 다시 프로 비전 이벤트가 감지 되 면 IoT Edge 다시 시작 되 고 다시 구축 됩니다. 자세한 내용은 [IoT Hub device 다시 프로 비전 개념](../iot-dps/concepts-device-reprovision.md)을 참조 하세요.
 
 1. , 및의 값 `scope_id` 을 `identity_cert` `identity_pk` DPS 및 장치 정보로 업데이트 합니다.
 
-   X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 예를 들면 다음과 같습니다.
+   X.509 인증서 및 키 정보를 config.xml 파일에 추가 하는 경우 경로를 파일 Uri로 제공 해야 합니다. 다음은 그 예입니다. 
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`

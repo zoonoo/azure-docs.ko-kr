@@ -2,19 +2,20 @@
 title: 휴지 상태의 Azure Event Hubs 데이터를 암호화 하기 위한 고유한 키 구성
 description: 이 문서에서는 Azure Event Hubs 데이터 rest를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/01/2021
+ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933791"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430682"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs 서비스는 Azure Storage를 사용 하 여 데이터를 저장 합니다. Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 사용자 고유의 키 (BYOK 또는 고객이 관리 Bring Your Own Key 하는 키 라고도 함)를 사용 하는 경우 데이터는 Microsoft 관리 키를 사용 하 여 계속 암호화 되지만 Microsoft 관리 키는 고객 관리 키를 사용 하 여 암호화 됩니다. 이 기능을 사용 하면 Microsoft에서 관리 하는 키를 암호화 하는 데 사용 되는 고객 관리 키에 대 한 액세스를 만들고, 회전, 사용 하지 않도록 설정 및 취소할 수 있습니다. BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에서 한 번만 설정 하면 됩니다.
 
 > [!NOTE]
-> BYOK 기능은 [Event Hubs 전용 단일 테 넌 트](event-hubs-dedicated-overview.md) 클러스터에서 지원 됩니다. 표준 Event Hubs 네임 스페이스에 대해 사용 하도록 설정할 수 없습니다.
+> - BYOK 기능은 [Event Hubs 전용 단일 테 넌 트](event-hubs-dedicated-overview.md) 클러스터에서 지원 됩니다. 표준 Event Hubs 네임 스페이스에 대해 사용 하도록 설정할 수 없습니다.
+> - 암호화는 새 네임 스페이스 또는 빈 네임 스페이스에 대해서만 사용할 수 있습니다. 네임 스페이스에 event hubs가 포함 되어 있으면 암호화 작업이 실패 합니다.
 
 Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
@@ -89,7 +90,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 작업
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| 이름 | Description |
+| 속성 | Description |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |

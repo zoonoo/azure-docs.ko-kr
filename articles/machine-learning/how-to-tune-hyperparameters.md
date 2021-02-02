@@ -2,24 +2,23 @@
 title: 모델을 튜닝 하는 하이퍼 매개 변수
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 심층 학습 및 기계 학습 모델에 대 한 하이퍼 매개 변수 튜닝을 자동화 합니다.
-ms.author: swatig
-author: swatig007
+ms.author: anumamah
+author: Aniththa
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/30/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e9f9f73a8e0dbc851efdba07bf1e103f58ae9e75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133864"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430366"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델을 튜닝 하는 하이퍼 매개 변수
-
 
 Azure Machine Learning [하이퍼 매개 변수 패키지](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py)를 사용 하 여 효율적인 하이퍼 매개 변수 튜닝을 자동화 합니다. [AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)를 사용 하 여 하이퍼 매개 변수를 조정 하는 데 필요한 단계를 완료 하는 방법을 알아봅니다.
 
@@ -382,6 +381,30 @@ hd_config = HyperDriveConfig(run_config=src,
 
 ## <a name="visualize-hyperparameter-tuning-runs"></a>하이퍼 매개 변수 튜닝 실행 시각화
 
+Azure Machine Learning studio에서 하이퍼 매개 변수 튜닝 실행을 시각화 하거나, 노트북 위젯을 사용할 수 있습니다.
+
+### <a name="studio"></a>스튜디오
+
+[Azure Machine Learning studio](https://ml.azure.com)에서 하이퍼 매개 변수 튜닝 실행을 모두 시각화할 수 있습니다. 포털에서 실험을 보는 방법에 대 한 자세한 내용은 [studio에서 실행 레코드 보기](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)를 참조 하세요.
+
+- **메트릭 차트**:이 시각화는 하이퍼 매개 변수를 튜닝 하는 동안 실행 되는 각 하이퍼 드라이브 자식에 대해 기록 된 메트릭을 추적 합니다. 각 줄은 자식 실행을 나타내며 각 지점은 런타임의 해당 반복에서 기본 메트릭 값을 측정 합니다.  
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-metrics.png" alt-text="Hyperparameter 변수 튜닝 메트릭 차트":::
+
+- **병렬 좌표 차트**:이 시각화는 기본 메트릭 성능과 개별 하이퍼 매개 변수 값 간의 상관 관계를 보여 줍니다. 차트는 축의 움직임을 통해 대화형으로 진행 됩니다 (축 레이블로 클릭 하 여 끌기). 단일 축에서 값을 강조 표시 합니다 (단일 축을 따라 세로 방향으로 클릭 하 여 원하는 값의 범위 강조 표시).
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png" alt-text="Hyperparameter 튜닝 병렬 좌표 차트":::
+
+- **2 차원 분산형 차트**:이 시각화는 두 개의 개별 하이퍼 매개 변수와 연결 된 기본 메트릭 값 간의 상관 관계를 보여 줍니다.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-2-dimensional-scatter.png" alt-text="Hyparameter 튜닝 2 차원 분산형 차트":::
+
+- **3 차원 분산형 차트**:이 시각화는 2d와 동일 하지만 기본 메트릭 값과 상관 관계의 세 가지 하이퍼 매개 변수 차원을 허용 합니다. 를 클릭 하 고 끌어서 차트의 방향을 하 여 3D 공간에서 다른 상관 관계를 볼 수도 있습니다.
+
+    :::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-3-dimensional-scatter.png" alt-text="Hyparameter 튜닝 3 차원 분산형 차트":::
+
+### <a name="notebook-widget"></a>Notebook 위젯
+
 [노트북 위젯을](/python/api/azureml-widgets/azureml.widgets.rundetails?preserve-view=true&view=azure-ml-py) 사용 하 여 학습 실행의 진행률을 시각화할 수 있습니다. 다음 코드 조각은 Jupyter Notebook에서 모든 하이퍼 매개 변수 조정 실행을 시각화합니다.
 
 ```Python
@@ -391,17 +414,9 @@ RunDetails(hyperdrive_run).show()
 
 이 코드는 각 하이퍼 매개 변수 구성의 학습 실행에 대한 세부 정보가 있는 표를 표시합니다.
 
-![하이퍼 매개 변수 튜닝 테이블](./media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png)
+:::image type="content" source="media/how-to-tune-hyperparameters/hyperparameter-tuning-table.png" alt-text="Hyperparameter 튜닝 테이블":::
 
-학습 진행률에 따라 각 실행의 성능을 시각화할 수도 있습니다. 
-
-![하이퍼 매개 변수 튜닝 플롯](./media/how-to-tune-hyperparameters/hyperparameter-tuning-plot.png)
-
-병렬 좌표 플롯을 사용 하 여 개별 하이퍼 매개 변수의 성능과 값 간의 상관 관계를 시각적으로 식별할 수 있습니다. 
-
-[![하이퍼 매개 변수 튜닝 병렬 좌표](./media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
-
-Azure 웹 포털에서 하이퍼 매개 변수 튜닝 실행을 모두 시각화할 수도 있습니다. 포털에서 실험을 보는 방법에 대 한 자세한 내용은 [실험을 추적 하는 방법](how-to-monitor-view-training-logs.md#view-the-experiment-in-the-web-portal)을 참조 하세요.
+학습 진행률에 따라 각 실행의 성능을 시각화할 수도 있습니다.
 
 ## <a name="find-the-best-model"></a>최적 모델 찾기
 
