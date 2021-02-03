@@ -6,16 +6,16 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e57b3dd31455db245103469874c517fe54479110
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875923"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526910"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>최신 경고에 대 한 마이그레이션 옵션 이해
 
-아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다. 새 날짜는 남은 경고 마이그레이션, [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)및 [Azure 중국 21vianet](https://docs.azure.cn/)에 대해 곧 발표 될 예정입니다.
+클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 [중지](./monitoring-classic-retirement.md) 됩니다. 새 날짜는 남은 경고 마이그레이션, [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)및 [Azure 중국 21vianet](https://docs.azure.cn/)에 대해 곧 발표 될 예정입니다.
 
 이 문서에서는 수동 마이그레이션 및 자발적 마이그레이션 도구가 작동 하는 방법을 설명 합니다 .이 도구는 남은 경고 규칙을 마이그레이션하는 데 사용 됩니다. 또한 몇 가지 일반적인 문제에 대 한 해결 방법을 설명 합니다.
 
@@ -123,7 +123,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 다음과 같은 메트릭이 다음과 같이 동등한 메트릭에 매핑됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 설명|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| "ResponseType" = "AuthorizationError" 및 "Authentication" = "Anonymous" 차원이 포함 된 트랜잭션 메트릭| |
 | AnonymousClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "Anonymous" 인 트랜잭션 메트릭 | |
@@ -160,7 +160,7 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 
 Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 설명|
 |--------------------------|---------------------------------|---------|
 | availabilityMetric | availabilityResults/availabilityPercentage|   |
 | Durationmetric.value | availabilityResults/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
@@ -190,7 +190,7 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 설명|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | 데이터 크기 | DataUsage| |

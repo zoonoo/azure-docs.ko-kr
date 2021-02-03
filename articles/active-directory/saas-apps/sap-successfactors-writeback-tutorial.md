@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006441"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526978"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 저장 구성
 이 자습서에서는 특성을 Azure AD에서 SAP SuccessFactors Employee Central로 쓰기 저장하는 단계를 보여 줍니다. 
@@ -282,7 +282,7 @@ SAP SuccessFactors에서 *선택 목록* 은 사용자가 선택할 수 있는 �
    | 3 | 8448 | emailType | 이 상수 값은 회사 이메일과 연결된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치하도록 이 값을 업데이트합니다. 이 값을 설정하는 단계는 섹션 [emailType 상수 값 검색](#retrieve-constant-value-for-emailtype)을 참조하세요. |
    | 4 | true | emailIsPrimary | 이 특성을 사용하여 SuccessFactors에서 회사 이메일을 기본 이메일로 설정합니다. 회사 이메일이 기본 이메일이 아닌 경우 이 플래그를 false로 설정합니다. |
    | 5 | userPrincipalName | [custom01 – custom15] | **새 매핑 추가** 를 사용하면 필요에 따라 userPrincipalName 또는 Azure AD 특성을 SuccessFactors User 개체에서 사용할 수 있는 사용자 지정 특성에 쓸 수 있습니다.  |
-   | 6 | on-prem-samAccountName | 사용자 이름 | **새 매핑 추가** 를 사용하면 필요에 따라 온-프레미스 samAccountName을 SuccessFactors 사용자 이름 특성에 매핑할 수 있습니다. |
+   | 6 | 프레미스 SamAccountName에서 | 사용자 이름 | **새 매핑 추가** 를 사용하면 필요에 따라 온-프레미스 samAccountName을 SuccessFactors 사용자 이름 특성에 매핑할 수 있습니다. [Azure AD Connect sync: 디렉터리 확장](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 을 사용 하 여 SamAccountName을 Azure AD와 동기화 합니다. 원본 드롭다운에서로 표시 됩니다 *extension_yourTenantGUID_samAccountName* |
    | 7 | SSO | loginMethod | SuccessFactors 테넌트가 [부분 SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766)에 대해 설정된 경우 [새 매핑 추가]를 사용하면 필요에 따라 loginMethod를 상수 값인 "SSO" 또는 "PWD"로 설정할 수 있습니다. |
    | 8 | telephoneNumber | businessPhoneNumber | 이 매핑을 사용하여 *telephoneNumber* 를 Azure AD에서 SuccessFactors 회사/직장 전화 번호로 이동할 수 있습니다. |
    | 9 | 10605 | businessPhoneType | 이 상수 값은 회사 전화와 연결된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치하도록 이 값을 업데이트합니다. 이 값을 설정하는 단계는 섹션 [phoneType 상수 값 검색](#retrieve-constant-value-for-phonetype)을 참조하세요. |

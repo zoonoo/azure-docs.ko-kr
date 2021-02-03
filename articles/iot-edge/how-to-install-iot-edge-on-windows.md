@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: be807c7654123962f93820d9a3d54f3c7c070d97
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703668"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526961"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 장치에 Linux 용 Azure IoT Edge 설치 및 프로 비전 (미리 보기)
 
@@ -26,7 +26,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 이 문서에는 Windows 장치에서 IoT Edge을 설정 하는 단계가 나와 있습니다. 이러한 단계는 Windows 장치에서 실행할 IoT Edge 런타임을 포함 하는 Linux 가상 컴퓨터를 배포한 다음 장치를 IoT Hub 장치 id로 프로 비전 합니다.
 
 >[!NOTE]
->Windows에서 Linux에 대 한 IoT Edge는 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)상태입니다.
+>Windows의 Linux용 IoT Edge는 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -62,11 +62,11 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 
    1. **설정** 메뉴의 **게이트웨이** 아래에서 **확장** 을 선택 합니다.
 
-   1. **피드** 탭을 선택 하 고 **추가** 를 선택 합니다.
+   1. **피드** 탭을 선택하고 **추가** 를 선택합니다.
 
-   1. https://aka.ms/wac-insiders-feed텍스트 상자에를 입력 하 고 **추가** 를 선택 합니다.
+   1. 텍스트 상자에 https://aka.ms/wac-insiders-feed 를 입력하고 **추가** 를 선택합니다.
 
-   1. 피드가 추가 된 후 **사용 가능한 확장** 탭으로 이동 합니다. 확장 목록을 업데이트 하는 데 시간이 걸릴 수 있습니다.
+   1. 피드가 추가되면 **사용 가능한 확장** 탭으로 이동합니다. 확장 목록을 업데이트하는 데 시간이 걸릴 수 있습니다.
 
    1. **사용 가능한 확장** 탭의 확장 목록에서 **Azure IoT Edge** 을 찾습니다. 이를 선택 하 고 확장 목록 위의 **설치** 프롬프트를 선택 합니다.
 
@@ -296,7 +296,7 @@ Windows에서 Linux에 대 한 IoT Edge를 대상 장치에 설치 합니다 (�
 1. 다음 명령을 텍스트 편집기에 복사합니다. 자리 표시자 텍스트를 세부 정보로 바꿉니다.
 
    ```azurepowershell-interactive
-   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocWin <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
+   Provision-EflowVm -provisioningType x509 -scopeId <ID_SCOPE_HERE> -registrationId <REGISTRATION_ID_HERE> -identityCertLocWin <ABSOLUTE_CERT_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityPkLocWin <ABSOLUTE_PRIVATE_KEY_SOURCE_PATH_ON_WINDOWS_MACHINE> -identityCertLocVm <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_MACHINE -identityPkLocVm <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_MACHINE>
    ```
 
 1. [Azure Portal](https://ms.portal.azure.com/)에서 DPS 인스턴스로 이동 합니다.

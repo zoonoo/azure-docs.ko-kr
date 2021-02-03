@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: d7bcf3e5c0b50d3d6eb8f71dc70f0ff064ff3465
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4f17afc6fb5001b4bbee16fe84697b58d062b292
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536033"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526927"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
 
-[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 사용 중지 되지만 아직 새 경고를 지원 하지 않는 리소스에 대해서는 제한적으로 사용 됩니다. 마이그레이션 도구는 기존 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 제공 되었습니다. 이 문서에서는이 마이그레이션 도구를 사용 하는 방법에 대해 설명 합니다 .이 도구는 추가 알림 보류 중인 경고에도 사용 됩니다.
+[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 중지 되었습니다. 마이그레이션 도구는 기존 경고 규칙을 사용 하는 고객과 마이그레이션 자체를 트리거하는 고객에 게 Azure Portal에서 제공 되었습니다. 이 문서에서는이 마이그레이션 도구를 사용 하는 방법에 대해 설명 합니다 .이 도구는 추가 알림 보류 중인 경고에도 사용 됩니다.
 
 ## <a name="benefits-of-new-alerts"></a>새 경고의 이점
 
@@ -73,7 +73,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 1. 마이그레이션이 완료 되거나 사용자의 조치가 필요한 경우 앞에서 제공한 주소로 전자 메일을 받게 됩니다. 포털의 마이그레이션 방문 페이지에서 상태를 주기적으로 확인할 수도 있습니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>내 구독이 마이그레이션 준비 되지 않은 것으로 표시 되는 이유는 무엇 인가요?
 

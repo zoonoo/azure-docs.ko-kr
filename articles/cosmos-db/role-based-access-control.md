@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 2a5ec03bcd7d5002f85d32ed63614d277e95cfa0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: db6721754802a3eeda387339498dadb9d25b3685
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943748"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526944"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 Azure 역할 기반 액세스 제어
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,7 +26,8 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 |---------|---------|
 |[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
 |[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있음.|
-|[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.|
+|[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)| 정기적 백업 사용 데이터베이스 또는 컨테이너의 Azure Portal에 대 한 복원 요청을 제출할 수 있습니다. Azure Portal의 백업 간격 및 보존을 수정할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.  |
+| [CosmosRestoreOperator](../role-based-access-control/built-in-roles.md) | 연속 백업 모드를 사용 하 여 Azure Cosmos DB 계정에 대해 복원 작업을 수행할 수 있습니다.|
 |[Cosmos DB 운영자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있습니다. 데이터에 액세스 하거나 데이터 탐색기를 사용할 수 없습니다.|
 
 > [!IMPORTANT]
@@ -36,7 +37,7 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 
 Azure Portal의 **액세스 제어 (IAM)** 창은 azure Cosmos 리소스에 대 한 azure 역할 기반 액세스 제어를 구성 하는 데 사용 됩니다. 역할은 Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다. 개인 및 그룹에 대 한 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 다음 스크린샷은 Azure Portal의 액세스 제어 (IAM)를 사용 하는 Active Directory 통합 (Azure RBAC)을 보여 줍니다.
 
-:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명":::
+:::image type="content" source="./media/role-based-access-control/database-security-identity-access-management-rbac.png" alt-text="데이터베이스 보안을 보여 주는 Azure Portal의 액세스 제어 (IAM)":::
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 
