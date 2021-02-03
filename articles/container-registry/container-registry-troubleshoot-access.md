@@ -3,12 +3,12 @@ title: 레지스트리의 네트워크 문제 해결
 description: 가상 네트워크에서 또는 방화벽 뒤에 있는 Azure container registry에 액세스할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cf2f308f782ac7d6011c98afd181b194f2b3e09f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052164"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525079"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>레지스트리의 네트워크 문제 해결
 
@@ -105,20 +105,20 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
 
 ### <a name="configure-service-access"></a>서비스 액세스 구성
 
-현재 개인 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) 를 수행할 수 Azure Security Center. 또한 다음 서비스의 리소스는 네트워크 제한을 사용 하 여 컨테이너 레지스트리에 액세스할 수 없습니다.
+현재 여러 Azure 서비스에서 네트워크 제한이 있는 컨테이너 레지스트리에 대 한 액세스를 허용 하지 않습니다.
 
-* Azure DevOps Services 
-* Azure Container Instances
-* Azure Container Registry 작업
+* Azure Security Center 개인 끝점, 선택한 서브넷 또는 IP 주소에 대 한 액세스를 제한 하는 레지스트리에서 [이미지 취약성 검사](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) 를 수행할 수 없습니다. 
+* 특정 Azure 서비스의 리소스는 Azure App Service 및 Azure Container Instances를 포함 하 여 네트워크 제한이 있는 컨테이너 레지스트리에 액세스할 수 없습니다.
 
 이러한 Azure 서비스의 액세스 또는 컨테이너가 컨테이너 레지스트리와 통합 되어야 하는 경우 네트워크 제한을 제거 합니다. 예를 들어 레지스트리의 개인 끝점을 제거 하거나 레지스트리의 공용 액세스 규칙을 제거 하거나 수정 합니다.
+
+2021 년 1 월부터 신뢰할 수 있는 서비스 선택에 대 한 [액세스를 허용](allow-access-trusted-services.md) 하도록 네트워크 제한 레지스트리를 구성할 수 있습니다.
 
 관련 링크:
 
 * [Security Center Azure Container Registry 이미지 검색](../security-center/defender-for-container-registries-introduction.md)
 * [사용자 의견](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are) 제공
-* [공용 IP 네트워크 규칙 구성](container-registry-access-selected-networks.md)
-* [Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결](container-registry-private-link.md)
+* [신뢰할 수 있는 서비스에서 네트워크 제한 컨테이너 레지스트리에 안전 하 게 액세스할 수 있도록 허용](allow-access-trusted-services.md)
 
 
 ## <a name="advanced-troubleshooting"></a>고급 문제 해결
@@ -140,5 +140,5 @@ ContainerRegistryLoginEvents 테이블의 레지스트리 리소스 로그는 �
   * [레지스트리 로그인 문제 해결](container-registry-troubleshoot-login.md) 
   * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
-* [Microsoft Q&A](/answers/products/)
+* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [지원 티켓 열기](https://azure.microsoft.com/support/create-ticket/)

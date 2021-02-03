@@ -3,12 +3,12 @@ title: 리소스를 찾을 수 없음 오류
 description: 리소스를 찾을 수 없는 경우 오류를 해결 하는 방법을 설명 합니다. Azure Resource Manager 템플릿을 배포 하거나 관리 작업을 수행 하는 경우 오류가 발생할 수 있습니다.
 ms.topic: troubleshooting
 ms.date: 06/10/2020
-ms.openlocfilehash: 224af4ce0fe5053201f25d8207f4ca8cdc73e638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84667950"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526249"
 ---
 # <a name="resolve-resource-not-found-errors"></a>리소스를 찾을 수 없음 오류 해결
 
@@ -70,7 +70,7 @@ PowerShell 또는 Azure CLI를 사용 하는 경우 리소스를 포함 하는 �
 
    ![배포 기록 선택](./media/error-not-found/select-deployment.png)
 
-2. 기록에서 배포를 선택하고 **이벤트**를 선택합니다.
+2. 기록에서 배포를 선택하고 **이벤트** 를 선택합니다.
 
    ![배포 이벤트 선택](./media/error-not-found/select-deployment-events.png)
 
@@ -105,7 +105,7 @@ ResourceId 함수의 구독 및 리소스 그룹 매개 변수는 선택 사항�
 
 패턴은 다음과 같습니다.
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 > [!IMPORTANT]
 > 패턴을 사용 하지 않습니다.

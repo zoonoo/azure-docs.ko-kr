@@ -2,13 +2,13 @@
 title: 컨테이너 이미지 가져오기
 description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 컨테이너 이미지를 Azure Container Registry로 가져옵니다.
 ms.topic: article
-ms.date: 09/18/2020
-ms.openlocfilehash: 3950b9fb24b80db4d9654a615521c0eb82914499
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/15/2021
+ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019976"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524501"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
 
@@ -36,7 +36,12 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리 (프리미엄 서비스 계층 필요)를 지리적으로 복제 하 여 단일 레지스트리에서 동일한 이미지 및 태그 이름을 가진 여러 지역을 제공할 수 있습니다.
 >
 
-## <a name="prerequisites"></a>필수 조건
+> [!IMPORTANT]
+> 두 Azure container registry 간의 이미지 가져오기에 대 한 변경 내용은 2021 년 1 월에 도입 되었습니다.
+> * 네트워크 제한 된 Azure container registry를 사용 하면 네트워크를 우회 하는 [**신뢰할 수 있는 서비스의 액세스를 허용**](allow-access-trusted-services.md) 하는 제한 된 레지스트리가 필요 합니다. 이 설정은 기본적으로 사용 하도록 설정 되어 있으므로 가져오기를 허용 합니다. 새로 만든 레지스트리에서 개인 끝점 또는 레지스트리 방화벽 규칙을 사용 하 여 설정을 사용 하도록 설정 하지 않은 경우 가져오기 작업이 실패 합니다. 
+> * 가져오기 원본 또는 대상으로 사용 되는 기존의 네트워크 제한 Azure container registry에서이 네트워크 보안 기능을 사용 하도록 설정 하는 것은 선택 사항 이지만 권장 됩니다.
+
+## <a name="prerequisites"></a>전제 조건
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
@@ -92,6 +97,8 @@ az acr import \
 * 레지스트리는 동일한 Active Directory 테넌트의 다른 Azure 구독이나 동일한 Azure 구독에 있을 수 있습니다.
 
 * 원본 레지스트리에 대 한 [공용 액세스](container-registry-access-selected-networks.md#disable-public-network-access) 를 사용 하지 않도록 설정할 수 있습니다. 공용 액세스를 사용 하지 않도록 설정한 경우 레지스트리 로그인 서버 이름 대신 리소스 ID로 원본 레지스트리를 지정 합니다.
+
+* 원본 레지스트리 및/또는 대상 레지스트리가 개인 끝점을 포함 하거나 레지스트리 방화벽 규칙이 적용 되는 경우 제한 된 레지스트리를 [통해 신뢰할 수 있는 서비스](allow-access-trusted-services.md) 에서 네트워크에 액세스할 수 있도록 해야 합니다.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>동일한 구독의 레지스트리에서 가져오기
 

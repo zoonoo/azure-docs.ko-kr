@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ce0808bc53ae663b80da793bf33b5b371d881961
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 99e217c6d8065d19f7b03419306f4992735cb587
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222186"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526734"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -35,10 +35,10 @@ Security Center는 Azure Defender를 사용 하도록 설정 하는 경우 더 �
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|할당을 편집 하기 위한 **소유자** 또는 **보안 관리자**<br>권장 사항을 보려면 **판독기**|
-|지원 되는 클러스터:|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
+|환경 요구 사항:|Kubernetes v 1.14 이상이 필요 합니다.<br>클러스터에 PodSecurityPolicy 리소스 (이전 PSP 모델)가 없음<br>Windows 노드가 지원 되지 않습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -52,6 +52,8 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
 권장 사항을 구성 하려면  **Kubernetes에 대 한 Azure Policy 추가 기능** 을 설치 합니다. 
 
 - [확장의 자동 프로 비전 사용](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)에 설명 된 대로이 추가 기능을 자동으로 배포할 수 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
+
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Security Center의 자동 프로 비전 도구를 사용 하 여 Kubernetes 용 정책 추가 기능 설치":::
 
 - 추가 기능을 수동으로 배포 하려면:
 
@@ -78,19 +80,19 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능** 을 �
 
     | 권장 사항 이름                                                         | 보안 컨트롤                         | 구성 필요 |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | 아니요                     |
-    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 컨테이너 CPU 및 메모리 한도를 적용해야 함                          | DDoS 공격 으로부터 응용 프로그램 보호 | No                     |
+    | 권한 있는 컨테이너를 피해야 함                                     | 액세스 및 사용 권한 관리            | No                     |
+    | 변경 불가능한(읽기 전용) 루트 파일 시스템을 컨테이너에 적용해야 함     | 액세스 및 사용 권한 관리            | No                     |
+    | 권한 상승을 포함하는 컨테이너를 사용하지 않아야 함                       | 액세스 및 사용 권한 관리            | No                     |
+    | 컨테이너를 루트 사용자로 실행하지 않아야 함                           | 액세스 및 사용 권한 관리            | No                     |
+    | 중요한 호스트 네임스페이스를 공유하는 컨테이너를 사용하지 않아야 함              | 액세스 및 사용 권한 관리            | No                     |
     | 컨테이너에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록으로 제한되어야 함    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용되는 포트에서만 수신 대기해야 함                              | 무단 네트워크 액세스 제한     | **예**                |
     | 서비스는 허용되는 포트에서만 수신 대기해야 함                                | 무단 네트워크 액세스 제한     | **예**                |
     | 호스트 네트워킹 및 포트 사용을 제한해야 함                     | 무단 네트워크 액세스 제한     | **예**                |
     | 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함 | 보안 구성 수정        | **예**                |
-    | 컨테이너 이미지는 신뢰할 수 있는 레지스트리에서만 배포 해야 합니다.            | 취약성 해결                | **예**                |
+    | 컨테이너 이미지는 신뢰할 수 있는 레지스트리에서만 배포해야 함            | 취약성 해결                | **예**                |
     |||
 
 

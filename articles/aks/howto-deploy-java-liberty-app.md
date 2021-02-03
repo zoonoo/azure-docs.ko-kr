@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aks, kubernetes
-ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508062"
+ms.locfileid: "99526893"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>AKS (Azure Kubernetes Service) 클러스터에서 Open Liberty 또는 WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "99508062"
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. *E미국* 위치에서 [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create) 명령을 사용 하 여 리소스 그룹 *liberty* 을 만듭니다. AKS (ACR) 인스턴스 및 나중에 클러스터를 Azure Container Registry 만드는 데 사용 됩니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. *E미국* 위치에서 [az group create](/cli/azure/group#az_group_create) 명령을 사용 하 여 리소스 그룹 *liberty* 을 만듭니다. AKS (ACR) 인스턴스 및 나중에 클러스터를 Azure Container Registry 만드는 데 사용 됩니다. 
 
 ```azurecli-interactive
 az group create --name java-liberty-project --location eastus
@@ -39,7 +39,7 @@ az group create --name java-liberty-project --location eastus
 
 ## <a name="create-an-acr-instance"></a>ACR 인스턴스 만들기
 
-[Az acr create](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az_acr_create) 명령을 사용 하 여 acr 인스턴스를 만듭니다. 다음 예에서는 *youruniqueacrname* 라는 ACR 인스턴스를 만듭니다. *Youruniqueacrname* 가 Azure 내에서 고유한 지 확인 합니다.
+[Az acr create](/cli/azure/acr#az_acr_create) 명령을 사용 하 여 acr 인스턴스를 만듭니다. 다음 예에서는 *youruniqueacrname* 라는 ACR 인스턴스를 만듭니다. *Youruniqueacrname* 가 Azure 내에서 고유한 지 확인 합니다.
 
 ```azurecli-interactive
 az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
@@ -70,7 +70,7 @@ docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
+[az aks create](/cli/azure/aks#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 ```azurecli-interactive
 az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
@@ -87,13 +87,13 @@ az aks create --resource-group java-liberty-project --name myAKSCluster --node-c
 
 ### <a name="connect-to-the-aks-cluster"></a>AKS 클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_install_cli) 명령을 사용합니다.
+Kubernetes 클러스터를 관리하려면 [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) Kubernetes 명령줄 클라이언트를 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. `kubectl`을 로컬로 설치하려면 [az aks install-cli](/cli/azure/aks#az_aks_install_cli) 명령을 사용합니다.
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
@@ -220,7 +220,7 @@ javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:3
 
 ## <a name="clean-up-the-resources"></a>리소스 정리
 
-Azure 요금을 방지하려면 불필요한 리소스를 정리해야 합니다.  클러스터가 더 이상 필요 하지 않은 경우 [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) 명령을 사용 하 여 리소스 그룹, 컨테이너 서비스, 컨테이너 레지스트리 및 모든 관련 된 리소스를 제거 합니다.
+Azure 요금을 방지하려면 불필요한 리소스를 정리해야 합니다.  클러스터가 더 이상 필요 하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용 하 여 리소스 그룹, 컨테이너 서비스, 컨테이너 레지스트리 및 모든 관련 된 리소스를 제거 합니다.
 
 ```azurecli-interactive
 az group delete --name java-liberty-project --yes --no-wait

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: 6971d67204beb39ff0afa6c68dbecf278d86b299
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 8ac69e6961af4991b250320b7af7cf5a345d3efb
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954718"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526469"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "98954718"
 
 코드 없는 환경을 선호하는 경우 [Azure Machine Learning 스튜디오에서 자동화된 Machine Learning 만들기](how-to-use-automated-ml-for-ml-models.md)가 가능합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에는 다음이 필요 합니다. 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
@@ -420,7 +420,7 @@ Notebook을 사용 중이면 위젯 또는 인라인에서 결과를 볼 수 있
   * 특성 오류: 예. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
   
   이 문제를 해결 하려면 SDK 교육 버전에 따라 다음 두 단계 중 하나를 수행 합니다 `AutoML` .
-    * `AutoML`SDK 교육 버전이 1.13.0 보다 큰 경우 및가 필요 `pandas == 0.25.1` `sckit-learn==0.22.1` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 업그레이드 합니다.
+    * `AutoML`SDK 교육 버전이 1.13.0 보다 큰 경우 및가 필요 `pandas == 0.25.1` `scikit-learn==0.22.1` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 업그레이드 합니다.
       
       ```bash
          pip install --upgrade pandas==0.25.1

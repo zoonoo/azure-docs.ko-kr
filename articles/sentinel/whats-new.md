@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 8154e1adff8d8c2bdfe7fedc9309f95e5c5880bd
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500722"
+ms.locfileid: "99526639"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -46,7 +46,7 @@ ms.locfileid: "99500722"
 
 **Az. SecurityInsights** 모듈은 동상, 심각도, 소유자 등을 변경 하 고, 인시던트에 메모 및 레이블을 추가 하 고, 책갈피를 만드는 등의 일반적인 Azure 센티널 사용 사례를 지원 합니다.
 
-CI/CD 파이프라인에 대해 [ARM (Azure Resource Manager](/azure/azure-resource-manager/templates/) ) 템플릿을 사용 하는 것이 좋지만, **Az insights** module은 배포 후 작업에 유용 하며 특히 SOC 자동화를 대상으로 합니다.  예를 들어 SOC 자동화에는 데이터 커넥터를 구성 하거나 분석 규칙을 만들거나 분석 규칙에 자동화 작업을 추가 하는 단계가 포함 될 수 있습니다.
+CI/CD 파이프라인에 대해 [ARM (Azure Resource Manager](/azure/azure-resource-manager/templates/) ) 템플릿을 사용 하는 것이 좋지만, **Az insights** module은 배포 후 작업에 유용 하며 SOC 자동화를 대상으로 합니다.  예를 들어 SOC 자동화에는 데이터 커넥터를 구성 하거나 분석 규칙을 만들거나 분석 규칙에 자동화 작업을 추가 하는 단계가 포함 될 수 있습니다.
 
 사용 가능한 cmdlet에 대 한 전체 목록 및 설명, 매개 변수 설명 및 예제를 비롯 한 자세한 정보는 [Az. SecurityInsights PowerShell 설명서](/powershell/module/az.securityinsights/)를 참조 하세요.
 
@@ -78,7 +78,7 @@ Azure SQL은 사용자 개입 없이 업그레이드, 패치, 백업 및 모니�
 
 ### <a name="logic-apps-managed-identities"></a>논리 앱 관리 id
 
-이제 azure 센티널은 Azure 센티널 Logic Apps 커넥터에 대해 관리 되는 id를 지원 하 여 추가 id를 만드는 대신 Azure 센티널에서 작동 하는 특정 플레이 북에 대 한 권한을 직접 부여할 수 있도록 합니다.
+이제 azure 센티널은 Azure 센티널 Logic Apps 커넥터에 대해 관리 되는 id를 지원 하므로 추가 id를 만드는 대신 Azure 센티널에서 작동 하도록 특정 플레이 북에 직접 권한을 부여할 수 있습니다.
 
 - **관리 되는 id가 없으면** azure 센티널에서 실행 하기 위해 Logic Apps 커넥터에 AZURE 센티널 RBAC 역할의 별도 id가 필요 합니다. 별도의 id는 azure ad 사용자 또는 Azure AD 등록 된 응용 프로그램과 같은 서비스 사용자 일 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure 센티널의 기본 제공 검색 쿼리를 통해 SOC 분석가는 현재
 
 추가 된 구하기 쿼리는 사용자 환경에서 의심 스러운 활동을 찾는 데 도움이 되도록 설계 되었습니다. 합법적인 활동 및 잠재적으로 악의적인 활동을 반환할 수 있지만, 이러한 활동은 구하기를 안내 하는 데 유용할 수 있습니다. 
 
-이러한 쿼리를 실행 한 후 결과를 분석 규칙으로 변환 하거나 기존 또는 새 인시던트에 검색 결과를 추가 하는 것이 좋습니다.
+이러한 쿼리를 실행 한 후에는 결과를 분석 규칙으로 변환 하거나 기존 또는 새 인시던트에 검색 결과를 추가 하는 것이 좋습니다.
 
 추가 된 모든 쿼리는 Azure 센티널 구하기 페이지를 통해 사용할 수 있습니다. 자세한 내용은 [Azure 센티널로 위협 구하기](hunting.md)를 참조 하세요.
 

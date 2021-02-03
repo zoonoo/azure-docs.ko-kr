@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 720a0e25f3486f32ffed897e54033fd4b68dace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368ab1bc6a1fc13c3001b437c3c2a8be2bbb9c04
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848128"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525994"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
 Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나의 경고'를 지원하는 통합된 전체 스택 모니터링 서비스가 되었습니다. 자세한 내용은 [새 Azure Monitor에 대한 블로그 게시물](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)을 참조하세요. 새 Azure 모니터링 및 경고 플랫폼은 성장하고 있는 클라우드 컴퓨팅에 보조를 맞추고 Microsoft 지능형 클라우드 원칙에 맞게 더 빠르고, 더 스마트하게, 확장 가능하도록 설계되었습니다.
 
-새 Azure 모니터링 및 경고 플랫폼을 사용 하는 경우 Azure Monitor의 클래식 경고는 사용 중지 되지만 아직 새 경고를 지원 하지 않는 리소스에 대해서는 제한적으로 사용 됩니다. 이러한 경고의 사용 중지 날짜는 추가로 확장 되었습니다. 새 날짜는 남은 경고 마이그레이션, [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)및 [Azure 중국 21vianet](https://docs.azure.cn/)에 대해 곧 발표 될 예정입니다.
+새 Azure 모니터링 및 경고 플랫폼을 사용 하는 경우 Azure Monitor의 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 중지 됩니다. 이러한 경고의 사용 중지 날짜는 추가로 확장 되었습니다. 새 날짜는 남은 경고 마이그레이션, [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)및 [Azure 중국 21vianet](https://docs.azure.cn/)에 대해 곧 발표 될 예정입니다.
 
- ![Azure Portal의 클래식 경고](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
+ ![Azure Portal의 클래식 경고](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 새 플랫폼에서 경고를 시작하고 다시 만드는 것이 좋습니다.
 
@@ -48,13 +48,13 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>클래식 모니터링 및 경고 플랫폼의 사용 중지
 
-앞서 설명한 것 처럼 이전 클래식 모니터링 및 경고는 사용 되지 않습니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 관련 Api, Azure Portal 인터페이스 및 서비스의 클로저를 포함 하 고 있습니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
+앞서 설명한 것 처럼, 이전 클래식 모니터링 및 경고는 공용 클라우드 사용자에 게 사용이 중지 되었습니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 관련 Api, Azure Portal 인터페이스 및 서비스의 클로저를 포함 하 고 있습니다. 사용 중지되는 기능은 구체적으로 다음과 같습니다.
 
 - 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)을 통해 사용할 수 있는 Azure 리소스에 대한 이전(클래식) 메트릭 및 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../app/proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](./alerts-classic.overview.md)에 표시된 경고 구성도 포함됩니다.
 
-이것은 다음을 의미합니다.
+이는 다음을 의미합니다.
 
 - 클래식 모니터링 및 경고 서비스는 사용 중지 되며 더 이상 새 경고 규칙을 만들 수 없습니다.
 - 경고 (클래식)에 계속 존재 하는 경고 규칙은 계속 실행 되 고 알림을 발생 시킵니다.

@@ -4,16 +4,16 @@ description: 자동 마이그레이션 프로세스가 작동 하는 방식을 �
 ms.topic: conceptual
 ms.date: 08/19/2019
 ms.subservice: alerts
-ms.openlocfilehash: 6a2d032c6aa33b72fe422638df45ca48bf8b1036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3550dcef174a4d970917fabfda3c4fd2a8df4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847286"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526554"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>기존 경고 규칙에 대 한 자동 마이그레이션 프로세스 이해
 
-[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 사용 중지 되지만 아직 새 경고를 지원 하지 않는 리소스에 대해서는 제한적으로 사용 됩니다. 사용 중지 프로세스의 일환으로 마이그레이션 [도구](alerts-using-migration-tool.md) 는 고객이 마이그레이션 자체를 트리거하기 위해 Azure Portal에서 사용할 수 있습니다.
+[이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 중지 되었습니다. 사용 중지 프로세스의 일환으로 마이그레이션 [도구](alerts-using-migration-tool.md) 는 고객이 마이그레이션 자체를 트리거하기 위해 Azure Portal에서 사용할 수 있습니다.
 이 문서에서는 자동 마이그레이션 프로세스를 안내 하 고 발생할 수 있는 모든 문제를 해결 하는 데 도움을 줍니다.
 
   > [!NOTE]
@@ -21,9 +21,9 @@ ms.locfileid: "87847286"
 
 ## <a name="what-will-happen-during-the-automatic-migration-process"></a>자동 마이그레이션 프로세스 중에는 어떻게 되나요?
 
-- **2019 년 9 월 1**일부 터 고객은 [특정 메트릭을](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts)제외 하 고 새로운 클래식 경고 규칙을 만들 수 없습니다.
+- **2019 년 9 월 1** 일부 터 고객은 [특정 메트릭을](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts)제외 하 고 새로운 클래식 경고 규칙을 만들 수 없습니다.
 - 예외의 경우 고객은 계속 해 서 새 클래식 경고 규칙을 만들고 추가 알림이 나타날 때까지 클래식 경고를 사용할 수 있습니다.
-- **2019 년 9 월 1**일부 터 클래식 경고가 있는 모든 고객에 대해 클래식 경고의 마이그레이션이 일괄 처리로 트리거됩니다.
+- **2019 년 9 월 1** 일부 터 클래식 경고가 있는 모든 고객에 대해 클래식 경고의 마이그레이션이 일괄 처리로 트리거됩니다.
 - 자발적 마이그레이션 도구와 마찬가지로 마이그레이션할 수 있고 되지 않는 특정 클래식 경고 규칙은 그대로 유지 됩니다. 이러한 클래식 경고 규칙은 추가 알림이 발생할 때까지 계속 지원 됩니다. 그러나 잘못 된 클래식 경고 규칙은 작동 하지 않을 때 삭제 됩니다.
 삭제 된 대상 리소스 또는 [더 이상 지원 되지 않는 메트릭에](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) 대해 모니터링 하는 모든 클래식 경고 규칙은 잘못 된 것으로 간주 됩니다.
 - 구독에 대 한 마이그레이션이 시작 되 면 문제가 없는 한 한 시간 이내에 마이그레이션이 완료 됩니다. 고객은 [Azure Monitor의 마이그레이션 블레이드에서](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel)마이그레이션 상태를 모니터링할 수 있습니다.

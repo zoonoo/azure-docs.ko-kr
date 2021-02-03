@@ -1,27 +1,27 @@
 ---
-title: .NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+title: .NET을 사용 하 여 컨테이너, 디렉터리 또는 blob에 대 한 사용자 위임 SAS 만들기
 titleSuffix: Azure Storage
 description: Azure Storage .NET 클라이언트 라이브러리를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 512b949fceda850e968a6f97b3788ae3a602f56d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 13491735f73cb1696f3c36f3434cc781a1e2b739
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199260"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526808"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+# <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>.NET을 사용 하 여 컨테이너, 디렉터리 또는 blob에 대 한 사용자 위임 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 .NET 용 Azure Storage 클라이언트 라이브러리 버전 12를 사용 하는 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 Azure AD (Azure Active Directory) 자격 증명을 사용 하 여 .NET 버전 12 용 Azure Storage 클라이언트 라이브러리를 통해 컨테이너, 디렉터리 또는 blob에 대 한 사용자 위임 SAS를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -99,7 +99,7 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
 ## <a name="get-a-user-delegation-sas-for-a-directory"></a>디렉터리에 대 한 사용자 위임 SAS 가져오기
 
-다음 코드 예제에서는 계층적 네임 스페이스를 사용 하는 경우 디렉터리에 대 한 사용자 위임 SAS를 생성 하는 방법을 보여 줍니다.
+다음 코드 예제에서는 저장소 계정에 대해 계층적 네임 스페이스를 사용 하는 경우 디렉터리에 대 한 사용자 위임 SAS를 생성 하는 방법을 보여 줍니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 
@@ -109,7 +109,7 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)

@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 989e50ec03dae5d00961d572b70d524a56b3d64c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 99e1e77a37afbdc1ed54767700574316ed03fae3
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062208"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525248"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -248,10 +248,8 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
 ## <a name="report"></a>보고서
-
-파트너 센터 대시보드([https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview](https://partner.microsoft.com/dashboard/partnerinsights/analytics/overview))에서 고객 사용량 특성에 대한 보고서를 확인할 수 있습니다. 보고서를 보려면 파트너 센터 자격 증명을 사용하여 로그인해야 합니다. 보고서 또는 로그인에 문제가 발생 하는 경우 [지원 요청](#get-support)을 만듭니다.
+현재 ISV 파트너의 경우 고객 사용 특성을 통해 추적 되는 Azure 사용량에 대 한 보고를 사용할 수 없습니다. 고객 사용 특성을 다루는 상용 Marketplace 프로그램에 보고 기능을 추가 하는 것은 2021의 두 번째 절반을 대상으로 합니다.
 
 ## <a name="notify-your-customers"></a>고객에게 알림
 

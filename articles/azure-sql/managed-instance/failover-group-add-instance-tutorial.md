@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
-ms.translationtype: HT
+ms.openlocfilehash: 1609f188af8ffb58251edc806e19f7820a6b0869
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593997"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525724"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치(failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Azure SQL Managed Instance의 관리되는 인스턴스를 장애 조치(failove
   > [!NOTE]
   > - 이 자습서를 진행하는 경우 [SQL Managed Instance에 대한 장애 조치(failover) 그룹을 설정하기 위한 필수 구성 요소](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets)로 리소스를 구성해야 합니다. 
   > - 관리되는 인스턴스를 만드는 데 상당한 시간이 걸릴 수 있습니다. 따라서 이 자습서를 완료하는 데 몇 시간 정도 걸릴 수 있습니다. 프로비저닝 시간에 대한 자세한 내용은 [SQL Managed Instance 관리 작업](sql-managed-instance-paas-overview.md#management-operations)을 참조하세요. 
-  > - 장애 조치(failover) 그룹에 참여하는 관리되는 인스턴스에는 [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) 또는 두 개의 연결된 VPN 게이트웨이가 필요합니다. 전역 VNet 피어링은 지원되지 않습니다. 이 자습서에서는 VPN 게이트웨이를 만들고 연결하는 단계를 제공합니다. ExpressRoute를 이미 구성한 경우 이 단계를 건너뛰세요. 
+  > - 장애 조치 그룹에 참여 하는 관리 되는 인스턴스에는 [Azure express](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)경로, 글로벌 VNet 피어 링 또는 두 개의 연결 된 VPN 게이트웨이가 필요 합니다. 이 자습서에서는 VPN 게이트웨이를 만들고 연결하는 단계를 제공합니다. ExpressRoute를 이미 구성한 경우 이 단계를 건너뛰세요. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소

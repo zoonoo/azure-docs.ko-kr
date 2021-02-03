@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 56d3b36d17ee044ce7aba2337429c45123801ca5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 2749e66375fbd808a9e87f252a813f1054ceff21
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254515"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525571"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -74,7 +74,7 @@ az aks create \
 2. "None"은 AKS가 사설 DNS 영역을 만들지 않음을 의미 합니다.  이렇게 하려면 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 해야 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다.
 3. "사용자 지정 개인 dns 영역 이름"은 azure global cloud에 대해이 형식 이어야 `privatelink.<region>.azmk8s.io` 합니다. 해당 사설 DNS 영역의 리소스 Id가 필요 합니다.  또한 사용자 할당 id 또는 서비스 사용자가 적어도 `private dns zone contributor` 사용자 지정 개인 dns 영역에 대 한 역할이 있어야 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 * AKS Preview 버전 0.4.71 이상
 * Api 버전 2020-11-01 이상
@@ -126,7 +126,7 @@ AKS 클러스터와 동일한 VNET에 VM을 만드는 것이 가장 쉬운 옵�
 ## <a name="limitations"></a>제한 사항 
 * IP 권한이 부여 된 범위는 개인 api 서버 끝점에 적용할 수 없으며 공용 API 서버에만 적용 됩니다.
 * [Azure Private Link 서비스 제한][private-link-service]은 프라이빗 클러스터에 적용됩니다.
-* 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops)를 사용하는 것이 좋습니다. 
+* 프라이빗 클러스터를 사용하는 Azure DevOps Microsoft 호스팅 에이전트를 지원하지 않습니다. [자체 호스팅 에이전트](/azure/devops/pipelines/agents/agents?tabs=browser)를 사용하는 것이 좋습니다. 
 * Azure Container Registry를 프라이빗 AKS와 함께 사용해야 하는 고객의 경우, Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어링되어야 합니다.
 * 기존 AKS 클러스터를 프라이빗 클러스터로 변환하는 기능이 지원되지 않습니다.
 * 고객 서브넷에서 프라이빗 엔드포인트를 삭제하거나 수정하면 클러스터의 작동이 중지됩니다. 

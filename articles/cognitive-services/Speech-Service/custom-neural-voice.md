@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2020
 ms.author: trbye
-ms.openlocfilehash: 9e230ff4e84eba7b61846540fef2915765fa4f77
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: baa48ede04b9de98bd69de69753c97b5fcee7329
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509698"
+ms.locfileid: "99525265"
 ---
 # <a name="what-is-custom-neural-voice"></a>사용자 지정 신경망 이란?
 
@@ -51,7 +51,7 @@ ms.locfileid: "99509698"
 
 ## <a name="responsible-use-of-ai"></a>AI의 책임 있는 사용
 
-사용자 지정 신경망을 사용 하는 방법을 알아보려면 [투명성 메모](https://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice)를 참조 하세요. Microsoft의 투명 정보는 AI 기술의 작동 방식을 이해 하는 데 도움을 주기 위해 작성 된 시스템 소유자는 시스템 성능 및 동작에 영향을 줄 수 있으며 기술, 사용자 및 환경을 포함 하 여 전체 시스템에 대해 생각 하는 중요성을 이해 하는 데 도움을 주기 위한 것입니다.
+사용자 지정 신경망을 사용 하는 방법을 알아보려면 [투명성 메모](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)를 참조 하세요. Microsoft의 투명 정보는 AI 기술의 작동 방식을 이해 하는 데 도움을 주기 위해 작성 된 시스템 소유자는 시스템 성능 및 동작에 영향을 줄 수 있으며 기술, 사용자 및 환경을 포함 하 여 전체 시스템에 대해 생각 하는 중요성을 이해 하는 데 도움을 주기 위한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

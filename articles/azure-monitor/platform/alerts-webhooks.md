@@ -6,17 +6,17 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 47ed723ecfc544673ac8aa6374c27ae5a7cf166b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1519dbe9439f1d56a558082f993b15b4a312ecfa
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852109"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526876"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용하여 웹후크 호출
 
 > [!WARNING]
-> 이 문서에서는 이전 클래식 메트릭 경고를 사용 하는 방법을 설명 합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](./monitoring-classic-retirement.md)됩니다.
+> 이 문서에서는 이전 클래식 메트릭 경고를 사용 하는 방법을 설명 합니다. Azure Monitor는 이제 새로운 [거의 실시간 메트릭 경고 및 새로운 경고 환경을](./alerts-overview.md)지원 합니다. 클래식 경고는 아직 새 경고를 지원 하지 않는 리소스에 대해 제한적으로 사용 되지만 공용 클라우드 사용자에 게는 사용이 [중지](./monitoring-classic-retirement.md) 됩니다.
 >
 
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "87852109"
 Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이 경고를 만들 때 입력한 웹후크 URI로 보냅니다. 이 스키마는 이 아티클의 뒷부분에 정의되어 있습니다. 이 URI의 HTTP 또는 HTTPS 엔드포인트는 유효해야 합니다. 경고가 활성화되면 Azure에서 요청당 항목 하나만 게시합니다.
 
 ## <a name="configure-webhooks-via-the-azure-portal"></a>Azure Portal을 통해 웹후크 구성
-웹후크 URI를 추가하거나 업데이트하려면 [Azure Portal](https://portal.azure.com/)에서 **경고 만들기/업데이트**로 이동합니다.
+웹후크 URI를 추가하거나 업데이트하려면 [Azure Portal](https://portal.azure.com/)에서 **경고 만들기/업데이트** 로 이동합니다.
 
 ![경고 규칙 추가 창](./media/alerts-webhooks/Alertwebhook.png)
 

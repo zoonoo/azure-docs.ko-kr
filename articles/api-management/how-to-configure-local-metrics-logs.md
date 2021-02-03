@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성 | Microsoft Docs
-description: Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성 하는 방법에 대해 알아봅니다.
+description: Kubernetes 클러스터에서 Azure API Management 자체 호스팅 게이트웨이의 로컬 메트릭 및 로그를 구성 하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: ac147863fe54be3343eda653fc863ebd08dac54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254506"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526673"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성
 
-이 문서에서는 [자체 호스팅 게이트웨이의](./self-hosted-gateway-overview.md)로컬 메트릭 및 로그를 구성 하는 방법에 대 한 세부 정보를 제공 합니다. 클라우드 메트릭 및 로그를 구성 하는 방법에 대해서는 [이 문서](how-to-configure-cloud-metrics-logs.md)를 참조 하세요. 
+이 문서에서는 Kubernetes 클러스터에 배포 된 [자체 호스팅 게이트웨이의](./self-hosted-gateway-overview.md) 로컬 메트릭 및 로그를 구성 하는 방법에 대 한 세부 정보를 제공 합니다. 클라우드 메트릭 및 로그를 구성 하는 방법에 대해서는 [이 문서](how-to-configure-cloud-metrics-logs.md)를 참조 하세요. 
 
 ## <a name="metrics"></a>메트릭
 자체 호스팅 게이트웨이는 메트릭 수집 및 집계에 대 한 통합 프로토콜이 되기 위한 [Statsd](https://github.com/statsd/statsd)를 지원 합니다. 이 섹션에서는 StatsD를 Kubernetes에 배포 하 고, StatsD를 통해 메트릭을 내보내도록 게이트웨이를 구성 하 고, [프로메테우스](https://prometheus.io/) 를 사용 하 여 메트릭을 모니터링 하는 단계를 안내 합니다. 
@@ -65,7 +65,7 @@ spec:
     spec:
       containers:
       - name: sputnik-metrics-statsd
-        image: prom/statsd-exporter
+        image: mcr.microsoft.com/aks/hcp/prom/statsd-exporter
         ports:
         - name: tcp
           containerPort: 9102
@@ -80,7 +80,7 @@ spec:
           - mountPath: /tmp
             name: sputnik-metrics-config-files
       - name: sputnik-metrics-prometheus
-        image: prom/prometheus
+        image: mcr.microsoft.com/oss/prometheus/prometheus
         ports:
         - name: tcp
           containerPort: 9090

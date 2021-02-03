@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 00fd00112dad9efc31cea83f69bb458a8e1ca935
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617377"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526418"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Azure RBAC에 대 한 모범 사례
 
@@ -41,6 +41,10 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 권한 있는 계정을 악의적인 사이버 공격으로부터 보호하기 위해 Azure Active Directory PIM(Privileged Identity Management)를 사용하여 권한 노출 시간을 줄이고 보고서 및 경고를 통해 해당 사용에 대한 가시성을 증가시킬 수 있습니다. PIM은 Azure AD 및 Azure 리소스에 대 한 just-in-time 권한 액세스를 제공 하 여 권한 있는 계정을 보호 합니다. 액세스는 자동으로 취소 된 후에 시간이 바인딩될 수 있습니다. 
 
 자세한 내용은 [Azure AD Privileged Identity Management란?](../active-directory/privileged-identity-management/pim-configure.md)을 참조하세요.
+
+## <a name="assign-roles-to-groups-not-users"></a>사용자가 아닌 그룹에 역할 할당
+
+역할 할당을 보다 쉽게 관리할 수 있도록 사용자에 게 직접 역할을 할당 하지 마십시오. 대신 그룹에 역할을 할당 합니다. 사용자 대신 그룹에 역할을 할당 하는 것은 [구독 당 할당](troubleshooting.md#azure-role-assignments-limit)된 역할 할당 수가 2000 인 역할 할당의 수를 최소화 하는 데도 도움이 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

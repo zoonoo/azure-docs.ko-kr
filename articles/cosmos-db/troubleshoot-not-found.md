@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2df401f7871d631ba317fb670783cad086b9a351
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7b112cc80984a761e780f134731476f9dff4f687
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96017562"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525774"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -102,7 +102,7 @@ while (invalidItemsIterator.HasMoreResults)
 항목이 존재 하는 데이터베이스 또는 컨테이너가 삭제 되었습니다.
 
 #### <a name="solution"></a>해결 방법:
-1. 부모 리소스를 [복원](./online-backup-and-restore.md#request-data-restore-from-a-backup) 하거나 리소스를 다시 만듭니다.
+1. 부모 리소스를 [복원](./configure-periodic-backup-restore.md#request-restore) 하거나 리소스를 다시 만듭니다.
 1. 삭제 된 리소스를 대체할 새 리소스를 만듭니다.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. 컨테이너/컬렉션 이름은 대/소문자를 구분 합니다.

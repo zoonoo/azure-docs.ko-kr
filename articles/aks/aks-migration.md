@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 9e73ca9e485e6926c30a73ba56b24bcd4dc9a836
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 5881d03603002cc8d5bef1680083f6b4145bc77f
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929738"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526690"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "96929738"
 * [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 으로 지원 되는 AKS 클러스터를 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) 로 마이그레이션
 * [표준 SKU 부하 분산 장치](./load-balancer-standard.md) 를 사용 하도록 AKS 클러스터 마이그레이션
 * [Azure Container Service (ACS)에서 마이그레이션-2020 년 1 월 31 일 사용 중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) AKS
-* [AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) 에서 AKS로 마이그레이션
+* [AKS 엔진](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) 에서 AKS로 마이그레이션
 * 비 Azure 기반 Kubernetes 클러스터에서 AKS로 마이그레이션
 * 기존 리소스를 다른 지역으로 이동
 

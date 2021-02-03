@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 225fc83133aba0a7d669f36dc9c8e7cd20c8e42e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507522"
+ms.locfileid: "99525741"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -60,9 +60,11 @@ ms.locfileid: "99507522"
 | 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 남아프리카 북부 | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 동남아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 미국 중서부 | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -211,8 +213,7 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 
 | 헤더 | 설명 | 필수/선택 |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
-| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
+| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 필수 |
 | `Content-Type` | 제공된 텍스트의 콘텐츠 형식을 지정합니다. 허용되는 값: `application/ssml+xml`. | 필수 |
 | `X-Microsoft-OutputFormat` | 오디오 출력 형식을 지정합니다. 허용되는 값의 전체 목록은 [오디오 출력](#audio-outputs)을 참조하세요. | 필수 |
 | `User-Agent` | 애플리케이션 이름입니다. 제공 된 값은 255 자 미만 이어야 합니다. | 필수 |
@@ -278,5 +279,5 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 ## <a name="next-steps"></a>다음 단계
 
 - [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
-- [긴 형식의 오디오에 대 한 비동기 합성](./long-audio-api.md)
+- [긴 형식의 오디오에 대 한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

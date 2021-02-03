@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd64ca877f0bfd81597e091ef8ef000ad1b76992
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752217"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526435"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
@@ -244,8 +244,8 @@ Security Center의 기본 보안 이니셔티브는 업계 모범 사례 및 표
     <td class="tg-lboi"; width=55%>- 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">데이터 분류 적용(최대 점수 2)</p></strong>민감도 및 비즈니스 영향을 기준으로 조직의 데이터를 분류하면 데이터에 대한 가치를 확인하고 할당할 수 있으며, 거버넌스에 대 한 전략 및 기본 사항을 제공합니다.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a>을 데이터 분류를 지원할 수 있습니다. 이 기능은 암호화, ID 및 권한 부여 정책을 사용하여 데이터를 보호하고 데이터 액세스를 제한합니다. Microsoft에서 사용하는 일부 분류는 비즈니스 외, 퍼블릭, 일반, 기밀 및 극비를 사용합니다.</td>
-    <td class="tg-lboi"; width=55%>- SQL 데이터베이스에서 중요한 데이터를 분류해야 합니다(미리 보기).</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">데이터 분류 적용 (최대 점수 0)</p></strong>민감도 및 비즈니스 영향을 기준으로 조직의 데이터를 분류하면 데이터에 대한 가치를 확인하고 할당할 수 있으며, 거버넌스에 대 한 전략 및 기본 사항을 제공합니다.<br><a href="/azure/information-protection/what-is-information-protection">Azure Information Protection</a>을 데이터 분류를 지원할 수 있습니다. 이 기능은 암호화, ID 및 권한 부여 정책을 사용하여 데이터를 보호하고 데이터 액세스를 제한합니다. Microsoft에서 사용하는 일부 분류는 비즈니스 외, 퍼블릭, 일반, 기밀 및 극비를 사용합니다.</td>
+    <td class="tg-lboi"; width=55%>- SQL 데이터베이스의 중요 한 데이터를 분류 해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">DDoS 공격으로부터 애플리케이션 보호(최대 점수 2)</p></strong>DDoS(분산 서비스 거부)는 리소스의 폭발적 사용을 야기하고 애플리케이션을 사용할 수 있게 만듭니다. <a href="/azure/virtual-network/ddos-protection-overview">Azure DDoS Protection 표준</a>을 사용하여 세 가지 주요 유형의 DDoS 공격으로부터 조직을 보호합니다.<br>- <strong>대규모 공격</strong>에서는 합법적인 트래픽이 네트워크에 급증합니다. DDoS Protection Standard는 이러한 공격을 흡수하거나 자동으로 삭제하여 완화합니다.<br>- <strong>프로토콜 공격</strong>은 계층 3 및 계층 4 프로토콜 스택의 취약성을 악용하여 대상을 액세스 불능 상태로 만듭니다. DDoS Protection 표준은 악성 트래픽을 차단하여 이러한 공격을 완화합니다.<br>- <strong>리소스(애플리케이션) 계층 공격</strong>은 웹 애플리케이션 패킷을 대상으로 합니다. 웹 애플리케이션 방화벽 및 DDoS Protection 표준을 사용하여 이 유형의 공격으로부터 방어합니다.</td>

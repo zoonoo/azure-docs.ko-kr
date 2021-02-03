@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955278"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99525791"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 임의의 위치
 
-가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. 임의의 시나리오에서 모든 스포크는 다른 스포크에 도달할 수 있습니다. 여러 허브가 있는 경우 표준 가상 WAN에서 허브-허브 라우팅 (허브 간)이 기본적으로 사용 됩니다. Azure Portal, [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/)등의 다양 한 방법을 사용 하 여이 구성을 만들 수 있습니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요. 
+가상 WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오를 사용할 수 있습니다. 임의의 시나리오에서 모든 스포크는 다른 스포크에 도달할 수 있습니다. 여러 허브가 있는 경우 표준 가상 WAN에서 허브-허브 라우팅 (허브 간)이 기본적으로 사용 됩니다. Azure Portal, [Azure 빠른 시작 템플릿](quickstart-any-to-any-template.md)등의 다양 한 방법을 사용 하 여이 구성을 만들 수 있습니다. 가상 허브 라우팅에 대 한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요. 
 
 ## <a name="design"></a><a name="design"></a>디자인
 

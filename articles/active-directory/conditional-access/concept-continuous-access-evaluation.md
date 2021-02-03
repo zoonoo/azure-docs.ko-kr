@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678207"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524671"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -48,7 +48,7 @@ CAE를 사용 하도록 응용 프로그램을 준비 하려면 [응용 프로�
 - 사용자 암호 변경 또는 다시 설정
 - 사용자에 대해 multi-factor authentication을 사용 하도록 설정
 - 관리자가 사용자에 대 한 모든 새로 고침 토큰을 명시적으로 해지
-- Azure AD ID 보호에서 검색 된 승격 된 사용자 위험
+- Azure AD ID 보호에서 검색 된 높은 사용자 위험
 
 이 프로세스를 통해 사용자는 조직 SharePoint Online 파일, 전자 메일, 일정 또는 작업에 대 한 액세스 권한을 상실 하 고 이러한 중요 한 이벤트 중 하나에서 분 내에 Microsoft 365 클라이언트 앱에서 팀에 액세스할 수 있습니다. 
 
@@ -146,7 +146,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 다음은 그 예입니다. 
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -159,7 +159,7 @@ Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있�
 | Office 업데이트 채널 | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
 | 반기 엔터프라이즈 채널 | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. |
-| 현재 채널 <br> 또는 <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
+| 현재 채널 <br> or <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
 
 Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
 
@@ -179,7 +179,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

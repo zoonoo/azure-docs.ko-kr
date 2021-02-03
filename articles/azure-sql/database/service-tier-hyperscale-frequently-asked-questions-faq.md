@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
-ms.date: 03/03/2020
-ms.openlocfilehash: 4ea1982e7545f4ac39a5ecd15dc9e19a582ae31c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 02/03/2021
+ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459633"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526825"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터�
 |  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |
 | **컴퓨팅 크기**|SQL Database * | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | **컴퓨팅 크기**|SQL Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | 해당 없음 | vCore 8, 16, 24, 32, 40, 64, 80개 |
-| **저장소 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| **스토리지 유형** | 모두 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **스토리지 크기** | SQL Database *| 5GB~4TB | 최대 100TB | 5GB~4TB |
 | **스토리지 크기** | SQL Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
 | **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
@@ -166,7 +166,7 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Hyperscale에서 지원 하거나 시작 하는 가장 작은 데이터베이스 크기는
 
-40 GB 10 GB의 시작 크기를 사용 하 여 Hyperscale 데이터베이스를 만듭니다. 그런 다음 크기가 40 GB에 도달할 때까지 10 분 마다 10gb의 증가를 시작 합니다. 더 많은 IOPS 및 더 높은 i/o 병렬 처리를 제공 하기 위해 이러한 10gb chucks는 각각 다른 페이지 서버에 할당 됩니다. 이러한 최적화로 인해 40 GB 보다 작은 초기 데이터베이스 크기를 선택 하는 경우에도 데이터베이스는 최소 40 GB까지 자동으로 확장 됩니다.
+40 GB 10 GB의 시작 크기를 사용 하 여 Hyperscale 데이터베이스를 만듭니다. 그런 다음 크기가 40 GB에 도달할 때까지 10 분 마다 10gb의 증가를 시작 합니다. 더 많은 IOPS 및 더 높은 i/o 병렬 처리를 제공 하기 위해 이러한 10 GB 청크는 각각 다른 페이지 서버에 할당 됩니다. 이러한 최적화로 인해 40 GB 보다 작은 초기 데이터베이스 크기를 선택 하는 경우에도 데이터베이스는 최소 40 GB까지 자동으로 확장 됩니다.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>데이터베이스가 증가하는 증분의 크기는 얼마인가요?
 
@@ -233,7 +233,7 @@ Hyperscale은 새로운/변경 된 데이터의 100 m b/초를 소비할 수 있
 
 클라이언트 응용 프로그램이 Azure Storage에서 데이터를 읽고 데이터 로드를 하이퍼 확장 데이터베이스에 로드할 수 있습니다 (Azure SQL Database의 다른 데이터베이스와 마찬가지로). Polybase는 현재 Azure SQL Database에서 지원 되지 않습니다. 빠른 로드를 제공 하는 대신 [Azure Data Factory](../../data-factory/index.yml)를 사용 하거나 [SQL 용 spark 커넥터](spark-connector.md)를 사용 하 여 [Azure Databricks](/azure/azure-databricks/) 에서 spark 작업을 사용할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
 
-BULK INSERT 또는 OPENROWSET: [Azure Blob Storage 데이터에 대 한 대량 액세스 예제](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)를 사용 하 여 Azure Blob 저장소에서 데이터를 대량으로 읽을 수도 있습니다.
+BULK INSERT 또는 OPENROWSET: [Azure Blob Storage 데이터에 대 한 대량 액세스 예제](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location)를 사용 하 여 Azure Blob 저장소에서 데이터를 대량으로 읽을 수도 있습니다.
 
 하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성 및 지정 시간 복구를 제공 하려면 전체 복구 모델이 필요 합니다. 그러나 Hyperscale 로그 아키텍처는 다른 Azure SQL Database 서비스 계층에 비해 더 나은 데이터 수집 비율을 제공 합니다.
 
