@@ -6,33 +6,8 @@
       href: overview.md
     - name: 어떤 MySQL 옵션을 선택해야 하나요?
       href: select-right-deployment-type.md
-    - name: 서비스 업데이트
-      items:
-        - name: SSL 루트 인증서 만료
-          href: concepts-certificate-rotation.md
-- name: 공유 설명서
-  items:
-    - name: 데이터베이스 배포
-      items:
-        - name: GitHub 작업
-          href: quickstart-mysql-github-actions.md
-    - name: 마이그레이션
-      items:
-        - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
-          href: concepts-migrate-dump-restore.md
-          displayName: 'migrate, mysqldump'
-        - name: MySQL Workbench를 사용하여 데이터 마이그레이션
-          href: concepts-migrate-import-export.md
-          displayName: 'import , migrate, export'
-        - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
-          href: howto-migrate-online.md
-          displayName: 'migrate, dms, database migration service'
-    - name: 데이터베이스와 사용자 만들기
-      href: howto-create-users.md
-      displayName: users
-    - name: 데이터베이스 손상 완화
-      href: how-to-fix-corrupt-database.md
-      displayName: corrupt data
+    - name: 지원되는 버전
+      href: concepts-supported-versions.md
     - name: 버전 관리 정책
       href: concepts-version-policy.md
       displayName: version policy
@@ -46,6 +21,12 @@
       items:
         - name: 단일 서버란?
           href: single-server-overview.md
+        - name: 가격 책정 계층
+          items:
+            - name: 가격 책정 계층
+              href: concepts-pricing-tiers.md
+            - name: 예약된 용량 선불
+              href: concept-reserved-pricing.md
     - name: 빠른 시작
       expanded: true
       items:
@@ -68,8 +49,14 @@
               displayName: deploy azure resource manager template
         - name: 연결 및 쿼리
           items:
+            - name: 연결 및 쿼리 가이드
+              href: how-to-connect-overview-single-server.md
+              displayName: 'connect , query , libraries, TLS, runtime'
             - name: MySQL Workbench
               href: connect-workbench.md
+            - name: Azure App Service
+              href: howto-connect-webapp.md
+              displayName: 'azure web app, security, web app, app service'
             - name: PHP
               href: connect-php.md
             - name: Java
@@ -92,8 +79,46 @@
               href: connect-cpp.md
             - name: Go
               href: connect-go.md
-    - name: 자습서
+            - name: 연결 오류 문제 해결
+              href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection issues, connectivity, cannot connect'
+        - name: SSL 구성
+          href: howto-configure-ssl.md
+          displayName: 'ssl, security, application'
+        - name: 방화벽 규칙 구성
+          items:
+            - name: 개념
+              href: concepts-firewall-rules.md
+            - name: Azure Portal을 사용하여 방화벽 규칙 구성
+              href: howto-manage-firewall-using-portal.md
+              displayName: firewall
+            - name: Azure CLI를 사용하여 방화벽 규칙 구성
+              href: howto-manage-firewall-using-cli.md
+              displayName: firewall
+        - name: 서버 매개 변수 구성
+          items:
+            - name: Azure portal
+              href: howto-server-parameters.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: howto-configure-server-parameters-using-cli.md
+              displayName: 'server parameters, cli'
+            - name: Azure PowerShell
+              href: howto-configure-server-parameters-using-powershell.md
+              displayName: 'server parameters, powershell'
+        - name: 데이터베이스와 사용자 만들기
+          href: howto-create-users.md
+          displayName: users
+        - name: 모니터 서버
+          items:
+            - name: 메트릭에 대한 경고 만들기
+              href: howto-alert-on-metric.md
+              displayName: 'debug, monitor, alerts, metrics'
+    - name: 애플리케이션 개발
       items:
+        - name: 드라이버 및 도구 호환성
+          href: concepts-compatibility.md
+          displayName: 'drivers, tools'
         - name: 데이터베이스 설계
           items:
             - name: Azure portal
@@ -112,120 +137,130 @@
             - name: MySQL을 사용하는 PHP
               href: ../app-service/tutorial-php-mysql-app.md
               maintainContext: true
-    - name: 샘플
+        - name: 연결 복원력
+          items:
+            - name: 개념
+              href: concepts-connectivity.md
+              displayName: 'connection, resiliency'
+            - name: 샘플 - Java 연결 풀링 구성
+              href: sample-scripts-java-connection-pooling.md
+            - name: 리디렉션으로 연결
+              href: howto-redirection.md
+              displayName: 'development, redirection , php'
+        - name: 데이터베이스 배포
+          items:
+            - name: GitHub 작업
+              href: quickstart-mysql-github-actions.md
+    - name: 네트워킹
       items:
-        - name: Azure CLI
-          href: sample-scripts-azure-cli.md
-        - name: Java 연결 풀링
-          href: sample-scripts-java-connection-pooling.md
-    - name: 개념
+        - name: Virtual Network 서비스 엔드포인트
+          items:
+            - name: 개념
+              href: concepts-data-access-and-security-vnet.md
+            - name: Azure Portal을 사용하여 VNet 서비스 엔드포인트 구성
+              href: howto-manage-vnet-using-portal.md
+              displayName: 'vnet, virtual network, service endpoint'
+            - name: Azure CLI를 사용하여 VNet 서비스 엔드포인트 구성
+              href: howto-manage-vnet-using-cli.md
+              displayName: 'vnet, virtual network, service endpoint'
+        - name: 프라이빗 링크
+          items:
+            - name: 개념
+              href: concepts-data-access-security-private-link.md
+            - name: Azure Portal을 사용하여 Private Link 구성
+              href: howto-configure-privatelink-portal.md
+              displayName: 'private link, private endpoint'
+            - name: Azure CLI를 사용하여 Private Link 구성
+              href: howto-configure-privatelink-cli.md
+              displayName: 'private link, private endpoint'
+    - name: 보안
+      items:
+        - name: 보안 개요
+          href: concepts-security.md
+        - name: 보안 기준
+          href: security-baseline.md
+        - name: 인증
+          items:
+            - name: Azure AD 인증
+              href: concepts-azure-ad-authentication.md
+            - name: Azure AD 통합 구성
+              href: howto-configure-sign-in-azure-ad-authentication.md
+              displayName: active directory
+            - name: 관리 ID를 사용하여 연결
+              href: howto-connect-with-managed-identity.md
+              displayName: 'managed identity, msi'
+        - name: 네트워크 보안(동작의 암호화)
+          items:
+            - name: SSL 구성
+              href: concepts-ssl-connection-security.md
+            - name: TLS 구성
+              href: howto-tls-configurations.md
+              displayName: 'TLS, security, development'
+            - name: Advanced Threat Protection
+              items:
+                - name: 개념
+                  href: concepts-data-access-and-security-threat-protection.md
+                - name: Azure Portal을 사용하여 Advanced Threat Protection 구성
+                  href: howto-database-threat-protection-portal.md
+                  displayName: 'atp, advanced thread, security'
+        - name: 휴지 상태의 암호화
+          items:
+            - name: 데이터 암호화
+              items:
+                - name: 개념
+                  href: concepts-data-encryption-mysql.md
+                - name: Azure Portal을 사용하여 고객 관리형 키로 암호화 구성
+                  href: howto-data-encryption-portal.md
+                  displayName: 'encryption, security'
+                - name: Azure CLI를 사용하여 고객 관리형 키로 암호화 구성
+                  href: howto-data-encryption-cli.md
+                  displayName: 'encryption, security'
+                - name: 데이터 암호화 유효성 검사
+                  href: howto-data-encryption-validation.md
+                  displayName: 'encryption, security'
+            - name: 인프라 이중 암호화
+              items:
+                - name: 개념
+                  href: concepts-infrastructure-double-encryption.md
+                - name: 인프라 이중 암호화 구성
+                  href: howto-double-encryption.md
+                  displayName: 'infrastructure encryption, security'
+        - name: 퍼블릭 네트워크 액세스 거부
+          items:
+            - name: Azure Portal 사용
+              href: howto-deny-public-network-access.md
+              displayName: 'security, public access'
+        - name: 서버 감사
+          items:
+            - name: 개념
+              href: concepts-audit-logs.md
+              displayName: 'monitor, alerts, audit log'
+            - name: Azure Portal을 사용하여 감사 로그 구성
+              href: howto-configure-audit-logs-portal.md
+              displayName: 'debug, audit log'
+            - name: Azure CLI를 사용하여 감사 로그 구성
+              href: howto-configure-audit-logs-cli.md
+              displayName: 'debug, audit log'
+        - name: 규정 준수
+          href: ./security-controls-policy.md
+          displayName: 'regulatory, compliance, standards, domains'
+    - name: 고가용성
+      items:
+        - name: 비즈니스 연속성 소개
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
+          href: concepts-business-continuity.md
+        - name: 고가용성
+          href: concepts-high-availability.md
+          displayName: 'backup, restore,high availability'
+    - name: 서버 관리
       items:
         - name: 서버
           href: concepts-servers.md
-        - name: 지원되는 버전
-          href: concepts-supported-versions.md
-        - name: 제한 사항
+        - name: 서버 제한 사항
           href: concepts-limits.md
-        - name: 운영 모범 사례
-          href: concept-operation-excellence-best-practices.md
-        - name: 가격 책정 계층
-          items:
-            - name: 가격 책정 계층
-              href: concepts-pricing-tiers.md
-            - name: 예약된 용량 선불
-              href: concept-reserved-pricing.md
-        - name: 네트워킹
-          items:
-            - name: Virtual Network(VNET) 사용
-              href: concepts-data-access-and-security-vnet.md
-            - name: Private Link를 통한 프라이빗 액세스 사용
-              href: concepts-data-access-security-private-link.md
-        - name: 보안
-          items:
-            - name: 보안 개요
-              href: concepts-security.md
-            - name: SSL 구성
-              href: concepts-ssl-connection-security.md
-            - name: 연결 아키텍처
-              href: concepts-connectivity-architecture.md
-            - name: 방화벽 규칙
-              href: concepts-firewall-rules.md
-            - name: Advanced Threat Protection
-              href: concepts-data-access-and-security-threat-protection.md
-            - name: 데이터 암호화
-              href: concepts-data-encryption-mysql.md
-            - name: Azure AD 인증
-              href: concepts-azure-ad-authentication.md
-            - name: 인프라 이중 암호화
-              href: concepts-infrastructure-double-encryption.md
-            - name: Azure Policy의 보안 컨트롤
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
-            - name: 보안 기준
-              href: security-baseline.md
-        - name: 계획된 유지 보수
-          href: concepts-planned-maintenance-notification.md
-        - name: 비즈니스 연속성
-          items:
-            - name: 비즈니스 연속성 소개
-              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
-              href: concepts-business-continuity.md
-            - name: 고가용성
-              href: concepts-high-availability.md
-              displayName: 'backup, restore,high availability'
-            - name: 백업 및 복원
-              href: concepts-backup.md
-              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
-        - name: 모니터링 및 튜닝
-          items:
-            - name: 모니터링 개요
-              href: concepts-monitoring.md
-              displayName: 'monitor, alerts, audit log, slow query log'
-            - name: 서버 매개 변수
-              href: concepts-server-parameters.md
-              displayName: server parameters
-            - name: 느린 쿼리 로그
-              href: concepts-server-logs.md
-              displayName: 'monitor, slow query log, alert'
-            - name: 감사 로그
-              href: concepts-audit-logs.md
-              displayName: 'monitor, alerts, audit log'
-            - name: 쿼리 저장소
-              href: concepts-query-store.md
-              displayName: 'performance, query store'
-            - name: 쿼리 성능 Insight
-              href: concepts-query-performance-insight.md
-              displayName: query performance insights
-            - name: 성능 권장 사항
-              href: concepts-performance-recommendations.md
-              displayName: recommendation
-            - name: 모범 사례 모니터링
-              href: concept-monitoring-best-practices.md
-            - name: 성능 모범 사례
-              href: concept-performance-best-practices.md
-        - name: 애플리케이션 개발
-          items:
-            - name: 애플리케이션 개발 개요
-              href: concepts-database-application-development.md
-            - name: 드라이버 및 도구 호환성
-              href: concepts-compatibility.md
-              displayName: 'drivers, tools'
-            - name: 애플리케이션 모범 사례
-              href: app-development-best-practices.md
-              displayName: application
-            - name: 연결 복원력
-              href: concepts-connectivity.md
-              displayName: 'connection, resiliency'
-        - name: 복제
-          items:
-            - name: 데이터 내부 복제
-              href: concepts-data-in-replication.md
-              displayName: 'replication, read replica'
-            - name: 읽기 복제본
-              href: concepts-read-replicas.md
-              displayName: 'replication, read replica'
-    - name: 방법 가이드
-      items:
+        - name: 서버 매개 변수
+          href: concepts-server-parameters.md
+          displayName: server parameters
         - name: 서버 관리 및 스케일링
           items:
             - name: Azure portal
@@ -234,196 +269,141 @@
             - name: Azure CLI
               href: how-to-manage-single-server-cli.md
               displayName: 'manage, reset password, scale'
-            - name: 방화벽 규칙
-              items:
-                - name: Azure portal
-                  href: howto-manage-firewall-using-portal.md
-                  displayName: firewall
-                - name: Azure CLI
-                  href: howto-manage-firewall-using-cli.md
-                  displayName: firewall
-        - name: 인증
-          items:
-            - name: Azure AD 통합 구성
-              href: howto-configure-sign-in-azure-ad-authentication.md
-              displayName: active directory
-            - name: 관리 ID를 사용하여 연결
-              href: howto-connect-with-managed-identity.md
-              displayName: 'managed identity, msi'
-        - name: 서버 복원
-          items:
-            - name: Azure portal
-              href: howto-restore-server-portal.md
-              displayName: 'restore server,backup'
-            - name: Azure CLI
-              href: howto-restore-server-cli.md
-              displayName: 'restore server, backup'
-            - name: Azure PowerShell
-              href: howto-restore-server-powershell.md
-              displayName: 'restore server, backup, geo-restore powershell'
-            - name: 삭제된 서버 복원
-              href: howto-restore-dropped-server.md
-              displayName: 'restore server,dropped, recover'
-        - name: 애플리케이션 연결
-          items:
-            - name: SSL 구성
-              href: howto-configure-ssl.md
-              displayName: 'ssl, security, application'
-            - name: TLS 구성
-              href: howto-tls-configurations.md
-              displayName: 'TLS, security, developement'
-            - name: 연결 및 쿼리 가이드
-              href: how-to-connect-overview-single-server.md
-              displayName: 'connect , query , libraries, TLS, runtime'
-            - name: 웹 앱
-              href: howto-connect-webapp.md
-              displayName: 'azure web app, security, web app, app service'
-            - name: 리디렉션으로 연결
-              href: howto-redirection.md
-              displayName: 'development, redirection , php'
-        - name: 서버 매개 변수 구성
-          items:
-            - name: Azure portal
-              href: howto-server-parameters.md
-              displayName: server parameters
-            - name: Azure CLI
-              href: howto-configure-server-parameters-using-cli.md
-              displayName: 'server parameters, cli'
-            - name: Azure PowerShell
-              href: howto-configure-server-parameters-using-powershell.md
-              displayName: 'server parameters, powershell'
         - name: 서버 중지/시작
           items:
             - name: MySQL 서버 시작 중지
               href: how-to-stop-start-server.md
         - name: 주 버전 업그레이드
-          items:
-            - name: 주 버전 업그레이드
-              href: how-to-major-version-upgrade.md
+          href: how-to-major-version-upgrade.md
         - name: 자동 증가 스토리지
           items:
-            - name: Azure portal
+            - name: Azure Portal 사용
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
-            - name: Azure CLI
+            - name: Azure CLI 사용
               href: howto-auto-grow-storage-cli.md
               displayName: 'storage, business continuity , downtime, cli'
-            - name: Azure PowerShell
+            - name: Azure PowerShell 사용
               href: howto-auto-grow-storage-powershell.md
               displayName: 'storage, business continuity , downtime, powershell'
-        - name: 느린 쿼리 로그
-          items:
-            - name: Azure portal
-              href: howto-configure-server-logs-in-portal.md
-              displayName: 'debug, slow query log , performance'
-            - name: Azure CLI
-              href: howto-configure-server-logs-in-cli.md
-              displayName: 'debug, slow query log , performance'
-        - name: 감사 로그
-          items:
-            - name: Azure portal
-              href: howto-configure-audit-logs-portal.md
-              displayName: 'debug, audit log'
-            - name: Azure CLI
-              href: howto-configure-audit-logs-cli.md
-              displayName: 'debug, audit log'
-        - name: 모니터
-          items:
-            - name: 메트릭에 대한 경고 만들기
-              href: howto-alert-on-metric.md
-              displayName: 'debug, monitor, alerts, metrics'
-        - name: 복제
-          items:
-            - name: 데이터 내부 복제 구성
-              href: howto-data-in-replication.md
-              displayName: 'data-in replication, replica, failover'
-            - name: Azure Portal 읽기 복제본 만들기
-              href: howto-read-replicas-portal.md
-              displayName: 'data-in replication, replica, failover'
-            - name: '읽기 복제본 Azure CLI, REST API 만들기'
-              href: howto-read-replicas-cli.md
-              displayName: 'data-in replication, replica, failover'
-            - name: Azure PowerShell 읽기 복제본 만들기
-              href: howto-read-replicas-powershell.md
-              displayName: 'data-in replication, replica, failover'
-        - name: 문제 해결
-          items:
-            - name: 연결 오류 문제 해결
-              href: howto-troubleshoot-common-connection-issues.md
-              displayName: 'debug, connection issues, connectivity, cannot connect'
-            - name: 일반 오류 문제 해결
-              href: howto-troubleshoot-common-errors.md
-              displayName: 'SUPER privilege, DBA role, Access is denied'
-            - name: 쿼리 성능 문제 해결
-              href: howto-troubleshoot-query-performance.md
-              displayName: 'debug, performance issues, query performance'
-            - name: sys 스키마에서 보기를 사용하는 방법
-              href: howto-troubleshoot-sys-schema.md
-              displayName: 'sys schema, views'
-            - name: 데이터 암호화 문제 해결
-              href: howto-data-encryption-troubleshoot.md
-              displayName: 'encryption, security'
-            - name: 복제 대기 시간 문제 해결
-              href: howto-troubleshoot-replication-latency.md
-              displayName: 'replication, latency, monitor'
-        - name: Advanced Threat Protection
-          items:
-            - name: Azure portal
-              href: howto-database-threat-protection-portal.md
-              displayName: 'atp, advanced thread, security'
-            - name: Virtual Network
-              items:
-                - name: Azure portal
-                  href: howto-manage-vnet-using-portal.md
-                  displayName: 'vnet, virtual network, service endpoint'
-                - name: Azure CLI
-                  href: howto-manage-vnet-using-cli.md
-                  displayName: 'vnet, virtual network, service endpoint'
-        - name: 프라이빗 링크
-          items:
-            - name: Azure portal
-              href: howto-configure-privatelink-portal.md
-              displayName: 'private link, private endpoint'
-            - name: Azure CLI
-              href: howto-configure-privatelink-cli.md
-              displayName: 'private link, private endpoint'
-        - name: 데이터 암호화.
-          items:
-            - name: Azure portal
-              href: howto-data-encryption-portal.md
-              displayName: 'encryption, security'
-            - name: Azure CLI
-              href: howto-data-encryption-cli.md
-              displayName: 'encryption, security'
-            - name: 데이터 암호화 유효성 검사
-              href: howto-data-encryption-validation.md
-              displayName: 'encryption, security'
-        - name: 인프라 이중 암호화
-          items:
-            - name: 인프라 이중 암호화 구성
-              href: howto-double-encryption.md
-              displayName: 'infrastructure encryption, security'
-        - name: 퍼블릭 네트워크 액세스 거부
-          items:
-            - name: Azure portal
-              href: howto-deny-public-network-access.md
-              displayName: 'security, public access'
         - name: 서버 다시 시작
           items:
-            - name: Azure portal
+            - name: Azure Portal 사용
               href: howto-restart-server-portal.md
               displayName: restart
-            - name: Azure CLI
+            - name: Azure CLI 사용
               href: howto-restart-server-cli.md
               displayName: restart
-            - name: Azure PowerShell
+            - name: Azure PowerShell 사용
               href: howto-restart-server-powershell.md
               displayName: restart
-        - name: 영역 간 이동
+        - name: 지역 간에 서버 이동
           items:
-            - name: Azure portal
+            - name: Azure Portal 사용
               href: howto-move-regions-portal.md
               displayName: move servers across regions
+    - name: 백업 및 복원
+      items:
+        - name: Backup
+          href: concepts-backup.md
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
+        - name: 서버 복원
+          items:
+            - name: Azure Portal 사용
+              href: howto-restore-server-portal.md
+              displayName: 'restore server,backup'
+            - name: Azure CLI 사용
+              href: howto-restore-server-cli.md
+              displayName: 'restore server, backup'
+            - name: Azure PowerShell 사용
+              href: howto-restore-server-powershell.md
+              displayName: 'restore server, backup, geo-restore powershell'
+        - name: 삭제된 서버 복원
+          href: howto-restore-dropped-server.md
+          displayName: 'restore server,dropped, recover'
+    - name: 복제
+      items:
+        - name: 데이터 내부 복제
+          href: concepts-data-in-replication.md
+          displayName: 'replication, read replica'
+        - name: 데이터 내부 복제 구성
+          href: howto-data-in-replication.md
+          displayName: 'data-in replication, replica, failover'
+        - name: 읽기 복제본
+          items:
+            - name: 개념
+              href: concepts-read-replicas.md
+              displayName: 'replication, read replica'
+            - name: Azure Portal을 사용하여 읽기 복제본 만들기
+              href: howto-read-replicas-portal.md
+              displayName: 'data-in replication, replica, failover'
+            - name: 'Azure CLI, REST API를 사용하여 읽기 복제본 만들기'
+              href: howto-read-replicas-cli.md
+              displayName: 'data-in replication, replica, failover'
+            - name: Azure PowerShell을 사용하여 읽기 복제본 만들기
+              href: howto-read-replicas-powershell.md
+              displayName: 'data-in replication, replica, failover'
+    - name: 서비스 유지 관리
+      items:
+        - name: 계획된 유지 관리
+          href: concepts-planned-maintenance-notification.md
+        - name: 게이트웨이 유지 관리
+          href: concepts-connectivity-architecture.md
+        - name: SSL 루트 인증서 만료
+          href: concepts-certificate-rotation.md
+    - name: 모니터링 및 튜닝
+      items:
+        - name: 모니터링 개요
+          href: concepts-monitoring.md
+          displayName: 'monitor, alerts, audit log, slow query log'
+        - name: 느린 쿼리 로그
+          items:
+            - name: 개념
+              href: concepts-server-logs.md
+              displayName: 'monitor, slow query log, alert'
+            - name: Azure Portal을 사용하여 느린 쿼리 로그 구성
+              href: howto-configure-server-logs-in-portal.md
+              displayName: 'debug, slow query log , performance'
+            - name: Azure CLI를 사용하여 느린 쿼리 로그 구성
+              href: howto-configure-server-logs-in-cli.md
+              displayName: 'debug, slow query log , performance'
+        - name: 쿼리 저장소
+          href: concepts-query-store.md
+          displayName: 'performance, query store'
+        - name: 쿼리 성능 Insight
+          href: concepts-query-performance-insight.md
+          displayName: query performance insights
+        - name: 성능 권장 사항
+          href: concepts-performance-recommendations.md
+          displayName: recommendation
+    - name: 모범 사례
+      items:
+        - name: 모범 사례 모니터링
+          href: concept-monitoring-best-practices.md
+        - name: 성능 모범 사례
+          href: concept-performance-best-practices.md
+        - name: 애플리케이션 개발 모범 사례
+          href: app-development-best-practices.md
+          displayName: application
+        - name: 운영 모범 사례
+          href: concept-operation-excellence-best-practices.md
+    - name: 문제 해결
+      items:
+        - name: 쿼리 성능 문제 해결
+          href: howto-troubleshoot-query-performance.md
+          displayName: 'debug, performance issues, query performance'
+        - name: sys 스키마에서 보기를 사용하는 방법
+          href: howto-troubleshoot-sys-schema.md
+          displayName: 'sys schema, views'
+        - name: 데이터 암호화 문제 해결
+          href: howto-data-encryption-troubleshoot.md
+          displayName: 'encryption, security'
+        - name: 복제 대기 시간 문제 해결
+          href: howto-troubleshoot-replication-latency.md
+          displayName: 'replication, latency, monitor'
+        - name: 데이터베이스 손상 완화
+          href: how-to-fix-corrupt-database.md
+          displayName: corrupt data
 - name: 유연한 서버(미리 보기)
   items:
     - name: 유연한 서버 설명서
@@ -578,6 +558,20 @@
           items:
             - name: 연결 오류
               href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+- name: 마이그레이션
+  items:
+    - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
+      href: concepts-migrate-dump-restore.md
+      displayName: 'migrate, mysqldump'
+    - name: MySQL Workbench를 사용하여 데이터 마이그레이션
+      href: concepts-migrate-import-export.md
+      displayName: 'import , migrate, export'
+    - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
+      href: howto-migrate-online.md
+      displayName: 'migrate, dms, database migration service'
+    - name: 일반 오류 문제 해결
+      href: howto-troubleshoot-common-errors.md
+      displayName: 'SUPER privilege, DBA role, Access is denied'
 - name: 참조
   items:
     - name: Azure CLI

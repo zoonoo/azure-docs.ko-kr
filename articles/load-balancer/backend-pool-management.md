@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8887474f07928462afe7863ffe2b3667ece536dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575302"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429605"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -25,6 +25,8 @@ ms.locfileid: "96575302"
 기존 가상 머신 및 가상 머신 확장 집합을 사용하는 경우 NIC를 통해 백 엔드 풀을 구성합니다. 이 방법은 리소스와 백 엔드 풀 간에 가장 직접적인 링크를 작성합니다. 
 
 나중에 가상 머신 및 가상 머신 확장 집합을 만드는 데 사용할 IP 주소 범위로 백 엔드 풀을 미리 할당하는 경우 IP 주소 및 VNET ID 조합을 통해 백 엔드 풀을 구성합니다.
+
+동일한 부하 분산 장치에 대해 IP 기반 및 NIC 기반 백엔드 풀을 구성할 수 있지만 동일한 풀 내에서 NIC 및 IP 주소가 대상으로 하는 지원 주소를 혼합하는 단일 백엔드 풀을 만들 수 없습니다.
 
 이 문서의 구성 섹션에서는 다음 항목에 중점을 둡니다.
 

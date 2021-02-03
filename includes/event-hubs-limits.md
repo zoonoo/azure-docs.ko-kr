@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 02/01/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 262783e83bdb846a3ea7e3015212c01048a00125
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 45cc5120072f2a8c7742f79cfb79161042345505
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96152577"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427329"
 ---
 다음 표는 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)의 할당량과 제한을 제공합니다. Event Hubs 가격에 대한 자세한 내용은 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요.
 
@@ -30,7 +30,8 @@ ms.locfileid: "96152577"
 | 소비자 그룹당 비 Epoch 수신자 수 |- |5 |
 | 네임스페이스당 권한 부여 규칙의 수 | 권한 부여 규칙 만들기에 대한 후속 요청이 거부됩니다.|12 |
 | GetRuntimeInformation 메서드에 대한 호출 수 |  - | 초당 50 | 
-| VNet(가상 네트워크) 및 IP 구성 규칙 수 | - | 128 | 
+| VNet(가상 네트워크) 수 | - | 128 | 
+| IP 구성 규칙 수 | - | 128 | 
 
 
 ### <a name="basic-vs-standard-tiers"></a>기본 및 표준 계층 비교

@@ -329,6 +329,8 @@
               href: platform/data-sources-linux-applications.md
             - name: IIS 로그
               href: platform/data-sources-iis-logs.md
+            - name: Windows용 이벤트 추적 데이터
+              href: platform/data-sources-event-tracing-windows.md
             - name: 사용자 지정 로그
               href: platform/data-sources-custom-logs.md
             - name: 사용자 지정 필드
@@ -1251,7 +1253,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

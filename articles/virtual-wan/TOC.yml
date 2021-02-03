@@ -49,6 +49,8 @@
           href: scenario-isolate-vnets.md
         - name: VNet 격리 - 사용자 지정
           href: scenario-isolate-vnets-custom.md
+        - name: 가상 네트워크 및 분기 격리
+          href: scenario-isolate-virtual-networks-branches.md
         - name: 공유 서비스 VNet
           href: scenario-shared-services-vnet.md
         - name: NVA를 통한 라우팅

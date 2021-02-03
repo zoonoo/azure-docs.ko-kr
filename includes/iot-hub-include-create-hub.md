@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6a01b3a71a7e391c680e6c9547ccd9649dc0e89
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98605079"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99427405"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -35,17 +35,17 @@ ms.locfileid: "98605079"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Azure Portal에서 허브 만들기](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png" alt-text="Azure Portal에서 허브를 만듭니다.":::
 
 1. 완료되면 **다음: 네트워킹** 을 선택하여 허브를 계속 만듭니다.
 
    IoT Hub에 연결할 수 있는 엔드포인트를 선택합니다. **퍼블릭 엔드포인트(모든 네트워크)** 기본 설정을 선택하거나 **퍼블릭 엔드포인트(선택한 IP 범위)** 또는 **프라이빗 엔드포인트** 를 선택할 수 있습니다. 이 예제의 기본 설정을 적용합니다.
 
-   ![연결할 수 있는 엔드포인트 선택](./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="연결할 수 있는 엔드포인트를 선택합니다.":::
 
 1. 완료되면 **다음: 관리** 를 선택하여 허브를 계속 만듭니다.
 
-    ![Azure Portal을 사용하여 새 허브의 크기 및 배율 설정](./media/iot-hub-include-create-hub/iot-hub-management-screen.png)
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Azure Portal을 사용하여 새 허브의 크기 및 배율을 설정합니다.":::
 
     여기서 기본 설정을 적용할 수 있습니다. 원하는 경우 다음 필드 중 하나를 수정할 수 있습니다.
 
@@ -60,14 +60,14 @@ ms.locfileid: "98605079"
 
     - **고급 설정** > **디바이스-클라우드 파티션**: 이 속성은 디바이스-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 허브에는 4개의 파티션만 필요합니다.
 
-1.  완료되면 **다음: 태그** 를 선택하여 다음 화면으로 계속 진행합니다.
+1. 완료되면 **다음: 태그** 를 선택하여 다음 화면으로 계속 진행합니다.
 
     태그는 이름/값 쌍입니다. 동일한 태그를 여러 리소스 및 리소스 그룹에 할당하여 리소스를 범주화하고 청구를 통합할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../articles/azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
-    ![Azure Portal을 사용하여 허브에 태그 할당](./media/iot-hub-include-create-hub/iot-hub-create-tags.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Azure Portal을 사용하여 허브에 태그를 할당합니다.":::
 
-1.  완료되면 **다음: 검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. 이 화면과 유사한 내용이 표시되지만 허브를 만들 때 선택한 값이 표시됩니다. 
+1. 완료되면 **다음: 검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. 이 화면과 유사한 내용이 표시되지만 허브를 만들 때 선택한 값이 표시됩니다.
 
-    ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-review-and-create.png)
+    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="새 허브를 만들기 위한 정보를 검토합니다.":::
 
-1.  **만들기** 를 선택하여 새 허브를 만듭니다. 허브를 만드는 데 몇 분이 걸립니다.
+1. **만들기** 를 선택하여 새 허브를 만듭니다. 허브를 만드는 데 몇 분이 걸립니다.
