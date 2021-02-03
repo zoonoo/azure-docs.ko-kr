@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 97b8f889bf625ac36917debe2cc2848cb1a97e37
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: cc1d375de9f45369f6d2902b106a1740f316ad8d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956578"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947695"
 ---
-[참조 설명서](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [패키지(NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[참조 설명서](/javascript/api/@azure/arm-cognitiveservices/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [패키지(NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## <a name="javascript-prerequisites"></a>JavaScript 필수 구성 요소
 
@@ -116,7 +116,7 @@ node index.js
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Management SDK 참조 설명서](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [Azure Management SDK 참조 설명서](/javascript/api/@azure/arm-cognitiveservices/)
 * [Azure Cognitive Services란?](../../what-are-cognitive-services.md)
 * [Azure Cognitive Services에 대한 요청 인증](../../authentication.md)
 * [Azure Portal를 사용하여 새 리소스 만들기](../../cognitive-services-apis-create-account.md)

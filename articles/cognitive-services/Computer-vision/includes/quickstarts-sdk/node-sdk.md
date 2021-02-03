@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 8fd7c820a25f098799f1c2fa69ba700a334e932d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 13017424c1b9f0406ad60dc25f61f198f3655323
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98697977"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947830"
 ---
 <a name="HOLTop"></a>
 
@@ -24,7 +24,7 @@ Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행
 * 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
 * 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
-[참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -91,8 +91,8 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 |Name|Description|
 |---|---|
-| [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
-|[VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 **VisualFeatureTypes** 값 세트를 지정합니다. |
+| [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) | 이 클래스는 모든 Computer Vision 기능에 필요합니다. 구독 정보를 사용하여 이 클래스를 인스턴스화한 다음, 대부분의 이미지 작업에 사용합니다.|
+|[VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes)| 이 열거형은 표준 Analyze(분석) 작업에서 수행할 수 있는 다양한 유형의 이미지 분석을 정의합니다. 필요에 따라 **VisualFeatureTypes** 값 세트를 지정합니다. |
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -105,7 +105,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 
-엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키 및 엔드포인트를 사용하여 [ApiKeyCredentials](/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) 개체를 만든 다음, 이를 사용하여 [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 개체를 만듭니다.
+엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키 및 엔드포인트를 사용하여 [ApiKeyCredentials](/python/api/msrest/msrest.authentication.apikeycredentials) 개체를 만든 다음, 이를 사용하여 [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 개체를 만듭니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
 
@@ -120,10 +120,10 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
-이 섹션의 코드는 원격 이미지를 분석하여 다양한 시각적 개체 기능을 추출합니다. 클라이언트 개체의 **analyzeImage** 메서드의 일부로 이러한 작업을 수행하거나 개별 메서드를 사용하여 호출할 수 있습니다. 자세한 내용은 [참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)를 참조하세요.
+이 섹션의 코드는 원격 이미지를 분석하여 다양한 시각적 개체 기능을 추출합니다. 클라이언트 개체의 **analyzeImage** 메서드의 일부로 이러한 작업을 수행하거나 개별 메서드를 사용하여 호출할 수 있습니다. 자세한 내용은 [참조 설명서](/javascript/api/@azure/cognitiveservices-computervision/)를 참조하세요.
 
 > [!NOTE]
-> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 메서드(예: **analyzeImageInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
+> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 메서드(예: **analyzeImageInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
 
 ### <a name="get-image-description"></a>이미지 설명 가져오기
 
@@ -245,7 +245,7 @@ Computer Vision은 이미지에서 보이는 텍스트를 추출하여 문자 �
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
 > [!NOTE]
-> 로컬 이미지에서 텍스트를 읽을 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) 메서드(예: **readInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
+> 로컬 이미지에서 텍스트를 읽을 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 메서드(예: **readInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 
@@ -292,7 +292,7 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[Computer Vision API 참조(Node.js)](/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
+>[Computer Vision API 참조(Node.js)](/javascript/api/@azure/cognitiveservices-computervision/)
 
 
 * [Computer Vision이란?](../../overview.md)

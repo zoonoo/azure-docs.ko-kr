@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 324f89d2de56666242ed4f6231eff0855ec561b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 1058b93a304dbf6f08d9a3e8f995e123a6dc6631
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356480"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947489"
 ---
 Python용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 PiPy 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
 
@@ -30,9 +30,9 @@ Python용 Content Moderator 클라이언트 라이브러리를 사용하여 다�
 * 사용자 지정 이미지 목록 사용
 * 검토 만들기
 
-[참조 설명서](/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[참조 설명서](/python/api/overview/azure/cognitiveservices/contentmoderator) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [패키지(PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
@@ -75,10 +75,10 @@ Content Moderator Python 클라이언트 라이브러리의 주요 기능 중 �
 
 |이름|설명|
 |---|---|
-|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
-|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
-|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
-[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
+|[ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
+|[ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
+|[TextModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
+[ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -93,7 +93,7 @@ Content Moderator Python 클라이언트 라이브러리의 주요 기능 중 �
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 개체를 만들고, 엔드포인트에서 이를 사용하여 [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) 개체를 만듭니다.
+엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](/python/api/msrest/msrest.authentication.cognitiveservicescredentials) 개체를 만들고, 엔드포인트에서 이를 사용하여 [ContentModeratorClient](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient) 개체를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
@@ -116,7 +116,7 @@ Crap is the profanity here. Is this information PII? phone 2065550111
 
 ## <a name="use-a-custom-terms-list"></a>사용자 지정 용어 목록 사용
 
-다음 코드에서는 텍스트를 조정할 사용자 지정 용어의 목록을 관리하는 방법을 보여 줍니다. [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations?view=azure-python) 클래스를 사용하여 용어 목록을 만들고, 개별 용어를 관리하며, 이와 비교하여 텍스트의 다른 본문을 확인할 수 있습니다.
+다음 코드에서는 텍스트를 조정할 사용자 지정 용어의 목록을 관리하는 방법을 보여 줍니다. [ListManagementTermListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementtermlistsoperations) 클래스를 사용하여 용어 목록을 만들고, 개별 용어를 관리하며, 이와 비교하여 텍스트의 다른 본문을 확인할 수 있습니다.
 
 ### <a name="get-sample-text"></a>샘플 텍스트 가져오기
 
@@ -186,7 +186,7 @@ This text contains the terms "term1" and "term2".
 
 ## <a name="moderate-images"></a>이미지 조정
 
-다음 코드에서는 [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python) 개체와 함께 Content Moderator 클라이언트를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 분석합니다.
+다음 코드에서는 [ImageModerationOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations) 개체와 함께 Content Moderator 클라이언트를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 분석합니다.
 
 ### <a name="get-sample-images"></a>샘플 이미지 가져오기
 
@@ -218,7 +218,7 @@ This text contains the terms "term1" and "term2".
 
 ## <a name="use-a-custom-image-list"></a>사용자 지정 이미지 목록 사용
 
-다음 코드에서는 조정할 이미지의 사용자 지정 목록을 관리하는 방법을 보여 줍니다. 이 기능은 플랫폼에서 차단하려는 동일한 이미지 세트의 인스턴스를 자주 받는 경우에 유용합니다. 이러한 특정 이미지의 목록을 유지 관리하면 성능을 향상시킬 수 있습니다. [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations?view=azure-python) 클래스를 사용하면 이미지 목록을 만들고, 목록의 개별 이미지를 관리하고, 다른 이미지와 비교할 수 있습니다.
+다음 코드에서는 조정할 이미지의 사용자 지정 목록을 관리하는 방법을 보여 줍니다. 이 기능은 플랫폼에서 차단하려는 동일한 이미지 세트의 인스턴스를 자주 받는 경우에 유용합니다. 이러한 특정 이미지의 목록을 유지 관리하면 성능을 향상시킬 수 있습니다. [ListManagementImageListsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.listmanagementimagelistsoperations) 클래스를 사용하면 이미지 목록을 만들고, 목록의 개별 이미지를 관리하고, 다른 이미지와 비교할 수 있습니다.
 
 이 시나리오에서 사용할 이미지 URL을 저장하기 위해 다음 텍스트 변수를 만듭니다.
 
@@ -296,7 +296,7 @@ This text contains the terms "term1" and "term2".
 
 Content Moderator Python 클라이언트 라이브러리를 사용하여 사용자 중재자가 검토할 수 있도록 콘텐츠를 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 제공할 수 있습니다. 검토 도구에 대한 자세한 내용은 [검토 도구 개념 가이드](../../review-tool-user-guide/human-in-the-loop.md)를 참조하세요.
 
-다음 코드에서는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후에 [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) 클래스를 사용하여 검토를 만들고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다.
+다음 코드에서는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후에 [ReviewsOperations](/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations) 클래스를 사용하여 검토를 만들고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다.
 
 ### <a name="get-review-credentials"></a>검토 자격 증명 가져오기
 

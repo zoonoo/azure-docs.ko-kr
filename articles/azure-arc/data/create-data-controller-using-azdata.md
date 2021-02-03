@@ -9,18 +9,18 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 50ab5a0d47292e36216a565a5bd39fbe7e850131
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735002"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99494019"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>을 사용 하 여 Azure Arc 데이터 컨트롤러 만들기 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 개요 정보는 [Azure Arc data Controller 만들기](create-data-controller.md) 항목을 검토 하세요.
 
@@ -269,6 +269,8 @@ azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc
 Azure Red Hat OpenShift에는 보안 컨텍스트 제약 조건이 필요 합니다.
 
 #### <a name="apply-the-security-context"></a>보안 컨텍스트 적용
+
+Azure Red Hat OpenShift에서 데이터 컨트롤러를 만들기 전에 특정 SCC (보안 컨텍스트 제약 조건)를 적용 해야 합니다. 미리 보기 릴리스의 경우 보안 제약 조건이 완화 됩니다. 이후 릴리스에서는 업데이트 된 SCC를 제공 합니다.
 
 [!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 

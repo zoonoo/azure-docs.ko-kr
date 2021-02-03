@@ -103,6 +103,8 @@
       href: How-To/change-default-answer.md
     - name: 서비스 구성
       href: reference-app-service.md
+    - name: 콘텐츠 형식 지침
+      href: reference-document-format-guidelines.md
     - name: 콘텐츠 및 데이터 형식
       items:
         - name: 콘텐츠 형식 지침

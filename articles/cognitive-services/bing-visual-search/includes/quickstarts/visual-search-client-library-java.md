@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.custom: devx-track-java, devx-track-csharp
 ms.author: aahi
-ms.openlocfilehash: afac19a6debb3804c99492338428669928f1118b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: d1c9589265726bae01b86c152853c40f79825ceb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371692"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947327"
 ---
 이 빠른 시작의 안내에 따라 Java 클라이언트 라이브러리를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요. Bing Visual Search에는 대부분의 프로그래밍 언어와 호환되는 REST API가 있는 반면, 클라이언트 라이브러리를 사용하면 서비스를 애플리케이션에 쉽게 통합할 수 있습니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch)에서 확인할 수 있습니다.
 
@@ -23,7 +23,7 @@ Java용 Bing Visual Search 클라이언트 라이브러리를 사용하여 다�
 * Visual Search 요청에 전송할 이미지를 업로드합니다.
 * 이미지 인사이트 토큰 및 Visual Search 태그를 가져옵니다.
 
-[참조 설명서](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[참조 설명서](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [아티팩트(Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -127,7 +127,7 @@ dependencies {
 > 이 빠른 시작에서는 `BING_SEARCH_V7_SUBSCRIPTION_KEY`라는 Bing Visual Search 키에 대한 [환경 변수를 만들었다고](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) 가정합니다.
 
 
-기본 메서드에서는 구독 키를 사용하여 [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable) 개체를 인스턴스화해야 합니다.
+기본 메서드에서는 구독 키를 사용하여 [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi) 개체를 인스턴스화해야 합니다.
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
@@ -135,13 +135,13 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## <a name="send-a-visual-search-request"></a>Visual Search 요청 전송
 
-새 메서드에서 클라이언트의 [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) 메서드를 사용하여 `main()` 메서드에서 만든 이미지 바이트 배열을 보냅니다. 
+새 메서드에서 클라이언트의 [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) 메서드를 사용하여 `main()` 메서드에서 만든 이미지 바이트 배열을 보냅니다. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## <a name="print-the-image-insight-token-and-visual-search-tags"></a>이미지 인사이트 토큰 및 Visual Search 태그 인쇄
 
-[ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) 개체가 null인지 확인합니다. 아니라면 이미지 인사이트 토큰, 태그의 수, 작업의 수 및 첫 번째 작업 유형을 인쇄합니다.
+[ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge) 개체가 null인지 확인합니다. 아니라면 이미지 인사이트 토큰, 태그의 수, 작업의 수 및 첫 번째 작업 유형을 인쇄합니다.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 

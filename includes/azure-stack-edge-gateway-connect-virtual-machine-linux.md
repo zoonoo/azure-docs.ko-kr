@@ -4,20 +4,20 @@ ms.service: databox
 ms.topic: include
 ms.date: 08/03/2020
 ms.author: alkohli
-ms.openlocfilehash: caa17a02305c9e9fcba30cf8c39c4288d83d3da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92688051cf591470246094dd0d8ea1d436a8efb1
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419407"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500292"
 ---
-VM을 만드는 동안 전달 된 개인 IP를 사용 하 여 VM에 연결 합니다.
+VM을 만드는 동안 전달된 개인 IP를 사용하여 VM에 연결합니다.
 
 SSH 세션을 열어 IP 주소와 연결 합니다.
 
 `ssh -l <username> <ip address>`
 
-메시지가 표시 되 면 VM을 만들 때 사용한 암호를 제공 합니다.
+메시지가 표시되면 VM을 만들 때 사용한 암호를 제공합니다.
 
 SSH 키를 제공 해야 하는 경우이 명령을 사용 합니다.
 

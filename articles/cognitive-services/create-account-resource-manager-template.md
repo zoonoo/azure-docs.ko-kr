@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842110"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928655"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
@@ -75,7 +75,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 > [!NOTE]
 > `az deployment group`을 사용하려면 Azure CLI 버전 2.6 이상이 필요합니다. 버전을 표시하려면 `az --version`을 입력합니다. 자세한 내용은 [설명서](/cli/azure/deployment/group)를 참조하세요.
 
-[로컬 머신](/cli/azure/install-azure-cli?view=azure-cli-latest)에서 Azure CLI(명령줄 인터페이스)를 사용하거나 브라우저에서 **사용해 보세요** 단추를 사용하여 다음 스크립트를 실행합니다. 새 리소스 그룹의 이름과 위치(예: `centralus`)를 입력합니다. 그러면 ARM 템플릿을 사용하여 그 안에 Cognitive Services 리소스가 배포됩니다. 여기서 사용하는 이름을 기억해 두세요. 나중에 배포의 유효성을 검사할 때 필요합니다.
+[로컬 머신](/cli/azure/install-azure-cli)에서 Azure CLI(명령줄 인터페이스)를 사용하거나 브라우저에서 **사용해 보세요** 단추를 사용하여 다음 스크립트를 실행합니다. 새 리소스 그룹의 이름과 위치(예: `centralus`)를 입력합니다. 그러면 ARM 템플릿을 사용하여 그 안에 Cognitive Services 리소스가 배포됩니다. 여기서 사용하는 이름을 기억해 두세요. 나중에 배포의 유효성을 검사할 때 필요합니다.
 
 
 ```azurecli-interactive

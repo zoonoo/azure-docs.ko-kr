@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/22/2021
 ms.custom: cog-serv-seo-aug-2020
 keywords: qna maker, 낮은 코드 채팅 봇, 멀티 턴 대화
-ms.openlocfilehash: 16f30801d52aa46184c4eb394f3d1cfebecd4be6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a75b5939e8848ca898d7279b55ab2c4faa4ed72a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700718"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919564"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
@@ -22,14 +22,14 @@ QnA Maker는 소셜 미디어 애플리케이션, 채팅 봇 및 음성 지원 �
 
 ## <a name="when-to-use-qna-maker"></a>QnA Maker를 사용하는 경우
 
-* **정적 정보가 있는 경우** - 정적 정보가 대답의 기술 자료에 있는 경우 QnA Maker를 사용합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, [PDF 및 URL](../index.yml)과 같은 문서를 사용하여 작성되었습니다.
+* **정적 정보가 있는 경우** - 정적 정보가 대답의 기술 자료에 있는 경우 QnA Maker를 사용합니다. 이 기술 자료는 사용자의 요구에 맞게 사용자 지정되며, [PDF 및 URL](../Concepts/data-sources-and-content.md)과 같은 문서를 사용하여 작성되었습니다.
 * **동일한 대답을 요청, 질문 또는 명령에 제공하려는 경우** - 다른 사용자가 동일한 질문을 제출하면 동일한 대답이 반환됩니다.
 * **메타 정보에 따라 정적 정보를 필터링하려는 경우** - [메타데이터](../how-to/metadata-generateanswer-usage.md) 태그를 추가하여 클라이언트 애플리케이션의 사용자 및 정보와 관련된 추가 필터링 옵션을 제공합니다. 일반 메타데이터 정보에는 [잡담](../how-to/chit-chat-knowledge-base.md)(chit-chat), 콘텐츠 형식 또는 형식, 콘텐츠 용도 및 콘텐츠 새로 고침이 포함됩니다.
 * **정적 정보가 포함된 봇 대화를 관리하려는 경우** - 기술 자료에서 사용자의 대화형 텍스트 또는 명령을 사용하여 대답합니다. 대답이 [다중 턴 컨텍스트](../how-to/multiturn-conversation.md)를 사용하여 기술 자료에 표시된 미리 결정된 대화 흐름의 일부인 경우 봇에서 이 흐름을 쉽게 제공할 수 있습니다.
 
 ## <a name="what-is-a-knowledge-base"></a>기술 자료란?
 
-QnA Maker는 질문 및 대답 쌍의 기술 자료로 [콘텐츠를 가져옵니다](../index.yml). 가져오기 프로세스는 정형 콘텐츠와 반정형 콘텐츠의 부분 간의 관계에 대한 정보를 추출하여 질문과 대답 쌍 간의 관계를 암시합니다. 이러한 질문과 대답 쌍을 편집하거나 새 쌍을 추가할 수 있습니다.
+QnA Maker는 질문 및 대답 쌍의 기술 자료로 [콘텐츠를 가져옵니다](../Concepts/plan.md). 가져오기 프로세스는 정형 콘텐츠와 반정형 콘텐츠의 부분 간의 관계에 대한 정보를 추출하여 질문과 대답 쌍 간의 관계를 암시합니다. 이러한 질문과 대답 쌍을 편집하거나 새 쌍을 추가할 수 있습니다.
 
 질문 및 답변 쌍의 콘텐츠에는 다음이 포함됩니다.
 * 모든 형식의 대체 질문

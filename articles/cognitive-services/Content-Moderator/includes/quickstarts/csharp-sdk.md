@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: 8a715c23900ac0d5a16ff4a0a8ade5ea9458cfed
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: ed9d7aee5f677a5c278a985c3f8102364e94ab7e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561497"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947476"
 ---
 .NET용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 NuGet 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -28,7 +28,7 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 * 이미지 조정
 * 검토 만들기
 
-[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](../../samples-dotnet.md)
+[참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](../../samples-dotnet.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -118,10 +118,10 @@ Content Moderator .NET 클라이언트 라이브러리의 주요 기능 중 일�
 
 |이름|설명|
 |---|---|
-|[ContentModeratorClient](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
-|[ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
-|[TextModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
-|[검토](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
+|[ContentModeratorClient](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient)|이 클래스는 모든 Content Moderator 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고, 다른 클래스의 인스턴스를 생성하는 데 사용합니다.|
+|[ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation)|이 클래스는 성인 콘텐츠, 개인 정보 또는 사람 얼굴에 대한 이미지를 분석하는 기능을 제공합니다.|
+|[TextModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation)|이 클래스는 언어, 욕설, 오류 및 개인 정보에 대한 텍스트를 분석하는 기능을 제공합니다.|
+|[검토](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews)|이 클래스는 작업, 사용자 지정 워크플로 및 사용자 검토를 만드는 메서드를 포함하여 검토 API의 기능을 제공합니다.|
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -158,10 +158,10 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 ## <a name="moderate-images"></a>이미지 조정
 
-다음 코드에서는 [ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) 개체와 함께 Content Moderator 클라이언트를 사용하여 원격 이미지의 성인 및 외설 콘텐츠를 분석합니다.
+다음 코드에서는 [ImageModeration](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation) 개체와 함께 Content Moderator 클라이언트를 사용하여 원격 이미지의 성인 및 외설 콘텐츠를 분석합니다.
 
 > [!NOTE]
-> 로컬 이미지의 콘텐츠를 분석할 수도 있습니다. 로컬 이미지에서 작동하는 메서드 및 작업에 대한 [참조 설명서](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)를 확인하세요.
+> 로컬 이미지의 콘텐츠를 분석할 수도 있습니다. 로컬 이미지에서 작동하는 메서드 및 작업에 대한 [참조 설명서](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)를 확인하세요.
 
 ### <a name="get-sample-images"></a>샘플 이미지 가져오기
 
@@ -204,7 +204,7 @@ Content Moderator가 차단하는 이미지 특성에 대한 자세한 내용은
 
 Content Moderator .NET 클라이언트 라이브러리를 사용하여 사용자 중재자가 검토할 수 있도록 콘텐츠를 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 제공할 수 있습니다. 검토 도구에 대한 자세한 내용은 [검토 도구 개념 가이드](../../review-tool-user-guide/human-in-the-loop.md)를 참조하세요.
 
-이 섹션의 메서드는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후 [Reviews](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) 클래스를 사용하여 검토를 작성하고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다. 이 모든 정보는 출력 텍스트 파일에 기록됩니다. 
+이 섹션의 메서드는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후 [Reviews](/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews) 클래스를 사용하여 검토를 작성하고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다. 이 모든 정보는 출력 텍스트 파일에 기록됩니다. 
 
 ### <a name="get-sample-images"></a>샘플 이미지 가져오기
 

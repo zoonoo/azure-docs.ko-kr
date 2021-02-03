@@ -129,7 +129,7 @@
             - name: 제한 이해
               href: storsimple-8000-limits.md
             - name: 모범 사례
-              href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_BestPractices_V1.1.pdf'
         - name: 설치
           items:
             - name: 안전 검토
@@ -262,11 +262,7 @@
             - name: Azure에 자동화 파일 서버 DR
               href: storsimple-disaster-recovery-using-azure-site-recovery.md
             - name: Express 경로를 사용하는 StorSimple
-              href: 'https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content'
-            - name: VMware를 사용하는 StorSimple
-              href: 'https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463'
-            - name: Hyper-V를 사용하는 StorSimple
-              href: 'https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6'
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf'
             - name: 분산 전역 네임스페이스
               href: 'https://www.microsoft.com/download/details.aspx?id=45507'
         - name: 모니터

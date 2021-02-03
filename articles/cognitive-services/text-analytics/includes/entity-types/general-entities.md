@@ -9,17 +9,17 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: 43864d3593fda986031cf9b59251b920672476bb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097290"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99500100"
 ---
 Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔터티 범주를 반환 합니다. 예를 들어 요청을 끝점으로 보내는 경우 `/entities/recognition/general` 입니다.
 
 
-| Category | Description                          |
+| 범주 | Description                          |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | [Person](#category-person)     | 사람의 이름입니다.  |
 | [PersonType](#category-persontype) | 사용자가 보유 한 작업 유형 또는 역할 |
@@ -32,8 +32,9 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
 | [전화 번호](#category-phonenumber) | 전화 번호. |
 | [전자 메일](#category-email) | 전자 메일 주소. |
 | [URL](#category-url) | 웹 사이트에 대 한 Url입니다. |
-| [IP](#category-ip) | 네트워크 IP 주소. |
+| [TCP/IP](#category-ip) | 네트워크 IP 주소. |
 | [DateTime](#category-datetime) | 날짜 및 시간입니다. |
+| [수량](#category-quantity) | 숫자 측정 및 단위. |
 
 
 ### <a name="category-person"></a>범주: Person
@@ -644,7 +645,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
 :::row:::
     :::column span="":::
 
-        기간
+        Duration
 
     :::column-end:::
     :::column span="2":::
@@ -709,7 +710,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
     :::column span="":::
         **엔터티 하위 범주**
 
-        숫자
+        Number
 
     :::column-end:::
     :::column span="2":::

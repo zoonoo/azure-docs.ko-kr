@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fba4354fb1aae19833790e166474008dc994cd79
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e76acd0f7b776ccad69b0616846988c5ba816a2d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792388"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948350"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -24,7 +24,7 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 * 기술 자료에서 답변 가져오기
 * 기술 자료 삭제
 
-[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
+[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
@@ -38,7 +38,7 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 * 기술 자료에서 답변 가져오기
 * 기술 자료 삭제
 
-[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
+[참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
 
 ---
 
@@ -149,34 +149,34 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
-[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음과 같은 두 가지 개체 모델을 사용합니다.
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/)는 다음과 같은 두 가지 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하는 개체입니다.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../concepts/active-learning-suggestions.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
-[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest)는 다음 개체 모델을 사용합니다.
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/)는 다음 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하고, 쿼리하는 개체입니다.
 
 ---
 
 ### <a name="qnamakerclient-object-model"></a>QnAMakerClient 개체 모델
 
-작성 QnA Maker 클라이언트는 키가 포함된 자격 증명을 사용하여 Azure에 인증하는 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) 개체입니다.
+작성 QnA Maker 클라이언트는 키가 포함된 자격 증명을 사용하여 Azure에 인증하는 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) 개체입니다.
 
-클라이언트를 만든 후 [기술 자료](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase)를 사용하여 기술 자료를 만들고 관리하고 게시합니다.
+클라이언트를 만든 후 [기술 자료](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient#knowledgebase)를 사용하여 기술 자료를 만들고 관리하고 게시합니다.
 
-JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작업의 경우 메서드는 일반적으로 상태를 나타내는 JSON 개체를 반환합니다. 장기 실행 작업의 경우 응답은 작업 ID입니다. 작업 ID와 함께 [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--msrest-requestoptionsbase-) 메서드를 호출하여 [요청의 상태](/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest)를 확인합니다.
+JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작업의 경우 메서드는 일반적으로 상태를 나타내는 JSON 개체를 반환합니다. 장기 실행 작업의 경우 응답은 작업 ID입니다. 작업 ID와 함께 [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations#getdetails-string--msrest-requestoptionsbase-) 메서드를 호출하여 [요청의 상태](/javascript/api/@azure/cognitiveservices-qnamaker/operation)를 확인합니다.
 
 ### <a name="qnamakerruntimeclient-object-model"></a>QnAMakerRuntimeClient 개체 모델
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
-예측 QnA Maker 클라이언트는 Microsoft.Rest.ServiceClientCredentials를 사용하여 Azure에 인증하는 QnAMakerRuntimeClient 개체입니다. 이 개체는 기술 자료가 게시된 후에 제작 클라이언트 호출([client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest#getkeys-msrest-requestoptionsbase-))에서 반환된 예측 런타임 키를 포함합니다.
+예측 QnA Maker 클라이언트는 Microsoft.Rest.ServiceClientCredentials를 사용하여 Azure에 인증하는 QnAMakerRuntimeClient 개체입니다. 이 개체는 기술 자료가 게시된 후에 제작 클라이언트 호출([client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys#getkeys-msrest-requestoptionsbase-))에서 반환된 예측 런타임 키를 포함합니다.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
-QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) 개체에서 직접 [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
+QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) 개체에서 직접 [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
 
 ---
 
@@ -212,7 +212,7 @@ QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>기술 자료 제작을 위한 클라이언트 인증
 
-엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 ServiceClientCredentials 개체를 만들고 엔드포인트와 함께 사용하여 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) 개체를 만듭니다.
+엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 ServiceClientCredentials 개체를 만들고 엔드포인트와 함께 사용하여 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) 개체를 만듭니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -226,11 +226,11 @@ QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사
 
 ## <a name="create-a-knowledge-base"></a>기술 자료 만들기
 
-기술 자료에는 다음 세 개의 원본에서 [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) 개체에 대한 질문 및 답변 쌍이 저장됩니다.
+기술 자료에는 다음 세 개의 원본에서 [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto) 개체에 대한 질문 및 답변 쌍이 저장됩니다.
 
-* **편집 콘텐츠** 의 경우 [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest) 개체를 사용합니다.
+* **편집 콘텐츠** 의 경우 [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto) 개체를 사용합니다.
     * 메타데이터 및 후속 프롬프트를 사용하려면 이 데이터가 개별 QnA 쌍 수준에 추가되기 때문에 편집 컨텍스트를 사용합니다.
-* **파일** 의 경우 [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest) 개체를 사용합니다. FileDTO에는 파일에 연결하기 위한 파일 이름과 공용 URL이 포함됩니다.
+* **파일** 의 경우 [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto) 개체를 사용합니다. FileDTO에는 파일에 연결하기 위한 파일 이름과 공용 URL이 포함됩니다.
 * **URL** 의 경우 문자열 목록을 사용하여 공개적으로 사용 가능한 URL을 나타냅니다.
 
 생성 단계에는 기술 자료에 대한 속성도 포함되어 있습니다.
@@ -238,7 +238,7 @@ QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사
 * `enableHierarchicalExtraction` - 추출된 QnA 쌍 간의 프롬프트 관계를 자동으로 만듭니다.
 * `language` - 리소스의 첫 번째 기술 자료를 만들 때 Azure Search 인덱스에서 사용할 언어를 설정합니다.
 
-기술 자료 정보를 통해 [create](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) 메서드를 호출합니다. 기술 자료 정보는 기본적으로 JSON 개체입니다.
+기술 자료 정보를 통해 [create](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#create-createkbdto--servicecallback-operation--) 메서드를 호출합니다. 기술 자료 정보는 기본적으로 JSON 개체입니다.
 
 create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#get-status-of-an-operation) 메서드로 전달하여 상태를 폴링합니다. wait_for_operation 메서드는 작업이 완료되면 반환됩니다. 반환된 작업의 `resourceLocation` 헤더 값을 구문 분석하여 새 기술 자료 ID를 가져옵니다.
 
@@ -256,7 +256,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 ## <a name="update-a-knowledge-base"></a>기술 자료 업데이트
 
-기술 자료 ID와 [add](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update) 및 [delete](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) DTO 개체를 포함하는 [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest)를 [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-) 메서드로 전달하여 기술 자료를 업데이트할 수 있습니다. DTO는 기본적으로 JSON 개체이기도 합니다. 성공적으로 업데이트되었는지 확인하려면 [wait_for_operation](#get-status-of-an-operation) 메서드를 사용합니다.
+기술 자료 ID와 [add](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#update) 및 [delete](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#deleteproperty) DTO 개체를 포함하는 [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto)를 [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#update-string--updatekboperationdto--msrest-requestoptionsbase-) 메서드로 전달하여 기술 자료를 업데이트할 수 있습니다. DTO는 기본적으로 JSON 개체이기도 합니다. 성공적으로 업데이트되었는지 확인하려면 [wait_for_operation](#get-status-of-an-operation) 메서드를 사용합니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -272,7 +272,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 ## <a name="download-a-knowledge-base"></a>기술 자료 다운로드
 
-[download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#download-string--models-environmenttype--msrest-requestoptionsbase-) 메서드를 사용하여 [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto?view=azure-node-latest) 목록으로 데이터베이스를 다운로드합니다. 이 메서드의 결과가 TSV 파일이 아니므로 QnA Maker 포털에 있는 **설정** 페이지의 내보내기와 동일하지 않습니다.
+[download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#download-string--models-environmenttype--msrest-requestoptionsbase-) 메서드를 사용하여 [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto) 목록으로 데이터베이스를 다운로드합니다. 이 메서드의 결과가 TSV 파일이 아니므로 QnA Maker 포털에 있는 **설정** 페이지의 내보내기와 동일하지 않습니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -286,7 +286,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 ## <a name="publish-a-knowledge-base"></a>기술 자료 게시
 
-[publish](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 게시합니다. 기술 자료 ID에서 참조하는 현재 저장 및 학습된 모델을 사용하며, 이를 엔드포인트에 게시합니다. HTTP 응답 코드를 확인하여 게시가 성공했는지 확인합니다.
+[publish](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#publish-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 게시합니다. 기술 자료 ID에서 참조하는 현재 저장 및 학습된 모델을 사용하며, 이를 엔드포인트에 게시합니다. HTTP 응답 코드를 확인하여 게시가 성공했는지 확인합니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -306,7 +306,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 기술 자료가 게시된 후에는 런타임 쿼리를 위한 쿼리 런타임 키가 필요합니다. 이 키는 원래 클라이언트 개체를 만드는 데 사용되는 키와 동일하지 않습니다.
 
-[EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest) 메서드를 사용하여 [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto?view=azure-node-latest) 클래스를 가져옵니다.
+[EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys) 메서드를 사용하여 [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto) 클래스를 가져옵니다.
 
 개체에서 반환된 키 속성 중 하나를 사용하여 기술 자료를 쿼리합니다.
 
@@ -340,7 +340,7 @@ QnAMakerClient.knowledgebase.generateAnswer 메서드를 사용하여 게시된 
 
 ## <a name="delete-a-knowledge-base"></a>기술 자료 삭제
 
-기술 자료 ID의 매개 변수와 함께 [delete](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 삭제합니다.
+기술 자료 ID의 매개 변수와 함께 [delete](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#deletemethod-string--msrest-requestoptionsbase-) 메서드를 사용하여 기술 자료를 삭제합니다.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -354,7 +354,7 @@ QnAMakerClient.knowledgebase.generateAnswer 메서드를 사용하여 게시된 
 
 ## <a name="get-status-of-an-operation"></a>작업의 상태 가져오기
 
-create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까지 기다리는 대신 [작업](/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest)이 반환되는 데 충분한 시간을 가질 수 있습니다. 원래 메서드의 상태를 확인하려면 작업에서 [작업 ID](/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid)를 사용하여 폴링합니다(다시 시도 논리 사용).
+create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까지 기다리는 대신 [작업](/javascript/api/@azure/cognitiveservices-qnamaker/operations)이 반환되는 데 충분한 시간을 가질 수 있습니다. 원래 메서드의 상태를 확인하려면 작업에서 [작업 ID](/javascript/api/@azure/cognitiveservices-qnamaker/operation#operationid)를 사용하여 폴링합니다(다시 시도 논리 사용).
 
 다음 코드 블록의 _delayTimer_ 호출은 다시 시도 논리를 시뮬레이션하는 데 사용됩니다. 이를 다시 시도 논리로 바꿉니다.
 
