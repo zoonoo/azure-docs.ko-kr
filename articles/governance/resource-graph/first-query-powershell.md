@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 PowerShell 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b810f4af319d3a5212d35e3387ab35b9fa40aafa
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 131bed4fe60035682a317e186f11561bc005b298
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057436"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917676"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -36,7 +36,7 @@ Azure Resource Graph 모듈에는 다음 소프트웨어가 필요합니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
-PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph**입니다.
+PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph** 입니다.
 
 1. **관리자** PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
@@ -54,7 +54,7 @@ PowerShell용 Resource Graph 모듈은 **Az.ResourceGraph**입니다.
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
+Azure PowerShell 모듈이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 1. `Search-AzGraph` cmdlet을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 

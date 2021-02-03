@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 Ruby 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 Ruby용 Resource Graph gem을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 4ffd7f33fb83b7a1f247f687b77dd2ef9c8e5bc9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 41769359eaa1f930d34b0a182f35da38a6f5109d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057317"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920040"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-ruby"></a>빠른 시작: Ruby를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -19,7 +19,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Ruby에 필요한 gem�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-- _clientId_ 및 _clientSecret_을 포함하는 Azure 서비스 주체.
+- _clientId_ 및 _clientSecret_ 을 포함하는 Azure 서비스 주체.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -85,7 +85,7 @@ Ruby를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-Ruby 스크립트를 저장하고 사용할 준비가 되면 간단한 Resource Graph 쿼리를 사용해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
+Ruby 스크립트를 저장하고 사용할 준비가 되면 간단한 Resource Graph 쿼리를 사용해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 `argQuery`를 호출할 때마다 다음 변수를 각자 해당하는 값으로 바꿔야 합니다.
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.custom: subject-armqs
 ms.author: jgao
 ms.date: 01/14/2021
-ms.openlocfilehash: 3d6f1707ec354cbcceb8c400cfb55f6e143f4cad
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 75d6c484a0f1d6325aaa7894d8902ff78cadbd74
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224546"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092503"
 ---
 # <a name="quickstart-create-an-azure-ddos-protection-standard-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure DDoS Protection 표준 만들기
 
@@ -41,8 +41,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 템플릿은 다음 두 가지 리소스를 정의합니다.
 
-- [Microsoft.Network/ddosProtectionPlans](/templates/microsoft.network/ddosprotectionplans)
-- [Microsoft.Network/virtualNetworks](/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/ddosProtectionPlans](/azure/templates/microsoft.network/ddosprotectionplans)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

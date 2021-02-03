@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740349"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089227"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Azure Active Directory의 역할 이해
 
@@ -61,7 +61,7 @@ Azure AD 기본 제공 역할은 다음과 같은 세 가지 광범위한 범주
 범주 | 역할
 ---- | ----
 Azure AD 특정 역할 | 애플리케이션 관리자<br>애플리케이션 개발자<br>인증 관리자<br>B2C IEF 키 세트 관리자<br>B2C IEF 정책 관리자<br>클라우드 애플리케이션 관리자<br>클라우드 디바이스 관리자<br>조건부 액세스 관리자<br>디바이스 관리자<br>디렉터리 읽기 권한자<br>디렉터리 동기화 계정<br>디렉터리 작성자<br>외부 ID 사용자 흐름 관리자<br>외부 ID 사용자 흐름 특성 관리자<br>외부 ID 공급자 관리자<br>그룹 관리자<br>게스트 초대자<br>기술 지원팀 관리자<br>하이브리드 ID 관리자<br>라이선스 관리자<br>파트너 계층1 지원<br>파트너 계층2 지원<br>암호 관리자<br>권한 있는 인증 관리자<br>권한 있는 역할 관리자<br>보고서 구독자<br>사용자 계정 관리자
-서비스 간 역할 | 회사 관리자<br>규정 준수 관리자<br>규정 준수 데이터 관리자<br>전역 Reader<br>보안 관리자<br>보안 운영자<br>보안 Reader<br>서비스 지원 관리자
+서비스 간 역할 | 전역 관리자<br>규정 준수 관리자<br>규정 준수 데이터 관리자<br>전역 Reader<br>보안 관리자<br>보안 운영자<br>보안 Reader<br>서비스 지원 관리자
 서비스 관련 역할 | Azure DevOps 관리자<br>Azure Information Protection 관리자<br>대금 청구 관리자<br>CRM 서비스 관리자<br>고객 LockBox 액세스 승인자<br>데스크톱 분석 관리자<br>Exchange 서비스 관리자<br>Insights 관리자<br>Insights 비즈니스 리더<br>Intune 서비스 관리자<br>Kaizala 관리자<br>Lync 서비스 관리자<br>메시지 센터 개인 정보 읽기 권한자<br>메시지 센터 읽기 권한자<br>최신 Commerce 사용자<br>네트워크 관리자<br>Office 앱 관리자<br>Power BI 서비스 관리자<br>Power Platform 관리자<br>프린터 관리자<br>프린터 기술자<br>Search 관리자<br>Search 편집자<br>SharePoint 서비스 관리자<br>Teams 통신 관리자<br>Teams 통신 지원 엔지니어<br>Teams 통신 지원 전문가<br>Teams 디바이스 관리자<br>Teams 서비스 관리자
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,19 +1,16 @@
 ---
 title: HDInsight 기반의 Apache Kafka 소개 - Azure
 description: HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: fbe4041b74f90b2ef8a9ef4384e83c7aa2d56461
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449554"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939274"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka란?
 
@@ -51,7 +48,7 @@ ms.locfileid: "91449554"
 
 Apache ZooKeeper는 Kafka 클러스터의 상태를 관리합니다. Zookeeper는 복원 가능하고 대기 시간이 낮은 동시 트랜잭션용으로 작성되었습니다.
 
-Kafka는 **토픽**에 레코드(데이터)를 저장합니다. **생산자**에서 레코드를 생성하고, **소비자**에서 이 레코드를 소비합니다. 생산자는 Kafka **brokers**로 레코드를 보냅니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker입니다.
+Kafka는 **토픽** 에 레코드(데이터)를 저장합니다. **생산자** 에서 레코드를 생성하고, **소비자** 에서 이 레코드를 소비합니다. 생산자는 Kafka **brokers** 로 레코드를 보냅니다. HDInsight 클러스터의 각 작업자 노드는 Kafka broker입니다.
 
 토픽은 브로커 간에 레코드를 분할합니다. 레코드를 소비할 때 데이터의 병렬 처리를 위해 파티션당 최대 1개의 소비자를 사용할 수 있습니다.
 

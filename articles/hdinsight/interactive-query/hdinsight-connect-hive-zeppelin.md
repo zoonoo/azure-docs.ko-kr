@@ -1,19 +1,16 @@
 ---
 title: '빠른 시작: Apache Zeppelin을 사용한 Azure HDInsight의 Apache Hive'
 description: 이 빠른 시작에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79367927"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941060"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 
@@ -29,18 +26,18 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
 
 1. `CLUSTERNAME`을 다음 URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin`에서 클러스터의 이름으로 바꿉니다. 그런 다음, 웹 브라우저에 URL을 입력합니다.
 
-2. 클러스터 로그인 사용자 이름 및 암호를 입력합니다. Zeppelin 페이지에서 새 노트를 만들거나 기존 노트를 열 수 있습니다. **HiveSample**에는 몇 가지 샘플 Hive 쿼리가 포함되어 있습니다.  
+2. 클러스터 로그인 사용자 이름 및 암호를 입력합니다. Zeppelin 페이지에서 새 노트를 만들거나 기존 노트를 열 수 있습니다. **HiveSample** 에는 몇 가지 샘플 Hive 쿼리가 포함되어 있습니다.  
 
     ![HDInsight 대화형 쿼리 zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
 
-3. **새 메모 만들기**를 선택합니다.
+3. **새 메모 만들기** 를 선택합니다.
 
 4. **새 메모 만들기** 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
     - 노트 이름: 메모의 이름을 입력합니다.
-    - 기본 인터프리터: 드롭다운 목록에서 **jdbc**를 선택합니다.
+    - 기본 인터프리터: 드롭다운 목록에서 **jdbc** 를 선택합니다.
 
-5. **노트 만들기**를 선택합니다.
+5. **노트 만들기** 를 선택합니다.
 
 6. 코드 섹션에서 다음 Hive 쿼리를 입력한 다음, **Shift + Enter** 키를 누릅니다.
 
@@ -53,9 +50,9 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
 
     첫 번째 줄의 **%jdbc(hive)** 문은 노트북이 Hive JDBC 인터프리터를 사용한다는 것을 나타냅니다.
 
-    쿼리에서 **hivesampletable**이라는 하나의 Hive 테이블을 반환합니다.
+    쿼리에서 **hivesampletable** 이라는 하나의 Hive 테이블을 반환합니다.
 
-    다음은 **hivesampletable**에 대해 실행할 수 있는 두 가지 추가 Hive 쿼리입니다.
+    다음은 **hivesampletable** 에 대해 실행할 수 있는 두 가지 추가 Hive 쿼리입니다.
 
     ```hive
     %jdbc(hive)

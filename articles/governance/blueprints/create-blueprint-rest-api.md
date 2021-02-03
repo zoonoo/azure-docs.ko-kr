@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: REST API를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 REST API를 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056978"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915628"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
@@ -29,7 +29,7 @@ Azure Blueprints 사양은 [Azure Blueprints REST API](/rest/api/blueprints/)를
 
 ### <a name="rest-api-and-powershell"></a>REST API 및 PowerShell
 
-REST API 호출을 만드는 도구가 없는 경우 지침에 대해 PowerShell을 사용하는 것이 좋습니다. 다음은 Azure로 인증을 수행하기 위한 샘플 헤더입니다. 인증 헤더(다른 이름: **전달자 토큰**)를 생성하고 모든 매개 변수 또는 **요청 본문**에 연결할 REST API URI를 제공합니다.
+REST API 호출을 만드는 도구가 없는 경우 지침에 대해 PowerShell을 사용하는 것이 좋습니다. 다음은 Azure로 인증을 수행하기 위한 샘플 헤더입니다. 인증 헤더(다른 이름: **전달자 토큰**)를 생성하고 모든 매개 변수 또는 **요청 본문** 에 연결할 REST API URI를 제공합니다.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -48,14 +48,14 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-구독에 대한 정보를 얻으려면 위의 **$restUri** 변수에서 `{subscriptionId}`를 대체합니다. $response 변수는 `Invoke-RestMethod` cmdlet의 결과를 보관하며 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석이 가능합니다. REST API 서비스 엔드포인트에 **요청 본문**이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
+구독에 대한 정보를 얻으려면 위의 **$restUri** 변수에서 `{subscriptionId}`를 대체합니다. $response 변수는 `Invoke-RestMethod` cmdlet의 결과를 보관하며 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json)과 같은 cmdlet으로 구문 분석이 가능합니다. REST API 서비스 엔드포인트에 **요청 본문** 이 필요하면 JSON 형식의 변수를 `Invoke-RestMethod`의 `-Body` 매개 변수에 제공합니다.
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
 규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, ARM 템플릿 및 리소스 그룹에 대한 역할 할당을 추가합니다.
 
 > [!NOTE]
-> REST API를 사용하는 경우 _청사진_ 개체가 먼저 생성됩니다. 매개 변수가 있는 추가할 _아티팩트_ 각각에 대해, 초기 _청사진_에 매개 변수를 미리 정의해야 합니다.
+> REST API를 사용하는 경우 _청사진_ 개체가 먼저 생성됩니다. 매개 변수가 있는 추가할 _아티팩트_ 각각에 대해, 초기 _청사진_ 에 매개 변수를 미리 정의해야 합니다.
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
@@ -65,7 +65,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 > [!NOTE]
 > 청사진을 구독 수준에서 만들 수도 있습니다. 예를 보려면 [구독 수준에서 청사진 만들기 예제](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)를 참조하세요.
 
-1. 초기 _청사진_ 개체를 만듭니다. **요청 본문**에는 청사진에 대한 속성, 생성할 리소스 그룹 및 모든 청사진 수준의 매개 변수가 포함됩니다. 매개 변수는 할당 중에 설정되고 이후 단계에서 추가되는 아티팩트에서 사용합니다.
+1. 초기 _청사진_ 개체를 만듭니다. **요청 본문** 에는 청사진에 대한 속성, 생성할 리소스 그룹 및 모든 청사진 수준의 매개 변수가 포함됩니다. 매개 변수는 할당 중에 설정되고 이후 단계에서 추가되는 아티팩트에서 사용합니다.
 
    - REST API URI
 
@@ -124,7 +124,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 역할 할당을 추가합니다. **요청 본문**은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
+1. 구독 시 역할 할당을 추가합니다. **요청 본문** 은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    - REST API URI
 
@@ -144,7 +144,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 정책 할당을 추가합니다. **요청 본문**은 아티팩트의 _종류_, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
+1. 구독 시 정책 할당을 추가합니다. **요청 본문** 은 아티팩트의 _종류_, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
 
    - REST API URI
 
@@ -172,7 +172,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 이 예에서 **storageAccountType**은 리소스 그룹에 태그를 설정하는 데 사용됩니다. 이 값은 다음 단계에서 생성되는 스토리지 계정에 대한 정보를 제공합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
+1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 이 예에서 **storageAccountType** 은 리소스 그룹에 태그를 설정하는 데 사용됩니다. 이 값은 다음 단계에서 생성되는 스토리지 계정에 대한 정보를 제공합니다. 이 예제에서는 `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`의 GUID와 함께 _리소스 그룹에 태그 및 기본값 적용_ 기본 제공 정책을 사용합니다.
 
    - REST API URI
 
@@ -200,7 +200,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 리소스 그룹에서 템플릿을 추가합니다. ARM 템플릿의 **요청 본문**은 템플릿의 일반 JSON 구성 요소를 포함하며, **properties.resourceGroup**을 사용하여 대상 리소스 그룹을 정의합니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 **properties.parameters**를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
+1. 리소스 그룹에서 템플릿을 추가합니다. ARM 템플릿의 **요청 본문** 은 템플릿의 일반 JSON 구성 요소를 포함하며, **properties.resourceGroup** 을 사용하여 대상 리소스 그룹을 정의합니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 **properties.parameters** 를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
 
    - REST API URI
 
@@ -317,11 +317,11 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
-`{BlueprintVersion}`의 값은 최대 길이가 20자인 문자, 숫자 및 하이픈(공백이나 다른 특수 문자 제외)으로 이루어진 문자열입니다. **v20180622-135541**처럼 고유하고 정보가 될만한 값을 사용합니다.
+`{BlueprintVersion}`의 값은 최대 길이가 20자인 문자, 숫자 및 하이픈(공백이나 다른 특수 문자 제외)으로 이루어진 문자열입니다. **v20180622-135541** 처럼 고유하고 정보가 될만한 값을 사용합니다.
 
 ## <a name="assign-a-blueprint"></a>청사진 할당
 
-REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다. **요청 본문**은 할당될 청사진을 지정하고, 청사진 정의에 포함된 모든 리소스 그룹에 이름과 위치를 제공하며 청사진에 정의되고 하나 이상의 연결된 아티팩트에 사용되는 모든 매개 변수를 제공합니다.
+REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다. **요청 본문** 은 할당될 청사진을 지정하고, 청사진 정의에 포함된 모든 리소스 그룹에 이름과 위치를 제공하며 청사진에 정의되고 하나 이상의 연결된 아티팩트에 사용되는 모든 매개 변수를 제공합니다.
 
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
@@ -337,7 +337,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
      GET https://graph.windows.net/{tenantId}/servicePrincipals?api-version=1.6&$filter=appId eq 'f71766dc-90d9-4b7d-bd9d-4499c4331c3f'
      ```
 
-1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **요청 본문**에 사용될 objectId를 수집합니다.
+1. 청사진 배포를 구독에 할당하여 실행합니다. **contributors** 및 **owners** 매개 변수에는 역할 할당에 부여될 주체의 objectId 배열이 필요하기 때문에, [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)를 사용하여 사용자, 그룹 또는 서비스 주체에 대한 **요청 본문** 에 사용될 objectId를 수집합니다.
 
    - REST API URI
 
@@ -403,7 +403,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
      },
      ```
 
-     **사용자가 할당한 관리형 ID**는 청사진을 할당한 사용자에게 권한이 있는 구독 및 리소스 그룹일 수 있습니다.
+     **사용자가 할당한 관리형 ID** 는 청사진을 할당한 사용자에게 권한이 있는 구독 및 리소스 그룹일 수 있습니다.
 
      > [!IMPORTANT]
      > Azure Blueprints는 사용자 할당 관리 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.

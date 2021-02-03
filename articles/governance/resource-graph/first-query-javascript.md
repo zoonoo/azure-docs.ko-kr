@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 JavaScript 쿼리'
 description: 이 빠른 시작에서는 단계에 따라 JavaScript용 Resource Graph 라이브러리를 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 194097594340e2f34433c07185c6132f8a13c845
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 97cbd9ddf65a4135f55304f6dd67c704c6fcac5d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057419"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917524"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>빠른 시작: JavaScript를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -56,7 +56,7 @@ JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경�
 
 ## <a name="query-the-resource-graph"></a>Resource Graph 쿼리
 
-1. _index.js_라는 새 파일을 만들고 다음 코드를 입력합니다.
+1. _index.js_ 라는 새 파일을 만들고 다음 코드를 입력합니다.
 
    ```javascript
    const argv = require("yargs").argv;

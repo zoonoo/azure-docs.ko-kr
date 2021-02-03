@@ -3,7 +3,7 @@ title: Azure Active Directory의 일반적인 애플리케이션 관리 시나�
 description: Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6372407a5deebefab60e09a9d0c01d977157357b
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835495"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99259573"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Azure AD를 사용하여 애플리케이션 관리 중앙 집중화
 
@@ -43,7 +43,7 @@ ms.locfileid: "94835495"
 |기능  | Description | 권장 |
 |---------|---------|---------|
 |SSO|신뢰할 수 있는 산업 표준을 사용하는 표준 기반 페더레이션 SSO입니다.|애플리케이션에서 [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md)를 지원하는 경우 항상 SAML/OIDC를 사용하여 SSO를 설정합니다.|
-|내 앱|사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다.| 앱을 SSO용 Azure AD와 통합한 후에는 조직에 [내 앱](./access-panel-deployment-plan.md)을 배포합니다.|
+|내 앱|사용자에게 모든 애플리케이션을 검색 및 액세스할 수 있는 간단한 허브를 제공합니다. 앱 및 그룹에 대한 액세스를 요청하거나 다른 사용자를 대신하여 리소스에 대한 액세스를 관리하는 등의 셀프 서비스 기능을 통해 사용자 생산성을 높일 수 있습니다.| 앱을 SSO용 Azure AD와 통합한 후에는 조직에 [내 앱](my-apps-deployment-plan.md)을 배포합니다.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>시나리오 2: 프로비저닝 및 프로비저닝 해제 자동화 
 

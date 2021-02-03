@@ -8,12 +8,12 @@ ms.date: 02/02/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d50893fc3bf5d890efbdc1f5b59cf52f35d91a15
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475729"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524311"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -206,12 +206,15 @@ WHERE c.description = "Malabar spinach, cooked"
 - 왼쪽
 - 부분 문자열-하지만 첫 번째 num_expr 0 인 경우에만
 
-인덱스를 사용하지 않고 각 문서를 로드해야 하는 몇 가지 일반적인 시스템 함수는 다음과 같습니다.
+다음은 인덱스를 사용 하지 않으며 절에서 사용 될 때 각 문서를 로드 해야 하는 몇 가지 일반적인 시스템 함수입니다 `WHERE` .
 
 | **시스템 함수**                     | **최적화 아이디어**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| UPPER/LOWER                             | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
+| 위쪽/아래쪽                         | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
+| GetCurrentDateTime/Getcurrentdatetime/Getcurrentdatetime | 쿼리 실행 전 현재 시간을 계산 하 고 절에서 해당 문자열 값을 사용 `WHERE` 합니다. |
 | 수학 함수(비집계) | 쿼리에서 값을 자주 계산해야 하는 경우 JSON 문서에 속성으로 값을 저장하는 것이 좋습니다. |
+
+절에서 사용 되는 경우 `SELECT` 비효율적인 시스템 함수는 쿼리에서 인덱스를 사용 하는 방법에 영향을 주지 않습니다.
 
 ### <a name="improve-string-system-function-execution"></a>문자열 시스템 함수 실행 향상
 

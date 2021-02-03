@@ -3,19 +3,19 @@ title: '빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리�
 description: 이 빠른 시작에서는 Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On)를 설정하는 과정을 안내합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 235c5c19c9a6e587106b3fd41691a3f775caa84f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 3278c9956dd5017572f063059250c97727656923
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656618"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99252375"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SAML 기반 SSO(Single Sign-On) 설정
 

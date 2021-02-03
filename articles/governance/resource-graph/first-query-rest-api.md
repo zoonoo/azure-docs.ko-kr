@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 첫 번째 REST API 쿼리'
 description: 이 빠른 시작에서는 REST API용 Resource Graph 엔드포인트를 호출하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566081"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920074"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>빠른 시작: REST API를 사용하여 첫 번째 Resource Graph 쿼리 실행
 

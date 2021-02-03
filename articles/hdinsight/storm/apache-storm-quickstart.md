@@ -1,19 +1,16 @@
 ---
 title: '빠른 시작: Apache Storm 토폴로지 만들기/관리 - Azure HDInsight'
 description: 빠른 시작에서는 Azure HDInsight에서 Apache Storm 토폴로지를 만들고 모니터링하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 8f13c813eee9bcfde578ba210c5aa2f2fe1cac2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86045028"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928858"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>빠른 시작: Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링
 
@@ -23,7 +20,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형**에 **Storm**을 선택합니다.
+* HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -49,7 +46,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 1. Storm UI를 표시하려면 웹 브라우저를 열고 `https://CLUSTERNAME.azurehdinsight.net/stormui`로 이동합니다. `CLUSTERNAME`을 클러스터의 이름으로 바꿉니다.
 
-2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
+2. **토폴로지 요약** 의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
     ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/apache-storm-quickstart/hdi-topology-summary.png)
 
@@ -93,7 +90,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 ```
 
-이 예제의 경우 **seven**이라는 단어가1493957번 발생했습니다. 이 숫자는 이 토폴로지가 시작된 이후 단어가 발생한 횟수입니다.
+이 예제의 경우 **seven** 이라는 단어가1493957번 발생했습니다. 이 숫자는 이 토폴로지가 시작된 이후 단어가 발생한 횟수입니다.
 
 ## <a name="stop-the-topology"></a>토폴로지 중지
 

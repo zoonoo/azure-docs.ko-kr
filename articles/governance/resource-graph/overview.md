@@ -1,14 +1,14 @@
 ---
 title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: overview
-ms.openlocfilehash: 8e61dadc44a2b07066f7bac761c366c746cef1f1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b5df124d07b8ecfb20f5dec08830d8156e8df2cd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057776"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919144"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -23,7 +23,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 
 > [!NOTE]
 > Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history)
-> _visual diff_에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
+> _visual diff_ 에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -44,7 +44,7 @@ Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 ## <a name="how-resource-graph-is-kept-current"></a>Resource Graph가 최신 상태를 유지하는 방식
 
 Azure 리소스가 업데이트되면 Resource Graph는 Resource Manager로부터 변경 알림을 받습니다.
-그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_을 수행합니다. 이 검사는 놓친 알림이 있거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
+그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_ 을 수행합니다. 이 검사는 놓친 알림이 있거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
 
 > [!NOTE]
 > Resource Graph는 각 리소스 공급자의 미리 보기가 아닌 최신 API에 `GET`을 사용하여 속성 및 값을 수집합니다. 따라서 필요한 속성을 사용하지 못할 수 있습니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 사용자 환경의 전체 목록은 [각 리소스 유형에 대한 API 버전 표시](./samples/advanced.md#apiversion) 샘플을 참조하세요.
@@ -68,7 +68,7 @@ Azure CLI 및 Azure PowerShell에서는 사용자가 액세스할 수 있는 구
 
 > [!NOTE]
 > **미리 보기** REST API 버전 `2020-04-01-preview`에서 구독 목록은 생략될 수 있습니다.
-> `subscriptions` 및 `managementGroupId` 속성이 요청에서 둘 다 정의되지 않은 경우 _범위_는 테넌트로 설정됩니다. 자세한 내용은 [쿼리 범위](./concepts/query-language.md#query-scope)를 참조하세요.
+> `subscriptions` 및 `managementGroupId` 속성이 요청에서 둘 다 정의되지 않은 경우 _범위_ 는 테넌트로 설정됩니다. 자세한 내용은 [쿼리 범위](./concepts/query-language.md#query-scope)를 참조하세요.
 
 ## <a name="throttling"></a>제한
 

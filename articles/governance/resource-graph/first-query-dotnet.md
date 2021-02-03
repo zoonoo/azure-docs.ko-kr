@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 첫 번째 .NET Core 쿼리'
 description: 이 빠른 시작에서는 .NET Core용 Resource Graph NuGet 패키지를 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 수행합니다.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f825b22712956c0b94531ddb163301167f30f00
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0135dfd499af48b3c60314679f4c9b635a5ce15a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057470"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917574"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>빠른 시작: .NET Core를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -20,7 +20,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-- _clientId_ 및 _clientSecret_을 포함하는 Azure 서비스 주체. Resource Graph에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
+- _clientId_ 및 _clientSecret_ 을 포함하는 Azure 서비스 주체. Resource Graph에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
   .NET Core 패키지를 설치하는 단계는 건너뜁니다. 다음 단계에서 수행할 것입니다.
 
 ## <a name="create-the-resource-graph-project"></a>Resource Graph 프로젝트 만들기
@@ -94,7 +94,7 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 .NET Core에 필요한
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-.NET Core 콘솔 애플리케이션을 빌드하고 게시한 후에는 간단한 Resource Graph 쿼리를 시도해 봅니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**과 함께 처음 5개 Azure 리소스를 반환합니다.
+.NET Core 콘솔 애플리케이션을 빌드하고 게시한 후에는 간단한 Resource Graph 쿼리를 시도해 봅니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식** 과 함께 처음 5개 Azure 리소스를 반환합니다.
 
 `argQuery`를 호출할 때마다 다음 변수를 각자 해당하는 값으로 바꿔야 합니다.
 

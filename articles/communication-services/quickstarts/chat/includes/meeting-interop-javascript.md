@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578046"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932321"
 ---
 ## <a name="join-the-meeting-chat"></a>미팅 채팅 참여 
 
@@ -21,7 +21,7 @@ Teams 상호 운용성을 사용하도록 설정하면 Communication Services �
 먼저 미팅 채팅 스레드에 대한 `ChatThreadClient`를 인스턴스화합니다. 미팅 링크를 구문 분석하거나 미팅 ID와 함께 Graph API를 사용하여 스레드 ID를 가져옵니다. 
 
 - Teams 미팅 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. 스레드 ID는 해당 링크의 `meeting_chat_thread_id` 위치에 있습니다. 
-- 미팅 ID가 있는 경우 [Graph API](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)를 사용하여 스레드 ID를 가져올 수 있습니다. [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
+- 미팅 ID가 있는 경우 [Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)를 사용하여 스레드 ID를 가져올 수 있습니다. [GET API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다. 
 
 채팅 스레드 ID가 있으면 JavaScript 채팅 클라이언트 라이브러리를 사용하여 채팅 스레드 클라이언트를 가져올 수 있습니다. 
 
@@ -44,4 +44,3 @@ console.log(`Chat Thread client for threadId:${chatThreadClient.threadId}`);
 
 **참고** - 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지를 보내고 받을 수 있습니다. 입력 표시기 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.  
 
- 

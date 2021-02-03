@@ -2,13 +2,13 @@
 title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576685"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055140"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -20,7 +20,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 
 이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="원본 및 처리기의 Event Grid 모델" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="원본 및 처리기의 Event Grid 모델" lightbox="./media/overview/functional-model-big.png":::
 
 이 이미지는 Event Grid가 원본 및 처리기를 연결하는 방법을 보여 주지만, 지원되는 통합의 전체 목록은 아닙니다.
 
@@ -42,6 +42,7 @@ Azure Event Grid는 각 지역의 여러 장애 도메인과 가용성 영역(�
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure 구독](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>이벤트 처리기
 

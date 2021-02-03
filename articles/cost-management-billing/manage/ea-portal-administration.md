@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e25b2aeee46617bd62a72d204e1a4bdbc31d08ea
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 3ce13a103b605ea7b6066e8b2868fa974f4e64e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030827"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050569"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -347,7 +347,7 @@ _Microsoft Azure 엔터프라이즈_ 는 구독을 만들 때의 기본 이름�
 
 새 구독이 구독 목록에 표시될 때까지 최대 24시간이 걸릴 수 있습니다. 구독을 만든 후에는 다음을 수행할 수 있습니다.
 
-- [구독 세부 정보 편집](https://account.azure.com/Subscriptions)
+- [구독 세부 정보 편집](https://portal.azure.com)
 - [구독 서비스 관리](https://portal.azure.com/#home)
 
 ## <a name="delete-subscription"></a>구독 삭제
