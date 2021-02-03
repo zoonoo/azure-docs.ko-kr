@@ -1,17 +1,17 @@
 ---
-title: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍 - Azure
+title: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 description: 이 빠른 시작에서는 Azure Media Services를 사용하여 콘텐츠를 업로드, 인코딩 및 스트림하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 0793c8abee27ca415feba313efb029daf092bec9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 3831892b6cd241643b3e5753689f768d59e27704
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683015"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955973"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 
