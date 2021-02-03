@@ -2,25 +2,34 @@
 title: 성공적인 배포에 대 한 오류 발생 시 롤백
 description: 실패 한 배포가 성공적인 배포로 롤백해야 하도록 지정 합니다.
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 206c794996f58a4c5b6982c551ae50128ed4f5eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/02/2021
+ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460146"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492215"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>성공적인 배포에 대 한 오류 발생 시 롤백
 
-배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 이 기능은 인프라 배포에 대 한 알려진 양호한 상태를가지고 있으며이 상태로 되돌리려는 경우에 유용 합니다. 몇 가지 주의 사항과 제한 사항이 있습니다.
+배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 이 기능은 인프라 배포에 대 한 알려진 양호한 상태를가지고 있으며이 상태로 되돌리려는 경우에 유용 합니다. 특정 이전 배포 나 마지막으로 성공한 배포를 지정할 수 있습니다.
 
+> [!IMPORTANT]
+> 이 기능은 이전 배포를 다시 배포 하 여 실패 한 배포를 롤백합니다. 이 결과는 실패 한 배포를 실행 취소 하는 것과 다를 수 있습니다. 이전 배포를 다시 배포 하는 방법을 이해 해야 합니다.
+
+## <a name="considerations-for-redeploying"></a>재배포 시 고려 사항
+
+이 기능을 사용 하기 전에 재배포를 처리 하는 방법에 대 한 다음 정보를 고려 하십시오.
+
+- 이전 배포에는 [증분 모드](./deployment-modes.md#incremental-mode) 를 사용한 경우에도 [전체 모드](./deployment-modes.md#complete-mode)를 사용 하 여 실행 됩니다. 이전 배포에서 증분을 사용한 경우 전체 모드로 다시 배포 하면 예기치 않은 결과가 발생할 수 있습니다. 전체 모드는 이전 배포에 포함 되지 않은 모든 리소스가 삭제 됨을 의미 합니다. 리소스 그룹에 있는 모든 리소스 및 해당 상태를 나타내는 이전 배포를 지정 합니다. 자세한 내용은 [배포 모드](./deployment-modes.md)를 참조 하세요.
 - 재배포는 동일한 매개 변수를 사용 하 여 이전에 실행 된 것과 동일 하 게 실행 됩니다. 매개 변수를 변경할 수 없습니다.
-- 이전 배포는 [전체 모드](./deployment-modes.md#complete-mode)를 사용 하 여 실행 됩니다. 이전 배포에 포함 되지 않은 모든 리소스는 삭제 되 고 모든 리소스 구성은 이전 상태로 설정 됩니다. [배포 모드](./deployment-modes.md)를 완전히 이해 해야 합니다.
 - 재배포는 리소스에만 영향을 주며 데이터 변경 내용은 영향을 받지 않습니다.
-- 이 기능은 구독 또는 관리 그룹 수준 배포가 아닌 리소스 그룹 배포에만 사용할 수 있습니다. 구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](./deploy-to-subscription.md)를 참조 하세요.
+- 이 기능은 리소스 그룹 배포에만 사용할 수 있습니다. 구독, 관리 그룹 또는 테 넌 트 수준 배포를 지원 하지 않습니다. 구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](./deploy-to-subscription.md)를 참조 하세요.
 - 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
 
-이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다.
+이 옵션을 사용 하려면 배포의 배포 기록에 고유한 이름이 있어야 합니다. 특정 배포를 식별할 수 있는 고유한 이름만 있으면 됩니다. 고유 이름이 없으면 실패 한 배포가 기록의 성공적인 배포를 덮어쓸 수 있습니다.
+
+배포 기록에 없는 이전 배포를 지정 하는 경우 rollback에서 오류를 반환 합니다.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -115,7 +124,5 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-- 둘 이상의 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](deployment-manager-overview.md)를 참조하세요.
-- 리소스 그룹에 있지만 템플릿에 정의되지 않은 리소스를 처리하는 방법을 지정하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
+- 전체 및 증분 모드를 이해 하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조 하세요.
 - 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
-- SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.

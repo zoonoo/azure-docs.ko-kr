@@ -3,24 +3,24 @@ title: '자습서: WPF, C#을 사용하여 번역 앱 만들기 - Translator'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사를 수행하는 WPF 앱을 만듭니다.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d239b89aaf0bc140916d38583f4263f7bf660f1a
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023619"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927487"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
-이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) 앱을 빌드합니다. 특히 앱은 Translator 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 API를 호출합니다.
+이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Azure Cognitive Services를 사용하는 [WPF(Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf) 앱을 빌드합니다. 특히 앱은 Translator 및 [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 API를 호출합니다.
 
 WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니다. WPF 개발 플랫폼은 애플리케이션 모델, 리소스, 컨트롤, 그래픽, 레이아웃, 데이터 바인딩, 문서 및 보안을 포함한 광범위한 애플리케이션 개발 기능을 지원합니다. .NET Framework의 하위 집합이므로 이전에 ASP.NET 또는 Windows Forms를 사용하는 .NET Framework를 통해 앱을 빌드한 경우 프로그래밍 환경에 이미 친숙해져 있습니다. WPF는 XAML(Extensible App Markup Language)을 사용하여 앱 프로그래밍을 위한 선언적 모델을 제공하며, 이 모델은 다음 섹션에서 검토하겠습니다.
 
@@ -90,7 +90,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 1. 이러한 참조가 프로젝트에 추가되면 **확인** 을 클릭하여 **참조 관리자** 를 닫을 수 있습니다.
 
 > [!NOTE]
-> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019)를 참조하세요.
+> 어셈블리 참조에 대한 자세한 내용은 [방법: 참조 관리자를 사용하여 참조 추가 또는 제거](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager)를 참조하세요.
 
 ### <a name="install-newtonsoftjson"></a>NewtonSoft.Json 설치
 

@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 1/14/2021
-ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.date: 02/02/2021
+ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222227"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492385"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "98222227"
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화 하 여 각 쿼리의 CPU 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-common-errors-issues.md)가 표시됩니다. SELECT 및 DELETE 문은 계속 성공 합니다.
 
@@ -69,7 +69,8 @@ ms.locfileid: "98222227"
 
 - 데이터베이스 또는 탄력적 풀의 최대 크기를 늘리거나 저장소를 더 추가 합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 데이터베이스가 탄력적 풀에 있는 경우에는 데이터베이스를 풀 외부로 이동 하 여 해당 저장소 공간을 다른 데이터베이스와 공유 하지 않을 수 있습니다.
-- 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](file-space-manage.md)를 참조하세요.
+- 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 자세한 내용은 [Azure SQL Database에서 파일 공간 관리](file-space-manage.md)를 참조 하세요.
+- 높은 공간 사용률이 영구 버전 저장소 (PVS)의 크기 급증 때문 인지 확인 합니다. PVS는 각 데이터베이스의 일부 이며  [가속화 된 데이터베이스 복구](../accelerated-database-recovery.md)를 구현 하는 데 사용 됩니다. 현재 PVS 크기를 확인 하려면 [pvs 문제 해결](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting)을 참조 하세요. 큰 PVS 크기에 대 한 일반적인 이유는 오랜 시간 동안 열려 있는 트랜잭션이 며,이는 PVS에서 이전 버전의 정리를 방지 하는 것입니다.
 
 ### <a name="sessions-and-workers-requests"></a>세션 및 작업자(요청)
 

@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9d784e1697dfbcbfec509c1a51c9b832b533c97b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd6a94015829a0b5dd4053f4d3a2fd6d2650d32
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830753"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492657"
 ---
 # <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Azure Portal을 사용하여 직접 메서드를 호출하는 방법
 
@@ -50,11 +50,11 @@ LVA 모듈에 의해 노출된 각 [직접 메서드](./direct-methods.md)는 Az
     > [!NOTE]
     > 현재 페이지에서 볼 수 있듯이 연결 문자열 섹션에 값을 추가해야 할 수도 있습니다. 설정 이름 섹션에서 아무것도 숨기거나 변경할 필요가 없습니다. 공개하는 것도 괜찮습니다.
 
-1. **메서드 이름** 필드에 *GraphTopologyList*를 입력합니다.
+1. **메서드 이름** 필드에 *GraphTopologyList* 를 입력합니다.
 1. **페이로드** 필드에 아래 JSON을 복사하여 붙여넣습니다.
     ```json
     {
-    "@apiVersion":
+    "@apiVersion": "2.0"
     }
     ```
 1. 페이지 위쪽의 **메서드 호출** 단추를 선택합니다.<br><br>

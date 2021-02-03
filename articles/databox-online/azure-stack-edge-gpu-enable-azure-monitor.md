@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 3485c6ca5c2672fa48b6118a78600b9745994ce1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466979"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493915"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Azure Monitor 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "96466979"
 이 문서에서는 장치에서 Azure Monitor를 사용 하도록 설정 하 고 Log Analytics 작업 영역에서 컨테이너 로그를 수집 하는 데 필요한 단계를 설명 합니다. Azure Monitor 메트릭 저장소는 현재 Azure Stack Edge Pro GPU 장치에서 지원 되지 않습니다. 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 필요 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "96466979"
 - [자습서: 장치에서 Azure Stack Edge Pro 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md) 을 기준으로 계산 단계를 **구성** 했습니다. 장치에 연결 된 IoT Hub 리소스, IoT 장치 및 IoT Edge 장치가 있어야 합니다.
 
 
-## <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역을 만듭니다.
+## <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
 다음 단계를 수행 하 여 log analytics 작업 영역을 만듭니다. Log analytics 작업 영역은 로그 데이터를 수집 하 고 저장 하는 논리적 저장소 단위입니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "96466979"
 1. 리소스 ID 및 위치를 가져옵니다. [https://editor.swagger.io](`Your Log Analytics workspace > General > Properties`) 로 이동합니다. 다음 정보를 복사 합니다.
 
     - Azure Log Analytics 작업 영역의 정규화 된 Azure 리소스 ID 인 **리소스 id** 입니다. 
-    - Azure 지역에 해당 하는 **위치** 입니다.
+    - **location** 은 Azure 지역입니다.
 
     ![Log Analytics 작업 영역의 속성](media/azure-stack-edge-gpu-enable-azure-monitor/log-analytics-workspace-properties-1.png) 
 
@@ -241,3 +241,4 @@ ms.locfileid: "96466979"
 ## <a name="next-steps"></a>다음 단계
 
 - [Kubernetes 대시보드를 통해 Kubernetes 워크 로드를 모니터링](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)하는 방법을 알아봅니다.
+- [장치 이벤트 경고 알림을 관리](azure-stack-edge-gpu-manage-device-event-alert-notifications.md)하는 방법을 알아봅니다. 

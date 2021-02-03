@@ -11,18 +11,21 @@ ms.topic: reference
 ms.date: 08/24/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4237aba81a01423a3356a30879fbd27450c876bd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 491549933817a127a92180b0e4b455e461e4d3a2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976506"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492249"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
 
 ## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지 (selfasserted)
+
+**2.1.2**
+- 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.
 
 **2.1.1**
 
@@ -70,6 +73,10 @@ ms.locfileid: "97976506"
 - 초기 릴리스
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>암호 재설정 링크를 사용 하는 통합 로그인 등록 페이지 (unifiedssp)
+
+**2.1.2**
+- 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.
+- "암호 찾기" 링크를 소셜 IDP와 같은 클레임 교환으로 사용 하도록 허용 합니다.
 
 **2.1.1**
 - `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.

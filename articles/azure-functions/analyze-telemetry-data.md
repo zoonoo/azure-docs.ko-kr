@@ -4,12 +4,12 @@ description: 에서 수집 하 고 Azure 애플리케이션 Insights에 저장 �
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 14b6ed3964900e3395ca335c301dfd0285da46e7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937300"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493773"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
 
@@ -77,18 +77,18 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 다음 쿼리 예제는 지난 30분간의 작업자당 요청 분포를 보여줍니다.
 
-<pre>
+```kusto
 requests
 | where timestamp > ago(30m) 
 | summarize count() by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
-</pre>
+```
 
 사용할 수 있는 테이블은 왼쪽의 **스키마** 탭에 표시됩니다. 다음 테이블에서 함수 호출에 의해 생성된 데이터를 찾을 수 있습니다.
 
 | 테이블 | Description |
 | ----- | ----------- |
-| **traces** | 런타임에 의해 생성 된 로그 및 함수 코드에서 추적 합니다. |
+| **traces** | 함수 코드에서 런타임, 크기 조정 컨트롤러 및 추적에 의해 생성 된 로그입니다. |
 | **requests** | 함수가 호출될 때마다 요청 하나입니다. |
 | **exceptions** | 런타임에서 throw하는 예외입니다. |
 | **customMetrics** | 성공 및 실패 호출의 수, 성공률 및 기간입니다. |
@@ -99,12 +99,38 @@ requests
 
 각 테이블 내에서 일부 Functions 관련 데이터는 `customDimensions` 필드에 있습니다.  예를 들어 다음 쿼리는 로그 수준이 `Error`인 모든 추적을 검색합니다.
 
-<pre>
+```kusto
 traces 
 | where customDimensions.LogLevel == "Error"
-</pre>
+```
 
 런타임은 `customDimensions.LogLevel` 및 `customDimensions.Category` 필드를 제공합니다. 함수 코드에서 작성하는 로그에 추가 필드를 제공할 수 있습니다. C #의 예제는 .NET 클래스 라이브러리 개발자 가이드의 [구조적 로깅](functions-dotnet-class-library.md#structured-logging) 을 참조 하세요.
+
+## <a name="query-scale-controller-logs"></a>쿼리 크기 조정 컨트롤러 로그
+
+‘이 기능은 미리 보기로 제공됩니다.’
+
+[크기 조정 컨트롤러 로깅](configure-monitoring.md#configure-scale-controller-logs) 및 [Application Insights 통합](configure-monitoring.md#enable-application-insights-integration)을 모두 사용 하도록 설정한 후 Application Insights 로그 검색을 사용 하 여 내보낸 크기 조정 컨트롤러 로그를 쿼리할 수 있습니다. 크기 조정 컨트롤러 로그는 컬렉션의 `traces` **ScaleControllerLogs** 범주에 저장 됩니다.
+
+다음 쿼리를 사용 하 여 지정 된 기간 내에 현재 함수 앱에 대 한 모든 크기 조정 컨트롤러 로그를 검색할 수 있습니다.
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+다음 쿼리는 이전 쿼리를 확장 하 여 규모 변경을 나타내는 로그만 가져오는 방법을 보여 줍니다.
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="consumption-plan-specific-metrics"></a>소비 계획 별 메트릭
 

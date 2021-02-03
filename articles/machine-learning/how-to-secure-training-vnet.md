@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 131feaf6ff01659b7d126604a5d081275e64508f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029569"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493840"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -62,16 +62,19 @@ ms.locfileid: "97029569"
 > * 작업 영역의 Azure Storage 계정도 가상 네트워크에서 보호되는 경우, Azure Machine Learning 컴퓨팅 인스턴스나 클러스터와 동일한 가상 네트워크에 있어야 합니다. 
 > * 컴퓨팅 인스턴스 Jupyter 기능이 작동하려면 웹 소켓 통신이 비활성화되어 있지 않아야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 websocket 연결을 허용 하는지 확인 하세요. 
 > * 계산 인스턴스가 개인 링크 작업 영역에 배포 된 경우 가상 네트워크 내 에서만 액세스할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 `<instance-name>.<region>.instances.azureml.ms` 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여에 대 한 항목을 추가 하세요. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md) 문서를 참조 하세요.
+> * 계산 클러스터/인스턴스를 배포 하는 데 사용 되는 서브넷은 ACI와 같은 다른 서비스에 위임 하면 안 됩니다.
+> * Virtual network 서비스 끝점 정책이 계산 클러스터/인스턴스 시스템 저장소 계정에 대해 작동 하지 않음
+
     
 > [!TIP]
 > Machine Learning 컴퓨팅 인스턴스나 클러스터는 __가상 네트워크를 포함하는 리소스 그룹__ 에 추가 네트워킹 리소스를 자동으로 할당합니다. 각 컴퓨팅 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당합니다.
 > 
 > * 네트워크 보안 그룹 1개
-> * 공용 IP 주소 1개
+> * 하나의 공용 IP 주소입니다. Azure 정책이 공용 IP 생성을 금지 하는 경우 클러스터/인스턴스 배포가 실패 합니다.
 > * 부하 분산 장치 1개
 > 
 > 클러스터의 경우 이러한 리소스는 클러스터가 0개 노드로 축소될 때마다 삭제(재생성)되지만, 인스턴스의 경우 인스턴스가 완전히 삭제될 때까지 리소스가 유지됩니다(중지하면 리소스가 제거되지 않음). 
-> 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다.
+> 이러한 리소스는 구독의 [리소스 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 가상 네트워크 리소스 그룹이 잠겨 있으면 계산 클러스터/인스턴스를 삭제 하지 못합니다. 계산 클러스터/인스턴스를 삭제할 때까지 부하 분산 장치를 삭제할 수 없습니다.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> 필수 포트

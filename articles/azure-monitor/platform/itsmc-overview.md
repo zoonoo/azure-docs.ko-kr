@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6d9ad775f91778f95380a19fbe253e2cbbebd3fc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ed13837eabadc38cee50efac3b9340c973c8ea70
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736459"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492436"
 ---
 # <a name="it-service-management-connector-overview"></a>IT 서비스 관리 커넥터 개요
 
@@ -46,7 +46,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 1. [Azure에서 경고를 수락 하도록 ITSM 환경을 설정 합니다.](./itsmc-connections.md)
 1. [Azure ITSM 솔루션 구성](./itsmc-definition.md#add-it-service-management-connector)
 1. [ITSM 환경에 대해 Azure ITSM 커넥터를 구성 합니다.](./itsmc-definition.md#create-an-itsm-connection)
-1. [ITSM 커넥터를 활용 하도록 작업 그룹을 구성 합니다.](./itsmc-definition.md#use-itsmc)
+1. [ITSM 커넥터를 활용 하도록 작업 그룹을 구성 합니다.](./itsmc-definition.md#define-a-template)
 
 ## <a name="next-steps"></a>다음 단계
 

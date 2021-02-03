@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 607d1d85dbb370305d0337cc311433c37e36c4c0
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220816"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493314"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -77,7 +77,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>Type
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -348,7 +348,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
                 "value": "[resourcegroup().tags[parameters('tagName')]]"
             }],
             "roleDefinitionIds": [
-                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+                "/providers/microsoft.authorization/roleDefinitions/4a9ae827-6dc8-4573-8ac7-8239d42aa03f"
             ]
         }
     }
@@ -504,10 +504,10 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **값 개수 사용**
 
-- `current(<index name defined in count.name>)`. 예를 들어 `current('arrayMember')`을 참조하십시오.
+- `current(<index name defined in count.name>)`. 예: `current('arrayMember')`
 - `current()`. **값 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용 됩니다. 위와 같은 값을 반환 합니다.
 
-호출에서 반환 된 값이 개체 이면 속성 접근자가 지원 됩니다. 예를 들어 `current('objectArrayMember').property`을 참조하십시오.
+호출에서 반환 된 값이 개체 이면 속성 접근자가 지원 됩니다. 예: `current('objectArrayMember').property`
 
 **필드 수 사용**
 
@@ -911,7 +911,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
 'normal' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 세트가 정의한 것과 정확히 같아야 하는(초과 또는 미만 없이) 정확한 일치 비교 시나리오를 위한 것입니다.
 
-**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 예를 들면 다음과 같습니다.
+**\[\*\]** 별칭은 배열 리소스 속성의 요소에서 선택한 값의 컬렉션을 나타냅니다. 다음은 그 예입니다. 
 
 | Alias | 선택한 값 |
 |:---|:---|

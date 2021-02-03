@@ -4,25 +4,22 @@ description: 이 항목에서는 자체 호스팅 Azure API Management gateway�
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: gwallace
-editor: ''
 ms.service: api-management
-ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d52bf87b74ae9b1770ed5092738fd05eb9f54fde
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506811"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491033"
 ---
-# <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
+# <a name="configure-a-custom-domain-name-for-a-self-hosted-gateway"></a>자체 호스팅 게이트웨이에 대 한 사용자 지정 도메인 이름 구성
 
-[자체 호스팅 Azure API Management gateway](self-hosted-gateway-overview.md) 를 프로 비전 할 때 호스트 이름이 할당 되지 않으며 해당 IP 주소에서 참조 해야 합니다. 이 문서에서는 자체 호스팅 게이트웨이의 기존 사용자 지정 DNS 이름 (호스트 이름이 라고도 함)을 매핑하는 방법을 보여 줍니다.
+[자체 호스팅 Azure API Management gateway](self-hosted-gateway-overview.md)를 프로 비전 할 때 호스트 이름이 할당 되지 않으며 해당 IP 주소에서 참조 해야 합니다. 이 문서에서는 기존 사용자 지정 DNS 이름 (호스트 이름이 라고도 함)을 자체 호스팅 게이트웨이에 매핑하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -34,25 +31,23 @@ ms.locfileid: "86506811"
 - 자체 호스팅 게이트웨이입니다. 자세한 내용은 [자체 호스팅 게이트웨이를 프로 비전 하는 방법](api-management-howto-provision-self-hosted-gateway.md) 을 참조 하세요.
 -   사용자 또는 조직에서 소유 하 고 있는 사용자 지정 도메인 이름입니다. 이 항목에서는 사용자 지정 도메인 이름을 지정 하는 방법에 대 한 지침을 제공 하지 않습니다.
 -   사용자 지정 도메인 이름을 자체 호스팅 게이트웨이의 IP 주소에 매핑하는 DNS 서버에서 호스트 되는 DNS 레코드입니다. 이 항목에서는 DNS 레코드를 호스트 하는 방법에 대 한 지침을 제공 하지 않습니다.
--   공개 및 프라이빗 키(.PFX)가 있는 유효한 인증서가 있어야 합니다. 주체 또는 SAN (주체 대체 이름)은 도메인 이름과 일치 해야 합니다. 이렇게 하면 API Management 인스턴스에서 TLS를 통해 Url을 안전 하 게 노출할 수 있습니다.
+-   공개 및 프라이빗 키(.PFX)가 있는 유효한 인증서가 있어야 합니다. 주체 또는 SAN (주체 대체 이름)은 도메인 이름과 일치 해야 합니다. 이렇게 하면 API Management 인스턴스가 TLS를 통해 Url을 안전 하 게 노출할 수 있습니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="add-custom-domain-certificate-to-your-api-management-service"></a>API Management 서비스에 사용자 지정 도메인 인증서 추가
 
-1. **보안**에서 **인증서** 를 선택 합니다.
-2. **+추가**를 선택합니다.
-3. 인증서의 리소스 이름을 **ID** 필드에 입력 합니다.
-4. 인증서를 포함 하는 파일을 선택 합니다. PFX)를 선택 하 여 **인증서** 필드 또는 옆에 있는 폴더 아이콘을 선택 합니다.
-5. **암호** 필드에 인증서의 암호를 입력 합니다.
-6. **만들기** 를 선택 하 여 API Management 서비스에 인증서를 추가 합니다.
+사용자 지정 도메인 인증서 ()를 추가 합니다. PFX)를 API Management 인스턴스에 파일을 저장 하거나 Azure Key Vault에 저장 된 인증서를 참조 합니다. [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 보안 백 엔드 서비스](api-management-howto-mutual-certificates.md)의 단계를 수행 합니다.
+
+> [!NOTE]
+> 자체 호스팅 게이트웨이 도메인에는 key vault 인증서를 사용 하는 것이 좋습니다.
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Azure Portal를 사용 하 여 자체 호스팅 게이트웨이의 사용자 지정 도메인 이름 설정
 
-1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라** 에서 **게이트웨이** 를 선택 합니다.
 2. 도메인 이름을 구성 하려는 자체 호스팅 게이트웨이를 선택 합니다.
-3. **설정**에서 **호스트 이름** 을 선택 합니다.
-4. **+ 추가**를 선택합니다.
+3. **설정** 에서 **호스트 이름** 을 선택 합니다.
+4. **+ 추가** 를 선택합니다.
 5. **이름** 필드에 호스트 이름에 대 한 리소스 이름을 입력 합니다.
 6. **호스트** 이름 필드에 도메인 이름을 입력 합니다.
 7. **인증서** 드롭다운에서 인증서를 선택 합니다.

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478ae6146caeb8a27cdaf13b7f33e421b8121afc
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: fa2d910c017d3cc626f737bdab50315aef8d1e77
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741493"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491388"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Windows 로그인 화면에서 Azure Active Directory 셀프 서비스 암호 재설정을 사용 하도록 설정
 
@@ -40,7 +40,7 @@ Windows 로그인 화면에서 SSPR를 사용 하는 경우 다음 제한 사항
 - Hybrid Azure AD에 조인된 컴퓨터에는 새 암호를 사용하고 된 자격 증명을 업데이트하기 위해 도메인 컨트롤러를 향한 네트워크 연결 라인이 있어야 합니다. 즉, 디바이스가 조직의 내부 네트워크에 있거나, 온-프레미스 도메인 컨트롤러에 대한 네트워크 액세스가 있는 VPN에 있어야 합니다.
 - 이미지를 사용하는 경우 sysprep을 실행하기 전에 기본 제공 관리자에 대한 웹 캐시를 지운 후에 CopyProfile 단계를 수행해야 합니다. 이 단계에 대한 자세한 내용은 [사용자 지정 기본 사용자 프로필을 사용할 때 성능 저하](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile) 지원 문서에서 찾을 수 있습니다.
 - 다음 설정은 Windows 10 장치에서 암호를 사용 하 고 다시 설정 하는 기능을 방해 하는 것으로 알려져 있습니다.
-    - V1909 이전 버전의 Windows 10에서 정책에 Ctrl + Alt + Del이 필요한 경우 **암호 재설정** 이 작동 하지 않습니다.
+    - Windows 10의 정책에 Ctrl + Alt + Del이 필요한 경우 **암호 재설정** 이 작동 하지 않습니다.
     - 화면 잠금 알림이 해제 된 경우 **암호 재설정** 이 작동 하지 않습니다.
     - *HideFastUserSwitching* 가 enabled 또는 1로 설정 됨
     - *Dontdisplaylastusername* 이 사용 또는 1로 설정 됨
@@ -51,6 +51,10 @@ Windows 로그인 화면에서 SSPR를 사용 하는 경우 다음 제한 사항
     - 대화형 로그온: CTRL + ALT + DEL = Disabled가 필요하지 않음
     - *Disablelockscreenappnotifications* = 1 또는 사용
     - Windows SKU가 Home 또는 Professional 버전이 아님
+
+> [!NOTE]
+> 이러한 제한 사항은 장치 잠금 화면에서 비즈니스용 Windows Hello PIN 재설정에도 적용 됩니다.
+>
 
 ## <a name="windows-10-password-reset"></a>Windows 10 암호 재설정
 

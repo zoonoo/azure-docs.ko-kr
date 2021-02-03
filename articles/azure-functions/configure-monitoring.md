@@ -4,12 +4,12 @@ description: 모니터링을 위해 함수 앱을 Application Insights에 연결
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070143"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493756"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
 
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| Category | 테이블 | Description |
+| 범주 | 테이블 | Description |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
@@ -44,7 +44,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-| Category | 테이블 | Description |
+| 범주 | 테이블 | Description |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| 로그 수준이 될 수 있는 사용자 생성 로그입니다. 함수에서 로그에 쓰는 방법에 대 한 자세한 내용은 [로그에 쓰기](functions-monitoring.md#writing-to-logs)를 참조 하세요. | 
 | **`Host.Aggregator`** | **customMetrics** | 이러한 런타임 생성 로그는 [구성 가능한](#configure-the-aggregator) 기간 동안 함수 호출의 개수 및 평균을 제공 합니다. 기본 기간은 30초 또는 결과 1,000개 중 먼저 도착하는 것입니다. 실행 수, 성공률 및 기간을 예로 들 수 있습니다. 이러한 로그는 모두 `Information` 수준에서 작성됩니다. `Warning` 이상에서 필터링하면 이 데이터가 표시되지 않습니다. |
@@ -229,6 +229,8 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 --setting-names SCALE_CONTROLLER_LOGGING_ENABLED
 ```
 
+크기 조정 컨트롤러 로깅을 사용 하도록 설정 하면 [크기 조정 컨트롤러 로그를 쿼리할](analyze-telemetry-data.md#query-scale-controller-logs)수 있습니다. 
+
 ## <a name="enable-application-insights-integration"></a>Application Insights 통합 사용
 
 함수 앱이 Application Insights로 데이터를 보내려면 Application Insights 리소스의 계측 키를 알고 있어야 합니다. 이 키는 **APPINSIGHTS_INSTRUMENTATIONKEY** 라는 앱 설정에 있어야 합니다.
@@ -271,30 +273,6 @@ az functionapp config appsettings delete --name <FUNCTION_APP_NAME> \
 
 > [!NOTE]
 > Functions 초기 버전에서는 기본 제공 모니터링을 사용했지만, 더 이상 권장하지 않습니다. 또한 이러한 함수 앱에 Application Insights 통합을 사용하도록 설정할 때 [기본 제공 로깅을 사용하지 않도록 설정](#disable-built-in-logging)해야 합니다.  
-
-## <a name="query-scale-controller-logs"></a>쿼리 크기 조정 컨트롤러 로그
-
-크기 조정 컨트롤러 로깅 및 Application Insights 통합을 모두 사용 하도록 설정한 후 Application Insights 로그 검색을 사용 하 여 내보낸 크기 조정 컨트롤러 로그를 쿼리할 수 있습니다. 크기 조정 컨트롤러 로그는 컬렉션의 `traces` **ScaleControllerLogs** 범주에 저장 됩니다.
-
-다음 쿼리를 사용 하 여 지정 된 기간 내에 현재 함수 앱에 대 한 모든 크기 조정 컨트롤러 로그를 검색할 수 있습니다.
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-```
-
-다음 쿼리는 이전 쿼리를 확장 하 여 규모 변경을 나타내는 로그만 가져오는 방법을 보여 줍니다.
-
-```kusto
-traces 
-| extend CustomDimensions = todynamic(tostring(customDimensions))
-| where CustomDimensions.Category == "ScaleControllerLogs"
-| where message == "Instance count changed"
-| extend Reason = CustomDimensions.Reason
-| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
-| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
-```
 
 ## <a name="disable-built-in-logging"></a>기본 제공 로깅을 사용하지 않도록 설정
 

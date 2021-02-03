@@ -4,12 +4,12 @@ description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 33adcb853099778c4b06a9cd428f480f6138ee8b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936977"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493952"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
 
@@ -39,20 +39,65 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Visual Studio Code 용 [Azure Functions 확장][Azure Functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/) [지원 되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms)중 하나에 설치 되어 있어야 합니다.
 
-* 활성 Azure 구독
+* 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code을 사용 하 여 게시할](#publish-to-azure)때 구독에 생성 됩니다.
+Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code을 사용 하 여 게시할](#publish-to-azure)때 구독에 생성 됩니다. 
 
-> [!IMPORTANT]
-> 로컬로 함수를 개발 하 여 로컬로 시작 하 고 실행할 필요 없이 Azure에 게시할 수 있습니다. 함수를 로컬로 실행 하려면 Azure Functions Core Tools의 자동 다운로드를 비롯 한 몇 가지 추가 요구 사항을 충족 해야 합니다. 자세히 알아보려면 [프로젝트를 로컬로 실행 하기 위한 추가 요구 사항](#additional-requirements-for-running-a-project-locally)을 참조 하세요.
+### <a name="run-local-requirements"></a>로컬 요구 사항 실행
+
+이러한 필수 구성 요소는 [함수를 로컬로 실행 하 고 디버그](#run-functions-locally)하는 데만 필요 합니다. Azure Functions에 대 한 프로젝트를 만들거나 게시 하지 않아도 됩니다.
+
+# <a name="c"></a>[C\#](#tab/csharp)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 2.x 이상 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+
++ Visual Studio Code용 [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp). 
+
++ [.NET Core CLI 도구](/dotnet/core/tools/?tabs=netcore2x).  
+
+# <a name="java"></a>[Java](#tab/java)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 2.x 이상 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+
++ [Java 확장에 대 한 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+
++ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 을 권장 합니다. 지원 되는 다른 버전에 대해서는 [Java 버전](functions-reference-java.md#java-versions)을 참조 하세요.
+
++ [Maven 3 이상](https://maven.apache.org/)
+
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 2.x 이상 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+
++ [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `node --version` 명령을 사용하여 버전을 확인합니다. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 2.x 이상 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows) 권장. 버전 정보는 [PowerShell 버전](functions-reference-powershell.md#powershell-versions)을 참조 하세요.
+
++ [.NET Core 3.1 런타임](https://www.microsoft.com/net/download) 및 [.NET Core 2.1 런타임](https://dotnet.microsoft.com/download/dotnet-core/2.1) 모두  
+
++ [Visual Studio Code용 PowerShell 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+
+# <a name="python"></a>[Python](#tab/python)
+
++ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) 버전 2.x 이상 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+
++ [Python](https://www.python.org/downloads/)3.x. 버전 정보는 Azure Functions 런타임의 [Python 버전](functions-reference-python.md#python-version) 을 참조 하세요.
+
++ Visual Studio Code용 [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
+---
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
@@ -65,8 +110,6 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
     ![함수 만들기](./media/functions-develop-vs-code/create-function.png)
 
 1. 함수 앱 프로젝트에 대 한 폴더를 선택 하 고 **함수 프로젝트에 사용할 언어를 선택** 합니다.
-
-1. 핵심 도구를 아직 설치 하지 않은 경우 설치할 핵심 도구의 버전을 **선택** 하 라는 메시지가 표시 됩니다. 버전 2.x 또는 이후 버전을 선택 합니다. 
 
 1. **HTTP 트리거** 함수 템플릿을 선택 하거나, **지금 건너뛰기** 를 선택 하 여 함수 없이 프로젝트를 만들 수 있습니다. 나중에 항상 [함수를 프로젝트에 추가할](#add-a-function-to-your-project) 수 있습니다.
 
@@ -97,7 +140,11 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 * 함수를 구현 하는 [HttpExample.cs 클래스 라이브러리 파일](functions-dotnet-class-library.md#functions-class-library-project) 입니다.
 
-이 시점에서 [c # 클래스 라이브러리 함수에 매개 변수를 추가](#add-input-and-output-bindings)하 여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다.
+# <a name="java"></a>[Java](#tab/java)
+
++ 프로젝트 종속성 및 [Java 버전](functions-reference-java.md#java-versions)을 포함 하 여 프로젝트 및 배포 매개 변수를 정의 하는 루트 폴더의 pom.xml 파일입니다. 이 pom.xml에는 배포 중에 생성 되는 Azure 리소스에 대 한 정보도 포함 되어 있습니다.   
+
++ 함수를 구현 하는 src 경로의 [함수. java 파일](functions-reference-java.md#triggers-and-annotations) 입니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
@@ -105,21 +152,19 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 * [정의 파일의function.js](functions-reference-node.md#folder-structure) 및 [index.js 파일](functions-reference-node.md#exporting-a-function)(함수 코드를 포함 하는 Node.js 파일)이 포함 된 httpexample 폴더입니다.
 
-이 시점에서 [파일의 function.js를 수정](#add-input-and-output-bindings)하 여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다.
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-<!-- # [PowerShell](#tab/powershell)
-
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+* [정의 파일의function.js](functions-reference-powershell.md#folder-structure) 및 함수 코드를 포함 하는 run.ps1 파일을 포함 하는 httpexample 폴더입니다.
  
-# [Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
     
-* A project-level requirements.txt file that lists packages required by Functions.
+* 함수에 필요한 패키지를 나열 하는 프로젝트 수준 requirements.txt 파일입니다.
     
-* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
-     -->
+* [정의 파일에function.js](functions-reference-python.md#folder-structure) 를 포함 하 고 \_ \_ 함수 코드를 포함 하는 \_ \_ Py 파일을 포함 하는 httpexample 폴더입니다.
+
 ---
 
-[프로젝트에 새 함수를 추가할](#add-a-function-to-your-project)수도 있습니다.
+이 시점에서 함수에 [입력 및 출력 바인딩을 추가할](#add-input-and-output-bindings) 수 있습니다. [프로젝트에 새 함수를 추가할](#add-a-function-to-your-project)수도 있습니다.
 
 ## <a name="install-binding-extensions"></a>바인딩 확장 설치
 
@@ -133,7 +178,19 @@ HTTP 및 타이머 트리거를 제외 하 고 바인딩은 확장 패키지에�
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+# <a name="python"></a>[Python](#tab/python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -149,15 +206,27 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 새 c # 클래스 라이브러리 (.cs) 파일이 프로젝트에 추가 됩니다.
 
+# <a name="java"></a>[Java](#tab/java)
+
+새 Java (java) 파일이 프로젝트에 추가 됩니다.
+
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 프로젝트에 새 폴더가 만들어집니다. 폴더에는 파일에 대 한 새 function.js및 새 JavaScript 코드 파일이 포함 되어 있습니다.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+프로젝트에 새 폴더가 만들어집니다. 폴더에는 새 function.js파일 및 새 PowerShell 코드 파일이 포함 되어 있습니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+프로젝트에 새 폴더가 만들어집니다. 폴더에는 새 function.js파일 및 새 Python 코드 파일이 포함 되어 있습니다.
+
 ---
 
-## <a name="add-input-and-output-bindings"></a>입력 및 출력 바인딩 추가
+## <a name="connect-to-services"></a><a name="add-input-and-output-bindings"></a>서비스에 연결
 
-입력 및 출력 바인딩을 추가 하 여 함수를 확장할 수 있습니다. 바인딩을 추가 하는 프로세스는 프로젝트의 언어에 따라 달라 집니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+입력 및 출력 바인딩을 추가 하 여 함수를 다른 Azure 서비스에 연결할 수 있습니다. 바인딩은 연결 코드를 작성 하지 않고도 함수를 다른 서비스에 연결 합니다. 바인딩을 추가 하는 프로세스는 프로젝트의 언어에 따라 달라 집니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 다음 예에서는 `outqueue` local.settings.js의 응용 프로그램 설정에서 저장소 계정에 대 한 연결 문자열이 설정 된 라는 저장소 큐에 연결 합니다 `MyStorageConnection` .
 
@@ -165,61 +234,69 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 함수 메서드를 업데이트 하 여 메서드 정의에 다음 매개 변수를 추가 합니다 `Run` .
 
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="17":::
 
-이 코드를 사용 하려면 다음 문을 추가 해야 합니다 `using` .
+`msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 다음 코드는 컬렉션에 메시지를 추가 합니다.
 
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="30-31":::
 
-`msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 하나 이상의 메시지를 컬렉션에 추가 합니다. 이러한 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
+ 함수가 완료 되 면 큐에 메시지가 전송 됩니다.
 
-자세히 알아보려면 [Queue storage output binding](functions-bindings-storage-queue-output.md) 설명서를 참조 하세요.
+자세한 내용은 [큐 저장소 출력 바인딩 참조 문서](functions-bindings-storage-queue-output.md?tabs=csharp) 설명서를 참조 하세요. 함수에 추가할 수 있는 바인딩을 일반적으로 자세히 알아보려면 [Azure Functions의 기존 함수에 바인딩 추가](add-bindings-existing-function.md?tabs=csharp)를 참조 하세요. 
+
+# <a name="java"></a>[Java](#tab/java)
+
+함수 메서드를 업데이트 하 여 메서드 정의에 다음 매개 변수를 추가 합니다 `Run` .
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="20-21":::
+
+`msg`매개 변수는 `OutputBinding<T>` 형식입니다. 여기서은 `T` 함수가 완료 될 때 출력 바인딩에 기록 되는 문자열입니다. 다음 코드는 출력 바인딩에서 메시지를 설정 합니다.
+
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="33-34":::
+
+이 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
+
+자세한 내용은 [큐 저장소 출력 바인딩 참조 문서](functions-bindings-storage-queue-output.md?tabs=java) 설명서를 참조 하세요. 함수에 추가할 수 있는 바인딩을 일반적으로 자세히 알아보려면 [Azure Functions의 기존 함수에 바인딩 추가](add-bindings-existing-function.md?tabs=java)를 참조 하세요. 
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
-Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 function.js에 바인딩을 추가할 수 있습니다. 바인딩을 만들려면 함수 폴더의 파일 **에 대 한function.js** 를 마우스 오른쪽 단추로 클릭 (Macos에서 Ctrl + 클릭) 하 고 **바인딩 추가** 를 선택 합니다.
-
-![기존 JavaScript 함수에 바인딩 추가 ](media/functions-develop-vs-code/function-add-binding.png)
-
-다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
-
-| prompt | 값 | 설명 |
-| -------- | ----- | ----------- |
-| **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
-| **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
-| **코드에서 이 바인딩을 식별하는 데 사용하는 이름** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
-| **메시지가 전송될 큐** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. 바인딩을 처음 사용할 때 *queueName* 이 없으면 바인딩이 알아서 만듭니다. |
-| **"local.settings.js에서 설정"을 선택 합니다.** | `MyStorageConnection` | 저장소 계정에 대 한 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 이 `AzureWebJobsStorage` 설정에는 함수 앱을 사용 하 여 만든 저장소 계정에 대 한 연결 문자열이 포함 됩니다. |
-
-이 예제에서는 `bindings` 파일의 function.js에 있는 배열에 다음 바인딩이 추가 됩니다.
-
-```javascript
-{
-    "type": "queue",
-    "direction": "out",
-    "name": "msg",
-    "queueName": "outqueue",
-    "connection": "MyStorageConnection"
-}
-```
-
-동일한 바인딩 정의를의 function.js에 직접 추가할 수도 있습니다.
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
 
 함수 코드에서 `msg` 바인딩은 `context` 다음 예제와 같이에서 액세스 됩니다.
 
-```javascript
-context.bindings.msg = "Name passed to the function: " req.query.name;
-```
+:::code language="javascript" range="5-7" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/index.js":::
 
-자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue-output.md) 참조를 참조 하세요.
+이 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
+
+자세한 내용은 [큐 저장소 출력 바인딩 참조 문서](functions-bindings-storage-queue-output.md?tabs=javascript) 설명서를 참조 하세요. 함수에 추가할 수 있는 바인딩을 일반적으로 자세히 알아보려면 [Azure Functions의 기존 함수에 바인딩 추가](add-bindings-existing-function.md?tabs=javascript)를 참조 하세요. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+:::code language="powershell" range="18-19" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/run.ps1":::
+
+이 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
+
+자세한 내용은 [큐 저장소 출력 바인딩 참조 문서](functions-bindings-storage-queue-output.md?tabs=powershell) 설명서를 참조 하세요. 함수에 추가할 수 있는 바인딩을 일반적으로 자세히 알아보려면 [Azure Functions의 기존 함수에 바인딩 추가](add-bindings-existing-function.md?tabs=powershell)를 참조 하세요. 
+
+# <a name="python"></a>[Python](#tab/python)
+
+[!INCLUDE [functions-add-output-binding-vs-code](../../includes/functions-add-output-binding-vs-code.md)]
+
+정의가 `Main` `msg: func.Out[func.QueueMessage]` 다음 예제와 같이 출력 매개 변수를 추가 하도록 정의를 업데이트 합니다.
+
+:::code language="python" range="6" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+다음 코드는 요청에서 출력 큐에 문자열 데이터를 추가 합니다.
+
+:::code language="python" range="18" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
+
+이 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
+
+자세한 내용은 [큐 저장소 출력 바인딩 참조 문서](functions-bindings-storage-queue-output.md?tabs=python) 설명서를 참조 하세요. 함수에 추가할 수 있는 바인딩을 일반적으로 자세히 알아보려면 [Azure Functions의 기존 함수에 바인딩 추가](add-bindings-existing-function.md?tabs=python)를 참조 하세요. 
 
 ---
-
-[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
@@ -227,7 +304,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Visual Studio Code를 사용 하 여 함수 프로젝트를 Azure에 직접 게시할 수 있습니다. 프로세스를 통해 함수 앱 및 관련된 리소스를 Azure 구독에서 만듭니다. 함수 앱은 함수를 위한 실행 컨텍스트를 제공합니다. 프로젝트는 패키지되어 Azure 구독에서 새 함수 앱에 배포됩니다.
 
-Visual Studio Code에서 Azure의 새 함수 앱에 게시 하는 경우 빠른 함수 앱 만들기 경로와 고급 경로가 모두 제공 됩니다. 
+Visual Studio Code에서 Azure의 새 함수 앱에 게시 하는 경우 빠른 함수 앱 만들기 경로를 사용 하 여 기본값을 사용 하거나 고급 경로를 선택 하 여 생성 된 원격 리소스를 더 자세히 제어할 수 있습니다. 
 
 Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technologies.md#zip-deploy) 기술을 활용 합니다. 
 
@@ -241,9 +318,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 다음 단계에서는 고급 만들기 옵션을 사용 하 여 만든 새 함수 앱에 프로젝트를 게시 합니다.
 
-1. **Azure: 함수** 영역에서 **함수 앱에 배포** 아이콘을 선택 합니다.
-
-    ![함수 앱 설정](./media/functions-develop-vs-code/function-app-publish-project.png)
+1. 명령 팔레트에 Azure Functions를 입력 합니다. **함수 앱에 배포** 합니다.
 
 1. 로그인하지 않은 경우 **Azure에 로그인** 하라는 메시지가 표시됩니다. **무료 Azure 계정을 만들** 수도 있습니다. 브라우저에서 로그인 한 후 Visual Studio Code로 돌아갑니다.
 
@@ -251,7 +326,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | prompt | 값 | 설명 |
+    | 프롬프트 | 값 | Description |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
@@ -263,18 +338,9 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
     함수 앱을 만들고 배포 패키지가 적용 된 후 알림이 표시 됩니다. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다.
 
-## <a name="republish-project-files"></a>프로젝트 파일 다시 게시
+### <a name="get-the-url-of-an-http-triggered-function-in-azure"></a><a name="get-the-url-of-the-deployed-function"></a>Azure에서 HTTP 트리거 함수의 URL 가져오기
 
-[연속 배포](functions-continuous-deployment.md)를 설정 하는 경우 Azure의 함수 앱은 원본 파일이 연결 된 원본 위치에서 업데이트 될 때마다 업데이트 됩니다. 연속 배포를 권장 하지만 Visual Studio Code에서 프로젝트 파일 업데이트를 다시 게시할 수도 있습니다.
-
-> [!IMPORTANT]
-> 기존 함수 앱에 게시하면 Azure에서 해당 앱의 콘텐츠를 덮어씁니다.
-
-[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
-
-## <a name="get-the-url-of-the-deployed-function"></a>배포 된 함수의 URL 가져오기
-
-HTTP로 트리거되는 함수를 호출 하려면 함수 앱에 배포 될 때 함수의 URL이 필요 합니다. 이 URL은 필요한 모든 [기능 키](functions-bindings-http-webhook-trigger.md#authorization-keys)를 포함 합니다. 확장을 사용 하 여 배포 된 함수에 대 한 이러한 Url을 가져올 수 있습니다.
+클라이언트에서 HTTP로 트리거되는 함수를 호출 하려면 함수 앱에 배포 될 때 함수의 URL이 필요 합니다. 이 URL은 필요한 모든 기능 키를 포함 합니다. 확장을 사용 하 여 배포 된 함수에 대 한 이러한 Url을 가져올 수 있습니다. Azure에서 원격 함수를 실행 하려는 경우 확장의 [지금 함수 실행](#run-functions-in-azure) 기능을 사용 합니다.
 
 1. F1 키를 선택 하 여 명령 팔레트를 연 다음 명령을 검색 하 고 실행 합니다. **함수 URL 복사를 Azure Functions** 합니다.
 
@@ -282,28 +348,44 @@ HTTP로 트리거되는 함수를 호출 하려면 함수 앱에 배포 될 때 
 
 함수 URL은 쿼리 매개 변수에 의해 전달 된 모든 필수 키와 함께 클립보드로 복사 됩니다 `code` . HTTP 도구를 사용 하 여 POST 요청을 제출 하거나 원격 함수에 GET 요청을 위한 브라우저를 사용 합니다.  
 
-## <a name="run-functions-locally"></a>로컬로 함수 실행
+Azure에서 함수의 URL을 가져올 때 확장은 Azure 계정을 사용 하 여 함수를 시작 하는 데 필요한 키를 자동으로 검색 합니다. [함수 액세스 키에 대해 자세히 알아보세요](security-concepts.md#function-access-keys). HTTP가 아닌 트리거된 함수를 시작 하려면 admin 키를 사용 해야 합니다.
 
-Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프로젝트를 실행할 수 있습니다. 로컬 런타임은 Azure에서 함수 앱을 호스트 하는 것과 동일한 런타임입니다. [파일의local.settings.js](#local-settings-file)에서 로컬 설정을 읽습니다.
+## <a name="republish-project-files"></a>프로젝트 파일 다시 게시
 
-### <a name="additional-requirements-for-running-a-project-locally"></a>프로젝트를 로컬로 실행 하기 위한 추가 요구 사항
+[연속 배포](functions-continuous-deployment.md)를 설정 하는 경우 연결 된 원본 위치에서 원본 파일을 업데이트할 때 Azure의 함수 앱이 업데이트 됩니다. 연속 배포를 권장 하지만 Visual Studio Code에서 프로젝트 파일 업데이트를 다시 게시할 수도 있습니다.
 
-함수 프로젝트를 로컬로 실행 하려면 다음과 같은 추가 요구 사항을 충족 해야 합니다.
+> [!IMPORTANT]
+> 기존 함수 앱에 게시하면 Azure에서 해당 앱의 콘텐츠를 덮어씁니다.
 
-* [Azure Functions Core Tools](functions-run-local.md#v2)의 버전 2.x 이상을 설치 합니다. 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
-* 선택한 언어에 대한 특정 요구 사항을 설치합니다.
+## <a name="run-functions"></a>함수 실행
 
-    | 언어 | 요구 사항 |
-    | -------- | --------- |
-    | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI 도구](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 이상](https://maven.apache.org/) |
-    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) 권장|
+Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터 또는 Azure 구독의 프로젝트에서 개별 함수를 실행할 수 있습니다. 
 
-    <sup>*</sup>활성 LTS 및 유지 관리 LTS 버전 (8.11.1 및 10.14.1 권장).
+HTTP 트리거 함수의 경우 확장은 HTTP 끝점을 호출 합니다. 다른 종류의 트리거의 경우에는 관리자 Api를 호출 하 여 함수를 시작 합니다. 함수로 전송 되는 요청의 메시지 본문은 트리거의 유형에 따라 달라 집니다. 트리거에서 테스트 데이터를 요구 하는 경우 특정 JSON 형식으로 데이터를 입력 하 라는 메시지가 표시 됩니다.
 
-### <a name="configure-the-project-to-run-locally"></a>로컬에서 실행 되도록 프로젝트 구성
+### <a name="run-functions-in-azure"></a>Azure에서 함수 실행
+
+Visual Studio Code에서 Azure의 함수를 실행 합니다. 
+
+1. 명령 팔레트에 Azure Functions를 입력 하 고 **지금 함수를 실행** 한 다음 Azure 구독을 선택 합니다. 
+
+1. 목록에서 Azure의 함수 앱을 선택 합니다. 함수 앱이 표시 되지 않는 경우 올바른 구독에 로그인 했는지 확인 합니다. 
+
+1. 목록에서 실행할 함수를 선택 하 고 요청 **본문** 에 요청 메시지 본문을 입력 합니다. Enter 키를 눌러이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
+
+1. 함수가 Azure에서 실행 되 고 응답을 반환 하는 경우 Visual Studio Code에서 알림이 발생 합니다.
+ 
+Azure 구독에서 함수 앱에서 실행 하려는 함수를 마우스 오른쪽 단추로 클릭 (Mac에서 Ctrl + 클릭) 하 고 **지금 함수 실행 ...** 을 선택 하 여 **azure: 함수** 영역에서 함수를 실행할 수도 있습니다.
+
+Azure에서 함수를 실행할 때 확장은 Azure 계정을 사용 하 여 함수를 시작 하는 데 필요한 키를 자동으로 검색 합니다. [함수 액세스 키에 대해 자세히 알아보세요](security-concepts.md#function-access-keys). HTTP가 아닌 트리거된 함수를 시작 하려면 admin 키를 사용 해야 합니다.
+
+### <a name="run-functions-locally"></a>로컬로 함수 실행
+
+로컬 런타임은 Azure에서 함수 앱을 호스트 하는 것과 동일한 런타임입니다. [파일의local.settings.js](#local-settings-file)에서 로컬 설정을 읽습니다. 함수 프로젝트를 로컬로 실행 하려면 [추가 요구 사항을](#run-local-requirements)충족 해야 합니다.
+
+#### <a name="configure-the-project-to-run-locally"></a>로컬에서 실행 되도록 프로젝트 구성
 
 함수 런타임은 HTTP 및 웹 후크가 아닌 모든 트리거 형식에 대해 내부적으로 Azure Storage 계정을 사용 합니다. 따라서 **값을 AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열로 설정 해야 합니다.
 
@@ -319,15 +401,19 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조 하세요.
 
-### <a name="debugging-functions-locally"></a>로컬에서 함수 디버깅  
+#### <a name="debug-functions-locally"></a><a name="debugging-functions-locally"></a>로컬로 함수 디버깅  
 
 함수를 디버깅 하려면 F5 키를 선택 합니다. [핵심 도구][Azure Functions Core Tools]를 아직 다운로드 하지 않은 경우에는이 작업을 수행 하 라는 메시지가 표시 됩니다. 핵심 도구를 설치 하 고 실행 하는 경우 출력은 터미널에 표시 됩니다. 이는 터미널에서 핵심 도구 명령을 실행 하는 것과 같지만 `func host start` 추가 빌드 작업 및 연결 된 디버거를 사용 합니다.  
 
-프로젝트가 실행 되는 동안 프로젝트를 Azure에 배포할 때와 마찬가지로 함수를 트리거할 수 있습니다. 프로젝트가 디버그 모드에서 실행 되는 경우 예상 대로 Visual Studio Code에서 중단점이 적중 됩니다.
+프로젝트를 실행 하는 경우 프로젝트를 Azure에 배포할 때와 마찬가지로 확장의 **함수 실행 ...** 기능을 사용 하 여 함수를 트리거할 수 있습니다. 디버그 모드에서 프로젝트를 실행 하는 경우에는 원하는 대로 Visual Studio Code 중단점이 적중 됩니다. 
 
-HTTP 트리거에 대 한 요청 URL은 터미널의 출력에 표시 됩니다. 프로젝트를 로컬로 실행 하는 경우 HTTP 트리거의 함수 키가 사용 되지 않습니다. 자세한 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요.  
+1. 명령 팔레트에 Azure Functions를 입력 하 고 **지금 함수를 실행** 한 다음 **로컬 프로젝트** 를 선택 합니다. 
 
-자세히 알아보려면 [Azure Functions Core Tools][Azure Functions Core Tools]사용을 참조 하세요.
+1. 프로젝트에서 실행할 함수를 선택 하 고 **요청 본문 입력** 에 요청의 메시지 본문을 입력 합니다. Enter 키를 눌러이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
+
+1. 함수가 로컬로 실행 되 고 응답이 수신 된 후에는 Visual Studio Code에서 알림이 발생 합니다. 함수 실행에 대 한 정보는 **터미널** 패널에 표시 됩니다.
+
+함수를 로컬로 실행 하려면 키를 사용 하지 않아도 됩니다. 
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -341,6 +427,8 @@ HTTP 트리거에 대 한 요청 URL은 터미널의 출력에 표시 됩니다.
 * [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
+* [PowerShell](functions-reference-powershell.md#environment-variables)
+* [Python](functions-reference-python.md#environment-variables)
 
 ## <a name="application-settings-in-azure"></a>Azure의 응용 프로그램 설정
 
@@ -386,7 +474,7 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원�
 > [!NOTE]
 > 스트리밍 로그는 함수 호스트의 단일 인스턴스만 지원 합니다. 함수를 여러 인스턴스로 확장 하는 경우 다른 인스턴스의 데이터가 로그 스트림에 표시 되지 않습니다. Application Insights [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md) 는 여러 인스턴스를 지원 합니다. 또한 거의 실시간으로 스트리밍 분석은 [샘플링 된 데이터](configure-monitoring.md#configure-sampling)를 기반으로 합니다.
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>애플리케이션 정보
 
 함수 앱을 Application Insights와 통합 하 여 함수 실행을 모니터링 하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때이 통합은 기본적으로 발생 합니다. Visual Studio를 게시 하는 동안 함수 앱을 만들 때 Application Insights 직접 통합 해야 합니다. 방법에 대 한 자세한 내용은 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
@@ -408,7 +496,7 @@ Application Insights를 사용 하 여 모니터링 하는 방법에 대 한 자
 
 Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 영역에서 유용한 그래픽 인터페이스를 제공 합니다. 명령 팔레트 (F1) 에서도 같은 기능을 명령으로 사용할 수 있습니다. 이러한 Azure Functions 명령을 사용할 수 있습니다.
 
-|Azure Functions 명령  | 설명  |
+|Azure Functions 명령  | Description  |
 |---------|---------|
 |**새 설정 추가**  |  Azure에서 새 응용 프로그램 설정을 만듭니다. 자세히 알아보려면 [응용 프로그램 설정 게시](#publish-application-settings)를 참조 하세요. [로컬 설정으로이 설정을 다운로드](#download-settings-from-azure)해야 할 수도 있습니다. |
 | **배포 원본 구성** | Azure의 함수 앱을 로컬 Git 리포지토리에 연결 합니다. 자세한 내용은 [Azure Functions에 대 한 연속 배포](functions-continuous-deployment.md)를 참조 하세요. |
@@ -424,7 +512,7 @@ Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 
 | **원격 설정 다운로드** | Azure에서 선택한 함수 앱의 설정을 파일의 local.settings.js로 다운로드 합니다. 로컬 파일이 암호화 되 면 암호 해독, 업데이트 및 암호화 됩니다. 두 위치에 충돌 하는 값이 있는 설정이 있는 경우 계속 하는 방법을 선택 하 라는 메시지가 표시 됩니다. 이 명령을 실행 하기 전에 파일의 local.settings.js에 대 한 변경 내용을 저장 해야 합니다. |
 | **설정 편집** | Azure의 기존 함수 앱 설정 값을 변경 합니다. 이 명령은 local.settings.js파일의 설정에 영향을 주지 않습니다.  |
 | **설정 암호화** | `Values` [로컬 설정](#local-settings-file)에서 배열의 개별 항목을 암호화 합니다. 이 파일에서 `IsEncrypted` 는를 `true` 사용 하기 전에 로컬 런타임에서 설정의 암호를 해독 하도록 지정 하는도로 설정 됩니다. 로컬 설정을 암호화 하 여 중요 한 정보 누출의 위험을 줄입니다. Azure에서 응용 프로그램 설정은 항상 암호화 된 상태로 저장 됩니다. |
-| **지금 함수 실행** | Azure에서 [타이머 트리거 함수](functions-bindings-timer.md) 를 수동으로 시작 합니다. 이 명령은 테스트에 사용 됩니다. Azure에서 HTTP가 아닌 함수를 트리거하는 방법에 대해 자세히 알아보려면 [http로 트리거되는 함수 수동 실행](functions-manually-run-non-http.md)을 참조 하세요. |
+| **지금 함수 실행** | 관리 Api를 사용 하 여 함수를 수동으로 시작 합니다. 이 명령은 디버깅 중에 로컬로 또는 Azure에서 실행 되는 함수에 대해 테스트 하는 데 사용 됩니다. Azure에서 함수를 트리거하는 경우 확장은 먼저 Azure에서 함수를 시작 하는 원격 관리 Api를 호출 하는 데 사용 하는 관리자 키를 자동으로 가져옵니다. API로 전송 되는 메시지의 본문은 트리거의 유형에 따라 달라 집니다. 타이머 트리거는 데이터를 전달할 필요가 없습니다. |
 | **VS Code에서 사용할 프로젝트를 초기화 합니다.** | 필요한 Visual Studio Code 프로젝트 파일을 기존 함수 프로젝트에 추가 합니다. 이 명령을 사용 하 여 핵심 도구를 사용 하 여 만든 프로젝트를 사용할 수 있습니다. |
 | **Azure Functions Core Tools 설치 또는 업데이트** | 함수를 로컬로 실행 하는 데 사용 되는 [Azure Functions Core Tools]를 설치 하거나 업데이트 합니다. |
 | **재배포**  | 연결 된 Git 리포지토리의 프로젝트 파일을 Azure의 특정 배포에 다시 배포할 수 있습니다. Visual Studio Code에서 로컬 업데이트를 다시 게시 하려면 프로젝트를 다시 [게시](#republish-project-files)합니다. |

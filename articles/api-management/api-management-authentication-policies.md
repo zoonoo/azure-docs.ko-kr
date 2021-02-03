@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 01/27/2021
 ms.author: apimpm
-ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 22d2960801cac2222f868c384a55b4bf436bc75b
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071288"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492606"
 ---
 # <a name="api-management-authentication-policies"></a>API Management 인증 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](./api-management-policies.md)을 참조하세요.
@@ -48,13 +48,13 @@ ms.locfileid: "92071288"
 
 ### <a name="elements"></a>요소
 
-|이름|설명|필수|
+|이름|Description|필수|
 |----------|-----------------|--------------|
 |인증-기본|루트 요소입니다.|예|
 
 ### <a name="attributes"></a>특성
 
-|Name|설명|필수|기본값|
+|속성|Description|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |사용자 이름|기본 자격 증명의 사용자 이름을 지정합니다.|예|해당 없음|
 |password|기본 자격 증명의 비밀번호를 지정합니다.|예|해당 없음|
@@ -67,7 +67,10 @@ ms.locfileid: "92071288"
 -   **정책 범위:** 모든 범위
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> 클라이언트 인증서 사용 인증
- `authentication-certificate` 정책을 사용하여 클라이언트 인증서를 사용하는 백 엔드 서비스를 인증합니다. 먼저 인증서를 [API Management에 설치](./api-management-howto-mutual-certificates.md)하고 지문으로 식별해야 합니다.
+ `authentication-certificate`클라이언트 인증서를 사용 하 여 백 엔드 서비스로 인증 하려면 정책을 사용 합니다. 인증서를 [API Management 먼저 설치](./api-management-howto-mutual-certificates.md) 하 고 해당 손도장 또는 인증서 ID (리소스 이름)로 식별 해야 합니다. 
+
+> [!CAUTION]
+> 인증서가 Azure Key Vault에 저장 된 인증서를 참조 하는 경우 인증서 ID를 사용 하 여 식별 합니다. 키 자격 증명 모음 인증서를 회전 하면 API Management의 지문이 변경 되 고, 지 문으로 식별 되는 경우 정책에서 새 인증서를 확인 하지 않습니다.
 
 ### <a name="policy-statement"></a>정책 문
 
@@ -75,20 +78,19 @@ ms.locfileid: "92071288"
 <authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
+
+이 예제에서 클라이언트 인증서는 인증서 ID로 식별 됩니다.
+
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+``` 
 
 이 예제에서 클라이언트 인증서는 지 문으로 식별 됩니다.
 
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-
-이 예제에서 클라이언트 인증서는 리소스 이름으로 식별 됩니다.
-
-```xml  
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-``` 
-
 이 예제에서는 클라이언트 인증서가 기본 제공 인증서 저장소에서 검색 되지 않고 정책에 설정 됩니다.
 
 ```xml
@@ -97,18 +99,18 @@ ms.locfileid: "92071288"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|이름|Description|필수|  
 |----------|-----------------|--------------|  
 |인증-인증서|루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|속성|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|N/A|
-|인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|N/A|
+|thumbprint|클라이언트 인증서에 대한 지문입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
+|인증서 id|인증서 리소스 이름입니다.|또는 중 하나를 `thumbprint` `certificate-id` 제공 해야 합니다.|해당 없음|
 |본문|클라이언트 인증서 (바이트 배열)입니다.|아니요|해당 없음|
-|password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|N/A|
+|password|클라이언트 인증서의 암호입니다.|에 지정 된 인증서 `body` 가 암호로 보호 된 경우 사용 됩니다.|해당 없음|
   
 ### <a name="usage"></a>사용량  
  이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.  
@@ -174,17 +176,17 @@ ms.locfileid: "92071288"
 
 ### <a name="elements"></a>요소  
   
-|이름|설명|필수|  
+|이름|Description|필수|  
 |----------|-----------------|--------------|  
 |인증 관리-id |루트 요소입니다.|예|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|속성|Description|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|resource|문자열. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
-|클라이언트 id|문자열. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
-|출력-토큰 변수-이름|문자열. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |아니요|해당 없음|  
+|리소스|문자열입니다. Azure Active Directory에 있는 대상 web API (보안 리소스)의 앱 ID입니다.|예|해당 없음|
+|클라이언트 id|문자열입니다. Azure Active Directory에서 사용자 할당 id의 앱 ID입니다.|아니요|시스템이 할당 한 id|
+|출력-토큰 변수-이름|문자열입니다. 토큰 값을 개체 형식으로 수신 하는 컨텍스트 변수의 이름입니다 `string` . |아니요|해당 없음|  
 |ignore-error|부울. 로 설정 하면 `true` 액세스 토큰을 가져올 수 없는 경우에도 정책 파이프라인이 계속 실행 됩니다.|아니요|false|  
   
 ### <a name="usage"></a>사용량  

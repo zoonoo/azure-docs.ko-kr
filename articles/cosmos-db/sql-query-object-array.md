@@ -5,19 +5,43 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 02/02/2021
 ms.author: tisande
-ms.openlocfilehash: f959e4e230c1d9f89ad5141713b6a17a8cbb17a2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 1dccb8e51fbc578f8f218fe1582f95f7bcaf42d7
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018924"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493790"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다.
+Azure Cosmos DB SQL API의 주요 기능은 배열 및 개체 만들기입니다. 이 문서에서는 [패밀리 데이터 집합](sql-query-getting-started.md#upload-sample-data)을 사용 하 여 다시 만들 수 있는 예제를 사용 합니다.
+
+이 데이터 집합의 예제 항목은 다음과 같습니다.
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "parents": [
+     { "firstName": "Thomas" },
+     { "firstName": "Mary Kay"}
+  ],
+  "children": [
+     {
+         "firstName": "Henriette Thaulow",
+         "gender": "female",
+         "grade": 5,
+         "pets": [{ "givenName": "Fluffy" }]
+     }
+  ],
+  "address": { "state": "WA", "county": "King", "city": "Seattle" },
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
 
 ## <a name="arrays"></a>배열
 
@@ -72,7 +96,7 @@ FROM f
 ]
 ```
 
-## <a name="iteration"></a><a id="Iteration"></a>반복기
+## <a name="iteration"></a><a id="Iteration"></a>반복
 
 SQL API는 FROM 원본의 [in 키워드](sql-query-keywords.md#in) 를 사용 하 여 JSON 배열에 대 한 반복을 지원 합니다. 다음 예제에서는
 
@@ -177,6 +201,8 @@ FROM child IN Families.children
 
 > [!NOTE]
 > 반복에 IN 키워드를 사용 하는 경우 배열 외부의 속성을 필터링 하거나 프로젝션 할 수 없습니다. 대신 [조인을](sql-query-join.md)사용 해야 합니다.
+
+추가 예제를 보려면 [Azure Cosmos DB의 배열 사용에 대 한 블로그 게시물](https://devblogs.microsoft.com/cosmosdb/understanding-how-to-query-arrays-in-azure-cosmos-db/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

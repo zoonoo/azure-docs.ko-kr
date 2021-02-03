@@ -3,12 +3,12 @@ title: 범위 지정 배포의 템플릿 함수
 description: 범위 지정 배포에서 템플릿 함수를 확인 하는 방법을 설명 합니다. 범위는 테 넌 트, 관리 그룹, 구독 및 리소스 그룹 일 수 있습니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: cb02a3dc808604a80fd9943138c1cd0d8648904e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f128448380612bc9b8d9114226e8a3036feeead8
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681587"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492096"
 ---
 # <a name="arm-template-functions-in-deployment-scopes"></a>배포 범위의 ARM 템플릿 함수
 
@@ -40,15 +40,15 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 리소스 그
 * 관리 그룹의 확장으로 구현 된 리소스에는 [Extensionresourceid ()](template-functions-resource.md#extensionresourceid) 함수를 사용 합니다. 관리 그룹에 배포 되는 사용자 지정 정책 정의는 관리 그룹의 확장입니다.
 
   관리 그룹 수준에서 사용자 지정 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
-  
+
   ```json
   "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
-* [Tenantresourceid](template-functions-resource.md#tenantresourceid) 함수를 사용 하 여 테 넌 트에 배포 된 리소스에 대 한 ID를 가져옵니다. 기본 제공 정책 정의는 테 넌 트 수준 리소스입니다. 관리 그룹 수준에서 기본 제공 정책을 할당할 때 tenantResourceId 함수를 사용 합니다.
+* [Tenantresourceid ()](template-functions-resource.md#tenantresourceid) 함수를 사용 하 여 테 넌 트에 배포 된 리소스에 대 한 ID를 가져옵니다. 기본 제공 정책 정의는 테 넌 트 수준 리소스입니다. 관리 그룹 수준에서 기본 제공 정책을 할당할 때 tenantResourceId 함수를 사용 합니다.
 
   기본 제공 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
-  
+
   ```json
   "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
@@ -138,6 +138,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 템플릿에서 매개 변수를 정의 하는 방법을 이해 하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-* SAS 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.
+* SAS 토큰이 필요한 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [sas 토큰을 사용 하 여 개인 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조 하세요.

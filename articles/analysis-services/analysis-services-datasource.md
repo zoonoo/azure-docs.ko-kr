@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/02/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b778cf55ea485d7b3b4d3730d3659750f27b2697
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685598"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493823"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -128,7 +128,9 @@ Provider=MSOLEDBSQL;Data Source=[server];Initial Catalog=[database];Authenticati
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 
-메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 유효한 토큰을 생성 하려면 파워 쿼리를 사용 하 여 자격 증명을 설정 합니다.
+*메모리 내* 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. 유효한 토큰을 생성 하려면 파워 쿼리를 사용 하 여 자격 증명을 설정 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대한 시간 제한을 방지하기 위해 OAuth 데이터 원본에 대한 토큰 새로 고침을 관리합니다. 
+> [!NOTE]
+> 게이트웨이를 통해 액세스 하는 데이터 원본에 대해서는 관리 되는 토큰 새로 고침이 지원 되지 않습니다. 예를 들어 하나 이상의 매시업 쿼리 데이터 원본은 게이트웨이를 통해 액세스 되 고/또는 [ASPaaS\AlwaysUseGateway](analysis-services-vnet-gateway.md) 속성은 **true** 로 설정 됩니다. 
 
 직접 쿼리 모드는 OAuth 자격 증명에서 지원되지 않습니다.
 

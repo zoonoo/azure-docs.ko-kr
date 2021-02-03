@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
-ms.openlocfilehash: 5d265fe02d801cf0d2d66be37a8dc2a220e19b34
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.date: 02/02/2021
+ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591347"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493044"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -107,8 +107,8 @@ ms.locfileid: "97591347"
 
 | 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 전용 끝점 인덱서 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
-| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 예 | 예 | 예 | 예 | 예 | 예 | 예 | 예 |
+| 전용 끝점 인덱서 지원 | 아니요 | 예 | 예 | 예 | 예 | 아니요 | 예 | 예 |
+| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 아니요 | 아니요 | 아니요 | 예 | 예 | 아니요 | 예 | 예 |
 | 최대 개인 끝점 | 해당 없음 | 10 또는 30 | 100 | 400 | 400 | 해당 없음 | 20 | 20 |
 | 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
 
@@ -139,7 +139,7 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 ## <a name="throttling-limits"></a>스로틀 제한
 
-시스템이 최대 용량에 도달하면 검색 쿼리 및 인덱싱 요청이 제한됩니다. 제한은 API마다 다르게 동작합니다. 쿼리 API(검색/제안/자동 완성) 및 인덱싱 API는 서비스의 부하에 따라 동적으로 제한됩니다. 인덱스 API에는 정적 요청률 제한이 있습니다. 
+시스템이 최대 용량에 도달 하면 API 요청이 제한 됩니다. 제한은 API마다 다르게 동작합니다. 쿼리 API(검색/제안/자동 완성) 및 인덱싱 API는 서비스의 부하에 따라 동적으로 제한됩니다. 인덱스 Api 및 서비스 작업 API에는 정적 요청 률 제한이 있습니다. 
 
 인덱스와 관련된 작업에 대한 정적 요금 요청 제한:
 
@@ -148,6 +148,10 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 + 인덱스 만들기(POST /indexes): 검색 단위당 분당 12
 + 인덱스 만들기 또는 업데이트(PUT/indexes/myindex): 검색 단위당 초당 6
 + 인덱스 삭제(DELETE/indexes/myindex): 검색 단위당 분당 12 
+
+서비스와 관련 된 작업에 대 한 정적 전송률 요청 제한:
+
++ 서비스 통계 (GET/servicestats): 검색 단위당 초당 4 개
 
 ## <a name="api-request-limits"></a>API 요청 제한
 * 요청당 최대 16MB <sup>1</sup>

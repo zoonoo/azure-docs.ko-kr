@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: justinha
-ms.openlocfilehash: e4e7a64b9f9d7283de728216934854f4ef8f8fd1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619736"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491168"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>AD (Azure Active Directory) 도메인 서비스에 대 한 Faq (질문과 대답)
 
 이 페이지는 Azure Active Directory Domain Services에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 * [단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?](#can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory)
 * [클래식 가상 네트워크에서 Azure AD Domain Services를 사용 하도록 설정할 수 있나요?](#can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network)
@@ -106,7 +106,7 @@ ms.locfileid: "96619736"
 아니요. 관리 되는 도메인에 대 한 관리 권한이 부여 되지 않았습니다. 도메인 *관리자* 및 *엔터프라이즈 관리자* 권한은 도메인 내에서 사용할 수 없습니다. 온-프레미스 Active Directory 도메인 관리자 또는 엔터프라이즈 관리자 그룹의 멤버에 게는 관리 되는 도메인에 대 한 도메인/엔터프라이즈 관리자 권한도 부여 되지 않습니다.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>관리되는 도메인에서 LDAP 또는 다른 AD 관리 도구를 사용하여 그룹 멤버 자격을 수정할 수 있습니까?
-Azure Active Directory에서 Azure AD Domain Services로 동기화 된 사용자 및 그룹은 원본의 원본이 Azure Active Directory 되므로 수정할 수 없습니다. 관리 되는 도메인에서 시작 되는 모든 사용자 또는 그룹을 수정할 수 있습니다.
+Azure Active Directory에서 Azure AD Domain Services로 동기화 된 사용자 및 그룹은 원본의 원본이 Azure Active Directory 되므로 수정할 수 없습니다. 여기에는 AADDC 사용자 관리 조직 구성 단위에서 사용자 또는 그룹을 사용자 지정 조직 구성 단위로 이동 하는 작업이 포함 됩니다. 관리 되는 도메인에서 시작 되는 모든 사용자 또는 그룹을 수정할 수 있습니다.  
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Azure AD 디렉터리에 적용한 변경 사항이 내 관리되는 도메인에 표시되는 데 얼마나 걸리나요?
 Azure AD UI 또는 PowerShell을 사용 하 여 Azure AD 디렉터리에서 변경한 내용은 관리 되는 도메인에 자동으로 동기화 됩니다. 이 동기화 프로세스는 백그라운드에서 실행됩니다. 이 동기화가 모든 개체 변경을 완료 하는 데는 정의 된 기간이 없습니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 79706b66dba46253843b1f53a26481170d6ff723
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 907a78b15cca4718308f79bc6be2e6258bc04d19
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729664"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492674"
 ---
 # <a name="connect-system-center-service-manager-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 System Center Service Manager 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "97729664"
 
 > [!NOTE]
 > - ITSM 커넥터는 클라우드 기반 ServiceNow 인스턴스에만 연결할 수 있습니다. 온-프레미스 ServiceNow 인스턴스는 현재 지원되지 않습니다.
-> - 작업의 일부로 사용자 지정 [템플릿을](./itsmc-definition.md#template-definitions) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
+> - 작업의 일부로 사용자 지정 [템플릿을](./itsmc-definition.md#define-a-template) 사용 하려면 scsm 템플릿의 "ProjectionType" 매개 변수를 "IncidentManagement"에 매핑해야 합니다. ProjectionType "를
 
 ## <a name="connection-procedure"></a>연결 절차
 

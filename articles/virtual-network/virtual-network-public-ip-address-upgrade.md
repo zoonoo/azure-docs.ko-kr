@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: d6e8c4f4b6646254aeea12cf587f47047e661e3f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222873"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493722"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
-Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 됩니다 .이를 통해 기능 (할당 방법, 가용성 영역 간 사용 및 연결할 수 있는 리소스 등)을 결정 합니다. 
+Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 됩니다 .이를 통해 기능 (할당 방법, 기능 지원 및 연결할 수 있는 리소스 등)의 측면을 결정 합니다. 
 
 이 문서에서는 다음 시나리오를 검토 합니다.
-* 기본 SKU 공용 IP를 표준 SKU 공용 IP로 업그레이드 하는 방법 (포털, PowerShell 또는 CLI 사용)
+* 기본 SKU 공용 IP를 표준 SKU 공용 ip로 업그레이드 하는 방법 (PowerShell 또는 CLI 사용)
 * 클래식 Azure 예약된 IP Azure Resource Manager 기본 SKU 공용 IP로 마이그레이션하는 방법
 
 ## <a name="upgrade-public-ip-address-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 공용 IP 주소 업그레이드

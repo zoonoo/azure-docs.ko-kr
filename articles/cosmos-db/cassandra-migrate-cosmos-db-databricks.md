@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/16/2020
 ms.author: thvankra
 ms.reviewer: thvankra
-ms.openlocfilehash: 74088d749279ab72851e714a50b558dc2adbc0d7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 3cbcb7eb3695e6f57daef741d4cd4b15577d8f58
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516549"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493277"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Azure Databricks를 사용 하 여 Cassandra에서 Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -114,7 +114,28 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> `spark.cassandra.output.concurrent.writes`및 `connections_per_executor_max` 구성은 프로 비전 된 처리량을 초과 하는 Cosmos DB 요청 ([요청 단위](./request-units.md))을 초과 하는 경우 발생 하는 [속도 제한을](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)방지 하는 데 중요 합니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
+> `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` 및 `connections_per_executor_max` 구성은 프로 비전 된 처리량을 초과 하는 Azure Cosmos DB 요청이 발생 하는 경우, 즉[요청 단위](./request-units.md)를 초과 하는 경우 발생 하는 [속도 제한을](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/)피하는 데 중요 합니다. Spark 클러스터의 실행자 수에 따라 이러한 설정을 조정 해야 할 수 있으며, 대상 테이블에 기록 되는 각 레코드의 크기 (및 그에 따른 비용)를 줄일 수 있습니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="rate-limiting-429-error"></a>전송률 제한 (429 오류)
+`request rate is large`위의 설정이 최소값으로 감소 하더라도 오류 코드 429 또는 오류 텍스트가 표시 될 수 있습니다. 이러한 시나리오는 다음과 같습니다.
+
+- **테이블에 할당 된 처리량이 6000 [요청 단위](./request-units.md)보다 낮습니다**. 최소 설정 에서도 Spark는 6000 요청 단위 이상으로 쓰기를 실행할 수 있습니다. 공유 처리량이 프로 비전 된 keyspace에 테이블을 프로 비전 한 경우 런타임에이 테이블에 6000의 RUs를 사용할 수 있습니다. 마이그레이션을 실행할 때 마이그레이션하는 테이블에 6000 RUs 이상이 제공 되는지 확인 하 고 필요한 경우 해당 테이블에 전용 요청 단위를 할당 합니다. 
+- **대용량 데이터 볼륨이 포함 된 과도 한 데이터 왜곡**. 지정 된 테이블로 마이그레이션하는 데 많은 양의 데이터가 있는 경우 (즉, 동일한 파티션 키 값에 대해 기록 되는 레코드 수가 많은 경우) 테이블에 너무 많은 양의 [요청 단위가](./request-units.md) 포함 된 경우에도 계속 해 서 요율 제한을 경험할 수 있는 것입니다. 이는 요청 단위가 실제 파티션 간에 균등 하 게 분할 되 고, 많은 데이터 오차는 단일 파티션에 대 한 요청의 병목 현상이 발생 하 여 요율 제한을 발생 시킬 수 있기 때문입니다. 이 시나리오에서는 속도 제한을 피하고 마이그레이션을 느리게 실행 하도록 Spark에서 최소 처리량 설정을 줄이는 것이 좋습니다. 이 시나리오는 참조 또는 컨트롤 테이블을 마이그레이션하는 경우 보다 일반적 일 수 있습니다 .이 경우 액세스 빈도가 낮지만 기울이기가 높을 수 있습니다. 그러나 다른 유형의 테이블에 상당한 기울이기를 있으면 데이터 모델을 검토 하 여 안정적인 상태 작업 중에 작업에 대 한 핫 파티션 문제를 방지 하는 것이 좋습니다. 
+- **대량 테이블에서 개수를 가져올 수 없습니다**. 를 실행 하 `select count(*) from table` 는 것은 현재 규모가 많은 테이블에 대해 지원 되지 않습니다. Azure Portal의 메트릭에 대 한 개수를 가져올 수 있습니다 ( [문제 해결 문서](cassandra-troubleshoot.md)참조). 하지만 spark 작업의 컨텍스트 내에서 크기가 작은 테이블의 수를 확인 해야 하는 경우 데이터를 임시 테이블에 복사한 다음 spark SQL을 사용 하 여 개수를 가져올 수 있습니다 (예: `<primary key>` 결과 임시 테이블의 일부 필드로 대체).
+
+  ```scala
+  val ReadFromCosmosCassandra = sqlContext
+    .read
+    .format("org.apache.spark.sql.cassandra")
+    .options(cosmosCassandra)
+    .load
+
+  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
+  %sql
+  select count(<primary key>) from CosmosCassandraResult
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 

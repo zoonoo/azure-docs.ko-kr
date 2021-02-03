@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 6400d3f3c721619551ba3989a2e5799b72ff9f38
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831927"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492758"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -70,7 +70,9 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
     - [AKS 클러스터에서 수동으로 노드 수 크기 조정](../aks/scale-cluster.md)
     - [AKS에서 cluster autoscaler 설정](../aks/cluster-autoscaler.md)
 
-## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes 서비스 버전
+- __YAML 구성을 사용 하 여 클러스터를 직접 업데이트 하지 마십시오__. Azure Kubernetes Services는 YAML 구성을 통한 업데이트를 지원 하지만 Azure Machine Learning 배포는 변경 내용을 재정의 합니다. 덮어써야 하는 두 개의 YAML 필드는 __요청 제한과__ __cpu 및 메모리__ 입니다.
+
+## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes Service 버전
 
 Azure Kubernetes 서비스를 사용 하면 다양 한 Kubernetes 버전을 사용 하 여 클러스터를 만들 수 있습니다. 사용 가능한 버전에 대 한 자세한 내용은 [Azure Kubernetes Service에서 지원 되는 Kubernetes 버전](../aks/supported-kubernetes-versions.md)을 참조 하세요.
 
@@ -381,7 +383,6 @@ Azure Machine Learning studio에서 __계산__, __유추 클러스터__ 및 제�
 ---
 
 ## <a name="troubleshooting"></a>문제 해결
-
 ### <a name="update-the-cluster"></a>클러스터 업데이트
 
 Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구성 요소에 대 한 업데이트를 수동으로 적용 해야 합니다. 

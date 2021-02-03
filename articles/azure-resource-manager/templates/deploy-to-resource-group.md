@@ -3,12 +3,12 @@ title: 리소스 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스를 배포 하는 방법을 설명 합니다. 둘 이상의 리소스 그룹을 대상으로 하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: 9eb70e5ce69a2c7bc7ac9b8c9a7a558d09ecbef0
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c3401346f31d34d92da1f52ca79f691e94e7eb78
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186229"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99491557"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 리소스 그룹 배포
 
@@ -128,9 +128,9 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 ### <a name="scope-to-tenant"></a>테 넌 트로 범위
 
-로 설정 된를 설정 하 여 테 넌 트에서 리소스를 만들 수 있습니다 `scope` `/` . 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
+테 넌 트에서 리소스를 만들려면를로 설정 `scope` `/` 합니다. 템플릿을 배포 하는 사용자에 게는 [테 넌 트에 배포 하는 데 필요한 액세스](deploy-to-tenant.md#required-access)권한이 있어야 합니다.
 
-에서 중첩 된 배포를 사용 하 `scope` 고를 설정할 수 있습니다 `location` .
+중첩 된 배포를 사용 하려면 및를 설정 `scope` `location` 합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
 
@@ -142,7 +142,7 @@ ARM 템플릿 배포에 대 한 배포 명령 및 옵션에 대 한 자세한 �
 
 ## <a name="deploy-to-target-resource-group"></a>대상 리소스 그룹에 배포
 
-대상 리소스 그룹에 리소스를 배포 하려면 템플릿의 **리소스** 섹션에서 해당 리소스를 정의 합니다. 다음 템플릿은 배포 작업에 지정 된 리소스 그룹에 저장소 계정을 만듭니다.
+대상 리소스 그룹에 리소스를 배포 하려면 템플릿의 섹션에서 해당 리소스를 정의 `resources` 합니다. 다음 템플릿은 배포 작업에 지정 된 리소스 그룹에 저장소 계정을 만듭니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 

@@ -3,12 +3,12 @@ title: 녹음/녹화 재생-Azure
 description: 연속 비디오 녹화 IoT Edge에서 라이브 비디오 분석을 사용 하 여 몇 주 또는 몇 달 동안 클라우드에 비디오를 녹화할 수 있습니다. 이벤트 기반 기록을 통해 관심 있는 클립으로 기록을 제한할 수도 있습니다. 이 문서에서는 녹화를 재생 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 6222d2c05b2fe05945d4bcbef6dbb0d64bd4726a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84260386"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490898"
 ---
 # <a name="playback-of-recordings"></a>녹음/녹화 재생 
 
@@ -48,11 +48,11 @@ CVR를 사용 하는 경우 재생 장치 (클라이언트)는 전체 기록 재
 
 여기서 전체 자릿수 값은 연도, 월, 일 또는 전체 (아래와 같이) 중 하나일 수 있습니다. 
 
-|자릿수|연도|month|일|전체|
+|정밀도|연도|month|일|전체|
 |---|---|---|---|---|
 |쿼리|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |응답|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|전체 충실도 응답입니다. 간격이 전혀 없는 경우 시작은 startTime이 고 end는 endTime이 됩니다.|
-|구속|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 연도가 떨어져 있을 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY-MM-DD 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 12 개월 이상 떨어져 있을 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY-MM-DD 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 31 일 이상 떨어져 있을 수 있습니다.<br/>값은 포함 되어 있습니다.|&#x2022;startTime < endTime<br/>&#x2022;값은 최대 25 시간 정도 떨어질 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|
+|제약 조건|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 연도가 떨어져 있을 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY-MM-DD 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 12 개월 이상 떨어져 있을 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|&#x2022;startTime <= endTime<br/>&#x2022;모두 YYYY-MM-DD 형식 이어야 합니다. 그렇지 않으면 오류를 반환 합니다.<br/>&#x2022;값은 31 일 이상 떨어져 있을 수 있습니다.<br/>값은 포함 되어 있습니다.|&#x2022;startTime < endTime<br/>&#x2022;값은 최대 25 시간 정도 떨어질 수 있습니다.<br/>&#x2022;값이 포함 됩니다.|
 
 #### <a name="additional-request-format-considerations"></a>추가 요청 형식 고려 사항
 
