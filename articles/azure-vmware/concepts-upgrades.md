@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 업데이트 및 업그레이드
 description: Azure VMware 솔루션의 주요 업그레이드 프로세스 및 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6fb65a0e192fbf1f054857223b3fdaf58fc6a903
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 8338666d70bd0ca4ea3c6b32bd8f8d205feaf7c0
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809652"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509200"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware 솔루션 사설 클라우드 업데이트 및 업그레이드
 
@@ -57,7 +57,10 @@ VMware 소프트웨어 버전에 대 한 자세한 내용은 [사설 클라우�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계는 [사설 클라우드를 만드는](tutorial-create-private-cloud.md)것입니다.
+이제 Azure VMware 솔루션의 주요 업그레이드 프로세스 및 기능을 설명 했으므로 다음에 대해 알아볼 수 있습니다.
+
+- [사설 클라우드를 만드는 방법](tutorial-create-private-cloud.md)
+- [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

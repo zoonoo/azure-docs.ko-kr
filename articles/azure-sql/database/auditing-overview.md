@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 11/08/2020
+ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: b09eb03994098f8cb68033f3c42309a77e15f91c
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620994"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509590"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse 분석에 대 한 감사
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,7 +94,7 @@ Azure SQL Database 및 Azure Synapse 감사는 감사 레코드의 문자 필드
   > [!NOTE]
   > 일시 중지 된 전용 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 감사를 사용 하도록 설정 하려면 전용 SQL 풀을 일시 중지 합니다. [전용 SQL 풀](../..//synapse-analytics/sql/best-practices-sql-pool.md)에 대해 자세히 알아보세요.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. **Sql database** 또는 **Sql server** 창의 보안 제목에서 **감사** 로 이동 합니다.
 3. 서버 감사 정책을 설정하는 것을 선호하면 데이터베이스 감사 페이지에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용 됩니다.
 
@@ -196,7 +196,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
 - 시스템 함수 **sys.fn_get_audit_file**(T-SQL)을 사용하여 테이블 형식의 감사 로그 데이터를 반환할 수 있습니다. 이 함수 사용에 대한 자세한 내용은 [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)을 참조하세요.
 
 - SQL Server Management Studio에서 **감사 파일 병합** 사용(SSMS 17부터 지원):
-    1. SSMS 메뉴에서 **파일**  >  **Open**  >  **병합 감사 파일** 열기를 선택 합니다.
+    1. SSMS 메뉴에서 **파일**  >    >  **병합 감사 파일** 열기를 선택 합니다.
 
         ![감사 파일 병합 메뉴 옵션을 보여 주는 스크린샷](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. **감사 파일 추가** 대화 상자가 열립니다. **추가** 옵션 중 하나를 선택하여 로컬 디스크에서 감사 파일을 병합할지 또는 Azure Storage에서 감사 파일을 가져올지 선택합니다 Azure Storage 세부 정보 및 계정 키를 제공해야 합니다.
@@ -273,6 +273,11 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [서버 *확장* 감사 정책 만들기 또는 업데이트](/rest/api/sql/server%20auditing%20settings/createorupdate)
 - [데이터베이스 *확장* 감사 정책 가져오기](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [서버 *확장* 감사 정책 가져오기](/rest/api/sql/server%20auditing%20settings/get)
+
+### <a name="using-azure-cli"></a>Azure CLI 사용
+
+- [서버의 감사 정책 관리](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
+- [데이터베이스의 감사 정책 관리](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 

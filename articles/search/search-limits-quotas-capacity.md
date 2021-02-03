@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 9e43521e26a6292141e1bbae7b39db3656df962c
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 994ed74750d159dfdb83259e9fe921f870ec2241
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493044"
+ms.locfileid: "99509370"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -124,14 +124,6 @@ ms.locfileid: "99493044"
 | -------- | -----|------ |----|----|----|-------|---|----|
 | 최대 동의어 맵 |3 |3|5 |10 |20 |20 | 10 | 10 |
 | 맵당 최대 규칙 수 |5,000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
-
-## <a name="queries-per-second-qps"></a>초당 쿼리 수(QPS)
-
-QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니다. 인덱스 크기와 복잡성, 쿼리 크기와 복잡성 및 트래픽 양은 QPS의 주 결정자입니다. 이러한 요소를 알 수 없는 경우 의미 있는 예상 값을 제공할 방법이 없습니다.
-
-예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Cognitive Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
-
-스토리지 최적화 계층(L1 및 L2)의 경우 표준 계층보다 낮은 쿼리 처리량과 더 많은 대기 시간이 소요됩니다.
 
 ## <a name="data-limits-ai-enrichment"></a>데이터 제한(AI 보강)
 

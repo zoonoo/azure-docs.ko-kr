@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 01/13/2021
-ms.openlocfilehash: fe40cbe84e8e3341b03c6c8e11701fe3db6bc3d0
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234225"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507251"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -569,10 +569,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 이 예제는 지정한 타임스탬프에 10일을 더합니다.
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-그리고 다음 결과를 반환합니다. `"2018-03-25T00:00:0000000Z"`
+그리고 다음 결과를 반환합니다. `"2018-03-25T00:00:00.0000000Z"`
 
 *예제 2*
 
@@ -582,7 +582,7 @@ addDays('2018-03-15T13:00:00Z', 10)
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-그리고 다음 결과를 반환합니다. `"2018-03-10T00:00:0000000Z"`
+그리고 다음 결과를 반환합니다. `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -614,7 +614,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-그리고 다음 결과를 반환합니다. `"2018-03-15T10:00:0000000Z"`
+및는 ' "2018-03-15T10:00:00.0000000 Z" 결과를 반환 합니다.
 
 *예제 2*
 
@@ -624,7 +624,7 @@ addHours('2018-03-15T00:00:00Z', 10)
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-그리고 다음 결과를 반환합니다. `"2018-03-15T10:00:0000000Z"`
+그리고 다음 결과를 반환합니다. `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -1136,14 +1136,14 @@ bool(<value>)
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| `true` 또는 `false` | Boolean | 지정 된 값의 부울 버전입니다. |
+| `true` 또는 `false` | 부울 | 지정 된 값의 부울 버전입니다. |
 ||||
 
 *출력*
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | Type | 반환 값 |
+| 입력 값 | 유형 | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -2263,7 +2263,7 @@ guid('<format>')
 
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | 예 | String | 반환되는 GUID에 대한 단일 [형식 지정자](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_)입니다. 기본적으로 형식은 "D"이지만 "N", "D", "B", "P" 또는 "X"를 사용할 수 있습니다. |
+| <*format*> | 예 | String | 반환되는 GUID에 대한 단일 [형식 지정자](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_)입니다. 기본적으로 형식은 "D"이지만 "N", "D", "B", "P" 또는 "X"를 사용할 수 있습니다. |
 |||||
 
 | 반환 값 | Type | Description |
@@ -2761,7 +2761,7 @@ lastIndexOf('<text>', '<searchText>')
 
 * Substring 값만 비어 있는 경우 함수는 문자열 길이에서 1을 뺀 값을 반환 합니다.
 
-*예제*
+*예*
 
 이 예에서는 문자열에서 하위 문자열 부분 문자열의 마지막 항목에 대 한 시작 인덱스 값을 찾습니다 `world` `hello world hello world` . 반환 된 결과는 `18` 다음과 같습니다.
 
@@ -4011,7 +4011,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-그리고 다음 결과를 반환합니다. `"2018-01-01T00:00:00:0000000Z"`
+그리고 다음 결과를 반환합니다. `"2018-01-01T00:00:00.0000000Z"`
 
 *예제 2*
 
@@ -4063,7 +4063,7 @@ take(createArray(0, 1, 2, 3, 4), 3)
 
 ### <a name="ticks"></a>ticks
 
-0001년 1월 1일 12:00:00 자정(또는 C#은 DateTime.Ticks)부터 지정된 타임스탬프까지 100나노초 간격으로 계산한 틱 수를 반환합니다. 자세한 내용은 [DateTime.Ticks 속성(시스템)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks) 토픽을 참조하세요.
+0001년 1월 1일 12:00:00 자정(또는 C#은 DateTime.Ticks)부터 지정된 타임스탬프까지 100나노초 간격으로 계산한 틱 수를 반환합니다. 자세한 내용은 [DateTime.Ticks 속성(시스템)](/dotnet/api/system.datetime.ticks) 토픽을 참조하세요.
 
 ```
 ticks('<timestamp>')

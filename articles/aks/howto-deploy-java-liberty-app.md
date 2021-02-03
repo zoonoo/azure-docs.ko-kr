@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aks, kubernetes
-ms.openlocfilehash: 93ffa3ded4d0771438c5d6a2dc23e6e184f04fe2
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4d6e335cd4b522593091094ac6251acc97873208
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227630"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508062"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>AKS (Azure Kubernetes Service) 클러스터에서 Open Liberty 또는 WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -213,7 +213,7 @@ javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:3
 
 응용 프로그램 홈 페이지를 보려면 웹 브라우저에서 서비스의 외부 IP 주소와 포트 ( `52.152.189.57:9080` 위 예제)를 엽니다. 페이지의 왼쪽 위에 표시 되는 응용 프로그램 복제본의 pod 이름이 표시 됩니다. 몇 분 동안 기다린 후 페이지를 새로 고치면 AKS 클러스터에서 제공 하는 부하 분산으로 인해 다른 pod 이름이 표시 될 것입니다.
 
-:::image type="content" source="./media/howto-deploy-java-liberty-app/java-liberty-app-aks-deployed-success.png" alt-text="AKS에 Java liberty 응용 프로그램이 배포 되었습니다.":::
+:::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="AKS에 Java liberty 응용 프로그램이 배포 되었습니다.":::
 
 >[!NOTE]
 > - 현재 응용 프로그램에서 HTTPS를 사용 하 고 있지 않습니다. [사용자 고유의 인증서를 사용하여 TLS를 사용하도록 설정](ingress-own-tls.md)하는 것이 좋습니다.

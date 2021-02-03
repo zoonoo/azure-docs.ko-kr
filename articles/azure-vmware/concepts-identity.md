@@ -3,12 +3,12 @@ title: 개념-Id 및 액세스
 description: Azure VMware 솔루션의 id 및 액세스 개념에 대해 알아보기
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: bd1b4cd918ce977cf57d641908b127f7a2d1b0cc
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536101"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509302"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 솔루션 id 개념
 
@@ -36,7 +36,7 @@ CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로
 |  호스트                    |  호스트. Hbr. HbrManagement      |        --          |  Microsoft는 다른 모든 호스트 작업을 수행 합니다.  |
 |  InventoryService        |  InventoryService      |        --          |  --  |
 |  네트워크                 |  Network.Assign    |                  |  Microsoft는 다른 모든 네트워크 작업을 수행 합니다.  |
-|  권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
+|  사용 권한             |  --  |        --       |  Microsoft는 모든 권한 작업을 수행 합니다.  |
 |  프로필 기반 저장소  |  --  |        --       |  Microsoft는 모든 프로필 작업을 수행 합니다.  |
 |  리소스                |  CloudAdmin 사용자에 게 모든 리소스 권한이 있습니다.        |      --       | --   |
 |  예약된 태스크          |  CloudAdmin 사용자는 모든 ScheduleTask 권한을 가집니다.   |   --   | -- |
@@ -44,7 +44,7 @@ CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로
 |  저장소 뷰           |  StorageViews. 뷰   |        --          |  Microsoft는 다른 모든 저장소 보기 작업 (서비스 구성)을 수행 합니다.  |
 |  작업                   |  --  |  --   |  Microsoft는 작업을 관리 하는 확장을 관리 합니다.  |
 |  Vapp과                    |  CloudAdmin 사용자에 게는 모든 vApp 권한이 있습니다.  |  --  |  --  |
-|  Virtual Machine         |  CloudAdmin 사용자는 모든 VirtualMachine 권한을 가집니다.  |  --  |  --  |
+|  가상 컴퓨터         |  CloudAdmin 사용자는 모든 VirtualMachine 권한을 가집니다.  |  --  |  --  |
 |  vService                |  CloudAdmin 사용자에 게는 모든 vService 권한이 있습니다.  |  --  |  --  |
 
 ## <a name="nsx-t-manager-access-and-identity"></a>NSX-T 관리자 액세스 및 id
@@ -53,7 +53,11 @@ CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로
   
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계에서는 [사설 클라우드 업그레이드 개념][concepts-upgrades]에 대해 알아봅니다.
+이제 Azure VMware 솔루션 액세스 및 id 개념을 살펴보았습니다. 다음에 대해 알아볼 수 있습니다.
+
+- [사설 클라우드 업그레이드 개념](concepts-upgrades.md).
+- [Azure VMware 솔루션에 대 한 Vsphere 역할 기반 액세스 제어](concepts-role-based-access-control.md).
+- [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8bfbacc77843c7978bcb1d364bd93f5e09381144
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811666"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509489"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>센서 추세 및 통계 보고서
 
@@ -26,19 +26,29 @@ ms.locfileid: "98811666"
 대시보드는 다음 유형의 정보를 그래픽으로 설명 하는 위젯로 구성 됩니다.
 
 - 포트당 트래픽
+- 포트 별 상위 트래픽
 - 채널 대역폭
 - 총 대역폭
 - 활성 TCP 연결
+- VLAN 별 상위 대역폭
 - 디바이스
   - 새 디바이스
   - 사용 중인 장치
   - 공급 업체별 장치
   - OS 별 장치
+  - VLAN 당 장치 수
   - 연결 되지 않은 장치
-- 시간별 연결 삭제
+- 시간별 연결이 삭제 됩니다.
 - 유형별 인시던트에 대 한 경고
 - 데이터베이스 테이블 액세스
 - 프로토콜 분석 위젯
+- DELTAV
+  - DeltaV roc 작업 배포
+  - 이름으로 DeltaV roc 이벤트
+  - 시간별 DeltaV 이벤트
+- AMS
+  - 서버 포트당 AMS 트래픽
+  - 명령 별 AMS 트래픽
 - 이더넷 및 IP 주소:
   - CIP 서비스의 이더넷 및 IP 주소 트래픽
   - CIP 클래스의 이더넷 및 IP 주소 트래픽
@@ -49,6 +59,15 @@ ms.locfileid: "98811666"
 - Siemens S7:
   - Control 함수 별 S7 트래픽
   - Subfunction의 S7 트래픽
+- VLAN
+  - VLAN 당 장치 수
+  - VLAN 별 상위 대역폭
+- 60870-5-104
+  - IEC-60870 트래픽 (ASDU 별)
+- BACNET
+  - BACnet 서비스
+- DNP3
+  - 함수 별 DNP3 트래픽
 - SRTP:
   - 서비스 코드로 트래픽 SRTP
   - 일별 SRTP 오류

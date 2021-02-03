@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: cb7acb2ab74cc3f1304e5278524918865185463f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491302"
+ms.locfileid: "99507279"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -173,7 +173,8 @@ Azure AD가 할당한 앱의 고유 식별자를 지정합니다.
 - `"None"`
 - `"SecurityGroup"`(보안 그룹 및 Azure AD 역할의 경우)
 - `"ApplicationGroup"` (이 옵션은 응용 프로그램에 할당 된 그룹만 포함)
-- `"All"`(로그인한 사용자가 속한 모든 보안 그룹, 배포 그룹, Azure AD 디렉터리 역할을 가져옵니다.)
+- `"DirectoryRole"` 사용자가 구성원 인 Azure AD 디렉터리 역할을 가져옵니다.
+- `"All"` 이를 통해 로그인 한 사용자가 구성원 인 모든 보안 그룹, 메일 그룹 및 Azure AD 디렉터리 역할을 가져옵니다.
 
 예제:
 

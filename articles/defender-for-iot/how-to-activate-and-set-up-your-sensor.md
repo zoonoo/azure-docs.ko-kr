@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623592"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509522"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
 
@@ -44,7 +44,7 @@ ms.locfileid: "98623592"
 
 센서가 특정 관리 모드에서 IoT 용 Azure Defender로 등록 되었습니다.
 
-| 모드 유형 | Description |
+| 모드 유형 | 설명 |
 |--|--|
 | **클라우드 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 경고 정보는 IoT hub를 통해 제공 되며, Azure 센티널과 같은 다른 Azure 서비스와 공유할 수 있습니다. |
 | **로컬 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 검색 정보는 온-프레미스 관리 콘솔과 공유 됩니다 (센서가 연결 된 경우). |
@@ -81,7 +81,7 @@ ms.locfileid: "98623592"
 
     :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="IoT 용 Azure Defender 센서":::
 
-1. 센서 설치 중에 정의 된 자격 증명을 입력 합니다. 화살표를 통해 미리 구성 된 센서를 구매한 경우 먼저 암호를 생성 합니다. 암호 복구에 대 한 자세한 내용은 [초기 로그인 시 암호 실패 조사](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in)를 참조 하세요.
+1. 센서 설치 중에 정의 된 자격 증명을 입력 하거나 **암호 복구** 옵션을 선택 합니다. 화살표를 통해 미리 구성 된 센서를 구매한 경우 먼저 암호를 생성 합니다. 암호 복구에 대 한 자세한 내용은 [초기 로그인 시 암호 실패 조사](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in)를 참조 하세요.
 
 1. 로그인 하면 **활성화** 대화 상자가 열립니다. **업로드** 를 선택 하 고 센서 온 보 딩 중에 다운로드 한 정품 인증 파일로 이동 합니다.
 
@@ -152,7 +152,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 - DHCP를 사용 하는 경우 합법적인 DHCP 범위를 정의 합니다.
 
-- Active Directory 및 메일 서버와의 통합을 정의 합니다.
+- Active Directory 및 메일 서버와의 통합을 적절 하 게 정의 합니다.
 
 ### <a name="disable-learning-mode"></a>학습 모드 사용 안 함
 
@@ -177,42 +177,42 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **탐색** 
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 | -----------|--|--|
 | 대시보드 | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | 네트워크 보안 상태의 직관적인 스냅숏을 표시 합니다. |
 | 장치 맵 | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | 지도에서 네트워크 장치, 장치 연결 및 장치 속성을 봅니다. 다양 한 확대/축소, 강조 표시 및 필터 옵션을 사용 하 여 네트워크를 표시할 수 있습니다. |
-| 장치 인벤토리 | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | 장치 인벤토리는이 센서가 검색 하는 광범위 한 장치 특성을 표시 합니다. 옵션은 다음에서 사용할 수 있습니다. <br /> -테이블 필드에 따라 정보를 필터링 하 고 표시 되는 필터링 된 정보를 확인 합니다. <br /> -CSV 파일로 정보를 내보냅니다. <br /> -Windows 레지스트리 세부 정보를 가져옵니다.|
+| 장치 인벤토리 | :::image type="icon" source="media/concept-sensor-console-overview/asset-inventory-icon-azure.png" border="false":::  | 장치 인벤토리에이 센서가 검색 하는 장치 특성 목록이 표시 됩니다. 옵션은 다음에서 사용할 수 있습니다. <br /> -테이블 필드에 따라 정보를 정렬 하거나 필터링 하 고 표시 된 필터링 된 정보를 확인 합니다. <br /> -CSV 파일로 정보를 내보냅니다. <br /> -Windows 레지스트리 세부 정보를 가져옵니다.|
 | 경고 | :::image type="icon" source="media/concept-sensor-console-overview/alerts-icon-azure.png" border="false"::: | 정책 위반이 발생 하거나, 기준 동작의 편차가 발생 하거나, 네트워크에서 의심 스러운 활동이 검색 되 면 경고를 표시 합니다. |
 | 보고서 | :::image type="icon" source="media/concept-sensor-console-overview/reports-icon-azure.png" border="false"::: | 데이터 마이닝 쿼리를 기반으로 하는 보고서를 봅니다. |
 
 **분석**
 
-| 시간 범위| 아이콘 | Description |
+| 시간 범위| 아이콘 | 설명 |
 |---|---|---|
 | 이벤트 타임 라인 | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | 경고, 네트워크 이벤트 (정보) 및 사용자 작업 (예: 사용자 로그인 및 사용자 삭제)에 대 한 정보가 포함 된 타임 라인을 봅니다.|
 
 **탐색**
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 데이터 마이닝 | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | 다양 한 계층에서 네트워크 장치에 대 한 포괄적이 고 세부적인 정보를 생성 합니다. |
-| 추세 및 통계 | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | 광범위 한 위젯에서 추세와 통계를 봅니다. |
+| 조사 | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | 광범위 한 위젯에서 추세와 통계를 봅니다. |
 | 위험 평가 | :::image type="icon" source="media/concept-sensor-console-overview/vulnerabilities-icon-azure.png" border="false"::: | **취약성** 창을 표시 합니다. |
 
 **관리자**
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 사용자 | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | 다양 한 액세스 수준을 사용 하 여 사용자 및 역할을 정의 합니다. |
-| 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | IoT 용 Defender, 전자 메일 주소, webhook 서버 등에 통합 하는 파트너에 게 경고 정보를 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
+| 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 파트너 및 내부 원본 (예: 센티널)과 IoT 용 Defender, 전자 메일 주소, webhook 서버 등에 통합 하는 방법에 대 한 경고 정보를 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
 | 시스템 설정 | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | 시스템 설정을 구성 합니다. 예를 들어 DHCP 설정을 정의 하거나 메일 서버 세부 정보를 제공 하거나 포트 별칭을 만듭니다. |
 | 설정 가져오기 | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | **가져오기 설정** 창을 표시 합니다. 장치 정보를 수동으로 변경할 수 있습니다.<br /> 자세한 내용은 [장치 정보 가져오기](how-to-import-device-information.md) 를 참조 하세요. |
 
 **지원**
 
-| 시간 범위| 아이콘 | Description |
+| 시간 범위| 아이콘 | 설명 |
 |----|---|---|
-| Support(지원) | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
+| 지원 | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
 
 ### <a name="see-also"></a>참고 항목
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9c868685ad943c1ab9ab263a164111e46294c042
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625434"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508865"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>디바이스 인벤토리에서 센서 감지 조사
 
@@ -30,20 +30,20 @@ ms.locfileid: "98625434"
 
 다음 특성은 장치 인벤토리 테이블에 표시 됩니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
-| Name | 센서가 검색 한 장치 이름입니다. |
-| 형식 | 디바이스의 유형입니다. |
+| Name | 센서가 검색 한 장치 이름 이거나 사용자가 입력 한 장치 이름입니다. |
+| 유형 | 센서에 의해 결정 되거나 사용자가 입력 한 장치의 유형입니다. |
 | Vendor | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
-| 운영 체제 | 장치의 OS입니다. |
-| 펌웨어 | 장치의 펌웨어입니다. |
-| IP 주소 | 장치의 IP 주소입니다. |
+| 운영 체제 | 검색 된 장치의 OS입니다. |
+| 펌웨어 버전 | 검색 된 장치의 펌웨어입니다. |
+| IP 주소 | 정의 된 장치의 IP 주소입니다. |
 | VLAN | 장치의 VLAN입니다. 센서에서 Vlan을 검색 하도록 지시 하는 방법에 대 한 자세한 내용은 [vlan 이름 정의](how-to-manage-the-on-premises-management-console.md#define-vlan-names)를 참조 하세요. (방법-관리------------vlan-이름). |
 | MAC 주소 | 디바이스의 Mac 주소입니다. |
 | 프로토콜 | 장치에서 사용 하는 프로토콜입니다. |
 | 승인 되지 않은 경고 | 이 장치와 연결 된 승인 되지 않은 경고의 수입니다. |
 | 권한 부여 됨 | 사용자가 정의한 권한 부여 상태:<br />- **True**: 장치에 권한이 부여 되었습니다.<br />- **False**: 장치에 권한이 부여 되지 않았습니다. |
-| 스캐너 라고 합니다. | 사용자가 검색 장치로 정의 합니다. |
+| 스캐너 라고 합니다. | 사용자가 네트워크 검색 장치로 정의 됩니다. |
 | 프로그래밍 장치 | 사용자가 권한 있는 프로그래밍 장치로 정의 됩니다. <br />- **True**: 장치에서 엔지니어링 스테이션과 관련 된 Plcs, RTUs 및 컨트롤러에 대 한 프로그래밍 활동을 수행 합니다. <br />- **False**: 장치가 프로그래밍 장치가 아닙니다. |
 | 그룹 | 이 장치가 참여 하는 그룹입니다. |
 | 마지막 작업 | 장치에서 수행 하는 마지막 작업입니다. |
@@ -111,7 +111,7 @@ ms.locfileid: "98625434"
 
 ## <a name="learn-windows-registry-details"></a>Windows 레지스트리 정보 알아보기
 
-장치를 학습 하는 것 외에도 Microsoft Windows 워크스테이션 및 서버를 비롯 한 IT 장치를 검색할 수 있습니다. 이러한 장치는 장치 인벤토리에도 표시 됩니다. 장치를 학습 한 후 다음과 같은 자세한 Windows 정보를 사용 하 여 장치 인벤토리를 보강할 수 있습니다.
+장치를 학습 하는 것 외에도 Microsoft Windows 워크스테이션과 서버를 검색할 수 있습니다. 이러한 장치는 장치 인벤토리에도 표시 됩니다. 장치를 학습 한 후 다음과 같은 자세한 Windows 정보를 사용 하 여 장치 인벤토리를 보강할 수 있습니다.
 
 - 설치 된 Windows 버전
 
@@ -217,7 +217,7 @@ ms.locfileid: "98625434"
 
 ## <a name="export-device-inventory-information"></a>장치 인벤토리 정보 내보내기
 
-장치 인벤토리 정보를 Excel 파일로 내보낼 수 있습니다. 가져온 정보는 현재 정보를 덮어씁니다.
+장치 인벤토리 정보를 Excel 파일로 내보낼 수 있습니다.
 
 CSV 파일을 내보내려면:
 

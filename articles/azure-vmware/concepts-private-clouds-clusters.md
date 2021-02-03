@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 234e705ad3b39a575c6f8c475bede4b81efa4b96
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 6a2bb0f41bb1809d0f43b08c71766acc914c0689
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474916"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509268"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 
@@ -66,10 +66,11 @@ Microsoft는 NSX Manager 및 NSX Edge와 같은 NSX-T 어플라이언스의 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 Azure VMware 솔루션 사설 클라우드 개념을 설명 했으므로 다음에 대해 알아볼 수 있습니다. 
+이제 Azure VMware 솔루션 사설 클라우드 개념을 살펴보았습니다. 다음에 대해 알아볼 수 있습니다. 
 
 - [Azure VMware 솔루션 네트워킹 및 상호 연결과 개념](concepts-networking.md).
 - [Azure VMware 솔루션 저장소 개념](concepts-storage.md).
+- [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
 

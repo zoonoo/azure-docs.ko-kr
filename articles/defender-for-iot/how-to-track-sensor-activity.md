@@ -1,5 +1,5 @@
 ---
-title: 센서 작업 추적
+title: 센서 동작 추적
 description: 이벤트 타임 라인은 경고 및 경고 관리 작업, 네트워크 이벤트, 사용자 로그인 및 사용자 삭제와 같은 사용자 작업을 포함 하 여 네트워크에서 검색 된 작업의 타임 라인을 표시 합니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 3895e01b1fbfcde79ff91bd1eade8d902c33b852
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840719"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509102"
 ---
-# <a name="track-sensor-activity"></a>센서 작업 추적
+# <a name="track-sensor-activity"></a>센서 동작 추적
 
 ## <a name="event-timeline"></a>이벤트 타임 라인
 
@@ -59,9 +59,9 @@ ms.locfileid: "97840719"
 
 2. 다음과 같이 이벤트 필터를 설정 합니다.
 
-   - **주소 포함**: 특정 이벤트 장치를 표시 합니다.
+   - **주소 포함**: 특정 장치에 대 한 이벤트를 표시 합니다.
 
-   - **제외 주소**: 특정 이벤트 장치를 숨깁니다.
+   - **제외 주소**: 특정 장치에 대 한 이벤트를 숨깁니다.
 
    - **이벤트 유형 포함**: 특정 이벤트 유형을 표시 합니다.
 
@@ -87,8 +87,8 @@ ms.locfileid: "97840719"
 
     - 특정 시간에 전체 네트워크의 패킷 캡처를 포함 하는 PCAP 파일 (있는 경우)을 다운로드 하려면 **Pcap 파일** 을 선택 합니다. 
     
-      PCAP 파일에는 기술 정보가 포함 되어 있어 엔지니어가 이벤트와 발생 한 상황을 정확 하 게 파악할 수 있습니다. 무료 응용 프로그램 Wireshark 같은 네트워크 프로토콜 분석기를 사용 하 여 PCAP 파일을 분석할 수 있습니다.
+      PCAP 파일에는 네트워크 엔지니어가 이벤트의 정확한 매개 변수를 결정 하는 데 도움이 되는 기술 정보가 포함 되어 있습니다. 오픈 소스 응용 프로그램 Wireshark 같은 네트워크 프로토콜 분석기를 사용 하 여 PCAP 파일을 분석할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [경고 보기](how-to-view-alerts.md)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621931"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508611"
 ---
 # <a name="basic-concepts"></a>기본 개념 
 
@@ -20,9 +20,9 @@ ms.locfileid: "98621931"
 
 ## <a name="rapid-non-invasive-deployment-and-passive-monitoring"></a>신속한 비 침입 배포 및 수동 모니터링
 
-IoT 센서에 대 한 Defender는 범위 포트 또는 네트워크 탭에 연결 하 고, 수동 (에이전트 없는) 모니터링을 통해 ICS 네트워크 트래픽 수집을 즉시 시작 합니다. DPI (심층 패킷 검사)는 직렬 및 이더넷 제어 네트워크 장비에서 트래픽을 알아본 하는 데 사용 됩니다. IoT 용 Defender는 데이터 경로에 배치 되지 않고 장치를 적극적으로 검색 하지 않으므로 OT 네트워크에 미치는 영향을 0으로 설정 합니다. 
+IoT 센서에 대 한 Defender는 스위치 범위 (미러) 포트에 연결 되 고, 네트워크 탭은 수동 (에이전트 없는) 모니터링을 통해 ICS 네트워크 트래픽 수집을 즉시 시작 합니다. DPI (심층 패킷 검사)는 직렬 및 이더넷 제어 네트워크 장비에서 트래픽을 알아본 하는 데 사용 됩니다. IoT 용 Defender는 데이터 경로에 배치 되지 않고 장치를 적극적으로 검색 하지 않으므로 OT 네트워크에 미치는 영향을 0으로 설정 합니다. 
 
-자세한 장치 정보의 즉각적인 스냅숏을 제공 하기 위해 Defender는 선택적 활성 구성 요소를 사용 하 여 수동 모니터링을 보완 합니다. 이 구성 요소는 안전 하 고 공급 업체의 승인 된 명령을 사용 하 여 Windows 및 컨트롤러 장치에서 장치 세부 정보를 원하는 만큼 자주 또는 자주 쿼리 합니다.
+자세한 Windows 장치 정보의 즉각적인 스냅숏을 제공 하려면 선택적 활성 구성 요소를 사용 하 여 수동 모니터링을 보완 하도록 IoT 센서 Defender를 구성할 수 있습니다. 이 구성 요소는 안전 하 고 공급 업체에 승인 된 명령을 사용 하 여 장치 세부 정보에 대 한 Windows 장치를 쿼리 하거나 원하는 만큼 자주 쿼리 합니다.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>ICS 프로토콜, 장치 및 응용 프로그램에 대 한 포함 된 지식
 
@@ -73,7 +73,7 @@ IoT 용 Defender는 모든 장치에 대 한 통합 보기를 제공 합니다. 
 
 IoT 용 Defender를 사용 하면 여러 배포를 효과적으로 관리 하 고 네트워크의 포괄적인 통합 보기를 사용할 수 있습니다. IoT 용 Defender는 경고 처리 및 운영 네트워크 보안 제어를 최적화 합니다.
 
-온-프레미스 관리 콘솔은 글로벌 센서 설치의 활동을 모니터링 하 고 제어할 수 있는 웹 기반 관리 플랫폼입니다. 온-프레미스 관리 콘솔은 배포 된 센서에서 받은 데이터를 관리 하는 것 외에도 다양 한 비즈니스 리소스 (예: CMDBs, DNS, 방화벽, 웹 Api 등)의 데이터를 원활 하 게 통합 합니다.
+온-프레미스 관리 콘솔은 글로벌 센서 설치의 활동을 모니터링 하 고 제어할 수 있는 웹 기반 관리 플랫폼입니다. 온-프레미스 관리 콘솔은 배포 된 센서에서 받은 데이터를 관리 하는 것 외에도 다양 한 비즈니스 리소스 (CMDBs, DNS, 방화벽, 웹 Api 등)의 데이터를 원활 하 게 통합 합니다.
 
 :::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="온-프레미스 관리 콘솔을 표시 합니다.":::
 

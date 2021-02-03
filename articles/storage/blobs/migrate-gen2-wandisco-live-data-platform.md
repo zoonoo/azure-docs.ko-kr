@@ -5,16 +5,16 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: db95f22a17c3776d84f12249693fb23b3d2d94e6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a0d02530ba2b8758b467b77ff639437675e4cc81
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95914442"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508932"
 ---
 # <a name="meet-demanding-migration-requirements-with-wandisco-livedata-platform-for-azure-preview"></a>Azure 용 WANdisco 사용 중인 데이터 Platform (미리 보기)을 사용 하 여 까다로운 마이그레이션 요구 사항 충족
 
@@ -34,7 +34,9 @@ Azure Portal 및 Azure CLI를 사용 하 여 두 서비스를 관리할 수 있�
 
 ## <a name="key-features-of-wandisco-livedata-platform-for-azure"></a>Azure 용 WANdisco 사용 중인 데이터 Platform의 주요 기능
 
-[Azure 용 WANdisco 사용 중인 데이터 Platform](https://docs.wandisco.com/live-data-platform/docs/landing/) 은 고유한 광역 네트워크 지원 합의 엔진을 사용 하 여 데이터 일관성을 유지 하 고, 응용 프로그램에서 복제 중인 데이터를 계속 해 서 수정할 수 있는 반면, 대규모로 데이터 복제를 수행 합니다.  
+[Azure 용 WANdisco 사용 중인 데이터 Platform](https://docs.wandisco.com/live-data-platform/docs/landing/) 은 고유한 광역 네트워크 지원 합의 엔진을 사용 하 여 데이터 일관성을 유지 하 고, 응용 프로그램에서 복제 중인 데이터를 계속 해 서 수정할 수 있는 반면, 대규모로 데이터 복제를 수행 합니다. <br><br>
+
+>[!VIDEO https://www.youtube.com/embed/KRrmcYPxEho] 
 
 플랫폼의 주요 기능에는 다음이 포함 됩니다.
 
@@ -86,7 +88,9 @@ Azure CLI 및 Azure Portal를 비롯 한 표준 Azure 도구를 통해 마이그
 초기 마이그레이션 후 Azure 용 사용 중인 데이터 평면을 사용 하 여 온-프레미스 Hadoop 클러스터 및 Azure storage에서 데이터 일관성을 유지 합니다.
 
 1. Azure Portal에서 시작 하 여 azure 온-프레미스 및 Azure에 대 한 사용 중인 데이터 평면을 프로 비전 합니다. 응용 프로그램을 변경할 필요가 없습니다.
+
 2. 일관 되 게 유지 하려는 데이터 위치를 포함 하는 복제 규칙을 구성 합니다 (예:) `/user/contoso/sales/region/WA` .
+
 3. 두 위치의 데이터에 액세스 하 고 수정 하는 응용 프로그램을 필요에 따라 Hadoop 호환 파일 시스템으로 실행 합니다.
 
 Azure의 사용 중인 데이터 평면은 클러스터 작업 또는 응용 프로그램 성능에 대 한 상당한 오버 헤드를 부과 하지 않고 데이터를 일관 되 게 유지 합니다. 모든 변경 내용이 일관 되 게 복제 되는 동안 데이터를 수정 하거나 수집 합니다.
@@ -99,7 +103,7 @@ Azure의 사용 중인 데이터 평면은 클러스터 작업 또는 응용 프
 
 - [HDFS 샌드박스](https://docs.wandisco.com/live-data-platform/docs/create-sandbox-intro/)를 사용 하 여 온-프레미스 Hadoop 클러스터가 없어도 사용 중인 데이터 Migrator를 사용해 보세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Marketplace Azure 사용 중인 데이터 Migrator](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=Overview)
 

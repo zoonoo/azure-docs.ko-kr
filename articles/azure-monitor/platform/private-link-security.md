@@ -6,16 +6,16 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a7464216649d6b482893693a1f182af5cf6e77ac
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941890"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508996"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Azure Private Link를 사용하여 네트워크를 Azure Monitor에 안전하게 연결
 
-[Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다. 많은 서비스의 경우 리소스당 엔드포인트를 설정하기만 하면 됩니다. 그러나 Azure Monitor는 동시에 작동하여 워크로드를 모니터링하는 상호 연결된 서로 다른 서비스의 모음입니다. 결과적으로 모니터링 네트워크의 경계를 정의하고 가상 네트워크에 연결할 수 있는 AMPLS(Azure Monitor Private Link Scope)라는 리소스를 구축했습니다. 이 문서에서는 Azure Monitor Private Link 범위를 사용하는 경우와 설정하는 방법에 대해 설명합니다.
+[Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다. 많은 서비스의 경우 리소스당 엔드포인트를 설정하기만 하면 됩니다. 그러나 Azure Monitor는 동시에 작동하여 워크로드를 모니터링하는 상호 연결된 서로 다른 서비스의 모음입니다. 결과적으로 Azure Monitor 개인 링크 범위 (AMPLS) 라는 리소스를 빌드 했습니다. AMPLS를 사용 하면 모니터링 네트워크의 경계를 정의 하 고 가상 네트워크에 연결할 수 있습니다. 이 문서에서는 Azure Monitor Private Link 범위를 사용하는 경우와 설정하는 방법에 대해 설명합니다.
 
 ## <a name="advantages"></a>장점
 
@@ -31,65 +31,59 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Monitor Private Link 범위는 하나 이상의 프라이빗 엔드포인트(이에 따라 포함된 가상 네트워크)를 하나 이상의 Azure Monitor 리소스에 연결하는 그룹화 리소스입니다. 이 리소스에는 Log Analytics 작업 영역과 Application Insights 구성 요소가 포함됩니다.
+Azure Monitor 개인 링크 범위 (AMPLS)는 전용 끝점 (및 포함 된 Vnet)을 하나 이상의 Azure Monitor 리소스 Log Analytics 작업 영역 및 Application Insights 구성 요소에 연결 합니다.
 
-![리소스 토폴로지 다이어그램](./media/private-link-security/private-link-topology-1.png)
+![기본 리소스 토폴로지 다이어그램](./media/private-link-security/private-link-basic-topology.png)
 
 > [!NOTE]
 > 단일 Azure Monitor 리소스는 여러 AMPLS에 속할 수 있지만, 단일 VNet을 둘 이상의 AMPLS에 연결할 수는 없습니다. 
 
-## <a name="planning-based-on-your-network"></a>네트워크 기반 계획 수립
+### <a name="the-issue-of-dns-overrides"></a>DNS 재정의 문제
+Log Analytics 및 Application Insights는 모든 서비스에 대해 전역 끝점을 사용 합니다. 즉, 모든 작업 영역/구성 요소를 대상으로 하는 요청을 처리 합니다. 예를 들어 Application Insights는 로그 수집을 위해 전역 끝점을 사용 하 고 Application Insights 및 Log Analytics는 모두 쿼리 요청에 대해 전역 끝점을 사용 합니다.
 
-AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고려합니다. 퍼블릭 인터넷에 대한 가상 네트워크 액세스 및 각 Azure Monitor 리소스(즉, Application Insights 구성 요소 및 Log Analytics 작업 영역)의 액세스 제한을 평가합니다.
+개인 링크 연결을 설정 하면 Azure Monitor 끝점을 VNet의 IP 범위에서 개인 IP 주소에 매핑하기 위해 DNS가 업데이트 됩니다. 이 변경 내용은 이러한 끝점의 이전 매핑을 재정의 합니다. 여기에는 의미 있는 의미가 있을 수 있습니다. 
+
+## <a name="planning-based-on-your-network-topology"></a>네트워크 토폴로지를 기반으로 계획
+
+Azure Monitor 개인 링크 설치를 설정 하기 전에 네트워크 토폴로지 및 특히 DNS 라우팅 토폴로지를 고려 합니다. 
+
+### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Azure Monitor 개인 링크는 모든 Azure Monitor 리소스에 적용 됩니다. All 또는 Nothing입니다.
+일부 Azure Monitor 끝점은 전역적 이므로 특정 구성 요소나 작업 영역에 대 한 개인 링크 연결을 만들 수 없습니다. 대신 단일 Application Insights 구성 요소에 대 한 개인 링크를 설정 하면 **모든** Application Insights 구성 요소에 대 한 DNS 레코드가 업데이트 됩니다. 구성 요소에 대 한 수집 또는 쿼리 시도는 개인 링크를 통과 하려고 시도 하 고 실패할 수 있습니다. 마찬가지로, 단일 작업 영역에 대 한 개인 링크를 설정 하면 모든 Log Analytics 쿼리가 전용 링크 쿼리 끝점 (작업 영역 특정 끝점이 있는 수집 요청은 제외)을 통해 이동 합니다.
+
+![단일 VNet의 DNS 재정의 다이어그램](./media/private-link-security/dns-overrides-single-vnet.png)
+
+이는 특정 VNet 뿐만 아니라 동일한 DNS 서버를 공유 하는 모든 Vnet에 적용 됩니다 ( [dns 재정의 문제](#the-issue-of-dns-overrides)참조). 따라서 예를 들어 Application Insights 구성 요소에 대 한 로그 수집 요청은 항상 개인 링크 경로를 통해 전송 됩니다. AMPLS에 연결 되지 않은 구성 요소는 개인 링크 유효성 검사에 실패 하 여 이동 하지 않습니다.
+
+**즉, 네트워크의 모든 Azure Monitor 리소스를 개인 링크 (AMPLS에 추가)에 연결 하거나, 네트워크에 없는 모든 리소스를 개인 링크에 연결 해야 합니다.**
+
+### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor 개인 링크가 전체 네트워크에 적용 됩니다.
+일부 네트워크는 여러 Vnet 구성 됩니다. 이러한 Vnet는 동일한 DNS 서버를 사용 하는 경우 서로 다른 DNS 매핑을 재정의 하 고 Azure Monitor와의 서로 다른 통신을 중단 합니다 ( [DNS 재정의 문제](#the-issue-of-dns-overrides)참조). 궁극적으로, DNS는 Azure Monitor 끝점을이 Vnet 범위 (다른 Vnet에서 연결할 수 없음)의 개인 Ip에 매핑하기 때문에 Azure Monitor와 통신할 수 있습니다.
+
+![여러 Vnet의 DNS 재정의 다이어그램](./media/private-link-security/dns-overrides-multiple-vnets.png)
+
+위의 다이어그램에서 VNet 10.0.1는 먼저 AMPLS1에 연결 하 고 Azure Monitor 전역 끝점을 해당 범위에서 Ip에 매핑합니다. 나중에 VNet 10.0.2는 AMPLS2에 연결 하 고 범위에서 Ip를 사용 하 여 *동일한 글로벌 끝점* 의 DNS 매핑을 재정의 합니다. 이러한 Vnet는 피어 링 되지 않으므로, 첫 번째 VNet은 이제 이러한 끝점에 도달 하지 못합니다.
+
+**동일한 DNS를 사용 하는 Vnet는 직접 또는 허브 VNet을 통해 피어 링 해야 합니다. 피어 링 되지 않는 Vnet는 다른 DNS 서버, DNS 전달자 또는 다른 메커니즘을 사용 하 여 DNS 충돌 방지를 방지 해야 합니다.**
+
+### <a name="hub-spoke-networks"></a>허브-스포크 네트워크
+허브-스포크 토폴로지는 각 VNet에 대해 개별적으로 개인 링크를 설정 하는 대신 허브 (주) VNet에서 개인 링크를 설정 하 여 DNS 재정의 문제를 방지할 수 있습니다. 특히 스포크 Vnet에서 사용 하는 Azure Monitor 리소스를 공유 하는 경우이 설정을 사용 하는 것이 좋습니다. 
+
+![허브 및 스포크-단일 PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 > [!NOTE]
-> 허브-스포크 네트워크 또는 피어 링 네트워크의 다른 토폴로지는 각 VNet에 개인 링크를 설정 하는 대신 허브 (주) VNet과 관련 Azure Monitor 리소스 간에 개인 링크를 설정할 수 있습니다. 특히 이러한 네트워크에서 사용 하는 Azure Monitor 리소스를 공유 하는 경우에 적합 합니다. 그러나 각 VNet에서 별도의 모니터링 리소스 집합에 액세스 하도록 허용 하려면 각 네트워크에 대 한 전용 AMPLS 개인 링크를 만듭니다.
+> 예를 들어 각 VNet이 제한 된 모니터링 리소스 집합에 액세스할 수 있도록 하는 등의 스포크 Vnet 별도의 개인 링크를 만들 수 있습니다. 이러한 경우에는 각 VNet에 대 한 전용 개인 끝점 및 AMPLS를 만들 수 있지만 DNS 재정의를 방지 하기 위해 동일한 DNS 서버를 공유 하지 않는지 확인 해야 합니다.
 
-### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Private Link에 연결할 가상 네트워크 평가
-
-먼저 인터넷에 대한 액세스가 제한된 VNet(가상 네트워크)을 평가합니다. 무료 인터넷을 사용하는 VNet에는 Azure Monitor 리소스에 액세스하는 데 Private Link가 필요하지 않을 수 있습니다. VNet에서 연결하는 모니터링 리소스는 들어오는 트래픽을 제한하고 로그 수집 또는 쿼리를 위해 Private Link 연결을 요구할 수 있습니다. 이러한 경우 퍼블릭 인터넷에 액세스할 수 있는 VNet조차도 Private Link 및 AMPLS를 통해 이러한 리소스에 연결해야 합니다.
-
-### <a name="evaluate-which-azure-monitor-resources-should-have-a-private-link"></a>Private Link를 포함할 Azure Monitor 리소스 평가
-
-각 Azure Monitor 리소스를 검토합니다.
-
-- 리소스에서 특정 VNet에만 있는 리소스로부터 로그를 수집하도록 허용해야 하나요?
-- 특정 VNET에 있는 클라이언트만 리소스를 쿼리해야 하나요?
-
-이러한 질문에 대한 대답이 예인 경우 [Log Analytics 작업 영역 구성](#configure-log-analytics) 및 [Application Insights 구성 요소 구성](#configure-application-insights)에서 설명한 대로 제한을 설정하고 이러한 리소스를 단일 또는 여러 AMPLS에 연결합니다. 이러한 모니터링 리소스에 액세스해야 하는 가상 네트워크에는 관련 AMPLS에 연결되는 프라이빗 엔드포인트가 있어야 합니다.
-주의 - 동일한 작업 영역 또는 애플리케이션을 여러 AMPLS에 연결하여 다른 네트워크에서 액세스할 수 있도록 허용합니다.
-
-### <a name="group-together-monitoring-resources-by-network-accessibility"></a>네트워크 접근성별로 모니터링 리소스 그룹화
-
-각 VNet에서는 하나의 AMPLS 리소스에만 연결할 수 있으므로 동일한 네트워크에서 액세스할 수 있어야 하는 모니터링 리소스를 모두 그룹화해야 합니다. 이 그룹화를 관리하는 가장 간단한 방법은 VNet당 하나의 AMPLS를 만들고 해당 네트워크에 연결할 리소스를 선택하는 것입니다. 그러나 리소스를 줄이고 관리 효율성을 향상시키려면 네트워크에서 AMPLS를 다시 사용하는 것이 좋습니다.
-
-예를 들어 VNet1 및 VNet2 내부 가상 네트워크에서 Workspace1 및 Workspace2 작업 영역 및 Application Insights 3 Application Insights 구성 요소에 연결해야 하는 경우 세 리소스를 모두 동일한 AMPLS에 연결합니다. VNet3에서 Workspace1에만 액세스해야 하는 경우 다음 다이어그램에서와 같이 다른 AMPLS 리소스를 만들고, Workspace1을 여기에 연결하고, VNet3을 연결합니다.
-
-![AMPLS A 토폴로지 다이어그램](./media/private-link-security/ampls-topology-a-1.png)
-
-![AMPLS B 토폴로지 다이어그램](./media/private-link-security/ampls-topology-b-1.png)
 
 ### <a name="consider-limits"></a>제한 고려
 
-개인 링크 설정을 계획할 때 고려해 야 할 몇 가지 제한이 있습니다.
-
-* VNet은 1 개의 AMPLS 개체에만 연결할 수 있습니다. 즉, AMPLS 개체는 VNet이 액세스할 수 있어야 하는 모든 Azure Monitor 리소스에 대 한 액세스를 제공 해야 합니다.
-* Azure Monitor 리소스 (작업 영역 또는 Application Insights 구성 요소)는 AMPLSs 5 개에 연결할 수 있습니다.
-* AMPLS 개체는 50 Azure Monitor 리소스에 연결할 수 있습니다.
-* AMPLS 개체는 최대 10 개의 개인 끝점에 연결할 수 있습니다.
-
-아래 토폴로지에서:
+[제한 및 제한 사항](#restrictions-and-limitations)에 나와 있는 것 처럼 AMPLS 개체는 아래 토폴로지에 따라 몇 가지 제한이 있습니다.
 * 각 VNet은 **1 개의** AMPLS 개체에만 연결 합니다.
-* AMPLS B는 2/10 (20%)를 사용 하 여 두 Vnet (VNet2 및 VNet3)의 개인 끝점에 연결 됩니다. 가능한 개인 끝점 연결의입니다.
-* AMPLS A는 3/50 (6%)를 사용 하 여 두 개의 작업 영역 및 하나의 응용 프로그램 정보 구성 요소에 연결 합니다. 가능한 Azure Monitor 리소스 연결의 수입니다.
-* Workspace2는 2/5 (40%)를 사용 하 여 AMPLS A 및 AMPLS B에 연결 합니다. 가능한 AMPLS 연결입니다.
+* AMPLS B는 두 개의 가능한 개인 끝점 연결 중 2 개를 사용 하 여 두 Vnet (VNet2 및 VNet3)의 개인 끝점에 연결 됩니다.
+* AMPLS A는 세 개의 50 가능한 Azure Monitor 리소스 연결을 사용 하 여 두 개의 작업 영역 및 하나의 응용 프로그램 정보 구성 요소에 연결 합니다.
+* Workspace2는 5 개의 가능한 AMPLS 연결 중 2 가지를 사용 하 여 AMPLS A 및 AMPLS B에 연결 합니다.
 
 ![AMPLS 제한 다이어그램](./media/private-link-security/ampls-limits.png)
 
-> [!NOTE]
-> 일부 네트워크 토폴로지에서 (주로 허브-스포크) 단일 AMPLS에 대해 10 개의 Vnet 한도에 빠르게 도달할 수 있습니다. 이러한 경우 별도의 연결 대신 공유 개인 링크 연결을 사용 하는 것이 좋습니다. 허브 네트워크에서 단일 개인 끝점을 만들고, AMPLS에 연결 하 고, 관련 네트워크를 허브 네트워크에 피어 링 합니다.
-
-![허브 및 스포크-단일 PE](./media/private-link-security/hub-and-spoke-with-single-private-endpoint.png)
 
 ## <a name="example-connection"></a>연결 예
 
@@ -99,21 +93,21 @@ AMPLS 리소스를 설정하기 전에 네트워크 격리 요구 사항을 고�
 
    ![Azure Monitor 개인 링크 범위 찾기](./media/private-link-security/ampls-find-1c.png)
 
-2. **만들기** 를 클릭합니다.
+2. **만들기** 를 선택합니다.
 3. 구독 및 리소스 그룹을 선택합니다.
-4. AMPLS 이름을 지정합니다. 누군가가 실수로 네트워크 보안 경계를 위반하지 않도록 범위를 사용하는 용도 및 보안 경계를 명확히 하는 이름을 사용하는 것이 가장 좋습니다. 예를 들어 "AppServerProdTelem"입니다.
-5. **검토 + 만들기** 를 클릭합니다. 
+4. AMPLS 이름을 지정합니다. "AppServerProdTelem"와 같이 의미 있고 명확 하지 않은 이름을 사용 하는 것이 가장 좋습니다.
+5. **검토 + 만들기** 를 선택합니다. 
 
    ![Azure Monitor 개인 링크 범위 만들기](./media/private-link-security/ampls-create-1d.png)
 
-6. 유효성 검사를 통과하도록 한 다음, **만들기** 를 클릭합니다.
+6. 유효성 검사를 통과 하도록 한 다음, **만들기** 를 선택 합니다.
 
 ### <a name="connect-azure-monitor-resources"></a>Azure Monitor 리소스 연결
 
 Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights 구성 요소)를 AMPLS에 연결 합니다.
 
-1. Azure Monitor Private Link 범위의 왼쪽 메뉴에서 **Azure Monitor 리소스** 를 클릭합니다. **추가** 단추를 클릭합니다.
-2. 작업 영역 또는 구성 요소를 추가합니다. **추가** 단추를 클릭하면 Azure Monitor 리소스를 선택할 수 있는 대화 상자가 표시됩니다. 구독 및 리소스 그룹을 찾아보거나 이름을 입력하여 이를 필터링할 수 있습니다. 작업 영역 또는 구성 요소를 선택하고, **적용** 을 클릭하여 이를 범위에 추가합니다.
+1. Azure Monitor 개인 링크 범위에서 왼쪽 메뉴의 **Azure Monitor 리소스** 를 선택 합니다. **추가** 단추를 선택합니다.
+2. 작업 영역 또는 구성 요소를 추가합니다. **추가** 단추를 선택 하면 Azure Monitor 리소스를 선택할 수 있는 대화 상자가 나타납니다. 구독 및 리소스 그룹을 찾아보거나 이름을 입력하여 이를 필터링할 수 있습니다. 작업 영역 또는 구성 요소를 선택 하 고 **적용** 을 선택 하 여 범위에 추가 합니다.
 
     ![범위 선택 UX의 스크린샷](./media/private-link-security/ampls-select-2.png)
 
@@ -124,13 +118,13 @@ Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights �
 
 이제 AMPLS에 연결된 리소스가 있으므로 네트워크를 연결 하는 프라이빗 엔드포인트를 만듭니다. 다음 예에서와 같이 이 작업은 [Azure Portal Private Link 센터](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) 또는 Azure Monitor Private Link 범위 내에서 수행할 수 있습니다.
 
-1. 범위 리소스의 왼쪽 리소스 메뉴에서 **프라이빗 엔드포인트 연결** 을 클릭합니다. **프라이빗 엔드포인트** 를 클릭하여 엔드포인트 만들기 프로세스를 시작합니다. 또한 Private Link 센터에서 시작된 연결을 선택하고 **승인** 을 클릭하여 이를 승인할 수도 있습니다.
+1. 범위 리소스의 왼쪽 리소스 메뉴에서 **개인 끝점 연결** 을 선택 합니다. 끝점 만들기 프로세스를 시작 하려면 **개인 끝점** 을 선택 합니다. 개인 링크 센터에서 시작 된 연결을 선택 하 고 **승인** 을 선택 하 여 승인할 수도 있습니다.
 
     ![프라이빗 엔드포인트 연결 UX의 스크린샷](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. 구독, 리소스 그룹, 엔드포인트 이름 및 거주하는 지역을 선택합니다. 지역은 연결할 가상 네트워크와 동일한 지역이어야 합니다.
 
-3. **다음: 리소스** 를 선택합니다. 
+3. 완료되면 **다음: 리소스** 를 선택합니다. 
 
 4. [리소스] 화면에서
 
@@ -140,7 +134,7 @@ Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights �
 
    다. **리소스** 드롭다운에서 이전에 만든 Private Link 범위를 선택합니다. 
 
-   d. **다음: 구성 >** 을 클릭합니다.
+   d. **다음: 구성 >** 를 선택 합니다.
       ![프라이빗 엔드포인트 만들기 선택의 스크린샷](./media/private-link-security/ampls-select-private-endpoint-create-4.png)
 
 5. 구성 창에서
@@ -151,27 +145,27 @@ Azure Monitor 리소스 (Log Analytics 작업 영역 및 Application Insights �
    > [!NOTE]
    > **아니요** 를 선택 하 고 DNS 레코드를 수동으로 관리 하려면 먼저 개인 링크 설정 (이 개인 끝점 및 AMPLS 구성 포함)을 완료 합니다. 그런 다음 [Azure 프라이빗 엔드포인트 DNS 구성](../../private-link/private-endpoint-dns.md)의 지침에 따라 DNS를 구성합니다. Private Link 설정을 위한 준비로 빈 레코드를 만들지 않도록 합니다. 만드는 DNS 레코드는 기존 설정을 재정의하고 Azure Monitor와의 연결에 영향을 줄 수 있습니다.
  
-   다.    **검토 + 만들기** 를 클릭합니다.
+   c.    **검토 + 만들기** 를 선택합니다.
  
    d.    유효성 검사를 통과하도록 합니다. 
  
-   e.    **만들기** 를 클릭합니다. 
+   e.    **만들기** 를 선택합니다. 
 
     ![프라이빗 엔드포인트 2 만들기 선택의 스크린샷](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
-이제 이 Azure Monitor Private Link 범위에 연결된 새 프라이빗 엔드포인트를 만들었습니다.
+이제이 AMPLS에 연결 된 새 개인 끝점을 만들었습니다.
 
 ## <a name="configure-log-analytics"></a>Log Analytics 구성
 
-Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스에는 왼쪽에 메뉴 항목 **네트워크 격리가** 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다.
+Azure Portal로 이동합니다. Log Analytics 작업 영역 리소스 메뉴에는 왼쪽에 **네트워크 격리** 라는 항목이 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다.
 
 ![LA 네트워크 격리](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
 
 ### <a name="connected-azure-monitor-private-link-scopes"></a>연결 된 Azure Monitor 개인 링크 범위
-이 작업 영역에 연결 된 모든 범위가이 화면에 표시 됩니다. 범위 (AMPLSs)에 연결 하면 각 AMPLS에 연결 된 가상 네트워크의 네트워크 트래픽이이 작업 영역에 연결 될 수 있습니다. 여기를 통해 연결을 만들면 [Azure Monitor 리소스를 연결할](#connect-azure-monitor-resources)때와 같이 범위에서 설정 하는 것과 동일한 효과가 있습니다. 새 연결을 추가 하려면 **추가** 를 클릭 하 고 Azure Monitor 개인 링크 범위를 선택 합니다. **적용** 을 클릭하여 연결합니다. 작업 영역은 [제한 고려](#consider-limits)에 설명 된 대로 5 개의 AMPLS 개체에 연결할 수 있습니다. 
+이 작업 영역에 연결 된 모든 범위가이 화면에 표시 됩니다. 범위 (AMPLSs)에 연결 하면 각 AMPLS에 연결 된 가상 네트워크의 네트워크 트래픽이이 작업 영역에 연결 될 수 있습니다. 여기를 통해 연결을 만들면 [Azure Monitor 리소스를 연결할](#connect-azure-monitor-resources)때와 같이 범위에서 설정 하는 것과 동일한 효과가 있습니다. 새 연결을 추가 하려면 **추가** 를 선택 하 고 Azure Monitor 개인 링크 범위를 선택 합니다. **적용** 을 선택 하 여 연결 합니다. [제한 및 제한](#restrictions-and-limitations)사항에 설명 된 대로 작업 영역은 5 개의 AMPLS 개체에 연결할 수 있습니다. 
 
 ### <a name="access-from-outside-of-private-links-scopes"></a>개인 링크 범위 외부에서 액세스
-이 페이지의 맨 아래에 있는 설정은 공용 네트워크에서의 액세스를 제어 합니다. 즉, 위에 나열 된 범위를 통해 연결 되지 않은 네트워크를 의미 합니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리에 대해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정 하는 경우 범위 밖의 컴퓨터는이 작업 영역에 있는 데이터에 액세스할 수 없습니다. 즉, 작업 영역 데이터를 쿼리할 수 없습니다. 여기에는 통합 문서, 대시보드, API 기반 클라이언트 환경, Azure Portal의 통찰력 등에 대 한 쿼리가 포함 됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
+이 페이지의 맨 아래에 있는 설정은 공용 네트워크에서의 액세스를 제어 합니다. 즉, 위에 나열 된 범위를 통해 연결 되지 않은 네트워크를 의미 합니다. ' 수집 **에 대 한 공용 네트워크 액세스 허용** **'을 설정** 하면 연결 된 범위를 벗어난 컴퓨터에서 로그를 수집 하는 것을 차단 합니다. **쿼리에서 공용 네트워크 액세스 허용을 사용** **하지 않도록** 설정 하면 범위 외부의 컴퓨터에서 오는 쿼리가 차단 됩니다. 여기에는 통합 문서, 대시보드, API 기반 클라이언트 환경, Azure Portal의 통찰력 등을 통해 실행 되는 쿼리가 포함 됩니다. Azure Portal 외부에서 실행 되는 환경 및 Log Analytics 데이터 쿼리도 개인 연결 VNET 내에서 실행 되어야 합니다.
 
 ### <a name="exceptions"></a>예외
 위에서 설명한 대로 액세스를 제한 하는 것은 Azure Resource Manager에는 적용 되지 않으므로 다음과 같은 제한 사항이 있습니다.
@@ -194,11 +188,11 @@ Log Analytics 에이전트에서 솔루션 팩을 다운로드할 수 있도록 
 
 ## <a name="configure-application-insights"></a>Application Insights 구성
 
-Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요소 리소스의 왼쪽에는 **네트워크 격리** 메뉴 항목이 있습니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다.
+Azure Portal로 이동합니다. Azure Monitor Application Insights 구성 요소 리소스에서는 왼쪽에 있는 메뉴 항목 **네트워크 격리** 입니다. 이 메뉴에서 별도의 두 가지 상태를 제어할 수 있습니다.
 
 ![AI 네트워크 격리](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-먼저, 액세스할 수 있는 Azure Monitor Private Link 범위에 이 Application Insights 리소스를 연결할 수 있습니다. **추가** 를 클릭하고, **Azure Monitor Private Link 범위** 를 선택합니다. [적용]을 클릭하여 연결합니다. 이 화면에 연결된 모든 범위가 표시됩니다. 이 연결을 설정하면 연결된 가상 네트워크의 네트워크 트래픽이 이 구성 요소에 도달할 수 있습니다. 연결은 [Azure Monitor 리소스 연결](#connect-azure-monitor-resources)에서와 같이 범위에서 연결하는 것과 동일한 효과가 있습니다. 
+먼저, 액세스할 수 있는 Azure Monitor Private Link 범위에 이 Application Insights 리소스를 연결할 수 있습니다. **추가** 를 선택 하 고 **Azure Monitor 개인 링크 범위** 를 선택 합니다. 적용을 선택 하 여 연결 합니다. 이 화면에 연결된 모든 범위가 표시됩니다. 이 연결을 설정 하면 연결 된 가상 네트워크의 네트워크 트래픽이이 구성 요소에 연결 될 수 있으며, [Azure Monitor 리소스를 연결할](#connect-azure-monitor-resources)때와 마찬가지로 범위에서 연결 하는 것과 동일한 효과가 있습니다. 
 
 다음으로, 이전에 나열된 프라이빗 링크 범위 외부에서 이 리소스에 도달하는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신 또는 SDK에서 데이터를 이 구성 요소에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 Application Insights 리소스의 데이터에 액세스할 수 없습니다. 이 데이터에는 APM 로그, 메트릭 및 라이브 메트릭 스트림에 대한 액세스뿐만 아니라 통합 문서, 대시보드, 쿼리 API 기반 클라이언트 환경, Azure Portal의 인사이트 등을 기반으로 하는 환경도 포함됩니다. 
 
@@ -221,13 +215,23 @@ Azure Resource Manager 템플릿, REST 및 명령줄 인터페이스를 사용 �
 
 네트워크 액세스를 관리하려면 [Log Analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 또는 [Application Insights 구성 요소](/cli/azure/ext/application-insights/monitor/app-insights/component)에서 `[--ingestion-access {Disabled, Enabled}]` 및 `[--query-access {Disabled, Enabled}]` 플래그를 사용합니다.
 
-## <a name="collect-custom-logs-over-private-link"></a>개인 링크를 통한 사용자 지정 로그 수집
+## <a name="collect-custom-logs-and-iis-log-over-private-link"></a>사용자 지정 로그 및 IIS 로그를 통해 개인 링크 수집
 
 스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다. [명령줄](/cli/azure/monitor/log-analytics/workspace/linked-storage)을 사용하여 이러한 계정을 설정하는 방법에 대한 자세한 내용을 참조하세요.
 
 사용자 고유의 스토리지 계정을 가져오는 방법에 대한 자세한 내용은 [로그 수집에 고객이 소유한 스토리지 계정 사용](private-storage.md)을 참조하세요.
 
 ## <a name="restrictions-and-limitations"></a>제한 사항
+
+### <a name="ampls"></a>AMPLS
+AMPLS 개체에는 개인 링크 설정을 계획할 때 고려해 야 할 몇 가지 제한 사항이 있습니다.
+
+* VNet은 1 개의 AMPLS 개체에만 연결할 수 있습니다. 즉, AMPLS 개체는 VNet이 액세스할 수 있어야 하는 모든 Azure Monitor 리소스에 대 한 액세스를 제공 해야 합니다.
+* Azure Monitor 리소스 (작업 영역 또는 Application Insights 구성 요소)는 AMPLSs 5 개에 연결할 수 있습니다.
+* AMPLS 개체는 50 Azure Monitor 리소스에 연결할 수 있습니다.
+* AMPLS 개체는 최대 10 개의 개인 끝점에 연결할 수 있습니다.
+
+이러한 한도를 자세히 검토 하 고 그에 따라 개인 링크를 설정 하는 방법에 대 한 자세한 내용은 [제한 사항을](#consider-limits) 참조 하세요.
 
 ### <a name="agents"></a>에이전트
 
@@ -262,7 +266,7 @@ Application Insights 및 Log Analytics와 같은 Azure Monitor 포털 환경을 
 
 ### <a name="browser-dns-settings"></a>브라우저 DNS 설정
 
-개인 링크를 통해 Azure Monitor 리소스에 연결 하는 경우 이러한 리소스에 대 한 트래픽은 네트워크에 구성 된 개인 끝점을 통과 해야 합니다. 개인 끝점을 사용 하도록 설정 하려면 [개인 끝점에 연결](#connect-to-a-private-endpoint)에 설명 된 대로 DNS 설정을 업데이트 합니다. 일부 브라우저는 사용자가 설정 하는 대신 자체 DNS 설정을 사용 합니다. 브라우저는 Azure Monitor 공용 끝점에 연결을 시도 하 고 개인 링크를 완전히 우회할 수 있습니다. 브라우저 설정이 이전 DNS 설정을 재정의 하거나 캐시 하지 않는지 확인 합니다. 
+개인 링크를 통해 Azure Monitor 리소스에 연결 하는 경우 이러한 리소스에 대 한 트래픽은 네트워크에 구성 된 개인 끝점을 통해 이동 해야 합니다. 개인 끝점을 사용 하도록 설정 하려면 [개인 끝점에 연결](#connect-to-a-private-endpoint)에 설명 된 대로 DNS 설정을 업데이트 합니다. 일부 브라우저는 사용자가 설정 하는 대신 자체 DNS 설정을 사용 합니다. 브라우저는 Azure Monitor 공용 끝점에 연결을 시도 하 고 개인 링크를 완전히 우회할 수 있습니다. 브라우저 설정이 이전 DNS 설정을 재정의 하거나 캐시 하지 않는지 확인 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: eb701a7fca2be08d70e603734b9c4d8e266959cd
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 49261f34f879c68f21b57f9256a58a9b0a44d637
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475423"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509285"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
@@ -59,10 +59,11 @@ Azure VMware 솔루션 사설 클라우드의 사용 사례는 다음과 같습�
 
 ## <a name="next-steps"></a>다음 단계 
 
-이제 이러한 네트워크 및 상호 연결과 개념을 설명 했으므로 다음에 대해 알아볼 수 있습니다.
+이제 Azure VMware 솔루션 네트워크 및 상호 연결과 개념을 살펴보았습니다. 다음에 대해 알아볼 수 있습니다.
 
 - [Azure VMware 솔루션 저장소 개념](concepts-storage.md).
-- [Azure VMware 솔루션 id 개념](concepts-identity.md)
+- [Azure VMware 솔루션 id 개념](concepts-identity.md).
+- [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4803691a82a97cd2be5fa3beafd4419010e7a9c9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840679"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509075"
 ---
 # <a name="view-alerts"></a>경고 보기
 
@@ -32,7 +32,7 @@ ms.locfileid: "97840679"
 
 **경고** 주 보기에서 다양 한 범주에 따라 경고를 볼 수 있습니다. 경고를 선택 하 여 세부 정보를 검토 하 고 이벤트를 관리 합니다.
 
-| 유형별 정렬 | Description |
+| 유형별 정렬 | 설명 |
 |--|--|
 | **중요 한 알림** | 경고가 중요도 별로 정렬 되었습니다. |
 | **고정 된 경고** | 추가 조사를 위해 사용자에 게 고정 된 경고입니다. 고정 된 경고는 보관 되지 않으며 고정 된 폴더에 14 일 동안 저장 됩니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "97840679"
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-security.png" alt-text="경고 화면에서 보안을 설정 합니다.":::
 
-## <a name="alert-window-options"></a>경고 창 옵션
+## <a name="alert-page-options"></a>경고 페이지 옵션
 
 경고 메시지는 다음과 같은 작업을 제공 합니다.
 
@@ -101,6 +101,8 @@ ms.locfileid: "97840679"
 - :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false":::모든 경고를 알아보고 승인 하려면 선택 합니다.
 
 - :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false":::경고 목록을 CSV 파일로 내보내고 내보내기 옵션을 선택 하려면 선택 합니다. 일반 내보내기-CSV 옵션에 대 한 **경고 내보내기** 를 선택 합니다. 또는 CSV 파일에서 경고에 대 한 추가 정보를 위해 별도의 행을 추가할 수 있도록 **확장 된 경고 내보내기** 를 선택 합니다.
+
+## <a name="alert-pop-up-window-options"></a>경고 팝업 창 옵션
 
 - 아이콘을 선택 :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-pdf.png" border="false"::: 하 여 경고 보고서를 PDF 파일로 다운로드 합니다.
 

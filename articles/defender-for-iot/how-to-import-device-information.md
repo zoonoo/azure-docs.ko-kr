@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cb805f60ba9feb0ae2d1483b2ab2df4e03639d8
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625417"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509438"
 ---
 # <a name="import-device-information-to-a-sensor"></a>장치 정보를 센서로 가져오기
 
@@ -160,7 +160,7 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
    - **운영** 체제: 드롭다운 목록에서 선택 합니다.
 
-   - **마지막 업데이트**: Yyyy-mm-dd 형식을 사용 합니다.
+   - **마지막 업데이트 날짜**: Yyyy-mm-dd 형식을 사용 합니다.
 
     :::image type="content" source="media/how-to-import-device-information/last-update-screen.png" alt-text="화면의 콘텐츠입니다.":::
 
@@ -172,7 +172,7 @@ IP 주소, OS 및 패치 수준을 가져오려면:
 
 권한 부여 상태를 가져오려면:
 
-1. IoT 용 Defender 도움말 센터에서 [authorized_devices.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
+1. IoT 용 Defender 도움말 센터에서 [authorized_devices examples.csv](https://cyberx-labs.zendesk.com/hc/en-us/articles/360008658272-How-To-Import-Data) 파일을 다운로드 하 여 저장 합니다. 파일을 CSV로 저장 했는지 확인 합니다.
 
 2. 다음과 같이 정보를 입력 합니다.
 

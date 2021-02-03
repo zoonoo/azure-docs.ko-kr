@@ -1,5 +1,5 @@
 ---
-title: 검색 인덱스 만들기
+title: 인덱스 만들기
 titleSuffix: Azure Cognitive Search
 description: 스키마 정의 및 물리적 데이터 구조를 포함 하 여 Azure Cognitive Search의 인덱싱 개념 및 도구를 소개 합니다.
 manager: nitinme
@@ -7,80 +7,27 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/15/2020
-ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 02/03/2021
+ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116197"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509336"
 ---
-# <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기본 검색 인덱스 만들기
+# <a name="creating-search-indexes-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 인덱스 만들기
 
-Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터링 된 쿼리에 사용 되는 검색 가능한 콘텐츠를 저장 합니다. 인덱스는 스키마에 의해 정의 되 고 서비스에 저장 되며, 데이터 가져오기는 두 번째 단계로 수행 됩니다. 
+검색 인덱스는 전체 텍스트 및 필터링 된 쿼리에 사용 되는 검색 가능한 콘텐츠를 저장 합니다. 인덱스는 스키마에 의해 정의 되 고 서비스에 저장 되며, 데이터 가져오기는 두 번째 단계로 수행 됩니다. 
 
 인덱스는 *문서* 를 포함 합니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 소매점은 각 제품에 대 한 문서를 포함할 수 있으며, 뉴스 조직에는 각 문서에 대 한 문서가 포함 될 수 있습니다. 이러한 개념을 보다 친숙 한 데이터베이스에 매핑: *검색 인덱스* 는 *테이블과* 같으며 *문서* 는 테이블의 *행* 과 거의 동일 합니다.
 
-인덱스의 물리적 구조는 스키마에 의해 결정 되며,이 필드에 대해 반전 된 인덱스가 생성 되는 "검색 가능"으로 표시 된 필드가 포함 됩니다. 
+## <a name="whats-an-index-schema"></a>인덱스 스키마 란?
 
-다음 도구와 Api를 사용 하 여 인덱스를 만들 수 있습니다.
-
-* Azure Portal에서 **인덱스 추가** 또는 **데이터 가져오기** 마법사를 사용 합니다.
-* [Create Index (REST API)](/rest/api/searchservice/create-index) 사용
-* [.NET SDK](./search-get-started-dotnet.md) 사용
-
-포털 도구를 사용 하 여 보다 쉽게 배울 수 있습니다. 포털은 숫자 필드에 대 한 전체 텍스트 검색 기능을 허용 하지 않는 등의 특정 데이터 형식에 대 한 요구 사항 및 스키마 규칙을 적용 합니다. 인덱스를 사용할 수 있으면 [Get index (REST API)](/rest/api/searchservice/get-index) 를 사용 하 여 서비스에서 JSON 정의를 검색 하 고 솔루션에 추가 하 여 코드로 전환할 수 있습니다.
-
-## <a name="recommended-workflow"></a>권장 워크플로
-
-최종 인덱스 디자인은 반복적인 프로세스입니다. 일반적으로 포털에서 시작 하 여 초기 인덱스를 만든 다음 코드를 전환 하 여 원본 제어에서 인덱스를 저장 하는 것이 일반적입니다.
-
-1. [**데이터 가져오기를**](search-import-data-portal.md)사용할 수 있는지 여부를 확인 합니다. 원본 데이터가 [Azure에서 지원 되는 데이터 원본 유형인](search-indexer-overview.md#supported-data-sources)경우 마법사는 전체 인덱서 기반 인덱싱을 수행 합니다.
-
-1. **데이터 가져오기** 를 사용할 수 없는 경우에는 **인덱스 추가** 로 시작 하 여 스키마를 정의 합니다.
-
-   ![인덱스 추가 명령](media/search-what-is-an-index/add-index.png "인덱스 추가 명령")
-
-1. 인덱스의 각 검색 문서를 고유 하 게 식별 하는 데 사용 되는 이름 및 키를 제공 합니다. 키는 필수 이며 Edm. String 형식 이어야 합니다. 가져오는 동안 원본 데이터의 고유 필드를이 필드에 매핑하는 계획을 세워야 합니다. 
-
-   포털에서 `id` 키에 대 한 필드를 제공 합니다. 기본값을 재정의 하려면 새 필드 `id` (예: 라는 새 필드 정의)를 만든 `HotelId` 다음 **키** 에서 선택 합니다.
-
-   ![필수 속성 입력](media/search-what-is-an-index//field-attributes.png "필수 속성 입력")
-
-1. 필드를 더 추가 합니다. 포털은 다양 한 데이터 형식에 사용할 수 있는 [필드 특성](#index-attributes) 을 보여 줍니다. 인덱스 설계를 처음 접하는 분들에게 유용합니다.
-
-   들어오는 데이터가 계층적 이면 중첩 된 구조를 나타내는 [복합 유형](search-howto-complex-data-types.md) 데이터 형식을 할당 합니다. 기본 제공 샘플 데이터 집합 호텔은 각 호텔에 대해 일 대 일 관계를 갖는 주소 (여러 개의 하위 필드 포함)를 사용 하는 복합 형식을 보여 주며, 대화방 복합 컬렉션은 여러 개의 대화방에 연결 되어 있습니다. 
-
-1. 인덱스를 만들기 전에 문자열 필드에 [분석기](#analyzers) 를 할당 합니다. 특정 필드에서 자동 완성을 사용 하도록 설정 하려는 경우 [확인 기](#suggesters) 에 대해 동일한 작업을 수행 합니다.
-
-1. **만들기** 를 클릭 하 여 검색 서비스의 물리적 구조를 빌드합니다.
-
-1. 인덱스를 만든 후 추가 명령을 사용 하 여 정의를 검토 하거나 더 많은 요소를 추가 합니다.
-
-   ![데이터 유형별 특성을 보여 주는 인덱스 페이지 추가](media/search-what-is-an-index//field-definitions.png "데이터 유형별 특성을 보여 주는 인덱스 페이지 추가")
-
-1. [인덱스 가져오기 (REST API)](/rest/api/searchservice/get-index) 및 [postman](search-get-started-rest.md)과 같은 웹 테스트 도구를 사용 하 여 인덱스 스키마를 다운로드 합니다. 이제 코드에 맞게 조정할 수 있는 인덱스의 JSON 표현이 있습니다.
-
-1. [데이터가 포함된 인덱스를 로드합니다](search-what-is-data-import.md). Azure Cognitive Search는 JSON 문서를 허용 합니다. 데이터를 프로그래밍 방식으로 로드하려면 요청 페이로드의 JSON 문서에 Postman을 사용하면 됩니다. 데이터를 JSON으로 표현하기가 쉽지 않은 경우 이 단계에 가장 많은 노력이 필요할 것입니다. 
-
-    인덱스가 데이터로 로드 된 후에는 대부분의 기존 필드를 편집할 때 인덱스를 삭제 하 고 다시 작성 해야 합니다.
-
-1. 예상하는 결과가 나타나기 시작할 때까지 인덱스를 쿼리하고, 결과를 검사하고, 인덱스 스키마를 계속 반복합니다. [**Search 탐색기**](search-explorer.md) 또는 Postman을 사용하여 인덱스를 쿼리할 수 있습니다.
-
-개발 하는 동안 자주 다시 작성 하는 계획을 세워야 합니다. 물리적 구조는 서비스에서 만들어지므로 기존 필드 정의를 대부분 수정 하려면 [인덱스를 삭제 하 고 다시 만드는](search-howto-reindex.md) 것이 필요 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다. 
-
-> [!Tip]
-> 인덱스 디자인 및 데이터 가져오기 작업을 동시에 수행 하는 데는 포털 방법이 아닌 코드를 사용 하는 것이 좋습니다. 다른 방법으로, [Postman](search-get-started-rest.md) 또는 [Visual Studio Code](search-get-started-vs-code.md) 와 같은 도구는 개발 프로젝트가 아직 초기 단계에 있는 경우 개념 증명 테스트에 유용 합니다. 요청 본문에서 인덱스 정의를 증분식으로 변경한 다음, 서비스에 요청을 보내서 업데이트된 스키마를 사용하여 인덱스를 다시 만들 수 있습니다.
-
-## <a name="index-schema"></a>인덱스 스키마
-
-필드 컬렉션에는 이름 및 지정 된 키 필드 하나 (Edm. 문자열)가 필요 합니다. 일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 
-
-다른 요소에는 [확인 기](#suggesters), [점수 매기기 프로필](#scoringprofiles), 분석기에서 지 원하는 언어 규칙 또는 기타 특성과 [CORS (크로스-원본 원격 스크립팅)](#corsoptions) 설정에 따라 토큰에 대 한 문자열을 처리 하는 데 사용 되는 [분석기](#analyzers) 가 포함 됩니다.
+인덱스의 물리적 구조는 스키마에 의해 결정 됩니다. ' Fields ' 컬렉션은 일반적으로 각 필드의 이름을 지정 하 고, [데이터 형식을](/rest/api/searchservice/Supported-data-types)할당 하 고, 사용 방법을 결정 하는 허용 가능한 동작으로 특성을 지정 하는 인덱스의 가장 큰 부분입니다.
 
 ```json
 {
-  "name": (optional on PUT; required on POST) "name_of_index",
+  "name": "name_of_index, unique across the service",
   "fields": [
     {
       "name": "name_of_field",
@@ -97,90 +44,75 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
       "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
     }
   ],
-  "suggesters": [
-    {
-      "name": "name of suggester",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["field1", "field2", ...]
-    }
-  ],
-  "scoringProfiles": [
-    {
-      "name": "name of scoring profile",
-      "text": (optional, only applies to searchable fields) {
-        "weights": {
-          "searchable_field_name": relative_weight_value (positive #'s),
-          ...
-        }
-      },
-      "functions": (optional) [
-        {
-          "type": "magnitude | freshness | distance | tag",
-          "boost": # (positive number used as multiplier for raw score != 1),
-          "fieldName": "...",
-          "interpolation": "constant | linear (default) | quadratic | logarithmic",
-          "magnitude": {
-            "boostingRangeStart": #,
-            "boostingRangeEnd": #,
-            "constantBoostBeyondRange": true | false (default)
-          },
-          "freshness": {
-            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)
-          },
-          "distance": {
-            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
-            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
-          },
-          "tag": {
-            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)
-          }
-        }
-      ],
-      "functionAggregation": (optional, applies only when functions are specified) 
-        "sum (default) | average | minimum | maximum | firstMatching"
-    }
-  ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
   "analyzers":(optional)[ ... ],
   "charFilters":(optional)[ ... ],
   "tokenizers":(optional)[ ... ],
   "tokenFilters":(optional)[ ... ],
   "defaultScoringProfile": (optional) "...",
-  "corsOptions": (optional) {
-    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
-    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
-  },
-  "encryptionKey":(optional){
-    "keyVaultUri": "azure_key_vault_uri",
-    "keyVaultKeyName": "name_of_azure_key_vault_key",
-    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
-    "accessCredentials":(optional){
-      "applicationId": "azure_active_directory_application_id",
-      "applicationSecret": "azure_active_directory_application_authentication_key"
-    }
+  "corsOptions": (optional) { },
+  "encryptionKey":(optional){ }
   }
 }
 ```
 
-<a name="fields-collection"></a>
+다른 요소는 간결 하 게 축소 되지만 다음 링크를 통해 세부 정보를 제공할 수 있습니다. [확인 기](index-add-suggesters.md), [점수 매기기 프로필](index-add-scoring-profiles.md), 분석기에서 지 원하는 언어 규칙 또는 기타 특성에 따라 토큰에 문자열을 처리 하는 데 사용 되는 [분석기](search-analyzers.md) 및 [CORS (크로스-원본 원격 스크립팅)](#corsoptions) 설정입니다.
 
-## <a name="fields-collection-and-field-attributes"></a>필드 컬렉션 및 필드 특성
+## <a name="choose-a-client"></a>클라이언트 선택
 
-필드에는 이름, 저장 된 데이터를 분류 하는 형식 및 필드가 사용 되는 방법을 지정 하는 특성이 있습니다.
+검색 인덱스를 만드는 방법에는 여러 가지가 있습니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
-### <a name="data-types"></a>데이터 형식
+개발 하는 동안 자주 다시 작성 하는 계획을 세워야 합니다. 물리적 구조는 서비스에서 만들어지므로 기존 필드 정의를 대부분 수정 하려면 [인덱스를 삭제 하 고 다시 만드는](search-howto-reindex.md) 것이 필요 합니다. 보다 빠르게 다시 작성할 수 있도록 데이터 하위 집합을 사용하는 방안을 고려해 볼 수 있습니다.
 
-| Type | Description |
-|------|-------------|
-| Edm.String |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
-| Collection(Edm.String) |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
-| Edm.Boolean |true/false 값을 포함합니다. |
-| Edm.Int32 |32비트 정수 값입니다. |
-| Edm.Int64 |64비트 정수 값입니다. |
-| Edm.Double |배정밀도 숫자 데이터입니다. |
-| Edm.DateTimeOffset |날짜 시간 값을 OData V4 형식으로 표현합니다(예: `yyyy-MM-ddTHH:mm:ss.fffZ` 또는 `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
-| Edm.GeographyPoint |전 세계의 지리적 위치를 나타내는 지점입니다. |
+### <a name="permissions"></a>사용 권한
 
-자세한 내용은 [지원 되는 데이터 형식](/rest/api/searchservice/Supported-data-types)을 참조 하세요.
+GET 요청 정의를 포함 하 여 검색 인덱스와 관련 된 모든 작업에는 요청에 대 한 [관리 api 키](search-security-api-keys.md) 가 필요 합니다.
+
+### <a name="limits"></a>제한
+
+모든 [서비스 계층](search-limits-quotas-capacity.md#index-limits) 은 만들 수 있는 개체의 수를 제한 합니다. 무료 계층을 시험 하는 경우 지정 된 시간에 3 개의 인덱스만 가질 수 있습니다.
+
+### <a name="use-azure-portal-to-create-a-search-index"></a>Azure Portal를 사용 하 여 검색 인덱스 만들기
+
+포털은 검색 인덱스를 만드는 두 가지 옵션, 즉 [**데이터 가져오기 마법사**](search-import-data-portal.md) 와 인덱스 스키마를 지정 하기 위한 필드를 제공 하는 **인덱스 추가** 를 제공 합니다. 마법사는 인덱서, 데이터 원본 및 데이터 로드를 만들어 추가 작업을 압축 합니다. 원하는 것 보다 많은 경우에는 **인덱스 추가** 또는 다른 방법만 사용 하면 됩니다.
+
+다음 스크린샷은 포털에서 **추가 인덱스** 를 찾을 수 있는 위치를 보여 줍니다. **데이터 가져오기** 는 바로 다음 도어입니다.
+
+  :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="인덱스 추가 명령" border="true":::
+
+> [!Tip]
+> 포털을 통한 인덱스 디자인은 숫자 필드에서 전체 텍스트 검색 기능을 허용 하지 않는 등의 특정 데이터 형식에 대 한 요구 사항 및 스키마 규칙을 적용 합니다. 인덱스를 사용할 수 있으면 포털에서 JSON을 복사 하 여 솔루션에 추가할 수 있습니다.
+
+### <a name="use-a-rest-client"></a>REST 클라이언트 사용
+
+Postman과 Visual Studio Code (Azure Cognitive Search 용 확장 포함) 모두 검색 인덱스 클라이언트로 작동할 수 있습니다. 이러한 도구 중 하나를 사용 하 여 검색 서비스에 연결 하 고 [Create Index (REST)](/rest/api/searchservice/create-index) 요청을 보낼 수 있습니다. 개체를 만들기 위한 REST 클라이언트를 보여 주는 다양 한 자습서와 예제가 있습니다. 
+
+각 클라이언트에 대해 알아보려면 다음 문서 중 하나를 시작 합니다.
+
++ [REST 및 Postman을 사용 하 여 검색 인덱스 만들기](search-get-started-rest.md)
++ [Visual Studio Code 및 Azure Cognitive Search 시작](search-get-started-vs-code.md)
+
+인덱스 요청을 작성 하는 데 도움이 필요한 경우 [인덱스 작업 (REST)](/rest/api/searchservice/index-operations) 을 참조 하세요.
+
+### <a name="use-an-sdk"></a>SDK 사용
+
+Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능을 구현 합니다. 따라서 Sdk를 사용 하 여 검색 인덱스를 만들 수 있습니다. 이러한 모든 항목은 인덱스를 만들고 업데이트 하는 메서드가 포함 된 **Searchindexclient** 를 제공 합니다.
+
+| Azure SDK | 클라이언트 | 예 |
+|-----------|--------|----------|
+| .NET | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [azure-검색-dotnet-샘플/빠른 시작/v11/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) |
+| Java | [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) | [CreateIndexExample. java](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexExample.java) |
+| JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [인덱스](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
+| Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
+
+## <a name="defining-fields"></a>필드 정의
+
+Edm. String 형식의 필드 하나는 문서 키로 지정 해야 합니다. 각 검색 문서를 고유 하 게 식별 하는 데 사용 됩니다. 키를 기준으로 문서를 검색 하 여 세부 정보 페이지를 채울 수 있습니다.  
+
+들어오는 데이터가 계층적 이면 중첩 된 구조를 나타내는 [복합 유형](search-howto-complex-data-types.md) 데이터 형식을 할당 합니다. 기본 제공 샘플 데이터 집합 호텔은 각 호텔에 대해 일 대 일 관계를 갖는 주소 (여러 개의 하위 필드 포함)를 사용 하는 복합 형식을 보여 주며, 대화방 복합 컬렉션은 여러 개의 대화방에 연결 되어 있습니다. 
+
+인덱스를 만들기 전에 문자열 필드에 분석기를 할당 합니다. 특정 필드에서 자동 완성을 사용 하려면 확인 기에 대해 동일한 작업을 수행 합니다.
 
 <a name="index-attributes"></a>
 
@@ -204,34 +136,6 @@ Azure Cognitive Search에서 *검색 인덱스* 는 전체 텍스트 및 필터�
 > [!NOTE]
 > 인덱스를 작성 하는 데 사용 하는 Api는 다양 한 기본 동작을 포함 합니다. [REST api](/rest/api/searchservice/Create-Index)의 경우 대부분의 특성은 기본적으로 사용 하도록 설정 됩니다. 예를 들어 "검색 가능" 및 "검색 가능"은 문자열 필드에 대해 true 이며,이를 해제 하려는 경우에만 설정 해야 하는 경우가 많습니다. .NET SDK의 경우 반대의 경우도 마찬가지입니다. 명시적으로 설정 하지 않은 모든 속성에서 기본값은 명시적으로 사용 하도록 설정 하지 않은 경우 해당 검색 동작을 사용 하지 않도록 설정 하는 것입니다.
 
-## `analyzers`
-
-분석기 요소는 필드에 사용할 언어 분석기의 이름을 설정합니다. 사용할 수 있는 분석기 범위에 대 한 자세한 내용은 [Azure Cognitive Search 인덱스에 분석기 추가](search-analyzers.md)를 참조 하세요. 분석기는 검색 가능한 필드에만 사용할 수 있습니다. 분석기가 필드에 할당되면 인덱스를 다시 작성하기 전에는 분석기를 변경할 수 없습니다.
-
-## `suggesters`
-
-제안기는 검색에서 자동 완성 또는 자동 완성 쿼리를 지원하는 데 사용되는 인덱스의 필드를 정의하는 스키마 섹션입니다. 일반적으로 사용자가 검색 쿼리를 입력 하는 동안 부분 검색 문자열이 [제안 (REST API)](/rest/api/searchservice/suggestions) 으로 전송 되 고 API는 제안 된 문서 또는 구의 집합을 반환 합니다. 
-
-제안기에 추가된 필드는 검색어 미리 입력 기능을 빌드하는 데 사용됩니다. 모든 검색어는 인덱싱 중에 생성되어 별도로 저장됩니다. 제안기 구조체를 만드는 방법에 대한 자세한 내용은 [제안기 추가](index-add-suggesters.md)를 참조하세요.
-
-## `corsOptions`
-
-브라우저에서는 모든 원본 간 요청을 차단하므로 클라이언트 쪽 JavaScript는 기본적으로 API를 호출할 수 없습니다. 인덱스에 대한 원본 간 쿼리를 허용하려면 **corsOptions** 특성을 설정하여 CORS(원본 간 리소스 공유)를 사용하도록 설정합니다. 보안상의 이유로 쿼리 API에서만 CORS가 지원됩니다. 
-
-CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
-
-+ **allowedorigins** (필수): 인덱스에 대 한 액세스 권한이 부여 되는 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
-
-  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. *프로덕션 검색 서비스에는 권장되지 않지만* 개발 및 디버깅에 유용한 경우가 많습니다.
-
-+ **maxAgeInSeconds** (선택 사항): 브라우저는이 값을 사용 하 여 CORS 실행 전 응답을 캐시할 기간 (초)을 결정 합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
-
-## `scoringProfiles`
-
-[점수 매기기 프로필](index-add-scoring-profiles.md)은 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 채점 동작을 정의하는 스키마 섹션입니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 사용하려면 쿼리 문자열에서 이름별로 프로필을 지정합니다.
-
-기본 점수 매기기 프로필은 결과 집합에 있는 모든 항목에 대한 검색 점수를 계산하기 위해 백그라운드에서 작동합니다. 이름이 지정되지 않은 내부 점수 매기기 프로필을 사용할 수 있습니다. 또는 사용자 지정 프로필이 쿼리 문자열에 지정되지 않은 경우 항상 호출되는 기본값으로 사용자 지정 프로필을 사용하도록 **defaultScoringProfile** 을 설정합니다.
-
 <a name="index-size"></a>
 
 ## <a name="attributes-and-index-size-storage-implications"></a>특성 및 인덱스 크기 (저장소 영향)
@@ -249,13 +153,26 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 > [!Note]
 > 저장소 아키텍처는 Azure Cognitive Search의 구현 세부 정보로 간주 되며, 예 고 없이 변경 될 수 있습니다. 현재 동작이 나중에도 유지된다는 보장은 없습니다.
 
+<a name="corsoptions"></a>
+
+## <a name="about-corsoptions"></a>`corsOptions` 정보
+
+인덱스 스키마에는 설정에 대 한 섹션이 포함 `corsOptions` 됩니다. 브라우저에서는 모든 원본 간 요청을 차단하므로 클라이언트 쪽 JavaScript는 기본적으로 API를 호출할 수 없습니다. 인덱스에 대한 원본 간 쿼리를 허용하려면 **corsOptions** 특성을 설정하여 CORS(원본 간 리소스 공유)를 사용하도록 설정합니다. 보안상의 이유로 쿼리 API에서만 CORS가 지원됩니다. 
+
+CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
+
++ **allowedorigins** (필수): 인덱스에 대 한 액세스 권한이 부여 되는 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
+
+  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. *프로덕션 검색 서비스에는 권장되지 않지만* 개발 및 디버깅에 유용한 경우가 많습니다.
+
++ **maxAgeInSeconds** (선택 사항): 브라우저는이 값을 사용 하 여 CORS 실행 전 응답을 캐시할 기간 (초)을 결정 합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-인덱스 작성을 파악했으면 포털에서 계속해서 첫 번째 인덱스를 만들 수 있습니다. **데이터 가져오기** 마법사를 시작 하 여 *realestate-us-sample* 또는 *호텔-샘플* 호스트 된 데이터 원본을 선택 하는 것이 좋습니다.
+Cognitive Search에 대 한 거의 모든 샘플 또는 연습을 사용 하 여 인덱스를 만드는 실습 경험을 얻을 수 있습니다. 목차에서 퀵 스타트 중 하나를 선택 하 여 시작할 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [데이터 가져오기 마법사 (포털)](search-get-started-portal.md)
+또한 데이터를 사용 하 여 인덱스를 로드 하는 방법에 대해 잘 알고 싶을 것입니다. 인덱스 정의와 채우기는 함께 수행 됩니다. 다음 문서에서는 자세한 정보를 제공 합니다.
 
-두 데이터 집합 모두에 대해 마법사는 인덱스 스키마를 유추 하 고, 데이터를 가져오고, 검색 탐색기를 사용 하 여 쿼리할 수 있는 검색 가능한 인덱스를 출력할 수 있습니다. 데이터 **가져오기** 마법사의 **데이터에 연결** 페이지에서 이러한 데이터 원본을 찾습니다.
++ [데이터 가져오기 개요](search-what-is-data-import.md)
 
-   ![샘플 인덱스 만들기](media/search-what-is-an-index//import-wizard-sample-data.png "샘플 인덱스 만들기")
++ [문서 추가, 업데이트 또는 삭제 (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 

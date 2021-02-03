@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56751adedfc01b3927acc65f47910c3b1281f09c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98811677"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507573"
 ---
 # <a name="sensor-data-mining-queries"></a>센서 데이터 마이닝 쿼리
 
@@ -55,11 +55,11 @@ ms.locfileid: "98811677"
 
 쿼리를 사용 하 여 다양 한 보안 팀의 다양 한 보안 요구 사항을 처리할 수 있습니다.
 
-- **SOC 인시던트 응답**: 즉각적인 인시던트 대응을 처리할 수 있도록 실시간으로 보고서를 생성 합니다. 예를 들어 패치를 요구 하는 장치 목록에 대 한 보고서를 생성 합니다.
+- **SOC 인시던트 응답**: 즉각적인 인시던트 대응을 처리할 수 있도록 실시간으로 보고서를 생성 합니다. 예를 들어 데이터 마이닝은 패치를 요구 하는 장치 목록에 대 한 보고서를 생성할 수 있습니다.
 
 - **법적** 고가: 조사 보고서에 대 한 기록 데이터를 기반으로 보고서를 생성 합니다.
 
-- **IT 네트워크 무결성**: 전체적인 네트워크 보안을 개선 하는 데 도움이 되는 보고서를 생성 합니다. 예를 들어 약한 인증 자격 증명이 있는 장치를 나열 하는 보고서를 생성 합니다.
+- **IT 네트워크 무결성**: 전체적인 네트워크 보안을 개선 하는 데 도움이 되는 보고서를 생성 합니다. 예를 들어 약한 인증 자격 증명이 있는 장치를 나열 하는 보고서 생성이 생성 될 수 있습니다.
 
 - **표시 유형**: 네트워크의 모든 기본 매개 변수를 볼 수 있는 모든 쿼리 항목을 포함 하는 보고서를 생성 합니다.
 

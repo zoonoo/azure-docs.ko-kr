@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
-ms.openlocfilehash: 62faaed3672f721b26587d1bca3ddb0947f733e7
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: ea2dc877c7bc6db387985e7b5cd1153e195ab4f1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220839"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509573"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>단일 서버의 주 버전 업그레이드 Azure Database for MySQL
 
@@ -113,7 +113,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
 > 이 시나리오는 4, 5 및 6 단계 에서만 가동 중지 시간이 발생 합니다.
 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="when-will-this-upgrade-feature-be-ga-as-we-have-mysql-v56-in-our-production-environment-that-we-need-to-upgrade"></a>업그레이드 해야 하는 프로덕션 환경에 MySQL v 5.6이 있으므로이 업그레이드 기능이 GA 될 예정 인가요?
 
@@ -121,15 +121,7 @@ Azure CLI를 사용 하 여 Azure Database의 MySQL 5.6 서버에 대 한 주 �
 
 ### <a name="will-this-cause-downtime-of-the-server-and-if-so-how-long"></a>이로 인해 서버의 가동 중지 시간이 발생 하는 경우 시간이 오래 걸릴 수 있습니다.
 
-예, 업그레이드 프로세스 중에는 서버를 사용할 수 없으므로 계획 된 유지 관리 기간 동안이 작업을 수행 하는 것이 좋습니다. 예상 되는 가동 중지 시간은 데이터베이스 크기, 프로 비전 된 저장소 크기 (IOPs 프로 비전 됨) 및 데이터베이스의 테이블 수에 따라 달라 집니다. 업그레이드 시간은 서버의 테이블 수에 직접적으로 비례 합니다. 기본 SKU 서버 업그레이드는 표준 저장소 플랫폼에 비해 시간이 더 오래 걸릴 것으로 예상 됩니다. 서버 환경의 가동 중지 시간을 예측 하려면 먼저 복원 된 서버 복사본에서 업그레이드를 수행 하는 것이 좋습니다.  
-
-### <a name="it-is-noted-that-it-is-not-supported-on-replica-server-yet-what-does-that-mean-concrete"></a>아직 복제 서버에서는 지원 되지 않습니다. 구체적인 의미는 무엇 인가요?
-
-현재는 복제본 서버에 대해 주 버전 업그레이드가 지원 되지 않으므로 복제 (원본 또는 복제 서버)와 관련 된 서버에 대해 실행 하면 안 됩니다. 업그레이드 기능에 대 한 복제본 지원 기능을 추가 하기 전에 복제와 관련 된 서버 업그레이드를 테스트 하려는 경우 다음 단계를 수행 하는 것이 좋습니다.
-
-1. 계획 된 유지 관리 중에 [복제를 중지 하 고](howto-read-replicas-portal.md) 해당 이름과 모든 구성 정보 (방화벽 설정, 원본 서버와 다른 경우 서버 매개 변수 구성)를 캡처한 후 복제 서버를 삭제 합니다.
-2. 원본 서버 업그레이드를 수행 합니다.
-3. 1 단계에서 캡처한 동일한 이름 및 구성 설정을 사용 하 여 새 읽기 복제 서버를 프로 비전 합니다. 원본 서버가 v 5.7로 업그레이드 된 후에는 새 복제본 서버가 자동으로 v 5.7에 있습니다.
+예, 업그레이드 프로세스 중에는 서버를 사용할 수 없으므로 계획 된 유지 관리 기간 동안이 작업을 수행 하는 것이 좋습니다. 예상 되는 가동 중지 시간은 데이터베이스 크기, 프로 비전 된 저장소 크기 (IOPs 프로 비전 됨) 및 데이터베이스의 테이블 수에 따라 달라 집니다. 업그레이드 시간은 서버의 테이블 수에 직접적으로 비례 합니다. 기본 SKU 서버 업그레이드는 표준 저장소 플랫폼에 비해 시간이 더 오래 걸릴 것으로 예상 됩니다. 서버 환경의 가동 중지 시간을 예측 하려면 먼저 복원 된 서버 복사본에서 업그레이드를 수행 하는 것이 좋습니다. [읽기 복제본을 사용 하 여 mysql 5.6에서 mysql 5.7로 최소 가동 중지 시간을 최소화](#perform-minimal-downtime-major-version-upgrade-from-mysql-56-to-mysql-57-using-read-replicas) 하는 것이 좋습니다.
 
 ### <a name="what-will-happen-if-we-do-not-choose-to-upgrade-our-mysql-v56-server-before-february-5-2021"></a>2021 년 2 월 5 일 이전에 MySQL v 5.6 서버를 업그레이드 하도록 선택 하지 않으면 어떻게 되나요?
 

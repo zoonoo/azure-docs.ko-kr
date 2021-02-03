@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 38012c5b4bb9338c1200d9583256193ee8402c98
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610015"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507916"
 ---
 # <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>신뢰할 수 있는 플랫폼 모듈 (TPM) 및 VBS (가상화 기반 보안) enclave 증명 프로토콜 
 
@@ -24,7 +24,7 @@ VBS enclaves는 보안 파운데이션의 유효성을 검사 하는 측정을 �
 
 ### <a name="init-message"></a>초기화 메시지
 
-#### <a name="direction"></a>방향
+#### <a name="direction"></a>Direction
 
 클라이언트-> Azure 증명
 
@@ -40,7 +40,7 @@ VBS enclaves는 보안 파운데이션의 유효성을 검사 하는 측정을 �
 
 ### <a name="challenge-message"></a>챌린지 메시지
 
-#### <a name="direction"></a>방향
+#### <a name="direction"></a>Direction
 
 Azure 증명-> 클라이언트
 
@@ -55,12 +55,12 @@ Azure 증명-> 클라이언트
 
 **챌린지** (BASE64URL (8 진수)): 서비스에서 발급 된 임의 값입니다.
 
-**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 되는 불투명 하 고 암호화 된 컨텍스트로, 다른 항목 중 하나, 챌린지 및 해당 챌린지의 만료 시간을 포함 합니다. 
+**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 된 불투명 컨텍스트입니다.
 
 
 ### <a name="request-message"></a>메시지 요청
 
-#### <a name="direction"></a>방향
+#### <a name="direction"></a>Direction
 
 클라이언트-> Azure 증명 
 
@@ -236,11 +236,11 @@ TPM + VBS enclave 샘플:
 
 - **value_type (문자열)**: 클레임 값의 데이터 형식
 
-**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 되는 불투명 하 고 암호화 된 컨텍스트로, 해당 챌린지의 챌린지 및 만료 시간을 포함 합니다.
+**service_context** (BASE64URL (8 진수)): 서비스에 의해 생성 된 불투명 컨텍스트입니다.
 
 ### <a name="report-message"></a>보고서 메시지
 
-#### <a name="direction"></a>방향
+#### <a name="direction"></a>Direction
 
 Azure 증명-> 클라이언트
 

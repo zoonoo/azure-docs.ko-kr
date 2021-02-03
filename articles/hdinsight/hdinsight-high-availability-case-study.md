@@ -5,12 +5,12 @@ keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6b995e2ab5ba663f6e33b009062859eb32928cc1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945359"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508594"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Azure HDInsight 항상 사용 가능한 솔루션 아키텍처 사례 연구
 
@@ -71,7 +71,7 @@ Azure Pipelines에 통합 되 고 Azure 외부에 호스트 되는 버전 제어
 
 **Hive 및 Spark** 는 정상적인 시간 동안 [활성 주 주문형 보조](hdinsight-business-continuity-architecture.md#apache-spark) 복제 모델을 사용 합니다. Hive 복제 프로세스는 주기적으로 실행 되며 Hive Azure SQL metastore 및 Hive 저장소 계정 복제를 함께 제공 합니다. Spark 저장소 계정은 ADF DistCP를 사용 하 여 주기적으로 복제 됩니다. 이러한 클러스터의 일시적인 특성은 비용을 최적화 하는 데 도움이 됩니다. 복제는 5 시간 요구 사항에 해당 하는 RPO에 도착 하도록 4 시간 마다 예약 됩니다.
 
-**HBase** 복제는 보통 시간 동안 [리더 – 종동체](hdinsight-business-continuity-architecture.md#apache-hbase) 모델을 사용 하 여 지역에 관계 없이 데이터가 항상 제공 되 고 RPO가 0 인지 확인 합니다.
+**HBase** 복제는 보통 시간 동안 [리더 – 종동체](hdinsight-business-continuity-architecture.md#apache-hbase) 모델을 사용 하 여 지역에 관계 없이 데이터가 항상 제공 되 고 RPO가 매우 낮음을 확인 합니다.
 
 주 지역에 지역 실패가 있는 경우 웹 페이지와 백 엔드 콘텐츠는 일정 수준으로 5 시간 동안 보조 지역에서 제공 됩니다. Azure 서비스 상태 대시보드가 5 시간 기간 내에 복구 에타를 나타내지 않는 경우 Contoso Retail은 보조 지역에 Hive 및 Spark 변환 계층을 만든 다음 모든 업스트림 데이터 원본을 보조 지역으로 가리킵니다. 보조 영역을 쓰기 가능 하도록 설정 하면 장애 복구 프로세스가 주 데이터베이스로 다시 복제 됩니다.
 
