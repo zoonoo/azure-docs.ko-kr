@@ -4,12 +4,12 @@ description: Azure 배포 관리자을 사용 하 여 여러 지역에 걸쳐 �
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baed44e04a0beca02cc959d302a4a29906b4a78e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333208"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539521"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -30,10 +30,10 @@ Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms
 
 추가 리소스:
 
-- [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/).
-- [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
-- [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
-- [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
+* [Azure 배포 관리자 REST API 참조](/rest/api/deploymentmanager/)입니다.
+* [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
+* [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
+* [Azure 배포 관리자 샘플](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>ID 및 액세스
 
@@ -49,10 +49,10 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 토폴로지 템플릿에는 다음 리소스가 포함됩니다.
 
-* 아티팩트 원본 - Resource Manager 템플릿 및 매개 변수가 저장되는 위치입니다.
-* 서비스 토폴로지 - 아티팩트 원본을 가리킵니다.
-  * 서비스 - 위치 및 Azure 구독 ID를 지정합니다.
-    * 서비스 단위 - 리소스 그룹, 배포 모드 및 템플릿과 매개 변수 파일의 경로를 지정합니다.
+* 아티팩트 소스-리소스 관리자 템플릿 및 매개 변수가 저장 됩니다.
+* 서비스 토폴로지-아티팩트 소스를 가리킵니다.
+  * 서비스-위치 및 Azure 구독 ID를 지정 합니다.
+    * 서비스 단위-리소스 그룹, 배포 모드 및 템플릿 및 매개 변수 파일에 대 한 경로를 지정 합니다.
 
 각 수준에서 수행되는 작업을 이해하기 위해서는 사용자가 제공하는 값을 확인하는 것이 좋습니다.
 
@@ -87,7 +87,7 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 ### <a name="service-topology"></a>서비스 토폴로지
 
-다음 예제에서는 서비스 토폴로지 리소스의 일반 형식을 보여 줍니다. 템플릿 및 매개 변수 파일을 포함하는 아티팩트 원본의 리소스 ID를 제공합니다. 서비스 토폴로지에는 모든 서비스 리소스가 포함됩니다. 아티팩트 원본이 사용 가능하도록 하기 위해 서비스 토폴로지가 종속되어 있습니다.
+다음 예제에서는 서비스 토폴로지 리소스의 일반 형식을 보여 줍니다. 템플릿 및 매개 변수 파일을 포함하는 아티팩트 원본의 리소스 ID를 제공합니다. 서비스 토폴로지에는 모든 서비스 리소스가 포함됩니다. 서비스 토폴로지가 종속 되어 있으므로 아티팩트 소스를 사용할 수 있는지 확인 합니다.
 
 ```json
 {
@@ -112,7 +112,7 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 자세한 내용은 [serviceTopologies 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/serviceTopologies)를 참조하세요.
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 다음 예제에서는 서비스 리소스의 일반 형식을 보여 줍니다. 각 서비스에서 서비스 배포에 사용할 위치 및 Azure 구독 ID를 제공합니다. 여러 지역에 배포하려면 각 지역의 서비스를 정의합니다. 서비스는 서비스 토폴로지에 따라 다릅니다.
 
@@ -175,11 +175,11 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 롤아웃 템플릿은 서비스를 배포할 때 수행하는 단계를 설명합니다. 사용할 서비스 토폴로지를 지정하고 서비스 단위 배포 순서를 정의합니다. 여기에는 배포용 이진 파일을 저장하기 위한 아티팩트 원본이 포함되어 있습니다. 롤아웃 템플릿에서 다음 계층 구조를 정의합니다.
 
-* 아티팩트 원본
-* 단계
-* 롤아웃
-  * 단계 그룹
-    * 배포 작업
+* 아티팩트 소스입니다.
+* 이동.
+* 좋다는.
+  * 단계 그룹.
+    * 배포 작업.
 
 다음 이미지는 롤아웃 템플릿의 계층 구조를 보여 줍니다.
 
@@ -193,9 +193,9 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 ### <a name="steps"></a>단계
 
-배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재 `wait` 단계와 ' healthCheck ' 단계만 사용할 수 있습니다.
+배포 작업 전후에 수행할 단계를 정의할 수 있습니다. 현재 `wait` 단계와 `healthCheck` 단계만 사용할 수 있습니다.
 
-대기 단계는 계속하기 전에 배포를 일시 중지합니다. 다음 서비스 단위를 배포하기 전에 서비스가 예상대로 실행되고 있는지 확인할 수 있습니다. 다음 예제에서는 대기 단계의 일반 형식을 보여 줍니다.
+`wait`단계를 진행 하기 전에 배포를 일시 중지 합니다. 다음 서비스 단위를 배포하기 전에 서비스가 예상대로 실행되고 있는지 확인할 수 있습니다. 다음 예에서는 단계의 일반적인 형식을 보여 줍니다 `wait` .
 
 ```json
 {
@@ -214,13 +214,13 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 지속 기간 속성은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Durations)을 사용합니다. 이전 예제는 1분 대기를 지정합니다.
 
-상태 검사 단계에 대 한 자세한 내용은 [azure 배포 관리자에 상태 통합 출시 소개](./deployment-manager-health-check.md) 및 [자습서: azure 배포 관리자에서 상태 검사 사용](./deployment-manager-tutorial-health-check.md)을 참조 하세요.
+상태 검사에 대 한 자세한 내용은 [azure 배포 관리자에 상태 통합 출시 소개](./deployment-manager-health-check.md) 및 [자습서: azure 배포 관리자에서 상태 검사 사용](./deployment-manager-tutorial-health-check.md)을 참조 하세요.
 
 자세한 내용은 [단계 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/steps)를 참조하세요.
 
 ### <a name="rollouts"></a>출시
 
-아티팩트 원본이 사용 가능하도록 하기 위해 롤아웃이 종속되어 있습니다. 롤아웃은 배포된 각 서비스 단위의 단계 그룹을 정의합니다. 배포 전후에 수행할 작업을 정의할 수 있습니다. 예를 들어, 서비스 단위가 배포된 후 배포 대기를 지정할 수 있습니다. 단계 그룹의 순서를 정의할 수 있습니다.
+롤아웃이이에 종속 되어 있으므로 아티팩트 소스를 사용할 수 있는지 확인 합니다. 롤아웃은 배포된 각 서비스 단위의 단계 그룹을 정의합니다. 배포 전후에 수행할 작업을 정의할 수 있습니다. 예를 들어 서비스 단위가 배포 된 후에 배포를 대기 하도록 지정할 수 있습니다. 단계 그룹의 순서를 정의할 수 있습니다.
 
 ID 개체는 배포 작업을 수행하는 [사용자가 할당한 관리 ID](#identity-and-access)입니다.
 
@@ -270,7 +270,7 @@ ID 개체는 배포 작업을 수행하는 [사용자가 할당한 관리 ID](#i
 
 버전이 관리되는 배포를 사용할 경우 새 버전마다 아티팩트 경로가 변경됩니다. 배포를 처음 실행할 때 이 경로는 `https://<base-uri-blob-container>/binaries/1.0.0.0`일 수 있습니다. 두 번째 배포에서는 `https://<base-uri-blob-container>/binaries/1.0.0.1`일 수 있습니다. 배포 관리자는 `$containerRoot` 변수를 사용하여 현재 배포에 대한 올바른 루트 경로를 간편하게 가져옵니다. 이 값은 버전마다 달라지며 배포 전에는 알 수 없습니다.
 
-Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$containerRoot` 변수를 사용합니다. 배포 시, 이 변수는 롤아웃의 실제 값으로 바뀝니다.
+`$containerRoot`Azure 리소스를 배포 하는 템플릿에 대 한 매개 변수 파일의 변수를 사용 합니다. 배포 시, 이 변수는 롤아웃의 실제 값으로 바뀝니다.
 
 예를 들어, 롤아웃 중에 2진 아티팩트용 아티팩트 원본을 만듭니다.
 
@@ -296,7 +296,7 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 
 `artifactRoot` 및 `sasUri` 속성에 유의합니다. 아티팩트 루트를 `binaries/1.0.0.0`과 같은 값으로 설정할 수 있습니다. SAS URI는 액세스를 위한 SAS 토큰이 있는 스토리지 컨테이너의 URI입니다. 배포 관리자는 `$containerRoot` 변수의 값을 자동으로 구성합니다. 해당 값을 `<container>/<artifactRoot>` 형식으로 조합합니다.
 
-템플릿 및 매개 변수 파일은 버전이 관리되는 2진 파일을 가져오기 위해 올바른 경로를 알아야 합니다. 예를 들어, 웹앱용 파일을 배포하려면 $containerRoot 변수를 사용하여 다음 매개 변수 파일을 만듭니다. 첫 번째 백슬래시는 이스케이프 문자이므로 경로에 두 개의 백슬래시(`\\`)를 사용해야 합니다.
+템플릿 및 매개 변수 파일은 버전이 관리되는 2진 파일을 가져오기 위해 올바른 경로를 알아야 합니다. 예를 들어 웹 앱에 대 한 파일을 배포 하려면 변수를 사용 하 여 다음 매개 변수 파일을 만듭니다 `$containerRoot` . 첫 번째 백슬래시는 이스케이프 문자이므로 경로에 두 개의 백슬래시(`\\`)를 사용해야 합니다.
 
 ```json
 {
@@ -330,7 +330,7 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 }
 ```
 
-새 폴더를 만들고 롤아웃 동안 해당 루트를 전달하여 버전이 관리되는 배포를 관리합니다. 경로는 리소스를 배포하는 템플릿을 통과해서 지정됩니다.
+새 폴더를 만들고 롤아웃 중에 해당 루트 경로를 전달 하 여 버전이 지정 된 배포를 관리 합니다. 경로는 리소스를 배포하는 템플릿을 통과해서 지정됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

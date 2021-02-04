@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ee4e313366bafdd2f6e3bd0e104abd9f11b7776
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 6cefb60d794defcce54766b9c7f71e7fbf40fe5c
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108673"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539436"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -110,7 +110,7 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```powershell
 $creds = Get-Credential
@@ -136,7 +136,7 @@ sudo chown -R 11000:11000 <blob-dir>
 sudo chmod -R 700 <blob-dir>
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```terminal
 sudo chown -R 11000:11000 /srv/containerdata
@@ -184,6 +184,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 다음 퀵 스타트 샘플에서는 IoT Edge 에서도 지원 되는 언어를 사용 하므로 blob storage 모듈과 함께 IoT Edge 모듈로 배포할 수 있습니다.
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * Iot Edge 모듈 v 1.4.0 및 이전 버전의 Azure Blob Storage Windowsazure.servicebus와 호환 됩니다. 저장소 9.3.3 SDK 및 v 1.4.1는 Azure. 12.8.0 SDK도 지원 합니다.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Python SDK의 V 2.1 이전 버전에는 모듈이 blob 생성 시간을 반환 하지 않는 알려진 문제가 있습니다. 이러한 문제로 인해 blob 나열과 같은 일부 메서드는 작동 하지 않습니다. 해결 방법으로 blob 클라이언트의 API 버전을 ' 2017-04-17 '로 명시적으로 설정 합니다. 예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Blob 추가 샘플](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -292,7 +293,7 @@ IoT Edge 모듈의이 Azure Blob Storage은 이제 IoT Edge의 Event Grid와의 
 
 ## <a name="release-notes"></a>릴리스 정보
 
-이 모듈에 대 한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage) 는 다음과 같습니다.
+이 모듈에 대 한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage) 는 다음과 같습니다. 특정 버전의 릴리스 정보에서 버그 수정과 수정 사항과 관련 된 추가 정보를 찾을 수 있습니다.
 
 ## <a name="suggestions"></a>제안
 

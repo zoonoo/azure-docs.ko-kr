@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/03/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6e558962ad8a84b5f44abe21bc7c0ab67a4861ba
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2b4ae4aa8f6b08b273088c98d120d339db7deadb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493823"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539453"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -36,7 +36,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 **참고:**
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.  
-<a name="azprovider">2</a> - 테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정되면 메모리 내 및 DirectQuery 모델 모두 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL(권장), SQL Server Native Client 11.0 또는 .NET Framework Data Provider for SQL Server가 필요합니다.  
+<a name="azprovider">2</a> -테이블 형식 1200 이상 모델에서 *공급자* 데이터 원본으로 지정 하는 경우 메모리 내 및 DirectQuery 모델 모두에는 Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (권장) 또는 .NET Framework Data Provider SQL Server가 필요 합니다.  
 <a name="azsqlmanaged">3</a> -Azure SQL Managed Instance 지원 됩니다. SQL Managed Instance 개인 IP 주소를 사용 하 여 Azure VNet 내에서 실행 되기 때문에 인스턴스에 대해 공용 끝점을 사용 하도록 설정 해야 합니다. 사용하도록 설정하지 않으면 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)가 필요합니다.  
 <a name="databricks">4</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.  
 <a name="gen2">5</a> - ADLS Gen2 커넥터는 현재 지원되지 않지만 Azure Blob Storage 커넥터는 ADLS Gen2 데이터 원본에서 사용할 수 있습니다.

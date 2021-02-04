@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951313"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539487"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 매개 변수
 
@@ -31,7 +31,7 @@ Azure Database for MySQL는 [Azure Portal](./howto-server-parameters.md), [Azure
 
 ### <a name="thread-pools"></a>스레드 풀
 
-MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 formance에 해당 하는 놓기가 있습니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
+MySQL은 일반적으로 모든 클라이언트 연결에 대 한 스레드를 할당 합니다. 동시 사용자 수가 증가 함에 따라 성능이 저하 됩니다. 많은 활성 스레드는 컨텍스트 전환 증가, 스레드 경합 및 CPU 캐시의 잘못 된 집약성으로 인해 성능에 크게 영향을 줄 수 있습니다.
 
 서버 쪽 기능이 며 연결 풀링과는 다른 스레드 풀은 서버에서 실행 되는 활성 스레드 수를 제한 하 고 스레드 변동 (code churn)을 최소화 하는 데 사용할 수 있는 작업자 스레드의 동적 풀을 도입 하 여 성능을 최대화 합니다. 이렇게 하면 연결 버스트로 인해 서버에서 리소스가 부족 하거나 메모리 부족 오류가 발생 하 여 작동이 중단 되지 않도록 할 수 있습니다. 스레드 풀은 OLTP 워크 로드와 같이 짧은 쿼리와 CPU 집약적 워크 로드에 가장 효율적입니다.
 
