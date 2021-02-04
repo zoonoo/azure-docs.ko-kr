@@ -3,12 +3,12 @@ title: Event Grid 소스로 Azure 앱 구성
 description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure 앱 구성을 사용 하는 방법을 설명 합니다. 스키마와 자습서 및 방법 문서 링크를 제공합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: bdd077c291bd1e1c441217740daf39c8bcaad732
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d305236e8408052be4be28ec003f4e545119fc59
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117001"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550677"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Event Grid 소스로 Azure 앱 구성
 이 문서에서는 Azure 앱 구성 이벤트에 대 한 속성 및 스키마를 제공 합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 또한 Azure 앱 구성을 이벤트 원본으로 사용 하는 빠른 시작 및 자습서의 목록을 제공 합니다.
@@ -68,7 +68,7 @@ Azure 앱 구성은 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -81,7 +81,7 @@ Azure 앱 구성은 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | key | 문자열 | 수정 되거나 삭제 된 키-값의 키입니다. |
 | label | 문자열 | 수정 되거나 삭제 된 키-값의 레이블 (있는 경우)입니다. |
@@ -92,10 +92,10 @@ Azure 앱 구성은 다음과 같은 이벤트 유형을 내보냅니다.
 |제목 | 설명 |
 |---------|---------|
 | [Event Grid를 사용 하 여 Azure 앱 구성 이벤트에 대응](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure 앱 구성을 통합 하는 방법에 대 한 개요입니다. |
-| [빠른 시작: Azure CLI를 사용 하 여 Azure 앱 구성 이벤트를 사용자 지정 웹 끝점으로 라우팅](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용 하 여 웹 후크로 Azure 앱 구성 이벤트를 보내는 방법을 보여 줍니다. |
+| [데이터 변경 알림에 Event Grid 사용](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure 앱 구성 이벤트 구독을 사용 하 여 웹 끝점에 키-값 수정 이벤트를 보내는 방법에 대해 알아봅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.
-* Azure 앱 구성 이벤트를 사용 하는 방법에 대 한 소개는 [경로 Azure 앱 구성 이벤트-Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json)를 참조 하세요. 
+* Azure 앱 구성 이벤트를 사용 하는 방법에 대 한 소개는 [데이터 변경 알림에 Event Grid 사용](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json)을 참조 하세요. 

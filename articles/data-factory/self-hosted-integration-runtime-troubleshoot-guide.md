@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 8a722550d12d019e25ff39de27cc0df2c2762a01
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942049"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551079"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -244,7 +244,7 @@ GAC에 대 한 자세한 내용은 [전역 어셈블리 캐시](/dotnet/framewor
  
 두 개의 데이터 저장소 간에 네트워크를 통해 트래픽을 전달할 수 없는 경우 (예를 들어 두 가상 네트워크에서 구성 된 경우), IR이 설치 된 경우에도 하나의 작업에서 복사가 완료 되지 않을 수 있습니다. 단일 작업으로 복사를 완료할 수 없는 경우 각각 환풍구에 두 개의 IRs를 사용 하 여 두 개의 복사 작업을 만들 수 있습니다. 
 * 데이터 저장소 1에서 Azure Blob Storage로 IR을 복사 합니다.
-* Azure Blob Storage에서 다른 IR을 v데이터 저장소 2로 복사 합니다. 
+* Azure Blob Storage에서 데이터 저장소 2로 다른 IR을 복사 합니다. 
 
 이 솔루션은 IR을 사용 하 여 연결이 끊어진 두 데이터 저장소를 연결 하는 브리지를 만드는 요구 사항을 시뮬레이트할 수 있습니다.
 
@@ -355,7 +355,7 @@ Integration runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 
         !["서비스로 로그온" 속성 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
-#### <a name="more-information"></a>자세한 정보
+#### <a name="more-information"></a>추가 정보
 
 사용자의 경우 위의 두 해결 패턴 중 어느 것도 적용 되지 않으면 다음 Windows 이벤트 로그를 수집 해 보십시오. 
 - 응용 프로그램 및 서비스 로그 > Integration Runtime
@@ -710,7 +710,7 @@ Azure Data Factory v1 고객의 경우:
 
 영향을 받는지 여부를 확인 하는 방법:
 
-- [IP 주소에 대 한 방화벽 구성 설정 및 허용 목록](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway)에 설명 된 방법을 사용 하는 fqdn (정규화 된 도메인 이름)을 기반으로 하는 방화벽 규칙을 정의 하는 경우에는 영향을 받지 *않습니다* .
+- [IP 주소에 대 한 방화벽 구성 설정 및 허용 목록](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses)에 설명 된 방법을 사용 하는 fqdn (정규화 된 도메인 이름)을 기반으로 하는 방화벽 규칙을 정의 하는 경우에는 영향을 받지 *않습니다* .
 
 - 회사 방화벽에서 아웃 바운드 Ip에 대해 허용 목록을 명시적으로 사용 하도록 설정 *하는 경우 영향을* 받습니다.
 

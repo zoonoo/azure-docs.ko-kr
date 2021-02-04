@@ -12,21 +12,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 99703acc4965a38337a39fe23cc19cafddd1531d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791123"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550881"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
 Azure SQL은 Azure 클라우드에서 SQL Server 데이터베이스 엔진을 사용하는 관리형, 보안 및 인텔리전트 제품군입니다.
 
-- **Azure SQL Database** : 서버리스 컴퓨팅을 포함하는 인텔리전트 관리형 데이터베이스 서비스에서 최신 클라우드 애플리케이션을 지원합니다. 
-- **Azure SQL Managed Instance** : SQL Server 데이터베이스 엔진과 거의 100% 동일한 기능을 제공하며 서비스로 제공되는 완전 관리형 인텔리전트 인스턴스를 통해 기존 SQL Server 애플리케이션을 대규모로 현대화합니다. 클라우드로의 마이그레이션에 대부분 적합합니다.
-- **Azure VM의 SQL Server** : SQL Server 워크로드를 편리하게 리프트 앤 시프트하며 SQL Server 호환성 및 운영 체제 수준 액세스를 100% 유지합니다. 
+- **Azure SQL Database**: 서버리스 컴퓨팅을 포함하는 인텔리전트 관리형 데이터베이스 서비스에서 최신 클라우드 애플리케이션을 지원합니다. 
+- **Azure SQL Managed Instance**: SQL Server 데이터베이스 엔진과 거의 100% 동일한 기능을 제공하며 서비스로 제공되는 완전 관리형 인텔리전트 인스턴스를 통해 기존 SQL Server 애플리케이션을 대규모로 현대화합니다. 클라우드로의 마이그레이션에 대부분 적합합니다.
+- **Azure VM의 SQL Server**: SQL Server 워크로드를 편리하게 리프트 앤 시프트하며 SQL Server 호환성 및 운영 체제 수준 액세스를 100% 유지합니다. 
  
 Azure SQL은 친숙한 SQL Server 엔진에 기반하기 때문에 애플리케이션을 쉽게 마이그레이션할 수 있고 익숙한 도구, 언어 및 리소스를 계속 사용할 수 있습니다. 사용하던 기술과 경험이 클라우드로 이전되기 때문에 이미 가지고 있는 것으로 더 많은 작업을 수행할 수 있습니다. 
 
@@ -53,7 +53,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 Azure는 위협에 대비하여 데이터를 지속적으로 모니터링합니다. Azure SQL을 사용하여 다음을 수행할 수 있습니다.
 
-- 인텔리전트 [지능형 위협 탐지](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) 및 자동 관리 취약성 평가 경고를 통해 잠재적 위협을 실시간으로 해결합니다. 
+- 인텔리전트 [지능형 위협 탐지](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) 및 자동 관리 취약성 평가 경고를 통해 잠재적 위협을 실시간으로 해결합니다. 
 - T-SQL, 인증, 네트워킹 및 키 관리를 포함한 [기본 제공 보안 컨트롤](https://azure.microsoft.com/overview/security/)을 통해 업계 최고의 다중 계층 보호를 받습니다. 
 - 클라우드 데이터베이스 서비스의 가장 포괄적인 [규정 준수](https://azure.microsoft.com/overview/trusted-cloud/compliance/) 범위를 활용합니다. 
 

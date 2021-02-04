@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 12/30/2020
-ms.openlocfilehash: ee6c116d02a7be1682d9e8379037ef1b8c92bce8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.date: 02/03/2021
+ms.openlocfilehash: d4500229800fa5d1743779b29927637777647e47
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967041"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550660"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Logic Apps REST API를 사용하여 ISE(통합 서비스 환경) 만들기
 
@@ -188,17 +188,28 @@ Logic Apps REST API 호출 하 여 ISE를 만들려면 HTTPS PUT 요청을 만�
 
 ## <a name="add-custom-root-certificates"></a>사용자 지정 루트 인증서 추가
 
-종종 ISE를 사용 하 여 가상 네트워크 또는 온-프레미스의 사용자 지정 서비스에 연결 합니다. 이러한 사용자 지정 서비스는 엔터프라이즈 인증 기관 또는 자체 서명 된 인증서와 같은 사용자 지정 루트 인증 기관에서 발급 한 인증서로 보호 되는 경우가 많습니다. 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요. ISE가 TLS (Transport Layer Security)를 통해 이러한 서비스에 성공적으로 연결 하려면 ISE에서 이러한 루트 인증서에 액세스 해야 합니다. 사용자 지정 신뢰할 수 있는 루트 인증서를 사용 하 여 ISE를 업데이트 하려면 다음 HTTPS 요청을 수행 합니다 `PATCH` .
+종종 ISE를 사용 하 여 가상 네트워크 또는 온-프레미스의 사용자 지정 서비스에 연결 합니다. 이러한 사용자 지정 서비스는 엔터프라이즈 인증 기관 또는 자체 서명 된 인증서와 같은 사용자 지정 루트 인증 기관에서 발급 한 인증서로 보호 되는 경우가 많습니다. 자체 서명 된 인증서를 사용 하는 방법에 대 한 자세한 내용은 [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)를 참조 하세요. ISE가 TLS (Transport Layer Security)를 통해 이러한 서비스에 성공적으로 연결 하려면 ISE에서 이러한 루트 인증서에 액세스 해야 합니다.
 
-`PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+#### <a name="considerations-for-adding-custom-root-certificates"></a>사용자 지정 루트 인증서 추가 시 고려 사항
 
-이 작업을 수행 하기 전에 다음 사항을 검토 하십시오.
+사용자 지정 신뢰할 수 있는 루트 인증서를 사용 하 여 ISE를 업데이트 하기 전에 다음 고려 사항을 검토 하세요.
 
 * 루트 인증서 *와* 모든 중간 인증서를 업로드 해야 합니다. 최대 인증서 수는 20 개입니다.
 
 * 루트 인증서 업로드는 최근 업로드가 이전 업로드를 덮어쓰는 대체 작업입니다. 예를 들어 한 인증서를 업로드 하는 요청을 보낸 다음 다른 인증서를 업로드 하는 다른 요청을 보내면 ISE는 두 번째 인증서만 사용 합니다. 두 인증서를 모두 사용 해야 하는 경우 동일한 요청에 함께 추가 합니다.  
 
 * 루트 인증서를 업로드 하는 작업은 다소 시간이 걸릴 수 있는 비동기 작업입니다. 상태 또는 결과를 확인 하려면 `GET` 동일한 URI를 사용 하 여 요청을 보낼 수 있습니다. 응답 메시지에는 `provisioningState` `InProgress` 업로드 작업이 계속 작동 하는 경우 값을 반환 하는 필드가 있습니다. `provisioningState`값이 이면 `Succeeded` 업로드 작업이 완료 된 것입니다.
+
+#### <a name="request-syntax"></a>요청 구문
+
+사용자 지정 신뢰할 수 있는 루트 인증서를 사용 하 여 ISE를 업데이트 하려면 다음 HTTPS 패치 요청을 [Azure 환경에 따라 달라 지는 AZURE RESOURCE MANAGER URL](../azure-resource-manager/management/control-plane-and-data-plane.md#control-plane)에 보냅니다. 예를 들면 다음과 같습니다.
+
+| 환경 | Azure Resource Manager URL |
+|-------------|----------------------------|
+| Azure global (다중 테 넌 트) | `PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Azure Government | `PATCH https://management.usgovcloudapi.net/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+| Microsoft Azure 중국 21Vianet | `PATCH https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01` |
+|||
 
 #### <a name="request-body-syntax-for-adding-custom-root-certificates"></a>사용자 지정 루트 인증서를 추가 하기 위한 요청 본문 구문
 

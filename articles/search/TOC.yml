@@ -302,10 +302,10 @@
               href: knowledge-store-projections-examples.md
     - name: 쿼리
       items:
-        - name: 쿼리 형식 및 컴퍼지션
-          href: search-query-overview.md
         - name: 기본 쿼리 만들기
           href: search-query-create.md
+        - name: 쿼리 형식 및 컴퍼지션
+          href: search-query-overview.md
         - name: 간단한 구문 사용(예제)
           href: search-query-simple-examples.md
         - name: 전체 Lucene 사용(예제)

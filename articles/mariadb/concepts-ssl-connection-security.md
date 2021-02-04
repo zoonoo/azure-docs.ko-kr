@@ -3,15 +3,15 @@ title: SSL/TLS 연결-Azure Database for MariaDB
 description: SSL 연결을 올바르게 사용하도록 Azure Database for MariaDB 및 연결된 애플리케이션을 구성하는 방법에 대한 정보
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 7ada6f5a7b7ece9b8b36ea1bd2e52b5ad7efd12d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 6c4ee8c6d12a6350c319e40bbe30046af4932311
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662494"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550643"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 SSL/TLS 연결
 Azure Database for MariaDB는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 애플리케이션에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -62,7 +62,7 @@ Azure Database for MariaDB에 대 한 TLS 설정을 설정 하는 방법에 대 
 
 ## <a name="cipher-support-by-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 암호화 지원
 
-SSL/TLS 통신의 일부로 암호 그룹의 유효성을 검사 하 고 암호화 짝패만 데이터베이스 서비스와 통신할 수 있습니다. 암호 그룹 유효성 검사는 [게이트웨이 계층](concepts-connectivity-architecture.md#connectivity-architecture) 에서 제어 되며 노드 자체에서 명시적으로 제어 되지 않습니다. 암호 그룹이 아래 나열 된 도구 모음 중 하 나와 일치 하지 않으면 들어오는 클라이언트 연결이 거부 됩니다.
+SSL/TLS 통신의 일부로 암호 그룹의 유효성을 검사 하 고 암호화 짝패만 데이터베이스 서버와 통신할 수 있습니다. 암호 그룹 유효성 검사는 [게이트웨이 계층](concepts-connectivity-architecture.md#connectivity-architecture) 에서 제어 되며 노드 자체에서 명시적으로 제어 되지 않습니다. 암호 그룹이 아래 나열 된 도구 모음 중 하 나와 일치 하지 않으면 들어오는 클라이언트 연결이 거부 됩니다.
 
 ### <a name="cipher-suite-supported"></a>지원 되는 암호 그룹
 

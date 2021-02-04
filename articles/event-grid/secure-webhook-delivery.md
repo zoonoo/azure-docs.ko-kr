@@ -2,13 +2,13 @@
 title: Azure Event Grid에서 Azure AD를 사용 하 여 보안 WebHook 배달
 description: 를 사용 하 여 Azure Active Directory 보호 하는 HTTPS 끝점에 이벤트를 전달 하는 방법을 설명 Azure Event Grid
 ms.topic: how-to
-ms.date: 10/05/2020
-ms.openlocfilehash: dd898fadf718509504d44df36572ac75050b02d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 02/03/2021
+ms.openlocfilehash: b01f0342e185883c4d1552800ab9bdb30cea3040
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371667"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549155"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory로 보호되는 엔드포인트에 이벤트 게시
 
@@ -58,7 +58,7 @@ if ($eventGridSP -match "Microsoft.EventGrid")
 ```
 
 ### <a name="create-a-role-for-your-application"></a>응용 프로그램에 대 한 역할 만들기   
-다음 스크립트를 실행 하 여 Azure AD 응용 프로그램에 대 한 역할을 만듭니다. 이 예제에서 역할 이름은 **Azureeventgridsecurewebhook**입니다. Azure ad `$myTenantId` 테 넌 트 id와 `$myAzureADApplicationObjectId` Azure Ad 응용 프로그램의 개체 id를 사용 하도록 PowerShell 스크립트를 수정 합니다.
+다음 스크립트를 실행 하 여 Azure AD 응용 프로그램에 대 한 역할을 만듭니다. 이 예제에서 역할 이름은 **Azureeventgridsecurewebhook** 입니다. Azure ad `$myTenantId` 테 넌 트 id와 `$myAzureADApplicationObjectId` Azure Ad 응용 프로그램의 개체 id를 사용 하도록 PowerShell 스크립트를 수정 합니다.
 
 ```PowerShell
 # This is your Azure AD Application's ObjectId. 
@@ -92,6 +92,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
+    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
 } else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")

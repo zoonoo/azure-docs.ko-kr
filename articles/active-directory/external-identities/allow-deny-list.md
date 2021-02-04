@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/15/2018
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cc336781e9a55bbcb6c51677b01bfc402126f4a
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: bb5a785cba4a560fc15963363d4e5f6b811af97a
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071903"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548834"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -27,7 +27,7 @@ ms.locfileid: "99071903"
 
 - 허용 목록 또는 거부 목록을 만들 수 있습니다. 두 목록을 모두 설정할 수는 없습니다. 기본적으로 허용 목록에 없는 모든 도메인은 거부 목록에 있게 되고 반대의 경우도 마찬가지가 됩니다. 
 - 조직당 하나의 정책만 만들 수 있습니다. 더 많은 도메인을 포함하도록 정책을 업데이트하거나 정책을 삭제하고 새 정책을 만들 수도 있습니다. 
-- 허용 목록 또는 거부 목록에 추가할 수 있는 도메인 수는 정책 크기에 의해서만 제한 됩니다. 전체 정책의 최대 크기는 25KB (25000 자)입니다. 여기에는 허용 목록 또는 거부 목록과 다른 기능에 대해 구성 된 기타 매개 변수가 포함 됩니다.
+- 허용 목록 또는 거부 목록에 추가할 수 있는 도메인 수는 정책 크기에 의해서만 제한 됩니다. 이 제한은 문자 수에 적용 되므로 더 짧은 도메인 또는 더 긴 도메인을 포함할 수 있습니다. 전체 정책의 최대 크기는 25KB (25000 자)입니다. 여기에는 허용 목록 또는 거부 목록과 다른 기능에 대해 구성 된 기타 매개 변수가 포함 됩니다.
 - 이 목록은 OneDrive for Business 및 SharePoint Online 허용/차단 목록과는 독립적으로 적용됩니다. SharePoint Online에서의 개별 파일 공유를 제한하려면 OneDrive for Business 및 SharePoint Online에 대한 허용 또는 거부 목록을 설정해야 합니다. 자세한 내용은 [SharePoint Online 및 OneDrive for Business에서 제한된 도메인 공유](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9)를 참조하세요.
 - 이 목록은 이미 초대를 받은 외부 사용자에 게는 적용 되지 않습니다. 목록은 설정한 후에 시행됩니다. 사용자 초대가 대기 상태이며 해당 도메인을 차단하는 정책을 설정한 경우 해당 사용자가 초대를 사용하려 하면 실패하게 됩니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "99071903"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 조건
 
 > [!Note]
 > AzureADPreview 모듈은 미리 보기 상태 이므로 완전히 지원 되는 모듈이 아닙니다. 

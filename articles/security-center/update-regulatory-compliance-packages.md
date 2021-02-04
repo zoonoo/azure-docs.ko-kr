@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986687"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548867"
 ---
-# <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
+# <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 집합 사용자 지정
 
 Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. **규정 준수 대시보드** 는 특정 규정 준수 요구 사항을 충족 하는 방법에 따라 규정 준수 상태에 대 한 통찰력을 제공 합니다.
 
@@ -123,5 +123,5 @@ Microsoft는 규정 표준 자체를 추적 하 고 시간에 따라 일부 패�
 관련 자료는 다음 페이지를 참조 하세요.
 
 - [Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [보안 센터 규정 준수 대시보드](security-center-compliance-dashboard.md)
+- [보안 센터 규정 준수 대시보드](security-center-compliance-dashboard.md) -Security Center 및 외부 도구를 사용 하 여 규정 준수 데이터를 추적 하 고 내보내는 방법을 알아봅니다.
 - [보안 정책 작업](tutorial-security-policy.md)

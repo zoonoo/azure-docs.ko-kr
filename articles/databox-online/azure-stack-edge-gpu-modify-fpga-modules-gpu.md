@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: c23022a1a1ee7796ada32d9111855b9e3bfb7d46
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 6e9e1319b90ab859c63c022e478bc26c4b8aedeb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539625"
+ms.locfileid: "99550221"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치의 Azure Stack Edge Pro FPGA Azure Stack 장치에서 기존 IoT Edge 모듈 실행
 
@@ -25,7 +25,7 @@ IoT Edge 구현은 edge pro FPGA 장치와 Edge Pro GPU 장치의 Azure Stack에
 
 FPGA 장치에서 GPU 장치로 워크 로드를 마이그레이션하는 경우 Kubernetes 플랫폼에서 성공적으로 실행 되도록 기존 IoT Edge 모듈을 변경 해야 합니다. 저장소, 네트워킹, 리소스 사용량 및 웹 프록시 요구 사항을 다르게 지정 해야 할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 IoT Edge 모듈의 저장소를 지정할 때 다음 정보를 고려 하십시오.
 
@@ -205,8 +205,7 @@ GPU의 경우 다음과 같은 최소 구성에 표시 된 것 처럼 장치 바
 ```
 메모리 및 CPU 사양은 필요 하지 않지만 일반적으로 좋은 방법입니다. `requests`을 지정 하지 않으면 제한 값으로 설정 된 값이 필요한 최소값으로 사용 됩니다. 
 
-또한 모듈에 shared memory를 사용 하려면 다른 방법이 필요 합니다. <!-- should we give an example-->
-
+또한 모듈에 shared memory를 사용 하려면 다른 방법이 필요 합니다. 예를 들어 [Azure Stack Edge에 라이브 비디오 분석 배포](../media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md#deploy-live-video-analytics-edge-module-using-azure-portal)에 설명 된 대로 라이브 비디오 분석과 유추 솔루션 간의 공유 메모리 액세스에 대해 호스트 IPC 모드를 사용할 수 있습니다.
 
 
 ## <a name="web-proxy"></a>웹 프록시 

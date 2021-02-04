@@ -5,12 +5,12 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.custom: devx-track-csharp, fasttrack-edit, contperf-fy21q2, devx-track-js
-ms.openlocfilehash: 6dc3c582466fe0646b0350213947ff2173368bde
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 637f09c5ee52928631b965dfa6caea9368b44991
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936841"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550762"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -88,6 +88,10 @@ Application Insights은 수집 된 종속성 데이터의 _응용 프로그램 �
 + [JavaScript](functions-reference-node.md#write-trace-output-to-logs) 
 + [PowerShell](functions-reference-powershell.md#logging)
 + [Python](functions-reference-python.md#logging)
+
+## <a name="analyze-data"></a>데이터 분석
+
+기본적으로 함수 앱에서 수집 된 데이터는 Application Insights에 저장 됩니다. [Azure Portal](https://portal.azure.com)에서 Application Insights는 원격 분석 데이터의 광범위 한 시각화 집합을 제공 합니다. 오류 로그와 쿼리 이벤트 및 메트릭을 자세히 살펴볼 수 있습니다. 수집 된 데이터를 보고 쿼리 하는 방법에 대 한 기본 예를 포함 하 여 자세히 알아보려면 [Application Insights에서 Azure Functions 원격 분석 분석](analyze-telemetry-data.md)을 참조 하세요. 
 
 ## <a name="streaming-logs"></a>스트리밍 로그
 

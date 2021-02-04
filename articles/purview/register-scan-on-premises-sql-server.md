@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 26012b23a10f560158e3ba3919e12f5c15759189
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539318"
+ms.locfileid: "99549646"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL server 등록 및 검사
 
@@ -36,7 +36,7 @@ SQL server 온-프레미스 데이터 원본은 다음을 지원 합니다.
 
 Azure 부서의 범위는 SQL Server의 [뷰](/sql/relational-databases/views/views) 검색을 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 
@@ -65,6 +65,9 @@ SQL 계정에는 **master** 데이터베이스에 대 한 액세스 권한이 �
 #### <a name="creating-a-new-login-and-user"></a>새 로그인 및 사용자 만들기
 
 SQL server를 검색할 수 있는 새 로그인 및 사용자를 만들려면 다음 단계를 수행 합니다.
+
+> [!Note]
+    > 아래의 모든 단계는 [여기](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)에 제공 된 코드를 사용 하 여 수행할 수 있습니다.
 
 1. SSMS (SQL Server Management Studio)로 이동 하 여 서버에 연결 하 고 보안으로 이동한 후 로그인을 마우스 오른쪽 단추로 클릭 하 고 새 로그인을 만듭니다. SQL 인증을 선택 해야 합니다.
 

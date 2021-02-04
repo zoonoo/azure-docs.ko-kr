@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 9541320f65060a0b1f2b5c84a131c08e92554e9e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351710"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550587"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -19,6 +19,23 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
 QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 편집 소스로 추가 됩니다. 편집 원본은 QnA 쌍이 QnA 포털에 수동으로 추가 되었음을 나타냅니다. 모든 QnA 쌍을 편집할 수 있습니다.
 
 <a name="add-an-editorial-qna-set"></a>
+
+## <a name="question-and-answer-pairs"></a>질문 및 대답 쌍
+
+기술 자료는 QnA (질문과 대답) 쌍으로 구성 됩니다.  각 쌍에는 하나의 대답이 있으며 쌍에는 해당 _대답과_ 연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다. 질문 및 답변 (QnA) 쌍에서 **필요한** 설정은 다음과 같습니다.
+
+* 기계 학습을 QnA Maker 하는 데 사용 되는 **질문** 텍스트를 사용 하 여 다른 단어를 사용 하는 사용자의 질문 텍스트에 맞추고 동일한 답변을 사용 합니다.
+* **답변** -쌍의 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우 반환 되는 응답입니다.
+
+각 쌍은 **ID** 로 표시 됩니다.
+
+쌍에 대 한 **선택적** 설정에는 다음이 포함 됩니다.
+
+* **질문의 대체 형태** -다양 한 질문에 대 한 올바른 답을 반환 QnA Maker 수 있습니다. 위해 구와
+* **메타 데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
+* 다중 전환 **프롬프트**(멀티 턴 대화를 계속 하는 데 사용 됨)
+
+![QnA Maker 기술 자료](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>편집 QnA 쌍 추가
 
@@ -60,7 +77,7 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
     |--|--|
     |서식 있는 텍스트 편집기와 markdown 사이를 전환 합니다. `</>`|Ctrl+M|
     |글꼴로. **B**|CTR + LB|
-    |기울임꼴, 기울임꼴 I로 표시 **_I_**|CTRL+I|
+    |기울임꼴, 기울임꼴 I로 표시 ****|CTRL+I|
     |정렬되지 않은 목록||
     |정렬된 목록||
     |단락 스타일||
@@ -129,6 +146,14 @@ QnA 쌍 연결은 [추가 작업 프롬프트](multiturn-conversation.md)와 함
 서식 [있는 텍스트](#add-an-editorial-qna-set) 를 수정 하면 서식 도구 모음을 사용 하 여 텍스트를 빠르게 선택 하 고 서식을 지정할 수 있습니다.
 
 [Markdown](../reference-markdown-format.md) 는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](../index.yml)를 위해 가져올 기술 자료를 만들기 위해 콘텐츠를 자동 생성 해야 하는 경우에 더 나은 도구입니다.
+
+## <a name="editing-your-knowledge-base-locally"></a>로컬로 기술 자료 편집
+
+기술 자료를 만든 후에는 로컬 파일을 통해 내보냈다가 다시 가져오는 것보다는 [QnA Maker 포털](https://qnamaker.ai)에서 기술 자료 텍스트를 편집하는 것이 좋습니다. 그러나 로컬로 기술 자료를 편집해야 하는 경우가 있을 수 있습니다.
+
+**설정** 페이지에서 기술 자료를 내보낸 후 Microsoft Excel을 사용하여 기술 자료를 편집합니다. 다른 응용 프로그램을 사용 하 여 내보낸 파일을 편집 하도록 선택 하는 경우 응용 프로그램은 완전히 TSV 호환 되지 않기 때문에 구문 오류가 발생할 수 있습니다. Microsoft Excel의 TSV 파일의 경우 일반적으로 서식 지정 오류가 발생하지 않습니다.
+
+편집을 완료했으면 **설정** 페이지를 통해 TSV 파일을 다시 가져옵니다. 그러면 현재 기술 자료가 가져온 기술 자료로 완전히 바뀝니다.
 
 ## <a name="next-steps"></a>다음 단계
 

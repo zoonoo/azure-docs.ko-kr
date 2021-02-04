@@ -5,18 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/11/2017
+ms.date: 02/03/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442051"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548664"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
 
@@ -67,6 +66,16 @@ ms.locfileid: "92442051"
     "invitedUserType": "Member"
     ```
 
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>사용자가 디렉터리에 이미 초대 되었는지 확인
+
+초대 API를 사용 하 여 사용자가 리소스 테 넌 트에 이미 있는지 확인할 수 있습니다. 이는 초대 API를 사용 하 여 사용자를 초대 하는 앱을 개발 하는 경우에 유용할 수 있습니다. 사용자가 리소스 디렉터리에 이미 있는 경우 초대를 받지 않으므로 먼저 쿼리를 실행 하 여 이미 전자 메일이 UPN 또는 다른 로그인 속성으로 존재 하는지 확인할 수 있습니다.
+
+1. 사용자의 전자 메일 도메인이 리소스 테 넌 트의 확인 된 도메인에 속해 있지 않은지 확인 하세요.
+2. 리소스 테 넌 트에서 다음 get 사용자 쿼리를 사용 합니다 {0} . 여기서은 초대 하는 전자 메일 주소입니다.
+
+   ```
+   “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
+   ```
 
 ## <a name="authorization-model"></a>인증 모델
 
@@ -102,10 +111,10 @@ New-AzureADMSInvitation
 
 외부 사용자에게 초대를 보낸 후 **Get-AzureADUser** cmdlet을 사용하여 해당 사용자가 수락했는지 확인할 수 있습니다. Get-AzureADUser의 다음 속성은 외부 사용자에게 초대를 보낼 때 채워집니다.
 
-* **UserState**는 초대가 **PendingAcceptance** 또는 **Accepted**인지 여부를 나타냅니다.
-* **UserStateChangedOn**은 **UserState** 속성의 최신 변경에 대한 타임스탬프를 표시합니다.
+* **UserState** 는 초대가 **PendingAcceptance** 또는 **Accepted** 인지 여부를 나타냅니다.
+* **UserStateChangedOn** 은 **UserState** 속성의 최신 변경에 대한 타임스탬프를 표시합니다.
 
-**Filter** 옵션을 사용하여 **UserState**별로 결과를 필터링할 수 있습니다. 아래 예제에서는 보류 중인 초대를 보유한 사용자만 표시하도록 결과를 필터링하는 방법을 보여 줍니다. 이 예제에서는 표시할 속성을 지정할 수 있는 **Format-List** 옵션도 보여 줍니다. 
+**Filter** 옵션을 사용하여 **UserState** 별로 결과를 필터링할 수 있습니다. 아래 예제에서는 보류 중인 초대를 보유한 사용자만 표시하도록 결과를 필터링하는 방법을 보여 줍니다. 이 예제에서는 표시할 속성을 지정할 수 있는 **Format-List** 옵션도 보여 줍니다. 
  
 
 ```powershell
@@ -115,7 +124,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 

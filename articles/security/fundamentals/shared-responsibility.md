@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 8f16105d6bda1798828bc423ec8a158d49e0cf2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d9d3878c34bd203b6c14b45e1196245ef8524f6
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72518370"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548952"
 ---
 # <a name="shared-responsibility-in-the-cloud"></a>클라우드의 공동 책임
 
@@ -50,4 +50,4 @@ ms.locfileid: "72518370"
 클라우드를 사용 하는 방법에서는 클라우드 기반 보안 기능을 활용 하 여 더 많은 효과를 얻을 수 있으며, 클라우드 인텔리전스를 사용 하 여 위협 감지 및 응답 시간을 개선할 수도 있습니다. 조직은 클라우드 공급자에 책임을 전가함으로써 보안 적용 범위를 더 넓힐 수 있으며, 보안 리소스와 예산을 다른 비즈니스 우선 순위에 다시 할당할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-SaaS, PaaS 및 IaaS 배포에서 사용자와 Microsoft 간의 책임 구분에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조 하세요.
+SaaS, PaaS 및 IaaS 배포에서 사용자와 Microsoft 간의 책임 구분에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://azure.microsoft.com/resources/shared-responsibility-for-cloud-computing/)을 참조 하세요.

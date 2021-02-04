@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222818"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550711"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
@@ -49,6 +49,10 @@ ms.locfileid: "99222818"
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>지역 간에 이동할 때 구독 간에 리소스를 이동할 수 있나요?
 
 리소스를 대상 지역으로 이동한 후 구독을 변경할 수 있습니다. 리소스를 다른 구독으로 이동 하는 방법에 [대해 자세히 알아보세요](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
+
+### <a name="does-azure-resource-move-service-store-customer-data"></a>Azure 리소스는 서비스를 고객 데이터로 이동 하나요? 
+아니요. 리소스 이동 서비스는 고객 데이터를 저장 하지 않으며, 고객이 이동 하도록 선택한 리소스의 추적 및 진행을 용이 하 게 하는 메타 데이터 정보만 저장 합니다.
+
 
 ### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>저장 된 지역 간에 이동 하는 메타 데이터는 어디에 있나요?
 

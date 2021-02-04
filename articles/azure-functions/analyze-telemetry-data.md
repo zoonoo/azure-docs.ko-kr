@@ -4,12 +4,12 @@ description: 에서 수집 하 고 Azure 애플리케이션 Insights에 저장 �
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 2a991157962b0588e3d49510e8a82a9abcfb9aed
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493773"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549561"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
 
@@ -139,6 +139,18 @@ traces
 다음 원격 분석 쿼리는 소비 계획에서 함수를 실행 하는 비용에 영향을 주는 메트릭에만 적용 됩니다.
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
+
+## <a name="azure-monitor-metrics"></a>Azure Monitor 메트릭
+
+Application Insights에 의해 수집 된 원격 분석 데이터 외에도 [Azure Monitor 메트릭에](../azure-monitor/platform/data-platform-metrics.md)함수 앱이 실행 되는 방법에 대 한 데이터를 가져올 수 있습니다. [앱을 App Service 하는 데 사용할 수](../app-service/web-sites-monitor.md#understand-metrics)있는 일반적인 메트릭과 함께 관심 있는 함수와 관련 된 두 가지 메트릭이 있습니다.
+
+| 메트릭 | 설명 |
+| ---- | ---- |
+| **FunctionExecutionCount** | 함수 실행 횟수는 함수 앱이 실행 된 횟수를 나타냅니다. 이는 응용 프로그램에서 함수가 실행 되는 횟수와 관련이 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다. |
+| **FunctionExecutionUnits** | 함수 실행 단위는 실행 시간 및 메모리 사용의 조합입니다.  메모리 데이터는 현재 Azure Monitor를 통해 사용할 수 있는 메트릭이 아닙니다. 그러나 앱의 메모리 사용을 최적화 하려는 경우는 Application Insights에서 수집 된 성능 카운터 데이터를 사용할 수 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다.|
+
+Application Insights 데이터를 사용 하 여 소비 계획에 대 한 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 예측](functions-consumption-costs.md)을 참조 하세요. 모니터 탐색기를 사용 하 여 메트릭을 보는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

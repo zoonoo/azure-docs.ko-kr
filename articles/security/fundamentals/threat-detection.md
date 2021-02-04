@@ -1,10 +1,10 @@
 ---
-title: Azure 지능형 위협 탐지 | Microsoft Docs
-description: Azure AD ID 보호 서비스와 같은 Azure에 대 한 기본 제공 고급 위협 검색 기능에 대해 알아봅니다.
+title: Azure 위협 방지 | Microsoft Docs
+description: Azure AD ID 보호 서비스와 같은 Azure에 대 한 기본 제공 위협 방지 기능에 대해 알아봅니다.
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
-ms.openlocfilehash: c8fbb2f6d858b2f654ff404bef3b415bf170ab37
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.date: 02/03/2021
+ms.author: terrylan
+ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747276"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549952"
 ---
-# <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
+# <a name="azure-threat-protection"></a>Azure 위협 방지
 
-Azure는 Azure AD(Azure Active Directory), Azure Monitor 로그 및 Azure Security Center와 같은 서비스를 통해 지능형 위협 검색 기능을 기본적으로 제공하고 있습니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
+Azure는 Azure Active Directory (Azure AD), Azure Monitor 로그 및 Azure Security Center와 같은 서비스를 통해 기본 제공 되는 위협 방지 기능을 제공 합니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
 
 Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 지정할 수 있는 다양한 옵션을 제공합니다. 이 문서에서는 이러한 요구 사항을 충족하는 방법에 대해 설명합니다.
 
@@ -84,23 +84,9 @@ Azure Monitor 로그는 자체적으로 중요 서비스를 제공하는 것 외
 
 ### <a name="holistic-security-and-compliance-posture"></a>전체적인 보안 및 규정 준수 상태
 
-[Log Analytics 보안 및 감사 대시보드](../../security-center/security-center-introduction.md)는 주의가 필요한 주목할 만한 문제에 대한 기본 제공되는 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 보안 및 감사 대시보드는 Azure Monitoring 로그의 보안과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
+[Azure Security Center](../../security-center/security-center-introduction.md) 는 주의가 필요한 주요 문제에 대 한 기본 제공 검색 쿼리를 통해 조직의 IT 보안 상태에 대 한 종합적인 뷰를 제공 합니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24 시간, 7 일 또는 기타 사용자 지정 시간 프레임의 모든 이벤트를 볼 수도 있습니다.
 
 Azure Monitor 로그를 사용하면 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 포함하여 IT 운영 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 빠르고 쉽게 이해할 수 있습니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
-
-![Log Analytics 보안 및 감사 대시보드](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구성되어 있습니다.
-
--   **보안 도메인**: 시간에 따라 보안 레코드를 추가로 탐색할 수 있습니다. 맬웨어 평가에 액세스하고, 평가를 업데이트하며, 네트워크 보안, ID 및 액세스 정보를 보고, 보안 이벤트가 있는 컴퓨터를 확인하고, Azure Security Center 대시보드에 빠르게 액세스할 수 있습니다.
-
--   **주목할 만한 문제**: 해결되지 않은 문제의 수와 이러한 문제의 심각도를 빠르게 식별할 수 있습니다.
-
--   **감지(미리 보기)** : 리소스에 대해 발생된 보안 경보를 표시하여 공격 패턴을 식별할 수 있습니다.
-
--   **위협 인텔리전스**: 아웃바운드 악성 IP 트래픽이 있는 서버의 총 수, 악성 위협의 형식 및 IP 위치에 대한 맵을 표시하여 공격 패턴을 식별할 수 있습니다.
-
--   **일반적 보안 쿼리**: 환경을 모니터링하는 데 사용할 수 있는 가장 일반적인 보안 쿼리의 목록을 제공합니다. 쿼리를 선택하면 검색 창이 열리고 해당 쿼리에 대한 결과가 표시됩니다.
 
 ### <a name="insight-and-analytics"></a>인사이트 및 분석
 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)는 Azure에서 호스트되는 리포지토리입니다.
@@ -109,21 +95,16 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 
 데이터 원본을 구성하고 구독에 솔루션을 추가하여 연결된 원본에서 리포지토리로 데이터를 수집합니다.
 
-![Azure Monitor 로그 대시보드](./media/threat-detection/azure-threat-detection-fig5.png)
-
 데이터 원본 및 솔루션은 각각 고유한 속성 집합을 가진 서로 다른 레코드 유형을 만들지만 리포지토리에 대한 쿼리에서 여전히 함께 분석할 수 있습니다. 동일한 도구 및 메서드를 사용하여 다양한 원본에서 수집된 다양한 데이터로 작업할 수 있습니다.
-
 
 Azure Monitor 로그와의 상호 작용은 대부분 모든 브라우저에서 실행되고 수집된 데이터를 분석 및 조작하는 구성 설정 및 여러 도구에 대한 액세스를 제공하는 Azure Portal을 통해 이루어집니다. 포털에서 다음을 수행할 수 있습니다.
 * [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
 * [대시보드](../../azure-monitor/learn/tutorial-logs-dashboards.md)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
 * [솔루션](../../azure-monitor/insights/solutions.md)에서는 추가 기능 및 분석 도구를 제공합니다.
 
-![분석 도구](./media/threat-detection/azure-threat-detection-fig6.png)
-
 솔루션은 Azure Monitor 로그에 기능을 추가합니다. 주로 클라우드에서 실행되며 로그 분석 리포지토리에 수집된 데이터의 분석을 제공합니다. 또한 솔루션에서는 수집할 새 레코드 유형을 정의하여 로그 검색을 사용하거나 솔루션이 로그 분석 대시보드에서 제공하는 추가 사용자 인터페이스를 사용하여 분석할 수 있습니다.
 
-보안 및 감사 대시보드는 이러한 솔루션 유형의 한 예입니다.
+Security Center은 이러한 유형의 솔루션에 대 한 예입니다.
 
 ### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automation 및 Control: 보안 구성 표류에 대한 경고
 
@@ -216,7 +197,7 @@ Azure Security Center는 전 세계의 보안 연구 및 데이터 과학 팀과
 
 이러한 결합된 노력은 즉시 활용할 수 있는 새롭고 향상된 감지에 누적됩니다. 수행해야 할 작업이 없습니다.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>고급 위협 검색 기능: 기타 Azure 서비스
+## <a name="threat-protection-features-other-azure-services"></a>위협 방지 기능: 기타 Azure 서비스
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>가상 머신: Microsoft 맬웨어 방지
 
@@ -367,7 +348,7 @@ Cloud App Security는 다음과 같은 방법으로 클라우드와 가시성을
 
 이러한 원본에서 데이터를 수집할 때 Cloud App Security에서 데이터에 대한 정교한 분석을 실행합니다. 비정상적인 활동을 즉시 알려주고 클라우드 환경에 대한 심층적인 가시성을 제공합니다. Cloud App Security에서 정책을 구성하고 이를 사용하여 클라우드 환경의 모든 데이터를 보호할 수 있습니다.
 
-## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Azure Marketplace를 통한 타사 지능형 위협 탐지 기능
+## <a name="third-party-threat-protection-capabilities-through-the-azure-marketplace"></a>Azure Marketplace를 통한 타사 위협 방지 기능
 
 ### <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 

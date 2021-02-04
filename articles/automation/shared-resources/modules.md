@@ -3,14 +3,14 @@ title: Azure Automation에서 모듈 관리
 description: 이 문서에서는 PowerShell 모듈을 사용하여 DSC 구성의 Runbook 및 DSC 리소스에서 cmdlet을 사용하도록 설정하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/25/2021
+ms.date: 02/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a784127cfd6019629f1c2714d0f36850406c3b9d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936626"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99548777"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -40,7 +40,11 @@ Automation은 Runbook 및 DSC 컴파일 작업을 실행할 때 Runbook을 실�
 
 ## <a name="default-modules"></a>기본 모듈
 
-다음 표에서는 Automation 계정을 만들 때 기본적으로 Azure Automation에서 가져오는 모듈을 나열합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다. 참고로 이러한 기본 모듈에는 여러 AzureRM 모듈이 포함됩니다. 
+다음 표에서는 Automation 계정을 만들 때 기본적으로 Azure Automation에서 가져오는 모듈을 나열합니다. Automation은 이러한 모듈의 최신 버전을 가져올 수 있습니다. 그러나 최신 버전을 삭제하는 경우에도 Automation 계정에서 원래 버전을 제거할 수 없습니다. 참고로 이러한 기본 모듈에는 여러 AzureRM 모듈이 포함됩니다.
+
+기본 모듈을 전역 모듈이 라고도 합니다. Azure Portal에서 **전역 모듈** 속성은 계정을 만들 때 가져온 모듈을 볼 때 **true** 가 됩니다.
+
+![Azure Portal에서 전역 모듈 속성의 스크린샷](../media/modules/automation-global-modules.png)
 
 Automation은 루트 Az 모듈을 신규 또는 기존 Automation 계정으로 자동으로 가져오지 않습니다. 이러한 모듈을 사용하는 방법에 대한 자세한 내용은 [Az 모듈로 마이그레이션](#migrate-to-az-modules)을 참조하세요.
 

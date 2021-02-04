@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션 예약 인스턴스를 사용 하 여 비용 절감
 description: Azure VMware 솔루션에 대 한 예약 인스턴스를 구매 하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/03/2021
+ms.openlocfilehash: 227ea9274f70cc58468e7e0b3ddcf8239f5b7f5b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600863"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550978"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Azure VMware 솔루션을 사용 하 여 비용 절감
 
@@ -54,7 +54,7 @@ ms.locfileid: "98600863"
 
    | 필드        |  설명 |
    | ------------ | ------------ |
-   | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p), Microsoft 고객 계약 또는 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-MS-AZR-0017P-0017P) 이어야 합니다. 요금은 Azure 선불 (이전에는 금액 약정 이라고 함) 잔액 (사용할 수 있는 경우)의 공제 또는 초과분으로 청구 됩니다. 종 량 제 요금이 있는 구독의 경우 요금은 구독의 신용 카드나 청구서 지불 방법으로 청구 됩니다. |
+   | Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p), Microsoft 고객 계약 또는 종 량 제 요금이 있는 개별 구독 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-MS-AZR-0017P-0017P) 이어야 합니다. 가능한 경우, 요금은 Azure 선불(이전에는 현금 약정 금액이라고 함) 잔액에서 차감되거나 초과분에 대해 청구됩니다. 종 량 제 요금이 있는 구독의 경우 요금은 구독의 신용 카드나 청구서 지불 방법으로 청구 됩니다. |
    | Scope        | 예약 범위는 하나의 구독 또는 여러 구독 (공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우:<br><ul><li><b>단일 리소스 그룹 범위</b> -선택한 리소스 그룹의 일치 하는 리소스에만 예약 할인을 적용 합니다.</li><li><b>단일 구독 범위</b> -선택한 구독의 일치 하는 리소스에 예약 할인을 적용 합니다.</li><li><b>공유 범위</b> -청구 컨텍스트에 있는 적격 구독의 일치 하는 리소스에 예약 할인을 적용 합니다. EA 고객의 경우 요금 청구 컨텍스트가 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul>       |
    | 지역       | 예약이 적용 되는 Azure 지역입니다.   |
    | 호스트 크기    | AV36    |
@@ -132,3 +132,12 @@ CSP 관리 예약에 대 한 자세한 내용은 [파트너 센터, Azure Portal
 예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md)을 참조하세요.
 
 Csp는 고객을 위해 구매한 특정 제한 사항과 함께 취소, 교환 또는 환불 예약을 수행할 수 있습니다. 자세한 내용은 [고객에 대 한 관리, 취소, 교환 또는 환불 Microsoft Azure 예약](/partner-center/azure-reservations-manage)을 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+이제 Azure VMware 솔루션의 예약 된 인스턴스를 구입 했으므로 다음에 대해 알아볼 수 있습니다.
+
+- [Azure VMware 솔루션 평가를 만듭니다](../migrate/how-to-create-azure-vmware-solution-assessment.md).
+- [Azure VMware 솔루션에 대 한 DHCP 관리](manage-dhcp.md).
+- [Azure VMware 솔루션 vm의 수명 주기 관리](lifecycle-management-of-azure-vmware-solution-vms.md).
+ 

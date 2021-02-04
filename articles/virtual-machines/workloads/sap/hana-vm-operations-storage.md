@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 48d1c04e59d316ac19000f5b890c0cb1c96fb213
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746750"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549442"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -81,7 +81,13 @@ Azure premium storage를 사용 하 여 여러 Azure 디스크에서 **/hana/dat
 
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
-Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 디스크 볼륨에 대한 I/O 스케줄러 모드를 **mq-deadline** 또는 **kyber** 모드에서 **noop**(non-multiqueue) 또는 **없음**(multiqueue) 모드로 다시 구성하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조했습니다. 
+Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 SLES saptune 프로필에서 아직 수행 하지 않은 경우 **mq-마감일이** 나 **kyber** 모드에서 **noop** (비 multiqueue)로 또는 **none** (multiqueue) 모드에서 디스크 볼륨에 대 한 i/o scheduler 모드를 다시 구성 하는 것입니다. 세부 정보는에서 참조 됩니다. 
+
+- [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)
+- [SAP Note #2578899](https://launchpad.support.sap.com/#/notes/2578899) 
+- [SLES 12 s 3의 noop 설정 문제](https://www.suse.com/support/kb/doc/?id=000019547)
+
+Red Hat에서 다른 SAP 응용 프로그램에 대 한 특정 튜닝 프로필에 설정 된 대로 설정을 그대로 둡니다.
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신에 대 한 premium storage 및 Azure 쓰기 가속기 솔루션

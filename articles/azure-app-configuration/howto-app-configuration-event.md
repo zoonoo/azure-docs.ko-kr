@@ -1,5 +1,5 @@
 ---
-title: Azure 앱 구성을 사용 하 여 웹 끝점으로 이벤트 전송
+title: 앱 구성 데이터 변경 알림에 대 한 Event Grid 사용
 description: Azure 앱 구성 이벤트 구독을 사용 하 여 웹 끝점에 키-값 수정 이벤트를 보내는 방법에 대해 알아봅니다.
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: alkemper
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4e005d2f929fd615080d22e93a102a7cc5c1174a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: c188a4b7fe8e9223faa1cdeb52ae01ed83b94d84
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696110"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549782"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
+# <a name="use-event-grid-for-app-configuration-data-change-notifications"></a>앱 구성 데이터 변경 알림에 대 한 Event Grid 사용
 
 이 문서에서는 키-값 수정 이벤트를 웹 끝점으로 보내기 위해 Azure 앱 구성 이벤트 구독을 설정 하는 방법에 대해 알아봅니다. Azure 앱 구성 사용자는 키 값이 수정 될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 웹 후크, Azure Functions, Azure Storage 큐 또는 Azure Event Grid에서 지원 되는 기타 모든 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 

@@ -1,14 +1,14 @@
 ---
 title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
-ms.date: 12/18/2020
+ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 95dca907f9380de29bd3c9b0e52b120c9114b5ee
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 278aae410af536a5cc41e55dabf1dd71de04151b
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732414"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550864"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -169,6 +169,8 @@ Batch는 태스크를 자동으로 다시 시도할 수 있습니다. 사용자 
 
 사용자 구독 모드 Batch 계정에 대해 자동화 된 OS 업그레이드는 특히 작업이 장기 실행 되는 경우 작업 진행률을 방해할 수 있습니다. [Idempotent 작업을 빌드하면](#build-durable-tasks) 이러한 중단으로 인해 발생 하는 오류를 줄일 수 있습니다. 또한 [작업이 실행 될 것으로 예상 되지 않는 시간에 대해 OS 이미지 업그레이드를 예약 하는](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades)것이 좋습니다.
 
+Windows 풀의 경우 `enableAutomaticUpdates` 은 기본적으로로 설정 됩니다 `true` . 자동 업데이트를 허용 하는 것이 좋지만 `false` OS 업데이트가 예기치 않게 발생 하지 않도록 하려면이 값을로 설정할 수 있습니다.
+
 ## <a name="isolation-security"></a>격리 보안
 
 격리를 위해 시나리오에서 작업을 서로 격리해야 하는 경우 이 작업은 별도의 풀에 배치하여 수행합니다. 풀은 Batch의 보안 격리 경계이며, 기본적으로 두 개의 풀이 표시되지 않거나 서로 통신할 수 없습니다. 별도의 Batch 계정을 격리 수단으로 사용하지 않습니다.
@@ -189,8 +191,7 @@ Batch 솔루션의 연결과 관련 된 다음 지침을 검토 합니다.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>NSG(네트워크 보안 그룹) 및 UDR(사용자 정의 경로)
 
-[가상 네트워크에서 Batch 풀을 프로비저닝](batch-virtual-network.md)하는 경우 `BatchNodeManagement` 서비스 태그, 포트, 프로토콜 및 규칙 방향의 사용과 관련된 지침을 철저히 준수해야 합니다.
-기본 Batch 서비스 IP 주소를 사용하는 대신 서비스 태그를 사용하는 것이 좋습니다. 이는 IP 주소가 시간이 지남에 따라 변경될 수 있기 때문입니다. Batch 서비스 IP 주소를 직접 사용하면 불안정성, 중단 또는 가동 중단이 Batch 풀에 발생할 수 있습니다.
+[가상 네트워크에서 Batch 풀을 프로비저닝](batch-virtual-network.md)하는 경우 `BatchNodeManagement` 서비스 태그, 포트, 프로토콜 및 규칙 방향의 사용과 관련된 지침을 철저히 준수해야 합니다. 기본 Batch 서비스 IP 주소를 사용하는 대신 서비스 태그를 사용하는 것이 좋습니다. 이는 IP 주소가 시간이 지남에 따라 변경될 수 있기 때문입니다. Batch 서비스 IP 주소를 직접 사용하면 불안정성, 중단 또는 가동 중단이 Batch 풀에 발생할 수 있습니다.
 
 UDR(사용자 정의 경로)의 경우 시간이 지남에 따라 주소가 변경되므로 경로 테이블에서 Batch 서비스 IP 주소를 주기적으로 업데이트하는 프로세스를 수행해야 합니다. Batch 서비스 IP 주소 목록을 가져오는 방법에 대한 자세한 내용은 [온-프레미스 서비스 태그](../virtual-network/service-tags-overview.md)를 참조하세요. Batch 서비스 IP 주소는 `BatchNodeManagement` 서비스 태그(또는 Batch 계정 지역과 일치하는 지역 변형)와 연결됩니다.
 

@@ -4,12 +4,12 @@ description: 포털에서 Azure 서비스를 사용 하는 방법에 대 한 비
 keywords: ''
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 131ec94e321388a3578cd2fd59fdb2fd75339c5e
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852611"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550444"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 
@@ -17,17 +17,17 @@ Azure Portal 방법 비디오 시리즈는 Azure Portal에서 Azure 서비스를
 
 ## <a name="featured-video"></a>추천 비디오
 
-이 주요 비디오에서는 azure 빠른 시작 센터를 사용 하 여 Azure에서 시작 하는 방법을 보여 줍니다.
+이 주요 비디오에서는 Azure Cost Management 보기를 사용 하는 방법을 보여 줍니다.
 
-> [!VIDEO https://www.youtube.com/embed/mb5k9nXMtBM]
+> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
 
-[Azure 빠른 시작 센터를 사용 하 여 Azure에서 시작 하는 방법](https://www.youtube.com/watch?v=mb5k9nXMtBM)
+[Azure Cost Management 보기를 사용 하는 방법](https://www.youtube.com/watch?v=VRJA5bn2VH0)
 
 이러한 최신 비디오를 파악 하지 못할 수 있습니다.
 
-| [Azure Kubernetes Service에서 응용 프로그램을 관리 하는 방법](https://www.youtube.com/watch?v=YfARHb52Bp4)  | [로그 및 매개 변수를 사용 하 여 Azure 통합 문서를 빌드하는 방법](https://www.youtube.com/watch?v=EC7n1Oo6D-o)  | [App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법](https://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [알를 사용 하 여 Azure Portal 필터링 하는 방법](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [리소스의 시각화 보기를 가져오는 방법](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [콘텐츠를 Azure Portal 대시보드에 고정 하는 방법](https://www.youtube.com/watch?v=eyOJkhYItSg) |
 | ------| ------ | ------ |
-| [![Azure Kubernetes Service에서 응용 프로그램을 관리 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/YfARHb52Bp4/hqdefault.jpg)](https://www.youtube.com/watch?YfARHb52Bp4) | [![로그 및 매개 변수를 사용 하 여 Azure 통합 문서를 빌드하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/EC7n1Oo6D-o/hqdefault.jpg)](http://www.youtube.com/watch?v=EC7n1Oo6D-o) | [![App Service 웹 앱에서 사용자 지정 도메인을 추가 하 고 보호 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg)](http://www.youtube.com/watch?v=bXP6IvNYISw) |
+| [![알를 사용 하 여 Azure Portal 필터링 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![리소스의 시각화 보기를 가져오는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Azure Portal 대시보드에 콘텐츠를 고정 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
 
 ## <a name="video-playlist"></a>비디오 재생 목록
 

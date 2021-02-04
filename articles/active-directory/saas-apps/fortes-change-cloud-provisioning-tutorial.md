@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
-ms.openlocfilehash: 89e64b6e8018fafb22820e8594bc2b3c888bb04a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 43b783d9462205b01d3ac4de0c5779fdc9864470
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732160"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550461"
 ---
 # <a name="tutorial-configure-fortes-change-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Fortes 전달자 변경 클라우드 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "98732160"
 > * Azure AD와 Fortes 전달자 변경 클라우드 간에 사용자 특성을 동기화 상태로 유지
 > * Fortes 전달자에 대 [한 Single Sign-on](fortes-change-cloud-tutorial.md) 변경 클라우드 (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -50,15 +50,15 @@ ms.locfileid: "98732160"
 
 ## <a name="step-2-configure-fortes-change-cloud-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD로 프로 비전을 지원 하도록 Fortes 지원팀 변경 클라우드 구성
 
-1. 클라우드를 변경 하려면 관리자 계정으로 로그인 합니다. **설정 아이콘** 을 클릭 한 다음 **scim 설정** 으로 이동 합니다.
+1. 클라우드를 변경 하려면 관리자 계정으로 로그인 합니다. **설정 아이콘** 을 클릭 한 다음 **사용자 프로비저닝 (scim)** 로 이동 합니다.
 
     [![Fortes 전달자 Cloud SCIM 설정 ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) 변경](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. 새 창에서 **주 토큰** 을 복사 하 고 저장 합니다. 이 값은 Azure Portal의 Fortes 전달자 변경 클라우드 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
+2. 새 창에서 **테 넌 트 URL** 과 **기본 토큰** 을 복사 하 고 저장 합니다. 테 넌 트 url은 테 넌 트 **url** * 필드에 입력 되 고, 기본 토큰은 Azure Portal의 Fortes 전달자 변경 클라우드 응용 프로그램의 프로 비전 탭에서 **비밀** * 토큰 필드에 입력 됩니다.
      
       [![Fortes 전달자는 클라우드 기본 토큰을 변경 합니다.](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 
-## <a name="step-3-add-fortes-change-cloud-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Fortes 전달자 변경 클라우드 추가
+## <a name="step-3-add-fortes-change-cloud-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Fortes 전달자 변경 클라우드 추가
 
 Azure AD 응용 프로그램 갤러리에서 Fortes 전달자 변경 클라우드를 추가 하 여 Fortes 전달자 변경 클라우드로의 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 변경 클라우드를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

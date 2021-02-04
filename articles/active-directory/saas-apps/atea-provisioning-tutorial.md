@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
-ms.openlocfilehash: 51410bd86fa9679aea76f6d5c48f267ddec79026
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 67b114ac355b293db61d00b89816ab73aaa2e5b2
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430699"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550271"
 ---
 # <a name="tutorial-configure-atea-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Atea 구성
 
@@ -48,7 +48,7 @@ ms.locfileid: "99430699"
 
 ## <a name="step-2-configure-atea-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD로 프로 비전을 지원 하도록 Atea 구성
 
-Azure AD로의 프로 비전을 지원 하도록 Iri 인트라넷을 구성 하려면 [지원 팀](mailto:servicedesk@atea.dk)에 메일을 삭제 하 여 **테 넌 트 URL** 및 **암호 토큰** 을 가져와야 합니다. 이러한 값은 Azure Portal에서 Atea의 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 및 **테 넌 트 URL** 필드에 입력 됩니다.
+Azure AD를 사용 하 여 프로 비전을 지원 하도록 Atea를 구성 하려면 지원 팀에 전자 메일을 보내세요. <SSO.Support@atea.com>
 
 ## <a name="step-3-add-atea-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Atea 추가
 

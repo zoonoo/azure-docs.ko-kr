@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
 description: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 00b3acf721dd7f7a1a15bcd0d24eccf3ca27ff58
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/03/2021
+ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326916"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549105"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
 
@@ -61,7 +61,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 인스턴스가 다시 시작 되 면 인스턴스에 새 관리자 계정을 만듭니다. 이 사용자의 암호를 기록해 두어야 합니다.
 
-### <a name="additional-configuration-steps"></a>추가 구성 단계
+### <a name="other-configuration-steps"></a>기타 구성 단계
 
 프로덕션 사용을 위해 인스턴스를 강화 하려면 다음과 같은 선택적 설정 단계를 수행 하는 것이 좋습니다.
 
@@ -72,7 +72,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
     - 가상화 호스트 시스템 오류
     - 논리적으로 또는 물리적으로 손상 되는 네트워크
 
-2. [Configure](https://docs.github.com/en/enterprise/admin/configuration/configuring-backups-on-your-appliance) [백업-유틸리티](https://github.com/github/backup-utils)를 구성 합니다. 재해 복구를 위해 버전이 지정 된 스냅숏이 제공 되며 주 인스턴스와는 별개의 가용성으로 호스팅됩니다.
+2. [](https://docs.github.com/en/enterprise/admin/configuration/configuring-backups-on-your-appliance) [백업-유틸리티](https://github.com/github/backup-utils)를 구성 합니다. 재해 복구를 위해 버전이 지정 된 스냅숏이 제공 되며 주 인스턴스와는 별개의 가용성으로 호스팅됩니다.
 3. 사이트 간 스크립팅 및 기타 관련 취약성을 완화 하기 위해 유효한 TLS 인증서를 사용 하 여 하위 [도메인 격리를 설정](https://docs.github.com/en/enterprise/admin/configuration/enabling-subdomain-isolation)합니다.
 
 ## <a name="configuring-blob-storage-for-github-actions"></a>GitHub 작업을 위한 blob storage 구성
@@ -182,7 +182,7 @@ Run.sh 명령을 사용 하 여 runner를 *실행* 합니다.
 
 ## <a name="optional-configuring-github-connect"></a>필드 GitHub 연결 구성
 
-이 단계는 선택 사항 이지만 GitHub.com에서 사용할 수 있는 오픈 소스 작업을 사용 하려는 경우에 권장 됩니다. 이렇게 하면 워크플로에서 재사용 가능한 작업을 참조 하 여 다른 사용자의 작업을 빌드할 수 있습니다.
+이 단계는 선택 사항 이지만 GitHub.com에서 사용할 수 있는 오픈 소스 작업을 사용 하려는 경우에 권장 됩니다. 워크플로에서 이러한 재사용 가능한 작업을 참조 하 여 다른 사용자의 작업을 빌드할 수 있습니다.
 
 GitHub 연결을 사용 하도록 설정 하려면 [Github connect를 사용 하 여 GitHub.com 작업에 자동 액세스](https://docs.github.com/en/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)사용의 단계를 수행 합니다.
 
@@ -223,14 +223,12 @@ GitHub 연결을 사용 하지 않도록 선택한 경우 다음과 같은 대�
 
 축하합니다! Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
 
-GitHub 작업으로 수행할 수 있는 작업의 화면을 사실일 합니다. 더 많은 작업을 수행 하려면 [GitHub Marketplace](https://github.com/marketplace)에서 작업 목록을 체크 아웃 하거나 고유한 작업을 [만듭니다](https://docs.github.com/en/actions/creating-actions).
+이 문서에서는 Azure VMware 솔루션 사설 클라우드 위에 GitHub Enterprise Server (자체 호스팅 GitHub.com)의 새 인스턴스를 설정 합니다. 이 인스턴스에는 GitHub 동작에 대 한 지원이 포함 되며 로그 및 아티팩트의 지 속성에 Azure Blob Storage 사용 됩니다. 그러나 GitHub 작업으로 수행할 수 있는 작업의 사실일 됩니다. [GitHub Marketplace](https://github.com/marketplace)에서 작업 목록을 확인 하거나 [직접 만듭니다](https://docs.github.com/en/actions/creating-actions).
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure VMware 솔루션 사설 클라우드 위에 GitHub Enterprise Server (자체 호스팅 GitHub.com)의 새 인스턴스를 설정 합니다. 이 인스턴스에는 GitHub 동작에 대 한 지원이 포함 되며 로그 및 아티팩트의 지 속성에 Azure Blob Storage 사용 됩니다. 이는 현대적인 공동 작업 및 보안 소프트웨어 개발 환경에 적합 한 조합입니다. 친숙 한 설정에서 클라우드 리소스를 활용할 수 있도록 하는 Azure VMware 솔루션의 견고한 기반을 기반으로 합니다.
+이제 Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise Server를 설정 하는 방법을 알아보았습니다. 다음에 대해 알아볼 수 있습니다. 
 
-자세한 내용은 다음 리소스를 참조 하세요.
-
-- [GitHub 작업 시작](https://docs.github.com/en/actions)
-- [베타 프로그램 참여](https://resources.github.com/beta-signup/)
-- [GitHub Enterprise Server 관리에 대 한 자세한 정보](https://githubtraining.github.io/admin-training/#/00_getting_started)
+- [GitHub 작업을 시작 하는 중](https://docs.github.com/en/actions)입니다.
+- [베타 프로그램에 참여](https://resources.github.com/beta-signup/)합니다.
+- [GitHub Enterprise 서버 관리](https://githubtraining.github.io/admin-training/#/00_getting_started).

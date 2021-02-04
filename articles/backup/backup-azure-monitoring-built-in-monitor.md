@@ -4,18 +4,29 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 978e98bc623cecd768b1f2dda0a129e0459521da
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174006"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550349"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
 Azure Backup는 백업 요구 사항 및 인프라 토폴로지 (온-프레미스 vs Azure)를 기반으로 여러 백업 솔루션을 제공 합니다. 모든 백업 사용자 또는 관리자는 모든 솔루션에서 발생 하는 상황을 확인 하 고 중요 한 시나리오에서 알림이 발생할 수 있습니다. 이 문서에서는 Azure Backup 서비스에서 제공 하는 모니터링 및 알림 기능에 대해 자세히 설명 합니다.
 
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
+## <a name="backup-items-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 항목
+
+Recovery Services 자격 증명 모음을 통해 모든 백업 항목을 모니터링할 수 있습니다. 자격 증명 모음의 **백업 항목** 섹션으로 이동 하면 자격 증명 모음과 연결 된 각 작업 유형의 백업 항목 수를 제공 하는 보기가 열립니다. 행을 클릭 하면 지정 된 작업 유형의 모든 백업 항목을 나열 하는 상세 보기와 각 항목에 대 한 마지막 백업 상태에 대 한 정보, 사용 가능한 최근 복원 지점 등이 열립니다.
+
+![RS vault 백업 항목](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+
+> [!NOTE]
+> DPM을 사용 하 여 Azure에 백업 된 항목의 경우 목록에 DPM 서버를 사용 하 여 보호 된 모든 데이터 원본 (디스크 및 온라인)이 표시 됩니다. 백업 데이터를 보존 하는 데이터 원본에 대 한 보호가 중지 된 경우 데이터 원본은 포털에 계속 나열 됩니다. 데이터 원본의 세부 정보로 이동 하 여 복구 지점이 디스크, 온라인 또는 둘 다에 있는지 확인할 수 있습니다. 또한 온라인 보호를 중지 했지만 데이터가 유지 되는 데이터 원본은 데이터를 완전히 삭제할 때까지 온라인 복구 지점의 청구를 계속 합니다.
+>
+> 백업 항목이 Recovery Services 자격 증명 모음 포털에 표시 되려면 dpm 버전이 DPM 1807 (5.1.378.0) 또는 DPM 2019 (버전 10.19.58.0 이상) 이어야 합니다.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 백업 작업
 
@@ -105,7 +116,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ## <a name="inactivating-alerts"></a>비활성화 경고
 
-활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 선택할 수 있습니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 **비활성화** 단추가 표시 됩니다. 이 단추를 선택 하면 경고 상태가 **비활성**으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 **비활성화**를 선택 하 여 경고를 비활성화할 수도 있습니다.
+활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 선택할 수 있습니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 **비활성화** 단추가 표시 됩니다. 이 단추를 선택 하면 경고 상태가 **비활성** 으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 **비활성화** 를 선택 하 여 경고를 비활성화할 수도 있습니다.
 
 ![RS Vault 경고 비활성화](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

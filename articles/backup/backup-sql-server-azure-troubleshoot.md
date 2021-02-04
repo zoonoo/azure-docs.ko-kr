@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d502a4188b4f9f383188804f86abbb9a6d05d146
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429469"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549901"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -96,7 +96,7 @@ VM 내에서 실행 중인 모든 SQL 인스턴스가 정상으로 보고 되는
 
 | 심각도 | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원 되도록 데이터베이스 설정을 수정 하십시오. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원 되도록 데이터베이스 설정을 수정 하십시오. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -202,6 +202,13 @@ VM 내에서 실행 중인 모든 SQL 인스턴스가 정상으로 보고 되는
 |---|---|---|
 자격 증명 모음이 24 시간 범위에서 허용 되는 작업의 최대 제한에 도달 하 여 작업이 차단 되었습니다. | 24 시간 범위의 작업에 허용 되는 최대 제한에 도달 하면이 오류가 나타납니다. 이 오류는 일반적으로 정책 수정 또는 자동 보호와 같은 규모에 따라 작업을 수행 하는 경우에 나타납니다. CloudDosAbsoluteLimitReached의 경우와 달리이 상태를 해결 하기 위해 수행할 수 있는 작업은 많지 않습니다. 실제로 Azure Backup 서비스는 문제의 모든 항목에 대해 내부적으로 작업을 다시 시도 합니다.<br> 예를 들어 정책을 사용 하 여 보호 되는 데이터 원본 수가 많은 경우 해당 정책을 수정 하려고 하면 보호 된 각 항목에 대 한 보호 작업 구성이 트리거되고 때로는 매일 이러한 작업에 허용 되는 최대 제한에 도달할 수 있습니다.| Azure Backup 서비스는 24 시간 후에이 작업을 자동으로 다시 시도 합니다.
 
+### <a name="workloadextensionnotreachable"></a>WorkloadExtensionNotReachable
+
+| 오류 메시지 | 가능한 원인 | 권장 조치 |
+|---|---|---|
+AzureBackup 워크 로드 확장 작업이 실패 했습니다. | VM이 종료 되는 경우 (또는) 인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다.| -VM이 실행 되 고 있고 인터넷에 연결 되어 있는지 확인 하세요.<br>- [SQL Server VM에 확장을 다시 등록](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm)합니다.
+
+
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
@@ -212,7 +219,7 @@ VM 내에서 실행 중인 모든 SQL 인스턴스가 정상으로 보고 되는
 
 다시 등록 작업을 트리거하기 전에 하나 이상의 다음 증상을 확인하세요.
 
-- **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg** 오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
+- **[WorkloadExtensionNotReachable](#workloadextensionnotreachable)**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg** 오류 코드 중 하나를 사용 하 여 VM에서 모든 작업 (예: 백업, 복원 및 구성 백업)이 실패 합니다.
 - 백업 항목에 대한 **백업 상태** 영역에 **연결할 수 없음** 이 표시되면 동일한 상태를 유발하는 다른 모든 원인을 제외합니다.
 
   - VM에서 백업 관련 작업을 수행할 수 있는 권한이 없습니다.

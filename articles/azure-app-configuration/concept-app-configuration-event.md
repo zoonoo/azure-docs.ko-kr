@@ -7,12 +7,12 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 12a62bbd06cf9adf3b5978bb061e1d014599b44c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078207"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550745"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Azure 앱 구성 이벤트에 대응
 
@@ -22,7 +22,7 @@ Azure 앱 구성 이벤트는 다양 한 재시도 정책 및 배달 못 한 편
 
 일반적인 앱 구성 이벤트 시나리오에는 응용 프로그램 구성 새로 고침, 배포 트리거 또는 모든 구성 지향 워크플로가 포함 됩니다. 변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
-간단한 예제를 보려면 [사용자 지정 웹 끝점에 대 한 Azure 앱 구성 이벤트 경로를](./howto-app-configuration-event.md) 살펴보세요. 
+빠른 예제를 보려면 [데이터 변경 알림에 대 한 Event Grid 사용](./howto-app-configuration-event.md) 을 살펴보세요. 
 
 ![Event Grid 모델](./media/event-grid-functional-model.png)
 
@@ -37,7 +37,7 @@ Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)�
 ## <a name="event-schema"></a>이벤트 스키마
 Azure 앱 구성 이벤트에는 데이터 변경 내용에 응답 하는 데 필요한 모든 정보가 포함 되어 있습니다. EventType 속성이 "Microsoft AppConfiguration"로 시작 하므로 앱 구성 이벤트를 식별할 수 있습니다. Event Grid 이벤트 속성 사용에 대한 추가 정보는 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)에 설명되어 있습니다.  
 
-> |속성|형식|Description|
+> |속성|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |토픽|문자열|이벤트를 내보내는 앱 구성의 전체 Azure Resource Manager id입니다.|
 > |subject|문자열|이벤트의 키인 키-값의 URI입니다.|
@@ -87,4 +87,4 @@ KeyValueModified 이벤트의 예는 다음과 같습니다.
 Event Grid에 대해 자세히 알아보고 Azure 앱 구성 이벤트를 사용해 보세요.
 
 - [Event Grid 정보](../event-grid/overview.md)
-- [Azure 앱 구성 이벤트를 사용자 지정 웹 끝점으로 라우팅](./howto-app-configuration-event.md)
+- [데이터 변경 알림에 Event Grid를 사용 하는 방법](./howto-app-configuration-event.md)

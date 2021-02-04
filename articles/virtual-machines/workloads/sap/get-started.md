@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/01/2021
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61adb72d043821dfaedca5e5da0b2f880d56811e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258922"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549391"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -84,6 +84,9 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 02/03/2021: stonith create 명령의 pcmk_host_map를 업데이트 하려면 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
+- 02/03/2021: stonith create 명령에 pcmk_host_map를 추가 하려면 [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경 
+- 02/03/2021: SUSE의 i/o scheduler 설정에 대 한 자세한 내용은 [Azure 가상 컴퓨터 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 문서를 참조 하세요.
 - 02/01/2021: SAP HANA [RHEL의 ANF를 사용 하 여 SAP HANA HA](./sap-hana-high-availability-netapp-files-red-hat.md)를 변경 하 고, [RHEL의 Azure vm에서 Pacemaker](./sap-hana-high-availability-scale-out-hsr-rhel.md)를 사용 하 여 확장 hsr를 확장 하 SAP HANA 고 [SAP HANA, SLES에서 anf](./sap-hana-scale-out-standby-netapp-files-suse.md) 를 사용 하 여 azure vm의 대기 노드를 확장 하 고, RHEL를 사용 하는 [azure vm의 대기 노드](./sap-hana-scale-out-standby-netapp-files-rhel.md) 를 확장 하 여 Azure NetApp Files의 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 에 대 한 링크를 추가
 - 01/23/2021: SAP HANA Azure NetApp Files의 [azure virtual machine storage 구성](./hana-vm-operations-storage.md) 및 [NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) SAP HANA 문서에서 디스크 볼륨 관리자를 사용 하지 않고 여러 azure 디스크나 nfs 공유에서 hana 데이터 볼륨 분할의 기능을 기능으로 제공 합니다.
 - 01/18/2021: azure의 Oracle에 대 한 Azure net Apps 파일 기반 NFS의 지원이 추가 되었습니다. [SAP 워크 로드에 대 한 ORACLE DBMS 배포 Virtual Machines](./dbms_guide_oracle.md) 에 [대 한 Azure NetApp Files의 NFS v 4.1 볼륨](./hana-vm-operations-netapp.md) 문서에서 10 진수를 조정 SAP HANA

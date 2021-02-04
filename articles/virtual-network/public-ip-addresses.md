@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: deb9f60cd3f75eacdf0adc06f6f7470819949555
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223230"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549663"
 ---
-# <a name="public-ip-addresses"></a>공용 IP 주소
+# <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 공용 IP 주소를 사용 하면 Azure 리소스가 인터넷 및 공용 Azure 서비스와 통신할 수 있습니다. 주소는 사용자가 할당을 해제 하기 전까지 리소스 전용입니다. 공용 IP가 할당 되지 않은 리소스는 아웃 바운드 통신할 수 있습니다. Azure는 리소스 전용으로 사용 가능한 IP 주소를 동적으로 할당 합니다. Azure에서 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결 이해](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -54,7 +54,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 - 조정 가능한 인바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로, 고정 아웃바운드 발생 흐름 유휴 시간 제한은 4분으로 정합니다.
 - 기본적으로 안전 하 게 보호 하 고 인바운드 트래픽에 대해 닫힘. [네트워크 보안 그룹](./network-security-groups-overview.md#network-security-groups)을 사용 하 여 인바운드 트래픽 나열을 허용 합니다.
 - 네트워크 인터페이스, 표준 공용 부하 분산 장치 또는 응용 프로그램 게이트웨이에 할당 됩니다. 표준 부하 분산 장치에 대 한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조 하세요.
-- 영역 중복 (모든 3 개 영역에서 advertized) 또는 영역 (특정 가용성 영역에서 영역을 만들고 보장할 수 있음) 일 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](../availability-zones/az-region.md) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
+- 영역 중복 (모든 3 개 영역에서 advertized), 영역 (특정 미리 선택 된 가용성 영역에서 보장) 또는 영역 없음 (미리 선택 된 특정 가용성 영역에 연결 되지 않음)이 될 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. **영역 중복 Ip는 [3 개의 가용성 영역이 있는 지역](../availability-zones/az-region.md) 에서만 만들 수 있습니다.** 영역을 라이브 상태로 만들기 전에 만들어진 Ip는 영역 중복이 아닙니다.
 - [영역 간 부하 분산 장치](../load-balancer/cross-region-overview.md) (미리 보기 기능)의 애니캐스트 프런트 엔드 ip로 사용할 수 있습니다.
  
 > [!NOTE]

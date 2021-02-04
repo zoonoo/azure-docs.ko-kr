@@ -3,14 +3,14 @@ title: Azure Kubernetes Service에서 Azure AD 사용
 description: AKS(Azure Kubernetes Service)에서 Azure AD를 사용하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 08/26/2020
-ms.author: thomasge
-ms.openlocfilehash: 534c355961bb87a816f5ba50a3cc2d397e544a15
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.date: 02/1/2021
+ms.author: miwithro
+ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072311"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99550002"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -28,7 +28,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 * AKS로 관리 되는 Azure AD 통합에 대 한 Kubernetes RBAC 사용 클러스터가 지원 되지 않음
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure CLI 버전 2.11.0 이상
 * Kubectl [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin) 의 최소 버전
