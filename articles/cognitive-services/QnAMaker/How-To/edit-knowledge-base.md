@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: f5d7094920a21af630e10aec2aa759ce9c505050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 8d9f54c1fcd142c77fb73c294b81bf0f11ee083f
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550587"
+ms.locfileid: "99557690"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>기술 자료에서 QnA 쌍 편집
 
@@ -38,6 +38,8 @@ QnA 쌍은 파일 또는 URL과 같은 데이터 원본에서 추가 되거나 �
 ![QnA Maker 기술 자료](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 
 ## <a name="add-an-editorial-qna-pair"></a>편집 QnA 쌍 추가
+
+기술 자료를 채울 기존 콘텐츠가 없는 경우 QnA Maker 포털에서 QnA 쌍 editorially을 추가할 수 있습니다.
 
 1. [QnA 포털](https://www.qnamaker.ai/)에 로그인 한 후 기술 자료를 선택 하 여 QnA 쌍을 추가 합니다.
 1. 기술 자료의 **편집** 페이지에서 **QnA pair 추가** 를 선택 하 여 새 QnA 쌍을 추가 합니다.

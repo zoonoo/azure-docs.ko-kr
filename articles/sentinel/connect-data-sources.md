@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: cffc41264dfa30fd833aef465a13abc799334b2f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c3bb05af3e0a24ebb10dc98b9174cfb235ddda13
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567470"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555920"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -66,11 +66,13 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
 - **API를 통한 외부 솔루션**: 일부 데이터 원본은 연결된 데이터 원본에서 제공하는 API를 사용하여 연결됩니다. 일반적으로 대부분의 보안 기술은 이벤트 로그에 검색할 수 있는 API 세트를 제공합니다. 이러한 API는 Azure Sentinel에 연결되며, 특정 데이터 형식을 수집한 후 Azure Log Analytics로 보냅니다. API를 통해 연결되는 어플라이언스는 다음과 같습니다.
     
+    - [Agari 피싱 방어 및 브랜드 보호](connect-agari-phishing-defense.md)
     - [Alcide kAudit](connect-alcide-kaudit.md)
     - [Barracuda WAF](connect-barracuda.md)
     - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-    - [모바일 위협 방어 기능 향상](connect-better-mtd.md)
+    - [BETTER Mobile Threat Defense](connect-better-mtd.md)
     - [Beyond Security beSECURE](connect-besecure.md)
+    - [Cisco Umbrella](connect-cisco-umbrella.md)
     - [Citrix Analytics(보안)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
@@ -95,6 +97,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 
     - **방화벽, 프록시 및 끝점-CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
+        - [Akamai 보안 이벤트](connect-akamai-security-events.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Citrix WAF](connect-citrix-waf.md)
@@ -104,24 +107,27 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
         - [Forcepoint 제품](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
         - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+        - [Imperva WAF 게이트웨이](connect-imperva-waf-gateway.md)
         - [One Identity Safeguard](connect-one-identity.md)
         - [Palo Alto Networks](connect-paloalto.md)
-        - [Thycotic Secret 서버](connect-thycotic-secret-server.md)
+        - [Thycotic Secret Server](connect-thycotic-secret-server.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
-        - [추세 마이크로 TippingPoint](connect-trend-micro-tippingpoint.md)
+        - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
         - [WireX 네트워크 법률 분석 플랫폼](connect-wirex-systems.md)
         - [Zscaler](connect-zscaler.md)
         - [기타 CEF 기반 어플라이언스](connect-common-event-format.md)
     - **방화벽, 프록시 및 끝점-Syslog:**
+        - [Active Directory에 대 한 alsid](connect-alsid-active-directory.md)
         - [Cisco UCS (통합 컴퓨팅 시스템)](connect-cisco-ucs.md)
         - [Infoblox NIOS](connect-infoblox.md)
         - [Juniper SRX](connect-juniper-srx.md)
         - [Pulse Connect Secure](connect-pulse-connect-secure.md)
         - [Sophos XG](connect-sophos-xg-firewall.md)
-        - [Squid 프록시](connect-squid-proxy.md)
+        - [Squid Proxy](connect-squid-proxy.md)
         - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
         - [Symantec VIP](connect-symantec-vip.md)
         - [기타 Syslog 기반 어플라이언스](connect-syslog.md)
+    - [Apache HTTP 서버](connect-apache-http-server.md)
     - DLP 솔루션
     - [위협 인텔리전스 공급자](connect-threat-intelligence.md)
     - [DNS 컴퓨터](connect-dns.md) - 에이전트가 DNS 컴퓨터에 직접 설치됨
@@ -132,7 +138,6 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 ## <a name="agent-connection-options"></a>에이전트 연결 옵션<a name="agent-options"></a>
 
 외부 어플라이언스를 Azure Sentinel에 연결하려면 어플라이언스와 Azure Sentinel 간의 통신을 지원하도록 에이전트를 전용 컴퓨터(VM 또는 온-프레미스)에 배포해야 합니다. 자동 또는 수동으로 에이전트를 배포할 수 있습니다. 자동 배포는 전용 컴퓨터가 Azure에서 만드는 새 VM인 경우에만 사용할 수 있습니다. 
-
 
 ![Azure의 CEF](./media/connect-cef/cef-syslog-azure.png)
 

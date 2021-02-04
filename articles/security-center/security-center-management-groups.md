@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 13cbc2e9451221fef951eb6fac4c6b2772275122
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757650"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556420"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>관리 그룹, 구독 및 테 넌 트 전체 표시 유형 구성
 
@@ -81,12 +81,14 @@ Security Center를 등록 하는 데 관리 그룹은 필요 하지 않지만 �
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>자신에 게 테 넌 트 전체 사용 권한 부여
 
-**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
+**전역 관리자** 의 AD (Azure Active Directory) 역할이 있는 사용자는 테 넌 트 전반에 걸친 책임이 있지만 Azure Security Center에서 조직 차원의 정보를 볼 수 있는 Azure 권한은 없습니다. Azure AD 역할 할당은 Azure 리소스에 대 한 액세스 권한을 부여 하지 않으므로 권한 상승이 필요 합니다. 
 
 > [!TIP]
-> 조직에서 [pim (Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)) 또는 다른 pim 도구를 사용 하 여 리소스 액세스를 관리 하는 경우 이러한 변경을 수행 하는 사용자에 대해 전역 관리자 역할이 활성화 되어 있어야 합니다.
+> [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)의 전역 관리자 역할에 대 한 권한 상승에 대해 자세히 알아보세요.
 
 자신에 게 테 넌 트 수준 권한을 할당 하려면:
+
+1. 조직에서 [pim (Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)) 또는 다른 pim 도구를 사용 하 여 리소스 액세스를 관리 하는 경우 다음 절차를 수행 하 여 사용자에 대해 전역 관리자 역할이 활성화 되어 있어야 합니다.
 
 1. 테 넌 트의 루트 관리 그룹에 대 한 할당이 없는 전역 관리자 사용자로 서 Security Center의 **개요** 페이지를 열고 배너에서 **테 넌 트 전체 표시 유형** 링크를 선택 합니다. 
 
@@ -123,7 +125,7 @@ Security Center에 로그인 하 여 보기가 제한적 이라고 알려주는 
 
 1. "제한 된 정보를 볼 수 있습니다." 라는 배너가 표시 됩니다. 선택 합니다.
 
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="사용자가 테 넌 트 전체 사용 권한을 요청할 수 있음을 알리는 배너입니다.":::
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="사용자에게 테넌트 전체의 사용 권한을 요청할 수 있음을 알리는 배너입니다.":::
 
 1. 자세한 요청 양식에서 원하는 역할 및 이러한 권한이 필요한 이유에 대 한 근거를 선택 합니다.
 

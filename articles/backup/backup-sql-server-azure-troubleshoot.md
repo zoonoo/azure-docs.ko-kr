@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1e4ee2bdcd0826b655aa71d83674ff1e0c06a8cb
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cf0ed0200de9b2787f5d9f38bd343f93648bc78
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549901"
+ms.locfileid: "99557738"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -206,14 +206,14 @@ VM 내에서 실행 중인 모든 SQL 인스턴스가 정상으로 보고 되는
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-AzureBackup 워크 로드 확장 작업이 실패 했습니다. | VM이 종료 되는 경우 (또는) 인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다.| -VM이 실행 되 고 있고 인터넷에 연결 되어 있는지 확인 하세요.<br>- [SQL Server VM에 확장을 다시 등록](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#re-register-extension-on-the-sql-server-vm)합니다.
+AzureBackup 워크 로드 확장 작업이 실패 했습니다. | VM이 종료 되거나 인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다.| <li> VM이 실행 되 고 있고 인터넷에 연결 되어 있는지 확인 합니다.<li> [SQL Server VM에 확장을 다시 등록](manage-monitor-sql-database-backup.md#re-register-extension-on-the-sql-server-vm)합니다.
 
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | 오류 메시지 | 가능한 원인 | 권장 조치 |
 |---|---|---|
-인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| -NSG를 사용 하 여 연결을 제한 하는 경우 *Azurebackup* 서비스 태그를 사용 하 여 Azure Backup 서비스에 대 한 아웃 바운드 액세스를 허용 하 고 Azure AD (*AzureActiveDirectory*) 및 Azure Storage (*저장소*) 서비스에 유사 하 게 연결 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](./backup-sql-server-database-azure-vms.md#nsg-tags) 를 수행 합니다.<br>-DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다.<br>-VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다.<br>-위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
+인터넷 연결 문제로 인해 VM이 Azure Backup 서비스에 연결할 수 없습니다. | VM Azure Backup 서비스, Azure Storage 또는 Azure Active Directory 서비스에 대 한 아웃 바운드 연결이 필요 합니다.| <li> NSG를 사용 하 여 연결을 제한 하는 경우 *Azurebackup* 서비스 태그를 사용 하 여 Azure Backup 서비스에 대 한 아웃 바운드 액세스를 허용 하 고 Azure AD (*AzureActiveDirectory*) 및 Azure Storage (*저장소*) 서비스에 대해서도 유사 하 게 사용 해야 합니다. 액세스 권한을 부여 하려면 다음 [단계](./backup-sql-server-database-azure-vms.md#nsg-tags) 를 수행 합니다. <li> DNS가 Azure 끝점을 확인 하 고 있는지 확인 합니다. <li> VM이 인터넷 액세스를 차단 하는 부하 분산 장치 뒤에 있는지 확인 합니다. Vm에 공용 IP를 할당 하면 검색은 작동 합니다. <li> 위의 세 대상 서비스에 대 한 호출을 차단 하는 방화벽/바이러스 백신/프록시가 없는지 확인 합니다.
 
 ## <a name="re-registration-failures"></a>다시 등록 오류
 

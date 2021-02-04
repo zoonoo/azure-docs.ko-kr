@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 69ac1e82c267dee521143c4ed5f6c2be4d32e2ea
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96531329"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556136"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -186,7 +186,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 * **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](./sampling.md)에 대해 자세히 알아보세요.
 
-* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](./javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다.
+* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](./javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다. Ajax 호출을 사용 하지 않도록 설정 하면 [JavaScript 상관 관계가](./javascript.md#enable-correlation)사용 되지 않습니다.
 
 * **불필요한 모듈 사용 안 함**: [ApplicationInsights.config를 편집](./configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 

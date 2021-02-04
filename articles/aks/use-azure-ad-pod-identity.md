@@ -4,16 +4,19 @@ description: Azure Kubernetes 서비스 (AKS)에서 AAD pod 관리 되는 관리
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: d992c5c5384c04fe39511481550ab7b0ea47069e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217875"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99557359"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사용 (미리 보기)
 
 Azure Active Directory pod 관리 id는 Kubernetes 기본 형식을 사용 하 여 [Azure 리소스에 대 한 관리 되는 id][az-managed-identities] 와 AZURE ACTIVE DIRECTORY (AAD)의 id를 pod와 연결 합니다. 관리자는 id 및 바인딩을 Kubernetes 기본 형식으로 만들며,이를 통해 pod가 AAD를 id 공급자로 사용 하는 Azure 리소스에 액세스할 수 있습니다.
+
+> [!NOTE]
+> AADPODIDENTITY를 이미 설치한 경우 기존 설치를 제거 해야 합니다. 이 기능을 사용 하도록 설정 하면 MIC 구성 요소가 필요 하지 않습니다.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -40,7 +43,7 @@ az feature register --name EnablePodIdentityPreview --namespace Microsoft.Contai
 
 ### <a name="install-the-aks-preview-azure-cli"></a>Azure CLI 설치 `aks-preview`
 
-*Aks-preview* Azure CLI 확장 버전 0.4.64 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 설치 합니다.
+*Aks-preview* Azure CLI 확장 버전 0.4.64 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치 합니다. 또는 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치 합니다.
 
 ```azurecli-interactive
 # Install the aks-preview extension

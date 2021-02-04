@@ -2,31 +2,21 @@
 title: 포털 템플릿을 템플릿 사양으로 변환
 description: Azure Portal 갤러리에서 기존 템플릿을 템플릿 사양으로 변환 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/04/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 8fe02f55348f2cdcabb43e05bb547819d4b51228
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c59275fca1eb3037b48b7293fc9e507df46b7fcb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739109"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555946"
 ---
 # <a name="convert-template-gallery-in-portal-to-template-specs"></a>포털의 템플릿 갤러리를 템플릿 사양으로 변환
 
-Azure Portal은 계정에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하는 방법을 제공 합니다. **이 기능은 사용되지 않습니다.** 이 갤러리에서 템플릿을 계속 사용 하려면 [템플릿 사양](template-specs.md)으로 변환 하세요.
+Azure Portal은 계정에 Azure Resource Manager 템플릿 (ARM 템플릿)을 저장 하는 방법을 제공 합니다. 그러나 [템플릿 사양을](template-specs.md) 사용 하면 조직의 사용자와 템플릿을 공유 하 고 다른 템플릿과 연결할 수 있습니다. 이 문서에서는 템플릿 갤러리의 기존 템플릿을 템플릿 사양으로 변환 하는 방법을 보여 줍니다.
 
-이 문서에서는 템플릿 갤러리의 기존 템플릿을 템플릿 사양으로 변환 하는 방법을 보여 줍니다.
-
-포털에서 더 이상 사용 되지 않는 기능을 **템플릿 (미리 보기)** 이라고 합니다. 변환할 템플릿이 있는지 확인 하려면 [포털에서 템플릿 갤러리](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems)를 확인 합니다. 이러한 템플릿에는 리소스 형식이 `Microsoft.Gallery/myareas/galleryitems` 있습니다.
-
-## <a name="deprecation-of-portal-feature"></a>포털 기능 사용 중단
-
-포털의 템플릿 갤러리는 2021 년 1 월 21 일에 사용 되지 않습니다. 2 월 21 일까 때까지 계속 사용할 수 있습니다. 2 월 22 일부 터 포털 갤러리에서 새 템플릿을 만들 수는 없지만 기존 템플릿은 계속 보고 배포할 수 있습니다.
-
-6 월 22 일에는 기능이 포털에서 제거 되 고 모든 API 작업이 차단 됩니다. 갤러리에서 템플릿을 보거나 배포할 수 없습니다.
-
-6 월 22 일 이전에 계속 사용 하려는 템플릿을 마이그레이션해야 합니다. 이 문서에 표시 된 방법 중 하나를 사용 하 여 템플릿을 마이그레이션할 수 있습니다. 기능이 제거 된 후에는 마이그레이션하지 않은 템플릿을 가져오려면 지원 사례를 열어야 합니다.
+변환할 템플릿이 있는지 확인 하려면 [포털에서 템플릿 갤러리](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems)를 확인 합니다. 이러한 템플릿에는 리소스 형식이 `Microsoft.Gallery/myareas/galleryitems` 있습니다.
 
 ## <a name="convert-with-powershell-script"></a>PowerShell 스크립트를 사용 하 여 변환
 

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1c544bd6d3965bc71df2024e66defbdf9443c8f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 4982acb54207a9ed08a96414877603a8253c2ade
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550728"
+ms.locfileid: "99557753"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -2058,7 +2058,7 @@ Teams 통신 관리자 | Teams 통신 관리자 | baf37b3a-610e-45da-9e62-d9d1e5
 Teams 통신 지원 엔지니어 | Teams 통신 지원 엔지니어 | f70938a0-fc10-4177-9e90-2178f8765737
 Teams 통신 지원 전문가 | Teams 통신 지원 전문가 | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Teams 디바이스 관리자 | Teams 디바이스 관리자 | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Teams 관리자 | Teams 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-066075b2a7a8
 사용 요약 보고서 판독기 | 사용 요약 보고서 판독기 | 75934031-6c7e-415a-99d7-48dbd49e875e
 사용자 | 사용하면 안되므로 표시되지 않습니다. | a0b1b346-4d3e-4e8b-98f8-753987be4970
 사용자 관리자 | 사용자 관리자 | fe930be7-5e62-47db-91af-98c3a49a38b1

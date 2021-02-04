@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 8ee18043f0485ae6290b1b323648ba9b2b83258b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255919"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555622"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -63,7 +63,7 @@ Azure Active Directory 포털을 사용하여 디렉터리에서 Single Sign-On�
 
 **매핑** 을 확장하여 사용자 계정이 프로비저닝되거나 업데이트될 때 Azure AD와 대상 애플리케이션 간에 흐르는 사용자 특성을 보고 편집할 수 있습니다.
 
-Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹이나 연락처 같은 다른 유형의 개체를 관리합니다. 테이블에서 매핑을 선택하여 오른쪽에 있는 매핑 편집기를 엽니다. 이 편집기에서 매핑을 보고 사용자 지정할 수 있습니다.
+Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹 개체도 관리 합니다. 테이블에서 매핑을 선택하여 오른쪽에 있는 매핑 편집기를 엽니다. 이 편집기에서 매핑을 보고 사용자 지정할 수 있습니다.
 
 ![특성 매핑 화면 표시](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 센티널 watchlists 사용
+title: Azure Sentinel 관심 목록 사용
 description: 이 문서에서는 Azure 센티널 watchlists에서 위협 조사, 비즈니스 데이터 가져오기, 허용 목록 만들기 및 이벤트 데이터 보강을 사용 하는 방법을 설명 합니다.
 services: sentinel
 author: yelevin
@@ -10,14 +10,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 97509b878fb5e0cb28bddc5d1b58c21b32c34675
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797330"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555640"
 ---
-# <a name="use-azure-sentinel-watchlists"></a>Azure 센티널 watchlists 사용
+# <a name="use-azure-sentinel-watchlists"></a>Azure Sentinel 관심 목록 사용
 
 > [!IMPORTANT]
 > Watchlists 기능은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
@@ -28,7 +28,7 @@ Watchlists 사용에 대 한 일반적인 시나리오는 다음과 같습니다
 
 - IP 주소, 파일 해시 및 CSV 파일의 기타 데이터를 신속 하 게 가져오는 방법으로 **위협을 조사** 하 고 신속 하 게 문제에 대응 합니다. 가져온 후에는 경고 규칙, 위협 구하기, 통합 문서, 전자 필기장 및 일반 쿼리에서 조인 및 필터에 대 한 관심 목록 이름-값 쌍을 사용할 수 있습니다.
 
-- **비즈니스 데이터** 를 Watchlists로 가져옵니다. 예를 들어 권한이 있는 시스템 액세스 또는 종료 된 직원의 사용자 목록을 가져온 다음 관심 목록를 사용 하 여 해당 사용자가 네트워크에 로그인 하지 못하도록 하는 허용 및 거부 목록을 만듭니다.
+- **비즈니스 데이터** 를 관심 목록로 가져옵니다. 예를 들어 권한이 있는 시스템 액세스 또는 종료 된 직원의 사용자 목록을 가져온 다음 관심 목록를 사용 하 여 해당 사용자가 네트워크에 로그인 하지 못하도록 하는 허용 및 거부 목록을 만듭니다.
 
 - **경고 피로을 줄입니다**. 일반적으로 경고를 트리거하는 작업을 수행 하는 권한이 부여 된 IP 주소의 사용자와 같은 사용자 그룹의 경고를 표시 하지 않고 무해 한 이벤트가 경고 되지 않도록 허용 목록을 만듭니다.
 

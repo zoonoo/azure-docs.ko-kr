@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 34cec02ef8118f43d880c40839f2d1869da23d63
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9d2dc235bbc2213980b076e0a9baca6c261129cc
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095504"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99556582"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ec47710-77ff-4a3d-9181-6aa50af424d0) |Azure Database for MariaDB를 사용하면 데이터베이스 서버에 대한 중복성 옵션을 선택할 수 있습니다. 서버가 호스트되는 지역 내에 저장될 뿐만 아니라 지역 장애 발생 시 복구 옵션을 제공하기 위해 쌍을 이루는 지역에도 복제되는 데이터가 있는 지역 중복 백업 스토리지로 설정할 수 있습니다. 백업을 위한 지역 중복 스토리지 구성은 서버 생성 중에만 허용됩니다. |감사, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_DBForMariaDB_Audit.json) |
 |[MariaDB 서버는 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdfbd9a64-6114-48de-a47d-90574dc2e489) |가상 네트워크 기반 방화벽 규칙은 Azure 경계 내에서 트래픽을 유지하면서 특정 서브넷에서 Azure Database for MariaDB로의 트래픽을 사용하도록 설정하는 데 사용됩니다. 이 정책은 Azure Database for MariaDB에서 사용 중인 가상 네트워크 서비스 엔드포인트가 있는지 감사하는 방법을 제공합니다. |AuditIfNotExists, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/MariaDB_VirtualNetworkServiceEndpoint_Audit.json) |

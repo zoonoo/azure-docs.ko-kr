@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MySQL에 대한 기본 제공 정책 정의
 description: Azure Database for MySQL에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 28d6f180d388ee958b59799d5dec53d869d47459
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6f567f58c8df447b899ff0486f7c9057edf30f97
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096368"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99555201"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Azure Policy 기본 제공 정의
 
