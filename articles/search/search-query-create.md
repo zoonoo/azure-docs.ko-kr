@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 9419e5f419a358be50fbb3b8478d62dfe6e3dff0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b013c66feefade077c85194ba3b1ff04ff4c4aa5
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509353"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536835"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "99509353"
 
 쿼리는 단일 검색 인덱스의 docs 컬렉션에 대 한 읽기 전용 요청입니다. ' QueryType ' 및 ' search ' 매개 변수를 통해 쿼리 식을 지정 합니다. 쿼리 식에는 검색어, 인용 부호 및 연산자가 있을 수 있습니다.
 
-또한 쿼리는 인덱스에 있는 일치 항목 수를 반환 하는 ' count ', 검색 결과에서 반환 되는 필드를 선택 하는 ' select ' 및 결과를 정렬 하는 ' orderby '를 포함할 수 있습니다. 다음 예에서는 사용 가능한 매개 변수의 하위 집합이 포함 된 쿼리 요청을 보여 줍니다. 쿼리 컴포지션에 대 한 자세한 내용은 [쿼리 유형 및 컴포지션](search-query-overview.md) 및 [문서 검색 (REST)](/rest/api/searchservice/search-documents)을 참조 하세요.
+또한 쿼리는 인덱스에 있는 일치 항목 수를 반환 하는 ' count ', 검색 결과에서 반환 되는 필드를 선택 하는 ' select ' 및 결과를 정렬 하는 ' orderby '를 포함할 수 있습니다. 다음 예에서는 사용 가능한 매개 변수의 하위 집합을 표시 하 여 쿼리 요청에 대 한 일반적인 개념을 제공 합니다. 쿼리 컴포지션에 대 한 자세한 내용은 [쿼리 유형 및 컴포지션](search-query-overview.md) 및 [문서 검색 (REST)](/rest/api/searchservice/search-documents)을 참조 하세요.
 
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -38,7 +38,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="choose-a-client"></a>클라이언트 선택
 
-Azure Portal 또는 Postman과 같은 쿼리 또는 쿼리 클라이언트를 인스턴스화하는 코드를 만들기 위한 도구나 API가 필요 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
+Azure Portal 또는 Postman과 같은 도구 또는 Api를 사용 하 여 쿼리 클라이언트를 인스턴스화하는 코드를 사용 해야 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
 ### <a name="permissions"></a>사용 권한
 
@@ -111,14 +111,6 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 인덱싱 중에 검색 엔진은 분석기를 사용 하 여 문자열에 대 한 텍스트 분석을 수행 하 고 쿼리 시간에 일치 시킬 수 있는 가능성을 최대화 합니다. 최소한의 경우 문자열의 대/소문자는 동일 하지만, 분류 정리 및 word 제거를 중지 하기도 합니다. 일반적으로 큰 문자열이 나 복합 단어는 공백, 하이픈 또는 대시로 구분 되며 별도의 토큰으로 인덱싱됩니다. 
 
 여기서는 인덱스에 포함 된 것으로 생각 하 고 실제로는 무엇이 든 다를 수 있습니다. 쿼리에서 예상 된 결과가 반환 되지 않는 경우 [분석 텍스트 (REST API)](/rest/api/searchservice/test-analyzer)를 통해 분석기에서 만든 토큰을 검사할 수 있습니다. 토큰화 및 쿼리에 미치는 영향에 대 한 자세한 내용은 [부분 용어 검색 및 특수 문자가 포함 된 패턴](search-query-partial-matching.md)을 참조 하세요.
-
-## <a name="about-queries-per-second-qps"></a>초당 쿼리 수 (QPS)
-
-쿼리 성능으로 인해 발생 하는 요인 수가 많기 때문에 Microsoft는 예상 되는 QPS 번호를 게시 하지 않습니다. QPS 예상치는 모든 고객이 응용 프로그램에 유효한 서비스 계층, 구성, 인덱스 및 쿼리 구문을 사용 하 여 독립적으로 개발 해야 합니다. 인덱스 크기와 복잡성, 쿼리 크기와 복잡성 및 트래픽 양은 QPS의 주 결정자입니다. 이러한 요소를 알 수 없는 경우 의미 있는 예상 값을 제공할 방법이 없습니다.
-
-예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Cognitive Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
-
-스토리지 최적화 계층(L1 및 L2)의 경우 표준 계층보다 낮은 쿼리 처리량과 더 많은 대기 시간이 소요됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
