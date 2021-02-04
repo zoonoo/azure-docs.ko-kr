@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: fd845778df5ff2f545463e9cb984a739e35f6773
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256267"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500442"
 ---
 Custom Vision REST API를 시작합니다. API를 호출하고 이미지 분류 모델을 빌드하려면 다음 단계를 수행합니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용합니다.
 
@@ -104,7 +104,7 @@ Custom Vision REST API를 시작합니다. API를 호출하고 이미지 분류 
 다음으로, 이 프로젝트에 대한 샘플 이미지를 다운로드합니다. [샘플 이미지 폴더](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images)의 내용을 로컬 디바이스에 저장합니다.
 
 > [!NOTE]
-> Microsoft Garage 프로젝트인 Trove를 사용하면 학습 목적으로 이미지 세트를 수집하고 구매할 수 있습니다. 이미지를 수집한 후에는 해당 이미지를 다운로드한 다음, 일반적인 방법으로 Custom Vision 프로젝트로 가져올 수 있습니다. 자세한 내용은 [Trove 페이지](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3)를 참조하세요.
+> 학습을 완료하려면 보다 광범위한 이미지 세트가 필요한가요? Microsoft Garage 프로젝트인 Trove를 사용하면 학습 목적으로 이미지 세트를 수집하고 구매할 수 있습니다. 이미지를 수집한 후에는 해당 이미지를 다운로드한 다음, 일반적인 방법으로 Custom Vision 프로젝트로 가져올 수 있습니다. 자세한 내용은 [Trove 페이지](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3)를 참조하세요.
 
 다음 명령을 사용하여 이미지를 업로드하고 "Hemlock" 이미지에 대해 한 번, "Japanese Cherry" 이미지에 대해 별도로 태그를 적용합니다. 자세한 옵션은 [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API를 참조하세요.
 
@@ -224,5 +224,5 @@ JSON 응답에는 반복 ID(`"id"`)를 비롯하여 학습된 프로젝트에 �
 > [모델 테스트 및 재교육](../../test-your-model.md)
 
 * Custom Vision이란?
-* [API 참조 설명서(학습)](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
+* [API 참조 설명서(학습)](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
 * [API 참조 설명서(예측)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)

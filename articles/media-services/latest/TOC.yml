@@ -111,6 +111,8 @@
         - name: 관리 ID 및 미디어 서비스
           displayName: content protection
           href: concept-managed-identities.md
+        - name: 신뢰할 수 있는 스토리지
+          href: concept-trusted-storage.md
         - name: 고객 관리 키
           href: concept-use-customer-managed-keys-byok.md
     - name: 자산

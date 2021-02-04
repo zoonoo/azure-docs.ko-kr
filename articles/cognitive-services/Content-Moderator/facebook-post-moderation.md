@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: e930e5d125a8f1ee90448e293e2e0ca2c5c28465
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913673"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220993"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -105,14 +105,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![facebook 개발자 페이지](images/facebook-developer-app.png)
 
     1. [Facebook 개발자 사이트](https://developers.facebook.com/)로 이동합니다.
-    1. **내 앱** 을 클릭합니다.
+    1. **내 앱** 으로 이동합니다.
     1. 새 앱을 추가합니다.
-    1. 이름을 지정합니다.
+    1. 이름 지정
     1. **Webhook -> 설정** 을 선택합니다.
     1. 드롭다운 메뉴에서 **페이지** 를 선택하고 **이 개체에 가입** 을 선택합니다.
     1. 콜백 URL로 **FBListener Url** 및 **함수 앱 설정** 아래에서 구성한 **토큰 확인** 을 제공합니다.
     1. 구독한 후 피드 아래로 스크롤하고 **구독** 을 선택합니다.
-    1. **피드** 행의 **테스트** 단추를 클릭하여 FBListener Azure 함수로 테스트 메시지를 전송한 후 **내 서버로 보내기** 단추를 누릅니다. FBListener에서 요청이 수신되는 것을 볼 수 있습니다.
+    1. **피드** 행의 **테스트** 단추를 선택하여 FBListener Azure 함수로 테스트 메시지를 전송한 다음, **내 서버로 보내기** 단추를 누릅니다. FBListener에서 요청이 수신되는 것을 볼 수 있습니다.
 
 1. Facebook 페이지를 만듭니다.
 
@@ -124,8 +124,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         1. [Graph API 탐색기](https://developers.facebook.com/tools/explorer/)로 이동합니다.
         1. **애플리케이션** 을 선택합니다.
         1. **페이지 액세스 토큰** 을 선택하고, **Get** 요청을 보냅니다.
-        1. 응답에서 **페이지 ID** 를 클릭합니다.
-        1. 이제 URL에 **/subscribed_apps** 를 추가하고 **Get** (빈 응답) 요청을 보냅니다.
+        1. 응답에서 **페이지 ID** 를 선택합니다.
+        1. 이제 URL에 **/subscribed_apps** 를 추가하고 **Get**(빈 응답) 요청을 보냅니다.
         1. **Post** 요청을 제출합니다. **success: true** 로 응답을 받습니다.
 
 3. 만료되지 않는 Graph API 액세스 토큰을 만듭니다.
@@ -134,7 +134,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     2. **애플리케이션** 옵션을 선택합니다.
     3. **사용자 액세스 토큰 가져오기** 옵션을 선택합니다.
     4. **권한 선택** 아래에서 **manage_pages** 및 **publish_pages** 옵션을 선택합니다.
-    5. 다음 단계에서 **액세스 토큰** (수명이 짧은 토큰)을 사용합니다.
+    5. 다음 단계에서 **액세스 토큰**(수명이 짧은 토큰)을 사용합니다.
 
 4. 다음 몇 단계에 Postman을 사용합니다.
 
@@ -159,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 제품 유형별로 태그를 지정하고 검토 팀이 콘텐츠 조정에 대해 합리적인 의사 결정을 할 수 있도록 제품 이미지를 분석하는 프로그램을 설정합니다. 다음으로, 이미지 조정에 대해 자세히 알아보세요.
+이 자습서에서는 제품 이미지를 분석하고 제품 유형별로 태그를 지정하여 이러한 정보를 근거로 검토 팀이 콘텐츠 조정에 대한 합리적인 의사 결정을 내릴 수 있는 프로그램을 설정합니다. 다음으로, 이미지 조정에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [이미지 조정](./image-moderation-api.md)

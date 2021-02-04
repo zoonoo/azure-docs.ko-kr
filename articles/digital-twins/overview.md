@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664030"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071684"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -94,10 +94,10 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="service-limits"></a>서비스 제한
 
-Azure Digital Twins 제한 목록은 [*참조: 서비스 제한*](reference-service-limits.md)을 참조하세요.
+Azure Digital Twins 제한 목록은 [*Azure Digital Twins 서비스 제한*](reference-service-limits.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Digital Twins의 첫 번째 미리 보기 릴리스(2018년 10월)로 작업한 경우 변경된 내용을 알아보세요. [*개요: 첫 번째 릴리스와의 차이점*](overview-differences.md).
+* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md).
 
-또는 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [*빠른 시작: 샘플 시나리오 살펴보기*](quickstart-adt-explorer.md).
+* 또는 Azure Digital Twins 개념에 대해 [*개념: 사용자 지정 모델*](concepts-models.md)에서 자세히 알아보세요.

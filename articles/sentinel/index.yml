@@ -12,12 +12,12 @@ metadata:
   author: yelevin
   ms.author: yelevin
   ms.date: 06/25/2020
-  ms.openlocfilehash: d4e86295020ab68c6769ac34d6259bd78cf9934e
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: da184f668a669fcd29639e557a8108214bad0302
+  ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85374562"
+  ms.lasthandoff: 02/03/2021
+  ms.locfileid: "99491908"
 landingContent:
 - title: Azure Sentinel 정보
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: Azure Sentinel이란?
       url: overview.md
+    - text: Azure Sentinel의 새로운 기능
+      url: whats-new.md
 - title: 시작하기
   linkLists:
   - linkListType: quickstart

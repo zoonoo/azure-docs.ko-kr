@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 조정자, 콘텐츠 조정
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905216"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221179"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
 
@@ -88,6 +88,6 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 ## <a name="next-steps"></a>다음 단계
 
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
-- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 이미지를 검사하고 태그, 신뢰도 점수 및 기타 추출된 정보를 사용하여 잠재적인 성인 및 외설 콘텐츠를 검색합니다.
-- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md)을 사용하거나 [클라이언트 라이브러리 또는 REST API 빠른 시작](client-libraries.md)에 따라 텍스트 콘텐츠에 욕설, 원치 않는 머신 지원 텍스트 분류(미리 보기) 및 개인 데이터가 있는지 검사합니다.
+- 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md)을 사용하거나 [C# 빠른 시작](client-libraries.md)을 따라 이미지를 검사하고 태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 성인/외설 콘텐츠를 검색합니다.
+- 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md)을 사용하거나 [빠른 시작](client-libraries.md)을 따라 텍스트 콘텐츠에서 잠재적 비속어, 개인 데이터 및 기타 원치 않는 텍스트를 검사합니다.
 - 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

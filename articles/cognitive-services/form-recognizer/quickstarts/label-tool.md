@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845541"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221094"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -202,7 +202,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    1. **+** 를 클릭하여 새 태그를 만듭니다.
    1. 태그 이름을 입력합니다.
    1. Enter 키를 눌러 태그를 저장합니다.
-1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 preview.2_ 에서 라디오 단추 및 확인란과 같은 _선택 표시_ 를 클릭하여 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
+1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다. _v2.1 preview.2_ API에서 라디오 단추 및 확인란과 같은 _선택 표시_ 를 클릭하여 키 값 쌍으로 선택할 수도 있습니다. Form Recognizer는 선택 표시가 값으로 "선택됨" 또는 "선택되지 않음"인지 여부를 식별합니다.
 1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
     > [!Tip]
     > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.

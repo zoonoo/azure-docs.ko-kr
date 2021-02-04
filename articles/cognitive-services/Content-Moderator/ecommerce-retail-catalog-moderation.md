@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913690"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221281"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -48,17 +48,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-custom-moderation-tags"></a>사용자 지정 조정 태그 만들기
 
-다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](./review-tool-user-guide/configure.md#tags) 문서를 참조하세요.) 이 경우 **celebrity** , **USA** , **flag** , **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity** ). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
+다음으로, 검토 도구에서 사용자 지정 태그를 만듭니다. (이 과정에 대한 도움이 필요하면 [태그](./review-tool-user-guide/configure.md#tags) 문서를 참조하세요.) 이 경우 **celebrity**, **USA**, **flag**, **toy** 및 **pen** 태그를 추가합니다. 모든 태그가 Computer Vision에서 검색 가능한 범주일 필요는 없습니다(예: **celebrity**). Custom Vision 분류자를 학습하기만 한다면 나중에 검색하도록 고유의 사용자 지정 태그를 추가할 수 있습니다.
 
 ![사용자 지정 태그 구성](images/tutorial-ecommerce-tags2.PNG)
 
 ## <a name="create-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목** , **Visual C#** 을 차례로 확장한 다음, **콘솔 앱(.NET Framework)** 를 선택합니다.
-1. 애플리케이션 이름을 **EcommerceModeration** 으로 지정하고 **확인** 을 클릭합니다.
+1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목**, **Visual C#** 을 차례로 확장한 다음, **콘솔 앱(.NET Framework)** 를 선택합니다.
+1. 애플리케이션 이름을 **EcommerceModeration** 으로 지정하고 **확인** 을 선택합니다.
 1. 이 프로젝트를 기존 솔루션에 추가하는 경우 이 프로젝트를 단일 시작 프로젝트로 선택합니다.
 
-이 자습서에서는 프로젝트의 핵심 코드만 강조하며 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트( [전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_ 의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
+이 자습서에서는 프로젝트의 핵심 코드만 강조하며 모든 코드 행을 다루지는 않습니다. 샘플 프로젝트([전자 상거래 카탈로그 조정 샘플](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration))에서 _Program.cs_ 의 전체 내용을 새 프로젝트의 _Program.cs_ 파일에 복사합니다. 그런 다음, 다음 섹션을 단계별로 실행하여 프로젝트가 작동하는 방법과 직접 사용하는 방법을 알아봅니다.
 
 ## <a name="define-api-keys-and-endpoints"></a>API 키 및 엔드포인트 정의
 
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-reviews-for-review-tool"></a>검토 도구용 검토 만들기
 
-이전 섹션에서 앱이 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 들어오는 이미지를 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그( _Metadata_ 로 전달됨)와 함께 이미지를 Content Moderator 검토 도구에 업로드하는 **CreateReview** 메서드를 살펴봅니다.
+이전 섹션에서 앱이 성인 및 외설 콘텐츠(Content Moderator), 유명인(Computer Vision) 및 다양한 기타 개체(Computer Vision)에 대해 들어오는 이미지를 검사하는 메서드를 살펴보았습니다. 다음으로, 적용된 모든 태그(_Metadata_ 로 전달됨)와 함께 이미지를 Content Moderator 검토 도구에 업로드하는 **CreateReview** 메서드를 살펴봅니다.
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 

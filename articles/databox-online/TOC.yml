@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: 빠른 시작
       items:
-        - name: 시작
+        - name: 시작하기
           href: azure-stack-edge-gpu-quickstart.md
     - name: 자습서
       items:
@@ -278,6 +278,8 @@
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
+            - name: 디바이스 이벤트 경고 관리
+              href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
             - name: Kubernetes 대시보드 사용
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
             - name: Azure Monitor 사용

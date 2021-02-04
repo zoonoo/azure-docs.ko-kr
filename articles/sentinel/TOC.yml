@@ -2,6 +2,8 @@
   href: index.yml
 - name: 개요
   href: overview.md
+- name: Azure Sentinel의 새로운 기능
+  href: whats-new.md
 - name: 빠른 시작
   expanded: true
   items:

@@ -3,12 +3,12 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 10/25/2020
-ms.openlocfilehash: c7e40de2caec49bd0e4fed32ddd9f131c9649dcd
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: ee806b9c1dac128da543e4aa07dace58e8ba8f1a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256269"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500229"
 ---
 Python용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 이미지 분류 모델을 빌드하기 위한 예제 코드를 사용해 봅니다. 프로젝트를 만들고, 태그를 추가하고, 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용할 수 있습니다.
 
@@ -24,7 +24,7 @@ Python용 Custom Vision 클라이언트 라이브러리를 사용하여 다음�
 * 현재 반복 게시
 * 예측 엔드포인트 테스트
 
-[참조 설명서](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [패키지(PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [샘플](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
+[참조 설명서](/python/api/overview/azure/cognitiveservices/customvision) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [패키지(PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [샘플](/samples/browse/?languages=python&products=azure&term=vision&terms=vision)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -68,9 +68,9 @@ pip install azure-cognitiveservices-vision-customvision
 
 |Name|설명|
 |---|---|
-|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | 이 클래스는 모델의 생성, 학습 및 게시를 처리합니다. |
-|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| 이 클래스는 이미지 분류 예측에 대한 모델의 쿼리를 처리합니다.|
-|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| 이 클래스는 단일 이미지에서 단일 개체 예측을 정의합니다. 여기에는 개체 ID 및 이름, 개체의 경계 상자 위치 및 신뢰도 점수에 대한 속성이 포함됩니다.|
+|[CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) | 이 클래스는 모델의 생성, 학습 및 게시를 처리합니다. |
+|[CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient)| 이 클래스는 이미지 분류 예측에 대한 모델의 쿼리를 처리합니다.|
+|[ImagePrediction](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction)| 이 클래스는 단일 이미지에서 단일 개체 예측을 정의합니다. 여기에는 개체 ID 및 이름, 개체의 경계 상자 위치 및 신뢰도 점수에 대한 속성이 포함됩니다.|
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -86,7 +86,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-엔드포인트와 키를 사용하여 학습 및 예측 클라이언트를 인스턴스화합니다. 키를 사용하여 **ApiKeyServiceClientCredentials** 개체를 만들고 엔드포인트와 함께 사용하여 [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) 및 [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) 개체를 만듭니다.
+엔드포인트와 키를 사용하여 학습 및 예측 클라이언트를 인스턴스화합니다. 키를 사용하여 **ApiKeyServiceClientCredentials** 개체를 만들고 엔드포인트와 함께 사용하여 [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) 및 [CustomVisionPredictionClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient) 개체를 만듭니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_auth)]
 
@@ -94,7 +94,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 
 
-프로젝트를 만들 때 다른 옵션을 지정하려면 [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) 메서드를 참조하세요([분류자 빌드](../../getting-started-build-a-classifier.md) 웹 포털 가이드에 설명되어 있음).  
+프로젝트를 만들 때 다른 옵션을 지정하려면 [create_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-) 메서드를 참조하세요([분류자 빌드](../../getting-started-build-a-classifier.md) 웹 포털 가이드에 설명되어 있음).  
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_create)]
 
@@ -110,7 +110,7 @@ pip install azure-cognitiveservices-vision-customvision
 먼저 이 프로젝트에 대한 샘플 이미지를 다운로드합니다. [샘플 이미지 폴더](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images)의 내용을 로컬 디바이스에 저장합니다.
 
 > [!NOTE]
-> Microsoft Garage 프로젝트인 Trove를 사용하면 학습 목적으로 이미지 세트를 수집하고 구매할 수 있습니다. 이미지를 수집한 후에는 해당 이미지를 다운로드한 다음, 일반적인 방법으로 Custom Vision 프로젝트로 가져올 수 있습니다. 자세한 내용은 [Trove 페이지](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3)를 참조하세요.
+> 학습을 완료하려면 보다 광범위한 이미지 세트가 필요한가요? Microsoft Garage 프로젝트인 Trove를 사용하면 학습 목적으로 이미지 세트를 수집하고 구매할 수 있습니다. 이미지를 수집한 후에는 해당 이미지를 다운로드한 다음, 일반적인 방법으로 Custom Vision 프로젝트로 가져올 수 있습니다. 자세한 내용은 [Trove 페이지](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3)를 참조하세요.
 
 프로젝트에 샘플 이미지를 추가하려면 태그를 만든 후 다음 코드를 삽입합니다. 이 코드는 해당 태그를 사용하여 각 이미지를 업로드합니다. 단일 일괄 처리에서 최대 64개의 이미지를 업로드할 수 있습니다.
 
@@ -128,7 +128,7 @@ pip install azure-cognitiveservices-vision-customvision
 > [!TIP]
 > 선택한 태그로 학습
 >
-> 적용된 태그의 하위 집합에 대해서만 선택적으로 학습을 수행할 수 있습니다. 특정 태그는 아직 충분히 적용하지 않았지만 다른 태그는 충분히 적용한 경우 이 작업을 수행할 수 있습니다. **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 호출에서 선택적 매개 변수 *selected_tags* 를 사용하려는 태그의 ID 문자열 목록으로 설정합니다. 모델은 해당 목록의 태그만 인식하도록 학습됩니다.
+> 적용된 태그의 하위 집합에 대해서만 선택적으로 학습을 수행할 수 있습니다. 특정 태그는 아직 충분히 적용하지 않았지만 다른 태그는 충분히 적용한 경우 이 작업을 수행할 수 있습니다. **[train_project](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** 호출에서 선택적 매개 변수 *selected_tags* 를 사용하려는 태그의 ID 문자열 목록으로 설정합니다. 모델은 해당 목록의 태그만 인식하도록 학습됩니다.
 
 ## <a name="publish-the-current-iteration"></a>현재 반복 게시
 
@@ -179,4 +179,4 @@ Done!
 
 * Custom Vision이란?
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.py)에서 확인할 수 있습니다.
-* [SDK 참조 설명서](/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)
+* [SDK 참조 설명서](/python/api/overview/azure/cognitiveservices/customvision)

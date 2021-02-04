@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: d59826ba0e53c4b4146c13b354a85a124ac29b23
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738104"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99490880"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
@@ -30,6 +30,12 @@ ms.locfileid: "98738104"
 * 이제 [공간 분석 작업](spatial-analysis-operations.md)을 구성하여 사람이 마스크와 같은 얼굴 보호 커버를 착용하고 있는지 감지할 수 있습니다. 
     * `ENABLE_FACE_MASK_CLASSIFIER` 매개 변수를 구성하여 `personcount`, `personcrossingline` 및 `personcrossingpolygon` 작업에 대해 마스크 분류자를 사용할 수 있습니다.
     * `face_mask` 및 `face_noMask` 특성은 비디오 스트림에서 검색된 각 사람에 대한 신뢰 점수와 함께 메타데이터로 반환됩니다.
+* *personcrossingpolygon* 작업은 사람이 영역에서 소비하는 체류 시간을 계산할 수 있도록 확장되었습니다. 작업의 영역 구성에서 `type` 매개 변수를 `zonedwelltime`으로 설정할 수 있으며 새로운 이벤트 형식 *personZoneDwellTimeEvent* 에는 사람이 영역에서 소비한 시간(밀리초)으로 채워진 `durationMs` 필드가 포함됩니다.
+* **호환성이 손상되는 변경**: *personZoneEvent* 이벤트의 이름이 *personZoneEnterExitEvent* 로 변경되었습니다. 이 이벤트는 사람이 영역에 들어가거나 영역에서 나갈 때 *personcrossingpolygon* 작업에 의해 발생하며, 사람이 건넌 영역의 번호가 매겨진 쪽을 사용하여 방향 정보를 제공합니다.
+* 비디오 URL은 모든 작업에서 "프라이빗 매개 변수/난독 처리"로 제공할 수 있습니다. 난독 처리는 현재 선택 사항이며 `KEY` 및 `IV`가 환경 변수로 제공되는 경우에만 작동합니다.
+* 보정은 기본적으로 모든 작업에 사용하도록 설정됩니다. `do_calibration: false`를 설정하여 사용하지 않도록 설정합니다.
+* `enable_recalibration` 매개 변수를 통해 자동 재보정(기본적으로 해제됨)을 사용하기 위한 추가 지원에 대한 자세한 내용은 [공간 분석 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)을 참조하세요.
+* 카메라 보정 매개 변수가 `DETECTOR_NODE_CONFIG`로 설정되었습니다. 자세한 내용은 [공간 분석 작업](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations)을 참조하세요.
 
 
 ## <a name="october-2020"></a>2020년 10월

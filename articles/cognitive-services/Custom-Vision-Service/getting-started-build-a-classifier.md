@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131698"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221247"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트로 분류자 빌드
 
@@ -25,7 +25,7 @@ ms.locfileid: "98131698"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음으로 사용 가능한 도메인 중 하나를 선택합니다. 각 도메인은 다음 표에 설명된 대로 특정 이미지 유형에 맞게 분류자를 최적화합니다. 원하는 경우 나중에 도메인을 변경할 수 있습니다.
 
-    |도메인|용도|
+    |도메인|목적|
     |---|---|
     |__일반__| 광범위한 이미지 분류 작업에 최적화되었습니다. 다른 도메인이 적절하지 않거나 선택할 도메인을 잘 모르겠으면 일반 도메인을 선택합니다. |
     |__음식__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 분류자 학습을 지원하기 위해 이미지를 업로드하고 수동으로 태그를 지정합니다. 
 
-1. 이미지를 추가하려면 __이미지 추가__ 단추를 클릭하고 __로컬 파일 찾아보기__ 를 선택합니다. __열기__ 를 선택하여 태그 지정으로 이동합니다. 선택한 태그는 업로드하도록 선택한 전체 이미지 그룹에 적용되므로 원하는 태그에 따라 개별 그룹으로 이미지를 업로드하는 것이 더 쉽습니다. 개별 이미지를 업로드한 후에 태그를 변경할 수도 있습니다.
+1. 이미지를 추가하려면 __이미지 추가__ 를 선택한 다음, __로컬 파일 찾아보기__ 를 선택합니다. __열기__ 를 선택하여 태그 지정으로 이동합니다. 선택한 태그는 업로드하도록 선택한 전체 이미지 그룹에 적용되므로 적용된 태그에 따라 개별 그룹으로 이미지를 업로드하는 것이 더 쉽습니다. 개별 이미지를 업로드한 후에 태그를 변경할 수도 있습니다.
 
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/getting-started-build-a-classifier/add-images01.png)
 
