@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: a5be4c16b93f22037152147ada8c4ba2b4443eba
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527575"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538852"
 ---
-# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore---using-azure-portal"></a>연속 백업 및 지정 시간 복원 구성 및 관리-Azure Portal 사용
+# <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>연속 백업 및 지정 시간 복원 (미리 보기)을 사용 하 여 구성 및 관리-Azure Portal 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB의 지정 시간 복원 기능을 사용 하면 삭제 된 계정, 데이터베이스 또는 컨테이너를 복원 하거나 백업이 있던 모든 지역으로 복원 하기 위해 컨테이너 내에서 실수로 인 한 변경 으로부터 복구 하는 데 도움이 됩니다. 연속 백업 모드를 사용 하면 지난 30 일 이내에 모든 시점으로 복원할 수 있습니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Cosmos DB의 지정 시간 복원 기능 (미리 보기)을 사용 하면 삭제 된 계정, 데이터베이스 또는 컨테이너를 복원 하거나 백업이 있던 모든 지역으로 복원할 수 있습니다. 연속 백업 모드를 사용 하면 지난 30 일 이내에 모든 시점으로 복원할 수 있습니다.
 
 이 문서에서는 복원 지점을 식별 하 고 Azure Portal를 사용 하 여 연속 백업을 구성 하는 방법을 설명 합니다.
 

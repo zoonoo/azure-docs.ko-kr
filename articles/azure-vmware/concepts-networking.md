@@ -2,13 +2,13 @@
 title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: 49261f34f879c68f21b57f9256a58a9b0a44d637
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509285"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538978"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 

@@ -2,13 +2,13 @@
 title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 6a2bb0f41bb1809d0f43b08c71766acc914c0689
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509268"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538927"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 

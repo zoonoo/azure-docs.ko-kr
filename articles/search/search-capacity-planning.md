@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d848c1ed1ab9d4cb24dec9423d93ec62ab45633b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702788"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537224"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스의 용량 예측 및 관리
 
@@ -207,6 +207,14 @@ SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명�
 Azure Cognitive Search에 대 한 SLA (서비스 수준 계약)는 문서 추가, 업데이트 또는 삭제로 구성 된 쿼리 작업 및 인덱스 업데이트를 대상으로 합니다.
 
 기본 계층은 하나의 파티션과 세 개의 복제본에 우선합니다. 인덱싱 및 쿼리 처리량 모두에 대한 수요 변동에 즉시 응답하기 위한 유연성이 필요한 경우 표준 계층 중 하나를 사용하는 것이 좋습니다.  저장소 요구 사항이 쿼리 처리량 보다 훨씬 더 신속 하 게 증가 하는 경우 저장소에 최적화 된 계층 중 하나를 고려 합니다.
+
+## <a name="about-queries-per-second-qps"></a>초당 쿼리 수 (QPS)
+
+쿼리 성능으로 인해 발생 하는 요인 수가 많기 때문에 Microsoft는 예상 되는 QPS 번호를 게시 하지 않습니다. QPS 예상치는 모든 고객이 응용 프로그램에 유효한 서비스 계층, 구성, 인덱스 및 쿼리 구문을 사용 하 여 독립적으로 개발 해야 합니다. 인덱스 크기와 복잡성, 쿼리 크기와 복잡성 및 트래픽 양은 QPS의 주 결정자입니다. 이러한 요소를 알 수 없는 경우 의미 있는 예상 값을 제공할 방법이 없습니다.
+
+예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Cognitive Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
+
+스토리지 최적화 계층(L1 및 L2)의 경우 표준 계층보다 낮은 쿼리 처리량과 더 많은 대기 시간이 소요됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

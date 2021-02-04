@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2019
 ms.author: anupand
-ms.openlocfilehash: f718471c3f79e9a33b0e03b088f8c8d2ae0231d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 555c903dc3375080a8b0d006d2aac7216854c939
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73587512"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539301"
 ---
 # <a name="subnet-extension"></a>서브넷 확장
 공용 클라우드로의 워크 로드 마이그레이션은 신중한 계획과 조정이 필요 합니다. 중요 한 고려 사항 중 하나는 사용자의 IP 주소를 유지 하는 기능 일 수 있습니다. 특히 응용 프로그램에 IP 주소 종속성이 있거나 특정 IP 주소를 사용 하기 위한 규정 준수 요구 사항이 있는 경우 중요할 수 있습니다. Azure Virtual Network는 사용자가 선택한 IP 주소 범위를 사용 하 여 VNet 및 서브넷을 만들 수 있도록 하 여이 문제를 해결 합니다.

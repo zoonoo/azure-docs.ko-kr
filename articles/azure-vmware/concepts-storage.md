@@ -2,13 +2,13 @@
 title: 개념-저장소
 description: Azure VMware 솔루션 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: da5117de4b066fd9872558fa6d018ab898a576f4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 522e4f651b36532ac0c144b3889b2b67c91dc77b
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509222"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536953"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 솔루션 저장소 개념
 
@@ -32,11 +32,11 @@ vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사
 
 ## <a name="scaling"></a>크기 조정
 
-클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud]를 참조 하세요.
+클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 추가 된 각 호스트와 함께 원시 클러스터 전체 용량이 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 추가 된 각 호스트에서 원시 용량을 7.7 TB 늘립니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud]를 참조 하세요.
 
 ## <a name="azure-storage-integration"></a>Azure storage 통합
 
-사설 클라우드에서 실행 되는 워크 로드에서 Azure storage 서비스를 사용할 수 있습니다. Azure storage 서비스에는 저장소 계정, Table Storage 및 Blob Storage 포함 됩니다. Azure storage 서비스에 대 한 워크 로드 연결은 인터넷을 트래버스 하지 않습니다. 이 연결은 추가 보안을 제공 하며, 사설 클라우드 워크 로드에서 SLA 기반 Azure storage 서비스를 사용할 수 있도록 합니다.
+사설 클라우드에서 실행 되는 워크 로드에서 Azure storage 서비스를 사용할 수 있습니다. Azure storage 서비스에는 저장소 계정, Table Storage 및 Blob Storage 포함 됩니다. Azure storage 서비스에 대 한 워크 로드 연결은 인터넷을 트래버스 하지 않습니다. 이 연결을 통해 보안을 강화 하 고 사설 클라우드 워크 로드에서 SLA 기반 Azure storage 서비스를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

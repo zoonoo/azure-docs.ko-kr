@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd56d539df0e14fa2569e32c4c046f35ff4d6000
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ffeca4919613fcfb1ece85690fcd20f5cc492336
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223179"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539080"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 끝점 구성 (미리 보기)
 
@@ -28,7 +28,7 @@ Azure [Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Azure CLI 설치
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 구독을 한 번만 구성 해야 합니다.
 
 ```azurecli

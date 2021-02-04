@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: 9e943be3544da38788d16e54011e09e1ac3426cc
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8366978d50875389ce872c2d1402f0defa2a7371
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122199"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539352"
 ---
 # <a name="configure-expressroute-global-reach-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 Global Reach 구성
 
@@ -68,7 +68,7 @@ ms.locfileid: "98122199"
 
    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/create-authorization-expressroute-circuit.png" alt-text="권한 부여 키 생성"::: 
 
-   회로 2의 개인 피어 링 ID와 권한 부여 키를 적어 둡니다.
+   회로 2의 회로 리소스 ID와 권한 부여 키를 적어 둡니다.
 
 1. **Azure 개인** 피어 링 구성을 선택 합니다. 
 

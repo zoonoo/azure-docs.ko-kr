@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: 371ad2220b2b2b1b73e5611c5abef74454a548ad
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 9a7a8868497433ea0de8f2f8b32f8e8fbaa497eb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508272"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537187"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>가상 음성 기술의 책임이 있는 배포에 대 한 지침
 
@@ -62,14 +62,8 @@ Microsoft에서는 고객이 사용자 지정 신경망의 가상 특성을 사�
 Speech 들가 있는 개인은 에이징 (예: puberty에 도달 하는 경우)을 반영 하기 위해 가상 음성을 업데이트 해야 합니다. 개인에 게 시간이 지남에 따라 변경 되는 스타일 기본 설정이 있을 수 있으며 피치, 악센트 또는 기타 음성 특성을 변경할 수도 있습니다.
 
 
-## <a name="reference-docs"></a>참조 문서
+## <a name="see-also"></a>참고 항목
 
-* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [공개 방법](concepts-disclosure-guidelines.md)
-* [공개 디자인 패턴](concepts-disclosure-patterns.md)
-
-## <a name="next-steps"></a>다음 단계
-
-* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [음성 인재 공개](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [공개 방법](concepts-disclosure-guidelines.md)
 * [공개 디자인 패턴](concepts-disclosure-patterns.md)

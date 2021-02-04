@@ -2,13 +2,13 @@
 title: 개념-vSphere 대 한 vsphere RBAC (역할 기반 액세스 제어)
 description: Azure VMware 솔루션에 대 한 vSphere 역할 기반 액세스 제어의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/23/2020
-ms.openlocfilehash: 6f5c30b070b010f312d038d8286be994039c56f8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/02/2021
+ms.openlocfilehash: 9d7c724fba194d86c2d73bb8323439de7c83c170
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509251"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537021"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vSphere 대 한 vsphere RBAC (역할 기반 액세스 제어)
 

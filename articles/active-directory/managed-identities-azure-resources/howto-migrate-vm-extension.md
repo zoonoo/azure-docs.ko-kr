@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/25/2018
+ms.date: 02/03/2020
 ms.author: barclayn
-ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: dca5f9ed2911ae3042fb9871f849212ec18b1b58
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969202"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539386"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>가상 컴퓨터 관리 id 확장 사용을 중지 하 고 Azure Instance Metadata Service 사용을 시작 하는 방법
 
@@ -71,7 +72,7 @@ Virtual machine scale sets를 사용 하 여 작업 하는 경우 [AzVmssExtensi
    ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
+   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
    ```
 Azure Resource Manager 배포 템플릿을 사용 하 여 가상 머신 확장 집합 확장을 프로 비전 하려면 템플릿의 섹션에 다음 JSON을 추가 `extensionpProfile` `ManagedIdentityExtensionForLinux` 합니다 (Linux 버전의 이름 및 유형 요소에 사용).
 

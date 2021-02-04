@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 286d826f61a6c99396ef04af0a0855567bc4d1e4
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951386"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538910"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
@@ -23,7 +23,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| 데이터 원본 | JSON 문서로 제출 된 경우 검색 인덱스는 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md) 는 지원 되는 Azure 데이터 원본에서 데이터 수집을 자동화 하 고 JSON serialization을 처리 합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob 스토리지](search-howto-indexing-azure-blob-storage.md)에 연결하여 주 데이터 저장소에서 검색 가능한 콘텐츠를 추출합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹*을 수행할 수 있습니다. |
+| 데이터 원본 | JSON 문서로 제출 된 경우 검색 인덱스는 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md) 는 지원 되는 Azure 데이터 원본에서 데이터 수집을 자동화 하 고 JSON serialization을 처리 합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob 스토리지](search-howto-indexing-azure-blob-storage.md)에 연결하여 주 데이터 저장소에서 검색 가능한 콘텐츠를 추출합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹* 을 수행할 수 있습니다. |
 | 계층형 및 중첩 데이터 구조 | [**복합 형식**](search-howto-complex-data-types.md) 및 컬렉션을 사용 하면 검색 인덱스 내에서 거의 모든 유형의 JSON 구조를 모델링할 수 있습니다. 일대다 및 다대다 카디널리티는 컬렉션, 복합 형식 및 복합 형식 컬렉션을 통해 고유하게 표현할 수 있습니다.|
 | 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 기본적으로 범용 표준 Lucene 분석기를 사용 하거나, 언어 분석기, 구성한 사용자 지정 분석기 또는 필요한 형식으로 토큰을 생성 하는 미리 정의 된 다른 분석기를 사용 하 여 기본값을 재정의할 수 있습니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](index-add-language-analyzers.md)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](index-add-custom-analyzers.md) 는 표음 일치 및 정규식과 같은 복잡 한 쿼리 폼에 사용 됩니다.<br/><br/> |
 
@@ -49,7 +49,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| 데이터 암호화. | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmissions-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. <br/><br/>Azure Key Vault에서 만들고 관리 하는 [**고객이 관리 하는 암호화 키는**](search-security-manage-encryption-keys.md) 인덱스 및 동의어 맵의 보충 암호화에 사용할 수 있습니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.|
+| 데이터 암호화. | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encryption)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. <br/><br/>Azure Key Vault에서 만들고 관리 하는 [**고객이 관리 하는 암호화 키는**](search-security-manage-encryption-keys.md) 인덱스 및 동의어 맵의 보충 암호화에 사용할 수 있습니다. 8 월 1 2020 이후에 만들어진 서비스의 경우 CMK 암호화는 인덱싱된 콘텐츠의 전체 이중 암호화를 위해 임시 디스크의 데이터로 확장 됩니다.|
 | 엔드포인트 보호 | [**인바운드 방화벽 지원에 대 한 ip 규칙**](service-configure-firewall.md) 을 사용 하면 검색 서비스에서 요청을 수락 하는 ip 범위를 설정할 수 있습니다.<br/><br/>Azure 개인 링크를 사용 하 여 [**개인 끝점을 만들어**](service-create-private-endpoint.md) 가상 네트워크를 통해 모든 요청을 강제로 적용 합니다. |
 | 아웃바운드 보안(인덱서) | [**개인 끝점을 통한 데이터 액세스**](search-indexer-howto-access-private.md) 를 통해 인덱서는 Azure 개인 링크를 통해 보호 되는 azure 리소스에 연결할 수 있습니다.<br/><br/>[**신뢰할 수 있는 id를 사용 하는 데이터 액세스**](search-howto-managed-identities-data-sources.md) 는 외부 데이터 원본에 대 한 연결 문자열에서 사용자 이름과 암호를 생략할 수 있음을 의미 합니다. 인덱서가 데이터 원본에 연결 되 면 검색 서비스가 이전에 신뢰할 수 있는 서비스로 등록 된 경우 리소스에서 연결을 허용 합니다. |
 
@@ -70,7 +70,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 | Python용 Azure SDK | [**azure-검색-문서**](/python/api/overview/azure/search-documents-readme) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하는 데이터 평면 작업을 위한 문서입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**azure-mgmt 검색**](/python/api/overview/azure/search/management) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 것입니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다. |
 | JavaScript/TypeScript 용 Azure SDK | [**azure/search-문서**](/javascript/api/@azure/search-documents/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하는 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**azure/arm-검색**](/javascript/api/@azure/arm-search/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 것입니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다. |
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 + [Cognitive Search의 새로운 기능](whats-new.md)
 

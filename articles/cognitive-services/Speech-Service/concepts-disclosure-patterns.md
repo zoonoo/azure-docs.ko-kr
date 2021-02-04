@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 5cf933a11956bb8459bf6f5cd1b2b366eb8419d8
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 425096bf7cb75ae3560c06cbcd32778536dc1952
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508645"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537343"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경에 적합 한 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정&#39;이제는 잠재적 디자인 패턴을 탐색 하는 것&#39;이 좋습니다.
@@ -237,20 +237,14 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 - [음성에 대 한 자세한 정보를 제공 하는 기회 제공](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [사람에게 핸드오프](#conversational-transparency)
 
-
-
 ## <a name="additional-resources"></a>추가 자료
 - [Microsoft 봇 지침](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Cortana 디자인 지침](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Microsoft Windows UWP 음성 디자인 지침](/windows/uwp/design/input/speech-interactions)
 - [Microsoft Windows Mixed Reality 음성 명령 지침](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
-## <a name="reference-docs"></a>참조 문서
+## <a name="see-also"></a>참고 항목
 
-* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [음성 인재 공개](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [공개 방법](concepts-disclosure-guidelines.md)
-
-## <a name="next-steps"></a>다음 단계
-
-* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)

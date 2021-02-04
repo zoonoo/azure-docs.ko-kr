@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 09/29/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be48e6e175beae751003895e60322a458cfbc8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d38990289169412f06b0c7e4bcbdf67f688da7
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568083"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539012"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 Azure 리소스 검색
 
@@ -34,9 +34,9 @@ Azure 리소스에 대 한 Privileged Identity Management를 처음 설정 하�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
-1. **Azure 리소스**를 선택 합니다.
+1. **Azure 리소스** 를 선택 합니다.
 
     Azure 리소스에 대 한 Privileged Identity Management를 처음 사용 하는 경우 **리소스 검색** 페이지가 표시 됩니다.
 
@@ -50,7 +50,7 @@ Azure 리소스에 대 한 Privileged Identity Management를 처음 설정 하�
 
     ![검색 창에는 구독 및 관리 그룹과 같이 관리할 수 있는 리소스가 나열 됩니다.](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-1. **검색** 페이지에서 **리소스 상태 필터** 를 사용 하 고 **리소스 종류를 선택** 하 여 쓰기 권한이 있는 관리 그룹 또는 구독을 필터링 합니다. 처음에는 **모두**로 시작하는 것이 가장 쉬울 수 있습니다.
+1. **검색** 페이지에서 **리소스 상태 필터** 를 사용 하 고 **리소스 종류를 선택** 하 여 쓰기 권한이 있는 관리 그룹 또는 구독을 필터링 합니다. 처음에는 **모두** 로 시작하는 것이 가장 쉬울 수 있습니다.
 
    Privileged Identity Management에서 관리할 관리 그룹 또는 구독 리소스를 검색 하 고 선택할 수 있습니다. Privileged Identity Management에서 관리 그룹 또는 구독을 관리 하는 경우 해당 자식 리소스를 관리할 수도 있습니다.
 
@@ -66,7 +66,7 @@ Azure 리소스에 대 한 Privileged Identity Management를 처음 설정 하�
 
     ![리소스를 선택 하 고 리소스 관리 옵션이 강조 표시 된 검색 창](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. 관리를 위해 선택한 리소스의 온 보 딩을 확인 하는 메시지가 표시 되 면 **예**를 선택 합니다.
+1. 관리를 위해 선택한 리소스의 온 보 딩을 확인 하는 메시지가 표시 되 면 **예** 를 선택 합니다. 그런 다음 PIM은 리소스의 모든 새 자식 개체와 기존 자식 개체를 관리 하도록 구성 됩니다.
 
     ![관리를 위해 선택한 리소스를 등록 하는 메시지를 확인 하는 메시지](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 

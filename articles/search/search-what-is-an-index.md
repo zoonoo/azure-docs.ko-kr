@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: d9f4ba48a7dc6cdcf6d60e4e9da5f68fcc6b1f28
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d0cc7630a3bea67a99c3cb65d2015e934e8ac2da
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509336"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539097"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 인덱스 만들기
 
-검색 인덱스는 전체 텍스트 및 필터링 된 쿼리에 사용 되는 검색 가능한 콘텐츠를 저장 합니다. 인덱스는 스키마에 의해 정의 되 고 서비스에 저장 되며, 데이터 가져오기는 두 번째 단계로 수행 됩니다. 
+Cognitive Search은 *검색 인덱스* 에서 전체 텍스트 및 필터링 된 쿼리에 사용 되는 검색 가능한 콘텐츠를 저장 합니다. 인덱스는 스키마에 의해 정의 되 고 서비스에 저장 되며, 데이터 가져오기는 두 번째 단계로 수행 됩니다. 
 
-인덱스는 *문서* 를 포함 합니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 소매점은 각 제품에 대 한 문서를 포함할 수 있으며, 뉴스 조직에는 각 문서에 대 한 문서가 포함 될 수 있습니다. 이러한 개념을 보다 친숙 한 데이터베이스에 매핑: *검색 인덱스* 는 *테이블과* 같으며 *문서* 는 테이블의 *행* 과 거의 동일 합니다.
+인덱스는 *검색 문서* 를 포함 합니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 소매점은 각 제품에 대 한 문서를 포함할 수 있으며, 뉴스 조직에는 각 문서에 대 한 문서가 포함 될 수 있습니다. 이러한 개념을 보다 친숙 한 데이터베이스에 매핑: *검색 인덱스* 는 *테이블과* 같으며 *문서* 는 테이블의 *행* 과 거의 동일 합니다.
 
 ## <a name="whats-an-index-schema"></a>인덱스 스키마 란?
 
@@ -106,7 +106,9 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 | JavaScript | [SearchIndexClient](/javascript/api/@azure/search-documents/searchindexclient) | [인덱스](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/indexes) |
 | Python | [SearchIndexClient](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient) | [sample_index_crud_operations py](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_index_crud_operations.py) |
 
-## <a name="defining-fields"></a>필드 정의
+## <a name="define-fields"></a>필드 정의
+
+검색 문서는 컬렉션에 의해 정의 됩니다 `fields` . 쿼리 및 키에 대 한 필드가 필요 합니다. 또한 필터, 패싯 및 정렬을 지원 하기 위한 필드도 필요 합니다. 사용자에 게 표시 되지 않는 데이터에 대 한 필드도 필요할 수도 있습니다. 예를 들어, 검색 순위를 수정 하는 데 사용할 수 있는 수익 여백 또는 마케팅 판촉에 대 한 필드를 원할 수 있습니다.
 
 Edm. String 형식의 필드 하나는 문서 키로 지정 해야 합니다. 각 검색 문서를 고유 하 게 식별 하는 데 사용 됩니다. 키를 기준으로 문서를 검색 하 여 세부 정보 페이지를 채울 수 있습니다.  
 
@@ -146,9 +148,11 @@ Edm. String 형식의 필드 하나는 문서 키로 지정 해야 합니다. �
 
 ![특성 선택에 따른 인덱스 크기](./media/search-what-is-an-index/realestate-index-size.png "특성 선택에 따른 인덱스 크기")
 
-이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. "검색 가능"을 설정 하면 인덱스 크기가 증가 하나요? 아니요. **확인 기** 에 필드를 추가 하면 인덱스 크기가 증가 하나요? 예.
+이러한 인덱스 변형은 인위적이지만, 특성이 스토리지에 미치는 영향을 광범위하게 비교하는 데 참조할 수 있습니다. "검색 가능"을 설정 하면 인덱스 크기가 증가 하나요? 아니요. **확인 기** 에 필드를 추가 하면 인덱스 크기가 증가 하나요? 예. 
 
-필터와 정렬을 지 원하는 인덱스는 전체 텍스트 검색을 지 원하는 인덱스 보다 비례 하 게 큽니다. 이는 필터 및 정렬 작업이 정확히 일치 하는 항목을 검색 하 여 약어 텍스트 문자열이 있어야 하기 때문입니다. 반면 전체 텍스트 쿼리를 지 원하는 검색 가능한 필드는 전체 문서 보다 더 작은 공간을 사용 하는 토큰화 된 용어로 채워지는 반전 된 인덱스를 사용 합니다. 
+필터링 된 필드와 정렬 된 필드는 토큰화 되지 않으므로 문자 시퀀스를 축 자와 일치 시킬 수 있기 때문에 필드를 필터링 하거나 정렬할 수 있도록 하면 저장소 소비에도 추가 됩니다.
+
+또한 [분석기](search-analyzers.md)의 영향은 위의 표에 반영 되지 않습니다. EdgeNgram 토크를 사용 하 여 축 자 시퀀스 (a, ab, abc, abcd)를 저장 하는 경우 표준 분석기를 사용 하는 경우 인덱스 크기가 보다 커집니다.
 
 > [!Note]
 > 저장소 아키텍처는 Azure Cognitive Search의 구현 세부 정보로 간주 되며, 예 고 없이 변경 될 수 있습니다. 현재 동작이 나중에도 유지된다는 보장은 없습니다.
@@ -169,9 +173,9 @@ CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Cognitive Search에 대 한 거의 모든 샘플 또는 연습을 사용 하 여 인덱스를 만드는 실습 경험을 얻을 수 있습니다. 목차에서 퀵 스타트 중 하나를 선택 하 여 시작할 수 있습니다.
+Cognitive Search에 대 한 거의 모든 샘플 또는 연습을 사용 하 여 인덱스를 만드는 실습 경험을 얻을 수 있습니다. 먼저 목차에서 퀵 스타트 중 하나를 선택할 수 있습니다.
 
-또한 데이터를 사용 하 여 인덱스를 로드 하는 방법에 대해 잘 알고 싶을 것입니다. 인덱스 정의와 채우기는 함께 수행 됩니다. 다음 문서에서는 자세한 정보를 제공 합니다.
+그러나 데이터를 사용 하 여 인덱스를 로드 하는 방법에 대해서도 잘 알고 싶을 것입니다. 인덱스 정의와 데이터 가져오기 전략은 함께 정의 됩니다. 다음 문서에서는 인덱스를 로드 하는 방법에 대 한 자세한 정보를 제공 합니다.
 
 + [데이터 가져오기 개요](search-what-is-data-import.md)
 

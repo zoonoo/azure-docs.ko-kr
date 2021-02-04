@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: dc90bfb6325831276b3c6171b73aebfa2877cf68
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b5800c2e9c1f3b36a3ac9afe6cd68f706505fbe0
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527690"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537444"
 ---
 # <a name="list-restorable-resources-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>REST API를 사용 하 여 Azure Cosmos DB API의 복원 가능한 리소스 나열
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 지정 된 타임 스탬프 및 위치의 계정에 있는 데이터베이스 및 컬렉션 콤보의 목록을 반환 합니다. 이는 지정 된 타임 스탬프 및 위치에 존재 하는 리소스의 유효성을 검사 하는 시나리오에 도움이 됩니다. 이 API `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` 에는 권한이 필요 합니다.
 

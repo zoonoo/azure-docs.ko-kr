@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: 8e13f18ef9c2ec71a351d8a80d72d600bf8e9715
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ae95269dbac3ef1561e19d4b7ea5dd383c1eed73
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607408"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99536970"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure 배포 관리자에 상태 통합 출시 소개 (공개 미리 보기)
 
@@ -30,18 +30,18 @@ ms.locfileid: "97607408"
 
 일반적으로 이러한 상태 공급자는 서비스 모니터의 상태를 프로그래밍 방식으로 검사할 수 있도록 REST Api를 제공 합니다. REST Api는 간단한 정상/비정상 신호 (HTTP 응답 코드에 의해 결정 됨)를 사용 하거나 수신 하는 신호에 대 한 자세한 정보를 사용 하 여 다시 돌아올 수 있습니다.
 
-Azure 배포 관리자의 새로운 *healthCheck* 단계를 사용 하면 정상 서비스를 나타내는 HTTP 코드를 선언할 수 있습니다. 또는 더 복잡 한 REST 결과의 경우 정규식을 지정 하 여 일치 하는 경우 정상적인 응답을 나타낼 수도 있습니다.
+`healthCheck`Azure 배포 관리자의 새로운 단계를 사용 하면 정상 서비스를 나타내는 HTTP 코드를 선언할 수 있습니다. 복잡 한 REST 결과의 경우 일치 하는 경우 정상 응답을 나타내는 정규식을 지정할 수 있습니다.
 
-Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 흐름:
+Azure 배포 관리자 상태 검사를 설정 하는 흐름:
 
 1. 선택한 health service 공급자를 통해 상태 모니터를 만듭니다.
-1. Azure 배포 관리자 롤아웃의 일부로 하나 이상의 healthCheck 단계를 만듭니다. 다음 정보를 사용 하 여 healthCheck 단계를 작성 합니다.
+1. `healthCheck`Azure 배포 관리자 롤아웃의 일부로 하나 이상의 단계를 만듭니다. `healthCheck`다음 정보를 사용 하 여 단계를 채웁니다.
 
     1. 상태 관리 서비스 공급자에 의해 정의 된 상태 모니터의 REST API에 대 한 URI입니다.
-    1. 인증 정보입니다. 현재는 API 키 스타일 인증만 지원 됩니다. Azure Monitor의 경우 Azure 배포 관리자 롤아웃에 사용 되는 사용자 할당 관리 id가 Azure Monitor으로 확장 되므로 인증 유형을 – "RolloutIdentity"로 설정 해야 합니다.
+    1. 인증 정보입니다. 현재는 API 키 스타일 인증만 지원 됩니다. Azure Monitor의 경우 인증 유형은 `RolloutIdentity` Azure 배포 관리자 롤아웃에 사용 되는 사용자 할당 관리 id로 설정 되어야 합니다. Azure Monitor 용으로 확장 됩니다.
     1. 정상 응답을 정의 하는 [HTTP 상태 코드](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) 또는 정규식 모든 응답이 정상으로 간주 되려면 일치 해야 하는 정규식을 제공 하거나, 응답이 정상으로 간주 되려면 모든가 일치 해야 하는 식을 제공할 수 있습니다. 두 가지 방법이 모두 지원 됩니다.
 
-    다음 Json은 RolloutIdentity를 활용 하 고 경고가 없는 경우 출시가 진행 되는 상태 검사를 설정 하는 Azure 배포 관리자와 Azure Monitor를 통합 하는 예제입니다. 유일 하 게 지원 되는 Azure Monitor API: [경고 – 모두 가져오기](/rest/api/monitor/alertsmanagement/alerts/getall).
+    다음 JSON은 Azure 배포 관리자와 Azure Monitor를 통합 하는 예제입니다. 이 예에서는 `RolloutIdentity` 경고가 없는 경우 출시가 진행 되는 상태 검사를 사용 하 고 설정 합니다. 유일 하 게 지원 되는 Azure Monitor API: [경고 – 모두 가져오기](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {
@@ -86,7 +86,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
     }
     ```
 
-    다음 Json은 다른 모든 상태 모니터링 공급자의 예입니다.
+    다음 JSON은 다른 모든 상태 모니터링 공급자의 예입니다.
 
     ```json
     {
@@ -135,7 +135,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
     },
     ```
 
-1. Azure 배포 관리자 롤아웃에서 적절 한 시간에 healthCheck 단계를 호출 합니다. 다음 예제에서는 **stepGroup2** 의 **postdeploymentsteps** 에서 상태 검사 단계를 호출 합니다.
+1. `healthCheck`Azure 배포 관리자 롤아웃에서 적절 한 시간에 단계를 호출 합니다. 다음 예제에서는 `healthCheck` 단계가의에서 호출 됩니다 `postDeploymentSteps` `stepGroup2` .
 
     ```json
     "stepGroups": [
@@ -173,33 +173,35 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
     ]
     ```
 
-예제를 살펴보려면 [자습서: Azure 배포 관리자에서 상태 검사 사용](./deployment-manager-health-check.md)을 참조 하세요.
+예제를 살펴보려면 [자습서: Azure 배포 관리자에서 상태 검사 사용](./deployment-manager-tutorial-health-check.md)을 참조 하세요.
 
 ## <a name="phases-of-a-health-check"></a>상태 검사 단계
 
-이 시점에서 Azure 배포 관리자는 서비스의 상태를 쿼리 하는 방법과 롤아웃의 단계를 파악 하는 방법을 알고 있습니다. 그러나 Azure 배포 관리자를 사용 하면 이러한 검사 타이밍의 심층 구성도 가능 합니다. HealthCheck 단계는 세 개의 순차적 단계로 실행 되며, 모두 구성 가능한 기간이 있습니다.
+이 시점에서 Azure 배포 관리자는 서비스의 상태를 쿼리 하는 방법 및이 작업을 수행 하는 롤아웃 단계를 알고 있습니다. 그러나 Azure 배포 관리자를 사용 하면 이러한 검사 타이밍의 심층 구성도 가능 합니다. `healthCheck`단계는 세 가지 순차적 단계로 실행 되며, 모두 구성 가능한 기간이 있습니다.
 
 1. 연결 시도 간격
 
     1. 배포 작업이 완료 되 면 Vm이 다시 부팅 되거나, 새 데이터를 기반으로 다시 구성 되거나, 처음으로 시작 될 수 있습니다. 또한 서비스에서 상태 모니터링 공급자에 의해 유용한 상태 신호 내보내기를 시작 하는 데 시간이 걸립니다. 이 tumultuous 프로세스가 진행 되는 동안 업데이트가 아직 안정 된 상태에 도달 하지 않았기 때문에 서비스 상태를 확인 하는 것은 적절 하지 않을 수 있습니다. 실제로 리소스를 사용할 때 정상 상태와 비정상 상태 사이에서 서비스가 진동 될 수 있습니다.
-    1. 대기 단계에서 서비스 상태는 모니터링 되지 않습니다. 상태 검사 프로세스를 시작 하기 전에 배포 된 리소스를 굽기 시간으로 허용 하는 데 사용 됩니다.
+    1. 대기 단계 중에 서비스 상태는 모니터링 되지 않습니다. 상태 검사 프로세스를 시작 하기 전에 배포 된 리소스를 굽기 시간으로 허용 하는 데 사용 됩니다.
+
 1. Elastic
 
-    1. 리소스가 안정화 되기 전에 굽기 하는 데 걸리는 시간을 확인 하는 것이 불가능 하기 때문에 탄력적 단계를 사용 하면 리소스가 불안정 해질 때와 정상 상태의 안정적인 상태를 유지 하는 데 필요한 시간 사이에 유연 하 게 기간을 허용할 수 있습니다.
+    1. 리소스가 안정화 되기까지 걸리는 시간을 확인 하는 것이 불가능 하기 때문에 탄력적 단계를 사용 하면 리소스가 불안정 해질 때와 정상 상태의 안정적인 상태를 유지 하는 데 필요한 시간 사이에 유연 하 게 기간을 허용할 수 있습니다.
     1. 탄력적 단계가 시작 되 면 Azure 배포 관리자는 서비스 상태에 대해 제공 된 REST 끝점의 폴링을 주기적으로 시작 합니다. 폴링 간격을 구성할 수 있습니다.
     1. 서비스가 비정상 상태임을 나타내는 신호로 상태 모니터가 돌아오면 이러한 신호는 무시 되 고 탄력적 단계가 계속 되며 폴링이 계속 됩니다.
-    1. 상태가 정상 임을 나타내는 신호를 포함 하는 상태 모니터가 다시 시작 되 면 탄력적 단계가 종료 되 고 HealthyState 단계가 시작 됩니다.
+    1. 상태 모니터에서 서비스가 정상 상태임을 나타내는 신호를 반환 하면 탄력적 단계가 종료 되 고 HealthyState 단계가 시작 됩니다.
     1. 따라서 탄력적 단계에 대해 지정 된 기간은 정상 응답이 필수로 간주 되기 전에 서비스 상태에 대 한 폴링에 소요 될 수 있는 최대 시간입니다.
+
 1. HealthyState
 
     1. HealthyState 단계에서 서비스 상태는 탄력적 단계와 동일한 간격으로 지속적으로 폴링합니다.
     1. 서비스는 지정 된 전체 기간 동안 상태 모니터링 공급자의 정상 신호를 유지 해야 합니다.
     1. 어떤 시점에서 비정상 응답이 감지 되 면 Azure 배포 관리자는 전체 롤아웃을 중지 하 고 비정상 서비스 신호를 전달 하는 REST 응답을 반환 합니다.
-    1. HealthyState 기간이 종료 되 면 healthCheck가 완료 되 고 배포는 다음 단계로 진행 됩니다.
+    1. HealthyState 기간이 종료 `healthCheck` 되 면이 완료 되 고 배포는 다음 단계로 진행 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure 배포 관리자에서 상태 모니터링을 통합 하는 방법에 대해 알아보았습니다. 다음 문서에서 계속해서 배포 관리자를 통한 배포 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure 배포 관리자에서 상태 검사 통합](./deployment-manager-tutorial-health-check.md)
+> [자습서: Azure 배포 관리자에서 상태 검사 사용](./deployment-manager-tutorial-health-check.md)

@@ -7,17 +7,22 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 3614a85a6df2e793a73a2609d6f5762e4dc873fb
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 9d30f5325162b9ea447d54aadc092dbd9aa29132
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527622"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538758"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 복원 하는 권한 관리
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB를 사용 하면 연속 백업 계정에 대 한 복원 권한을 특정 역할 또는 보안 주체로 분리 하 고 제한할 수 있습니다. 계정의 소유자는 복원을 트리거하고 다른 보안 주체에 역할을 할당 하 여 복원 작업을 수행할 수 있습니다. 이러한 권한은 다음 이미지에 표시 된 것 처럼 원본 계정 범위에서 구독 범위 또는 추가 세부적으로에 적용할 수 있습니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Cosmos DB를 사용 하면 연속 백업 (미리 보기) 계정에 대 한 복원 권한을 특정 역할 또는 보안 주체로 분리 하 고 제한할 수 있습니다. 계정의 소유자는 복원을 트리거하고 다른 보안 주체에 역할을 할당 하 여 복원 작업을 수행할 수 있습니다. 이러한 권한은 다음 이미지에 표시 된 것 처럼 원본 계정 범위에서 구독 범위 또는 추가 세부적으로에 적용할 수 있습니다.
 
 :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" alt-text="복원 작업을 수행 하는 데 필요한 역할의 목록입니다." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.png" border="false":::
 

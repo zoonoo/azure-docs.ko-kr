@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: b001b109df7c4b52b61f226a164db232b620a2c6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: f1889d49d1eb4981e59af6248817a6a9b6e2002d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508543"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537258"
 ---
 # <a name="disclosure-design-guidelines"></a>디자인 지침 공개
 음성 환경의 가상 특성에 대해 투명 하 게 하 여 고객과 신뢰를 구축 하 고 유지 관리 하는 방법을 알아보세요.
@@ -74,11 +74,8 @@ ms.locfileid: "99508543"
 
   ![공개 평가 다이어그램](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="reference-docs"></a>참조 문서
-
-* [음성 인재 공개](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
-
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 * [디자인 패턴 공개](concepts-disclosure-patterns.md)
+* [음성 인재 공개](https://docs.microsoft.com/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)
+* [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)

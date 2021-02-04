@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e2d74519b9adf9a74e5af180a3da28918a9a8dab
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96001884"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537164"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -187,7 +187,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 Azure RBAC 작업을 보여 줍니다.
 
-| Description | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| 설명 | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -293,7 +293,7 @@ Blob 일시 삭제를 사용 하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용 하는 경우 | 계층에 관계 없이 모든 기존 버전은 전체 콘텐츠 길이입니다. |
 | Blob 일시 삭제를 사용 하도록 설정 했지만 버전 관리를 사용 하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅숏이 전체 콘텐츠 길이에 있습니다. |
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

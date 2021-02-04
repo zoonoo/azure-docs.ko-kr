@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 02/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: d7f71afd1cf47ab1a94d984090e8fb52ee69c6b4
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088941"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537799"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -113,6 +113,9 @@ Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스트 된 비동기 웹 API에 대 한 API 요청 구성
 
 컨테이너와 호스트 된 web API 모두에 대해 POST 요청을 만들어야 합니다. [상태 호스팅 api 참조에 대 한 Text Analytics](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) 에서 [Postman](text-analytics-how-to-call-api.md), 말아 넘기기 명령 또는 **api 테스트 콘솔** 을 사용 하 여 원하는 지역의 호스트 된 web api에 대 한 POST 요청을 빠르게 생성 하 고 보낼 수 있습니다. 
+
+> [!NOTE]
+> 비동기 및 끝점 모두는 미국 `/analyze` `/health` 서 부 2, 미국 동부 2, 미국 중부, 서유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.  이러한 끝점에 대 한 성공적인 요청을 만들려면 리소스가 이러한 지역 중 하나에 생성 되었는지 확인 하세요.
 
 다음은 상태 API 요청의 게시 본문에 대 한 Text Analytics에 연결 된 JSON 파일의 예입니다.
 

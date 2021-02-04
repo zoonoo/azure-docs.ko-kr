@@ -6,14 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 64288f67728e59c32c662a6640d60daf52c53fe1
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 5ebb0a23822074f61a16bf1d7652dba589399542
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527691"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537513"
 ---
 # <a name="list-restorable-databases-in-azure-cosmos-db-api-for-mongodb-using-rest-api"></a>REST API를 사용 하 여 Azure Cosmos DB API의 복원 가능한 데이터베이스 나열
+
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 복원 가능한 계정에서 모든 Azure Cosmos DB MongoDB 데이터베이스에 대해 수행 된 모든 변경이의 이벤트 피드를 표시 합니다. 이를 통해 데이터베이스를 실수로 삭제 한 경우 삭제 시간을 가져올 수 있습니다. 이 API에는 권한이 필요 합니다. `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read`
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 60bb5ac652a80b5ae52c91f91fa0c80440e9cc82
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359084"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537410"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>여러 Azure 지역에서 SQL Server Always On 가용성 그룹 구성
 
@@ -86,6 +86,7 @@ ms.locfileid: "97359084"
    - IP 주소 고유의 TCP 포트 프로브를 사용합니다.
    - 동일한 지역의 SQL Server와 관련된 부하 분산 규칙이 있습니다.  
    - 백 엔드 풀의 가상 머신이 단일 가용성 집합 또는 가상 머신 확장 집합에 포함되지 않는 경우 표준 Load Balancer여야 합니다. 자세한 내용은 [Azure Load Balancer 표준 개요](../../../load-balancer/load-balancer-overview.md)를 참조하세요.
+   - 서로 다른 두 지역의 두 가상 네트워크를 글로벌 VNet 피어 링을 통해 피어 링 하는 경우 표준 Load Balancer 해야 합니다. 자세한 내용은 [Azure VIRTUAL NETWORK faq (질문과 대답)](../../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)를 참조 하세요.
 
 1. [장애 조치(Failover) 클러스터링 기능을 새 SQL Server에 추가합니다](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 

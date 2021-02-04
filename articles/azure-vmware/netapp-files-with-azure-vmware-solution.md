@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션으로 Azure NetApp Files
 description: Azure VMware 솔루션 Vm과 Azure NetApp Files를 사용 하 여 온-프레미스 서버, Azure VMware 솔루션 Vm 및 클라우드 인프라에서 데이터를 마이그레이션하고 동기화 합니다.
 ms.topic: how-to
-ms.date: 01/20/2021
-ms.openlocfilehash: b4ffea23606e1829fbf713488f08bc5618180072
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 02/01/2021
+ms.openlocfilehash: 8c101b652ffcefe05e9b6c11f166c1da3df2ede1
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430065"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539369"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware 솔루션으로 Azure NetApp Files
 
@@ -37,7 +37,7 @@ Azure NetApp Files은 많은 Azure 지역에서 사용할 수 있으며 지역 �
 
 이 문서에서는 Azure VMware 솔루션 Vm에 대 한 파일 공유로 Azure NetApp Files 볼륨을 설정, 테스트 및 확인 하는 지침을 설명 합니다. 이 시나리오에서는 NFS 프로토콜을 사용 했습니다. Azure NetApp Files와 Azure VMware 솔루션은 동일한 Azure 지역에 생성 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건 
 
 > [!div class="checklist"]
 > * Azure NetApp Files 사용 하도록 설정 된 Azure 구독

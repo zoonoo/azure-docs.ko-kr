@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7a41eb8bdd573ac08b0c76eb9a6c2b0724637c39
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527722"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539186"
 ---
-# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature"></a>Azure Cosmos DB 지정 시간 복원 기능에 대 한 질문과 대답
+# <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-이 문서에서는 연속 백업 모드를 사용 하 여 수행 되는 Azure Cosmos DB 지정 시간 복원 기능에 대 한 질문과 대답을 제공 합니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+이 문서에서는 연속 백업 모드를 사용 하 여 수행 되는 Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 질문과 대답을 제공 합니다.
 
 ## <a name="how-much-time-does-it-takes-to-restore"></a>복원 하는 데 소요 되는 시간은 얼마 인가요?
 데이터 크기에 종속 되는 복원 기간입니다.

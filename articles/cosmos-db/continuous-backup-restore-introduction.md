@@ -8,17 +8,22 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: f8ba08c6147320160e99e522536f00fc98855eb4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527625"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538853"
 ---
-# <a name="continuous-backup-with-point-in-time-restore-feature-in-azure-cosmos-db"></a>Azure Cosmos DB의 지정 시간 복원 기능이 포함 된 연속 백업
+# <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Azure Cosmos DB의 지정 시간 복원 (미리 보기) 기능을 사용한 연속 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB의 지정 시간 복원 기능은 다음과 같은 여러 시나리오에서 유용 합니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+Azure Cosmos DB의 특정 시점 복원 기능 (미리 보기)은 다음과 같은 여러 시나리오에서 유용 합니다.
 
 * 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구 합니다.
 * 삭제 된 계정, 데이터베이스 또는 컨테이너를 복원 합니다.
@@ -58,17 +63,17 @@ Azure Cosmos DB는 추가로 프로 비전 된 처리량 (RUs)을 사용 하거�
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="복원 가능한 계정에 대 한 타임 스탬프가 포함 된 수명 주기 이벤트입니다." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **삭제 된 계정 복원** -복원할 수 있는 삭제 된 모든 계정은 **복원** 창에서 볼 수 있습니다. 예를 들어 "Account A"가 T3 타임 스탬프에서 삭제 되는 경우입니다. 이 경우 T3, 위치, 대상 계정 이름, 리소스 그룹 및 대상 계정 이름 직전의 타임 스탬프는 [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md)에서 복원 하기에 충분 합니다.  
+a. **삭제 된 계정 복원** -복원할 수 있는 삭제 된 모든 계정은 **복원** 창에서 볼 수 있습니다. 예를 들어 "Account A"가 T3 타임 스탬프에서 삭제 되는 경우입니다. 이 경우 T3, 위치, 대상 계정 이름, 리소스 그룹 및 대상 계정 이름 직전의 타임 스탬프는 [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore)에서 복원 하기에 충분 합니다.  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="복원 가능한 데이터베이스 및 컨테이너에 대 한 타임 스탬프가 포함 된 수명 주기 이벤트입니다." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **특정 지역에 있는 계정의 데이터를 복원** 합니다. 예를 들어 "계정 a"가 "미국 동부" 및 "미국 서 부"의 두 지역에 있는 경우에는 타임 스탬프 T3에 있습니다. "미국 서 부"에 계정 A의 복사본이 필요한 경우 미국 서 부를 대상 위치로 사용 하 여 [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)또는 [CLI](continuous-backup-restore-command-line.md) 에서 특정 시점 복원을 수행할 수 있습니다.
+b. **특정 지역에 있는 계정의 데이터를 복원** 합니다. 예를 들어 "계정 a"가 "미국 동부" 및 "미국 서 부"의 두 지역에 있는 경우에는 타임 스탬프 T3에 있습니다. "미국 서 부"에 계정 A의 복사본이 필요한 경우 미국 서 부를 대상 위치로 사용 하 여 [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 특정 시점 복원을 수행할 수 있습니다.
 
-c. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어 "데이터베이스 1"에 있는 "컨테이너 1"의 내용이 **발생 하면 타임** 스탬프가 T3로 수정 되었습니다. [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md)또는 [CLI](continuous-backup-restore-command-line.md) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
+c. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어 "데이터베이스 1"에 있는 "컨테이너 1"의 내용이 **발생 하면 타임** 스탬프가 T3로 수정 되었습니다. [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
 
-d. **데이터베이스를 실수로 삭제 하기 전 이전 시점으로 계정 복원** - [Azure Portal](continuous-backup-restore-portal.md)에서 이벤트 피드 창을 사용 하 여 데이터베이스가 삭제 된 시간을 확인 하 고 복원 시간을 찾을 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md) 및 [PowerShell](continuous-backup-restore-powershell.md)을 사용 하면 데이터베이스 이벤트 피드를 열거 하 여 데이터베이스 삭제 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
+d. **데이터베이스를 실수로 삭제 하기 전 이전 시점으로 계정 복원** - [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)에서 이벤트 피드 창을 사용 하 여 데이터베이스가 삭제 된 시간을 확인 하 고 복원 시간을 찾을 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) 및 [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)을 사용 하면 데이터베이스 이벤트 피드를 열거 하 여 데이터베이스 삭제 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
 
-e. **컨테이너 속성을 실수로 삭제 하거나 수정 하기 전 이전 시점으로 계정을 복원 합니다.** - [Azure Portal](continuous-backup-restore-portal.md)이벤트 피드 창을 사용 하 여 복원 시간을 찾기 위해 컨테이너가 생성, 수정 또는 삭제 된 시기를 확인할 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md) 및 [PowerShell](continuous-backup-restore-powershell.md)을 사용 하면 컨테이너 이벤트 피드를 열거 하 여 모든 컨테이너 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
+e. **컨테이너 속성을 실수로 삭제 하거나 수정 하기 전 이전 시점으로 계정을 복원 합니다.** - [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)이벤트 피드 창을 사용 하 여 복원 시간을 찾기 위해 컨테이너가 생성, 수정 또는 삭제 된 시기를 확인할 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) 및 [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)을 사용 하면 컨테이너 이벤트 피드를 열거 하 여 모든 컨테이너 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
 
 ## <a name="permissions"></a>사용 권한
 

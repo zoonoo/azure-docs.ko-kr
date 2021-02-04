@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: ricmart
-ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 82161ac92566f6589ebfb64dddc221e296ec0992
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737747"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539131"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>관리 솔루션을 사용 하 여 Azure와 AWS 간 VPN 연결 만들기
 
@@ -55,7 +55,7 @@ ms.locfileid: "98737747"
 * **활성-활성 모드를 사용 하도록 설정 합니다.** 하지
 * **BGP 구성:** 하지
 
-예:
+예제:
 
 :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/summary.png" alt-text="가상 네트워크 게이트웨이 요약":::
 
@@ -219,4 +219,6 @@ AWS는 고가용성을 위해 두 개의 IPsec 터널을 만듭니다. 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-IKEv2 AWS 지원에 대 한 자세한 내용은 [AWS 문서](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/)를 참조 하세요.
+* IKEv2 AWS 지원에 대 한 자세한 내용은 [AWS 문서](https://aws.amazon.com/about-aws/whats-new/2019/02/aws-site-to-site-vpn-now-supports-ikev2/)를 참조 하세요.
+
+* 대규모로 다중 클라우드 VPN을 구축 하는 방법에 대 한 자세한 내용은 비디오를 [대규모로 최고의 다중 클라우드 Vpn 빌드](https://www.youtube.com/watch?v=p7h-frLDFE0)를 참조 하세요.

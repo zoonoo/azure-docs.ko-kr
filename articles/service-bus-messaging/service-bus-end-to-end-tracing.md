@@ -2,14 +2,14 @@
 title: Azure Service Bus 엔드투엔드 추적 및 진단 | Microsoft Docs
 description: Service Bus 클라이언트 진단 및 종단 간 추적 (처리에 관련 된 모든 서비스를 통해 클라이언트)에 대 한 개요입니다.
 ms.topic: article
-ms.date: 01/17/2021
+ms.date: 02/03/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: edfd789f8803acf9fc8d76202805dec0187d220e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 19b284aceb83fbbc2bcf662b2b58941e6a5b36f9
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601254"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539216"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -135,12 +135,6 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 이 예제에서 수신기는 각 Service Bus 작업의 지속 기간, 결과, 고유 식별자 및 시작 시간을 기록합니다.
 
 ### <a name="events"></a>이벤트
-각 작업에 대해 두 개의 이벤트(‘Start’ 및 ‘Stop’)가 전송됩니다. 대부분의 경우에는 ' Stop ' 이벤트에만 관심이 있을 것입니다. 작업의 결과와 시작 시간 및 기간을 작업 속성으로 제공 합니다.
-
-이벤트 페이로드는 수신기에 작업 컨텍스트를 제공하며 API 수신 매개 변수 및 반환 값을 복제합니다. ‘Stop’ 이벤트 페이로드에 ‘Start’ 이벤트 페이로드의 모든 속성이 있으므로 ‘Start’ 이벤트는 완전히 무시해도 됩니다.
-
-각 ‘Stop’ 이벤트에는 `TaskStatus` 비동기 작업이 완료된 `Status` 속성이 있으며, 다음 표에서는 이 속성도 간단한 설명을 위해 생략되었습니다.
-
 모든 이벤트에는 개방형 원격 분석 사양과 일치 하는 다음과 같은 속성이 있습니다 https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/trace/api.md .
 
 - `message_bus.destination` – 큐/토픽/구독 경로

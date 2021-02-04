@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9ef339fb0ccd14314a65d03b59e501069446c870
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493840"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538003"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 
@@ -33,10 +33,10 @@ ms.locfileid: "99493840"
 > - Azure Machine Learning 컴퓨팅 클러스터
 > - Azure Machine Learning 컴퓨팅 인스턴스
 > - Azure Databricks
-> - Virtual Machine
+> - 가상 컴퓨터
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -163,15 +163,22 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](../vpn-gatew
 
 * [VIRTUAL NETWORK NAT](../virtual-network/nat-overview.md)를 사용 합니다. NAT 게이트웨이는 가상 네트워크에 있는 하나 이상의 서브넷에 대해 아웃 바운드 인터넷 연결을 제공 합니다. 자세한 내용은 [NAT 게이트웨이 리소스를 사용 하 여 가상 네트워크 디자인](../virtual-network/nat-gateway-resource.md)을 참조 하세요.
 
-* 계산 리소스를 포함 하는 서브넷에 [UDRs (사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md) 를 추가 합니다. 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
+* 계산 리소스를 포함 하는 서브넷에 [UDRs (사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md) 를 추가 합니다. 리소스가 있는 지역에서 Azure Batch 서비스에 사용되는 각 IP 주소에 대한 UDR을 설정합니다. 이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 또한 계산 인스턴스에 액세스 하는 데 필요 하므로 Azure Machine Learning 서비스에 대 한 IP 주소를 추가 합니다. Azure Machine Learning 서비스에 대 한 IP를 추가 하는 경우 __기본 및 보조__ Azure 지역에 대 한 ip를 추가 해야 합니다. 작업 영역이 있는 주 지역입니다.
+
+    보조 지역을 찾으려면 [Azure 쌍을 이루는 지역을 사용 하 여 비즈니스 연속성 & 재해 복구 확인](../best-practices-availability-paired-regions.md#azure-regional-pairs)을 참조 하세요. 예를 들어 Azure Machine Learning 서비스가 미국 동부 2에 있는 경우 보조 지역은 미국 중부입니다. 
+
+    Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
 
     * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
-    * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예는 IP 주소 정보를 다운로드하고 미국 동부 2 지역에 대한 정보를 필터링합니다.
+    * [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+        # Get primary region IPs
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+        # Get secondary region IPs
+        az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
         ```
 
         > [!TIP]
@@ -190,7 +197,6 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](../vpn-gatew
     사용자가 정의 하는 UDRs 외에도 온-프레미스 네트워크 어플라이언스를 통해 Azure Storage에 대 한 아웃 바운드 트래픽을 허용 해야 합니다. 특히이 트래픽의 Url은 `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` 및 형식 `<account>.blob.core.windows.net` 입니다. 
 
     자세한 내용은 [가상 네트워크에서 Azure Batch 풀 만들기](../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)를 참조하세요.
-
 
 ### <a name="create-a-compute-cluster-in-a-virtual-network"></a>가상 네트워크에서 컴퓨팅 클러스터 만들기
 

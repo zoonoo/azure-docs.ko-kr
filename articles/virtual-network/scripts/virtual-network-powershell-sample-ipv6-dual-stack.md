@@ -8,17 +8,17 @@ author: KumudD
 manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 772eb8d436a3ff870caa8fd4bc4e4e2b56672690
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 55894f1b4730ab9af55411d61e4d3dbe3b68224f
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217518"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539033"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-with-azure-powershell-script-sample-preview"></a>Azure PowerShell 스크립트 샘플 (미리 보기)을 사용 하 여 가상 네트워크에서 IPv6 끝점 구성
 
@@ -28,7 +28,7 @@ Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell 사용 하 여이 미리 보기 기능에 대해 구독을 한 번만 구성 해야 합니다.
 
 다음과 같이 등록 합니다.

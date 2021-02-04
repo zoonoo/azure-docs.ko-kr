@@ -6,16 +6,21 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.author: govindk
-ms.openlocfilehash: 2a3fbc1bb00c57c20436c19602c135f1917c6a60
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26c07ddaf4db71961d4aeff50e482740d969f0ef
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527665"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537681"
 ---
 # <a name="list-restorable-database-accounts-by-location-using-azure-cosmos-db-rest-api"></a>Azure Cosmos DB REST API를 사용 하 여 위치 별로 복원 가능한 데이터베이스 계정 나열
 
-구독 및 지역에서 사용할 수 있는 복원 가능한 Azure Cosmos DB 데이터베이스 계정을 모두 나열 합니다. 이 호출 `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` 에는 권한이 필요 합니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+구독 및 지역에서 사용할 수 있는 복원 가능한 Azure Cosmos DB 복원 가능한 데이터베이스 계정을 모두 나열 합니다. 이 호출 `Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` 에는 권한이 필요 합니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts?api-version=2020-06-01-preview

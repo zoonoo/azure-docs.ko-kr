@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ffbe5debaa980385a2c6dc0078de5f1cc2e9bde
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 150e1aee38a724a0d52c83219c4d214265be9274
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045515"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538071"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -33,15 +33,22 @@ Azure 방화벽을 사용 하는 경우에는 __DNAT (대상 네트워크 주소
 
 Azure Machine Learning __계산 인스턴스__ 또는 __계산 클러스터__ 를 사용 하는 경우 Azure Machine Learning 리소스를 포함 하는 서브넷에 대해 [udrs (사용자 정의 경로)](../virtual-network/virtual-networks-udr-overview.md) 를 추가 합니다. 이 경로는 및 리소스의 IP 주소 __에서__ `BatchNodeManagement` `AzureMachineLearning` 계산 인스턴스 및 계산 클러스터의 공용 ip에 대 한 트래픽을 강제로 적용 합니다.
 
-이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 리소스가 있는 Azure Machine Learning Service의 IP 주소도 추가합니다. 컴퓨팅 인스턴스에 액세스하는 데 필요하기 때문입니다. Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
+이러한 UDR을 사용하면 Batch 서비스가 작업 예약을 위해 컴퓨팅 노드와 통신할 수 있습니다. 또한 계산 인스턴스에 액세스 하는 데 필요 하므로 Azure Machine Learning 서비스에 대 한 IP 주소를 추가 합니다. Azure Machine Learning 서비스에 대 한 IP를 추가 하는 경우 __기본 및 보조__ Azure 지역에 대 한 ip를 추가 해야 합니다. 작업 영역이 있는 주 지역입니다.
+
+보조 지역을 찾으려면 [Azure 쌍을 이루는 지역을 사용 하 여 비즈니스 연속성 & 재해 복구 확인](../best-practices-availability-paired-regions.md#azure-regional-pairs)을 참조 하세요. 예를 들어 Azure Machine Learning 서비스가 미국 동부 2에 있는 경우 보조 지역은 미국 중부입니다. 
+
+Batch 서비스 및 Azure Machine Learning Service의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용합니다.
 
 * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드하고 파일에서 `BatchNodeManagement.<region>` 및 `AzureMachineLearning.<region>`을 검색합니다. 여기서 `<region>`은 Azure 지역입니다.
 
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예는 IP 주소 정보를 다운로드하고 미국 동부 2 지역에 대한 정보를 필터링합니다.
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)를 사용하여 정보를 다운로드합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역 (기본) 및 미국 중부 지역 (보조)에 대 한 정보를 필터링 합니다.
 
     ```azurecli-interactive
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
+    # Get primary region IPs
     az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
+    # Get secondary region IPs
+    az network list-service-tags -l "Central US" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='centralus']"
     ```
 
     > [!TIP]
@@ -75,7 +82,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
     * MicrosoftContainerRegistry
     * AzureFrontDoor.FirstParty
 
-    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예들 들어 `keyvault.westus`입니다.
+    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예: `keyvault.westus`.
 
     __프로토콜__ 에 대해를 선택 `TCP` 합니다. 원본 및 대상 __포트__ 의 경우를 선택 `*` 합니다.
 

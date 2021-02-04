@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8daec71745c9eff9a7db5bb34cb3596973def4aa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 70f4ac69721db57aa06c0d8fda12189f43e79686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736416"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537833"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,12 +27,12 @@ ms.locfileid: "98736416"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>전제 조건 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
-- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
+- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). 프리미엄 SSD 및 [가용성 영역](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) 에 대해 지원 되는 (ppgs) [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/co-location.md#proximity-placement-groups) 은 Ultra Disks에 대해 지원 됩니다. 모든 노드가 동일한 [근접 배치 그룹](../../../virtual-machines/co-location.md#proximity-placement-groups)에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps)입니다. 
 

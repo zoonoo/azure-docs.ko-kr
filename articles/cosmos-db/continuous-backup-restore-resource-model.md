@@ -7,17 +7,22 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 64033182356e66d6a69bd47c1780b7081416019e
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99527556"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538507"
 ---
-# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature"></a>Azure Cosmos DB 지정 시간 복원 기능의 리소스 모델
+# <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 리소스 모델
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-이 문서에서는 Azure Cosmos DB 지정 시간 복원 기능의 리소스 모델에 대해 설명 합니다. SQL 및 MongoDB 계정에 대 한 Azure Cosmos DB API에서 복원할 수 있는 연속 백업 및 리소스를 지 원하는 매개 변수를 설명 합니다.
+> [!IMPORTANT]
+> Azure Cosmos DB에 대 한 특정 시점 복원 기능 (연속 백업 모드)은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+이 문서에서는 Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 리소스 모델을 설명 합니다. SQL 및 MongoDB 계정에 대 한 Azure Cosmos DB API에서 복원할 수 있는 연속 백업 및 리소스를 지 원하는 매개 변수를 설명 합니다.
 
 ## <a name="database-accounts-resource-model"></a>데이터베이스 계정의 리소스 모델
 

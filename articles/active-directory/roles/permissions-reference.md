@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849c159f31a14441ef9c6aa19b8704b286727bd7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 7c89bfab6c4914cee26726006e6928eeb14c0686
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507184"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99538190"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -1046,18 +1046,19 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
-| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
-| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
-| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
+| microsoft.directory/groups/hiddenMembers/read | 그룹의 숨겨진 구성원 읽기 |
+| microsoft. directory/groups. 통합/기본/업데이트 | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/만들기 | Microsoft 365 그룹을 만듭니다. |
+| microsoft. directory/groups. 통합/삭제 | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft. directory/groups. 통합/복원 | Microsoft 365 그룹 복원 |
+| microsoft. directory/groups. 통합/멤버/업데이트 | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/소유자/업데이트 | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.network/performance/allProperties/read | Microsoft 365 관리 센터에서 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| office365/allEntities/Allentities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="external-id-user-flow-administrator-permissions"></a>외부 ID 사용자 흐름 관리자 권한
 
@@ -1295,23 +1296,24 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft. directory/devices/extensionAttributes/update | Azure Active Directory에서 장치. extensionAttributes 속성의 모든 값을 업데이트 합니다. |
 | microsoft.directory/devices/registeredOwners/update | Azure Active Directory에서 devices.registeredOwners 속성을 업데이트합니다. |
 | microsoft.directory/devices/registeredUsers/update | Azure Active Directory에서 devices.registeredUsers 속성을 업데이트합니다. |
-| microsoft.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
-| microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
-| microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
-| microsoft.directory/groups/createAsOwner | Azure Active Directory에서 그룹을 만듭니다. 작성자는 첫 번째 소유자로 추가되고, 만들어진 개체는 작성자의 250개 개체 만들기 할당량과 대조하여 계산됩니다. |
-| microsoft.directory/groups/delete | Azure Active Directory에서 그룹을 삭제합니다. |
+| microsoft. directory/deviceManagementPolicies/standard/read | 장치 관리 응용 프로그램 정책에서 표준 속성을 읽습니다. |
+| microsoft. directory/deviceRegistrationPolicy/standard/read | 장치 등록 정책의 표준 속성 읽기 |
 | microsoft.directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
-| microsoft.directory/groups/members/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
-| microsoft.directory/groups/owners/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
-| microsoft.directory/groups/restore | Azure Active Directory에서 그룹을 복원합니다. |
-| microsoft.directory/groups/settings/update | Azure Active Directory에서 groups.settings 속성을 업데이트합니다. |
-| microsoft.directory/users/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
+| microsoft. directory/groups. security/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
+| microsoft. directory/groups. 보안/분류/업데이트 | 역할 할당 가능 그룹을 제외 하 고 보안 그룹의 분류 속성을 업데이트 합니다. |
+| microsoft. directory/groups. 보안/만들기 | Azure Active Directory에서 그룹을 만듭니다. |
+| microsoft. directory/groups. 보안/삭제 | Azure Active Directory에서 그룹을 삭제합니다. |
+| microsoft. directory/groups. security/dynamicMembershipRule/update | 역할 할당 가능 그룹을 제외 하 고 보안 그룹의 dynamicMembershipRule 속성을 업데이트 합니다. |
+| microsoft. directory/groups. security/groupType/update | 역할 할당 가능 그룹을 제외 하 고 보안 그룹의 그룹 유형 속성을 업데이트 합니다. |
+| microsoft. directory/groups. 보안/멤버/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft. directory/groups. 보안/소유자/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft. directory/groups. 보안/표시/업데이트 | 역할 할당 가능 그룹을 제외 하 고 보안 그룹의 표시 유형 속성을 업데이트 합니다. |
 | microsoft.directory/users/basic/update | Azure Active Directory에서 사용자의 기본 속성을 업데이트합니다. |
 | microsoft.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
 | microsoft.intune/allEntities/allTasks | Intune의 모든 측면을 관리합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="kaizala-administrator-permissions"></a>Kaizala 관리자 권한
 
@@ -1458,13 +1460,18 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 | microsoft.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
 | microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
-| microsoft.directory/groups/createAsOwner | Azure Active Directory에서 그룹을 만듭니다. 작성자는 첫 번째 소유자로 추가되고, 만들어진 개체는 작성자의 250개 개체 만들기 할당량과 대조하여 계산됩니다. |
+| microsoft.directory/groups/delete | 역할 할당 가능 그룹을 제외한 그룹 삭제 |
 | microsoft.directory/groups/members/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
 | microsoft.directory/groups/owners/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
-| microsoft.directory/users/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
+| microsoft.directory/groups/restore | 삭제된 그룹 복원 |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | OAuth 2.0 권한 부여를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 사용자 역할 할당 업데이트 |
 | microsoft.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
 | microsoft.directory/users/basic/update | Azure Active Directory에서 사용자의 기본 속성을 업데이트합니다. |
+| microsoft.directory/users/create | 사용자 추가 |
 | microsoft.directory/users/delete | Azure Active Directory에서 사용자를 삭제합니다. |
+| microsoft. 디렉터리/사용자/사용 안 함 | 사용자 사용 안 함 |
+| microsoft. 디렉터리/사용자/사용 | 사용자 사용 |
 | microsoft.directory/users/invalidateAllRefreshTokens | Azure Active Directory에서 모든 사용자 새로 고침 토큰을 무효화합니다. |
 | microsoft.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
 | microsoft.directory/users/password/update | Azure Active Directory의 모든 사용자에 대한 암호를 업데이트합니다. 자세한 내용은 온라인 설명서를 참조하세요. |
@@ -1472,9 +1479,9 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 | microsoft.directory/users/userPrincipalName/update | Azure Active Directory에서 users.userPrincipalName 속성을 업데이트합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="partner-tier2-support-permissions"></a>파트너 계층2 지원 권한
 
@@ -1498,16 +1505,25 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 | microsoft.directory/contacts/basic/update | Azure Active Directory에서 연락처의 기본 속성을 읽습니다. |
 | microsoft.directory/contacts/create | Azure Active Directory에서 연락처를 만듭니다. |
 | microsoft.directory/contacts/delete | Azure Active Directory에서 연락처를 삭제합니다. |
-| microsoft.directory/domains/allTasks | Azure Active Directory에서 도메인을 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
+| microsoft. directory/도메인/기본/allTasks | Azure Active Directory에서 도메인을 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
 | microsoft.directory/groups/delete | Azure Active Directory에서 그룹을 삭제합니다. |
 | microsoft.directory/groups/members/update | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft.directory/groups/owners/update | 역할 할당 가능 그룹을 제외한 그룹의 소유자 업데이트 |
 | microsoft.directory/groups/restore | Azure Active Directory에서 그룹을 복원합니다. |
+| microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | OAuth 2.0 권한 부여를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
 | microsoft.directory/organization/basic/update | Azure Active Directory에서 조직의 기본 속성을 업데이트합니다. |
-| microsoft.directory/users/appRoleAssignments/update | Azure Active Directory에서 users.appRoleAssignments 속성을 업데이트합니다. |
+| microsoft.directory/roleAssignments/allProperties/allTasks | 역할 할당을 만들고 삭제 하며 모든 역할 할당 속성을 읽고 업데이트 합니다. |
+| microsoft.directory/roleDefinitions/allProperties/allTasks | 역할 정의를 만들고 삭제 하 고, 모든 속성을 읽고 업데이트 합니다. |
+| microsoft.directory/scopedRoleMemberships/allProperties/allTasks | ScopedRoleMemberships 만들기 및 삭제, 모든 속성 읽기 및 업데이트 |
+| microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 사용자 역할 할당 업데이트 |
+| microsoft. directory/subscribedSkus/standard/read | 구독에 대 한 기본 속성 읽기 |
 | microsoft.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
 | microsoft.directory/users/basic/update | Azure Active Directory에서 사용자의 기본 속성을 업데이트합니다. |
+| microsoft.directory/users/create | 사용자 추가 |
 | microsoft.directory/users/delete | Azure Active Directory에서 사용자를 삭제합니다. |
+| microsoft. 디렉터리/사용자/사용 안 함 | 사용자 사용 안 함 |
+| microsoft. 디렉터리/사용자/사용 | 사용자 사용 |
 | microsoft.directory/users/invalidateAllRefreshTokens | Azure Active Directory에서 모든 사용자 새로 고침 토큰을 무효화합니다. |
 | microsoft.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
 | microsoft.directory/users/password/update | Azure Active Directory의 모든 사용자에 대한 암호를 업데이트합니다. 자세한 내용은 온라인 설명서를 참조하세요. |
@@ -1515,9 +1531,9 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 | microsoft.directory/users/userPrincipalName/update | Azure Active Directory에서 users.userPrincipalName 속성을 업데이트합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="password-administrator-permissions"></a>암호 관리자 권한
 
@@ -1785,18 +1801,18 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-| microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
-| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
-| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
-| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/기본/업데이트 | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/만들기 | Microsoft 365 그룹을 만듭니다. |
+| microsoft. directory/groups. 통합/삭제 | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft. directory/groups. 통합/멤버/업데이트 | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/소유자/업데이트 | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/복원 | Microsoft 365 그룹 복원 |
 | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 | microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read    | Office 365 사용 보고서를 읽습니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| office365/allEntities/Allentities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="teams-communications-administrator-permissions"></a>Teams 통신 관리자 권한
 
@@ -1880,16 +1896,19 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
 | microsoft.directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
-| microsoft.directory/groups/unified/basic/update | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
-| microsoft.directory/groups/unified/create | Microsoft 365 그룹을 만듭니다. |
-| microsoft.directory/groups/unified/delete | Microsoft 365 그룹을 삭제 합니다. |
-| microsoft.directory/groups/unified/members/update | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
-| microsoft.directory/groups/unified/owners/update | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/기본/업데이트 | Microsoft 365 그룹의 기본 속성을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/만들기 | Microsoft 365 그룹을 만듭니다. |
+| microsoft. directory/groups. 통합/삭제 | Microsoft 365 그룹을 삭제 합니다. |
+| microsoft. directory/groups. 통합/멤버/업데이트 | Microsoft 365 그룹의 멤버 자격을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/소유자/업데이트 | Microsoft 365 그룹의 소유권을 업데이트 합니다. |
+| microsoft. directory/groups. 통합/복원 | Microsoft 365 그룹 복원 |
+| microsoft. directory/servicePrincipals/managePermissionGrantsForGroup. microsoft-all-application-permissions | 그룹 대신 위임 된 권한에 대 한 동의를 부여 합니다. |
 | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
+| microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리 합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
-| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
+| office365/allEntities/Allentities/read | Office 365 사용 보고서를 읽습니다. |
+| microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft 팀/allEntities/Allentities/Allentities | 팀의 모든 리소스를 관리 합니다. |
 
 ### <a name="usage-summary-reports-reader-permissions"></a>사용 요약 보고서 읽기 권한자 권한

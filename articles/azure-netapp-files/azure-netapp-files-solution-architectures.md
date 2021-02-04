@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 02/03/2021
 ms.author: b-juche
-ms.openlocfilehash: 5984727f123da6e1d35d862c3f396bd85ce9e7f2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 390b025ec039d5b04cead3f6bb22fedd0e987673
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881455"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537782"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -73,6 +73,7 @@ ms.locfileid: "98881455"
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [SAP HANA Azure 가상 머신 스토리지 구성](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
+* [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
 * [SUSE Linux Enterprise Server Azure NetApp Files를 사용 하 여 Azure Vm에서 대기 노드로 확장 SAP HANA](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md)
 * [Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 Azure Vm에서 대기 노드로 확장 SAP HANA](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)

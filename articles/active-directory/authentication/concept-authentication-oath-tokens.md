@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3315500e0d8ce090b058cbe0cb11d9ab8e56e193
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: af2c848fe06d9ebc44443bdcce61af0c8de08b2d
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475001"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537004"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory OATH 토큰의 인증 방법
 
@@ -33,7 +33,7 @@ Authenticator 앱은 푸시 알림을 수행하도록 설정된 경우 자동으
 
 Azure AD는 30초 또는 60초마다 코드를 새로 고치는 OATH-TOTP SHA-1 토큰의 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 구매할 수 있습니다.
 
-OATH TOTP 하드웨어 토큰은 일반적으로 토큰에서 사전 프로그래밍된 비밀 키 또는 시드를 제공합니다. 이러한 키는 다음 단계에 설명된 대로 Azure AD에 입력해야 합니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다. 비밀 키에는 *a-z* 또는 *A-Z* 와 *1-7* 까지의 숫자만 포함할 수 있으며, *Base32* 로 인코딩해야 합니다.
+OATH TOTP 하드웨어 토큰은 일반적으로 토큰에서 사전 프로그래밍된 비밀 키 또는 시드를 제공합니다. 이러한 키는 다음 단계에 설명된 대로 Azure AD에 입력해야 합니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다. 비밀 키에 *는* 문자 a-z 또는 a-z 및 *2-7* 숫자만 사용할 *수 있으며* , *Base32* 로 인코딩해야 합니다.
 
 다시 시드될 수 있는 프로그래밍 가능한 OATH TOTP 하드웨어 토큰은 소프트웨어 토큰 설정 흐름에서 Azure AD를 사용하여 설정할 수도 있습니다.
 
@@ -45,7 +45,7 @@ OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. �
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
-Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
+Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 ```  
 
 > [!NOTE]
