@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786845"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559653"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>개인 끝점을 통해 Speech Services 사용
 
@@ -216,7 +216,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 선택한 아티클의 매개 변수 대신 다음 매개 변수를 사용 합니다.
 
-| 설정             | 값                                    |
+| Setting             | 값                                    |
 |---------------------|------------------------------------------|
 | 리소스 유형       | **Microsoft.CognitiveServices/accounts** |
 | 리소스            | **\<your-speech-resource-name>**         |
@@ -268,8 +268,6 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
              westeurope.prod.vnet.cog.trafficmanager.net
    ```
 
-3. IP 주소가 개인 끝점의 IP 주소와 일치 하는지 확인 합니다.
-
 > [!NOTE]
 > 확인 된 IP 주소는 가상 네트워크 프록시 끝점을 가리키며,이 끝점은 네트워크 트래픽을 Cognitive Services 리소스의 개인 끝점으로 디스패치합니다. 이 동작은 사용자 지정 도메인 이름이 있지만 전용 끝점이 *없는* 리소스에 대해 다릅니다. 자세한 내용은 [이 섹션](#dns-configuration) 을 참조 하세요.
 
@@ -311,6 +309,10 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 ```http
 https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 ```
+
+> [!NOTE]
+> Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요.
+
 개인 끝점에 필요한 음성 리소스에 대해 사용자 지정 도메인을 사용 하도록 설정 하면 해당 리소스는 기본 REST API 끝점에 대해 다음 DNS 이름 패턴을 사용 합니다. <p/>`{your custom name}.cognitiveservices.azure.com`.
 
 즉,이 예제에서 REST API 끝점 이름은 다음과 같습니다. <p/>`my-private-link-speech.cognitiveservices.azure.com`.
@@ -334,42 +336,35 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 - Cognitive Services REST API와 통신 하 여 권한 부여 토큰을 가져오는 [지역 끝점 Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)
 - 다른 모든 작업에 대 한 특수 끝점
 
-특수 끝점에 대 한 자세한 설명 및 개인 끝점 사용 음성 리소스에 대 한 URL을 변환 하는 방법에 대 한 자세한 설명은 [이 하위 단원](#general-principles) 에서 Speech SDK 사용에 대 한 정보를 제공 합니다. SDK에 대해 설명 하는 것과 동일한 원칙이 음성 텍스트 REST API v 1.0 및 텍스트 음성 변환 REST API에 적용 됩니다.
+> [!NOTE]
+> Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요.
+
+특수 끝점에 대 한 자세한 설명 및 개인 끝점 사용 음성 리소스에 대 한 URL을 변환 하는 방법에 대 한 자세한 설명은 [이 하위 단원](#construct-endpoint-url) 에서 Speech SDK 사용에 대 한 정보를 제공 합니다. SDK에 대해 설명한 것과 동일한 원칙이 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API에 적용 됩니다.
 
 이전 단락에서 언급 한 하위 섹션의 자료를 숙지 하 고 다음 예제를 참조 하세요. 이 예제에서는 텍스트 음성 변환 REST API에 대해 설명 합니다. 짧은 오디오에 대 한 음성 텍스트 REST API 사용은 완전히 동일 합니다.
 
 > [!NOTE]
-> 개인 끝점 시나리오에서 짧은 오디오에 대해 음성 텍스트 REST API를 사용 하는 경우 헤더를 [통해 전달 된](rest-speech-to-text.md#request-headers) 인증 토큰을 사용 합니다 `Authorization` [](rest-speech-to-text.md#request-headers). 헤더를 통해 특수 끝점에 음성 구독 키를 전달 해도 `Ocp-Apim-Subscription-Key` 작동 *하지* 않으며 401 오류가 생성 됩니다.
+> 개인 끝점 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성-텍스트 REST API를 사용 하는 경우 헤더를 통해 전달 된 구독 키를 사용 합니다 `Ocp-Apim-Subscription-Key` . (짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md#request-headers)) [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#request-headers) 세부 정보를 참조 하세요.
+>
+> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 사용 하도록 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
 
 **텍스트 음성 변환 REST API 사용 예**
 
 유럽 서부 샘플 Azure 지역으로 사용 하 고 `my-private-link-speech.cognitiveservices.azure.com` 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로 사용 합니다. 이 예제의 사용자 지정 도메인 이름은 `my-private-link-speech.cognitiveservices.azure.com` 유럽 서부 지역에서 만든 음성 리소스에 속합니다.
 
-지역에서 지원 되는 음성 목록을 가져오려면 다음 두 작업을 수행 합니다.
+지역에서 지원 되는 음성 목록을 가져오려면 다음 요청을 수행 합니다.
 
-- 권한 부여 토큰을 가져옵니다.
-  ```http
-  https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken
-  ```
-- 토큰을 사용 하 여 음성 목록을 가져옵니다.
-  ```http
-  https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
-  ```
-[텍스트 음성 변환 REST API 설명서](rest-text-to-speech.md)의 이전 단계에 대 한 자세한 내용을 참조 하세요.
+```http
+https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list
+```
+[텍스트 음성 변환 REST API 설명서](rest-text-to-speech.md)에서 자세한 내용을 참조 하세요.
 
-개인 끝점 사용 음성 리소스의 경우 동일한 작업 순서에 대 한 끝점 Url을 수정 해야 합니다. 동일한 시퀀스는 다음과 같습니다.
+개인 끝점 사용 음성 리소스의 경우 동일한 작업에 대 한 끝점 URL을 수정 해야 합니다. 동일한 요청은 다음과 같습니다.
 
-- 권한 부여 토큰을 가져옵니다.
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/v1.0/issuetoken
-  ```
-  이전 [음성 텍스트 REST API v 3.0](#speech-to-text-rest-api-v30) 하위 섹션의 자세한 설명을 참조 하세요.
-
-- 가져온 토큰을 사용 하 여 음성 목록을 가져옵니다.
-  ```http
-  https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
-  ```
-  Speech SDK의 [일반 원칙](#general-principles) 하위 섹션에서 자세한 설명을 참조 하세요.
+```http
+https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices/voices/list
+```
+Speech SDK의 [끝점 URL 생성](#construct-endpoint-url) 하위 섹션에서 자세한 설명을 참조 하세요.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스: Speech SDK 사용
 
@@ -377,9 +372,9 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로를 사용 합니다.
 
-##### <a name="general-principles"></a>일반 원칙
+##### <a name="construct-endpoint-url"></a>끝점 URL 생성
 
-일반적으로 SDK 시나리오와 텍스트 음성 변환 REST API 시나리오에서 음성 리소스는 다양 한 서비스 제공에 대 한 전용 지역 끝점을 사용 합니다. 이러한 끝점에 대 한 DNS 이름 형식은 다음과 같습니다.
+일반적으로 SDK 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API 시나리오에 대 한 음성-텍스트 REST API에서 음성 리소스는 다양 한 서비스 제공에 대 한 전용 지역 끝점을 사용 합니다. 이러한 끝점에 대 한 DNS 이름 형식은 다음과 같습니다.
 
 `{region}.{speech service offering}.speech.microsoft.com`
 
@@ -387,14 +382,14 @@ DNS 이름 예는 다음과 같습니다.
 
 `westeurope.stt.speech.microsoft.com`
 
-지역 (DNS 이름의 첫 번째 요소)에 대 한 모든 가능한 값이 [음성 서비스 지원 지역](regions.md)에 나열 됩니다. 다음 표에서는 음성 서비스 제공 (DNS 이름의 두 번째 요소)에 사용할 수 있는 값을 보여 줍니다.
+지역 (DNS 이름의 첫 번째 요소)에 대 한 모든 가능한 값이 [음성 서비스 지원 지역](regions.md)에 나열 됩니다. Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요. 다음 표에서는 음성 서비스 제공 (DNS 이름의 두 번째 요소)에 사용할 수 있는 값을 보여 줍니다.
 
 | DNS 이름 값 | 음성 서비스 제공                                    |
 |----------------|-------------------------------------------------------------|
 | `commands`     | [사용자 지정 명령](custom-commands.md)                       |
 | `convai`       | [대화 전사](conversation-transcription.md) |
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
-| `stt`          | [음성 텍스트 변환](speech-to-text.md)                         |
+| `stt`          | [음성 텍스트](speech-to-text.md)                         |
 | `tts`          | [텍스트 음성 변환](text-to-speech.md)                         |
 | `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
 
@@ -459,7 +454,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 2. `SpeechConfig`전체 끝점 URL을 사용 하 여 인스턴스를 만듭니다.
 
-   1. 이전 [일반 원리](#general-principles) 섹션에 설명 된 대로 방금 결정 한 끝점을 수정 합니다.
+   1. 이전에 만든 [끝점 URL](#construct-endpoint-url) 섹션에 설명 된 대로 방금 결정 한 끝점을 수정 합니다.
 
    1. 인스턴스를 만드는 방법을 수정 `SpeechConfig` 합니다. 응용 프로그램에서 다음과 같은 항목을 사용 하 고 있을 가능성이 높습니다.
       ```csharp
@@ -537,70 +532,28 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 
 ##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
 
-이 경우 짧은 오디오의 경우 음성 텍스트 REST API를 사용 하 고 텍스트 음성 변환 REST API를 사용 하는 데는 일반적인 경우와는 차이가 없으며 짧은 오디오에 대 한 음성 텍스트 REST API에 대 한 한 가지 예외가 있습니다. 다음 참고를 참조 하세요. 짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 설명서 [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 설명 된 대로 두 api를 모두 사용 해야 합니다.
+이 경우 짧은 오디오의 경우 음성 텍스트 REST API를 사용 하 고 텍스트 음성 변환 REST API를 사용 하는 데는 일반적인 경우와는 차이가 없으며 한 가지 예외가 있습니다. 다음 참고를 참조 하세요. 짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 설명서 [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 설명 된 대로 두 api를 모두 사용 해야 합니다.
 
 > [!NOTE]
-> 사용자 지정 도메인 시나리오에서 짧은 오디오에 음성 텍스트 REST API를 사용 하는 경우 헤더를 [통해 전달 된](rest-speech-to-text.md#request-headers) 인증 토큰을 사용 합니다 `Authorization` [](rest-speech-to-text.md#request-headers). 헤더를 통해 특수 끝점에 음성 구독 키를 전달 해도 `Ocp-Apim-Subscription-Key` 작동 *하지* 않으며 401 오류가 생성 됩니다.
+> 사용자 지정 도메인 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성-텍스트 REST API를 사용 하는 경우 헤더를 통해 전달 된 구독 키를 사용 합니다 `Ocp-Apim-Subscription-Key` . (짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md#request-headers)) [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#request-headers) 세부 정보를 참조 하세요.
+>
+> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 사용 하도록 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
 
 #### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점이 없는 음성 리소스: Speech SDK 사용
 
-개인 끝점이 *없는* 사용자 지정 도메인 사용 음성 리소스와 함께 speech SDK를 사용 하려면 응용 프로그램 코드를 검토 하 고 변경 해야 합니다. 이러한 변경 내용은 [개인 끝점 사용 음성 리소스](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)의 경우와 다릅니다. 개인 끝점 및 사용자 지정 도메인 시나리오를 더욱 원활 하 게 지원 하기 위해 노력 하 고 있습니다.
+Private 끝점이 *없는* 사용자 지정 도메인 사용 음성 리소스와 함께 speech sdk를 사용 하는 것은 [speech sdk 설명서](speech-sdk.md)에 설명 된 일반적인 경우와 동일 합니다.
 
-`my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로를 사용 합니다.
+를 사용 하 여 [개인 끝점 사용 음성 리소스](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)에서 코드를 수정한 경우 다음을 고려 하십시오.
 
 [개인 끝점 사용 음성 리소스](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk)섹션에서 끝점 URL을 확인 하 고, 수정 하 고, 클래스 인스턴스의 "끝점에서 끝점"/"초기화를 사용 하 여 작동 하도록 하는 방법에 대해 설명 했습니다 `SpeechConfig` .
 
 그러나 모든 개인 끝점을 제거한 후에도 동일한 응용 프로그램을 실행 하려고 하면 (해당 DNS 레코드 다시 프로 비전 시간을 허용) 내부 서비스 오류 (404)가 발생 합니다. 그 이유는 [DNS 레코드가](#dns-configuration) 이제 가상 네트워크 프록시 대신 지역 Cognitive Services 끝점을 가리키지만,와 같은 URL 경로를 찾을 수 없기 때문입니다 `/stt/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
-응용 프로그램을 다음 코드의 스타일로의 표준 인스턴스화에 롤백하는 경우 `SpeechConfig` 응용 프로그램은 인증 오류 (401)와 함께 종료 됩니다.
+응용 프로그램을 `SpeechConfig` 다음 코드의 스타일로의 표준 인스턴스화에 롤백해야 합니다.
 
 ```csharp
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
-
-##### <a name="modifying-applications"></a>응용 프로그램 수정
-
-응용 프로그램이 개인 끝점이 없는 사용자 지정 도메인 이름으로 음성 리소스를 사용 하도록 하려면 다음 단계를 수행 합니다.
-
-1. Cognitive Services REST API에서 권한 부여 토큰을 요청 합니다. [이 문서](../authentication.md#authenticate-with-an-authentication-token) 에서는 토큰을 가져오는 방법을 보여 줍니다.
-
-   끝점 URL에 사용자 지정 도메인 이름을 사용 합니다. 이 예제에서 URL은 다음과 같습니다.
-   ```http
-   https://my-private-link-speech.cognitiveservices.azure.com/sts/v1.0/issueToken
-   ```
-   > [!TIP]
-   > 이 URL은 Azure Portal에서 찾을 수 있습니다. 음성 리소스 페이지의 **리소스 관리** 그룹에서 **키 및 끝점** 을 선택 합니다.
-
-1. `SpeechConfig`이전 섹션에서 얻은 권한 부여 토큰을 사용 하 여 인스턴스를 만듭니다. 다음 변수가 정의 되어 있다고 가정 합니다.
-
-   - `token`: 이전 섹션에서 얻은 권한 부여 토큰
-   - `azureRegion`: 음성 리소스 [영역의](regions.md) 이름 (예: `westeurope` )
-   - `outError`: ( [목표 C](/objectivec/cognitive-services/speech/spxspeechconfiguration#initwithauthorizationtokenregionerror) 사례에만 해당)
-
-   `SpeechConfig`다음과 같이 인스턴스를 만듭니다.
-
-   ```csharp
-   var config = SpeechConfig.FromAuthorizationToken(token, azureRegion);
-   ```
-   ```cpp
-   auto config = SpeechConfig::FromAuthorizationToken(token, azureRegion);
-   ```
-   ```java
-   SpeechConfig config = SpeechConfig.fromAuthorizationToken(token, azureRegion);
-   ```
-   ```python
-   import azure.cognitiveservices.speech as speechsdk
-   speech_config = speechsdk.SpeechConfig(auth_token=token, region=azureRegion)
-   ```
-   ```objectivec
-   SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithAuthorizationToken:token region:azureRegion error:outError];
-   ```
-> [!NOTE]
-> 호출자는 인증 토큰이 유효한 지 확인 해야 합니다. 권한 부여 토큰이 만료 되기 전에 호출자는 새 유효한 토큰으로이 setter를 호출 하 여 새로 고쳐야 합니다. 새 인식기 또는 신시사이저를 만들 때 구성 값이 복사 되기 때문에 새 토큰 값은 이미 생성 된 인식자 또는 synthesizers에는 적용 되지 않습니다.
->
-> 이러한 경우 토큰을 새로 고치기 위해 해당 인식기 또는 신시사이저의 권한 부여 토큰을 설정 합니다. 토큰을 새로 고치지 않으면 인식기 또는 신시사이저가 작동 하는 동안 오류가 발생 합니다.
-
-이 수정 후 응용 프로그램은 전용 끝점이 없는 사용자 지정 도메인 이름을 사용 하는 음성 리소스를 사용 하 여 작업 해야 합니다.
 
 ## <a name="pricing"></a>가격 책정
 
@@ -610,5 +563,5 @@ var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 
 * [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
-* [음성 텍스트 REST API](rest-speech-to-text.md)
-* [텍스트 음성 변환 REST API](rest-text-to-speech.md)
+* [Speech-to-Text REST API](rest-speech-to-text.md)
+* [Text-to-Speech REST API](rest-text-to-speech.md)

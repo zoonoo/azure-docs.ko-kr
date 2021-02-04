@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 07685cccf5a8dce99ae13e6df5186a5da44b1338
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567671"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559414"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2 단계: CEF 메시지를 보내도록 보안 솔루션 구성
 
@@ -30,6 +30,7 @@ ms.locfileid: "98567671"
 보안 솔루션에 기존 커넥터가 이미 있는 경우 다음과 같이 커넥터 관련 지침을 사용 합니다.
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
+- [Akamai 보안 이벤트](connect-akamai-security-events.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
@@ -39,11 +40,12 @@ ms.locfileid: "98567671"
 - [Forcepoint 제품](connect-forcepoint-casb-ngfw.md)
 - [Fortinet](connect-fortinet.md)
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
+- [Imperva WAF 게이트웨이](connect-imperva-waf-gateway.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
-- [Thycotic Secret 서버](connect-thycotic-secret-server.md)
+- [Thycotic Secret Server](connect-thycotic-secret-server.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
-- [추세 마이크로 TippingPoint](connect-trend-micro-tippingpoint.md)
+- [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
 - [WireX 네트워크 법률 분석 플랫폼](connect-wirex-systems.md)
 - [Zscaler](connect-zscaler.md)
 ## <a name="configure-any-other-solution"></a>다른 솔루션 구성

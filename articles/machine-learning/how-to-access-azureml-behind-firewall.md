@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 150e1aee38a724a0d52c83219c4d214265be9274
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: dc8044ee72689634a1d4ce3e0e8b1a499404c5ce
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538071"
+ms.locfileid: "99560297"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -93,6 +93,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 
     | **호스트 이름** | **용도** |
     | ---- | ---- |
+    | **graph.windows.net** | Azure Machine Learning 계산 인스턴스/클러스터에서 사용 됩니다. |
     | **anaconda.com**</br>**\*. anaconda.com** | 기본 패키지를 설치 하는 데 사용 됩니다. |
     | **\*. anaconda.org** | 리포지토리 데이터를 가져오는 데 사용 됩니다. |
     | **pypi.org** | 기본 인덱스에서 종속성을 나열 하는 데 사용 되며 (있는 경우) 사용자 설정에서 인덱스를 덮어쓰지 않습니다. 인덱스를 덮어쓰는 경우 **\* pythonhosted.org** 도 허용 해야 합니다. |
@@ -145,6 +146,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | 계산 클러스터/인스턴스 | \*. batchai.core.windows.net | \*. batchai.core.usgovcloudapi.net |\*. batchai.ml.azure.cn |
+| 계산 클러스터/인스턴스 | graph.windows.net |  |  |
 | 컴퓨팅 인스턴스 | \*. instances.azureml.net | \*. instances.azureml.us | \*. instances.azureml.cn |
 | 컴퓨팅 인스턴스 | \*. instances.azureml.ms |  |  |
 

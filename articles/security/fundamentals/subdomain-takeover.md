@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2020
+ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7821d94ed032fd0fc52a756766e6a9af7c82cfde
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409895"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559231"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
 
 이 문서에서는 하위 도메인 인수의 일반적인 보안 위협에 대해 설명 하 고이를 완화 하기 위해 수행할 수 있는 단계를 설명 합니다.
 
 
-## <a name="what-is-subdomain-takeover"></a>하위 도메인 인수 무엇 인가요?
+## <a name="what-is-a-subdomain-takeover"></a>하위 도메인 인수 무엇 인가요?
 
-하위 도메인 takeovers은 정기적으로 많은 리소스를 만들고 삭제 하는 조직에 대 한 일반적이 고 높은 심각도 위협입니다. 하위 도메인 인수는 프로 비전 해제 Azure 리소스를 가리키는 [DNS 레코드가](../../dns/dns-zones-records.md#dns-records) 있는 경우에 발생할 수 있습니다. 이러한 DNS 레코드는 "현 수 DNS" 항목으로도 알려져 있습니다. CNAME 레코드는 특히이 위협에 취약 합니다. 하위 도메인 takeovers 악의적인 행위자는 악의적인 작업을 수행 하는 사이트에 조직의 도메인을 위한 트래픽을 리디렉션할 수 있습니다.
+하위 도메인 takeovers은 정기적으로 많은 리소스를 만들고 삭제 하는 조직에 대 한 일반적이 고 높은 심각도 위협입니다. 하위 도메인 인수는 프로 비전 해제 Azure 리소스를 가리키는 [DNS 레코드가](../../dns/dns-zones-records.md#dns-records) 있는 경우에 발생할 수 있습니다. 이러한 DNS 레코드는 "현수 DNS" 항목으로도 알려져 있습니다. CNAME 레코드는 특히 이 위협에 취약합니다. 하위 도메인 인수를 통해 악의적인 행위자는 조직의 도메인에 대한 트래픽을 악의적인 활동을 수행하는 사이트로 리디렉션할 수 있습니다.
 
 하위 도메인 인수 일반적인 시나리오는 다음과 같습니다.
 
@@ -86,7 +86,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 도구는 다음 표에 나열 된 Azure 리소스를 지원 합니다. 도구는 모든 테 넌 트의 CNAMEs를 추출 하거나 입력으로 사용 합니다.
 
 
-| 서비스                   | 형식                                        | FQDNproperty                               | 예제                         |
+| 서비스                   | Type                                        | FQDNproperty                               | 예제                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | microsoft.network/frontdoors                | 속성. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | microsoft.storage/storageaccounts           | 속성. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -100,7 +100,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음을 가진 사용자로 쿼리를 실행 합니다.
 
@@ -144,6 +144,15 @@ DNS 영역을 검토 하 고 현 수 또는 소요 된 CNAME 레코드를 식별
 
 일부 Azure 서비스는 예방 조치를 만드는 데 도움이 되는 기능을 제공 하며 아래에 자세히 설명 되어 있습니다. 이 문제를 방지 하는 다른 방법은 조직의 모범 사례 또는 표준 운영 절차를 통해 설정 해야 합니다.
 
+### <a name="enable-azure-defender-for-app-service"></a>App Service Azure Defender 사용
+
+Azure Security Center의 CWPP (통합 클라우드 워크 로드 보호 플랫폼), Azure Defender는 Azure, 하이브리드 및 다중 클라우드 리소스 및 워크 로드를 보호 하는 다양 한 계획을 제공 합니다.
+
+**Azure Defender for App Service** 요금제에는 현 DNS 검색이 포함 됩니다. 이 계획을 사용 하도록 설정 하면 App Service 웹 사이트의 서비스를 해제 하 고 DNS 등록자에서 해당 사용자 지정 도메인을 제거 하지 않은 경우 보안 경고가 발생 합니다.
+
+도메인을 Azure DNS 또는 외부 도메인 등록자를 사용 하 여 관리 하 고 Windows 및 Linux 모두에서 App Service에 적용 하는 경우 Azure Defender의 현 수 DNS 보호를 사용할 수 있습니다.
+
+이에 대 한 자세한 내용은 [Azure defender for App Service 소개](../../security-center/defender-for-app-service-introduction.md)에서이 azure defender 계획의 기타 이점을 알아보세요.
 
 ### <a name="use-azure-dns-alias-records"></a>Azure DNS 별칭 레코드 사용
 
@@ -201,6 +210,8 @@ Azure App Service에 대 한 DNS 항목을 만들 때 asuid를 만듭니다. 도
 ## <a name="next-steps"></a>다음 단계
 
 하위 도메인 인수 대해 보호 하는 데 사용할 수 있는 관련 서비스 및 Azure 기능에 대해 자세히 알아보려면 다음 페이지를 참조 하세요.
+
+- [App Service에 대해 Azure Defender를 사용 하도록 설정](../../security-center/defender-for-app-service-introduction.md) -현 수 DNS 항목이 검색 되 면 경고를 수신 합니다.
 
 - [Azure DNS를 사용 하 여 현 DNS 레코드 방지](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

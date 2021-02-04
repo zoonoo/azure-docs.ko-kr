@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704434"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560289"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
@@ -166,6 +166,10 @@ ms.locfileid: "98704434"
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
 | wir, haben       | wir haben                |
+
+### <a name="text-normalization-for-japanese"></a>일본어에 대 한 텍스트 정규화
+
+일본어 (ja-jp)에서 각 문장의 최대 길이는 90 자입니다. 문장이 긴 줄은 무시 됩니다. 긴 텍스트를 추가 하려면 사이에 마침표를 삽입 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

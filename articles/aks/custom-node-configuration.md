@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 589081149d08983d3cd5a4a8822873f5a6cfca0e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735267"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559441"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>AKS (Azure Kubernetes Service) 노드 풀의 노드 구성 사용자 지정 (미리 보기)
 
@@ -67,7 +67,7 @@ az extension update --name aks-preview
 | `imageGcHighThreshold` | 0-100 | 85 | 이미지 가비지 수집이 항상 실행 되는 디스크 사용의 백분율입니다. 가비지 수집을 트리거하는 최소 디스크 **사용량입니다.** 이미지 가비지 수집을 사용 하지 않도록 설정 하려면를 100으로 설정 합니다. | 
 | `imageGcLowThreshold` | 0-100, 다음 보다 높음 `imageGcHighThreshold` | 80 | 이미지 가비지 수집을 실행 하지 않는 디스크 사용의 백분율입니다. 가비지 수집을 트리거할 **수** 있는 최소 디스크 사용량입니다. |
 | `topologyManagerPolicy` | 없음, 최고 노력, 제한 됨, 단일 numa 노드 | 없음 | NUMA 노드 맞춤 최적화에 대 한 자세한 내용은 [여기](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/)를 참조 하세요. Kubernetes v 1.18 +만 해당 합니다. |
-| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | 없음 | 안전 하지 않은 sysctls 또는 unsafe sysctl 패턴의 허용 되는 목록입니다. | 
+| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | 안전 하지 않은 sysctls 또는 unsafe sysctl 패턴의 허용 되는 목록입니다. | 
 
 ### <a name="linux-os-custom-configuration"></a>Linux OS 사용자 지정 구성
 
@@ -77,7 +77,7 @@ az extension update --name aks-preview
 
 많은 트래픽을 처리 하는 경우 서비스 트래픽이 많은 로컬 파일에서 제공 되는 것이 일반적입니다. 일부 시스템 메모리의 비용으로 더 많은 기능을 처리할 수 있도록 아래의 커널 설정과 기본 제공 제한을 조정할 수 있습니다.
 
-| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
+| Setting | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `fs.file-max` | 8192-12000500 | 709620 | Linux 커널이 할당할 최대 파일 핸들 수입니다 .이 값을 늘리면 허용 되는 열려 있는 파일의 최대 수를 늘릴 수 있습니다. |
 | `fs.inotify.max_user_watches` | 781250-2097152 | 1048576 | 시스템에서 허용 하는 최대 파일 감시 수입니다. 각 *조사식* 은 32 비트 커널의 약 90 바이트 및 64 비트 커널의 약 160 바이트입니다. | 
@@ -89,7 +89,7 @@ az extension update --name aks-preview
 
 매우 많은 수의 동시 세션을 처리할 것으로 예상 되는 에이전트 노드의 경우, 아래와 같은 TCP 및 네트워크 옵션의 하위 집합을 사용 하 여 노드 풀 별로 조정할 수 있습니다. 
 
-| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
+| Setting | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `net.core.somaxconn` | 4096-324만 | 16384 | 지정 된 수신 소켓에 대해 큐에 대기할 수 있는 최대 연결 요청 수입니다. [Listen (2)](http://man7.org/linux/man-pages/man2/listen.2.html) 함수에 전달 된 백로그 매개 변수의 값에 대 한 상한입니다. 백로그 인수가 보다 크면 `somaxconn` 자동으로이 제한으로 잘립니다.
 | `net.core.netdev_max_backlog` | 1000-324만 | 1000 | 패킷이 커널을 처리할 수 있는 것 보다 빨리 패킷을 수신 하는 경우 입력 쪽에서 큐에 대기 중인 최대 패킷 수입니다. |
@@ -114,7 +114,7 @@ az extension update --name aks-preview
 
 파일 설명자 제한과 마찬가지로 프로세스에서 만들 수 있는 작업자 또는 스레드 수는 커널 설정과 사용자 제한에 의해 제한 됩니다. AKS에 대 한 사용자 제한은 무제한입니다. 
 
-| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
+| Setting | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `kernel.threads-max` | 20 - 513785 | 55601 | 프로세스는 작업자 스레드를 실행 합니다. 생성할 수 있는 모든 스레드의 최대 수는 커널 설정을 사용 하 여 설정 됩니다 `kernel.threads-max` . | 
 
@@ -122,12 +122,12 @@ az extension update --name aks-preview
 
 아래 설정을 사용 하 여 Linux 커널의 VM (가상 메모리) 하위 시스템 및 더티 데이터의 작업을 디스크로 튜닝할 수 있습니다 `writeout` .
 
-| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
+| Setting | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` |  65530-262144 | 65530 | 이 파일은 프로세스에 포함 될 수 있는 최대 메모리 맵 영역 수를 포함 합니다. 메모리 맵 영역은 호출의 부작용으로 사용 되며, 및에서 `malloc` 직접 `mmap` , `mprotect` `madvise` 공유 라이브러리를 로드 하는 경우에도 사용 됩니다. | 
 | `vm.vfs_cache_pressure` | 1 - 500 | 100 | 이 백분율 값은 디렉터리 및 inode 개체의 캐싱에 사용 되는 메모리를 확보 하기 위한 커널의 추세를 제어 합니다. |
 | `vm.swappiness` | 0 - 100 | 60 | 이 컨트롤은 커널이 메모리 페이지를 교체 하는 정도를 정의 하는 데 사용 됩니다. 값이 높을수록 강도가 증가 하 고, 값이 작을수록 교환 양이 감소 합니다. 값이 0 이면 사용 가능한 페이지 양과 파일 지원 페이지가 영역에 있는 상위 워터 마크 보다 적을 때까지 커널이 교환을 시작 하지 않습니다. | 
-| `swapFileSizeMB` | 1mb- [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) 의 크기 (/sv/sv/ps) | 없음 | SwapFileSizeMB 스왑 파일의 크기 (MB)를 지정 합니다 .이 노드 풀에서 에이전트 노드에 생성 됩니다. | 
+| `swapFileSizeMB` | 1mb- [임시 디스크](../virtual-machines/managed-disks-overview.md#temporary-disk) 의 크기 (/sv/sv/ps) | None | SwapFileSizeMB 스왑 파일의 크기 (MB)를 지정 합니다 .이 노드 풀에서 에이전트 노드에 생성 됩니다. | 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) 는 프로세서의 메모리 매핑 하드웨어를 보다 효율적으로 사용 하 여 성능을 개선 하기 위한 Linux 커널 기능입니다. 이 기능을 사용 하도록 설정 하면 가능한 경우 커널에서 할당을 시도 하 `hugepages` 고, 모든 Linux 프로세스가 2mb의 자연스럽 게 맞춰진 경우 2mb 페이지를 받게 됩니다 `mmap` . 에서 `hugepages` 시스템 전체를 사용 하도록 설정 하는 경우 응용 프로그램에서 더 많은 메모리 리소스를 할당 하 게 될 수 있습니다. 응용 프로그램은 `mmap` 용량이 매우 클 수 있지만 1 바이트를 터치 하는 것이 좋습니다 .이 경우 적절 하지 않은 경우 4k 페이지 대신 2mb 페이지가 할당 될 수 있습니다. 이 시나리오는 시스템 전체를 사용 하지 않도록 설정 `hugepages` 하거나 지역 내 에서만 사용할 수 있는 이유입니다 `MADV_HUGEPAGE madvise` . | 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | 이 값은 커널이 메모리 압축을 적극적으로 사용 하 여 사용 가능 하도록 할지 여부를 제어 합니다 `hugepages` . | 
 
@@ -166,7 +166,7 @@ az extension update --name aks-preview
 }
 ```
 
-이전 단계에서 만든 JSON 파일을 사용 하 여 kublet 및 OS 구성을 지정 하는 새 클러스터를 만듭니다. 
+이전 단계에서 만든 JSON 파일을 사용 하 여 kubelet 및 OS 구성을 지정 하는 새 클러스터를 만듭니다. 
 
 > [!NOTE]
 > 클러스터를 만들 때 kubelet 구성, OS 구성 또는 둘 다를 지정할 수 있습니다. 클러스터를 만들 때 구성을 지정 하는 경우 초기 노드 풀의 노드에만 해당 구성이 적용 됩니다. JSON 파일에서 구성 되지 않은 모든 설정은 기본값을 유지 합니다.

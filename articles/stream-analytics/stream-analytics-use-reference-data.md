@@ -6,12 +6,12 @@ ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: d4053cd02dd11922a402971c7f3934a8b818eaa4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e05a4cbbc5fefbfe8a92914ef480f32bdf43ca37
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015906"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560224"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 
@@ -32,7 +32,7 @@ Stream Analytics는 참조 데이터에 대한 스토리지 계층으로 Azure B
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것 **만** 지원됩니다.
+참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것 **만** 지원됩니다. 자세한 내용은 [Azure Stream Analytics 작업에 대 한 Blob Storage의 참조 데이터 사용](data-protection.md)을 참조 하세요.
 
 ### <a name="configure-blob-reference-data"></a>Blob 참조 데이터 구성
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: e485c2f0a7deeffe68c932688658ef099fec510e
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 97042479419cbc9d634a06e2dcbcccf9c8fde62b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492758"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560461"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -210,7 +210,7 @@ az ml computetarget create aks -n myaks
 
 **예상 시간:** 약 5 분.
 
-Azure 구독에 AKS 클러스터가 이미 있고 버전이 1.17 이하인 경우이를 사용 하 여 이미지를 배포할 수 있습니다.
+Azure 구독에 AKS 클러스터가 이미 있는 경우 작업 영역에서 사용할 수 있습니다.
 
 > [!TIP]
 > 기존 AKS 클러스터는 Azure Machine Learning 작업 영역 이외의 Azure 지역에 있을 수 있습니다.

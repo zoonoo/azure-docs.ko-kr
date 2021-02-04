@@ -1,17 +1,17 @@
 ---
 title: Azure 사용자 지정 리소스 공급자에 대한 기본 제공 정책 정의
 description: Azure 사용자 지정 리소스 공급자에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 01/29/2021
+ms.date: 02/04/2021
 ms.topic: reference
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a2393fcb5c8a0c758d023742909d2759a6bd23a0
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1e0089642817ba3a619e7a2bf5b57765b577ff1e
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220942"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99560922"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Azure 사용자 지정 리소스 공급자에 대한 Azure Policy 기본 제공 정의
 

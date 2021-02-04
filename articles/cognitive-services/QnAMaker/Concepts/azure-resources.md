@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b5f7f494c9d0969fbf9431d0b552dafa21a5eace
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 38115f18d9b35545912fad97767f38fd3827d626
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705407"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99559992"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -94,7 +94,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 | -------------------------- |------------ | -------------------------------- |
 | **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
 | **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
-| **프로덕션 환경** |표준     | KB 최대 49개, 25GB 크기까지 게시 |
+| **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ---
 
@@ -232,22 +232,14 @@ QnA Maker 관리 서비스는 QnA Maker 포털 및 초기 데이터 처리에만
 
 QnA Maker 서비스는 App service에서 호스팅되는 런타임과 함께 사용 되는 키와 **쿼리 끝점 키** 를 **작성** 하는 두 가지 종류의 키를 처리 합니다.
 
-**구독 키** 를 찾고 있는 경우 [용어가 변경 되었습니다](#subscription-keys).
-
 Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 합니다.
 
 ![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
 
 |이름|위치|목적|
 |--|--|--|
-|작성 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점을 쿼리하여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 쿼리 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
-
-### <a name="subscription-keys"></a>구독 키
-
-용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키** 였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
-
-어떤 키를 찾아야 하는지 파악 하기 위해 키에 액세스 하는 기술 자료 관리 또는 기술 자료 쿼리를 알고 있어야 합니다.
 
 ### <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
@@ -311,22 +303,14 @@ QnA Maker 관리 (미리 보기)에서 관리와 예측 서비스는 모두 동�
 
 QnA Maker 관리 (미리 보기) 서비스는 고객의 구독에서 서비스에 액세스 하는 데 사용 되는 키와 **Azure Cognitive Search 키** 를 **작성** 하는 두 가지 종류의 키를 처리 합니다.
 
-**구독 키** 를 찾고 있는 경우 [용어가 변경 되었습니다](#subscription-keys).
-
 Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 합니다.
 
 ![키 관리 관리 미리 보기](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
 
 |이름|위치|목적|
 |--|--|--|
-|작성 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |Azure Cognitive Search 관리자 키|[Azure Portal](../../../search/search-security-api-keys.md)|이러한 키는 사용자의 Azure 구독에 배포 된 Azure 인식 검색 서비스와 통신 하는 데 사용 됩니다. Azure 인식 검색을 QnA Maker 관리 (미리 보기) 서비스와 연결 하면 관리자 키가 자동으로 QnA Maker 서비스에 전달 됩니다. <br><br>**키** 페이지의 **Azure Cognitive Search** 리소스에서 이러한 키를 찾을 수 있습니다.|
-
-### <a name="subscription-keys"></a>구독 키
-
-용어 작성 및 쿼리 끝점 키는 정정 조건입니다. 이전 용어는 **구독 키** 였습니다. 구독 키를 참조 하는 다른 설명서가 표시 되는 경우이는 런타임에 사용 되는 끝점 키 작성 및 쿼리와 동일 합니다.
-
-어떤 키를 찾아야 하는지 파악 하기 위해 키에 액세스 하는 기술 자료 관리 또는 기술 자료 쿼리를 알고 있어야 합니다.
 
 ### <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정 
 
