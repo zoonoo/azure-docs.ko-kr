@@ -4,12 +4,12 @@ description: Azure Batch 풀의 계산 노드에 대해 사용 가능한 VM 크�
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: de1f61bb2bdc83377887fda726a65c1900f36d55
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897496"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576704"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대 한 VM 크기 및 이미지 선택
 
@@ -29,7 +29,7 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | VM 시리즈  | 지원되는 크기 |
 |------------|---------|
 | Basic A | Basic_A0(A0)을 *제외한* 모든 크기 |
-| A | Standard_A0를 *제외한* 모든 크기 |
+| A | Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11를 *제외한* 모든 크기 |
 | Av2 | 모든 크기 |
 | b | 지원되지 않음 |
 | DC | 지원되지 않음 |

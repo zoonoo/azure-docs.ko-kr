@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8926e99db926fc8182e98509c3deff0ccc3d1612
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097425"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576670"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -81,7 +81,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 ![Virtual Network에 대한 Azure 서비스 보호](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 - 가상 네트워크의 서브넷에서 서비스 끝점을 구성 합니다. 엔드포인트는 해당 서브넷 내에서 실행되는 모든 컴퓨팅 인스턴스를 사용합니다.
 - 모든 지원 되는 Azure 서비스 (예: 서브넷에 대해 지원 되는 모든 Azure 서비스 Azure Storage 또는 Azure SQL Database)에 대해 여러 서비스 끝점을 구성할 수 있습니다.
@@ -126,7 +126,7 @@ VNet (Virtual Network) 서비스 끝점은 Azure 백본 네트워크를 통해 �
 
 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요. 사용자 지정 역할에 특정 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요.
 
-가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스가 다른 구독에 있는 경우 동일한 AD(Active Directory) 테넌트 아래에 있어야 합니다. 
+가상 네트워크 및 Azure 서비스 리소스가 동일한 구독이나 다른 구독에 있을 수 있습니다. Azure Storage 및 Azure Key Vault 같은 특정 Azure 서비스는 다른 AD (Active Directory) 테 넌 트 간 서비스 엔드포인트도 지원 합니다. 즉, 가상 네트워크 및 Azure 서비스 리소스가 다른 AD (Active Directory) 테 넌 트에 있을 수 있습니다. 자세한 내용은 개별 서비스 설명서를 확인 하세요.  
 
 ## <a name="pricing-and-limits"></a>가격 책정 및 제한
 

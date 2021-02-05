@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: b6e523fc4a3dcd0eb8c8ed7a44b3d7d9fcdd7d34
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887218"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576534"
 ---
-# <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 응용 프로그램에 액세스
+# <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
 
 이 문서에서는 개인 네트워크에서 응용 프로그램에 대 한 끝점에 액세스 하는 방법을 설명 합니다.  액세스 권한을 얻으려면 개인 FQDN (정규화 된 도메인 이름)을 IP 주소로 변환/확인 하기 위해 구독에서 **Azure 사설 DNS 영역** 을 만들어야 합니다.
 
-Azure 스프링 클라우드 서비스 인스턴스의 응용 프로그램에 대 한 **끝점 할당** 을 가상 네트워크에 배포 하는 경우 끝점은 개인 FQDN입니다. 도메인은 개인 네트워크 에서만 액세스할 수 있습니다. 앱 및 서비스는 응용 프로그램 끝점을 사용 합니다. [스테이징 배포 확인](spring-cloud-howto-staging-environment.md#verify-the-staging-deployment)에 설명 된 **테스트 끝점** 을 포함 합니다. [실시간으로 Azure 스프링 클라우드 앱 로그 스트림](spring-cloud-howto-log-streaming.md)에 설명 된 **로그 스트리밍이** 개인 네트워크 내 에서만 작동 합니다.
+Azure 스프링 클라우드 서비스 인스턴스의 응용 프로그램에 대 한 **끝점 할당** 을 가상 네트워크에 배포 하는 경우 끝점은 개인 FQDN입니다. 도메인은 개인 네트워크 에서만 액세스할 수 있습니다. 앱 및 서비스는 응용 프로그램 끝점을 사용 합니다. 여기에는 [앱 및 배포 보기](spring-cloud-howto-staging-environment.md#view-apps-and-deployments)에 설명 된 **테스트 끝점이** 포함 됩니다. [실시간으로 Azure 스프링 클라우드 앱 로그 스트림](spring-cloud-howto-log-streaming.md)에 설명 된 **로그 스트리밍이** 개인 네트워크 내 에서만 작동 합니다.
 
 ## <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
@@ -85,10 +85,10 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 6. **레코드 집합 추가** 에서 다음 정보를 입력 하거나 선택 합니다.
 
-    |설정     |값                                                                      |
+    |Setting     |값                                                                      |
     |------------|---------------------------------------------------------------------------|
     |속성        |*\** 를 입력합니다.                                                                 |
-    |형식        |선택                                                                |
+    |Type        |선택                                                                |
     |TTL         |*1* 을 입력 합니다.                                                                  |
     |TTL 단위    |**시간** 선택                                                           |
     |IP 주소  |3 단계에서 복사한 IP 주소를 입력 합니다. 샘플에서 *10.1.0.7* 을 입력 합니다.    |

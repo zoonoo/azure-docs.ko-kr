@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 875254071d0ea252508242b83102fb8ca8b44e53
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825382"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576602"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,11 +62,11 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | 없음 |
+|**사용 안 함** | None |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
-|**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
+|**Verbose** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 
 작업을 마쳤으면 **저장** 을 선택합니다.
 
@@ -171,7 +171,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | **애플리케이션 로그 전송 사용** |*/LogFiles/Application/* | 하나 이상의 텍스트 파일을 포함 합니다. 로그 메시지의 형식은 사용 하는 로깅 공급자에 따라 달라 집니다. |
 | **실패 한 요청 추적** | */LogFiles/W3SVC # # # # # # # # #/* | XML 파일 및 XSL 파일을 포함 합니다. 브라우저에서 형식이 지정 된 XML 파일을 볼 수 있습니다. |
 | **자세한 오류 로그** | */LogFiles/DetailedErrors/* | 에는 HTM 오류 파일이 포함 되어 있습니다. 브라우저에서 HTM 파일을 볼 수 있습니다.<br/>실패 한 요청 추적을 보는 또 다른 방법은 포털에서 앱 페이지로 이동 하는 것입니다. 왼쪽 메뉴에서 **문제 진단 및 해결** 을 선택 하 고 **실패 한 요청 추적 로그** 를 검색 한 다음 아이콘을 클릭 하 여 원하는 추적을 찾아 봅니다. |
-| **웹 서버 로그** | */LogFiles/http/RawLogs/* | [W3C 확장 로그 파일 형식을](/windows/desktop/Http/w3c-logging)사용 하 여 서식이 지정 된 텍스트 파일을 포함 합니다. 이 정보는 텍스트 편집기나 [로그 파서와](https://go.microsoft.com/fwlink/?LinkId=246619)같은 유틸리티를 사용 하 여 읽을 수 있습니다.<br/>App Service는 `s-computername` , 또는 필드를 지원 하지 않습니다 `s-ip` `cs-version` . |
+| **웹 서버 로그** | */LogFiles/http/RawLogs/* | [W3C 확장 로그 파일 형식을](/windows/desktop/Http/w3c-logging)사용 하 여 서식이 지정 된 텍스트 파일을 포함 합니다. 이 정보는 텍스트 편집기나 [로그 파서와](https://www.iis.net/downloads/community/2010/04/log-parser-22)같은 유틸리티를 사용 하 여 읽을 수 있습니다.<br/>App Service는 `s-computername` , 또는 필드를 지원 하지 않습니다 `s-ip` `cs-version` . |
 | **배포 로그** | */LogFiles/Git/* 및 */deployments/* | Git 배포에 대 한 로그 뿐만 아니라 내부 배포 프로세스에서 생성 된 로그를 포함 합니다. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Azure Monitor로 로그 보내기 (미리 보기)
@@ -189,7 +189,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |
-| Appservice환경 Platformlogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
+| AppServiceEnvironmentPlatformLogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
 | AppServiceFileAuditLogs | 예 | 예 | TBA | TBA | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat 축복 이미지 <sup>1</sup> | Java SE & Tomcat 축복 이미지 <sup>1</sup> | 애플리케이션 로그 전송 사용 |

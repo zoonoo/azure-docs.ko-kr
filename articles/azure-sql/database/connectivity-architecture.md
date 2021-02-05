@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: da21fd2b6f8d427369cee89e0ad93d63e8608784
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 07303e3eea7e63f7c153db771168b8a741183362
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808258"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576501"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database 및 Azure Synapse Analytics 연결 아키텍처
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -92,7 +92,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 미국 동부              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | 미국 동부 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | 프랑스 중부       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
-| 프랑스 남부         | 40.79.177.10 ,40.79.177.12 |
+| 프랑스 남부         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
 | 독일 중부      | 51.4.144.100       |
 | 독일 북동부   | 51.5.144.179       |
 | 독일 중서부 | 51.116.240.0, 51.116.248.0, 51.116.152.0 |

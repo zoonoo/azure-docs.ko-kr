@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 421fb7b0c91171756f55ad25c918955870054e3e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8e69803f4740a58adb4230bd82cc723221762cb4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511283"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576619"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -140,7 +140,7 @@ DAST는 SAST(정적 애플리케이션 보안 테스트)와는 다릅니다. SAS
 
 코드 완성 후 공격 노출 영역을 검토하면 애플리케이션 또는 시스템의 디자인 또는 구현 변경이 고려되었는지 확인할 수 있습니다. 위협 모델을 포함하여 변경의 결과로 생성된 새로운 공격 벡터를 검토하여 완화하는 데 도움이 됩니다.
 
-애플리케이션을 검사하여 공격 노출 영역 그림을 만들 수 있습니다. Microsoft는 [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487)라고 하는 공격 노출 영역 분석 도구를 제공합니다. [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) 및 [w3af](http://w3af.sourceforge.net/)를 비롯한 여러 상용 동적 테스트 및 취약성 검사 도구 또는 서비스 중에 선택할 수 있습니다. 이러한 검사 도구는 앱을 탐색하고 웹을 통해 액세스할 수 있는 애플리케이션의 일부를 매핑합니다. Azure Marketplace에서 비슷한 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)를 검색할 수도 있습니다.
+애플리케이션을 검사하여 공격 노출 영역 그림을 만들 수 있습니다. Microsoft는 [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105)라고 하는 공격 노출 영역 분석 도구를 제공합니다. [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project), [Arachni](http://arachni-scanner.com/), [Skipfish](https://code.google.com/p/skipfish/) 및 [w3af](http://w3af.sourceforge.net/)를 비롯한 여러 상용 동적 테스트 및 취약성 검사 도구 또는 서비스 중에 선택할 수 있습니다. 이러한 검사 도구는 앱을 탐색하고 웹을 통해 액세스할 수 있는 애플리케이션의 일부를 매핑합니다. Azure Marketplace에서 비슷한 [개발자 도구](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1)를 검색할 수도 있습니다.
 
 ### <a name="perform-security-penetration-testing"></a>보안 침투 테스트 수행
 

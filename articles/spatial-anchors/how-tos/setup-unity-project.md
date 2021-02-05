@@ -8,29 +8,29 @@ ms.author: parkerra
 ms.date: 2/3/2021
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e058186d8848256bf97d99ee1b8b1ddae7d78383
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56532c17c91e6c703a6acd7990bbae47cd248165
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550626"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576568"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Unity 프로젝트에서 Azure 공간 앵커 구성
 
 이 가이드에서는 Unity 프로젝트에서 Azure 공간 앵커 SDK를 시작 하는 방법을 보여 줍니다.
 
-## <a name="requirements"></a>요구 사항
+## <a name="project-requirements"></a>프로젝트 요구 사항
 
-Azure 공간 앵커는 현재 다음 구성의 LTS (Unity 2019.4)를 지원 합니다.
-
-* AR Foundation 3.1을 사용 하는 Unity 2019.4은 Azure 공간 앵커 2.4.0 +에서 지원 됩니다.
+[!INCLUDE [Unity Project Requirements](../../../includes/spatial-anchors-unity-project-requirements.md)]
 
 ## <a name="configuring-a-project"></a>프로젝트 구성
 
-### <a name="download-packages"></a>패키지를 다운로드합니다.
+Unity 프로젝트에 Azure 공간 앵커 SDK를 포함 하려면 먼저 Unity 패키지 관리자를 통해 [필요한](#project-requirements) 패키지를 설치 해야 합니다.
+
+### <a name="download-asa-packages"></a>GLOBAL.ASA 패키지 다운로드
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 
-### <a name="import-packages"></a>패키지 가져오기
+### <a name="import-asa-packages"></a>GLOBAL.ASA 패키지 가져오기
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### <a name="android-only-configure-the-maintemplategradle-file"></a>Android에만 해당: gradle 파일 구성 Maintemplate.json

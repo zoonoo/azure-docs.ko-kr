@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071718"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576551"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
 
@@ -58,9 +58,9 @@ Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 �
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *GroundFloor* 라는 *바닥* 형식의 디지털 쌍과 *Cafe* 라는 *방* 형식의 디지털 쌍 간에 관계를 만드는 클라이언트 코드의 몇 가지 예입니다.
+다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 하나의 디지털 쌍 ("원본" 쌍)에서 다른 디지털 쌍 ("대상" 쌍)으로의 관계를 만드는 클라이언트 코드 예제입니다.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_3":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>그래프 요소의 JSON 표현
 

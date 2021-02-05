@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Automation 내에서 Azure 인증 공급�
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41eaab7be66d446109e1052948a29ad4723b191c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 336c0387ac9febcc517c2ce358d0b04c80d10678
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98894663"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576806"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Azure AD를 사용하여 Azure에 인증
 
@@ -50,7 +50,7 @@ ms.locfileid: "98894663"
 
 1. 컴퓨터에서 Microsoft .NET Framework 3.5.x 기능을 사용하도록 설정되었는지 확인합니다. 컴퓨터에 최신 버전이 설치되었을 확률이 높지만, .NET Framework 이전 버전과의 호환성을 사용하도록 또는 사용하지 않도록 설정할 수 있습니다. 
 
-2. 64비트 버전의 [Microsoft Online Services 로그인 도우미](https://www.microsoft.com/download/details.aspx?id=41950)를 설치합니다.
+2. 64비트 버전의 [Microsoft Online Services 로그인 도우미](https://www.microsoft.com/Download/details.aspx?id=28177)를 설치합니다.
 
 3. 관리자 권한으로 Windows PowerShell을 실행하여 높은 권한 Windows PowerShell 명령 프롬프트를 만듭니다.
 

@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3035e0036e5d35729637e35ad8cb1412a0da959f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: dac50d8e35080a083e42891732512e012fae8fbd
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091035"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576450"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>.NET을 사용 하 여 Azure Storage에서 컨테이너 만들기 또는 삭제
 
-Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려면 먼저 컨테이너를 만들어야 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 컨테이너를 만들고 삭제 하는 방법을 보여 줍니다.
+Azure Storage의 BLOB은 컨테이너로 구성됩니다. Blob을 업로드 하려면 먼저 컨테이너를 만들어야 합니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용 하 여 컨테이너를 만들고 삭제 하는 방법을 보여 줍니다.
 
 ## <a name="name-a-container"></a>컨테이너 이름
 
@@ -38,10 +38,10 @@ Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-- [만들기](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
-- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
-- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
-- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+- [CreateBlobContainer](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainer)
+- [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync)
+
+같은 이름을 가진 컨테이너가 이미 있는 경우 이러한 메서드는 예외를 throw 합니다.
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -49,11 +49,12 @@ Azure Storage blob은 컨테이너로 구성 됩니다. Blob을 업로드 하려
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
----
 
 같은 이름을 가진 컨테이너가 이미 있는 경우 **Create** 및 **createasync** 메서드는 예외를 throw 합니다.
 
 **Createifnotexists** 및 **CreateIfNotExistsAsync** 메서드는 컨테이너를 만들었는지 여부를 나타내는 부울 값을 반환 합니다. 이름이 같은 컨테이너가 이미 있으면이 메서드는 **False** 를 반환 하 여 새 컨테이너가 만들어지지 않았음을 표시 합니다.
+
+---
 
 컨테이너는 저장소 계정 아래에 즉시 생성됩니다. 컨테이너를 서로 중첩할 수는 없습니다.
 
@@ -99,7 +100,7 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
 
 ## <a name="create-the-root-container"></a>루트 컨테이너 만들기
 
-루트 컨테이너는 저장소 계정에 대한 기본 컨테이너 역할을 합니다. 각 저장소 계정에는 *$root*이름 이어야 하는 하나의 루트 컨테이너가 있을 수 있습니다. 루트 컨테이너를 명시적으로 만들거나 삭제 해야 합니다.
+루트 컨테이너는 저장소 계정에 대한 기본 컨테이너 역할을 합니다. 각 저장소 계정에는 *$root* 이름 이어야 하는 하나의 루트 컨테이너가 있을 수 있습니다. 루트 컨테이너를 명시적으로 만들거나 삭제 해야 합니다.
 
 루트 컨테이너 이름을 포함 하지 않고 루트 컨테이너에 저장 된 blob을 참조할 수 있습니다. 루트 컨테이너를 사용 하면 저장소 계정 계층의 최상위 수준에서 blob을 참조할 수 있습니다. 예를 들어 다음과 같은 방식으로 루트 컨테이너에 있는 blob을 참조할 수 있습니다.
 
@@ -229,7 +230,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
 - [컨테이너 작업 만들기](/rest/api/storageservices/create-container)
 - [컨테이너 삭제 작업](/rest/api/storageservices/delete-container)
