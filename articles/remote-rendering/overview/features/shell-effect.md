@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 10/23/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f59c4f8225d31b61df08f30863c8b9300e20e820
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7af95cba807cea340438a7de30f096758d0369ad
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447871"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594166"
 ---
 # <a name="shell-rendering"></a>셸 렌더링
 
@@ -23,7 +23,7 @@ ms.locfileid: "94447871"
 
 클래스 `ShellRenderingSettings` 에는 전역 셸 렌더링 속성과 관련 된 설정이 포함 됩니다.
 
-| 매개 변수      | Type    | Description                                             |
+| 매개 변수      | Type    | 설명                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Desaturation` | float   | 일반적인 최종 개체 색에 적용할 desaturation의 크기 (0 (desaturation 없음)-1 (전체 desaturation))입니다. |
 | `Opacity`      | float   | 0 (보이지 않음)에서 1 (완전히 불투명) 사이의 셸 렌더링 된 개체의 불투명도입니다. |
@@ -42,18 +42,18 @@ ms.locfileid: "94447871"
 다음 코드에서는 `ShellRenderingSettings` API를 통해 상태를 사용 하는 예제를 보여 줍니다.
 
 ```cs
-void SetShellSettings(AzureSession session)
+void SetShellSettings(RenderingSession session)
 {
-    ShellRenderingSettings shellRenderingSettings = session.Actions.ShellRenderingSettings;
+    ShellRenderingSettings shellRenderingSettings = session.Connection.ShellRenderingSettings;
     shellRenderingSettings.Desaturation = 0.5f;
     shellRenderingSettings.Opacity = 0.1f;
 }
 ```
 
 ```cpp
-void SetShellSettings(ApiHandle<AzureSession> session)
+void SetShellSettings(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Actions()->GetShellRenderingSettings();
+    ApiHandle<ShellRenderingSettings> shellRenderingSettings = session->Connection()->GetShellRenderingSettings();
     shellRenderingSettings->SetDesaturation(0.5f);
     shellRenderingSettings->SetOpacity(0.1f);
 }

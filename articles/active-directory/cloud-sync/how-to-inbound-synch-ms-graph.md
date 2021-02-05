@@ -1,5 +1,5 @@
 ---
-title: MS Graph API를 사용 하는 클라우드 동기화에 대 한 인바운드 동기화
+title: MS Graph API를 사용 하 여 클라우드 동기화를 프로그래밍 방식으로 구성 하는 방법
 description: 이 항목에서는 Graph API를 사용 하 여 인바운드 동기화를 사용 하도록 설정 하는 방법을 설명 합니다.
 services: active-directory
 author: billmath
@@ -11,23 +11,24 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3796b3d86f647e38cf2ff018e8c0c903d9a64e41
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682041"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593163"
 ---
-# <a name="inbound-synchronization-for-cloud-sync-using-ms-graph-api"></a>MS Graph API를 사용 하는 클라우드 동기화에 대 한 인바운드 동기화
+# <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>MS Graph API를 사용 하 여 클라우드 동기화를 프로그래밍 방식으로 구성 하는 방법
 
 다음 문서에서는 MSGraph Api만 사용 하 여 동기화 프로필을 처음부터 복제 하는 방법을 설명 합니다.  
-이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  관련 토폴로지는 다음과 같습니다.
+이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - [기본 설정](#basic-setup)
 - [서비스 사용자 만들기](#create-service-principals)
 - [동기화 작업 만들기](#create-sync-job)
 - [대상 도메인 업데이트](#update-targeted-domain)
 - [암호 해시 동기화 사용](#enable-sync-password-hashes-on-configuration-blade)
+- [실수로 삭제](#accidental-deletes)
 - [동기화 작업 시작](#start-sync-job)
 - [상태 검토](#review-status)
 
@@ -211,6 +212,71 @@ ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-00
 
  요청 본문에 스키마를 추가 합니다. 
 
+## <a name="accidental-deletes"></a>실수로 삭제
+이 섹션에서는 프로그래밍 방식으로 [실수로 삭제](how-to-accidental-deletes.md) 를 사용/사용 하지 않도록 설정 하 고 사용 하는 방법을 다룹니다.
+
+
+### <a name="enabling-and-setting-the-threshold"></a>임계값 설정 및 설정
+사용할 수 있는 작업 설정에는 다음 두 가지가 있습니다.
+
+ - DeleteThresholdEnabled-' t r u e '로 설정 되 면 작업에 대 한 실수로 인 한 삭제 방지를 사용 합니다. 기본적으로 ' t r u e '로 설정 합니다.
+ - DeleteThresholdValue-실수로 인 한 삭제 방지를 사용 하는 경우 각 작업 실행에 허용 되는 최대 삭제 수를 정의 합니다. 값은 기본적으로 500로 설정 됩니다.  따라서 값이 500로 설정 된 경우 허용 되는 최대 삭제 수는 각 실행에서 499이 됩니다.
+
+삭제 임계값 설정은의 일부 `SyncNotificationSettings` 이며 그래프를 통해 수정할 수 있습니다. 
+
+이 구성이 대상으로 하는 SyncNotificationSettings를 업데이트 해야 하므로 암호를 업데이트 해야 합니다.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ 수행 하려는 작업을 기준으로 아래 값 배열에 다음과 같은 키/값 쌍을 추가 합니다.
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+위의 예제에서 "사용" 설정은 작업이 격리 될 때 알림 전자 메일을 설정/해제 하는 데 사용 됩니다.
+
+
+현재는 암호에 대 한 패치 요청을 지원 하지 않으므로 다른 값을 유지 하려면 위의 예제와 같이 PUT 요청의 본문에 모든 값을 추가 해야 합니다.
+
+모든 암호에 대 한 기존 값은 다음을 사용 하 여 검색할 수 있습니다. 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### <a name="allowing-deletes"></a>삭제 허용
+작업이 격리로 전환 된 후 삭제가 이동 하도록 허용 하려면 "ForceDeletes"를 범위로 사용 하 여 다시 시작을 실행 해야 합니다. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
+
 ## <a name="start-sync-job"></a>동기화 작업 시작
 다음 명령을 통해 작업을 다시 검색할 수 있습니다.
 
@@ -252,6 +318,6 @@ ObjectId: 8895955e-2e6c-4d79-8943-4d72ca36878f AppId: 00000014-0000-0000-c000-00
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)
 - [변환](how-to-transformation.md)
 - [Azure AD 동기화 API](/graph/api/resources/synchronization-overview?view=graph-rest-beta)

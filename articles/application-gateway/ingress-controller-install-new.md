@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 9f69f89f565b2d98e408b06e300ff781c13680ef
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 8be5ac75e2da3eaeae300fd36e152a24c9777e64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693665"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593742"
 ---
 # <a name="how-to-install-an-application-gateway-ingress-controller-agic-using-a-new-application-gateway"></a>새 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러)를 설치 하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "97693665"
 
 [Azure Cloud Shell](https://shell.azure.com/) 에는 이미 필요한 도구가 모두 있습니다. 다른 환경을 사용 하도록 선택 하는 경우 다음 명령줄 도구가 설치 되어 있는지 확인 하세요.
 
-* `az` -Azure CLI: [설치 지침](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* `az` -Azure CLI: [설치 지침](/cli/azure/install-azure-cli)
 * `kubectl` -Kubernetes 명령줄 도구: [설치 지침](https://kubernetes.io/docs/tasks/tools/install-kubectl)
 * `helm` -Kubernetes 패키지 관리자: [설치 지침](https://github.com/helm/helm/releases/latest)
 * `jq` -명령줄 JSON 프로세서: [설치 지침](https://stedolan.github.io/jq/download/)

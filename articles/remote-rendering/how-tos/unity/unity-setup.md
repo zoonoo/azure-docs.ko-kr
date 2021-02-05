@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f01058d8e879a9610e76638215214c059982fa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018980"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594217"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Unity용 Remote Rendering 설정
 
@@ -19,7 +19,7 @@ Unity에서 Azure 원격 렌더링 (ARR)을 사용 하도록 설정 하기 위�
 
 ## <a name="startup-and-shutdown"></a>시작 및 종료
 
-원격 렌더링을 초기화 하려면를 사용 `RemoteManagerUnity` 합니다. 이 클래스는 제네릭를 호출 `RemoteManager` 하지만 이미 Unity 관련 세부 정보를 구현 합니다. 예를 들어 Unity는 특정 좌표계를 사용 합니다. 를 호출할 때 `RemoteManagerUnity.Initialize` 적절 한 규칙이 설정 됩니다. 또한 호출 하려면 원격으로 렌더링 된 콘텐츠를 표시 하는 데 사용 해야 하는 Unity 카메라를 제공 해야 합니다.
+원격 렌더링을 초기화 하려면를 사용 `RemoteManagerUnity` 합니다. 이 클래스는 제네릭를 호출 `RenderingConnection` 하지만 이미 Unity 관련 세부 정보를 구현 합니다. 예를 들어 Unity는 특정 좌표계를 사용 합니다. 를 호출할 때 `RemoteManagerUnity.Initialize` 적절 한 규칙이 설정 됩니다. 또한 호출 하려면 원격으로 렌더링 된 콘텐츠를 표시 하는 데 사용 해야 하는 Unity 카메라를 제공 해야 합니다.
 
 ```cs
 // initialize Azure Remote Rendering for use in Unity:
@@ -30,7 +30,7 @@ RemoteManagerUnity.InitializeManager(clientInit);
 
 원격 렌더링을 종료 하려면를 호출 `RemoteManagerStatic.ShutdownRemoteRendering()` 합니다.
 
-를 `AzureSession` 만들고 기본 렌더링 세션으로 선택한 후에는 다음을 사용 하 여 등록 해야 합니다 `RemoteManagerUnity` .
+를 `RenderingSession` 만들고 기본 렌더링 세션으로 선택한 후에는 다음을 사용 하 여 등록 해야 합니다 `RemoteManagerUnity` .
 
 ```cs
 RemoteManagerUnity.CurrentSession = ...
@@ -46,17 +46,18 @@ RemoteUnityClientInit clientInit = new RemoteUnityClientInit(Camera.main);
 RemoteManagerUnity.InitializeManager(clientInit);
 
 // create a frontend
-AzureFrontendAccountInfo accountInfo = new AzureFrontendAccountInfo();
-// ... fill out accountInfo ...
-AzureFrontend frontend = new AzureFrontend(accountInfo);
+SessionConfiguration sessionConfig = new SessionConfiguration();
+// ... fill out sessionConfig ...
+RemoteRenderingClient client = new RemoteRenderingClient(sessionConfig);
 
 // start a session
-AzureSession session = await frontend.CreateNewRenderingSessionAsync(new RenderingSessionCreationParams(RenderingSessionVmSize.Standard, 0, 30)).AsTask();
+CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(new RenderingSessionCreationOptions(RenderingSessionVmSize.Standard, 0, 30));
+RenderingSession session = result.Session;
 
 // let RemoteManagerUnity know about the session we want to use
 RemoteManagerUnity.CurrentSession = session;
 
-session.ConnectToRuntime(new ConnectToRuntimeParams());
+await session.ConnectAsync(new RendererInitOptions());
 
 /// When connected, load and modify content
 

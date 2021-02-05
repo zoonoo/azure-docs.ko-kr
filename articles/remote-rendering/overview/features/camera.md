@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: dbe86313054706af974ccb324a39e942e9b5ca44
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246284"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594132"
 ---
 # <a name="camera"></a>카메라
 
@@ -57,14 +57,14 @@ ms.locfileid: "98246284"
 로컬 수준 버퍼로 원격 깊이를 올바르게 구성 하기 위해 Azure 원격 렌더링 API는 로컬 렌더러의 깊이 버퍼 규칙에 대해 알고 있어야 합니다. 깊이 버퍼 범위가 [0, 1] 이면이 플래그를로 둡니다 `false` . [1; 0] 범위에서 반전 된 깊이 버퍼를 사용 하는 경우 플래그를 `InverseDepth` 로 설정 `true` 합니다.
 
 > [!NOTE]
-> Unity의 경우에서 올바른 설정이 이미 적용 되었으므로 `RemoteManager` 수동 작업이 필요 하지 않습니다.
+> Unity의 경우에서 올바른 설정이 이미 적용 되었으므로 `RenderingConnection` 수동 작업이 필요 하지 않습니다.
 
 카메라 설정을 변경 하는 작업은 다음과 같이 수행할 수 있습니다.
 
 ```cs
-void ChangeCameraSetting(AzureSession session)
+void ChangeCameraSetting(RenderingSession session)
 {
-    CameraSettings settings = session.Actions.CameraSettings;
+    CameraSettings settings = session.Connection.CameraSettings;
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
@@ -73,9 +73,9 @@ void ChangeCameraSetting(AzureSession session)
 ```
 
 ```cpp
-void ChangeStageSpace(ApiHandle<AzureSession> session)
+void ChangeCameraSetting(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<CameraSettings> settings = session->Actions()->GetCameraSettings();
+    ApiHandle<CameraSettings> settings = session->Connection()->GetCameraSettings();
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);

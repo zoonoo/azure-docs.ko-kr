@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 95b74e5fc6c5d2c09ff04b3f14e920ae675ab6e1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746107"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592758"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Application Gateway의 백 엔드 상태 문제 해결
 ==================================================
@@ -24,7 +24,7 @@ ms.locfileid: "98746107"
 
 ### <a name="how-to-check-backend-health"></a>백 엔드 상태를 확인하는 방법
 
-백 엔드 풀의 상태를 확인하기 위해 Azure Portal에서 **백 엔드 상태** 페이지를 사용할 수 있습니다. 또는 [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0), [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) 또는 [REST API](/rest/api/application-gateway/applicationgateways/backendhealth)를 사용할 수 있습니다.
+백 엔드 풀의 상태를 확인하기 위해 Azure Portal에서 **백 엔드 상태** 페이지를 사용할 수 있습니다. 또는 [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth), [CLI](/cli/azure/network/application-gateway#az-network-application-gateway-show-backend-health) 또는 [REST API](/rest/api/application-gateway/applicationgateways/backendhealth)를 사용할 수 있습니다.
 
 이러한 방법으로 검색되는 상태는 다음 중 하나일 수 있습니다.
 
@@ -119,7 +119,7 @@ BackendAddressPoolsText : [
 
 1.  Azure 기본 DNS를 사용하는 경우 도메인 이름 등록 기관에서 적절한 A 레코드 또는 CNAME 레코드 매핑이 완료되었는지 여부에 대해 확인합니다.
 
-1.  도메인이 개인 또는 내부인 경우 동일한 가상 네트워크의 VM에서 확인해 보세요. 확인이 가능한 경우 Application Gateway를 다시 시작하고 다시 확인합니다. Application Gateway를 다시 시작하려면 연결된 이들 리소스에 설명된 PowerShell 명령을 사용하여 [중지](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)하고 [시작](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0)해야 합니다.
+1.  도메인이 개인 또는 내부인 경우 동일한 가상 네트워크의 VM에서 확인해 보세요. 확인이 가능한 경우 Application Gateway를 다시 시작하고 다시 확인합니다. Application Gateway를 다시 시작하려면 연결된 이들 리소스에 설명된 PowerShell 명령을 사용하여 [중지](/powershell/module/azurerm.network/stop-azurermapplicationgateway)하고 [시작](/powershell/module/azurerm.network/start-azurermapplicationgateway)해야 합니다.
 
 #### <a name="tcp-connect-error"></a>TCP 연결 오류
 

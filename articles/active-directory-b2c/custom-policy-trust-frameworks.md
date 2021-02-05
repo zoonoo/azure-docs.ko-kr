@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 514ce0a43904048952f38edd6a9d38713f6ef8f3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cb33e11af26d5f5a2676f5b236ac142179bdb550
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936662"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592843"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Azure AD B2C 사용자 지정 정책 개요
 
@@ -115,7 +115,7 @@ SAML 프로토콜에서 신뢰 당사자 응용 프로그램을 서비스 공급
 상속 모델은 다음과 같습니다.
 
 - 모든 수준의 자식 정책은 부모 정책에서 상속하고 새 요소를 추가하여 확장할 수 있습니다.
-- 더 복잡 한 시나리오의 경우 더 많은 상속 수준을 추가할 수 있습니다 (총 5 개까지).
+- 더 복잡 한 시나리오의 경우 더 많은 상속 수준을 추가할 수 있습니다 (총 10 개).
 - 신뢰 당사자 정책을 더 추가할 수 있습니다. 예를 들어 내 계정 삭제, 전화 번호, SAML 신뢰 당사자 정책 등을 변경 합니다.
 
 다음 다이어그램은 정책 파일과 신뢰 당사자 애플리케이션 간의 관계를 보여 줍니다.
@@ -125,7 +125,7 @@ SAML 프로토콜에서 신뢰 당사자 응용 프로그램을 서비스 공급
 
 ## <a name="guidance-and-best-practices"></a>지침 및 모범 사례
 
-### <a name="best-practices"></a>최선의 구현 방법
+### <a name="best-practices"></a>모범 사례
 
 Azure AD B2C 사용자 지정 정책 내에서 고유한 비즈니스 논리를 통합 하 여 필요한 사용자 환경을 구축 하 고 서비스의 기능을 확장할 수 있습니다. 시작 하기 위한 모범 사례 및 권장 사항 집합이 있습니다.
 

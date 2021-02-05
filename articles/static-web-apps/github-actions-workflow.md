@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: acdb635dec5abd73341cc1dda4991b58b82a18c0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 785fd535c46b67cfd631cd18560f396a6901e5c0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574519"
+ms.locfileid: "99593957"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
 
@@ -197,12 +197,13 @@ jobs:
 
 ## <a name="monorepo-support"></a>Monorepo 지원
 
-Monorepo는 둘 이상의 응용 프로그램에 대 한 코드를 포함 하는 리포지토리입니다. 기본적으로 정적 Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적 하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 자료의 경우 각 정적 사이트의 자체 구성 파일이 있으며,이 파일은 리포지토리의 *.* s s i 폴더와 나란히 상주 합니다.
+Monorepo는 둘 이상의 응용 프로그램에 대 한 코드를 포함 하는 리포지토리입니다. 기본적으로 정적 Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적 하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 자료의 경우 각 정적 앱에는 리포지토리의 *github/워크플로* 폴더에 나란히 있는 자체 구성 파일이 있습니다.
 
 ```files
-├── .git
-│   ├── azure-static-web-apps-purple-pond.yml
-│   └── azure-static-web-apps-yellow-shoe.yml
+├── .github
+│   └── workflows
+│       ├── azure-static-web-apps-purple-pond.yml
+│       └── azure-static-web-apps-yellow-shoe.yml
 │
 ├── app1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── app2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
@@ -210,7 +211,7 @@ Monorepo는 둘 이상의 응용 프로그램에 대 한 코드를 포함 하는
 ├── api1  👉 controlled by: azure-static-web-apps-purple-pond.yml
 ├── api2  👉 controlled by: azure-static-web-apps-yellow-shoe.yml
 │
-└── readme.md
+└── README.md
 ```
 
 단일 앱에 워크플로 파일을 대상으로 지정 하려면 및 섹션에서 경로를 `push` 지정 `pull_request` 합니다.
@@ -236,7 +237,7 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-이 인스턴스에서 파일 다음에 파일을 변경한 내용만 새 빌드가 트리거됩니다.
+이 인스턴스에서 다음 파일에 대 한 변경 내용만 새 빌드를 트리거합니다.
 
 - *App1* 폴더 내의 모든 파일
 - *Api1* 폴더 내의 모든 파일

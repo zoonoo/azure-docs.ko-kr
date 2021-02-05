@@ -3,14 +3,14 @@ title: 템플릿 배포 가상
 description: Azure Resource Manager 템플릿을 배포 하기 전에 리소스에 대해 수행 되는 변경 내용을 확인 합니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/05/2021
 ms.author: tomfitz
-ms.openlocfilehash: fa70d88b046cf38aa74582066d230c15580465b9
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 8122fa5c00a61017b5f358a112c94a5299539cee
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673973"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591627"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>ARM 템플릿 배포 가상 작업
 
@@ -21,10 +21,6 @@ Azure PowerShell, Azure CLI 또는 REST API 작업을 사용 하 여 가상 작�
 ## <a name="install-azure-powershell-module"></a>Azure PowerShell 모듈 설치
 
 PowerShell에서이를 사용 하려면 **Az module 버전 4.2 이상이** 있어야 합니다.
-
-그러나 필수 모듈을 설치 하기 전에 PowerShell Core (6.x 또는 4.x)가 있는지 확인 합니다. PowerShell 5.x 이전 버전인 경우 [powershell의 버전을 업데이트](/powershell/scripting/install/installing-powershell)합니다. 필수 모듈은 PowerShell 5.x 또는 이전 버전에 설치할 수 없습니다.
-
-### <a name="install-latest-version"></a>최신 버전 설치
 
 모듈을 설치 하려면 다음을 사용 합니다.
 
@@ -326,7 +322,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 가상 작업은 [배포 모드](deployment-modes.md)사용을 지원 합니다. 완료 모드로 설정 된 경우 템플릿에 없는 리소스가 삭제 됩니다. 다음 예제에서는 전체 모드에서 [정의 된 리소스가 없는 템플릿을](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) 배포 합니다.
 
-템플릿을 배포하기 전에 변경 내용을 미리 보려면 배포 명령에서 confirm switch 매개 변수를 사용합니다. 예상대로 변경되면 배포를 완료하도록 확인합니다.
+템플릿을 배포하기 전에 변경 내용을 미리 보려면 배포 명령에서 confirm switch 매개 변수를 사용합니다. 변경 내용이 예상 대로 변경 되 면 배포를 완료 하는 데 필요한 응답을 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

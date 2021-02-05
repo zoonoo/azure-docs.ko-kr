@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 4e09f9b8564c9319e68984df1c0f8db7a496a6d0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584807"
+ms.locfileid: "99592265"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -92,60 +92,10 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
     ![리소스가 새로운 QnA Maker 관리 (미리 보기) 서비스를 만듦](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     _Cognitive Services_ 형식의 리소스에는 _구독_ 키가 있습니다.
-
+    
 ---
 
-## <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
-
-QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
-
-1. Azure Portal의 QnA Maker 리소스로 이동 하 고 _Cognitive Services_ 형식의 리소스를 선택 합니다.
-
-    ![QnA Maker 리소스 목록](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
-
-2. **키 및 끝점** 으로 이동:
-
-    ![QnA Maker 관리 (미리 보기) 구독 키](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>QnA Maker 포털에서 쿼리 끝점 키 찾기
-
-끝점은 기술 자료에 대 한 호출을 수행 하는 데 사용 되므로 끝점은 리소스와 동일한 영역에 있습니다.
-
-엔드포인트 키는 [QnA Maker 포털](https://qnamaker.ai)에서 관리할 수 있습니다.
-
-1. [QnA Maker 포털](https://qnamaker.ai)에 로그인 하 고, 프로필로 이동한 다음, **서비스 설정** 을 선택 합니다.
-
-    ![엔드포인트 키](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
-
-2. 키 보기 또는 다시 설정:
-
-    > [!div class="mx-imgBorder"]
-    > ![끝점 키 관리자](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
-
-    >[!NOTE]
-    >키가 손상 되었다고 생각 되 면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
-
-QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
-
-1. Azure Portal에서 QnA Maker 관리 (미리 보기) 리소스로 이동 하 고 *Cognitive Services* 유형의 리소스를 선택 합니다.
-
-    ![QnA Maker 관리 (미리 보기) 리소스 목록](../media/qnamaker-how-to-key-management/qnamaker-v2-resource-list.png)
-
-2. **키 및 끝점** 으로 이동:
-
-    ![QnA Maker 관리 (미리 보기) 구독 키](../media/qnamaker-how-to-key-management/subscription-key-v2.png)
-
-### <a name="update-the-resources"></a>리소스 업데이트
-
-기술 자료에서 사용 하는 리소스를 업그레이드 하는 방법을 알아봅니다. 미리 보기 중에는 관리 (미리 보기) QnA Maker **무료로** 제공 됩니다. 
-
----
-
-### <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
+## <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 

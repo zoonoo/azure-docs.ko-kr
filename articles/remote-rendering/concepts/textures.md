@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b951dab1ad01187c7612fad047bc52eb6aa9700e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e01ddf0690f11d41021e0a5ae5958c7c80646743
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701877"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594420"
 ---
 # <a name="textures"></a>질감
 
@@ -35,66 +35,54 @@ ARR에 지정된 모든 텍스처는 [DDS 형식](https://en.wikipedia.org/wiki/
 
 모델을 로드하는 것과 유사하게 원본 Blob 스토리지에서 텍스처 자산을 처리하는 두 가지 변형이 있습니다.
 
-* 텍스처 자산은 SAS URI로 처리할 수 있습니다. 매개 변수 `LoadTextureFromSASParams`와 관련된 로딩 함수는 `LoadTextureFromSASAsync`입니다. [기본 제공 텍스처](../overview/features/sky.md#built-in-environment-maps)를 로드하는 경우에도 이 변형을 사용합니다.
-* [Blob 스토리지가 계정에 연결](../how-tos/create-an-account.md#link-storage-accounts)된 경우 Blob 스토리지 매개 변수를 통해 텍스처를 직접 처리합니다. 이 경우 매개 변수 `LoadTextureParams`와 관련된 로딩 함수는 `LoadTextureAsync`입니다.
+* [Blob 스토리지가 계정에 연결](../how-tos/create-an-account.md#link-storage-accounts)된 경우 Blob 스토리지 매개 변수를 통해 텍스처를 직접 처리합니다. 이 경우 매개 변수 `LoadTextureOptions`와 관련된 로딩 함수는 `LoadTextureAsync`입니다.
+* 텍스처 자산은 SAS URI로 처리할 수 있습니다. 매개 변수 `LoadTextureFromSasOptions`와 관련된 로딩 함수는 `LoadTextureFromSasAsync`입니다. [기본 제공 텍스처](../overview/features/sky.md#built-in-environment-maps)를 로드하는 경우에도 이 변형을 사용합니다.
 
-다음 샘플 코드는 SAS URI(또는 기본 제공 텍스처)를 통해 텍스처를 로드하는 방법을 보여줍니다. 다른 경우에는 로딩 함수/매개 변수만 다릅니다.
+다음 샘플 코드에서는 질감을 로드 하는 방법을 보여 줍니다.
 
 ```cs
-LoadTextureAsync _textureLoad = null;
-void LoadMyTexture(AzureSession session, string textureUri)
+async void LoadMyTexture(RenderingSession session, string storageContainer, string blobName, string assetPath)
 {
-    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
-    _textureLoad.Completed +=
-        (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                //use res.Result
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-            _textureLoad = null;
-        };
+    try
+    {
+        LoadTextureOptions options = new LoadTextureOptions(storageContainer, blobName, assetPath, TextureType.Texture2D);
+        Texture texture = await session.Connection.LoadTextureAsync(options);
+    
+        // use texture...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
-void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+void LoadMyTexture(ApiHandle<RenderingSession> session, std::string storageContainer, std::string blobName, std::string assetPath)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureOptions params;
     params.TextureType = TextureType::Texture2D;
-    params.TextureUrl = std::move(textureUri);
-    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    params.Blob.StorageAccountName = std::move(storageContainer);
+    params.Blob.BlobContainerName = std::move(blobName);
+    params.Blob.AssetPath = std::move(assetPath);
+    session->Connection()->LoadTextureAsync(params, [](Status status, ApiHandle<Texture> texture)
     {
-        if (res->GetIsRanToCompletion())
-        {
-            //use res->Result()
-        }
-        else
-        {
-            printf("Texture loading failed!");
-        }
+        // use texture...
     });
 }
 ```
 
-텍스처가 사용될 것으로 예상되는 항목에 따라 텍스처 형식 및 콘텐츠에 제한이 있을 수 있습니다. 예를 들어 [PBR 재질](../overview/features/pbr-materials.md)의 초고 맵은 회색조여야 합니다.
+SAS variant를 사용 하는 경우에는 로딩 함수/매개 변수만 다릅니다.
 
-> [!CAUTION]
-> ARR의 모든 *Async* 함수는 비동기 작업 개체를 반환합니다. 작업이 완료될 때까지 해당 개체에 대한 참조를 저장해야 합니다. 그렇지 않으면 C# 가비지 수집기가 작업을 일찍 삭제하여 작업을 완료할 수 없습니다. 위의 샘플 코드에서 멤버 변수 '_textureLoad'는 *완료* 이벤트가 도착할 때까지 참조를 보유하는 데 사용됩니다.
+텍스처가 사용될 것으로 예상되는 항목에 따라 텍스처 형식 및 콘텐츠에 제한이 있을 수 있습니다. 예를 들어 [PBR 재질](../overview/features/pbr-materials.md)의 초고 맵은 회색조여야 합니다.
 
 ## <a name="api-documentation"></a>API 설명서
 
 * [C # 질감 클래스](/dotnet/api/microsoft.azure.remoterendering.texture)
-* [C # RemoteManager LoadTextureAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
-* [C # RemoteManager LoadTextureFromSASAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [C # RenderingConnection LoadTextureAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtextureasync)
+* [C # RenderingConnection LoadTextureFromSasAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtexturefromsasasync)
 * [C + + 질감 클래스](/cpp/api/remote-rendering/texture)
-* [C + + RemoteManager:: LoadTextureAsync ()](/cpp/api/remote-rendering/remotemanager#loadtextureasync)
-* [C + + RemoteManager:: LoadTextureFromSASAsync ()](/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
+* [C + + RenderingConnection:: LoadTextureAsync ()](/cpp/api/remote-rendering/renderingconnection#loadtextureasync)
+* [C + + RenderingConnection:: LoadTextureFromSasAsync ()](/cpp/api/remote-rendering/renderingconnection#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>다음 단계
 

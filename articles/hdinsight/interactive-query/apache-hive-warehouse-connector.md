@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 39eb007c85d9f0623b4a5611e36d4ed7a75423e0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941188"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594437"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
 
@@ -38,7 +38,11 @@ Hive Warehouse Connector에서 지원되는 작업은 다음과 같습니다.
 ## <a name="hive-warehouse-connector-setup"></a>Hive Warehouse Connector 설정
 
 > [!IMPORTANT]
-> Spark 2.4 Enterprise Security Package 클러스터에 설치 된 HiveServer2 대화형 인스턴스는 Hive 웨어하우스 커넥터에서 사용할 수 없습니다. 대신, HiveServer2 대화형 작업을 호스트 하는 별도의 HiveServer2 대화형 클러스터를 구성 해야 합니다. 단일 Spark 2.4 클러스터를 활용 하는 Hive 웨어하우스 커넥터 구성은 지원 되지 않습니다.
+> - Spark 2.4 Enterprise Security Package 클러스터에 설치 된 HiveServer2 대화형 인스턴스는 Hive 웨어하우스 커넥터에서 사용할 수 없습니다. 대신, HiveServer2 대화형 작업을 호스트 하는 별도의 HiveServer2 대화형 클러스터를 구성 해야 합니다. 단일 Spark 2.4 클러스터를 활용 하는 Hive 웨어하우스 커넥터 구성은 지원 되지 않습니다.
+> - HWC (Hive 웨어하우스 커넥터) 라이브러리는 WLM (워크 로드 관리) 기능이 설정 된 대화형 쿼리 클러스터에서 사용할 수 없습니다. <br>
+Spark 작업을 보유 하 고 HWC Library를 사용 하려는 경우 대화형 쿼리 클러스터에서 작업 관리 기능을 사용 하도록 설정 하지 않았는지 확인 `hive.server2.tez.interactive.queue` 합니다 (구성이 Hive configs에 설정 되지 않음). <br>
+Spark 워크 로드 (HWC) 및 LLAP 기본 워크 로드가 모두 있는 시나리오의 경우 공유 metastore 데이터베이스를 사용 하 여 두 개의 별도의 대화형 쿼리 클러스터를 만들어야 합니다. Wlm 기능을 필요에 따라 사용 하도록 설정할 수 있는 기본 LLAP 워크 로드 및 WLM 기능을 구성 하지 않아야 하는 HWC 전용 워크 로드에 대 한 클러스터 한 개.
+하나의 클러스터 에서만 사용 하도록 설정 된 경우에도 두 클러스터에서 WLM 리소스 계획을 볼 수 있습니다. 다른 클러스터의 WLM 기능에 영향을 줄 수 있으므로 WLM 기능을 사용 하지 않도록 설정 된 클러스터의 리소스 계획을 변경 하지 마세요.
 
 Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위한 별도의 클러스터가 필요합니다. Azure HDInsight에서 이러한 클러스터를 설정하려면 다음 단계를 수행합니다.
 

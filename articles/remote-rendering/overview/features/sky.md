@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c07654c174f5b94512574cb4c279d35897dc71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 9c5ad4b21b428f38bbd4d9f7d19fa633c5161b5c
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701945"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594183"
 ---
 # <a name="sky-reflections"></a>하늘 반사
 
@@ -41,57 +41,41 @@ Azure Remote Rendering은 실제 조명 계산을 위해 *PBR(물리 기반 렌�
 환경 맵을 변경하려면 [질감을 로드](../../concepts/textures.md)하고 세션의 `SkyReflectionSettings`를 변경하기만 하면 됩니다.
 
 ```cs
-LoadTextureAsync _skyTextureLoad = null;
-void ChangeEnvironmentMap(AzureSession session)
+async void ChangeEnvironmentMap(RenderingSession session)
 {
-    _skyTextureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap));
-
-    _skyTextureLoad.Completed += (LoadTextureAsync res) =>
-        {
-            if (res.IsRanToCompletion)
-            {
-                try
-                {
-                    session.Actions.SkyReflectionSettings.SkyReflectionTexture = res.Result;
-                }
-                catch (RRException exception)
-                {
-                    System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
-                }
-            }
-            else
-            {
-                System.Console.WriteLine("Texture loading failed!");
-            }
-        };
+    try
+    {
+        Texture skyTex = await session.Connection.LoadTextureFromSasAsync(new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap));
+        session.Connection.SkyReflectionSettings.SkyReflectionTexture = skyTex;
+    }
+    catch (RRException exception)
+    {
+        System.Console.WriteLine($"Setting sky reflection failed: {exception.Message}");
+    }
 }
 ```
 
 ```cpp
-void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+void ChangeEnvironmentMap(ApiHandle<RenderingSession> session)
 {
-    LoadTextureFromSASParams params;
+    LoadTextureFromSasOptions params;
     params.TextureType = TextureType::CubeMap;
-    params.TextureUrl = "builtin://VeniceSunset";
-    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
-
-    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    params.TextureUri = "builtin://VeniceSunset";
+    session->Connection()->LoadTextureFromSasAsync(params, [&](Status status, ApiHandle<Texture> res) {
+        if (status == Status::OK)
         {
-            if (res->GetIsRanToCompletion())
-            {
-                ApiHandle<SkyReflectionSettings> settings = session->Actions()->GetSkyReflectionSettings();
-                settings->SetSkyReflectionTexture(res->GetResult());
-            }
-            else
-            {
-                printf("Texture loading failed!\n");
-            }
-        });
+            ApiHandle<SkyReflectionSettings> settings = session->Connection()->GetSkyReflectionSettings();
+            settings->SetSkyReflectionTexture(res);
+        }
+        else
+        {
+            printf("Texture loading failed!\n");
+        }
+    });
 }
-
 ```
 
-내장된 질감이 로드되기 때문에 위에서는 `LoadTextureFromSASAsync` 변형이 사용되었습니다. [연결된 Blob 스토리지](../../how-tos/create-an-account.md#link-storage-accounts)에서 로드하는 경우에는 `LoadTextureAsync` 변형을 사용합니다.
+내장된 질감이 로드되기 때문에 위에서는 `LoadTextureFromSasAsync` 변형이 사용되었습니다. [연결된 Blob 스토리지](../../how-tos/create-an-account.md#link-storage-accounts)에서 로드하는 경우에는 `LoadTextureAsync` 변형을 사용합니다.
 
 ## <a name="sky-texture-types"></a>하늘 질감 형식
 
@@ -105,7 +89,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 
 ![래핑 해제된 cubemap](media/Cubemap-example.png)
 
-`TextureType.CubeMap`과 함께 `AzureSession.Actions.LoadTextureAsync`/ `LoadTextureFromSASAsync`를 사용하여 cubemap 질감을 로드합니다.
+`TextureType.CubeMap`과 함께 `RenderingSession.Connection.LoadTextureAsync`/ `LoadTextureFromSasAsync`를 사용하여 cubemap 질감을 로드합니다.
 
 ### <a name="sphere-environment-maps"></a>구 환경 맵
 
@@ -113,7 +97,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
 
 ![구형 좌표의 하늘 이미지](media/spheremap-example.png)
 
-`TextureType.Texture2D`와 함께 `AzureSession.Actions.LoadTextureAsync`를 사용하여 구형 환경 맵을 로드합니다.
+`TextureType.Texture2D`와 함께 `RenderingSession.Connection.LoadTextureAsync`를 사용하여 구형 환경 맵을 로드합니다.
 
 ## <a name="built-in-environment-maps"></a>기본 제공 환경 맵
 
@@ -138,8 +122,8 @@ Azure Remote Rendering은 항상 사용할 수 있는 몇 가지 기본 제공 �
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RemoteManager SkyReflectionSettings 속성](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
-* [C + + RemoteManager:: SkyReflectionSettings ()](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+* [C # RenderingConnection SkyReflectionSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.skyreflectionsettings)
+* [C + + RenderingConnection:: SkyReflectionSettings ()](/cpp/api/remote-rendering/renderingconnection#skyreflectionsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

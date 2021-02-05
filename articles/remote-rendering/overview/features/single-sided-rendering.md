@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 37a665c776a64558a13910875f221462fb7d0ef8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fea9deae3948b36732b5ea5203fceea6bec07fb9
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205067"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594081"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: 렌더링
 
@@ -19,7 +19,7 @@ ms.locfileid: "92205067"
 
 이 문제를 안정적으로 방지하는 방법은 ‘양면’ 삼각형을 렌더링하는 것입니다. 뒷면 선별을 사용하지 않으면 성능에 영향을 미치므로 Azure Remote Rendering은 기본적으로 잘린 평면과 교차하는 메시의 양면 렌더링으로만 전환합니다.
 
-* :::no-loc text="single-sided"::: 렌더링* 설정을 사용 하 여이 동작을 사용자 지정할 수 있습니다.
+*:::no-loc text="single-sided"::: 렌더링* 설정을 사용 하 여이 동작을 사용자 지정할 수 있습니다.
 
 > [!CAUTION]
 > :::no-loc text="single-sided":::렌더링 설정은 실험적 기능입니다. 이후에 다시 제거될 수 있습니다. 실제로 애플리케이션에서 중요한 문제를 해결하는 경우가 아니면 기본 설정을 변경하지 마세요.
@@ -41,9 +41,9 @@ ms.locfileid: "92205067"
 :::no-loc text="single-sided":::렌더링 설정을 변경 하는 작업은 다음과 같이 수행할 수 있습니다.
 
 ```cs
-void ChangeSingleSidedRendering(AzureSession session)
+void ChangeSingleSidedRendering(RenderingSession session)
 {
-    SingleSidedSettings settings = session.Actions.SingleSidedSettings;
+    SingleSidedSettings settings = session.Connection.SingleSidedSettings;
 
     // Single-sided geometry is rendered as is
     settings.Mode = SingleSidedMode.Normal;
@@ -54,9 +54,9 @@ void ChangeSingleSidedRendering(AzureSession session)
 ```
 
 ```cpp
-void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
+void ChangeSingleSidedRendering(ApiHandle<RenderingSession> session)
 {
-    ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();
+    ApiHandle<SingleSidedSettings> settings = session->Connection()->GetSingleSidedSettings();
 
     // Single-sided geometry is rendered as is
     settings->SetMode(SingleSidedMode::Normal);
@@ -68,8 +68,8 @@ void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RemoteManager SingleSidedSettings 속성](/dotnet/api/microsoft.azure.remoterendering.remotemanager.singlesidedsettings)
-* [C + + RemoteManager:: SingleSidedSettings ()](/cpp/api/remote-rendering/remotemanager#singlesidedsettings)
+* [C # RenderingConnection SingleSidedSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.singlesidedsettings)
+* [C + + RenderingConnection:: SingleSidedSettings ()](/cpp/api/remote-rendering/renderingconnection#singlesidedsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

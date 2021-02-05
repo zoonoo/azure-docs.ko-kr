@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: e9908c106e57801cb1b7def8b3353a983cc97de0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555569"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591942"
 ---
 # <a name="pbr-materials"></a>PBR 재질
 
@@ -51,7 +51,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 ## <a name="pbr-material-properties"></a>.PBR 재질 속성
 
-실제로 기반 렌더링의 핵심 개념은 *BaseColor* , *Metalness* 및 *황삭* 속성을 사용 하 여 광범위 한 실제 자료를 에뮬레이트하는 것입니다. 이 문서의 범위를 벗어나는 경우에 대 한 자세한 설명은이 문서의 범위를 벗어나는 것입니다. .PBR에 대 한 자세한 내용은 [다른 원본](http://www.pbr-book.org)을 참조 하세요. 다음 속성은 .PBR 자료에만 적용 됩니다.
+실제로 기반 렌더링의 핵심 개념은 *BaseColor*, *Metalness* 및 *황삭* 속성을 사용 하 여 광범위 한 실제 자료를 에뮬레이트하는 것입니다. 이 문서의 범위를 벗어나는 경우에 대 한 자세한 설명은이 문서의 범위를 벗어나는 것입니다. .PBR에 대 한 자세한 내용은 [다른 원본](http://www.pbr-book.org)을 참조 하세요. 다음 속성은 .PBR 자료에만 적용 됩니다.
 
 * **baseColor:** .PBR 재질에서 *albedo 색* 을 *기본 색* 이라고 합니다. Azure 원격 렌더링에서 *albedo color* 속성은 이미 공통 재질 속성을 통해 제공 되므로 추가 기본 색 속성은 없습니다.
 
@@ -92,9 +92,9 @@ Azure 원격 렌더링은 GGX .NDF, Schlick 프레스 넬 대칭 및 GGX Smith �
 ## <a name="api-documentation"></a>API 설명서
 
 * [C # PbrMaterial 클래스](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C # RemoteManager CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C # RenderingConnection CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
 * [C + + PbrMaterial 클래스](/cpp/api/remote-rendering/pbrmaterial)
-* [C + + RemoteManager:: CreateMaterial ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C + + RenderingConnection:: CreateMaterial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>다음 단계
 

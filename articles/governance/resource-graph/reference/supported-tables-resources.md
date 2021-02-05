@@ -1,15 +1,15 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 01/06/2021
+ms.date: 02/04/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 4198c60bc298eb6a1b9902bb92e3df44648b2c0b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251780"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594336"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -130,6 +130,9 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft azurestack/linkedsubscriptions
 - Microsoft Azurestack/등록 (Azure Stack 허브)
 - AzureStackHCI/클러스터 (Azure Stack HCI)
+- azurestackhci/galleryimages
+- azurestackhci/networkinterfaces
+- azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - BareMetal/crayServers (Cray Servers)
 - BareMetal/monitoringServers (모니터링 서버)
@@ -331,6 +334,9 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft insights/통합 문서 템플릿 (Azure 통합 문서 템플릿)
 - IntelligentITDigitalTwin/digitalTwins (Minervas)
 - intelligentitdigitaltwin/digitaltwins/자산
+- intelligentitdigitaltwin/digitaltwins/executionplans
+- intelligentitdigitaltwin/digitaltwins/testplans
+- intelligentitdigitaltwin/digitaltwins/테스트
 - Microsoft 응용 프로그램 (IoT Central 응용 프로그램)
 - Microsoft. .Exe 공간/그래프 (Digital Twins (사용 되지 않음))
 - microsoft.keyvault/hsmpools
@@ -494,6 +500,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - TemplateSpecs/(템플릿 사양)
 - microsoft.resources/templatespecs/versions
 - Microsoft SaaS/응용 프로그램 (Software as a Service (클래식))
+- Microsoft SaaS/resources (CPX-자리 표시자)
 - Microsoft Scheduler/jobCollections (Scheduler 작업 컬렉션)
 - microsoft scvmm/클라우드
 - Microsoft scvmm/virtualMachines (SCVMM 가상 머신-Azure Arc)
@@ -588,6 +595,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft 웹/StaticSites (정적 Web Apps (미리 보기))
 - Microsoft WindowsESU/multipleActivationKeys (Windows 복수 정품 인증 키)
 - Microsoft WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
+- workloadbuilder/migrationagents
 - workloadbuilder/워크 로드
 - MyGet/services (MyGet-Hosted NuGet, NPM, Bower 및 Vsix)
 - Paraleap CloudMonix/서비스 (CloudMonix)

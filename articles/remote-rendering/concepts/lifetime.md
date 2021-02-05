@@ -5,16 +5,16 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d031ff4a6ee86da2843f0f18ac428c50f7cfc121
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0945b35f7aff8e93a1a3ba23b89db288db3d8efa
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681871"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593894"
 ---
 # <a name="object-and-resource-lifetime"></a>개체 및 리소스 수명
 
-Azure 원격 렌더링은 두 가지 유형, 즉 **개체** 와 **리소스**를 구분 합니다.
+Azure 원격 렌더링은 두 가지 유형, 즉 **개체** 와 **리소스** 를 구분 합니다.
 
 ## <a name="object-lifetime"></a>개체 수명
 
@@ -32,7 +32,7 @@ Azure 원격 렌더링은 두 가지 유형, 즉 **개체** 와 **리소스**를
 
 ### <a name="built-in-resources"></a>기본 제공 리소스
 
-Azure 원격 렌더링에는를 호출 하는 동안를 사용 하 여 로드할 수 있는 몇 가지 기본 제공 리소스가 포함 되어 있습니다 `builtin://` `AzureSession.Actions.LoadXYZAsync()` . 사용할 수 있는 기본 제공 리소스는 각각의 각 기능에 대 한 설명서에 나와 있습니다. 예를 들어, [공중 챕터](../overview/features/sky.md) 에는 기본 제공 되는 하늘 질감이 나열 됩니다.
+Azure 원격 렌더링에는를 호출 하는 동안를 사용 하 여 로드할 수 있는 몇 가지 기본 제공 리소스가 포함 되어 있습니다 `builtin://` `RenderingSession.Connection.LoadXYZAsync()` . 사용할 수 있는 기본 제공 리소스는 각각의 각 기능에 대 한 설명서에 나와 있습니다. 예를 들어, [공중 챕터](../overview/features/sky.md) 에는 기본 제공 되는 하늘 질감이 나열 됩니다.
 
 ## <a name="general-lifetime"></a>일반 수명
 

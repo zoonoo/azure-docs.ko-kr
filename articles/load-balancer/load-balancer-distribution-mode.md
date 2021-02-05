@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 7f2525b89f03e8bc1a2c3166b46c40b4dbb6ff17
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 22d7af4f307a99d2d2e29bc1f494d327394e4f10
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561991"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594285"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer의 배포 모드 구성
 
@@ -46,8 +46,8 @@ Azure Load Balancer는 응용 프로그램에 트래픽을 분산 하기 위한 
 다음 옵션을 사용할 수 있습니다. 
 
 * **없음 (해시 기반)** -동일한 클라이언트의 후속 요청이 가상 머신에서 처리 될 수 있도록 지정 합니다.
-* **클라이언트 ip (원본 ip 선호도 2-튜플)** -동일한 클라이언트 ip 주소의 연속 요청을 동일한 가상 컴퓨터에서 처리 하도록 지정 합니다.
-* **클라이언트 ip 및 프로토콜 (원본 ip 선호도 3-튜플)** -동일한 클라이언트 ip 주소 및 프로토콜 조합의 연속 요청을 동일한 가상 컴퓨터에서 처리 하도록 지정 합니다.
+* **클라이언트 ip (원본 ip 선호도 2 튜플)** -동일한 클라이언트 ip 주소의 연속 요청을 동일한 가상 컴퓨터에서 처리 하도록 지정 합니다.
+* **클라이언트 ip 및 프로토콜 (원본 IP 선호도 3 튜플)** -동일한 클라이언트 ip 주소 및 프로토콜 조합의 연속 요청을 동일한 가상 컴퓨터에서 처리 하도록 지정 합니다.
 
 5. 배포 모드를 선택 하 고 **저장** 을 선택 합니다.
 
@@ -66,13 +66,36 @@ $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
-`LoadDistribution`필요한 부하 분산의 양에 대 한 요소의 값을 설정 합니다. 
+`LoadDistribution`필요한 부하 분산 유형에 대 한 요소의 값을 설정 합니다. 
 
-두 튜플 (원본 IP 및 대상 IP) 부하 분산에 대해 **sourceIP** 를 지정 합니다. 
+* 두 튜플 (원본 IP 및 대상 IP) 부하 분산에 대해 **SourceIP** 를 지정 합니다. 
 
-3 튜플 (원본 IP, 대상 IP 및 프로토콜 유형) 부하 분산에 대해 **Sourceipprotocol** 을 지정 합니다. 
+* 3 튜플 (원본 IP, 대상 IP 및 프로토콜 유형) 부하 분산에 대해 **Sourceipprotocol** 을 지정 합니다. 
 
-5 튜플 부하 분산의 기본 동작에 대 한 **기본값** 을 지정 합니다.
+* 5 튜플 부하 분산의 기본 동작에 대 한 **기본값** 을 지정 합니다.
+
+# <a name="cli"></a>[**CLI**](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+기존 부하 분산 규칙에 대 한 부하 분산 장치 배포 설정을 변경 하려면 Azure CLI을 사용 합니다.  다음 명령은 배포 모드를 업데이트 합니다.
+
+```azurecli-interactive
+az network lb rule update \
+    --lb-name myLoadBalancer \
+    --load-distribution SourceIP \
+    --name myHTTPRule \
+    --resource-group myResourceGroupLB 
+```
+`--load-distribution`필요한 부하 분산 유형에 값을 설정 합니다.
+
+* 두 튜플 (원본 IP 및 대상 IP) 부하 분산에 대해 **SourceIP** 를 지정 합니다. 
+
+* 3 튜플 (원본 IP, 대상 IP 및 프로토콜 유형) 부하 분산에 대해 **Sourceipprotocol** 을 지정 합니다. 
+
+* 5 튜플 부하 분산의 기본 동작에 대 한 **기본값** 을 지정 합니다.
+
+이 문서에서 사용 되는 명령에 대 한 자세한 내용은 [az network lb rule update](/cli/azure/network/lb/rule#az_network_lb_rule_update) 를 참조 하세요.
 
 ---
 

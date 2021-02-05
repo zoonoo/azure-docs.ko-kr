@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 627d5b15a861c3d564cb4db33b366d3227092d37
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
-ms.translationtype: HT
+ms.openlocfilehash: 775dc2133473354a1e534275fb0d813f299217d1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296270"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593823"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>자습서: 새 Application Gateway 인스턴스를 사용하여 새 AKS 클러스터에 대한 수신 컨트롤러 추가 기능(미리 보기)을 사용하도록 설정합니다.
 
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location canadacentral
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
-`az aks create` 명령에 대한 추가 매개 변수를 구성하려면 [이러한 참조](/cli/azure/aks?view=azure-cli-latest#az-aks-create)를 참조하세요. 
+`az aks create` 명령에 대한 추가 매개 변수를 구성하려면 [이러한 참조](/cli/azure/aks#az-aks-create)를 참조하세요. 
 
 > [!NOTE]
 > 만든 AKS 클러스터는 사용자가 만든 *myResourceGroup* 이라는 리소스 그룹에 표시됩니다. 그러나 자동으로 생성된 Application Gateway 인스턴스는 노드 리소스 그룹에 있습니다. 이 그룹에는 에이전트 풀이 있습니다. 노드 리소스 그룹의 이름은 기본적으로 *MC_resource-group-name_cluster-name_location* 이지만 수정할 수 있습니다. 

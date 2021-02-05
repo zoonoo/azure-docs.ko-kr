@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210021"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593132"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -113,6 +113,9 @@ IP 기반 액세스 제한 기능은 앱에 연결 하는 데 사용할 수 있�
 * 외부 부하 분산 서비스 또는 알려진 송신 IP 주소가 있는 다른 네트워크 어플라이언스를 통해 들어오는 트래픽에 대 한 액세스를 제한 합니다. 
 
 이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [액세스 제한 구성][iprestrictions]을 참조 하세요.
+
+> [!NOTE]
+> IP 기반 액세스 제한 규칙은 앱이 App Service Environment에 있는 경우에만 가상 네트워크 주소 범위를 처리 합니다. 앱이 다중 테 넌 트 서비스에 있는 경우 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 사용 하 여 가상 네트워크에서 서브넷을 선택 하도록 트래픽을 제한 해야 합니다.
 
 #### <a name="access-restriction-rules-based-on-service-endpoints"></a>서비스 끝점을 기반으로 하는 액세스 제한 규칙 
 
@@ -256,7 +259,7 @@ ASE는 격리 된 전용 앱 호스팅에 대 한 최상의 사례를 제공 하
 
 ### <a name="create-multitier-applications"></a>다중 계층 응용 프로그램 만들기
 
-다중 계층 응용 프로그램은 프런트 엔드 계층 에서만 API 백 엔드 앱에 액세스할 수 있는 응용 프로그램입니다. 다중 계층 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. 둘 다 VNet 통합을 사용 하 여 프런트 엔드 웹 앱을 가상 네트워크의 서브넷에 연결 합니다. 이렇게 하면 웹 앱에서 가상 네트워크에 대 한 호출을 수행할 수 있습니다. 프런트 엔드 앱이 가상 네트워크에 연결 된 후에는 API 응용 프로그램에 대 한 액세스를 잠그는 방법을 결정 해야 합니다. 다음과 같은 작업을 수행할 수 있습니다.
+다중 계층 응용 프로그램은 프런트 엔드 계층 에서만 API 백 엔드 앱에 액세스할 수 있는 응용 프로그램입니다. 다중 계층 응용 프로그램을 만드는 방법에는 두 가지가 있습니다. 둘 다 VNet 통합을 사용 하 여 프런트 엔드 웹 앱을 가상 네트워크의 서브넷에 연결 합니다. 이렇게 하면 웹 앱에서 가상 네트워크에 대 한 호출을 수행할 수 있습니다. 프런트 엔드 앱이 가상 네트워크에 연결 된 후에는 API 응용 프로그램에 대 한 액세스를 잠그는 방법을 결정 해야 합니다. 다음과 같습니다.
 
 * 동일한 ILB ASE에서 프런트 엔드 및 API 앱을 모두 호스팅하고 응용 프로그램 게이트웨이를 사용 하 여 프런트 엔드 앱을 인터넷에 노출 합니다.
 * 다중 테 넌 트 서비스에서 프런트 엔드를 호스트 하 고 ILB ASE의 백 엔드를 호스트 합니다.

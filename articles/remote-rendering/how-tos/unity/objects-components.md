@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 662c28196b06f5fbe49f69cb7145fdd33805e000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15822c357db63db81e6c1efda2467279a98d7c34
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019048"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594149"
 ---
 # <a name="interact-with-unity-game-objects-and-components"></a>Unity 게임 개체 및 구성 요소와 상호 작용
 
@@ -25,42 +25,21 @@ ARR (Azure Remote 렌더링)은 많은 수의 개체에 최적화 되어 있습�
 
 모델을 로드 하는 경우 로드 된 모델의 루트 개체에 대 한 참조를 가져옵니다. 이 참조는 Unity 게임 개체가 아니지만 확장 메서드를 사용 하 여 하나의 참조로 전환할 수 있습니다 `Entity.GetOrCreateGameObject()` . 이 함수에는 형식의 인수가 필요 `UnityCreationMode` 합니다. 를 전달 하는 경우 `CreateUnityComponents` 새로 만든 Unity 게임 개체는 호스트에 있는 모든 원격 렌더링 구성 요소에 대 한 프록시 구성 요소로 추가로 채워집니다. 그러나이를 선호 하 여 `DoNotCreateUnityComponents` 오버 헤드를 최소로 유지 하는 것이 좋습니다.
 
-### <a name="load-model-with-task"></a>태스크를 사용 하 여 모델 로드
-
-```cs
-LoadModelAsync _pendingLoadTask = null;
-void LoadModelWithTask()
-{
-    _pendingLoadTask = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
-
-    _pendingLoadTask.Completed += (LoadModelAsync res) =>
-    {
-        // turn the root object into a Unity game object
-        var gameObject = res.Result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
-        _pendingLoadTask = null;
-    };
-
-    // also listen to progress updates:
-    _pendingLoadTask.ProgressUpdated += (float progress) =>
-    {
-        // progress is a fraction in [0..1] range
-        int percentage = (int)(progress * 100.0f);
-        // do something...
-        // Since the updates are triggered by the main thread, we may access unity objects here.
-    };
-}
-```
-
 ### <a name="load-model-with-unity-coroutines"></a>Unity 코 루틴를 사용 하 여 모델 로드
 
 ```cs
-IEnumerator LoadModelWithCoroutine()
+IEnumerator LoadModelWithCoroutine(RenderingSession session)
 {
-    LoadModelAsync task = RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine"));
+    float currentProgress = 0.0f;
+    var task = session.Connection.LoadModelFromSasAsync(new LoadModelFromSasOptions("builtin://Engine"),
+        (float progress) =>
+        {
+            currentProgress = progress;
+        });
 
-    while (!task.IsCompleted)
+    while (!task.IsCompleted && !task.IsFaulted)
     {
-        int percentage = (int)(task.Progress * 100.0f);
+        int percentage = (int)(currentProgress * 100.0f);
         yield return null;
     }
 
@@ -68,22 +47,20 @@ IEnumerator LoadModelWithCoroutine()
     {
         var gameObject = task.Result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
     }
-
-    task = null;
 }
 ```
 
 ### <a name="load-model-with-await-pattern"></a>대기 패턴으로 모델 로드
 
 ```cs
-async void LoadModelWithAwait()
+async void LoadModelWithAwait(RenderingSession session)
 {
-    var result = await RemoteManagerUnity.CurrentSession.Actions.LoadModelFromSASAsync(new LoadModelFromSASParams("builtin://Engine")).AsTask();
+    var result = await session.Connection.LoadModelFromSasAsync(new LoadModelFromSasOptions("builtin://Engine"), null);
     var gameObject = result.Root?.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
 }
 ```
 
-위의 코드 샘플에서는 기본 제공 모델이 로드 되었으므로 SAS를 통해 모델 로드 경로를 사용 했습니다. Blob 컨테이너 (및 사용)를 통해 모델의 주소를 지정 하는 것 `LoadModelAsync` `LoadModelParams` 은 완전히와 유사.
+위의 코드 샘플에서는 기본 제공 모델이 로드 되었으므로 SAS를 통해 모델 로드 경로를 사용 했습니다. Blob 컨테이너 (및 사용)를 통해 모델의 주소를 지정 하는 것 `LoadModelAsync` `LoadModelOptions` 은 완전히와 유사.
 
 ## <a name="remoteentitysyncobject"></a>RemoteEntitySyncObject
 

@@ -4,15 +4,15 @@ description: Azure App Service에서 하이브리드 연결을 만들고 사용 
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1b3fc4a254c1157f2c2336e6360ba7621f31364d
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575994"
+ms.locfileid: "99594234"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결
 
@@ -201,9 +201,16 @@ Commands:
 
 ## <a name="troubleshooting"></a>문제 해결 ##
 
-"연결됨" 상태는 하나 이상의 HCM이 해당 하이브리드 연결로 구성되어 Azure에 연결할 수 있음을 의미합니다. 하이브리드 연결의 상태가 **연결됨** 으로 표시되지 않으면 Azure에 액세스할 수 있는 HCM에 하이브리드 연결이 구성되어 있지 않은 것입니다.
+"연결됨" 상태는 하나 이상의 HCM이 해당 하이브리드 연결로 구성되어 Azure에 연결할 수 있음을 의미합니다. 하이브리드 연결의 상태가 **연결됨** 으로 표시되지 않으면 Azure에 액세스할 수 있는 HCM에 하이브리드 연결이 구성되어 있지 않은 것입니다. HCM이 **연결 되지 않은 것** 으로 표시 되는 경우 다음 몇 가지 사항을 확인 해야 합니다.
 
-클라이언트가 엔드포인트에 연결할 수 없는 주된 이유는 엔드포인트가 DNS 이름이 아닌 IP 주소를 사용하여 지정되었기 때문입니다. 앱이 원하는 엔드포인트에 도달할 수 없고 IP 주소가 사용되었으면 HCM이 실행 중인 호스트에서 유효한 DNS 이름을 사용하도록 전환합니다. 또한 HCM을 실행 중인 호스트에서 DNS 이름이 제대로 확인되는지 확인합니다. HCM을 실행 중인 호스트에서 하이브리드 연결 엔드포인트까지 연결이 있는지 확인합니다.  
+* 호스트가 443 포트에서 Azure에 대 한 아웃 바운드 액세스를 보유 하 고 있습니까? PowerShell 명령 *테스트 NetConnection Destination-P Port* 를 사용 하 여 hcm 호스트에서 테스트할 수 있습니다. 
+* HCM이 잘못 된 상태에 있을 수 있나요? ' Azure 하이브리드 연결 관리자 Service ' 로컬 서비스를 다시 시작 해 보세요.
+
+상태가 **연결 됨** 이지만 앱에서 끝점에 연결할 수 없는 경우 다음을 수행 합니다.
+
+* 하이브리드 연결에서 DNS 이름을 사용 하 고 있는지 확인 합니다. IP 주소를 사용 하는 경우 필요한 클라이언트 DNS 조회가 발생 하지 않을 수 있습니다. 웹 앱에서 실행 되는 클라이언트가 DNS 조회를 수행 하지 않으면 하이브리드 연결이 작동 하지 않습니다.
+* 하이브리드 연결에 사용 된 DNS 이름이 HCM 호스트에서 확인 될 수 있는지 확인 합니다. *Nslookup EndpointDNSname* 를 사용 하 여 해상도를 확인 합니다. 여기서 EndpointDNSname는 하이브리드 연결 정의에 사용 된 것과 정확히 일치 합니다.
+* HCM 호스트에서 끝점에 연결할 수 없는 경우 HCM 호스트에서 끝점으로의 액세스를 테스트 하 *고, 대상*  호스트에서 호스트 기반 방화벽을 비롯 한 두 호스트 간의 방화벽을 확인 합니다.
 
 App Service에서 **tcpping** 명령줄 도구는 고급 도구 (Kudu) 콘솔에서 호출할 수 있습니다. 이 도구를 통해 TCP 엔드포인트에 액세스할 수 있는지 알 수 있지만 하이브리드 연결 엔드포인트에 액세스할 수 있는지는 알 수 없습니다. 하이브리드 연결 엔드포인트에 대해 콘솔의 도구를 사용하면 호스트:포트 조합을 사용한다는 것만 확인하게 됩니다.  
 

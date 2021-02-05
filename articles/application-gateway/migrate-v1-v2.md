@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397226"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594268"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
 
@@ -125,7 +125,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
+      PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate)를 참조 하세요.
    * **privateIpAddress: [String]: 선택 사항** 입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
    * **publicIpResourceId: [String]: 선택 사항** 입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 기존 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
    * **validateMigration: [switch]: 선택 사항** 입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.

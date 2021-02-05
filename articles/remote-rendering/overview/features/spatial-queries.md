@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d1a7baa25497cf1ba697725ac8530bc04c458aa5
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c664df586c260b3e16f64c071190055dbaeccd24
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207446"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594047"
 ---
 # <a name="spatial-queries"></a>공간 쿼리
 
@@ -34,7 +34,7 @@ ms.locfileid: "92207446"
 ‘광선 캐스트’는 런타임이 지정된 위치에서 시작하여 특정 방향을 가리키는 광선과 교차하는 개체를 확인하는 공간 쿼리입니다. 최적화를 위해 너무 멀리 떨어져 있는 개체를 검색하지 않도록 최대 광선 거리도 제공됩니다.
 
 ```cs
-async void CastRay(AzureSession session)
+async void CastRay(RenderingSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast = new RayCast(new Double3(0, 0, 0), new Double3(0, 0, 1), 10);
@@ -42,8 +42,8 @@ async void CastRay(AzureSession session)
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
-    RayCastHit[] hits = await session.Actions.RayCastQueryAsync(rayCast).AsTask();
-
+    RayCastQueryResult result = await session.Connection.RayCastQueryAsync(rayCast);
+    RayCastHit[] hits = result.Hits;
     if (hits.Length > 0)
     {
         var hitObject = hits[0].HitObject;
@@ -56,23 +56,23 @@ async void CastRay(AzureSession session)
 ```
 
 ```cpp
-void CastRay(ApiHandle<AzureSession> session)
+void CastRay(ApiHandle<RenderingSession> session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
-    rayCast.StartPos = { 0, 0, 0 };
-    rayCast.EndPos = { 0, 0, 1 };
+    rayCast.StartPos = {0, 0, 0};
+    rayCast.EndPos = {0, 0, 1};
     rayCast.MaxHits = 10;
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
-
-    castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
+    session->Connection()->RayCastQueryAsync(rayCast, [](Status status, ApiHandle<RayCastQueryResult> result)
+    {
+        if (status == Status::OK)
         {
             std::vector<RayCastHit> hits;
-            async->GetResult(hits);
+            result->GetHits(hits);
 
             if (hits.size() > 0)
             {
@@ -82,7 +82,8 @@ void CastRay(ApiHandle<AzureSession> session)
 
                 // do something with the hit information
             }
-        });
+        }
+    });
 }
 ```
 
@@ -115,8 +116,8 @@ TODO : Add an API to make that possible.
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RemoteManager RayCastQueryAsync ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
-* [C + + RemoteManager:: RayCastQueryAsync ()](/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
+* [C # RenderingConnection RayCastQueryAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C + + RenderingConnection:: RayCastQueryAsync ()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,25 +2,29 @@
 title: Azure Pipelines 및 템플릿이 있는 CI/CD
 description: Azure Resource Manager 템플릿을 사용 하 여 Azure Pipelines에서 연속 통합을 구성 하는 방법을 설명 합니다. PowerShell 스크립트를 사용 하거나 파일을 스테이징 위치에 복사 하 여 배포 하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.date: 02/05/2021
+ms.openlocfilehash: ea1ccac00f121bd81fd8b9b1f182b565fc53d214
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233817"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594200"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>ARM 템플릿을 Azure Pipelines와 통합
 
-연속 통합 및 CI/CD (지속적인 통합 및 지속적인 배포)를 위해 Azure Pipelines와 Azure Resource Manager 템플릿 (ARM 템플릿)을 통합할 수 있습니다. [Arm Azure Pipelines 템플릿의 연속 통합](deployment-tutorial-pipeline.md) 자습서에서는 [arm 템플릿 배포 작업](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) 을 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 보여 줍니다. 이 방법은 리포지토리에서 직접 템플릿을 배포 하려는 경우에 작동 합니다.
+연속 통합 및 CI/CD (지속적인 통합 및 지속적인 배포)를 위해 Azure Pipelines와 Azure Resource Manager 템플릿 (ARM 템플릿)을 통합할 수 있습니다. 이 문서에서는 Azure Pipelines를 사용 하 여 템플릿을 배포 하는 두 가지 고급 방법을 알아봅니다.
 
-이 문서에서는 Azure Pipelines를 사용 하 여 템플릿을 배포 하는 두 가지 방법을 알아봅니다. 이 문서는 다음 방법을 안내합니다.
+## <a name="select-your-option"></a>옵션 선택
 
-* **Azure PowerShell 스크립트를 실행 하는 작업을 추가** 합니다. 이 옵션은 로컬 테스트를 실행할 때 사용한 것과 동일한 스크립트를 사용할 수 있기 때문에 개발 수명 주기 동안 일관성을 제공 하는 이점이 있습니다. 스크립트는 템플릿을 배포 하지만 매개 변수로 사용할 값을 가져오는 등의 다른 작업을 수행할 수도 있습니다.
+이 문서를 진행 하기 전에 파이프라인에서 ARM 템플릿 배포에 대 한 다양 한 옵션을 살펴보겠습니다.
+
+* **ARM 템플릿 배포 작업을 사용** 합니다. 이 옵션은 가장 쉬운 옵션입니다. 이 방법은 리포지토리에서 직접 템플릿을 배포 하려는 경우에 작동 합니다. 이 옵션은이 문서에서 다루지 않지만 대신 [Azure Pipelines와 함께 ARM 템플릿의 연속 통합](deployment-tutorial-pipeline.md)자습서에서 설명 합니다. [ARM 템플릿 배포 작업](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) 을 사용 하 여 GitHub 리포지토리에서 템플릿을 배포 하는 방법을 보여 줍니다.
+
+* **Azure PowerShell 스크립트를 실행 하는 작업을 추가** 합니다. 이 옵션은 로컬 테스트를 실행할 때 사용한 것과 동일한 스크립트를 사용할 수 있기 때문에 개발 수명 주기 동안 일관성을 제공 하는 이점이 있습니다. 스크립트는 템플릿을 배포 하지만 매개 변수로 사용할 값을 가져오는 등의 다른 작업을 수행할 수도 있습니다. 이 옵션은이 문서에 나와 있습니다. [Azure PowerShell 작업](#azure-powershell-task)을 참조 하세요.
 
    Visual Studio는 PowerShell 스크립트를 포함 하는 [Azure 리소스 그룹 프로젝트](create-visual-studio-deployment-project.md) 를 제공 합니다. 스크립트는 리소스 관리자에서 액세스할 수 있는 저장소 계정에 대 한 프로젝트의 아티팩트를 준비 합니다. 아티팩트는 연결 된 템플릿, 스크립트, 응용 프로그램 이진 파일 등 프로젝트의 항목입니다. 프로젝트에서 스크립트를 계속 사용 하려면이 문서에 표시 된 PowerShell 스크립트 태스크를 사용 합니다.
 
-* 작업 **을 추가 하 여 작업을 복사 하 고 배포** 합니다. 이 옵션은 프로젝트 스크립트에 대 한 편리한 대안을 제공 합니다. 파이프라인에서 두 작업을 구성 합니다. 한 작업은 아티팩트를 액세스할 수 있는 위치로 단계적으로 준비 합니다. 다른 작업은 해당 위치에서 템플릿을 배포 합니다.
+* 작업 **을 추가 하 여 작업을 복사 하 고 배포** 합니다. 이 옵션은 프로젝트 스크립트에 대 한 편리한 대안을 제공 합니다. 파이프라인에서 두 작업을 구성 합니다. 한 작업은 아티팩트를 액세스할 수 있는 위치로 단계적으로 준비 합니다. 다른 작업은 해당 위치에서 템플릿을 배포 합니다. 이 옵션은이 문서에 나와 있습니다. [작업 복사 및 배포](#copy-and-deploy-tasks)를 참조 하세요.
 
 ## <a name="prepare-your-project"></a>프로젝트 준비
 

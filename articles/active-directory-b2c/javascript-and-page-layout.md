@@ -13,12 +13,12 @@ ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 1a1fa09c7c9b8baeeb8f3c2c9b2cf8271e513be1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 6bb478038d398226db38dc20e49ed7a14e5d5d0a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963539"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592809"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 레이아웃 버전
 
@@ -48,7 +48,7 @@ Azure AD B2C은 사용자 흐름 및 사용자 지정 정책의 사용자 인터
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -63,7 +63,7 @@ JavaScript 클라이언트 쪽 코드를 사용 하도록 설정 하려는 경�
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. 정책(예: "B2C_1_SignupSignin")을 선택하여 엽니다.
-1. **페이지 레이아웃** 을 선택 합니다. **레이아웃 이름** 에서 사용자 흐름 페이지를 선택 하 고 **페이지 레이아웃 버전 (미리 보기)** 을 선택 합니다.
+1. **페이지 레이아웃** 을 선택 합니다. **레이아웃 이름을** 선택 하 고 **페이지 레이아웃 버전 (미리 보기)** 을 선택 합니다.
 
 여러 페이지 레이아웃 버전에 대 한 자세한 내용은 [페이지 레이아웃 버전 변경 로그](page-layout.md)를 참조 하세요.
 

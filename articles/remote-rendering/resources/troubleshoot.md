@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 34a947a2a0f6d8c87c0580f273130b671b4f17fc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722235"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593336"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -191,9 +191,9 @@ C + + NuGet 패키지 내에는 `microsoft.azure.remoterendering.Cpp.targets` �
 
 머리를 움직이면 렌더링된 개체가 함께 이동하는 것처럼 보이는 경우 LSR(*후기 단계 다시 프로젝션*) 문제가 발생할 수 있습니다. 이러한 상황을 해결하는 방법에 대한 지침은 [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md)의 섹션을 참조하세요.
 
-네트워크 연결 불량 때문에, 특히 네트워크 대역폭이 부족하거나 대기 시간이 너무 길어도 홀로그램이 불안정(홀로그램 흔들림, 뒤틀림, 지터링 또는 점프)할 수 있습니다. 네트워크 연결 품질을 보여주는 좋은 지표는 [성능 통계](../overview/features/performance-queries.md) 값 `ARRServiceStats.VideoFramesReused`입니다. 재사용된 프레임은 새 비디오 프레임을 사용할 수 없어서 클라이언트 쪽에서 이전 비디오 프레임을 재사용해야만 했다는 상황을 보여줍니다. 패킷 손실, 네트워크 대기 시간의 변동 등을 예로 들 수 있습니다. `ARRServiceStats.VideoFramesReused`가 0보다 큰 상황이 자주 발생하면 네트워크에 문제가 있다는 뜻입니다.
+네트워크 연결 불량 때문에, 특히 네트워크 대역폭이 부족하거나 대기 시간이 너무 길어도 홀로그램이 불안정(홀로그램 흔들림, 뒤틀림, 지터링 또는 점프)할 수 있습니다. 네트워크 연결 품질을 보여주는 좋은 지표는 [성능 통계](../overview/features/performance-queries.md) 값 `ServiceStatistics.VideoFramesReused`입니다. 재사용된 프레임은 새 비디오 프레임을 사용할 수 없어서 클라이언트 쪽에서 이전 비디오 프레임을 재사용해야만 했다는 상황을 보여줍니다. 패킷 손실, 네트워크 대기 시간의 변동 등을 예로 들 수 있습니다. `ServiceStatistics.VideoFramesReused`가 0보다 큰 상황이 자주 발생하면 네트워크에 문제가 있다는 뜻입니다.
 
-확인할 또 다른 값은 `ARRServiceStats.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 값이 높을수록 너무 멀리 떨어져 있는 데이터 센터에 연결 되어 있음을 나타낼 수 있습니다.
+확인할 또 다른 값은 `ServiceStatistics.LatencyPoseToReceiveAvg`입니다. 이 값은 지속적으로 100밀리초 미만이어야 합니다. 값이 높을수록 너무 멀리 떨어져 있는 데이터 센터에 연결 되어 있음을 나타낼 수 있습니다.
 
 문제를 완화하는 데 도움이 될 수 있는 방법 목록은 [네트워크 연결 지침](../reference/network-requirements.md#guidelines-for-network-connectivity)을 참조하세요.
 

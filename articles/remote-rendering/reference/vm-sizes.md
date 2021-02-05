@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988041"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594403"
 ---
 # <a name="server-sizes"></a>서버 크기
 
@@ -30,26 +30,35 @@ Azure 원격 렌더링은 및의 두 서버 구성에서 사용할 수 있습니
 필요한 서버 구성 유형은 렌더링 세션 초기화 시간에 지정 해야 합니다. 실행 중인 세션 내에서 변경할 수 없습니다. 다음 코드 예에서는 서버 크기를 지정 해야 하는 위치를 보여 줍니다.
 
 ```cs
-async void CreateRenderingSession(AzureFrontend frontend)
+async void CreateRenderingSession(RemoteRenderingClient client)
 {
-    RenderingSessionCreationParams sessionCreationParams = new RenderingSessionCreationParams();
-    sessionCreationParams.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
+    RenderingSessionCreationOptions sessionCreationOptions = default;
+    sessionCreationOptions.Size = RenderingSessionVmSize.Standard; // or  RenderingSessionVmSize.Premium
 
-    AzureSession session = await frontend.CreateNewRenderingSessionAsync(sessionCreationParams).AsTask();
+    CreateRenderingSessionResult result = await client.CreateNewRenderingSessionAsync(sessionCreationOptions);
+    if (result.ErrorCode == Result.Success)
+    {
+        RenderingSession session = result.Session;
+        // do something with the session
+    }
 }
 ```
 
 ```cpp
-void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
+void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 {
-    RenderingSessionCreationParams sessionCreationParams;
-    sessionCreationParams.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
+    RenderingSessionCreationOptions sessionCreationOptions;
+    sessionCreationOptions.Size = RenderingSessionVmSize::Standard; // or  RenderingSessionVmSize::Premium
 
-    if (auto createSessionAsync = frontend->CreateNewRenderingSessionAsync(sessionCreationParams))
-    {
-        // ...
-    }
+    client->CreateNewRenderingSessionAsync(sessionCreationOptions, [](Status status, ApiHandle<CreateRenderingSessionResult> result) {
+        if (status == Status::OK && result->GetErrorCode() == Result::Success)
+        {
+            ApiHandle<RenderingSession> session = result->GetSession();
+            // do something with the session
+        }
+    });
 }
+
 ```
 
 [예제 PowerShell 스크립트](../samples/powershell-example-scripts.md)의 경우 원하는 서버 크기를 파일 내에 지정 해야 합니다 `arrconfig.json` .
@@ -77,7 +86,7 @@ void CreateRenderingSession(ApiHandle<AzureFrontend> frontend)
 
 구성 크기의 예산 제한에 영향을 주는 모델 또는 장면의 다각형 수를 결정 하는 방법에는 다음 두 가지가 있습니다 `standard` .
 * 모델 변환 쪽에서 [변환 출력 json 파일](../how-tos/conversion/get-information.md)을 검색 하 고 `numFaces` [ *inputstatistics* 섹션](../how-tos/conversion/get-information.md#the-inputstatistics-section) 의 항목을 확인 합니다.
-* 응용 프로그램에서 동적 콘텐츠를 처리 하는 경우 렌더링 된 다각형의 수를 런타임에 동적으로 쿼리할 수 있습니다. [성능 평가 쿼리](../overview/features/performance-queries.md#performance-assessment-queries) 를 사용 하 여 `polygonsRendered` 구조체의 멤버를 확인 `FrameStatistics` 합니다. `polygonsRendered` `bad` 렌더러가 다각형 제한에 도달 하면 필드가로 설정 됩니다. 이 비동기 쿼리 후 사용자 작업을 수행할 수 있도록 바둑판 배경은 항상 약간의 지연 시간으로 페이드 인 됩니다. 사용자 작업은 인스턴스에서 모델 인스턴스를 숨기 거 나 삭제할 수 있습니다.
+* 응용 프로그램에서 동적 콘텐츠를 처리 하는 경우 렌더링 된 다각형의 수를 런타임에 동적으로 쿼리할 수 있습니다. [성능 평가 쿼리](../overview/features/performance-queries.md#performance-assessment-queries) 를 사용 하 여 `polygonsRendered` 구조체의 멤버를 확인 `FrameStatistics` 합니다. `PolygonsRendered` `bad` 렌더러가 다각형 제한에 도달 하면 필드가로 설정 됩니다. 이 비동기 쿼리 후 사용자 작업을 수행할 수 있도록 바둑판 배경은 항상 약간의 지연 시간으로 페이드 인 됩니다. 사용자 작업은 인스턴스에서 모델 인스턴스를 숨기 거 나 삭제할 수 있습니다.
 
 ## <a name="pricing"></a>가격 책정
 

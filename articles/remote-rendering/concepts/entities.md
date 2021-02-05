@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcfa4c5ed57489c56ebf845d238198944150a96
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202891"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593404"
 ---
 # <a name="entities"></a>엔터티
 
@@ -23,7 +23,7 @@ ms.locfileid: "92202891"
 
 엔터티 자체의 가장 중요한 측면은 계층 구조와 그로 인한 계층 변환입니다. 예를 들어, 공유 부모 엔터티에 여러 엔터티가 자식 요소로 연결된 경우, 부모 엔터티의 변환을 변경하여 모든 엔터티를 이동, 회전 및 크기 조정할 수 있습니다. 또한 엔터티의 `enabled` 상태를 사용 하 여 계층의 전체 하위 그래프에 대 한 표시 유형 및 광선 캐스팅에 대 한 응답을 해제할 수 있습니다.
 
-엔터티는 부모 요소에 의해 고유하게 소유됩니다. 즉, `Entity.Destroy()`로 부모 요소가 제거되면 그 자식 요소와 모든 연결된 [구성 요소](components.md)도 제거됩니다. 따라서 장면에서 모델을 제거하는 것은 모델의 루트 노드에서 `AzureSession.Actions.LoadModelAsync()` 또는 그 SAS 변형 `AzureSession.Actions.LoadModelFromSASAsync()`로 반환되는 `Destroy`를 호출하여 수행됩니다.
+엔터티는 부모 요소에 의해 고유하게 소유됩니다. 즉, `Entity.Destroy()`로 부모 요소가 제거되면 그 자식 요소와 모든 연결된 [구성 요소](components.md)도 제거됩니다. 따라서 장면에서 모델을 제거하는 것은 모델의 루트 노드에서 `RenderingSession.Connection.LoadModelAsync()` 또는 그 SAS 변형 `RenderingSession.Connection.LoadModelFromSasAsync()`로 반환되는 `Destroy`를 호출하여 수행됩니다.
 
 엔터티는 서버가 콘텐츠를 로드하거나 사용자가 장면에 개체를 추가하려는 경우에 만들어집니다. 예를 들어, 사용자가 메시의 내부를 시각화하기 위해 잘린 평면을 추가하려는 경우, 평면을 배치하려는 곳에 엔터티를 만들고 여기에 잘린 평면 구성 요소를 추가하면 됩니다.
 
@@ -32,19 +32,19 @@ ms.locfileid: "92202891"
 장면에 새 엔터티를 추가 하 여 모델을 로드 하기 위한 루트 개체로 전달 하거나 구성 요소를 연결 하려면 다음 코드를 사용 합니다.
 
 ```cs
-Entity CreateNewEntity(AzureSession session)
+Entity CreateNewEntity(RenderingSession session)
 {
-    Entity entity = session.Actions.CreateEntity();
+    Entity entity = session.Connection.CreateEntity();
     entity.Position = new LocalPosition(1, 2, 3);
     return entity;
 }
 ```
 
 ```cpp
-ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
+ApiHandle<Entity> CreateNewEntity(ApiHandle<RenderingSession> session)
 {
     ApiHandle<Entity> entity(nullptr);
-    if (auto entityRes = session->Actions()->CreateEntity())
+    if (auto entityRes = session->Connection()->CreateEntity())
     {
         entity = entityRes.value();
         entity->SetPosition(Double3{ 1, 2, 3 });
@@ -101,38 +101,29 @@ Quaternion rotation = entity->GetRotation();
 
 ### <a name="querying-metadata"></a>메타데이터 쿼리
 
-메타데이터는 개체에 저장된 추가 데이터로, 서버에서 무시됩니다. 개체 메타데이터는 (이름, 값) 쌍 세트로, 여기서 _값_은 숫자, 부울 또는 문자열 형식일 수 있습니다. 메타데이터는 모델을 사용하여 내보낼 수 있습니다.
+메타데이터는 개체에 저장된 추가 데이터로, 서버에서 무시됩니다. 개체 메타데이터는 (이름, 값) 쌍 세트로, 여기서 _값_ 은 숫자, 부울 또는 문자열 형식일 수 있습니다. 메타데이터는 모델을 사용하여 내보낼 수 있습니다.
 
 메타데이터 쿼리는 특정 엔터티에 대한 비동기 호출입니다. 쿼리는 단일 엔터티의 메타데이터만 반환하며, 하위 그래프의 병합된 정보는 반환하지 않습니다.
 
 ```cs
-MetadataQueryAsync metaDataQuery = entity.QueryMetaDataAsync();
-metaDataQuery.Completed += (MetadataQueryAsync query) =>
-{
-    if (query.IsRanToCompletion)
-    {
-        ObjectMetaData metaData = query.Result;
-        ObjectMetaDataEntry entry = metaData.GetMetadataByName("MyInt64Value");
-        System.Int64 intValue = entry.AsInt64;
-
-        // ...
-    }
-};
+Task<ObjectMetadata> metaDataQuery = entity.QueryMetadataAsync();
+ObjectMetadata metaData = await metaDataQuery;
+ObjectMetadataEntry entry = metaData.GetMetadataByName("MyInt64Value");
+System.Int64 intValue = entry.AsInt64;
+// ...
 ```
 
 ```cpp
-ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
-metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData) 
+{
+    if (status == Status::OK)
     {
-        if (query->GetIsRanToCompletion())
-        {
-            ApiHandle<ObjectMetaData> metaData = query->GetResult();
-            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->GetAsInt64();
+        ApiHandle<ObjectMetadataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+        int64_t intValue = *entry->GetAsInt64();
 
-            // ...
-        }
-    });
+        // ...
+    }
+});
 ```
 
 개체에 메타데이터가 없는 경우에도 쿼리가 성공합니다.
@@ -140,9 +131,9 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ## <a name="api-documentation"></a>API 설명서
 
 * [C # 엔터티 클래스](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C # RemoteManager ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C # RenderingConnection ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
 * [C + + 엔터티 클래스](/cpp/api/remote-rendering/entity)
-* [C + + RemoteManager:: CreateEntity ()](/cpp/api/remote-rendering/remotemanager#createentity)
+* [C + + RenderingConnection:: CreateEntity ()](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>다음 단계
 

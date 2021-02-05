@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: sashan
-ms.author: sashan
-ms.reviewer: sstein, sashan
+author: emlisa
+ms.author: emlisa
+ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 15067a046d8adc0ba38101bbe24cdc48cd433d56
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095443"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593421"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Basic, Standard 및 범용 서비스 계층에서는 서버 리스 및 프로 �
 ![범용에 대 한 영역 중복 구성](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> 영역 중복 데이터베이스를 지 원하는 지역에 대 한 최신 정보는 [지역별 서비스 지원](../../availability-zones/az-region.md)을 참조 하세요. 영역 중복 구성은 Gen5 계산 하드웨어를 선택한 경우에만 사용할 수 있습니다. 이 기능은 SQL Managed Instance에서 사용할 수 없습니다.
+> 영역 중복 구성은 Gen5 계산 하드웨어를 선택한 경우에만 사용할 수 있습니다. 이 기능은 SQL Managed Instance에서 사용할 수 없습니다. 범용 계층에 대 한 영역 중복 구성은 미국 동부, 미국 동부 2, 미국 서 부 2, 유럽 서 부, 유럽 서부, 동남 아시아, 오스트레일리아 동부, 일본 동부, 영국 남부 및 프랑스 중부 지역 에서만 사용할 수 있습니다.
 
 > [!NOTE]
 > 크기가 80 vcore 인 범용 데이터베이스는 영역 중복 구성으로 인해 성능이 저하 될 수 있습니다. 또한 백업, 복원, 데이터베이스 복사 및 지리적 DR 관계 설정과 같은 작업을 수행 하면 1TB 보다 큰 단일 데이터베이스의 성능이 저하 될 수 있습니다. 

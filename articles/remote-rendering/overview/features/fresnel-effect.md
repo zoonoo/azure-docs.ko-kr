@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 11/09/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8ecd3afc95cf4b8054cd7db3530c15afebea3ce
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f63cd3b50642c3cf531387b4446992b6f15116f2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498237"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594115"
 ---
 # <a name="fresnel-effect"></a>Fresnel 효과
 
@@ -29,7 +29,7 @@ ms.locfileid: "96498237"
 
 현재 다음 속성을 사용 하 여 프레스 넬 대칭 효과를 재질 별로 사용자 지정할 수 있습니다.
 
-| 재질 속성 | 형식 | 설명 |
+| 재질 속성 | Type | 설명 |
 |-------------------|------|-------------|
 | FresnelEffectColor | Color4 | 최대 프레스 넬 대칭 빛에 추가 되는 색입니다. 알파 채널은 현재 무시 됩니다. |
 | FresnelEffectExponent | float | 프레스 넬 대칭 빛의 확산입니다. 0.01 (모든 개체에 분산)에서 10 (가장 gracing 각도)까지 범위를 가집니다. |
@@ -49,7 +49,7 @@ ms.locfileid: "96498237"
 다음 코드 샘플에서는 프레스 넬 대칭 효과를 설정 하 고 사용자 지정 [하는 방법을](../../overview/features/pbr-materials.md) 보여 [줍니다.](../../overview/features/color-materials.md)
 
 ```cs
-    void SetFresnelEffect(AzureSession session, Material material)
+    void SetFresnelEffect(RenderingSession session, Material material)
     {
         if (material.MaterialSubType == MaterialType.Pbr)
         {
@@ -69,7 +69,7 @@ ms.locfileid: "96498237"
 ```
 
 ```cpp
-void SetFresnelEffect(ApiHandle<AzureSession> session, ApiHandle<Material> material)
+void SetFresnelEffect(ApiHandle<RenderingSession> session, ApiHandle<Material> material)
 {
     if (material->GetMaterialSubType() == MaterialType::Pbr)
     {
