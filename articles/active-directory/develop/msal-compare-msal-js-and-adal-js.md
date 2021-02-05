@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a1ec8c31681ab6c0ac40ba33e94f33057ee948e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1a56685c830fc7aa717add3e826c68c04449e378
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754796"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580849"
 ---
 # <a name="differences-between-msaljs-and-adaljs"></a>MSAL.js와 ADAL.js의 차이점
 
@@ -48,7 +48,7 @@ v1.0 엔드포인트(및 ADAL.js)에 이미 익숙한 경우 [v2.0 엔드포인�
 
 v1.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 모든 조직에 대해 Azure AD 계정을 사용하여 로그인할 수 있습니다.
 
-v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 Azure AD 조직 계정 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인할 수 있습니다. 로그인을 Azure AD 계정으로만 제한하려면(ADAL.js와 동일한 동작) `https://login.microsoftonline.com/organizations`를 사용해야 합니다. 자세한 내용은 [MSAL.js를 사용하여 초기화](msal-js-initializing-client-applications.md)의 `authority` 구성 옵션을 참조하세요.
+v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 Azure AD 조직 계정 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인할 수 있습니다. Azure AD 계정에 대 한 로그인을 제한 하려면 (ADAL.js와 동일한 동작)를 사용 `https://login.microsoftonline.com/organizations` 합니다. 자세한 내용은 [MSAL.js를 사용하여 초기화](msal-js-initializing-client-applications.md)의 `authority` 구성 옵션을 참조하세요.
 
 ### <a name="scopes-for-acquiring-tokens"></a>토큰 획득에 대한 범위
 * 토큰을 획득하기 위한 인증 요청에서 리소스 매개 변수 대신 범위를 지정합니다.
@@ -73,7 +73,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * 증분 동의에 대한 동적 범위
 
-    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예를 들면 다음과 같습니다.
+    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 다음은 그 예입니다. 
 
     ```javascript
     var request = {

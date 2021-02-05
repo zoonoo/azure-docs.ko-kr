@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993990"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581128"
 ---
 # <a name="manual-qos-capacity-pool"></a>수동 QoS 용량 풀
 
@@ -29,7 +29,7 @@ ms.locfileid: "91993990"
 
 [QoS 유형은](azure-netapp-files-understand-storage-hierarchy.md#qos_types) 용량 풀의 특성입니다. Azure NetApp Files에서는 자동 (기본값) 및 수동 이라는 두 가지 QoS 유형의 용량 풀을 제공 합니다.  
 
-*수동* QoS 용량 풀에서는 볼륨에 대 한 용량 및 처리량을 독립적으로 할당할 수 있습니다. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 
+*수동* QoS 용량 풀에서는 볼륨에 대 한 용량 및 처리량을 독립적으로 할당할 수 있습니다. 최소 및 최대 처리량 수준에 대해서는 [Azure NetApp Files에 대 한 리소스 제한](azure-netapp-files-resource-limits.md#resource-limits)을 참조 하세요. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 
 
 *자동* QoS 용량 풀에서 처리량은 볼륨에 할당 된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당 됩니다.  
 

@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: b81b34010736bce33085cb1ebf0faa3da6a41bd6
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5244a8e572abb56c00d87d0bdd7e8d1291af9b9e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755400"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581910"
 ---
 # <a name="authentication-vs-authorization"></a>인증과 권한 부여의 차이점
 
@@ -34,7 +34,7 @@ ms.locfileid: "98755400"
 
 ## <a name="authentication-and-authorization-using-the-microsoft-identity-platform"></a>Microsoft id 플랫폼을 사용한 인증 및 권한 부여
 
-각각 고유한 사용자 이름 및 암호 정보를 유지 관리 하는 앱을 만들면 여러 앱에서 사용자를 추가 하거나 제거 해야 하는 경우 높은 관리 부담이 발생 합니다. 대신 앱에서 중앙 집중식 id 공급자에 게 해당 책임을 위임할 수 있습니다.
+각각 고유한 사용자 이름 및 암호 정보를 유지 관리 하는 앱을 만들면 여러 앱에서 사용자를 추가 하거나 제거 하는 경우 높은 관리 부담이 발생 합니다. 대신 앱에서 중앙 집중식 id 공급자에 게 해당 책임을 위임할 수 있습니다.
 
 Azure AD(Azure Active Directory)는 클라우드의 중앙 집중식 ID 공급자입니다. 인증 및 권한 부여를 위임 하면 다음과 같은 시나리오를 사용할 수 있습니다.
 

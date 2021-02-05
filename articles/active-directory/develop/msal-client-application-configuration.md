@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 00768f363d08bc476350e57a8eac69eafd9c3589
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761380"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580941"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -73,7 +73,7 @@ Azure AD 클라우드 기관에는 두 가지 부분이 있습니다.
 
 로그인 대상은 앱에 대 한 비즈니스 요구 사항에 따라 달라 집니다.
 
-- LOB (기간 업무) 개발자 인 경우 조직 에서만 사용 되는 단일 테 넌 트 응용 프로그램을 생성할 것입니다. 이 경우 테 넌 트 ID (Azure AD 인스턴스의 ID) 또는 Azure AD 인스턴스와 연결 된 도메인 이름으로 조직을 지정 해야 합니다.
+- LOB (기간 업무) 개발자 인 경우 조직 에서만 사용 되는 단일 테 넌 트 응용 프로그램을 생성할 것입니다. 이 경우 테 넌 트 ID (Azure AD 인스턴스의 ID) 또는 Azure AD 인스턴스와 연결 된 도메인 이름을 기준으로 조직을 지정 합니다.
 - ISV 인 경우 모든 조직 또는 일부 조직 (다중 테 넌 트 앱)에서 회사 및 학교 계정으로 사용자를 로그인 할 수 있습니다. 그러나 사용자에 게 개인 Microsoft 계정으로 로그인 할 수도 있습니다.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>코드/구성에서 대상 그룹을 지정 하는 방법
@@ -122,9 +122,9 @@ MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
   | UWP | 의 값 `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` 입니다. 이렇게 하면 등록 해야 하는 WebAuthenticationBroker. GetCurrentApplicationCallbackUri ()의 결과로 값을 설정 하 여 브라우저에서 SSO를 사용할 수 있습니다. |
   | .NET Core | `https://localhost`. 이를 통해 .NET Core는 현재 포함 된 웹 보기에 대 한 UI를 포함 하지 않으므로 대화형 인증에 시스템 브라우저를 사용할 수 있습니다. |
 
-- Broker를 지원 하지 않는 Xamarin Android 및 iOS 응용 프로그램을 빌드하는 경우 리디렉션 URI를 추가할 필요가 없습니다. ( `msal{ClientId}://auth` Xamarin android 및 iOS에 대 한 리디렉션 uri는로 자동 설정 됨)
+- 브로커 리디렉션 URI를 지원 하지 않는 Xamarin Android 및 iOS 응용 프로그램을 빌드하는 경우에는 리디렉션 URI를 추가할 필요가 없습니다. Xamarin Android 및 iOS의 경우 자동으로로 설정 됩니다 `msal{ClientId}://auth` .
 
-- [앱 등록](https://aka.ms/appregistrations)에서 리디렉션 URI를 구성 해야 합니다.
+- [앱 등록](https://aka.ms/appregistrations)에서 리디렉션 URI를 구성 합니다.
 
    ![앱 등록의 리디렉션 URI](media/msal-client-application-configuration/redirect-uri.png)
 

@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 825a7d8c53552120a861657c7f3df7ae8f488c18
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755336"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581723"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -125,7 +125,7 @@ https://sts.windows.net/{tenantid}/
 
 위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 애플리케이션 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 애플리케이션에 로그인하려는 경우 애플리케이션에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [MICROSOFT GRAPH API][MSFT-Graph-permission-scopes] 에 대 한 사용 권한 설명서는 관리자 동의가 필요한 사용 권한을 표시 합니다.
 
-애플리케이션이 관리자 동의가 필요한 권한을 사용할 경우, 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 `prompt=admin_consent` 쿼리 문자열 매개 변수도 포함된 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 일단 관리자가 동의했고 서비스 주체가 고객 테넌트에 만들어졌다면 차후의 로그인 요청은 `prompt=admin_consent` 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
+응용 프로그램에서 관리자 동의가 필요한 권한을 사용 하는 경우 관리자가 작업을 시작할 수 있는 단추 또는 링크와 같은 제스처가 있습니다. 애플리케이션에서 이 작업에 대해 보내는 요청은 `prompt=admin_consent` 쿼리 문자열 매개 변수도 포함된 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 일단 관리자가 동의했고 서비스 주체가 고객 테넌트에 만들어졌다면 차후의 로그인 요청은 `prompt=admin_consent` 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
 테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 애플리케이션을 사용하려면 항상 관리자 동의가 필요합니다. 최종 사용자 동의를 사용 하지 않도록 설정 하 여 응용 프로그램을 테스트 하려는 경우 **엔터프라이즈 응용 프로그램** 의 **[사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** 섹션에 있는 [Azure Portal][AZURE-portal] 에서 구성 스위치를 찾을 수 있습니다.
 
@@ -139,7 +139,7 @@ https://sts.windows.net/{tenantid}/
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테넌트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들면 다음과 같습니다.
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 다음은 그 예입니다. 
 
 ```json
 "knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]

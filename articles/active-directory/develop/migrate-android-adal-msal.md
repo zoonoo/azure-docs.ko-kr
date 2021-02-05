@@ -14,12 +14,12 @@ ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: bf9b3a154e19fab08c46f9838f555e223f10e8a0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: ba639bc023affc7c2e6b2b675cdedc1229636893
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672290"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581043"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -71,7 +71,7 @@ MSAL을 사용 하도록 기존 앱 등록을 변경할 필요가 없습니다. 
 ADAL 및 Azure AD v1 끝점을 사용 하는 경우 자신이 소유한 리소스에 대 한 사용자 동의가 처음 사용 시 부여 되었습니다. MSAL 및 Microsoft id 플랫폼을 사용 하는 경우에는 동의가 점진적으로 요청 될 수 있습니다. 증분 동의는 사용자가 높은 권한을 고려할 수 있는 권한 또는 권한이 필요한 이유를 명확 하 게 설명 하는 경우에는 그렇지 않을 수 있는 경우에 유용 합니다. ADAL에서 이러한 사용 권한은 사용자가 앱에 로그인 하는 것을 중단 한 것일 수 있습니다.
 
 > [!TIP]
-> 앱에 권한이 필요한 이유에 대 한 추가 컨텍스트를 사용자에 게 제공 해야 하는 시나리오에서는 증분 동의를 사용 하는 것이 좋습니다.
+> 앱에 권한이 필요한 이유에 대 한 추가 컨텍스트를 사용자에 게 제공 하려면 증분 동의를 사용 합니다.
 
 ### <a name="admin-consent"></a>관리자 동의
 

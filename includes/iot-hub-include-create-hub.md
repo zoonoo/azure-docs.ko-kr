@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4ad619fa5f0fb8f8e87333f2681727dabedda42b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cf651a1a09662e3084a8a9bdb6365b69b6ea52b5
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427405"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99579757"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "99427405"
 
 1. 완료되면 **다음: 관리** 를 선택하여 허브를 계속 만듭니다.
 
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management-screen.png" alt-text="Azure Portal을 사용하여 새 허브의 크기 및 배율을 설정합니다.":::
+   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Azure Portal을 사용하여 새 허브의 크기 및 배율을 설정합니다.":::
 
     여기서 기본 설정을 적용할 수 있습니다. 원하는 경우 다음 필드 중 하나를 수정할 수 있습니다.
 

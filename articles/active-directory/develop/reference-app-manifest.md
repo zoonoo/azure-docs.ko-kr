@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d544d884a82a7532bf343f38049102dfccae342f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507279"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583046"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -27,7 +27,7 @@ ms.locfileid: "99507279"
 Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api/resources/application) 또는 [PowerShell](/powershell/module/azuread#applications)을 사용하여 앱 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
 
 * Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 지원되는 Microsoft 계정을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다.
-* 앱이 지원하는 권한 및 역할을 정의해야 하는 경우 애플리케이션 매니페스트를 수정해야 합니다.
+* 앱에서 지 원하는 사용 권한 및 역할을 정의 하려면 응용 프로그램 매니페스트를 수정 해야 합니다.
 
 ## <a name="configure-the-app-manifest"></a>앱 매니페스트 구성
 

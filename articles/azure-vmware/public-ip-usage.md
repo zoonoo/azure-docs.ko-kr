@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
-ms.date: 10/28/2020
-ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.date: 02/04/2021
+ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517906"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581383"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "94517906"
 
 Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능을 사용 하도록 설정 하면 자동화 된 필수 구성 요소가 생성 되 고 사용 하도록 설정 됩니다.
 
--  Virtual WAN
+-  가상 WAN
 
 -  Express 경로 연결을 사용 하는 가상 WAN 허브
 
@@ -29,7 +29,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용할 수 있는 방법을 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure VMware 솔루션 환경
 - Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
@@ -128,8 +128,8 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
    -  규칙 컬렉션 작업 – 허용
    -  규칙 이름
    -  원본 유형- **IPaddress**
-   -  원본-* *\** _
-   -  프로토콜-_ *TCP**
+   -  원본 **\***
+   -  프로토콜- **TCP**
    -  대상 포트 – **80**
    -  대상 유형- **IP 주소**
    -  대상- **공용 IP 주소**
@@ -144,7 +144,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="보안이 설정 된 가상 허브로 변환 될 선택 된 허브를 보여 주는 스크린샷" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. **다음: 태그** 를 선택합니다. 
+1. 완료되면 **다음: 태그** 를 선택합니다. 
 
 1. 필드 리소스를 범주화 하는 이름 및 값 쌍을 만듭니다. 
 
@@ -156,5 +156,7 @@ SDDCs 당 100 공용 Ip가 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 가상 WAN](../virtual-wan/virtual-wan-about.md)을 사용 하 여 공용 IP 주소를 사용 하는 방법에 대해 자세히 알아보세요.
+이제 Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법을 살펴보았으므로 다음에 대해 알아볼 수 있습니다.
 
+- [Azure 가상 WAN](../virtual-wan/virtual-wan-about.md)에 공용 IP 주소 사용.
+- [Azure VMware 솔루션에 IPSec 터널을 만드는 중](create-ipsec-tunnel.md)입니다.

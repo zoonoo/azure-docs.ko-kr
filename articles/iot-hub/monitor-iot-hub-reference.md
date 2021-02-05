@@ -5,13 +5,14 @@ author: robinsh
 ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
+ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: 609c44991e7deca183321758fabdef80b71210c5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460851"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581604"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>모니터링 Azure IoT Hub 데이터 참조
 
@@ -684,7 +685,7 @@ IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트
 
 이 섹션에서는 Azure IoT Hub와 관련 된 모든 Azure Monitor 로그 테이블을 참조 하 고 Log Analytics 쿼리를 사용할 수 있습니다. 이러한 테이블 목록 및 IoT Hub 리소스 유형에 대 한 자세한 정보에 대 한 링크는 Azure Monitor Logs 테이블 참조의 [IoT Hub](/azure/azure-monitor/reference/tables/tables-resourcetype#iot-hub) 를 참조 하세요.
 
-모든 Azure Monitor Logs/Log Analytics 테이블에 대 한 참조는 [Azure Monitor 로그 테이블 참조](/azure/azure-monitor/reference/tables/tables-resourcetype)를 참조 하세요.
+모든 Azure Monitor Logs/Log Analytics 테이블에 대한 참조는 [Azure Monitor 로그 테이블 참조](/azure/azure-monitor/reference/tables/tables-resourcetype)를 확인하세요.
 
 ## <a name="see-also"></a>참고 항목
 

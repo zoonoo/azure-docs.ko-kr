@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706203"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581995"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -27,7 +27,7 @@ Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 개발 하는 �
 이 문서에서는 다음을 수행합니다.
 
 - Microsoft에서 관리하는 두 종류의 사용자 계정과 애플리케이션에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
-- 앱에서 사용할 Microsoft 로고를 추가 하기 위해 수행 해야 하는 작업을 확인 합니다.
+- 앱에서 Microsoft 로고를 사용 하기 위한 요구 사항 알아보기
 - 앱에서 사용할 공식 **로그인** 또는 **Microsoft에 로그인** 이미지를 다운로드합니다.
 - 브랜딩 및 탐색과 관련해서 수행해야 할 작업과 수행하지 않아야 할 작업에 대해 알아봅니다.
 
@@ -57,7 +57,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 **최종 사용자 등록을 지원하는 앱의 경우(예: 평가판 또는 프리미엄(freemium) 모델)**: 사용자가 회사 또는 개인 계정을 사용하여 앱에 액세스하는 데 사용할 수 있는 **로그인** 단추를 표시할 수 있습니다. 사용자가 처음으로 앱에 액세스할 때 Azure AD에서 동의하도록 요구하는 메시지가 표시됩니다.
 
-**관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리합니다. **"이 앱 가져오기" 단추**는 관리자에게 로그인하도록 리디렉션한 다음, 해당 조직의 사용자를 대신하여 동의하도록 요청합니다. 그러면 앱에 최종 사용자 동의 확인 프롬프트를 사용하지 않는 혜택이 추가됩니다.
+**관리자만 동의할 수 있는 권한을 요구하는 앱 또는 조직 라이선스가 필요한 앱의 경우**: 관리 취득과 사용자 로그인을 분리합니다. **"이 앱 가져오기" 단추** 는 관리자에게 로그인하도록 리디렉션한 다음, 해당 조직의 사용자를 대신하여 동의하도록 요청합니다. 그러면 앱에 최종 사용자 동의 확인 프롬프트를 사용하지 않는 혜택이 추가됩니다.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>앱 구입에 대한 시각적 지침
 
@@ -67,7 +67,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 다음은 그 예입니다. 
 
 > *이미 Microsoft 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> <your_app_name 부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 

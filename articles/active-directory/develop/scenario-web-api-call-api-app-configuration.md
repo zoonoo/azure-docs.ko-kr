@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b8360a22c815fa28626bb07a1518bd82ba6e3e46
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d1ab7da9753642093505fa91ea76b9327612a6ac
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753509"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582369"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
@@ -33,7 +33,7 @@ Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성�
 
 ## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-이제 web API가 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+이제 web API가 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
 
 - 다운스트림 웹 API의 URL
 - API를 호출 하는 데 필요한 범위
@@ -169,7 +169,7 @@ public class Startup
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
 
 > [!NOTE]
-> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
+> 여기에서 코드 예제를 완전히 이해 하려면 [ASP.NET Core 기본 사항](/aspnet/core/fundamentals)에 대해 잘 알고 있어야 하며 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)을 사용 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 

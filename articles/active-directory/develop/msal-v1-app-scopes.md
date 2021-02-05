@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b35b39d7072b22d9cc3f7b4f4ef8886431b06f69
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7e2fcf2dc0dc53038b82bbf182cb12f580d88357
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754663"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583589"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>V1.0 토큰을 수락 하는 웹 API에 대 한 범위
 
@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Microsoft Graph API (https:/graph.microsoft.com/)를 사용 하 여 MSAL.NET Azure AD에 대 한 읽기 및 쓰기를 \/ 수행 하려면 다음 예제와 같이 범위 목록을 만들어야 합니다.
+Microsoft Graph API (https:/graph.microsoft.com/)를 사용 하 여 MSAL.NET Azure AD에 대 한 읽기 및 쓰기를 \/ 수행 하려면 다음 예제와 같이 범위 목록을 만듭니다.
 
 ```csharp
 string ResourceId = "https://graph.microsoft.com/";
@@ -49,7 +49,7 @@ var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Azure Resource Manager API (https:/management.core.windows.net/)에 해당 하는 범위를 작성 하려면 \/ 다음 범위를 요청 해야 합니다 (두 개의 슬래시 참고).
+Azure Resource Manager API (https:/management.core.windows.net/)에 해당 하는 범위를 작성 하려면 \/ 다음 범위를 요청 합니다 (두 개의 슬래시 참고).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -59,7 +59,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 ```
 
 > [!NOTE]
-> Azure Resource Manager API에는 해당 대상 그룹 클레임(aud)에 슬래시가 필요하고, 범위에서 API 이름을 분리하기 위한 슬래시가 있기 때문에 슬래시를 두 개 사용해야 합니다.
+> Azure Resource Manager API는 대상 클레임 (aud)에서 슬래시를 예상 하 고 범위에서 API 이름을 구분 하는 슬래시가 있으므로 두 개의 슬래시를 사용 합니다.
 
 Azure AD에서 사용하는 논리는 다음과 같습니다.
 

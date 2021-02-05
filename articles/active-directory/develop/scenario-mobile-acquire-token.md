@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c071cb9a8a27964a93e039e4d1536e078730bfc9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6e6eda3d711710ea7450165ab02d7a260067bfcb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753620"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582556"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱에 대 한 토큰 가져오기
 
@@ -26,7 +26,7 @@ ms.locfileid: "98753620"
 
 ## <a name="define-a-scope"></a>범위 정의
 
-토큰을 요청 하는 경우 범위를 정의 해야 합니다. 범위는 앱이 액세스할 수 있는 데이터를 결정 합니다.
+토큰을 요청 하는 경우 범위를 정의 합니다. 범위는 앱이 액세스할 수 있는 데이터를 결정 합니다.
 
 범위를 정의 하는 가장 쉬운 방법은 원하는 web API를 범위와 결합 하는 것입니다 `App ID URI` `.default` . 이 정의는 앱이 포털에 설정 된 모든 범위를 필요로 함을 Microsoft id 플랫폼에 알려 줍니다.
 
@@ -236,7 +236,7 @@ Android에서를 사용 하 여 앱을 만들 때 부모 활동을 지정할 수
     이 옵션은 토큰 획득에 실패 하 고 사용자가 다시 로그인 할 수 있도록 하려는 경우에 유용할 수 있습니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 조직의 거 버 넌 스에서 사용자가 응용 프로그램의 특정 부분에 액세스할 때마다 로그인 해야 하는 보안 중심 응용 프로그램에서이 옵션을 사용 하는 것이 좋습니다.
 - `Never` 는 .NET 4.5 및 Windows 런타임 (WinRT)에만 해당 됩니다. 이 상수는 사용자에 게 메시지를 표시 하지 않지만 숨겨진 포함 된 웹 보기에 저장 된 쿠키를 사용 하려고 합니다. 자세한 내용은 [MSAL.NET에서 웹 브라우저 사용](./msal-net-web-browsers.md)을 참조 하세요.
 
-    이 옵션을 `AcquireTokenInteractive` 사용할 수 없는 경우에서는 UI 조작이 필요 하다는 메시지를 표시 하는 예외를 throw 합니다. 그런 다음 다른 매개 변수를 사용 해야 `Prompt` 합니다.
+    이 옵션을 `AcquireTokenInteractive` 사용할 수 없는 경우에서는 UI 조작이 필요 하다는 메시지를 표시 하는 예외를 throw 합니다. 그런 다음 다른 `Prompt` 매개 변수를 사용 합니다.
 - `NoPrompt` 는 id 공급자에 게 프롬프트를 보내지 않습니다.
 
     이 옵션은 Azure Active Directory B2C의 편집 프로필 정책에만 유용 합니다. 자세한 내용은 [B2C 구체적인](https://aka.ms/msal-net-b2c-specificities)항목을 참조 하세요.

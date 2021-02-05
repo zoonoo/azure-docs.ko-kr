@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: bcbff131706854c079a5af2f38cad98f97018167
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753313"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582324"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -44,7 +44,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 ## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일 *의appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+이제 웹 앱이 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
 
 - 다운스트림 웹 API의 URL
 - API를 호출 하는 데 필요한 범위
@@ -184,7 +184,7 @@ Microsoft Graph 이외의 웹 API를 호출 하려면 토큰을  `.AddDownstream
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
 
 > [!NOTE]
-> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
+> 여기에서 코드 예제를 완전히 이해 하려면 [ASP.NET Core 기본 사항](/aspnet/core/fundamentals)에 대해 잘 알고 있어야 하며 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)을 사용 합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

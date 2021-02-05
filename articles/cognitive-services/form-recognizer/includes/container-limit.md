@@ -3,15 +3,15 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
-ms.openlocfilehash: f8918766174d77ea2a9c50d9c97d9feae2d9f64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f620789e4224f5c278187ea3359752a6f7705be
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512789"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580366"
 ---
-> [!IMPORTANT]
-> * 폼 인식기 컨테이너 사용자에 대 한 제한에 도달 했습니다. 현재 Form Recognizer 컨테이너에 대해 새로운 애플리케이션을 수락하지 않습니다. 
-> * 양식 인식기 컨테이너는 현재 양식 인식기 API의 버전 1.0을 사용 합니다. 대신 관리 되는 서비스를 사용 하 여 최신 버전의 API에 액세스할 수 있습니다.
+> [!CAUTION]
+> * 폼 인식기 v1.0 컨테이너를 사용 중지 하 고 있습니다. 이 문서는 참조용 으로만 사용할 수 있습니다. 
+> * REST API 및 SDK를 사용 하 여 최신 버전의 API에 액세스할 수 있습니다.

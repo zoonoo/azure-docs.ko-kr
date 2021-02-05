@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46c8127a93cef8f662930fffd07a2fa3d22b8871
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 4031e43b3ec6f6f451fbc4888cc482249042690b
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753712"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582726"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -47,7 +47,7 @@ ms.locfileid: "98753712"
 
 - MacOS에 대 한 기본 목표-C 또는 Swift 앱을 빌드하는 경우 응용 프로그램의 번들 식별자를 기반으로 하는 리디렉션 URI를 형식으로 등록 `msauth.<your.app.bundle.id>://auth` 합니다. `<your.app.bundle.id>`을 응용 프로그램의 번들 식별자로 바꿉니다.
 - 응용 프로그램에서 Windows 통합 인증 또는 사용자 이름 및 암호만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이러한 흐름은 Microsoft identity platform v2.0 끝점으로의 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
-- [디먼 응용](scenario-daemon-overview.md)프로그램에서 사용 되는 클라이언트 자격 증명 흐름을 사용 하 여 비밀 클라이언트 응용 프로그램에서 [장치 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)및 [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password) 를 구분 하려면, 리디렉션 URI가 필요 하지 않은 경우 공용 클라이언트 응용 프로그램으로 구성 해야 합니다. 이 구성을 설정하려면
+- [디먼 응용](scenario-daemon-overview.md)프로그램에서 사용 되는 클라이언트 자격 증명 흐름을 사용 하 여 비밀 클라이언트 응용 프로그램에서 [장치 코드 흐름](scenario-desktop-acquire-token.md#device-code-flow), [Windows 통합 인증](scenario-desktop-acquire-token.md#integrated-windows-authentication)및 [사용자 이름 및 암호](scenario-desktop-acquire-token.md#username-and-password) 를 구분 하려면, 리디렉션 URI가 필요 하지 않은 경우 공용 클라이언트 응용 프로그램으로 구성 합니다. 이 구성을 설정하려면
 
     1. <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
     1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.

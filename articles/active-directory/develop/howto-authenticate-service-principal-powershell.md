@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 096b8ed60bf9880b6904ab952d4558939ca13574
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652078"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581825"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -72,7 +72,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $sp.Applic
 
 **ResourceGroupName** 매개 변수를 사용하여 역할 할당의 범위를 특정 리소스 그룹으로 지정할 수 있습니다. **ResourceType** 및 **ResourceName** 매개 변수를 사용하여 범위를 특정 리소스로 지정할 수도 있습니다. 
 
-**Windows 10 또는 Windows Server 2016** 이 설치되지 않은 경우 Microsoft 스크립트 센터에서 [자체 서명된 인증서 생성기](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/)를 다운로드해야 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
+**Windows 10 또는 Windows Server 2016** 이 없는 경우 Microsoft 스크립트 센터에서 [자체 서명 된 인증서 생성기](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) 를 다운로드 합니다. 해당 내용을 추출하고 필요한 cmdlet을 가져옵니다.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate
@@ -91,7 +91,7 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>자동화된 PowerShell 스크립트를 통해 인증서 제공
 
-서비스 주체로 로그인할 때마다 AD 앱에 디렉터리의 테넌트 ID를 제공해야 합니다. 테넌트는 Azure AD의 인스턴스입니다.
+서비스 주체로 로그인 할 때마다 AD 앱에 대 한 디렉터리의 테 넌 트 ID를 제공 합니다. 테넌트는 Azure AD의 인스턴스입니다.
 
 ```powershell
 $TenantId = (Get-AzSubscription -SubscriptionName "Contoso Default").TenantId
@@ -151,7 +151,7 @@ Param (
 ```
 
 ### <a name="provide-certificate-through-automated-powershell-script"></a>자동화된 PowerShell 스크립트를 통해 인증서 제공
-서비스 주체로 로그인할 때마다 AD 앱에 디렉터리의 테넌트 ID를 제공해야 합니다. 테넌트는 Azure AD의 인스턴스입니다.
+서비스 주체로 로그인 할 때마다 AD 앱에 대 한 디렉터리의 테 넌 트 ID를 제공 합니다. 테넌트는 Azure AD의 인스턴스입니다.
 
 ```powershell
 Param (

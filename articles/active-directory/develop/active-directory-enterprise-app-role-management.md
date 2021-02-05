@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 10b61dd4b6cc3a99b8eecf86cb5ba7e718d64743
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015116"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582233"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
 ## <a name="when-to-use-this-feature"></a>이 기능을 사용하는 시기
 
-애플리케이션에서 사용자 지정 역할이 SAML 응답에 전달될 것으로 예상하는 경우 이 기능을 사용해야 합니다. Azure AD에서 다시 애플리케이션으로 전달하는 데 필요한 만큼 역할을 만들 수 있습니다.
+응용 프로그램에 Azure AD에서 반환 되는 SAML 응답의 사용자 지정 역할이 필요한 경우이 기능을 사용 합니다. 필요한 만큼 역할을 만들 수 있습니다.
 
 ## <a name="create-roles-for-an-application"></a>애플리케이션에 대한 역할 만들기
 
@@ -139,7 +139,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     !["할당 편집" 및 "역할 선택" 창](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     
-    새 역할을 확인하려면 Azure Portal에서 세션을 새로 고쳐야 합니다.
+    새 역할을 보려면 Azure Portal 세션을 새로 고칩니다.
 
 1. **특성** 테이블을 업데이트하여 역할 클레임의 사용자 지정된 매핑을 정의합니다.
 

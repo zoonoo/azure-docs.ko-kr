@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: feef35ef86a933f32949468366fea85eb87d4866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 141abea0c0946c98b6dfe627f32f01682a18be44
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315782"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581026"
 ---
 # <a name="bring-your-own-key-specification"></a>사용자 고유 키 사양 가져오기
 
@@ -35,7 +35,7 @@ Key Vault 고객은 Azure 외부의 온-프레미스 HSM에서 HSM 지원 Azure 
 |---|---|---|---|
 |KEK(키 교환 키)|RSA|Azure Key Vault HSM|Azure Key Vault에서 생성 된 HSM 지원 RSA 키 쌍
 키 래핑|AES|공급업체 HSM|HSM에서 생성 된 [임시] AES 키-프레미스
-대상 키|RSA, EC, AES|공급업체 HSM|Azure Key Vault HSM으로 전송할 키
+대상 키|RSA, EC, AES (관리 되는 HSM에만 해당)|공급업체 HSM|Azure Key Vault HSM으로 전송할 키
 
 **키 교환 키**: 고객이 byok 키를 가져올 주요 자격 증명 모음에 생성 하는 HSM 지원 키입니다. 이 KEK에는 다음과 같은 속성이 있어야 합니다.
 
@@ -130,9 +130,16 @@ JSON blob은 "AzKeyVaultKey ' (PSH) 또는 ' az keyvault key import ' (CLI) 명�
 
 고객은 키 전송 Blob ("byok" 파일)를 온라인 워크스테이션으로 전송한 다음 **az keyvault key import** 명령을 실행 하 여이 blob을 Key Vault에 새 HSM 지원 키로 가져옵니다. 
 
+RSA 키를 가져오려면 다음 명령을 사용 합니다.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
+EC 키를 가져오려면 키 유형과 곡선 이름을 지정 해야 합니다.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+```
+
 
 위의 명령을 실행 하면 다음과 같이 REST API 요청을 보냅니다.
 
@@ -140,7 +147,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-version=7.0
 ```
 
-본문 요청:
+RSA 키를 가져올 때 요청 본문:
 ```json
 {
   "key": {
@@ -156,6 +163,25 @@ PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-versi
   }
 }
 ```
+
+EC 키를 가져올 때의 요청 본문:
+```json
+{
+  "key": {
+    "kty": "EC-HSM",
+    "crv": "P-256",
+    "key_ops": [
+      "sign",
+      "verify"
+    ],
+    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+  },
+  "attributes": {
+    "enabled": true
+  }
+}
+```
+
 "key_hsm" 값은 Base64 형식으로 인코딩된 KeyContosoFirstHSMkey의 전체 내용입니다.
 
 ## <a name="references"></a>참조

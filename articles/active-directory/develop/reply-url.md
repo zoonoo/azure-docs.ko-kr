@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95752792"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582811"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI (회신 URL) 제한 사항 및 제한 사항
 
@@ -45,7 +45,7 @@ ms.locfileid: "95752792"
 
 Azure Active Directory (Azure AD) 응용 프로그램 모델은 현재 조직의 Azure AD 테 넌 트에서 회사 또는 학교 계정에 로그인 하는 앱에 대해 HTTP 및 HTTPS 스키마를 모두 지원 합니다. 이러한 계정 유형은 `AzureADMyOrg` `AzureADMultipleOrgs` `signInAudience` 응용 프로그램 매니페스트의 필드에서 및 값으로 지정 됩니다. 개인 Microsoft 계정 (MSA) *및* 회사 및 학교 계정에 로그인 하는 앱의 경우 (즉, `signInAudience` 가로 설정 된 경우 `AzureADandPersonalMicrosoftAccount` ) HTTPS 스키마만 허용 됩니다.
 
-회사 또는 학교 계정에 로그인 하는 앱 등록에 HTTP 체계를 사용 하 여 리디렉션 Uri를 추가 하려면 Azure Portal의 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 에서 응용 프로그램 매니페스트 편집기를 사용 해야 합니다. 그러나 매니페스트 편집기를 사용 하 여 HTTP 기반 리디렉션 URI를 설정할 수 있지만, 리디렉션 Uri에는 HTTPS 체계를 사용 하는 *것이 좋습니다* .
+HTTP 스키마를 사용 하는 리디렉션 Uri를 회사 또는 학교 계정에 로그인 하는 앱 등록에 추가 하려면 Azure Portal에서 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 의 응용 프로그램 매니페스트 편집기를 사용 합니다. 그러나 매니페스트 편집기를 사용 하 여 HTTP 기반 리디렉션 URI를 설정할 수 있지만, 리디렉션 Uri에는 HTTPS 체계를 사용 하는 *것이 좋습니다* .
 
 ## <a name="localhost-exceptions"></a>Localhost 예외
 
@@ -65,12 +65,12 @@ Azure Active Directory (Azure AD) 응용 프로그램 모델은 현재 조직의
 * 포트가 서로 다른 경우에는 여러 리디렉션 Uri를 등록 하지 마십시오. 로그인 서버는 임의의 항목을 임의로 선택 하 고 해당 리디렉션 URI와 연결 된 동작을 사용 합니다 (예: `web` -, `native` -또는 `spa` -형식 리디렉션).
 
     이는 인증 코드 부여 및 암시적 흐름과 같이 동일한 응용 프로그램 등록에서 다른 인증 흐름을 사용 하려는 경우에 특히 중요 합니다. 올바른 응답 동작을 각 리디렉션 URI와 연결 하려면 로그인 서버에서 리디렉션 Uri를 구분할 수 있어야 하며, 포트가 서로 다른 경우에는이 작업을 수행할 수 없습니다.
-* 호스트에서 여러 리디렉션 Uri를 등록 하 여 개발 중에 서로 다른 흐름을 테스트 해야 하는 경우에는 URI의 *경로* 구성 요소를 사용 하 여 구분 합니다. 예를 들어,는 `http://localhost/MyWebApp` 와 일치 하지 않습니다 `http://localhost/MyNativeApp` .
+* Localhost에 여러 리디렉션 Uri를 등록 하 여 개발 중에 다른 흐름을 테스트 하려면 URI의 *경로* 구성 요소를 사용 하 여이를 구분 합니다. 예를 들어,는 `http://localhost/MyWebApp` 와 일치 하지 않습니다 `http://localhost/MyNativeApp` .
 * IPv6 루프백 주소 ( `[::1]` )는 현재 지원 되지 않습니다.
 
 #### <a name="prefer-127001-over-localhost"></a>Localhost를 통한 127.0.0.1 선호
 
-잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스에 의해 앱이 중단 되지 않도록 하려면 대신 리디렉션 URI에서 IP 리터럴 루프백 주소를 사용 `127.0.0.1` `localhost` 합니다. `https://127.0.0.1`)을 입력합니다.
+잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스에 의해 앱이 중단 되지 않도록 하려면 대신 리디렉션 URI에서 IP 리터럴 루프백 주소를 사용 `127.0.0.1` `localhost` 합니다. 예를 들어 `https://127.0.0.1`입니다.
 
 그러나 Azure Portal에서 **리디렉션 uri** 텍스트 상자를 사용 하 여 스키마를 사용 하는 루프백 기반 리디렉션 URI를 추가할 수는 없습니다 `http` .
 
@@ -84,7 +84,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 모델은 현재 조직의
 
 와일드 카드 Uri는 현재 개인 Microsoft 계정과 회사 또는 학교 계정에 로그인 하도록 구성 된 앱 등록에서 지원 되지 않습니다. 그러나 와일드 카드 Uri는 조직의 Azure AD 테 넌 트에서 회사 또는 학교 계정에만 로그인 하도록 구성 된 앱에 허용 됩니다.
 
-회사 또는 학교 계정에 로그인 하는 앱 등록에 와일드 카드를 사용 하 여 리디렉션 Uri를 추가 하려면 Azure Portal의 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 에서 응용 프로그램 매니페스트 편집기를 사용 해야 합니다. 매니페스트 편집기를 사용 하 여 와일드 카드를 사용 하 여 리디렉션 URI를 설정할 수 있지만 [RFC 6749의 3.1.2 섹션](https://tools.ietf.org/html/rfc6749#section-3.1.2) 을 준수 하 고 절대 uri만 사용 하는 *것이 좋습니다* .
+회사 또는 학교 계정에 로그인 하는 앱 등록에 와일드 카드를 사용 하 여 리디렉션 Uri를 추가 하려면 Azure Portal에서 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 의 응용 프로그램 매니페스트 편집기를 사용 합니다. 매니페스트 편집기를 사용 하 여 와일드 카드를 사용 하 여 리디렉션 URI를 설정할 수 있지만 [RFC 6749의 3.1.2 섹션](https://tools.ietf.org/html/rfc6749#section-3.1.2) 을 준수 하 고 절대 uri만 사용 하는 *것이 좋습니다* .
 
 시나리오에 허용 되는 최대 제한 보다 더 많은 리디렉션 Uri가 필요한 경우 와일드 카드 리디렉션 URI를 추가 하는 대신 다음 [상태 매개 변수 방법을](#use-a-state-parameter) 고려 합니다.
 

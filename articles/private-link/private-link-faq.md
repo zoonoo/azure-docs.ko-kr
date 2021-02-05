@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: c074c29b7a37f49d5a4c7a5fab00b9a3e41c6893
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901541"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582012"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure 개인 링크 FAQ (질문과 대답)
 
@@ -26,7 +26,7 @@ ms.locfileid: "97901541"
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>개인 링크를 사용 하는 경우 트래픽이 어떻게 전송 되나요?
 트래픽은 Microsoft 백본을 통해 개인적으로 전송 됩니다. 인터넷을 통과 하지 않습니다. Azure 개인 링크는 고객 데이터를 저장 하지 않습니다.
  
-### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>서비스 끝점과 개인 끝점의 차이점은 무엇 인가요?
+### <a name="what-is-the-difference-between-service-endpoints-and-private-endpoints"></a>서비스 끝점과 개인 끝점의 차이점은 무엇 인가요?
 - 개인 끝점은 세분화 된 분할을 제공 하는 특정 서비스 뒤의 특정 리소스에 대 한 네트워크 액세스를 허용 합니다. 트래픽은 공용 끝점을 사용 하지 않고 온-프레미스에서 서비스 리소스에 도달할 수 있습니다.
 - 서비스 끝점은 공개적으로 라우팅 가능한 IP 주소를 유지 합니다.  개인 끝점은 개인 끝점이 구성 된 가상 네트워크의 주소 공간에 있는 개인 IP입니다.
 
@@ -34,6 +34,9 @@ ms.locfileid: "97901541"
 여러 개인 링크 리소스 형식은 개인 끝점을 통해 액세스를 지원 합니다. 리소스에는 Azure PaaS 서비스와 자신의 개인 링크 서비스가 포함 됩니다. 일 대 다 관계입니다. 
 
 개인 링크 서비스는 여러 개인 끝점에서 연결을 받습니다. 개인 끝점은 하나의 개인 링크 서비스에 연결 합니다.    
+
+### <a name="do-i-need-to-disable-network-policies-for-private-link"></a>개인 링크에 대 한 네트워크 정책을 사용 하지 않도록 설정 해야 하나요?
+예. 개인 끝점과 개인 링크 서비스 모두 제대로 작동 하려면 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 둘 다 서로 독립적인 속성이 있습니다.
 
 ## <a name="private-endpoint"></a>Private Endpoint 
  
@@ -84,4 +87,4 @@ Service 백 엔드는 가상 네트워크에 있고 표준 Load Balancer 뒤에 
 
 ##  <a name="next-steps"></a>다음 단계
 
-- [Azure 개인 링크](private-link-overview.md) 에 대 한 자세한 정보
+- [Azure Private Link](private-link-overview.md)에 대해 알아보기

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 1/29/2021
-ms.openlocfilehash: 84d37def6aa519eabf26a72ded7b0ab70994c430
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 2/05/2021
+ms.openlocfilehash: abd47a17392e53770802b61e4ee6561252cc4c1e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063082"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581570"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -79,6 +79,9 @@ ms.locfileid: "99063082"
 
 1. 계속 하기 전에 초안을 저장 합니다.
 1. 제품의 모든 필수 섹션이 완료되면 검토 및 게시를 위해 제출할 수 있습니다. 오른쪽 위에서 **검토 및 게시** 를 선택 합니다. 제품 세부 정보를 검토 한 다음 **게시** 를 선택 합니다.
+
+> [!NOTE]
+> 공동 판매를 위해 제품을 추천 더 이상 연락할 필요가 없습니다. Microsoft에서 공동 판매 페이지에서 모든 필수 필드를 완료 하 고 제품을 다시 게시 한 후 제품을 검토 하 여 공동 판매 상태에 대 한 요구 사항을 충족 하는지 확인 합니다.
 
 ## <a name="see-your-offers-co-sell-status"></a>제품의 공동 판매 상태 확인
 

@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 description: Azure Backup Server를 사용 하 여 가상 머신을 백업 하도록 Azure VMware 솔루션 환경을 설정 합니다.
 ms.topic: how-to
-ms.date: 10/23/2020
-ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.date: 02/04/2021
+ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703405"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581485"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 
@@ -389,7 +389,7 @@ Azure Backup Server v3은 저장소 볼륨만 허용 합니다. 볼륨을 추가
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Backup Server를 사용 하 여 Azure VMware 솔루션에서 실행 되는 VMware Vm의 백업을 구성 하는 방법을 알아보려면 다음 자습서를 계속 진행 합니다.
+이제 Azure VMware 솔루션에 대 한 Azure Backup Server를 설정 하는 방법을 설명 했으므로 다음에 대해 알아볼 수 있습니다.
 
-> [!div class="nextstepaction"]
-> [Azure VMware 솔루션 Vm의 백업 구성](backup-azure-vmware-solution-virtual-machines.md)
+- [Azure VMware 솔루션 vm에 대 한 백업 구성](backup-azure-vmware-solution-virtual-machines.md).
+- [Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호](azure-security-integration.md).

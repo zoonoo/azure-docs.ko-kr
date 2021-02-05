@@ -6,14 +6,14 @@ author: amitbapat
 tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 444f279f8e96486bd6ad61a2ea2640a18b491c9c
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 1a15ed6b92ade96dd2ed9ef6ffbbe17e2b1452ef
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222237"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581400"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 된 키를 관리 되는 HSM으로 가져오기 (BYOK)
 
@@ -40,7 +40,7 @@ ms.locfileid: "99222237"
 * BYOK 파일이 관리 되는 HSM에 업로드 되 면 관리 되는 HSM은 KEK 개인 키를 사용 하 여 대상 키 자료를 해독 하 고 HSM 키로 가져옵니다. 이 작업은 HSM 내에서 완전히 발생 합니다. 대상 키는 항상 HSM 보호 경계에 남아 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 
@@ -75,11 +75,14 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 ## <a name="supported-key-types"></a>지원되는 키 유형
 
-|키 이름|키 유형|키 크기|원본|Description|
+|키 이름|키 유형|키 크기/곡선|원본|Description|
 |---|---|---|---|---|
 |KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리형 HSM|관리 되는 HSM에서 생성 된 HSM 지원 RSA 키 쌍|
-|대상 키|RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
-
+|대상 키|
+||RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
+||EC|P-256<br />P-384<br />P-521|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
+||대칭 키 (oct-HSM)|128 비트<br />192 비트<br />256 비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
+||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성 하 고 관리 되는 HSM으로 전송
 
 키를 생성 하 고 관리 되는 HSM으로 전송 하려면:

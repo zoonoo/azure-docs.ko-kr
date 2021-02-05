@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 98da8057fb09cf43a59b921694386cbf3fa8ca21
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222220"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581009"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 
@@ -71,10 +71,13 @@ ms.locfileid: "99222220"
 
 ## <a name="supported-key-types"></a>지원되는 키 유형
 
-|키 이름|키 유형|키 크기|원본|Description|
+|키 이름|키 유형|키 크기/곡선|원본|Description|
 |---|---|---|---|---|
 |KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|Azure Key Vault HSM|Azure Key Vault에서 생성된 HSM 지원 RSA 키 쌍|
-|대상 키|RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|Azure Key Vault HSM으로 전송할 키|
+|대상 키|
+||RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|Azure Key Vault HSM으로 전송할 키|
+||EC|P-256<br />P-384<br />P-521|공급업체 HSM|Azure Key Vault HSM으로 전송할 키|
+||||
 
 ## <a name="generate-and-transfer-your-key-to-the-key-vault-hsm"></a>키를 생성하여 Key Vault HSM으로 전송
 
@@ -120,7 +123,7 @@ HSM 공급업체의 설명서를 참조하여 BYOK 도구를 다운로드하고 
 BYOK 파일을 연결된 컴퓨터로 전송합니다.
 
 > [!NOTE] 
-> RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. 현재 타원 곡선(Elliptic Curve) 키 가져오기는 지원되지 않습니다.
+> RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. P-256K 곡선을 사용 하 여 타원 Curve 키를 가져오는 것은 지원 되지 않습니다.
 > 
 > **알려진 문제**: Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
 
@@ -128,8 +131,15 @@ BYOK 파일을 연결된 컴퓨터로 전송합니다.
 
 키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용하여 BYOK 파일을 Key Vault HSM에 업로드합니다.
 
+RSA 키를 가져오려면 다음 명령을 사용 합니다. 매개 변수--kty는 선택 사항이 며 기본값은 ' RSA-HSM '입니다.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+```
+
+EC 키를 가져오려면 키 유형과 곡선 이름을 지정 해야 합니다.
+
+```azurecli
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 업로드가 성공하면 가져온 키의 속성이 Azure CLI에 표시됩니다.

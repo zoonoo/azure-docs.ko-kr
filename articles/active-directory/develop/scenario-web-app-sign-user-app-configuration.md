@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753274"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582250"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "98753274"
 <!-- This section can be in an include for web app and web APIs -->
 웹 앱 및 웹 API를 보호 하는 데 사용 되는 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | Description |
+| 플랫폼 | 라이브러리 | 설명 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. 실제로 복잡성은 [Microsoft. Identity. 웹](https://aka.ms/ms-identity-web) 라이브러리에 캡슐화 됩니다. |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램에 대 한 지원 |
@@ -64,13 +64,13 @@ ms.locfileid: "98753274"
 
 ## <a name="configuration-files"></a>구성 파일
 
-Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 응용 프로그램은 구성 파일을 통해 구성 됩니다. 입력 해야 하는 설정은 다음과 같습니다.
+Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 응용 프로그램은 구성 파일을 통해 구성 됩니다. 구성에서 지정 해야 하는 값은 다음과 같습니다.
 
 - 예를 들어 `Instance` 국가 클라우드에서 앱을 실행 하려는 경우 클라우드 인스턴스 ()
 - 테 넌 트 ID ()의 대상입니다. `TenantId`
 - `ClientId`Azure Portal에서 복사한 응용 프로그램의 클라이언트 ID ()입니다.
 
-경우에 따라 응용 프로그램을 매개 변수가 있는 수 있습니다 `Authority` .이는 및의 연결입니다 `Instance` `TenantId` .
+에 대 한 참조도 표시 될 수 있습니다 `Authority` . `Authority`값은 및 값의 연결입니다 `Instance` `TenantId` .
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -133,7 +133,7 @@ ASP.NET Core의 다른 파일 ([properties\launchSettings.js](https://github.com
 }
 ```
 
-Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 이러한 url과 일치 해야 합니다. 위의 두 구성 파일은 `https://localhost:44321/signin-oidc` 입니다. 이유는가 이지만 `applicationUrl` `http://localhost:3110` `sslPort` (44321)가 지정 된 이유입니다. `CallbackPath` 는 `/signin-oidc` 에 정의 된 대로입니다 `appsettings.json` .
+Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 하는 리디렉션 uri는 이러한 url과 일치 해야 합니다. 위의 두 구성 파일은 `https://localhost:44321/signin-oidc` 입니다. 이유는가 이지만 `applicationUrl` `http://localhost:3110` `sslPort` (44321)가 지정 된 이유입니다. `CallbackPath` 는 `/signin-oidc` 에 정의 된 대로입니다 `appsettings.json` .
 
 동일한 방식으로 로그 아웃 URI는로 설정 됩니다 `https://localhost:44321/signout-oidc` .
 
@@ -161,7 +161,7 @@ ASP.NET에서 응용 프로그램은 [Web.config](https://github.com/Azure-Sampl
   </appSettings>
 ```
 
-Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 이러한 url과 일치 해야 합니다. 즉,로 지정 해야 `https://localhost:44326/` 합니다.
+Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 하는 회신 uri는 이러한 url과 일치 해야 합니다. 즉,로 지정 해야 `https://localhost:44326/` 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -175,7 +175,7 @@ aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
 aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 `redirectUri` 응용 프로그램에서 정의 하는 인스턴스와 일치 해야 합니다. 즉, 및 여야 합니다 `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me` .
+Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 하는 회신 uri는 `redirectUri` 응용 프로그램에서 정의 하는 인스턴스와 일치 해야 합니다. 즉, 및 여야 합니다 `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me` .
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -13,12 +13,12 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: cfbcc8523ff1d5858317a3654b58ec7b2d23607a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795619"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582029"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
@@ -101,12 +101,12 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="updating-the-application-manifest"></a>애플리케이션 매니페스트 업데이트
 
-인증서가 있을 때 다음을 컴퓨팅해야 합니다.
+인증서를 확보 한 후 다음 값을 계산 합니다.
 
 - `$base64Thumbprint` -B a s e 64로 인코딩된 인증서 해시 값
 - `$base64Value` -B a s e 64로 인코딩된 인증서 원시 데이터 값
 
-애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
+응용 프로그램 매니페스트에서 키를 식별 하는 GUID를 제공 `$keyId` 합니다 ().
 
 클라이언트 애플리케이션에 대한 Azure 앱 등록에서:
 1. **매니페스트** 를 선택하여 애플리케이션 매니페스트를 엽니다.

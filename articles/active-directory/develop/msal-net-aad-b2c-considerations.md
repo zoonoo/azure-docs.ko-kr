@@ -13,18 +13,18 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 15f65da83f14f43a7892d52c6a2ed4e08580d367
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614917"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580830"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
 [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/overview.md)를 사용 하 여 소셜 id로 사용자를 로그인 하는 데 MSAL.NET를 사용할 수 있습니다. Azure AD B2C은 정책의 개념을 중심으로 작성 되었습니다. MSAL.NET에서는 정책을 지정 하 여 권한을 제공 하는 것으로 해석 됩니다.
 
-- 공용 클라이언트 응용 프로그램을 인스턴스화하는 경우 정책을 기관 일부로 지정 해야 합니다.
+- 공용 클라이언트 응용 프로그램을 인스턴스화할 때 정책을 기관 일부로 지정 합니다.
 - 정책을 적용 하려는 경우 `AcquireTokenInteractive` 매개 변수를 허용 하는의 재정의를 호출 `authority` 합니다.
 
 이 문서는 MSAL.NET 3.x에 적용 됩니다. MSAL.NET 2.x의 경우 GitHub의 MSAL.NET Wiki에서 [MSAL 2.x에](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) 대 한 자세한 Azure AD B2C을 참조 하세요.
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 - `policy` Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
 - `ParentActivityOrWindow` 는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 다음은 그 예입니다. 
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -194,6 +194,6 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache)를
 
 Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰을 가져오는 방법에 대 한 자세한 내용은 다음 샘플에서 제공 됩니다.
 
-| 예제 | 플랫폼 | Description|
+| 샘플 | 플랫폼 | 설명|
 |------ | -------- | -----------|
 |[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 한 후 반환 된 토큰을 사용 하 여 web API에 액세스 하는 Xamarin Forms 앱입니다.|

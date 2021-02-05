@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: e171e642440b7c6c99353169e426a722885f1bcf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1ebb89ae318e57f1d4e0708a08019515ca43158d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725940"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581332"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>API Management에 대 한 비용 계획 및 관리
 
@@ -89,10 +89,10 @@ API Management에서 Azure 리소스를 사용 하는 경우 비용이 발생 �
 
 ### <a name="choose-tier"></a>계층 선택
 
-시나리오에 적합 한 서비스 계층을 결정 하는 데 도움이 되도록 [Azure API Management 계층의 기능 기반 비교](api-management-features.md) 를 검토 합니다. 다양 한 서비스 계층에서는 다양 한 사용 사례에 맞게 설계 된 다양 한 기능 및 비용의 조합을 지원 합니다. 언제 든 지 다른 서비스 계층으로 [업그레이드](upgrade-and-scale.md) 합니다.
+시나리오에 적합 한 서비스 계층을 결정 하는 데 도움이 되도록 [Azure API Management 계층의 기능 기반 비교](api-management-features.md) 를 검토 합니다. 다양 한 서비스 계층에서는 다양 한 사용 사례에 맞게 설계 된 다양 한 기능 및 비용의 조합을 지원 합니다. 
 
 * **소비** 서비스 계층은 고정 비용이 발생 하지 않는 간단 하 고 서버를 사용 하지 않는 옵션을 제공 합니다. 특정 임계값을 초과 하는 서비스에 대 한 API 호출 수를 기준으로 요금이 청구 됩니다. 용량 또한 서비스의 부하에 따라 자동으로 크기가 조정 됩니다.
-* 다른 API Management 계층은 월별 비용을 발생 하 고 평가 및 프로덕션 워크 로드에 대 한 더 많은 처리량과 더 풍부한 기능 집합을 제공 합니다.
+* **개발자**, **기본**, **표준** 및 **프리미엄** API Management 계층은 월별 비용을 발생 하 고 평가 및 프로덕션 워크 로드에 대 한 더 많은 처리량과 더 풍부한 기능 집합을 제공 합니다. 언제 든 지 다른 서비스 계층으로 [업그레이드](upgrade-and-scale.md) 합니다.
 
 ### <a name="scale-using-capacity-units"></a>용량 단위를 사용 하 여 크기 조정
 

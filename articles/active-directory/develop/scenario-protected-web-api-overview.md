@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9cc8e6fcc796cfc7a09cf7bc1431646a6603af0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 434c255f0b9634e0d17bad1627ddd92af9498bfe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442976"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582437"
 ---
 # <a name="scenario-protected-web-api"></a>시나리오: 보호 된 web API
 
 이 시나리오에서는 web API를 노출 하는 방법에 대해 알아봅니다. 또한 인증 된 사용자만 액세스할 수 있도록 web API를 보호 하는 방법을 알아봅니다.
 
-Web API를 사용 하려면 회사 및 학교 계정으로 인증 된 사용자를 사용 하도록 설정 하거나 Microsoft 개인 계정을 사용 하도록 설정 해야 합니다.
+Web API를 사용 하려면 회사 및 학교 계정으로 인증 된 사용자를 사용 하도록 설정 하거나 Microsoft 개인 계정을 사용 하도록 설정 합니다.
 
 ## <a name="specifics"></a>특수 적용 사항
 

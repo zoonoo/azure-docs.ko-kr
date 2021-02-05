@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a94cbebffbe2c735515d9758a2353a9857676311
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bd0d53049c68843a6fd2cb6128c473d7c4f8d639
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756586"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582794"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>웹 Api를 호출 하는 디먼 앱-앱에서 web API 호출
 
@@ -64,7 +64,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>여러 Api 호출
 
-디먼 앱의 경우 호출 하는 웹 Api를 미리 승인 해야 합니다. 디먼 앱에는 증분 동의가 없습니다. 사용자 상호 작용이 없습니다. 테 넌 트 관리자는 응용 프로그램 및 모든 API 권한에 대해 사전에 동의를 제공 해야 합니다. 여러 Api를 호출 하려는 경우를 호출할 때마다 각 리소스에 대 한 토큰을 획득 해야 `AcquireTokenForClient` 합니다. MSAL은 응용 프로그램 토큰 캐시를 사용 하 여 불필요 한 서비스 호출을 방지 합니다.
+디먼 앱의 경우 호출 하는 웹 Api를 미리 승인 해야 합니다. 디먼 앱에는 증분 동의가 없습니다. 사용자 상호 작용이 없습니다. 테 넌 트 관리자는 응용 프로그램 및 모든 API 권한에 대해 사전에 동의를 제공 해야 합니다. 여러 Api를 호출 하려는 경우를 호출할 때마다 각 리소스에 대 한 토큰을 획득 `AcquireTokenForClient` 합니다. MSAL은 응용 프로그램 토큰 캐시를 사용 하 여 불필요 한 서비스 호출을 방지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

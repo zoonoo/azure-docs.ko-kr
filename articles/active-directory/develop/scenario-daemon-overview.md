@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 45af940382a261f1793583e471871b9cceed0a57
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 00a70b585ddf522a25e81703fe5bdf55efbcb7e1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753835"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582777"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 API를 호출하는 디먼 애플리케이션
 
@@ -52,7 +52,7 @@ ms.locfileid: "98753835"
 개발자를 위해이 시나리오에 대 한 종단 간 환경에는 다음과 같은 측면이 있습니다.
 
 - 디먼 응용 프로그램은 Azure AD 테 넌 트에서만 작동할 수 있습니다. Microsoft 개인 계정을 조작 하려고 하는 디먼 응용 프로그램을 빌드하는 것은 의미가 없습니다. LOB (기간 업무) 앱 개발자 인 경우 테 넌 트에서 디먼 앱을 만듭니다. ISV 인 경우 다중 테 넌 트 데몬 응용 프로그램을 만드는 것이 좋습니다. 각 테 넌 트 관리자는 동의를 제공 해야 합니다.
-- [응용 프로그램 등록](./scenario-daemon-app-registration.md)중에는 회신 URI가 필요 하지 않습니다. 암호 또는 인증서 또는 서명 된 어설션을 Azure AD와 공유 해야 합니다. 또한 응용 프로그램 사용 권한을 요청 하 고 해당 앱 사용 권한을 사용 하도록 관리자 동의를 부여 해야 합니다.
+- [응용 프로그램 등록](./scenario-daemon-app-registration.md)중에는 회신 URI가 필요 하지 않습니다. Azure AD를 사용 하 여 암호 또는 인증서 또는 서명 된 어설션을 공유 합니다. 또한 응용 프로그램 사용 권한을 요청 하 고 해당 앱 사용 권한을 사용 하도록 관리자 동의를 부여 해야 합니다.
 - 응용 프로그램 [구성](./scenario-daemon-app-configuration.md) 에서는 응용 프로그램을 등록 하는 동안 Azure AD와 공유 되는 클라이언트 자격 증명을 제공 해야 합니다.
 - 클라이언트 자격 증명 흐름을 사용 하 여 토큰을 획득 하는 데 사용 되는 [범위](scenario-daemon-acquire-token.md#scopes-to-request) 는 정적 범위 여야 합니다.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785128"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582658"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -445,7 +445,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-MSAL.NET에서 다음을 사용해야 합니다.
+MSAL.NET에서 다음을 사용 합니다.
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -922,7 +922,7 @@ if not result:
 
 ### <a name="device-code-flow"></a>디바이스 코드 흐름
 
-웹 컨트롤이 없는 명령줄 도구를 작성하고 있는데 앞에 나온 흐름을 사용할 수 없거나 사용하지 않고 싶다면 디바이스 코드 흐름을 사용해야 합니다.
+웹 컨트롤이 없고 이전 흐름을 사용 하지 않을 수 있는 명령줄 도구를 작성 하는 경우 장치 코드 흐름을 사용 합니다.
 
 Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다. 자세한 내용은 [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser)(웹 브라우저의 용도)를 참조하세요. 디바이스 코드 흐름은 웹 브라우저를 제공하지 않는 디바이스나 운영 체제에서 사용자를 인증하기 위해 사용자가 컴퓨터나 휴대폰과 같은 다른 디바이스를 사용하여 대화형으로 로그인할 수 있도록 지원합니다. 응용 프로그램은 장치 코드 흐름을 사용 하 여 이러한 장치나 운영 체제를 위해 설계 된 2 단계 프로세스를 통해 토큰을 가져옵니다. 이러한 애플리케이션의 예로 iOT 또는 CLI(명령줄) 도구에서 실행되는 애플리케이션을 들 수 있습니다. 기본 개념은 다음과 같습니다.
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052349"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581451"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
 
@@ -102,15 +102,14 @@ ms.locfileid: "99052349"
 저장소 자동 증가는 Azure Database for MySQL 유연한 서버에서 아직 사용할 수 없습니다.
 
 ## <a name="iops"></a>IOPS
-모든 계산 크기에서 최소 유효 IOPS는 100이 고, 최대 유효 IOPS는 다음 특성에 의해 결정 됩니다. 
-- Compute: 최대 유효 IOPS는 선택한 계산 크기의 사용 가능한 최대 IOPS로 제한 될 수 있습니다.
-- 저장소: 모든 계산 계층에서 프로 비전 된 저장소 크기를 3:1 비율로 하는 IOPS 규모입니다.
 
-프로 비전 된 저장소를 늘리거나 더 큰 계산 크기로 이동 하 여 사용할 수 있는 유효한 IOPS의 크기를 조정할 수 있습니다 (IOPS가 계산에 의해 제한 되는 경우). 미리 보기에서 지원 되는 최대 유효 IOPS는 2만 IOPS입니다.
+Azure Database for MySQL – 유연한 서버는 추가 IOPS의 프로 비전을 지원 합니다. 이 기능을 사용 하면 추가 iops 제한을 초과 하는 추가 IOPS를 프로 비전 할 수 있습니다. 이 기능을 사용 하면 언제 든 지 워크 로드 요구 사항에 따라 프로 비전 된 IOPS 수를 늘리거나 줄일 수 있습니다. 
 
-계산과 저장소의 조합을 사용 하 여 계산 크기별 최대 유효 IOPS에 대 한 자세한 내용은 아래에 나와 있습니다. 
+최소 IOPS는 모든 계산 크기에서 100이 고, 최대 IOPS는 선택한 계산 크기로 결정 됩니다. 미리 보기에서 지원 되는 최대 IOPS는 2만 IOPS입니다.
 
-| 컴퓨팅 크기         | 최대 유효 IOPS  | 
+Compute 크기별 최대 IOPS에 대 한 자세한 내용은 아래에 나와 있습니다. 
+
+| 컴퓨팅 크기         | 최대 IOPS        | 
 |----------------------|---------------------|
 | **버스터 블**        |                     |
 | Standard_B1s         | 320                 |
@@ -133,11 +132,14 @@ ms.locfileid: "99052349"
 | Standard_E48ds_v4    | 20000               | 
 | Standard_E64ds_v4    | 20000               |  
 
-최대 유효 IOPS는 compute 크기 당 사용 가능한 최대 IOPS에 따라 달라 집니다. 아래의 수식을 참조 하 고 [B 시리즈](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4 시리즈](../../virtual-machines/ddv4-ddsv4-series.md)및 [Edsv4 시리즈](../../virtual-machines/edv4-edsv4-series.md) 설명서에서 *최대 캐시 되지 않은 디스크 처리량: IOPS/MBps* 를 참조 하세요.
+최대 IOPS는 compute 크기 당 사용 가능한 최대 IOPS에 따라 달라 집니다. [B 시리즈](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4 시리즈](../../virtual-machines/ddv4-ddsv4-series.md)및 [Edsv4 시리즈](../../virtual-machines/edv4-edsv4-series.md) 설명서의 *최대 캐시 되지 않은 디스크 처리량: IOPS/MBps* 열을 참조 하세요.
 
-**최대 유효 IOPS** = 최소 (*"최대 캐시 되지 않은 디스크 처리량: IOPS/MBps"* 계산 크기, GiB * 3에 프로 비전 된 저장소)
+> [!Important]
+> **무료 IOPS** 는 최소 (계산 크기의 "최대 캐시 되지 않은 디스크 처리량: IOPS/MBps", GiB * 3에 프로 비전 된 저장소)와 동일 합니다.<br>
+> 모든 계산 크기에서 **최소 IOPS** 는 100입니다.<br>
+> **최대 IOPS** 는 선택한 계산 크기로 결정 됩니다. 미리 보기에서 지원 되는 최대 IOPS는 2만 IOPS입니다.
 
-[IO 백분율](./concepts-monitoring.md) 메트릭을 사용 하 여 Azure Portal (Azure Monitor)에서 i/o 사용량을 모니터링할 수 있습니다. 더 많은 IOPS가 필요한 경우 계산 크기나 프로 비전 된 저장소로 제한 되는지 이해 해야 합니다. 적절 하 게 프로 비전 된 서버의 계산 또는 저장소 크기를 조정 합니다.
+[IO 백분율](./concepts-monitoring.md) 메트릭을 사용 하 여 Azure Portal (Azure Monitor)에서 i/o 사용량을 모니터링할 수 있습니다. 더 많은 IOPS가 필요한 경우 계산을 기반으로 하는 최대 IOPS가 필요한 경우 서버 계산의 크기를 조정 해야 합니다.
 
 ## <a name="backup"></a>Backup
 

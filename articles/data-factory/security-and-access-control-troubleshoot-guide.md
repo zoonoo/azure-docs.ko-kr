@@ -5,15 +5,15 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/05/2021
+ms.date: 02/04/2021
 ms.author: lle
 ms.reviewer: craigg
-ms.openlocfilehash: 70e4d0c1a9f26f83924c1343e4e8e51c5595b324
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 37da2869f0cf315ac0a6851c9a77dcee4debf71a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944508"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581689"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>보안 및 액세스 제어 문제 Azure Data Factory 문제 해결
 
@@ -88,9 +88,10 @@ Data Factory FQDN (정규화 된 도메인 이름)이 공용 IP 주소로 확인
 #### <a name="resolution"></a>해결 방법
 
 이 문제를 해결하려면 다음을 수행하십시오.
-- [Azure Data Factory에 대 한 Azure 개인 링크](./data-factory-private-link.md#dns-changes-for-private-endpoints) 문서를 참조 하세요. 지침은 개인 IP 주소에 대 한 Data Factory FQDN을 확인 하도록 개인 DNS 영역 또는 서버를 구성 하기 위한 것입니다.
 
-- 장기 솔루션으로 사용자 지정 DNS를 사용 하는 것이 좋습니다. 그러나 개인 DNS 영역 또는 서버를 구성 하지 않으려면 다음 임시 솔루션을 시도해 보세요.
+- 옵션으로 "개인 링크 DNS 영역" Data Factory "Virtual Network 링크"를 수동으로 추가 하는 것이 좋습니다. 자세한 내용은 [Azure Data Factory에 대 한 Azure 개인 링크](./data-factory-private-link.md#dns-changes-for-private-endpoints) 문서를 참조 하세요. 지침은 개인 IP 주소에 대 한 Data Factory FQDN을 확인 하도록 개인 DNS 영역 또는 사용자 지정 DNS 서버를 구성 하기 위한 것입니다. 
+
+- 그러나 개인 DNS 영역 또는 사용자 지정 DNS 서버를 구성 하지 않으려면 다음 임시 솔루션을 시도해 보세요.
 
   1. Windows에서 호스트 파일을 변경 하 고 개인 IP (Azure Data Factory 개인 끝점)를 Azure Data Factory FQDN에 매핑합니다.
   

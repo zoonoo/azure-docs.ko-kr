@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 284ab3a2aabb2395636982237159117a10151019
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014946"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99581757"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -115,7 +115,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 ## <a name="get-tenant-and-app-id-values-for-signing-in"></a>로그인에 대 한 테 넌 트 및 앱 ID 값 가져오기
 
-프로그래밍 방식으로 로그인 하는 경우 인증 요청 및 응용 프로그램 ID를 사용 하 여 테 넌 트 ID를 전달 해야 합니다.  인증서 또는 인증 키도 필요 합니다 (다음 섹션에서 설명). 이러한 값을 가져오려면 다음 단계를 사용합니다.
+프로그래밍 방식으로 로그인 하는 경우 인증 요청 및 응용 프로그램 ID를 사용 하 여 테 넌 트 ID를 전달 합니다.  인증서 또는 인증 키도 필요 합니다 (다음 섹션에서 설명). 이러한 값을 가져오려면 다음 단계를 사용합니다.
 
 1. **Azure Active Directory** 를 선택합니다.
 1. Azure AD의 **앱 등록** 에서 애플리케이션을 선택합니다.
@@ -162,7 +162,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 
 1. **추가** 를 선택합니다.
 
-응용 프로그램 등록 포털에서 응용 프로그램에 인증서를 등록 한 후에는 인증서를 사용 하도록 클라이언트 응용 프로그램 코드를 사용 하도록 설정 해야 합니다.
+응용 프로그램 등록 포털에서 응용 프로그램에 인증서를 등록 한 후 클라이언트 응용 프로그램 코드에서 인증서를 사용 하도록 설정 합니다.
 
 ### <a name="option-2-create-a-new-application-secret"></a>옵션 2: 새 응용 프로그램 암호 만들기
 

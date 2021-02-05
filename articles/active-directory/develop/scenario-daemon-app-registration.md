@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 938a19276839d5e0d2bd3e0244510fc068cb029c
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996011"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582910"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 디먼 앱-앱 등록
 
@@ -24,7 +24,7 @@ ms.locfileid: "95996011"
 
 ## <a name="supported-account-types"></a>지원되는 계정 유형
 
-디먼 응용 프로그램은 Azure AD 테 넌 트에서만 의미가 있습니다. 따라서 응용 프로그램을 만들 때 다음 옵션 중 하나를 선택 해야 합니다.
+디먼 응용 프로그램은 Azure AD 테 넌 트에서만 의미가 있습니다. 따라서 응용 프로그램을 만들 때 다음 옵션 중 하나를 선택 합니다.
 
 - **이 조직 디렉터리의 계정에만 해당** 됩니다. 디먼 응용 프로그램은 일반적으로 LOB (기간 업무) 개발자가 작성 하기 때문에이 선택은 가장 일반적입니다.
 - **모든 조직 디렉터리의 계정** 유틸리티 도구를 고객에 게 제공 하는 ISV 인 경우이 옵션을 선택 합니다. 승인 하려면 고객의 테 넌 트 관리자가 필요 합니다.

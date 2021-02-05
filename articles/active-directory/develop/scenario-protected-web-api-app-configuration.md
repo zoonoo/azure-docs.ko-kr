@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bdf74a6d8b6798de8aba33baea5afdf987ce1c34
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753580"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99582488"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
-보호 된 web API에 대 한 코드를 구성 하려면 다음을 이해 해야 합니다.
+보호 된 web API에 대 한 코드를 구성 하려면 다음을 이해 합니다.
 
 - 보호 되는 Api를 정의 합니다.
 - 전달자 토큰을 구성 하는 방법
@@ -195,7 +195,7 @@ services.AddControllers();
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | Description |
+| 유효성 검사기 | 설명 |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |
