@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 60ecb60d2fe90f190963255adff7a0bb1df15da4
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bdfffbf8d2e416c87dd5abb8f6383c58ad270231
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756376"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584366"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그 아웃
 
@@ -208,7 +208,7 @@ myMsal.loginRedirect(loginRequest);
 
 # <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
-리디렉션 메서드는 주 앱에서 벗어나 이동 하기 때문에 약속을 반환 하지 않습니다. 반환 된 토큰을 처리 하 고 액세스 하려면 리디렉션 메서드를 호출 하기 전에 성공 및 오류 콜백을 등록 해야 합니다.
+리디렉션 메서드는 주 앱에서 벗어나 이동 하기 때문에 약속을 반환 하지 않습니다. 반환 된 토큰을 처리 하 고 액세스 하려면 리디렉션 메서드를 호출 하기 전에 성공 및 오류 콜백을 등록 합니다.
 
 ```javascript
 

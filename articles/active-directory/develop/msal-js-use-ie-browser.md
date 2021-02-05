@@ -13,12 +13,12 @@ ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 428405fc200751d2581ad9ca6e8ec97382594c09
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 73dd7877b399d34a009c9fe479550eb1bf6dc0f1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064847"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583979"
 ---
 # <a name="known-issues-on-internet-explorer-browsers-msaljs"></a>Internet Explorer 브라우저 (MSAL.js)의 알려진 문제
 
@@ -39,7 +39,7 @@ Internet Explorer에서는 JavaScript 약속을 기본적으로 지원 하지 �
 응용 프로그램을 프로덕션에 배포 하는 경우 (예를 들어 Azure Web apps의 경우) 최종 사용자가 팝업을 수락한 경우 일반적으로 정상적으로 작동 합니다. Internet Explorer 11을 사용 하 여 테스트 했습니다.
 
 ### <a name="running-locally"></a>로컬에서 실행
-Internet Explorer에서 실행 되는 응용 프로그램을 로컬로 실행 하 고 디버깅 하려는 경우 다음 사항을 고려해 야 합니다 (응용 프로그램을로 실행 한다고 가정 *http://localhost:1234* ).
+Internet Explorer에서 실행 되는 응용 프로그램을 로컬로 실행 하 고 디버깅 하려는 경우 다음 사항을 고려해 야 합니다 (응용 프로그램을로 실행 하려는 경우 *http://localhost:1234* ).
 
 - Internet Explorer에는 MSAL.js 올바르게 작동 하지 않도록 하는 "보호 모드" 라는 보안 메커니즘이 있습니다. 증상 중에서 로그인 한 후 페이지를로 리디렉션할 수 있습니다 http://localhost:1234/null .
 

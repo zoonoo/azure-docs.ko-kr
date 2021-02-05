@@ -8,13 +8,13 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
-ms.custom: monitoring
-ms.openlocfilehash: 16ae2f9e74202aff47e58a22dbe21a28d8280a7e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.custom: subject-monitoring
+ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780725"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584909"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob storage 모니터링 데이터 참조
 
@@ -34,7 +34,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="blob-storage"></a>Blob Storage
+#### <a name="blob-storage"></a>Blob 스토리지
 
 다음 표에서는 [Blob storage 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices)보여 줍니다.
 

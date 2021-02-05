@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 3f2e8fef35095a007051999d806f2942089ae19a
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164943"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584756"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>기술 자료에서 활성 학습 제안 질문 수락
 
@@ -49,18 +49,39 @@ ms.locfileid: "98164943"
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## <a name="active-learning-suggestions-are-saved-in-the-exported-knowledge-base"></a>활성 학습 제안은 내보낸 기술 자료에 저장 됩니다.
+
+앱에서 활성 학습을 사용 하도록 설정 하 고 앱을 내보내는 경우 `SuggestedQuestions` tsv 파일의 열은 활성 학습 데이터를 유지 합니다.
+
+`SuggestedQuestions`열은 암시적, `autosuggested` 및 명시적인 피드백에 대 한 정보의 JSON 개체입니다 `usersuggested` . 사용자가 제출한 단일 질문에 대 한이 JSON 개체의 예는 `help` 다음과 같습니다.
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+이 앱을 다시 가져오는 경우 활성 학습은 계속 해 서 정보를 수집 하 고 기술 자료에 대 한 제안을 권장 합니다.
+
+
 ### <a name="architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot"></a>GenerateAnswer를 사용 하 고 봇에서 Api를 학습 하기 위한 아키텍처 흐름
 
 봇 또는 다른 클라이언트 응용 프로그램은 다음 아키텍처 흐름을 사용 하 여 활성 학습을 사용 해야 합니다.
 
 * 봇은 속성을 사용 하 여 [기술 자료에서](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) GENERATEANSWER API를 사용 하 여 답변을 확인 하 고 `top` 많은 답변을 가져옵니다.
-* 봇은 명시적인 피드백을 결정 합니다.
-    * [사용자 고유의 사용자 지정 비즈니스 논리](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)를 사용 하 여 낮은 점수를 필터링 합니다.
-    * 봇 또는 클라이언트 응용 프로그램에서 사용자에 게 가능한 답변 목록을 표시 하 고 사용자가 선택한 대답을 가져옵니다.
-* Bot [선택한 답변을](#bot-framework-sample-code) [학습 API](#train-api)를 사용 하 여 QnA Maker 다시 보냅니다.
 
-
-### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>GenerateAnswer 요청에서 top 속성을 사용 하 여 여러 일치 대답을 가져옵니다.
+#### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>GenerateAnswer 요청에서 top 속성을 사용 하 여 여러 일치 대답을 가져옵니다.
 
 답변에 대 한 QnA Maker 질문을 제출할 때 `top` JSON 본문의 속성은 반환할 대답 수를 설정 합니다.
 
@@ -71,6 +92,12 @@ ms.locfileid: "98164943"
     "top": 3
 }
 ```
+
+* 봇은 명시적인 피드백을 결정 합니다.
+    * [사용자 고유의 사용자 지정 비즈니스 논리](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)를 사용 하 여 낮은 점수를 필터링 합니다.
+    * 봇 또는 클라이언트 응용 프로그램에서 사용자에 게 가능한 답변 목록을 표시 하 고 사용자가 선택한 대답을 가져옵니다.
+* Bot [선택한 답변을](#bot-framework-sample-code) [학습 API](#train-api)를 사용 하 여 QnA Maker 다시 보냅니다.
+
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>비즈니스 논리와 함께 점수 속성을 사용 하 여 사용자 표시에 대 한 답변 목록 가져오기
 
@@ -130,12 +157,12 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|형식|목적|
+|HTTP 요청 속성|Name|Type|목적|
 |--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
-|사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
-|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다. `application/json`|
-|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|URL 경로 매개 변수|기술 자료 ID|string|기술 자료를 위한 GUID입니다.|
+|사용자 지정 하위 도메인|QnAMaker 리소스 이름|string|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. 로 나열 됩니다 `host` .|
+|헤더|콘텐츠 형식|string|API로 전송되는 본문의 미디어 유형입니다. 기본값은 다음과 같습니다. `application/json`|
+|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
@@ -143,9 +170,9 @@ JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 |JSON 본문 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
-|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 요소.|
-|`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
+|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
+|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
+|`qnaID`|숫자|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
 
@@ -310,34 +337,7 @@ async callTrain(stepContext){
 }
 ```
 
-## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>활성 학습은 내보낸 기술 자료에 저장 됩니다.
-
-앱에서 활성 학습을 사용 하도록 설정 하 고 앱을 내보내는 경우 `SuggestedQuestions` tsv 파일의 열은 활성 학습 데이터를 유지 합니다.
-
-`SuggestedQuestions`열은 암시적, `autosuggested` 및 명시적인 피드백에 대 한 정보의 JSON 개체입니다 `usersuggested` . 사용자가 제출한 단일 질문에 대 한이 JSON 개체의 예는 `help` 다음과 같습니다.
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-이 앱을 다시 가져오는 경우 활성 학습은 계속 해 서 정보를 수집 하 고 기술 자료에 대 한 제안을 권장 합니다.
-
-
-
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 활성 학습 사용 시의 모범 사례는 [모범 사례](../Concepts/best-practices.md#active-learning)를 참조하세요.
 

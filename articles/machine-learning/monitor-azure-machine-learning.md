@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/01/2020
-ms.openlocfilehash: 183d8b415ccb35d22dcc23ccf11d0707ad0778dd
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: c9b7230ca734bba1527ec5ecd975e1bae141a9b4
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963658"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584688"
 ---
 # <a name="monitor-azure-machine-learning"></a>Azure Machine Learning 모니터링
 
@@ -34,7 +35,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 Azure Machine Learning는 Azure에서 전체 스택 모니터링 서비스인 [Azure Monitor](../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스를 모니터링 하는 완전 한 기능 집합을 제공 합니다. 또한 다른 클라우드 및 온-프레미스의 리소스도 모니터링할 수 있습니다.
 
-다음 개념을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)문서부터 시작 합니다.
+다음 개념을 설명하는 [Azure Monitor를 사용하여 Azure 리소스 모니터링 문서](../azure-monitor/insights/monitor-azure-resource.md)로 시작하세요.
 
 - Azure Monitor란?
 - 모니터링과 관련된 비용
@@ -55,13 +56,13 @@ Azure Machine Learning에서 만든 로그 및 메트릭에 대 한 자세한 �
 
 <a id="configuration"></a>
 
-## <a name="collection-and-routing"></a>컬렉션 및 라우팅
+## <a name="collection-and-routing"></a>수집 및 라우팅
 
-플랫폼 메트릭 및 활동 로그는 자동으로 수집 되 고 저장 되지만 진단 설정을 사용 하 여 다른 위치로 라우팅될 수 있습니다.  
+플랫폼 메트릭 및 활동 로그는 자동으로 수집되고 저장되지만 진단 설정을 사용하여 다른 위치로 라우팅할 수 있습니다.  
 
-리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장 되지 않습니다.
+리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장되지 않습니다.
 
-Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기를](../azure-monitor/platform/diagnostic-settings.md) 참조 하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정 합니다. Azure Machine Learning 범주는 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md#resource-logs)에 나열 되어 있습니다.
+Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Azure Machine Learning 범주는 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md#resource-logs)에 나열 되어 있습니다.
 
 > [!IMPORTANT]
 > 이러한 설정을 사용 하려면 추가 Azure 서비스 (저장소 계정, 이벤트 허브 또는 Log Analytics)가 필요 하므로 비용이 늘어날 수 있습니다. 예상 비용을 계산 하려면 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator)를 방문 하세요.
@@ -77,7 +78,7 @@ Azure Machine Learning에 대해 다음 로그를 구성할 수 있습니다.
 > [!NOTE]
 > 진단 설정에서 메트릭을 사용 하도록 설정 하면 현재 저장소 계정, 이벤트 허브 또는 log analytics로 전송 되는 정보의 일부로 차원 정보가 포함 되지 않습니다.
 
-수집할 수 있는 메트릭 및 로그에 대해서는 다음 섹션에서 설명 합니다.
+수집할 수 있는 메트릭 및 로그에 대해서는 다음 섹션에서 설명합니다.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
@@ -89,7 +90,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 
 ![Machine Learning 서비스 작업 영역을 선택 메트릭 탐색기](./media/monitor-azure-machine-learning/metrics.png)
 
-참조를 위해 [Azure Monitor에서 지원 되는 모든 리소스 메트릭의](../azure-monitor/platform/metrics-supported.md)목록을 볼 수 있습니다.
+[Azure Monitor에서 지원되는 모든 리소스 메트릭](../azure-monitor/platform/metrics-supported.md) 목록을 참조하세요.
 
 > [!TIP]
 > Azure Monitor 메트릭 데이터는 90 일 동안 사용할 수 있습니다. 그러나 차트를 만들 때 30 일간만 시각화할 수 있습니다. 예를 들어 90 일을 시각화 하려는 경우 90 일 기간 내에 30 일 동안 3 개의 차트로 분리 해야 합니다.

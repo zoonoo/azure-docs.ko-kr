@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5d93df0b6d59e013c22e138942ab4651784421ae
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756463"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584383"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
@@ -58,7 +58,7 @@ API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 �
 
 범위는 일반적으로 형식 `resourceURI/scopeName` 입니다. Microsoft Graph의 경우 범위에는 바로 가기가 있습니다. 예를 들어 `User.Read` 는의 바로 가기입니다 `https://graph.microsoft.com/user.read` .
 
-앱을 등록 하는 동안 다음 매개 변수를 정의 해야 합니다.
+앱 등록 중에 다음 매개 변수를 정의 합니다.
 
 - 리소스 URI
 - 하나 이상의 범위
@@ -68,7 +68,7 @@ API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 �
 
 클라이언트 응용 프로그램에 대 한 범위는 *위임 된 권한* 으로 표시 되 고 앱 역할은 웹 API에 대 한 *응용 프로그램 권한* 으로 표시 됩니다.
 
-범위는 앱의 사용자에 게 표시 되는 동의 창에도 표시 됩니다. 따라서 범위를 설명 하는 해당 문자열을 제공 해야 합니다.
+범위는 앱의 사용자에 게 표시 되는 동의 창에도 표시 됩니다. 따라서 범위를 설명 하는 해당 문자열을 제공 합니다.
 
 - 사용자에 게 표시 됩니다.
 - 테 넌 트 관리자에 게 표시 되는 대로 관리자 동의를 허용할 수 있습니다.
@@ -99,7 +99,7 @@ API가 수락할 수 있는 토큰 버전은 Azure Portal에서 web API 응용 �
 
 #### <a name="exposing-application-permissions-app-roles"></a>응용 프로그램 사용 권한 노출 (앱 역할)
 
-응용 프로그램 사용 권한을 노출 하려면 매니페스트를 편집 해야 합니다.
+응용 프로그램 사용 권한을 노출 하려면 매니페스트를 편집 합니다.
 
 1. 응용 프로그램에 대 한 응용 프로그램 등록에서 **매니페스트** 를 선택 합니다.
 1. 매니페스트를 편집 하려면 `appRoles` 설정을 찾고 응용 프로그램 역할을 추가 합니다. 다음 샘플 JSON 블록에서 역할 정의를 제공 합니다.

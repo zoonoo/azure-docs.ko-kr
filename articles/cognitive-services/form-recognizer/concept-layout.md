@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: a63f910b3a939e33b8c71d8f22d15f6d610a12cc
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: d529e74614a4fd5ee49d7e6161c65f68e8e76fce
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845556"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585061"
 ---
 # <a name="form-recognizer-layout-service"></a>폼 인식기 레이아웃 서비스
 
@@ -89,7 +89,7 @@ JSON 출력에는 두 부분이 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [양식 인식기 샘플 UI](https://fott-preview.azurewebsites.net/) 를 사용 하 여 사용자 고유의 레이아웃 추출 시도
-- 선택한 언어로 레이아웃 압축 풀기를 시작 하려면 [폼 인식기 퀵 스타트](quickstarts/client-library.md) 를 완료 하세요.
+- 선택한 개발 언어로 레이아웃 압축 풀기를 시작 하려면 [폼 인식기 퀵 스타트](quickstarts/client-library.md) 를 완료 하세요.
 
 ## <a name="see-also"></a>참조
 

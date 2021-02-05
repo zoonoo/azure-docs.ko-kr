@@ -7,31 +7,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 750c24fd84629f709beb7a92e92fd1ecf581c09a
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 53334dfdcdb917c754c9bc4205b0918c6d207da8
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862229"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584790"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>양식 인식기 컨테이너 설치 및 실행 (미리 보기)
+# <a name="install-and-run-form-recognizer-containers-retiring"></a>양식 인식기 컨테이너 설치 및 실행 (사용 중지)
 
 [!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 Azure 양식 인식기는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. 값과 테이블 항목을 키-값 쌍에 연결 하 고 원본 파일의 관계를 포함 하는 구조화 된 데이터를 출력 합니다. 
 
-복잡성을 줄이고 사용자 지정 양식 인식기 모델을 워크플로 자동화 프로세스나 기타 응용 프로그램에 쉽게 통합 하기 위해 간단한 REST API를 사용 하 여 모델을 호출할 수 있습니다. 5 개의 양식 문서 (또는 빈 양식과 두 개의 채워진 양식)만 필요 하므로 특정 콘텐츠에 대 한 결과를 빠르고 정확 하 게 볼 수 있습니다. 높은 수동 작업 또는 광범위 한 데이터 과학에 대 한 지식이 필요 하지 않습니다. 데이터 레이블 지정 또는 데이터 주석이 필요 하지 않습니다.
+복잡성을 줄이고 사용자 지정 양식 인식기 모델을 워크플로 자동화 프로세스나 기타 응용 프로그램에 쉽게 통합 하기 위해 간단한 REST API를 사용 하 여 모델을 호출할 수 있습니다. 5 개의 양식 문서만 필요 하므로 특정 콘텐츠에 대 한 결과를 빠르고 정확 하 게 맞출 수 있습니다. 높은 수동 작업 또는 광범위 한 데이터 과학에 대 한 지식이 필요 하지 않습니다. 데이터 레이블 지정 또는 데이터 주석이 필요 하지 않습니다.
 
-| 기능 | 기능 |
+| 함수 | 기능 |
 |----------|----------|
 | Form Recognizer | <li>PDF, PNG 및 JPG 파일을 처리 합니다.<li>최소 5 가지 형식의 동일한 레이아웃을 사용 하 여 사용자 지정 모델 학습 <li>키-값 쌍 및 테이블 정보를 추출 합니다. <li>Azure Cognitive Services Computer Vision API 텍스트 인식 기능을 사용 하 여 양식 내 이미지에서 인쇄 된 텍스트를 검색 하 고 추출 합니다.<li>주석이 나 레이블 지정이 필요 하지 않습니다. |
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 양식 인식기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -84,37 +84,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!Note]
 > 최소 및 권장 값은 호스트 컴퓨터 리소스가 *아니라* Docker 제한을 기반으로 합니다.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>docker pull 명령을 사용 하 여 컨테이너 이미지 가져오기
-
-**양식 인식기** 와 **텍스트 인식** 제공 모두에 대 한 컨테이너 이미지는 다음 컨테이너 레지스트리에서 사용할 수 있습니다.
-
-| 컨테이너 | 정규화 된 이미지 이름 |
-|-----------|------------|
-| Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| 텍스트 인식 | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
-
-두 컨테이너가 모두 필요 합니다. **인식기 텍스트** 컨테이너는 [이 문서 외부에 자세히 설명](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) 되어 있습니다.
+양식 인식기와 텍스트 인식 컨테이너가 모두 필요 합니다. **텍스트 인식** 컨테이너는 [이 문서 외부에 자세히 설명](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull) 되어 있습니다.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
-
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Form Recognizer 컨테이너에 대한 docker pull
-
-#### <a name="form-recognizer"></a>Form Recognizer
-
-양식 인식기 컨테이너를 가져오려면 다음 명령을 사용 합니다.
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
-```
-### <a name="docker-pull-for-the-recognize-text-container"></a>텍스트 인식 컨테이너용 docker pull
-
-#### <a name="recognize-text"></a>텍스트 인식
-
-텍스트 인식 컨테이너를 가져오려면 다음 명령을 사용 합니다.
-
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
-```
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
 

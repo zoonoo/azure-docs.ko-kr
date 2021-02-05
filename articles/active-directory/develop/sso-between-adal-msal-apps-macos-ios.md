@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 60189b8ba952bc3315bf514c5d0786601840665a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 396e9cfeace8791a59dec4a9c9c7203212f57304
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756198"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584250"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>방법: macOS 및 iOS에서 ADAL 및 MSAL 앱 간 SSO
 
@@ -34,7 +34,7 @@ SSO 구현에 대 한 자세한 내용은 사용 중인 ADAL 버전에 따라 �
 
 ### <a name="cache-format"></a>캐시 형식
 
-ADAL 2.7. x는 MSAL 캐시 형식을 읽을 수 있습니다. 버전 ADAL 2.7. x를 사용 하 여 앱 간 SSO에 대해 특별 한 작업을 수행할 필요가 없습니다. 그러나 이러한 두 라이브러리가 지 원하는 계정 식별자의 차이점을 알고 있어야 합니다.
+ADAL 2.7. x는 MSAL 캐시 형식을 읽을 수 있습니다. 버전 ADAL 2.7. x를 사용 하 여 앱 간 SSO에 대해 특별 한 작업을 수행할 필요가 없습니다. 그러나 이러한 두 라이브러리가 지 원하는 계정 식별자의 차이점에 주의 해야 합니다.
 
 ### <a name="account-identifier-differences"></a>계정 식별자 차이
 

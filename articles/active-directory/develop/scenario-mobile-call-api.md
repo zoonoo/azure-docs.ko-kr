@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756483"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584400"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>모바일 앱에서 웹 API 호출
 
@@ -117,7 +117,7 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>여러 API 요청 만들기
 
-동일한 API를 여러 번 호출해야 하거나 여러 API를 호출해야 하는 경우에는 앱을 빌드할 때 다음 사항을 고려해야 합니다.
+동일한 API를 여러 번 호출 하거나 여러 Api를 호출 하려면 앱을 빌드할 때 다음 제목을 고려 합니다.
 
 - **증분 동의**: Microsoft id 플랫폼을 사용 하면 앱이 시작 시가 아니라 권한이 필요할 때 사용자 동의를 받을 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 필요한 범위만 요청해야 합니다.
 
@@ -125,7 +125,7 @@ task.resume()
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>증분 동의 및 조건부 액세스를 사용하여 여러 API 호출
 
-동일한 사용자에 대해 여러 API를 호출해야 하는 경우 사용자에 대한 토큰을 가져온 후에는 `AcquireTokenSilent`를 호출하여 토큰을 가져오기 위해 사용자에게 자격 증명을 묻는 메시지를 반복적으로 표시하지 않을 수 있습니다.
+동일한 사용자에 대해 여러 Api를 호출 하려면 사용자에 대 한 토큰을 가져온 후 다음 `AcquireTokenSilent` 을 호출 하 여 토큰을 가져오기 위해 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

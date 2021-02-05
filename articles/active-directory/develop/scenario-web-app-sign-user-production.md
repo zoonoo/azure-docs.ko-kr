@@ -12,27 +12,22 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c7abad31c9936729b8d9c19ed2efcb841ac103ca
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756232"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584300"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인 하는 웹 앱: 프로덕션으로 이동
 
-웹 Api를 호출 하는 토큰을 가져오는 방법을 배웠으므로 이제 프로덕션으로 이동 하는 방법을 알아보세요.
+이제 웹 Api를 호출 하는 토큰을 가져오는 방법을 배웠으므로 응용 프로그램을 프로덕션 환경으로 이동할 때 고려해 야 할 몇 가지 사항이 있습니다.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
-
-> [!NOTE]
-> 사용자가 처음으로 웹 응용 프로그램에 로그인 하는 경우 동의 해야 합니다. 그러나 일부 조직에서는 사용자가 다음과 같은 메시지를 볼 수 있습니다.
->
-> *AppName에는 관리자만 부여할 수 있는 조직의 리소스에 액세스할 수 있는 권한이 필요 합니다. 이 앱을 사용 하려면 먼저 관리자에 게이 앱에 대 한 권한을 부여 하도록 요청 하세요.*
->
-> 이는 테 넌 트 관리자가 사용자에 게 동의할 수 없는 기능을 **사용 하지 않도록 설정** 했기 때문입니다. 이 경우 테 넌 트 관리자에 게 응용 프로그램에서 요구 하는 범위에 대 한 관리자 동의를 수행 하도록 요청 해야 합니다.
+사용자가 처음으로 웹 응용 프로그램에 로그인 하는 경우 동의 해야 합니다. 그러나 일부 조직에서는 사용자가 다음과 같은 메시지를 볼 수 있습니다. *AppName은 관리자만 부여할 수 있는 조직의 리소스에 액세스 하기 위한 권한이 필요 합니다. 이 앱을 사용 하려면 먼저 관리자에 게이 앱에 대 한 권한을 부여 하도록 요청 하세요.*
+이는 테 넌 트 관리자가 사용자에 게 동의할 수 없는 기능을 **사용 하지 않도록 설정** 했기 때문입니다. 이 경우 테 넌 트 관리자에 게 응용 프로그램에서 요구 하는 범위에 대 한 관리자 동의를 수행 하도록 요청 합니다.
 
 ## <a name="same-site"></a>같은 사이트
 

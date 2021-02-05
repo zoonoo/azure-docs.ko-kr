@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2687141ea870b0af0a4405ebef2261c5a303c767
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090224"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584115"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -44,7 +44,7 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 
 `access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
 
-그런 다음, 앱 등록을 방문하고 앱의 리디렉션 URI를 `spa` 형식으로 업데이트해야 합니다.
+그런 다음 앱 등록을 방문 하 여 앱에 대 한 리디렉션 URI를 형식으로 업데이트 `spa` 합니다.
 
 ## <a name="request-an-authorization-code"></a>인증 코드 요청
 
@@ -157,7 +157,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code_challenge_method=S256
 ```
 
-| 업데이트 된 매개 변수 | 필수/선택 | Description |
+| 업데이트 된 매개 변수 | 필수/선택 | 설명 |
 |---------------|-------------|--------------|
 |`response_type`| 필수 | 추가는 `id_token` 응용 프로그램이 끝점의 응답에서 ID 토큰을 서버에 표시 한다는 것을 나타냅니다 `/authorize` .  |
 |`scope`| 필수 | ID 토큰의 경우 ID 토큰 범위를 포함 하도록를 업데이트 하 `openid` 고 필요에 따라 및을 (를) 포함 하도록 업데이트 해야 합니다 `profile` `email` . |
@@ -177,7 +177,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| 매개 변수 | Description  |
+| 매개 변수 | 설명  |
 |-----------|--------------|
 | `code` | 앱이 요청한 권한 부여 코드입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. 권한 부여 코드는 수명이 짧습니다. 일반적으로 약 10 분 후에 만료 됩니다. |
 | `id_token` | *암시적 권한 부여* 를 통해 발급 된 사용자에 대 한 ID 토큰입니다. `c_hash`동일한 요청에서의 해시 인 특수 클레임을 포함 `code` 합니다. |

@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064371"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584233"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -43,9 +43,9 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다.  앱에서 서비스에 대한 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 "챌린지"를 처리하기 위해 코드를 변경해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
+대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대 한 토큰을 간접적으로 요청 하거나 자동으로 요청 하는 경우에만 앱에서 조건부 액세스 문제를 처리 하기 위해 코드를 변경 해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
 
-특히 다음 시나리오에는 조건부 액세스 "챌린지"를 처리하기 위한 코드가 필요합니다.
+특히 다음 시나리오에서는 조건부 액세스 문제를 처리 하는 코드가 필요 합니다.
 
 * On-Behalf-Of 흐름을 수행하는 앱
 * 여러 서비스/리소스에 액세스하는 앱
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법을 자세히 알아보려면 [빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../authentication/tutorial-enable-azure-mfa.md)를 참조하세요.
 
-시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다. 새 정책이 적용될 때 앱이 계속 작동하도록 하려면 “챌린지” 처리를 구현해야 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
+시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다. 새 정책이 적용 될 때 앱이 계속 작동 하려면 챌린지 처리를 구현 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
 
 ### <a name="conditional-access-examples"></a>조건부 액세스 예제
 

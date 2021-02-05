@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 2f9fa6e7ef9a7ee8ea7dd2a09622f26f6fd9739e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 00407b4a55b3c074fa77d4c3664f6e218c23fe21
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223128"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584537"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 * 취소 된 Apache Spark 응용 프로그램 보기
 * 응용 프로그램 Apache Spark 디버그 실패
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 
@@ -155,6 +155,26 @@ Azure Synapse Analytics를 사용 하 여 작업 영역의 Apache Spark 풀에�
 6. 오류 정보를 확인 합니다.
 
    ![실패 한 작업 정보](./media/how-to-monitor-spark-applications/failed-job-info.png)
+
+## <a name="compare-apache-spark-applications"></a>Apache Spark 응용 프로그램 비교
+응용 프로그램 **비교** 단추를 클릭 하 고 응용 프로그램을 선택 하 여 성능을 비교할 수 있습니다. 그러면 사용자가 두 응용 프로그램 간의 차이를 직관적으로 볼 수 있습니다.
+
+![응용 프로그램 비교](./media/how-to-monitor-spark-applications/compare-applications.png)
+
+1. 마우스를 사용 하 여 응용 프로그램을 마우스로 가리키면 **응용 프로그램 비교** 아이콘이 표시 됩니다.
+
+2. **응용 프로그램 비교** 아이콘을 클릭 하면 응용 프로그램 비교 페이지가 나타납니다.
+
+3. **응용 프로그램 선택** 단추를 클릭 하 여 **비교 응용 프로그램 선택** 페이지를 엽니다.
+
+4. 비교 응용 프로그램을 선택할 때 사용자는 응용 프로그램 URL을 입력 하거나 되풀이 목록에서 선택 해야 합니다. 그런 다음 **확인** 단추를 클릭 합니다. 
+
+   ![비교 응용 프로그램 선택](./media/how-to-monitor-spark-applications/choose-comparison-application.png)
+
+5. 비교 결과는 응용 프로그램 비교 페이지에 표시 됩니다.
+
+   ![비교 결과](./media/how-to-monitor-spark-applications/comparison-result.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 080d7c29a9e6950117fe475445458a84fb092e94
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9ae5d2279baab69d762a71b2f6400009747c16fe
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090207"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584216"
 ---
 # <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
 프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
@@ -52,8 +52,8 @@ ms.locfileid: "99090207"
     1. [파트너 프로필](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile)로 이동하여 다음을 확인합니다. 
         - MPN ID가 올바릅니다. 
         - 오류 또는 "보류 중인 작업"이 표시되지 않으며, 법적 비즈니스 프로필 및 파트너 정보 아래에서 확인 상태가 모두 "권한 있음" 또는 "성공"으로 표시됩니다.
-    1. [MPN 테넌트 관리 페이지](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement)로 이동하여 앱이 등록되어 있고 사용자 계정으로 서명하는 테넌트가 연결된 테넌트 목록에 있는지 확인합니다. 추가 테 넌 트를 추가 해야 하는 경우 [여기](/partner-center/multi-tenant-account)에 설명 된 지침을 따르세요. 추가 하는 모든 테 넌 트의 모든 전역 관리자에 게는 파트너 센터 계정에 대 한 전역 관리자 권한이 부여 됩니다.
-    1. [MPN 사용자 관리 페이지로](https://partner.microsoft.com/pcv/users) 이동 하 여 로그인 하는 사용자가 전역 관리자, MPN 관리자 또는 계정 관리자 인지 확인 합니다. 파트너 센터에서 사용자를 역할에 추가 해야 하는 경우 [여기](/partner-center/create-user-accounts-and-set-permissions)에 설명 된 지침을 따르세요.
+    1. [MPN 테넌트 관리 페이지](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement)로 이동하여 앱이 등록되어 있고 사용자 계정으로 서명하는 테넌트가 연결된 테넌트 목록에 있는지 확인합니다. 추가 테 넌 트를 추가 하려면 [여기](/partner-center/multi-tenant-account)의 지침을 따르세요. 추가 하는 모든 테 넌 트의 모든 전역 관리자에 게는 파트너 센터 계정에 대 한 전역 관리자 권한이 부여 됩니다.
+    1. [MPN 사용자 관리 페이지로](https://partner.microsoft.com/pcv/users) 이동 하 여 로그인 하는 사용자가 전역 관리자, MPN 관리자 또는 계정 관리자 인지 확인 합니다. 파트너 센터에서 사용자를 역할에 추가 하려면 [여기](/partner-center/create-user-accounts-and-set-permissions)에 있는 지침을 따르세요.
 
 - **Azure AD 포털에 로그인하면 등록된 앱이 표시되지 않습니다. 그 이유는 무엇일까요?** 
     앱 등록은이 테 넌 트의 다른 사용자 계정, 개인/소비자 계정 또는 다른 테 넌 트를 사용 하 여 만들어졌을 수 있습니다. 앱 등록을 만든 테넌트에서 올바른 계정으로 로그인했는지 확인합니다.

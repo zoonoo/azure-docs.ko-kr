@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 39bdf9cb0c97e19a67b23046c6f06b60daa30147
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323794"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584943"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
@@ -94,7 +94,7 @@ ms.locfileid: "93323794"
   
 -   **F1 점수** 는 전체 자릿수의 가중치가 적용 된 평균으로 계산 되며 이상적인 F1 점수 값이 1 인 0과 1 사이에서 회수 됩니다.  
   
--   **AUC** 는 y축의 참 긍정과 x축의 거짓 긍정을 사용하여 그린 곡선 아래의 영역을 측정합니다. 이 메트릭은 여러 가지 유형의 모델을 비교할 수 있는 단일 숫자를 제공하기 때문에 유용합니다.  
+-   **AUC** 는 y축의 참 긍정과 x축의 거짓 긍정을 사용하여 그린 곡선 아래의 영역을 측정합니다. 이 메트릭은 여러 가지 유형의 모델을 비교할 수 있는 단일 숫자를 제공하기 때문에 유용합니다. CC는 분류 임계값-고정입니다. 선택한 분류 임계값에 관계 없이 모델의 예측 품질을 측정 합니다.
 
 
 ### <a name="metrics-for-regression-models"></a>회귀 모델에 대한 메트릭

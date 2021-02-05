@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ddd676a1e0b3d8f554b007974b62eb8c0c2ca9c1
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 22e61ea767d781dc9da54d61143c1b2524e06e94
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226358"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584417"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱: 프로덕션으로 이동
 
@@ -96,7 +96,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 이 호출은 첫 번째 web API에 대 한 액세스 토큰을 가져옵니다.
 
-두 번째 web API를 호출 해야 하는 경우 api를 호출 `AcquireTokenSilent` 합니다.
+두 번째 web API를 호출 하는 경우 `AcquireTokenSilent` api를 호출 합니다.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

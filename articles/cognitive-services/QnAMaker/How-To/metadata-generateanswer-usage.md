@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f92b8c4835e42e758085e0434ee926fbabce5a38
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936235"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584744"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -291,3 +291,5 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 쌍에 �
 
 > [!div class="nextstepaction"]
 > [기술 자료에 대한 분석 가져오기](../how-to/get-analytics-knowledge-base.md)
+> [!div class="nextstepaction"]
+> [신뢰 점수](../Concepts/confidence-score.md)

@@ -7,19 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 12/16/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 56a3183e259a0b1c661dfe84d5e47c4c221e5d48
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881740"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584868"
 ---
-# <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 트리거
+# <a name="trigger-machine-learning-pipelines"></a>Machine learning 파이프라인 트리거
 
-이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다. 마지막으로, Azure 논리 앱을 사용 하 여 더 복잡 한 트리거 논리 나 동작을 허용 하는 방법을 알아봅니다.
+이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다. 마지막으로, 다른 Azure 서비스, Azure 논리 앱 및 Azure Data Factory를 사용 하 여 파이프라인을 실행 하는 방법을 알아봅니다. Azure 논리 앱을 사용 하면 더 복잡 한 트리거 논리 나 동작을 수행할 수 있습니다. Azure Data Factory 파이프라인을 사용 하 여 더 큰 데이터 오케스트레이션 파이프라인의 일부로 machine learning 파이프라인을 호출할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,7 +29,7 @@ ms.locfileid: "98881740"
 
 * 게시 된 파이프라인이 있는 Machine Learning 작업 영역입니다. Azure Machine Learning SDK를 사용 하 여 [machine learning 파이프라인 만들기 및 실행](./how-to-create-machine-learning-pipelines.md)에서 빌드된 빌드를 사용할 수 있습니다.
 
-## <a name="initialize-the-workspace--get-data"></a>작업 영역을 초기화 하 여 데이터 가져오기 &
+## <a name="trigger-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 파이프라인 트리거
 
 파이프라인을 예약 하려면 작업 영역에 대 한 참조, 게시 된 파이프라인의 식별자 및 일정을 만들려는 실험의 이름을 제공 해야 합니다. 다음 코드를 사용 하 여 이러한 값을 가져올 수 있습니다.
 
@@ -81,7 +81,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 ### <a name="create-a-change-based-schedule"></a>변경 기반 일정 만들기
 
-파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 예를 들어 파일이 변경 될 때 또는 새 파일이 데이터 디렉터리에 추가 될 때 전처리 단계를 수행 하는 것이 좋습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
+파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 파일이 변경 되기 전에 작업을 수행 하려는 경우 또는 새 파일이 데이터 디렉터리에 추가 된 경우 해당 파일을 전처리 할 수 있습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
 
 파일-사후을 만들려면 `Schedule` `datastore` [Schedule. 만들기](/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?preserve-view=true&view=azure-ml-py#&preserve-view=truecreate-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 인수를 설정 `path_on_datastore` 합니다.
 
@@ -104,7 +104,7 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 웹 브라우저에서 Azure Machine Learning로 이동 합니다. 탐색 패널의 **끝점** 섹션에서 **파이프라인 끝점** 을 선택 합니다. 그러면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
 
-![AML의 파이프라인 페이지](./media/how-to-trigger-published-pipeline/scheduled-pipelines.png)
+:::image type="content" source="./media/how-to-trigger-published-pipeline/scheduled-pipelines.png" alt-text="AML의 파이프라인 페이지":::
 
 이 페이지에서 이름, 설명, 상태 등의 작업 영역에 있는 모든 파이프라인에 대 한 요약 정보를 볼 수 있습니다. 파이프라인을 클릭 하 여 드릴업 합니다. 결과 페이지에 파이프라인에 대 한 자세한 내용이 있으며 개별 실행으로 드릴 다운할 수 있습니다.
 
@@ -161,11 +161,11 @@ published_pipeline.endpoint
 
 1. 논리 앱 디자이너 뷰로 이동 하 여 빈 논리 앱 템플릿을 선택 합니다. 
     > [!div class="mx-imgBorder"]
-    > ![새 템플릿](media/how-to-trigger-published-pipeline/blank-template.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/blank-template.png" alt-text="새 템플릿":::
 
 1. 디자이너에서 **blob** 을 검색 합니다. Blob이 **추가 되거나 수정 된 경우 (속성만)** 트리거를 선택 하 고 논리 앱에이 트리거를 추가 합니다.
     > [!div class="mx-imgBorder"]
-    > ![트리거 추가](media/how-to-trigger-published-pipeline/add-trigger.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/add-trigger.png" alt-text="트리거 추가":::
 
 1. Blob 추가 또는 수정에 대해 모니터링할 Blob storage 계정에 대 한 연결 정보를 입력 합니다. 모니터링할 컨테이너를 선택 합니다. 
  
@@ -177,7 +177,7 @@ published_pipeline.endpoint
 1. 새 blob 또는 수정 된 blob이 검색 될 때 실행 되는 HTTP 작업을 추가 합니다. **+ 새 단계** 를 선택 하 고 HTTP 작업을 검색 하 여 선택 합니다.
 
   > [!div class="mx-imgBorder"]
-  > ![HTTP 작업 검색](media/how-to-trigger-published-pipeline/search-http.png)
+  > :::image type="content" source="media/how-to-trigger-published-pipeline/search-http.png" alt-text="HTTP 작업 검색":::
 
   다음 설정을 사용 하 여 작업을 구성 합니다.
 
@@ -208,12 +208,18 @@ published_pipeline.endpoint
     `DataStoreName`작업 영역에 추가한를 [필수 구성 요소로](#prerequisites)사용 합니다.
      
     > [!div class="mx-imgBorder"]
-    > ![HTTP 설정](media/how-to-trigger-published-pipeline/http-settings.png)
+    > :::image type="content" source="media/how-to-trigger-published-pipeline/http-settings.png" alt-text="HTTP 설정":::
 
 1. **저장** 을 선택 하면 이제 일정이 준비 됩니다.
 
 > [!IMPORTANT]
 > Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 파이프라인에 대 한 액세스를 관리 하는 경우 [파이프라인 시나리오에 대 한 사용 권한을 설정 합니다 (학습 또는 점수 매기기)](how-to-assign-roles.md#common-scenarios).
+
+## <a name="call-machine-learning-pipelines-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 machine learning 파이프라인 호출
+
+Azure Data Factory 파이프라인에서 *Machine Learning 파이프라인 실행* 작업은 Azure Machine Learning 파이프라인을 실행 합니다. 이 작업은 Data Factory의 제작 페이지 *Machine Learning* 범주 아래에서 찾을 수 있습니다.
+
+:::image type="content" source="media/how-to-trigger-published-pipeline/azure-data-factory-pipeline-activity.png" alt-text="Azure Data Factory authoring environment의 ML 파이프라인 작업을 보여 주는 스크린샷":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792085"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585044"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
 
@@ -38,23 +38,23 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
-| MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
+| ReceiptType | string | 판매 확인 유형 | 항목별 |  |
+| MerchantName | string | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | 나열 된 전화 판매 수 | 987-654-3210 | + 19876543210 |
-| MerchantAddress | 문자열 | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
+| MerchantAddress | string | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
 | TransactionDate | date | 영수증이 발급 된 날짜 | June 06, 2019 | 2019-06-26  |
 | TransactionTime | time | 수신이 발행 된 시간 | 오후 4:49 | 16:49:00  |
-| 합계 | number | 전체 트랜잭션 수신 총 트랜잭션 | $14.34 | 14.34 |
-| 소계 | number | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
-| 세금 | number | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
-| 팁 | number | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
+| 합계 | 숫자 | 전체 트랜잭션 수신 총 트랜잭션 | $14.34 | 14.34 |
+| 소계 | 숫자 | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
+| 세금 | 숫자 | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
+| 팁 | 숫자 | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
 | Items | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
 | 이름 | string | 항목 이름 | Surface Pro 6 | |
-| 수량 | number | 각 항목의 수량 | 1 | |
-| 가격 | number | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
-| 총 가격 | number | 품목의 총 가격 | $999.00 | 999.00 |
+| 수량 | 숫자 | 각 항목의 수량 | 1 | |
+| 가격 | 숫자 | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
+| 총 가격 | 숫자 | 품목의 총 가격 | $999.00 | 999.00 |
 
 ### <a name="additional-features"></a>추가 기능
 
@@ -467,7 +467,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 양식 인식기를 사용 하 여 사용자가 선택한 언어로 수신 처리 앱을 작성 하기 시작 하려면 [양식 인식기 빠른](quickstarts/client-library.md) 시작을 완료 하세요.
+- 사용자가 선택한 개발 언어로 폼 인식기를 사용 하 여 수신 처리 앱을 작성 하기 시작 하려면 [폼 인식기 퀵 스타트](quickstarts/client-library.md) 를 완료 하세요.
 
 ## <a name="see-also"></a>참조
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 7acfa9c2ffdd4cdd62e965041cdc42dc44d469c5
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845582"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585078"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>양식 인식기 미리 빌드된 송장 모델
 
@@ -74,40 +74,40 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 송장 서비스는 text, tables 및 26 개의 송장 필드를 추출 합니다. 다음은 JSON 출력 응답의 청구서에서 추출 된 필드입니다 (아래 출력은이 [샘플 송장을](./media/sample-invoice.jpg)사용).  
 
-|Name| 유형 | Description | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
-| CustomerName | 문자열 | 송장이 청구 되는 고객 | Microsoft Corp |  |
-| CustomerId | 문자열 | 고객에 대 한 참조 ID | CID-12345 |  |
-| PurchaseOrder | 문자열 | 구매 주문 참조 번호 | PO-3333 | |  |
-| InvoiceId | 문자열 | 이 특정 송장의 ID (종종 "송장 번호") | INV-100 | |  |
+| CustomerName | string | 송장이 청구 되는 고객 | Microsoft Corp |  |
+| CustomerId | string | 고객에 대 한 참조 ID | CID-12345 |  |
+| PurchaseOrder | string | 구매 주문 참조 번호 | PO-3333 | |  |
+| InvoiceId | string | 이 특정 송장의 ID (종종 "송장 번호") | INV-100 | |  |
 | InvoiceDate | date | 송장이 발행 된 날짜 | 11/15/2019 | 
 | DueDate | date | 이 청구서의 결제 기한 | 12/15/2019 | 2019-12-15 | 2019-11-15 |
-| 이름의 | 문자열 | 이 송장을 만든 공급 업체 | CONTOSO L T D. | |
-| VendorAddress | 문자열 | 공급 업체의 우편 주소 | 123 456th 세인트 뉴욕, 전, 10001 | |
-| VendorAddressRecipient | 문자열 | VendorAddress와 연결 된 이름입니다. | Contoso 본사 | |
-| CustomerAddress | 문자열 | 고객의 우편 주소 | 123 기타 St, Redmond WA, 98052 | |
-| CustomerAddressRecipient | 문자열 | CustomerAddress와 연결 된 이름입니다. | Microsoft Corp | |
-| BillingAddress | 문자열 | 고객에 대 한 명시적 청구 주소 | 123 청구서 St, Redmond WA, 98052 | |
-| BillingAddressRecipient | 문자열 | BillingAddress와 연결 된 이름입니다. | Microsoft 서비스 | |
-| ShippingAddress | 문자열 | 고객에 대 한 명시적 배송 주소 | 123 선적 세인트, Redmond WA, 98052 | |
-| 배송 중인 받는 사람 | 문자열 | 배송 주소와 연결 된 이름 | Microsoft 제공 | |
-| SubTotal | number | 이 청구서에서 식별 된 부분합 필드 | $100.00 | 100 | 
-| TotalTax | number | 이 청구서에서 식별 된 총 세금 필드 | $10.00 | 10 |
-| InvoiceTotal | number | 이 청구서와 관련 된 총 새 요금 | $110.00 | 110 |
-| AmountDue |  number | 공급 업체의 총 금액 | $610.00 | 610 |
-| Serviceaddress.uri | 문자열 | 고객에 대 한 명시적 서비스 주소 또는 속성 주소 | 123 Service St, Redmond WA, 98052 | |
-| ServiceAddressRecipient | 문자열 | ServiceAddress와 연결 된 이름 | Microsoft 서비스 | |
-| RemittanceAddress | 문자열 | 고객에 대 한 명시적 송금 또는 지불 주소 | 123 remit St 뉴욕, 전, 10001 |  |
-| RemittanceAddressRecipient | 문자열 | RemittanceAddress와 연결 된 이름입니다. | Contoso 청구 |  |
+| 이름의 | string | 이 송장을 만든 공급 업체 | CONTOSO L T D. | |
+| VendorAddress | string | 공급 업체의 우편 주소 | 123 456th 세인트 뉴욕, 전, 10001 | |
+| VendorAddressRecipient | string | VendorAddress와 연결 된 이름입니다. | Contoso 본사 | |
+| CustomerAddress | string | 고객의 우편 주소 | 123 기타 St, Redmond WA, 98052 | |
+| CustomerAddressRecipient | string | CustomerAddress와 연결 된 이름입니다. | Microsoft Corp | |
+| BillingAddress | string | 고객에 대 한 명시적 청구 주소 | 123 청구서 St, Redmond WA, 98052 | |
+| BillingAddressRecipient | string | BillingAddress와 연결 된 이름입니다. | Microsoft 서비스 | |
+| ShippingAddress | string | 고객에 대 한 명시적 배송 주소 | 123 선적 세인트, Redmond WA, 98052 | |
+| 배송 중인 받는 사람 | string | 배송 주소와 연결 된 이름 | Microsoft 제공 | |
+| SubTotal | 숫자 | 이 청구서에서 식별 된 부분합 필드 | $100.00 | 100 | 
+| TotalTax | 숫자 | 이 청구서에서 식별 된 총 세금 필드 | $10.00 | 10 |
+| InvoiceTotal | 숫자 | 이 청구서와 관련 된 총 새 요금 | $110.00 | 110 |
+| AmountDue |  숫자 | 공급 업체의 총 금액 | $610.00 | 610 |
+| Serviceaddress.uri | string | 고객에 대 한 명시적 서비스 주소 또는 속성 주소 | 123 Service St, Redmond WA, 98052 | |
+| ServiceAddressRecipient | string | ServiceAddress와 연결 된 이름 | Microsoft 서비스 | |
+| RemittanceAddress | string | 고객에 대 한 명시적 송금 또는 지불 주소 | 123 remit St 뉴욕, 전, 10001 |  |
+| RemittanceAddressRecipient | string | RemittanceAddress와 연결 된 이름입니다. | Contoso 청구 |  |
 | ServiceStartDate | date | 서비스 기간에 대 한 첫 번째 날짜 (예: 유틸리티 청구 서비스 기간) | 2019/10/14 | 2019-10-14 |
 | ServiceEndDate | date | 서비스 기간의 종료 날짜 (예: 유틸리티 청구 서비스 기간) | 11/14/2019 | 2019-11-14 |
-| PreviousUnpaidBalance | number | 명시적으로 이전 미지불 잔액 | $500.00 | 500 |
+| PreviousUnpaidBalance | 숫자 | 명시적으로 이전 미지불 잔액 | $500.00 | 500 |
 
 
 ## <a name="next-steps"></a>다음 단계
 
 - [양식 인식기 샘플 UI](https://fott-preview.azurewebsites.net/)에서 고유한 청구서 및 샘플을 사용해 보세요.
-- 폼 인식기를 사용 하 여 선택한 언어로 양식 인식기를 사용 하 여 송장 처리 앱 작성을 [시작할 수 있습니다](quickstarts/client-library.md) .
+- 사용자가 선택한 개발 언어로 양식 인식기를 사용 하 여 송장 처리 앱을 작성 하기 시작 하려면 [폼 인식기 퀵 스타트](quickstarts/client-library.md) 를 완료 하세요.
 
 ## <a name="see-also"></a>참조
 

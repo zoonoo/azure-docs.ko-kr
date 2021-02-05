@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 1d1512447b5d0474f8fabe92dbc7a36259f4618c
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 620f77655f8281919ba0831a7e53af8cd28bc5f2
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754990"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583996"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -80,7 +80,7 @@ Java 용 MSAL은 가능 하면 만료 된 토큰을 자동으로 새로 고쳐 �
 
 V1.0을 사용 하는 경우 사용자는 모든 `https://login.microsoftonline.com/common` 조직에 대해 AAD (Azure Active Directory) 계정으로 로그인 할 수 있습니다.
 
-V2.0에서 인증 기관을 사용 하는 경우 `https://login.microsoftonline.com/common` 사용자는 AAD 조직 또는 MICROSOFT MSA (개인 계정)를 사용 하 여 로그인 할 수 있습니다. Java 용 MSAL에서 AAD 계정에 로그인을 제한 하려는 경우 `https://login.microsoftonline.com/organizations` ADAL4J와 동일한 동작을 사용 해야 합니다. 권한을 지정 하려면 `authority` 클래스를 만들 때 [Publicclientapplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 매개 변수를 설정 합니다. `PublicClientApplication`
+V2.0에서 인증 기관을 사용 하는 경우 `https://login.microsoftonline.com/common` 사용자는 AAD 조직 또는 MICROSOFT MSA (개인 계정)를 사용 하 여 로그인 할 수 있습니다. Java 용 MSAL에서 AAD 계정에 로그인을 제한 하려면 `https://login.microsoftonline.com/organizations` 인증 기관 (ADAL4J와 동일한 동작)을 사용 합니다. 권한을 지정 하려면 `authority` 클래스를 만들 때 [Publicclientapplication. Builder](https://javadoc.io/doc/com.microsoft.azure/msal4j/1.0.0/com/microsoft/aad/msal4j/PublicClientApplication.Builder.html) 메서드에서 매개 변수를 설정 합니다. `PublicClientApplication`
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 및 v2.0 토큰
 

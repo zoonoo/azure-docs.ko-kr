@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/06/2021
-ms.openlocfilehash: d0bebf030a35d5e0cec7e5f9364fddbf090ee1c7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 02/04/2021
+ms.openlocfilehash: 8b63565457498663250eb6ab5dc1361e43bbffaf
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072261"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585010"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름의 데이터 변환 식
 
@@ -76,6 +76,48 @@ ___
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 평면의 양의 x 축과 좌표가 지정 하는 점의 각도를 라디안으로 반환 합니다.  
 * ``atan2(0, 0) -> 0.0``  
+___
+### <code>between</code>
+<code><b>between(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : any) => boolean</b></code><br/><br/>
+첫 번째 값이 서로 다른 두 값 사이에 있는지 확인 합니다. 숫자, 문자열 및 날짜/시간 값을 비교할 수 있습니다. * ``between(10, 5, 24)``
+* ``true``
+* ``between(currentDate(), currentDate() + 10, currentDate() + 20)``
+* ``false``
+___
+### <code>bitwiseAnd</code>
+<code><b>bitwiseAnd(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+정수 계열 형식 간의 비트 And 연산자입니다. & 연산자와 같음 * ``bitwiseAnd(0xf4, 0xef)``
+* ``0xe4``
+* ``(0xf4 & 0xef)``
+* ``0xe4``
+___
+### <code>bitwiseOr</code>
+<code><b>bitwiseOr(<i>&lt;value1&gt;</i> : integral, <i>&lt;value2&gt;</i> : integral) => integral</b></code><br/><br/>
+정수 계열 형식에 대 한 비트 Or 연산자 |와 동일 합니다. 연산자 * ``bitwiseOr(0xf4, 0xef)``
+* ``0xff``
+* ``(0xf4 | 0xef)``
+* ``0xff``
+___
+### <code>bitwiseXor</code>
+<code><b>bitwiseXor(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+정수 계열 형식에 대 한 비트 Or 연산자 |와 동일 합니다. 연산자 * ``bitwiseXor(0xf4, 0xef)``
+* ``0x1b``
+* ``(0xf4 ^ 0xef)``
+* ``0x1b``
+* ``(true ^ false)``
+* ``true``
+* ``(true ^ true)``
+* ``false``
+___
+### <code>blake2b</code>
+<code><b>blake2b(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
+8 & 512 사이에 8의 배수로만 지정할 수 있는 비트 길이를 제공 하는 다양 한 기본 데이터 형식의 열 집합에 대 한 Blake2.cpp 다이제스트를 계산 합니다. 행에 대 한 지문을 계산 하는 데 사용할 수 있습니다. * ``blake2b(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``'c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d'``
+___
+### <code>blake2bBinary</code>
+<code><b>blake2bBinary(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => binary</b></code><br/><br/>
+8 & 512 사이에 8의 배수로만 지정할 수 있는 비트 길이를 제공 하는 다양 한 기본 데이터 형식의 열 집합에 대 한 Blake2.cpp 다이제스트를 계산 합니다. 행에 대 한 지문을 계산 하는 데 사용할 수 있습니다. * ``blake2bBinary(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4'))``
+* ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
@@ -231,6 +273,10 @@ ___
 비교는 대/소문자를 무시하는 연산자와 같습니다. <=> 연산자와 동일 합니다.  
 * ``'abc'<=>'Abc' -> true``  
 * ``equalsIgnoreCase('abc', 'Abc') -> true``  
+___
+### <code>escape</code>
+<code><b>escape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+형식에 따라 문자열을 이스케이프 합니다. 허용 되는 형식에 대 한 리터럴 값은 ' json ', ' xml ', ' ecmascript ', ' html ', ' java '입니다.
 ___
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
@@ -760,6 +806,12 @@ ___
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___
+### <code>unescape</code>
+<code><b>unescape(<i>&lt;string_to_escape&gt;</i> : string, <i>&lt;format&gt;</i> : string) => string</b></code><br/><br/>
+형식에 따라 문자열을 Unescapes 합니다. 허용 되는 형식에 대 한 리터럴 값은 ' json ', ' xml ', ' ecmascript ', ' html ', ' java '입니다.
+* ```unescape('{\\\\\"value\\\\\": 10}', 'json')```
+* ```'{\\\"value\\\": 10}'```
+___
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 문자열을 Uppercases 합니다.  
@@ -1119,6 +1171,28 @@ Sorts the array using the provided predicate function. Sort expects a reference 
 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``  
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``  
 
+## <a name="cached-lookup-functions"></a>캐시 된 조회 함수
+다음 함수는 캐시 된 싱크를 포함할 때 캐시 된 조회를 사용 하는 경우에만 사용할 수 있습니다.
+___
+### <code>lookup</code>
+<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 첫 번째 행을 조회 합니다.
+* ``cacheSink#lookup(movieId)``  
+___
+### <code>mlookup</code>
+<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
+캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 일치 하는 모든 행을 조회 합니다.
+* ``cacheSink#mlookup(movieId)``  
+___
+### <code>output</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 첫 번째 행을 반환 합니다. * ``cacheSink#output()``  
+___
+### <code>outputs</code>
+<code><b>output() => any</b></code><br/><br/>
+캐시 싱크 결과의 전체 출력 행 집합을 반환 합니다. * ``cacheSink#outputs()``
+___
+
 
 ## <a name="conversion-functions"></a>변환 함수
 
@@ -1279,28 +1353,6 @@ ___
 * ``toBoolean(byName(4))``  
 * ``toString(byName($colName))``  
 * ``toString(byPosition(1234))``  
-
-## <a name="cached-lookup-functions"></a>캐시 된 조회 함수
-다음 함수는 캐시 된 싱크를 포함할 때 캐시 된 조회를 사용 하는 경우에만 사용할 수 있습니다.
-___
-### <code>lookup</code>
-<code><b>lookup(key, key2, ...) => complex[]</b></code><br/><br/>
-캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 첫 번째 행을 조회 합니다.
-* ``cacheSink#lookup(movieId)``  
-___
-### <code>mlookup</code>
-<code><b>mlookup(key, key2, ...) => complex[]</b></code><br/><br/>
-캐시 된 싱크의 키와 일치 하는 지정 된 키를 사용 하 여 캐시 된 싱크에서 일치 하는 모든 행을 조회 합니다.
-* ``cacheSink#mlookup(movieId)``  
-___
-### <code>output</code>
-<code><b>output() => any</b></code><br/><br/>
-캐시 싱크 결과의 첫 번째 행을 반환 합니다. * ``cacheSink#output()``  
-___
-### <code>outputs</code>
-<code><b>output() => any</b></code><br/><br/>
-캐시 싱크 결과의 전체 출력 행 집합을 반환 합니다. * ``cacheSink#outputs()``
-___
 
 ## <a name="window-functions"></a>창 함수
 다음 함수는 창 변환 에서만 사용할 수 있습니다.

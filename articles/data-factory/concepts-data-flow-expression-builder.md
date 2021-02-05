@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/04/2021
+ms.openlocfilehash: 753f201fbde5d9e7100b6e257f8dc79e4462d7b6
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145714"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584926"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>매핑 데이터 흐름에서 식 작성
 
@@ -73,7 +73,7 @@ ms.locfileid: "93145714"
 
 매개 변수는 파이프라인에서 런타임에 데이터 흐름에 전달 되는 값입니다. 매개 변수를 참조 하려면 **식 요소** 보기에서 매개 변수를 클릭 하거나 이름 앞에 달러 기호를 사용 하 여 해당 매개 변수를 참조 합니다. 예를 들어 parameter1 라는 매개 변수는에서 참조 됩니다 `$parameter1` . 자세히 알아보려면 [데이터 흐름 매핑 매개 변수화](parameters-data-flow.md)를 참조 하세요.
 
-### <a name="cached-lookup"></a>캐시 된 조회
+### <a name="cached-lookup"></a>캐시된 조회
 
 캐시 된 조회를 사용 하면 캐시 된 싱크의 출력에 대 한 인라인 조회를 수행할 수 있습니다. 각 싱크와에서 사용할 수 있는 두 가지 함수는 `lookup()` 및 `outputs()` 입니다. 이러한 함수를 참조 하는 구문은 `cacheSinkName#functionName()` 입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink)를 참조 하세요.
 
@@ -81,7 +81,7 @@ ms.locfileid: "93145714"
 
 `outputs()` 는 매개 변수를 사용 하지 않고 전체 캐시 싱크를 복잡 한 열의 배열로 반환 합니다. 싱크에 키 열이 지정 된 경우이를 호출할 수 없으며 캐시 싱크에 행 수가 적은 경우에만 사용 해야 합니다. 일반적인 사용 사례는 증분 키의 최 댓 값을 추가 하는 것입니다. 캐시 된 단일 집계 행에 `CacheMaxKey` 열이 포함 된 경우 `MaxKey` 를 호출 하 여 첫 번째 값을 참조할 수 있습니다 `CacheMaxKey#outputs()[1].MaxKey` .
 
-![캐시 된 조회](media/data-flow/cached-lookup-example.png "캐시 된 조회")
+![캐시된 조회](media/data-flow/cached-lookup-example.png "캐시된 조회")
 
 ### <a name="locals"></a>로컬
 
@@ -106,6 +106,9 @@ ms.locfileid: "93145714"
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> SQL 원본 쿼리에서 문자열 보간 구문을 사용 하는 경우 쿼리 문자열은 '/n ' 없이 한 줄에 있어야 합니다.
 
 ## <a name="commenting-expressions"></a>식 주석 달기
 

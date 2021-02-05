@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f9396e20ae0f426dddd57b32297cfe98e135c44
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 01a69dbf9230154b74145f932b678d6bbebbde08
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583962"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -34,13 +34,13 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
 ### <a name="choose-the-appropriate-identities"></a>적절 한 id 선택
 
-[Azure Government](../../azure-government/index.yml) 응용 프로그램은 Azure ad 정부 Id 및 Azure ad 공용 id를 사용 하 여 사용자를 인증할 수 있습니다. 이러한 id 중 하나를 사용할 수 있으므로 시나리오에 대해 선택 해야 하는 기관 끝점을 결정 해야 합니다.
+[Azure Government](../../azure-government/index.yml) 응용 프로그램은 Azure ad 정부 Id 및 Azure ad 공용 id를 사용 하 여 사용자를 인증할 수 있습니다. 이러한 id 중 하나를 사용할 수 있으므로 시나리오에 대해 선택 해야 하는 기관 끝점을 결정 합니다.
 
 - Azure AD Public: 조직에 Microsoft 365 (공용 또는 GCC) 또는 다른 응용 프로그램을 지원 하기 위한 Azure AD 공용 테 넌 트가 이미 있는 경우 일반적으로 사용 됩니다.
 - Azure AD 정부: 조직에 이미 Office 365 (GCC High 또는 DoD)를 지원 하기 위한 Azure AD 정부 테 넌 트가 있는 경우 또는 Azure AD 정부에서 새 테 넌 트를 만드는 경우 일반적으로 사용 됩니다.
@@ -91,7 +91,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 - 노드와 같은 로컬 웹 서버에 대 한 [프로젝트 파일을 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) 합니다.
 
-  또는
+  or
 
 - [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다.
 

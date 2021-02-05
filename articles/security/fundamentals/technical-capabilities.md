@@ -2,20 +2,21 @@
 title: Azure의 보안 기술 기능-Microsoft Azure
 description: 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하는 데 도움이 되는 Azure의 보안 서비스를 소개 합니다.
 services: security
-author: terrylanfear
+author: TerryLanfear
+manager: rkarlin
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 353b1708a1c6014f9108ad2be62f22c1e0b0604c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092771"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585146"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -66,7 +67,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- SSO(Single sign-on)
+- Single Sign-On
 
 - Multi-Factor Authentication
 
@@ -80,7 +81,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>SSO(Single sign-on)
+#### <a name="single-sign-on"></a>Single Sign-On
 
 [Sso (single sign-on)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 는 단일 사용자 계정을 사용 하 여 한 번만 로그인 함으로써 비즈니스를 수행 하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미 합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
@@ -167,7 +168,7 @@ Azure RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 
 - 스토리지: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
 - 전송 중: 데이터를 구성 요소, 위치 또는 프로그램 간에 전송 하는 경우 (예: Express 경로와 같은 하이브리드 연결을 포함 하 여 온-프레미스에서 클라우드로 또는 그 반대의 경우) 또는 입/출력 프로세스 중에는 이동 중 이라고 생각 합니다.
 
-### <a name="encryption-at-rest"></a>저장 데이터 암호화
+### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 휴지 상태의 암호화에 대해서는 [Azure 미사용 데이터 암호화](encryption-atrest.md)에 자세히 설명 되어 있습니다.
 
@@ -380,7 +381,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 [스토리지 분석](/rest/api/storageservices/fileservices/storage-analytics) 는 저장소 서비스에 대 한 요청에 대 한 집계 된 트랜잭션 통계 및 용량 데이터를 포함 하는 메트릭을 저장할 수 있습니다. 트랜잭션은 API 작업 수준과 스토리지 서비스 수준에서 모두 보고되며 용량은 스토리지 서비스 수준에서 보고됩니다. 메트릭 데이터를 사용하면 스토리지 서비스 사용량을 분석하고 스토리지 서비스에 대한 요청의 문제를 진단하며 서비스를 사용하는 애플리케이션의 성능을 개선할 수 있습니다.
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE를 포함하여 온-프레미스 또는 클라우드에서 호스팅되는 다양한 플랫폼의 애플리케이션에서 작동합니다. devOps 프로세스와 통합되며, 다양한 개발 도구에 대한 연결 지점이 있습니다.
 
@@ -431,20 +432,6 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 > [!Note]
 > 리소스 관리자는 솔루션을 배포 및 관리하는 새로운 방식을 제공합니다. 이전 배포 모델을 사용 하 고 변경 내용을 알아보려면 [리소스 관리자 배포 및 클래식 배포 이해](../../azure-resource-manager/management/deployment-models.md)를 참조 하세요.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-step"></a>다음 단계
 
-다음과 같은 심층적인 일부 보안 항목을 참조하여 보안에 대한 자세한 내용을 확인할 수 있습니다.
-
-- [감사 및 로깅](https://www.microsoft.com/en-us/trustcenter/security/auditingandlogging)
-
-- [사이버 범죄](https://www.microsoft.com/en-us/trustcenter/security/cybercrime)
-
-- [설계 및 운영 보안](https://www.microsoft.com/en-us/trustcenter/security/designopsecurity)
-
-- [암호화](https://www.microsoft.com/en-us/trustcenter/security/encryption)
-
-- [ID 및 액세스 관리](https://www.microsoft.com/en-us/trustcenter/security/identity)
-
-- [네트워크 보안](https://www.microsoft.com/en-us/trustcenter/security/networksecurity)
-
-- [위협 관리](https://www.microsoft.com/en-us/trustcenter/security/threatmanagement)
+[Azure 보안 벤치 마크](../benchmarks/introduction.md) 프로그램에는 azure에서 사용 하는 서비스를 보호 하는 데 사용할 수 있는 보안 권장 사항 컬렉션이 포함 되어 있습니다.

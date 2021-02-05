@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8349b7a53eb7b03b27c695bb24c8cb9bc665a1ac
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: af1047c5f890b1b88ae6d043a30704e84b8dc079
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756350"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584317"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 웹 API: 앱 등록
 
-다운스트림 웹 api를 호출 하는 web API는 보호 된 웹 API와 동일한 등록을 포함 합니다. 따라서 [보호 된 웹 API](scenario-protected-web-api-app-registration.md)의 지침에 따라 앱을 등록 해야 합니다.
+다운스트림 웹 api를 호출 하는 web API는 보호 된 웹 API와 동일한 등록을 포함 합니다. [보호 된 웹 API: 앱 등록](scenario-protected-web-api-app-registration.md)의 지침을 따릅니다.
 
 웹 앱은 이제 웹 Api를 호출 하므로 기밀 클라이언트 응용 프로그램이 됩니다. 그 이유는 추가 등록 정보가 필요 하기 때문입니다. 앱은 Microsoft id 플랫폼과 암호 (클라이언트 자격 증명)를 공유 해야 합니다.
 

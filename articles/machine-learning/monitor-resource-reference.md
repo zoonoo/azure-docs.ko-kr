@@ -8,13 +8,14 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
+ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542085"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585129"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -24,7 +25,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)입니다.
 
-**모델링**
+**모델**
 
 | 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
@@ -61,7 +62,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | CpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 CPU의 양 (%)입니다. 이 메트릭은 노드에서 작업을 실행 하는 경우에만 게시 됩니다. 한 작업에서 하나 이상의 노드를 사용할 수 있습니다. 이 메트릭은 노드당 게시 됩니다. |
 | GpuUtilization | 백분율 | 실행/작업 중 지정 된 노드에 대해 사용 된 GPU의 비율입니다. 한 노드에 하나 이상의 Gpu가 있을 수 있습니다. 이 메트릭은 노드당 GPU 당 게시 됩니다. |
 
-**Run**
+**실행**
 
 학습 실행에 대 한 정보입니다.
 
@@ -73,7 +74,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ## <a name="metric-dimensions"></a>메트릭 차원
 
-메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조 하세요.
+메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조하세요.
 
 Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차원이 있습니다.
 
@@ -228,7 +229,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 | TotalE2ETimeInSeconds | 노드가 활성 상태 였던 총 시간 |
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
 - Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.

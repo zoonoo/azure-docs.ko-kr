@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 661b0bbf1aa389dc76567d95ad917548255a1b35
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: ee57ccb82e771ee8ab93b09e476a94df32278069
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845602"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585112"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델에 대 한 학습 데이터 집합 작성
 
 폼 인식기 사용자 지정 모델을 사용 하는 경우 [사용자 지정 모델](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) 학습 작업에 고유한 학습 데이터를 제공 하 여 모델에서 산업별 양식으로 학습할 수 있습니다. 이 가이드에 따라 데이터를 수집 하 고 준비 하 여 모델을 효과적으로 학습 하는 방법을 알아보세요.
 
-수동 레이블 없이 학습 하는 경우 5 개의 채워진 양식 또는 빈 형태 (파일 이름에 "empty" 라는 단어를 포함 해야 함)와 두 개의 채워진 폼을 사용할 수 있습니다. 채워진 폼이 충분 한 경우에도 학습 데이터 집합에 빈 양식을 추가 하면 모델의 정확도를 향상 시킬 수 있습니다.
+동일한 형식의 채워진 폼이 5 개 이상 있어야 합니다.
 
-수동으로 레이블이 지정 된 학습 데이터를 사용 하려는 경우에는 동일한 형식의 5 개 이상의 채워진 양식으로 시작 해야 합니다. 필요한 데이터 집합 외에도 레이블이 없는 폼과 빈 폼을 계속 사용할 수 있습니다.
+수동으로 레이블이 지정 된 학습 데이터를 사용 하려는 경우에는 동일한 형식의 5 개 이상의 채워진 양식으로 시작 해야 합니다. 필요한 데이터 집합 외에도 레이블이 없는 폼을 계속 사용할 수 있습니다.
 
 ## <a name="custom-model-input-requirements"></a>사용자 지정 모델 입력 요구 사항
 

@@ -13,12 +13,12 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 5bccc39144186b23cc7f9fedf02e5b9d84ea2ee4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063555"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583945"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
@@ -28,7 +28,7 @@ ms.locfileid: "98063555"
 
 - 클라이언트 ID (GUID를 나타내는 문자열)
 - 응용 프로그램에 대 한 id 공급자 URL (인스턴스 이름) 및 로그인 대상이 됩니다. 이러한 두 매개 변수를 통칭 하 여 기관 이라고 합니다.
-- 조직 전용 lob (단일 테 넌 트 응용 프로그램) 응용 프로그램을 작성 하는 경우 테 넌 트 ID입니다.
+- 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (단일 테 넌 트 응용 프로그램이 라고도 하는) 테 넌 트 ID입니다.
 - 기밀 클라이언트 앱 인 경우 응용 프로그램 암호 (클라이언트 암호 문자열) 또는 인증서 (X509Certificate2 형식)입니다.
 - 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
 
@@ -60,7 +60,7 @@ ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명
 
 MSAL.NET v3. x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다.
 
-응용 프로그램을 구성 하 고 인스턴스화할 클래스에서 개체를 선언 해야 `ConfidentialClientApplicationOptions` 합니다.  Microsoft.Extensions.Configuration의 메서드를 사용 하 여 소스 (파일에 appconfig.js포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다 `IConfigurationRoot.Bind()` [ . 바인더 nuget 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+응용 프로그램을 구성 하 고 인스턴스화하 려는 클래스에서 개체를 선언 `ConfidentialClientApplicationOptions` 합니다.  Microsoft.Extensions.Configuration의 메서드를 사용 하 여 소스 (파일에 appconfig.js포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다 `IConfigurationRoot.Bind()` [ . 바인더 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;

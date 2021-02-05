@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 76f266ec915754b5746f06a340b21146b84fa711
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 4ca74070c1b0d2cd4a5cf4225443465e080b518d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071667"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584892"
 ---
 # <a name="monitoring-azure-blob-storage"></a>모니터링 Azure Blob Storage
 
@@ -50,13 +50,13 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 원한다면 클래식 메트릭 및 로그를 계속 사용할 수 있습니다. 실제로 클래식 메트릭 및 로그는 Azure Monitor의 메트릭 및 로그와 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭 및 로그에 대한 서비스를 종료할 때까지 유지됩니다.
 
-## <a name="collection-and-routing"></a>컬렉션 및 라우팅
+## <a name="collection-and-routing"></a>수집 및 라우팅
 
 플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 진단 설정을 사용 하 여 다른 위치로 라우팅할 수 있습니다. 
 
 리소스 로그를 수집 하려면 진단 설정을 만들어야 합니다. 설정을 만들 때 로그를 사용 하도록 설정 하려는 저장소 유형으로 **blob** 을 선택 합니다. 그런 다음 로그를 수집 하려는 작업의 다음 범주 중 하나를 지정 합니다. 
 
-| Category | Description |
+| 범주 | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b437efcfa2b0bb2a725929ae0253f48d97d11552
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754819"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583928"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
@@ -145,7 +145,7 @@ MSAL.NET은 토큰 캐시를 sealed 클래스로 만들어 확장 기능을 제�
 
 v1.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 모든 조직에 대해 AAD 계정을 사용하여 로그인하도록 허용할 수 있습니다. [ADAL.NET의 인증 기관 유효성 검사](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)를 참조하세요
 
-v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 모든 AAD 조직 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인하도록 허용할 수 있습니다. MSAL.NET에서 AAD 계정에 대한 로그인(ADAL.NET과 동일한 동작)을 제한하려면 `https://login.microsoftonline.com/organizations`를 사용해야 합니다. 자세한 내용은 [퍼블릭 클라이언트 애플리케이션](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)의 `authority` 매개 변수를 참조하세요.
+v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하는 경우 사용자가 모든 AAD 조직 또는 MSA(Microsoft 개인 계정)를 사용하여 로그인하도록 허용할 수 있습니다. MSAL.NET에서 AAD 계정에 대 한 로그인을 제한 하려는 경우 (ADAL.NET와 동일한 동작)를 사용 `https://login.microsoftonline.com/organizations` 합니다. 자세한 내용은 [퍼블릭 클라이언트 애플리케이션](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication)의 `authority` 매개 변수를 참조하세요.
 
 ## <a name="v10-and-v20-tokens"></a>v1.0 및 v2.0 토큰
 
@@ -182,7 +182,7 @@ string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>경고: v 1.0 web API에 해당 하는 범위에 하나 또는 두 개의 슬래시가 있어야 합니다.
 
-Azure Resource Manager API(https://management.core.windows.net/)에 해당하는 범위를 작성하려면 다음 범위를 요청해야 합니다(이중 슬래시에 주의).
+Azure Resource Manager API에 해당 하는 범위를 쓰려면 ( https://management.core.windows.net/) 두 개의 슬래시를 적어) 다음 범위를 요청 합니다.
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};

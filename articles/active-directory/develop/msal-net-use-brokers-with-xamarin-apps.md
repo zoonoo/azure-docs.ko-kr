@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: ee9f374d110115b224c48853f26037dc461e5fa0
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063487"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583844"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
 
@@ -91,7 +91,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 ### <a name="step-4-set-uiviewcontroller"></a>4 단계: UIViewController () 설정
 
-*AppDelegate.cs* 파일에서 개체 창을 설정 해야 합니다. 일반적으로 Xamarin iOS에 대 한 개체 창을 설정 하지 않아도 되지만 broker에서 응답을 보내고 받으려면 개체 창이 필요 합니다.
+여전히 *AppDelegate.cs* 파일에서 개체 창을 설정 합니다. 일반적으로 Xamarin iOS에 대 한 개체 창을 설정 하지 않아도 되지만 broker에서 응답을 보내고 받으려면 개체 창이 필요 합니다.
 
 개체 창을 설정 하려면 다음을 수행 합니다.
 
@@ -237,9 +237,9 @@ result = await app.AcquireTokenInteractive(scopes)
 
 ### <a name="step-4-add-a-redirect-uri-to-your-app-registration"></a>4 단계: 앱 등록에 리디렉션 URI 추가
 
-MSAL은 Url을 사용 하 여 broker를 호출한 다음 앱으로 돌아갑니다. 이러한 라운드트립을 완료 하려면 [Azure Portal](https://portal.azure.com)을 사용 하 여 앱에 대 한 **리디렉션 URI** 를 등록 해야 합니다.
+MSAL은 Url을 사용 하 여 broker를 호출한 다음 앱으로 돌아갑니다. 이 왕복을 완료 하려면 [Azure Portal](https://portal.azure.com)을 사용 하 여 앱에 대 한 **리디렉션 URI** 를 등록 합니다.
 
-응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 예를 들어:
+응용 프로그램에 대 한 리디렉션 URI의 형식은 APK에 서명 하는 데 사용 되는 인증서에 따라 다릅니다. 다음은 그 예입니다. 
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=

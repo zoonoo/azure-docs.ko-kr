@@ -13,12 +13,12 @@ ms.date: 11/26/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 381416384cacd44bdb1b08801f7b3174c9504d0b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 565acd745ba5d7fdec71f306d3851e599838f7d9
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761184"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584047"
 ---
 # <a name="handle-errors-and-exceptions-in-msalnet"></a>MSAL.NET에서 오류 및 예외 처리
 
@@ -38,8 +38,8 @@ throw될 수 있는 일반적인 예외와 몇 가지 가능한 완화는 다음
 
 | 예외 | 오류 코드 | 완화 방법|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: 사용자 또는 관리자가 '{appName}'이라는' {appId}' ID의 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보냅니다.| 먼저 사용자 동의를 받아야 합니다. 웹 UI가 없는 .NET Core를 사용하지 않는 경우 `AcquireTokeninteractive`를 한 번만 호출합니다. .NET Core를 사용하거나 `AcquireTokenInteractive`를 수행하지 않으려는 경우 사용자는 URL(`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`)로 이동하여 동의합니다. `AcquireTokenInteractive`를 호출하려면 `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`를 실행합니다.|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: 사용자는 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용해야 합니다.| 완화가 없습니다. MFA가 테넌트에 대해 구성되어 있고 AAD(Azure Active Directory)에서 적용하도록 결정한 경우 `AcquireTokenInteractive` 또는 `AcquireTokenByDeviceCode`와 같은 대화형 흐름으로 대체해야 합니다.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: 사용자 또는 관리자가 '{appName}'이라는' {appId}' ID의 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보냅니다.| 사용자 동의를 먼저 가져옵니다. 웹 UI가 없는 .NET Core를 사용하지 않는 경우 `AcquireTokeninteractive`를 한 번만 호출합니다. .NET Core를 사용하거나 `AcquireTokenInteractive`를 수행하지 않으려는 경우 사용자는 URL(`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`)로 이동하여 동의합니다. `AcquireTokenInteractive`를 호출하려면 `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`를 실행합니다.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: 사용자는 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용해야 합니다.| 완화가 없습니다. MFA에 대해 MFA를 구성 하 고 AAD (Azure Active Directory)에서 적용 하기로 결정 한 경우 또는와 같은 대화형 흐름으로 대체 `AcquireTokenInteractive` `AcquireTokenByDeviceCode` 합니다.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) |AADSTS90010: 권한 부여 유형은 */common* 또는 */consumers* 엔드포인트에서 지원되지 않습니다. */organizations* 또는 테넌트 특정 엔드포인트를 사용합니다. */common* 을 사용했습니다.| Azure AD의 메시지에서 설명한 대로 인증 기관에 테넌트 또는 */organizations* 가 있어야 합니다.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) | AADSTS70002: 요청 본문에는 `client_secret or client_assertion` 매개 변수가 있어야 합니다.| Azure AD에서 애플리케이션이 공용 클라이언트 애플리케이션으로 등록되지 않은 경우에 이 예외가 throw될 수 있습니다. Azure Portal에서 애플리케이션에 대한 매니페스트를 편집하고 `allowPublicClient`를 `true`로 설정합니다. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)| `unknown_user Message`: 로그인한 사용자를 식별할 수 없음| 라이브러리가 현재 Windows 로그인 사용자를 쿼리하지 못했습니다. 또는이 사용자가 AD 또는 Azure AD에 연결 되지 않았습니다 (작업에 참가 한 사용자가 지원 되지 않음). 완화 1: UWP에서 애플리케이션에 엔터프라이즈 인증, 사설망(클라이언트 및 서버), 사용자 계정 정보와 같은 기능이 있는지 확인합니다. 해결 방법 2: 사용자 이름(예: john@contoso.com)을 가져오도록 사용자 고유의 논리를 구현하고 사용자 이름을 사용하는 `AcquireTokenByIntegratedWindowsAuth` 양식을 사용합니다.|

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131131"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99585095"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
 
@@ -34,8 +34,8 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 |Name| Type | 설명 | 텍스트 | 
 |:-----|:----|:----|:----|
 | ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
-| FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
-| LastName | 문자열 | 연락처의 마지막 (패밀리) 이름 |   "Doe" | 
+| FirstName | string | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
+| LastName | string | 연락처의 마지막 (패밀리) 이름 |     "Doe" | 
 | CompanyNames | 문자열 배열 | 비즈니스 카드에서 추출 된 회사 이름 | ["Contoso"] | 
 | Departments | 문자열 배열 | 부서 또는 연락처 조직 | ["R&D"] | 
 | JobTitles | 문자열 배열 | 연락처의 나열 된 작업 제목 | ["소프트웨어 엔지니어"] | 
@@ -45,7 +45,7 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 | MobilePhones | 전화 번호 배열 | 명함에서 추출한 휴대폰 번호 | ["+ 19876543210"] |
 | 없으며 | 전화 번호 배열 | 명함에서 추출 된 팩스 번호 | ["+ 19876543211"] |
 | 근무 전화 | 전화 번호 배열 | 회사 카드에서 추출한 회사 전화 번호 | ["+ 19876543231"] |
-| OtherPhones    | 전화 번호 배열 | 명함에서 추출 된 기타 전화 번호 | ["+ 19876543233"] |
+| OtherPhones     | 전화 번호 배열 | 명함에서 추출 된 기타 전화 번호 | ["+ 19876543233"] |
 
 
 비즈니스 카드 API는 비즈니스 카드에서 인식 된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함 됩니다.  

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ebc22e3cf300b664aae5842f7cf924769d4d907e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 1187c768a54dd04d25b6de0e6785ebb81a7dfc24
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756486"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584434"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>웹 Api를 호출 하는 모바일 앱 구성
 
@@ -82,7 +82,7 @@ var app = PublicClientApplicationBuilder.Create(clientId)
 
 ##### <a name="specify-the-parent-ui-window-or-activity"></a>부모 UI, 창 또는 작업 지정
 
-Android에서는 대화형 인증을 수행 하기 전에 부모 활동을 전달 해야 합니다. IOS에서 broker를 사용 하는 경우에는 통과 해야 `ViewController` 합니다. UWP에서와 동일한 방식으로 부모 창에 전달 하는 것이 좋습니다. 토큰을 획득 하는 경우에 전달 합니다. 그러나 앱을 만들 때 콜백을 반환 하는 대리자로 지정할 수도 있습니다 `UIParent` .
+Android에서 대화형 인증을 수행 하기 전에 부모 활동을 전달 합니다. IOS에서 broker를 사용 하는 경우를 전달 `ViewController` 합니다. UWP에서와 동일한 방식으로 부모 창에 전달 하는 것이 좋습니다. 토큰을 획득 하는 경우에 전달 합니다. 그러나 앱을 만들 때 콜백을 반환 하는 대리자로 지정할 수도 있습니다 `UIParent` .
 
 ```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
