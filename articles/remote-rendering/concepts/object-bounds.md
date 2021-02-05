@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 421265bf1ee488c8e7d0c41e3ec9a250392d6f3d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: df04b767035dffb62fde89d1e74b808d62fcc943
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202789"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594487"
 ---
 # <a name="object-bounds"></a>개체 경계
 
@@ -19,43 +19,45 @@ ms.locfileid: "92202789"
 
 ## <a name="querying-object-bounds"></a>개체 경계 쿼리
 
-[메시](meshes.md)의 로컬 AABB는 메시 리소스에서 직접 쿼리할 수 있습니다. 이러한 경계는 엔터티의 변형을 사용하여 엔터티의 로컬 공간 또는 월드 공간으로 변환될 수 있습니다.
+[메시](meshes.md) 의 로컬 축에 맞춰진 경계 상자는 메시 리소스에서 직접 쿼리할 수 있습니다. 이러한 경계는 엔터티의 변형을 사용하여 엔터티의 로컬 공간 또는 월드 공간으로 변환될 수 있습니다.
 
 이 방식으로 전체 개체 계층의 경계를 컴퓨팅할 수 있지만 계층 구조를 트래버스하고 각 메시의 경계를 쿼리한 다음, 수동으로 결합해야 합니다. 이 작업은 번거롭고 비효율적입니다.
 
 더 나은 방법은 엔터티에서 `QueryLocalBoundsAsync` 또는 `QueryWorldBoundsAsync`를 호출하는 것입니다. 그런 다음, 계산이 서버로 오프로드되고 최소 지연 시간으로 반환됩니다.
 
 ```cs
-private BoundsQueryAsync _boundsQuery = null;
-
-public void GetBounds(Entity entity)
+public async void GetBounds(Entity entity)
 {
-    _boundsQuery = entity.QueryWorldBoundsAsync();
-    _boundsQuery.Completed += (BoundsQueryAsync bounds) =>
+    try
     {
-        if (bounds.IsRanToCompletion)
-        {
-            Double3 aabbMin = bounds.Result.min;
-            Double3 aabbMax = bounds.Result.max;
-            // ...
-        }
-    };
+        Task<Bounds> boundsQuery = entity.QueryWorldBoundsAsync();
+        Bounds result = await boundsQuery;
+    
+        Double3 aabbMin = result.Min;
+        Double3 aabbMax = result.Max;
+        // ...
+    }
+    catch (RRException ex)
+    {
+    }
 }
 ```
 
 ```cpp
 void GetBounds(ApiHandle<Entity> entity)
 {
-    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
-    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
-    {
-        if (bounds->GetIsRanToCompletion())
+    entity->QueryWorldBoundsAsync(
+        // completion callback:
+        [](Status status, Bounds bounds)
         {
-            Double3 aabbMin = bounds->GetResult().min;
-            Double3 aabbMax = bounds->GetResult().max;
-            // ...
+           if (status == Status::OK)
+            {
+                Double3 aabbMin = bounds.Min;
+                Double3 aabbMax = bounds.Max;
+                // ...
+            }
         }
-    });
+    );
 }
 ```
 

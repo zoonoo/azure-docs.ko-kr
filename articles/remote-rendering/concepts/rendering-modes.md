@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d8ff6640f856b3227cead6dc50befca5d5ef3e8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 2cf1872bcdd7b1bda74046198f5fc32be1069913
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202772"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594504"
 ---
 # <a name="rendering-modes"></a>렌더링 모드
 
@@ -51,33 +51,33 @@ MSAA 아티팩트는 다음 이미지에서 설명 합니다. ![ DepthBasedCompo
 
 ## <a name="setting-the-render-mode"></a>렌더링 모드 설정
 
-원격 렌더링 서버에서 사용 되는 렌더링 모드는 `AzureSession.ConnectToRuntime` 를 통해에서 지정 됩니다 `ConnectToRuntimeParams` .
+원격 렌더링 서버에서 사용 되는 렌더링 모드는 `RenderingSession.ConnectAsync` 를 통해에서 지정 됩니다 `RendererInitOptions` .
 
 ```cs
-async void ExampleConnect(AzureSession session)
+async void ExampleConnect(RenderingSession session)
 {
-    ConnectToRuntimeParams parameters = new ConnectToRuntimeParams();
+    RendererInitOptions parameters = new RendererInitOptions();
 
     // Connect with one rendering mode
-    parameters.mode = ServiceRenderMode.TileBasedComposition;
-    await session.ConnectToRuntime(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.TileBasedComposition;
+    await session.ConnectAsync(parameters);
 
-    session.DisconnectFromRuntime();
+    session.Disconnect();
 
     // Wait until session.IsConnected == false
 
     // Reconnect with a different rendering mode
-    parameters.mode = ServiceRenderMode.DepthBasedComposition;
-    await session.ConnectToRuntime(parameters).AsTask();
+    parameters.RenderMode = ServiceRenderMode.DepthBasedComposition;
+    await session.ConnectAsync(parameters);
 }
 ```
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # Azuresession ()](/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
-* [C # ConnectToRuntimeParams 구조체](/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
-* [C + + AzureSession:: ConnectToRuntime ()](/cpp/api/remote-rendering/azuresession#connecttoruntime)
-* [C + + ConnectToRuntimeParams 구조체](/cpp/api/remote-rendering/connecttoruntimeparams)
+* [C # RenderingSession ConnectAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingsession.connectasync)
+* [C # Rendererinitoptions 구조체](/dotnet/api/microsoft.azure.remoterendering.rendererinitoptions)
+* [C + + RenderingSession:: ConnectToConnectAsyncRuntime ()](/cpp/api/remote-rendering/renderingsession#connectasync)
+* [C + + RendererInitOptions 구조체](/cpp/api/remote-rendering/rendererinitoptions)
 
 ## <a name="next-steps"></a>다음 단계
 

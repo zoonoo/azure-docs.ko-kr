@@ -1,14 +1,14 @@
 ---
 title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: cfaf7a732b3233536006009613cecd5aa1649dee
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0f0afb5401fc646d26598a211604790af191f156
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951896"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594589"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "91951896"
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
 
-이러한 작업은 사용자가 계층 설정을 읽고 업데이트만 할 수 있도록 허용합니다. 작업은 관리 그룹 계층 구조 또는 계층 구조의 리소스에 대한 다른 액세스 권한을 제공하지 않습니다. 이러한 작업은 모두 Azure 기본 제공 역할 **계층 구조 설정 관리자**에서 사용할 수 있습니다.
+이러한 작업은 사용자가 계층 설정을 읽고 업데이트만 할 수 있도록 허용합니다. 작업은 관리 그룹 계층 구조 또는 계층 구조의 리소스에 대한 다른 액세스 권한을 제공하지 않습니다. 이러한 작업은 모두 Azure 기본 제공 역할 **계층 구조 설정 관리자** 에서 사용할 수 있습니다.
 
 ## <a name="setting---default-management-group"></a>설정 - 기본 관리 그룹
 
@@ -39,7 +39,7 @@ Azure Portal에서이 설정을 구성 하려면 다음 단계를 수행 합니�
 
 1. 루트 관리 그룹에서 관리 그룹 이름 옆에 있는 **세부 정보** 를 선택 합니다.
 
-1. **설정**아래에서 **계층 설정**을 선택 합니다.
+1. **설정** 아래에서 **계층 설정** 을 선택 합니다.
 
 1. **기본 관리 그룹 변경** 단추를 선택 합니다.
 
@@ -68,7 +68,7 @@ REST API를 사용 하 여이 설정을 구성 하려면 [계층 설정](/rest/a
   }
   ```
 
-기본 관리 그룹을 루트 관리 그룹으로 다시 설정하려면 동일한 엔드포인트를 사용하고 **defaultManagementGroup**을 `/providers/Microsoft.Management/managementGroups/{rootMgID}` 값으로 설정합니다.
+기본 관리 그룹을 루트 관리 그룹으로 다시 설정하려면 동일한 엔드포인트를 사용하고 **defaultManagementGroup** 을 `/providers/Microsoft.Management/managementGroups/{rootMgID}` 값으로 설정합니다.
 
 ## <a name="setting---require-authorization"></a>설정 - 권한 부여 필요
 
@@ -82,7 +82,7 @@ Azure Portal에서이 설정을 구성 하려면 다음 단계를 수행 합니�
 
 1. 루트 관리 그룹에서 관리 그룹 이름 옆에 있는 **세부 정보** 를 선택 합니다.
 
-1. **설정**아래에서 **계층 설정**을 선택 합니다.
+1. **설정** 아래에서 **계층 설정** 을 선택 합니다.
 
 1. **새 관리 그룹을 만드는 데 필요한 권한** 을 설정/해제 합니다. 옵션을 설정 합니다.
 
@@ -91,7 +91,7 @@ Azure Portal에서이 설정을 구성 하려면 다음 단계를 수행 합니�
 
 ### <a name="set-require-authorization-with-rest-api"></a>REST API 권한 부여 필요를 설정 합니다.
 
-REST API를 사용 하 여이 설정을 구성 하려면 [계층 설정](/rest/api/resources/hierarchysettings) 끝점이 호출 됩니다. 이렇게 하려면 다음 REST API URI 및 본문 형식을 사용합니다. 이 값은 _부울_이므로 값에 **true** 또는 **false**를 제공합니다. **true** 값은 이 방법을 통해 관리 그룹 계층 구조를 보호합니다.
+REST API를 사용 하 여이 설정을 구성 하려면 [계층 설정](/rest/api/resources/hierarchysettings) 끝점이 호출 됩니다. 이렇게 하려면 다음 REST API URI 및 본문 형식을 사용합니다. 이 값은 _부울_ 이므로 값에 **true** 또는 **false** 를 제공합니다. **true** 값은 이 방법을 통해 관리 그룹 계층 구조를 보호합니다.
 
 - REST API URI
 
@@ -109,7 +109,7 @@ REST API를 사용 하 여이 설정을 구성 하려면 [계층 설정](/rest/a
   }
   ```
 
-설정을 다시 끄려면 동일한 엔드포인트를 사용하고 **requireAuthorizationForGroupCreation**을 **false** 값으로 설정합니다.
+설정을 다시 끄려면 동일한 엔드포인트를 사용하고 **requireAuthorizationForGroupCreation** 을 **false** 값으로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
