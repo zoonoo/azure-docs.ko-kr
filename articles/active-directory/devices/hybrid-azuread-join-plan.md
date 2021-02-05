@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f13dfa4221f8f09c24cce3a451f3180d15ee3b99
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435760"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573333"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -30,7 +30,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 온-프레미스 ad (Active Directory) 환경이 있고 AD 도메인에 가입 된 컴퓨터를 Azure AD에 가입 하려는 경우 하이브리드 Azure AD 조인을 수행 하 여이 작업을 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 [Azure Active Directory의 장치 id 관리 소개](./overview.md)에 대해 잘 알고 있다고 가정 합니다.
 
@@ -81,6 +81,8 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 - 자격 증명 로밍 또는 사용자 프로필 로밍 또는 필수 프로필을 사용 하는 경우에는 Windows 하위 수준 장치에서 하이브리드 Azure AD 조인이 지원 되지 않습니다.
 
 - Server Core OS는 모든 유형의 장치 등록을 지원 하지 않습니다.
+
+- USMT (사용자 환경 마이그레이션 도구)는 장치 등록에서 작동 하지 않습니다.  
 
 ### <a name="os-imaging-considerations"></a>OS 이미징 고려 사항
 - 시스템 준비 도구 (Sysprep)를 사용 하 고 설치를 위해 **Windows 10 1809 이전** 이미지를 사용 하는 경우 azure Ad를 하이브리드 azure ad 조인으로 사용 하 여 이미 등록 된 장치에서 이미지를 만들지 않았는지 확인 합니다.
@@ -164,12 +166,12 @@ Id 인프라와 일치 하는 시나리오에 따라 다음을 참조 하세요.
 
 아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | Description |
+| 온-프레미스 AD UPN 유형 | 도메인 유형 | Windows 10 버전 | 설명 |
 | ----- | ----- | ----- | ----- |
 | 라우팅 가능 | 페더레이션 | 1703 릴리스 | 일반 공급 |
 | 라우팅 불가능 | 페더레이션 | 1803 릴리스 | 일반 공급 |
-| 라우팅 가능 | 관리형 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
-| 라우팅 불가능 | 관리형 | 지원되지 않음 | |
+| 라우팅 가능 | 관리 대상 | 1803 릴리스 | 일반적으로 사용 가능한 Windows 잠금 화면에서 Azure AD SSPR은 지원 되지 않습니다. |
+| 라우팅 불가능 | 관리 대상 | 지원되지 않음 | |
 
 ## <a name="next-steps"></a>다음 단계
 

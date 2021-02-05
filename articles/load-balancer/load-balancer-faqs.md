@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3752a36d22f879b95b02bd49436be78212fe56a2
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051875"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576044"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer 질문과 대답
 
@@ -52,9 +52,11 @@ nslookup 명령을 사용하여 OpenDNS 확인자에 myip.opendns.com이라는 �
 ## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Azure Load Balancer를 통해 얻을 수 있는 최대 데이터 처리량은 무엇 인가요?
 Azure LB는 통과 네트워크 부하 분산 장치 이므로 처리량 제한은 백 엔드 풀에 사용 되는 가상 컴퓨터의 유형에 따라 결정 됩니다. 다른 네트워크 처리량 관련 정보에 대 한 자세한 내용은 [가상 머신 네트워크 처리량](../virtual-network/virtual-machine-network-throughput.md)을 참조 하세요.
 
-
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>동일한 지역에서 Azure Storage에 대 한 연결은 어떻게 작동 하나요?
 위의 시나리오를 통한 아웃바운드 연결은 VM과 동일한 지역에 있는 스토리지에 연결하는 데 필요하지 않습니다. 이를 원하지 않는 경우 위에서 설명한 대로 NSG(네트워크 보안 그룹)를 사용합니다. 다른 지역의 스토리지에 연결하려면 아웃바운드 연결이 필요합니다. 동일한 지역의 VM에서 스토리지에 연결하는 경우 스토리지 진단 로그의 원본 IP 주소는 VM의 공용 IP 주소가 아니라 내부 공급자 주소가 됩니다. 동일한 지역에서 하나 이상의 Virtual Network 서브넷에 있는 VM에 대한 스토리지 계정에 액세스를 제한하려면 스토리지 계정 방화벽을 구성할 때 공용 IP 주소가 아니라 [Virtual Network 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 사용합니다. 서비스 엔드포인트가 구성되면 내부 공급자 주소가 아닌 스토리지 진단 로그에 Virtual Network 개인 IP 주소가 표시됩니다.
+
+## <a name="does-azure-load-balancer-support-tlsssl-termination"></a>TLS/SSL 종료를 지원할 Azure Load Balancer 있나요?
+아니요, Azure Load Balancer는 네트워크 부하 분산 장치를 통과 하므로 현재 종료를 지원 하지 않습니다. 응용 프로그램에서이를 요구 하는 경우 Application Gateway은 잠재적 해결책이 될 수 있습니다.
 
 ## <a name="what-are-best-practises-with-respect-to-outbound-connectivity"></a>아웃 바운드 연결에 대 한 가장 좋은 practises 무엇 인가요?
 표준 Load Balancer 및 표준 공용 IP에는 아웃 바운드 연결에 대 한 기능 및 다른 동작이 도입 되었습니다. 이는 기본 SKU와 동일하지 않습니다. 표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다. 여기에는 내부 표준 Load Balancer를 사용할 때 아웃바운드 연결을 만드는 작업이 포함됩니다. 표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다. 즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다. 단일 독립 실행형 VM, 가용성 집합의 모든 VM에 대 한 아웃 바운드 연결의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 동작 합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다. 이 동작은 부하 분산 장치에 여러 개의 네트워크 인터페이스 카드가 연결된 독립 실행형 VM의 경우에도 관찰됩니다. 하나의 NIC를 독립 실행형으로 추가하면 동일한 동작이 발생합니다. 전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](./load-balancer-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-connections.md#outboundrules)을 검토하려면 이 전체 문서를 검토합니다.

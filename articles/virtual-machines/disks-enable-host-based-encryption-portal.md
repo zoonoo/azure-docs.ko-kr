@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: fd74872bc1c46f3dddda1b6d15f14f26dc2187cb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ba7d6d8deb2034f8b2a853cf74635687561c41ea
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499376"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573605"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure Portal를 사용 하 여 호스트에서 암호화를 사용 하 여 종단 간 암호화를 사용 하도록 설정 합니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "96499376"
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. encryptionAtHost@microsoft에 전자 메일을 보냅니다. 구독에 사용할 수 있는 기능을 제공 하는 구독 Id를 사용 하는 com.
+호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 Id를 사용 하 여에 전자 메일을 보내 encryptionAtHost@microsoft.com 구독에 대해 사용 하도록 설정 된 기능을 가져옵니다.
 
 [제공 된 링크](https://aka.ms/diskencryptionupdates)를 사용 하 여 Azure Portal에 로그인 합니다.
 

@@ -4,21 +4,23 @@ description: 이 문서에서는 Azure Portal, PowerShell 또는 REST Api를 사
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 2/4/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdd6b6a195d0c6d4c4bf0489a037cb138a23a42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 62acb526a247362b17c4dfd4e26c52760deecd71
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351727"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573503"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
 서버 관리자는 서버가 상주 하는 테 넌 트에 대 한 유효한 사용자, 서비스 주체 또는 보안 Azure Active Directory 그룹 (Azure AD) 이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자** 를 사용하여 서버 관리자를 관리할 수 있습니다. 
 
 **보안 그룹** 을 추가할 때를 사용 `obj:groupid@tenantid` 합니다. 서비스 사용자는 서버 관리자 역할에 추가 된 보안 그룹에서 지원 되지 않습니다.
+
+서버 관리자 역할에 서비스 주체를 추가 하는 방법에 대 한 자세한 내용은 [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)를 참조 하세요.
 
 서버 방화벽을 사용 하는 경우 서버 관리자 클라이언트 컴퓨터의 IP 주소가 방화벽 규칙에 포함 되어야 합니다. 자세히 알아보려면 [서버 방화벽 구성](analysis-services-qs-firewall.md)을 참조 하세요.
 

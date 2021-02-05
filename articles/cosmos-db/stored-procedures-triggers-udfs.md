@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ad9e6b99b396465c2cff95bd6ab340ef9d668085
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340705"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575960"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>저장 프로시저, 트리거 및 사용자 정의 함수
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저** , **트리거** 및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
+Azure Cosmos DB는 JavaScript의 언어 통합형, 트랜잭션 실행을 제공합니다. Azure Cosmos DB에서 SQL API를 사용 하는 경우 JavaScript 언어로 **저장 프로시저**, **트리거** 및 **udf (사용자 정의 함수)** 를 작성할 수 있습니다. 데이터베이스 엔진 내에서 실행되는 JavaScript로 논리를 작성할 수 있습니다. Azure Cosmos DB 또는 [COSMOS DB SQL API 클라이언트 sdk](how-to-use-stored-procedures-triggers-udfs.md) [의 JavaScript 언어 통합 쿼리 API](javascript-query-api.md) [Azure Portal](https://portal.azure.com/)를 사용 하 여 트리거, 저장 프로시저 및 udf를 만들고 실행할 수 있습니다.
 
 ## <a name="benefits-of-using-server-side-programming"></a>서버 쪽 프로그래밍 사용의 이점
 
@@ -72,7 +72,7 @@ Azure Cosmos DB에서 JavaScript 런타임의 호스트는 데이터베이스 �
 
 ## <a name="bounded-execution"></a>제한된 예외
 
-모든 Azure Cosmos DB 작업은 지정된 시간 제한 기간 내에 완료되어야 합니다. 이 제약 조건은 JavaScript 함수인 저장 프로시저, 트리거 및 사용자 정의 함수에도 적용됩니다. 작업이 시간 제한 내에 완료되지 않으면 트랜잭션이 롤백됩니다.
+모든 Azure Cosmos DB 작업은 지정된 시간 제한 기간 내에 완료되어야 합니다. 저장 프로시저의 제한 시간은 5 초입니다. 이 제약 조건은 JavaScript 함수인 저장 프로시저, 트리거 및 사용자 정의 함수에도 적용됩니다. 작업이 시간 제한 내에 완료되지 않으면 트랜잭션이 롤백됩니다.
 
 따라서 JavaScript 함수가 시간 제한 내에 완료되거나 실행을 일괄 처리/다시 시작하는 연속 기반 모델을 구현될 것으로 보장할 수 있습니다. 시간 제한을 처리하는 저장 프로시저 및 트리거 개발을 간소화하기 위해 Azure Cosmos 컨테이너 아래의 모든 함수(예: 항목 만들기, 읽기, 업데이트 및 삭제)는 해당 작업이 완료되는지 여부를 나타내는 부울 값을 반환합니다. 이 값이 false이면 스크립트가 구성된 값보다 더 많은 시간 및 프로비전된 처리량을 사용하므로 프로시저가 실행을 래핑해야 한다는 것을 나타냅니다. 수락되지 않은 첫 번째 저장소 작업 전에 대기된 작업은 저장 프로시저가 제시간에 완료되고 더 이상 요청을 대기열에 추가하지 않을 경우 완료됩니다. 따라서 작업은 JavaScript의 콜백 규칙을 사용 하 여 스크립트의 제어 흐름을 관리 하는 방식으로 한 번에 하나씩 큐에 대기 해야 합니다. 스크립트는 서버 쪽 환경에서 실행되므로 엄격하게 관리됩니다. 실행 경계를 반복적으로 위반하는 스크립트는 비활성 상태로 표시되어 실행할 수 없으며, 실행 경계를 준수하도록 다시 만들어야 합니다.
 

@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: e1dcd52660ff43a93c6a170912fea5a5847fe9d3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232389"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575757"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -241,7 +241,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 * `appidacr`을 사용하여 호출하는 클라이언트의 인증 상태에 대한 유효성을 검사합니다. 퍼블릭 클라이언트가 API를 호출할 수 없는 경우 0이 아니어야 합니다.
 * 토큰이 재생되지 않는지 확인하려면 이전 `nonce` 클레임 목록을 검사합니다.
 * `tid`가 API를 호출할 수 있는 테넌트와 일치하는지 확인합니다.
-* 사용자가 MFA를 수행했는지 확인하려면 `acr` 클레임을 사용합니다. [조건부 액세스](../conditional-access/overview.md)를 사용하여 강제 적용되어야 합니다.
+* 사용자가 MFA를 수행했는지 확인하려면 `amr` 클레임을 사용합니다. [조건부 액세스](../conditional-access/overview.md)를 사용하여 강제 적용되어야 합니다.
 * 액세스 토큰의 `roles` 또는 `groups` 클레임을 요청한 경우 사용자가 이 작업을 수행하도록 허용된 그룹에 있는지 확인합니다.
   * 암시적 흐름을 사용하여 검색한 토큰의 경우 종종 너무 커서 토큰에 맞지 않으므로 이 데이터에 대해 [Microsoft Graph](https://developer.microsoft.com/graph/)를 쿼리해야 할 수 있습니다.
 

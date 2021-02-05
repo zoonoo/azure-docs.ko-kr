@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736224"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573367"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대 한 비용 계획 및 관리
 
@@ -51,7 +51,7 @@ App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service
 
 App Service 계획의 모든 앱을 삭제 하는 경우 계획은 구성 된 가격 책정 계층 및 인스턴스 수에 따라 요금이 계속 청구 됩니다. 원치 않는 요금을 방지 하려면 계획을 삭제 하거나 **무료** 계층으로 축소 합니다.
 
-Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예:
+Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예를 들면 다음과 같습니다.
 
 - **격리** 된 계층 App Service 계획에 대해 만든 Virtual Network
 - 백업 또는 진단 로그를 저장 하기 위해 만든 저장소 계정
@@ -125,7 +125,7 @@ App Service 계획은 둘 이상의 앱을 호스트할 수 있습니다. 배포
 
 예약 된 인스턴스 가격은 예약 된 인스턴스 수까지 구독의 해당 인스턴스에 적용 됩니다. 예약 된 인스턴스는 청구에 관련 된 것 이며 특정 계산 인스턴스와 연결 되지 않습니다. 예약 기간 중 언제 든 지 예약 된 것 보다 많은 인스턴스를 실행 하는 경우 예약 된 인스턴스에 대 한 요금이 계속 청구 됩니다. 예약 기간 중 임의의 시점에 예약 된 것 보다 더 많은 인스턴스를 실행 하는 경우 추가 인스턴스에 대해 발생 하는 정상적인 비용을 지불 합니다.
 
-**격리** 계층 (App Service 환경)은 가격 책정에서 1 년 및 3 년 예약도 지원 합니다. 자세한 내용은 [예약 할인이 Azure App Service 격리 된 스탬프에 적용 되는 방법](../cost-management-billing/reservations/reservation-discount-app-service-isolated-stamp.md)을 참조 하세요.
+**격리** 계층 (App Service 환경)은 가격 책정에서 1 년 및 3 년 예약도 지원 합니다. 자세한 내용은 [Azure App Service에 예약 할인이 적용 되는 방법](../cost-management-billing/reservations/reservation-discount-app-service.md)을 참조 하세요.
 
 ## <a name="monitor-costs"></a>비용 모니터링
 

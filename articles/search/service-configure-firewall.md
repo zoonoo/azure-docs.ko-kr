@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932800"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573248"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 IP 방화벽 구성
 
@@ -24,14 +24,14 @@ Azure Cognitive Search는 인바운드 방화벽 지원에 대 한 IP 규칙을 
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Azure Portal를 사용 하 여 IP 방화벽 구성
 
-Azure Portal에서 IP 액세스 제어 정책을 설정 하려면 Azure Cognitive Search 서비스 페이지로 이동 하 여 탐색 메뉴에서 **네트워킹** 을 선택 합니다. 끝점 네트워킹 연결은 **공용**이어야 합니다. 연결이 **개인**으로 설정 된 경우 개인 끝점을 통해서만 검색 서비스에 액세스할 수 있습니다.
+Azure Portal에서 IP 액세스 제어 정책을 설정 하려면 Azure Cognitive Search 서비스 페이지로 이동 하 여 탐색 메뉴에서 **네트워킹** 을 선택 합니다. 끝점 네트워킹 연결은 **공용** 이어야 합니다. 연결이 **개인** 으로 설정 된 경우 개인 끝점을 통해서만 검색 서비스에 액세스할 수 있습니다.
 
 ![Azure Portal에서 IP 방화벽을 구성 하는 방법을 보여 주는 스크린샷](./media/service-configure-firewall/azure-portal-firewall.png)
 
 Azure Portal은 CIDR 형식으로 IP 주소와 IP 주소 범위를 지정 하는 기능을 제공 합니다. CIDR 표기법의 예로는 8.8.8.0/24가 있습니다 .이는 8.8.8.0에서 8.8.8.255까지 범위의 Ip를 나타냅니다.
 
 > [!NOTE]
-> Azure Cognitive Search 서비스에 대해 IP 액세스 제어 정책을 사용 하도록 설정 하면 허용 되는 IP 주소 범위 목록 외부에 있는 컴퓨터에서 데이터 평면에 대 한 모든 요청이 거부 됩니다. IP 규칙을 구성 하면 Azure Portal의 일부 기능을 사용할 수 없습니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다.
+> Azure Cognitive Search 서비스에 대해 IP 액세스 제어 정책을 사용 하도록 설정 하면 허용 되는 IP 주소 범위 목록 외부에 있는 컴퓨터에서 데이터 평면에 대 한 모든 요청이 거부 됩니다. IP 규칙을 구성 하면 Azure Portal의 일부 기능을 사용할 수 없습니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다. 포털 대신 [VS Code 확장](https://aka.ms/vscode-search) 을 사용 하 여 서비스의 다양 한 구성 요소와 상호 작용할 수 있습니다.
 
 ### <a name="requests-from-your-current-ip"></a>현재 IP의 요청
 
@@ -39,7 +39,7 @@ Azure Portal은 CIDR 형식으로 IP 주소와 IP 주소 범위를 지정 하는
 
 포털에서 클라이언트 IP 주소를 자동으로 검색 합니다. 컴퓨터 또는 네트워크 게이트웨이의 클라이언트 IP 주소일 수 있습니다. 프로덕션으로 작업을 수행 하기 전에이 IP 주소를 제거 해야 합니다.
 
-현재 IP를 ip 목록에 추가 하려면 **클라이언트 ip 주소 추가**를 선택 합니다. 그런 다음 **저장**을 선택합니다.
+현재 IP를 ip 목록에 추가 하려면 **클라이언트 ip 주소 추가** 를 선택 합니다. 그런 다음 **저장** 을 선택합니다.
 
 ![현재 IP를 허용 하도록 IP 방화벽 설정을 구성 하는 방법을 보여 주는 스크린샷](./media/service-configure-firewall/enable-current-ip.png)
 

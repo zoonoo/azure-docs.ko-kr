@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 86942f509ab067a53c47b5132c451f0585760050
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: b5f4218cfcd5f9ccfbe43efac46e2f70fdc30905
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549646"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574960"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>온-프레미스 SQL server 등록 및 검사
 
@@ -67,7 +67,7 @@ SQL 계정에는 **master** 데이터베이스에 대 한 액세스 권한이 �
 SQL server를 검색할 수 있는 새 로그인 및 사용자를 만들려면 다음 단계를 수행 합니다.
 
 > [!Note]
-    > 아래의 모든 단계는 [여기](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)에 제공 된 코드를 사용 하 여 수행할 수 있습니다.
+   > 아래의 모든 단계는 [여기](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql) 에 제공 된 코드를 사용 하 여 실행할 수 있습니다.
 
 1. SSMS (SQL Server Management Studio)로 이동 하 여 서버에 연결 하 고 보안으로 이동한 후 로그인을 마우스 오른쪽 단추로 클릭 하 고 새 로그인을 만듭니다. SQL 인증을 선택 해야 합니다.
 

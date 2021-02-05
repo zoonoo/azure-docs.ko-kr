@@ -10,24 +10,26 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: c34410fcb5e1992f8b7a358801a354a1e1cf190c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98808014"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575163"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 제공 하기 위해 정기적으로 하드웨어를 새로 고칩니다. 향후 몇 개월 동안 새로운 하드웨어 세대를 기반으로 하는 게이트웨이를 추가 하 고, 트래픽을 마이그레이션하고, 궁극적으로는 일부 지역에서 이전 하드웨어를 기반으로 하는 게이트웨이를 서비스 해제할 계획입니다.  
 
-고객은 각 지역에서 사용 가능한 게이트웨이를 변경 하는 것 보다 먼저 전자 메일 및 Azure Portal에 대 한 알림이 표시 됩니다. 최신 정보는 [Azure SQL Database GATEWAY IP addresses](connectivity-architecture.md#gateway-ip-addresses) 테이블에서 유지 관리 됩니다.
+고객은 각 지역에서 사용 가능한 게이트웨이를 변경 하기 전에 서비스 상태 알림을 통해 알림을 받습니다. 고객은 [Azure Portal를 사용 하 여 활동 로그 경고를 설정할](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)수 있습니다.
+
+최신 정보는 [Azure SQL Database GATEWAY IP addresses](connectivity-architecture.md#gateway-ip-addresses) 테이블에서 유지 관리 됩니다.
 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
-## <a name="february-2021"></a>2 월 2021
+## <a name="february-2021"></a>2021년 2월
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 
 - 미국 중부: 13.89.169.20

@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: edf4ce188c9239e697e2148d4fff51966d91f85a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99252613"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575486"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
@@ -504,7 +504,7 @@ SAP에서 논리 앱의 트리거로 IDoc 패킷을 보낼 수 없는 경우 SAP
   * SAP에서 이러한 세그먼트를 해제 하려면 SAP 시스템의 ABAP 엔지니어에 게 문의 하세요.
 ### <a name="asynchronous-request-reply-for-triggers"></a>비동기 요청-트리거에 대 한 회신
 
-SAP 커넥터는 Logic Apps 트리거에 대 한 Azure의 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply.md) 을 지원 합니다. 이 패턴을 사용 하면 기본 동기 요청-회신 패턴으로 인해 실패 한 성공적인 요청을 만들 수 있습니다. 
+SAP 커넥터는 Logic Apps 트리거에 대 한 Azure의 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply) 을 지원 합니다. 이 패턴을 사용 하면 기본 동기 요청-회신 패턴으로 인해 실패 한 성공적인 요청을 만들 수 있습니다. 
 
 > [!TIP]
 > 여러 응답 작업을 포함 하는 논리 앱에서는 모든 응답 작업에서 동일한 요청-회신 패턴을 사용 해야 합니다. 예를 들어 논리 앱에서 가능한 여러 응답 작업으로 스위치 컨트롤을 사용 하는 경우 동기 또는 비동기 같은 요청-응답 패턴을 사용 하도록 모든 응답 작업을 구성 해야 합니다. 
@@ -729,7 +729,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDocs 그룹인 [패킷으로 IDocs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-message-from-sap)합니다.
 
-   예:
+   예를 들면 다음과 같습니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -1264,7 +1264,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. Action **Initialize 변수에** 대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **이름** 에 변수의 이름을 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **이름** 에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`.
 
     1. **유형** 에 대해 **문자열** 을 변수 유형으로 선택 합니다.
 
@@ -1282,7 +1282,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
     1. **TID 확인** 에 대해 **아니요** 를 선택 합니다.
 
-    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`.
 
 1. Action **SEND IDOC** 의 제목 표시줄에서 **...**  >  를 선택 합니다. **설정**. **재시도 정책** 에 대해 **기본** 완료를 선택 하는 것이 좋습니다 &gt; . 그러나 특정 요구에 맞게 사용자 지정 정책을 구성할 수 있습니다. 사용자 지정 정책의 경우 일시적인 네트워크 중단을 극복 하기 위해 하나 이상의 재시도를 구성 하는 것이 좋습니다.
 
@@ -1290,7 +1290,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. **트랜잭션 ID 확인** 작업의 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예들 들어 `IDOCtransferID`입니다.
+    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`.
 
 1. 필요에 따라 테스트 환경에서 중복 제거의 유효성을 검사 합니다. 이전 단계에서 사용한 것과 동일한 **트랜잭션 ID** GUID를 사용 하 여 **Send idoc** 작업을 반복 합니다. 동일한 IDoc를 두 번 보내면 SAP에서 tRFC 호출의 중복을 식별할 수 있는지 확인 하 고 단일 인바운드 IDoc 메시지에 대 한 두 호출을 확인할 수 있습니다.
 

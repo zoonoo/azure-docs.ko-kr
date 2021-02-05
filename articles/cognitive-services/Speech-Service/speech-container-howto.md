@@ -12,12 +12,12 @@ ms.date: 11/17/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: 온-프레미스, Docker, 컨테이너
-ms.openlocfilehash: 79e53bf39e411569f87a46bfc275c784ce84babc
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 7bebaf7558de8ec5c1fcca3c9a4526330da1d695
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703329"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575791"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Speech service Api 용 Docker 컨테이너 설치 및 실행 
 
@@ -41,16 +41,16 @@ ms.locfileid: "98703329"
 
 | 컨테이너 | 기능 | 최신 |
 |--|--|--|
-| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.7.0 |
-| 사용자 지정 음성 텍스트 변환 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.7.0 |
-| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.9.0 |
-| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.9.0 |
+| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.9.0 |
+| 사용자 지정 음성 텍스트 변환 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.9.0 |
+| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.11.0 |
+| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.11.0 |
 | 음성 언어 감지 | 오디오 파일에서 언어를 음성으로 검색 합니다. | 1.0 |
 | 인공신경망 텍스트 음성 변환 | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. | 1.3.0 |
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
@@ -317,6 +317,28 @@ ApiKey={API_KEY}
 > 컨테이너는 GStreamer을 사용 하 여 음성 SDK에 압축 된 오디오 입력을 지원 합니다.
 > 컨테이너에 GStreamer를 설치 하려면 [SPEECH SDK를 사용 하 여 코덱 압축 오디오 입력 사용](how-to-use-codec-compressed-audio-input-streams.md)의 GStreamer에 대 한 Linux 지침을 따릅니다.
 
+#### <a name="diarization-on-the-speech-to-text-output"></a>음성 텍스트 출력의 Diarization
+Diarization은 기본적으로 사용 하도록 설정 되어 있습니다. 응답에서 diarization을 가져오려면를 사용 `diarize_speech_config.set_service_property` 합니다.
+
+1. 구 출력 형식을로 설정 합니다 `Detailed` .
+2. Diarization의 모드를 설정 합니다. 지원 되는 모드는 `Identity` 및 `Anonymous` 입니다.
+```python
+diarize_speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Format',
+    value='Detailed',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+
+diarize_speech_config.set_service_property(
+    name='speechcontext-phraseDetection.speakerDiarization.mode',
+    value='Identity',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+> [!NOTE]
+> "Id" 모드는 `"SpeakerId": "Customer"` 또는 `"SpeakerId": "Agent"` 을 반환 합니다.
+> "익명" 모드는 `"SpeakerId": "Speaker 1"` 또는을 반환 합니다. `"SpeakerId": "Speaker 2"`
+
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 출력에서 감정 분석 
 음성 텍스트 컨테이너의 v 2.6.0에서 시작 하 여 미리 보기 하나 대신 TextAnalytics 3.0 API 끝점을 사용 해야 합니다. 예를 들면 다음과 같습니다.
@@ -326,7 +348,7 @@ ApiKey={API_KEY}
 > [!NOTE]
 > Text Analytics `v3.0` API는 Text Analytics와 이전 버전과 호환 되지 않습니다 `v3.0-preview.1` . 최신 감정 기능 지원을 받으려면 `v2.6.0` 음성 텍스트 컨테이너 이미지를 사용 하 여 Text Analytics `v3.0` 합니다.
 
-음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예: 
+음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예를 들면 다음과 같습니다. 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -355,7 +377,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 * " **이것은** 또 다른 문장입니다."
 
-구 목록을 구성 하려면 전화를 걸 때 사용자 고유의 구를 추가 해야 합니다. 예:
+구 목록을 구성 하려면 전화를 걸 때 사용자 고유의 구를 추가 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```python
     phrase="the tall man"
@@ -417,7 +439,7 @@ ApiKey={API_KEY}
 
 
 #### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>사용자 지정 음성-텍스트 컨테이너에서 기본 모델 다운로드  
-사용자 지정 음성-텍스트 컨테이너의 v 2.6.0부터 옵션을 사용 하 여 사용 가능한 기본 모델 정보를 가져올 수 있습니다 `BaseModelLocale=<locale>` . 이 옵션은 해당 로캘에서 청구 계정에서 사용 가능한 기본 모델 목록을 제공 합니다. 예:
+사용자 지정 음성-텍스트 컨테이너의 v 2.6.0부터 옵션을 사용 하 여 사용 가능한 기본 모델 정보를 가져올 수 있습니다 `BaseModelLocale=<locale>` . 이 옵션은 해당 로캘에서 청구 계정에서 사용 가능한 기본 모델 목록을 제공 합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 docker run --rm -it \
@@ -433,7 +455,7 @@ ApiKey={API_KEY}
 * 컨테이너 이미지에서 *Custom Speech 텍스트* 컨테이너를 실행 합니다.
 * 대상 로캘의 사용 가능한 기본 모델을 확인 하 고 반환 합니다.
 
-출력은 정보 로캘, 모델 id 및 만든 날짜 시간을 사용 하 여 기본 모델의 목록을 제공 합니다. 모델 id를 사용 하 여 원하는 특정 기본 모델을 다운로드 하 여 사용할 수 있습니다. 예:
+출력은 정보 로캘, 모델 id 및 만든 날짜 시간을 사용 하 여 기본 모델의 목록을 제공 합니다. 모델 id를 사용 하 여 원하는 특정 기본 모델을 다운로드 하 여 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us

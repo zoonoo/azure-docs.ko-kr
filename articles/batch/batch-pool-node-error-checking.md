@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 02/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8901877ab3055c02dfc8c129fb35864418cd19d8
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549138"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576315"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -24,7 +24,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 ### <a name="resize-timeout-or-failure"></a>크기 조정 시간 제한 또는 오류
 
-새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다. 작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다. [만들기](/rest/api/batchservice/pool/add) 또는 [크기 조정](/rest/api/batchservice/pool/resize) API에서 cam 크기 조정 시간 제한을 지정 합니다. 일괄 처리 제한 시간 동안 일괄 처리에서 대상 노드 수를 가져올 수 없는 경우 풀이 안정 된 상태로 전환 되 고 크기 조정 오류가 보고 됩니다.
+새 풀을 만들거나 기존 풀의 크기를 조정할 때는 노드의 대상 수를 지정합니다. 작업은 즉시 완료되지만 새 노드의 실제 할당 또는 기존 노드의 제거에는 몇 분 정도 걸릴 수 있습니다. [만들기](/rest/api/batchservice/pool/add) 또는 [크기 조정](/rest/api/batchservice/pool/resize) API에서 크기 조정 제한 시간을 지정할 수 있습니다. 일괄 처리 제한 시간 동안 일괄 처리에서 대상 노드 수를 가져올 수 없는 경우 풀이 안정 된 상태로 전환 되 고 크기 조정 오류가 보고 됩니다.
 
 가장 최근 평가의 [ResizeError](/rest/api/batchservice/pool/get#resizeerror) 속성은 발생한 오류를 나열합니다.
 

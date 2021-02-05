@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 7c5b4f0d5d4b153684683963c56b7506e76d963e
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397153"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575656"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 재작성
 
@@ -49,18 +49,18 @@ Application Gateway는 요청 및 응답 패킷이 클라이언트와 백 엔드
 다시 작성 작업을 사용 하 여 재작성 하려는 요청 및 응답 헤더와 헤더의 새 값을 지정 합니다. 새 헤더를 만들거나 기존 헤더의 값을 수정 하거나 기존 헤더를 삭제할 수 있습니다. 새 헤더 또는 기존 헤더의 값은 다음과 같은 형식 값으로 설정할 수 있습니다.
 
 - Text.
-- 요청 헤더. 요청 헤더를 지정 하려면 {http_req_ *헤드 ername* } 구문을 사용 해야 합니다.
-- 응답 헤더입니다. 응답 헤더를 지정 하려면 {http_resp_ *헤드 ername* } 구문을 사용 해야 합니다.
-- 서버 변수입니다. 서버 변수를 지정 하려면 {var_ *Servervariable* } 구문을 사용 해야 합니다.
+- 요청 헤더. 요청 헤더를 지정 하려면 {http_req_ *헤드 ername*} 구문을 사용 해야 합니다.
+- 응답 헤더입니다. 응답 헤더를 지정 하려면 {http_resp_ *헤드 ername*} 구문을 사용 해야 합니다.
+- 서버 변수입니다. 서버 변수를 지정 하려면 {var_ *Servervariable*} 구문을 사용 해야 합니다.
 - 텍스트, 요청 헤더, 응답 헤더 및 서버 변수의 조합입니다.
 
 ## <a name="server-variables"></a>서버 변수
 
-Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 정보, 클라이언트에 대 한 연결 및 현재 연결 요청을 저장 합니다. 저장 되는 정보의 예로는 클라이언트의 IP 주소와 웹 브라우저 유형이 있습니다. 서버 변수는 새 페이지가 로드 될 때 또는 양식이 게시 될 때와 같이 동적으로 변경 됩니다. 이러한 변수를 사용 하 여 재작성 조건을 평가 하 고 헤더를 다시 작성할 수 있습니다. 서버 변수 값을 사용 하 여 헤더를 다시 작성 하려면 {var_ *Servervariable* } 구문에서 이러한 변수를 지정 해야 합니다.
+Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 정보, 클라이언트에 대 한 연결 및 현재 연결 요청을 저장 합니다. 저장 되는 정보의 예로는 클라이언트의 IP 주소와 웹 브라우저 유형이 있습니다. 서버 변수는 새 페이지가 로드 될 때 또는 양식이 게시 될 때와 같이 동적으로 변경 됩니다. 이러한 변수를 사용 하 여 재작성 조건을 평가 하 고 헤더를 다시 작성할 수 있습니다. 서버 변수 값을 사용 하 여 헤더를 다시 작성 하려면 {var_ *Servervariable*} 구문에서 이러한 변수를 지정 해야 합니다.
 
 Application gateway는 다음 서버 변수를 지원 합니다.
 
-| 변수 이름 | Description                                                  |
+| 변수 이름 | 설명                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | `client_ip`I p 1, IP2, p 3 등의 형식으로 추가 된 (이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다. 이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
 | ciphers_supported          | 클라이언트에서 지 원하는 암호화 목록입니다.          |
@@ -69,21 +69,21 @@ Application gateway는 다음 서버 변수를 지원 합니다.
 | client_port                | 클라이언트 포트입니다.                                                  |
 | client_tcp_rtt             | 클라이언트 TCP 연결에 대 한 정보입니다. TCP_INFO 소켓 옵션을 지 원하는 시스템에서 사용할 수 있습니다. |
 | client_user                | HTTP 인증을 사용 하는 경우 인증을 위해 제공 되는 사용자 이름입니다. |
-| 호스트                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* 호스트 값은 *contoso.com* 입니다. |
+| 호스트                       | 이 우선 순위 순서 대로: 요청 줄의 호스트 이름, 호스트 요청 헤더 필드의 호스트 이름 또는 요청과 일치 하는 서버 이름입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` 호스트 값은 *contoso.com* 입니다. |
 | cookie_ *이름*              | *이름* 쿠키입니다.                                            |
 | http_method                | URL 요청을 만드는 데 사용 되는 메서드입니다. 예를 들어 GET 또는 POST입니다. |
 | http_status                | 세션 상태입니다. 예: 200, 400 또는 403.                       |
 | http_version               | 요청 프로토콜입니다. 일반적으로 HTTP/1.0, HTTP/1.1 또는 HTTP/2.0입니다. |
-| query_string               | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* query_string 값은 *id = 123&title = fabrikam* 입니다. |
+| query_string               | 요청 된 URL에서 "?" 뒤에 오는 변수/값 쌍의 목록입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` query_string 값은 *id = 123&title = fabrikam* 입니다. |
 | received_bytes             | 요청 (요청 줄, 헤더 및 요청 본문 포함)의 길이입니다. |
 | request_query              | 요청 줄의 인수입니다.                                |
 | request_scheme             | 요청 체계: http 또는 https.                            |
-| request_uri                | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* request_uri 값은 */article.aspx? id = 123&title = fabrikam* 입니다.   |
+| request_uri                | 전체 원래 요청 URI (인수 포함)입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` request_uri 값은 */article.aspx? id = 123&title = fabrikam* 입니다.   |
 | sent_bytes                 | 클라이언트에 전송 된 바이트 수입니다.                             |
 | server_port                | 요청을 수락한 서버 포트입니다.                 |
 | ssl_connection_protocol    | 설정 된 TLS 연결의 프로토콜입니다.        |
 | ssl_enabled                | TLS 모드에서 연결이 작동 하는 경우 "On"입니다. 그렇지 않으면 빈 문자열입니다. |
-| uri_path                   | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* uri_path 값은 */article.aspx* 입니다.  |
+| uri_path                   | 웹 클라이언트에서 액세스 하려는 호스트의 특정 리소스를 식별 합니다. 이는 인수가 없는 요청 URI의 일부입니다. 예: 요청에서 `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` uri_path 값은 */article.aspx* 입니다.  |
 
 ## <a name="rewrite-configuration"></a>구성 재작성
 
@@ -91,19 +91,19 @@ HTTP 헤더 재작성을 구성 하려면 다음 단계를 완료 해야 합니�
 
 1. HTTP 헤더 재작성에 필요한 개체를 만듭니다.
 
-   - **다시 작성 작업** : 재작성 하려는 요청 및 요청 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다. 재작성 작업과 하나 이상의 재작성 조건을 연결할 수 있습니다.
+   - **다시 작성 작업**: 재작성 하려는 요청 및 요청 헤더 필드와 헤더의 새 값을 지정 하는 데 사용 됩니다. 재작성 작업과 하나 이상의 재작성 조건을 연결할 수 있습니다.
 
-   - **다시 쓰기 조건** : 선택적 구성입니다. 다시 쓰기 조건은 HTTP 요청 및 응답의 콘텐츠를 평가 합니다. HTTP (S) 요청 또는 응답이 재작성 조건과 일치 하면 재작성 작업이 수행 됩니다.
+   - **다시 쓰기 조건**: 선택적 구성입니다. 다시 쓰기 조건은 HTTP 요청 및 응답의 콘텐츠를 평가 합니다. HTTP (S) 요청 또는 응답이 재작성 조건과 일치 하면 재작성 작업이 수행 됩니다.
 
      작업에 둘 이상의 조건을 연결 하는 경우 모든 조건이 충족 되는 경우에만 작업이 수행 됩니다. 즉, 작업은 논리적 AND 연산입니다.
 
-   - **재작성 규칙** : 여러 재작성 작업/재작성 조건 조합을 포함 합니다.
+   - **재작성 규칙**: 여러 재작성 작업/재작성 조건 조합을 포함 합니다.
 
-   - **규칙 순서** : 재작성 규칙이 실행 되는 순서를 결정 하는 데 도움이 됩니다. 이 구성은 재작성 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용 합니다. 규칙 시퀀스 값이 낮은 재작성 규칙이 먼저 실행 됩니다. 두 재작성 규칙에 동일한 규칙 시퀀스를 할당 하는 경우 실행 순서는 비결 정적입니다.
+   - **규칙 순서**: 재작성 규칙이 실행 되는 순서를 결정 하는 데 도움이 됩니다. 이 구성은 재작성 집합에 다시 쓰기 규칙이 여러 개 있는 경우에 유용 합니다. 규칙 시퀀스 값이 낮은 재작성 규칙이 먼저 실행 됩니다. 두 재작성 규칙에 동일한 규칙 시퀀스를 할당 하는 경우 실행 순서는 비결 정적입니다.
 
-   - **재작성 집합** : 요청 라우팅 규칙과 연결 되는 재작성 규칙을 여러 개 포함 합니다.
+   - **재작성 집합**: 요청 라우팅 규칙과 연결 되는 재작성 규칙을 여러 개 포함 합니다.
 
-2. 재작성 집합 ( *rewriteRuleSet* )을 라우팅 규칙에 연결 합니다. 재작성 구성은 라우팅 규칙을 통해 원본 수신기에 연결 됩니다. 기본 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 원본 수신기와 연결 되며 전역 헤더 재작성입니다. 경로 기반 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 URL 경로 맵에 정의 됩니다. 이 경우 사이트의 특정 경로 영역에만 적용 됩니다.
+2. 재작성 집합 (*rewriteRuleSet*)을 라우팅 규칙에 연결 합니다. 재작성 구성은 라우팅 규칙을 통해 원본 수신기에 연결 됩니다. 기본 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 원본 수신기와 연결 되며 전역 헤더 재작성입니다. 경로 기반 라우팅 규칙을 사용 하는 경우 헤더 재작성 구성은 URL 경로 맵에 정의 됩니다. 이 경우 사이트의 특정 경로 영역에만 적용 됩니다.
    > [!NOTE]
    > URL 다시 쓰기는 헤더를 변경 합니다. 경로에 대 한 URL을 변경 하지 않습니다.
 

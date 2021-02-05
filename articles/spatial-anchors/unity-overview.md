@@ -6,18 +6,21 @@ ms.author: parkerra
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
-ms.date: 11/20/2020
+ms.date: 2/4/2021
 ms.topic: conceptual
-ms.openlocfilehash: 51df8ff31c6f86608b7cae53ca779a2a03068e57
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9d64f4a23bf340f857d5aee8a3e0c99e1859091
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487268"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575411"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 Unity에서 빌드
 
 개발자는 Azure 공간 앵커를 사용 하는 혼합 현실 응용 프로그램을 만들고 배포 하기 위해 Unity를 선택할 수 있습니다.
+
+[!INCLUDE [Unity Project Requirements](../../includes/spatial-anchors-unity-project-requirements.md)]
+
 지원되는 플랫폼은 다음과 같습니다.
 
 **HoloLens용 Unity**

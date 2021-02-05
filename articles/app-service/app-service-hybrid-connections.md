@@ -4,15 +4,15 @@ description: Azure App Service에서 하이브리드 연결을 만들고 사용 
 author: ccompy
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 02/04/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 16f6a0660fa9aa20f636ee412f3f337bd5dea9b5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 20bdeef0a45bb02fab8841c0dd8ec7755143c693
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825979"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575994"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "97825979"
 
 App Service 내에서 하이브리드 연결 포트 443을 통해 Azure에 대 한 아웃 바운드 호출을 수행할 수 있는 모든 네트워크의 응용 프로그램 리소스에 액세스 하는 데 사용할 수 있습니다. 하이브리드 연결는 앱에서 TCP 끝점으로의 액세스를 제공 하 고 새로운 방식으로 앱에 액세스할 수 없습니다. App Service에서 사용되는 것처럼 각 하이브리드 연결은 단일 TCP 호스트 및 포트 조합에 상호 연결됩니다. 이렇게 하면 앱이 TCP 엔드포인트 인 경우 모든 OS의 리소스에 액세스할 수 있습니다. 하이브리드 연결 기능은 애플리케이션 프로토콜이 무엇인지 또는 사용자가 무엇에 액세스하고 있는지 인식하거나 상관하지 않습니다. 단지 네트워크 액세스를 제공 합니다.  
 
-## <a name="how-it-works"></a>작동 방식 ##
+## <a name="how-it-works"></a>작동 방법 ##
 하이브리드 연결에는 원하는 끝점과 Azure에 연결할 수 있는 릴레이 에이전트가 배포 되어야 합니다. 릴레이 에이전트 하이브리드 연결 관리자 (HCM)는 포트 443을 통해 Azure Relay를 호출 합니다. 웹 앱 사이트에서 App Service 인프라는 응용 프로그램을 대신 하 여 Azure Relay에도 연결 합니다. 조인 된 연결을 통해 앱은 원하는 끝점에 액세스할 수 있습니다. 연결은 인증 및 권한 부여를 위한 보안 및 SAS(공유 액세스 서명) 키에 TLS 1.2를 사용합니다.    
 
 ![하이브리드 연결 대략적인 흐름의 다이어그램][1]
@@ -42,7 +42,7 @@ App Service 내에서 하이브리드 연결 포트 443을 통해 Azure에 대 �
 - 일반적으로 방화벽 구멍이 필요하지 않습니다. 연결은 모두 표준 웹 포트를 통한 아웃바운드입니다.
 - 기능이 네트워크 수준이므로 이는 앱에서 사용되는 언어 및 엔드포인트에서 사용되는 기술과 관계없음을 의미합니다.
 - 단일 앱에서 여러 네트워크에 액세스하는 데 사용될 수 있습니다. 
-- Windows 네이티브 앱 용 GA에서 지원 되며, Linux 앱에 대 한 미리 보기에 있습니다. Windows 컨테이너 앱에 대해서는 지원 되지 않습니다.
+- Windows 앱 및 Linux 앱 용 GA에서 지원 됩니다. Windows 컨테이너 앱에 대해서는 지원 되지 않습니다.
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>하이브리드 연결로 할 수 없는 작업 ###
 
@@ -95,7 +95,7 @@ App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 �
 | 요금제 | 요금제에서 사용 가능한 하이브리드 연결 수 |
 |----|----|
 | Basic | 플랜당 5개 |
-| 표준 | 플랜당 25개 |
+| Standard | 플랜당 25개 |
 | PremiumV2 | 앱당 200개 |
 | 격리 | 앱당 200개 |
 

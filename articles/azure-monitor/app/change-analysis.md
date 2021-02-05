@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 728fd8f4705d24f719b6dd47ba88d89fb399fd5a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195877"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576416"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -28,6 +28,17 @@ ms.locfileid: "98195877"
 다음 다이어그램은 변경 분석의 아키텍처를 보여 줍니다.
 
 ![변경 분석에서 변경 데이터를 가져오고 클라이언트 도구에 제공 하는 방법에 대 한 아키텍처 다이어그램](./media/change-analysis/overview.png)
+
+## <a name="supported-resource-types"></a>지원되는 리소스 유형
+
+응용 프로그램 변경 내용 분석 서비스는 다음과 같은 일반적인 리소스를 비롯 하 여 모든 Azure 리소스 유형에 서 리소스 속성 수준 변경을 지원 합니다.
+- Virtual Machine
+- 가상 머신 크기 집합
+- App Service
+- Azure Kubernetes 서비스
+- Azure Function
+- 네트워킹 리소스 (예: 네트워크 보안 그룹, Virtual Network, Application Gateway 등)
+- 데이터 서비스: 예: Storage, SQL, Redis Cache, Cosmos DB 등
 
 ## <a name="data-sources"></a>데이터 원본
 
@@ -49,17 +60,27 @@ IP 구성 규칙, TLS 설정, 확장 버전 등의 설정은 Azure 리소스 그
 
 ### <a name="dependency-changes"></a>종속성 변경
 
-리소스 종속성이 변경 되 면 웹 앱에서 문제가 발생할 수도 있습니다. 예를 들어 웹 앱이 Redis cache를 호출 하는 경우 Redis cache SKU는 웹 앱 성능에 영향을 줄 수 있습니다. 종속성의 변경 내용을 감지 하기 위해 변경 분석은 웹 앱의 DNS 레코드를 확인 합니다. 이러한 방식으로 문제를 일으킬 수 있는 모든 응용 프로그램 구성 요소의 변경 내용을 식별 합니다.
-현재 지원 되는 종속성은 다음과 같습니다.
+리소스 종속성을 변경 하면 리소스에서 문제가 발생할 수도 있습니다. 예를 들어 웹 앱이 Redis cache를 호출 하는 경우 Redis cache SKU는 웹 앱 성능에 영향을 줄 수 있습니다. 또 다른 예는 가상 컴퓨터의 네트워크 보안 그룹에서 포트 22를 닫은 경우 연결 오류가 발생 하는 것입니다. 
+
+#### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>웹 앱 진단 및 문제 해결 탐색기 (미리 보기)
+종속성의 변경 내용을 감지 하기 위해 변경 분석은 웹 앱의 DNS 레코드를 확인 합니다. 이러한 방식으로 문제를 일으킬 수 있는 모든 응용 프로그램 구성 요소의 변경 내용을 식별 합니다.
+현재 **웹 앱 진단 및 문제 해결에서 지원 되는 종속성은 다음과 같습니다. 탐색기 (미리 보기)**:
 - Web Apps
 - Azure Storage
 - Azure SQL
 
-## <a name="application-change-analysis-service"></a>응용 프로그램 변경 분석 서비스
+#### <a name="related-resources"></a>관련 참고 자료
+응용 프로그램 변경 분석은 관련 된 리소스를 검색 합니다. 일반적인 예는 가상 머신과 관련 된 네트워크 보안 그룹, Virtual Network, Application Gateway 및 Load Balancer입니다. 네트워크 리소스는 일반적으로 해당 리소스를 사용 하는 리소스와 동일한 리소스 그룹에 자동으로 프로 비전 되므로 리소스 그룹별 변경 내용에 대 한 필터링을 통해 가상 컴퓨터 및 관련 네트워킹 리소스에 대 한 모든 변경 내용이 표시 됩니다.
+
+![네트워킹 변경의 스크린샷](./media/change-analysis/network-changes.png)
+
+## <a name="application-change-analysis-service-enablement"></a>응용 프로그램 변경 분석 서비스 지원
 
 응용 프로그램 변경 분석 서비스는 위에서 언급 한 데이터 원본의 변경 데이터를 계산 하 고 집계 합니다. 사용자가 모든 리소스 변경 사항을 쉽게 탐색 하 고 문제 해결 또는 모니터링 컨텍스트와 관련 된 변경 내용을 식별할 수 있도록 분석 집합을 제공 합니다.
-"Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱 진단 및 문제 해결 도구를 입력 하거나 변경 분석 독립 실행형 탭을 표시할 때이 리소스 공급자가 자동으로 등록 됩니다. 구독에 대 한 성능 또는 비용 구현이 없습니다. 웹 앱에 대 한 변경 분석을 사용 하도록 설정 하는 경우 (또는 문제 진단 및 해결 도구를 사용 하는 경우) 웹 앱에 대 한 성능 영향을 최소화 하 고 청구 비용을 부과 하지 않습니다.
-웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
+"Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱 진단 및 문제 해결 도구를 입력 하거나 변경 분석 독립 실행형 탭을 표시할 때이 리소스 공급자가 자동으로 등록 됩니다. 웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
+
+## <a name="cost"></a>Cost
+응용 프로그램 변경 분석은 무료 서비스입니다. 구독에 대 한 청구 비용은 사용 하도록 설정 되지 않습니다. 또한 서비스는 Azure 리소스 속성 변경 내용 검색에 대 한 성능 영향을 주지 않습니다. 웹 앱 게스트 파일 변경 내용에 대 한 변경 분석을 사용 하도록 설정 하는 경우 (또는 문제 진단 및 해결 도구를 사용 하는 경우), 웹 앱의 성능에 영향을 주지 않으며 요금 청구 비용이 없습니다.
 
 ## <a name="visualizations-for-application-change-analysis"></a>응용 프로그램 변경 분석에 대 한 시각화
 
@@ -82,6 +103,11 @@ Azure Portal의 검색 창에서 변경 분석을 검색 하 여 환경을 시�
 피드백은 블레이드 또는 전자 메일의 사용자 의견 보내기 단추를 사용 changeanalysisteam@microsoft.com 합니다.
 
 ![변경 분석 블레이드의 피드백 단추 스크린샷](./media/change-analysis/change-analysis-feedback.png)
+
+#### <a name="multiple-subscription-support"></a>여러 구독 지원
+UI는 여러 구독을 선택 하 여 리소스 변경 내용을 볼 수 있도록 지원 합니다. 구독 필터를 사용 합니다.
+
+![여러 구독 선택을 지 원하는 구독 필터 스크린샷](./media/change-analysis/multiple-subscriptions-support.png)
 
 ### <a name="web-app-diagnose-and-solve-problems"></a>웹 앱 문제 진단 및 해결
 

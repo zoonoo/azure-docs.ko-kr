@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 외부 이벤트�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 3cd04c93d508bd06c4ddd2e05074084202b9fc60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c08306edcea02a9207ab5a15eb62b7fffc2ecb44
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87014942"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576332"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>지속성 함수의 외부 이벤트 처리(Azure Functions)
 
@@ -20,7 +20,7 @@ ms.locfileid: "87014942"
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-오케스트레이션 트리거 바인딩의 [Waitforexternalevent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.net), `waitForExternalEvent` (JavaScript) 및 (Python) 메서드를 사용 하면 오 케 스트레이 터 `wait_for_external_event` 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
+오케스트레이션 트리거 바인딩의 [Waitforexternalevent](/dotnet/api/microsoft.azure.webjobs.durableorchestrationcontextbase.waitforexternalevent?view=azure-dotnet-legacy) (.net), `waitForExternalEvent` (JavaScript) 및 (Python) 메서드를 사용 하면 오 케 스트레이 터 `wait_for_external_event` 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. [](durable-functions-bindings.md#orchestration-trigger) 수신 오케스트레이터는 이벤트의 *이름* 과 수신할 것으로 예상되는 *데이터의 셰이프* 를 선언합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -156,7 +156,7 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ---
 
-앞의 예제에서는 여러 이벤트 중 *하나*를 수신 대기합니다. *모든* 이벤트를 기다릴 수도 있습니다.
+앞의 예제에서는 여러 이벤트 중 *하나* 를 수신 대기합니다. *모든* 이벤트를 기다릴 수도 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -230,14 +230,14 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ## <a name="send-events"></a>이벤트 보내기
 
-[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) (.net) 또는 `raiseEventAsync` (JavaScript) 메서드를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수 있습니다. 이러한 메서드는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩에 의해 노출 됩니다. 기본 제공 [이벤트 발생 HTTP API](durable-functions-http-api.md#raise-event) 를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수도 있습니다.
+[RaiseEventAsync](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclientbase.raiseeventasync?view=azure-dotnet-legacy) (.net) 또는 `raiseEventAsync` (JavaScript) 메서드를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수 있습니다. 이러한 메서드는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 바인딩에 의해 노출 됩니다. 기본 제공 [이벤트 발생 HTTP API](durable-functions-http-api.md#raise-event) 를 사용 하 여 오케스트레이션에 외부 이벤트를 보낼 수도 있습니다.
 
-발생 한 이벤트에는 *인스턴스 ID*, *eventName*및 *eventData* 가 매개 변수로 포함 됩니다. Orchestrator 함수는 `WaitForExternalEvent` (.net) 또는 (JavaScript) api를 사용 하 여 이러한 이벤트를 처리 `waitForExternalEvent` 합니다. 이벤트를 처리 하려면 *eventName* 이 송신 및 수신 끝 모두에서 일치 해야 합니다. 또한 이벤트 데이터는 JSON serializable 이어야 합니다.
+발생 한 이벤트에는 *인스턴스 ID*, *eventName* 및 *eventData* 가 매개 변수로 포함 됩니다. Orchestrator 함수는 `WaitForExternalEvent` (.net) 또는 (JavaScript) api를 사용 하 여 이러한 이벤트를 처리 `waitForExternalEvent` 합니다. 이벤트를 처리 하려면 *eventName* 이 송신 및 수신 끝 모두에서 일치 해야 합니다. 또한 이벤트 데이터는 JSON serializable 이어야 합니다.
 
-내부적으로 "이벤트 발생" 메커니즘은 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 큐에 삽입 합니다. 인스턴스가 지정된 *이벤트 이름*에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름*에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
+내부적으로 "이벤트 발생" 메커니즘은 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 큐에 삽입 합니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
 
 > [!NOTE]
-> 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
+> 지정된 *인스턴스 ID* 가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
 
 다음은 오케스트레이터 함수 인스턴스에 "승인" 이벤트를 보내는 큐 트리거 함수 예제입니다. 오케스트레이션 인스턴스 ID는 큐 메시지 본문에서 가져옵니다.
 
@@ -280,10 +280,10 @@ async def main(instance_id:str, starter: str) -> func.HttpResponse:
 
 ---
 
-내부적으로 `RaiseEventAsync` (.net), `raiseEvent` (JavaScript) 또는 `raise_event` (Python) 큐는 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 가져옵니다. 인스턴스가 지정된 *이벤트 이름*에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름*에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
+내부적으로 `RaiseEventAsync` (.net), `raiseEvent` (JavaScript) 또는 `raise_event` (Python) 큐는 대기 오 케 스트레이 터 함수에 의해 선택 되는 메시지를 가져옵니다. 인스턴스가 지정된 *이벤트 이름* 에서 대기하고 있지 않으면 이벤트 메시지가 메모리 내 큐에 추가됩니다. 오케스트레이션 인스턴스에서 나중에 해당 *이벤트 이름* 에 대한 수신 대기를 시작하는 경우 이벤트 메시지가 큐에 있는지 확인합니다.
 
 > [!NOTE]
-> 지정된 *인스턴스 ID*가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
+> 지정된 *인스턴스 ID* 가 있는 오케스트레이션 인스턴스가 없으면 이벤트 메시지가 삭제됩니다.
 
 ### <a name="http"></a>HTTP
 
@@ -296,7 +296,7 @@ Content-Type: application/json
 "true"
 ```
 
-이 경우 인스턴스 ID는 *Myinstanceid*로 하드 코딩 됩니다.
+이 경우 인스턴스 ID는 *Myinstanceid* 로 하드 코딩 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

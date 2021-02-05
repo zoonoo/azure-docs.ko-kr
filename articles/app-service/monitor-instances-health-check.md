@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 60a210c6c336c1b820015304e8ab53bc894c17bf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792493"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575231"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용 하 여 App Service 인스턴스 모니터링
 
 ![상태 검사 오류][2]
 
-이 문서에서는 Azure Portal의 상태 검사를 사용 하 여 App Service 인스턴스를 모니터링 합니다. 상태 검사는 비정상 인스턴스를 제거 하 여 응용 프로그램의 가용성을 높입니다. 상태 검사를 사용 하려면 [App Service 계획](/overview-hosting-plans) 을 둘 이상의 인스턴스로 확장 해야 합니다. 상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내는 500 수준 응답 코드를 반환 해야 합니다.
+이 문서에서는 Azure Portal의 상태 검사를 사용 하 여 App Service 인스턴스를 모니터링 합니다. 상태 검사는 비정상 인스턴스를 제거 하 여 응용 프로그램의 가용성을 높입니다. 상태 검사를 사용 하려면 [App Service 계획](/azure/app-service/overview-hosting-plans) 을 둘 이상의 인스턴스로 확장 해야 합니다. 상태 검사 경로는 응용 프로그램의 중요 한 구성 요소를 확인 해야 합니다. 예를 들어 응용 프로그램이 데이터베이스 및 메시징 시스템에 종속 된 경우 상태 검사 끝점은 해당 구성 요소에 연결 해야 합니다. 응용 프로그램에서 중요 한 구성 요소에 연결할 수 없는 경우이 경로는 앱이 비정상 상태임을 나타내는 500 수준 응답 코드를 반환 해야 합니다.
 
 ## <a name="what-app-service-does-with-health-checks"></a>상태 검사를 수행 하는 App Service
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
-ms.date: 11/01/2019
-ms.openlocfilehash: 54119585d4f1377b60b85fbad01fe90f097a304f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/03/2021
+ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95905177"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575445"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR에 대 한 진단 로깅 사용
 
@@ -35,9 +35,9 @@ ms.locfileid: "95905177"
     2. 타사 서비스 또는 사용자 지정 분석 솔루션에의 한 수집을 위해 **이벤트 허브로 스트리밍합니다** . 이 단계를 구성 하려면 먼저 이벤트 허브 네임 스페이스 및 이벤트 허브 정책을 만들어야 합니다.
     3. Azure Monitor에서 Log Analytics 작업 영역 **으로 스트리밍합니다** . 이 옵션을 선택 하려면 먼저 로그 분석 작업 영역을 만들어야 합니다.
 
-6. **AuditLogs** 및 캡처할 메트릭을 선택 합니다. FHIR 용 Azure IoT 커넥터를 사용 하는 경우 메트릭에 대 한 **오류, 트래픽 및 대기 시간** 을 선택 해야 합니다. 
+6. **AuditLogs** 및/또는 **allmetrics** 을 선택 합니다. 메트릭에는 서비스 이름, 가용성, 데이터 크기, 총 대기 시간, 총 요청, 총 오류 및 타임 스탬프가 포함 됩니다.
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR 진단 설정입니다. AuditLogs 및/또는 AllMetrics을 선택 합니다." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
 7. **저장** 을 선택합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "95905177"
 ## <a name="audit-log-details"></a>감사 로그 정보
 이번에는 Azure API for FHIR 서비스에서 감사 로그에 다음 필드를 반환 합니다. 
 
-|필드 이름  |Type  |메모  |
+|필드 이름  |Type  |참고  |
 |---------|---------|---------|
 |CallerIdentity|동적|Id 정보를 포함 하는 일반 속성 모음
 |CallerIdentityIssuer|String|발급자 

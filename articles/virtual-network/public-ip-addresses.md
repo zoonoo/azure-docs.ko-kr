@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 702ca4f4c3fc92eca70479ba02b1ddc8f6858857
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549663"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576179"
 ---
 # <a name="public-ip-addresses"></a>퍼블릿 IP 주소
 
@@ -62,6 +62,9 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 
 > [!NOTE]
 > [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)를 사용 하는 경우 기본 SKU를 사용 하는 공용 IP 주소만 사용할 수 있습니다. 표준 SKU는 지원 되지 않습니다.
+
+> [!NOTE]
+> 표준 SKU 공용 IP 주소를 사용 하는 경우 리소스 블레이드에서 진단 설정이 표시 되지 않습니다. Stanrd 공용 IP 주소 리소스에 대 한 로깅을 사용 하도록 설정 하려면 Azure Monitor 블레이드에서 진단 설정으로 이동 하 고 IP 주소 리소스를 선택 합니다.
 
 ### <a name="basic"></a>Basic
 

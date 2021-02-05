@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672a3f95efad24c07379fafe8b22088dc731c2df
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 720cd46ac37a82f56aa37c0041ca8d92db177071
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881164"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575774"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 앱 보호 정책 및 승인된 클라이언트 앱 필요
 
@@ -34,7 +34,7 @@ ms.locfileid: "97881164"
 > 모든 응용 프로그램이 승인 된 응용 프로그램으로 지원 되거나 응용 프로그램 보호 정책을 지원 하지는 않습니다. 적격 클라이언트 앱 목록은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
 
 > [!NOTE]
-> "선택 된 컨트롤 중 하나 필요" 권한 부여 컨트롤은 또는 절과 유사 합니다. 이는 정책 내에서 사용 되어 사용자가 **앱 보호 정책 필요** 또는 **승인 된 클라이언트 앱** 부여 컨트롤 필요를 지 원하는 앱을 활용할 수 있도록 합니다. 앱이 두 정책 모두에서 지원 되는 경우 **앱 보호 정책이 적용 되어야** 합니다. **앱 보호 정책 필요** 권한 부여 컨트롤을 지원하는 앱에 대한 자세한 내용은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
+> "선택 된 컨트롤 중 하나 필요" 권한 부여 컨트롤은 또는 절과 유사 합니다. 이는 정책 내에서 사용 되어 사용자가 **앱 보호 정책 필요** 또는 **승인 된 클라이언트 앱** 부여 컨트롤 필요를 지 원하는 앱을 활용할 수 있도록 합니다. 앱이 해당 권한 부여 제어를 지원할 때 **앱 보호 정책을 적용 해야** 합니다. **앱 보호 정책 필요** 권한 부여 컨트롤을 지원하는 앱에 대한 자세한 내용은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
 
 ## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 1: 앱 보호 정책을 사용 하는 앱 Microsoft 365 승인 된 앱 필요
 

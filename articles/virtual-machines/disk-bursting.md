@@ -8,21 +8,19 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: a8d1a69070628248fb710a614369ff9311252c05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dcdbf94e547581cb9ff885ac5896467abdf316ae
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102908"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576196"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
 
 ## <a name="virtual-machine-level-bursting"></a>Virtual Machine 수준 버스팅
-VM 수준 버스트 지원은 다음과 같은 크기로 지원되는 퍼블릭 클라우드의 모든 지역에서 사용할 수 있습니다. 
+VM 수준 버스트는에서 지원 되는 모든 지역에서 다음 VM 시리즈에 대해 사용 하도록 설정 됩니다.
 - [Lsv2 시리즈](lsv2-series.md)
-
-VM 수준 버스트는 다음과 같은 지원 되는 크기에 대 한 미국 서 부에도 제공 됩니다.
 - [Dsv3 시리즈](dv3-dsv3-series.md)
 - [Esv3 시리즈](ev3-esv3-series.md)
 

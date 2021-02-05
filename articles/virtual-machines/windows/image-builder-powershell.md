@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f94147a09a6d9da75a0d04630822f1e6f738700a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e902798284240b55a3b08ea55ab6ee55add2431
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200943"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575841"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용 하 여 Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -231,13 +231,25 @@ $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
 Azure 이미지 작성기 사용자 지정 개체를 만듭니다.
 
 ```azurepowershell-interactive
-$ImgCustomParams = @{
+$ImgCustomParams01 = @{
   PowerShellCustomizer = $true
   CustomizerName = 'settingUpMgmtAgtPath'
   RunElevated = $false
-  Inline = @("mkdir c:\\buildActions", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
+  Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
 }
-$Customizer = New-AzImageBuilderCustomizerObject @ImgCustomParams
+$Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+```
+
+두 번째 Azure 이미지 빌더 사용자 지정 개체를 만듭니다.
+
+```azurepowershell-interactive
+$ImgCustomParams02 = @{
+  FileCustomizer = $true
+  CustomizerName = 'downloadBuildArtifacts'
+  Destination = 'c:\\buildArtifacts\\index.html'
+  SourceUri = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
+}
+$Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
 ```
 
 Azure 이미지 작성기 템플릿을 만듭니다.
@@ -248,7 +260,7 @@ $ImgTemplateParams = @{
   ResourceGroupName = $imageResourceGroup
   Source = $srcPlatform
   Distribute = $disSharedImg
-  Customize = $Customizer
+  Customize = $Customizer01, $Customizer02
   Location = $location
   UserAssignedIdentityId = $identityNameResourceId
 }
@@ -306,7 +318,7 @@ $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName
 New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
 ```
 
-## <a name="verify-the-customization"></a>사용자 지정 확인
+## <a name="verify-the-customizations"></a>사용자 지정 확인
 
 VM을 만들 때 설정한 사용자 이름 및 암호를 사용하여 VM에 대한 원격 데스크톱 연결을 만듭니다. VM 내에서 PowerShell을 열고 `Get-Content` 다음 예제와 같이를 실행 합니다.
 
@@ -319,6 +331,23 @@ Get-Content -Path C:\buildActions\buildActionsOutput.txt
 ```Output
 Azure-Image-Builder-Was-Here
 ```
+
+동일한 PowerShell 세션에서 다음 예제와 같이 파일이 있는지 확인 하 여 두 번째 사용자 지정이 성공적으로 완료 되었는지 확인 합니다 `c:\buildArtifacts\index.html` .
+
+```azurepowershell-interactive
+Get-ChildItem c:\buildArtifacts\
+```
+
+결과는 이미지 사용자 지정 프로세스 중에 다운로드 된 파일을 보여 주는 디렉터리 목록 이어야 합니다.
+
+```Output
+    Directory: C:\buildArtifacts
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          29/01/2021    10:04            276 index.html
+```
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: 650ce0cc9586118b30593767c6a3ddb92f494ac3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972654"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569468"
 ---
 ### <a name="standard-and-neural-voices"></a>표준 및 신경망
 
@@ -18,24 +18,24 @@ ms.locfileid: "95972654"
 | 지역 | 엔드포인트 | 표준 음성 | 신경망 |
 |--------|----------|-----------------|---------------|
 | 오스트레일리아 동부 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 브라질 남부 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 캐나다 중부 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 중부 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 동아시아 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 동부 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 동부 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 프랑스 중부 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 인도 중부 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 일본 동부 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 일본 서부 | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 한국 중부 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 미국 중북부 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
+| 북유럽 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 중남부 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 동남 아시아 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 영국 남부 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 | 서유럽 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
-| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
+| 미국 서부 | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 아니요 |
 | 미국 서부 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | 예 | 예 |
 
 > [!TIP]
@@ -67,3 +67,14 @@ ms.locfileid: "95972654"
 | 서유럽 | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | 미국 서부 | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | 미국 서부 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+
+### <a name="custom-neural-voice"></a>사용자 지정 신경망
+
+다음 표에서는 사용자 지정 신경망 기능에 대 한 지역별 지원을 자세히 설명 합니다.
+
+| 기능 | 지원되는 지역 |
+|---|---|
+| 음성 모델 호스팅 | 미국 동부, 미국 서 부 2, 미국 중부, 동남 아시아, 영국 남부, 유럽 서부, 오스트레일리아 동부 |
+| 실시간 문자 | 미국 동부, 미국 서 부 2, 미국 중부, 동남 아시아, 영국 남부, 유럽 서부, 오스트레일리아 동부 |
+| 긴 오디오 문자 | 미국 동부, 유럽 서부, 영국 남부, 동남 아시아, 인도 중부 |
+| 사용자 지정 신경망 학습 | 미국 동부, 영국 남부 |
