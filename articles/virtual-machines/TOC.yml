@@ -103,6 +103,8 @@
       href: ./linux/tutorial-elasticsearch.md
     - name: FreeBSD 패킷 필터
       href: ./linux/freebsd-pf-nat.md
+    - name: 메인프레임 재호스팅
+      href: ./workloads/mainframe-rehosting/overview.md
     - name: 데이터베이스
       items:
         - name: SUSE의 MySQL
@@ -1448,6 +1450,8 @@
               href: ./linux/move-vm.md
             - name: PowerShell
               href: ./windows/move-vm.md
+            - name: Marketplace VM에 대한 구독 변경
+              href: azure-cli-change-subscription-marketplace.md
         - name: VM을 다른 Azure 지역으로 이동
           href: ../site-recovery/azure-to-azure-tutorial-migrate.md
         - name: 가용성 영역으로 이동
@@ -1480,7 +1484,7 @@
     - name: Azure DevOps
       href: ./linux/tutorial-azure-devops-blue-green-strategy.md
 - name: 문제 해결
-  href: ./troubleshooting/index.yml
+  href: 'https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines'
 - name: 리소스
   items:
     - name: 클라우드 채택 프레임워크

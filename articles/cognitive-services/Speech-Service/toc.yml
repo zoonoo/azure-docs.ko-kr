@@ -14,8 +14,6 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: 할당량 및 제한
       href: speech-services-quotas-and-limits.md
-    - name: Docs의 새로운 기능
-      href: whats-new.md
 - name: 음성 텍스트 변환
   items:
     - name: 음성 텍스트 변환 설명서
@@ -113,22 +111,10 @@
           href: long-audio-api.md
     - name: 사용자 지정
       items:
-        - name: 신뢰할 수 있는 배포
-          items:
-            - name: Custom Voice 게이팅
-              href: concepts-gating-overview.md
-            - name: 합성 기술 배포
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: 발화자 공개 지침
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: 디자인 지침 공개
-              href: concepts-disclosure-guidelines.md
-            - name: 디자인 패턴 공개
-              href: concepts-disclosure-patterns.md
-            - name: 사용 규정
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Custom Voice 포털
           items:
+            - name: 사용자 지정 신경망 음성이란?
+              href: custom-neural-voice.md
             - name: Custom Voice 시작
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,6 +128,32 @@
           items:
             - name: 오디오 콘텐츠 만들기
               href: how-to-audio-content-creation.md
+    - name: AI의 책임 있는 사용
+      items:
+        - name: 사용자 지정 신경망 음성
+          items:
+            - name: 투명성 메모
+              items:
+                - name: 사용자 지정 신경망 음성에 대한 사용 사례
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: 특성 및 제한 사항
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: 윤리 및 책임 있는 사용
+              items:
+                - name: 제한된 액세스
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: 가상 음성의 책임 있는 배포
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: 발화자 공개 지침
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: 디자인 지침 공개
+                  href: concepts-disclosure-guidelines.md
+                - name: 디자인 패턴 공개
+                  href: concepts-disclosure-patterns.md
+                - name: 사용 규정
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: '데이터, 개인 정보 및 보안'
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: 참조
       items:
         - name: C++

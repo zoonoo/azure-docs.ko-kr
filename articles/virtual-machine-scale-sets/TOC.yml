@@ -63,6 +63,8 @@
       items:
         - name: 가상 머신 확장 집합 만들기
           href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: 가상 머신 확장 집합 만들기 및 관리
+          href: ./scripts/cli-sample-manage-scale-set.md
         - name: 사용자 지정 VM 이미지에서 확장 집합 만들기
           href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
         - name: 확장 집합에 애플리케이션 설치

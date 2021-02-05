@@ -110,8 +110,38 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: 서비스 할당량
       href: concepts-limits.md
-    - name: 엔터프라이즈 준비 - 규정 준수
-      href: compliance.md
+    - name: 엔터프라이즈 준비
+      items:
+        - name: 백업 및 복원 소개
+          href: online-backup-and-restore.md
+        - name: 지속적인 백업
+          items:
+            - name: 지속적인 백업 - 소개
+              href: continuous-backup-restore-introduction.md
+            - name: 지속적인 백업 - FAQ
+              href: continuous-backup-restore-frequently-asked-questions.md
+            - name: 지속적인 백업 - 리소스 모델
+              items:
+                - name: 리소스 모델 개요
+                  href: continuous-backup-restore-resource-model.md
+                - name: 복원 가능한 계정 - 목록
+                  href: restorable-database-accounts-list.md
+                - name: 복원 가능한 계정 - 위치별 나열
+                  href: restorable-database-accounts-list-by-location.md
+                - name: 복원 가능한 SQL 리소스 - 목록
+                  href: restorable-sql-resources-list.md
+                - name: 복원 가능한 SQL 데이터베이스 - 목록
+                  href: restorable-sql-databases-list.md
+                - name: 복원 가능한 SQL 컨테이너 - 목록
+                  href: restorable-sql-containers-list.md
+                - name: 복원 가능한 MongoDB 리소스 - 목록
+                  href: restorable-mongodb-resources-list.md
+                - name: 복원 가능한 MongoDB 컬렉션 - 목록
+                  href: restorable-mongodb-collections-list.md
+                - name: 복원 가능한 MongoDB 데이터베이스 - 목록
+                  href: restorable-mongodb-databases-list.md
+        - name: 규정 준수
+          href: compliance.md
     - name: 자동 권장 사항
       href: automated-recommendations.md
 - name: SQL/Core API
@@ -214,7 +244,7 @@
               href: synthetic-partition-keys.md
         - name: SQL 쿼리(SQL query)
           items:
-            - name: 시작
+            - name: 시작하기
               displayName: 'sql query, query basics'
               href: sql-query-getting-started.md
             - name: 절
@@ -1365,8 +1395,20 @@
           href: how-to-setup-cmk.md
     - name: 엔터프라이즈 준비
       items:
-        - name: 온라인 백업 및 주문형 복원
-          href: online-backup-and-restore.md
+        - name: 지속적인 백업 관리
+          items:
+            - name: 지속적인 백업 - 권한 및 역할
+              href: continuous-backup-restore-permissions.md
+            - name: 지속적인 백업 - Portal
+              href: continuous-backup-restore-portal.md
+            - name: 지속적인 백업 - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: 지속적인 백업 - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: 지속적인 백업 - ARM
+              href: continuous-backup-restore-template.md
+        - name: 정기적 백업 관리
+          href: configure-periodic-backup-restore.md
         - name: 할당량 증가 요청
           href: create-support-request-quota-increase.md
     - name: 모니터

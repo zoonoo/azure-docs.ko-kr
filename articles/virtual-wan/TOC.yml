@@ -4,6 +4,15 @@
   items:
     - name: Virtual WAN이란?
       href: virtual-wan-about.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: ARM 템플릿
+      expanded: true
+      items:
+        - name: 임의 라우팅
+          displayName: Resource Manager Any-to-any routing
+          href: quickstart-any-to-any-template.md
 - name: 자습서
   expanded: true
   items:
