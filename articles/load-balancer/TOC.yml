@@ -79,6 +79,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: 부동 IP 구성
       href: load-balancer-floating-ip.md
+    - name: 배포 모드
+      href: distribution-mode-concepts.md
     - name: 보안
       items:
         - name: 보안 기준

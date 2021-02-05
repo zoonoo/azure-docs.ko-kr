@@ -478,6 +478,8 @@
       href: hyper-v-vmm-powershell-resource-manager.md
     - name: 복구 계획에 Azure Automation Runbook 추가
       href: site-recovery-runbook-automation.md
+    - name: ARM 템플릿
+      href: asr-arm-templates.md
 - name: 모니터링
   items:
     - name: 모니터링에 대한 일반적인 질문

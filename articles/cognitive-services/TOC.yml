@@ -42,6 +42,8 @@
       href: authentication.md
     - name: 보안 기준
       href: security-baseline.md
+    - name: Azure Policy의 보안 컨트롤
+      href: ./security-controls-policy.md
 - name: 컨테이너 지원
   items:
     - name: 컨테이너 지원
