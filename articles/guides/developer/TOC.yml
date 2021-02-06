@@ -148,8 +148,6 @@
       items:
         - name: 웹 및 모바일 앱
           href: ../../app-service/troubleshoot-diagnostic-logs.md
-        - name: Linux VM
-          href: ../../virtual-machines/linux/tutorial-monitor.md
         - name: Windows VM
           href: ../../virtual-machines/windows/tutorial-monitor.md
         - name: 마이크로 서비스

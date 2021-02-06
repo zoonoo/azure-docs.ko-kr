@@ -1,10 +1,10 @@
 - name: Docker 설명서
   href: index.yml
 - name: 빠른 시작
-  expanded: true
   items:
     - name: Docker를 사용하여 Ubuntu VM 배포
       href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
+  expanded: true
 - name: 자습서
   items:
     - name: Docker 및 PostgreSQL을 사용하는 Python 웹앱
@@ -15,8 +15,6 @@
   items:
     - name: Docker VM 확장
       href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
-    - name: Docker 컴퓨터
-      href: ../virtual-machines/linux/docker-machine.md
     - name: Docker 컨테이너 레지스트리
       href: ../container-registry/container-registry-get-started-portal.md
 - name: 리소스
