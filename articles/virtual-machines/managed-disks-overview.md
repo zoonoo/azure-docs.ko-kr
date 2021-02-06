@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202711"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627818"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -44,6 +44,10 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
 지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 또는 관리 디스크 복원을 원하는 대로 수행할 수 있습니다. 현재 Azure Backup은 최대 32TiB(테비바이트)의 디스크 크기를 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../backup/backup-support-matrix-iaas.md).
+
+#### <a name="azure-disk-backup"></a>Azure Disk Backup
+
+Azure Backup는 관리 디스크에서 데이터를 보호 하는 클라우드 기반의 네이티브 백업 솔루션인 Azure 디스크 백업 (미리 보기)을 제공 합니다. 몇 가지 단계를 통해 관리 디스크에 대 한 보호를 구성할 수 있는 간단 하 고 안전 하며 비용 효율적인 솔루션입니다. Azure Disk Backup은 스냅숏 생성을 정기적으로 자동화 하 고 백업 정책을 사용 하 여 구성 된 기간 동안 유지 하 여 관리 디스크에 대 한 스냅숏 수명 주기 관리를 제공 하는 턴키 솔루션을 제공 합니다. Azure 디스크 백업에 대 한 자세한 내용은 [Azure Disk Backup 개요 (미리 보기)](../backup/disk-backup-overview.md)를 참조 하세요.
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 

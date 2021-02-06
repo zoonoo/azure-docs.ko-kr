@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507421"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627776"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -42,7 +42,7 @@ Azure Cosmos DB는 분할을 사용 하 여 응용 프로그램의 성능 요구
 * 총 데이터 저장소 (각 개별 실제 파티션은 최대 50GB의 데이터를 저장할 수 있음).
 
 > [!NOTE]
-> 실제 파티션은 시스템의 내부 구현 이며 Azure Cosmos DB에 의해 완전히 관리 됩니다. 솔루션을 개발 하는 경우 실제 파티션에는 제어 하지 않고 파티션 키에 집중 하는 것이 좋습니다. 논리적 파티션 간에 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 경우 실제 파티션의 처리량 사용량이 균형을 유지 하 게 됩니다.
+> 실제 파티션은 시스템의 내부 구현 이며 Azure Cosmos DB에 의해 완전히 관리 됩니다. 솔루션을 개발할 때는 제어할 수 없으므로 실제 파티션에 집중 하지 마십시오. 대신, 파티션 키에 집중 합니다. 논리적 파티션 간에 처리량 소비를 균등 하 게 분산 하는 파티션 키를 선택 하는 경우 실제 파티션의 처리량 사용량이 균형을 유지 하 게 됩니다.
 
 컨테이너의 총 실제 파티션 수에는 제한이 없습니다. 프로 비전 된 처리량 또는 데이터 크기가 증가 함에 따라 Azure Cosmos DB는 기존 파티션을 분할 하 여 새 실제 파티션을 자동으로 만듭니다. 물리적 파티션 분할은 응용 프로그램의 가용성에 영향을 주지 않습니다. 실제 파티션이 분할 된 후 단일 논리적 파티션 내의 모든 데이터는 여전히 동일한 실제 파티션에 저장 됩니다. 물리적 파티션 분할은 단순히 실제 파티션에 논리적 파티션의 새 매핑을 만듭니다.
 
@@ -70,7 +70,7 @@ Azure Cosmos DB 해시 기반 분할을 사용 하 여 실제 파티션에 논�
 
 각 실제 파티션은 [*복제본*](global-dist-under-the-hood.md)집합으로도 불리는 복제본 집합으로 구성 됩니다. 각 복제본 집합은 데이터베이스 엔진의 인스턴스를 호스팅합니다. 복제본 세트를 사용 하면 실제 파티션 내에 저장 된 데이터를 지 속성, 고가용성 및 일관성을 유지할 수 있습니다. 실제 파티션을 구성 하는 각 복제본은 파티션의 저장소 할당량을 상속 합니다. 실제 파티션의 모든 복제본은 실제 파티션에 할당 된 처리량을 전체적으로 지원 합니다. Azure Cosmos DB은 복제본 세트를 자동으로 관리 합니다.
 
-일반적으로 작은 컨테이너는 단일 실제 파티션만 필요 하지만 적어도 4 개의 복제본이 있습니다.
+일반적으로 작은 컨테이너는 하나의 실제 파티션만 필요로 하지만 4 개 이상의 복제본이 있어야 합니다.
 
 다음 이미지에서는 논리 파티션이 전역적으로 배포된 실제 파티션에 매핑되는 방법을 보여 줍니다.
 

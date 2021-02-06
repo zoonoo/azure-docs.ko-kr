@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488717"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627781"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -109,7 +109,7 @@ Azure Synapse Analytics에서 제공하는 다양한 런타임을 사용하는 �
 
 ## <a name="analytical-time-to-live-ttl"></a>분석 TTL(Time-to-Live)
 
-### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>분석 데이터에 대한 TTL이 컨테이너와 항목 수준 모두에서 지원되나요?
+### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>컨테이너와 항목 수준 모두에서 지원 되는 분석 데이터에 대 한 TTL이 있나요?
 
 현재 분석 데이터에 대한 TTL은 컨테이너 수준에서만 구성할 수 있으며 항목 수준에서 분석 TTL을 설정하는 것은 지원되지 않습니다.
 
