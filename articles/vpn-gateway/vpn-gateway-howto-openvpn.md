@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 57bc53c28866b3f16e742c27b6a1600bfe6f44ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e2f7f754ae9a1547d6543dba65c69511ab7ceb1
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418826"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624915"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Azure 지점 및 사이트 간 VPN Gateway에 대 한 OpenVPN 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "89418826"
 
 ## <a name="2-enable-openvpn-on-the-gateway"></a><a name="enable"></a>2. 게이트웨이에서 OpenVPN을 사용 하도록 설정
 
-게이트웨이에서 OpenVPN을 사용하도록 설정합니다. 다음 명령을 실행하기 전에 게이트웨이가 지점-사이트 간(IKEv2 또는 SSTP)에 대해 이미 구성되어 있는지 확인합니다.
+게이트웨이에서 OpenVPN을 사용하도록 설정합니다.
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name

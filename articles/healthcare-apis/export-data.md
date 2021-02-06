@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920260"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627266"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -30,12 +30,15 @@ FHIR 용 Azure API는 다음 수준에서 $export을 지원 합니다.
 * [환자](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [환자 *](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) -FHIR 용 Azure API는 관련 된 모든 리소스를 내보내며 그룹의 특성은 내보내지 않습니다. `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
+데이터를 내보내면 각 리소스 유형에 대해 별도의 파일이 만들어집니다. 내보낸 파일이 너무 커지지 않도록 하기 위해 단일 내보낸 파일의 크기가 64 보다 큰 후 새 파일을 만듭니다. 결과적으로 각 리소스 유형에 대해 여러 파일을 가져올 수 있습니다 (예: 환자-1. ndjson, 환자-2. ndjson). 
 
 
 > [!Note] 
 > `Patient/$export``Group/[ID]/$export`리소스가 둘 이상의 리소스 구획에 있거나 여러 그룹에 있는 경우는 중복 리소스를 내보낼 수 있습니다.
 
 또한 큐 중에 위치 헤더에서 반환 된 URL을 통해 내보내기 상태를 확인 하는 작업은 실제 내보내기 작업을 취소 하는 것과 함께 지원 됩니다.
+
+
 
 ## <a name="settings-and-parameters"></a>설정 및 매개 변수
 

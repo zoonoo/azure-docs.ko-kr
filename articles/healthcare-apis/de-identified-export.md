@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
-ms.openlocfilehash: bdbab0e032764d07119402686051d391376cb913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a2a41a8005e8bd0fbc313c9a177d54df6dac5e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843870"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627166"
 ---
 # <a name="exporting-de-identified-data-preview"></a>식별 되지 않은 데이터 내보내기 (미리 보기)
 
@@ -22,6 +22,9 @@ ms.locfileid: "91843870"
 $Export 명령을 사용 하 여 FHIR 서버에서 식별 되지 않은 데이터를 내보낼 수도 있습니다. [익명화에 대 한 Fhir 도구의](https://github.com/microsoft/FHIR-Tools-for-Anonymization)익명화 엔진을 사용 하 고 쿼리 매개 변수에서 익명화 구성 세부 정보를 가져옵니다. 사용자 고유의 익명화 config 파일을 만들거나 HIPAA Safe Harbor 메서드에 대 한 [샘플 구성 파일](https://github.com/microsoft/FHIR-Tools-for-Anonymization#sample-configuration-file-for-hipaa-safe-harbor-method) 을 시작 점으로 사용할 수 있습니다. 
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
+
+> [!Note] 
+> 현재 Azure API for FHIR은 시스템 수준 ($export)에서 확인 되지 않은 내보내기를 지원 합니다.
 
 |쿼리 매개 변수            | 예제 |옵션| 설명|
 |---------------------------|---------|-----------|------------|

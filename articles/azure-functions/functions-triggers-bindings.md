@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353547"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627602"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -39,16 +39,19 @@ ms.locfileid: "96353547"
 
 ###  <a name="trigger-and-binding-definitions"></a>트리거 및 바인딩 정의
 
-트리거와 바인딩은 개발 방법에 따라 다르게 정의 됩니다.
+트리거와 바인딩은 개발 언어에 따라 다르게 정의 됩니다.
 
-| 플랫폼 | 트리거 및 바인딩을 구성 하는 방법 ... |
+| 언어 | 트리거 및 바인딩을 구성 하는 방법 ... |
 |-------------|--------------------------------------------|
 | C# 클래스 라이브러리 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c # 특성을 사용 하 여 메서드 및 매개 변수 데코레이팅 |
-| 기타 모든 항목 (Azure Portal 포함) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[function.js](./functions-reference.md) 업데이트 ([스키마](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Java 주석을 사용 하 여 메서드 및 매개 변수 장식  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[function.js](./functions-reference.md) 업데이트 ([스키마](http://json.schemastore.org/function)) |
 
-포털은이 구성에 대 한 UI를 제공 하지만 함수에서 **통합** 탭을 통해 사용할 수 있는 **고급 편집기** 를 열어 직접 파일을 편집할 수 있습니다.
+function.js를 사용 하는 언어의 경우 포털은 **통합** 탭에서 바인딩을 추가 하기 위한 UI를 제공 합니다. 또한 함수의 **코드 + 테스트** 탭에서 포털에서 직접 파일을 편집할 수 있습니다. Visual Studio Code를 사용 하면 편리한 프롬프트 집합을 따라 [파일의 function.js](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) 에 대 한 바인딩을 쉽게 추가할 수 있습니다. 
 
-.NET에서 매개 변수 형식은 입력 데이터의 데이터 형식을 정의 합니다. 예를 들어를 사용 `string` 하 여 큐 트리거의 텍스트, 이진으로 읽을 바이트 배열 및 개체로 직렬화를 취소 하는 사용자 지정 형식을 바인딩합니다.
+.NET 및 Java에서 매개 변수 형식은 입력 데이터의 데이터 형식을 정의 합니다. 예를 들어를 사용 `string` 하 여 큐 트리거의 텍스트, 이진으로 읽을 바이트 배열 및 개체로 deserialize 할 사용자 지정 형식을 바인딩합니다. .NET 클래스 라이브러리 함수 및 Java 함수는 바인딩 정의에 대 한 *function.js* 를 사용 하지 않으므로 포털에서 만들고 편집할 수 없습니다. C # 포털 편집은 특성 대신 *function.js를* 사용 하는 c # 스크립트를 기반으로 합니다.
+
+기존 함수에 바인딩을 추가 하는 방법에 대 한 자세한 내용은 [바인딩을 사용 하 여 Azure 서비스에 함수 연결](add-bindings-existing-function.md)을 참조 하세요.
 
 JavaScript와 같은 동적으로 형식화되는 언어의 경우 *function.json* 파일의 `dataType` 속성을 사용합니다. 예를 들어 이진 형식의 HTTP 요청 내용을 읽으려면 `dataType`을 `binary`로 설정합니다.
 

@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133517"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625250"
 ---
-# <a name="how-azure-netapp-files-snapshots-work"></a>Azure NetApp Files 스냅숏의 작동 방법
+# <a name="how-azure-netapp-files-snapshots-work"></a>Azure NetApp Files 스냅샷 작동 방식
 
 이 문서에서는 Azure NetApp Files 스냅숏의 작동 방식을 설명 합니다. Azure NetApp Files 스냅숏 기술은 성능에 영향을 주지 않고 안정성, 확장성 및 빠른 복구 기능을 제공 합니다. Azure NetApp Files snapshot 기술은 단일 파일 복원, 볼륨 복원 및 클론, 지역 간 복제를 포함 하 여 데이터 보호 솔루션에 대 한 토대를 제공 합니다. 
 
@@ -49,26 +49,26 @@ Azure NetApp Files의 일부인 볼륨 가상화 기술에 대 한 고유 기능
 
 볼륨 스냅숏은 최신 스냅숏 이후 변경 된 블록만 기록 하기 때문에 다음과 같은 주요 이점을 제공 합니다.
 
-* 스냅숏은 ***storage 효율성** _입니다.   
-    스냅숏은 전체 볼륨의 데이터 블록을 복사 하지 않으므로 최소한의 저장소 공간을 사용 합니다. 시퀀스에서 수행 되는 두 스냅숏은 둘 사이의 시간 간격에서 추가 또는 변경 된 블록만 다릅니다. 이 블록 증분 동작은 관련 저장소 용량 소비를 제한 합니다. 많은 대체 스냅숏 구현은 활성 파일 시스템과 같은 저장소 볼륨을 사용 하 여 저장소 용량 요구 사항을 발생 시킵니다. 응용 프로그램 매일 _block 수준 *의 변경 률에 따라 Azure NetApp Files 스냅숏은 용량을 늘리거나 줄일 수 있지만 변경 된 데이터에 대해서만 사용 됩니다. 평균 일별 스냅숏 사용량 범위는 많은 응용 프로그램 볼륨에 사용 된 볼륨 용량의 1-5% 에서만 사용 되며, SAP HANA 데이터베이스 볼륨과 같은 볼륨의 경우 최대 20-30%입니다. 생성 및 유지 관리 되는 스냅숏 수를 기준으로 스냅숏 용량 소비에 대 한 [볼륨 및 스냅숏 사용량을 모니터링](azure-netapp-files-metrics.md#volumes) 해야 합니다.   
+* 스냅숏은 ***저장소 효율성이 높습니다***.   
+    스냅숏은 전체 볼륨의 데이터 블록을 복사 하지 않으므로 최소한의 저장소 공간을 사용 합니다. 시퀀스에서 수행 되는 두 스냅숏은 둘 사이의 시간 간격에서 추가 또는 변경 된 블록만 다릅니다. 이 블록 증분 동작은 관련 저장소 용량 소비를 제한 합니다. 많은 대체 스냅숏 구현은 활성 파일 시스템과 같은 저장소 볼륨을 사용 하 여 저장소 용량 요구 사항을 발생 시킵니다. 응용 프로그램의 일일 *블록 수준* 변경 률에 따라 Azure NetApp Files 스냅숏은 더 많은 용량을 소비 하지만 변경 된 데이터에 대해서만 사용 됩니다. 평균 일별 스냅숏 사용량 범위는 많은 응용 프로그램 볼륨에 사용 된 볼륨 용량의 1-5% 에서만 사용 되며, SAP HANA 데이터베이스 볼륨과 같은 볼륨의 경우 최대 20-30%입니다. 생성 및 유지 관리 되는 스냅숏 수를 기준으로 스냅숏 용량 소비에 대 한 [볼륨 및 스냅숏 사용량을 모니터링](azure-netapp-files-metrics.md#volumes) 해야 합니다.   
 
-* 스냅숏은 ***빠른 생성, 복제, 복원 또는 복제** _입니다.   
+* 스냅숏은 ***빠르게 생성, 복제, 복원 또는 복제*** 됩니다.   
     볼륨 크기와 활동 수준에 관계 없이 스냅숏을 생성, 복제, 복원 또는 복제 하는 데 몇 초 밖에 걸리지 않습니다. [요청 시](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume)볼륨 스냅숏을 만들 수 있습니다. 또한 스냅숏 [정책을](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) 사용 하 여 Azure NetApp Files 스냅숏을 자동으로 만들어야 하는 경우와 볼륨에 대해 유지할 스냅숏 수를 지정할 수 있습니다.  응용 프로그램에 대 SAP HANA 한 오케스트레이션 [AzAcSnap 도구](azacsnap-introduction.md) 를 사용 하는 등의 방법으로 응용 프로그램 계층으로 스냅숏을 생성 하 여 응용 프로그램 일관성을 달성할 수 있습니다.
 
-_ 스냅숏은 볼륨 ***성능** _에 영향을 주지 않습니다.   
+* 스냅숏은 볼륨 ***성능*** 에 영향을 주지 않습니다.   
     가장 많이 사용 되는 기술의 "쓰기 리디렉션" 특성 때문에 데이터 작업이 많은 경우에도 Azure NetApp Files 스냅숏을 저장 하거나 유지 해도 성능에 영향을 주지 않습니다. 스냅숏을 삭제 하는 것도 대부분의 경우 성능에 영향을 주지 않습니다. 
 
-_ 스냅숏은 자주 생성 될 수 있고 많은 것을 유지할 수 있기 때문에 ***확장성** _을 제공 합니다.   
+* 스냅숏은 자주 생성 될 수 있고 많은 것을 유지할 수 있기 때문에 ***확장성*** 을 제공 합니다.   
     Azure NetApp Files 볼륨은 최대 255 개의 스냅숏을 지원 합니다. 자주 생성 되는 많은 수의 낮은 영향을 저장 하는 기능을 통해 원하는 버전의 데이터가 성공적으로 복구 될 수 있는 가능성을 높일 수 있습니다.
 
-_ 스냅숏은 ***사용자 가시성** _ 및 _*_파일 복구_*_ 기능을 제공 합니다.   
+* 스냅숏은 ***사용자 표시 유형** _ 및 _ *_파일 복구_* *를 제공 합니다.   
 Azure NetApp Files 스냅숏 기술의 높은 성능, 확장성 및 안정성은 사용자 기반 복구를 위한 이상적인 온라인 백업을 제공 한다는 것을 의미 합니다. 스냅숏은 파일, 디렉터리 또는 볼륨 복원 용도로 사용자가 액세스할 수 있도록 만들 수 있습니다. 추가 솔루션을 사용 하면 오프 라인 저장소에 백업을 복사 하거나 보존 또는 재해 복구를 위해 [지역 간 복제](cross-region-replication-introduction.md) 를 수행할 수 있습니다.
 
 ## <a name="ways-to-create-snapshots"></a>스냅숏 생성 방법   
 
 여러 가지 방법을 사용 하 여 스냅숏을 만들고 유지 관리할 수 있습니다.
 
-_ 수동으로 (주문형):   
+* 다음을 사용 하 여 수동으로 (주문형)   
     * [Azure Portal](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [REST API](/rest/api/netapp/snapshots), [Azure CLI](/cli/azure/netappfiles/snapshot)또는 [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot) 도구
     * 스크립트 ( [예제](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts)참조)
 
@@ -161,7 +161,7 @@ Azure NetApp Files 스냅숏 기술은 백업의 빈도와 안정성을 크게 �
 * [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [NetApp Snapshot-NetApp 비디오 라이브러리](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Azure NetApp Files 스냅숏 개요](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

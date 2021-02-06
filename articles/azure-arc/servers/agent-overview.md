@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 02/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5f12ea90a4398b63eaa19a1fc5a375c15bdfa8c5
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526367"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626311"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -55,6 +55,7 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 - SLES(SUSE Linux Enterprise Server) 15(x64)
 - RHEL(Red Hat Enterprise Linux) 7(x64)
 - Amazon Linux 2(x64)
+- Oracle Linux 7
 
 > [!WARNING]
 > Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
@@ -101,7 +102,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure Resource Manager|
+|`management.azure.com`|Azure 리소스 관리자|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|

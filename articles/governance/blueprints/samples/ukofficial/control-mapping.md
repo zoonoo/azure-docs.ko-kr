@@ -1,14 +1,14 @@
 ---
 title: 영국 공식 및 영국 NHS 청사진 샘플 제어
 description: 영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: bf10bcf7064306094664c1ff560187ef77645d4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009384"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627569"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플의 제어 매핑
 

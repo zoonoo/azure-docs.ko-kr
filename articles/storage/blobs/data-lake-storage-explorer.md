@@ -5,26 +5,27 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5ccef241a37e63467b681d5fd12c65072cb92e58
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624778"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626475"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리
 
-이 문서에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 acl (액세스 제어 목록)을 만들고 관리 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-> [!div class="checklist"]
-> * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](../common/storage-account-create.md)을 수행합니다.
-> * 로컬 컴퓨터에 설치 된 Azure Storage 탐색기 Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
+- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
+- HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](../common/storage-account-create.md)을 수행합니다.
+
+- 로컬 컴퓨터에 설치 된 Azure Storage 탐색기 Windows, Macintosh 또는 Linux용 Azure Storage Explorer를 설치하려면 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
 
 ## <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
 
@@ -46,7 +47,7 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-컨테이너는 디렉터리와 파일을 보관 합니다. 하나를 만들려면 계속 진행 단계에서 만든 저장소 계정을 확장 합니다. **Blob 컨테이너** 를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기** 를 선택합니다. 컨테이너의 이름을 입력 합니다. 컨테이너 이름 지정에 대 한 규칙 및 제한 사항 목록은 [컨테이너 만들기](storage-quickstart-blobs-dotnet.md#create-a-container) 섹션을 참조 하세요. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. 컨테이너가 성공적으로 만들어지면 선택한 저장소 계정에 대 한 **Blob 컨테이너** 폴더 아래에 표시 됩니다.
+컨테이너는 디렉터리와 파일을 보관 합니다. 하나를 만들려면 계속 진행 단계에서 만든 저장소 계정을 확장 합니다. **Blob 컨테이너** 를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **blob 컨테이너 만들기** 를 선택 합니다. 컨테이너의 이름을 입력 합니다. 컨테이너 이름 지정에 대 한 규칙 및 제한 사항 목록은 [컨테이너 만들기](storage-quickstart-blobs-dotnet.md#create-a-container) 섹션을 참조 하세요. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. 컨테이너가 성공적으로 만들어지면 선택한 저장소 계정에 대 한 **Blob 컨테이너** 폴더 아래에 표시 됩니다.
 
 ![Microsoft Azure Storage 탐색기-컨테이너 만들기](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
@@ -76,39 +77,37 @@ Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - �
 
 **Azure Storage 탐색기** 를 사용 하 여 파일을 다운로드 하려면 파일을 선택한 상태로 리본에서 **다운로드** 를 선택 합니다. 파일 대화 상자가 열리면 파일 이름을 입력할 수 있습니다. **저장** 을 선택 하 여 로컬 위치에 대 한 파일 다운로드를 시작 합니다.
 
-## <a name="managing-access"></a>액세스 관리
+<a id="managing-access"></a>
 
-컨테이너의 루트에서 사용 권한을 설정할 수 있습니다. 이렇게 하려면 해당 권한이 있는 개인 계정으로 Azure Storage Explorer에 로그인해야 합니다(연결 문자열을 사용하는 경우와 다름). 컨테이너를 마우스 오른쪽 단추로 클릭하고 **사용 권한 관리** 를 선택하여 **사용 권한 관리** 대화 상자를 표시합니다.
+## <a name="manage-acls"></a>Acl 관리
 
-![Microsoft Azure Storage Explorer - 디렉터리 액세스 관리](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+컨테이너, 디렉터리 또는 파일을 마우스 오른쪽 단추로 클릭 한 다음 **Access Control 목록 관리** 를 클릭 합니다.  다음 스크린샷에서는 디렉터리를 마우스 오른쪽 단추로 클릭할 때 표시 되는 메뉴를 보여 줍니다.
 
-**사용 권한 관리** 대화 상자에서는 소유자 및 소유자 그룹의 사용 권한을 관리할 수 있습니다. 또한 사용 권한을 관리할 수 있는 액세스 제어 목록에 새 사용자 및 그룹을 추가할 수 있습니다.
+> [!div class="mx-imgBorder"]
+> ![Azure Storage 탐색기에서 디렉터리를 마우스 오른쪽 단추로 클릭](./media/data-lake-storage-explorer/manage-access-control-list-option.png)
 
-액세스 제어 목록에 새 사용자 또는 그룹을 추가하려면 **사용자 또는 그룹 추가** 필드를 선택합니다.
+**액세스 관리** 대화 상자를 사용 하 여 소유자 및 소유자 그룹에 대 한 사용 권한을 관리할 수 있습니다. 또한 사용 권한을 관리할 수 있는 액세스 제어 목록에 새 사용자 및 그룹을 추가할 수 있습니다.
 
-목록에 추가할 해당 AAD(Azure Active Directory) 항목을 입력하고 **추가** 를 선택합니다.
+> [!div class="mx-imgBorder"]
+> ![액세스 관리 대화 상자](./media/data-lake-storage-explorer/manage-access-dialog-box.png)
 
-이제 사용자 또는 그룹이 **사용자 및 그룹** 필드에 표시되며, 사용 권한 관리를 시작할 수 있습니다.
+액세스 제어 목록에 새 사용자 또는 그룹을 추가 하려면 **추가** 단추를 선택 합니다. 그런 다음 목록에 추가 하려는 해당 Azure Active Directory (AAD) 항목을 입력 한 다음 **추가** 를 선택 합니다.  이제 사용자 또는 그룹이 **사용자 및 그룹** 필드에 표시되며, 사용 권한 관리를 시작할 수 있습니다.
 
 > [!NOTE]
-> AAD에서 보안 그룹을 만들고 개별 사용자가 아닌 그룹에서 사용 권한을 유지 관리하는 것이 모범 사례이며 권장됩니다. 이 권장 사항에 대한 자세한 내용은 [Data Lake Storage Gen2에 대한 모범 사례](data-lake-storage-best-practices.md)를 참조하세요.
+> AAD에서 보안 그룹을 만들고 개별 사용자가 아닌 그룹에서 사용 권한을 유지 관리하는 것이 모범 사례이며 권장됩니다. 이 권장 사항 및 기타 모범 사례에 대 한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)을 참조 하세요.
 
-할당할 수 있는 사용 권한의 두 가지 범주는 액세스 ACL 및 기본 ACL입니다.
+확인란 컨트롤을 사용 하 여 액세스 및 기본 Acl을 설정 합니다. 이러한 Acl 유형 간의 차이점에 대 한 자세한 내용은 [Acl 유형](data-lake-storage-access-control.md#types-of-acls)을 참조 하세요.
 
-* **액세스**: 액세스 acl은 개체에 대 한 액세스를 제어 합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
+<a id="apply-acls-recursively"></a>
 
-* **기본값**: 디렉터리에 생성 된 모든 자식 항목의 액세스 acl을 결정 하는 디렉터리와 연결 된 acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
+## <a name="apply-acls-recursively"></a>재귀적으로 Acl 적용
 
-이러한 두 범주에는 파일 또는 디렉터리에 대 한 **읽기**, **쓰기** 및 **실행** 권한을 할당할 수 있는 세 가지 권한이 있습니다.
+각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에 ACL 항목을 재귀적으로 적용할 수 있습니다.
 
->[!NOTE]
-> 여기에서 선택하면 현재 디렉터리에 있는 기존 항목에는 사용 권한이 설정되지 않습니다. 파일이 이미 있는 경우 각 개별 항목으로 이동한 다음, 사용 권한을 수동으로 설정해야 합니다.
+ACL 항목을 재귀적으로 적용 하려면 컨테이너 또는 디렉터리를 마우스 오른쪽 단추로 클릭 한 다음 **Access Control 목록 전파** 를 클릭 합니다.  다음 스크린샷에서는 디렉터리를 마우스 오른쪽 단추로 클릭할 때 표시 되는 메뉴를 보여 줍니다.
 
-개별 파일은 물론 개별 디렉터리에 대한 사용 권한을 관리할 수 있으므로 세분화된 액세스 제어가 가능합니다. 디렉터리와 파일 둘 다에서, 사용 권한 관리 프로세스는 위에서 설명한 프로세스와 동일합니다. 사용 권한을 관리하려는 파일 또는 디렉터리를 마우스 오른쪽 단추로 클릭하고 동일한 프로세스를 따릅니다.
-
-## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 전용 끝점
-
-Storage 탐색기 Azure Data Lake Storage Gen2로 작업할 때 Blob (blob) & Data Lake Storage Gen2 (dfs) [끝점](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) 을 사용 합니다. 전용 끝점을 사용 하 여 Azure Data Lake Storage Gen2에 대 한 액세스를 구성 하는 경우 저장소 계정에 대해 두 개의 개인 끝점을 만듭니다. 하나는 대상 하위 리소스이 `blob` 고 다른 하나는 대상 하위 리소스 `dfs` 입니다.
+> [!div class="mx-imgBorder"]
+> ![디렉터리를 마우스 오른쪽 단추로 클릭 하 고 액세스 제어 전파 설정을 선택 합니다.](./media/data-lake-storage-explorer/propagate-access-control-list-option.png)
 
 ## <a name="next-steps"></a>다음 단계
 

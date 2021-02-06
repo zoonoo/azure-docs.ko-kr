@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35eff46a0470d429c8ec6f364ffa836501c65f47
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 62dea67f139857befc7ca24b8b8a105241b5c949
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743601"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626158"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -32,7 +32,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용 하도록 설정
 2. **승인** 을 선택합니다.
 3. PIN 또는 생체 인식 기능을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Microsoft Authenticator 앱에서 암호 없는 휴대폰 로그인을 사용 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -57,17 +57,20 @@ Azure AD를 사용 하면 로그인 프로세스 중에 사용할 수 있는 인
 암호 없는 휴대폰 로그인에 대 한 인증 방법을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
 
 1. *전역 관리자* 계정을 사용 하 여 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
-1. *Azure Active Directory* 를 검색 하 고 선택한 다음, **보안**  >  **인증 방법**  >  **인증 방법 정책 (미리 보기)** 으로 이동 합니다.
-1. **Passwordless 휴대폰 로그인** 에서 다음 옵션을 선택 합니다.
+1. *Azure Active Directory* 를 검색 하 고 선택한 다음 **보안**  >  **인증 방법**  >  **정책** 으로 이동 합니다.
+1. **Microsoft Authenticator (미리 보기)** 아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
+1. 추가 된 각 그룹이 나 사용자는 기본적으로 암호 없는 및 푸시 알림 모드 ("Any" 모드) 모두에서 Microsoft Authenticator 사용 하도록 설정 됩니다. 이를 변경 하려면 각 행에 대해 다음을 수행 합니다.
+   1. 찾아보기 ...   >  **구성**.
+   1. **인증 모드** 의 경우-Any, passwordless 또는 Push
 1. 새 정책을 적용 하려면 **저장** 을 선택 합니다.
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator"></a>Microsoft Authenticator의 사용자 등록 및 관리
 
 사용자는 다음 단계를 사용 하 여 Azure AD의 암호 없는 인증 방법에 등록 합니다.
 
-1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 으로 이동합니다.
+1. [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동합니다.
 1. 로그인 한 다음 add **메서드 > authenticator 앱**, **추가** 를 차례로 선택 하 여 인증자 앱을 추가 합니다.
 1. 지침에 따라 장치에 Microsoft Authenticator 앱을 설치 하 고 구성 합니다.
 1. **완료** 를 선택 하 여 인증자 구성을 완료 합니다.

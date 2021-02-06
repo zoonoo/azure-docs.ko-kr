@@ -3,16 +3,21 @@ title: Azure Lab Services의 클래스 유형 예제 | Microsoft Docs
 description: Azure Lab Services를 사용하여 랩을 설정할 수 있는 몇 가지 유형의 클래스를 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ebc89c040be732c230f0c3f54f68fb91466eb68
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 5a90fb128f5954f3eb713714ff22ff40a3beab36
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436405"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627436"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
 Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을 빠르게 설정할 수 있습니다. 이 섹션의 문서에서는 Azure Lab Services를 사용 하 여 여러 유형의 랩을 설정 하는 방법에 대 한 지침을 제공 합니다.
+
+## <a name="arcgis"></a>ArcGIS
+[ArcGIS](https://www.esri.com/en-us/arcgis/products/arcgis-solutions/overview) 은 gis (지리 정보 시스템)의 유형입니다.  ArcGIS 데스크톱의 다양 한 응용 프로그램 (예: [Arcmap](https://desktop.arcgis.com/en/arcmap/latest/map/main/what-is-arcmap-.htm) )을 사용 하 여 2d 맵을 만들고 편집 하 고 분석 하는 랩을 설정할 수 있습니다.
+
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [ArcMap\ArcGIS Desktop에 대 한 랩 설정](class-type-arcgis.md)을 참조 하세요.
 
 ## <a name="big-data-analytics"></a>빅 데이터 분석
 빅 데이터 분석 클래스를 학습 하도록 GPU 랩을 설정할 수 있습니다. 이러한 종류의 클래스를 사용 하 여 많은 양의 데이터를 처리 하는 방법을 알아보고 기계 및 통계적 학습 알고리즘을 적용 하 여 데이터 정보를 도출 합니다. 학생의 핵심 목표는 빅 데이터를 저장, 관리 및 처리 하기 위한 도구를 제공 하는 Apache Hadoop의 오픈 소스 소프트웨어 패키지와 같은 데이터 분석 도구를 사용 하는 방법을 배우는 것입니다. 
@@ -41,6 +46,11 @@ Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점
 
 이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [MATLAB를 학습 하기 위한 랩 설정](class-type-matlab.md)을 참조 하세요.
 
+## <a name="networking-with-gns3"></a>GNS3를 사용하는 네트워킹
+학생 들이 [GNS3](https://www.gns3.com/) 소프트웨어를 사용 하 여 가상 및 실제 네트워크를 에뮬레이트, 구성, 테스트 및 문제 해결 하도록 허용 하는 데 중점을 둔 클래스에 대해 랩을 설정할 수 있습니다. 
+
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [네트워킹 클래스를 학습 하기 위한 랩 설정](class-type-networking-gns3.md)을 참조 하세요.
+
 ## <a name="project-lead-the-way-pltw"></a>프로젝트 리드 (PLTW)
 [프로젝트 리드 (PLTW)](https://www.pltw.org/) 는 컴퓨터 과학, 엔지니어링 및 생명 공학 과학의 미국에서 사전 k-12 교육 과정을 제공 하는 비영리 조직입니다.  각 PLTW 클래스에서 학생 들은 실습 교육 환경의 일부로 다양 한 소프트웨어 응용 프로그램을 사용 합니다.
 
@@ -61,7 +71,12 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 ## <a name="solidworks-computer-aided-design-cad"></a>SolidWorks CAD(computer-aided design)
 엔지니어링 학생 들에 게 [SolidWorks](https://www.solidworks.com/)에 대 한 액세스를 제공 하는 GPU 랩을 설정할 수 있습니다.  SolidWorks는 솔리드 개체 모델링을 위한 3D CAD 환경을 제공 합니다.  SolidWorks를 사용 하면 엔지니어가 디자인을 쉽게 만들고, 시각화 하 고, 시뮬레이션 하 고, 문서화할 수 있습니다.
 
-이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 SolidWorks를 [사용 하 여 엔지니어링 클래스에 대 한 랩 설정](class-type-solidworks.md) 을 참조 하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 SolidWorks를 [사용 하 여 엔지니어링 클래스에 대 한 랩 설정](class-type-solidworks.md)을 참조 하세요.
+
+## <a name="sql-database-and-management"></a>SQL database 및 관리
+구조적 쿼리 언어 (SQL)는 데이터베이스의 콘텐츠 추가, 액세스 및 관리를 비롯 한 관계형 데이터베이스 관리를 위한 표준 언어입니다.  [MySQL](https://www.mysql.com/) 데이터베이스 서버와 [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) 서버를 모두 사용 하 여 데이터베이스 개념을 학습 하도록 랩을 설정할 수 있습니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [관계형 데이터베이스에 대한 데이터베이스 관리를 가르치기 위한 랩 설정](class-type-database-management.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

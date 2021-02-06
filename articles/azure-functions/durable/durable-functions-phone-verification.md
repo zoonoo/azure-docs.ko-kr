@@ -4,12 +4,12 @@ description: Azure Functions의 지속성 함수 확장에서 인간 상호 작�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: dd7f8416b2f4520ec8e94c8608f753f7412afc4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028306"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627375"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -37,6 +37,9 @@ ms.locfileid: "98028306"
 
 * `E4_SmsPhoneVerification`: 시간 제한 및 다시 시도 관리를 포함 하 여 전화 확인 프로세스를 수행 하는 오 케 스트레이 터 [함수](durable-functions-bindings.md#orchestration-trigger) 입니다.
 * `E4_SendSmsChallenge`: 문자 메시지를 통해 코드를 보내는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
+
+> [!NOTE]
+> `HttpStart` [샘플 앱 및 빠른](#prerequisites) 시작의 함수는 orchestrator 함수를 트리거하는 [오케스트레이션 클라이언트로](durable-functions-bindings.md#orchestration-client) 작동 합니다.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification orchestrator 함수
 

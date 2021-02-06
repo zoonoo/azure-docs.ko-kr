@@ -6,14 +6,19 @@ ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a1aa004f47ba700ef4b96004dfe5b835788dcc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd42752dc7ef2c7686073b7a2d780fe9356425c7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372470"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625586"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Service Fabric Mesh에 대한 Maven 플러그 인
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,7 +59,7 @@ ms.locfileid: "87372470"
 - Azure Service Fabric 클러스터에 모든 리소스를 배포합니다.
  
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 Maven Java 앱에서 Maven 플러그 인을 사용하려면 pom.xml 파일에 다음 코드 조각을 추가합니다.
 
@@ -110,7 +115,7 @@ mvn azure-sfmesh:addservice -DapplicationName=helloworldserver -DserviceName=hel
 
 - `helloworldservicenetwork` 및 `helloworldserver` 앱을 참조하는 `service_helloworldservice`라고 명명된 `servicefabric->helloworldservice` 폴더에서 서비스 YAML을 만듭니다.
 - 서비스는 포트 8080에서 수신 대기합니다.
-- 이 서비스는 컨테이너 이미지로 ***helloworldserver:latest***를 사용합니다.
+- 이 서비스는 컨테이너 이미지로 ***helloworldserver:latest*** 를 사용합니다.
 
 #### <a name="add-a-new-gateway-resource-to-your-application"></a>애플리케이션에 새 게이트웨이 리소스 추가
 아래 명령을 실행하여 게이트웨이 리소스 YAML을 만듭니다. 

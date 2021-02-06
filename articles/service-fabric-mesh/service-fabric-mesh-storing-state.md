@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: b8440a168d6d268cd27e1208ff54616a3b1e193a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 651329b1b061f2cf5a06dbdc9d60f73cec64e7d3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843212"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625552"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 Service Fabric은 상태 스토리지에 대한 다양한 옵션을 지원합니다. 상태 관리 패턴 및 Service Fabric의 개념적인 개요는 [Service Fabric 개념: 상태](../service-fabric/service-fabric-concepts-state.md)를 참조하세요. 이러한 모든 동일한 개념은 Service Fabric Mesh 내부 또는 외부에서 서비스를 실행할지 여부에 관계없이 적용됩니다. 
 

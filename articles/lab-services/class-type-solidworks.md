@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999266"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626107"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>SOLIDWORKS를 사용 하 여 엔지니어링 클래스에 대 한 랩 설정
 
@@ -57,7 +57,7 @@ SOLIDWORKS 네트워크 라이선스를 사용 하려면 라이선스 서버에 
 > **소규모 GPU (시각화)** 가상 머신 크기는 고성능 그래픽 환경을 사용 하도록 구성 됩니다.  이 가상 컴퓨터 크기에 대 한 자세한 내용은 Gpu를 사용 하 [여 랩을 설정 하는 방법](./how-to-setup-lab-gpu.md)에 대 한 문서를 참조 하세요.
 
 > [!WARNING]
-> 랩을 만들기 **전에** 랩 계정에 대 한 [가상 네트워크](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) 를 라이선스 서버의 가상 네트워크에 피어 링 해야 합니다.
+> 랩을 만들기 **전에** 랩 계정에 대 한 [가상 네트워크](./how-to-connect-peer-virtual-network.md) 를 라이선스 서버의 가상 네트워크에 피어 링 해야 합니다.
 
 ## <a name="template-virtual-machine-configuration"></a>템플릿 가상 머신 구성
 

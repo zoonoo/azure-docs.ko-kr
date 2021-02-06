@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d5517afe7407da7428d4a83f3d2de67836280c7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f80990854fd0c584d8e6582fdf35108e67d9202b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741901"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625131"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 질문과 대답
 
@@ -150,6 +150,146 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 **Q: Azure AD 암호 보호에서 암호를 거부 하는 경우 내 사용자는 기존 Windows 오류 메시지를 볼 수 있습니다. 사용자가 정말로 무엇이 발생 했는지 알 수 있도록이 오류 메시지를 사용자 지정할 수 있나요?**
 
 아니요. 도메인 컨트롤러에서 암호를 거부 하는 경우 사용자에 게 표시 되는 오류 메시지는 도메인 컨트롤러가 아니라 클라이언트 컴퓨터에서 제어 합니다. 이 동작은 암호가 기본 Active Directory 암호 정책에 의해 거부 되거나 Azure AD 암호 보호와 같은 암호 필터 기반 솔루션에 의해 거부 되는지 여부에 따라 수행 됩니다.
+
+## <a name="password-testing-procedures"></a>암호 테스트 절차
+
+소프트웨어의 적절 한 작동을 확인 하 고 [암호 평가 알고리즘](concept-password-ban-bad.md#how-are-passwords-evaluated)을 보다 잘 이해 하기 위해 다양 한 암호에 대 한 몇 가지 기본적인 테스트를 수행 하는 것이 좋습니다. 이 섹션에서는 반복 가능한 결과를 생성 하도록 설계 된 이러한 테스트에 대 한 방법을 간략하게 설명 합니다.
+
+이러한 단계를 수행 해야 하는 이유는 무엇 인가요? 온-프레미스 Active Directory 환경에서 암호를 제어 하 고 반복 가능한 테스트를 수행 하기 어려운 몇 가지 요인이 있습니다.
+
+* 암호 정책은 Azure에서 구성 및 유지 되 고, 정책 복사본은 폴링 메커니즘을 사용 하 여 온-프레미스 DC 에이전트에 의해 주기적으로 동기화 됩니다. 이 폴링 주기에 내재 된 대기 시간으로 인해 혼란이 발생할 수 있습니다. 예를 들어 Azure에서 정책을 구성 하지만 DC 에이전트와 동기화 하는 것을 잊은 경우 테스트에서 예상 된 결과가 생성 되지 않을 수 있습니다. 현재 폴링 간격은 1 시간에 한 번만 하드 코딩 되지만 정책 변경 사이에 시간을 대기 하는 것은 대화형 테스트 시나리오에 적합 하지 않습니다.
+* 새 암호 정책이 도메인 컨트롤러와 동기화 되 면 다른 도메인 컨트롤러에 복제 하는 동안 더 많은 대기 시간이 발생 합니다. 최신 버전의 정책이 아직 수신 되지 않은 도메인 컨트롤러에 대해 암호 변경을 테스트 하면 이러한 지연으로 인해 예기치 않은 결과가 발생할 수 있습니다.
+* 사용자 인터페이스를 통해 암호 변경을 테스트 하면 결과에 자신감을 가지는 것이 어렵습니다. 예를 들어, 사용자 인터페이스에 잘못 된 암호를 잘못 입력 하는 것이 쉽습니다. 특히 대부분의 암호 사용자 인터페이스가 사용자 입력 (예: Windows Ctrl-Alt-Delete-> 암호 UI)을 숨기는 것 이기 때문입니다.
+* 도메인에 가입 된 클라이언트에서 암호 변경을 테스트할 때 사용 되는 도메인 컨트롤러를 엄격 하 게 제어할 수는 없습니다. Windows 클라이언트 OS는 Active Directory 사이트 및 서브넷 할당, 환경 특정 네트워크 구성 등의 요소에 따라 도메인 컨트롤러를 선택 합니다.
+
+이러한 문제를 방지 하기 위해 다음 단계는 도메인 컨트롤러에 로그인 하는 동안 암호 재설정의 명령줄 테스트를 기반으로 합니다.
+
+> [!WARNING]
+> 이러한 절차는 테스트 환경 에서만 사용 해야 합니다. 들어오는 모든 암호 변경 및 재설정은 DC 에이전트 서비스가 중지 되는 동안 유효성 검사 없이 수락 되 고, 또한 도메인 컨트롤러에 로그인 하는 데 내재 된 위험이 발생 하지 않기 때문입니다.
+
+다음 단계에서는 하나 이상의 도메인 컨트롤러에 DC 에이전트를 설치 하 고, 프록시를 하나 이상 설치 하 고 프록시와 포리스트를 모두 등록 했다고 가정 합니다.
+
+1. DC 에이전트 소프트웨어가 설치 되어 있고 다시 부팅 된 도메인 관리자 자격 증명 (또는 테스트 사용자 계정을 만들고 암호를 다시 설정할 수 있는 권한이 있는 다른 자격 증명)을 사용 하 여 도메인 컨트롤러에 로그온 합니다.
+1. 이벤트 뷰어를 열고 [DC 에이전트 관리자 이벤트 로그](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log)로 이동 합니다.
+1. 관리자 권한으로 명령 프롬프트 창을 엽니다.
+1. 암호 테스트를 위한 테스트 계정 만들기
+
+   사용자 계정을 만드는 방법에는 여러 가지가 있지만 반복적인 테스트 주기 동안 쉽게 수행할 수 있는 방법으로 명령줄 옵션이 제공 됩니다.
+
+   ```text
+   net.exe user <testuseraccountname> /add <password>
+   ```
+
+   아래의 설명을 위해 "ContosoUser" 이라는 테스트 계정을 만들었다고 가정 합니다. 예를 들면 다음과 같습니다.
+
+   ```text
+   net.exe user ContosoUser /add <password>
+   ```
+
+1. 웹 브라우저를 열고 (도메인 컨트롤러 대신 별도의 장치를 사용 해야 할 수 있음), [Azure Portal](https://portal.azure.com)에 로그인 하 고 Azure Active Directory > 보안 > 인증 > 방법으로 암호 보호를 검색 합니다.
+1. 수행 하려는 테스트에 대 한 Azure AD 암호 보호 정책을 필요에 따라 수정 합니다.  예를 들어, 적용 또는 감사 모드를 구성 하거나 사용자 지정 금지 된 암호 목록에서 금지 된 약관 목록을 수정 하도록 결정할 수 있습니다.
+1. DC 에이전트 서비스를 중지 했다가 다시 시작 하 여 새 정책을 동기화 합니다.
+
+   이 단계는 다양 한 방법으로 수행할 수 있습니다. 한 가지 방법은 Azure AD 암호 보호 DC 에이전트 서비스를 마우스 오른쪽 단추로 클릭 하 고 "다시 시작"을 선택 하 여 서비스 관리 관리 콘솔을 사용 하는 것입니다. 다음과 같이 명령 프롬프트 창에서 다른 방법을 수행할 수도 있습니다.
+
+   ```text
+   net stop AzureADPasswordProtectionDCAgent && net start AzureADPasswordProtectionDCAgent
+   ```
+    
+1. 이벤트 뷰어를 확인 하 여 새 정책이 다운로드 되었는지 확인 합니다.
+
+   DC 에이전트 서비스를 중지 하 고 시작할 때마다 종료 시 발생 한 2 30006 이벤트를 확인 해야 합니다. 첫 번째 30006 이벤트는 sysvol 공유의 디스크에 캐시 된 정책을 반영 합니다. 두 번째 30006 이벤트 (있는 경우)는 업데이트 된 테 넌 트 정책 날짜를 가져야 하며,이 경우 Azure에서 다운로드 한 정책이 반영 됩니다. 현재 테 넌 트 정책 날짜 값은 정책이 Azure에서 다운로드 된 대략적인 타임 스탬프를 표시 하도록 코딩 되어 있습니다.
+   
+   두 번째 30006 이벤트가 표시 되지 않는 경우 계속 하기 전에 문제를 해결 해야 합니다.
+   
+   30006 이벤트는 다음 예와 유사 하 게 표시 됩니다.
+ 
+   ```text
+   The service is now enforcing the following Azure password policy.
+
+   Enabled: 1
+   AuditOnly: 0
+   Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+   Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+   Enforce tenant policy: 1
+   ```
+
+   예를 들어 적용 모드와 감사 모드를 변경 하면 AuditOnly 플래그가 수정 됩니다 (위의 정책은 AuditOnly = 0 인 경우는 적용 모드). 사용자 지정 금지 된 암호 목록의 변경 내용은 위의 30006 이벤트에 직접 반영 되지 않으며 보안상의 이유로 다른 위치에 기록 되지 않습니다. 이러한 변경 후 Azure에서 정책을 다운로드 하면 수정 된 사용자 지정 금지 된 암호 목록도 포함 됩니다.
+
+1. 테스트 사용자 계정에서 새 암호를 다시 설정 하 여 테스트를 실행 합니다.
+
+   이 단계는 다음과 같이 명령 프롬프트 창에서 수행할 수 있습니다.
+
+   ```text
+   net.exe user ContosoUser <password>
+   ```
+
+   명령을 실행 한 후 이벤트 뷰어를 살펴보면 명령의 결과에 대 한 자세한 정보를 볼 수 있습니다. 암호 유효성 검사 결과 이벤트는 [DC 에이전트 관리자 이벤트 로그](howto-password-ban-bad-on-premises-monitor.md#dc-agent-admin-event-log) 항목에 설명 되어 있습니다. 이러한 이벤트를 사용 하 여 net.exe 명령의 대화형 출력과 함께 테스트 결과의 유효성을 검사 합니다.
+
+   예를 들어, Microsoft 전역 목록에서 금지 된 암호를 설정 하려고 시도 합니다. 목록에는 [문서화 되어 있지](concept-password-ban-bad.md#global-banned-password-list) 않지만 알려진 금지 된 용어에 대해서는 여기에서 테스트할 수 있습니다. 이 예에서는 정책을 적용 모드로 구성 하 고 사용자 지정 금지 된 암호 목록에 0 항을 추가 했다고 가정 합니다.
+
+   ```text
+   net.exe user ContosoUser PassWord
+   The password does not meet the password policy requirements. Check the minimum password length, password complexity and password history requirements.
+
+   More help is available by typing NET HELPMSG 2245.
+   ```
+
+   이 테스트는 암호 재설정 작업 이므로 설명서에 따라 ContosoUser 사용자에 대 한 10017 및 30005 이벤트를 확인 해야 합니다.
+
+   10017 이벤트는 다음 예제와 같이 표시 됩니다.
+
+   ```text
+   The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   30005 이벤트는 다음 예제와 같이 표시 됩니다.
+
+   ```text
+   The reset password for the specified user was rejected because it matched at least one of the tokens present in the Microsoft global banned password list of the current Azure password policy.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   재미 있게 되었습니다. 다른 예제를 사용해 보세요. 이번에는 정책이 감사 모드에 있는 동안 사용자 지정 금지 된 목록에 의해 차단 되는 암호를 설정 하려고 합니다. 이 예에서는 감사 모드로 정책을 구성 하 고, 사용자 지정 금지 된 암호 목록에 "lachrymose" 라는 용어를 추가 하 고, 위에 설명 된 대로 DC 에이전트 서비스를 순환 하 여 결과 새 정책을 도메인 컨트롤러에 동기화 하는 단계를 수행 했다고 가정 합니다.
+
+   확인, 금지 된 암호의 변형을 설정 합니다.
+
+   ```text
+   net.exe user ContosoUser LaChRymoSE!1
+   The command completed successfully.
+   ```
+
+   이번에는 정책이 감사 모드에 있기 때문에 성공 했습니다. ContosoUser 사용자에 대 한 10025 및 30007 이벤트를 확인 해야 합니다.
+
+   10025 이벤트는 다음 예제와 같이 표시 됩니다.
+   
+   ```text
+   The reset password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. Please see the correlated event log message for more details.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+   30007 이벤트는 다음 예제와 같이 표시 됩니다.
+
+   ```text
+   The reset password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted.
+ 
+   UserName: ContosoUser
+   FullName: 
+   ```
+
+1. 이전 단계에 설명 된 절차를 사용 하 여 선택한 다양 한 암호를 계속 테스트 하 고 이벤트 뷰어에서 결과를 확인 합니다. Azure Portal에서 정책을 변경 해야 하는 경우 앞에서 설명한 대로 새 정책을 DC 에이전트와 동기화 해야 합니다.
+
+Azure AD 암호 보호의 암호 유효성 검사 동작에 대 한 제어 된 테스트를 수행할 수 있는 절차를 설명 했습니다. 도메인 컨트롤러에서 직접 명령줄에서 사용자 암호를 다시 설정 하는 것은 이러한 테스트를 수행 하는 데는 이상한 방법이 될 수 있지만 앞에서 설명한 것 처럼 반복 가능한 결과를 생성 하도록 설계 되었습니다. 다양 한 암호를 테스트할 때 예상치 못한 결과를 설명 하는 데 도움이 될 수 있으므로 [암호 평가 알고리즘](concept-password-ban-bad.md#how-are-passwords-evaluated) 을 염두에 두어야 합니다.
+
+> [!WARNING]
+> 모든 테스트가 완료 되 면 테스트 목적으로 만든 모든 사용자 계정을 삭제 하는 것을 잊지 마세요.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 

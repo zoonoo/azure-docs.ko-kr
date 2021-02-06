@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 479e975abd40be80e17fc187f1d13500d11cb983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc234f6954cf263423cc517bb3dda2ba2efa3358
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842753"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625738"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 Windows 개발 머신에서 Azure Service Fabric Mesh 애플리케이션을 빌드하고 실행하려면 다음이 필요합니다.
 
@@ -46,9 +51,9 @@ Docker가 이미 설치되어 있으면 최신 버전인지 확인합니다. 새
 
 Service Fabric Mesh에서 사용하는 컨테이너화된 Service Fabric 앱을 지원하기 위해 [Docker Community Edition for Windows][download-docker] 최신 버전을 다운로드하여 설치합니다.
 
-설치하는 동안 요청 시 **Linux 컨테이너 대신 Windows 컨테이너 사용**을 선택합니다.
+설치하는 동안 요청 시 **Linux 컨테이너 대신 Windows 컨테이너 사용** 을 선택합니다.
 
-컴퓨터에서 Hyper-v를 사용 하도록 설정 하지 않은 경우 Docker의 설치 관리자가이 기능을 제공 합니다. 메시지가 표시되면 **확인**을 클릭하여 설정합니다.
+컴퓨터에서 Hyper-v를 사용 하도록 설정 하지 않은 경우 Docker의 설치 관리자가이 기능을 제공 합니다. 메시지가 표시되면 **확인** 을 클릭하여 설정합니다.
 
 #### <a name="install-docker-on-windows-server-2016"></a>Windows Server 2016에 Docker 설치
 
@@ -78,7 +83,7 @@ Install-WindowsFeature Containers
 ## <a name="build-a-cluster"></a>클러스터 빌드
 
 > [!IMPORTANT]
-> Docker는 클러스터를 빌드하기 전에 실행**해야** 합니다.
+> Docker는 클러스터를 빌드하기 전에 실행 **해야** 합니다.
 > 터미널 창을 열고 오류가 발생하는지를 확인하는 `docker ps`를 실행하여 Docker가 실행되는지 테스트합니다. 응답이 오류를 나타내지 않는 경우 Docker가 실행되고 클러스터를 빌드할 준비가 되었습니다.
 
 > [!Note]
@@ -103,7 +108,7 @@ Visual studio를 사용 하는 경우 Visual Studio가 없는 경우 로컬 클�
     ```powershell
     . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
     ```
-5. 서비스 클러스터 관리자 도구를 실행하면(시스템 트레이에 표시됨) 해당 항목을 마우스 오른쪽 단추로 클릭하고 **로컬 클러스터 시작**을 클릭합니다.
+5. 서비스 클러스터 관리자 도구를 실행하면(시스템 트레이에 표시됨) 해당 항목을 마우스 오른쪽 단추로 클릭하고 **로컬 클러스터 시작** 을 클릭합니다.
 
 ![그림 1 - 로컬 클러스터 시작](./media/service-fabric-mesh-howto-setup-developer-environment-sdk/start-local-cluster.png)
 

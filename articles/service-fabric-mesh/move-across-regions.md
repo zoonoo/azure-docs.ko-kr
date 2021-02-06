@@ -6,14 +6,19 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260159"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626090"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>다른 Azure 지역으로 Service Fabric 메시 응용 프로그램 이동
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 이 문서에서는 Service Fabric 메시 응용 프로그램 및 해당 리소스를 다른 Azure 지역으로 이동 하는 방법을 설명 합니다. 여러 가지 이유로 리소스를 다른 지역으로 이동할 수 있습니다. 예를 들어 가동 중단에 대 한 응답으로, 특정 지역 에서만 사용할 수 있는 기능 또는 서비스, 내부 정책 및 거 버 넌 스 요구 사항 또는 용량 계획 요구 사항에 대 한 응답으로 얻을 수 있습니다.
 
@@ -44,7 +49,7 @@ ms.locfileid: "86260159"
 
 1. 배포가 완료 되 면 응용 프로그램 끝점을 테스트 하 여 응용 프로그램의 기능을 확인 합니다.
 
-2. 응용 프로그램 상태 ([az 메시 app show](/cli/azure/ext/mesh/mesh/app?view=azure-cli-latest#ext-mesh-az-mesh-app-show))를 확인 하 고 [AZURE Service Fabric 메시 CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli)를 사용 하 여 응용 프로그램 로그 및 ([az 메시 code-package](/cli/azure/ext/mesh/mesh/code-package-log?view=azure-cli-latest)) 명령을 검토 하 여 응용 프로그램의 상태를 확인할 수도 있습니다.
+2. 응용 프로그램 상태 ([az 메시 app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show))를 확인 하 고 [AZURE Service Fabric 메시 CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli)를 사용 하 여 응용 프로그램 로그 및 ([az 메시 code-package](/cli/azure/ext/mesh/mesh/code-package-log)) 명령을 검토 하 여 응용 프로그램의 상태를 확인할 수도 있습니다.
 
 ## <a name="commit"></a>Commit
 

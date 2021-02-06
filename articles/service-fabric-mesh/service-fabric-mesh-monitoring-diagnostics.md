@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 02de8ea5dd5c53192d2b8c7beba8bc36143beac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682074"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626997"
 ---
 # <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
+
 Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. Service Fabric Mesh의 모니터링 및 진단은 다음 세 가지 주요 진단 데이터 유형으로 분류됩니다.
 
 - 애플리케이션 로그 - 애플리케이션을 계측한 방법에 따라 컨테이너화된 애플리케이션의 로그로 정의됩니다(예: docker 로그).
@@ -43,7 +49,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 메시 환경은 컨테이너를 수행 하는 방법을 나타내는 몇 가지 메트릭을 노출 합니다. Azure Portal 및 Azure monitor CLI를 통해 다음 메트릭을 사용할 수 있습니다.
 
-| 메트릭 | Description | 단위|
+| 메트릭 | 설명 | 단위|
 |----|----|----|
 | CpuUtilization | ActualCpu/AllocatedCpu (백분율) | % |
 | MemoryUtilization | ActualMem/AllocatedMem (백분율) | % |
@@ -58,7 +64,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 | RestartCount | 컨테이너 다시 시작 수 | 해당 없음 |
 
 > [!NOTE]
-> ServiceStatus 및 ServiceReplicaStatus 값은 Service Fabric의 [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) 와 동일 합니다. 
+> ServiceStatus 및 ServiceReplicaStatus 값은 Service Fabric의 [HealthState](/dotnet/api/system.fabric.health.healthstate) 와 동일 합니다.
 
 각 메트릭은 서로 다른 수준에서 집계를 볼 수 있도록 서로 다른 차원에서 사용할 수 있습니다. 현재 차원 목록은 다음과 같습니다.
 

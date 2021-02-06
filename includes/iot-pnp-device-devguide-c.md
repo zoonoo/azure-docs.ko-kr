@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: 1485adc1407720343c27e07c2d2f4a13ba037a90
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad83ef0f3f4c0717a3cb669c34145572d44be09a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511468"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616329"
 ---
 ## <a name="model-id-announcement"></a>모델 ID 알림
 
@@ -25,6 +25,9 @@ iothubResult = IoTHubDeviceClient_LL_SetOption(
 
 > [!TIP]
 > 모듈 및 IoT Edge의 경우 대신를 사용 `IoTHubModuleClient_LL` `IoTHubDeviceClient_LL` 합니다.
+
+> [!TIP]
+> 장치가 모델 ID를 설정할 수 있는 유일한 시간입니다. 장치가 연결 된 후에는 업데이트할 수 없습니다.
 
 ## <a name="dps-payload"></a>DPS 페이로드
 

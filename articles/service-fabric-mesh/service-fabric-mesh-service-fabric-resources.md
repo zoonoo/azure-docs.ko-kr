@@ -6,14 +6,19 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 650755cf2692b613b2998e8ef7b706e09022b178
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354873"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626912"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric 리소스 모델 소개
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 Service Fabric 리소스 모델에서는 Service Fabric Mesh 애플리케이션을 구성하는 리소스를 정의하는 간단한 방법을 설명합니다. 개별 리소스는 모든 Service Fabric 환경에 배포할 수 있습니다.  Service Fabric 리소스 모델은 Azure Resource Manager 모델과도 호환됩니다. 다음 형식의 리소스가 현재 이 모델에서 지원됩니다.
 

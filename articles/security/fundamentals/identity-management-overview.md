@@ -4,8 +4,7 @@ description: Id 관리에 도움이 되는 핵심 Azure 보안 기능에 대해 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843692"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627636"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -62,9 +61,9 @@ Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장�
 
 자세한 정보:
 
-* [Single Sign-On 개요](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [앱 관리에 대 한 빠른 시작 시리즈](../../active-directory/manage-apps/view-applications-portal.md)
+* [SSO 개요](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [인증 기본 사항에 대 한 비디오](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [응용 프로그램 관리에 대 한 빠른 시작 시리즈](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>역방향 프록시
 
@@ -84,7 +83,7 @@ Azure AD Multi-Factor Authentication는 둘 이상의 인증 방법을 사용 �
 자세한 정보:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Azure AD Multi-Factor Authentication 이란?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication이란?](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Azure AD Multi-Factor Authentication 작동 방법](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Azure RBAC

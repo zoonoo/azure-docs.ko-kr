@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 66198291420d48e04df0821d8d110812d6aa01d7
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525808"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626277"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -490,7 +490,7 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
   - `scan for startup procs`
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
 - `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
-- `Extended stored procedures` 는 지원 되지 않습니다. 여기에는 및가 포함 됩니다 `sp_addextendedproc` `sp_dropextendedproc` . [확장 저장 프로시저](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
+- `Extended stored procedures` 는 지원 되지 않습니다. 여기에는 및가 포함 됩니다 `sp_addextendedproc` `sp_dropextendedproc` . 이 기능은 SQL Server의 사용 중단 경로에 있기 때문에 지원 되지 않습니다. 자세한 내용은 [확장 저장 프로시저](/sql/relational-databases/extended-stored-procedures-programming/database-engine-extended-stored-procedures-programming)를 참조 하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
 ### <a name="system-functions-and-variables"></a>시스템 함수 및 변수

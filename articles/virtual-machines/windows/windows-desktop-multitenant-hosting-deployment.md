@@ -1,30 +1,48 @@
 ---
 title: 다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법
 description: 다중 테 넌 트 호스팅 권한을 사용 하 여 Azure에 온-프레미스 라이선스를 가져오기 위해 Windows 소프트웨어 보증 혜택을 극대화 하는 방법에 대해 알아봅니다.
-author: xujing
+author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/24/2018
+ms.date: 2/2/2021
 ms.author: mimckitt
-ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.custom: rybaker, chmimckitt
+ms.openlocfilehash: 744f265251e9f58ce91085f0e5dd5d1ad13eec69
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881438"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625114"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>다중 테넌트 호스팅 권한으로 Azure에서 Windows 10을 배포하는 방법 
-Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 자세한 내용은 [Windows 10용 다중 테넌트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조하세요.
+Windows 10 Enterprise E3/E5 사용자 단위 또는 Windows Virtual Desktop Access 사용자 단위(사용자 구독 라이선스 또는 추가 기능 사용자 구독 라이선스)를 사용하는 사용자의 경우, Windows 10용 다중 테넌트 호스팅 권한을 사용하면 클라우드로 Windows 10 라이선스를 가져오고, 다른 라이선스에 비용을 지불하지 않으면서 Azure에서 Windows 10 Virtual Machines를 실행할 수 있습니다. 다중 테 넌 트 호스팅 권한은 Windows 10 (버전 1703 이상) 에서만 사용할 수 있습니다.
+
+자세한 내용은 [Windows 10 용 다중 테 넌 트 호스팅](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)을 참조 하세요.
 
 > [!NOTE]
-> 이 문서에서는 Azure Marketplace에서 Windows 10 Pro Desktop 이미지에 대한 라이선스 혜택을 구현하는 방법을 보여줍니다.
-> - MSDN 구독용 Azure Marketplace의 Windows 7, 8.1, 10 Enterprise(x64) 이미지는 [개발/테스트 시나리오용 Azure의 Windows 클라이언트](client-images.md)를 참조하세요.
+> - 개발 또는 테스트에 Windows 7, 8.1 및 10 이미지를 사용 하려면 개발 [/테스트 시나리오에 대 한 Azure의 windows 클라이언트](client-images.md) 를 참조 하세요.
 > - Windows Server 라이선스 혜택은 [Windows Server 이미지에 Azure Hybrid를 사용하는 이점](hybrid-use-benefit-licensing.md)을 참조하세요.
->
+
+## <a name="subscription-licenses-that-qualify-for-multitenant-hosting-rights"></a>다중 테 넌 트 호스팅 권한 자격이 있는 구독 라이선스
+
+[Microsoft 관리 센터](https://docs.microsoft.com/microsoft-365/admin/admin-overview/about-the-admin-center?view=o365-worldwide&preserve-view=true)를 사용 하 여 사용자에 게 Windows 10 지원 라이선스가 할당 되었는지 확인할 수 있습니다.
+
+> [!IMPORTANT]
+> 사용자는 Azure에서 Windows 10 이미지를 사용 하기 위해 아래 구독 라이선스 중 하나가 있어야 합니다. 이러한 구독 라이선스 중 하나가 없는 경우 [클라우드 서비스 파트너](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) 를 통하거나 [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1)를 통해 직접 구매할 수 있습니다.
+
+**적격 구독 라이선스:**
+
+-   Microsoft 365 E3/E5 
+-   Microsoft 365 F3 
+-   Microsoft 365 A3/A5 
+-   Windows 10 Enterprise E3/E5
+-   Windows 10 교육 A3/A5 
+-   Windows VDA E3/E5
+
 
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Azure Marketplace에서 Windows 10 이미지 배포 
-PowerShell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 및을 사용 하 여 Windows 10 이미지를 찾을 수 있습니다 `PublisherName: MicrosoftWindowsDesktop` `Offer: Windows-10` .
+PowerShell, CLI 및 Azure Resource Manager 템플릿 배포의 경우 및을 사용 하 여 Windows 10 이미지를 찾을 수 있습니다 `PublisherName: MicrosoftWindowsDesktop` `Offer: Windows-10` . 다중 테 넌 트 호스팅 권한에 대해 Windows 10 버전 작성자 업데이트 (1809) 이상을 지원 합니다. 
 
 ```powershell
 Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
@@ -40,17 +58,6 @@ rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus
 ```
 
 사용 가능한 이미지에 대 한 자세한 내용은 [AZURE MARKETPLACE VM 이미지 찾기 및 사용을](./cli-ps-findimage.md) 참조 하세요 Azure PowerShell
-
-## <a name="qualify-for-multi-tenant-hosting-rights"></a>다중 테 넌 트 호스팅 권한 한정 
-다중 테 넌 트 호스팅 권한을 부여 하 고 Azure 사용자에 대해 Windows 10 이미지를 실행 하려면 다음 구독 중 하나가 있어야 합니다. 
-
--   Microsoft 365 E3/E5 
--   Microsoft 365 F3 
--   Microsoft 365 A3/A5 
--   Windows 10 Enterprise E3/E5
--   Windows 10 교육 A3/A5 
--   Windows VDA E3/E5
-
 
 ## <a name="uploading-windows-10-vhd-to-azure"></a>Azure에 Windows 10 VHD 업로드
 일반화된 Windows 10 VHD를 업로드하는 경우 Windows 10에는 기본적으로 활성화된 기본 제공 관리자 계정이 없습니다. 기본 제공 관리자 계정을 사용하도록 설정하려면 사용자 지정 스크립트 확장의 일환으로 다음 명령을 포함합니다.
@@ -119,10 +126,7 @@ LicenseType              :
 ```
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Azure AD 가입에 대한 추가 정보
->[!NOTE]
->Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결* 은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 프로 비전 패키지를 사용 하 여 Azure AD를 구성 하 고, *다음 단계* 섹션의 링크를 사용 하 여 자세한 내용을 확인할 수도 있습니다.
->
->
+Azure는 AAD 가입에 사용될 수 없는 기본 제공 관리자 계정을 사용하여 모든 Windows VM을 프로비전합니다. 예를 들어 *설정 > 계정 > 회사 또는 학교 액세스 > + 연결* 은 작동하지 않습니다. Azure AD에 수동으로 가입하려면 두 번째 관리자 계정을 만들어 로그온해야 합니다. 프로 비전 패키지를 사용 하 여 Azure AD를 구성 하 고, *다음 단계* 섹션의 링크를 사용 하 여 자세한 내용을 확인할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Windows 10용 VDA 구성](/windows/deployment/vda-subscription-activation)에 대해 자세히 알아봅니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797305"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624763"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대 한 지속적인 통합 및 전달
 
@@ -25,7 +25,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
 이 문서에서는 Azure 릴리스 파이프라인을 사용 하 여 여러 환경에 Synapse 작업 영역의 배포를 자동화 하는 방법을 간략하게 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 -   개발에 사용 되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성 되었습니다. [Synapse Studio의 소스 제어](source-control.md)를 참조 하세요.
 -   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
@@ -101,7 +101,7 @@ Azure Synapse 작업 영역의 경우 CI/CD (지속적인 통합 및 배달)는 
 
      ![확장 설치](media/install-extension.png)
 
-1. Azure DevOps 파이프라인의 서비스 원칙이 구독 권한이 부여 되 고 대상 작업 영역에 대 한 작업 영역 관리자로 할당 되었는지 확인 합니다. 
+1. Azure DevOps 파이프라인의 서비스 주체에 게 구독 권한이 부여 되 고 대상 작업 영역에 대 한 작업 영역 관리자로 할당 되었는지 확인 합니다. 
 
 1. 새 작업을 만듭니다. **Synapse 작업 영역 배포** 를 검색 한 다음 **추가** 를 선택 합니다.
 
@@ -139,8 +139,8 @@ Synapse 작업 영역에서 Git 통합을 사용 하 고 변경 내용을 개발
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Synapse workspace 배포 작업 사용
 
-Synapse에서 모든 종류의 아티팩트는 ADF와는 다른 ARM 리소스가 아닙니다. ARM 템플릿 배포 작업을 사용 하 여 Synapse 아티팩트를 배포할 수 없습니다.
+Synapse에는 ARM 리소스가 아닌 여러 아티팩트가 있습니다. 이는 Azure Data Factory와 다릅니다. ARM 템플릿 배포 작업이 Synapse 아티팩트를 배포 하는 데 제대로 작동 하지 않습니다.
  
 ### <a name="unexpected-token-error-in-release"></a>릴리스에 예기치 않은 토큰 오류가 있습니다.
 
-매개 변수 파일에 이스케이프 되지 않은 매개 변수 값이 있는 경우 릴리스 파이프라인은 예기치 않은 토큰 오류로 인해 파일을 구문 분석 하지 못합니다. 매개 변수를 가져오려면 매개 변수를 재정의 하거나 KeyVault를 재정의 하는 것이 좋습니다. 해결 방법으로 두 번 이스케이프할 수도 있습니다.
+매개 변수 파일에 이스케이프 되지 않은 매개 변수 값이 있는 경우 릴리스 파이프라인이 파일 구문 분석에 실패 하 고 "예기치 않은 토큰" 오류가 생성 됩니다. 매개 변수를 재정의 하거나 Azure KeyVault를 사용 하 여 매개 변수 값을 검색 하는 것이 좋습니다. 또한 이중 이스케이프 문자를 해결 방법으로 사용할 수 있습니다.

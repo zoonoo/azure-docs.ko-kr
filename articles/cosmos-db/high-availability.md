@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2021
+ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16d2bf39d61961e2f83910735db1d0ddf1c91849
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600567"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627385"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -80,7 +80,7 @@ Azure Cosmos DB 처리량, 99 번째 백분위 수의 대기 시간, 일관성 �
 
 * 읽기 지역 가동 중단 중에는 세 개 이상의 읽기 지역에서 일관성 수준 또는 강력한 일관성을 사용 하는 Azure Cosmos 계정이 읽기 및 쓰기에 항상 사용 가능한 상태로 유지 됩니다.
 
-* 읽기 & 쓰기 영역을 포함 하는 읽기 지역 두 개 이하로 강력한 일관성을 사용 하는 Azure Cosmos 계정은 읽기 지역 가동 중단 중에 읽기/쓰기 가용성을 잃게 됩니다.
+* 3 개 이하의 총 지역에서 강력한 일관성을 사용 하는 Azure Cosmos 계정은 읽기 지역 가동 중단 중에 쓰기 가용성을 잃게 됩니다. 그러나 전체 지역이 4 개 이상인 고객은 지원 티켓을 제출 하 여 동적 읽기 쿼럼 사용 하도록 선택할 수 있습니다. 이 구성에서 읽기 영역을 두 개 이상 유지 하는 계정은 쓰기 가용성을 유지 합니다.
 
 * 영향을 받는 지역은 자동으로 연결이 끊어지고 오프 라인으로 표시 됩니다. [Azure Cosmos DB sdk](sql-api-sdk-dotnet.md) 는 기본 지역 목록에서 사용 가능한 다음 지역으로 읽기 호출을 리디렉션합니다.
 
@@ -112,15 +112,15 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 |영역 오류-가용성 | 가용성 손실 | 가용성 손실 없음 | 가용성 손실 없음 | 가용성 손실 없음 |
 |지역 가동 중단-데이터 손실 | 데이터 손실 |  데이터 손실 | 일관성 수준에 따라 달라 집니다. 자세한 내용은 [일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md) 을 참조 하세요. | 일관성 수준에 따라 달라 집니다. 자세한 내용은 [일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md) 을 참조 하세요.
 |지역 가동 중단-가용성 | 가용성 손실 | 가용성 손실 | 읽기 지역 오류에 대 한 가용성 손실 없음, 쓰기 지역 오류에 대 한 임시 | 가용성 손실 없음 |
-|가격 (**_1_* _) | 해당 없음 | 프로 비전 된 r u/초 x 1.25 율 | 프로 비전 된 r u/초 x 1.25 요금 (_*_2_*_) | 다중 지역 쓰기 율 |
+|가격 (***1** _) | 해당 없음 | 프로 비전 된 r u/초 x 1.25 율 | 프로 비전 된 r u/초 x 1.25 요금 (_ *_2_* *) | 다중 지역 쓰기 율 |
 
-_*_1_*_ 서버를 사용 하지 않는 계정의 경우에는 1.25의 계수를 사용 하 여 요청 단위를 곱합니다.
+***1*** 서버를 사용 하지 않는 계정의 경우에는 1.25의 계수를 사용 하 여 요청 단위를 곱합니다.
 
-_*_2_*_ 1.25 비율은 AZ를 사용 하는 지역에만 적용 됩니다.
+***2*** 1.25 비율은 AZ를 사용 하는 지역에만 적용 됩니다.
 
 다음을 통해 가용성 영역을 사용 하도록 설정할 수 있습니다.
 
-_ [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

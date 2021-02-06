@@ -7,25 +7,25 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 4ed881b74f240946d98d9868344c898d3e9a9dad
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341368"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627351"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Azure Cosmos DB 리소스 모델
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB는 완전 관리형 PaaS(platform-as-a-service)입니다. Azure Cosmos DB 사용을 시작 하려면 처음에 Azure 구독 및 데이터베이스, 컨테이너, 그 아래 항목에 Azure Cosmos 계정을 만들어야 합니다. 이 문서에서는 리소스 모델 계층 구조의 Azure Cosmos DB 리소스 모델 및 다른 엔터티를 설명 합니다.
 
-Azure Cosmos 계정은 글로벌 배포와 고가용성을 위한 기본 단위입니다. Azure Cosmos 계정에는 고유한 DNS 이름이 포함되어 있으며, Azure Portal 및 Azure CLI를 사용하여 또는 다양한 언어별 SDK를 사용하여 계정을 관리할 수 있습니다. 자세한 내용은 [Azure Cosmos 계정을 관리하는 방법](how-to-manage-database-account.md)을 참조하세요. 여러 Azure 지역에 걸쳐 데이터와 처리량을 전역적으로 분산 하기 위해 언제 든 지 계정에 Azure 지역을 추가 하 고 제거할 수 있습니다. 단일 지역 또는 여러 쓰기 지역을 갖도록 계정을 구성할 수 있습니다. 자세한 내용은 [계정에 Azure 지역을 추가 및 제거 하는 방법](how-to-manage-database-account.md)을 참조 하세요. 계정에 대 한 [기본 일관성](consistency-levels.md) 수준을 구성할 수 있습니다.
+Azure Cosmos 계정은 글로벌 배포와 고가용성을 위한 기본 단위입니다. Azure Cosmos 계정에는 고유한 DNS 이름이 포함 되며 Azure Portal 또는 Azure CLI를 사용 하거나 다른 언어별 Sdk를 사용 하 여 계정을 관리할 수 있습니다. 자세한 내용은 [Azure Cosmos 계정을 관리하는 방법](how-to-manage-database-account.md)을 참조하세요. 여러 Azure 지역에 걸쳐 데이터와 처리량을 전역적으로 분산 하기 위해 언제 든 지 계정에 Azure 지역을 추가 하 고 제거할 수 있습니다. 단일 지역 또는 여러 쓰기 지역을 갖도록 계정을 구성할 수 있습니다. 자세한 내용은 [계정에 Azure 지역을 추가 및 제거 하는 방법](how-to-manage-database-account.md)을 참조 하세요. 계정에 대 한 [기본 일관성](consistency-levels.md) 수준을 구성할 수 있습니다.
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Azure Cosmos 계정의 요소
 
 Azure Cosmos 컨테이너는 확장성의 기본 단위입니다. 하나의 컨테이너는 무제한으로 프로비전된 처리량(RU/s)과 스토리지를 무제한으로 가질 수 있습니다. Azure Cosmos DB는 사용자가 지정한 논리 파티션을 사용하여 컨테이너를 투명하게 분할함으로써 프로비전된 처리량과 스토리지를 탄력적으로 확장합니다.
 
-현재 Azure 구독에서 최대 50 개의 Azure Cosmos 계정을 만들 수 있습니다 (지원 요청을 통해 증가 시킬 수 있는 소프트 제한). 하나의 Azure Cosmos 계정은 데이터와 프로비전된 처리량을 무제한으로 관리할 수 있습니다. 계정에서 하나 이상의 Azure Cosmos 데이터베이스를 만들고 이 데이터베이스 내에서 하나 이상의 컨테이너를 만들어서 데이터와 프로비전된 처리량을 관리할 수 있습니다. 다음 그림은 Azure Cosmos 계정의 요소 계층 구조를 보여 줍니다.
+현재 Azure 구독에서 최대 50 개의 Azure Cosmos 계정을 만들 수 있습니다 (지원 요청을 통해 증가 시킬 수 있는 소프트 제한). 단일 Azure Cosmos 계정은 거의 무제한의 데이터 및 프로 비전 된 처리량을 관리할 수 있습니다. 계정에서 하나 이상의 Azure Cosmos 데이터베이스를 만들고 이 데이터베이스 내에서 하나 이상의 컨테이너를 만들어서 데이터와 프로비전된 처리량을 관리할 수 있습니다. 다음 그림은 Azure Cosmos 계정의 요소 계층 구조를 보여 줍니다.
 
 :::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Azure Cosmos 계정의 계층 구조" border="false":::
 
@@ -50,7 +50,7 @@ Azure 구독에서 계정을 만든 후에는 데이터베이스, 컨테이너 �
 
 다음 표에서 설명 하는 것 처럼 Azure Cosmos Api를 사용 하 여 Azure Cosmos 데이터베이스와 상호 작용할 수 있습니다.
 
-| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
 |모든 데이터베이스 열거| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
 |데이터베이스 읽기| 예 | 예 | 예(데이터베이스가 keyspace에 매핑됨) | 예 | 해당 없음 | 해당 없음 |
@@ -63,9 +63,9 @@ Azure Cosmos 컨테이너는 프로 비전 된 처리량 및 저장소에 대 �
 
 컨테이너를 만들 때 다음 모드 중 하나로 처리량을 구성 합니다.
 
-* **전용 프로 비전 된 처리량 모드** : 컨테이너에 프로 비전 된 처리량은 해당 컨테이너에 대해서만 예약 되며 sla에서 지원 됩니다. 자세히 알아보려면 [컨테이너에서 처리량을 프로 비전 하는 방법](how-to-provision-container-throughput.md)을 참조 하세요.
+* **전용 프로 비전 된 처리량 모드**: 컨테이너에 프로 비전 된 처리량은 해당 컨테이너에 대해서만 예약 되며 sla에서 지원 됩니다. 자세히 알아보려면 [컨테이너에서 처리량을 프로 비전 하는 방법](how-to-provision-container-throughput.md)을 참조 하세요.
 
-* **공유 프로 비전 된 처리량 모드** : 이러한 컨테이너는 프로 비전 된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유 합니다 (전용 프로 비전 된 처리량으로 구성 된 컨테이너 제외). 즉, 데이터베이스에서 프로 비전 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세히 알아보려면 [데이터베이스에서 처리량을 프로 비전 하는 방법](how-to-provision-database-throughput.md)을 참조 하세요.
+* **공유 프로 비전 된 처리량 모드**: 이러한 컨테이너는 프로 비전 된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유 합니다 (전용 프로 비전 된 처리량으로 구성 된 컨테이너 제외). 즉, 데이터베이스에서 프로 비전 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세히 알아보려면 [데이터베이스에서 처리량을 프로 비전 하는 방법](how-to-provision-database-throughput.md)을 참조 하세요.
 
 > [!NOTE]
 > 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 컨테이너를 만든 후 전용 처리량 모드에서 공유 처리량 모드로 전환하거나 그 반대로 전환하려면 새 컨테이너를 만들고 데이터를 새 컨테이너로 마이그레이션해야 합니다. Azure Cosmos DB 변경 피드 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
@@ -95,7 +95,7 @@ Azure Cosmos 컨테이너에 [unique key 제약 조건을](unique-keys.md) 지�
 
 Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 사용 하는 API에 따라 일부 속성은 직접 노출 되지 않을 수도 있습니다. 다음 표에서는 시스템 정의 속성의 목록에 대해 설명 합니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
@@ -111,7 +111,7 @@ Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 
 
 Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작업을 지원 합니다.
 
-| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
 | 데이터베이스에 컨테이너 열거 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
 | 컨테이너 읽기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
@@ -131,7 +131,7 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 모든 Azure Cosmos 항목에는 다음과 같은 시스템 정의 속성이 있습니다. 사용 하는 API에 따라 일부는 직접 노출 되지 않을 수도 있습니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
@@ -147,7 +147,7 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 Azure Cosmos 항목은 다음 작업을 지원 합니다. Azure Cosmos Api를 사용 하 여 작업을 수행할 수 있습니다.
 
-| 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 작업 | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
 | 삽입, 바꾸기, 삭제, Upsert, 읽기 | 아니요 | 예 | 예 | 예 | 예 | 예 |
 

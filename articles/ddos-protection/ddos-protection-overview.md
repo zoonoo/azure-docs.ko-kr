@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 114c723b127a17ffdd9c7ed91c6e777838d68e8e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 71eada0dcd7f7684e6c6be935bcb44405eb95322
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223349"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626209"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -51,6 +51,10 @@ DDoS 보호 계획에는 최대 100 개의 공용 IP 주소를 포함 하는 월
 테 넌 트에서 단일 DDoS 보호 계획을 여러 구독에서 사용할 수 있으므로 둘 이상의 DDoS 보호 계획을 만들 필요가 없습니다.
 
 Azure DDoS Protection 표준 가격 책정에 대 한 자세한 내용은 [Azure DDoS Protection 표준 가격 책정](https://azure.microsoft.com/pricing/details/ddos-protection/)을 참조 하세요.
+
+## <a name="reference-architectures"></a>참조 아키텍처
+
+DDoS Protection Standard는 [가상 네트워크에 배포 된 서비스](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)를 위해 설계 되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 지원 되는 아키텍처에 대해 자세히 알아보려면 [DDoS Protection 참조 아키텍처](https://docs.microsoft.com/azure/ddos-protection/ddos-protection-reference-architectures)를 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

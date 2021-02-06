@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 6e37501a56bdf247bce2111e8e5a5bf02f37d898
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092237"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626124"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -51,7 +51,7 @@ HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) �
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Apache Spark 1.0.0의 .NET에 대 한 주요 변경 내용
-HDInsight는 다음 릴리스에서 Apache Spark 용 .NET의 첫 번째 주요 공식 릴리스를 소개 합니다. 다른 기능과 함께 Spark 2.4. x 및 Spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [이 마이그레이션 guid](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 합니다. [여기](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
+HDInsight는 다음 릴리스에서 Apache Spark 용 .NET의 첫 번째 주요 공식 릴리스를 소개 합니다. 다른 기능과 함께 Spark 2.4. x 및 Spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [이 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 하세요. [여기](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
 
 ### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>기본 클러스터 VM 크기가 Ev3 제품군으로 변경 됨
 다음 릴리스 (1 월의 끝)에서 시작 하 여 기본 클러스터 VM 크기가 D 제품군에서 Ev3 제품군으로 변경 됩니다. 이 변경 내용은 헤드 노드 및 작업자 노드에 적용 됩니다. 이러한 변경을 방지 하려면 ARM 템플릿에서 사용 하려는 VM 크기를 지정 합니다.

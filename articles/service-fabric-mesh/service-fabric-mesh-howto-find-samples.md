@@ -3,14 +3,19 @@ title: Azure Service Fabric 메시 샘플 찾기
 description: 다음은 사용 가능한 Service Fabric 메시 샘플 응용 프로그램의 인덱스입니다. 이 예제의 소스 코드에서는 Service Fabric 리소스 모델을 사용하여 특정 시나리오를 수행하는 방법을 보여줍니다.
 ms.date: 12/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 64d9e4e112f26f83eedd02b034c8191c6f677618
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b38cd6a6c0f3aaab4ff5b77be82aee242afef23
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261274"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627031"
 ---
 # <a name="find-service-fabric-mesh-samples"></a>Service Fabric Mesh 샘플 찾기
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
 
 이 표에서는 사용 가능한 Service Fabric Mesh 샘플 애플리케이션을 간단히 설명합니다. 이 예제의 소스 코드에서는 Service Fabric 리소스 모델을 사용하여 특정 시나리오를 수행하는 방법을 보여줍니다.
 

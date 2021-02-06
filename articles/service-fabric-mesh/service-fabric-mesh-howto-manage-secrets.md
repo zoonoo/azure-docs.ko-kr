@@ -4,14 +4,20 @@ description: 애플리케이션 비밀을 안전하게 생성하고 배포할 �
 ms.date: 4/2/2019
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 379560b73c38558fe0b712ed5e036c7a3736b600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3be0c2b21c3405f4f42b2ff4d02ca95c78956de
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500711"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626963"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
+
 Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric Mesh 비밀은 스토리지 연결 문자열, 암호, 안전하게 저장하고 전송되어야 하는 기타 값 등 중요한 텍스트 정보일 수 있습니다. 이 문서에서는 Service Fabric 보안 스토리지 서비스를 사용하여 비밀을 배포하고 유지 관리하는 방법을 보여줍니다.
 
 Mesh 애플리케이션 비밀은 다음으로 이루어져 있습니다.
@@ -201,7 +207,7 @@ az mesh deployment create –-<template-file> or --<template-uri>
 ```
 **template-file** 또는 **template-uri** 중 하나를 전달합니다(둘 다는 안 됨).
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
 - az 메시 deployment create--https: \/ /www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 

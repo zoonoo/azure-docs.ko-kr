@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f65fcfa76069a3de37fd3a76e38e38fba40e04ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a707e3601bb24b2d5c2aa9402edff4a2e8803033
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843059"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625907"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Service Fabric Mesh 애플리케이션에 대한 자동 크기 조정 정책 만들기
+
+> [!IMPORTANT]
+> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
+
 Service Fabric 메시에 응용 프로그램을 배포 하는 주요 이점 중 하나는 서비스를 쉽게 확장 하거나 축소할 수 있는 기능입니다. 이는 서비스의 다양 한 부하를 처리 하거나 가용성을 향상 시키는 데 사용 됩니다. 수동으로 서비스를 확대 또는 축소하거나 자동 크기 조정 정책을 설정할 수 있습니다.
 
 [자동 크기 조정](service-fabric-mesh-scalability.md#autoscaling-service-instances)를 사용하여 서비스 인스턴스의 수를 동적으로 조정할 수 있습니다(수평 크기 조정). 자동 크기 조정은 탄력성이 뛰어나 CPU 또는 메모리 사용률에 따라 서비스 인스턴스를 프로비전하거나 제거할 수 있습니다.
