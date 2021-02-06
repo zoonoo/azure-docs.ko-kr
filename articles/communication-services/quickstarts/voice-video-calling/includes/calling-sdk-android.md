@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628720"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628971"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -111,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>사용자 및 PSTN을 사용 하 여 1: n 호출
 > [!WARNING]
-> 현재 PSTN 호출을 통해 사용자에 대 한 1: n 호출 및 PSTN 번호를 지정할 수 없습니다. 전화 수신자의 전화 번호를 지정 해야 합니다.
+> 현재 PSTN 호출을 사용할 수 없습니다.
+
+사용자 및 PSTN 번호에 대 한 1: n 호출을 수행 하려면 전화 수신자의 전화 번호를 지정 해야 합니다.
 PSTN 호출을 허용 하도록 통신 서비스 리소스를 구성 해야 합니다.
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
@@ -207,7 +209,7 @@ public Call retrieveIncomingCall() {
 ### <a name="overview"></a>개요
 모바일 푸시 알림은 모바일 장치에 표시 되는 팝업 알림입니다. 을 호출 하는 경우 VoIP (Voice over Internet Protocol) 푸시 알림에 집중 하겠습니다. 푸시 알림을 등록 하 고, 푸시 알림을 처리 하 고, 푸시 알림을 등록 취소 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 FCM (Cloud Messaging)를 사용 하도록 설정 하 고 Azure Notification Hub 인스턴스에 연결 된 Firebase 클라우드 메시징 서비스로 설정 된 Firebase 계정 자세한 내용은 [Communication Services 알림](../../../concepts/notifications.md) 을 참조 하세요.
 또한이 자습서에서는 Android Studio 버전 3.6 이상을 사용 하 여 응용 프로그램을 빌드하는 것으로 가정 합니다.
@@ -629,7 +631,7 @@ DeviceManager deviceManager = callClient.getDeviceManager().get();
 
 ### <a name="enumerate-local-devices"></a>로컬 장치 열거
 
-로컬 장치에 액세스 하려면 Device Manager 열거 메서드를 사용할 수 있습니다. 열거는 동기 작업입니다.
+로컬 장치에 액세스 하려면 장치 관리자 열거 메서드를 사용할 수 있습니다. 열거는 동기 작업입니다.
 
 ```java
 //  Get a list of available video devices for use.
