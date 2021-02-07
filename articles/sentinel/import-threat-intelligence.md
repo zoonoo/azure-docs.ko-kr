@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660783"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807142"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Azure Sentinel로 위협 인텔리전스 가져오기
 
@@ -36,7 +36,7 @@ Azure 센티널과 같은 SIEM (보안 정보 및 이벤트 관리) 솔루션 �
 - 기본 제공 **분석** 규칙 템플릿을 사용 하 여 가져온 위협 인텔리전스를 사용 하 여 보안 경고 및 인시던트를 생성할 수 있습니다.
 - **위협 인텔리전스 통합 문서** 를 사용 하 여 Azure 센티널에서 위협 인텔리전스에 대 한 주요 정보를 시각화 합니다.
 
-또한 위협 인텔리전스는 **구하기** 및 **노트북** 같은 다른 Azure 센티널 환경 내에서 유용한 컨텍스트를 제공 하며,이 문서에서 다루지 않지만 노트북 내에서 CTI 사용에 대해 설명 하는 [센티널의 Jupyter 노트북에 대 한 Ian olen의이 유용한 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239)에서 이러한 환경을 다룹니다.
+또한 위협 인텔리전스는 **구하기** 및 **노트북** 같은 다른 Azure 센티널 환경 내에서 유용한 컨텍스트를 제공 하며,이 문서에서 다루지 않지만 노트북 내에서 CTI 사용에 대해 설명 하는 [Azure 센티널의 Jupyter 노트북에 대 한 Ian olen의이 유용한 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239)에서 이러한 경험을 다룹니다.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>위협 인텔리전스 용 Azure 센티널 데이터 커넥터
 

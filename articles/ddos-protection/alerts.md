@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915150"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806293"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>DDoS 보호 경고 보기 및 구성
 
 Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. 다양 한 원격 분석은 DDoS 공격 기간 동안 상세 메트릭을 포함 하 여 Azure Monitor를 통해 노출 됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 [Azure 센티널](../sentinel/connect-azure-ddos-protection.md), Splunk (azure Event Hubs), OMS Log Analytics 및 Azure Storage와 추가로 통합 될 수 있습니다.
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Monitor를 통해 경고 구성
@@ -41,13 +41,13 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 이러한 템플릿을 사용 하 여 진단 로깅을 사용 하도록 설정한 모든 공용 IP 주소에 대 한 경고를 구성할 수 있습니다. 따라서 이러한 경고 템플릿을 사용 하려면 먼저 진단 설정이 사용 되는 Log Analytics 작업 영역이 필요 합니다. [DDoS 진단 로깅 보기 및 구성을](diagnostic-logging.md)참조 하세요.
 
 ### <a name="azure-monitor-alert-rule"></a>Azure Monitor 경고 규칙
-이 [Azure Monitor 경고 규칙](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) 은 활성 DDoS 완화가 발생 한 경우를 검색 하는 간단한 쿼리를 실행 합니다. 이는 잠재적인 공격을 나타냅니다. 작업 그룹은 경고의 결과로 동작을 호출 하는 데 사용할 수 있습니다.
+이 [Azure Monitor 경고 규칙](https://aka.ms/ddosmitigationstatus) 은 활성 DDoS 완화가 발생 한 경우를 검색 하는 간단한 쿼리를 실행 합니다. 이는 잠재적인 공격을 나타냅니다. 작업 그룹은 경고의 결과로 동작을 호출 하는 데 사용할 수 있습니다.
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>논리 앱을 사용 하 여 경고 규칙 Azure Monitor
 
-이 [템플릿은](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) 보강 DDoS 완화 경고 (Azure Monitor 경고 규칙, 작업 그룹 및 논리 앱)의 필수 구성 요소를 배포 합니다. 프로세스의 결과는 IP와 연결 된 리소스에 대 한 정보를 포함 하 여 공격의 IP 주소에 대 한 세부 정보를 포함 하는 전자 메일 경고입니다. 리소스 소유자는 보안 팀과 함께 전자 메일의 받는 사람으로 추가 됩니다. 기본 응용 프로그램 가용성 테스트도 수행 되며 결과가 전자 메일 경고에 포함 됩니다.
+이 [템플릿은](https://aka.ms/ddosalert) 보강 DDoS 완화 경고 (Azure Monitor 경고 규칙, 작업 그룹 및 논리 앱)의 필수 구성 요소를 배포 합니다. 프로세스의 결과는 IP와 연결 된 리소스에 대 한 정보를 포함 하 여 공격의 IP 주소에 대 한 세부 정보를 포함 하는 전자 메일 경고입니다. 리소스 소유자는 보안 팀과 함께 전자 메일의 받는 사람으로 추가 됩니다. 기본 응용 프로그램 가용성 테스트도 수행 되며 결과가 전자 메일 경고에 포함 됩니다.
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 
@@ -56,7 +56,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있는 경우 알리는 데 사용할 수 있는 DDoS 보호 메트릭 중 하나를 선택할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 여 DDoS Protection 요금제로 이동 합니다.
-2. **모니터링** 에서 **메트릭** 을 선택합니다.
+2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
 3. 회색 탐색 모음에서 **새 경고 규칙** 을 선택 합니다. 
 4. 사용자 고유의 값을 입력 또는 선택 하거나 다음 예제 값을 입력 하 고 나머지 기본값을 적용 한 다음 **경고 규칙 만들기** 를 선택 합니다.
 

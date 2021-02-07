@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954188"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807651"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -107,29 +107,29 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-copy-data-support"></a>Data Factory 데이터 복사 지원
 
-| 데이터 저장소 시스템 | 원본으로 지원됨 | 싱크로 지원됨 |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | 예 | 예 (이진이 아닌 복사 전용) |
-| ADLS Gen2 | 예 | 예 |
-| Azure Blob | 예 | 예 |
-| Azure Cosmos DB (SQL API) | 예 | 예 |
-| Azure Cosmos DB (Mongo API) | 예 | 예 |
-| Azure Cognitive Search | 예 | 예 |
-| Azure Data Explorer | 예 | 예 |
-| Azure Database for 민 DB \* | 예 | 예 |
-| MYSQL 용 Azure 데이터베이스 \* | 예 | 예 |
-| Azure Database for PostgreSQL \* | 예 | 예 |
-| Azure File Storage | 예 | 예 |
-| Azure Table Storage | 예 | 예 |
-| Azure SQL Database \* | 예 | 예 |
-| Azure SQL MI \* | 예 | 예 |
-| Azure Synapse Analytics (이전의 SQL DW) \* | 예 | 예 |
-| SQL Server 온-프레미스 (SHIR 필요) \* | 예 | 예 |
-| Amazon S3 | 예 | 예 |
-| Teradata | 예 | 예 |
-| SAP s4 Hana | 예 | 예 |
-| SAP ECC | 예 | 예 |
-| Hive | 예 | 예 |
+| 데이터 저장소 시스템 | 원본으로 지원됨 | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | 예 | 
+| ADLS Gen2 | 예 | 
+| Azure Blob | 예 |
+| Azure Cosmos DB (SQL API) | 예 | 
+| Azure Cosmos DB (Mongo API) | 예 |
+| Azure Cognitive Search | 예 | 
+| Azure Data Explorer | 예 | 
+| Azure Database for 민 DB \* | 예 | 
+| MYSQL 용 Azure 데이터베이스 \* | 예 | 
+| Azure Database for PostgreSQL \* | 예 |
+| Azure File Storage | 예 | 
+| Azure Table Storage | 예 |
+| Azure SQL Database \* | 예 | 
+| Azure SQL MI \* | 예 | 
+| Azure Synapse Analytics (이전의 SQL DW) \* | 예 | 
+| SQL Server 온-프레미스  \* | 예 | 
+| Amazon S3 | 예 | 
+| Teradata | 예 | 
+| SAP 테이블 커넥터 | 예 |
+| SAP ECC | 예 | 
+| Hive | 예 | 
 
 > [!Note]
 > 계보 기능의 Data Factory 복사 작업에는 특정 성능 오버 헤드가 있습니다. 부서의 범위에서 data factory 연결을 설정 하는 사용자의 경우 완료 하는 데 시간이 오래 걸리는 특정 복사 작업을 확인할 수 있습니다. 대부분의 영향은 무시할 수 없습니다. 복사 작업을 완료 하는 데 평소 보다 시간이 오래 걸리는 경우 지원 담당자에 게 문의 하세요.
@@ -137,7 +137,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 ### <a name="data-factory-data-flow-support"></a>Data Factory 데이터 흐름 지원
 
 | 데이터 저장소 시스템 | 지원됨 |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | 예 |
 | ADLS Gen2 | 예 |
 | Azure Blob | 예 |
@@ -147,7 +147,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 ### <a name="data-factory-execute-ssis-package-support"></a>SSIS 패키지 지원 Data Factory 실행
 
 | 데이터 저장소 시스템 | 지원됨 |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Azure Blob | 예 |
 | ADLS Gen1 | 예 |
 | ADLS Gen2 | 예 |

@@ -1,5 +1,5 @@
 ---
-title: 부서의 범위를 사용 하 여 ADF의 데이터 검색 및 탐색
+title: Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 description: 부서의 범위를 사용 하 여 Azure Data Factory에서 데이터를 검색 하 고 탐색 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: 1a8ed80daa4406f32909a6622b8649f37ec48063
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063970"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805312"
 ---
-# <a name="discover-and-explore-data-in-adf-using-purview"></a>부서의 범위를 사용 하 여 ADF의 데이터 검색 및 탐색
+# <a name="discover-and-explore-data-in-adf-using-purview"></a>Purview를 사용하여 ADF의 데이터 검색 및 살펴보기
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -47,7 +47,7 @@ Azure 부서의 범위에서 등록 하 고 검색 한 데이터를 검색 하�
 ### <a name="actions-that-you-can-perform-over-datasets-with-data-factory-resources"></a>Data Factory 리소스를 사용 하 여 데이터 집합에 대해 수행할 수 있는 작업 
 Azure 부서의 범위에서 검색 하는 데이터에 대 한 연결 된 서비스, 데이터 집합 또는 데이터 흐름을 직접 만들 수 있습니다.
 
-:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="데이터 집합을 통해 수행 하는 스크린샷":::
+:::image type="content" source="./media/data-factory-purview/actions-over-purview-data.png" alt-text="Azure 부서의 범위에서 검색 하는 데이터에 대해 연결 된 서비스, 데이터 집합 또는 데이터 흐름을 직접 만들 수 있는 방법을 보여 주는 스크린샷":::
 
 ##  <a name="nextsteps"></a>다음 단계 
 

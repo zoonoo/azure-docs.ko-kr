@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874909"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807549"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -84,7 +84,7 @@ Power BI 테 넌 트의 관리 API에 연결할 수 있는 카탈로그 권한�
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="선택할 수 있는 데이터 원본 목록을 보여 주는 이미지":::
 
-1. Power BI 인스턴스에 친숙 한 이름을 지정 합니다.
+3. Power BI 인스턴스에 친숙 한 이름을 지정 합니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Power BI 데이터 원본-친근 한 이름 표시 이미지":::
 
@@ -94,17 +94,21 @@ Power BI 테 넌 트의 관리 API에 연결할 수 있는 카탈로그 권한�
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="등록 된 Power BI 데이터 원본":::
 
-1. 검색에 이름을 지정 합니다. 유일 하 게 지원 되는 인증 방법은 **관리** 되는 id입니다.
+    > [!Note]
+    > Power BI의 경우 데이터 원본 등록과 검색은 하나의 인스턴스에만 허용 됩니다.
+
+
+4. 검색에 이름을 지정 합니다. 유일 하 게 지원 되는 인증 방법은 **관리** 되는 id입니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Power BI 검사 설치를 보여 주는 이미지":::
 
     검색 이름은 3-63 자 사이 여야 하며 문자, 숫자, 밑줄 및 하이픈만 포함 해야 합니다.  공백은 허용 되지 않습니다.
 
-1. 검색 트리거를 설정 합니다. 옵션은 1, **7 일**, **30 일 마다** 한 **번** 입니다.
+5. 검색 트리거를 설정 합니다. 옵션은 1, **7 일**, **30 일 마다** 한 **번** 입니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="검사 트리거 이미지":::
 
-1. **새 검색 검토** 에서 **저장 및 실행** 을 선택 하 여 검색을 시작 합니다.
+6. **새 검색 검토** 에서 **저장 및 실행** 을 선택 하 여 검색을 시작 합니다.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Power BI 화면 이미지를 저장 하 고 실행 합니다.":::
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2020
-ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.date: 02/07/2021
+ms.openlocfilehash: 03061f71ee0cceaa39c7ab9b258f9d3a0a84f1be
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895971"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807889"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기 (미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용 하면 Log Analytics 작업 영역의 선택한 테이블에서 Azure storage 계정 또는 Azure Event Hubs 수집 된 데이터를 지속적으로 내보낼 수 있습니다. 이 문서에서는이 기능 및 작업 영역에서 데이터 내보내기를 구성 하는 단계에 대 한 세부 정보를 제공 합니다.
@@ -28,8 +28,7 @@ Log Analytics 작업 영역에 대 한 데이터 내보내기가 구성 되 면 
 ## <a name="other-export-options"></a>기타 내보내기 옵션
 Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영역에서 데이터를 계속 내보냅니다. 특정 시나리오에 대 한 데이터를 내보내기 위한 기타 옵션은 다음과 같습니다.
 
-- 논리 앱을 사용 하 여 로그 쿼리에서 예약 된 내보내기 이는 데이터 내보내기 기능과 유사 하지만 필터링 된 데이터 또는 집계 된 데이터를 Azure storage로 보낼 수 있습니다. 그러나이 방법에는 [로그 쿼리 제한이](../service-limits.md#log-analytics-workspaces)  적용 됩니다. [논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](logs-export-logic-app.md)을 참조 하세요.
-- 논리 앱을 사용 하 여 한 번 내보냅니다. [Logic Apps 및 전원 자동화에 대 한 Azure Monitor 로그 커넥터를](logicapp-flow-connector.md)참조 하세요.
+- 논리 앱을 사용 하 여 로그 쿼리에서 예약 된 내보내기 이는 데이터 내보내기 기능과 유사 하지만 필터링 된 데이터 또는 집계 된 데이터를 Azure storage로 보낼 수 있습니다. 그러나이 방법에는 [로그 쿼리 제한이](../service-limits.md#log-analytics-workspaces)적용 됩니다. [논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure Storage로 데이터 보관](logs-export-logic-app.md)을 참조 하세요.
 - PowerShell 스크립트를 사용 하 여 로컬 컴퓨터에 한 번 내보냅니다. [AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)를 참조 하세요.
 
 
@@ -47,21 +46,12 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 - 작업 영역에서 두 개의 내보내기 규칙을 만들 수 있습니다 .이는 이벤트 허브에 대 한 규칙 한 개와 저장소 계정에 대 한 규칙 일 수 있습니다.
 - 대상 저장소 계정 또는 이벤트 허브는 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
 - 내보낼 테이블 이름은 저장소 계정에는 60 자이 하 여야 하 고 이벤트 허브에는 47 자이 하 여야 합니다. 이름이 긴 테이블은 내보내지지 않습니다.
-
-> [!NOTE]
-> Log Analytics 데이터 내보내기는 현재 Azure Data Lake Storage Gen2 미리 보기 상태인 추가 blob으로 데이터를 기록 합니다. 이 저장소로 내보내기를 구성 하기 전에 지원 요청을 열어야 합니다. 이 요청에 대해 다음 세부 정보를 사용 합니다.
-> - 문제 유형: 기술
-> - 구독: 사용자의 구독
-> - 서비스: Data Lake Storage Gen2
-> - 리소스: 리소스 이름
-> - 요약: Log Analytics 데이터 내보내기에서 데이터를 허용 하도록 구독 등록을 요청 합니다.
-> - 문제 유형: 연결
-> - 문제 하위 유형: 연결 문제
+- Azure Data Lake Storage에 대 한 추가 blob 지원은 현재 [제한 된 공개 미리 보기로](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/) 제공 됩니다.
 
 ## <a name="data-completeness"></a>데이터 완전성
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30 분 동안 데이터를 계속 해 서 다시 전송 합니다. 30 분 후에도 계속 사용할 수 없는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
 현재 데이터 내보내기 기능에 대 한 추가 요금은 없습니다. 데이터 내보내기에 대 한 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 됩니다. 알림 기간 후에도 계속 해 서 데이터 내보내기를 사용 하도록 선택 하면 해당 하는 요금으로 요금이 청구 됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
@@ -77,6 +67,9 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용 하도록 설정한 경우 변경할 수 없는 저장소 계정에 추가 blob을 쓸 수 있습니다. 이를 통해 추가 blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [Protected 추가 blob 쓰기 허용](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)을 참조 하세요.
 
+> [!NOTE]
+> 이제 모든 Azure 지역의 미리 보기에서 Azure Data Lake 저장소에 대 한 추가 blob 지원이 제공 됩니다. Azure Data Lake 저장소에 내보내기 규칙을 만들기 전에 [제한 된 공개 미리 보기에 등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u) 합니다. 이 등록 없이 내보내기가 작동 하지 않습니다.
+
 ### <a name="event-hub"></a>이벤트 허브
 데이터는 Azure Monitor에 도달 하는 동안 거의 실시간으로 이벤트 허브로 전송 됩니다. 이름을 *am* 으로 내보내고 테이블 이름을 사용 하 여 내보낸 각 데이터 형식에 대해 이벤트 허브가 생성 됩니다. 예를 들어 테이블 *securityevent* 는 *Am-securityevent* 라는 이벤트 허브로 전송 됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결 하려는 경우 또는 이름이 47 문자 제한을 초과 하는 테이블이 있는 경우 고유한 이벤트 허브 이름을 제공 하 고 정의 된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
@@ -84,7 +77,7 @@ Log Analytics 데이터 내보내기는 시간 기반 보존 정책에서 *allow
 1. ' 기본 ' 이벤트 허브 sku는 낮은 이벤트 크기 [제한을](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) 지원 하 고 작업 영역의 일부 로그는이를 초과 하 여 삭제할 수 있습니다. ' 표준 ' 또는 ' 전용 ' 이벤트 허브를 내보내기 대상으로 사용 하는 것이 좋습니다.
 2. 내보내는 데이터의 볼륨은 시간이 지남에 따라 증가 하 고, 더 큰 전송 속도를 처리 하 고 제한 시나리오와 데이터 대기 시간을 방지 하려면 이벤트 허브 크기를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용 하 여 처리량 단위 수를 자동으로 확장 하 고 늘리고 사용 요구를 충족 해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 다음은 Log Analytics 데이터 내보내기를 구성 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - 저장소 계정 및 이벤트 허브는 이미 만들고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 저장소 계정에 복제 해야 하는 경우 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md)중 하나를 사용할 수 있습니다.  

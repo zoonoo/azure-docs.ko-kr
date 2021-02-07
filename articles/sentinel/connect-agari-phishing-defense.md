@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: ba37b2280ba4d7138f4ed652b7b330bcaf7b9935
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3684b5a8069a6b683ae562c527af89814362a7f9
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566877"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806989"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Azure 센티널에 Agari 피싱 방어 및 브랜드 보호 솔루션 연결
 
@@ -33,7 +33,7 @@ Agari 피싱 방어 및 브랜드 보호 커넥터를 사용 하면 사용자가
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Agari의 피싱 방어 및 브랜드 보호 솔루션을 Azure 센티널에 연결 하려면 다음이 필요 합니다.
 
@@ -58,7 +58,7 @@ Agari 솔루션은 Azure 함수 앱를 사용 하 여 Azure 센티널에 직접 
 
 1. **필드 보안 Graph API를 사용 하도록 설정 합니다.** 
 
-    Agari 함수 앱를 사용 하 여 보안 Graph API를 통해 센티널과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용 하려면 [센티널 위협 인텔리전스 플랫폼 커넥터](connect-threat-intelligence.md) 를 사용 하도록 설정 하 고 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-register-app-v2) 해야 합니다.
+    Agari 함수 앱를 사용 하 여 보안 Graph API를 통해 Azure 센티널과 위협 인텔리전스를 공유할 수 있습니다. 이 기능을 사용 하려면 [센티널 위협 인텔리전스 플랫폼 커넥터](connect-threat-intelligence.md) 를 사용 하도록 설정 하 고 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-register-app-v2) 해야 합니다.
 
     이 프로세스는 **graph 테 넌 트 ID**, **그래프 클라이언트 id** 및 **graph 클라이언트 암호** 와 같은 함수 앱를 배포할 때 사용할 수 있는 세 가지 정보를 제공 합니다.
 

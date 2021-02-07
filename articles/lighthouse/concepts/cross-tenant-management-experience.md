@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5180b2c28bc1157cb785c04f794cc5c9636764c8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576687"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805177"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -143,7 +143,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 
 - [고객 테넌트에서](../../sentinel/multiple-tenants-service-providers.md) Azure Sentinel 리소스를 관리합니다.
 - [여러 테 넌 트 간의 공격을 추적 하 고 보안 경고 확인](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- 여러 개의 센티널 작업 영역에서 여러 개의 테 넌 트에 걸쳐 [인시던트 보기](../../sentinel/multiple-workspace-view.md)
+- 여러 Azure 센티널 작업 영역에서 여러 테 넌 트에 분산 되는 [인시던트 보기](../../sentinel/multiple-workspace-view.md)
 
 [Azure Service Health](../../service-health/index.yml):
 

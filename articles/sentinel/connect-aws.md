@@ -1,6 +1,6 @@
 ---
 title: AWS CloudTrail를 Azure 센티널에 연결 | Microsoft Docs
-description: AWS 커넥터를 사용 하 여 Azure 센티널 액세스를 AWS 리소스 로그에 위임 하 고 AWS CloudTrail와 센티널 간의 트러스트 관계를 만듭니다.
+description: AWS 커넥터를 사용 하 여 Azure 센티널 액세스를 AWS 리소스 로그에 위임 하 고 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: a7405824d2477d2d39c45a56ae545e58a090c321
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3d24fa1ea046a860feb40d09a6d0a57c79371450
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436609"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807600"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>AWS CloudTrail에 Azure 센티널 연결
 
 AWS 커넥터를 사용 하 여 AWS CloudTrail 관리 이벤트를 Azure 센티널로 스트리밍합니다. 이 연결 프로세스는 AWS 리소스 로그에 Azure 센티널에 대 한 액세스를 위임 하 여 AWS CloudTrail와 Azure 센티널 간의 트러스트 관계를 만듭니다. 이는 AWS 로그에 액세스할 수 있도록 Azure 센티널에 권한을 부여 하는 역할을 만들어 AWS에서 수행 됩니다.
 
 > [!NOTE]
-> AWS CloudTrail의 LookupEvents API에는 [기본 제공 되는 제한 사항이](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) 있습니다. 계정 당 초당 2 개 이상의 트랜잭션을 허용 하며 각 쿼리는 최대 50 개의 레코드를 반환할 수 있습니다. 따라서 한 지역에서 단일 테 넌 트가 초당 100 개 보다 많은 레코드를 생성 하는 경우에는 데이터 수집의 백로그 및 지연이 발생 합니다.
+> AWS CloudTrail의 LookupEvents API에는 [기본 제공 되는 제한 사항이](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) 있습니다. 계정 당 초당 2 개 이상의 트랜잭션을 허용 하며 각 쿼리는 최대 50 개의 레코드를 반환할 수 있습니다. 따라서 단일 테넌트가 한 지역에서 초당 100개 이상의 레코드를 지속적으로 생성하는 경우 데이터 수집의 백로그 및 지연이 발생합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 

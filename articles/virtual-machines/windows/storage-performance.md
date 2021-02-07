@@ -1,5 +1,5 @@
 ---
-title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화 - 스토리지
+title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화
 description: Windows 예제를 사용 하 여 Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화 하는 방법에 대해 알아봅니다.
 author: sasha-melamed
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 9d20379f60307fb8b8181ec50b87d3713a02ec6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eab37c5bc23711e27986813a2012a1efc3206db
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306857"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807821"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Lsv2 시리즈 Windows 가상 머신에서 성능 최적화
 

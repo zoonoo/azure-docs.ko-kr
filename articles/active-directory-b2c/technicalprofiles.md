@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219675"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805397"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -54,7 +54,7 @@ ms.locfileid: "99219675"
 1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 기술 프로필의 세션 상태를 복원 합니다.
 1. **입력 클레임 변환** -기술 프로필을 시작 하기 전에 Azure AD B2C 입력 [클레임 변환을](claimstransformations.md)실행 합니다.
 1. **입력 클레임** -기술 프로필에 사용 되는 클레임 모음에서 클레임을 선택 합니다.
-1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예를 들면 다음과 같습니다.
+1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 다음은 그 예입니다. 
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.
@@ -84,17 +84,17 @@ ms.locfileid: "99219675"
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 |---------|---------|---------|
 | Id | 예 | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile** 입니다. |
 
 **TechnicalProfile** 에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
 | DisplayName | 1:1 | 기술 프로필의 표시 이름입니다. |
-| Description | 0:1 | 기술 프로필에 대 한 설명입니다. |
+| 설명 | 0:1 | 기술 프로필에 대 한 설명입니다. |
 | 프로토콜 | 1:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
 | 메타데이터 | 0:1 | 기술 프로필의 동작을 제어 하는 키/값의 컬렉션입니다. |
 | InputTokenFormat | 0:1 | 입력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. `JWT` 값은 IETF 사양을 기준으로 JSON Web Token을 나타냅니다. `SAML11` 값은 OASIS 사양을 기준으로 SAML 1.1 보안 토큰을 나타냅니다.  `SAML2` 값은 OASIS 사양을 기준으로 SAML 2.0 보안 토큰을 나타냅니다. |
@@ -118,7 +118,7 @@ ms.locfileid: "99219675"
 
 **프로토콜** 은 다른 당사자와 통신 하는 데 사용할 프로토콜을 지정 합니다. **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` 또는 `None` 입니다. |
 | Handler | 아니요 | 프로토콜 이름이로 설정 된 경우 `Proprietary` Azure AD B2C에서 프로토콜 처리기를 확인 하는 데 사용 하는 어셈블리의 이름을 지정 합니다. |
@@ -189,7 +189,7 @@ ms.locfileid: "99219675"
 
 **Key** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 아니요 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
 | StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
@@ -202,7 +202,7 @@ ms.locfileid: "99219675"
 
 **InputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -210,7 +210,7 @@ ms.locfileid: "99219675"
 
 **InputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
@@ -241,7 +241,7 @@ ms.locfileid: "99219675"
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -249,7 +249,7 @@ ms.locfileid: "99219675"
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 클레임 유형의 식별자입니다. 클레임은 정책 파일 또는 부모 정책 파일의 클레임 스키마 섹션에 이미 정의 되어 있습니다. |
 | DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
@@ -269,7 +269,7 @@ ms.locfileid: "99219675"
 
 **DisplayClaims** 요소에는 다음 요소가 포함 됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -277,7 +277,7 @@ ms.locfileid: "99219675"
 
 **DisplayClaim** 요소는 다음 특성을 포함 합니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DisplayControlReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
@@ -315,7 +315,7 @@ ms.locfileid: "99219675"
 
 **PersistedClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 저장할 클레임 유형입니다. |
 
@@ -323,7 +323,7 @@ ms.locfileid: "99219675"
 
 **PersistedClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
@@ -346,7 +346,7 @@ ms.locfileid: "99219675"
 
 **Outputclaims** 은 기술 프로필이 완료 된 후 클레임 모음으로 다시 반환 되는 클레임의 컬렉션입니다. 다음 오케스트레이션 단계 또는 출력 클레임 변환에서 해당 클레임을 사용할 수 있습니다. **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 필요한 출력 클레임 유형입니다. |
 
@@ -354,7 +354,7 @@ ms.locfileid: "99219675"
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 | DefaultValue | 아니요 | 클레임이 없는 경우 클레임을 만드는 데 사용할 기본값입니다. |
@@ -369,7 +369,7 @@ ms.locfileid: "99219675"
 
 **OutputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -377,7 +377,7 @@ ms.locfileid: "99219675"
 
 **OutputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
@@ -412,7 +412,7 @@ ms.locfileid: "99219675"
 
 **ValidationTechnicalProfiles** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조 기술 프로필의 일부 또는 모든 출력 클레임 유효성을 검사하는 데 사용되는 기술 프로필의 식별자입니다. 참조된 기술 프로필의 모든 입력 클레임이 참조 기술 프로필의 출력 클레임에 표시되어야 합니다. |
 
@@ -420,7 +420,7 @@ ms.locfileid: "99219675"
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
@@ -428,7 +428,7 @@ ms.locfileid: "99219675"
 
 제목 **Naminginfo** 는 [신뢰 당사자 정책의](relyingparty.md#subjectnaminginfo)토큰에 사용 되는 주체 이름을 정의 합니다. **SubjectNamingInfo** 에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 
@@ -440,7 +440,7 @@ ms.locfileid: "99219675"
 
 **IncludeTechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의 된 기술 프로필의 식별자입니다. |
 
@@ -448,14 +448,14 @@ ms.locfileid: "99219675"
 다음 예제에서는 포함을 사용 하는 방법을 보여 줍니다.
 
 - *REST-일반* -기본 구성이 포함 된 일반적인 기술 프로필입니다.
-- *Rest-ValidateProfile* -REST- *API commom* 기술 프로필을 포함 하 고 입력 및 출력 클레임을 지정 합니다.
-- *Rest-UpdateProfile* - *Rest-API commom* 기술 프로필을 포함 하 고, 입력 클레임을 지정 하 고, `ServiceUrl` 메타 데이터를 덮어씁니다.
+- *Rest-ValidateProfile* - *Rest-API 일반* 기술 프로필을 포함 하 고 입력 및 출력 클레임을 지정 합니다.
+- *Rest-UpdateProfile* -REST- *API 일반* 기술 프로필을 포함 하 고, 입력 클레임을 지정 하 고, `ServiceUrl` 메타 데이터를 덮어씁니다.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="REST-API-Commom">
+    <TechnicalProfile Id="REST-API-Common">
       <DisplayName>Base REST API configuration</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -480,7 +480,7 @@ ms.locfileid: "99219675"
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
@@ -492,7 +492,7 @@ ms.locfileid: "99219675"
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -549,7 +549,7 @@ ms.locfileid: "99219675"
 
 [Single sign-on 세션 기술 프로필](custom-policy-reference-sso.md)에 대 한 **UseTechnicalProfileForSessionManagement** 요소 참조입니다. **UseTechnicalProfileForSessionManagement** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 참조 | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 

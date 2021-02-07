@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 19cebefd64f5b6dce9c265a591c8d5072fcd83db
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe0b2abb7fa2ca986a896a75e5f6d4c238d70109
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222737"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807261"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "98222737"
 - 시각화를 사용 하 여 데이터 및 설명의 패턴을 쉽게 확인할 수 있습니다.
 - 유추 또는 점수 매기기 중 interpretability을 구현 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Interpretability 기능. `pip install azureml-interpret`을 실행 하 여 필요한 패키지를 가져옵니다.
 - AutoML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [automl 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
@@ -40,7 +40,7 @@ ms.locfileid: "98222737"
 
 에서 설명 하는 설명을 검색 합니다 `best_run` . 여기에는 원시 및 엔지니어링 된 기능에 대 한 설명이 포함 됩니다.
 
-> [!Warning]
+> [!NOTE]
 > Interpretability, 최상의 모델 설명은 자동 ML 예측 실험에서 사용할 수 없습니다. 
 > * TCNForecaster
 > * AutoArima

@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613569"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805532"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 문제 해결
 
@@ -164,7 +164,7 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
 
 상태를 선택 하 여 격리에 대 한 추가 정보를 볼 수 있습니다. 오류 코드 및 메시지를 가져올 수도 있습니다.
 
-![격리 상태 정보](media/how-to-troubleshoot/quarantine-2.png)
+![격리에 대 한 추가 정보를 보여 주는 스크린샷](media/how-to-troubleshoot/quarantine-2.png)
 
 상태를 마우스 오른쪽 단추로 클릭 하면 추가 옵션이 표시 됩니다.
     
@@ -172,11 +172,11 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
    - 에이전트 보기
    - 격리 지우기
 
-![격리 상태 정보](media/how-to-troubleshoot/quarantine-4.png)
+![오른쪽 클릭 메뉴 옵션을 보여 주는 스크린샷](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>격리 해결
-두 가지 방법으로 격리를 해결할 수 있습니다.  관련 토폴로지는 다음과 같습니다.
+두 가지 방법으로 격리를 해결할 수 있습니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
 
   - 격리 지우기-워터 마크를 지우고 델타 동기화를 실행 합니다.
   - 프로 비전 작업 다시 시작-워터 마크를 지우고 초기 동기화를 실행 합니다.
@@ -186,7 +186,7 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
 
 격리가 취소 되는 것을 확인할 수 있습니다.
 
-![격리 상태 정보](media/how-to-troubleshoot/quarantine-5.png)
+![격리를 지우는 알림을 보여 주는 스크린샷](media/how-to-troubleshoot/quarantine-5.png)
 
 그러면 에이전트의 상태가 정상으로 표시 됩니다.
 

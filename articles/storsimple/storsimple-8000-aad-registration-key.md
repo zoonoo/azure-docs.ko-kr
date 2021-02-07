@@ -1,19 +1,19 @@
 ---
-title: Device Manager에서 StorSimple 8000에 대 한 Azure AD 인증
+title: 장치 관리자에서 StorSimple 8000에 대 한 Azure AD 인증
 description: 서비스에 AAD 기반 인증을 사용하고, 새 등록 키를 생성하고, 디바이스의 수동 등록을 수행하는 방법을 설명합니다.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e071a20051f047efbd040dfc01a30e3c1381367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b09d68e7859a787c05a2fc62294f081c4345ae08
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631327"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805043"
 ---
-# <a name="use-azuer-active-directory-ad-authentication-for-your-storsimple"></a>StorSimple에 AD (Azure Active Directory) 인증 사용
+# <a name="use-azure-active-directory-ad-authentication-for-your-storsimple"></a>StorSimple에 대 한 AD (Azure Active Directory) 인증 사용
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -75,9 +75,9 @@ AAD 서비스 등록 키를 생성하려면 다음 단계를 수행합니다.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>AAD 서비스 등록 키를 생성하려면
 
-1. **StorSimple 디바이스 관리자**에서 **관리 &gt;** **키**로 이동합니다. 검색 창을 사용하여 _키_를 검색할 수도 있습니다.
+1. **StorSimple 디바이스 관리자** 에서 **관리 &gt;** **키** 로 이동합니다. 검색 창을 사용하여 _키_ 를 검색할 수도 있습니다.
     
-2. **키 생성**을 클릭합니다.
+2. **키 생성** 을 클릭합니다.
 
     ![다시 생성 클릭](./media/storsimple-8000-aad-registration-key/aad-click-generate-registration-key.png)
 

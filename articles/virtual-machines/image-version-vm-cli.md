@@ -1,5 +1,5 @@
 ---
-title: VM에서 이미지 만들기
+title: Azure CLI를 사용 하 여 VM에서 이미지 만들기
 description: Azure의 VM에서 공유 이미지 갤러리에 이미지를 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aa2623722b5e75480e68324d76e4a1493501df
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ca354ee662ebad0cd514d4822794b056ee6f9850
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685143"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805380"
 ---
 # <a name="create-an-image-version-from-a-vm-in-azure-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure의 VM에서 이미지 버전 만들기
 

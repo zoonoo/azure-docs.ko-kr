@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433022"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807227"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -23,7 +23,7 @@ Security Center에는 다양 한 리소스 유형에 대 한 다양 한 경고�
 
 보안 경고는 고급 검색에서 트리거되고 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
 
-## <a name="respond-to-todays-threats"></a>오늘 위협 <a name="respond-threats"> </a> 에 대응
+## <a name="respond-to-todays-threats"></a>오늘 위협 <a name="respond-threats"></a> 에 대응
 
 지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 주 또는 구성 된 범죄에 의해 투자 될 수 있으므로 더 많은 리소스를 사용할 수 있습니다.
 
@@ -91,7 +91,7 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 
 - 경고 대시보드에서 **csv 보고서 다운로드** 는 csv로 일회성 내보내기를 제공 합니다.
 - 가격 책정에서 **연속 내보내기** & 설정을 사용 하면 작업 영역 및 Event Hubs에 Log Analytics 대 한 보안 경고 및 권장 사항 스트림을 구성할 수 있습니다. [연속 내보내기에 대 한 자세한 정보](continuous-export.md)
-- **Azure 센티널 커넥터** 는 Azure Security Center의 보안 경고를 azure 센티널로 스트리밍합니다. [센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
+- **Azure 센티널 커넥터** 는 Azure Security Center의 보안 경고를 azure 센티널로 스트리밍합니다. [Azure 센티널로 Azure Security Center 연결에 대 한 자세한 정보](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>다음 단계

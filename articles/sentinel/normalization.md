@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657026"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805093"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -105,11 +105,11 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 #### <a name="using-the-parsers"></a>파서 사용
 
-사용 하도록 설정 된 후에는 메타 파서를 사용 하 여 현재 사용할 수 있는 모든 파서에서 통합 뷰를 쿼리할 수 있습니다. 이렇게 하려면 센티널 로그 페이지로 이동 하 여 메타 파서를 쿼리 합니다.
+사용 하도록 설정 된 후에는 메타 파서를 사용 하 여 현재 사용할 수 있는 모든 파서에서 통합 뷰를 쿼리할 수 있습니다. 이렇게 하려면 Azure 센티널 로그 페이지로 이동 하 여 메타 파서를 쿼리 합니다.
 
 :::image type="content" source="./media/normalization/query-parser.png" alt-text="파서 쿼리":::
  
-' 쿼리 탐색기 '를 클릭 하 여 센티널 로그 페이지에서 쿼리 탐색기를 사용 하 여 메타 파서 또는 개별 파서에 액세스할 수도 있습니다.
+' 쿼리 탐색기 '를 클릭 하 여 로그 페이지에서 쿼리 탐색기를 사용 하 여 메타 파서 또는 개별 파서에 액세스할 수도 있습니다.
 
 :::image type="content" source="./media/normalization/query-explorer.png" alt-text="쿼리 탐색기":::
 

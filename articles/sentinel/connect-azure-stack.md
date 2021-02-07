@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Hub 가상 머신을 Azure 센티널에 등록 | Microsoft Docs
-description: 이 문서에서는 Azure Stack 허브 가상 머신에서 Azure Monitor, 업데이트 및 구성 관리 가상 머신 확장을 프로 비전 하 고 센티널을 사용 하 여 모니터링을 시작 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Stack 허브 가상 머신에서 Azure Monitor, 업데이트 및 구성 관리 가상 머신 확장을 프로 비전 하 고 Azure 센티널을 사용 하 여 모니터링을 시작 하는 방법을 보여 줍니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 068296a02af0abd2fb18d284fdaf01b7c1b198fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631145"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807431"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 허브 가상 머신 연결
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660579"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807006"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>사용자 고유의 Machine Learning (ML)를 Azure 센티널로 가져오기
 
@@ -82,7 +82,7 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 있는 Microso
 | 파일 이름 | Description |
 | --------- | ----------- |
 | azure_sentinel_utilities. | Azure에서 blob을 읽고 Log Analytics에 쓰는 유틸리티를 포함 합니다. |
-| AnomalousRASampleData | 노트북에서는 생성 된 학습 및 테스트 샘플 데이터와 함께 센티널에서 비정상적인 리소스 액세스 모델을 사용 하는 방법을 보여 줍니다. |
+| AnomalousRASampleData | 노트북에서는 생성 된 학습 및 테스트 샘플 데이터를 사용 하 여 Azure 센티널에서 비정상적인 리소스 액세스 모델을 사용 하는 방법을 보여 줍니다. |
 | AnomalousRATraining | 모델을 학습 하 고 모델을 작성 하 고 저장 하기 위한 노트북. |
 | AnomalousRAScoring | 모델 실행을 예약 하 고 결과를 시각화 하 고 점수를 다시 Azure 센티널로 쓰는 노트북입니다. |
 |
@@ -99,7 +99,7 @@ BYO ML 패키지에는 보안을 위해 ML의 프런트 엔드에 있는 Microso
 
 ### <a name="auto-export-instruction"></a>자동 내보내기 명령
 
-센티널의 사용자 고유의 데이터를 기반으로 사용자 지정 ML 모델을 작성 하려면 ML 모델이 Databricks에서 액세스할 수 있도록 데이터를 Log Analytics에서 Blob 저장소 또는 이벤트 허브 리소스로 내보내야 합니다. [Azure 센티널로 데이터를 수집](connect-data-sources.md)하는 방법을 알아봅니다.
+Azure 센티널의 고유한 데이터를 기반으로 사용자 지정 ML 모델을 빌드하려면 ML 모델이 Databricks에서 액세스할 수 있도록 Log Analytics에서 Blob 저장소 또는 이벤트 허브 리소스로 데이터를 내보내야 합니다. [Azure 센티널로 데이터를 수집](connect-data-sources.md)하는 방법을 알아봅니다.
 
 이 예에서는 Azure blob storage에서 파일 공유 액세스 로그에 대 한 학습 데이터가 필요 합니다. 데이터 형식은 노트북 및 라이브러리에 설명 되어 있습니다.
 
@@ -141,7 +141,7 @@ az monitor log-analytics workspace data-export list --resource-group "RG_NAME" -
 
 ### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Azure 센티널 외부의 데이터와 상호 연결
 
-Azure 센티널 외부에서 blob 저장소 또는 이벤트 허브로 데이터를 가져와 센티널 데이터와 상호 연결 하 여 ML 모델을 빌드할 수도 있습니다. 
+Azure 센티널 외부에서 blob 저장소 또는 이벤트 허브로 데이터를 가져와 Azure 센티널 데이터와 상호 연결 하 여 ML 모델을 빌드할 수도 있습니다. 
  
 ### <a name="copy-and-install-the-related-packages"></a>관련 패키지 복사 및 설치
 

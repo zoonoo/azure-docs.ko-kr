@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784798"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807566"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_* _ Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>사용자 및 엔터티 동작 분석 (UEBA) 이란?
 
@@ -35,7 +35,7 @@ ms.locfileid: "98784798"
 
 Azure 센티널의 UEBA 기능을 통해 분석가의 워크 로드에서 drudgery 하 고, 노력 으로부터 불확실성을 제거 하 고, 조사 및 수정에 집중할 수 있도록 고성능의 실행 가능한 인텔리전스를 제공 합니다.
 
-Azure 센티널은 모든 연결 된 데이터 원본에서 로그 및 경고를 수집 하 고,이를 분석 하 고 조직 엔터티 (사용자, 호스트, IP 주소, 응용 프로그램 등)의 기준 동작 프로필을 시간 및 피어 그룹 가로선으로 빌드합니다. 센티널은 다양 한 기술 및 기계 학습 기능을 사용 하 여 비정상적인 활동을 식별 하 고 자산이 손상 되었는지 여부를 확인 하는 데 도움이 됩니다. 뿐만 아니라 특정 자산의 상대적인 민감도를 파악 하 고, 자산의 피어 그룹을 식별 하 고, 손상 된 특정 자산의 잠재적 영향 ("폭발 반경")을 평가할 수도 있습니다. 이 정보를 사용 하 여 조사 및 인시던트 처리의 우선 순위를 효과적으로 지정할 수 있습니다. 
+Azure 센티널은 모든 연결 된 데이터 원본에서 로그 및 경고를 수집 하 고,이를 분석 하 여 사용자, 호스트, IP 주소, 응용 프로그램 등 조직의 엔터티 (예: 사용자, 호스트, IP 주소 및 응용 프로그램)에 대 한 기본 동작 프로필을 시간 및 피어 그룹 가로선으로 빌드합니다. Azure 센티널은 다양 한 기술과 기계 학습 기능을 사용 하 여 비정상적인 활동을 식별 하 고 자산이 손상 되었는지 여부를 확인 하는 데 도움이 됩니다. 뿐만 아니라 특정 자산의 상대적인 민감도를 파악 하 고, 자산의 피어 그룹을 식별 하 고, 손상 된 특정 자산의 잠재적 영향 ("폭발 반경")을 평가할 수도 있습니다. 이 정보를 사용 하 여 조사 및 인시던트 처리의 우선 순위를 효과적으로 지정할 수 있습니다. 
 
 ### <a name="architecture-overview"></a>아키텍처 개요
 
@@ -45,7 +45,7 @@ Azure 센티널은 모든 연결 된 데이터 원본에서 로그 및 경고를
 
 UEBA 솔루션에 대 한 Gartner의 패러다임에서 제공 되는 Azure 센티널은 세 가지 참조 프레임을 기반으로 하는 "외부" 접근 방식을 제공 합니다.
 
-- _ *사용 사례:** 다양 한 엔터티를 kill 체인의 교착 상태가 발생, perpetrators 또는 Pivot 점으로 사용 하는 MITRE at&t&접시 헤드 프레임 워크를 기반으로 하는 관련 공격 벡터 및 시나리오에 대 한 우선 순위를 설정 합니다. Azure 센티널은 각 데이터 원본이 제공할 수 있는 가장 중요 한 로그에 초점을 맞춘 것입니다.
+- **사용 사례:** 다양 한 엔터티를 kill 체인의 교착 상태가 발생, perpetrators 또는 pivot 점으로 사용 하는 MITRE AT&T&접시 헤드 프레임 워크를 기반으로 하는 관련 공격 벡터 및 시나리오에 대 한 우선 순위를 설정 합니다. Azure 센티널은 각 데이터 원본이 제공할 수 있는 가장 중요 한 로그에 초점을 맞춘 것입니다.
 
 - **데이터 원본:** Azure 데이터 원본을 먼저 지원 하는 반면, Azure 센티널 신중는 타사 데이터 원본을 선택 하 여 위협 시나리오와 일치 하는 데이터를 제공 합니다.
 
@@ -68,7 +68,7 @@ Azure 센티널은 보안 분석가가 컨텍스트의 비정상적인 활동을
 
 작동 방식에 대 한 예제는 [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) 에서 동작 분석을 사용 하는 방법을 참조 하세요.
 
-## <a name="entities-in-azure-sentinel"></a>Azure 센티널의 엔터티
+## <a name="entities-in-azure-sentinel"></a>Azure Sentinel의 엔터티
 
 ### <a name="entity-identifiers"></a>엔터티 식별자
 
@@ -150,7 +150,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | Description                                                         |
+| 필드                     | 설명                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |
