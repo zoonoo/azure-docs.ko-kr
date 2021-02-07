@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995865"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807753"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -43,7 +43,7 @@ ms.locfileid: "95995865"
 > 
 > 새 [AZURE AD 보고 및 모니터링 솔루션](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md) 로그는 [SigninLogs](../../active-directory/reports-monitoring/concept-sign-ins.md) 및 [AuditLogs](../../active-directory/reports-monitoring/concept-audit-logs.md) 테이블에 수집 **됩니다.** 자세한 내용은 azure 센티널 및 Azure Monitor 사용자와 관련 된 [AZURE AD 로그를 분석 하는 방법](../../active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md)을 참조 하세요.
 > 
-> 다음은 SigninLogs **활동** 에서 **SigninLogs** 로 쿼리를 변환 하는 샘플입니다.
+> 다음은 SigninLogs **활동** 에서 로 쿼리를 변환 하는 샘플입니다.
 > 
 > **사용자가 실패 한 로그인 쿼리:**
 > 
@@ -95,7 +95,7 @@ ms.locfileid: "95995865"
 > - [기본으로 위협 감지](../../sentinel/tutorial-detect-threats-built-in.md)
 > - [의심스러운 위협을 검색하는 사용자 지정 분석 규칙 만들기](../../sentinel/tutorial-detect-threats-custom.md)
 > - [데이터 모니터링](../../sentinel/tutorial-monitor-your-data.md)
-> - [Azure 센티널을 사용 하 여 인시던트 조사](../../sentinel/tutorial-investigate-cases.md)
+> - [Azure Sentinel을 사용하여 인시던트 조사](../../sentinel/tutorial-investigate-cases.md)
 > - [Azure Sentinel에서 자동화된 위협 응답 설정](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Azure 센티널 GitHub 커뮤니티](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -109,7 +109,7 @@ ms.locfileid: "95995865"
 > - 10 월 31 일까 지 솔루션을 수동으로 보드 오프 하지 않는 경우 데이터는 자동으로 연결 되 고, **솔루션은 제거** 됩니다. 이 경우에도 아래에 설명 된 대로 Azure 센티널에서 Office 365 커넥터를 사용 하도록 설정 하면 여전히 테이블을 복원할 수 있습니다.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q: 데이터를 새 솔루션으로 전송 하 시겠습니까?
-> 예. 작업 영역에서 **Office 365** 솔루션을 제거 하면 스키마가 제거 되어 해당 데이터를 일시적으로 사용할 수 없게 됩니다. 센티널에서 새로운 **Office 365** 커넥터를 사용 하도록 설정 하면 스키마가 작업 영역에 복원 되 고 이미 수집 된 데이터를 사용할 수 있게 됩니다. 
+> 예. 작업 영역에서 **Office 365** 솔루션을 제거 하면 스키마가 제거 되어 해당 데이터를 일시적으로 사용할 수 없게 됩니다. Azure 센티널에서 새로운 **Office 365** 커넥터를 사용 하도록 설정 하면 스키마가 작업 영역에 복원 되 고 이미 수집 된 모든 데이터를 사용할 수 있게 됩니다. 
  
 
 Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환경을 모니터링할 수 있습니다.
@@ -243,7 +243,7 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 경고를 나열합니다. 열 아래쪽의 모두 보기를 클릭하거나 열 머리글을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | Description |
+| 열 | 설명 |
 |:--|:--|
 | 작업 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
 | Exchange | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
@@ -261,12 +261,12 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
-| 형식 | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
+| 작업 | 사용자 또는 관리자 활동의 이름입니다.  |
 | OrganizationId | 조직의 Office 365 테넌트 GUID입니다. 이 값은 값이 나타나는 Office 365 서비스에 관계없이 조직에서 항상 동일하게 유지됩니다. |
 | RecordType | 수행한 작업의 유형입니다. |
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
@@ -279,7 +279,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -291,7 +291,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -305,7 +305,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -323,7 +323,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -339,7 +339,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -354,7 +354,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -377,7 +377,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -392,7 +392,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -411,7 +411,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -428,7 +428,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -441,7 +441,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

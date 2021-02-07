@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072407"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806412"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -67,13 +67,13 @@ ms.locfileid: "99072407"
     sudo su - oracle
     ```
     
-2. 연결 하기 전에 ORACLE_SID 환경 변수를 설정 해야 합니다.
+2. 연결하기 전에 환경 변수 ORACLE_SID를 설정해야 합니다.
     
     ```bash
     export ORACLE_SID=test;
     ```
 
-    또한 `oracle` `.bashrc` 다음 명령을 사용 하 여 나중에 로그인 할 수 있도록 사용자 파일에 ORACLE_SID 변수를 추가 해야 합니다.
+    또한 다음 명령을 사용하여 향후 로그인에 사용할 `oracle` 사용자 `.bashrc` 파일에 ORACLE_SID 변수를 추가해야 합니다.
 
     ```bash
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
@@ -276,7 +276,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    > 1. 이전 형식의 암호 파일을 새 이름으로 이동 합니다.
    > 1. 암호 파일을 마이그레이션합니다.
    > 1. 이전 파일을 제거 합니다.
-   > 1. 다음 명령 실행:
+   > 1. 다음 명령을 실행합니다.
    >
    >    ```bash
    >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
@@ -697,7 +697,7 @@ Recovery Services 자격 증명 모음에서 삭제된 파일을 복원하는 �
 
    1. Azure Portal에서 **+ 리소스 만들기** 를 선택 하 고 **저장소 계정** 을 검색 하 여 선택 합니다.
     
-      ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/storage-1.png)
+      ![리소스를 만들 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. 저장소 계정 만들기 페이지에서 기존 리소스 그룹 **rg-oracle** 을 선택 하 고, 저장소 계정의 이름을 **oracrestore** 하 고, 계정 종류에 대해 **저장소 V2 (일반 용도 V2)** 를 선택 합니다. 복제를 **LRS (로컬 중복 저장소)** 로 변경 하 고 성능을 **Standard** 로 설정 합니다. 위치가 리소스 그룹의 다른 모든 리소스와 동일한 지역으로 설정 되어 있는지 확인 합니다. 
@@ -877,7 +877,7 @@ VM을 복원한 후에는 원래 IP 주소를 새 VM에 다시 할당 해야 합
 
 5.  이제 VM 복원 작업을 사용 하 여 만든 NIC를 기본 인터페이스로 구성 하므로 분리 해야 합니다. **네트워크 인터페이스 분리** 를 클릭 하 고 **vmoracle19c** 와 유사한 새 Nic를 선택한 다음 **확인** 을 클릭 합니다.
 
-    ![IP 주소 값](./media/oracle-backup-recovery/create-ip-05.png)
+    ![네트워크 인터페이스 분리를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/create-ip-05.png)
     
     이제 다시 만든 VM에 원래 IP 주소 및 네트워크 보안 그룹 규칙에 연결 된 원래 NIC가 있습니다.
     

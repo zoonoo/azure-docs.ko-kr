@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 22c49502883cb444027bd59a24bfb5bb3c32da4c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915167"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806310"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
@@ -29,7 +29,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 - **작업:** 공격 완화 보고서는 집계 된 netflow 프로토콜 데이터를 사용 하 여 리소스에 대 한 공격에 대 한 자세한 정보를 제공 합니다. 공용 IP 리소스가 공격을 받을 때마다 완화가 시작되는 즉시 보고서 생성이 시작됩니다. 5분마다 생성되는 증분 보고서와 전체 완화 기간에 대한 사후 완화 보고서가 있습니다. 이렇게 하면 DDoS 공격이 더 오랜 시간 지속되는 경우 5분마다 완화 보고서의 최신 스냅샷을 볼 수 있고 공격 완화가 완료되면 전체 요약을 볼 수 있습니다. 
 - **Allmetrics**: DDoS 공격 기간 동안 사용 가능한 모든 메트릭을 제공 합니다. 
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 알림, 완화 보고서 및 완화 흐름 로그를 포함 하 여 DDoS 진단 로그를 구성 합니다. 
@@ -73,12 +73,12 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **구독** | DDoS 보호 계획 구독 ID입니다. |
+| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.  |
-| **Message** | 공격에 대 한 세부 정보입니다. |
-| **형식** | 알림 유형입니다. 가능한 값은 다음과 같습니다 `MitigationStarted` . `MitigationStopped`. |
+| **메시지** | 공격에 대 한 세부 정보입니다. |
+| **유형** | 알림 유형입니다. 가능한 값은 다음과 같습니다 `MitigationStarted` . `MitigationStopped`. |
 | **PublicIpAddress** | 공용 IP 주소입니다. |
 
 # <a name="ddosmitigationflowlogs"></a>[DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
@@ -89,11 +89,11 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 흐름 로그의 경우이는 `DDoSMitigationFlowLogs` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **구독** | DDoS 보호 계획 구독 ID입니다. |
+| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 흐름 로그의 경우이는 `DDoSMitigationFlowLogs` 입니다. |
-| **Message** | 공격에 대 한 세부 정보입니다. |
+| **메시지** | 공격에 대 한 세부 정보입니다. |
 | **SourcePublicIpAddress** | 공용 IP 주소에 대 한 트래픽을 생성 하는 클라이언트의 공용 IP 주소입니다. |
 | **SourcePort** | 0에서 65535 사이의 포트 번호입니다. |
 | **DestPublicIpAddress** | 공용 IP 주소입니다. |
@@ -108,7 +108,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **구독** | DDoS 보호 계획 구독 ID입니다. |
+| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 완화 보고서의 경우이는 `DDoSMitigationReports` 입니다. |
@@ -128,7 +128,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 ## <a name="enable-diagnostic-logging-on-all-public-ips"></a>모든 공용 Ip에서 진단 로깅 사용
 
-이 [템플릿은](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Enable%20Diagnostic%20Logging/Azure%20Policy) 정의 된 범위의 모든 공용 IP 로그에서 진단 로깅을 자동으로 사용 하도록 Azure Policy 정의를 만듭니다.
+이 [템플릿은](https://aka.ms/ddosdiaglogs) 정의 된 범위의 모든 공용 IP 로그에서 진단 로깅을 자동으로 사용 하도록 Azure Policy 정의를 만듭니다.
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
 
@@ -142,7 +142,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 ### <a name="azure-ddos-protection-workbook"></a>Azure DDoS Protection 통합 문서
 
-이 Azure Resource Manager (ARM) 템플릿을 사용 하 여 공격 분석 통합 문서를 배포할 수 있습니다. 이 통합 문서를 사용 하면 여러 개의 필터링 가능한 패널에서 공격 데이터를 시각화 하 여 stake의 기능을 쉽게 이해할 수 있습니다. 
+[이 Azure Resource Manager (ARM) 템플릿을](https://aka.ms/ddosworkbook) 사용 하 여 공격 분석 통합 문서를 배포할 수 있습니다. 이 통합 문서를 사용 하면 여러 개의 필터링 가능한 패널에서 공격 데이터를 시각화 하 여 stake의 기능을 쉽게 이해할 수 있습니다. 
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
 

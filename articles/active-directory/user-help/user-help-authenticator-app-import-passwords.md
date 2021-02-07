@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b0d7eeeb840a3efc560c20310b38bee93a038795
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ecc6580148dfba92077336a26ff9160fbe88eb2c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056025"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806158"
 ---
 # <a name="import-passwords-into-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 암호 가져오기
 
@@ -24,7 +24,7 @@ Microsoft Authenticator Google Chrome, Firefox, LastPass, Bitwarden 및 Roboform
 
 ## <a name="import-from-google-chrome-or-android-smart-lock"></a>Google Chrome 또는 Android에서 가져오기 Smart Lock
 
-Google Chrome 또는 Android Smart Lock에서 스마트폰 또는 데스크톱 컴퓨터의 인증자로 암호를 가져올 수 있습니다. 다음 작업을 수행할 수 있습니다.
+Google Chrome 또는 Android Smart Lock에서 스마트폰 또는 데스크톱 컴퓨터의 인증자로 암호를 가져올 수 있습니다. 다음과 같습니다.
 
 - [Android 및 iOS의 Chrome에서 가져오기](#import-from-chrome-on-android-and-ios)
 - [Chrome 데스크톱 브라우저에서 가져오기](#import-from-chrome-desktop-browser)
@@ -39,21 +39,21 @@ Android 및 Apple 휴대폰의 Google Chrome 사용자는 몇 가지 간단한 �
 
 1. ![ ](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) Android 휴대폰의 오른쪽 위 또는 iOS 장치에 대 한 오른쪽 아래에 있는 Google Chrome 줄임표 메뉴를 탭 한 다음 설정을 탭 합니다 **.**
 
-   &nbsp; | &nbsp;
+   플랫폼 | 링크
    ---------- | --------
    Android | ![Google Chrome 설정 메뉴 위치](./media/user-help-authenticator-app-import-passwords/android-settings-menu.png)
    iOS | ![Google Chrome 설정 메뉴 아이콘](./media/user-help-authenticator-app-import-passwords/apple-settings-menu.png)
 
 1. **설정** 에서 **암호** 를 엽니다.
 
-   &nbsp; | &nbsp;
+   플랫폼 | 링크
    ---------- | --------
    Android | ![Andoid Chrome 암호 명령 위치](./media/user-help-authenticator-app-import-passwords/android-passwords-location.png)
    iOS | ![Apple Chrome 암호 명령 위치](./media/user-help-authenticator-app-import-passwords/apple-passwords-location.png)
 
 1. Android 장치에서 ![ ](./media/user-help-authenticator-app-import-passwords/ellipsis-chrome.png) android 휴대폰의 오른쪽 위 또는 iOS 장치에 대 한 오른쪽 아래에 있는 Google Chrome 줄임표 메뉴를 탭 한 다음 **암호 내보내기** 를 누릅니다.
 
-   &nbsp; | &nbsp;
+   플랫폼 | 링크
    ---------- | --------
    Android | ![Android Chrome 암호 내보내기 위치](./media/user-help-authenticator-app-import-passwords/android-export-passwords-location.png)
    iOS | ![Apple Chrome 내보내기 암호 위치](./media/user-help-authenticator-app-import-passwords/apple-export-passwords-location.png)
@@ -62,7 +62,7 @@ Android 및 Apple 휴대폰의 Google Chrome 사용자는 몇 가지 간단한 �
 
 1. 암호를 내보낸 후 Chrome은 가져올 앱을 선택 하 라는 메시지를 표시 합니다. 암호 가져오기를 시작 하려면 **Authenticator** 를 선택 합니다. 완료 되 면 가져오기 상태에 대 한 정보가 표시 됩니다.
 
-   &nbsp; | &nbsp;
+   플랫폼 | 링크
    ---------- | --------
    Android | ![Android Chrome 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
    iOS | ![Apple Chrome 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -105,7 +105,7 @@ Firefox를 사용 하면 데스크톱 브라우저 에서만 암호를 내보낼
 
       1. 선호 하는 안전한 방법으로 Android 또는 iOS 휴대폰에서 내보낸 CSV 파일을 전송 하 고 다운로드 합니다. 그런 다음 CSV 파일을 Authenticator 앱과 공유 하 여 가져오기를 시작 합니다.
 
-         &nbsp; | &nbsp;
+         플랫폼 | 링크
          ---------- | --------
          Android | ![Android Chrome 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Chrome 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -134,7 +134,7 @@ LastPass는 데스크톱 브라우저 에서만 암호 내보내기를 지원 �
 
       1. 선호 하는 안전한 방법으로 스마트폰에서 내보낸 CSV 파일을 전송 하 고 다운로드 합니다. 그런 다음 CSV 파일을 Authenticator 앱과 공유 하 여 가져오기를 시작 합니다.
 
-         &nbsp; | &nbsp;
+         플랫폼 | 링크
          ---------- | --------
          Android | ![Android LastPass 가져오기 암호 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple LastPass 가져오기 암호 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -153,7 +153,7 @@ Bitwarden는 데스크톱 브라우저 에서만 암호 내보내기를 지원 �
 
       1. 선호 하는 안전한 방법으로 스마트폰에서 내보낸 CSV 파일을 전송 하 고 다운로드 합니다. 그런 다음 CSV 파일을 Authenticator 앱과 공유 하 여 가져오기를 시작 합니다.
 
-         &nbsp; | &nbsp;
+         플랫폼 | 링크
          ---------- | --------
          Android | ![Android Bitwarden 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Bitwarden 가져오기 암호 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -186,7 +186,7 @@ Roboform는 데스크톱 앱 에서만 암호를 내보낼 수 있도록 하므�
 
       1. 선호 하는 안전한 방법으로 스마트폰에서 내보낸 CSV 파일을 전송 하 고 다운로드 합니다. 그런 다음 CSV 파일을 Authenticator 앱과 공유 하 여 가져오기를 시작 합니다.
 
-         &nbsp; | &nbsp;
+         플랫폼 | 링크
          ---------- | --------
          Android | ![Android Roboform 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple Roboform 가져오기 암호 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)
@@ -209,7 +209,7 @@ Roboform는 데스크톱 앱 에서만 암호를 내보낼 수 있도록 하므�
 
       1. 선호 하는 안전한 방법으로 스마트폰에서 내보낸 CSV 파일을 전송 하 고 다운로드 합니다. 그런 다음 CSV 파일을 Authenticator 앱과 공유 하 여 가져오기를 시작 합니다.
 
-         &nbsp; | &nbsp;
+         플랫폼 | 링크
          ---------- | --------
          Android | ![Android CSV 암호 가져오기 위치](./media/user-help-authenticator-app-import-passwords/android-chrome-import.png)
          iOS | ![Apple CSV 가져오기 암호 위치](./media/user-help-authenticator-app-import-passwords/apple-chrome-import.png)

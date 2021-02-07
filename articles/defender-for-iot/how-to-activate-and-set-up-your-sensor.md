@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509522"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805668"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
 
@@ -142,7 +142,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 센서의 시스템 설정을 검토 하 여 센서가 최적으로 검색 하 고 경고 하도록 구성 되었는지 확인 합니다.
 
-센서의 시스템 설정을 정의 합니다. 예를 들면 다음과 같습니다.
+센서의 시스템 설정을 정의 합니다. 다음은 그 예입니다. 
 
 - ICS (또는 IoT) 및 분리 서브넷을 정의 합니다.
 
@@ -204,7 +204,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 | 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 사용자 | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | 다양 한 액세스 수준을 사용 하 여 사용자 및 역할을 정의 합니다. |
-| 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 파트너 및 내부 원본 (예: 센티널)과 IoT 용 Defender, 전자 메일 주소, webhook 서버 등에 통합 하는 방법에 대 한 경고 정보를 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
+| 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 파트너에 게 경고 정보를 전달 하 고, 내부 원본 (예: Azure 센티널)을 IoT 용 Defender와 통합, 전자 메일 주소, webhook 서버 등에 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
 | 시스템 설정 | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | 시스템 설정을 구성 합니다. 예를 들어 DHCP 설정을 정의 하거나 메일 서버 세부 정보를 제공 하거나 포트 별칭을 만듭니다. |
 | 설정 가져오기 | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | **가져오기 설정** 창을 표시 합니다. 장치 정보를 수동으로 변경할 수 있습니다.<br /> 자세한 내용은 [장치 정보 가져오기](how-to-import-device-information.md) 를 참조 하세요. |
 

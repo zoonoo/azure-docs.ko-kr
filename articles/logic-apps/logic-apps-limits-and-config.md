@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054757"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805937"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -427,6 +427,12 @@ IP 주소를 사용 하 여 방화벽을 설정 하기 전에 다음 사항을 �
 
 > [!TIP]
 > 보안 규칙을 만들 때 지역마다 인바운드 Logic Apps IP 주소 접두사를 지정하는 대신 [서비스 태그](../virtual-network/service-tags-overview.md) **LogicAppsManagement** 를 사용하면 복잡성을 줄일 수 있습니다. 필요에 따라 각 지역에 대 한 인바운드 관리 커넥터 IP 주소 접두사를 지정 하는 대신 Logic Apps 서비스에 대 한 인바운드 webhook 콜백을 만드는 관리 커넥터용 **azureconnectors** service 태그를 사용할 수도 있습니다. 이러한 태그는 Logic Apps 서비스를 사용할 수 있는 지역에서 작동 합니다.
+>
+> 다음 커넥터는 Logic Apps 서비스에 대 한 인바운드 webhook 콜백을 만듭니다.
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign 미리 보기, Adobe Sign 단계, Azure 센티널, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo,에 대 한 Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP *, Shift for Microsoft 팀, Teamwork Projects, Typeform
+>
+> \***SAP**: 반환 호출자는 배포 환경이 다중 테 넌 트 AZURE 또는 ISE 인지에 따라 달라 집니다. 다중 테 넌 트 환경에서 온-프레미스 데이터 게이트웨이는 Logic Apps 서비스에 대 한 호출을 다시 수행 합니다. ISE에서 SAP 커넥터는 Logic Apps 서비스에 대 한 호출을 다시 수행 합니다.
 
 <a name="multi-tenant-inbound"></a>
 

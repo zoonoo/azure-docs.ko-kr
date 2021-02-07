@@ -3,12 +3,12 @@ title: 컨테이너에 대해 Azure Monitor 사용 Microsoft Docs
 description: 이 문서에서는 컨테이너의 작동 방식 및 식별 된 성능 관련 문제를 이해할 수 있도록 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943817"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806012"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor 사용
 
@@ -32,9 +32,15 @@ ms.locfileid: "98943817"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
+
+> [!IMPORTANT]
+> Replicaset pod (Log Analytics 컨테이너 화 된 Linux Agent)는 클러스터 내에서 Kubelet Secure 포트 (10250)의 모든 Windows 노드에 대 한 API 호출을 수행 하 여 노드 및 컨테이너 성능 관련 메트릭을 수집 합니다. Kubelet 보안 포트 (: 10250)는 클러스터의 가상 네트워크에서 열려 있어야 합니다 .이 노드는 인바운드 및 아웃 바운드 Windows 노드 및 컨테이너 성능 관련 메트릭 컬렉션이 작동 하기 위한 것입니다.
+>
+> Windows 노드가 포함 된 Kubernetes 클러스터가 있는 경우 네트워크 보안 그룹 및 네트워크 정책을 검토 하 고 구성 하 여 클러스터의 가상 네트워크에서 Kubelet 보안 포트 (: 10250)가 인바운드 및 아웃 바운드 모두에 대해 열려 있는지 확인 하세요.
+
 
 - Log Analytics 작업 영역이 있습니다.
 
@@ -112,7 +118,7 @@ ms.locfileid: "98943817"
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하려면 다음 표에 설명 된 방법 중 하나를 사용 합니다.
 
-| 배포 상태 | 메서드 | Description |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |

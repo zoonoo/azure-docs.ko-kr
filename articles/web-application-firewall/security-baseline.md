@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878124"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807872"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -135,7 +135,7 @@ Azure PowerShell 또는 Azure CLI을 선택 하 여 태그를 기준으로 리�
 
 **지침**: azure 센티널 또는 타사 siem과 같은 중앙 보안 로그 관리 솔루션에 보낼 Waf (웹 응용 프로그램 방화벽) 로그를 구성 합니다. 이러한 로그에는 Azure 활동, 진단 및 실시간 WAF 로그가 포함 되어 있습니다. 이러한 로그는 Azure Monitor, Excel, Power BI 등의 다른 도구에서 볼 수 있습니다. Azure 웹 응용 프로그램 방화벽 로그는 Azure WAF가 평가, 일치 및 차단 하는 데이터에 대 한 통찰력을 제공 합니다.
 
-Azure 센티널에는 azure WAF의 보안 이벤트에 대 한 개요를 제공 하는 기본 제공 Azure WAF 통합 문서가 있습니다. 이 통합 문서에는 이벤트, 일치 및 차단 된 규칙과 방화벽 로그에 기록 되는 기타 모든 항목이 포함 됩니다. 이 원격 분석을 사용 하 여 플레이 북 자동화를 시작 하 여 센티널에서 수집한 WAF 이벤트에 따라 수정 작업을 알리거나 수정 작업을 수행할 수 있습니다.
+Azure 센티널에는 azure WAF의 보안 이벤트에 대 한 개요를 제공 하는 기본 제공 Azure WAF 통합 문서가 있습니다. 이 통합 문서에는 이벤트, 일치 및 차단 된 규칙과 방화벽 로그에 기록 되는 기타 모든 항목이 포함 됩니다. 이 원격 분석을 사용 하 여 Azure 센티널에 의해 수집 된 WAF 이벤트에 따라 플레이 북 automation에서 알리거나 수정 작업을 수행할 수 있습니다.
 
 - [활동 로그 보기](../azure-resource-manager/management/view-activity-logs.md)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 695f151e6d6cc0a677942f60c751567da0cfca7c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: fce947c43e8559f4ea2a65645805e987a9015d3f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064040"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806276"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-storage"></a>Azure Storage를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
 
@@ -31,19 +31,19 @@ ms.locfileid: "99064040"
    ssh azureuser@<publicIpAddress>
    ```
    
-2. **_Root_* _ user로 전환 합니다.
+2. ***루트*** 사용자로 전환 합니다.
  
    ```bash
    sudo su -
    ```
     
-3. /Etc/sudoers_ * _ 파일에 oracle 사용자를 추가 합니다 _*_ .
+3. ***/Etc/sudoers*** 파일에 oracle 사용자를 추가 합니다.
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
    ```
 
-4. 이 단계에서는 _vmoracle19c * 이라는 VM에서 실행 되는 Oracle 인스턴스 (테스트)가 있다고 가정 합니다.
+4. 이 단계에서는 *vmoracle19c* 이라는 VM에서 실행 되는 Oracle 인스턴스 (테스트)가 있다고 가정 합니다.
 
    사용자를 *oracle* 사용자로 전환 합니다.
 
@@ -51,13 +51,13 @@ ms.locfileid: "99064040"
    sudo su - oracle
    ```
     
-5. 연결 하기 전에 ORACLE_SID 환경 변수를 설정 해야 합니다.
+5. 연결하기 전에 환경 변수 ORACLE_SID를 설정해야 합니다.
     
     ```bash
     export ORACLE_SID=test;
     ```
    
-   또한 `oracle` `.bashrc` 다음 명령을 사용 하 여 나중에 로그인 할 수 있도록 사용자 파일에 ORACLE_SID 변수를 추가 해야 합니다.
+   또한 다음 명령을 사용하여 향후 로그인에 사용할 `oracle` 사용자 `.bashrc` 파일에 ORACLE_SID 변수를 추가해야 합니다.
 
     ```bash
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
@@ -182,31 +182,31 @@ Azure Files를 탑재 하는 경우 `cache=none` 파일 공유 데이터의 캐�
 
 1. Azure Portal에서 File Storage 구성
 
-    Azure Portal에서 ***+ 리소스 만들기** _를 선택 하 고 _*_저장소 계정_*_ 을 검색 하 여 선택 합니다.
+    Azure Portal에서 ***+ 리소스 만들기** _를 선택 하 고을 검색 한 후 _ *_저장소 계정_* 을 선택 합니다.*
     
-    ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/storage-1.png)
+    ![리소스를 만들고 저장소 계정을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/storage-1.png)
     
-2. 저장소 계정 만들기 페이지에서 기존 리소스 그룹 _*_rg-oracle_*_ 을 선택 하 고, 저장소 계정의 이름을 _*_oracbkup1_*_ 하 고, 계정 종류에 대해 _*_저장소 V2 (일반 용도 V2)_*_ 를 선택 합니다. 복제를 _*_LRS (로컬 중복 저장소)_*_ 로 변경 하 고 성능을 _*_Standard_*_ 로 설정 합니다. 위치가 리소스 그룹의 다른 모든 리소스와 동일한 지역으로 설정 되어 있는지 확인 합니다. 
+2. 저장소 계정 만들기 페이지에서 기존 리소스 그룹 ***rg-oracle** _를 선택 하 고, 저장소 계정의 이름을 _*_Oracbkup1_*_ 으로, 계정 종류에 대해 _*_저장소 V2 (일반 용도 V2)_*_ 를 선택 합니다. 복제를 _*_LRS (로컬 중복 저장소)_*_ 로 변경 하 고 성능을 _ *_표준_* *로 설정 합니다. 위치가 리소스 그룹의 다른 모든 리소스와 동일한 지역으로 설정 되어 있는지 확인 합니다. 
     
-    ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/file-storage-1.png)
+    ![기존 리소스 그룹을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/file-storage-1.png)
    
    
-3. _*_고급_*_ 탭을 클릭 하 고 Azure Files에서 _*_대량 파일 공유_*_ 설정을 _*_사용_*_ 으로 설정 합니다. 검토 + 만들기를 클릭 한 다음 만들기를 클릭 합니다.
+3. ***고급** _ 탭을 클릭 하 고 Azure Files에서 _*_큼 파일 공유_*_ 를 _ *_사용_* *으로 설정 합니다. 검토 + 만들기를 클릭 한 다음 만들기를 클릭 합니다.
     
-    ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/file-storage-2.png)
-    
-    
-4. 저장소 계정이 만들어지면 리소스로 이동 하 여 _*_파일 공유_ 를 선택 합니다.*_
-    
-    ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/file-storage-3.png)
-    
-5. _ _*_ _새 파일 공유_ _ *블레이드 이름 파일 공유 _*_orabkup1_ _에서 + 파일 share_ *_* 를 클릭 합니다 *. _*_Quota_*_를 _*_10240_*_ GiB로 설정 하 고* 계층으로 _ _Transaction 최적화_*_를 선택 합니다. 할당량은 파일 공유를 확장할 수 있는 상한을 반영 합니다. 표준 저장소를 사용 하는 것 처럼 리소스가 PAYG 되어 프로 비전 되지 않으므로 10 TiB로 설정 해도 사용 하는 것 보다 비용이 발생 하지 않습니다. 백업 전략에 더 많은 저장소가 필요한 경우 모든 백업을 보관할 적절 한 수준으로 할당량을 설정 해야 합니다.   새 파일 공유 블레이드를 완료 했으면 _*_만들기_* _를 클릭 합니다.
-    
-    ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/file-storage-4.png)
+    ![대량 파일 공유를 사용 하도록 설정할 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/file-storage-2.png)
     
     
-6. 만든 경우 파일 공유 설정 페이지에서 _*_orabkup1_*_ 을 클릭 합니다. 
-    _*_연결_*_ 탭을 클릭 하 여 연결 블레이드를 열고 _*_Linux_*_ 탭을 클릭 합니다. 제공 된 명령을 복사 하 여 SMB 프로토콜을 사용 하 여 파일 공유를 탑재 합니다. 
+4. 저장소 계정이 만들어지면 리소스로 이동 하 여 ***파일 공유*** 를 선택 합니다.
+    
+    ![파일 공유를 선택할 수 있는 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/file-storage-3.png)
+    
+5. ***+ 파일 공유** _를 클릭 하 고 _*_새 파일 공유_*_ 블레이드 이름 파일 공유 _*_orabkup1_*_ 을 클릭 합니다. _*_할당량_*_ 을 _*_10240_*_ GiB로 설정 하 고 계층으로 _*_최적화 된 트랜잭션을_*_ 확인 합니다. 할당량은 파일 공유를 확장할 수 있는 상한을 반영 합니다. 표준 저장소를 사용 하는 것 처럼 리소스가 PAYG 되어 프로 비전 되지 않으므로 10 TiB로 설정 해도 사용 하는 것 보다 비용이 발생 하지 않습니다. 백업 전략에 더 많은 저장소가 필요한 경우 모든 백업을 보관할 적절 한 수준으로 할당량을 설정 해야 합니다.   새 파일 공유 블레이드를 완료 했으면 _ *_만들기_* *를 클릭 합니다.
+    
+    ![새 파일 공유를 추가할 위치를 보여 주는 스크린샷](./media/oracle-backup-recovery/file-storage-4.png)
+    
+    
+6. 만든 경우 파일 공유 설정 페이지에서 ***orabkup1*** 을 클릭 합니다. 
+    ***연결** _ 탭을 클릭 하 여 연결 블레이드를 열고 _ *_Linux_** 탭을 클릭 합니다. 제공 된 명령을 복사 하 여 SMB 프로토콜을 사용 하 여 파일 공유를 탑재 합니다. 
     
     ![저장소 계정 추가 페이지](./media/oracle-backup-recovery/file-storage-5.png)
 
@@ -371,7 +371,7 @@ Azure Files를 탑재 하는 경우 `cache=none` 파일 공유 데이터의 캐�
 
     ```bash
     cd /u02/oradata/TEST
-    rm -f _.dbf
+    rm -f *.dbf
     ```
 
 3. 다음 명령은 RMAN을 사용 하 여 누락 된 데이터 파일를 복원 하 고 데이터베이스를 복구 합니다.
