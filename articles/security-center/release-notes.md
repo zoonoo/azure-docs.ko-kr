@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916469"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526622"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -29,6 +29,49 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 
 > [!TIP]
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
+
+
+## <a name="february-2021"></a>2021년 2월
+
+2월의 업데이트는 다음과 같습니다.
+
+- [Kubernetes 워크로드 보호 권장 사항이 GA(일반 공급)로 릴리스됨](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [권장 사항 세부 정보 페이지에서 정책으로 직접 연결](#direct-link-to-policy-from-recommendation-details-page)
+- [SQL 데이터 분류 권장 사항이 더 이상 보안 점수에 영향을 주지 않음](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+
+### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Kubernetes 워크로드 보호 권장 사항이 GA(일반 공급)로 릴리스됨
+
+Kubernetes 워크로드 보호를 위한 권장 사항 세트가 GA(일반 공급)된다는 것을 발표하게 되어 기쁘게 생각합니다.
+
+Kubernetes 워크로드를 기본적으로 안전하게 보호하기 위해 Security Center에서 Kubernetes 허용 제어가 있는 적용 옵션을 포함하여 Kubernetes 수준 보안 강화 권장 사항이 추가되었습니다.
+
+Kubernetes에 대한 Azure Policy 추가 항목을 AKS(Azure Kubernetes Service) 클러스터에 설치하면 Kubernetes API 서버에 대한 모든 요청이 클러스터에 유지되기 전에 미리 정의된 모범 사례 세트(예: 13개 보안 권장 사항으로 표시됨)에 대해 모니터링됩니다. 그런 다음, 모범 사례를 적용하고 향후 워크로드에 대해 위임하도록 구성할 수 있습니다.
+
+예를 들어 권한 있는 컨테이너를 만들지 않도록 위임할 수 있습니다. 그러면, 이러한 작업에 대한 이후의 모든 요청이 차단됩니다.
+
+[Kubernetes 허용 제어를 사용하여 워크로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 자세히 알아보세요.
+
+> [!NOTE]
+> 권장 사항은 미리 보기에 있었지만 AKS 클러스터 리소스를 비정상으로 렌더링하지 않았으며 보안 점수 계산에 포함되지 않았습니다. 이제 이러한 권장 사항은 이 GA 알림과 함께 점수 계산에 포함됩니다. 아직 수정하지 않은 경우 보안 점수에 약간의 영향을 줄 수 있습니다. 가능한 경우 [Azure Security Center의 권장 사항 수정](security-center-remediate-recommendations.md)에서 설명한 대로 이러한 권장 사항을 수정합니다.
+
+
+### <a name="direct-link-to-policy-from-recommendation-details-page"></a>권장 사항 세부 정보 페이지에서 정책으로 직접 연결
+
+권장 사항에 대한 세부 정보를 검토할 때 기본 정책을 볼 수 있으면 도움이 되는 경우가 많습니다. 정책으로 지원되는 모든 권장 사항에는 권장 사항 세부 정보 페이지의 새 링크가 있습니다.
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="권장 사항을 지원하는 특정 정책에 대한 Azure Policy 페이지로 연결":::
+
+이 링크를 사용하여 정책 정의를 확인하고 평가 논리를 검토합니다. 
+
+[보안 권장 사항 참조 가이드](recommendations-reference.md)에서 권장 사항 목록을 검토하는 경우 정책 정의 페이지에 대한 다음 링크도 표시됩니다.
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Azure Security Center 권장 사항 참조 페이지에서 직접 특정 정책에 대한 Azure Policy 페이지에 액세스":::
+
+
+### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>SQL 데이터 분류 권장 사항이 더 이상 보안 점수에 영향을 주지 않음
+
+**SQL 데이터베이스에서 중요한 데이터를 분류해야 합니다.** 권장 사항은 더 이상 보안 점수에 영향을 주지 않습니다. 이는 **데이터 분류 적용** 보안 제어의 유일한 권장 사항이므로 이제 해당 제어의 보안 점수 값은 0입니다.
+
 
 
 ## <a name="january-2021"></a>2021년 1월
@@ -102,9 +145,12 @@ Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Secur
 
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>보안 점수 API는 GA(일반 공급)를 위해 릴리스되었습니다.
 
-이제 [보안 점수 API](/rest/api/securitycenter/securescores/)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들어 **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져올 수 있습니다. 또한 **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
+이제 [보안 점수 API](/rest/api/securitycenter/securescores/)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공하고, 시간 경과에 따른 보안 점수에 대한 사용자 고유의 보고 메커니즘을 빌드합니다. 예를 들면 다음과 같습니다.
 
-보안 점수 API를 사용하여 가능한 외부 도구의 예는 [GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)을 참조하세요.
+- **보안 점수** API를 사용하여 특정 구독에 대한 점수를 가져옵니다.
+- **보안 점수 제어** API를 사용하여 보안 제어 및 구독의 현재 점수를 나열합니다.
+
+[GitHub 커뮤니티의 보안 점수 영역](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score)에서 보안 점수 API를 사용하여 가능한 외부 도구에 대해 알아보세요.
 
 [Azure Security Center의 보안 점수 및 보안 제어](secure-score-security-controls.md)에 대해 자세히 알아보세요.
 
@@ -156,7 +202,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 전체 권장 사항을 포함하도록 면제 기능을 확장하고 있습니다. Security Center에서 구독, 관리 그룹 또는 리소스에 대해 제공하는 보안 권장 사항을 세부 조정할 수 있는 추가 옵션을 제공합니다.
 
-경우에 따라 Security Center가 검색하지 못한 타사 도구로 문제가 해결되었음을 알고 있는 경우 리소스가 비정상으로 표시됩니다. 또는 해당 영역이 아닌 것으로 생각되는 범위에 권장 사항이 표시됩니다. 권장 사항은 특정 구독에 적합하지 않을 수도 있습니다. 또는 조직이 특정 리소스 또는 권장 사항과 관련된 위험을 감수하기로 결정했을 수도 있습니다.
+경우에 따라 Security Center가 검색하지 못한 타사 도구로 문제가 해결되었음을 알고 있는 경우 리소스가 비정상으로 표시됩니다. 또는 해당 영역이 아닌 것으로 생각되는 범위에 권장 사항이 표시됩니다. 권장 사항은 특정 구독에 적합하지 않을 수도 있습니다. 또는 조직에서 특정 리소스 또는 권장 사항과 관련된 위험을 수용하기로 결정했을 수 있습니다.
 
 이 미리 보기 기능으로 이제 다음과 같은 권장 사항에 대한 예외를 만들 수 있습니다.
 
@@ -233,7 +279,7 @@ Azure Security Benchmark는 Azure Security Center의 기본 정책 이니셔티�
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="연속 내보내기의 빈도 선택":::
 
-- **스트리밍** – 리소스의 상태가 업데이트되면 평가가 실시간으로 전송됩니다(업데이트가 발생하지 않으면 데이터가 전송되지 않음).
+- **스트리밍** – 리소스의 상태가 업데이트되면 평가를 실시간으로 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
 - **스냅샷** – 모든 규정 준수 평가의 현재 상태에 대한 스냅샷이 매주 전송됩니다(이는 보안 점수 및 규정 준수 데이터의 주간 스냅샷에 대한 미리 보기 기능임).
 
 [Security Center 데이터 연속 내보내기](continuous-export.md)에서 이 기능의 전체 기능에 대해 자세히 알아보세요.
@@ -347,7 +393,7 @@ Azure Security Center의 인벤토리 페이지가 다음과 같이 변경되었
 - 도구 모음에 **가이드 및 피드백** 추가. 관련 정보 및 도구에 대한 링크가 포함된 창이 열립니다. 
 - 리소스에 사용할 수 있는 기본 필터에 **구독 필터** 추가.
 - 현재 필터 옵션을 Azure Resource Graph 쿼리(이전에는 "리소스 그래프 탐색기에서 보기"라고 함)로 열기 위한 **쿼리 열기** 링크.
-- 각 필터에 대한 **운영자 옵션**. 이제 '=' 이외의 추가 논리 연산자 중에서 선택할 수 있습니다. 예를 들어, 'encrypt(암호화)' 문자열이 있는 제목을 가진 활성 권장 사항이 있는 모든 리소스를 찾을 수 있습니다. 
+- 각 필터에 대한 **운영자 옵션**. 이제 '=' 이외의 추가 논리 연산자에서 선택할 수 있습니다. 예를 들어, 'encrypt(암호화)' 문자열이 있는 제목을 가진 활성 권장 사항이 있는 모든 리소스를 찾을 수 있습니다. 
 
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="자산 인벤토리 필터의 운영자 옵션에 대한 컨트롤":::
 
@@ -358,7 +404,7 @@ Azure Security Center의 인벤토리 페이지가 다음과 같이 변경되었
 
 "웹앱에서 들어오는 모든 요청에 대해 SSL 인증서를 요청해야 합니다" 권장 사항이 보안 컨트롤 **액세스 및 권한 관리**(최대 4포인트 상당)에서 **보안 모범 사례 구현**(포인트 가치 없음)으로 이동되었습니다. 
 
-웹앱이 인증서를 요청하도록 하면 더욱 안전하게 보호할 수 있습니다. 그러나 공용 웹앱의 경우에는 관련이 없습니다. HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다. [Azure App Service에 대한 TLS 상호 인증 구성](../app-service/app-service-web-configure-tls-mutual-auth.md)에서 자세히 알아보세요.
+웹앱에서 인증서를 요청하도록 보장하면 더 안전하게 보호할 수 있습니다. 그러나 공용 웹앱의 경우에는 관련이 없습니다. HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다. [Azure App Service에 대한 TLS 상호 인증 구성](../app-service/app-service-web-configure-tls-mutual-auth.md)에서 자세히 알아보세요.
 
 이러한 변경으로 권장 사항은 이제 점수에 영향을 주지 않는 권장 모범 사례가 됩니다. 
 
@@ -371,7 +417,7 @@ Azure Security Center는 연결된 모든 리소스를 모니터링하고 보안
 
 Security Center가 범위와 기능을 계속 확장함에 따라 보안 권장 사항 목록이 매월 증가하고 있습니다. 예를 들어, [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)을 참조하세요.
 
-목록이 증가함에 따라 가장 관심 있는 권장 사항을 필터링할 수 있어야 합니다. 11월에는 권장 사항 페이지에 필터를 추가했습니다([이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters) 참조).
+목록이 증가함에 따라 가장 관심 있는 권장 사항을 찾기 위해 해당 권장 사항을 필터링해야 합니다. 11월에는 권장 사항 페이지에 필터를 추가했습니다([이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters) 참조).
 
 이 달에 추가된 필터는 다음에 따라 추천 목록을 세분화하는 옵션을 제공합니다.
 
@@ -475,7 +521,7 @@ NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대�
 
 자동 프로비저닝 기능은 신규 및 기존 Azure VM에 필요한 확장을 설치하여 관리 오버헤드를 줄이는 데 도움이 되므로 Security Center의 보호 기능을 활용할 수 있습니다. 
 
-Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었으며 보안 센터에서 더 많은 리소스 유형을 모니터링할 수 있습니다. 이제 Azure Policy의 기능을 활용하여 추가 확장 및 리소스 유형을 지원하도록 자동 프로비저닝 도구가 확장되었습니다.
+Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었으며 보안 센터에서 더 많은 리소스 유형을 모니터링할 수 있습니다. 자동 프로비저닝 도구는 이제 Azure Policy의 기능을 활용하여 다른 확장 및 리소스 종류를 지원하도록 확장되었습니다.
 
 이제 다음 항목의 자동 프로비저닝을 구성할 수 있습니다.
 
@@ -575,7 +621,7 @@ Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새�
 
 Security Center의 규정 준수 대시보드는 특정 규정 준수 제어 및 요구 사항을 충족하는 방법에 따라 규정 준수 상태에 대한 인사이트를 제공합니다.
 
-대시보드에는 규정 표준의 기본 세트가 포함되어 있습니다. 제공된 표준이 조직과 관련이 없는 경우 이제 구독에 대한 UI에서 해당 표준을 간단히 제거할 수 있는 간단한 프로세스입니다. 표준은 관리 그룹 범위가 아닌 *구독* 수준에서만 제거할 수 있습니다.
+대시보드에는 규정 표준의 기본 세트가 포함되어 있습니다. 제공된 표준이 조직과 관련이 없는 경우 이제 구독에 대한 UI에서 해당 표준을 제거할 수 있는 간단한 프로세스입니다. 표준은 관리 그룹 범위가 아닌 *구독* 수준에서만 제거할 수 있습니다.
 
 [대시보드에서 표준 제거](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard)에서 자세히 알아봅니다.
 
@@ -699,7 +745,7 @@ extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
 
 ### <a name="security-center-gets-a-new-look"></a>Security Center가 새로운 모습으로 바뀌었습니다!
 
-Security Center의 포털 페이지에 대해 새로 고친 UI를 릴리스했습니다. 새 페이지에는 보안 점수, 자산 인벤토리 및 Azure Defender 대시보드뿐만 아니라 새 개요 페이지도 포함되었습니다.
+Security Center의 포털 페이지에 대해 새로 고친 UI를 릴리스했습니다. 새 페이지에는 보안 점수, 자산 인벤토리 및 Azure Defender에 대한 새 개요 페이지와 대시보드가 포함됩니다.
 
 다시 설계된 개요 페이지에는 이제 보안 점수, 자산 인벤토리 및 Azure Defender 대시보드에 액세스하기 위한 타일이 있습니다. 또한 규정 준수 대시보드에 연결되는 타일도 있습니다.
 
@@ -892,114 +938,3 @@ Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으
 추천 사항에 대한 세부 정보 페이지에는 이제 새로 고침 간격 표시기(관련될 때마다) 및 추천 사항의 심각도에 대한 명확한 표시가 포함됩니다.
 
 :::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="새고 고침 및 심각도를 보여 주는 추천 사항 페이지":::
-
-
-
-## <a name="august-2020"></a>2020년 8월
-
-8월의 업데이트는 다음과 같습니다.
-
-- [자산 인벤토리 - 자산의 보안 상태에 대한 강력하고 새로운 보기](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Azure Active Directory 보안 기본값에 대한 지원(다단계 인증용)이 추가됨](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
-- [서비스 주체 추천 사항이 추가됨](#service-principals-recommendation-added)
-- [VM에 대한 취약성 평가 - 추천 사항과 정책이 통합됨](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
-- [새 AKS 보안 정책이 ASC_default 이니셔티브에 추가됨 - 프라이빗 미리 보기 고객만 사용](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
-
-
-### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>자산 인벤토리 - 자산의 보안 상태에 대한 강력하고 새로운 보기
-
-Security Center의 자산 인벤토리(현재 미리 보기 상태)는 Security Center에 연결한 리소스의 보안 상태를 확인할 수 있는 방법을 제공합니다.
-
-Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 취약성을 식별합니다. 그런 다음, 이러한 취약성을 수정하는 방법에 대한 추천 사항을 제공합니다. 리소스에 수정되지 않은 추천 사항이 있으면 인벤토리에 표시됩니다.
-
-보기 및 해당 필터를 사용하여 보안 상태 데이터를 검색하고 결과에 따라 추가 작업을 수행할 수 있습니다.
-
-[자산 인벤토리](asset-inventory.md)에 대해 자세히 알아보세요.
-
-
-### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Azure Active Directory 보안 기본값에 대한 지원(다단계 인증용)이 추가됨
-
-Security Center에는 Microsoft의 무료 ID 보안 보호인 [보안 기본값](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)에 대한 완전한 지원이 추가되었습니다.
-
-보안 기본값은 일반적인 ID 관련 공격으로부터 조직을 보호하기 위해 미리 구성된 ID 보안 설정을 제공합니다. 보안 기본값은 이미 전체적으로 500만 개 이상의 테넌트를 보호하고 있으며, 5만 개의 테넌트도 Security Center를 통해 보호됩니다.
-
-Security Center는 이제 보안 기본값을 사용하도록 설정되지 않은 Azure 구독을 식별할 때마다 보안 추천 사항을 제공합니다. 지금까지 Security Center는 AD(Azure Active Directory) Premium 라이선스의 일부인 조건부 액세스를 사용하는 다단계 인증을 사용하도록 추천했습니다. Azure AD 체험 라이선스를 사용하는 고객의 경우 이제 보안 기본값을 사용하도록 설정하는 것이 좋습니다. 
-
-Microsoft의 목표는 더 많은 고객이 MFA를 사용하여 클라우드 환경을 보호하도록 권장하고, [보안 점수](secure-score-security-controls.md)에 가장 큰 영향을 미치는 가장 높은 위험 중 하나를 완화하는 것입니다.
-
-[보안 기본값](../active-directory/fundamentals/concept-fundamentals-security-defaults.md)에 대해 자세히 알아보세요.
-
-
-### <a name="service-principals-recommendation-added"></a>서비스 주체 추천 사항이 추가됨
-
-관리 인증서를 사용하여 구독을 관리하는 Security Center 고객에게 서비스 주체로 전환하도록 추천하는 새 추천 사항이 추가되었습니다.
-
-**관리 인증서 대신 서비스 주체를 사용하여 구독을 보호해야 합니다.** 라는 추천 사항은 서비스 주체 또는 Azure Resource Manager를 사용하여 구독을 더 안전하게 관리하도록 추천합니다. 
-
-[Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)에 대해 자세히 알아보세요.
-
-
-### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>VM에 대한 취약성 평가 - 추천 사항과 정책이 통합됨
-
-Security Center는 VM을 검사하여 해당 VM에서 취약성 평가 솔루션을 실행하고 있는지 여부를 검색합니다. 취약성 평가 솔루션을 찾을 수 없는 경우 Security Center는 배포를 간소화하기 위한 추천 사항을 제공합니다.
-
-취약성이 발견되면 Security Center에서 필요에 따라 조사하고 수정할 수 있도록 결과를 요약한 추천 사항을 제공합니다.
-
-사용하는 스캐너 유형에 관계없이 모든 사용자에게 일관된 환경을 보장하기 위해 4가지 추천 사항이 다음 2가지 추천 사항으로 통합되었습니다.
-
-|통합 추천 사항|변경 내용 설명|
-|----|:----|
-|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br> **•** 가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)(현재 사용되지 않음)(표준 계층에 포함됨)<br> **•** 가상 머신에 취약성 평가 솔루션을 설치해야 함(현재 사용되지 않음)(표준 및 체험 계층)|
-|**가상 머신의 취약성을 수정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br>**•** 가상 머신에서 발견한 취약성 수정(Qualys 제공)(현재 사용되지 않음)<br>**•** 취약성 평가 솔루션으로 취약성을 수정해야 함(현재 사용되지 않음)|
-|||
-
-이제 동일한 추천 사항을 사용하여 Qualys 또는 Rapid7과 같은 파트너로부터 Security Center의 취약성 평가 확장 또는 개인적으로 사용이 허가된 솔루션("BYOL")을 배포합니다.
-
-또한 취약성이 발견되어 Security Center에 보고되면 이를 식별한 취약성 평가 솔루션에 관계없이 단일 추천 사항에서 결과를 알려줍니다.
-
-#### <a name="updating-dependencies"></a>종속성 업데이트
-
-이전 추천 사항 또는 정책 키/이름을 참조하는 스크립트, 쿼리 또는 자동화가 있는 경우 아래 표를 사용하여 참조를 업데이트합니다.
-
-##### <a name="before-august-2020"></a>2020년 8월 이전
-
-|권장|Scope|
-|----|:----|
-|**가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)**<br>키: 550e890b-e652-4d22-8274-60b3bdb24c63|기본 제공|
-|**가상 머신에서 발견한 취약성 수정(Qualys 제공)**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공|
-|**가상 머신에 취약성 평가 솔루션을 설치해야 함**<br>키: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
-|**취약성 평가 솔루션으로 취약성을 수정해야 합니다.**<br>키: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
-
-
-|정책|Scope|
-|----|:----|
-|**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|기본 제공|
-|**취약성 평가 솔루션으로 취약성을 수정해야 함**<br>정책 ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
-
-
-##### <a name="from-august-2020"></a>2020년 8월부터
-
-|권장|Scope|
-|----|:----|
-|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**<br>키: ffff0522-1e88-47fc-8382-2a80ba848f5d|기본 제공 + BYOL|
-|**가상 머신의 취약성을 수정해야 함**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공 + BYOL|
-||||
-
-|정책|Scope|
-|----|:----|
-|[**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |기본 제공 + BYOL|
-||||
-
-
-### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>새 AKS 보안 정책이 ASC_default 이니셔티브에 추가됨 - 프라이빗 미리 보기 고객만 사용
-
-Kubernetes 워크로드에서 기본적으로 보안을 유지할 수 있도록 하기 위해 Security Center에서 Kubernetes 허용 제어를 사용하는 적용 옵션을 포함하여 Kubernetes 수준 정책 보안 강화 추천 사항을 추가합니다.
-
-이 프로젝트의 초기 단계에는 프라이빗 미리 보기 및 ASC_default 이니셔티브에 추가된 새 정책(기본적으로 사용 안 함)이 포함됩니다.
-
-이러한 정책은 무시해도 되지만 환경에는 영향을 주지 않습니다. 이러한 정책을 사용하도록 설정하려면 https://aka.ms/SecurityPrP 에서 미리 보기에 가입하고 다음 옵션 중에서 선택합니다.
-
-1. **단일 미리 보기** – 이 프라이빗 미리 보기에만 조인합니다. "ASC 연속 검사"를 조인하려는 미리 보기로 명시적으로 언급합니다.
-1. **진행 중인 프로그램** - 현재 및 향후 프라이빗 미리 보기에 추가됩니다. 프로필 및 개인 정보 계약을 완료해야 합니다.

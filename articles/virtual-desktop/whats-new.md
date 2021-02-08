@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876600"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258798"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -25,6 +25,61 @@ Windows Virtual Desktop은 정기적으로 업데이트됩니다. 이 문서에�
 - 버그 수정
 
 이 문서는 매월 업데이트됩니다. 새 업데이트를 유지하려면 이 문서를 다시 확인하세요.
+
+## <a name="client-updates"></a>클라이언트 업데이트
+
+다음 문서를 확인하여 Windows Virtual Desktop 및 원격 데스크톱 서비스의 클라이언트에 대한 업데이트를 알아봅니다.
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="fslogix-updates"></a>FSLogix 업데이트
+
+FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="january-2021"></a>2021년 1월
+
+2021년 1월에 변경된 내용은 다음과 같습니다.
+
+### <a name="new-windows-virtual-desktop-offer"></a>새 Windows Virtual Desktop 제안
+
+새 고객은 네이티브 Microsoft 솔루션을 사용하는 경우 D 시리즈 및 Bs 시리즈 가상 머신의 Windows Virtual Desktop 컴퓨팅 비용을 최대 90일 동안 30% 절약할 수 있습니다. 이 제안은 2021년 3월 31일 이전에 Azure Portal에서 사용할 수 있습니다. [Windows Virtual Desktop 제안 페이지](https://azure.microsoft.com/services/virtual-desktop/offer/)에서 자세히 알아보세요.
+
+### <a name="networksecuritygrouprules-value-change"></a>networkSecurityGroupRules 값 변경 
+
+Azure Resource Manager 중첩 템플릿에서 networkSecurityGroupRules 기본값이 개체에서 배열로 변경되었습니다. 이렇게 하면 networkSecurityGroupRules 값을 지정하지 않고 managedDisks-customimagevm.json을 사용하는 경우 오류를 방지할 수 있습니다. 이는 호환성이 손상되는 변경이 아니므로 이전 버전과 호환됩니다.
+
+### <a name="fslogix-hotfix-update"></a>FSLogix 핫픽스 업데이트
+
+이전 릴리스(2.9.7621.30127)의 문제를 해결하기 위해 FSLogix 버전 2009 HF_01(2.9.7654.46150)이 릴리스되었습니다. 이전 버전 사용을 중지하고 FSLogix를 가능한 한 빨리 업데이트하는 것이 좋습니다.
+
+자세한 내용은 [FSLogix의 새로운 기능](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150)에 있는 릴리스 정보를 참조하세요.
+
+### <a name="azure-portal-experience-improvements"></a>향상된 Azure Portal 환경 기능
+
+Azure Portal 환경이 다음과 같이 향상되었습니다.
+
+- 이제 Active Directory 도메인 조인 계정 자격 증명을 사용하여 만든 로컬 계정을 추가하는 대신 로컬 VM 관리자 자격 증명을 직접 추가할 수 있습니다.
+- 이제 사용자는 개별 할당 및 그룹 할당을 모두 개별 사용자 및 그룹에 대한 별도의 탭에 나열할 수 있습니다.
+- 이제 Windows Virtual Desktop 에이전트의 버전 번호가 호스트 풀에 대한 Virtual Machine 개요에 표시됩니다.
+- 호스트 풀 및 애플리케이션 그룹에 대한 대량 삭제가 추가되었습니다.
+- 이제 드레이닝 모드를 호스트 풀의 여러 세션 호스트에 사용하거나 사용하지 않도록 설정할 수 있습니다.
+- VM 세부 정보 페이지에서 공용 IP 필드가 제거되었습니다.
+
+### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Windows Virtual Desktop 에이전트 문제 해결
+
+일반적인 문제가 발생한 고객을 지원하기 위해 [Windows Virtual Desktop 에이전트 문제 해결 가이드](troubleshoot-agent.md)가 최근에 설정되었습니다.
+
+### <a name="microsoft-defender-for-endpoint-integration"></a>엔드포인트용 Microsoft Defender 통합
+
+Microsoft Defender for Endpoint 통합은 이제 일반 공급됩니다. 이 기능은 로컬 Windows 10 컴퓨터와 동일한 조사 환경을 Windows Virtual Desktop VM에 제공합니다. Windows 10 Enterprise 다중 세션을 사용하는 경우 Microsoft Defender for Endpoint는 최대 50개의 동시 사용자 연결을 지원하므로 Windows 10 Enterprise 다중 세션의 비용을 절약하고 Microsoft Defender for Endpoint의 신뢰도를 제공합니다. 자세한 내용은 이 [블로그 게시물](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712)을 참조하세요.
+
+### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 Azure 보안 기준
+
+최근에 사용자의 주의가 필요한 Windows Virtual Desktop에 대한 [Azure 보안 기준 문서](security-baseline.md)가 게시되었습니다. 이러한 지침에는 Azure 보안 벤치마크 버전 2.0을 Windows Virtual Desktop에 적용하는 방법에 대한 정보가 포함되어 있습니다. Azure 보안 벤치마크는 Azure에서 클라우드 솔루션을 보호하는 데 사용하도록 권장되는 설정 및 사례에 대해 설명합니다.
 
 ## <a name="december-2020"></a>2020년 12월
 
@@ -257,16 +312,6 @@ Windows Virtual Desktop에 대한 Microsoft Teams에 개선 사항이 있습니�
 Windows Virtual Desktop에 대한 Microsoft Teams에 몇 가지 개선 사항이 있습니다. 가장 중요한 점은 Windows Virtual Desktop은 이제 호출에 대한 오디오 및 시각적 리디렉션을 지원한다는 것입니다. 리디렉션은 오디오 또는 비디오를 사용하여 호출할 때 사용자 간에 직접 경로를 만들어 대기 시간을 단축시킵니다. 거리를 줄이면 홉 수가 줄어들기 때문에 호출 모양과 소리가 더 부드러워집니다.
 
 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/)을 참조하세요.
-
-## <a name="client-updates"></a>클라이언트 업데이트
-
-다음 문서를 확인하여 Windows Virtual Desktop 및 원격 데스크톱 서비스의 클라이언트에 대한 업데이트를 알아봅니다.
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## <a name="next-steps"></a>다음 단계
 

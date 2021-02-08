@@ -72,6 +72,8 @@
       href: my-account-portal-sign-ins-page.md
     - name: 포털 설정 변경
       href: my-account-portal-settings.md
+    - name: 내 계정 관리자 찾기
+      href: my-account-find-administrator.md
     - name: 조직 전환
       href: cross-tenant-switcher.md
 - name: 보안 정보 도움말

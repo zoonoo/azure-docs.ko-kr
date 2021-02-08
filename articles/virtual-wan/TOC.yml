@@ -116,24 +116,34 @@
           href: certificates-point-to-site.md
         - name: Azure AD 테넌트 구성
           href: openvpn-azure-ad-tenant.md
-        - name: 클라이언트 프로필
-          href: about-vpn-profile-download.md
-        - name: 글로벌 및 허브 기반 프로필
-          href: global-hub-profile.md
-        - name: Windows 10용 Azure VPN Client 구성
-          href: openvpn-azure-ad-client.md
-        - name: OpenVPN 클라이언트 구성
-          href: howto-openvpn-clients.md?
-        - name: Always On VPN 사용자 터널 구성
-          href: howto-always-on-user-tunnel.md
-        - name: Always On VPN 디바이스 터널 구성
-          href: howto-always-on-device-tunnel.md
-        - name: MFA(Multi-Factor Authentication) 사용
-          href: openvpn-azure-ad-mfa.md
-        - name: Azure AD 인증 구성
-          href: virtual-wan-point-to-site-azure-ad.md
-        - name: 다중 애플리케이션 Azure AD 인증 구성
-          href: openvpn-azure-ad-tenant-multi-app.md
+        - name: 에이전트 프로필
+          items:
+            - name: 글로벌 및 허브 기반 프로필 다운로드
+              href: global-hub-profile.md
+            - name: 프로필 정보 추출 및 보기
+              href: about-vpn-profile-download.md
+            - name: Intune을 사용하여 프로필 배포
+              href: vpn-profile-intune.md
+        - name: VPN 클라이언트
+          items:
+            - name: Windows 10
+              href: openvpn-azure-ad-client.md
+            - name: OpenVPN
+              href: howto-openvpn-clients.md?
+        - name: Always On 터널 구성
+          items:
+            - name: 사용자 터널
+              href: howto-always-on-user-tunnel.md
+            - name: 디바이스 터널
+              href: howto-always-on-device-tunnel.md
+        - name: 인증
+          items:
+            - name: MFA(다단계 인증)
+              href: openvpn-azure-ad-mfa.md
+            - name: Azure AD 인증
+              href: virtual-wan-point-to-site-azure-ad.md
+            - name: 다중 애플리케이션 Azure AD 인증
+              href: openvpn-azure-ad-tenant-multi-app.md
     - name: 라우팅
       items:
         - name: 가상 허브 라우팅을 구성하는 방법

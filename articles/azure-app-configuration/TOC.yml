@@ -122,7 +122,7 @@
       href: howto-import-export-data.md
     - name: 키-값에 JSON 콘텐츠 형식 사용
       href: howto-leverage-json-content-type.md
-    - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
+    - name: 데이터 변경 알림에 Event Grid 사용
       href: howto-app-configuration-event.md
     - name: 자동으로 구성 저장소 백업
       href: howto-backup-config-store.md
