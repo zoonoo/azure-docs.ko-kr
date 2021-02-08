@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 1eacba47e68310dd45976bcd9ddff052fa193436
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860731"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090140"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Microsoft 365 그룹 복원
 
@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory)에서 Microsoft 365 그룹을 삭제하는 경�
 역할 | 사용 권한
 --------- | ---------
 글로벌 관리자, 그룹 관리자, 파트너 계층 2 지원 및 Intune 관리자 | 모든 삭제된 Microsoft 365 그룹을 복원할 수 있음
-사용자 관리자 및 파트너 계층 1 지원 | 회사 관리자 역할에 할당된 그룹을 제외한 모든 삭제된 Microsoft 365 그룹을 복원할 수 있음
+사용자 관리자 및 파트너 계층 1 지원 | 전역 관리자 역할에 할당된 그룹을 제외한 모든 삭제된 Microsoft 365 그룹을 복원할 수 있음
 사용자 | 소유한 Microsoft 365 그룹 중 삭제된 모든 그룹을 복원할 수 있음
 
 ## <a name="view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore"></a>복원할 수 있는 삭제된 Microsoft 365 그룹 보기 및 관리

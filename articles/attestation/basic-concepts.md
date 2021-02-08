@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572819"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429282"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -30,9 +31,9 @@ Microsoft Azure Attestation과 관련된 몇 가지 기본 개념은 다음과 �
 
 증명 공급자는 Microsoft.Attestation이라는 Azure 리소스 공급자에 속합니다. 리소스 공급자는 Azure Attestation REST 계약을 제공하고 [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 사용하여 배포되는 서비스 엔드포인트입니다. 각 증명 공급자는 검색 가능한 특정 정책을 적용합니다. 증명 공급자는 각 증명 형식에 대한 기본 정책을 사용하여 만들어집니다(VBS enclave에는 기본 정책이 없음). SGX에 대한 기본 정책에 대한 자세한 내용은 [증명 정책 예제](policy-examples.md)를 참조하세요.
 
-### <a name="regional-default-provider"></a>지역별 기본 공급자
+### <a name="regional-shared-provider"></a>지역 공유 공급자
 
-Azure Attestation은 각 지역에서 기본 공급자를 제공합니다. 고객은 기본 공급자를 증명에 사용하거나 사용자 지정 정책을 사용하여 자체 공급자를 만들 수 있습니다. 기본 공급자는 Azure AD 사용자가 액세스할 수 있으며, 기본 공급자와 연결된 정책은 변경할 수 없습니다.
+Azure Attestation은 사용 가능한 모든 지역에서 지역 공유 공급자를 제공합니다. 고객은 증명에 지역 공유 공급자를 사용하거나 사용자 지정 정책을 사용하여 자체 공급자를 만들 수 있습니다. 공유 공급자는 Azure AD 사용자가 액세스할 수 있으며, 공유 공급자와 연결된 정책은 변경할 수 없습니다.
 
 | 지역 | 증명 URI | 
 |--|--|

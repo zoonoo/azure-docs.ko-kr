@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754162"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225717"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -55,13 +55,14 @@ ms.locfileid: "98754162"
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 > 1. **등록** 을 선택합니다. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 > 1. 이 빠른 시작에서는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다. **관리** 에서 **인증** 을 선택합니다.
-> 1. **플랫폼 구성** 에서 **플랫폼 추가** 를 선택합니다. 왼쪽에 패널이 열립니다. 여기에서 **웹 애플리케이션** 영역을 선택합니다.
-> 1. 왼쪽에서 **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다. 그런 다음, **액세스 토큰** 및 **ID 토큰** 을 선택합니다.
+> 1. **플랫폼 구성** 에서  > **플랫폼을 추가** 합니다. **웹** 을 선택합니다.
+> 1. **리디렉션 URI** 값을 `http://localhost:3000/`으로 설정합니다. 
+> 1. **암시적 권한 부여 및 하이브리드 흐름** 에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다.
 > 1. **구성** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하도록 하려면 `redirectUri`를 `http://localhost:3000/`으로 추가하고 **암시적 허용** 을 사용하도록 설정해야 합니다.
+> 이 빠른 시작의 샘플 코드에는 `http://localhost:3000/`의 **리디렉션 URI** 가 필요하고 **암시적 권한 부여** 를 사용하도록 설정해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >

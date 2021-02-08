@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - .NET'
-description: 이 빠른 시작에서는 .NET용 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - .NET'
+description: 이 빠른 시작에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8cb8c193e09e841a8401cbb0a6ac78ce87afa01c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f8f27743d8680f5e73e1f7bb7a3f7bd6ff2e0464
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021710"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054723"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob Storage 클라이언트 라이브러리 v12
 
-.NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12 시작 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+.NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 시작합니다. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
-.NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
+.NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하여 다음을 수행합니다.
 
 * 컨테이너 만들기
 * Azure Storage에 Blob 업로드
@@ -44,7 +44,7 @@ ms.locfileid: "96021710"
 
 ## <a name="setting-up"></a>설치
 
-이 섹션에서는 .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하는 프로젝트를 준비합니다.
+이 섹션에서는 .NET용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하는 프로젝트를 준비합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
@@ -70,7 +70,7 @@ ms.locfileid: "96021710"
 
 ### <a name="install-the-package"></a>패키지 설치
 
-애플리케이션 디렉터리에서 `dotnet add package` 명령을 사용하여 .NET용 Azure Blob 스토리지 클라이언트 라이브러리를 설치합니다.
+애플리케이션 디렉터리에서 `dotnet add package` 명령을 사용하여 .NET용 Azure Blob Storage 클라이언트 라이브러리를 설치합니다.
 
 ```console
 dotnet add package Azure.Storage.Blobs
@@ -109,7 +109,7 @@ namespace BlobQuickstartV12
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
+Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 * 스토리지 계정
 * 스토리지 계정의 컨테이너
@@ -128,7 +128,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ## <a name="code-examples"></a>코드 예제
 
-이 예제 코드 조각은 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 예제 코드 조각은 .NET용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 * [연결 문자열 가져오기](#get-the-connection-string)
 * [컨테이너 만들기](#create-a-container)
@@ -144,7 +144,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 다음 코드를 `Main` 메서드 내에 추가합니다.
 
 ```csharp
-Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -287,7 +287,7 @@ dotnet run
 앱의 출력은 다음 예제 출력과 유사합니다.
 
 ```output
-Azure Blob storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
          https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
@@ -315,7 +315,7 @@ Done
 Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지 SDK v12 .NET 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Azure Blob Storage SDK v12 .NET 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * 자습서, 샘플, 빠른 시작 및 기타 설명서는 [.NET 및 .NET Core 개발자용 Azure](/dotnet/azure/)를 참조하세요.
 * .NET Core에 대해 자세히 알아보려면 [10분 안에 .NET 시작](https://www.microsoft.com/net/learn/get-started/)을 참조하세요.

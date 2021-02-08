@@ -4,17 +4,17 @@ description: Azure Cost Management + 청구 기능을 사용하여 청구 관리
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029943"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051096"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
 
@@ -43,11 +43,11 @@ Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보�
 
 현재 Azure Portal에서는 다음과 같은 유형의 청구 계정을 지원합니다.
 
-- **Microsoft Online Services 프로그램**: Microsoft Online Services 프로그램의 개별 청구 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 Azure 체험 계정에 가입하는 경우 종량제 요금을 사용하는 계정 또는 Visual studio 구독자 자격입니다.
+- **Microsoft Online Services 프로그램**: Microsoft Online Services 프로그램의 개별 청구 계정은 Azure 웹 사이트를 통해 Azure에 가입할 때 생성됩니다. 예를 들어 [Azure 체험 계정](./manage/create-free-services.md)에 가입하는 경우 종량제 요금을 사용하는 계정 또는 Visual studio 구독자 자격입니다.
 
 - **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 EA(기업계약)에 서명할 때 생성됩니다.
 
-- **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 Azure 체험 계정을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
+- **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 [Azure 체험 계정](./manage/create-free-services.md)을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
 
 ### <a name="scopes-for-billing-accounts"></a>청구 계정의 범위
 범위는 청구를 보고 관리하는 데 사용하는 청구 계정 내의 노드입니다. 여기서 청구 데이터, 결제, 청구서를 관리하고 일반 계정 관리를 수행합니다.

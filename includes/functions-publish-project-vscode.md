@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2517f132578b5de6b062b38ce94581f118327a13
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008207"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493596"
 ---
 ## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
 
@@ -21,7 +21,7 @@ ms.locfileid: "96008207"
 
 1. 작업 막대에서 Azure 아이콘을 선택한 다음, **Azure: Functions** 영역에서 **함수 앱에 배포...** 단추를 선택합니다.
 
-    ![Azure에 프로젝트 게시](media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Azure에 프로젝트 게시](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. 프롬프트에서 다음 정보를 제공합니다.
 
@@ -35,16 +35,18 @@ ms.locfileid: "96008207"
     
     - **새 리소스의 위치 선택**:  성능을 향상시키려면 근처에 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. 
     
+    확장은 알림 영역에서 Azure에 생성되는 개별 리소스의 상태를 보여줍니다.
+
+    :::image type="content" source="media/functions-publish-project-vscode/resource-notification.png" alt-text="Azure 리소스 생성 알림":::
+    
 1.  완료되면 함수 앱 이름을 기반으로 하는 이름을 사용하여 구독에 다음 Azure 리소스가 생성됩니다.
     
-    - 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
-    - 표준 Azure Storage 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.
-    - 소비 계획 - 서버리스 함수 앱의 기본 호스트를 정의합니다. 
-    - 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 동일한 호스팅 계획 내에서 더 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다.
-    - 서버리스 함수의 사용을 추적하는 함수 앱에 연결된 Application Insights 인스턴스입니다.
+    [!INCLUDE [functions-vs-code-created-resources](functions-vs-code-created-resources.md)]
 
     함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 
-    
-1. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
+
+    [!INCLUDE [functions-vs-code-create-tip](functions-vs-code-create-tip.md)]
+
+4. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
 
     ![전체 알림 만들기](media/functions-publish-project-vscode/function-create-notifications.png)

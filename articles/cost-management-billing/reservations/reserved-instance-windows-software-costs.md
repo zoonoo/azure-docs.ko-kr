@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353003"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052992"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
@@ -61,7 +61,7 @@ ms.locfileid: "96353003"
 
 ## <a name="get-rates-for-azure-meters"></a>Azure 미터에 대한 요금 가져오기
 
-Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](/previous-versions/azure/reference/mt219004(v=azure.100))를 참조하세요.
+Azure 소매 가격 API를 사용하여 각 미터의 비용을 얻을 수 있습니다. Azure 미터의 요금을 얻는 방법에 대한 자세한 내용은 [Azure 소매 가격 개요](/rest/api/cost-management/retail-prices/azure-retail-prices)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure용 예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.

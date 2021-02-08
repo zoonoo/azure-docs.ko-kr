@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: REST API를 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 REST API를 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074008"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219980"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>빠른 시작: REST API를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -29,7 +29,7 @@ REST API는 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 �
 
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사** (`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
+이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사**(`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
 
 정책 할당을 만들려면 다음 명령을 실행합니다.
 
@@ -47,6 +47,11 @@ REST API는 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 �
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -65,6 +70,7 @@ REST API URI:
 - **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **설명** - 정책에서 수행하는 작업 또는 이 범위에 할당된 이유에 대한 자세한 설명입니다.
 - **policyDefinitionId** – 할당을 만드는 데 기준으로 사용되는 정책 정의 ID입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다.
+- **nonComplianceMessages** - 비규격으로 인해 리소스가 거부되거나 비규격으로 평가될 때 표시되는 메시지를 설정합니다. 자세한 내용은 [할당 비규격 메시지](./concepts/assignment-structure.md#non-compliance-messages)를 참조하세요.
 
 ## <a name="identify-non-compliant-resources"></a>비규격 리소스 식별
 

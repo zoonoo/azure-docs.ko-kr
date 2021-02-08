@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178282"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225633"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -37,15 +37,15 @@ ms.locfileid: "98178282"
 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `MyWebApp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
 1. **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(얘: Skype, Xbox, Outlook.com)** 을 선택합니다.
 
-    리디렉션 URI가 여러 개 있는 경우 나중에 앱이 성공적으로 만들어진 후 **인증** 탭에서 URI를 추가해야 합니다.
+    리디렉션 URI가 두 개 이상 있는 경우 앱이 성공적으로 만들어진 후 나중에 **인증** 탭에서 URI를 추가합니다.
 
 1. **등록** 을 선택하여 앱을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 뒷부분에서 애플리케이션을 구성할 때 이 값이 필요합니다.
 1. **관리** 에서 **인증** 을 선택합니다.
 1. **플랫폼 추가** > **웹** 을 선택합니다. 
 1. **리디렉션 URI** 섹션에서 `http://localhost:3000/auth/openid/return`을 입력합니다.
-1. **로그 아웃 URL** `https://localhost:3000`을 입력합니다.
-1. 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 허용 흐름](./v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 하므로, 암시적 허용 섹션에서 **ID 토큰** 을 선택합니다.
+1. **프런트 채널 로그 아웃 URL**`https://localhost:3000`을 입력합니다.
+1. 이 샘플에서는 사용자를 로그인할 수 있도록 [암시적 권한 부여 흐름](./v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 하므로, **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택합니다.
 1. **구성** 을 선택합니다.
 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.
 1. 키 설명(인스턴스 앱 비밀에 대한)을 입력합니다.

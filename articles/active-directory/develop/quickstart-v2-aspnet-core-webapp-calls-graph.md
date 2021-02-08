@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754495"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938232"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
@@ -55,7 +55,7 @@ ms.locfileid: "98754495"
 > 1. `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 를 입력합니다.
 > 1. **등록** 을 선택합니다.
 > 1. **관리** 에서 **인증** 을 선택합니다.
-> 1. `https://localhost:44321/signout-oidc`의 **로그 아웃 URL** 을 입력합니다.
+> 1. `https://localhost:44321/signout-oidc`의 **프런트 채널 로그 아웃 URL** 을 입력합니다.
 > 1. **저장** 을 선택합니다.
 > 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.
 > 1. **설명** 을 입력합니다(예: `clientsecret1`).
@@ -64,7 +64,7 @@ ms.locfileid: "98754495"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작용 코드 샘플이 작동하려면 회신 URL을 `https://localhost:44321/signin-oidc`로 추가하고 로그아웃 URL을 `https://localhost:44321/signout-oidc`로 추가해야 합니다.
+> 이 빠른 시작의 샘플 코드에는 앱 등록에 `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 와 `https://localhost:44321/signout-oidc`의 **프런트 채널 로그아웃 URL** 이 필요합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >

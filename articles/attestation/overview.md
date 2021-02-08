@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610151"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429265"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Microsoft Azure Attestation(미리 보기)
+# <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
-Microsoft Azure Attestation(미리 보기)은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 이 서비스는 [Intel® SGX(Software Guard Extensions)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) enclave 및 [VBS(가상화 기반 보안)](/windows-hardware/design/device-experiences/oem-vbs) enclave와 같은 TEE(Trusted Execution Environment) 상태를 증명하는 기능과 함께 TPM(Trusted Platform Module)이 지원하는 플랫폼 증명을 지원합니다. 
+Microsoft Azure Attestation은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 이 서비스는 [Intel® SGX(Software Guard Extensions)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) enclave 및 [VBS(가상화 기반 보안)](/windows-hardware/design/device-experiences/oem-vbs) enclave와 같은 TEE(Trusted Execution Environment) 상태를 증명하는 기능과 함께 TPM(Trusted Platform Module)이 지원하는 플랫폼 증명을 지원합니다. 
 
 증명은 소프트웨어 이진 파일이 신뢰할 수 있는 플랫폼에서 올바르게 인스턴스화되었음을 보여주는 프로세스입니다. 그러면 원격 신뢰 당사자가 이러한 의도된 소프트웨어만 신뢰할 수 있는 하드웨어에서 실행된다고 확신할 수 있습니다. Azure Attestation은 증명을 위한 통합 고객 지향 서비스 및 프레임워크입니다.
 
@@ -67,7 +67,7 @@ Azure Attestation은 다음과 같은 이점을 제공하므로 TEE를 증명하
 
 - TPM, SGX enclave 및 VBS enclave와 같은 여러 환경을 증명하기 위한 통합 프레임워크 
 - 사용자 지정 증명 공급자 및 정책을 구성하여 토큰 생성을 제한할 수 있는 다중 테넌트 서비스입니다.
-- 사용자의 구성 없이 증명할 수 있는 기본 공급자를 제공합니다.
+- 사용자의 구성 없이 증명할 수 있는 지역 공유 공급자를 제공합니다.
 - SGX enclave에서 구현을 통해 사용하는 동안 데이터를 보호합니다.
 - 고가용성 서비스 
 

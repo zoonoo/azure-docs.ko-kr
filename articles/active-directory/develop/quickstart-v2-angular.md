@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754434"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225802"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>빠른 시작: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -49,11 +49,11 @@ ms.locfileid: "98754434"
 > 1. 계정에서 두 개 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위에서 계정을 선택한 다음, 사용할 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 지침에 따라 Azure Portal에서 [단일 페이지 애플리케이션을 등록](./scenario-spa-app-registration.md)합니다.
 > 1. 앱 등록의 **인증** 창에서 새 플랫폼을 추가하고 리디렉션 URI(`http://localhost:4200/`)를 등록합니다.
-> 1. 이 빠른 시작에서는 [암시적 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용합니다. **ID 토큰** 및 **액세스 토큰** 에 대한 **암시적 권한 부여** 설정을 선택합니다. 이 앱은 사용자를 로그인하고 API를 호출하므로 ID 토큰 및 액세스 토큰이 필요합니다.
+> 1. 이 빠른 시작에서는 [암시적 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md)을 사용합니다. **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **ID 토큰** 및 **액세스 토큰** 을 선택합니다. 이 앱은 사용자를 로그인하고 API를 호출하므로 ID 토큰 및 액세스 토큰이 필요합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 **http://localhost:4200/** 으로 추가하고 **암시적 허용** 을 사용하도록 설정해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 리디렉션 URI를 **http://localhost:4200/** 으로 추가하고 ****암시적 권한 부여***를 사용하도록 설정해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >

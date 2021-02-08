@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754517"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225836"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -56,13 +56,13 @@ ms.locfileid: "98754517"
 > 1. **등록** 을 선택합니다.
 > 1. **관리** 에서 **인증** 을 선택합니다.
 > 1. **리디렉션 URI** 에서 **URI 추가** 를 선택한 다음, `https://localhost:44321/signin-oidc`를 입력합니다.
-> 1. `https://localhost:44321/signout-oidc`의 **로그 아웃 URL** 을 입력합니다.
-> 1. **암시적 허용** 에서 **ID 토큰** 을 선택합니다.
+> 1. `https://localhost:44321/signout-oidc`의 **프런트 채널 로그 아웃 URL** 을 입력합니다.
+> 1. **암시적 권한 부여 및 하이브리드 흐름** 에서 **ID 토큰** 을 선택합니다.
 > 1. **저장** 을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작용 코드 샘플이 작동하려면 회신 URL을 `https://localhost:44321/` 및 `https://localhost:44321/signin-oidc`로 추가하고 로그아웃 URL을 `https://localhost:44321/signout-oidc`로 추가하며 권한 부여 엔드포인트에서 발행할 ID 토큰을 요청해야 합니다.
+> 이 빠른 시작의 샘플 코드에는 `https://localhost:44321/` 및 `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 와 `https://localhost:44321/signout-oidc`의 **프런트 채널 로그아웃 URL** 이 필요합니다. 요청 ID 토큰은 권한 부여 엔드포인트에서 발급됩니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >

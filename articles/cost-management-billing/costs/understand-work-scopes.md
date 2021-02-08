@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132298"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054807"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -22,11 +22,11 @@ ms.locfileid: "92132298"
 
 ## <a name="scopes"></a>범위
 
-_범위_는 Azure AD 사용자가 서비스에 액세스하고 관리하는 Azure 리소스 계층 구조의 노드입니다. 대부분의 Azure 리소스는 구독에 포함된 리소스 그룹에 생성되고 배포됩니다. 또한 Microsoft는 청구 데이터를 관리하는 특수 역할이 있는 Azure 구독보다 높은 다음 두 가지 계층 구조를 제공합니다.
+_범위_ 는 Azure AD 사용자가 서비스에 액세스하고 관리하는 Azure 리소스 계층 구조의 노드입니다. 대부분의 Azure 리소스는 구독에 포함된 리소스 그룹에 생성되고 배포됩니다. 또한 Microsoft는 청구 데이터를 관리하는 특수 역할이 있는 Azure 구독보다 높은 다음 두 가지 계층 구조를 제공합니다.
 - 결제 및 송장 같은 청구 데이터
 - 비용 및 정책 거버넌스 같은 클라우드 서비스
 
-범위는 청구 데이터를 관리하고, 결제 관련 역할을 수행하고, 청구서를 살펴보고, 일반 계정 관리를 수행하는 위치입니다. 청구 및 계정 역할은 [Azure RBAC](../../role-based-access-control/overview.md)를 사용하는 리소스 관리에 사용되는 역할과는 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 _청구 범위_ 및 _Azure RBAC 범위_라고 합니다.
+범위는 청구 데이터를 관리하고, 결제 관련 역할을 수행하고, 청구서를 살펴보고, 일반 계정 관리를 수행하는 위치입니다. 청구 및 계정 역할은 [Azure RBAC](../../role-based-access-control/overview.md)를 사용하는 리소스 관리에 사용되는 역할과는 별도로 관리됩니다. 액세스 제어의 차이점을 포함하여 별도 범위의 의도를 명확하게 구분하기 위해 이러한 범위를 각각 _청구 범위_ 및 _Azure RBAC 범위_ 라고 합니다.
 
 범위에 대해 자세히 알아보려면 [Cost Management에서 계층 설정](https://www.youtube.com/watch?v=n3TLRaYJ1NY) 비디오를 시청하세요. 다른 비디오를 시청하려면 [Cost Management YouTube 채널](https://www.youtube.com/c/AzureCostManagement)을 방문하세요.
 
@@ -102,7 +102,7 @@ EA 청구 범위는 다음 역할을 지원합니다.
 
 EA 청구 계정 사용자는 청구서에 직접 액세스할 수 없습니다. 청구서는 외부 볼륨 라이선스 시스템에서 사용할 수 있습니다.
 
-Azure 구독은 등록 계정 아래에 중첩됩니다. 청구 사용자는 각각 해당 범위에 속하는 구독 및 리소스 그룹의 비용 데이터에 액세스할 수 있습니다. Azure Portal에서 리소스를 보거나 관리할 수 있는 액세스 권한은 없습니다. 사용자는 Azure Portal 서비스 목록에서 **Cost Management + 청구**로 이동하여 비용을 볼 수 있습니다. 그런 다음, 보고해야 하는 특정 구독 및 리소스 그룹으로 비용을 필터링할 수 있습니다.
+Azure 구독은 등록 계정 아래에 중첩됩니다. 청구 사용자는 각각 해당 범위에 속하는 구독 및 리소스 그룹의 비용 데이터에 액세스할 수 있습니다. Azure Portal에서 리소스를 보거나 관리할 수 있는 액세스 권한은 없습니다. 사용자는 Azure Portal 서비스 목록에서 **Cost Management + 청구** 로 이동하여 비용을 볼 수 있습니다. 그런 다음, 보고해야 하는 특정 구독 및 리소스 그룹으로 비용을 필터링할 수 있습니다.
 
 청구 사용자는 특정 청구 계정에 명시적으로 포함되지 않기 때문에 관리 그룹에 대한 액세스 권한이 없습니다. 관리 그룹에 대한 액세스 권한을 명시적으로 부여해야 합니다. 관리 그룹은 중첩된 모든 구독의 비용을 롤업합니다. 그러나 여기에는 사용량 기반 구매만 포함됩니다. 예약 및 타사 Marketplace 제품과 같은 구매는 포함되지 않습니다. 이러한 비용을 확인하려면 EA 청구 계정을 사용합니다.
 
@@ -114,7 +114,7 @@ Azure 구독은 등록 계정 아래에 중첩됩니다. 청구 사용자는 각
 
     리소스 유형: 해당 없음
 
-개별 Azure 구독 계정 관리자는 [Azure 계정 센터](https://account.azure.com/subscriptions)에서 청구서나 결제 같은 청구 데이터를 보고 관리할 수 있습니다. 그러나 Azure Portal에서 비용 데이터를 보거나 리소스를 관리할 수는 없습니다. 계정 관리자에게 액세스 권한을 부여하려면 앞에서 언급한 Cost Management 역할을 사용합니다.
+개별 Azure 구독 계정 관리자는 [Azure Portal](https://portal.azure.com) > **구독** > 선택에서 청구서나 결제 같은 청구 데이터를 보고 관리할 수 있습니다.
 
 EA와 달리, 개별 Azure 구독 계정 관리자는 Azure Portal에서 청구서를 볼 수 있습니다. Cost Management 읽기 권한자와 Cost Management 기여자 역할은 청구서에 대한 액세스 권한을 제공하지 않습니다. 자세한 내용은 [청구서에 대한 액세스 권한을 부여하는 방법](../manage/manage-billing-access.md#give-read-only-access-to-billing)를 참조하세요.
 
@@ -136,7 +136,7 @@ Microsoft 고객 계약 청구 계정의 범위는 다음과 같습니다.
 
 - **고객** - 파트너에 의해 Microsoft 고객 계약에 등록된 특정 고객과 연결된 구독 그룹을 나타냅니다. 이 범위는 CSP(클라우드 솔루션 공급자)와 관련이 있습니다.
 
-EA 청구 범위와 달리, 고객 계약 청구 계정은 단일 디렉터리에 바인딩_되며_ 여러 Azure AD 디렉터리에 걸쳐 구독을 가질 수 없습니다.
+EA 청구 범위와 달리, 고객 계약 청구 계정은 단일 디렉터리에 바인딩 _되며_ 여러 Azure AD 디렉터리에 걸쳐 구독을 가질 수 없습니다.
 
 고객 계약 청구 범위는 파트너에게 적용되지 않습니다. 파트너 역할 및 사용 권한은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)에 설명되어 있습니다.
 
@@ -148,7 +148,7 @@ EA 청구 범위와 달리, 고객 계약 청구 계정은 단일 디렉터리�
 - **청구서 관리자** – 청구서를 살펴보고 결제할 수 있으며 비용 데이터 및 구성을 볼 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 [Cost Management 읽기 권한자 Azure 역할](../../role-based-access-control/built-in-roles.md#cost-management-reader)과 동일합니다.
 - **Azure 구독 작성자** – Azure 구독을 만들고, 비용을 보고, 비용 구성을 관리할 수 있습니다. 예산 및 내보내기를 예로 들 수 있습니다. 기능적 측면에서 이 고객 계약 청구 범위는 EA 등록 계정 소유자 역할과 동일합니다.
 
-Azure 구독은 EA 등록 계정 아래에 중첩되듯이 청구서 섹션 아래에 중첩됩니다. 청구 사용자는 각각 해당 범위에 속하는 구독 및 리소스 그룹의 비용 데이터에 액세스할 수 있습니다. 하지만 Azure Portal에서 리소스를 보거나 관리할 수 있는 액세스 권한은 없습니다. 청구 사용자는 Azure Portal 서비스 목록에서 **Cost Management + 청구**로 이동하여 비용을 볼 수 있습니다. 그런 다음, 보고해야 하는 특정 구독 및 리소스 그룹으로 비용을 필터링할 수 있습니다.
+Azure 구독은 EA 등록 계정 아래에 중첩되듯이 청구서 섹션 아래에 중첩됩니다. 청구 사용자는 각각 해당 범위에 속하는 구독 및 리소스 그룹의 비용 데이터에 액세스할 수 있습니다. 하지만 Azure Portal에서 리소스를 보거나 관리할 수 있는 액세스 권한은 없습니다. 청구 사용자는 Azure Portal 서비스 목록에서 **Cost Management + 청구** 로 이동하여 비용을 볼 수 있습니다. 그런 다음, 보고해야 하는 특정 구독 및 리소스 그룹으로 비용을 필터링할 수 있습니다.
 
 청구 사용자는 청구 계정에 명시적으로 포함되지 않기 때문에 관리 그룹에 대한 액세스 권한이 없습니다. 그러나 조직 전체에 관리 그룹을 사용하도록 설정하면 모든 구독 비용이 청구 계정과 루트 관리 그룹에 롤업됩니다. 둘 다 단일 디렉터리로 제한되기 때문입니다. 관리 그룹에는 사용량 기반 구매만 포함됩니다. 예약 및 타사 Marketplace 제품과 같은 구매는 관리 그룹에 포함되지 않습니다. 따라서 청구 계정과 루트 관리 그룹이 보고하는 합계가 서로 다를 수 있습니다. 이러한 비용을 보려면 청구 계정 또는 해당 청구 프로필을 사용합니다.
 
@@ -188,7 +188,7 @@ CSP 범위의 관리 그룹은 Cost Management에서 지원되지 않습니다. 
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Cost Management에서 범위 전환
 
-Azure Portal의 모든 Cost Management 보기는 왼쪽 위에 **범위** 선택 필이 있습니다. 이 필을 사용하여 범위를 신속하게 변경할 수 있습니다. **범위** 필을 선택하면 범위 선택기가 열립니다. 여기에는 청구 계정, 루트 관리 그룹, 루트 관리 그룹에 중첩되지 않은 구독이 표시됩니다. 범위를 선택하려면 배경을 선택하여 해당 범위를 강조 표시한 다음, 아래쪽에서 **선택**을 선택합니다. 구독에서 리소스 그룹처럼 중첩된 범위로 드릴인하려면 범위 이름 링크를 선택합니다. 중첩된 수준에서 부모 범위를 선택하려면 범위 선택기의 맨 위에서 **이 &lt;범위&gt; 선택**을 선택합니다.
+Azure Portal의 모든 Cost Management 보기는 왼쪽 위에 **범위** 선택 필이 있습니다. 이 필을 사용하여 범위를 신속하게 변경할 수 있습니다. **범위** 필을 선택하면 범위 선택기가 열립니다. 여기에는 청구 계정, 루트 관리 그룹, 루트 관리 그룹에 중첩되지 않은 구독이 표시됩니다. 범위를 선택하려면 배경을 선택하여 해당 범위를 강조 표시한 다음, 아래쪽에서 **선택** 을 선택합니다. 구독에서 리소스 그룹처럼 중첩된 범위로 드릴인하려면 범위 이름 링크를 선택합니다. 중첩된 수준에서 부모 범위를 선택하려면 범위 선택기의 맨 위에서 **이 &lt;범위&gt; 선택** 을 선택합니다.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>범위의 리소스 ID 식별
 
@@ -196,65 +196,65 @@ Cost Management API를 사용하는 경우 반드시 범위를 알아야 합니�
 
 ### <a name="billing-accounts"></a>청구 계정
 
-1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구**로 이동합니다.
-2. 청구 계정 메뉴에서 **속성**을 선택합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구** 로 이동합니다.
+2. 청구 계정 메뉴에서 **속성** 을 선택합니다.
 3. 청구 계정 ID를 복사합니다.
 4. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`입니다.
 
 ### <a name="billing-profiles"></a>청구 프로필
 
-1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구**로 이동합니다.
-2. 청구 계정 메뉴에서 **청구 프로필**을 선택합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구** 로 이동합니다.
+2. 청구 계정 메뉴에서 **청구 프로필** 을 선택합니다.
 3. 청구 프로필의 이름을 선택합니다.
-4. 청구 프로필 메뉴에서 **속성**을 선택합니다.
+4. 청구 프로필 메뉴에서 **속성** 을 선택합니다.
 5. 청구 계정 및 청구 프로필 ID를 복사합니다.
 6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`입니다.
 
 ### <a name="invoice-sections"></a>청구서 섹션
 
-1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구**로 이동합니다.
-2. 청구 계정 메뉴에서 **청구서 섹션**을 선택합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구** 로 이동합니다.
+2. 청구 계정 메뉴에서 **청구서 섹션** 을 선택합니다.
 3. 청구서 섹션의 이름을 선택합니다.
-4. 청구서 섹션 메뉴에서 **속성**을 선택합니다.
+4. 청구서 섹션 메뉴에서 **속성** 을 선택합니다.
 5. 청구 계정 및 청구서 섹션 ID를 복사합니다.
 6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`입니다.
 
 ### <a name="ea-departments"></a>EA 부서
 
-1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구**로 이동합니다.
-2. 청구 계정 메뉴에서 **부서**를 선택합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구** 로 이동합니다.
+2. 청구 계정 메뉴에서 **부서** 를 선택합니다.
 3. 부서 이름을 선택합니다.
-4. 부서 메뉴에서 **속성**을 선택합니다.
+4. 부서 메뉴에서 **속성** 을 선택합니다.
 5. 청구 계정 및 부서 ID를 복사합니다.
 6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`입니다.
 
 ### <a name="ea-enrollment-account"></a>EA 등록 계정
 
-1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구**로 이동합니다.
-2. 청구 계정 메뉴에서 **등록 계정**을 선택합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **Cost Management + 청구** 로 이동합니다.
+2. 청구 계정 메뉴에서 **등록 계정** 을 선택합니다.
 3. 등록 계정 이름을 선택합니다.
-4. 등록 계정 메뉴에서 **속성**을 선택합니다.
+4. 등록 계정 메뉴에서 **속성** 을 선택합니다.
 5. 청구 계정 및 등록 계정 ID를 복사합니다.
 6. 범위는 `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`입니다.
 
 ### <a name="management-group"></a>관리 그룹
 
-1. Azure Portal을 열고, 서비스 목록에서 **관리 그룹**으로 이동합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **관리 그룹** 으로 이동합니다.
 2. 관리 그룹으로 이동합니다.
 3. 표서 관리 그룹 ID를 복사합니다.
 4. 범위는 `"/providers/Microsoft.Management/managementGroups/{id}"`입니다.
 
 ### <a name="subscription"></a>Subscription
 
-1. Azure Portal을 열고, 서비스 목록에서 **구독**으로 이동합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **구독** 으로 이동합니다.
 2. 표에서 구독 ID를 복사합니다.
 3. 범위는 `"/subscriptions/{id}"`입니다.
 
 ### <a name="resource-groups"></a>리소스 그룹
 
-1. Azure Portal을 열고, 서비스 목록에서 **리소스 그룹**으로 이동합니다.
+1. Azure Portal을 열고, 서비스 목록에서 **리소스 그룹** 으로 이동합니다.
 2. 리소스 그룹의 이름을 선택합니다.
-3. 리소스 그룹 메뉴에서 **속성**을 선택합니다.
+3. 리소스 그룹 메뉴에서 **속성** 을 선택합니다.
 4. 리소스 ID 필드 값을 복사합니다.
 5. 범위는 `"/subscriptions/{id}/resourceGroups/{name}"`입니다.
 

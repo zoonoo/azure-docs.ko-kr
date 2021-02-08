@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936059"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492113"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -96,7 +96,7 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 
 |           |웹 | Android/iOS|
 |-----------|----|------------|
-|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
+|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 + 화면 공유 1개 | 비디오 1개 |
 |**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
 
 

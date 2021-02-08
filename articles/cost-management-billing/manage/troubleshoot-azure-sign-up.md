@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
-ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344490"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054164"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
 
@@ -139,19 +139,18 @@ InPrivate 브라우징 방법
 
 ## <a name="other-issues"></a>기타 문제
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>MSDN, BizSpark, BizSparkPlus 또는 MPN과 같은 Azure 혜택 계획을 활성화할 수 없습니다.
+### <a name="cant-activate-azure-benefit-plan-like-visual-studio-bizspark-bizsparkplus-or-mpn"></a>Visual Studio, BizSpark, BizSparkPlus 또는 MPN과 같은 Azure 혜택 계획을 활성화할 수 없습니다.
 
 올바른 로그인 자격 증명을 사용하고 있는지 확인합니다. 그런 다음, 혜택 프로그램에서 자격이 있는지 확인합니다.
-- MSDN
-  - [MSDN 계정 페이지](https://msdn.microsoft.com/subscriptions/manage/default.aspx)에서 자격 상태를 확인합니다.
-  - 자신의 상태를 확인할 수 없는 경우 [MSDN 구독 고객 서비스 센터](/previous-versions/mappoint/aa493452(v=msdn.10))에 문의하세요.
+- Visual Studio
+  - [Visual Studio 계정 페이지](https://my.visualstudio.com/Benefits)에서 자격 상태를 확인합니다.
+  - 상태를 확인할 수 없는 경우 [Visual Studio Subscription 지원](https://visualstudio.microsoft.com/subscriptions/support/)에 문의하세요.
 - Microsoft for Startups
   - [Microsoft for Startups 포털](https://startups.microsoft.com/#start-two)에 로그인하여 Microsoft for Startups에 대한 자격 상태를 확인합니다.
   - 자신의 상태를 확인할 수 없는 경우에는 [Microsoft for Startups 포럼](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups)에서 도움을 받을 수 있습니다.
 - MPN
   - [MPN 포털](https://mspartner.microsoft.com/Pages/Locale.aspx)에 로그인하여 자격 상태를 확인합니다. 적절한 [클라우드 플랫폼 역량](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx)을 가지고 있는 경우 추가 혜택의 자격이 있을 수 있습니다.
   - 자신의 상태를 확인할 수 없는 경우 [MPN 지원](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx)에 문의하세요.
-
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>새 Azure In Open 구독을 활성화할 수 없습니다.
 

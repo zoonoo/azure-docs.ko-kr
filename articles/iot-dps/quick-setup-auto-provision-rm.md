@@ -3,17 +3,17 @@ title: 빠른 시작 - ARM 템플릿(Azure Resource Manager 템플릿)을 사용
 description: Azure 빠른 시작 - ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure IoT Hub DPS(Device Provisioning Service)를 만드는 방법을 알아봅니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/03/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 73beed4e4262d911f68c2b4b33bc0c1ee24164f8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: cc55d1569c85dd0873d0132833acc99bd5d06136
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746212"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928930"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
@@ -35,6 +35,9 @@ ms.locfileid: "96746212"
 ## <a name="review-the-template"></a>템플릿 검토
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/)에서 나온 것입니다.
+
+> [!NOTE]
+> 현재 새 DPS 리소스로 등록을 만들 수 있는 ARM 템플릿이 지원되지 않습니다. 이는 구현을 위해 고려되는 일반적이고 이해된 요청입니다.
 
 :::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
 
@@ -58,7 +61,7 @@ ms.locfileid: "96746212"
 
     아래와 같이 지정되지 않으면 기본값을 사용하여 IoT Hub 및 DPS 리소스를 만듭니다.
 
-    | 필드 | Description |
+    | 필드 | 설명 |
     | :---- | :---------- |
     | **구독** | Azure 구독을 선택합니다. |
     | **리소스 그룹** | **새로 만들기** 를 클릭하고, 고유한 리소스 그룹 이름을 입력한 다음, **확인** 을 클릭합니다. |

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 6aeded077c20e59b3f9b3863a9956596382d3a82
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7cbb9a09a6f8eae6a9325f060664d50c5725e09f
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531949"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508528"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>샘플 파일 검사 및 편집
 
@@ -16,16 +16,13 @@ ms.locfileid: "97531949"
 
 1. *src/cloud-to-device-console-app* 폴더로 이동합니다. 여기에는 *appsettings.json* 파일 및 몇 가지 다른 파일이 표시됩니다.
 
-    * ***c2d-console-app.csproj** _ - Visual Studio Code에 대한 프로젝트 파일입니다.
-    _ ***operations.json** _ - 프로그램을 실행하려는 작업의 목록입니다.
-    _ ***Program.cs** _ - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
+    * operations.json - 프로그램을 실행하려는 작업의 목록입니다.
+    * main.py - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
-        _ 앱 설정을 로드합니다.
-        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 [직접 메서드](../../../direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
+        * 앱 설정을 로드합니다.
+        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 직접 메서드를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
         * **터미널** 창에서 프로그램의 출력을 검사하고, **출력** 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
-        * 리소스를 정리하는 직접 메서드를 호출합니다.
-
-
+        * 리소스를 정리하는 직접 메서드를 호출합니다.  
 1. *operations.json* 파일을 편집합니다.
     * 그래프 토폴로지의 링크를 변경합니다.
 
@@ -53,6 +50,12 @@ ms.locfileid: "97531949"
     
     ![IoT Hub 연결 문자열 설정](../../../media/quickstarts/set-iotconnection-string.png)
 
+> [!NOTE]
+> IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. 마우스 오른쪽 단추로 *src/edge/config/ deployment.yolov3.amd64.json* 을 클릭하고, **단일 디바이스용 배포 만들기** 를 선택합니다. 
 
     ![단일 디바이스용 배포 만들기](../../../media/quickstarts/create-deployment-single-device.png)
@@ -62,13 +65,22 @@ ms.locfileid: "97531949"
 
     * **lvaEdge** 라는 이름의 Live Video Analytics 모듈
     * **rtspsim** 모듈 - RTSP 서버를 시뮬레이션하고 라이브 비디오 피드의 원본으로 작동합니다.
+        > [!NOTE]
+        > 위의 단계는 설치 스크립트에서 만든 가상 머신을 사용한다고 가정합니다. 사용자 고유의 에지 디바이스를 사용하는 경우 에지 디바이스로 이동하고, **관리자 권한** 으로 다음 명령을 실행하여 이 빠른 시작에 사용되는 샘플 비디오 파일을 가져와 저장합니다.  
+        
+        ```
+        mkdir /home/lvaadmin/samples
+        mkdir /home/lvaadmin/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+        chown -R lvaadmin /home/lvaadmin/samples/  
+        ```
     * **yolov3** 모듈 - 컴퓨터 비전을 이미지에 적용하고, 개체 형식의 여러 클래스를 반환하는 YOLOv3 개체 감지 모델입니다.
  
       ![에지 디바이스에 배포된 모듈](../../../media/quickstarts/yolov3.png)
 
 ### <a name="prepare-to-monitor-events"></a>이벤트 모니터링 준비
 
-1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
 1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]

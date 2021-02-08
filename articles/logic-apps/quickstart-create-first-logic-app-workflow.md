@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455060"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052045"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>빠른 시작: 첫 번째 Logic Apps 워크플로 만들기 - Azure Portal
 
@@ -30,11 +30,14 @@ ms.locfileid: "96455060"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)하세요.
+* Azure 계정 및 구독 없는 경우 [Azure 체험 계정에 가입](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)하세요.
+
 * Logic Apps에서 지원하는 서비스의 이메일 계정(예: Office 365 Outlook 또는 Outlook.com) 지원되는 다른 이메일 공급자의 경우 [커넥터 목록을 검토](/connectors/)하세요.
 
     > [!IMPORTANT]
     > [Gmail 커넥터](/connectors/gmail/)를 사용하는 경우 G Suite 계정만 Logic Apps에서 이 커넥터를 제한 없이 사용할 수 있습니다. 소비자 Gmail 계정이 있는 경우 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들지](/connectors/gmail/#authentication-and-bring-your-own-application) 않는 한 특정 Google 승인 서비스에서만 이 커넥터를 사용할 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
+
+* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
 
 <a name="create-logic-app"></a>
 
@@ -51,8 +54,8 @@ ms.locfileid: "96455060"
    ![논리 앱 목록 및 선택한 "추가" 단추를 보여주는 Azure Portal의 Logic Apps 서비스 페이지에 대한 스크린샷](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. **논리 앱** 창에서 논리 앱에 대한 기본 세부 정보와 설정을 제공합니다. 이 논리 앱 예제의 목적을 위해 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만듭니다.
-    
-   | 속성 | 값 | Description |
+
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **이름** | <*logic-app-name*> | 지역에서 고유해야 하는 논리 앱의 이름입니다. 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함될 수 있습니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |

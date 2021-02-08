@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757714"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475593"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Azure Security Center에 예정된 중요한 변경
 
@@ -38,7 +38,7 @@ ms.locfileid: "98757714"
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>GA(일반 공급)에 대한 Kubernetes 워크로드 보호 권장 사항이 곧 출시될 예정입니다.
 
-**변경 예상 날짜:** 2021년 1월
+**변경 예상 날짜:** 2021년 2월
 
 [Kubernetes 워크로드 보호](kubernetes-workload-protections.md)에 설명된 Kubernetes 워크로드 보호 권장 사항은 현재 미리 보기로 제공됩니다. 권장 사항이 미리 보기로 제공되는 동안에는 리소스가 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다.
 
@@ -83,7 +83,7 @@ Kubernetes 워크로드 보호 권장 사항은 다음과 같습니다.
 
 **변경 예상 날짜:** Q2 2021
 
-**데이터 분류 적용** 보안 제어에서 권장 사항 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 의 현재 버전은 더 이상 사용되지 않으며 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 결과는 다음과 같습니다.
+**데이터 분류 적용** 보안 제어에서 권장 사항 **SQL 데이터베이스의 중요 데이터를 분류해야 함** 의 현재 버전은 Microsoft의 데이터 분류 전략에 맞춰 향상된 새 버전으로 대체됩니다. 결과는 다음과 같습니다.
 
 - 권장 사항은 더 이상 보안 점수에 영향을 주지 않습니다.
 - 보안 제어("데이터 분류 적용")는 더 이상 보안 점수에 영향을 주지 않습니다.

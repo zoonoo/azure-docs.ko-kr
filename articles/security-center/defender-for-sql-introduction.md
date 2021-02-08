@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 81ae46a7b6c19557eeadd2d5b28ad2fa46e77115
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28ec6659430cfdbc81533f05863ccb0ddc560e32
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881370"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99508035"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -72,7 +72,6 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Defender for SQL에 대해 알아보았습니다.
+이 문서에서는 Azure Defender for SQL에 대해 알아보았습니다. 설명된 서비스를 사용하려면 다음을 수행합니다.
 
-> [!div class="nextstepaction"]
-> [Azure Defender를 사용하여 SQL Server의 취약성 검사](defender-for-sql-usage.md)
+- 머신에서 SQL 서버용 Azure Defender를 사용하여 [SQL 서버에서 취약성을 검색](defender-for-sql-usage.md)합니다.

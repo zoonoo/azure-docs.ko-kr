@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 09/17/2020
+ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 200e7f191cb19588fa79ba685c91a75dabd0156a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348204"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953940"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>빠른 시작: GPU가 있는 Azure Stack Edge Pro 시작 
 
@@ -30,7 +30,7 @@ ms.locfileid: "91348204"
 1. Azure Stack Edge Pro GPU 디바이스는 [압축을 풀고](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) [랙에 탑재](azure-stack-edge-gpu-deploy-install.md#rack-the-device)한 상태로 사이트에 제공됩니다. 
 1. 디바이스가 [나열된 URL 패턴 및 포트](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements)에 도달할 수 있도록 네트워크를 구성합니다. 
 1. 구독에 대한 소유자 또는 기여자 액세스 권한이 있습니다.
-1. Azure Portal에서 **홈 > 구독 > 사용자의 구독 > 리소스 공급자**로 차례로 이동합니다. `Microsoft.DataBoxEdge`를 검색하고 리소스 공급자를 등록합니다. 컴퓨팅 워크로드를 배포하는 IoT Hub 리소스를 만드는 경우 `Microsoft.Devices`를 등록하는 과정을 반복합니다.
+1. Azure Portal에서 **홈 > 구독 > 사용자의 구독 > 리소스 공급자** 로 차례로 이동합니다. `Microsoft.DataBoxEdge`를 검색하고 리소스 공급자를 등록합니다. 컴퓨팅 워크로드를 배포하는 IoT Hub 리소스를 만드는 경우 `Microsoft.Devices`를 등록하는 과정을 반복합니다.
 1. Kubernetes 노드에 대해 둘 이상의 사용 가능한 고정 연속 IP가 있고, IoT Edge 서비스에 대해 하나 이상의 고정 IP가 있어야 합니다. 배포하는 각 모듈 또는 외부 서비스에 대해 하나의 추가 IP가 필요합니다.
 1. 디바이스 구성에 필요한 모든 항목을 가져오려면 [배포 검사 목록](azure-stack-edge-gpu-deploy-checklist.md)을 참조하세요. 
 
@@ -53,7 +53,7 @@ ms.locfileid: "91348204"
 
     Kubernetes는 모든 컨테이너화된 워크로드를 배포하는 데 필요합니다. 자세한 내용은 [컴퓨팅 네트워크 설정](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network)을 참조하세요.
 
-6. **웹 프록시 구성**: 사용자 환경에서 웹 프록시를 사용하는 경우 `http://<web-proxy-server-FQDN>:<port-id>`에서 웹 프록시 서버 IP를 입력합니다. 인증을 **없음**으로 설정합니다. 자세한 내용은 [웹 프록시 설정](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-web-proxy)을 참조하세요.
+6. **웹 프록시 구성**: 사용자 환경에서 웹 프록시를 사용하는 경우 `http://<web-proxy-server-FQDN>:<port-id>`에서 웹 프록시 서버 IP를 입력합니다. 인증을 **없음** 으로 설정합니다. 자세한 내용은 [웹 프록시 설정](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-web-proxy)을 참조하세요.
 
 7. **디바이스 구성**: 디바이스 이름과 DNS 도메인을 입력하거나 기본값을 적용합니다. 
 
@@ -68,10 +68,10 @@ ms.locfileid: "91348204"
 
 11. **활성화**: 활성화 키를 가져오려면, 
 
-    1. Azure Portal에서 **Azure Stack Edge 리소스 > 개요 > 디바이스 설정 > 활성화 > 키 생성**으로 차례로 이동합니다. 키를 복사합니다. 
-    1. 로컬 웹 UI에서 **시작 > 활성화**로 차례로 이동하여 활성화 키를 제공합니다. 키가 적용되면 디바이스를 활성화하는 데 몇 분이 걸립니다. 향후 복구하는 데 필요한 디바이스 키를 안전하게 저장하라는 메시지가 표시되면 `<device-serial-number>`.json 파일을 다운로드합니다. 
+    1. Azure Portal에서 **Azure Stack Edge 리소스 > 개요 > 디바이스 설정 > 활성화 > 키 생성** 으로 차례로 이동합니다. 키를 복사합니다. 
+    1. 로컬 웹 UI에서 **시작 > 활성화** 로 차례로 이동하여 활성화 키를 제공합니다. 키가 적용되면 디바이스를 활성화하는 데 몇 분이 걸립니다. 향후 복구하는 데 필요한 디바이스 키를 안전하게 저장하라는 메시지가 표시되면 `<device-serial-number>`.json 파일을 다운로드합니다. 
 
-12. **컴퓨팅 구성**: Azure Portal에서 **개요 > 디바이스**로 차례로 이동합니다. 디바이스가 **온라인**인지 확인합니다. 왼쪽 창에서 **Edge 컴퓨팅 > 시작 > Edge 컴퓨팅 구성 > 컴퓨팅**으로 차례로 이동합니다. 기존 또는 새 IoT Hub 서비스를 제공하고, 컴퓨팅이 구성될 때까지 약 20분 정도 기다립니다. 자세한 내용은 [자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
+12. **컴퓨팅 구성**: Azure Portal에서 **개요 > 디바이스** 로 차례로 이동합니다. 디바이스가 **온라인** 인지 확인합니다. 왼쪽 창에서 **Edge 컴퓨팅 > 시작 > Edge 컴퓨팅 구성 > 컴퓨팅** 으로 차례로 이동합니다. 기존 또는 새 IoT Hub 서비스를 제공하고, 컴퓨팅이 구성될 때까지 약 20분 정도 기다립니다. 자세한 내용은 [자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
 [IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) 또는 [Azure Arc 지원 Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)를 통해 컴퓨팅 워크로드를 디바이스에 배포할 준비가 되었습니다. 설치하는 동안 문제가 발생하면 [디바이스 문제](), [주문 문제](azure-stack-edge-gpu-troubleshoot.md), [인증서 문제](azure-stack-edge-j-series-certificate-troubleshooting.md), 또는 Kubernetes 문제 해결로 이동합니다. 
 

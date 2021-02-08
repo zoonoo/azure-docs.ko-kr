@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/13/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a5c95ca2e1fbe00f410c0a5015f8ce695783b27b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 0afaa9a577432741da44317a9d13e288cdea0d0d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538203"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052484"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -108,4 +108,4 @@ Azure 구독을 청구서 지불(수표/전신 송금)로 전환하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-* 필요한 경우 [Azure 계정 센터](https://account.azure.com/Profile)에서 청구 연락처 정보를 업데이트합니다.
+* 필요한 경우 [Azure Portal](https://portal.azure.com)에서 청구 연락처 정보를 업데이트합니다.

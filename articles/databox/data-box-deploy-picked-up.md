@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9b40ff3a5c9ce2103cde00b26543711d4c05efb0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028379"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524995"
 ---
 ::: zone target="docs"
 
@@ -322,7 +322,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
 
-미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카 또는 서유럽에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 서유럽 또는 오스트레일리아에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
 
 1. 이 단계가 성공적으로 완료된 후 Data Box에 대한 로컬 웹 UI의 **배송 준비** 페이지에 표시된 인증 코드를 적어둡니다.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.

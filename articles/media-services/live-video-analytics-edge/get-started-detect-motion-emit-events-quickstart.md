@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631939"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507790"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -31,7 +31,7 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
   > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요.  
 
 * 개발 컴퓨터의 [Visual Studio Code](https://code.visualstudio.com/). [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)이 있는지 확인합니다.
-* 개발 컴퓨터가 연결된 네트워크에서 5671 포트를 통해 AMQP(고급 메시지 큐 프로토콜)를 허용하는지 확인합니다. 이렇게 설정하면 Azure IoT Tools에서 Azure IoT Hub와 통신할 수 있습니다.
+* 개발 머신이 연결된 네트워크가 아웃바운드 트래픽에 대해 5671 포트를 통해 AMQP(고급 메시지 큐 프로토콜)를 허용하는지 확인합니다. 이렇게 설정하면 Azure IoT Tools에서 Azure IoT Hub와 통신할 수 있습니다.
 
 > [!TIP]
 > Azure IoT Tools 확장을 설치하는 동안 Docker를 설치하라는 메시지가 표시될 수 있습니다. 이 메시지는 무시해도 됩니다.
@@ -48,6 +48,8 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
 이 빠른 시작에서는 [Live Video Analytics 리소스 설치 스크립트](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)를 사용하여 Azure 구독에 필요한 리소스를 배포하는 것이 좋습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 Cloud Shell 아이콘을 선택합니다.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Cloud Shell을 처음 사용하는 경우 스토리지 계정 및 Microsoft Azure Files 공유를 만들 구독을 선택하라는 메시지가 표시됩니다. **스토리지 만들기** 를 선택하여 Cloud Shell 세션 정보에 대한 스토리지 계정을 만듭니다. 이 스토리지 계정은 Azure Media Services 계정에서 사용하기 위해 스크립트에서 만드는 계정과는 다릅니다.
 1. Cloud Shell 창 왼쪽의 드롭다운 메뉴에서 사용자 환경으로 **Bash** 를 선택합니다.
 
@@ -59,13 +61,27 @@ IoT Edge에서 Live Video Analytics를 시작하는 방법에 대한 자세한 �
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-스크립트가 성공적으로 완료되면 구독에 필요한 모든 리소스가 표시됩니다. 스크립트 출력의 리소스 테이블에 IoT 허브 이름이 나열됩니다. **`Microsoft.Devices/IotHubs`** 리소스 종류를 찾고 이름을 적어 둡니다. 이 이름은 다음 단계에서 필요합니다.  
+    스크립트가 성공적으로 완료되면 구독에 필요한 모든 리소스가 표시됩니다. 다음 스크립트를 통해 총 12개의 리소스를 설정할 수 있습니다.
+    1. **스트리밍 엔드포인트** - 기록된 AMS 자산을 재생하는 데 도움이 됩니다.
+    1. **가상 머신** - 에지 다비이스로 작동하는 가상 머신입니다.
+    1. **디스크** - 미디어와 아티팩트를 저장하기 위해 가상 머신에 연결된 스토리지 디스크입니다.
+    1. **네트워크 보안 그룹** - Azure 가상 네트워크에서 Azure 리소스와 주고받는 네트워크 트래픽을 필터링하는 데 사용됩니다.
+    1. **네트워크 인터페이스** - 이를 통해 Azure Virtual Machine이 인터넷, Azure 및 기타 리소스와 통신할 수 있습니다.
+    1. **Azure Bastion** - 이를 통해 브라우저와 Azure Portal을 사용하여 가상 머신에 연결할 수 있습니다.
+    1. **공용 IP 주소** - 이를 통해 Azure 리소스에서 인터넷 및 공용 Azure 서비스에 통신할 수 있습니다.
+    1. **가상 네트워크** - 이를 통해 가상 머신과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. [가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 대해 자세히 알아보세요.
+    1. **IoT Hub** - IoT 애플리케이션, IoT Edge 및 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
+    1. **미디어 서비스 계정** - Azure에서 미디어 콘텐츠를 관리하고 스트리밍하는 데 도움이 됩니다.
+    1. **스토리지 계정** - 하나의 기본 스토리지 계정이 있어야 하며 Media Services 계정과 연결된 보조 스토리지 계정은 여러 개 있을 수 있습니다. 자세한 내용은 [Azure Media Services 계정이 있는 Azure Storage 계정](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept)을 참조하세요.
+    1. **컨테이너 레지스트리** - 프라이빗 Docker 컨테이너 이미지 및 관련 아티팩트를 저장하고 관리하는 데 도움이 됩니다.
+
+스크립트 출력의 리소스 테이블에 IoT 허브 이름이 나열됩니다. **`Microsoft.Devices/IotHubs`** 리소스 종류를 찾고 이름을 적어 둡니다. 이 이름은 다음 단계에서 필요합니다.  
 
 > [!NOTE]
-> 또한 스크립트는 몇 가지 구성 파일을 **_~/clouddrive/lva-sample/_* _ 디렉터리에 생성합니다. 이러한 파일은 빠른 시작에서 나중에 필요합니다.
+> 또한 스크립트는 몇 가지 구성 파일을 ***~/clouddrive/lva-sample/*** 디렉터리에 생성합니다. 이러한 파일은 빠른 시작에서 나중에 필요합니다.
 
 > [!TIP]
-> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 _ *[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)* *를 참조하여 일반적으로 발생하는 문제를 해결하세요.
+> 만든 Azure 리소스와 관련된 문제가 발생하는 경우 **[문제 해결 가이드](troubleshoot-how-to.md#common-error-resolutions)** 를 참조하여 일반적으로 발생하는 문제를 해결하세요.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>에지 디바이스에 모듈 배포
 
@@ -101,6 +117,12 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 1. **탐색기** 탭의 왼쪽 아래 모서리에서 **Azure IoT Hub** 를 선택합니다.
 1. **기타 옵션** 아이콘을 선택하여 상황에 맞는 메뉴를 표시합니다. 그런 다음, **IoT Hub 연결 문자열 설정** 을 선택합니다.
 1. 입력 상자가 표시되면 IoT Hub 연결 문자열을 입력합니다. Cloud Shell에서는 *~/clouddrive/lva-sample/appsettings.json* 에서 연결 문자열을 가져올 수 있습니다.
+
+> [!NOTE]
+> IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 연결에 성공하면 에지 디바이스의 목록이 표시됩니다. **lva-sample-device** 라는 하나 이상의 디바이스가 표시되어야 합니다. 이제 상황에 맞는 메뉴를 통해 IoT Edge 디바이스를 관리하고 Azure IoT Hub와 상호 작용할 수 있습니다. 에지 디바이스에 배포된 모듈을 보려면 **lva-sample-device** 아래에서 **모듈** 노드를 펼칩니다.
 
@@ -145,7 +167,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 
 ### <a name="invoke-graphtopologyset"></a>GraphTopologySet 호출
 
-`GraphTopologyList`를 호출하는 단계를 사용하면 `GraphTopologySet`을 호출하여 [그래프 토폴로지](media-graph-concept.md#media-graph-topologies-and-instances)를 설정할 수 있습니다. 다음 JSON을 페이로드로 사용합니다.
+이전에 했던 것처럼 이제 `GraphTopologySet`을 호출하여 [그래프 토폴로지](media-graph-concept.md#media-graph-topologies-and-instances)를 설정할 수 있습니다. 다음 JSON을 페이로드로 사용합니다.
 
 ```
 {

@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e3570a716eccf131cf19192454bfbc1008a6306e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: adbf3080367e54147c981c8ccf0bb6236111b8c7
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935039"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071208"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 키 설정 및 검색
 
@@ -32,32 +32,11 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
 
-```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
-```
+## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 
-## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
-
-다음으로 Key Vault를 만듭니다. 이 단계를 수행할 때는 몇 가지 정보가 필요합니다.
-
-이 빠른 시작 전체에서 Key Vault의 이름으로 "Contoso KeyVault2"를 사용하되, 고유한 이름을 사용해야 합니다.
-
-- **자격 증명 모음 이름** 은 Contoso-Vault2입니다.
-- **리소스 그룹 이름** 은 ContosoResourceGroup입니다.
-- **위치** 는 미국 동부입니다.
-
-```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
-```
-
-이 cmdlet의 출력에는 새로 만든 Key Vault의 속성이 표시됩니다. 아래에 나열된 두 개의 속성을 기록합니다.
-
-* **자격 증명 모음 이름**: 이 예제에서는 **Contoso-Vault2** 입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예제에서는 https://Contoso-Vault2.vault.azure.net/ 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
-
-자격 증명 모음을 만든 후 사용자의 Azure 계정은 이 새 자격 증명 모음에 대해 모든 작업을 수행할 수 있는 유일한 계정입니다.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
 ## <a name="add-a-key-to-key-vault"></a>Key Vault에 키 추가
 
@@ -66,27 +45,22 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 아래 명령을 입력하여 호출된 **ExampleKey** 를 만듭니다.
 
 ```azurepowershell-interactive
-Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
+Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey '** 를 사용하여 현재 버전을 가져옵니다. 
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 키를 참조할 수 있습니다. **"https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey"** 를 사용하여 현재 버전을 가져옵니다. 
 
 이전에 저장한 키를 보려면 다음을 수행합니다.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
+Get-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -KeyName "ExampleKey"
 ```
 
 지금까지 Key Vault를 만들고 키를 저장하고, 검색했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작 및 자습서를 계속 진행하려는 경우 이러한 리소스를 유지하는 것이 좋습니다.
-더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹 및 모든 관련 리소스를 제거할 수 있습니다. 다음과 같이 리소스를 삭제할 수 있습니다.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: f4aa1ef29ffb27efb29d969e48af4cf5288e08ae
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 18672d76c262f8919489ccf132532c117666abe4
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183915"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492181"
 ---
 # <a name="what-is-azure-bastion"></a>Azure Bastion 정보
 
@@ -30,7 +30,7 @@ RDP 및 SSH는 Azure에서 실행 중인 워크로드에 연결하는 데 사용
 
 이 그림은 Azure Bastion 배포 아키텍처를 보여줍니다. 이 다이어그램에서
 
-* Bastion 호스트는 가상 네트워크에 배포되어 있습니다.
+* Bastion 호스트는 최소/27 접두사가 있는 AzureBastionSubnet 서브넷이 포함된 가상 네트워크에 배포됩니다.
 * 사용자는 HTML5 브라우저를 사용하여 Azure Portal에 연결합니다.
 * 사용자가 연결할 가상 머신을 선택합니다.
 * 한 번의 클릭으로 RDP/SSH 세션이 브라우저에서 열립니다.

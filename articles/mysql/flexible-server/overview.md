@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 7841affc7a8988cb113af3b728ae117093000011
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348290"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99257460"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -132,20 +132,22 @@ MySQL은 인터넷 규모 웹 및 모바일 애플리케이션을 실행하는 �
 
 Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결입니다. Azure Database for MySQL에 대한 유연한 서버는 현재 다음 Azure 지역에서 사용할 수 있습니다.
 
-- 서유럽
-- 북유럽
-- 영국 남부
-- 미국 동부 2
-- 미국 서부 2
-- 미국 중부
-- 미국 동부
-- 캐나다 중부
-- 동남아시아
-- 한국 중부
-- 일본 동부
-- 오스트레일리아 동부
+| 지역 | 가용성 | 영역 중복 HA | 
+| --- | --- | --- |
+| 서유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 북유럽 | :heavy_check_mark: | :heavy_check_mark: |
+| 영국 남부 | :heavy_check_mark: | :x: | 
+| 미국 동부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: |
+| 미국 중부 | :heavy_check_mark: | :x: | 
+| 미국 동부 | :heavy_check_mark: | :heavy_check_mark: |
+| 캐나다 중부 | :heavy_check_mark: | :x: | 
+| 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: |
+| 한국 중부 | :heavy_check_mark: | :x: | 
+| 일본 동부 | :heavy_check_mark: | :x: | 
+| 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: |
 
-곧 새 서버를 추가하기 위해 노력하고 있습니다.
+곧 새 지역을 추가하기 위해 노력하고 있습니다.
 
 ## <a name="contacts"></a>연락처
 Azure Database for MySQL 유연한 서버에 대한 질문이나 제안이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.

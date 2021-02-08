@@ -3,12 +3,12 @@ title: Visual Studio Code를 사용하여 Go 또는 Rust에서 함수 만들기 
 description: Go 함수를 Azure Functions 사용자 지정 처리기로 만든 다음, Visual Studio Code에서 Azure Functions 확장을 사용하여 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 911e2ed263271cff41562f383f231d3ca8181854
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567580"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493664"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Go 또는 Rust 함수 만들기
 
@@ -226,7 +226,7 @@ ms.locfileid: "98567580"
 
 1. 브라우저에서 다음과 같이 표시되는 응답이 반환됩니다.
 
-    ![Browser - localhost 예제 출력](../../includes/media/functions-run-function-test-local-vs-code/functions-test-local-browser.png)
+    ![Browser - localhost 예제 출력](./media/create-first-function-vs-code-other/functions-test-local-browser.png)
 
 1. 요청에 대한 정보는 **터미널** 패널에 표시됩니다.
 
@@ -308,7 +308,7 @@ ms.locfileid: "98567580"
 
 1. 작업 막대에서 Azure 아이콘을 선택한 다음, **Azure: Functions** 영역에서 **함수 앱에 배포...** 단추를 선택합니다.
 
-    ![Azure에 프로젝트 게시](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Azure에 프로젝트 게시](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. 프롬프트에서 다음 정보를 제공합니다.
 
@@ -337,19 +337,17 @@ ms.locfileid: "98567580"
 
     + **Application Insights 리소스 선택**: `+ Create Application Insights resource`을 선택합니다. 이 이름은 Azure 내에서 전역적으로 고유해야 합니다. 프롬프트에서 제안된 이름을 사용할 수 있습니다.
 
-    + **새 리소스의 위치 선택**:  성능을 향상시키려면 근처에 있는 [지역](https://azure.microsoft.com/regions/)을 선택합니다. 
+    + **새 리소스의 위치 선택**:  더 나은 성능을 위해 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. 확장은 알림 영역에서 Azure에 생성되는 개별 리소스의 상태를 보여줍니다.
 
-1. 완료되면 함수 앱 이름을 기반으로 하는 이름을 사용하여 구독에 다음 Azure 리소스가 생성됩니다.
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Azure 리소스 생성 알림":::
 
-    + 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
-    + 표준 Azure Storage 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.
-    + 소비 계획 - 서버리스 함수 앱의 기본 호스트를 정의합니다. 
-    + 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱을 사용하면 함수를 논리 단위로 그룹화하여 동일한 호스팅 계획 내에서 더 쉽게 리소스를 관리, 배포 및 공유할 수 있습니다.
-    + 서버리스 함수의 사용을 추적하는 함수 앱에 연결된 Application Insights 인스턴스입니다.
+1. 완료되면 구독에 다음과 같은 Azure 리소스가 생성됩니다.
+
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다. 
 
-1. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
+4. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
 
     ![전체 알림 만들기](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 

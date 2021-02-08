@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e693bd15e5255fda135a7a1dc416dd67f24f7f25
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b493ee7d77fc45018dbf8d2bac748b03e3d74b8a
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120413"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99430212"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -94,6 +94,9 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 방화벽으로 보호되는 스토리지에 액세스하는 경우 **사용자 ID** 또는 **관리 ID** 를 사용할 수 있습니다.
 
+> [!NOTE]
+> 스토리지의 방화벽 기능은 공개 미리 보기로 제공되며 모든 공용 클라우드 지역에서 사용할 수 있습니다. 
+
 #### <a name="user-identity"></a>사용자 ID
 
 사용자 ID를 통해 방화벽으로 보호된 스토리지에 액세스하려면 PowerShell 모듈 Az. Storage를 사용할 수 있습니다.
@@ -102,12 +105,13 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 이러한 단계에 따라 스토리지 계정 방화벽을 구성하고 Synapse 작업 영역에 대한 예외를 추가합니다.
 
 1. PowerShell 열기 또는 [PowerShell 설치](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. 업데이트된 Az를 설치합니다. 스토리지 모듈: 
+2. Az.Storage 3.0.1 모듈 및 Az.Synapse 0.7.0을 설치합니다. 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > 3\.0.1 이상 버전을 사용해야 합니다. 다음 명령을 실행하여 Az. Storage 버전을 확인할 수 있습니다.  
+    > **버전 3.0.1** 을 사용하고 있는지 확인합니다. 다음 명령을 실행하여 Az. Storage 버전을 확인할 수 있습니다.  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -121,16 +125,23 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
     - 리소스 그룹 이름 - Synapse 작업 영역 개요의 Azure Portal에서 찾을 수 있습니다.
     - 계정 이름 - 방화벽 규칙에 의해 보호되는 스토리지 계정의 이름입니다.
     - 테넌트 ID - 테넌트 정보에 있는 Azure Active Directory의 Azure Portal에서 찾을 수 있습니다.
-    - 리소스 ID - Synapse 작업 영역 개요의 Azure Portal에서 찾을 수 있습니다.
+    - 작업 영역 이름 - Synapse 작업 영역의 이름입니다.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > 리소스 ID가 이 템플릿과 일치하는지 확인합니다.
+    > 리소스 ID가 resourceId 변수 인쇄에서 이 템플릿과 일치하는지 확인합니다.
     >
     > **resourcegroups** 를 소문자로 작성하는 것이 중요합니다.
     > 리소스 ID의 한 예: 
@@ -145,7 +156,14 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 6. 규칙이 스토리지 계정에 적용되었는지 확인: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+            $rule.ResourceAccessRules
+        } else {
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+            $rule.ResourceAccessRules
+        }
     ```
 
 #### <a name="managed-identity"></a>관리 ID

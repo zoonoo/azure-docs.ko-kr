@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: 스토리지 큐에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI'
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 스토리지 큐가 엔드포인트에 사용됩니다.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566319"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493263"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue storage로 사용자 지정 이벤트 라우팅
 
@@ -116,6 +116,11 @@ done
 포털에서 Queue storage로 이동하고 Event Grid에서 이 세 개의 이벤트를 큐로 보냈음을 확인합니다.
 
 ![메시지 표시](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Event Grid에서 메시지를 수신하는 큐에 대해 [Azure Functions에 대한 Azure Queue Storage 트리거](../azure-functions/functions-bindings-storage-queue-trigger.md)를 사용하는 경우 함수 실행 시 `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.` 오류 메시지가 표시될 수 있습니다.
+> 
+> 그 이유는 [Azure Queue Storage 트리거](../azure-functions/functions-bindings-storage-queue-trigger.md)를 사용할 때 Azure Functions는 **base64 인코딩 문자열** 을 예상하지만, Event Grid는 메시지를 일반 텍스트 형식으로 스토리지 큐에 보내기 때문입니다. 현재 일반 텍스트를 허용하도록 Azure Functions에 대한 큐 트리거를 구성할 수 없습니다. 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

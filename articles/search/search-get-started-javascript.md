@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/26/2020
+ms.date: 02/02/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 69cef4c17fd17219f0221c509775ad3fd6a80a27
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498985"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99509404"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>빠른 시작: JavaScript SDK를 사용하여 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ ms.locfileid: "96498985"
     npm install @azure/search-documents
     ```
 
-4. `dotenv`를 설치합니다. 이는 서비스 이름 및 API 키와 같은 환경 변수를 가져오는 데 사용됩니다.
+4. 서비스 이름 및 API 키와 같은 환경 변수를 가져오는 데 사용되는 `dotenv`를 설치합니다.
     ```cmd
     npm install dotenv
     ```
@@ -169,7 +169,7 @@ main().catch((err) => {
 
 ## <a name="1---create-index"></a>1 - 인덱스 만들기 
 
-**hotels_quickstart_index.json** 파일을 만듭니다.  이 파일은 다음 단계에서 로드할 문서에서 Azure Cognitive Search가 작동하는 방식을 정의합니다. 각 필드는 `name`으로 식별되며 지정된 `type`이 있습니다. 또한 각 필드에는 Azure Cognitive Search가 필드 검색, 필터링, 정렬 및 패싯을 수행할 수 있는지 여부를 지정하는 일련의 인덱스 특성도 있습니다. 대부분의 필드는 단순 데이터 형식이지만 `AddressType`과 같은 일부 형식은 인덱스에서 다양한 데이터 구조를 만들 수 있게 해주는 복합 형식입니다.  [지원되는 데이터 형식](/rest/api/searchservice/supported-data-types) 및 [인덱스 특성](./search-what-is-an-index.md#index-attributes)에 대해 자세히 알아볼 수 있습니다. 
+**hotels_quickstart_index.json** 파일을 만듭니다.  이 파일은 다음 단계에서 로드할 문서에서 Azure Cognitive Search가 작동하는 방식을 정의합니다. 각 필드는 `name`으로 식별되며 지정된 `type`이 있습니다. 또한 각 필드에는 Azure Cognitive Search가 필드 검색, 필터링, 정렬 및 패싯을 수행할 수 있는지 여부를 지정하는 일련의 인덱스 특성도 있습니다. 대부분의 필드는 단순 데이터 형식이지만 `AddressType`과 같은 일부 형식은 인덱스에서 다양한 데이터 구조를 만들 수 있게 해주는 복합 형식입니다.  [인덱스 만들기(REST)](/rest/api/searchservice/create-index)에 설명된 [지원되는 데이터 형식](/rest/api/searchservice/supported-data-types) 및 인덱스 특성에 대해 자세히 알아볼 수 있습니다. 
 
 **hotels_quickstart_index.json** 에 다음을 추가하거나 [파일을 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels_quickstart_index.json)하세요. 
 

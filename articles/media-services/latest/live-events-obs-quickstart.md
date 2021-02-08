@@ -1,5 +1,5 @@
 ---
-title: OBS Studio를 사용하여 Azure Media Services 라이브 스트림 만들기
+title: OBS Studio를 사용하여 라이브 스트림 만들기
 description: 포털과 OBS Studio를 사용하여 Azure Media Services 라이브 스트림을 만드는 방법을 알아봅니다.
 services: media-services
 ms.service: media-services
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 08/31/2020
-ms.openlocfilehash: 04b0ef0d6a480270b1f0a3546319b2608d638677
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83f072b67f5aa162137a55d2b311dccf0daf7f53
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89265510"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956075"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>OBS를 사용하여 Azure Media Services 라이브 스트림 만들기
 
@@ -43,20 +43,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="run-the-default-streaming-endpoint"></a>기본 스트리밍 엔드포인트 실행
 
-1. Media Services 목록에서 **스트리밍 엔드포인트**를 선택합니다.
+1. Media Services 목록에서 **스트리밍 엔드포인트** 를 선택합니다.
 
    ![스트리밍 엔드포인트 메뉴 항목](media/live-events-obs-quickstart/streaming-endpoints.png)
 1. 기본 스트리밍 엔드포인트 상태가 중지됨이면 선택합니다. 그러면 해당 엔드포인트의 페이지로 이동합니다.
-1. **시작**을 선택합니다.
+1. **시작** 을 선택합니다.
 
    ![스트리밍 엔드포인트의 시작 단추](media/live-events-obs-quickstart/start.png)
 
 ## <a name="set-up-an-azure-media-services-live-stream"></a>Azure Media Services 라이브 스트림 설정
 
-1. 포털 내의 Azure Media Services 계정으로 이동한 후 **Media Services** 목록에서 **라이브 스트리밍**을 선택합니다.
+1. 포털 내의 Azure Media Services 계정으로 이동한 후 **Media Services** 목록에서 **라이브 스트리밍** 을 선택합니다.
 
    ![라이브 스트리밍 링크](media/live-events-obs-quickstart/select-live-streaming.png)
-1. **라이브 이벤트 추가**를 선택하여 새 라이브 스트리밍 이벤트를 만듭니다.
+1. **라이브 이벤트 추가** 를 선택하여 새 라이브 스트리밍 이벤트를 만듭니다.
 
    ![라이브 이벤트 추가 아이콘](media/live-events-obs-quickstart/add-live-event.png)
 1. **라이브 이벤트 이름** 상자에 새 이벤트의 이름(예: *TestLiveEvent*)을 입력합니다.
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![클라우드 인코딩 옵션](media/live-events-obs-quickstart/cloud-encoding.png)
 1. **RTMP** 옵션을 선택합니다.
-1. 라이브 이벤트가 준비되기 전에 이 이벤트에 대한 요금이 청구되지 않도록 **시작 라이브 이벤트**에 대해 **아니요** 옵션을 선택해야 합니다. (라이브 이벤트가 시작되면 청구가 시작됩니다.)
+1. 라이브 이벤트가 준비되기 전에 이 이벤트에 대한 요금이 청구되지 않도록 **시작 라이브 이벤트** 에 대해 **아니요** 옵션을 선택해야 합니다. (라이브 이벤트가 시작되면 청구가 시작됩니다.)
 
    ![라이브 이벤트 시작 옵션](media/live-events-obs-quickstart/start-live-event-no.png)
 1. **검토 + 만들기** 단추를 선택하여 설정을 검토합니다.
@@ -85,15 +85,15 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 1. **원본** 패널에서 **추가** 아이콘을 클릭하여 새 원본 디바이스를 선택합니다. **원본** 메뉴가 열립니다.
 
-1. 원본 디바이스 메뉴에서 **비디오 캡처 디바이스**를 선택합니다. **원본 만들기/선택** 메뉴가 열립니다.
+1. 원본 디바이스 메뉴에서 **비디오 캡처 디바이스** 를 선택합니다. **원본 만들기/선택** 메뉴가 열립니다.
 
    ![비디오 디바이스가 선택된 OBS 원본 메뉴](media/live-events-obs-quickstart/live-event-obs-video-device-menu.png)
 
-1. **기존 항목 추가** 라디오 단추를 선택한 다음, **확인**을 클릭합니다. **비디오 디바이스의 속성** 메뉴가 열립니다.
+1. **기존 항목 추가** 라디오 단추를 선택한 다음, **확인** 을 클릭합니다. **비디오 디바이스의 속성** 메뉴가 열립니다.
 
    ![기존 항목 추가가 선택된 OBS 새 비디오 원본 메뉴](media/live-events-obs-quickstart/live-event-obs-new-video-source.png)
 
-1. **디바이스** 드롭다운 목록에서 브로드캐스트에 사용하려는 비디오 입력을 선택합니다. 지금은 나머지 설정만 그대로 두고 **확인**을 클릭합니다. 입력 원본이 **원본** 패널에 추가되고, 비디오 입력 보기가 **미리 보기** 영역에 표시됩니다.
+1. **디바이스** 드롭다운 목록에서 브로드캐스트에 사용하려는 비디오 입력을 선택합니다. 지금은 나머지 설정만 그대로 두고 **확인** 을 클릭합니다. 입력 원본이 **원본** 패널에 추가되고, 비디오 입력 보기가 **미리 보기** 영역에 표시됩니다.
 
    ![OBS 카메라 설정](media/live-events-obs-quickstart/live-event-surface-camera.png)
 
@@ -101,11 +101,11 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 1. **원본** 패널에서 **추가** 아이콘을 클릭하여 새 원본 디바이스를 선택합니다. [원본 디바이스] 메뉴가 열립니다.
 
-1. 원본 디바이스 메뉴에서 **오디오 입력 캡처**를 선택합니다. **원본 만들기/선택** 메뉴가 열립니다.
+1. 원본 디바이스 메뉴에서 **오디오 입력 캡처** 를 선택합니다. **원본 만들기/선택** 메뉴가 열립니다.
 
    ![오디오 디바이스가 선택된 OBS 원본 메뉴](media/live-events-obs-quickstart/live-event-obs-audio-device-menu.png)
 
-1. **기존 항목 추가** 라디오 단추를 선택한 다음, **확인**을 클릭합니다. **오디오 입력 캡처의 속성** 메뉴가 열립니다.
+1. **기존 항목 추가** 라디오 단추를 선택한 다음, **확인** 을 클릭합니다. **오디오 입력 캡처의 속성** 메뉴가 열립니다.
 
    ![기존 항목 추가가 선택된 OBS 오디오 원본 ](media/live-events-obs-quickstart/live-event-obs-new-audio-source.png)
 
@@ -117,10 +117,10 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 다음 절차에서는 브라우저의 Azure Media Services로 돌아가서 입력 URL을 복사하여 출력 설정에 입력합니다.
 
-1. 포털의 Azure Media Services 페이지에서 **시작**을 선택하여 라이브 스트림 이벤트를 시작합니다. (이제 청구가 시작됩니다.)
+1. 포털의 Azure Media Services 페이지에서 **시작** 을 선택하여 라이브 스트림 이벤트를 시작합니다. (이제 청구가 시작됩니다.)
 
    ![시작 아이콘](media/live-events-obs-quickstart/start.png)
-1. **RTMP** 토글을 **RTMPS**로 설정합니다.
+1. **RTMP** 토글을 **RTMPS** 로 설정합니다.
 1. **입력 URL** 상자에서 URL을 클립보드에 복사합니다.
 
    ![입력 URL](media/live-events-obs-quickstart/input-url.png)
@@ -131,7 +131,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
    ![설정이 선택된 OBS 컨트롤 패널](media/live-events-obs-quickstart/live-event-obs-settings.png)
 
-1. **설정** 메뉴에서 **스트림**을 선택합니다.
+1. **설정** 메뉴에서 **스트림** 을 선택합니다.
 
 1. **서비스** 드롭다운 목록에서 [모두 표시]를 선택한 다음, **사용자 지정...** 을 선택합니다.
 
@@ -141,19 +141,19 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
     ![OBS 스트림 설정](media/live-events-obs-quickstart/live-event-obs-stream-settings.png)
 
-1. **설정** 메뉴에서 **출력**을 선택합니다.
+1. **설정** 메뉴에서 **출력** 을 선택합니다.
 
-1. **키프레임 간격** 필드에서 *2*를 입력합니다. 그러면 조각 길이가 2초로 설정됩니다. 대기 시간이 짧은 라이브 전송의 경우 1초의 값을 사용합니다.
+1. **키프레임 간격** 필드에서 *2* 를 입력합니다. 그러면 조각 길이가 2초로 설정됩니다. 대기 시간이 짧은 라이브 전송의 경우 1초의 값을 사용합니다.
 
-1. 선택 사항: 처리 성능이 낮은 컴퓨터를 사용하는 경우 **CPU 사용량 미리 설정**을 *veryfast*로 설정합니다. 원하지 않는 네트워크 조건이 있는 경우 필요에 따라 Kbps를 더 낮게 설정할 수 있습니다.
+1. 선택 사항: 처리 성능이 낮은 컴퓨터를 사용하는 경우 **CPU 사용량 미리 설정** 을 *veryfast* 로 설정합니다. 원하지 않는 네트워크 조건이 있는 경우 필요에 따라 Kbps를 더 낮게 설정할 수 있습니다.
 
    ![OBS 출력 설정](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. 나머지 설정은 변경하지 않은 상태로 두고 **확인**을 클릭합니다.
+1. 나머지 설정은 변경하지 않은 상태로 두고 **확인** 을 클릭합니다.
 
 ### <a name="start-streaming"></a>스트리밍 시작
 
-1. **컨트롤** 패널에서 **스트리밍 시작**을 클릭합니다.
+1. **컨트롤** 패널에서 **스트리밍 시작** 을 클릭합니다.
 
     ![OBS 스트리밍 시작 단추](media/live-events-obs-quickstart/live-event-obs-start-streaming.png)
 
@@ -171,12 +171,12 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
    ![출력 이름 상자](media/live-events-wirecast-quickstart/output-name.png)
 1. 지금은 나머지 상자를 모두 그대로 둡니다.
-1. **다음**을 선택하여 스트리밍 로케이터를 추가합니다.
+1. **다음** 을 선택하여 스트리밍 로케이터를 추가합니다.
 1. 원하는 경우 로케이터 이름을 사용자에게 더 친숙한 이름으로 변경합니다.
 
    ![로케이터 이름 필드](media/live-events-wirecast-quickstart/live-event-locator.png)
 1. 지금은 이 화면의 다른 모든 항목을 그대로 둡니다.
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Azure Media Player를 사용하여 출력 브로드캐스트 재생
 
@@ -190,7 +190,7 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 콘텐츠를 충분히 스트리밍했다고 생각되면 브로드캐스트를 중지합니다.
 
-1. 포털에서 **중지**를 선택합니다.
+1. 포털에서 **중지** 를 선택합니다.
 
 1. OBS의 **컨트롤** 패널에서 **스트리밍 중지** 단추를 선택합니다. 이 단계에서는 OBS에서 브로드캐스트가 중지됩니다.
 
@@ -198,11 +198,11 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 이제 스트리밍 엔드포인트가 실행되는 동안에는 사용자가 만든 출력을 주문형 스트리밍에 사용할 수 있습니다.
 
-1. Media Services 목록으로 이동하여 **자산**을 선택합니다.
+1. Media Services 목록으로 이동하여 **자산** 을 선택합니다.
 1. 이전에 만든 이벤트 출력을 찾아서 자산에 대한 링크를 선택합니다. 자산 출력 페이지가 열립니다.
 1. 자산에 대한 비디오 플레이어 아래에 스트리밍 URL을 복사합니다.
 1. 브라우저에서 Azure Media Player로 돌아가서 스트리밍 URL을 URL 상자에 붙여넣습니다.
-1. **플레이어 업데이트**를 선택합니다.
+1. **플레이어 업데이트** 를 선택합니다.
 1. 비디오에서 **재생** 아이콘을 선택하여 주문형 자산을 봅니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -212,9 +212,9 @@ OBS는 기본 장면으로 시작하지만 입력이 선택되지 않았습니�
 
 스트리밍 엔드포인트를 중지하려면:
 
-1. Media Services 목록에서 **스트리밍 엔드포인트**를 선택합니다.
+1. Media Services 목록에서 **스트리밍 엔드포인트** 를 선택합니다.
 2. 이전에 시작한 기본 스트리밍 엔드포인트를 선택합니다. 그러면 엔드포인트 페이지가 열립니다.
-3. **중지**를 선택합니다.
+3. **중지** 를 선택합니다.
 
 > [!TIP]
 > 이 이벤트의 자산을 유지하지 않으려면 스토리지에 대한 요금이 청구되지 않도록 해당 자산을 삭제해야 합니다.

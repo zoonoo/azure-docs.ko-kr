@@ -1,6 +1,6 @@
 ---
-title: Azure Blob 스토리지 라이브러리 v12 - Java
-description: 이 빠른 시작에서는 Java용 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
+title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - Java'
+description: 이 빠른 시작에서는 Java용 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501127"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054706"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>빠른 시작: Java v12 SDK로 Blob 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "96501127"
 
 ## <a name="setting-up"></a>설치
 
-이 섹션에서는 Java용 Azure Blob 스토리지 클라이언트 라이브러리 v12를 사용하는 프로젝트를 준비합니다.
+이 섹션에서는 Java용 Azure Blob Storage 클라이언트 라이브러리 v12를 사용하는 프로젝트를 준비합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
 
@@ -163,7 +163,7 @@ public class App
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
+Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델 또는 정의를 따르지 않는 데이터입니다. Blob Storage는 다음 세 가지 유형의 리소스를 제공합니다.
 
 * 스토리지 계정
 * 스토리지 계정의 컨테이너
@@ -183,7 +183,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 ## <a name="code-examples"></a>코드 예제
 
-이 예제 코드 조각은 Java용 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 예제 코드 조각은 Java용 Azure Blob Storage 클라이언트 라이브러리를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 * [연결 문자열 가져오기](#get-the-connection-string)
 * [컨테이너 만들기](#create-a-container)
@@ -199,7 +199,7 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 다음 코드를 `Main` 메서드 내에 추가합니다.
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 앱의 출력은 다음 예제 출력과 유사합니다.
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ Done
 Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지 SDK v12 Java 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Azure Blob Storage SDK v12 Java 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * 자세한 내용은 [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md)를 참조하세요.
 * 자습서, 샘플, 빠른 시작 및 기타 설명서는 [Java 클라우드 개발자용 Azure](/azure/developer/java/)를 참조하세요.

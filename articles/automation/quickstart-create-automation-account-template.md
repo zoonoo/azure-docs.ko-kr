@@ -3,22 +3,18 @@ title: '빠른 시작: Automation 계정 만들기 - Azure 템플릿'
 titleSuffix: Azure Automation
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여 줍니다.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078955"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050671"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 
@@ -44,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * 계정에 샘플 Automation Runbook을 추가합니다.
 
 >[!NOTE]
->ARM 템플릿을 사용하는 경우 Automation 실행 계정 만들기가 지원되지 않습니다. 포털에서 또는 PowerShell을 사용하여 실행 계정을 수동으로 만들려면 [실행 계정 관리](manage-runas-account.md)를 참조하세요.
+>ARM 템플릿을 사용하는 경우 Automation 실행 계정 만들기가 지원되지 않습니다. 포털에서 또는 PowerShell을 사용하여 실행 계정을 수동으로 만들려면 [실행 계정 만들기](create-run-as-account.md)를 참조하세요.
 
 이러한 단계를 완료한 후에는 Automation 계정에 대한 [진단 설정을 구성](automation-manage-send-joblogs-log-analytics.md)하여 Runbook 작업 상태 및 작업 스트림을 연결된 Log Analytics 작업 영역으로 보내도록 해야 합니다.
 
@@ -73,11 +69,11 @@ JSON 매개 변수 템플릿은 다음을 지정할 수 있도록 구성됩니�
 
 템플릿의 다음 매개 변수는 Log Analytics 작업 영역의 기본값으로 설정됩니다.
 
-* *sku*는 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값입니다.
-* *dataRetention*은 기본값이 30일입니다.
+* *sku* 는 2018년 4월 가격 책정 모델에서 배포된 새로운 GB당 가격 책정 계층이 기본값입니다.
+* *dataRetention* 은 기본값이 30일입니다.
 
 >[!WARNING]
->2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성하려면 유효한 유일한 Log Analytics 가격 책정 계층은 *PerGB2018*입니다.
+>2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성하려면 유효한 유일한 Log Analytics 가격 책정 계층은 *PerGB2018* 입니다.
 >
 
 JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [ARM 템플릿과 Azure CLI를 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
@@ -108,11 +104,11 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 2. Azure Portal에서 방금 만든 Automation 계정을 엽니다. 
 
-3. 왼쪽 창에서 **Runbook**을 선택합니다. **Runbook** 페이지에서 Automation 계정을 사용하여 만든 세 가지 자습서 Runbook이 나열됩니다.
+3. 왼쪽 창에서 **Runbook** 을 선택합니다. **Runbook** 페이지에서 Automation 계정을 사용하여 만든 세 가지 자습서 Runbook이 나열됩니다.
 
     ![Automation 계정을 사용하여 만든 자습서 Runbook](./media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
 
-4. 왼쪽 창에서 **연결된 작업 영역**을 선택합니다. **연결된 작업 영역** 페이지에서 이전에 Automation 계정에 연결된 Log Analytics 작업 영역을 표시합니다.
+4. 왼쪽 창에서 **연결된 작업 영역** 을 선택합니다. **연결된 작업 영역** 페이지에서 이전에 Automation 계정에 연결된 Log Analytics 작업 영역을 표시합니다.
 
     ![Log Analytics 작업 영역에 연결된 Automation 계정](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 

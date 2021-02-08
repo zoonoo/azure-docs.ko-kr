@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798564"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500265"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN이 GA에 있나요?
 
@@ -140,6 +140,10 @@ Virtual WAN 파트너는 Azure VPN 엔드포인트로의 IPsec 연결을 자동�
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Azure Virtual WAN에 대한 분기 연결이란?
 
 분기 또는 VPN 디바이스에서 Azure Virtual WAN으로 연결하는 것은 가상 허브에서 VPN 사이트와 Azure VPN Gateway를 가상으로 연결하는 VPN 연결일 뿐입니다.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>온-프레미스 VPN 디바이스에 Azure Virtual WAN VPN 게이트웨이에 대한 터널이 1개만 있는 경우 어떻게 되나요?
+
+Azure Virtual WAN 연결은 2개의 터널로 구성됩니다. Virtual WAN VPN 게이트웨이는 활성-활성 모드로 Virtual Hub에 배포됩니다. 이는 별도의 인스턴스에서 종료되는 온-프레미스 디바이스의 별도 터널이 있음을 의미합니다. 이는 모든 사용자에게 권장되는 사항입니다. 그러나 사용자가 Virtual WAN VPN 게이트웨이 인스턴스 중 하나에 대한 터널을 1개만 갖도록 선택하는 경우(유지 관리, 패치 등) 게이트웨이 인스턴스를 오프라인 상태로 전환하면 터널이 보조 활성 인스턴스로 이동되고 사용자가 다시 연결될 수 있습니다. 또한 BGP 세션은 인스턴스 간에 이동하지 않는다는 점을 명심해야 합니다.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>온-프레미스 VPN 디바이스가 여러 허브에 연결할 수 있나요?
 

@@ -2,15 +2,15 @@
 title: Linux Python 앱 구성
 description: Azure Portal 및 Azure CLI를 사용하여 웹앱이 실행되는 Python 컨테이너를 구성하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.date: 11/16/2020
+ms.date: 02/01/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7589b5c66bf4fa86db243574f551ec585ccccea1
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 83c49eea8bda10d665c0a08666276e905c60c584
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855059"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493705"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -67,10 +67,13 @@ ms.locfileid: "96855059"
 
 사용자가 Git 또는 Zip 패키지를 사용하여 앱을 배포할 때 Oryx라고 하는 App Service의 빌드 시스템은 다음 단계를 수행합니다.
 
-1. `PRE_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 전 스크립트를 실행합니다.
+1. `PRE_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 전 스크립트를 실행합니다. (스크립트는 다른 Python 및 Node.js 스크립트, pip 및 npm 명령, yarn과 같은 노드 기반 도구(예: `yarn install` 및 `yarn build`)를 실행할 수 있습니다.)
+
 1. `pip install -r requirements.txt`을 실행합니다. *requirements.txt* 파일은 프로젝트의 루트 폴더에 있어야 합니다. 그렇지 않으면 빌드 프로세스에서 오류를 보고합니다. "setup.py 또는 requirements.txt 파일을 찾을 수 없습니다. pip 설치를 실행하고 있지 않습니다."
+
 1. 리포지토리의 루트에 *manage.py* 가 있는 경우(Django 앱이라는 의미) *manage.py collectstatic* 을 실행합니다. 그러나 `DISABLE_COLLECTSTATIC` 설정이 `true`인 경우 이 단계를 건너뜁니다.
-1. `POST_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 후 스크립트를 실행합니다.
+
+1. `POST_BUILD_COMMAND` 설정을 통해 지정한 경우 사용자 지정 빌드 후 스크립트를 실행합니다. (또한, 이 스크립트는 다른 Python 및 Node.js 스크립트, pip 및 npm 명령, 노드 기반 도구를 실행할 수 있습니다.)
 
 기본적으로 `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` 및 `DISABLE_COLLECTSTATIC` 설정은 비어 있습니다. 
 
@@ -131,6 +134,52 @@ Azure App Service와 같은 프로덕션 환경의 경우 Django 앱은 Django�
 | `ALLOWED_HOSTS` | Django 앱을 프로덕션 환경에서 사용하려면 *settings.py* 의 `ALLOWED_HOSTS` 배열에 앱 URL을 포함해야 합니다. 이 URL은 런타임에 `os.environ['WEBSITE_HOSTNAME']` 코드를 사용하여 검색할 수 있습니다. App Service는 자동으로 `WEBSITE_HOSTNAME` 환경 변수를 앱의 URL로 설정합니다. |
 | `DATABASES` | App Service에서 데이터베이스 연결에 대한 설정을 정의한 다음, 해당 설정을 환경 변수로 로드하여 [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES) 사전을 채웁니다. 값(특히 사용자 이름 및 암호)을 [Azure Key Vault 비밀](../key-vault/secrets/quick-create-python.md)로 저장할 수도 있습니다. |
 
+## <a name="serve-static-files-for-django-apps"></a>Django 앱용 정적 파일 제공
+
+Django 웹앱에 정적 프런트 엔드 파일이 포함된 경우 먼저 Django 설명서의 [정적 파일 관리](https://docs.djangoproject.com/en/3.1/howto/static-files/)에 대한 지침을 따르세요.
+
+App Service의 경우 다음과 같이 수정합니다.
+
+1. 환경 변수(로컬 개발의 경우) 및 앱 설정(클라우드에 배포하는 경우)을 사용하여 Django `STATIC_URL` 및 `STATIC_ROOT` 변수를 동적으로 설정하는 것이 좋습니다. 예를 들면 다음과 같습니다.    
+
+    ```python
+    STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
+    STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", "./static/")    
+    ```
+
+    `DJANGO_STATIC_URL` 및 `DJANGO_STATIC_ROOT`는 로컬 및 클라우드 환경에 따라 변경할 수 있습니다. 예를 들어 정적 파일의 빌드 프로세스에서 파일을 `django-static`이라는 폴더에 배치하는 경우 기본값을 사용하지 않도록 `DJANGO_STATIC_URL`을 `/django-static/`으로 설정할 수 있습니다.
+
+1. 다른 폴더에 정적 파일을 생성하는 빌드 전 스크립트가 있는 경우 Django의 `collectstatic` 프로세스에서 찾을 수 있도록 해당 폴더를 Django `STATICFILES_DIRS` 변수에 포함합니다. 예를 들어 프런트 엔드 폴더에서 `yarn build`를 실행하고 yarn에서 정적 파일을 포함하는 `build/static` 폴더를 생성하는 경우 다음과 같이 해당 폴더를 포함합니다.
+
+    ```python
+    FRONTEND_DIR = "path-to-frontend-folder" 
+    STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]    
+    ```
+
+    여기서 `FRONTEND_DIR`은 yarn과 같은 빌드 도구가 실행되는 경로를 빌드합니다. 원하는 대로 환경 변수 및 앱 설정을 다시 사용할 수 있습니다.
+
+1. *requirements.txt* 파일에 `whitenoise`를 추가합니다. [Whitenoise](http://whitenoise.evans.io/en/stable/)(whitenoise.evans.io)는 프로덕션 Django 앱이 자체 정적 파일을 간편하게 제공할 수 있도록 하는 Python 패키지입니다. Whitenoise는 특히 Django `STATIC_ROOT` 변수로 지정된 폴더에 있는 파일을 제공합니다.
+
+1. *settings.py* 파일에서 Whitenoise에 다음 줄을 추가합니다.
+
+    ```python
+    STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
+    ```
+
+1. 또한 Whitenoise를 포함하도록 `MIDDLEWARE` 및 `INSTALLED_APPS` 목록을 수정합니다.
+
+    ```python
+    MIDDLEWARE = [
+        "whitenoise.middleware.WhiteNoiseMiddleware",
+        # Other values follow
+    ]
+
+    INSTALLED_APPS = [
+        "whitenoise.runserver_nostatic",
+        # Other values follow
+    ]
+    ```
+
 ## <a name="container-characteristics"></a>컨테이너 특성
 
 App Service에 배포된 Python 앱은 [App Service Python GitHub 리포지토리](https://github.com/Azure-App-Service/python)에 정의된 Linux Docker 컨테이너 내에서 실행됩니다. 버전별 디렉터리 내에서 이미지 구성을 찾을 수 있습니다.
@@ -150,6 +199,8 @@ App Service에 배포된 Python 앱은 [App Service Python GitHub 리포지토�
 
 - App Service는 웹앱의 URL을 사용하여 `WEBSITE_HOSTNAME`이라는 환경 변수를 자동으로 정의합니다(예: `msdocs-hello-world.azurewebsites.net`). 또한 앱 이름을 사용하여 `WEBSITE_SITE_NAME`을 정의합니다(예: `msdocs-hello-world`). 
    
+- npm 및 Node.js는 컨테이너에 설치되므로 yarn과 같은 노드 기반 빌드 도구를 실행할 수 있습니다.
+
 ## <a name="container-startup-process"></a>컨테이너 시작 프로세스
 
 시작하는 동안 Linux의 App Service 컨테이너에서 실행하는 단계는 다음과 같습니다.
@@ -270,7 +321,7 @@ App Service는 사용자 지정 시작 명령 또는 파일을 처리할 때 발
 ```python
 db_server = os.environ['DATABASE_SERVER']
 ```
-    
+
 ## <a name="detect-https-session"></a>HTTPS 세션 검색
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)(wikipedia.org)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.

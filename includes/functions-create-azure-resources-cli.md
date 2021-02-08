@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026055"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500050"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>함수를 지원하는 Azure 리소스 만들기
 
 함수 코드를 Azure에 배포하기 전에 다음 세 가지 리소스를 만들어야 합니다.
 
-- 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
-- 스토리지 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.
+- [리소스 그룹](../articles/azure-resource-manager/management/overview.md) - 관련 리소스에 대한 논리 컨테이너입니다.
+- [스토리지 계정](../articles/storage/common/storage-account-create.md) - 함수에 대한 상태 및 기타 정보를 유지 관리합니다.
 - 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱은 로컬 함수 프로젝트에 매핑되며, 함수를 논리적 단위로 그룹화하여 리소스를 더 쉽게 관리, 배포 및 공유할 수 있습니다.
 
 다음 명령을 사용하여 이러한 항목을 만듭니다. Azure CLI와 PowerShell이 모두 지원됩니다.

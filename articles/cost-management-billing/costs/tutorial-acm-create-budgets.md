@@ -3,18 +3,18 @@ title: 자습서 - Azure 예산 만들기 및 관리
 description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용을 계획하고 설명하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/16/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5659f3b2d020a97ed2460c55283bb41f2f7606cc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630142"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943742"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -22,7 +22,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 비용 및 사용량 데이터는 일반적으로 8~24시간 이내에 사용할 수 있으며 예산은 24시간마다 이러한 비용에 대해 계산됩니다. [비용 및 사용량 데이터 업데이트](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention) 세부 사항에 대해 잘 알고 있어야 합니다. 예산 임계값에 도달하면 일반적으로 계산 후 1시간 이내에 이메일 알림이 전송됩니다.
 
-예산은 미래의 만료 날짜를 선택한 경우 동일한 예산 금액에 대해 기간(월별, 분기별 또는 연간)이 끝나면 자동으로 다시 설정됩니다. 동일한 예산 금액으로 다시 설정하므로, 미래 기간에 대해 예산 책정된 통화 금액이 다를 경우 별도의 예산을 만들어야 합니다.
+예산은 미래의 만료 날짜를 선택한 경우 동일한 예산 금액에 대해 기간(월별, 분기별 또는 연간)이 끝나면 자동으로 다시 설정됩니다. 동일한 예산 금액으로 다시 설정하므로, 미래 기간에 대해 예산 책정된 통화 금액이 다를 경우 별도의 예산을 만들어야 합니다. 예산이 만료되면 자동으로 삭제됩니다.
 
 이 자습서의 예제는 Azure EA(Enterprise Agreement) 구독에 대한 예산을 만들고 편집하는 과정을 안내합니다.
 
@@ -37,7 +37,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > * PowerShell을 사용하여 예산 만들기 및 편집
 > * Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
 

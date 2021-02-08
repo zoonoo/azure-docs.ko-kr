@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12966503bfa17030fc4ebcb4d790a2f4655142a2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b937dad6c3c8f5a5773ca7779493b41c905307b1
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116537"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226508"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules"></a>Azure Synapse Analytics IP 방화벽 규칙
 
@@ -43,7 +43,10 @@ Synapse Studio를 사용하여 Synapse 작업 영역에 연결할 수 있습니�
 
 또한 Synapse Studio용 UDP 포트 53에서 나가는 통신을 허용해야 합니다. SSMS 및 Power BI와 같은 도구를 사용하여 연결하려면 TCP 포트 1433에서 나가는 통신을 허용해야 합니다.
 
-기본 리디렉션 연결 정책 설정을 사용하는 경우 추가 포트에서 나가는 통신을 허용해야 할 수도 있습니다. [여기](../../azure-sql/database/connectivity-architecture.md#connection-policy)에서 연결 정책에 대해 자세히 알아볼 수 있습니다.
+SQL 연결 정책은 작업 영역에 대해 *기본값* 으로 설정됩니다. [여기](../../azure-sql/database/connectivity-architecture.md#connection-policy)에서 클라이언트가 아웃바운드 통신을 허용해야 하는 IP 주소 및 포트에 대해 자세히 알아볼 수 있습니다.
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 
