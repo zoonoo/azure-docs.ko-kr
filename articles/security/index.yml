@@ -13,13 +13,13 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 02/03/2021
-  ms.openlocfilehash: e5944ae9a7c701f3bf84ff06fd543484bfe36b23
-  ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+  ms.date: 02/05/2021
+  ms.openlocfilehash: 2e50e273841b93d2ecc742f26069c0e3017b3692
+  ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/04/2021
-  ms.locfileid: "99549816"
+  ms.lasthandoff: 02/07/2021
+  ms.locfileid: "99807787"
 highlightedContent:
   items:
   - title: Azure 보안 소개
@@ -52,9 +52,9 @@ conceptualContent:
     - url: ./develop/secure-dev-overview.md
       itemType: overview
       text: 보안 개발 모범 사례
-    - url: /previous-versions/azure/security/develop/secure-web-app
+    - url: ./develop/secure-develop.md
       itemType: tutorial
-      text: 보안 웹앱 개발
+      text: 보안 애플리케이션 개발
     - url: ./develop/threat-modeling-tool.md
       itemType: concept
       text: Microsoft 위협 모델링 도구

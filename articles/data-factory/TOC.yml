@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: 가격 책정 이해
       items:
+        - name: 데이터 흐름 예약 용량 개요
+          href: data-flow-reserved-capacity-overview.md
+        - name: 데이터 흐름 이해 예약 요금
+          href: data-flow-understand-reservation-charges.md
         - name: 비용 계획 및 관리
           href: plan-manage-costs.md
         - name: 가격 책정 예제
