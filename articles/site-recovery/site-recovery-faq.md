@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746478"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820199"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -188,7 +188,7 @@ Azure에 복제할 경우 복제 트래픽이 Azure Storage의 퍼블릭 엔드�
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Azure로 복제할 때 어떤 유형의 스토리지 계정 또는 관리 디스크가 필요합니까?
 
-LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다. Premium Storage는 Azure Portal에서 Site Recovery를 배포할 때 VMware VM, Hyper-V VM 및 물리적 서버 복제에 지원됩니다. 관리 디스크는 LRS만 지원합니다.
+저장소 계정을 대상 저장소로 사용 하는 것은 Azure Site Recovery에서 지원 되지 않습니다. 대신 관리 되는 디스크를 컴퓨터의 대상 저장소로 사용 하는 것이 좋습니다. Managed disks는 데이터 복원 력을 위한 LRS 유형만 지원 합니다.
 
 ### <a name="how-often-can-i-replicate-data"></a>데이터를 얼마나 자주 복제할 수 있나요?
 * **Hyper-V:** Hyper-V VM은 30초(프리미엄 스토리지 제외), 5분 또는 15분마다 복제할 수 있습니다.

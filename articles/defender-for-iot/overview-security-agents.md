@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: fcc2c7c3e724fccd005c8b6c8d1b01982f407c65
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 61c7f1bddd40151aff2b1ca556045d34c4a1cc0d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809030"
+ms.locfileid: "99820826"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>IoT 용 Azure Defender 장치 마이크로 에이전트 시작
 
@@ -32,7 +32,7 @@ IoT 용 방어자 보안 에이전트는 장치 운영 체제에서 원시 이�
 
 1. IoT Hub에 등록 된 장치가 없는 경우 [새 장치를 등록](../iot-accelerators/iot-accelerators-device-simulation-overview.md)합니다.
 
-1. 장치에 대해 [Defendde\마이크로 에이전트 모듈](quickstart-create-micro-agent-module-twin.md) 쌍을 만듭니다.
+1. 장치에 대해 [Defendde\마이크로 에이전트 모듈 쌍을 만듭니다](quickstart-create-micro-agent-module-twin.md) .
 
 1. 실제 장치에를 설치 하는 대신 Azure 시뮬레이트된 장치에 에이전트를 설치 하려면 사용 가능한 영역에서 [새 AZURE VM (가상 머신)](../virtual-machines/linux/quick-create-portal.md) 을 실행 합니다.
 

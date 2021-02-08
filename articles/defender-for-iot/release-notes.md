@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.author: shhazam
-ms.openlocfilehash: a8f4b96b27eb09443c2644fd63a8783faaa610e4
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809510"
+ms.locfileid: "99820673"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>IoT 용 Azure Defender의 새로운 기능
 
@@ -27,13 +27,13 @@ ms.locfileid: "99809510"
 언급 된 기능은 미리 보기 상태입니다. [Azure Preview 추가 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에는 베타, 미리 보기 또는 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 법률 용어가 포함되어 있습니다.
 ## <a name="february-2021"></a>2021년 2월
 
-### <a name="enhanced-custom-alert-rules"></a>향상 된 사용자 지정 경고 규칙
+### <a name="sensor---enhanced-custom-alert-rules"></a>센서-향상 된 사용자 지정 경고 규칙
 
 이제 일, 일 그룹 및 네트워크 활동이 검색 된 기간을 기준으로 사용자 지정 경고 규칙을 만들 수 있습니다.  날짜 및 시간 규칙 조건에 대 한 작업은 경고 심각도가 발생 하는 시간에 의해 경고 심각도가 파생 되는 경우 등에 유용 합니다. 예를 들어 주말 또는 저녁에 네트워크 활동이 검색 될 때 높은 심각도 경고를 트리거하는 사용자 지정 규칙을 만듭니다.
 
 이 기능은 버전 10.1의 릴리스와 함께 센서에서 사용할 수 있습니다.
 
-### <a name="export-alerts-from-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 경고 내보내기
+### <a name="on-premises-management-console---export-alerts"></a>온-프레미스 관리 콘솔-경고 내보내기
 
 이제 온-프레미스 관리 콘솔에서 경고 정보를 .csv 파일로 내보낼 수 있습니다. 필터링 된 보기를 기반으로 검색 된 모든 경고 또는 내보내기 정보에 대 한 정보를 내보낼 수 있습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "99809510"
 - **보안 상태 관리** – IoT 장치의 보안 상태를 사전에 모니터링 합니다.
 - **연속 실시간 IoT/OT 위협 감지** -봇 넷, 무차별 암호 대입 시도, crypto 마이너 및 의심 스러운 네트워크 작업과 같은 위협 감지
 
-사용 되지 않는 보안 모듈 설명서는 클래식 폴더로 이동 됩니다.
+사용 되지 않는 보안 모듈 설명서는 *장치 빌더>클래식 폴더에 대 한 에이전트 기반 솔루션* 으로 이동 됩니다.
 
 이 기능 집합은 현재 공개 미리 보기 클라우드 릴리스와 함께 사용할 수 있습니다.
 

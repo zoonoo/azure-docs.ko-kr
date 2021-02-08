@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: eb5f2c6293042f44de5e3c061c6d379bee6e5b06
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019145"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820588"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
 
@@ -74,7 +74,7 @@ ms.locfileid: "98019145"
 
 조직 보안 정책을 사용 하 여 기본 및 보조 온-프레미스 관리 콘솔에서 다음 서비스에 액세스할 수 있는지 확인 해야 합니다. 이러한 서비스를 통해 센서와 보조 온-프레미스 관리 콘솔 간에 연결할 수 있습니다.
 
-|포트|서비스|설명|
+|포트|서비스|Description|
 |----|-------|-----------|
 |**443 또는 TCP**|HTTPS|온-프레미스 관리 콘솔 웹 콘솔에 대 한 액세스 권한을 부여 합니다.|
 |**22 또는 TCP**|SSH|기본 및 보조 온-프레미스 관리 콘솔 어플라이언스 간에 데이터를 동기화 합니다.|

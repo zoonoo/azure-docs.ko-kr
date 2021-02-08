@@ -3,12 +3,12 @@ title: 기술 자료 쿼리-QnA Maker
 description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 generateAnswer API를 사용 하 여 런타임 예측 끝점에서 기술 자료가 쿼리 됩니다.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346208"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820384"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변을 쿼리 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "96346208"
 |1|클라이언트 응용 프로그램이 사용자 쿼리를 [Generateanswer API](../how-to/metadata-generateanswer-usage.md)로 보냅니다.|
 |2|QnA Maker 언어 검색, spellers 및 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|
 |3|이러한 전처리는 최상의 검색 결과에 대 한 사용자 쿼리를 변경 하는 데 사용 됩니다.|
-|4|이 변경 된 쿼리는 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다 `top` . 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 값 10은 `top` 쿼리의 90%에서 작동 합니다.|
+|4|이 변경 된 쿼리는 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다 `top` . 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 값 10은 `top` 쿼리의 90%에서 작동 합니다. 이 단계에서 Azure search 필터는 [단어를 중지](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) 합니다.|
 |5|QnA Maker는 구문 및 의미 체계 기반 기능화을 사용 하 여 사용자 쿼리와 인출 된 QnA 결과 간의 유사성을 결정 합니다.|
 |6|컴퓨터에서 학습 한 ranker 모델은 5 단계에서 제공 하는 다양 한 기능을 사용 하 여 신뢰도 점수와 새 순위를 결정 합니다.|
 |7|새 결과는 순서 대로 클라이언트 응용 프로그램에 반환 됩니다.|
@@ -54,7 +54,7 @@ ms.locfileid: "96346208"
 |1|클라이언트 응용 프로그램이 사용자 쿼리를 [Generateanswer API](../how-to/metadata-generateanswer-usage.md)로 보냅니다.|
 |2|QnA Maker 언어 검색, spellers 및 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|
 |3|이러한 전처리는 최상의 검색 결과에 대 한 사용자 쿼리를 변경 하는 데 사용 됩니다.|
-|4|이 변경 된 쿼리는 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다 `top` . 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 값 10은 `top` 쿼리의 90%에서 작동 합니다.|
+|4|이 변경 된 쿼리는 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다 `top` . 이러한 결과에 올바른 답변이 없는 경우 값을 `top` 약간 늘립니다. 일반적으로에 대 한 값 10은 `top` 쿼리의 90%에서 작동 합니다. 이 단계에서 Azure search 필터는 [단어를 중지](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) 합니다.|
 |5|QnA Maker는 최신 변환기 기반 모델을 사용 하 여 Azure Cognitive Search에서 가져온 후보 QnA 결과와 사용자 쿼리 간의 유사성을 결정 합니다. 변환기 기반 모델은 모든 언어에서 신뢰도 점수와 새 순위를 결정 하는 데 가로로 작동 하는 심층 학습 다국어 모델입니다.|
 |6|새 결과는 순서 대로 클라이언트 응용 프로그램에 반환 됩니다.|
 |||
@@ -125,4 +125,4 @@ HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [신뢰도 점수](./confidence-score.md)
+> [신뢰 점수](./confidence-score.md)

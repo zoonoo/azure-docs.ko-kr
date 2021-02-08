@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: feca2e83646264b28e42125b3fdebf41266c06bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 489c6be7bf977d01207fee4d1bd1fda13dc12025
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422725"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820520"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -87,7 +87,7 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 | SDK 버전 | 상태 | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 지역 필터는 아직 지원 하지 않습니다. |
+| [Azure.Search.Documents 11](/dotnet/api/overview/azure/search.documents-readme) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 지역 필터에 대 한 기본 지원을 아직 제공 하지 않습니다. 지리적 작업을 위한 [Microsoft. 공간](https://www.nuget.org/packages/Microsoft.Spatial/) 패키지를 권장 합니다. [System.Text.Js](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/README.md) 에 대 한 예제를 사용 하 고 [Newtonsoft.Js](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/README.md)수 있습니다. |
 | [Microsoft. Azure 검색 10](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | 출시 5 월 2019. 검색 REST api-version = 2019-05-06을 대상으로 합니다.|
 | [4.0.0를 검색 합니다.](/dotnet/api/overview/azure/search/management) | Stable | 관리 REST api-버전 = 2020-08-01을 대상으로 합니다.  |
 | 3.0.0를 검색 합니다. | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다.  |

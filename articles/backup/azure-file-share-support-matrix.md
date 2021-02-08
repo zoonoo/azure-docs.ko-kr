@@ -4,12 +4,12 @@ description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사�
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378035"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819863"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
 
@@ -60,7 +60,7 @@ Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 
 | 설정                                                      | 제한   |
 | ------------------------------------------------------------ | ------- |
 | 일별 최대 복원 수                           | 10      |
-| 복원당 최대 파일 수                         | 10      |
+| 복원당 최대 파일 수                         | 99      |
 | 큰 파일 공유에 대한 복원당 최대 권장 복원 크기 | 15TiB |
 
 ## <a name="retention-limits"></a>보존 제한

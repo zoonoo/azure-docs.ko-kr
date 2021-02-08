@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 04b33c7e63efbd6ffabf978708e1b8ed81f1fc42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c441c9f81477a586c3e153e23b1fc63f2f76344
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940036"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819930"
 ---
-# <a name="deploy-an-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
+# <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
 이 가이드에서는 Windows에서 IoT c # 기반 보안 에이전트로 Defender를 설치 하는 방법을 설명 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "90940036"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -74,7 +74,7 @@ ms.locfileid: "90940036"
 
 * 필수 구성 요소를 설치합니다.
 * 서비스 사용자를 추가 합니다 (대화형 로그인 사용 안 함).
-* 에이전트를 **시스템 서비스**로 설치합니다.
+* 에이전트를 **시스템 서비스** 로 설치합니다.
 * 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
 추가 도움말을 보려면 PowerShell에서 Get-Help 명령을 사용 합니다.
@@ -91,7 +91,7 @@ Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 에이전트를 제거하려면 다음을 수행합니다.
 
-1. **-mode** 매개 변수를 **Uninstall**로 설정한 상태에서 다음 PowerShell 스크립트를 실행합니다.
+1. **-mode** 매개 변수를 **Uninstall** 로 설정한 상태에서 다음 PowerShell 스크립트를 실행합니다.
 
     ```
     .\InstallSecurityAgent.ps1 -Uninstall
@@ -99,7 +99,7 @@ Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ## <a name="troubleshooting"></a>문제 해결
 
-에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다(기본적으로 로깅은 *해제*임).
+에이전트가 시작되지 않는 경우 자세한 정보를 얻으려면 로깅을 설정합니다(기본적으로 로깅은 *해제* 임).
 
 로깅을 설정하려면 다음을 수행합니다.
 
@@ -115,7 +115,7 @@ Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
    ```
 
     > [!NOTE]
-    > 문제가 해결되면 로깅을 **해제**하는 것이 좋습니다. 로깅을 **설정**으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
+    > 문제가 해결되면 로깅을 **해제** 하는 것이 좋습니다. 로깅을 **설정** 으로 그대로 두면 로그 파일 크기와 데이터 사용량이 증가합니다.
 
 1. 다음 PowerShell 또는 명령줄을 실행하여 에이전트를 다시 시작합니다.
 

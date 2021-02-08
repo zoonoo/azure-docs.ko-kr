@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785366"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820792"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -237,6 +237,9 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 1. **대상 선택** 화면에서 대상 Azure SQL Database에 대한 연결 세부 정보를 지정합니다. 대상 Azure SQL Database는 Data Migration Assistant를 통해 **Adventureworks2016** 스키마가 배포된 미리 프로비저닝된 Azure SQL Database입니다.
 
     ![대상 선택](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > 사용자 지정 DNS 이름을 사용 하는 경우를 제외 하 고 Azure Database Migration Service에서 대상 Azure SQL Database에 대 한 개인 끝점 연결을 지원 합니다. 
 
 2. **다음: 대상 데이터베이스에 매핑** 화면을 선택하고 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 

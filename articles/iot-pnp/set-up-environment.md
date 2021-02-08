@@ -1,20 +1,20 @@
 ---
-title: IoT 플러그 앤 플레이에 필요한 IoT 리소스를 설정 합니다. Microsoft Docs
-description: IoT 플러그 앤 플레이 빠른 시작 및 자습서에서 사용할 IoT Hub 및 장치 프로 비전 서비스 인스턴스를 만듭니다.
+title: 빠른 시작-IoT 플러그 앤 플레이에 필요한 IoT 리소스를 설정 합니다. Microsoft Docs
+description: 빠른 시작-IoT 플러그 앤 플레이 빠른 시작 및 자습서에서 사용할 IoT Hub 및 장치 프로 비전 서비스 인스턴스를 만듭니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: MT
+ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004265"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820033"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>IoT 플러그 앤 플레이 퀵 스타트 및 자습서에 대 한 환경 설정
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>빠른 시작-IoT 플러그 앤 플레이 퀵 스타트 및 자습서에 대 한 환경 설정
 
 IoT 플러그 앤 플레이 퀵 스타트 및 자습서를 완료 하기 전에 Azure 구독에서 IoT hub 및 DPS (장치 프로 비전 서비스)를 구성 해야 합니다. 또한 샘플 응용 프로그램 및 Azure IoT 탐색기 도구에서 사용 하는 모델 파일의 로컬 복사본이 필요 합니다.
 

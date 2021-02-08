@@ -4,22 +4,22 @@ description: IoT 용 Defender를 사용 하 여 보안 메시지를 보내는 �
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 2/8/2021
+ms.author: shhazam
 ms.custom: devx-track-js
-ms.openlocfilehash: 5217940a3696bd001db421e61be8313453807c8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59121f2dbae208ba045a9c2e6d66245296537a0
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318520"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820690"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
@@ -196,7 +196,7 @@ function SendSecurityMessage(messageContent)
 
 Python API를 사용 하려면 [azure-iot-장치](https://pypi.org/project/azure-iot-device/)패키지를 설치 해야 합니다.
 
-Python API를 사용 하는 경우 고유한 장치 또는 모듈 연결 문자열을 사용 하 여 모듈 또는 장치를 통해 보안 메시지를 보낼 수 있습니다. 다음 Python 스크립트 예제를 사용 하는 경우 장치에서 **IoTHubDeviceClient**을 사용 하 고, 모듈에 **IoTHubModuleClient**을 사용 합니다.
+Python API를 사용 하는 경우 고유한 장치 또는 모듈 연결 문자열을 사용 하 여 모듈 또는 장치를 통해 보안 메시지를 보낼 수 있습니다. 다음 Python 스크립트 예제를 사용 하는 경우 장치에서 **IoTHubDeviceClient** 을 사용 하 고, 모듈에 **IoTHubModuleClient** 을 사용 합니다.
 
 ```python
 from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient

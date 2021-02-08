@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550711"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820877"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
 이 문서에서는 [Azure 리소스](overview.md)이동 기에 대 한 일반적인 질문에 답변 합니다.
-
-## <a name="general"></a>일반
-
-### <a name="is-resource-mover-generally-available"></a>리소스 이동 기를 일반적으로 사용할 수 있나요?
-
-리소스 이동 기는 현재 공개 미리 보기로 제공 됩니다. 프로덕션 워크 로드가 지원 됩니다.
-
 
 
 ## <a name="moving-across-regions"></a>영역 간 이동
@@ -45,6 +38,9 @@ ms.locfileid: "99550711"
 - 내부 및 공용 부하 분산 장치 
 - Azure SQL 데이터베이스 및 탄력적 풀
 
+### <a name="can-i-move-disks-across-regions"></a>여러 지역에서 디스크를 이동할 수 있나요?
+
+영역 간에 이동 된에 대 한 리소스로 디스크를 선택할 수 없습니다. 그러나 디스크는 VM 이동의 일부로 이동 됩니다.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>지역 간에 이동할 때 구독 간에 리소스를 이동할 수 있나요?
 
@@ -97,6 +93,12 @@ Azure Resource Mover 관리되는 ID에는 적어도 다음 권한이 필요합�
 ### <a name="how-can-i-do-multiple-moves-together"></a>여러 이동을 함께 수행 하려면 어떻게 해야 하나요?
 
 포털에서 변경 옵션을 사용 하 여 필요에 따라 원본/대상 조합을 변경 합니다.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>이동 리소스 목록에서 리소스를 제거 하면 어떻게 되나요?
+
+목록을 이동 하기 위해 추가한 리소스를 제거할 수 있습니다. 목록에서 리소스를 제거 하는 동작은 리소스 상태에 따라 달라 집니다. [자세히 알아보기](remove-move-resources.md#vm-resource-state-after-removing).
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

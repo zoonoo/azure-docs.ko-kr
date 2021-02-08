@@ -1,21 +1,21 @@
 ---
-title: 비디오 분석을 배포 하는 방법-개체 및 동작 검색 Azure IoT Central 응용 프로그램 템플릿
-description: 이 가이드는 비디오 분석-개체 및 동작 검색 응용 프로그램 템플릿을 사용 하 여 Azure IoT Central 응용 프로그램을 배포 하는 단계를 요약 합니다.
+title: '자습서: 비디오 분석을 배포 하는 방법-개체 및 동작 검색 Azure IoT Central 응용 프로그램 템플릿'
+description: 자습서-이 가이드는 비디오 분석-개체 및 동작 검색 응용 프로그램 템플릿을 사용 하 여 Azure IoT Central 응용 프로그램을 배포 하는 단계를 요약 합니다.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: decfa7020be7778e8ca64a9fb0cb4aac1657da27
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873339"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820367"
 ---
-# <a name="how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>비디오 분석-개체 및 동작 검색 응용 프로그램 템플릿을 사용 하 여 IoT Central 응용 프로그램을 배포 하는 방법
+# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>자습서: 비디오 분석-개체 및 동작 검색 응용 프로그램 템플릿을 사용 하 여 IoT Central 응용 프로그램을 배포 하는 방법
 
 핵심 *비디오 분석-개체 및 동작 검색* 응용 프로그램 구성 요소에 대 한 개요는 [개체 및 동작 감지 비디오 분석 응용 프로그램 아키텍처](architecture-video-analytics.md)를 참조 하세요.
 
@@ -45,4 +45,10 @@ Video analytics 응용 프로그램 템플릿을 사용 하 여 IoT Central 응�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 video analytics 응용 프로그램 템플릿을 배포 하 고 사용 하는 단계에 대 한 개요를 확인할 수 있습니다. [azure IoT Central (YOLO v3)에서 비디오 분석 응용 프로그램 만들기](tutorial-video-analytics-create-app-yolo-v3.md) 또는 [azure IoT Central에서 비디오 분석 만들기 (OpenVINO &trade; )](tutorial-video-analytics-create-app-openvino.md) 를 참조 하 여 시작 하세요.
+이제 비디오 분석 응용 프로그램 템플릿을 배포 하 고 사용 하는 단계에 대 한 개요를 확인할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Azure IoT Central (YOLO v3)에서 video analytics 응용 프로그램 만들기](tutorial-video-analytics-create-app-yolo-v3.md)
+
+> [!div class="nextstepaction"]
+> [Azure IoT Central (OpenVINO &trade; )에서 비디오 분석을 만들어](tutorial-video-analytics-create-app-openvino.md) 시작 하세요.
