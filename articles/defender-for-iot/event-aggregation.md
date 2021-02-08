@@ -1,30 +1,30 @@
 ---
-title: 이벤트 집계
+title: 보안 모듈 클래식 이벤트 집계
 description: IoT 용 Defender 이벤트 집계에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832372"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809221"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>IoT 용 Defender 이벤트 집계
+# <a name="security-module-classic-event-aggregation"></a>보안 모듈 클래식 이벤트 집계
 
 IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고이 데이터를 처리 및 분석을 위해 Azure 클라우드에 보냅니다. 보안 에이전트는 새로운 프로세스 및 새 연결 이벤트를 포함 하 여 다양 한 유형의 장치 이벤트를 수집 합니다. 새 프로세스와 새 연결 이벤트는 모두 두 번째에 있는 장치에서 자주 발생 하 고, 강력 하 고 포괄적인 보안을 위해 중요 하지만 보안 에이전트가 강제로 전송 하는 메시지 수는 IoT Hub 할당량 및 비용 제한에 빠르게 도달 하거나 초과할 수 있습니다. 그러나 이러한 이벤트에는 장치를 보호 하는 데 매우 중요 한 보안 정보가 포함 되어 있습니다.
 
-장치를 보호 하는 동안 추가 할당량과 비용을 줄이기 위해 IoT 용 Defender 에이전트는 이러한 유형의 이벤트를 집계 합니다.
+장치를 보호 하는 동안 추가 할당량 및 비용을 줄이기 위해 Defender for IoT 에이전트는 이러한 유형의 이벤트를 집계 합니다.
 
 이벤트 집계는 기본적으로 **설정** 되어 있지만 권장 되지는 않지만 언제 든 지 수동으로 **해제할** 수 있습니다.
 
@@ -45,7 +45,7 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 이벤트는 다음 조건이 충족 될 때만 동일 하 게 간주 됩니다.
 
 * ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름** 및 **userid** 가 동일한 경우
-* ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, * * 프로토콜 및 **대상 포트가** 동일한 경우
+* ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, **프로토콜** 및 **대상 포트가** 동일한 경우
 * ProcessTerminate events- **실행 파일** 및 **종료 상태가** 동일한 경우
 
 ### <a name="working-with-aggregated-events"></a>집계 이벤트 작업
@@ -70,11 +70,11 @@ IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스
 | 구성 이름 | 가능한 값 | 세부 정보 | 설명 |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | 프로세스 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
-| aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |
+| aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스의 집계 간격이 이벤트를 생성 합니다. |
 | aggregationEnabledConnectionCreate | boolean| 연결 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
-| aggregationIntervalConnectionCreate | ISO8601 Timespan 문자열 | 연결 생성 이벤트에 대 한 집계 간격 |
-| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만 해당|
-| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만 해당|
+| aggregationIntervalConnectionCreate | ISO8601 Timespan 문자열 | 연결에 대 한 집계 간격이 이벤트를 생성 합니다. |
+| aggregationEnabledProcessTerminate | boolean | 프로세스 종료 이벤트에 대 한 이벤트 집계 사용/사용 안 함 | Windows만|
+| aggregationIntervalProcessTerminate | ISO8601 Timespan 문자열 | 프로세스 종료 이벤트에 대 한 집계 간격 | Windows만|
 |
 
 ## <a name="default-configurations-settings"></a>기본 구성 설정

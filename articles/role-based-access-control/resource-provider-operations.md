@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 768a327421a941a39b6f66be411712a565097f66
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 72a8f2eb93a9c12510b093e29c7b8fc6867cb2eb
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557333"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809388"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
@@ -160,7 +160,9 @@ ms.locfileid: "99557333"
 | [Microsoft.Intune](#microsoftintune) |
 | **기타** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
+| [Microsoft.](#microsoftserviceshub) |
 
 
 ## <a name="general"></a>일반
@@ -1388,7 +1390,7 @@ Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure
 > | Microsoft.Network/vpnsites/delete | Vpn 사이트 리소스를 삭제합니다. |
 > | microsoft. network/vpnSites/vpnSiteLinks/read | Vpn 사이트 링크를 가져옵니다. |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ### <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -10268,6 +10270,51 @@ Azure 서비스: [Bing 지도](/BingMaps/)
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/action | Microsoft. BingMaps/mapApis에 대 한 메트릭을 나열 합니다. |
 > | Microsoft.BingMaps/Operations/read | Microsoft. BingMaps에 대 한 작업 나열 |
 
+### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+
+Azure 서비스: [Windows 가상 데스크톱](../virtual-desktop/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | 설명 |
+> | --- | --- |
+> | Microsoft DesktopVirtualization/register/action | 구독 등록 |
+> | Microsoft DesktopVirtualization/applicationgroups/read | Applicationgroups 읽기 |
+> | Microsoft DesktopVirtualization/applicationgroups/write | Applicationgroups 쓰기 |
+> | Microsoft DesktopVirtualization/applicationgroups/delete | Applicationgroups 삭제 |
+> | Microsoft. DesktopVirtualization/applicationgroups/applications/read | Applicationgroups/응용 프로그램 읽기 |
+> | Microsoft. DesktopVirtualization/applicationgroups/applications/write | Applicationgroups/응용 프로그램 작성 |
+> | Microsoft. DesktopVirtualization/applicationgroups/applications/delete | Applicationgroups/응용 프로그램 삭제 |
+> | Microsoft DesktopVirtualization/applicationgroups/데스크톱/읽기 | Applicationgroups/데스크톱 읽기 |
+> | Microsoft DesktopVirtualization/applicationgroups/데스크톱/쓰기 | Applicationgroups/데스크톱 쓰기 |
+> | Microsoft DesktopVirtualization/applicationgroups/데스크톱/삭제 | Applicationgroups/데스크톱 삭제 |
+> | Microsoft DesktopVirtualization/applicationgroups/externaluserassignments/read |  |
+> | Microsoft. DesktopVirtualization/applicationgroups/providers/diagnosticSettings/read | 진단 설정을 가져옵니다. |
+> | Microsoft. DesktopVirtualization/applicationgroups/providers/Microsoft. Insights/diagnosticSettings/write | 진단 설정을 만들거나 업데이트 합니다. |
+> | Microsoft. DesktopVirtualization/applicationgroups/providers/Microsoft. Insights/logDefinitions/읽기 | 사용 가능한 로그를 가져옵니다. |
+> | Microsoft DesktopVirtualization/applicationgroups/startmenuitems/read | 시작 메뉴 항목 읽기 |
+> | Microsoft DesktopVirtualization/hostpools/읽기 | Hostpools 읽기 |
+> | Microsoft DesktopVirtualization/hostpools/write | Hostpools 쓰기 |
+> | Microsoft DesktopVirtualization/hostpools/delete | Hostpools 삭제 |
+> | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/diagnosticSettings/read | 진단 설정을 가져옵니다. |
+> | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/diagnosticSettings/write | 진단 설정을 만들거나 업데이트 합니다. |
+> | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/logDefinitions/읽기 | 사용 가능한 로그를 가져옵니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/read | Hostpools/sessionhosts 읽기 |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/write | Hostpools/sessionhosts 쓰기 |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/delete | Hostpools/sessionhosts를 삭제 합니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/usersessions/read | Hostpools/sessionhosts/usersessions를 읽습니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/usersessions/write | Hostpools/sessionhosts/usersessions를 씁니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/usersessions/delete | Hostpools/sessionhosts/usersessions를 삭제 합니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/usersessions/disconnect/action | 사용자 세션 양식 세션 호스트의 연결을 끊습니다. |
+> | Microsoft DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action | 사용자 세션으로 메시지 보내기 |
+> | Microsoft DesktopVirtualization/작업 영역/읽기 | 작업 영역 읽기 |
+> | Microsoft DesktopVirtualization/작업 영역/쓰기 | 작업 영역 작성 |
+> | Microsoft DesktopVirtualization/작업 영역/삭제 | 작업 영역 삭제 |
+> | Microsoft. DesktopVirtualization/workspaces/providers/diagnosticSettings/read | 진단 설정을 가져옵니다. |
+> | Microsoft. DesktopVirtualization/workspaces/providers/Microsoft. Insights/diagnosticSettings/write | 진단 설정을 만들거나 업데이트 합니다. |
+> | Microsoft. DesktopVirtualization/workspaces/providers/Microsoft. Insights/logDefinitions/읽기 | 사용 가능한 로그를 가져옵니다. |
+> | **DataAction** | **설명** |
+> | Microsoft DesktopVirtualization/applicationgroups/useapplications/action | ApplicationGroup 사용 |
+
 ### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
 Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
@@ -10316,6 +10363,20 @@ Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
 > | DigitalTwins/모델/읽기 | 모델 읽기 |
 > | DigitalTwins/모델/쓰기 | 모델 만들기 또는 업데이트 |
 > | DigitalTwins/모델/삭제 | 모델 삭제 |
+
+### <a name="microsoftserviceshub"></a>Microsoft.
+
+Azure 서비스: [서비스 허브](/services-hub/)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | 설명 |
+> | --- | --- |
+> | Microsoft. s i d/커넥터/쓰기 | 서비스 허브 커넥터 만들기 또는 업데이트 |
+> | Microsoft. i p v/커넥터/읽기 | 서비스 허브 커넥터 보기 또는 나열 |
+> | Microsoft. t s p/커넥터/삭제 | 서비스 허브 커넥터 삭제 |
+> | Microsoft. s i d/커넥터/checkAssessmentEntitlement/작업 | 지정 된 서비스 허브 작업 영역에 대 한 평가 자격을 나열 합니다. |
+> | Microsoft supportOfferingEntitlement Hub//read | 지정 된 서비스 허브 작업 영역에 대 한 지원 제공 자격 보기 |
+> | Microsoft. t s p/작업 영역/읽기 | 지정 된 사용자에 대 한 서비스 허브 작업 영역 나열 |
 
 ## <a name="next-steps"></a>다음 단계
 

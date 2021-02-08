@@ -8,14 +8,14 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500463"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808474"
 ---
-# <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
+# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
 IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 합니다. 가상 컴퓨터를 관리 하 고 구성 하는 데 사용할 수 있습니다.
 이 정보에는 SKU, 저장소, 네트워크 구성 및 예정 된 유지 관리 이벤트가 포함 됩니다. 사용할 수 있는 데이터의 전체 목록은 [끝점 범주 요약](#endpoint-categories)을 참조 하세요.
@@ -106,7 +106,7 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 
 매개 변수를 지정 합니다.
 
-| 속성 | 값 |
+| Name | 값 |
 |------|-------|
 | `api-version` | `2019-06-04`
 | `format` | `json`
@@ -268,7 +268,7 @@ IMDS에 대 한 전체 Swagger 정의는 다음 위치에서 제공 됩니다. h
 
 IMDS API에는 서로 다른 데이터 소스를 나타내는 여러 끝점 범주가 포함 되어 있으며, 각 끝점에는 하나 이상의 끝점이 포함 되어 있습니다. 자세한 내용은 각 범주를 참조 하세요.
 
-| 범주 루트 | Description | 도입된 버전 |
+| 범주 루트 | 설명 | 도입된 버전 |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 | `/metadata/identity` | [IMDS를 통한 관리 되는 id](#managed-identity) 참조 | 2018-02-01
@@ -330,7 +330,7 @@ GET /metadata/instance
 
 스키마 분석:
 
-**Compute**
+**컴퓨팅**
 
 | 데이터 | Description | 도입된 버전 |
 |------|-------------|--------------------|

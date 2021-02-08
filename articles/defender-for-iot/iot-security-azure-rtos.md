@@ -4,30 +4,30 @@ description: IoT 용 Azure Defender의 일부로 Azure RTOS 지원 및 구현에
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
-ms.author: mlottner
-ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/14/2021
+ms.author: shhazam
+ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832746"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809085"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>개요: Azure RTOS 용 IoT 보안 모듈 (미리 보기)
 
-IoT 용 Azure Defender 보안 모듈은 Azure RTOS를 사용 하는 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다. 이 서비스는 RTOS (실시간 운영 체제) 장치에서 일반적인 위협과 잠재적 악성 활동에 대 한 검사를 제공 합니다. Azure RTOS는 이제 기본 제공 되는 Azure IoT 보안 모듈과 함께 제공 됩니다.
+Azure Defender for IoT 마이크로 모듈은 Azure RTOS를 사용 하는 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다. 이 서비스는 RTOS (실시간 운영 체제) 장치에서 일반적인 위협과 잠재적 악성 활동에 대 한 검사를 제공 합니다. Azure RTOS는 이제 기본 제공 되는 Azure IoT 보안 모듈과 함께 제공 됩니다.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="IoT Azure RTOS 용 Defender의 시각화.":::
 
 
-Azure RTOS의 보안 모듈은 다음과 같은 기능을 제공 합니다.
+Azure RTOS의 마이크로 모듈은 다음과 같은 기능을 제공 합니다.
 
 - 악의적인 네트워크 활동 검색
 - 사용자 지정 경고 기반 장치 동작 기준선 지정
