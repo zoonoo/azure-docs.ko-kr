@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545723"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833170"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 또한 연결 모니터 (클래식)에서 새 연결 모니터를 추가할 수 없습니다. 2021 년 7 월 1 일 이전에 만든 테스트 및 연결 모니터를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 [네트워크 성능 모니터에서 테스트를 마이그레이션하거나 ](migrate-to-connection-monitor-from-network-performance-monitor.md) ,  [연결 모니터 (클래식)](migrate-to-connection-monitor-from-connection-monitor-classic.md) 에서 Azure Network Watcher의 2024 년 2 월 29 일 이전에 새 연결 모니터로 마이그레이션합니다.
 
 연결 모니터를 사용 하 여 리소스 간의 통신을 모니터링 하는 방법에 대해 알아봅니다. 이 문서에서는 Azure Portal를 사용 하 여 모니터를 만드는 방법을 설명 합니다. 연결 모니터는 하이브리드 및 Azure 클라우드 배포를 지원 합니다.
 

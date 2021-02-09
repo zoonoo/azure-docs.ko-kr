@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 49dfed7faac1e55a40bc7b7ddd5e9555519350a2
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: a0653f24eeb0a96c28714d00f1d943dfc7d336db
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617309"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979711"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ LTR 정책으로 특정 데이터베이스에 대해 유지 되는 백업을 보
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하여 [복원된 데이터베이스에서 일부 데이터를 추출하여 기존 데이터베이스로 복사 또는 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경](recovery-using-backups.md#point-in-time-restore)하기와 같은 필요한 작업을 수행할 수 있습니다.
 
-## <a name="using-powershell"></a>PowerShell 사용하기
+## <a name="using-powershell"></a>PowerShell 사용
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -183,7 +183,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버를 삭제 한 후 LTR 백업을 삭제 하려면 구독 범위 권한이 있어야 합니다. ' 장기 보존 백업 삭제 ' 작업을 필터링 하 여 Azure Monitor의 각 삭제에 대 한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버 또는 리소스 그룹이 삭제 된 후 LTR 백업을 삭제 하려면 구독 범위 권한이 있어야 합니다. ' 장기 보존 백업 삭제 ' 작업을 필터링 하 여 Azure Monitor의 각 삭제에 대 한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 
@@ -196,7 +196,7 @@ Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.Resour
 ```
 
 > [!IMPORTANT]
-> 서버를 삭제 한 후 LTR 백업에서 복원 하려면 서버 구독으로 범위가 지정 된 사용 권한이 있어야 하 고 해당 구독이 활성 상태 여야 합니다. 또한 선택적-ResourceGroupName 매개 변수를 생략 해야 합니다.
+> 서버 또는 리소스 그룹을 삭제 한 후 LTR 백업에서 복원 하려면 서버 구독으로 범위가 지정 된 사용 권한이 있어야 하며 해당 구독은 활성 상태 여야 합니다. 또한 선택적-ResourceGroupName 매개 변수를 생략 해야 합니다.
 
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하고, 이 데이터베이스에서 약간의 데이터를 추출하여 기존 데이터베이스에 복사하거나 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경하는 등 필요한 작업을 수행할 수 있습니다. [특정 시점 복원](recovery-using-backups.md#point-in-time-restore)을 참조하세요.

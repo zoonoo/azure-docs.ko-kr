@@ -6,33 +6,39 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962179"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979109"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
-컨테이너에 대 한 일시 삭제 (미리 보기)는 데이터가 실수로 또는 실수로 수정 되거나 삭제 되지 않도록 보호 합니다. 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하도록 설정 하면 삭제 된 모든 컨테이너와 해당 내용이 지정 된 기간 동안 Azure Storage에 보존 됩니다. 보존 기간 중에 이전에 삭제 한 컨테이너와 해당 컨테이너 내에서 blob를 복원할 수 있습니다.
+컨테이너에 대 한 일시 삭제 (미리 보기)는 데이터가 실수로 또는 악의적으로 삭제 되는 것을 방지 합니다. 저장소 계정에 대해 컨테이너 일시 삭제를 사용 하도록 설정 하면 삭제 된 모든 컨테이너와 해당 내용이 지정 된 기간 동안 Azure Storage에 보존 됩니다. 보존 기간 중에는 이전에 삭제 한 컨테이너를 복원할 수 있습니다. 컨테이너를 복원 하면 해당 컨테이너 내의 모든 blob이 삭제 될 때 복원 됩니다.
 
 Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터 보호 기능을 사용 하도록 설정 하는 것이 좋습니다.
 
-- 컨테이너 일시 삭제-컨테이너를 실수로 삭제 하거나 덮어쓰는 것을 방지 합니다. 컨테이너 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [컨테이너에 대해 일시 삭제 사용 및 관리](soft-delete-container-enable.md)를 참조 하세요.
-- Blob 일시 삭제-개별 blob의 실수로 삭제 하거나 덮어쓰는 것을 방지 합니다. Blob 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제](soft-delete-blob-overview.md)를 참조 하세요.
+- 컨테이너 일시 삭제-삭제 된 컨테이너를 복원 합니다. 컨테이너 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [컨테이너에 대해 일시 삭제 사용 및 관리](soft-delete-container-enable.md)를 참조 하세요.
 - Blob 버전 관리-blob의 이전 버전을 자동으로 유지 관리 합니다. Blob 버전 관리를 사용 하는 경우 데이터를 잘못 수정 하거나 삭제 한 경우 이전 버전의 blob을 복원 하 여 데이터를 복구할 수 있습니다. Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리 사용 및 관리](versioning-enable.md)를 참조 하세요.
+- Blob 일시 삭제-삭제 된 blob 또는 버전을 복원 합니다. Blob 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제 설정 및 관리](soft-delete-blob-enable.md)를 참조 하세요.
 
 > [!WARNING]
-> 저장소 계정 삭제는 실행 취소할 수 없습니다. 일시 삭제는 저장소 계정 삭제를 방지 하지 않습니다. 저장소 계정이 실수로 삭제 되지 않도록 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+> 저장소 계정 삭제는 실행 취소할 수 없습니다. 일시 삭제는 저장소 계정 삭제를 방지 하는 것이 아니라 해당 계정의 데이터 개체 삭제에 대해서만 보호 합니다. 저장소 계정이 삭제 되지 않도록 보호 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure Resource Manager 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 
 ## <a name="how-container-soft-delete-works"></a>컨테이너 일시 삭제 작동 방식
 
 컨테이너 일시 삭제를 사용 하도록 설정 하는 경우 1 일에서 365 일 사이의 삭제 된 컨테이너에 대 한 보존 기간을 지정할 수 있습니다. 기본 보존 기간은 7 일입니다. 보존 기간 중에 삭제 **취소 컨테이너** 작업을 호출 하 여 삭제 된 컨테이너를 복구할 수 있습니다.
+
+컨테이너를 복원 하면 컨테이너의 blob 및 모든 blob 버전도 복원 됩니다. 그러나 컨테이너 자체가 삭제 된 경우에만 컨테이너 일시 삭제를 사용 하 여 blob을 복원할 수 있습니다. 부모 컨테이너가 삭제 되지 않은 경우 삭제 된 blob을 복원 하려면 blob 일시 삭제 또는 blob 버전 관리를 사용 해야 합니다.
+
+다음 다이어그램에서는 컨테이너 일시 삭제를 사용 하는 경우 삭제 된 컨테이너를 복원할 수 있는 방법을 보여 줍니다.
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="일시 삭제 된 컨테이너를 복원할 수 있는 방법을 보여 주는 다이어그램":::
 
 컨테이너를 복원 하는 경우 해당 이름을 다시 사용 하지 않은 경우 원래 이름으로 복원할 수 있습니다. 원래 컨테이너 이름을 사용한 경우에는 새 이름으로 컨테이너를 복원할 수 있습니다.
 
@@ -42,7 +48,7 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 
-컨테이너 일시 삭제는 모든 공용 Azure 지역에서 미리 보기로 제공 됩니다.
+컨테이너 일시 삭제는 모든 Azure 지역에서 미리 보기로 제공 됩니다.
 
 > [!IMPORTANT]
 > 컨테이너 일시 삭제 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.

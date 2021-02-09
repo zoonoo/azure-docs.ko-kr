@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805177"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981088"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -165,6 +165,7 @@ Azure REST API의 [구독-Get](/rest/api/resources/subscriptions/get) 및 [subsc
 지원 요청:
 
 - 위임 된 리소스에 대 한 Azure Portal의 [ **도움말 + 지원** 에서 지원 요청을 엽니다](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) (위임 된 범위에서 사용할 수 있는 지원 플랜 선택).
+- [Azure QUOTA API](/rest/api/reserved-vm-instances/quotaapi) 를 사용 하 여 위임 된 고객 리소스에 대 한 azure 서비스 할당량을 보고 관리 합니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

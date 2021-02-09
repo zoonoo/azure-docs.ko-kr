@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592606"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979765"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -93,7 +93,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 |                            |Azure Cognitive Search | 제한 사항                      |
 | -------------------------- |------------ | -------------------------------- |
 | **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
-| **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
+| **개발/테스트 환경**   |기본        | 최대 14KB, 2GB 크기까지 게시    |
 | **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ---
@@ -244,74 +244,6 @@ Azure Portal 만들기 창에서 QnA Maker 리소스를 만들고 다른 리소�
 > [!TIP]
 > 명명 규칙을 사용 하 여 리소스 이름 또는 리소스 그룹 내의 가격 책정 계층을 지정 합니다. 새 기술 자료를 만들거나 새 문서를 추가 하는 것에서 오류가 발생 하는 경우 Cognitive Search 가격 책정 계층 한도가 일반적인 문제입니다.
 
-### <a name="resource-purposes"></a>리소스 목적
-
-QnA Maker를 사용 하 여 만든 각 Azure 리소스는 특정 목적이 있습니다.
-
-* QnA Maker 리소스
-* Cognitive Search 리소스
-* App Service
-* 앱 계획 서비스
-* Application Insights 서비스
-
-
-### <a name="cognitive-search-resource"></a>Cognitive Search 리소스
-
-[Cognitive Search](../../../search/index.yml) 리소스는 다음 작업에 사용 됩니다.
-
-* QnA 쌍 저장
-* 런타임에 QnA 쌍의 초기 순위 (ranker #1)를 제공 합니다.
-
-#### <a name="index-usage"></a>인덱스 사용
-
-리소스는 테스트 인덱스 역할을 하는 하나의 인덱스를 유지 하 고 나머지 인덱스는 게시 된 기술 자료 하나에 상관 관계가 있습니다.
-
-리소스는 15 개의 인덱스를 보유 하 고, 14 개의 게시 된 기술 자료를 보유 하며, 한 개의 인덱스가 모든 기술 자료를 테스트 하는 데 사용 됩니다. 이 테스트 인덱스는 대화형 테스트 창을 사용 하는 쿼리가 테스트 인덱스를 사용 하지만 특정 기술 자료와 연결 된 특정 파티션의 결과만 반환 되도록 기술 자료에 의해 분할 됩니다.
-
-#### <a name="language-usage"></a>언어 사용
-
-QnA Maker 리소스에서 만든 첫 번째 기술 자료는 Cognitive Search 리소스 및 모든 인덱스에 대 한 _단일_ 언어 집합을 결정 하는 데 사용 됩니다. QnA Maker 서비스에는 _언어를 하나만 설정할_ 수 있습니다.
-
-### <a name="qna-maker-resource"></a>QnA Maker 리소스
-
-QnA Maker 리소스는 작성 및 게시 Api 뿐만 아니라 런타임에 QnA 쌍의 NLP (자연어 처리) 기반 #2 ranker ()를 기반으로 하는 Api에 대 한 액세스를 제공 합니다.
-
-두 번째 순위는 메타 데이터 및 추가 작업 프롬프트를 포함할 수 있는 지능형 필터를 적용 합니다.
-
-#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker 리소스 구성 설정
-
-[QnA Maker 포털](https://qnamaker.ai)에서 새 기술 자료를 만들 때 **언어** 설정은 리소스 수준에서 적용 되는 유일한 설정입니다. 리소스의 첫 번째 기술 자료를 만들 때 언어를 선택 합니다.
-
-### <a name="app-service-and-app-service-plan"></a>App service 및 App service 계획
-
-[앱 서비스](../../../app-service/index.yml) 는 클라이언트 응용 프로그램에서 런타임 끝점을 통해 게시 된 기술 자료에 액세스 하는 데 사용 됩니다.
-
-게시 된 기술 자료를 쿼리하려면 게시 된 모든 기술 자료가 동일한 URL 끝점을 사용 하지만 경로 내에서 **기술 자료 ID** 를 지정 합니다.
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### <a name="application-insights"></a>Application Insights
-
-[Application Insights](../../../azure-monitor/app/app-insights-overview.md) 은 채팅 로그 및 원격 분석을 수집 하는 데 사용 됩니다. 서비스에 대 한 자세한 내용은 common [Kusto 쿼리](../how-to/get-analytics-knowledge-base.md) 를 참조 하세요.
-
-## <a name="share-services-with-qna-maker"></a>QnA Maker와 서비스 공유
-
-QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 공유를 활용 하려면 다음 표를 사용 하 여 공유할 수 있는 항목과 공유할 수 없는 항목을 이해 하십시오.
-
-|서비스|공유|이유|
-|--|--|--|
-|Cognitive Services|X|디자인에서 불가능|
-|App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
-|App Service|X|디자인에서 불가능|
-|Application Insights|✔|공유할 수 있습니다.|
-|Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름이 인 동의어 맵이 `synonym-map` QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
-
-### <a name="using-a-single-cognitive-search-service"></a>단일 Cognitive Search 서비스 사용
-
-포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
-
-QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 인지 서비스 리소스를 사용 하도록 QnA Maker를 [구성 하는 방법](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
-
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 등의 관리 되는 (미리 보기) 리소스 QnA Maker의 리소스 이름 (예:)을 `qna-westus-f0-b` 사용 하 여 다른 리소스의 이름을 사용 하기도 합니다.
@@ -330,12 +262,87 @@ Azure Portal 만들기 창에서 관리 되는 QnA Maker (미리 보기) 리소�
 > [!TIP]
 > 명명 규칙을 사용 하 여 리소스 이름 또는 리소스 그룹 내의 가격 책정 계층을 지정 합니다. 새 기술 자료를 만들거나 새 문서를 추가 하는 것에서 오류가 발생 하는 경우 Cognitive Search 가격 책정 계층 한도가 일반적인 문제입니다.
 
-### <a name="resource-purposes"></a>리소스 목적
+---
+
+## <a name="resource-purposes"></a>리소스 목적
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
+QnA Maker를 사용 하 여 만든 각 Azure 리소스는 특정 목적이 있습니다.
+
+* QnA Maker 리소스
+* Cognitive Search 리소스
+* App Service
+* 앱 계획 서비스
+* Application Insights 서비스
+
+### <a name="qna-maker-resource"></a>QnA Maker 리소스
+
+QnA Maker 리소스는 작성 및 게시 Api 뿐만 아니라 런타임에 QnA 쌍의 NLP (자연어 처리) 기반 #2 ranker ()를 기반으로 하는 Api에 대 한 액세스를 제공 합니다.
+
+두 번째 순위는 메타 데이터 및 추가 작업 프롬프트를 포함할 수 있는 지능형 필터를 적용 합니다.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker 리소스 구성 설정
+
+[QnA Maker 포털](https://qnamaker.ai)에서 새 기술 자료를 만들 때 **언어** 설정은 리소스 수준에서 적용 되는 유일한 설정입니다. 리소스의 첫 번째 기술 자료를 만들 때 언어를 선택 합니다.
+
+### <a name="cognitive-search-resource"></a>Cognitive Search 리소스
+
+[Cognitive Search](../../../search/index.yml) 리소스는 다음 작업에 사용 됩니다.
+
+* QnA 쌍 저장
+* 런타임에 QnA 쌍의 초기 순위 (ranker #1)를 제공 합니다.
+
+#### <a name="index-usage"></a>인덱스 사용
+
+리소스는 테스트 인덱스 역할을 하는 하나의 인덱스를 유지 하 고 나머지 인덱스는 게시 된 기술 자료 하나에 상관 관계가 있습니다.
+
+리소스는 15 개의 인덱스를 보유 하 고, 14 개의 게시 된 기술 자료를 보유 하며, 한 개의 인덱스가 모든 기술 자료를 테스트 하는 데 사용 됩니다. 이 테스트 인덱스는 대화형 테스트 창을 사용 하는 쿼리가 테스트 인덱스를 사용 하지만 특정 기술 자료와 연결 된 특정 파티션의 결과만 반환 되도록 기술 자료에 의해 분할 됩니다.
+
+#### <a name="language-usage"></a>언어 사용
+
+QnA Maker 리소스에서 만든 첫 번째 기술 자료는 Cognitive Search 리소스 및 모든 인덱스에 대 한 _단일_ 언어 집합을 결정 하는 데 사용 됩니다. QnA Maker 서비스에는 _언어를 하나만 설정할_ 수 있습니다.
+
+#### <a name="using-a-single-cognitive-search-service"></a>단일 Cognitive Search 서비스 사용
+
+포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
+
+QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 인지 서비스 리소스를 사용 하도록 QnA Maker를 [구성 하는 방법](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) 에 대해 알아봅니다.
+
+### <a name="app-service-and-app-service-plan"></a>App service 및 App service 계획
+
+[앱 서비스](../../../app-service/index.yml) 는 클라이언트 응용 프로그램에서 런타임 끝점을 통해 게시 된 기술 자료에 액세스 하는 데 사용 됩니다.
+
+게시 된 기술 자료를 쿼리하려면 게시 된 모든 기술 자료가 동일한 URL 끝점을 사용 하지만 경로 내에서 **기술 자료 ID** 를 지정 합니다.
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### <a name="application-insights"></a>Application Insights
+
+[Application Insights](../../../azure-monitor/app/app-insights-overview.md) 은 채팅 로그 및 원격 분석을 수집 하는 데 사용 됩니다. 서비스에 대 한 자세한 내용은 common [Kusto 쿼리](../how-to/get-analytics-knowledge-base.md) 를 참조 하세요.
+
+### <a name="share-services-with-qna-maker"></a>QnA Maker와 서비스 공유
+
+QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 공유를 활용 하려면 다음 표를 사용 하 여 공유할 수 있는 항목과 공유할 수 없는 항목을 이해 하십시오.
+
+|서비스|공유|이유|
+|--|--|--|
+|Cognitive Services|X|디자인에서 불가능|
+|App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
+|App Service|X|디자인에서 불가능|
+|Application Insights|✔|공유할 수 있습니다.|
+|Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름이 인 동의어 맵이 `synonym-map` QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 QnA Maker 관리 (미리 보기)를 사용 하 여 만든 각 Azure 리소스는 특정 목적이 있습니다.
 
 * QnA Maker 리소스
 * Cognitive Search 리소스
+
+### <a name="qna-maker-resource"></a>QnA Maker 리소스
+
+QnA Maker 관리 (미리 보기) 리소스는 작성 및 게시 Api에 대 한 액세스를 제공 하 고, 순위 런타임을 호스팅하고, 원격 분석을 제공 합니다.
 
 ### <a name="azure-cognitive-search-resource"></a>Azure Cognitive Search 리소스
 
@@ -353,10 +360,6 @@ QnA Maker 관리 (미리 보기)를 사용 하 여 만든 각 Azure 리소스는
 #### <a name="language-usage"></a>언어 사용
 
 QnA Maker 관리 (미리 보기)를 사용 하면 기술 자료에 대 한 QnA Maker 서비스를 단일 언어나 여러 언어로 설정할 수 있습니다. QnA Maker 서비스에서 첫 번째 기술 자료를 만드는 동안이 옵션을 선택 합니다. 기술 자료 당 언어 설정을 사용 하도록 설정 [하는 방법을 참조 하세요.](#pricing-tier-considerations)
-
-### <a name="qna-maker-resource"></a>QnA Maker 리소스
-
-QnA Maker 관리 (미리 보기) 리소스는 작성 및 게시 Api에 대 한 액세스를 제공 하 고, 순위 런타임을 호스팅하고, 원격 분석을 제공 합니다.
 
 ---
 

@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326157"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833085"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
 
 [네트워크 성능 모니터](network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
 
@@ -23,8 +26,8 @@ ms.locfileid: "87326157"
 
 ![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Configuration 
-네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
+## <a name="configuration"></a>구성 
+네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성** 을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
 네트워크 성능 모니터를 통한 모니터링에 사용되는 Azure에 있는 서버의 경우 가상 트랜잭션을 위해 네트워크 성능 모니터에서 사용하는 포트에 TCP 트래픽을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다. 기본 포트는 8084입니다. 이 구성을 사용하면 Azure VM에 설치된 Log Analytics 에이전트가 온-프레미스 모니터링 에이전트와 통신할 수 있습니다. 
@@ -54,9 +57,9 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 1. 모니터링하려는 프라이빗 피어링 연결을 선택합니다.
 2. 오른쪽 창에서 **이 피어링 모니터링** 확인란을 선택합니다. 
-3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용**을 선택합니다. 
+3. 이 연결에 대한 상태 이벤트를 만들려는 경우 **이 피어링에 상태 모니터링 사용** 을 선택합니다. 
 4. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 피어링 연결의 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
-5. **에이전트 추가**를 선택하여 이 피어링 연결을 모니터링하는 데 사용할 모니터링 에이전트를 선택합니다. 에이전트를 연결의 양쪽 끝에 추가했는지 확인합니다. 이 피어링에 연결된 가상 네트워크에 하나 이상의 에이전트가 필요합니다. 이 피어링에 연결된 하나 이상의 온-프레미스 에이전트가 필요합니다. 
+5. **에이전트 추가** 를 선택하여 이 피어링 연결을 모니터링하는 데 사용할 모니터링 에이전트를 선택합니다. 에이전트를 연결의 양쪽 끝에 추가했는지 확인합니다. 이 피어링에 연결된 가상 네트워크에 하나 이상의 에이전트가 필요합니다. 이 피어링에 연결된 하나 이상의 온-프레미스 에이전트가 필요합니다. 
 6. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
    ![ExpressRoute 모니터링 구성](media/network-performance-monitor-expressroute/expressroute-configure-discovery.png)
@@ -81,7 +84,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>손실, 대기 시간 및 처리량 추세 
 
-대역폭 사용률, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 또한 다른 간격에서 대역폭, 대기 시간 및 손실 데이터를 확인할 수 있습니다. **동작** 단추의 아래 왼쪽 위에서  **날짜/시간**을 선택합니다. 
+대역폭 사용률, 대기 시간, 손실 차트는 대화형으로 작동합니다. 마우스 컨트롤을 사용하여 이러한 차트의 섹션을 확대할 수 있습니다. 또한 다른 간격에서 대역폭, 대기 시간 및 손실 데이터를 확인할 수 있습니다. **동작** 단추의 아래 왼쪽 위에서  **날짜/시간** 을 선택합니다. 
 
 ![ExpressRoute 대기 시간](media/network-performance-monitor-expressroute/expressroute-latency.png) 
 
@@ -107,9 +110,9 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 네트워크 성능 모니터를 사용하여 여러 회로 연결 문제를 진단할 수 있습니다. 확인할 수 있는 문제 중 일부는 다음과 같습니다.
 
-알림 코드를 확인하고 **LogAnalytics**를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
+알림 코드를 확인하고 **LogAnalytics** 를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | 설명 |
+| 알림 코드(로그) | Description |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |
@@ -141,4 +144,3 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 ## <a name="next-steps"></a>다음 단계
 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
-

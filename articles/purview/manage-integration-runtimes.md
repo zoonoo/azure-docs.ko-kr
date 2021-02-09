@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 72efcacf20b0d67c9d6a8255426a09f9813f17b4
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 9276f845c95b5e736180159b282ddedc33523c17
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550501"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980748"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "99550501"
 
    - 인증 키를 복사 하 여 붙여넣습니다.
 
-   - 로컬 Windows 컴퓨터의 [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) 에서 자체 호스팅 통합 런타임을 다운로드 합니다. 설치 관리자를 실행합니다.
+   - 로컬 Windows 컴퓨터의 [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) 에서 자체 호스팅 통합 런타임을 다운로드 합니다. 설치 관리자를 실행합니다.
 
    - **Integration Runtime(자체 호스팅) 등록** 페이지에서 이전에 저장 한 두 키 중 하나를 붙여넣고 **등록** 을 선택 합니다.
 

@@ -7,18 +7,18 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkemper
-ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932118"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979609"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성에 설정 푸시
 
 [Azure 앱 구성 푸시](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) 작업은 구성 파일의 키-값을 앱 구성 저장소로 푸시합니다. 이 작업을 통해 앱 구성 저장소에서 설정을 끌어올 수 있을 뿐만 아니라 앱 구성 저장소에 대 한 푸시 설정을 사용할 수 있기 때문에 파이프라인 내에서 전체 서클 기능을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 앱 구성 리소스- [Azure Portal](https://portal.azure.com)에서 무료로 무료로 만듭니다.
@@ -56,7 +56,7 @@ ms.locfileid: "96932118"
 
 이 섹션에서는 Azure DevOps 빌드 파이프라인에서 Azure 앱 구성 푸시 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인** 파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  **Pipelines** 합니다. 빌드 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops)에서 찾을 수 있습니다.
+1. **파이프라인** 파이프라인을 클릭 하 여 빌드 파이프라인 페이지로 이동  >  합니다. 빌드 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2)에서 찾을 수 있습니다.
       - 새 빌드 파이프라인을 만드는 경우 파이프라인의 오른쪽에서 **보조자 표시** 를 선택 하 고 **Azure 앱 구성 푸시** 작업을 검색 합니다.
       - 기존 빌드 파이프라인을 사용 하는 경우 파이프라인을 편집할 때 **작업** 탭으로 이동 하 여 **Azure 앱 구성 푸시** 작업을 검색 합니다.
 2. 구성 파일의 키 값을 앱 구성 저장소로 푸시하는 작업에 필요한 매개 변수를 구성 합니다. **구성 파일 경로** 매개 변수는 파일 리포지토리의 루트에서 시작 합니다.
@@ -66,10 +66,10 @@ ms.locfileid: "96932118"
 
 이 섹션에서는 Azure DevOps 릴리스 파이프라인에서 Azure 앱 구성 푸시 작업을 사용 하는 방법을 설명 합니다.
 
-1. **파이프라인** 릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  **Releases** 합니다. 릴리스 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/release?view=azure-devops)에서 찾을 수 있습니다.
+1. **파이프라인** 릴리스를 선택 하 여 릴리스 파이프라인 페이지로 이동  >  합니다. 릴리스 파이프라인에 대 한 설명서는 [여기](/azure/devops/pipelines/release)에서 찾을 수 있습니다.
 1. 기존 릴리스 파이프라인을 선택 합니다. 없는 경우 **+ 새로** 만들기를 선택 하 여 새 항목을 만듭니다.
 1. 오른쪽 위 모서리에서 **편집** 단추를 선택 하 여 릴리스 파이프라인을 편집 합니다.
-1. **단계** 를 선택 하 여 작업을 추가 합니다. 단계에 대 한 자세한 내용은 [여기](/azure/devops/pipelines/release/environments?view=azure-devops)를 참조 하세요.
+1. **단계** 를 선택 하 여 작업을 추가 합니다. 단계에 대 한 자세한 내용은 [여기](/azure/devops/pipelines/release/environments)를 참조 하세요.
 1. **+** 해당 작업에 대해를 선택 하 고 **배포** 탭에서 **Azure 앱 구성 푸시** 작업을 추가 합니다.
 1. 작업 내에서 필요한 매개 변수를 구성 하 여 구성 파일의 키 값을 앱 구성 저장소로 푸시합니다. 매개 변수에 대 한 설명은 아래의 **매개 변수** 섹션 및 각 매개 변수 옆에 있는 도구 설명에서 사용할 수 있습니다.
 1. 릴리스를 저장 하 고 큐에 대기 합니다. 릴리스 로그에는 태스크를 실행 하는 동안 발생 한 모든 오류가 표시 됩니다.

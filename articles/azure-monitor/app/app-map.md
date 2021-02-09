@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: 3383b4a3c2eab1f62d180c31e278f07b92c649c5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d301ad1a9f5f55a41f87cd1316c9e5e4b38afd51
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853518"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980085"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -192,7 +192,7 @@ Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경
 
 스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");
@@ -222,6 +222,21 @@ appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Python의 경우 [OpenCensus python 원격 분석 프로세서](api-filtering-sampling.md#opencensus-python-telemetry-processors) 를 사용할 수 있습니다.
+
+```python
+def callback_function(envelope):
+   envelope.tags['ai.cloud.role'] = 'new_role_name'
+   
+// AzureLogHandler
+handler.add_telemetry_processor(callback_function)
+
+// AzureExporter
+exporter.add_telemetry_processor(callback_function)
 ```
 ---
 

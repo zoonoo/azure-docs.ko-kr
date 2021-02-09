@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 92652c33e261f08e0cb1c8eb57c66d363801f34e
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 190d88e62069a34b61017a0079f75696d67f6c82
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475069"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979915"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Azure Active Directory B2C 서비스 제한 및 제한 사항
 
@@ -39,7 +39,6 @@ ms.locfileid: "99475069"
 
 |범주  |제한  |
 |---------|---------|
-|Azure AD B2C 테 넌 트 당 응용 프로그램 수   |250           |
 |응용 프로그램당 범위 수        |1000          |
 |사용자 당 사용자 [지정 특성](user-profile-attributes.md#extension-attributes)   수 <sup>1</sup>       |100         |
 |응용 프로그램당 리디렉션 Url 수       |100         |

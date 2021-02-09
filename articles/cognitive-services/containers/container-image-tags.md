@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 8abe785cac4f46401b3efeb7868b061d13810b29
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c3023c32f2a31235f5a733639a548c190197b413
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576230"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981122"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Azure Cognitive Services 컨테이너 이미지 태그 및 릴리스 정보
 
@@ -53,14 +53,14 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 # <a name="latest-version"></a>[최신 버전](#tab/current)
 
 릴리스 정보 `3.2-preview.2` :
-
-* 새 v 3.2 컨테이너
+* Distroless 릴리스
+* ReadingOrder 매개 변수를 통해 JSON 응답의 텍스트 줄 순서 중에서 선택할 수 있습니다.
+* 향상 된 로깅
+* CJK 모델에 대 한 핫픽스
 
 | 이미지 태그                    | 참고 |
 |-------------------------------|:------|
-| `latest`                      |       |
-| `3.2-preview.2` |  |
-| `3.2-preview.1` |  |
+|3.2.2.014850001-49e0eac6-amd64-preview                     |       |
 
 # <a name="previous-versions"></a>[이전 버전](#tab/previous)
 

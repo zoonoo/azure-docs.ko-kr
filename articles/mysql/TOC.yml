@@ -1,6 +1,7 @@
 - name: MySQL용 Azure 데이터베이스 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure DB for MySQL이란?
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: 단일 서버
-  expanded: true
   items:
     - name: 단일 서버 설명서
       href: single-server/index.yml
@@ -345,7 +345,7 @@
               displayName: 'data-in replication, replica, failover'
     - name: 서비스 유지 관리
       items:
-        - name: 계획된 유지 보수
+        - name: 계획된 유지 관리
           href: concepts-planned-maintenance-notification.md
         - name: 게이트웨이 유지 관리
           href: concepts-connectivity-architecture.md

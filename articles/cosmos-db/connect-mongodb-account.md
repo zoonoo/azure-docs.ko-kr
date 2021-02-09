@@ -8,12 +8,16 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06b03ac1cfe37307a5839be0d5ca3b1003db35af
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+adobe-target: true
+adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
+adobe-target-experience: Experience B
+adobe-target-content: connect-mongodb-account-experimental.md
+ms.openlocfilehash: d3e619559f1fb2500904aa7349aa131fd9b5fc00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072427"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980799"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -35,7 +39,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 1. 인터넷 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 2. **Azure Cosmos DB** 블레이드에서 API를 선택합니다.
 3. 계정 블레이드의 왼쪽 창에서 **빠른 시작** 을 클릭합니다.
-4. 플랫폼( **.NET** , **Node.js** , **MongoDB Shell** , **Java** , **Python** )을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#get-the-mongodb-connection-string-to-customize)를 참조하세요.
+4. 플랫폼(**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**)을 선택합니다. 드라이버나 도구가 목록에 없더라도 계속해서 더 많은 연결 코드 조각을 문서화하므로 걱정하지 마세요. 아래에 보고 싶은 항목에 대한 의견을 보내주세요. 사용자 고유의 연결을 만드는 방법을 알아보려면 [계정 연결 문자열 정보 가져오기](#get-the-mongodb-connection-string-to-customize)를 참조하세요.
 5. 코드 조각을 복사하여 MongoDB 앱에 붙여넣습니다.
 
     :::image type="content" source="./media/connect-mongodb-account/QuickStartBlade.png" alt-text="빠른 시작 블레이드":::
@@ -47,7 +51,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 3. 계정 블레이드의 왼쪽 창에서 **연결 문자열** 을 클릭합니다.
 4. **연결 문자열** 블레이드가 열립니다. 여기에는 미리 구성된 연결 문자열을 비롯해 MongoDB용 드라이버를 사용하여 계정에 연결하는 데 필요한 모든 정보가 있습니다.
 
-   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="빠른 시작 블레이드" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="연결 문자열 블레이드" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>연결 문자열 요구 사항
 

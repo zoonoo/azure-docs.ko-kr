@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222801"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980493"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -116,7 +116,7 @@ Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세
 이 표에서는 Azure VM OS 디스크, 데이터 디스크 및 임시 디스크에 대한 지원을 요약해서 표시합니다. 성능 문제를 방지 하기 위해 [managed disks](../virtual-machines/disks-scalability-targets.md) 의 VM 디스크 제한 및 대상을 관찰 하는 것이 중요 합니다.
 
 > [!NOTE]
-> 대상 VM 크기는 원본 VM과 같거나 커야 합니다. 유효성 검사에 사용 되는 매개 변수는 데이터 디스크 수, Nic 개수, 사용 가능한 Cpu, 메모리 (GB)입니다. 그렇지 않으면 오류가 발생 합니다.
+> 대상 VM 크기는 원본 VM과 같거나 커야 합니다. 유효성 검사에 사용 되는 매개 변수는 데이터 디스크 수, Nic 개수, 사용 가능한 Cpu, 메모리 (GB)입니다. 오류가 발생 하면 오류가 발생 합니다.
 
 
 **구성 요소** | **지원** | **세부 정보**
@@ -127,13 +127,15 @@ OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아�
 데이터 디스크 최소 크기 |  관리 디스크의 경우 2GB |
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/sizes.md).
 데이터 디스크 변경 비율 | Premium Storage는 디스크당 최대 10MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 지속적으로 최대값 보다 높으면 준비가 되지 않습니다.<br/><br/>  그러나 최대값이 산발적으로 초과 되 면 준비를 수행할 수 있지만 약간 지연 된 복구 지점이 표시 될 수도 있습니다.
-데이터 디스크 (표준 저장소 계정) | 지원되지 않습니다. | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
+데이터 디스크 (표준 저장소 계정) | 지원 안 됨 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 데이터 디스크 (Premium storage 계정) | 지원되지 않음 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
-관리 디스크 (표준) | 지원됨  |
-관리 디스크 (프리미엄) | 지원됨 |
+관리 디스크 (표준) | 지원 여부  |
+관리 디스크 (프리미엄) | 지원 여부 |
 표준 SSD | 지원됨 |
 2세대(UEFI 부팅) | 지원됨
 부트 진단 저장소 계정 | 지원되지 않음 | VM을 대상 지역으로 이동한 후 다시 활성화 합니다.
+Azure disk encryption을 사용 하는 Vm | 지원됨 | [자세히 알아보기](tutorial-move-region-encrypted-virtual-machines.md)
+고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화를 사용 하는 Vm | 지원됨 | [자세히 알아보기](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>제한 및 데이터 변경률
 
@@ -152,14 +154,14 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-NIC | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다. 
-내부 부하 분산 장치 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
-공용 부하 분산 장치 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
+NIC | 지원 여부 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다. 
+내부 부하 분산 장치 | 지원 여부 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
+공용 부하 분산 장치 | 지원 여부 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 공용 IP 주소 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.<br/><br/> 공용 IP 주소는 지역별 특정 이며 이동 후 대상 지역에 보존 되지 않습니다. 대상 위치에서 네트워킹 설정 (부하 분산 규칙 포함)을 수정 하는 경우이 점을 염두에 두어야 합니다.
-네트워크 보안 그룹 | 지원됨 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
+네트워크 보안 그룹 | 지원 여부 | 대상 지역에 기존 리소스를 지정 하거나 준비 프로세스 중에 새 리소스를 만듭니다.  
 예약된(고정) IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다. <br/><br/> 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에 동일한 IP 주소가 사용 가능한 경우 대상 VM에 할당 됩니다.<br/><br/> 대상 서브넷에 사용할 수 있는 IP 주소가 동일 하지 않은 경우 VM에 대 한 이동 시작이 실패 합니다.
 동적 IP 주소 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다.<br/><br/> 원본 NIC에 동적 IP 주소가 지정 된 경우 대상 VM의 NIC도 기본적으로 동적입니다.
-IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다.
+IP 구성 | 지원 여부 | 현재이를 구성할 수 없습니다. 값은 기본적으로 원본 값이 됩니다.
 
 ## <a name="outbound-access-requirements"></a>아웃 바운드 액세스 요구 사항
 

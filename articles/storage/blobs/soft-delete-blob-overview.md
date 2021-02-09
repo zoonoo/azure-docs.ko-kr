@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127484"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979297"
 ---
 # <a name="soft-delete-for-blobs"></a>Blob에 대한 일시 삭제
 
@@ -27,6 +27,10 @@ Microsoft는 데이터가 애플리케이션 또는 다른 스토리지 계정 �
 ## <a name="about-soft-delete-for-blobs"></a>Blob에 대 한 일시 삭제 정보
 
 Blob에 대 한 일시 삭제가 저장소 계정에서 사용 하도록 설정 된 경우 지정 된 데이터 보존 기간 내에 삭제 된 후에 개체를 복구할 수 있습니다. 이 보호는 덮어쓰기의 결과로 지워지는 모든 blob (블록 blob, 추가 blob 또는 페이지 blob)로 확장 됩니다.
+
+다음 다이어그램에서는 blob 일시 삭제를 사용 하는 경우 삭제 된 blob을 복원 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="일시 삭제 된 blob을 복원 하는 방법을 보여 주는 다이어그램":::
 
 Blob 일시 삭제를 사용 하도록 설정 하는 동안 기존 blob 또는 스냅숏의 데이터를 삭제 하지만 blob 버전 관리를 사용 하지 않는 경우 덮어쓴 데이터의 상태를 저장 하기 위해 일시 삭제 된 스냅숏이 생성 됩니다. 지정 된 보존 기간이 만료 되 면 개체가 영구적으로 삭제 됩니다.
 
@@ -83,9 +87,9 @@ Blob **배치**, **블록 목록 배치** 또는 **blob 복사** 를 사용 하 
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 유형 | 설명 | 동작 변경 |
+| REST API 작업 | 리소스 유형 | Description | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
-| [삭제](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경되지 않았습니다. 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
+| [Delete](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경되지 않았습니다. 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경되지 않았습니다. 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
 | [Blob 배치](/rest/api/storageservices/put-blob) | 블록, 추가 및 페이지 blob | 새 Blob을 만들거나 컨테이너 내 기존 Blob 교체 | 기존 Blob을 교체하는 데 사용되는 경우, 호출 전에 Blob의 상태 스냅샷이 자동으로 생성됩니다. 이는 동일한 유형의 blob (블록, 추가 또는 페이지)로 대체 되는 경우에만 이전에 일시 삭제 된 blob에도 적용 됩니다. 다른 형식의 Blob으로 교체되는 경우 기존의 모든 일시 삭제된 데이터는 영구적으로 만료됩니다. |
 | [Blob 삭제](/rest/api/storageservices/delete-blob) | 블록, 추가 및 페이지 blob | 삭제를 위한 Blob 또는 Blob 스냅샷을 표시합니다. 가비지 수집 중 Blob 또는 스냅샷은 나중에 삭제됩니다. | Blob 스냅샷을 삭제하는 데 사용되는 경우 해당 스냅샷은 일시 삭제됨으로 표시됩니다. Blob을 삭제하는 데 사용되는 경우 해당 스냅숏은 일시 삭제됨으로 표시됩니다. |

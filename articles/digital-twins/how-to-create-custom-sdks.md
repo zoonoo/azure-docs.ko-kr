@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051567"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980663"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
 
@@ -112,6 +112,9 @@ AutoRest는 SDK에 대해 두 가지 유형의 페이징 패턴을 생성 합니
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 두 번째 패턴은 쿼리 API에 대해서만 생성 됩니다. 를 `continuationToken` 명시적으로 사용 합니다.
+
+>[!TIP]
+> 페이지를 가져오는 주된 이유는 쿼리 API 호출에 대 한 [쿼리 단위 요금](concepts-query-units.md) 을 계산 하는 것입니다.
 
 이 패턴의 예는 다음과 같습니다.
 

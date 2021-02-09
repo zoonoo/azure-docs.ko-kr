@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060013"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980578"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,13 +28,13 @@ ms.locfileid: "98060013"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 + [IP 네트워킹](../virtual-network/public-ip-addresses.md)
 + [Azure Private Link](how-to-configure-private-link.md)
-+ [네트워크 보안 그룹(NSG)](../virtual-network/network-security-groups-overview.md)
++ [NSG (네트워크 보안 그룹)](../virtual-network/network-security-groups-overview.md)
 + [네트워크 방화벽](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>예제 시나리오
@@ -137,6 +137,15 @@ ms.locfileid: "98060013"
 ### <a name="limitations"></a>제한 사항
 - AKS 클러스터는 작업 영역 및 연결 된 리소스와 동일한 VNet에 속해야 합니다. 
 
+## <a name="optional-enable-public-access"></a>선택 사항: 공용 액세스 사용
+
+개인 끝점을 사용 하 여 VNet 뒤의 작업 영역에 보안을 설정 하 고 공용 인터넷을 통한 액세스를 계속 허용할 수 있습니다. 초기 구성은 [작업 영역 및 관련 리소스를 보호](#secure-the-workspace-and-associated-resources)하는 것과 같습니다. 
+
+개인 링크를 사용 하 여 작업 영역을 보호 한 후에 [공용 액세스를 사용 하도록 설정](how-to-configure-private-link.md#enable-public-access)합니다. 그러면 공용 인터넷과 VNet 모두에서 작업 영역에 액세스할 수 있습니다.
+
+### <a name="limitations"></a>제한 사항
+
+- 공용 인터넷을 통해 Azure Machine Learning studio를 사용 하는 경우 디자이너와 같은 일부 기능에서 데이터에 액세스 하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호 되는 서비스에 데이터를 저장할 때 발생 합니다. 예를 들어 Azure Storage 계정이 있습니다.
 ## <a name="optional-enable-studio-functionality"></a>선택 사항: studio 기능 사용
 
 [작업 영역 보안](#secure-the-workspace-and-associated-resources)  >  [교육 환경 보안](#secure-the-training-environment)  >  [추론 환경 보안](#secure-the-inferencing-environment)  >  **스튜디오 기능 사용**  >  [방화벽 설정 구성](#configure-firewall-settings)

@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625168"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833017"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
 ![네트워크 성능 모니터 기호](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
@@ -34,7 +37,7 @@ NPM의 다양한 기능에 대한 플랫폼 요구 사항은 아래와 같습니
 - NPM의 ExpressRoute 모니터 기능은 Windows 서버(2008 SP1 이상) 운영 체제만 지원합니다.
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>NPM에서 Linux 머신을 모니터링 노드로 사용할 수 있나요?
-Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능이 이제 일반 공급 됩니다. [여기](../../virtual-machines/extensions/oms-linux.md)에서 에이전트를 액세스. 
+Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능이 이제 일반 공급 됩니다. [여기](../../virtual-machines/extensions/oms-linux.md)에서 에이전트에 액세스 합니다. 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 크기 요구 사항은 얼마인가요?
 네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM를 실행 하는 데 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU가 5% 넘게 사용 되는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
@@ -54,7 +57,7 @@ Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사�
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>TCP 프로토콜을 사용하여 모니터링을 지원하려면 노드를 어떻게 구성할 수 있나요?
 노드가 TCP 프로토콜을 사용하여 모니터링을 지원하려면: 
 * 노드 플랫폼이 Windows 서버(2008 SP1 이상)인지 확인합니다.
-* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 스크립트를 실행합니다. 자세한 내용은 [지침](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)을 참조하세요.
+* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 스크립트를 실행 합니다. 자세한 내용은 [지침](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)을 참조하세요.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>NPM에서 모니터링을 위해 사용 중인 TCP 포트를 어떻게 변경할 수 있나요?
@@ -255,10 +258,10 @@ NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRo
 * 모니터링 구성에서 ExpressRoute 회로를 모니터링하기 위해 선택한 온-프레미스 및 Azure 노드에, 의도한 ExpressRoute 회로를 통한 상호 연결이 없습니다. 모니터링하려는 ExpressRoute 회로를 통한 상호 연결이 있는 올바른 노드를 선택했는지 확인합니다.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Express 경로 모니터가 사용 가능 하 고 데이터를 전달할 때 내 회로/피어 링을 비정상으로 보고 하는 이유는 무엇 인가요?
-Express 경로 모니터는 에이전트/서비스에서 보고 한 네트워크 성능 값 (손실, 대기 시간 및 대역폭 사용률)을 구성 하는 동안 설정 된 임계값과 비교 합니다. 회로에 대해 보고 된 대역폭 사용률 구성에 설정 된 임계값 보다 크면 회로가 비정상으로 표시 됩니다. 피어 링의 경우 손실, 대기 시간 또는 대역폭 사용률이 구성에 설정 된 임계값 보다 크면 피어 링은 비정상으로 표시 됩니다. NPM는 메트릭 또는 다른 형태의 데이터를 제품 하 여 deicde 상태를 제거 하지 않습니다.
+Express 경로 모니터는 구성 중에 설정 된 임계값을 사용 하 여 에이전트/서비스에서 보고 한 네트워크 성능 값 (손실, 대기 시간 및 대역폭 사용률)을 비교 합니다. 회로의 경우 보고 된 대역폭 사용률이 구성에 설정 된 임계값 보다 크면 회로가 비정상으로 표시 됩니다. 피어 링의 경우 손실, 대기 시간 또는 대역폭 사용률이 구성에 설정 된 임계값 보다 크면 피어 링은 비정상으로 표시 됩니다. NPM는 메트릭 또는 다른 형태의 데이터를 활용 하 여 상태를 결정 하지 않습니다.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Express 경로 모니터의 대역폭 사용률에서 메트릭 비트의 값 차이점을 보고 하는 이유는 무엇 인가요?
-Express 경로 모니터의 경우 대역폭 utiliation는 지난 20 분 동안 들어오고 나가는 대역폭의 평균 이며 비트/초로 표시 됩니다. Express 경로 메트릭의 경우 비트 단위/출력은 분당 데이터 요소입니다. 내부적으로 사용 되는 데이터 집합은 동일 하지만 NPM와 ER 메트릭 사이에 집계 valies가 있습니다. 세부적인 모니터링 및 빠른 경고의 경우 ER 메트릭에 경고를 직접 설정 하는 것이 좋습니다.
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Express 경로 모니터의 대역폭 사용률에서 메트릭 비트의 값과 다른 값을 보고 하는 이유
+Express 경로 모니터의 경우 대역폭 사용률은 지난 20 분 동안 들어오고 나가는 대역폭의 평균 이며 비트/초로 표시 됩니다. Express 경로 메트릭의 경우 비트 단위/출력은 분당 데이터 요소입니다. 내부적으로 사용 되는 데이터 집합은 동일 하지만 집계가 NPM 및 ER 메트릭에 따라 다릅니다. 세부적인 모니터링 및 빠른 경고의 경우 ER 메트릭에 경고를 직접 설정 하는 것이 좋습니다.
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>내 ExpressRoute 회로의 모니터링을 구성하는 동안 Azure 노드가 감지되지 않습니다.
 이 상황은 Azure 노드가 Operations Manager를 통해 연결된 경우 발생할 수 있습니다. ExpressRoute 모니터 기능은 직접 에이전트로 연결된 Azure 노드만 지원합니다.
@@ -289,7 +292,7 @@ NPM은 Azure Portal뿐만 아니라 OMS 포털에서도 사용할 수 있지만 
 NPM 프로세스는 호스트 CPU 리소스의 5%를 초과하여 이용하는 경우 중지하도록 구성됩니다. 이는 성능에 영향을 주지 않고 노드를 일상적인 워크로드에 계속 사용할 수 있도록 하기 위한 것입니다.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>NPM은 방화벽 모니터링 규칙을 편집하나요?
-NPM은 에이전트들이 지정된 포트에서 서로 TCP 연결을 만들 수 있도록 EnableRules.ps1 Powershell 스크립트를 실행하는 노드에 대해서만 로컬 Windows 방화벽 규칙을 만듭니다. 솔루션은 네트워크 방화벽 규칙 또는 NSG(네트워크 보안 그룹) 규칙을 수정하지 않습니다.
+NPM는 에이전트가 지정 된 포트에서 서로 TCP 연결을 만들 수 있도록 EnableRules.ps1 PowerShell 스크립트가 실행 되는 노드에 대 한 로컬 Windows 방화벽 규칙만 만듭니다. 솔루션은 네트워크 방화벽 규칙 또는 NSG(네트워크 보안 그룹) 규칙을 수정하지 않습니다.
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>모니터링에 사용하는 노드의 상태를 어떻게 확인할 수 있나요?
 다음 보기에서 모니터링에 사용하는 노드의 정상/비정상 상태를 볼 수 있습니다. 네트워크 성능 모니터 -> 구성 -> 노드. 노드가 비정상인 경우 오류 세부 정보를 보고 권장 작업을 실행할 수 있습니다.
@@ -300,4 +303,3 @@ NPM은 UI 및 밀리초 단위의 대기 시간 숫자를 반올림합니다. �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure의 네트워크 성능 모니터 솔루션](./network-performance-monitor.md)을 참조하여 네트워크 성능 모니터에 대해 알아봅니다.
-

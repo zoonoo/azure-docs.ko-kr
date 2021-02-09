@@ -3,17 +3,17 @@ title: Azure Blob Storage에서 피드 변경 Microsoft Docs
 description: Azure Blob Storage의 변경 피드 로그 및 사용 방법에 대해 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997106"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979228"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -21,9 +21,15 @@ ms.locfileid: "95997106"
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>변경 피드의 작동 방식
+
 변경 피드는 저장소 계정의 특수 컨테이너에 [blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
 이러한 로그는 증분 방식으로 또는 전체에서 처리할 수 있습니다. 원하는 수의 클라이언트 응용 프로그램은 변경 피드를 독립적으로 개별적으로 읽을 수 있습니다. [Apache 드릴](https://drill.apache.org/docs/querying-avro-files/) 또는 [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) 와 같은 분석 응용 프로그램은 로그를 Avro 파일로 직접 사용할 수 있으므로, 높은 대역폭을 사용 하 고 사용자 지정 응용 프로그램을 작성 하지 않고도 처리할 수 있습니다.
+
+다음 다이어그램에서는 변경 피드에 레코드를 추가 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="변경 피드가 blob에 대 한 변경 내용에 대 한 순차적 로그를 제공 하는 방법을 보여 주는 다이어그램":::
 
 변경 피드 지원은 변경 된 개체를 기반으로 데이터를 처리 하는 시나리오에 적합 합니다. 예를 들어 응용 프로그램에서 다음을 수행할 수 있습니다.
 

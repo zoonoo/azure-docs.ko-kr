@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 0eb7dec2fd4ee327905acdea7a07456221bcbd46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946009"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980697"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 
@@ -37,7 +37,7 @@ YARN Timeline Server는 다음과 같은 형식의 데이터를 포함합니다.
 
 ## <a name="yarn-applications-and-logs"></a>YARN 애플리케이션 및 로그
 
-애플리케이션 로그(및 연관된 컨테이너 로그)는 문제가 있는 Hadoop 애플리케이션을 디버깅하는 데 매우 중요합니다. YARN는 [로그 집계](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)를 사용 하 여 응용 프로그램 로그를 수집, 집계 및 저장 하기 위한 훌륭한 프레임 워크를 제공 합니다.
+애플리케이션 로그(및 연관된 컨테이너 로그)는 문제가 있는 Hadoop 애플리케이션을 디버깅하는 데 매우 중요합니다. YARN는 로그 집계를 사용 하 여 응용 프로그램 로그를 수집, 집계 및 저장 하기 위한 훌륭한 프레임 워크를 제공 합니다.
 
 로그 집계 기능을 사용하면 애플리케이션 로그에 좀 더 확실하게 액세스할 수 있습니다. 이 기능은 작업자 노드의 모든 컨테이너에서 로그를 집계한 후 작업자 노드당 하나의 집계된 로그 파일로 저장합니다. 로그는 애플리케이션이 완료된 후 기본 파일 시스템에 저장됩니다. 애플리케이션은 수백 수천 개의 컨테이너를 사용할 수 있지만 단일 작업자 노드에서 실행되는 모든 컨테이너에 대한 로그는 항상 단일 파일로 집계됩니다. 따라서 응용 프로그램에서 사용 하는 작업자 노드당 하나의 로그만 있습니다. 로그 집계는 HDInsight 클러스터 버전 3.0 이상에서 기본적으로 사용됩니다. 집계된 로그는 클러스터에 대한 기본 스토리지에 있습니다. 다음 경로는 로그에 대한 HDFS 경로입니다.
 

@@ -5,23 +5,23 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/07/2021
+ms.date: 02/08/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: fdc4bbd463c45fecfc9e3961e42f81ed93d820ae
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2395e8e0027755357e65aab247185c02f7b1723d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054639"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980714"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 이 문서에서는 Azure Data Factory 커넥터 관련 문제를 해결 하는 일반적인 방법을 설명 합니다.
-  
+
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ### <a name="error-code-azurebloboperationfailed"></a>오류 코드: AzureBlobOperationFailed
@@ -109,7 +109,7 @@ ms.locfileid: "99054639"
             
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (SQL API)
 
-### <a name="error-code--cosmosdbsqlapioperationfailed"></a>오류 코드: CosmosDbSqlApiOperationFailed
+### <a name="error-code-cosmosdbsqlapioperationfailed"></a>오류 코드: CosmosDbSqlApiOperationFailed
 
 - **메시지**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
@@ -161,17 +161,13 @@ ms.locfileid: "99054639"
 
 - **메시지**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
-- **원인**: Azure Data Lake Storage Gen2이 오류가 발생 하면 작업이 실패 한 것입니다.
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **권장 사항**: Azure Data Lake Storage Gen2에서 throw 되는 자세한 오류 메시지를 확인 합니다. 일시적인 오류 이면 작업을 다시 시도 하세요. 자세한 도움말을 보려면 Azure Storage 지원에 문의 하 고 오류 메시지에 요청 ID를 제공 하십시오.
-
-- **원인**: 오류 메시지에 "사용 권한 없음" 문자열이 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 Azure Data Lake Storage Gen2에 액세스할 수 있는 권한이 없을 수 있습니다.
-
-- **권장 사항**:이 오류를 해결 하려면 [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication)을 참조 하세요.
-
-- **원인**: 오류 메시지에 "internalservererror" 문자열이 포함 된 경우 Azure Data Lake Storage Gen2에서 오류를 반환 합니다.
-
-- **권장 사항**: 일시적인 오류로 인해 오류가 발생할 수 있습니다. 그렇다면 작업을 다시 시도합니다. 문제가 계속 되 면 Azure Storage 지원 담당자에 게 문의 하 고 오류 메시지에서 요청 ID를 제공 합니다.
+  | 원인 분석                                               | 권장                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | Azure Data Lake Storage Gen2 일부 작업이 실패 했음을 나타내는 오류를 throw 합니다.| Azure Data Lake Storage Gen2에서 throw 한 자세한 오류 메시지를 확인 합니다. 일시적인 오류 이면 작업을 다시 시도 하세요. 자세한 도움말을 보려면 Azure Storage 지원에 문의 하 고 오류 메시지에 요청 ID를 제공 하십시오. |
+  | 오류 메시지에 "사용 권한 없음" 문자열이 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 Azure Data Lake Storage Gen2에 액세스할 수 있는 권한이 없을 수 있습니다. | 이 오류를 해결 하려면 [Azure Data Factory를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication)을 참조 하세요. |
+  | 오류 메시지에 "InternalServerError" 문자열이 포함 되어 있으면 Azure Data Lake Storage Gen2에서 오류를 반환 합니다. | 일시적인 오류로 인해 오류가 발생할 수 있습니다. 그렇다면 작업을 다시 시도합니다. 문제가 계속 되 면 Azure Storage 지원 담당자에 게 문의 하 고 오류 메시지에서 요청 ID를 제공 합니다. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>Azure Data Lake Storage Gen2 계정에 대 한 요청으로 인해 시간 초과 오류가 발생 했습니다.
 
@@ -204,7 +200,7 @@ ms.locfileid: "99054639"
                   
 ## <a name="azure-files-storage"></a>Azure Files 저장소
 
-### <a name="error-code--azurefileoperationfailed"></a>오류 코드: AzureFileOperationFailed
+### <a name="error-code-azurefileoperationfailed"></a>오류 코드: AzureFileOperationFailed
 
 - **메시지**: `Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
 
@@ -215,55 +211,34 @@ ms.locfileid: "99054639"
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure Synapse Analytics, Azure SQL Database 및 SQL Server
 
-### <a name="error-code--sqlfailedtoconnect"></a>오류 코드:  SqlFailedToConnect
+### <a name="error-code-sqlfailedtoconnect"></a>오류 코드: SqlFailedToConnect
 
 - **메시지**: `Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **원인**: Azure SQL에서 오류 메시지에 "SqlErrorNumber = 47073" 문자열이 포함 된 경우 연결 설정에서 공용 네트워크 액세스가 거부 되었음을 의미 합니다.
-
-- **권장 사항**: Azure SQL 방화벽에서 **공용 네트워크 액세스 거부** 옵션을 *아니요* 로 설정 합니다. 자세한 내용은 [AZURE SQL 연결 설정](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access)을 참조 하세요.
-
-- **원인**: azure sql에서 오류 메시지에 "SqlErrorNumber = [errorcode]"와 같은 sql 오류 코드가 포함 된 경우 azure sql 문제 해결 가이드를 참조 하세요.
-
-- **권장** 사항: 권장 사항은 [연결 문제 해결 및 AZURE SQL DATABASE 및 Azure SQL Managed Instance를 사용 하는 기타 오류](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues)를 참조 하세요.
-
-- **원인**: 포트 1433가 방화벽 허용 목록에 있는지 확인 합니다.
-
-- **권장 사항**: 자세한 내용은 [SQL Server에서 사용 하는 포트](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-)를 참조 하세요.
-
-- **원인**: 오류 메시지에 "SqlException SQL Database" 문자열이 포함 된 경우 오류는 특정 작업이 실패 했음을 나타냅니다.
-
-- **권장 사항**: 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요.
-
-- **원인**: 일시적인 문제 (예: 네트워크를 사용할 수 있는 네트워크 연결) 인 경우 작업 정책에서 재시도를 추가 하 여 완화 합니다.
-
-- **권장 사항**: 자세한 내용은 [Azure Data Factory의 파이프라인 및 활동](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy)을 참조 하세요.
-
-- **원인**: 오류 메시지에 "클라이언트에서 IP 주소를 사용 합니다. ' 문자열이 포함 된 경우 에서 서버에 액세스할 수 없으며, Azure SQL Database 연결 하려고 시도 하는 중 이며,이 오류는 일반적으로 Azure SQL Database 방화벽 문제로 인해 발생 합니다.
-
-- **권장 사항**: azure SQL Server 방화벽 구성에서 **azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용** 옵션을 사용 하도록 설정 합니다. 자세한 내용은 [Azure SQL Database 및 Azure SYNAPSE IP 방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 참조 하세요.
-
-
-### <a name="error-code--sqloperationfailed"></a>오류 코드:  SqlOperationFailed
+    | 원인 분석                                               | 권장                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Azure SQL의 경우 오류 메시지에 "SqlErrorNumber = 47073" 문자열이 포함 되어 있으면 연결 설정에서 공용 네트워크 액세스가 거부 되었음을 의미 합니다. | Azure SQL 방화벽에서 **공용 네트워크 액세스 거부** 옵션을 *아니요* 로 설정 합니다. 자세한 내용은 [AZURE SQL 연결 설정](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access)을 참조 하세요. |
+    | Azure SQL에서 오류 메시지에 "SqlErrorNumber = [errorcode]"와 같은 SQL 오류 코드가 포함 된 경우 Azure SQL 문제 해결 가이드를 참조 하세요. | 권장 사항은 [연결 문제 해결 및 Azure SQL Database 및 AZURE SQL Managed Instance를 사용 하는 기타 오류](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues)를 참조 하세요. |
+    | 포트 1433가 방화벽 허용 목록에 있는지 확인 합니다. | 자세한 내용은 [SQL Server에서 사용 하는 포트](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-)를 참조 하세요. |
+    | 오류 메시지에 "SqlException SQL Database" 문자열이 포함 된 경우 오류는 특정 작업이 실패 했음을 나타냅니다. | 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 SQL 오류 코드를 검색 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
+    | 일시적인 문제 (예: 네트워크를 사용할 수 있는 네트워크 연결) 인 경우 작업 정책에서 재시도를 추가 하 여 완화할 수 있습니다. | 자세한 내용은 [Azure Data Factory의 파이프라인 및 작업](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy)을 참조하세요. |
+    | 오류 메시지에 "IP 주소를 가진 클라이언트 ... ' 문자열이 포함 된 경우 서버에 액세스할 수 없습니다. "라는 메시지가 표시 되 고 Azure SQL Database에 연결 하려고 시도 하는 경우 일반적으로 Azure SQL Database 방화벽 문제로 인해 오류가 발생 합니다. | Azure SQL Server 방화벽 구성에서 **azure 서비스 및 리소스에서이 서버에 액세스할 수 있도록 허용** 옵션을 사용 하도록 설정 합니다. 자세한 내용은 [Azure SQL Database 및 Azure SYNAPSE IP 방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 참조 하세요. |
+    
+### <a name="error-code-sqloperationfailed"></a>오류 코드: SqlOperationFailed
 
 - **메시지**: `A database operation failed. Please search error to get more details.`
 
-- **원인**: 오류 메시지에 "SqlException" 문자열이 포함 된 경우 특정 작업이 실패 했음을 나타내는 오류 SQL Database 발생 합니다.
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **권장 사항**: SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조하세요.
-
-    SQL 문제를 해결 하는 방법에 대 한 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 sql 오류 코드를 검색 하십시오. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요.
-
-- **원인**: 오류 메시지에 "PdwManagedToNativeInteropException" 문자열이 포함 된 경우 일반적으로 원본 및 싱크 열 크기가 일치 하지 않기 때문입니다.
-
-- **권장 사항**: 원본 및 싱크 열의 크기를 확인 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요.
-
-- **원인**: 오류 메시지에 "InvalidOperationException" 문자열이 포함 된 경우 일반적으로 잘못 된 입력 데이터로 인해 발생 합니다.
-
-- **권장 사항**: 문제가 발생 한 행을 식별 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)에 대 한 내결함성을 참조 하세요.
+    | 원인 분석                                               | 권장                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | 오류 메시지에 "SqlException" 문자열이 포함 된 경우 SQL Database 특정 작업이 실패 했음을 나타내는 오류를 throw 합니다. | SQL 오류가 명확 하지 않은 경우 데이터베이스를 최신 호환성 수준 ' 150 '으로 변경 하십시오. 최신 버전의 SQL 오류를 throw 할 수 있습니다. 자세한 내용은 [설명서](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조하세요. <br/> SQL 문제를 해결 하는 방법에 대 한 자세한 내용은 [데이터베이스 엔진 오류](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors)에서 sql 오류 코드를 검색 하십시오. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
+    | 오류 메시지에 "PdwManagedToNativeInteropException" 문자열이 포함 된 경우 일반적으로 원본 및 싱크 열 크기가 일치 하지 않기 때문입니다. | 원본 및 싱크 열의 크기를 확인 합니다. 추가 도움이 필요 하면 Azure SQL 지원에 문의 하세요. |
+    | 오류 메시지에 "InvalidOperationException" 문자열이 포함 된 경우 일반적으로 잘못 된 입력 데이터로 인해 발생 합니다. | 문제가 발생 한 행을 식별 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)에 대 한 내결함성을 참조 하세요. |
 
 
-### <a name="error-code--sqlunauthorizedaccess"></a>오류 코드:  SqlUnauthorizedAccess
+### <a name="error-code-sqlunauthorizedaccess"></a>오류 코드: SqlUnauthorizedAccess
 
 - **메시지**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
@@ -272,7 +247,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 로그인 계정에 SQL 데이터베이스에 액세스할 수 있는 충분 한 권한이 있는지 확인 합니다.
 
 
-### <a name="error-code--sqlopenconnectiontimeout"></a>오류 코드:  SqlOpenConnectionTimeout
+### <a name="error-code-sqlopenconnectiontimeout"></a>오류 코드: SqlOpenConnectionTimeout
 
 - **메시지**: `Open connection to database timeout after '%timeoutValue;' seconds.`
 
@@ -281,7 +256,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 연결 된 서비스 연결 문자열을 더 큰 연결 시간 제한 값으로 업데이트 하려면 작업을 다시 시도 하세요.
 
 
-### <a name="error-code--sqlautocreatetabletypemapfailed"></a>오류 코드:  SqlAutoCreateTableTypeMapFailed
+### <a name="error-code-sqlautocreatetabletypemapfailed"></a>오류 코드: SqlAutoCreateTableTypeMapFailed
 
 - **메시지**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
@@ -290,7 +265,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: *매핑에서* 열 유형을 업데이트 하거나 대상 서버에 싱크 테이블을 수동으로 만듭니다.
 
 
-### <a name="error-code--sqldatatypenotsupported"></a>오류 코드:  SqlDataTypeNotSupported
+### <a name="error-code-sqldatatypenotsupported"></a>오류 코드: SqlDataTypeNotSupported
 
 - **메시지**: `A database operation failed. Check the SQL errors.`
 
@@ -303,7 +278,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 해당 열 유형을 싱크 테이블의 *datetime2* 형식으로 업데이트 합니다.
 
 
-### <a name="error-code--sqlinvaliddbstoredprocedure"></a>오류 코드:  SqlInvalidDbStoredProcedure
+### <a name="error-code-sqlinvaliddbstoredprocedure"></a>오류 코드: Sqlin유효한 Dbstoredprocedure
 
 - **메시지**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
@@ -312,7 +287,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: SQL 도구를 사용 하 여 저장 프로시저의 유효성을 검사 합니다. 저장 프로시저에서 데이터를 반환할 수 있는지 확인 합니다.
 
 
-### <a name="error-code--sqlinvaliddbquerystring"></a>오류 코드:  SqlInvalidDbQueryString
+### <a name="error-code-sqlinvaliddbquerystring"></a>오류 코드: Sqlin유효한 Dbquerystring
 
 - **메시지**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
@@ -321,7 +296,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: sql 도구를 사용 하 여 sql 쿼리의 유효성을 검사 합니다. 쿼리가 데이터를 반환할 수 있는지 확인 합니다.
 
 
-### <a name="error-code--sqlinvalidcolumnname"></a>오류 코드:  SqlInvalidColumnName
+### <a name="error-code-sqlinvalidcolumnname"></a>오류 코드: Sqlin유효한 Columnname
 
 - **메시지**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
@@ -330,7 +305,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 쿼리의 열, 데이터 집합의 *구조* 및 활동의 *매핑을* 확인 합니다.
 
 
-### <a name="error-code--sqlbatchwritetimeout"></a>오류 코드:  SqlBatchWriteTimeout
+### <a name="error-code-sqlbatchwritetimeout"></a>오류 코드: SqlBatchWriteTimeout
 
 - **메시지**: `Timeouts in SQL write operation.`
 
@@ -339,7 +314,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 작업을 다시 시도 하세요. 문제가 지속 되 면 Azure SQL 지원에 문의 하세요.
 
 
-### <a name="error-code--sqlbatchwritetransactionfailed"></a>오류 코드:  SqlBatchWriteTransactionFailed
+### <a name="error-code-sqlbatchwritetransactionfailed"></a>오류 코드: SqlBatchWriteTransactionFailed
 
 - **메시지**: `SQL transaction commits failed.`
 
@@ -352,7 +327,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 작업을 다시 시도 하 고 SQL database 쪽 메트릭을 검토 합니다.
 
 
-### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>오류 코드:  SqlBulkCopyInvalidColumnLength
+### <a name="error-code-sqlbulkcopyinvalidcolumnlength"></a>오류 코드: SqlBulkCopyInvalidColumnLength
 
 - **메시지**: `SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
@@ -361,7 +336,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 문제가 발생 한 행을 확인 하려면 복사 작업에서 내결함성 기능을 사용 하도록 설정 합니다. 이렇게 하면 추가 조사를 위해 문제가 있는 행을 저장소로 리디렉션할 수 있습니다. 자세한 내용은 [Azure Data Factory의 복사 작업](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)에 대 한 내결함성을 참조 하세요.
 
 
-### <a name="error-code--sqlconnectionisclosed"></a>오류 코드:  SqlConnectionIsClosed
+### <a name="error-code-sqlconnectionisclosed"></a>오류 코드: SqlConnectionIsClosed
 
 - **메시지**: `The connection is closed by SQL Database.`
 
@@ -480,7 +455,7 @@ ms.locfileid: "99054639"
 
 ## <a name="azure-table-storage"></a>Azure Table Storage
 
-### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>오류 코드: AzureTableDuplicateColumnsFromSource
+### <a name="error-code-azuretableduplicatecolumnsfromsource"></a>오류 코드: AzureTableDuplicateColumnsFromSource
 
 - **메시지**: `Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink.`
 
@@ -493,7 +468,7 @@ ms.locfileid: "99054639"
 
 ## <a name="db2"></a>DB2
 
-### <a name="error-code--db2driverrunfailed"></a>오류 코드: DB2DriverRunFailed
+### <a name="error-code-db2driverrunfailed"></a>오류 코드: DB2DriverRunFailed
 
 - **메시지**: `Error thrown from driver. Sql code: '%code;'`
 
@@ -504,7 +479,7 @@ ms.locfileid: "99054639"
 
 ## <a name="delimited-text-format"></a>구분된 텍스트 형식
 
-### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>오류 코드:  DelimitedTextColumnNameNotAllowNull
+### <a name="error-code-delimitedtextcolumnnamenotallownull"></a>오류 코드: DelimitedTextColumnNameNotAllowNull
 
 - **메시지**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
@@ -513,26 +488,22 @@ ms.locfileid: "99054639"
 - **권장 사항**: 첫 번째 행을 확인 하 고 비어 있는 경우 값을 수정 합니다.
 
 
-### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>오류 코드:  DelimitedTextMoreColumnsThanDefined
+### <a name="error-code-delimitedtextmorecolumnsthandefined"></a>오류 코드: DelimitedTextMoreColumnsThanDefined
 
 - **메시지**: `Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
-- **원인**: 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수 보다 큽니다. 데이터 문제 또는 잘못 된 열 구분 기호 또는 따옴표 문자 설정으로 인해 발생할 수 있습니다.
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **권장 사항**: 오류 메시지에서 행 개수를 가져오고, 행의 열을 확인 하 고, 데이터를 수정 합니다.
-
-- **원인**: 오류 메시지에서 예상 열 개수가 "1" 이면 잘못 된 압축 또는 형식 설정을 지정 했을 수 있습니다 .이로 인해 Data Factory 파일을 잘못 구문 분석 했습니다.
-
-- **권장 사항**: 형식 설정이 원본 파일과 일치 하는지 확인 합니다.
-
-- **원인**: 원본이 폴더 이면 지정 된 폴더의 파일에 다른 스키마가 있을 수 있습니다.
-
-- **권장 사항**: 지정 된 폴더의 파일이 동일한 스키마를 포함 하는지 확인 합니다.
+  | 원인 분석                                               | 권장                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수 보다 큽니다. 데이터 문제 또는 잘못 된 열 구분 기호 또는 따옴표 문자 설정으로 인해 발생할 수 있습니다. | 오류 메시지에서 행 개수를 가져오고, 행의 열을 확인 하 고, 데이터를 수정 합니다. |
+  | 오류 메시지에서 예상 열 개수가 "1" 이면 잘못 된 압축 또는 형식 설정을 지정 했을 수 있습니다 .이로 인해 Data Factory 파일을 잘못 구문 분석 했습니다. | 형식 설정이 원본 파일과 일치 하는지 확인 합니다. |
+  | 원본이 폴더인 경우 지정 된 폴더에 있는 파일의 스키마가 다를 수 있습니다. | 지정 된 폴더의 파일이 동일한 스키마를 포함 하는지 확인 합니다. |
 
 
 ## <a name="dynamics-365-common-data-service-and-dynamics-crm"></a>Dynamics 365, Common Data Service 및 Dynamics CRM
 
-### <a name="error-code--dynamicscreateserviceclienterror"></a>오류 코드:  DynamicsCreateServiceClientError
+### <a name="error-code-dynamicscreateserviceclienterror"></a>오류 코드: DynamicsCreateServiceClientError
 
 - **메시지**: `This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
@@ -550,7 +521,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 매핑 탭에서 수동으로 열을 추가 합니다.
 
 
-### <a name="error-code--dynamicsmissingtargetformultitargetlookupfield"></a>오류 코드: DynamicsMissingTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsmissingtargetformultitargetlookupfield"></a>오류 코드: DynamicsMissingTargetForMultiTargetLookupField
 
 - **메시지**: `Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
@@ -561,7 +532,7 @@ ms.locfileid: "99054639"
   2. 열 매핑에 대상 열을 추가 합니다. 싱크 열이 *{fieldName} @EntityReference* 형식 인지 확인 합니다.
 
 
-### <a name="error-code--dynamicsinvalidtargetformultitargetlookupfield"></a>오류 코드: DynamicsInvalidTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtargetformultitargetlookupfield"></a>오류 코드: DynamicsInvalidTargetForMultiTargetLookupField
 
 - **메시지**: `The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
@@ -570,7 +541,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 다중 대상 조회 필드에 올바른 엔터티 이름을 지정 합니다.
 
 
-### <a name="error-code--dynamicsinvalidtypeformultitargetlookupfield"></a>오류 코드: DynamicsInvalidTypeForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtypeformultitargetlookupfield"></a>오류 코드: DynamicsInvalidTypeForMultiTargetLookupField
 
 - **메시지**: `The provided target type is not a valid string. Field: '%fieldName;'.`
 
@@ -579,18 +550,18 @@ ms.locfileid: "99054639"
 - **권장 사항**: 다중 대상 조회 대상 열에 올바른 문자열을 제공 합니다.
 
 
-### <a name="error-code--dynamicsfailedtorequetserver"></a>오류 코드: DynamicsFailedToRequetServer
+### <a name="error-code-dynamicsfailedtorequetserver"></a>오류 코드: DynamicsFailedToRequetServer
 
 - **메시지**: `The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **원인**: Dynamics 서버를 가져오거나 액세스할 수 없거나 네트워크에 문제가 발생 했습니다.
 
 - **권장** 사항: 자세한 내용은 네트워크 연결을 확인 하거나 Dynamics server 로그를 확인 하세요. 자세한 도움말은 Dynamics 지원에 문의 하세요.
-    
+  
 
 ## <a name="ftp"></a>FTP
 
-### <a name="error-code--ftpfailedtoconnecttoftpserver"></a>오류 코드: FtpFailedToConnectToFtpServer
+### <a name="error-code-ftpfailedtoconnecttoftpserver"></a>오류 코드: FtpFailedToConnectToFtpServer
 
 - **메시지**: `Failed to connect to FTP server. Please make sure the provided server information is correct, and try again.`
 
@@ -601,7 +572,7 @@ ms.locfileid: "99054639"
 
 ## <a name="http"></a>HTTP
 
-### <a name="error-code--httpfilefailedtoread"></a>오류 코드: HttpFileFailedToRead
+### <a name="error-code-httpfilefailedtoread"></a>오류 코드: HttpFileFailedToRead
 
 - **메시지**: `Failed to read data from http server. Check the error from http server：%message;`
 
@@ -627,31 +598,20 @@ ms.locfileid: "99054639"
 
 ## <a name="orc-format"></a>ORC 형식
 
-### <a name="error-code--orcjavainvocationexception"></a>오류 코드: OrcJavaInvocationException
+### <a name="error-code-orcjavainvocationexception"></a>오류 코드: OrcJavaInvocationException
 
 - **메시지**: `An error occurred when invoking Java, message: %javaException;.`
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **원인**: 오류 메시지에 "OutOfMemory", "java 힙 공간" 및 "doubleCapacity" 문자열이 포함 되어 있는 경우 일반적으로 이전 버전의 integration runtime에서 메모리 관리 문제가 발생 합니다.
+    | 원인 분석                                               | 권장                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | 오류 메시지에 "OutOfMemory", "Java 힙 공간" 및 "doubleCapacity" 문자열이 포함 되어 있는 경우 일반적으로 이전 버전의 integration runtime에서 메모리 관리 문제가 발생 합니다. | 자체 호스팅 Integration Runtime 사용 하는 경우 최신 버전으로 업그레이드 하는 것이 좋습니다. |
+    | 오류 메시지에 "OutOfMemory" 문자열이 포함 된 경우 통합 런타임에는 파일을 처리할 수 있는 충분 한 리소스가 없습니다. | 통합 런타임에 대 한 동시 실행을 제한 합니다. 자체 호스팅 IR의 경우 메모리가 8gb 보다 크거나 같은 강력한 컴퓨터로 확장 합니다. |
+    |오류 메시지에 "NullPointerReference" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다. | 작업을 다시 시도하세요. 문제가 계속되면 지원에 문의하세요. |
+    | 오류 메시지에 "BufferOverflowException" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다. | 작업을 다시 시도하세요. 문제가 계속되면 지원에 문의하세요. |
+    | 오류 메시지에 "ClassCastException; serde2를 HiveCharWritable로 캐스팅할 수 없습니다." 라는 문자열이 포함 된 경우 Java 런타임 내에 형식 변환 문제가 있을 수 있습니다 .이 경우에 해당 하는 결과가 발생할 수 있습니다. 일반적으로 Java 런타임에서는 원본 데이터를 효율적으로 처리할 수 없음을 의미 합니다. | 이는 데이터 문제입니다. ORC format 데이터에서 char 또는 varchar 대신 문자열을 사용 하십시오. |
 
-- **권장 사항**: 자체 호스팅 Integration Runtime 사용 하는 경우 최신 버전으로 업그레이드 하는 것이 좋습니다.
-
-- **원인**: 오류 메시지에 "OutOfMemory" 문자열이 포함 된 경우 통합 런타임에는 파일을 처리할 수 있는 충분 한 리소스가 없습니다.
-
-- **권장 사항**:  Integration Runtime의 동시 실행을 제한합니다. 자체 호스팅 IR의 경우 메모리가 8gb 보다 크거나 같은 강력한 컴퓨터로 확장 합니다.
-
-- **원인**: 오류 메시지에 "NullPointerReference" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다.
-
-- **권장 사항**: 작업을 다시 시도 하세요. 문제가 계속되면 지원에 문의하세요.
-
-- **원인**: 오류 메시지에 "BufferOverflowException" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다.
-
-- **권장 사항**: 작업을 다시 시도 하세요. 문제가 계속되면 지원에 문의하세요.
-
-- **원인**: 오류 메시지에 "ClassCastException; serde2로 캐스팅할 수 없습니다." 라는 문자열이 포함 된 경우 java 런타임 내에서 발생 하는 형식 변환 문제가 있을 수 있으며,이 경우에 발생 합니다. 일반적으로 Java 런타임에서는 원본 데이터를 효율적으로 처리할 수 없음을 의미 합니다.
-
-- **권장 사항**: 데이터 문제입니다. ORC format 데이터에서 char 또는 varchar 대신 문자열을 사용 하십시오.
-
-### <a name="error-code--orcdatetimeexceedlimit"></a>오류 코드: OrcDateTimeExceedLimit
+### <a name="error-code-orcdatetimeexceedlimit"></a>오류 코드: OrcDateTimeExceedLimit
 
 - **메시지**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
@@ -662,24 +622,19 @@ ms.locfileid: "99054639"
 
 ## <a name="parquet-format"></a>Parquet 형식
 
-### <a name="error-code--parquetjavainvocationexception"></a>오류 코드:  ParquetJavaInvocationException
+### <a name="error-code-parquetjavainvocationexception"></a>오류 코드: ParquetJavaInvocationException
 
 - **메시지**: `An error occurred when invoking java, message: %javaException;.`
 
-- **원인**: 오류 메시지에 "OutOfMemory", "java 힙 공간" 및 "doubleCapacity" 문자열이 포함 된 경우 일반적으로 이전 버전의 Integration Runtime에서 메모리 관리 문제가 발생 합니다.
+- **원인 및 권장 사항**: 다른 원인으로 인해이 오류가 발생할 수 있습니다. 아래 목록에서 가능한 원인 분석 및 관련 권장 사항을 확인 하십시오.
 
-- **권장 사항**: 자체 호스팅 IR을 사용 중이 고 버전이 3.20.7159.1 이전 버전인 경우 최신 버전으로 업그레이드 하는 것이 좋습니다.
+    | 원인 분석                                               | 권장                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | 오류 메시지에 "OutOfMemory", "Java 힙 공간" 및 "doubleCapacity" 문자열이 포함 되어 있는 경우 일반적으로 이전 버전의 Integration Runtime에서 메모리 관리 문제가 발생 합니다. | 자체 호스팅 IR을 사용 하는 경우 3.20.7159.1 보다 이전 버전인 경우 최신 버전으로 업그레이드 하는 것이 좋습니다. |
+    | 오류 메시지에 "OutOfMemory" 문자열이 포함 된 경우 통합 런타임에는 파일을 처리할 수 있는 충분 한 리소스가 없습니다. | 통합 런타임에 대 한 동시 실행을 제한 합니다. 자체 호스팅 IR의 경우 8gb 보다 크거나 같은 메모리를 사용 하는 강력한 컴퓨터로 확장 합니다. |
+    | 오류 메시지에 "NullPointerReference" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다. | 작업을 다시 시도하세요. 문제가 계속되면 지원에 문의하세요. |
 
-- **원인**: 오류 메시지에 "OutOfMemory" 문자열이 포함 된 경우 통합 런타임에는 파일을 처리할 수 있는 충분 한 리소스가 없습니다.
-
-- **권장 사항**:  Integration Runtime의 동시 실행을 제한합니다. 자체 호스팅 IR의 경우 8gb 보다 크거나 같은 메모리를 사용 하는 강력한 컴퓨터로 확장 합니다.
-
-- **원인**: 오류 메시지에 "NullPointerReference" 문자열이 포함 된 경우 일시적인 오류일 수 있습니다.
-
-- **권장 사항**: 작업을 다시 시도 하세요. 문제가 계속되면 지원에 문의하세요.
-
-
-### <a name="error-code--parquetinvalidfile"></a>오류 코드:  ParquetInvalidFile
+### <a name="error-code-parquetinvalidfile"></a>오류 코드: ParquetInvalidFile
 
 - **메시지**: `File is not a valid Parquet file.`
 
@@ -688,7 +643,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 입력이 유효한 Parquet 파일 인지 여부를 확인 합니다.
 
 
-### <a name="error-code--parquetnotsupportedtype"></a>오류 코드:  ParquetNotSupportedType
+### <a name="error-code-parquetnotsupportedtype"></a>오류 코드: ParquetNotSupportedType
 
 - **메시지**: `Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
@@ -697,7 +652,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs)으로 이동 하 여 원본 데이터를 두 번 확인 합니다.
 
 
-### <a name="error-code--parquetmisseddecimalprecisionscale"></a>오류 코드:  ParquetMissedDecimalPrecisionScale
+### <a name="error-code-parquetmisseddecimalprecisionscale"></a>오류 코드: ParquetMissedDecimalPrecisionScale
 
 - **메시지**: `Decimal Precision or Scale information is not found in schema for column: %column;.`
 
@@ -706,7 +661,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 소스가 올바른 전체 자릿수 및 소수 자릿수 정보를 반환 하지 않습니다. 정보에 대 한 문제 열을 확인 합니다.
 
 
-### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>오류 코드:  ParquetInvalidDecimalPrecisionScale
+### <a name="error-code-parquetinvaliddecimalprecisionscale"></a>오류 코드: ParquetInvalidDecimalPrecisionScale
 
 - **메시지**: `Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
@@ -715,7 +670,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 전체 자릿수 및 소수 자릿수에 대 한 문제 열을 확인 합니다.
 
 
-### <a name="error-code--parquetcolumnnotfound"></a>오류 코드:  ParquetColumnNotFound
+### <a name="error-code-parquetcolumnnotfound"></a>오류 코드: ParquetColumnNotFound
 
 - **메시지**: `Column %column; does not exist in Parquet file.`
 
@@ -724,7 +679,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 작업에서 매핑을 확인 합니다. 원본 열을 올바른 싱크 열에 매핑할 수 있는지 확인 합니다.
 
 
-### <a name="error-code--parquetinvaliddataformat"></a>오류 코드:  ParquetInvalidDataFormat
+### <a name="error-code-parquetinvaliddataformat"></a>오류 코드: ParquetInvalidDataFormat
 
 - **메시지**: `Incorrect format of %srcValue; for converting to %dstType;.`
 
@@ -733,7 +688,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 원본 데이터를 두 번 확인 하거나 복사 작업 열 매핑에서이 열에 올바른 데이터 형식을 지정 하십시오. 자세한 내용은 [Azure Data Factory에서 복사 작업을 통해 지원 되는 파일 형식 및 압축 코덱](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs)을 참조 하세요.
 
 
-### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>오류 코드:  ParquetDataCountNotMatchColumnCount
+### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>오류 코드: ParquetDataCountNotMatchColumnCount
 
 - **메시지**: `The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
@@ -742,7 +697,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 원본 열 개수가 ' 매핑 '의 싱크 열 수와 동일한 지 확인 하려면 두 번 확인 합니다.
 
 
-### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>오류 코드:  ParquetDataTypeNotMatchColumnType
+### <a name="error-code-parquetdatatypenotmatchcolumntype"></a>오류 코드: ParquetDataTypeNotMatchColumnType
 
 - **메시지**: `The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.`
 
@@ -751,7 +706,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 매핑 싱크에서 올바른 형식을 지정 하십시오.
 
 
-### <a name="error-code--parquetbridgeinvaliddata"></a>오류 코드:  ParquetBridgeInvalidData
+### <a name="error-code-parquetbridgeinvaliddata"></a>오류 코드: ParquetBridgeInvalidData
 
 - **메시지**: `%message;`
 
@@ -760,7 +715,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 작업을 다시 시도 하세요. 문제가 계속 되 면 microsoft에 문의 하세요.
 
 
-### <a name="error-code--parquetunsupportedinterpretation"></a>오류 코드:  ParquetUnsupportedInterpretation
+### <a name="error-code-parquetunsupportedinterpretation"></a>오류 코드: ParquetUnsupportedInterpretation
 
 - **메시지**: `The given interpretation '%interpretation;' of Parquet format is not supported.`
 
@@ -769,7 +724,7 @@ ms.locfileid: "99054639"
 - **권장 사항**:  'ParquetInterpretFor'는 'sparkSql'이 아니어야 합니다.
 
 
-### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>오류 코드:  ParquetUnsupportFileLevelCompressionOption
+### <a name="error-code-parquetunsupportfilelevelcompressionoption"></a>오류 코드: ParquetUnsupportFileLevelCompressionOption
 
 - **메시지**: `File level compression is not supported for Parquet.`
 
@@ -778,7 +733,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 페이로드에서 ' CompressionType '을 제거 합니다.
 
 
-### <a name="error-code--usererrorjniexception"></a>오류 코드: UserErrorJniException
+### <a name="error-code-usererrorjniexception"></a>오류 코드: UserErrorJniException
 
 - **메시지**: `Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
 
@@ -818,7 +773,7 @@ ms.locfileid: "99054639"
 
 ## <a name="rest"></a>REST (영문)
 
-### <a name="error-code--restsinkcallfailed"></a>오류 코드: RestSinkCallFailed
+### <a name="error-code-restsinkcallfailed"></a>오류 코드: RestSinkCallFailed
 
 - **메시지**: `Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
@@ -850,7 +805,7 @@ ms.locfileid: "99054639"
 
 ## <a name="sftp"></a>SFTP
 
-#### <a name="error-code--sftpoperationfail"></a>오류 코드: SftpOperationFail
+#### <a name="error-code-sftpoperationfail"></a>오류 코드: SftpOperationFail
 
 - **메시지**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -859,7 +814,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: SFTP에서 오류 세부 정보를 확인 합니다.
 
 
-### <a name="error-code--sftprenameoperationfail"></a>오류 코드: SftpRenameOperationFail
+### <a name="error-code-sftprenameoperationfail"></a>오류 코드: SftpRenameOperationFail
 
 - **메시지**: `Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
@@ -868,7 +823,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 복사 싱크에서 "useTempFileRename"를 false로 설정 하 여 임시 파일에 업로드를 사용 하지 않도록 설정 합니다.
 
 
-### <a name="error-code--sftpinvalidsftpcredential"></a>오류 코드: Sftpin유효한 Sftcredential
+### <a name="error-code-sftpinvalidsftpcredential"></a>오류 코드: Sftpin유효한 Sftcredential
 
 - **메시지**: `Invalid SFTP credential provided for '%type;' authentication type.`
 
@@ -932,15 +887,15 @@ ms.locfileid: "99054639"
 - **해결** 방법: "AccMngr" 열이 있는지 확인 하려면 대상 데이터 집합 열을 매핑하여 데이터 집합 구성을 두 번 확인 합니다.
 
 
-### <a name="error-code--sftpfailedtoconnecttosftpserver"></a>오류 코드: SftpFailedToConnectToSftpServer
+### <a name="error-code-sftpfailedtoconnecttosftpserver"></a>오류 코드: SftpFailedToConnectToSftpServer
 
 - **메시지**: `Failed to connect to SFTP server '%server;'.`
 
-- **원인**: 오류 메시지에 "소켓 읽기 작업이 3만 밀리초 이후에 시간 초과 되었습니다." 라는 문자열이 포함 된 경우 SFTP 서버에 잘못 된 연결 된 서비스 유형이 사용 될 수 있습니다. 예를 들어, FTP 연결 된 서비스를 사용 하 여 SFTP 서버에 연결할 수 있습니다.
+- **원인**: 오류 메시지에 "소켓 읽기 작업이 3만 밀리초 후에 시간 초과 되었습니다." 라는 문자열이 포함 된 경우, 한 가지 가능한 원인은 SFTP 서버에 잘못 된 연결 된 서비스 유형이 사용 되는 것입니다. 예를 들어, FTP 연결 된 서비스를 사용 하 여 SFTP 서버에 연결할 수 있습니다.
 
 - **권장 사항**: 대상 서버의 포트를 확인 합니다. 기본적으로 SFTP는 포트 22를 사용 합니다.
 
-- **원인**: 오류 메시지에 "서버 응답이 SSH 프로토콜 id를 포함 하지 않습니다." 라는 문자열이 포함 된 경우 SFTP 서버에서 연결을 제한 하는 것이 원인일 수 있습니다. Data Factory는 여러 연결을 만들어 SFTP 서버에서 병렬로 다운로드 하 고 때로는 SFTP 서버 제한이 발생할 수 있습니다. 일반적으로 다른 서버는 제한이 발생할 경우 다른 오류를 반환 합니다.
+- **원인**: 오류 메시지에 "서버 응답에 SSH 프로토콜 id가 포함 되어 있지 않습니다." 문자열이 포함 된 경우 SFTP 서버에서 연결을 제한 하는 것이 원인일 수 있습니다. Data Factory는 여러 연결을 만들어 SFTP 서버에서 병렬로 다운로드 하 고 때로는 SFTP 서버 제한이 발생할 수 있습니다. 일반적으로 다른 서버는 제한이 발생할 경우 다른 오류를 반환 합니다.
 
 - **권장 사항**:  
 
@@ -953,7 +908,7 @@ ms.locfileid: "99054639"
 
 ## <a name="sharepoint-online-list"></a>SharePoint Online 목록
 
-### <a name="error-code--sharepointonlineauthfailed"></a>오류 코드: SharePointOnlineAuthFailed
+### <a name="error-code-sharepointonlineauthfailed"></a>오류 코드: SharePointOnlineAuthFailed
 
 - **메시지**: `The access token generated failed, status code: %code;, error message: %message;.`
 
@@ -964,7 +919,7 @@ ms.locfileid: "99054639"
 
 ## <a name="xml-format"></a>XML 형식
 
-### <a name="error-code--xmlsinknotsupported"></a>오류 코드: XmlSinkNotSupported
+### <a name="error-code-xmlsinknotsupported"></a>오류 코드: XmlSinkNotSupported
 
 - **메시지**: `Write data in XML format is not supported yet, choose a different format!`
 
@@ -973,7 +928,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 데이터 집합을 싱크 데이터 집합의 다른 형식으로 사용 합니다.
 
 
-### <a name="error-code--xmlattributecolumnnameconflict"></a>오류 코드: XmlAttributeColumnNameConflict
+### <a name="error-code-xmlattributecolumnnameconflict"></a>오류 코드: XmlAttributeColumnNameConflict
 
 - **메시지**: `Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
 
@@ -982,7 +937,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: "attributeprefix" 속성에 대해 다른 값을 설정 합니다.
 
 
-### <a name="error-code--xmlvaluecolumnnameconflict"></a>오류 코드: XmlValueColumnNameConflict
+### <a name="error-code-xmlvaluecolumnnameconflict"></a>오류 코드: XmlValueColumnNameConflict
 
 - **메시지**: `Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
 
@@ -991,7 +946,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: "valueColumn" 속성에 대해 다른 값을 설정 합니다.
 
 
-### <a name="error-code--xmlinvalid"></a>오류 코드: XmlInvalid
+### <a name="error-code-xmlinvalid"></a>오류 코드: XmlInvalid
 
 - **메시지**: `Input XML file '%file;' is invalid with parsing error '%error;'.`
 
@@ -1002,7 +957,7 @@ ms.locfileid: "99054639"
 
 ## <a name="general-copy-activity-error"></a>일반 복사 작업 오류
 
-### <a name="error-code--jrenotfound"></a>오류 코드:  JreNotFound
+### <a name="error-code-jrenotfound"></a>오류 코드: J\\\ofound
 
 - **메시지**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -1011,7 +966,7 @@ ms.locfileid: "99054639"
 - **권장 사항**: 통합 런타임 환경을 확인 하려면 [자체 호스팅 Integration Runtime 사용](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)을 참조 하세요.
 
 
-### <a name="error-code--wildcardpathsinknotsupported"></a>오류 코드:  WildcardPathSinkNotSupported
+### <a name="error-code-wildcardpathsinknotsupported"></a>오류 코드: WildcardPathSinkNotSupported
 
 - **메시지**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 

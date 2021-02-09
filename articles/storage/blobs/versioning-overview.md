@@ -10,12 +10,12 @@ ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537164"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980283"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -37,6 +37,10 @@ Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [
 버전은 지정 된 시점에 blob의 상태를 캡처합니다. 저장소 계정에 blob 버전 관리를 사용 하도록 설정 하면 Azure Storage는 blob이 수정 되거나 삭제 될 때마다 blob의 새 버전을 자동으로 만듭니다.
 
 버전 관리를 사용 하도록 설정 된 blob을 만들 때 새 blob은 blob (또는 기본 blob)의 현재 버전입니다. 이후에 해당 blob을 수정 하면 Azure Storage는 blob의 상태를 수정 하기 전에 캡처하는 버전을 만듭니다. 수정 된 blob은 새로운 현재 버전이 됩니다. 새 버전은 blob를 수정할 때마다 생성 됩니다.
+
+다음 다이어그램에서는 쓰기 및 삭제 작업에 대 한 버전을 만드는 방법과 이전 버전을 현재 버전으로 승격 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Blob 버전 관리의 작동 방식을 보여 주는 다이어그램":::
 
 Blob 당 버전 수가 많으면 blob 목록 작업에 대 한 대기 시간이 길어질 수 있습니다. Microsoft는 blob 당 1000 개 미만의 버전을 유지 관리 하는 것이 좋습니다. 수명 주기 관리를 사용 하 여 이전 버전을 자동으로 삭제할 수 있습니다. 수명 주기 관리에 대 한 자세한 내용은 [Azure Blob Storage 액세스 계층을 자동화 하 여 비용 최적화](storage-lifecycle-management-concepts.md)를 참조 하세요.
 
@@ -187,7 +191,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 Azure RBAC 작업을 보여 줍니다.
 
-| 설명 | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| Description | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -200,7 +204,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| 삭제         | x              | Blob 버전을 삭제 합니다. |
+| DELETE         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 

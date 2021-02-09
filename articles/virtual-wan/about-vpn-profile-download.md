@@ -5,22 +5,26 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 116ec518f7788e620fc6bd177e535c8f6af99d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83b6ed2ae83db569d3c61e3cf4cd887f875eb25
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267774"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980918"
 ---
-# <a name="working-with-user-vpn-client-profiles"></a>사용자 VPN 클라이언트 프로필 작업
+# <a name="working-with-user-vpn-client-profile-files"></a>사용자 VPN 클라이언트 프로필 파일 작업
 
-다운로드한 프로필 파일에는 VPN 연결을 구성하는 데 필요한 정보가 포함되어 있습니다. 이 문서는 사용자 VPN 클라이언트 프로필에 필요한 정보를 얻고 이해 하는 데 도움이 됩니다.
+프로필 파일에는 VPN 연결을 구성 하는 데 필요한 정보가 포함 되어 있습니다. 이 문서는 사용자 VPN 클라이언트 프로필에 필요한 정보를 얻고 이해 하는 데 도움이 됩니다.
+
+## <a name="download-the-profile"></a>프로필 다운로드
+
+[프로필 다운로드](global-hub-profile.md) 문서의 단계를 사용 하 여 클라이언트 프로필 zip 파일을 다운로드할 수 있습니다.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* **OpenVPN 폴더**에는 *ovpn* 프로필이 포함되어 있으며, 키 및 인증서를 포함하도록 이 프로필을 수정해야 합니다. 자세한 내용은 [OpenVPN 클라이언트 구성](../virtual-wan/howto-openvpn-clients.md#windows)을 참조 하세요.
+* **OpenVPN 폴더** 에는 *ovpn* 프로필이 포함되어 있으며, 키 및 인증서를 포함하도록 이 프로필을 수정해야 합니다. 자세한 내용은 [OpenVPN 클라이언트 구성](../virtual-wan/howto-openvpn-clients.md#windows)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

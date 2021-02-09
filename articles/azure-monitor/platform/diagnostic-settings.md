@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820554"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979983"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함한 Azure의 [플랫폼 로그](platform-logs-overview.md)에서 Azure 리소스 및 이에 따른 Azure 플랫폼에 대한 자세한 진단 및 감사 정보를 제공합니다. [플랫폼 메트릭](data-platform-metrics.md)은 기본적으로 수집되며 일반적으로 Azure 모니터 메트릭 데이터베이스에 저장됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성하는 방법에 대한 세부 정보를 제공합니다.
@@ -189,7 +189,7 @@ az monitor diagnostic-settings create  \
 
 리소스 관리자 템플릿, 진단 설정 REST API, Azure CLI 또는 Azure PowerShell를 사용 하는 경우 문제가 발생 합니다. Azure Portal를 통해 만든 진단 설정은 지원 되는 범주 이름만 표시 되므로 영향을 받지 않습니다.
 
-이 문제는 기본 API의 최근 변경으로 인해 발생 합니다. ' AllMetrics ' 이외의 메트릭 범주는 지원 되지 않으며 매우 특정 한 IP 허용 목록 시나리오를 제외 하 고는 발생 하지 않습니다. 이전에는 진단 설정을 배포할 때 다른 범주 이름이 무시 되었습니다. Azure Monitor 백 엔드는 단순히 이러한 범주를 ' AllMetrics '로 리디렉션 했습니다.  2 월 2021을 기준으로 백 엔드는 제공 된 메트릭 범주가 정확한 지 확인 하기 위해 업데이트 되었습니다. 이 변경으로 인해 일부 배포가 실패 했습니다.
+이 문제는 기본 API의 최근 변경으로 인해 발생 합니다. ' AllMetrics ' 이외의 메트릭 범주는 지원 되지 않으며 몇 가지 매우 특정 한 Azure 서비스를 제외 하 고는 그렇지 않습니다. 이전에는 진단 설정을 배포할 때 다른 범주 이름이 무시 되었습니다. Azure Monitor 백 엔드는 단순히 이러한 범주를 ' AllMetrics '로 리디렉션 했습니다.  2 월 2021을 기준으로 백 엔드는 제공 된 메트릭 범주가 정확한 지 확인 하기 위해 업데이트 되었습니다. 이 변경으로 인해 일부 배포가 실패 했습니다.
 
 이 오류가 발생 하면 모든 메트릭 범주 이름을 ' AllMetrics '으로 바꿔 배포를 업데이트 하 여 문제를 해결 하십시오. 배포가 이전에 여러 범주를 추가한 경우에는 ' AllMetrics ' 참조를 사용 하는 하나만 유지 해야 합니다. 문제가 계속 되 면 Azure Portal를 통해 Azure 지원에 문의 하세요. 
 

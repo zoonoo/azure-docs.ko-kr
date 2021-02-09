@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898014"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833102"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 또한 연결 모니터 (클래식)에서 새 연결 모니터를 추가할 수 없습니다. 2021 년 7 월 1 일 이전에 만든 테스트 및 연결 모니터를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 [네트워크 성능 모니터에서 테스트를 마이그레이션하거나 ](migrate-to-connection-monitor-from-network-performance-monitor.md) ,  [연결 모니터 (클래식)](migrate-to-connection-monitor-from-connection-monitor-classic.md) 에서 Azure Network Watcher의 2024 년 2 월 29 일 이전에 새 연결 모니터로 마이그레이션합니다.
 
 연결 모니터는 Azure Network Watcher에서 통합 종단 간 연결 모니터링을 제공 합니다. 연결 모니터 기능은 하이브리드 및 Azure 클라우드 배포를 지원 합니다. Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
 
@@ -111,7 +114,7 @@ Windows 컴퓨터용 Log Analytics 에이전트를 설치 하려면 [windows 용
 
  ![테스트 그룹 및 테스트 간의 관계를 정의 하는 연결 모니터를 보여 주는 다이어그램](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-[Azure Portal](./connection-monitor-create-using-portal.md) 또는 [ARMClient](./connection-monitor-create-using-template.md) 를 사용 하 여 연결 모니터를 만들 수 있습니다.
+[Azure Portal](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md) 또는 [PowerShell](connection-monitor-create-using-powershell.md) 을 사용 하 여 연결 모니터를 만들 수 있습니다.
 
 테스트 그룹에 추가 하는 모든 소스, 대상 및 테스트 구성은 개별 테스트로 분류 됩니다. 원본 및 대상을 분할 하는 방법의 예는 다음과 같습니다.
 
@@ -271,12 +274,13 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
-| AverageRoundtripMs | 평균 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
-| ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | 백분율 | 평균 | 테스트에 대해 실패 한 검사의 백분율입니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 RTT 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent (클래식) | % 프로브 실패 (클래식) | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
+| AverageRoundtripMs (클래식) | 평균 왕복 시간 (밀리초) (클래식) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |
+| ChecksFailedPercent | % 확인 실패 | 백분율 | 평균 | 테스트에 대해 실패 한 검사의 백분율입니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
+| RoundTripTimeMs | 왕복 시간(ms) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 RTT 이 값은 평균이 아닙니다. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>지역 |
+| TestResult | 테스트 결과 | 개수 | 평균 | 연결 모니터 테스트 결과 | SourceAddress <br>SourceName <br>Sourceresourceid 여야 <br>SourceType <br>프로토콜 <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>연결 모니터에 대 한 메트릭 기반 경고
 

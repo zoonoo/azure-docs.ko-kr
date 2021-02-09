@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 17a7ad29596c5ab5ed65868fde0e814bc83e8c37
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576745"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979538"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -132,20 +132,20 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 }
 ```
 
-## <a name="select-pages-or-page-ranges-for-text-extraction"></a>텍스트 추출을 위한 페이지 또는 페이지 범위 선택
-[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 규모가 긴 다중 페이지 문서의 경우 `pages` 쿼리 매개 변수를 사용 하 여 페이지 번호 또는 페이지 범위를 지정 하 여 해당 페이지 에서만 텍스트를 추출 합니다. 예를 들어 다음 예제에서는 두 개의 페이지가 모두 포함 된 문서 (1-10)와 선택한 페이지 (3-6)를 보여 줍니다.
+## <a name="natural-reading-order-output"></a>자연 스러운 읽기 순서 출력
+[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `readingOrder` . `natural`다음 예제와 같이 사용자에 게 친숙 한 읽기 순서 출력에 사용 합니다.
 
-:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="선택한 페이지 출력":::
-
-## <a name="specify-text-line-order-in-the-output"></a>출력에서 텍스트 줄 순서 지정
-[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `read order` . `basic`기본 왼쪽 및 위쪽 줄 순서 중에서 하나를 선택 하거나 `natural` 보다 인간 읽기 쉬운 줄 순서를 선택 합니다. 다음 예제에서는 동일한 두 열 문서에 대 한 두 줄 순서 번호 집합을 보여 줍니다. 오른쪽의 이미지는 각 열 내의 순차 줄 번호를 표시 하 여 읽기 순서를 나타냅니다.
-
-:::image border type="content" source="./Images/ocr-read-order.png" alt-text="OCR 읽기 순서 예":::
+:::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR 읽기 순서 예":::
 
 ## <a name="handwritten-classification-for-text-lines-latin-only"></a>텍스트 줄에 대 한 필기 분류 (라틴어 전용)
 [읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) 응답은 각 텍스트 줄이 필기 스타일 인지 여부를 분류 하는 것과 신뢰도 점수를 포함 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다. 다음 예에서는 이미지의 텍스트에 대 한 필기 분류를 보여 줍니다.
 
-:::image border type="content" source="./Images/handwritten-text-line.png" alt-text="OCR 필기 분류 예":::
+:::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR 필기 분류 예":::
+
+## <a name="select-pages-or-page-ranges-for-text-extraction"></a>텍스트 추출을 위한 페이지 또는 페이지 범위 선택
+[읽기 3.2 미리 보기 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 규모가 긴 다중 페이지 문서의 경우 `pages` 쿼리 매개 변수를 사용 하 여 페이지 번호 또는 페이지 범위를 지정 하 여 해당 페이지 에서만 텍스트를 추출 합니다. 다음 예제에서는 모든 페이지 (1-10) 및 선택 된 페이지 (3-6)에 대 한 텍스트를 포함 하는 10 개의 페이지가 있는 문서를 보여 줍니다.
+
+:::image border type="content" source="./Images/ocr-select-pages.png" alt-text="선택한 페이지 출력":::
 
 ## <a name="supported-languages"></a>지원되는 언어
 읽기 Api는 인쇄 스타일 텍스트에 대 한 총 73 언어를 지원 합니다. [OCR에서 지 원하는 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조 하세요. 필기 스타일 OCR은 영어 전용으로 지원 됩니다.

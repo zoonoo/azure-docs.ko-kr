@@ -5,14 +5,14 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: eb28e4c8f6b465e2a9b38cc4571bc4a00baf4ef7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533058"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979626"
 ---
 # <a name="modify-target-settings"></a>대상 설정 수정
 
@@ -37,15 +37,15 @@ Azure Vm 및 관련 리소스를 이동할 때 대상 설정을 수정할 수 �
 **리소스** | **Options** 
 --- | --- | --- 
 **VM 이름** | 옵션:<br/><br/> -대상 지역에 동일한 이름을 사용 하 여 새 VM을 만듭니다.<br/><br/> -대상 지역에 다른 이름을 사용 하 여 새 VM을 만듭니다.<br/><br/> -대상 지역에서 기존 VM을 사용 합니다.<br/><br/> 수정 하는 설정을 제외 하 고 새 VM을 만드는 경우 새 대상 VM에 원본과 동일한 설정이 할당 됩니다.
-**VM 가용성 영역** | 대상 VM이 배치 될 가용성 영역입니다. 원본 설정을 변경 하지 않으려는 경우 또는 가용성 영역에 VM을 추가 하지 않으려는 경우에는 **NA** 로 표시 될 수 있습니다.
+**VM 가용성 영역** | 대상 VM이 배치 될 가용성 영역입니다. 원본 설정을 변경 하지 않으려는 경우 또는 가용성 영역에 VM을 추가 하지 않으려는 경우에는 **적용할 수 없음** 을 선택 합니다.
 **VM SKU** | 대상 VM에 사용 되는 [vm 유형](https://azure.microsoft.com/pricing/details/virtual-machines/series/) (대상 지역에서 사용 가능).<br/><br/> 선택한 대상 VM은 원본 VM 보다 작을 수 없습니다.
-**네트워킹 리소스** | 가상 네트워크 (Vnet)/네트워크 보안 그룹/네트워크 인터페이스에 대 한 옵션:<br/><br/> -대상 지역에 동일한 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에 다른 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에서 기존 네트워킹 리소스를 사용 합니다.<br/><br/> 새 대상 리소스를 만드는 경우 수정 하는 설정을 제외 하 고 원본 리소스와 동일한 설정이 할당 됩니다.
-**공용 IP 주소 이름** | 이름을 지정합니다.
-**공용 IP 주소 SKU** | [SKU](../virtual-network/public-ip-addresses.md#sku)를 지정 합니다.
-**공용 IP 주소 영역** | 표준 공용 IP 주소에 대 한 [영역](../virtual-network/public-ip-addresses.md#standard) 을 지정 합니다.<br/><br/> 영역 중복으로 하려면 **영역 중복** 으로를 입력 합니다.
-**부하 분산 장치 이름** | 이름을 지정합니다.
-**부하 분산 장치 SKU** | 기본 또는 표준. Standard를 사용 하는 것이 좋습니다.
-**부하 분산 장치 영역** | 부하 분산 장치에 대 한 영역을 지정 합니다. <br/><br/> 영역 중복으로 하려면 **영역 중복** 으로를 입력 합니다.
+* * VM 가용성 집합 | 대상 VM이 배치 되는 가용성 집합입니다. 원본 설정을 변경 하지 않으려는 경우 또는 가용성 집합에 VM을 추가 하지 않으려는 경우 **를 선택 합니다**  .
+**VM 키 자격 증명 모음** | VM에서 Azure disk encryption을 사용 하도록 설정 하는 경우 연결 된 주요 자격 증명 모음입니다.
+**디스크 암호화 집합** | VM에서 서버 쪽 암호화를 위해 고객이 관리 하는 키를 사용 하는 경우 연결 된 디스크 암호화가 설정 됩니다.
+**리소스 그룹** | 대상 VM이 배치 될 리소스 그룹입니다.
+**네트워킹 리소스** | 네트워크 인터페이스, 가상 네트워크 (Vnet/) 및 네트워크 보안 그룹/네트워크 인터페이스에 대 한 옵션:<br/><br/> -대상 지역에 동일한 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에 다른 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에서 기존 네트워킹 리소스를 사용 합니다.<br/><br/> 새 대상 리소스를 만드는 경우 수정 하는 설정을 제외 하 고 원본 리소스와 동일한 설정이 할당 됩니다.
+**공용 IP 주소 이름, SKU 및 영역** | 표준 공용 IP 주소에 대 한 이름, [SKU](../virtual-network/public-ip-addresses.md#sku)및 [영역](../virtual-network/public-ip-addresses.md#standard) 을 지정 합니다.<br/><br/> 영역 중복으로 하려면 **영역 중복** 으로를 입력 합니다.
+* * 부하 분산 장치 이름, SKU 및 영역 * * | 부하 분산 장치의 이름, SKU (기본 또는 표준) 및 영역을 지정 합니다.<br/><br/> 표준 sKU를 사용 하는 것이 좋습니다.<br/><br/> 영역 중복으로 지정 하려면 **영역 중복** 으로 지정 합니다.
 **리소스 종속성** | 각 종속성에 대 한 옵션:<br/><br/>-리소스는 대상 지역으로 이동 하는 소스 종속 리소스를 사용 합니다.<br/><br/> -리소스는 대상 영역에 있는 서로 다른 종속 리소스를 사용 합니다. 이 경우 대상 지역의 비슷한 리소스에서 선택할 수 있습니다.
 
 ### <a name="edit-vm-target-settings"></a>VM 대상 설정 편집

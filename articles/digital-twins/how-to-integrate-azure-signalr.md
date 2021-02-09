@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 71e74789654d2df91d9a087eaaf8d8f2a2664f7b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 86d0c75d8b4c7c331e3e7ad90271e3fb42ff1964
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664115"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980731"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "98664115"
 
 이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 결과적으로 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출할 필요 없이 IoT 장치에서 실시간 메트릭 및 상태로 업데이트 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 계속 하기 전에 완료 해야 하는 필수 구성 요소는 다음과 같습니다.
 
@@ -40,9 +40,9 @@ ms.locfileid: "98664115"
 
 먼저 필요한 샘플 앱을 다운로드 합니다. 다음 두 가지가 모두 필요 합니다.
 * [**Azure Digital Twins 종단 간 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/):이 샘플에는 Azure Digital twins 인스턴스를 중심으로 데이터를 이동 하기 위한 두 개의 azure 기능을 보유 하는 *AdtSampleApp* 포함 되어 있습니다. [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서이 시나리오에 대해 자세히 알아볼 수 있습니다. 또한 IoT 장치를 시뮬레이션 하 고 초 마다 새 온도 값을 생성 하는 *DeviceSimulator* 샘플 응용 프로그램이 포함 되어 있습니다. 
-    - [*필수 조건*](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *코드 찾아보기* 단추를 선택 합니다. 그러면으로 다운로드할 수 있는 샘플에 대 한 GitHub 리포지토리로 이동 됩니다 *.* *코드* 단추를 선택 하 고 *zip을 다운로드* 하 여 zip을 다운로드 합니다.
+    - [*필수 조건*](#prerequisites)에서 자습서의 일부로 샘플을 아직 다운로드 하지 않은 경우 샘플 링크로 이동 하 여 제목 아래에 있는 *코드 찾아보기* 단추를 선택 합니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
-    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 쌍 샘플 리포지토리 보기입니다. 코드 단추가 선택 되어 ZIP 다운로드 단추가 강조 표시 된 작은 대화 상자를 생성 합니다." lightbox="media/includes/download-repo-zip.png":::
+    :::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 트윈 샘플 리포지토리 보기입니다. 코드 단추가 선택되어 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자를 생성합니다." lightbox="media/includes/download-repo-zip.png":::
 
     그러면 **digital-twins-samples-master.zip** 같이 샘플 리포지토리의 복사본이 컴퓨터에 다운로드 됩니다. 폴더의 압축을 풉니다.
 * [**SignalR integration 웹 앱 샘플**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): azure SignalR 서비스에서 Azure Digital twins 원격 분석 데이터를 사용 하는 샘플 반응 웹 앱입니다.
@@ -69,7 +69,7 @@ ms.locfileid: "98664115"
 
 그런 다음 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTSampleApp 폴더 >* 에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
-1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # sharp 클래스를 만듭니다.
+1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # 클래스를 만듭니다.
 
 1. 클래스 파일의 내용을 다음 코드로 바꿉니다.
     
@@ -82,7 +82,9 @@ ms.locfileid: "98664115"
 
     이렇게 하면 클래스의 모든 종속성 문제가 해결 됩니다.
 
-다음으로 *종단 간 솔루션 연결* 자습서의 [ *앱 게시* 섹션](tutorial-end-to-end.md#publish-the-app) 에 설명 된 단계를 사용 하 여 함수를 Azure에 게시 합니다. 종단 간 자습서 필수 구성 요소에서 사용한 것과 동일한 app service/함수 앱에 게시 하거나 새 자습서를 만들 수 있지만 중복을 최소화 하기 위해 동일한 앱을 사용 하는 것이 좋습니다. 또한 다음 단계를 사용 하 여 앱 게시를 완료 합니다.
+다음으로 *종단 간 솔루션 연결* 자습서의 [ *앱 게시* 섹션](tutorial-end-to-end.md#publish-the-app) 에 설명 된 단계를 사용 하 여 함수를 Azure에 게시 합니다. 종단 간 자습서 [필수 구성 요소](#prerequisites)에서 사용한 것과 동일한 app service/함수 앱에 게시 하거나 새 항목을 만들 수 있습니다. 그러나 중복을 최소화 하려면 동일한 앱을 사용 하는 것이 좋습니다. 
+
+다음 단계로 앱 게시를 완료 합니다.
 1. *Negotiate* 함수의 **HTTP 끝점 URL** 을 수집 합니다. 이렇게 하려면 Azure Portal의 [함수 앱](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) 페이지로 이동 하 여 목록에서 함수 앱을 선택 합니다. 앱 메뉴에서 *함수* 를 선택 하 고 *negotiate* 함수를 선택 합니다.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="메뉴에 ' 함수 '가 강조 표시 된 함수 앱의 Azure Portal 뷰입니다. 함수 목록이 페이지에 표시 되 고 ' negotiate ' 함수도 강조 표시 됩니다.":::
@@ -124,23 +126,11 @@ ms.locfileid: "98664115"
 
 ## <a name="configure-and-run-the-web-app"></a>웹 앱 구성 및 실행
 
-이 섹션에서는 결과를 작업에 표시 합니다. 먼저 Azure Digital Twins 인스턴스를 통해 원격 분석 데이터를 전송 하는 **시뮬레이션 된 장치 샘플 앱** 을 시작 합니다. 그런 다음 설정 된 Azure SignalR flow에 연결 하도록 **샘플 클라이언트 웹 앱** 을 구성 합니다. 그런 다음 샘플 웹 앱을 실시간으로 업데이트 하는 데이터를 볼 수 있어야 합니다.
-
-### <a name="run-the-device-simulator"></a>장치 시뮬레이터 실행
-
-종단 간 자습서 필수 구성 요소에서 IoT Hub 및 Azure Digital Twins 인스턴스로 데이터를 보내도록 [장치 시뮬레이터를 구성](tutorial-end-to-end.md#configure-and-run-the-simulation) 했습니다.
-
-이제 *디지털-twins-samples-master > DeviceSimulator > DeviceSimulator* 에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
-
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Visual Studio 시작 단추(DeviceSimulator 프로젝트)":::
-
-콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이러한 인스턴스는 azure Digital Twins 인스턴스를 통해 전송 되며, 여기서 Azure 함수 및 SignalR에서 선택 됩니다.
-
-이 콘솔에서 다른 작업을 수행할 필요는 없지만 다음 단계를 완료하는 동안 콘솔을 실행 상태로 둡니다.
+이 섹션에서는 결과를 작업에 표시 합니다. 먼저, 설정 된 Azure SignalR flow에 연결 하도록 **샘플 클라이언트 웹 앱** 을 구성 합니다. 다음으로, Azure Digital Twins 인스턴스를 통해 원격 분석 데이터를 전송 하는 **시뮬레이션 된 장치 샘플 앱** 을 시작 합니다. 그런 다음 샘플 웹 앱을 통해 샘플 웹 앱을 실시간으로 업데이트 하는 시뮬레이션 된 장치 데이터를 확인 합니다.
 
 ### <a name="configure-the-sample-client-web-app"></a>샘플 클라이언트 웹 앱 구성
 
-다음 단계를 수행 하 여 **SignalR integration 웹 앱 샘플** 을 설정 합니다.
+다음 단계를 사용 하 여 **SignalR integration 웹 앱 샘플** 을 설정 합니다.
 1. Visual Studio 또는 원하는 코드 편집기를 사용 하 여 [*샘플 응용 프로그램 다운로드*](#download-the-sample-applications) 섹션에서 다운로드 한 압축을 푼 _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ 폴더를 엽니다.
 
 1. *Src/App.js* 파일을 열고에서 URL을 `HubConnectionBuilder` 이전에 저장 한 **NEGOTIATE** 함수의 HTTP 끝점 url로 바꿉니다.
@@ -161,6 +151,18 @@ ms.locfileid: "98664115"
 1. 인스턴스 메뉴에서 아래로 스크롤하고 *CORS* 를 선택 합니다. CORS 페이지에서를 `http://localhost:3000` 빈 상자에 입력 하 여 허용 된 원본으로 추가 합니다. *액세스 허용-자격 증명 사용* 확인란을 선택 하 고 *저장* 을 누릅니다.
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Azure 함수의 CORS 설정":::
+
+### <a name="run-the-device-simulator"></a>장치 시뮬레이터 실행
+
+종단 간 자습서 필수 구성 요소에서 IoT Hub 및 Azure Digital Twins 인스턴스로 데이터를 보내도록 [장치 시뮬레이터를 구성](tutorial-end-to-end.md#configure-and-run-the-simulation) 했습니다.
+
+이제 *디지털-twins-samples-master > DeviceSimulator > DeviceSimulator* 에 있는 시뮬레이터 프로젝트를 시작 해야 합니다. Visual Studio를 사용 하는 경우 프로젝트를 열고 도구 모음에서이 단추를 사용 하 여 실행할 수 있습니다.
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Visual Studio 시작 단추(DeviceSimulator 프로젝트)":::
+
+콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이러한 인스턴스는 azure Digital Twins 인스턴스를 통해 전송 되며, 여기서 Azure 함수 및 SignalR에서 선택 됩니다.
+
+이 콘솔에서 다른 작업을 수행할 필요는 없지만 다음 단계를 완료 하는 동안에는 계속 실행 해야 합니다.
 
 ### <a name="see-the-results"></a>결과 보기
 

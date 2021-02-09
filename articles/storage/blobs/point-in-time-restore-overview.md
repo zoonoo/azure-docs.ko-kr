@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803870"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980520"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 blob에 대 한 지정 시간 복원
 
@@ -32,6 +32,10 @@ ms.locfileid: "97803870"
 지정 시간 복원을 시작 하려면 [Blob 범위 복원](/rest/api/storagerp/storageaccounts/restoreblobranges) 작업을 호출 하 고 UTC 시간으로 복원 지점을 지정 합니다. 복원할 컨테이너 및 blob 이름의 사전순 범위를 지정 하거나, 범위를 생략 하 여 저장소 계정의 모든 컨테이너를 복원할 수 있습니다. 복원 작업당 최대 10 개의 사전순 범위가 지원 됩니다.
 
 Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 지점 사이에 지정 된 blob에 대 한 모든 변경 내용을 분석 합니다. 복원 작업은 원자성 이므로 모든 변경 내용을 복원 하는 데 완전히 성공 하거나 실패 합니다. 복원할 수 없는 blob이 있는 경우 작업이 실패 하 고 영향을 받는 컨테이너 다시 시작에 대 한 읽기 및 쓰기 작업이 실패 합니다.
+
+다음 다이어그램에서는 지정 시간 복원의 작동 방식을 보여 줍니다. 하나 이상의 컨테이너 또는 blob 범위는 *n* 일 전 상태로 복원 됩니다. 여기서 *n* 은 지정 시간 복원에 대해 정의 된 보존 기간 보다 작거나 같습니다. 보존 기간 중에 발생 한 쓰기 및 삭제 작업을 되돌리는 효과가 있습니다.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="특정 시점에서 컨테이너를 이전 상태로 복원 하는 방법을 보여 주는 다이어그램":::
 
 한 번에 하나의 복원 작업만 저장소 계정에서 실행할 수 있습니다. 복원 작업은 진행 중인 동안에는 취소할 수 없지만 첫 번째 작업을 실행 취소 하기 위해 두 번째 복원 작업을 수행할 수 있습니다.
 

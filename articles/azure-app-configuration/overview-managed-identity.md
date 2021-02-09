@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: e6ced30e8c8c5eb60eea3806d9c8080df7c2a12d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072801"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979592"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Azure App Configuration에서 관리 ID를 사용하는 방법
 
@@ -20,8 +20,8 @@ ms.locfileid: "92072801"
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다.
 
-- **시스템 할당 ID**는 구성 저장소에 연결됩니다. 구성 저장소가 삭제된 경우에는 삭제됩니다. 구성 저장소에는 하나의 시스템 할당 ID만 있을 수 있습니다.
-- **사용자 할당 ID**는 구성 저장소에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 구성 저장소에는 여러 사용자 할당 ID가 있을 수 있습니다.
+- **시스템 할당 ID** 는 구성 저장소에 연결됩니다. 구성 저장소가 삭제된 경우에는 삭제됩니다. 구성 저장소에는 하나의 시스템 할당 ID만 있을 수 있습니다.
+- **사용자 할당 ID** 는 구성 저장소에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 구성 저장소에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
 ## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가
 
@@ -99,7 +99,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 구성 저장소�
 
 ## <a name="removing-an-identity"></a>ID 제거
 
-시스템 할당 ID는 Azure CLI에서 [az appconfig identity remove](/cli/azure/appconfig/identity?view=azure-cli-latest#az-appconfig-identity-remove) 명령을 사용하여 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. 이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
+시스템 할당 ID는 Azure CLI에서 [az appconfig identity remove](/cli/azure/appconfig/identity#az-appconfig-identity-remove) 명령을 사용하여 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. 이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

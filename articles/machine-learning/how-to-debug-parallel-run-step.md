@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 6ea796fb2ec038a03595d37d903fe8ee3ce904db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070272"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979167"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>ParallelRunStep 문제 해결
 
@@ -171,7 +171,16 @@ EntryScript 도우미 및 print 문을 사용하여 항목 스크립트에서 �
     - 전체 항목 수, 성공적으로 처리된 항목 수, 실패한 항목 수
     - 시작 시간, 기간, 처리 시간 및 실행 메서드 시간.
 
-각 작업자에 대한 프로세스의 리소스 사용 정보도 확인할 수 있습니다. 이 정보는 CSV 형식이며 `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`에 있습니다. 각 프로세스에 대 한 정보는에서 확인할 수 있습니다 `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
+또한 각 노드에 대 한 리소스 사용에 대 한 정기 검사의 결과를 볼 수 있습니다. 로그 파일 및 설치 파일은 다음 폴더에 있습니다.
+
+- `~/logs/perf`: `--resource_monitor_interval` 확인 간격 (초)을 변경 하도록 설정 합니다. 기본 간격은 `600` 약 10 분입니다. 모니터링을 중지 하려면 값을로 설정 `0` 합니다. 각 `<ip_address>` 폴더에는 다음이 포함 됩니다.
+
+    - `os/`: 노드에서 실행 중인 모든 프로세스에 대 한 정보입니다. 하나의 검사가 운영 체제 명령을 실행 하 고 결과를 파일에 저장 합니다. Linux에서 명령은 `ps` 입니다. Windows에서는를 사용 `tasklist` 합니다.
+        - `%Y%m%d%H`: 하위 폴더 이름은 시간에 대 한 시간입니다.
+            - `processes_%M`: 파일은 확인 시간 (분)으로 끝납니다.
+    - `node_disk_usage.csv`: 노드의 자세한 디스크 사용량입니다.
+    - `node_resource_usage.csv`: 노드의 리소스 사용량 개요입니다.
+    - `processes_resource_usage.csv`: 각 프로세스의 리소스 사용량 개요.
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>원격 컨텍스트의 내 사용자 스크립트는 어떻게 기록하나요?
 
@@ -233,25 +242,25 @@ labels_path = args.labels_dir
 
 ```python
 service_principal = ServicePrincipalAuthentication(
-    tenant_id="**_",
-    service_principal_id="_*_",
-    service_principal_password="_*_")
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
  
 ws = Workspace(
-    subscription_id="_*_",
-    resource_group="_*_",
-    workspace_name="_*_",
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
     auth=service_principal
     )
  
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '_*_datastore-name_*_') 
-ds = Dataset.File.from_files(default_blob_store, '_*path**_')
-registered_ds = ds.register(ws, '_*_dataset-name_*_', create_new_version=True)
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-_ [Azure Machine Learning 파이프라인을 보여 주는 이러한 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) 참조
+* [Azure Machine Learning 파이프라인을 보여 주는 이러한 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) 참조
 
 * [Azureml-파이프라인 단계](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) 를 봅니다.
 

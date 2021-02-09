@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842705"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979184"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성
 
@@ -29,13 +29,14 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 >
 > Mozilla Firefox를 사용 하는 경우 작업 영역에 대 한 개인 끝점에 액세스 하는 동안 문제가 발생할 수 있습니다. 이 문제는 HTTPS를 통한 DNS와 관련 된 것일 수 있습니다. 해결 방법으로 Google Chrome의 Microsoft Edge를 사용 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 준비 사항
 
 고객 관리 키를 사용 하 여 개인 링크를 사용 하도록 설정 된 작업 영역을 사용 하려는 경우 지원 티켓을 사용 하 여이 기능을 요청 해야 합니다. 자세한 내용은 [할당량 관리 및 늘리기](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 지역 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
+* 개인 링크로 Azure Machine Learning 작업 영역을 사용 하는 것은 Azure Government 지역 또는 Azure 중국 21Vianet 지역에서 사용할 수 없습니다.
+* 개인 링크로 보호 된 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하 고 공용 인터넷을 통해 Azure Machine Learning studio를 사용 하는 경우 디자이너와 같은 일부 기능에서 데이터에 액세스 하지 못할 수 있습니다. 이 문제는 VNet 뒤에서 보호 되는 서비스에 데이터를 저장할 때 발생 합니다. 예를 들어 Azure Storage 계정이 있습니다.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>개인 끝점을 사용 하는 작업 영역 만들기
 
@@ -158,6 +159,31 @@ ws.delete_private_endpoint_connection(private_endpoint_connection_name=connectio
 > 일시적인 연결 중단을 방지 하려면 개인 링크를 사용 하도록 설정한 후 작업 영역에 연결 하는 컴퓨터에서 DNS 캐시를 플러시하는 것이 좋습니다. 
 
 Azure Virtual Machines에 대 한 자세한 내용은 [Virtual Machines 설명서](../virtual-machines/index.yml)를 참조 하세요.
+
+## <a name="enable-public-access"></a>공용 액세스 사용
+
+개인 끝점을 사용 하 여 작업 영역을 구성한 후에는 필요에 따라 작업 영역에 대 한 공용 액세스를 사용할 수 있습니다. 이렇게 해도 개인 끝점은 제거 되지 않습니다. 개인 액세스 외에도 공용 액세스를 사용 하도록 설정 합니다. 개인 링크 사용 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 다음 단계를 사용 합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+[Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) 를 사용 하 여 개인 끝점을 제거 합니다.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Machine learning의 Azure CLI 확장](reference-azure-machine-learning-cli.md) 은 [az ml workspace update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) 명령을 제공 합니다. 작업 영역에 대 한 공용 액세스를 사용 하도록 설정 하려면 매개 변수를 추가 `--allow-public-access true` 합니다.
+
+# <a name="portal"></a>[포털](#tab/azure-portal)
+
+현재는 포털을 사용 하 여이 기능을 사용 하도록 설정할 방법이 없습니다.
+
+---
 
 
 ## <a name="next-steps"></a>다음 단계
