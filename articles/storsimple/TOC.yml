@@ -263,6 +263,10 @@
               href: storsimple-disaster-recovery-using-azure-site-recovery.md
             - name: Express 경로를 사용하는 StorSimple
               href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_ExpressRoute.pdf'
+            - name: Hyper-V를 사용하는 StorSimple
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_HyperVDeployment_v1.0.pdf'
+            - name: VMware를 사용하는 StorSimple
+              href: 'https://databoxbuilds.blob.core.windows.net/storsimpledocs/MicrosoftAzureStorSimple_VMware_v10.pdf'
             - name: 분산 전역 네임스페이스
               href: 'https://www.microsoft.com/download/details.aspx?id=45507'
         - name: 모니터

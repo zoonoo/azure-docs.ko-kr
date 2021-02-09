@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 01-26-2021
+ms.date: 02-03-2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 024aced08b1efdc840d3ceb23c524dbbcce9110c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: fbf3abb7e80d52a40fbb89573085a1107ed844c6
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797161"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99539244"
 ---
 이 범주에는 **58** 개의 권장 사항이 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "98797161"
 |MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다. |공용 네트워크 액세스 속성을 사용하지 않도록 설정하여 보안을 강화하고 프라이빗 엔드포인트에서만 Azure Database for MySQL에 액세스할 수 있도록 합니다. 이 구성은 Azure IP 범위를 벗어나는 공용 주소 공간의 액세스를 엄격하게 차단하고, IP 또는 가상 네트워크 기반 방화벽 규칙에 부합하는 모든 로그인을 거부합니다.<br />(관련 정책: [MySQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fd9844e8a-1437-4aeb-a32c-0c992f056095)) |중간 |
 |PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 합니다. |공용 네트워크 액세스 속성을 사용하지 않도록 설정하여 보안을 강화하고 프라이빗 엔드포인트에서만 Azure Database for PostgreSQL에 액세스할 수 있도록 합니다. 이 구성은 Azure IP 범위를 벗어나는 공용 주소 공간에서의 액세스를 사용하지 않도록 설정하고, IP 또는 가상 네트워크 기반 방화벽 규칙과 일치하는 모든 로그인을 거부합니다.<br />(관련 정책: [PostgreSQL 서버에 대해 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb52376f7-9612-48a1-81cd-1ffe4b61032c)) |중간 |
 |SQL 데이터베이스에서 중요한 데이터를 분류해야 합니다. |Azure SQL DB Data 검색 및 분류는 데이터베이스의 중요한 데이터의 검색, 분류, 보호하고 레이블을 지정하는 기능을 제공합니다. 데이터가 분류되면 Azure SQL DB 감사를 사용하여 액세스를 감사하고 중요한 데이터를 모니터링할 수 있습니다. 또한 Azure SQL DB는 중요한 데이터에 대한 액세스 패턴의 변경 사항을 기반으로 인텔리전트 경고를 만드는 Advanced Threat Protection 기능을 사용합니다.<br />(관련 정책: [SQL 데이터베이스의 중요한 데이터를 분류해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349)) |높음 |
-|SQL Managed Instance는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함 |자체 키를 사용하여 TDE(투명한 데이터 암호화)를 구현하면 TDE 보호기에 대한 투명성과 제어력이 향상되고, HSM 지원 외부 서비스를 통한 보안이 강화되며, 업무 분리 프로모션을 제공합니다. 이 권장 사항은 관련 규정 준수 요구 사항이 있는 조직에 적용됩니다.<br />(관련 정책 없음) |낮음 |
+|SQL 관리형 인스턴스는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함 |자체 키를 사용하여 TDE(투명한 데이터 암호화)를 구현하면 TDE 보호기에 대한 투명성과 제어력이 향상되고, HSM 지원 외부 서비스를 통한 보안이 강화되며, 업무 분리 프로모션을 제공합니다. 이 권장 사항은 관련 규정 준수 요구 사항이 있는 조직에 적용됩니다.<br />(관련 정책: [SQL 관리형 인스턴스는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f048248b0-55cd-46da-b1ff-39efd52db260)) |낮음 |
 |SQL 서버는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함 |자체 키를 사용하여 TDE(투명한 데이터 암호화)를 구현하면 TDE 보호기에 대한 투명성과 제어력이 향상되고, HSM 지원 외부 서비스를 통해 보안이 강화되며, 업무 분리 프로모션을 제공합니다. 이 권장 사항은 관련 규정 준수 요구 사항이 있는 조직에 적용됩니다.<br />(관련 정책: [SQL 서버는 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0d134df8-db83-46fb-ad72-fe0c9428c8dd)) |낮음 |
 |스토리지 계정은 프라이빗 링크 연결을 사용해야 함 |프라이빗 링크는 스토리지 계정에 대한 프라이빗 연결을 제공하여 보안 통신을 강화합니다.<br />(관련 정책: [스토리지 계정은 프라이빗 링크 연결을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6edd7eda-6dd8-40f7-810d-67160c639cd9)) |중간 |
 |스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다. |Azure Resource Manager의 새로운 기능을 제대로 활용하려는 경우 클래식 배포 모델에서 기존 배포를 마이그레이션할 수 있습니다. Resource Manager를 사용하면 더 강력한 액세스 제어(RBAC), 더 나은 감사, ARM 기반 배포 및 거버넌스, 관리 ID 액세스, 비밀을 위해 Key Vault에 액세스, AD 기반 인증, 보다 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원과 같은 보안 기능 향상을 제공합니다. <a target='_blank' href='https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview'>자세한 정보</a><br />(관련 정책: [스토리지 계정을 새 Azure Resource Manager 리소스로 마이그레이션해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f37e0d2fe-28a5-43d6-a273-67d37d1f5606)) |낮음 |
@@ -69,7 +69,7 @@ ms.locfileid: "98797161"
 |SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 합니다. |투명한 데이터 암호화를 사용하도록 설정하여 미사용 데이터를 보호하고 규정 준수 요구 사항을 충족합니다.<br />(관련 정책: [SQL 데이터베이스에 투명한 데이터 암호화를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f17k78e20-9358-41c9-923c-fb736d382a12)) |낮음 |
 |VM Image Builder 템플릿은 프라이빗 링크를 사용해야 함 |가상 네트워크가 구성되지 않은 VM Image Builder 템플릿을 감사합니다. 가상 네트워크가 구성되지 않으면 대신 공용 IP가 생성되고 사용됩니다. 그러면 인터넷에 직접 리소스가 노출되고 잠재적인 공격 표면이 늘어날 수 있습니다.<br />(관련 정책: [VM Image Builder 템플릿은 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2154edb9-244f-4741-9970-660785bccdaa)) |중간 |
 |SQL 데이터베이스에 대한 취약성 평가 결과를 수정해야 함 |SQL 취약성 평가는 데이터베이스를 검사하여 보안 취약성을 찾아내고, 구성 오류, 과도한 권한, 보호되지 않는 중요한 데이터 등과 같이 모범 사례를 따르지 않는 부분을 공개합니다. 발견된 취약성을 해결하면 데이터베이스 보안 상태가 크게 향상될 수 있습니다. <a href='https://aka.ms/SQL-Vulnerability-Assessment/'>자세한 정보</a><br />(관련 정책: [SQL 데이터베이스의 취약성을 수정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2ffeedbf84-6b99-488c-acc2-71c829aa5ffc)) |높음 |
-|머신의 SQL 서버에 대한 취약성 평가 결과를 수정해야 함 |SQL 취약성 평가는 데이터베이스를 검사하여 보안 취약성을 찾아내고, 구성 오류, 과도한 권한, 보호되지 않는 중요한 데이터 등과 같이 모범 사례를 따르지 않는 부분을 공개합니다. 발견된 취약성을 해결하면 데이터베이스 보안 상태가 크게 향상될 수 있습니다. <a href='https://aka.ms/explore-vulnerability-assessment-reports/'>자세한 정보</a><br />(관련 정책 없음) |높음 |
+|머신의 SQL 서버에 대한 취약성 평가 결과를 수정해야 함 |SQL 취약성 평가는 데이터베이스를 검사하여 보안 취약성을 찾아내고, 구성 오류, 과도한 권한, 보호되지 않는 중요한 데이터 등과 같이 모범 사례를 따르지 않는 부분을 공개합니다. 발견된 취약성을 해결하면 데이터베이스 보안 상태가 크게 향상될 수 있습니다. <a href='https://aka.ms/explore-vulnerability-assessment-reports/'>자세한 정보</a><br />(관련 정책: [머신의 SQL 서버의 취약성을 수정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f6ba6d016-e7c3-4842-b8f2-4992ebc0d72d)) |높음 |
 |SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다. |취약성 평가는 잠재적 데이터베이스 취약성을 검색 및 추적할 수 있고 해결하는 데 도움이 될 수 있습니다.<br />(관련 정책: [SQL Managed Instance에서 취약성 평가를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1b7aa243-30e4-4c9e-bca8-d0d3022b634a)) |높음 |
 |SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다. |취약성 평가는 잠재적 데이터베이스 취약성을 검색 및 추적할 수 있고 해결하는 데 도움이 될 수 있습니다.<br />(관련 정책: [SQL 서버에서 취약성 평가를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fef2a8f2a-b3d9-49cd-a8a8-9a3aaaf647d9)) |높음 |
 |Application Gateway에 WAF(웹 애플리케이션 방화벽)를 사용하도록 설정해야 함 |들어오는 트래픽의 추가 검사를 위해 공용 웹 애플리케이션 앞에 Azure WAF(웹 애플리케이션 방화벽)를 배포합니다. WAF(웹 애플리케이션 방화벽)는 SQL 삽입, 교차 사이트 스크립팅, 로컬 및 원격 파일 실행과 같은 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 사용자 지정 규칙을 통해 국가, IP 주소 범위 및 기타 http 매개 변수별로 웹 애플리케이션에 대한 액세스를 제한할 수도 있습니다.<br />(관련 정책: [Application Gateway에 WAF(웹 애플리케이션 방화벽)를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f564feb30-bf6a-4854-b4bb-0d2d2d1e6c66)) |낮음 |

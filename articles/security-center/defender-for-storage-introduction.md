@@ -3,19 +3,18 @@ title: Azure Defender for Storage - 이점 및 특징
 description: Azure Defender for Storage의 이점 및 특징에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: eb1635cec2b0bcf7f2c13101b2aeab25a869dc66
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916424"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99558536"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
-
 
 **Azure Defender for Storage** 는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지하는 Azure 기본 보안 인텔리전스 계층입니다. 보안 AI 및 [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684)의 고급 기능을 활용하여 상황별 보안 경고 및 권장 사항을 제공합니다.
 
@@ -68,7 +67,40 @@ Azure Defender for Storage는 다음을 제공합니다.
 >
 > **Azure Defender for Storage** 는 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
 
+## <a name="trigger-a-test-alert-for-azure-defender-for-storage"></a>Azure Defender for Storage에 대한 테스트 경고 트리거
 
+사용자 환경에서 Azure Defender for Storage에서 보안 경고를 테스트하려면 다음 단계를 수행하여 "Tor 출구 노드에서 스토리지 계정으로 액세스"라는 경고를 생성합니다.
+
+1. Azure Defender for Storage를 사용하도록 설정한 상태에서 스토리지 계정을 엽니다.
+1. 사이드바에서 "컨테이너"를 선택하고 기존 컨테이너를 열거나 새 컨테이너를 만듭니다.
+
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Azure Storage 계정에서 Blob 컨테이너 열기" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+
+1. 해당 컨테이너에 파일을 업로드합니다.
+
+    > [!CAUTION]
+    > 중요한 데이터가 포함된 파일을 업로드하지 마세요.
+
+1. 업로드된 파일에서 상황에 맞는 메뉴를 사용하여 "SAS 생성"을 선택합니다.
+
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Blob 컨테이너의 파일에 대한 SAS 생성 옵션":::
+
+1. 기본 옵션을 그대로 두고 **SAS 토큰 및 URL 생성** 을 선택합니다.
+
+1. 생성된 SAS URL을 복사합니다.
+
+1. 로컬 머신에서 원하는 Tor 브라우저를 엽니다.
+
+    > [!TIP]
+    > Tor 프로젝트 사이트 [https://www.torproject.org/download/](https://www.torproject.org/download/)에서 Tor를 다운로드할 수 있습니다.
+
+1. Tor 브라우저에서 SAS URL로 이동합니다.
+
+1. 3단계에서 업로드한 파일을 다운로드합니다.
+
+    2시간 내에 Security Center에서 다음과 같은 보안 경고를 받게 됩니다.
+
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Tor 출구 노드에서의 액세스와 관련된 보안 경고":::
 
 ## <a name="next-steps"></a>다음 단계
 

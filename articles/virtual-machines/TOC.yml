@@ -107,26 +107,15 @@
       href: ./workloads/mainframe-rehosting/overview.md
     - name: 데이터베이스
       items:
-        - name: SUSE의 MySQL
-          href: ./linux/mysql-on-opensuse.md
         - name: MongoDB
           items:
-            - name: Linux
-              href: ./linux/install-mongodb.md
             - name: Windows
               href: ./windows/install-mongodb.md
-        - name: PostgreSQL
-          href: ./linux/postgresql-install.md
         - name: Linux의 MS SQL
           href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 고성능 컴퓨팅(HPC)
       href: /azure/architecture/topics/high-performance-computing/
     - name: 컨테이너
-      items:
-        - name: Docker 컴퓨터 사용
-          href: ./linux/docker-machine.md
-        - name: Docker Compose 사용
-          href: ./linux/docker-compose-quickstart.md
     - name: Visual Studio
       href: ./windows/using-visual-studio-vm.md
 - name: 인스턴스
@@ -979,10 +968,18 @@
       href: disks-scalability-targets.md
     - name: 백업 및 데이터 보호
       items:
-        - name: 디스크의 복구 및 재해 복구
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 증분 스냅샷 사용
           href: disks-incremental-snapshots.md
+        - name: Azure Disk Backup
+          items:
+            - name: 개요
+              href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
+            - name: Azure Disk Backup 구성
+              href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
+            - name: Azure Disk Backup을 사용하여 디스크 복원
+              href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
+        - name: 디스크의 복구 및 재해 복구
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 디스크 스냅샷 - CLI
           href: ./linux/snapshot-copy-managed-disk.md
         - name: 디스크 스냅샷 - PowerShell
@@ -1281,8 +1278,6 @@
       href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
     - name: VM 모니터링
       items:
-        - name: Linux
-          href: ./linux/tutorial-monitor.md
         - name: Windows
           href: ./windows/tutorial-monitor.md
     - name: 에이전트

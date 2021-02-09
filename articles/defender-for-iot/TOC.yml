@@ -3,12 +3,15 @@
 - name: 개요
   href: overview.md
   items:
-    - name: 솔루션 아키텍처
-      href: architecture.md
     - name: 새로운 기능
       href: release-notes.md
-    - name: 빠른 시작
-      expanded: true
+    - name: 에이전트 없는 솔루션 아키텍처
+      href: architecture.md
+    - name: 에이전트 기반 솔루션 아키텍처
+      href: architecture-agent-based.md
+- name: 빠른 시작
+  expanded: true
+  items:
     - name: 조직을 위한 에이전트 없는 솔루션
       items:
         - name: 시스템 필수 구성 요소
@@ -19,22 +22,22 @@
       items:
         - name: Azure RTOS용 보안 모듈 구성
           href: quickstart-azure-rtos-security-module.md
-        - name: IoT Hub
-          href: quickstart-iot-hub-integration.md
-        - name: Azure Defender for IoT를 IoT Hub에 온보딩
+        - name: IoT 에이전트 기반 솔루션을 위해 Defender에 온보드
           href: quickstart-onboard-iot-hub.md
-        - name: 보안 에이전트
-          href: security-agent-architecture.md
-        - name: 솔루션 구성
+        - name: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+          href: quickstart-create-micro-agent-module-twin.md
+        - name: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+          href: quickstart-standalone-agent-binary-installation.md
+        - name: 소스 코드에서 IoT용 Defender 마이크로 에이전트 빌드(미리 보기)
+          href: quickstart-building-the-defender-micro-agent-from-source.md
+        - name: IoT 솔루션에 Azure 리소스 추가
           href: quickstart-configure-your-solution.md
-        - name: Azure Defender for IoT 모듈 쌍 만들기
-          href: quickstart-create-security-twin.md
-        - name: 보안 권장 사항 조사
-          href: quickstart-investigate-security-recommendations.md
-        - name: 사용자 지정 보안 경고 만들기
-          href: quickstart-create-custom-alerts.md
-        - name: 보안 경고 조사
-          href: quickstart-investigate-security-alerts.md
+        - name: Classic
+          items:
+            - name: 보안 에이전트 개요
+              href: security-agent-architecture.md
+            - name: azureiotsecurity 모듈 쌍 만들기
+              href: quickstart-create-security-twin.md
 - name: 개념
   items:
     - name: 조직을 위한 에이전트 없는 솔루션
@@ -43,35 +46,38 @@
           href: concept-key-concepts.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
-        - name: Azure RTOS용 보안 모듈
-          href: iot-security-azure-rtos.md
-          items:
-            - name: Azure RTOS용 보안 모듈 이해
-              href: concept-rtos-security-module.md
-            - name: Azure RTOS용 보안 모듈 경고 및 권장 사항
-              href: concept-rtos-security-alerts-recommendations.md
-        - name: Edge 보안 모듈
-          href: security-edge-architecture.md
-        - name: 보안 에이전트
-          href: overview-security-agents.md
-        - name: 보안 에이전트 인증
-          href: concept-security-agent-authentication-methods.md
-        - name: 보안 모듈
-          href: concept-security-module.md
+        - name: 에이전트 포트폴리오 개요 및 OS 지원(미리 보기)
+          href: concept-agent-portfolio-overview-os-support.md
+        - name: 독립 실행형 마이크로 에이전트 개요(미리 보기)
+          href: concept-standalone-micro-agent-overview.md
+        - name: 보안 에이전트 인증(미리 보기)
+          href: concept-security-agent-authentication.md
+        - name: 보안 상태 - CIS 벤치마크
+          href: concept-security-posture.md
+        - name: 이벤트 집계(미리 보기)
+          href: concept-event-aggregation.md
         - name: 보안 경고
           href: concept-security-alerts.md
-        - name: 사용자 지정 가능한 보안 경고
+        - name: 사용자 지정 보안 경고
           href: concept-customizable-security-alerts.md
-        - name: 보안
+        - name: 보안 권장 사항
+          href: concept-recommendations.md
+        - name: Classic
           items:
-            - name: 보안 권장 사항
-              href: concept-recommendations.md
-            - name: 보안 기준
+            - name: 보안 모듈
+              href: concept-security-module.md
+            - name: Edge 보안 모듈
+              href: security-edge-architecture.md
+            - name: 보안 에이전트
+              href: overview-security-agents.md
+            - name: 보안 에이전트 인증
+              href: concept-security-agent-authentication-methods.md
+            - name: 기초
+              href: concept-baseline.md
+            - name: Azure Defender for IoT용 Azure 보안 기준
               href: security-baseline.md
-        - name: 기초
-          href: concept-baseline.md
-        - name: 이벤트 집계
-          href: event-aggregation.md
+            - name: 보안 모듈 클래식 이벤트 집계
+              href: event-aggregation.md
 - name: 방법 가이드
   items:
     - name: 조직을 위한 에이전트 없는 솔루션
@@ -147,8 +153,10 @@
               href: how-to-manage-the-alert-event.md
             - name: 경고 인시던트 응답 가속화
               href: how-to-accelerate-alert-incident-response.md
+              displayName: 'custom, alerts, comments, groups'
             - name: 경고 정보 전달
               href: how-to-forward-alert-information-to-partners.md
+              displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: '전역, 지역 및 로컬 위협에 대한 인사이트 확보'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
         - name: 온-프레미스 관리 콘솔의 경고 작업
@@ -176,11 +184,12 @@
               displayName: 'import, enrich'
         - name: 센서 동작 추적
           href: how-to-track-sensor-activity.md
-          displayName: 'timeline, time line, time-line, event'
+          displayName: 'timeline, time line, time-line, event, audit'
         - name: 센서 및 온-프레미스 관리 콘솔 문제 해결
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: SNMP MIB 모니터링 설정
           href: how-to-set-up-snmp-mib-monitoring.md
+          displayName: health
         - name: 파트너와 통합
           items:
             - name: Cisco ISE pxGrid 통합
@@ -197,40 +206,65 @@
               href: integration-splunk.md
     - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
       items:
-        - name: Azure RTOS용 보안 모듈 작업
-          href: how-to-azure-rtos-security-module.md
-        - name: 어떤 에이전트를 배포해야 하나요?
+        - name: Azure RTOS용 보안 모듈
+          href: iot-security-azure-rtos.md
           items:
-            - name: 배포할 에이전트 선택
-              href: how-to-deploy-agent.md
-            - name: C# 기반 보안 에이전트를 Windows 디바이스에 배포
-              href: how-to-deploy-windows-cs.md
-            - name: C# 기반 보안 에이전트를 Linux 디바이스에 배포
-              href: how-to-deploy-linux-cs.md
-            - name: C 기반 보안 에이전트를 Linux 디바이스에 배포
-              href: how-to-deploy-linux-c.md
-        - name: 보안 에이전트 문제 해결
-          items:
-            - name: Azure Defender for IoT Linux 보안 에이전트 문제 해결
-              href: troubleshoot-agent.md
-            - name: 로컬 구성 C
-              href: azure-iot-security-local-configuration-c.md
-            - name: 로컬 구성 C#
-              href: azure-iot-security-local-configuration-csharp.md
-        - name: Edge 보안 모듈 배포
-          href: how-to-deploy-edge.md
-        - name: 보안 에이전트 구성
-          href: how-to-agent-configuration.md
-        - name: 사용자 고유의 보안 메시지 보내기
-          href: how-to-send-security-messages.md
-        - name: 원시 보안 데이터 액세스
-          href: how-to-security-data-access.md
-        - name: 디바이스 조사
-          href: how-to-investigate-device.md
+            - name: Azure RTOS용 보안 모듈 작업
+              href: how-to-azure-rtos-security-module.md
+            - name: Azure RTOS용 보안 모듈 이해
+              href: concept-rtos-security-module.md
+            - name: Azure RTOS용 보안 모듈 경고 및 권장 사항
+              href: concept-rtos-security-alerts-recommendations.md
         - name: Azure Sentinel에 연결
           href: how-to-configure-with-sentinel.md
-        - name: 에이전트 사용자 지정
-          href: how-to-customize-solution.md
+        - name: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
+          href: how-to-configure-agent-based-solution.md
+        - name: CIS 벤치마크 권장 사항 조사
+          href: how-to-investigate-cis-benchmark.md
+        - name: 보안 권장 사항 조사
+          href: quickstart-investigate-security-recommendations.md
+        - name: 보안 경고 조사
+          href: quickstart-investigate-security-alerts.md
+        - name: 사용자 지정 경고 만들기
+          href: quickstart-create-custom-alerts.md
+        - name: Classic
+          items:
+            - name: 어떤 에이전트를 배포해야 하나요?
+              items:
+                - name: 배포할 에이전트 선택
+                  href: how-to-deploy-agent.md
+                - name: C# 기반 보안 에이전트를 Windows 디바이스에 배포
+                  href: how-to-deploy-windows-cs.md
+                - name: C# 기반 보안 에이전트를 Linux 디바이스에 배포
+                  href: how-to-deploy-linux-cs.md
+                - name: C 기반 보안 에이전트를 Linux 디바이스에 배포
+                  href: how-to-deploy-linux-c.md
+            - name: 보안 에이전트 문제 해결
+              items:
+                - name: Azure Defender for IoT Linux 보안 에이전트 문제 해결
+                  href: troubleshoot-agent.md
+                - name: 로컬 구성 C
+                  href: azure-iot-security-local-configuration-c.md
+                - name: 로컬 구성 C#
+                  href: azure-iot-security-local-configuration-csharp.md
+            - name: Edge 보안 모듈 배포
+              href: how-to-deploy-edge.md
+            - name: 보안 에이전트 구성
+              href: how-to-agent-configuration.md
+            - name: 사용자 고유의 보안 메시지 보내기
+              href: how-to-send-security-messages.md
+            - name: 원시 보안 데이터 액세스
+              href: how-to-security-data-access.md
+            - name: 디바이스 조사
+              href: how-to-investigate-device.md
+- name: 문제 해결
+  items:
+    - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
+      href: troubleshoot-defender-micro-agent.md
+- name: 기능 지원 및 사용 중지
+  items:
+    - name: 기능 지원 및 사용 중지
+      href: edge-security-module-deprecation.md
 - name: 참조
   items:
     - name: 조직을 위한 에이전트 없는 솔루션

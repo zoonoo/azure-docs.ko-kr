@@ -62,7 +62,7 @@
       items:
         - name: 변환
           href: how-to-transformation.md
-        - name: MS Graph API와의 인바운드 동기화
+        - name: MS Graph API를 사용하여 클라우드 동기화를 프로그래밍 방식으로 구성
           href: how-to-inbound-synch-ms-graph.md
         - name: Azure AD 동기화 API
           href: /graph/api/resources/synchronization-overview

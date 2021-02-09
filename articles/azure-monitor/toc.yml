@@ -257,7 +257,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: Functions
+            - name: 함수
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -1044,6 +1044,8 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: 기존 AKS 클러스터에 대해 활성화
               href: insights/container-insights-enable-existing-clusters.md
+            - name: AKS에 Azure Policy를 사용하도록 설정
+              href: containers/container-insights-enable-aks-policy.md
             - name: Arc 사용 클러스터에 사용
               href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: 하이브리드 클러스터에 대해 활성화
@@ -1253,7 +1255,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

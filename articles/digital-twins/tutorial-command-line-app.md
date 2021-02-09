@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050241"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576247"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -274,12 +274,15 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 프로젝트는 다음 자습서인 [*자습서: 엔드투엔드 솔루션 연결*](tutorial-end-to-end.md)의 기초를 형성합니다. 다음 자습서로 계속 진행할 계획인 경우 여기에서 설정한 리소스를 유지하여 이 Azure Digital Twins 인스턴스와 구성된 샘플 앱을 계속 사용할 수 있습니다.
-* 이 경우 샘플 앱의 `DeleteAllTwins` 명령과 `DeleteAllModels` 명령을 사용하여 인스턴스의 트윈과 모델을 각각 지울 수 있습니다. 이를 통해 다음 자습서를 위한 깨끗한 슬레이트를 준비할 수 있습니다.
+이 자습서를 완료한 후 다음에 수행하려는 작업에 따라 제거할 리소스를 선택할 수 있습니다.
+
+* **다음 자습서로 계속 진행할 계획인 경우** 여기에서 설정한 리소스를 유지하여 이 Azure Digital Twins 인스턴스와 구성된 샘플 앱을 다음 자습서에서 계속 사용할 수 있습니다.
+
+* **Azure Digital Twins 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 모두 지우려는 경우** 샘플 앱의 `DeleteAllTwins` 및 `DeleteAllModels` 명령을 사용하여 각각 인스턴스의 트윈과 모델을 지울 수 있습니다. 이를 통해 다음 자습서를 위한 깨끗한 슬레이트를 준비할 수 있습니다.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-마지막으로, 로컬 컴퓨터에 다운로드한 프로젝트 샘플 폴더를 삭제합니다.
+로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

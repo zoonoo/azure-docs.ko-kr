@@ -51,6 +51,8 @@
   items:
     - name: Azure Functions를 사용하여 신뢰할 수 있는 인증 서비스 빌드
       href: tutorials/trusted-service-tutorial.md
+    - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
+      href: tutorials/hmac-header-tutorial.md
     - name: 통신 서비스용 웹앱 준비(Node.js)
       href: tutorials/building-app-start.md
 - name: 개념
@@ -88,6 +90,8 @@
       href: concepts/client-and-server-architecture.md
     - name: 호출 흐름
       href: concepts/call-flows.md
+    - name: 호출 흐름 토폴로지
+      href: concepts/detailed-call-flows.md
     - name: 클라이언트 라이브러리 및 REST API
       href: concepts/sdk-options.md
     - name: 가격 책정 모델
@@ -108,6 +112,8 @@
       href: concepts/metrics.md
     - name: 문제 해결
       href: concepts/troubleshooting-info.md
+    - name: 알려진 문제
+      href: concepts/known-issues.md
 - name: 샘플
   items:
     - name: 그룹 통화 주인공 샘플

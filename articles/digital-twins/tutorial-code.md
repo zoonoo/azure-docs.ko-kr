@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 37bd7d91dfe9e4b9e620f89e7504331d8f631a6a
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4851d06ffedaacb441d28cae24d7d32bfe1c611c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602124"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576264"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -253,12 +253,16 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하기 위
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
- 
-이 자습서에서 사용한 인스턴스를 다음 자습서인 [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)에서 다시 사용할 수 있습니다. 다음 자습서를 계속 진행하려는 경우 여기에서 설정한 Azure Digital Twins 인스턴스를 유지할 수 있습니다.
+
+이 자습서를 완료한 후 다음에 수행하려는 작업에 따라 제거할 리소스를 선택할 수 있습니다.
+
+* **다음 자습서로 계속 진행하려는 경우** 이 자습서에서 사용된 인스턴스를 다음 자습서에서 다시 사용할 수 있습니다. 여기서 설정한 Azure Digital Twines 리소스를 유지하고 이 섹션의 나머지 부분을 건너뛸 수 있습니다.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-마지막으로, 로컬 컴퓨터에서 만든 프로젝트 폴더를 삭제합니다.
+로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

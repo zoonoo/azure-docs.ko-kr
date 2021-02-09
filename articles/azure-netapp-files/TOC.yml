@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: Azure Application Consistent Snapshot Tool이란?
       href: azacsnap-introduction.md
+    - name: 볼륨 하드 할당량 변경의 의미
+      href: volume-hard-quota-guidelines.md
 - name: 방법 가이드
   items:
     - name: Azure NetApp Files에 등록

@@ -167,7 +167,7 @@
               href: vpn-profile-intune.md
         - name: OpenVPN
           items:
-            - name: 지점 및 사이트 간 연결을 위한 OpenVPN 구성
+            - name: OpenVPN 터널 유형 구성
               href: vpn-gateway-howto-openvpn.md
             - name: OpenVPN 클라이언트 구성
               href: vpn-gateway-howto-openvpn-clients.md

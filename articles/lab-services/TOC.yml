@@ -6,7 +6,7 @@
       href: lab-services-overview.md
 - name: 빠른 시작
   items:
-    - name: 시작하기
+    - name: 시작
       href: get-started-manage-labs.md
 - name: 자습서
   items:
@@ -34,9 +34,9 @@
       items:
         - name: 클래스를 수행하기 위해 랩 서비스 사용
           href: classroom-labs-scenarios.md
-        - name: 해커톤용 Lab Services 사용
+        - name: 해커톤용 랩 서비스 사용
           href: hackathon-labs.md
-        - name: 랩 - 클래스 형식
+        - name: 랩 클래스 형식
           items:
             - name: 클래스 형식 개요
               href: class-types.md
@@ -46,9 +46,11 @@
               href: class-type-shell-scripting-linux.md
             - name: 윤리적 해킹
               href: class-type-ethical-hacking.md
+            - name: GNS3를 사용하는 네트워킹
+              href: class-type-networking-gns3.md
             - name: 데이터베이스 관리
               href: class-type-database-management.md
-            - name: Azure SQL Database 관리 및 개발
+            - name: SQL 데이터베이스 관리 및 개발
               href: class-type-sql-server.md
             - name: Python 및 Jupyter Notebooks
               href: class-type-jupyter-notebook.md
@@ -58,8 +60,8 @@
               href: class-type-matlab.md
             - name: SolidWorks CAD(computer-aided design)
               href: class-type-solidworks.md
-            - name: GNS3를 사용하는 네트워킹
-              href: class-type-networking-gns3.md
+            - name: ArcGIS
+              href: class-type-arcgis.md
             - name: Project Lead the Way
               href: class-type-pltw.md
         - name: 팀 내에서 Azure Lab Services 사용

@@ -23,6 +23,8 @@
       href: common-errors.md
     - name: 손상된 Automanage 계정 복구
       href: repair-automanage-account.md
+    - name: 지역 간 자동 관리 가상 머신 이동
+      href: move-automanaged-vms.md
 - name: 리소스
   expanded: true
   items:

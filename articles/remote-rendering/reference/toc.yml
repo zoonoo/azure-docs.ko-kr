@@ -8,6 +8,8 @@
   href: network-requirements.md
 - name: 제한 사항
   href: limits.md
+- name: 데이터 보존
+  href: data-residency.md
 - name: Remote Rendering 샘플 리포지토리(GitHub)
   href: 'https://github.com/Azure/azure-remote-rendering'
 - name: Azure Mixed Reality 리소스 관리 REST API
