@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: d1350248e3819863a30ecf21ff68bb7b9488b6ef
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33758391b3715dae3928812a38ac2ee4e1baffb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232933"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981428"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -35,7 +35,7 @@ ms.locfileid: "98232933"
 | | Azure Monitor 에이전트(미리 보기) | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (Azure Arc)  | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
+| **에이전트 요구 사항**  | None | None | None | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | 이벤트 로그<br>성능 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<br>파일 기반 로그<br>IIS 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**요소**<br>**되지** | Log Analytics<br>메트릭 탐색기 | 메트릭 탐색기 | VM용 Azure Monitor<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM용 Azure Monitor<br>서비스 맵 |
@@ -45,7 +45,7 @@ ms.locfileid: "98232933"
 | | Azure Monitor 에이전트(미리 보기) | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|:---|
 | **지원 되는 환경** | Azure<br>기타 클라우드 (Azure Arc)<br>온-프레미스 (Azure Arc) | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| **에이전트 요구 사항**  | 없음 | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
+| **에이전트 요구 사항**  | None | None | None | None | Log Analytics 에이전트가 필요 합니다. |
 | **수집되는 데이터** | syslog<br>성능 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 종속성<br>네트워크 연결 메트릭 |
 | **데이터 전송 대상** | Azure Monitor 로그<br>Azure Monitor 메트릭 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그<br>(Log Analytics 에이전트를 통해) |
 | **서비스 및**<br>**요소**<br>**되지** | Log Analytics<br>메트릭 탐색기 | | 메트릭 탐색기 | VM용 Azure Monitor<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | VM용 Azure Monitor<br>서비스 맵 |
@@ -145,6 +145,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro<br>(서버 시나리오에만 해당)  | X | X | X | X |
 | Windows 8 Enterprise 및 Pro<br>(서버 시나리오에만 해당)  |   | X | X |   |
@@ -154,31 +155,36 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:
-| Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X | X |   |
-| CentOS Linux 7                                           | X | X | X | X |
-| CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5 이상                                        |   | X | X | X |
-| Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X |   |
-| Debian 7                                                 |   |   |   | X |
-| OpenSUSE 13.1 이상                                           |   |   |   | X |
-| Oracle Linux 8                                           |   | X |   |   |
-| Oracle Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           |   | X |   |   |
-| Oracle Linux 6.4 이상                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7 이상                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
-| SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X | X |   |
-| Ubuntu 18.04 LTS                                         | X | X | X | X |
-| Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         |   | X |   | X |
+| Amazon Linux 2017.09                                        |   | X |   |   |
+| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 7                                              | X | X | X | X |
+| CentOS Linux 6                                              |   | X |   |   |
+| CentOS Linux 6.5 이상                                           |   | X | X | X |
+| Debian 10 <sup>1</sup>                                      | X |   |   |   |
+| Debian 9                                                    | X | X | x | X |
+| Debian 8                                                    |   | X | X |   |
+| Debian 7                                                    |   |   |   | X |
+| OpenSUSE 13.1 이상                                              |   |   |   | X |
+| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 7                                              | X | X |   | X |
+| Oracle Linux 6                                              |   | X |   |   |
+| Oracle Linux 6.4 이상                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7 이상                        |   | X | X | X |
+| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
+| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12                             | X | X | X | X |
+| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 18.04 LTS                                            | X | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X |   | X |
 
+<sup>1</sup> 컴퓨터에 Python 3이 설치 되어 있어야 합니다.
+
+<sup>2</sup> Syslog 이벤트를 수집 하는 알려진 문제 현재 성능 데이터만 지원 됩니다.
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 
 종속성 에이전트는 커널 수준에서 작동 하므로 커널 버전에도 종속 됩니다. 다음 표에는 종속성 에이전트에 대 한 주 및 부 Linux OS 릴리스와 지원 되는 커널 버전이 나와 있습니다.

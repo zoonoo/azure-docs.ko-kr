@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 4dfe2130d8274e2b3463c0fb42587b50fef77f18
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953736"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981309"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
 
@@ -36,7 +36,7 @@ ms.locfileid: "98953736"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -257,7 +257,7 @@ Azure Container Instances는 모델을 배포할 때 동적으로 생성됩니�
 > * Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 있습니다.
 > * 작업 영역에 __개인 끝점이__ 있는 경우 Azure Container Instances에 사용 되는 가상 네트워크는 작업 영역 개인 끝점에서 사용 하는 것과 동일 해야 합니다.
 >
-> 가상 네트워크 내에서 Azure Container Instances를 사용 하는 경우 작업 영역에 대 한 Azure Container Registry (ACR)는 가상 네트워크에도 있을 수 없습니다.
+> 가상 네트워크 내에서 Azure Container Instances를 사용 하는 경우 작업 영역에 대 한 Azure Container Registry (ACR)은 (는) 가상 네트워크에 있을 수 없습니다.
 
 가상 네트워크의 ACI를 작업 영역으로 사용하려면 다음 단계를 사용하세요.
 

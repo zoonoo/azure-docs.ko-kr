@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 4e389114dc873d067a32389b288e1bb98d497850
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226058"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981785"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "99226058"
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. PersonCount가 정확한 합계를 기록 하도록 하려면 단일 카메라에서 영역을 완전히 검사 해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "99226058"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -43,7 +43,7 @@ ms.locfileid: "99226058"
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| 설명|
+| 작업 식별자| Description|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "99226058"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| 설명|
+| 조작 매개 변수| Description|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
@@ -87,7 +87,7 @@ ms.locfileid: "99226058"
 }
 ```
 
-| Name | Type| Description|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
@@ -122,7 +122,7 @@ ms.locfileid: "99226058"
 }
 ```
 
-| Name | Type| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -167,7 +167,7 @@ ms.locfileid: "99226058"
 }
 ```
 
-| Name | Type| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -213,7 +213,7 @@ ms.locfileid: "99226058"
 }
 ```
 
-| Name | Type| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -247,7 +247,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| Name | Type| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -963,9 +963,9 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| Name | Type| 설명|
+| 이름 | Type| Description|
 |---------|---------|---------|
-| `batch_size` | int | 작업에 사용 되는 카메라 수를 나타냅니다. |
+| `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size` 해당 작업에 사용할 카메라 수로 설정 되 고, 그렇지 않으면 1로 설정 하 고, `batch_size` 일괄 처리가 지원 되지 않음을 나타내는 기본값 (1)으로 그대로 둡니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

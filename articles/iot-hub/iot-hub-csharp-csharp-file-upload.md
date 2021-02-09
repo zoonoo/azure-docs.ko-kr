@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 8d45ad630d09a4909cf00b830df139057cc0fcaf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142283"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981411"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(.NET)
 
@@ -64,9 +64,9 @@ ms.locfileid: "92142283"
 
 이 섹션에서는 [IoT Hub를 사용하여 클라우드-디바이스 메시지 보내기](iot-hub-csharp-csharp-c2d.md)에서 만든 디바이스 앱을 수정하여 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
 
-1. Visual Studio 솔루션 탐색기에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택합니다. 이미지 파일을 찾아 프로젝트에 포함합니다. 이 자습서에서는 이미지 이름을 `image.jpg`로 지정한다고 가정합니다.
+1. Visual Studio 솔루션 탐색기에서 **SimulatedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목** 을 선택합니다. 이미지 파일을 찾아 프로젝트에 포함합니다. 이 자습서에서는 이미지 이름을 `image.jpg`로 지정한다고 가정합니다.
 
-1. 이미지를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **출력 디렉터리로 복사**가 **항상 복사**로 설정되어 있는지 확인합니다.
+1. 이미지를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. **출력 디렉터리로 복사** 가 **항상 복사** 로 설정되어 있는지 확인합니다.
 
     ![출력 디렉터리에 복사에 대해 이미지 속성을 업데이트할 위치 표시](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 
@@ -79,16 +79,15 @@ ms.locfileid: "92142283"
 1. **Program** 클래스에 다음 메서드를 추가합니다.
 
     ```csharp
-    private static async void SendToBlobAsync()
+    private static async Task SendToBlobAsync(string fileName)
     {
-        string fileName = "image.jpg";
         Console.WriteLine("Uploading file: {0}", fileName);
         var watch = System.Diagnostics.Stopwatch.StartNew();
 
-        using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
-        {
-            await deviceClient.UploadToBlobAsync(fileName, sourceData);
-        }
+        await deviceClient.GetFileUploadSasUriAsync(new FileUploadSasUriRequest { BlobName = fileName });
+        var blob = new CloudBlockBlob(sas.GetBlobUri());
+        await blob.UploadFromFileAsync(fileName);
+        await deviceClient.CompleteFileUploadAsync(new FileUploadCompletionNotification { CorrelationId = sas.CorrelationId, IsSuccess = true });
 
         watch.Stop();
         Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
@@ -100,7 +99,7 @@ ms.locfileid: "92142283"
 1. **Main** 메서드에서 `Console.ReadLine()` 바로 앞에 다음 줄을 추가합니다.
 
     ```csharp
-    SendToBlobAsync();
+    await SendToBlobAsync("image.jpg");
     ```
 
 > [!NOTE]
@@ -108,7 +107,7 @@ ms.locfileid: "92142283"
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-dotnet.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -116,17 +115,17 @@ ms.locfileid: "92142283"
 
 이 섹션에서는 IoT Hub에서 파일 업로드 알림 메시지를 수신하는 .NET 콘솔 앱을 작성합니다.
 
-1. 현재 Visual Studio 솔루션에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기**에서 C#에 대해 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음**을 선택합니다.
+1. 현재 Visual Studio 솔루션에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다. **새 프로젝트 만들기** 에서 C#에 대해 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음** 을 선택합니다.
 
-1. 프로젝트 이름을 *ReadFileUploadNotification*으로 지정합니다. **솔루션**에서 **솔루션에 추가**를 선택합니다. **만들기**를 선택하여 프로젝트를 만듭니다.
+1. 프로젝트 이름을 *ReadFileUploadNotification* 으로 지정합니다. **솔루션** 에서 **솔루션에 추가** 를 선택합니다. **만들기** 를 선택하여 프로젝트를 만듭니다.
 
     ![Visual Studio에서 ReadFileUploadNotification 프로젝트 구성](./media/iot-hub-csharp-csharp-file-upload/read-file-upload-project-configure.png)
 
-1. 솔루션 Explorer에서 **ReadFileUploadNotification** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 Explorer에서 **ReadFileUploadNotification** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
 
-1. **NuGet 패키지 관리자**에서 **찾아보기**를 선택합니다. **Microsoft.Azure.Devices**를 검색하여 선택하고 **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택합니다. **Microsoft.Azure.Devices** 를 검색하여 선택하고 **설치** 를 선택합니다.
 
-    이 단계에서는 [ReadFileUploadNotification](https://www.nuget.org/packages/Microsoft.Azure.Devices/) 프로젝트에서 **Azure IoT - 서비스 SDK NuGet 패키지**를 다운로드 및 설치하고 해당 참조를 추가합니다.
+    이 단계에서는 [ReadFileUploadNotification](https://www.nuget.org/packages/Microsoft.Azure.Devices/) 프로젝트에서 **Azure IoT - 서비스 SDK NuGet 패키지** 를 다운로드 및 설치하고 해당 참조를 추가합니다.
 
 1. 이 프로젝트에 대한 **Program.cs** 파일에서 파일 맨 위에 다음 문을 추가합니다.
 
@@ -180,11 +179,11 @@ ms.locfileid: "92142283"
 
 이제 애플리케이션을 실행할 준비가 되었습니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정** 을 선택합니다.
 
-1. **일반 속성** > **시작 프로젝트**에서 **여러 시작 프로젝트**를 선택한 후 **ReadFileUploadNotification** 및 **SimulatedDevice**에 대한 **시작** 작업을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
+1. **일반 속성** > **시작 프로젝트** 에서 **여러 시작 프로젝트** 를 선택한 후 **ReadFileUploadNotification** 및 **SimulatedDevice** 에 대한 **시작** 작업을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
 
-1. **F5**키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
+1. **F5** 키를 누릅니다. 두 애플리케이션이 모두 시작됩니다. 한 콘솔 앱에서 완료된 업로드와 다른 콘솔 앱에서 수신한 업로드 알림 메시지가 표시됩니다. [Azure Portal](https://portal.azure.com/) 또는 Visual Studio 서버 탐색기를 사용하여 Azure Storage 계정에서 업로드한 파일의 현재 상태를 확인할 수 있습니다.
 
     ![출력 화면을 보여주는 스크린샷](./media/iot-hub-csharp-csharp-file-upload/run-apps1.png)
 

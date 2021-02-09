@@ -6,23 +6,23 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932713"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981394"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC 인증-REST API 참조
 
 HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. HMAC는 해시 기반 메시지 인증 코드를 나타냅니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 - **증명서** - \<Access Key ID\>
 - **비밀** -Base64 디코딩된 액세스 키 값입니다. ``base64_decode(<Access Key Value>)``
 
-자격 증명 (라고도 함 `id` ) 및 비밀 (라고도 함)의 값은 `value` Azure 앱 구성의 인스턴스에서 가져와야 합니다. [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest)를 사용 하 여이 작업을 수행할 수 있습니다.
+자격 증명 (라고도 함 `id` ) 및 비밀 (라고도 함)의 값은 `value` Azure 앱 구성의 인스턴스에서 가져와야 합니다. [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](/cli/azure/)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 인증에 필요한 모든 HTTP 헤더를 사용 하 여 각 요청을 제공 합니다. 필요한 최소는 다음과 같습니다.
 
@@ -34,7 +34,7 @@ HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습�
 | **x-m s----sha256** | 요청 본문의 b a s e 64로 인코딩된 SHA256 해시입니다. 본문이 없는 경우에도 제공 되어야 합니다. ```base64_encode(SHA256(body))```|
 | **권한 부여** | HMAC-SHA256 체계에서 요구 하는 인증 정보입니다. 형식 및 세부 정보는이 문서의 뒷부분에 설명 되어 있습니다. |
 
-**예:**
+**예제:**
 
 ```http
 Host: {myconfig}.azconfig.io
@@ -54,7 +54,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 | **HMAC-SHA256** | 권한 부여 체계. _하다_ |
 | **자격 증명** | 서명을 계산 하는 데 사용 되는 선택 키의 ID입니다. _하다_ |
 | **서명 헤더** | 서명에 추가 된 HTTP 요청 헤더입니다. _하다_ |
-| **서명** | 문자열을 서명 하는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
+| **서명과** | 문자열을 서명 하는 b a s e 64로 인코딩된 HMACSHA256. _하다_|
 
 ### <a name="credential"></a>자격 증명
 
@@ -70,7 +70,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 다른 모든 HTTP 요청 헤더를 서명에 추가할 수도 있습니다. 인수에 추가 하기만 하면 ```SignedHeaders``` 됩니다.
 
-**예:**
+**예제:**
 
 x-y; host; host-a-sha256; ```Content-Type``` ;```Accept```
 
@@ -93,7 +93,7 @@ _문자열-서명 =_
 |**path_and_query** | 요청 절대 URI 경로 및 쿼리 문자열의 연결입니다. 자세한 내용은 [섹션 3.3](https://tools.ietf.org/html/rfc3986#section-3.3)을 참조 하세요.
 | **signed_headers_values** | 에 나열 된 모든 HTTP 요청 헤더의 세미콜론으로 구분 된 값입니다 `SignedHeaders` . 형식은 `SignedHeaders` 의미 체계를 따릅니다. |
 
-**예:**
+**예제:**
 
 ```js
 string-To-Sign=

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987374"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981513"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -39,6 +39,9 @@ ms.locfileid: "94987374"
 ### <a name="coco"></a>COCO 
 
  COCO 파일은 *export/coco* 내의 폴더에 있는 Azure Machine Learning 작업 영역의 기본 Blob 저장소에 만들어집니다. 
+ 
+>[!NOTE]
+>개체 검색 프로젝트에서 COCO 파일의 내보낸 "bbox": [x, y, width, height] "값은 정규화 됩니다. 1로 확장 됩니다. 예: 640x480 픽셀 이미지에서 60 너비가 30 픽셀인 (10, 10) 위치에 있는 경계 상자는 (0.015625)로 주석이 추가 됩니다. 0.02083, 0.046875, 0.125). Coordintes는 정규화 되므로 모든 이미지에 대해 ' 0.0 '을 "width" 및 "height"로 표시 합니다. 실제 너비와 높이는 OpenCV 또는 Pillow (PIL)와 같은 Python 라이브러리를 사용 하 여 가져올 수 있습니다.
 
 ### <a name="azure-machine-learning-dataset"></a>Azure Machine Learning 데이터 세트
 

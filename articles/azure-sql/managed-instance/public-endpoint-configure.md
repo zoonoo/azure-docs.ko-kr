@@ -9,13 +9,13 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788284"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981445"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "92788284"
 > - 관리 되는 인스턴스 공용 끝점에 대 한 트래픽을 허용 하도록 관리 되는 인스턴스 네트워크 보안 그룹 구성
 > - 관리 되는 인스턴스 공용 끝점 연결 문자열을 가져옵니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 관리 되는 인스턴스에 있는 데이터의 민감도 때문에 관리 되는 인스턴스 공용 끝점을 사용 하도록 구성 하려면 2 단계 프로세스가 필요 합니다. 이 보안 조치는 의무 (안)의 분리를 따릅니다.
 
@@ -98,10 +98,10 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |---------|---------|---------|
     |**원본**     |모든 IP 주소 또는 서비스 태그         |<ul><li>Power BI와 같은 Azure 서비스의 경우 Azure 클라우드 서비스 태그를 선택 합니다.</li> <li>컴퓨터 또는 Azure 가상 컴퓨터의 경우 NAT IP 주소를 사용 합니다.</li></ul> |
     |**원본 포트 범위**     |* |원본 포트가 일반적으로 동적으로 할당 되 고 예측할 수 없기 때문에 * (모두)로 그대로 둡니다. |
-    |**대상**     |모두         |관리 되는 인스턴스 서브넷으로의 트래픽을 허용 하는 대상으로 유지 |
+    |**대상**     |임의         |관리 되는 인스턴스 서브넷으로의 트래픽을 허용 하는 대상으로 유지 |
     |**대상 포트 범위**     |3342         |대상 포트의 범위를 3342로,이는 관리 되는 인스턴스 공용 TDS 끝점입니다. |
     |**프로토콜**     |TCP         |SQL Managed Instance는 TDS 용 TCP 프로토콜을 사용 합니다. |
-    |**동작**     |허용         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽 허용 |
+    |**작업**     |허용         |공용 끝점을 통해 관리 되는 인스턴스에 대 한 인바운드 트래픽 허용 |
     |**우선 순위**     |1300         |이 규칙이 **deny_all_inbound** 규칙 보다 높은 우선 순위 인지 확인 합니다. |
 
     ![스크린샷 deny_all_inbound 규칙 위에 새 public_endpoint_inbound 규칙을 사용 하 여 인바운드 보안 규칙을 보여 줍니다.](./media/public-endpoint-configure/mi-nsg-rules.png)
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>관리 되는 인스턴스 공용 끝점 연결 문자열 가져오기
 
 1. 공용 끝점에 대해 사용 하도록 설정 된 관리 되는 인스턴스 구성 페이지로 이동 합니다. **설정** 구성에서 **연결 문자열** 탭을 선택 합니다.
-1. 공용 끝점 호스트 이름은 <mi_name> 형식으로 제공 됩니다. database.windows.net dns_zone <> 연결에 사용 되는 포트는 3342 **입니다.**
+1. 공용 끝점 호스트 이름은 <mi_name> 형식으로 제공 됩니다. database.windows.net dns_zone <> 연결에 사용 되는 포트는 3342 **입니다.** SQL Server Management Studio 또는 Azure Data Studio 연결에 사용할 수 있는 공용 끝점 포트를 나타내는 연결 문자열의 서버 값 예는 다음과 같습니다. `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![공용 및 개인 끝점에 대 한 연결 문자열을 보여 주는 스크린샷](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

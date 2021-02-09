@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709445"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981343"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge Pro R 안전 지침
 
@@ -37,7 +37,7 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
 | 아이콘 | Description |
 |:--- |:--- |
 | ![모든 지침을 먼저 읽을 것](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | 모든 지침을 먼저 읽을 것 |
-| ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | 위험물 기호 |
+| ![참고 아이콘](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **고지:** | 중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. || ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | 위험물 기호 |
 | ![위험 아이콘](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | 위험|
 | ![무거움 아이콘](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | 높은 무게 위험|
 | ![감전 아이콘](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | 전기 충격 위험 |
@@ -88,6 +88,7 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
   * 전원 공급 장치 코드에 액세스할 수 있는 충분 한 공간이 제품의 기본 전원 연결 해제로 제공 됩니다.
 * 이더넷 케이블은 제품과 함께 제공 되지 않습니다. 전자기 간섭을 줄이려면 Cat 6 차폐 꼬아진 쌍 (STP) 케이블을 사용 하는 것이 좋습니다.
 * 장비에 대 한 적절 한 공기 배치를 허용 하는 작업 영역에서 장비를 설정 합니다. 장치를 실행 하는 동안 front 및 back 커버를 완전히 제거 해야 합니다.
+* 이더넷 케이블은 제품과 함께 제공 되지 않습니다. 전자기 간섭을 줄이려면 Cat 6 차폐 (STP) 케이블을 사용 하는 것이 좋습니다.
 * Conductive contaminants를 사용 하 여 온도 제어 영역에서 장비를 설치 하 고 장비 주위에 적절 한 공기를 수 있습니다.
 * 액체와 과도 하 게 humid 환경의 원본에서 장비를 떨어진 곳으로 유지 하세요.
 * 액체 또는 외래 개체가 시스템에 들어가지 못하게 합니다. 음료 나 기타 액체 컨테이너를 시스템 또는 근처에 두지 마십시오.
@@ -207,7 +208,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![알림 아이콘 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **알림:** &nbsp; Microsoft에서 명시적으로 승인 하지 않은 장비에 대 한 변경 또는 수정은 사용자의 장비 작동에 대 한 사용자의 권한을 무효로 만들 수 있습니다.
+> ![주의 아이콘-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **통지:** &nbsp; Microsoft에서 명시적으로 승인 하지 않은 장비에 대 한 변경 또는 수정은 사용자의 장비 운영에 대 한 사용자의 권한을 무효로 만들 수 있습니다.
 
 캐나다 및 미국:
 
