@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943886"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988438"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure Storage Table 디자인 가이드: 확장 가능하고 성능이 우수한 테이블
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -632,7 +632,7 @@ Table Storage는 `PartitionKey` 및 `RowKey` 값을 사용하여 엔터티를 �
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="RowKey 및 PartitionKey에 저장 된 성이 있는 직원의 직원 Id 목록을 포함 하는 Employee index 엔터티를 보여 주는 스크린샷":::
 
-속성에는 `EmployeeIDs` 및에 저장 된 성이 있는 직원의 직원 id 목록이 포함 `RowKey` `PartitionKey` 됩니다.  
+속성에는 `EmployeeDetails` 에 저장 된 성을 가진 직원의 직원 id 및 부서 이름 쌍 목록이 포함 되어 있습니다 `RowKey` .
 
 인덱스 엔터티가 직원 엔터티와 별도의 파티션에 있기 때문에 EGT를 사용하여 일관성을 유지할 수 없습니다. 인덱스 엔터티와 직원 엔터티가 결과적으로 일관성이 있도록 해야 합니다.  
 

@@ -4,14 +4,14 @@ description: Azure에서 개인 컨테이너 레지스트리를 사용 하 여 O
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 7c95766cc12b281521fa52ab113fadd4321d0815
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485006"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988219"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure container registry를 사용 하 여 OCI 아티팩트 푸시 및 끌어오기
 
@@ -46,7 +46,7 @@ Stdin에서 암호를 읽으려면를 사용 `--password-stdin` 합니다.
 
 Id로 Azure CLI에 [로그인](/cli/azure/authenticate-azure-cli) 하 여 컨테이너 레지스트리에서 아티팩트를 푸시하고 풀 합니다.
 
-그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) 을 사용 하 여 레지스트리에 액세스 합니다. 예를 들어 *myregistry*라는 레지스트리에 인증 하려면 다음을 수행 합니다.
+그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하 여 레지스트리에 액세스 합니다. 예를 들어 *myregistry* 라는 레지스트리에 인증 하려면 다음을 수행 합니다.
 
 ```azurecli
 az login
@@ -61,12 +61,12 @@ az acr login --name myregistry
 일부 샘플 텍스트를 사용 하 여 로컬 작업 작업 디렉터리에 텍스트 파일을 만듭니다. 예를 들어 bash 셸에서는 다음과 같습니다.
 
 ```bash
-echo "Here is an artifact!" > artifact.txt
+echo "Here is an artifact" > artifact.txt
 ```
 
 명령을 사용 `oras push` 하 여이 텍스트 파일을 레지스트리에 푸시합니다. 다음 예에서는 리포지토리에 샘플 텍스트 파일을 푸시합니다 `samples/artifact` . 레지스트리는 정규화 된 레지스트리 이름 *myregistry.azurecr.io* (모두 소문자)로 식별 됩니다. 아티팩트에 태그가 지정 됩니다 `1.0` . 아티팩트에는 기본적으로 파일 이름 다음에 *미디어 유형* 문자열로 식별 되는 정의 되지 않은 형식이 있습니다 `artifact.txt` . 추가 형식은 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 를 참조 하세요. 
 
-**Linux**
+**Linux 또는 macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
@@ -137,7 +137,7 @@ oras pull myregistry.azurecr.io/samples/artifact:1.0 \
 
 ```bash
 $ cat artifact.txt
-Here is an artifact!
+Here is an artifact
 ```
 
 ## <a name="remove-the-artifact-optional"></a>아티팩트 제거 (선택 사항)
@@ -157,7 +157,7 @@ az acr repository delete \
 예를 들어 한 줄 Dockerfile을 만듭니다.
 
 ```bash
-echo "FROM hello-world" > hello-world.dockerfile
+echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
 대상 컨테이너 레지스트리에 로그인 합니다.
@@ -170,14 +170,15 @@ az acr login --name myregistry
 명령을 사용 하 여 새 OCI 아티팩트를 만들어 대상 레지스트리에 푸시합니다 `oras push` . 이 예제에서는 아티팩트의 기본 미디어 유형을 설정 합니다.
 
 ```bash
-oras push myregistry.azurecr.io/hello-world:1.0 hello-world.dockerfile
+oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
 [Az acr build](/cli/azure/acr#az-acr-build) 명령을 실행 하 여 새 아티팩트를 빌드 컨텍스트로 사용 하 여 hello-세계 이미지를 빌드합니다.
 
 ```azurecli
-az acr build --registry myregistry --file hello-world.dockerfile \
-  oci://myregistry.azurecr.io/hello-world:1.0
+az acr build --registry myregistry --image builds/hello-world:v1 \
+  --file hello-world.dockerfile \
+  oci://myregistry.azurecr.io/dockerfile:1.0
 ```
 
 ## <a name="next-steps"></a>다음 단계

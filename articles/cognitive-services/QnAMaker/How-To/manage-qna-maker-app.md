@@ -5,21 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e4f0e229488093067b231a5c92334238ca216234
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550558"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987933"
 ---
 # <a name="manage-qna-maker-app"></a>QnA Maker 앱 관리
 
 QnA Maker를 사용 하면 협력자의 역할에 따라 협력자 액세스를 제한 하는 기능을 제공 하 여 다양 한 작성자 및 콘텐츠 편집기와 공동 작업할 수 있습니다.
 [QnA Maker 협력자 인증 개념](../Concepts/role-based-access-control.md)에 대해 자세히 알아보세요.
-
-[활성 학습](../Concepts/active-learning-suggestions.md)을 통해 대체 질문을 제안 하 여 기술 자료의 품질을 향상 시킬 수도 있습니다. 사용자 제출을 고려 하 여 대체 질문 목록에서 제안 사항으로 표시 됩니다. 이러한 제안 사항을 대체 질문으로 추가 하거나 거부할 수 있는 유연성이 있습니다.
-
-기술 자료가 자동으로 변경되지는 않습니다. 모든 변경 내용을 적용 하려면 제안에 동의 해야 합니다. 해당 제안과 질문을 수락해도 기존 질문이 변경되거나 제거되지는 않습니다.
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control 추가 (Azure RBAC)
 

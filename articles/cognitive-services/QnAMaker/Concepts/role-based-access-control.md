@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: cb6d0ee9c651ca1dcc554f5951a5733727af2d6b
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954109"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988030"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -35,7 +35,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 > [!div class="mx-imgBorder"]
 > ![다음 다이어그램에서는 작성자의 관점에서 QnA Maker 포털에 로그인 하 고 제작 Api를 사용 하는 흐름을 보여 줍니다.](../media/qnamaker-how-to-collaborate-knowledge-base/rbac-flow-from-portal-to-service.png)
 
-|단계|Description|
+|단계|설명|
 |--|--|
 |1|포털에서 QnA Maker 리소스에 대 한 토큰을 가져옵니다.|
 |2|포털은 키 대신 토큰을 전달 하는 적절 한 APIM (QnA Maker authoring API)를 호출 합니다.|
@@ -46,7 +46,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 
 ## <a name="authenticate-by-qna-maker-portal"></a>QnA Maker 포털에서 인증
 
-QnA Maker 포털을 사용 하 여 작성 하 고 공동 작업 하는 경우 공동 작업을 [위해 리소스에 적절 한 역할을 추가](../index.yml)하면 QnA Maker 포털에서 모든 액세스 권한을 관리 합니다.
+QnA Maker 포털을 사용 하 여 작성 하 고 공동 작업 하는 경우 공동 작업을 위해 리소스에 적절 한 역할을 추가 하면 QnA Maker 포털에서 모든 액세스 권한을 관리 합니다.
 
 ## <a name="authenticate-by-qna-maker-apis-and-sdks"></a>QnA Maker Api 및 Sdk를 통해 인증
 
@@ -54,4 +54,4 @@ REST 또는 Sdk를 통해 Api를 사용 하 여 작성 하 고 공동 작업 하
 
 ## <a name="next-step"></a>다음 단계
 
-* [언어](../index.yml) 및 [클라이언트 응용 프로그램](../index.yml) 에 대 한 기술 자료 디자인
+* 언어 및 클라이언트 응용 프로그램에 대 한 기술 자료 디자인

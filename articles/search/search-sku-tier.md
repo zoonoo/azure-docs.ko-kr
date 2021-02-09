@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693454"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987890"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -60,7 +60,8 @@ ms.locfileid: "98693454"
 | [아웃 바운드 (인덱서) 액세스에 대 한 관리 또는 신뢰할 수 있는 id](search-howto-managed-identities-data-sources.md) | 무료 계층에서는 사용할 수 없습니다.|
 | [고객 관리형 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
 | [IP 방화벽 액세스](service-configure-firewall.md) | 무료 계층에서는 사용할 수 없습니다. |
-| [개인 끝점 (Azure 개인 링크와 통합)](service-create-private-endpoint.md) | 검색 서비스에 대 한 인바운드 연결의 경우 무료 계층에서는 사용할 수 없습니다. 인덱서를 사용 하 여 다른 Azure 리소스에 대 한 아웃 바운드 연결의 경우 무료 또는 S3 HD에서 사용할 수 없습니다. 기술력과를 사용 하는 인덱서의 경우 무료, 기본, S1 또는 S3 HD에서 사용할 수 없습니다.|
+| [개인 끝점 (Azure 개인 링크와 통합)](service-create-private-endpoint.md) | 검색 서비스에 대 한 인바운드 연결의 경우 무료 계층에서는 사용할 수 없습니다. 인덱서를 사용 하 여 다른 Azure 리소스에 대 한 아웃 바운드 연결의 경우 무료 또는 S3 HD에서 사용할 수 없습니다. 기술력과를 사용 하는 인덱서의 경우 무료, 기본, S1 또는 S3 HD에서 사용할 수 없습니다.| 
+| [가용성 영역](search-performance-optimization.md) | 무료 계층 및 기본 계층에서 사용할 수 없습니다. |
 
 리소스를 많이 사용 하는 기능은 충분 한 용량을 제공 하지 않으면 제대로 작동 하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
 

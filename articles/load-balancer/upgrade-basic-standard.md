@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: ef018e58f8336220b96eba568c94efc40a0fb0c7
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045396"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987717"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](./skus.md#skus)를 참조 하세요.
@@ -21,6 +21,9 @@ ms.locfileid: "98045396"
 
 1. IP 할당 방법을 동적에서 정적으로 변경 합니다.
 2. PowerShell 스크립트를 실행 하 여 업그레이드 및 트래픽 마이그레이션을 완료 합니다.
+
+> [!IMPORTANT]
+> 이 스크립트는 현재 유지 관리 중입니다. 기본 SKU 및 표준 SKU에서 공용 IP 주소를 업그레이드 하는 방법 [에 대 한 지침을](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) 참조할 수 있습니다.
 
 ## <a name="upgrade-overview"></a>업그레이드 개요
 

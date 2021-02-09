@@ -2,17 +2,17 @@
 title: Azure Container Registry의 리포지토리에 대한 권한
 description: 프리미엄 레지스트리에서 특정 리포지토리로 범위가 지정 된 토큰을 만들어 이미지를 끌어오거나 푸시 하거나 다른 작업을 수행 합니다.
 ms.topic: article
-ms.date: 05/27/2020
-ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.date: 02/04/2021
+ms.openlocfilehash: ceec69d746f77ea7a23bc70d029c8b3736e7f292
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381238"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988260"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>리포지토리 범위 권한이 있는 토큰 만들기
 
-이 문서에서는 컨테이너 레지스트리에서 리포지토리 범위 권한을 관리하기 위한 토큰 및 범위 맵을 만드는 방법에 대해 설명합니다. 토큰을 만들면 레지스트리 소유자가 리포지토리로 범위가 지정된 시간 제한 액세스 권한을 사용자 또는 서비스에 제공하여 이미지를 풀하거나 푸시하거나 다른 작업을 수행할 수 있습니다. 토큰은 전체 레지스트리에 대한 권한 범위를 지정하는 다른 레지스트리 [인증 옵션](container-registry-authentication.md)보다 더 세분화된 권한을 제공합니다. 
+이 문서에서는 컨테이너 레지스트리의 특정 리포지토리에 대 한 액세스를 관리 하기 위해 토큰 및 범위 맵을 만드는 방법을 설명 합니다. 토큰을 만들면 레지스트리 소유자가 리포지토리로 범위가 지정된 시간 제한 액세스 권한을 사용자 또는 서비스에 제공하여 이미지를 풀하거나 푸시하거나 다른 작업을 수행할 수 있습니다. 토큰은 전체 레지스트리에 대한 권한 범위를 지정하는 다른 레지스트리 [인증 옵션](container-registry-authentication.md)보다 더 세분화된 권한을 제공합니다. 
 
 토큰을 만드는 시나리오는 다음과 같습니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "94381238"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure CLI** - 토큰을 만들고 관리하는 Azure CLI 명령은 Azure CLI 버전 2.0.76 이상에서 사용할 수 있습니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+* 이 문서의 **Azure CLI** Azure CLI 명령 명령 예제에는 Azure CLI 버전 2.17.0 이상이 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 * **Docker** - 이미지를 풀하거나 푸시하기 위해 레지스트리를 사용하여 인증하려면 로컬 Docker를 설치해야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에 대한 설치 지침을 제공합니다.
 * **컨테이너 레지스트리** - 아직 없는 경우 Azure 구독에서 프리미엄 컨테이너 레지스트리를 만들거나 기존 레지스트리를 업그레이드합니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다. 
 
@@ -79,7 +79,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-출력에는 토큰에 대 한 세부 정보가 표시 됩니다. 기본적으로 두 개의 암호가 생성 됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
+출력에는 토큰에 대 한 세부 정보가 표시 됩니다. 기본적으로 만료 되지 않는 두 개의 암호가 생성 되지만 필요에 따라 만료 날짜를 설정할 수 있습니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
 ```console
 {
@@ -113,7 +113,7 @@ az acr token create --name MyToken --registry myregistry \
 ```
 
 > [!NOTE]
-> 토큰 암호를 다시 생성 하 고 암호 만료 기간을 설정 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
+> 토큰 암호 및 만료 기간을 다시 생성 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
 
 출력에는 명령에서 만든 범위 맵에 대한 세부 정보가 포함됩니다. 여기서는 `MyToken-scope-map`이라는 범위 맵을 사용하여 동일한 리포지토리 작업을 다른 토큰에 적용할 수 있습니다. 또는 나중에 연결된 토큰의 권한을 변경하기 위해 범위 맵을 업데이트합니다.
 
@@ -141,7 +141,7 @@ az acr token create --name MyToken \
 출력에는 토큰에 대 한 세부 정보가 표시 됩니다. 기본적으로 두 개의 암호가 생성 됩니다. 나중에 인증에 사용할 수 있도록 암호를 안전한 장소에 저장하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
 > [!NOTE]
-> 토큰 암호를 다시 생성 하 고 암호 만료 기간을 설정 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
+> 토큰 암호 및 만료 기간을 다시 생성 하려면이 문서의 뒷부분에 나오는 [토큰 암호 다시 생성](#regenerate-token-passwords) 을 참조 하세요.
 
 ## <a name="create-token---portal"></a>토큰 만들기 - 포털
 
@@ -198,13 +198,13 @@ Azure Portal을 사용하여 토큰과 범위 맵을 만들 수 있습니다. `a
 
 ### <a name="pull-and-tag-test-images"></a>테스트 이미지 풀 및 태그 지정
 
-다음 예제에서는 Docker Hub에서 `hello-world` 및 `alpine` 이미지를 풀하고 레지스트리 및 리포지토리에 대한 태그를 지정합니다.
+다음 예제에서는 `hello-world` `nginx` Microsoft Container Registry에서 공용 및 이미지를 가져오고 레지스트리 및 리포지토리의 태그를 합니다.
 
 ```bash
-docker pull hello-world
-docker pull alpine
-docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag alpine myregistry.azurecr.io/samples/alpine:v1
+docker pull mcr.microsoft.com/hello-world
+docker pull mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+docker tag mcr.microsoft.com/hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="authenticate-using-token"></a>토큰을 사용하여 인증
@@ -234,17 +234,17 @@ Login Succeeded
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-`samples/alpine` 리포지토리에 대한 권한이 토큰에 없으므로 `requested access to the resource is denied`와 비슷한 오류로 인해 다음 푸시 시도가 실패합니다.
+`samples/nginx` 리포지토리에 대한 권한이 토큰에 없으므로 `requested access to the resource is denied`와 비슷한 오류로 인해 다음 푸시 시도가 실패합니다.
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 ### <a name="update-token-permissions"></a>토큰 권한 업데이트
 
 토큰의 권한을 업데이트하려면 연결된 범위 맵에서 권한을 업데이트합니다. 업데이트된 범위 맵은 연결된 모든 토큰에 즉시 적용됩니다. 
 
-예를 들어 `MyToken-scope-map` 작업을 `samples/alpine` 리포지토리에 대한 `content/write` 및 `content/read` 작업으로 업데이트하고, `samples/hello-world` 리포지토리에 대한 `content/write` 작업을 제거합니다.  
+예를 들어 `MyToken-scope-map` 작업을 `samples/ngnx` 리포지토리에 대한 `content/write` 및 `content/read` 작업으로 업데이트하고, `samples/hello-world` 리포지토리에 대한 `content/write` 작업을 제거합니다.  
 
 Azure CLI를 사용하려면 [az acr scope-map update][az-acr-scope-map-update]를 실행하여 범위 맵을 업데이트합니다.
 
@@ -252,21 +252,21 @@ Azure CLI를 사용하려면 [az acr scope-map update][az-acr-scope-map-update]�
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/write content/read \
-  --remove samples/hello-world content/write 
+  --add-repository samples/nginx content/write content/read \
+  --remove-repository samples/hello-world content/write 
 ```
 
 Azure Portal에서 다음을 수행합니다.
 
 1. 컨테이너 레지스트리로 이동합니다.
 1. **리포지토리 권한** 에서 **범위 맵 (미리 보기)** 을 선택 하 고 업데이트할 범위 맵을 선택 합니다.
-1. **리포지토리** 아래에서 `samples/alpine`을 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가** 를 선택합니다.
+1. **리포지토리** 아래에서 `samples/nginx`을 입력하고, **권한** 아래에서 `content/read` 및 `content/write`를 선택합니다. 그런 다음, **+ 추가** 를 선택합니다.
 1. **리포지토리** 아래에서 `samples/hello-world`를 선택하고, **권한** 아래에서 `content/write`를 선택 취소합니다. 그런 다음 **저장** 을 선택합니다.
 
 범위 맵이 업데이트되면 다음 푸시가 성공합니다.
 
 ```bash
-docker push myregistry.azurecr.io/samples/alpine:v1
+docker push myregistry.azurecr.io/samples/nginx:v1
 ```
 
 범위 맵에는 `samples/hello-world` 리포지토리에 대한 `content/read` 권한만 있으므로 이제 `samples/hello-world` 리포지토리에 대한 푸시 시도가 실패합니다.
@@ -278,12 +278,12 @@ docker push myregistry.azurecr.io/samples/hello-world:v1
 범위 맵에서 두 리포지토리 모두에 대한 `content/read` 권한을 제공하므로 두 리포지토리 모두에서의 이미지 풀이 성공합니다.
 
 ```bash
-docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/nginx:v1
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 ```
 ### <a name="delete-images"></a>이미지 삭제
 
-`content/delete` 작업을 `alpine` 리포지토리에 추가하여 범위 맵을 업데이트합니다. 이 작업을 통해 리포지토리의 이미지를 삭제하거나 전체 리포지토리를 삭제할 수 있습니다.
+`content/delete` 작업을 `nginx` 리포지토리에 추가하여 범위 맵을 업데이트합니다. 이 작업을 통해 리포지토리의 이미지를 삭제하거나 전체 리포지토리를 삭제할 수 있습니다.
 
 간단히 하기 위해 범위 맵을 업데이트하는 [az acr scope-map update][az-acr-scope-map-update] 명령만 보여 줍니다.
 
@@ -291,16 +291,16 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/alpine content/delete
+  --add-repository samples/nginx content/delete
 ``` 
 
 포털을 사용 하 여 범위 맵을 업데이트 하려면 [이전 섹션](#update-token-permissions)을 참조 하세요.
 
-다음 [az acr repository delete][az-acr-repository-delete] 명령을 사용하여 `samples/alpine` 리포지토리를 삭제합니다. 이미지 또는 리포지토리를 삭제 하려면 토큰의 이름과 암호를 명령에 전달 합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
+다음 [az acr repository delete][az-acr-repository-delete] 명령을 사용하여 `samples/nginx` 리포지토리를 삭제합니다. 이미지 또는 리포지토리를 삭제 하려면 토큰의 이름과 암호를 명령에 전달 합니다. 다음 예제에서는 이 문서의 앞부분에서 만든 환경 변수를 사용합니다.
 
 ```azurecli
 az acr repository delete \
-  --name myregistry --repository samples/alpine \
+  --name myregistry --repository samples/nginx \
   --username $TOKEN_NAME --password $TOKEN_PWD
 ```
 
@@ -314,7 +314,7 @@ az acr repository delete \
 az acr scope-map update \
   --name MyScopeMap \
   --registry myregistry \
-  --add samples/hello-world metadata/read 
+  --add-repository samples/hello-world metadata/read 
 ```  
 
 포털을 사용 하 여 범위 맵을 업데이트 하려면 [이전 섹션](#update-token-permissions)을 참조 하세요.
@@ -382,7 +382,7 @@ az acr token list --registry myregistry --output table
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
+  --name MyToken --registry myregistry --expiration-in-days 30 \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 

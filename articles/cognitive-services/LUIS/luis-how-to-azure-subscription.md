@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945077"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988152"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -51,7 +51,7 @@ LUIS 리소스와 같은 Azure 리소스는 리소스를 포함 하는 구독이
 * 구독의 [소유권](../../cost-management-billing/manage/billing-subscription-transfer.md) 을 양도 합니다.
 * LUIS 앱을 파일로 내보낸 다음 다른 구독에서 앱을 가져옵니다. 내보내기는 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
-## <a name="resource-limits"></a>리소스 한계
+## <a name="resource-limits"></a>리소스 제한
 
 ### <a name="authoring-key-creation-limits"></a>작성 키 생성 제한
 
@@ -236,6 +236,10 @@ CI/CD 파이프라인과 같은 자동화 된 프로세스의 경우 LUIS 런타
 
 1. [이 웹 사이트](https://resources.azure.com/api/token?plaintext=true)에서 Azure Resource Manager 토큰을 가져옵니다. 이 토큰은 만료 되므로 바로 사용 하세요. 요청은 Azure Resource Manager 토큰을 반환합니다.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Azure Resource Manager 토큰을 요청 하는 웹 사이트를 보여 주는 스크린샷](./media/luis-manage-keys/get-arm-token.png)
 
 1. 토큰을 사용 하 여 구독 간에 LUIS 런타임 리소스를 요청 합니다. 사용자 계정이 액세스할 수 있는 [GET LUIS Azure ACCOUNTS API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)를 사용 합니다.
@@ -253,7 +257,7 @@ CI/CD 파이프라인과 같은 자동화 된 프로세스의 경우 LUIS 런타
 
     이 POST API에는 다음 값이 필요 합니다.
 
-    |형식|설정|값|
+    |Type|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization` 값이 `Bearer {token}`인 경우 토큰 값 앞에는 단어 `Bearer` 와 공백이와 야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|

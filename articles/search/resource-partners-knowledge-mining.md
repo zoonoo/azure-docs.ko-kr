@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 68c50cf72c5592b7593c9f87445679b08116dd43
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 393270018cd5706b9cbcfa544a6e6a54d5ab9cc6
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980112"
+ms.locfileid: "99988213"
 ---
-# <a name="partner-solutions"></a>파트너 솔루션
+# <a name="partner-spotlight"></a>파트너 스포트라이트
 
 Azure Cognitive Search를 포함 하는 종단 간 솔루션을 구축 하는 Microsoft 파트너의 전문 도움을 받으세요. 다음 파트너는 다양 한 비즈니스 및 기술 시나리오에서 전체 텍스트 검색 및 AI 보강을 활용 하는 뛰어난 환경을 제공 합니다.
 

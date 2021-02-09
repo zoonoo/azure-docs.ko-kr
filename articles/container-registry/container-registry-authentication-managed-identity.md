@@ -3,12 +3,12 @@ title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68564cc5743b1deb43bf39f897c239dc683c334c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253465"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987742"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -31,9 +31,9 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 관리 ID에는 다음과 같은 두 가지 유형이 있습니다.
 
-* *사용자 할당 ID*는 여러 리소스에 할당할 수 있으며 원하는 만큼 오랫동안 유지할 수 있습니다. 사용자 할당 ID는 현재 미리 보기 중입니다.
+* *사용자 할당 ID* 는 여러 리소스에 할당할 수 있으며 원하는 만큼 오랫동안 유지할 수 있습니다. 사용자 할당 ID는 현재 미리 보기 중입니다.
 
-* *시스템 관리 ID*는 단일 가상 머신과 같은 특정 리소스에 고유하며 해당 리소스의 수명만큼 지속됩니다.
+* *시스템 관리 ID* 는 단일 가상 머신과 같은 특정 리소스에 고유하며 해당 리소스의 수명만큼 지속됩니다.
 
 관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. 레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 사용 권한](container-registry-roles.md)을 참조 하세요. 하나 이상의 리소스에 대 한 id 액세스를 제공할 수 있습니다.
 
@@ -49,13 +49,13 @@ Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 �
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
-이 문서에서는 레지스트리에 `aci-helloworld:v1` 컨테이너 이미지가 저장되어 있다고 가정합니다. 이 예제에서는 *myContainerRegistry*라는 레지스트리 이름을 사용합니다. 이후 단계에서 사용자 고유의 레지스트리 및 이미지 이름으로 바꿉니다.
+이 문서에서는 레지스트리에 `aci-helloworld:v1` 컨테이너 이미지가 저장되어 있다고 가정합니다. 이 예제에서는 *myContainerRegistry* 라는 레지스트리 이름을 사용합니다. 이후 단계에서 사용자 고유의 레지스트리 및 이미지 이름으로 바꿉니다.
 
 ## <a name="create-a-docker-enabled-vm"></a>Docker 사용 가능 VM 만들기
 
-Docker 사용 가능 Ubuntu 가상 머신을 만듭니다. 또한 가상 머신에 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure 가상 머신이 이미 있는 경우 이 단계를 건너뛰고 가상 머신을 만듭니다.
+Docker 사용 가능 Ubuntu 가상 머신을 만듭니다. 또한 가상 머신에 [Azure CLI](/cli/azure/install-azure-cli)를 설치해야 합니다. Azure 가상 머신이 이미 있는 경우 이 단계를 건너뛰고 가상 머신을 만듭니다.
 
-[az vm create][az-vm-create]를 사용하여 기본 Ubuntu Azure 가상 머신을 배포합니다. 다음 예제에서는 기존의 *myResourceGroup* 리소스 그룹에 *myDockerVM*이라는 VM을 만듭니다.
+[az vm create][az-vm-create]를 사용하여 기본 Ubuntu Azure 가상 머신을 배포합니다. 다음 예제에서는 기존의 *myResourceGroup* 리소스 그룹에 *myDockerVM* 이라는 VM을 만듭니다.
 
 ```azurecli
 az vm create \
@@ -70,7 +70,7 @@ VM을 만드는 데 몇 분 정도 걸립니다. 명령이 완료되면 Azure CL
 
 ### <a name="install-docker-on-the-vm"></a>VM에 Docker 설치
 
-VM이 실행된 후 VM에 SSH 연결을 만듭니다. *publicIpAddress*를 VM의 공용 IP 주소로 바꿉니다.
+VM이 실행된 후 VM에 SSH 연결을 만듭니다. *publicIpAddress* 를 VM의 공용 IP 주소로 바꿉니다.
 
 ```bash
 ssh azureuser@publicIpAddress
@@ -86,7 +86,7 @@ sudo apt install docker.io -y
 설치 후 다음 명령을 실행하여 VM에서 Docker가 제대로 실행되는지 확인합니다.
 
 ```bash
-sudo docker run -it hello-world
+sudo docker run -it mcr.microsoft.com/hello-world
 ```
 
 출력:
@@ -99,7 +99,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 이 문서에서는 버전 2.0.55 이상을 설치해야 합니다.
+[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 이 문서에서는 버전 2.0.55 이상을 설치해야 합니다.
 
 SSH 세션을 종료합니다.
 
@@ -107,7 +107,7 @@ SSH 세션을 종료합니다.
 
 ### <a name="create-an-identity"></a>ID 만들기
 
-[az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리, 가상 머신 또는 다른 가상 머신을 만들 수 있습니다.
+[az identity create](/cli/azure/identit#az-identity-create) 명령을 사용하여 구독에서 ID를 만듭니다. 이전에 사용한 것과 동일한 리소스 그룹을 사용하여 컨테이너 레지스트리, 가상 머신 또는 다른 가상 머신을 만들 수 있습니다.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId

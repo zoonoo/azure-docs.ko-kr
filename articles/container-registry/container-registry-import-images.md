@@ -3,12 +3,12 @@ title: 컨테이너 이미지 가져오기
 description: Docker 명령을 실행하지 않고도 Azure API를 사용하여 컨테이너 이미지를 Azure Container Registry로 가져옵니다.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524501"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988250"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>컨테이너 이미지를 컨테이너 레지스트리로 가져오기
 
@@ -41,7 +41,7 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > * 네트워크 제한 된 Azure container registry를 사용 하면 네트워크를 우회 하는 [**신뢰할 수 있는 서비스의 액세스를 허용**](allow-access-trusted-services.md) 하는 제한 된 레지스트리가 필요 합니다. 이 설정은 기본적으로 사용 하도록 설정 되어 있으므로 가져오기를 허용 합니다. 새로 만든 레지스트리에서 개인 끝점 또는 레지스트리 방화벽 규칙을 사용 하 여 설정을 사용 하도록 설정 하지 않은 경우 가져오기 작업이 실패 합니다. 
 > * 가져오기 원본 또는 대상으로 사용 되는 기존의 네트워크 제한 Azure container registry에서이 네트워크 보안 기능을 사용 하도록 설정 하는 것은 선택 사항 이지만 권장 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
@@ -68,13 +68,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-다음 예제에서는 Docker 허브의 `tensorflow` 리포지토리에서 공용 이미지를 가져옵니다.
+[Docker 허브 계정이](https://www.docker.com/pricing)있는 경우 docker 허브에서 이미지를 가져올 때 자격 증명을 사용 하는 것이 좋습니다. Docker 허브 사용자 이름 및 암호 또는 [개인용 액세스 토큰](https://docs.docker.com/docker-hub/access-tokens/) 을에 매개 변수로 전달 `az acr import` 합니다. 다음 예제에서는 `tensorflow` Docker 허브 자격 증명을 사용 하 여 Docker 허브의 리포지토리에서 공용 이미지를 가져옵니다.
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Microsoft Container Registry에서 가져오기

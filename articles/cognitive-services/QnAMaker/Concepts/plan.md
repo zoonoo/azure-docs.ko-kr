@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222868"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987994"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
 
@@ -124,17 +124,17 @@ QnA 쌍의 최종 형식은 markdown 이므로 [markdown 지원을](../reference
 
 협력자는 기술 자료 응용 프로그램의 전체 개발 스택을 공유 하거나 기술 자료를 제작 하는 것으로 제한 될 수 있는 다른 개발자 일 수 있습니다.
 
-기술 자료 제작에서는 Azure Portal에 적용 하는 여러 [역할 기반 액세스 권한을](../reference-role-based-access-control.md) 통해 협력자의 기능 범위를 제한 합니다.
+기술 자료 제작에서는 Azure Portal에 적용 하는 여러 역할 기반 액세스 권한을 통해 협력자의 기능 범위를 제한 합니다.
 
 ## <a name="integration-with-client-applications"></a>클라이언트 응용 프로그램과 통합
 
-[클라이언트 응용 프로그램과](../index.yml) 의 통합은 예측 런타임 끝점에 쿼리를 전송 하 여 수행 됩니다. 쿼리는 QnA Maker의 웹 앱 끝점에 대 한 SDK 또는 REST 기반 요청을 사용 하 여 특정 기술 자료에 전송 됩니다.
+클라이언트 응용 프로그램과의 통합은 예측 런타임 끝점에 쿼리를 전송 하 여 수행 됩니다. 쿼리는 QnA Maker의 웹 앱 끝점에 대 한 SDK 또는 REST 기반 요청을 사용 하 여 특정 기술 자료에 전송 됩니다.
 
 클라이언트 요청을 올바르게 인증 하려면 클라이언트 응용 프로그램에서 올바른 자격 증명과 기술 자료 ID를 전송 해야 합니다. Azure Bot Service 사용 하는 경우 Azure Portal에서 봇 구성의 일부로 이러한 설정을 구성 합니다.
 
 ### <a name="conversation-flow-in-a-client-application"></a>클라이언트 응용 프로그램의 대화 흐름
 
-Azure 봇과 같은 [클라이언트 응용 프로그램](../index.yml)의 대화 흐름에는 기술 자료와 상호 작용 하기 전후에 기능이 필요할 수 있습니다.
+Azure 봇과 같은 클라이언트 응용 프로그램의 대화 흐름에는 기술 자료와 상호 작용 하기 전후에 기능이 필요할 수 있습니다.
 
 클라이언트 응용 프로그램은 추가 기능을 제공 하 여 추가 요청을 처리 하거나 chit-chit를 포함 하 여 대화 흐름을 지원 하나요? 그렇다면 이러한 작업을 조기에 설계 하 고 클라이언트 응용 프로그램 쿼리가 다른 서비스 또는 기술 자료로 전송 될 때 올바르게 처리 되는지 확인 합니다.
 
@@ -148,7 +148,7 @@ Azure 봇과 같은 [클라이언트 응용 프로그램](../index.yml)의 대�
 
 ### <a name="active-learning-from-a-client-application"></a>클라이언트 응용 프로그램에서의 활성 학습
 
-QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 개선 하는 데 _활성 학습_ 을 사용 합니다. 클라이언트 응용 프로그램은이 [활성 학습](active-learning-suggestions.md)의 일부를 담당 합니다. 클라이언트 응용 프로그램은 대화형 프롬프트를 통해 기술 자료가 사용자에 게 유용 하지 않은 대답을 반환 하는 것을 확인할 수 있으며 더 나은 답을 확인할 수 있습니다. 클라이언트 응용 프로그램은 예측 품질을 향상 시키기 위해 [해당 정보를 기술 자료로 다시 보내야](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) 합니다.
+QnA Maker는 답변에 대 한 대체 질문을 제안 하 여 기술 자료를 개선 하는 데 _활성 학습_ 을 사용 합니다. 클라이언트 응용 프로그램은이 [활성 학습](../How-To/use-active-learning.md)의 일부를 담당 합니다. 클라이언트 응용 프로그램은 대화형 프롬프트를 통해 기술 자료가 사용자에 게 유용 하지 않은 대답을 반환 하는 것을 확인할 수 있으며 더 나은 답을 확인할 수 있습니다. 클라이언트 응용 프로그램은 예측 품질을 향상 시키기 위해 해당 정보를 기술 자료로 다시 보내야 합니다.
 
 ### <a name="providing-a-default-answer"></a>기본 대답 제공
 
@@ -208,16 +208,16 @@ QnA Maker 관리 (미리 보기)에서 런타임은 QnA Maker 서비스 자체�
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>QnA Maker 쌍의 기술 자료 개발
 
-[QnA 쌍](question-answer-set.md) 은 클라이언트 응용 프로그램 사용에 따라 설계 및 개발 해야 합니다.
+QnA 쌍은 클라이언트 응용 프로그램 사용에 따라 설계 및 개발 해야 합니다.
 
 각 쌍에는 다음이 포함 될 수 있습니다.
 * 메타 데이터-데이터의 원본, 내용, 형식 및 용도에 대 한 추가 정보로 QnA 쌍에 태그를 지정할 수 있도록 쿼리할 때 필터링 할 수 있습니다.
 * 후속 작업 프롬프트-사용자가 올바른 답변을 받을 수 있도록 기술 자료를 통해 경로를 확인 하는 데 도움이 됩니다.
-* 대체 질문-검색을 다양 한 형식의 질문에 대 한 답변에 일치 시킬 수 있도록 하는 것이 중요 합니다. [활성 학습 제안은](active-learning-suggestions.md) 대체 질문으로 전환 됩니다.
+* 대체 질문-검색을 다양 한 형식의 질문에 대 한 답변에 일치 시킬 수 있도록 하는 것이 중요 합니다. [활성 학습 제안은](../How-To/use-active-learning.md) 대체 질문으로 전환 됩니다.
 
 ### <a name="devops-development"></a>DevOps 개발
 
-DevOps 파이프라인에 삽입할 기술 자료를 개발 하려면 [일괄 처리 테스트](../index.yml)중에 기술 자료가 격리 되어야 합니다.
+DevOps 파이프라인에 삽입할 기술 자료를 개발 하려면 일괄 처리 테스트 중에 기술 자료가 격리 되어야 합니다.
 
 기술 자료는 Cognitive Search 인덱스를 QnA Maker 리소스의 다른 모든 기술 자료와 공유 합니다. 기술 자료가 파티션에 의해 격리 되는 동안 인덱스를 공유 하면 게시 된 기술 자료와 비교할 때 점수가 달라질 수 있습니다.
 

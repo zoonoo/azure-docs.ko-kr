@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554235"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988304"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 분류
 
 이 문서에서는 Azure 부서의 범위 (미리 보기)에서 지원 되 고 정의 된 시스템 분류를 나열 합니다.
+
+
+- **고유 일치 임계값**: 스캐너가 데이터 패턴을 실행 하기 전에 열에 있어야 하는 고유한 데이터 값의 총 수입니다. 시스템 분류 규칙은 분류를 위해 각 열에 8 개 이상의 고유 값이 있어야 합니다. 스캐너에서 정확 하 게 분류 하기 위한 충분 한 데이터가 열에 포함 되어 있는지 확인 하려면 시스템에서이 값이 필요 합니다. 예를 들어 값이 1 인 여러 행이 포함 된 열은 분류 되지 않습니다. 한 행에 값이 포함 되 고 나머지 행은 null 값을 포함 하는 열도 분류 되지 않습니다. 여러 패턴을 지정 하는 경우이 값이 각 패턴에 적용 됩니다.
+
+- **최소 일치 임계값**: 분류를 적용 하기 위해 스캐너에 의해 검색 되어야 하는 열에서 데이터 값 일치의 최소 비율입니다. 시스템 분류 값은 60%로 설정 됩니다.
+
 
 ## <a name="defined-system-classifications"></a>정의 된 시스템 분류
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>오스트레일리아 의료 계정 번호
+## <a name="australian-medicare-number"></a>오스트레일리아 medicare 번호
 
 ### <a name="format"></a>서식
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>키워드
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details

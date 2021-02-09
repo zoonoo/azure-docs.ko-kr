@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6ca489dc0c5c7ba8ba67f3456d04be953544a8fb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420600"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987826"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Azure Cognitive Search의 성능에 대 한 크기 조정
 
@@ -86,6 +86,27 @@ ms.locfileid: "93420600"
 이에 대 한 자세한 내용은 [Azure Cognitive Search Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 참조 하세요.
 
 복제본이 데이터의 복사본이 기 때문에 여러 복제본이 있으면 Azure Cognitive Search에서 한 복제본에 대해 컴퓨터 재부팅 및 유지 관리를 수행할 수 있습니다. 반면 쿼리 실행은 다른 복제본에서 계속 됩니다. 반대로 복제본을 사용 하지 않는 경우 해당 복제본이 미달 사용 리소스인 것으로 가정 하 여 쿼리 성능이 저하 될 수 있습니다.
+
+### <a name="availability-zones"></a>가용성 영역
+
+지역적으로의 고가용성을 제공 하기 위해 지역의 데이터 센터를 별개의 실제 위치 그룹으로 나눌 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview) . 검색 서비스는 한 지역 내에서 실행 됩니다. 복제본이 서로 다른 영역에서 실행 되는 경우
+
+검색 서비스에 두 개 이상의 복제본을 추가 하 여 Azure Cognitive Search에서 가용성 영역를 활용할 수 있습니다. 각 복제본은 지역 내의 다른 가용성 영역에 배치 됩니다. 가용성 영역 보다 많은 복제본이 있는 경우 복제본은 가용성 영역 전체에 최대한 균등 하 게 분산 됩니다.
+
+Azure Cognitive Search는 현재 다음 지역 중 하나에서 만든 표준 계층 이상 검색 서비스에 대 한 가용성 영역를 지원 합니다.
++ 오스트레일리아 동부 (2021 년 1 월 30 일에 만들어짐)
++ 캐나다 중부 (2021 년 1 월 30 일에 만듦)
++ 미국 중부 (2020 년 12 월 4 일에 만듦)
++ 미국 동부 2 (2021 년 1 월 30 일에 만들어짐)
++ 프랑스 중부 (2020 년 10 월 23 일 만듦)
++ 일본 동부 (2021 년 1 월 30 일에 만들어짐)
++ 북부 유럽 (2021 년 1 월 28 일에 만들어짐)
++ 남부 동아시아 (2021 년 1 월 31 일에 만들어짐)
++ 영국 남부 (2021 년 1 월 30 일에 만들어짐)
++ 유럽 서부 (2021 년 1 월 29 일에 만들어짐)
++ 미국 서 부 2 (2021 년 1 월 30 일에 만들어짐)
+
+가용성 영역 [Azure Cognitive Search Service Level Agreement(서비스 수준 약정)](https://azure.microsoft.com/support/legal/sla/search/v1_0/)에 영향을 주지 않습니다.
 
 ## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>지리적으로 분산 되는 워크 로드 및 지리적 중복성을 위한 크기 조정
 
