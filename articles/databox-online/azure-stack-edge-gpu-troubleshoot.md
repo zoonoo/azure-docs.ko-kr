@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c56fcecbd850dd0add26e5d50093eea595e3d825
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761537"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833425"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 문제 해결 
 
@@ -167,7 +167,7 @@ ms.locfileid: "98761537"
 
 2. [여기](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client)에 설명 된 대로 올바른 PowerShell 모듈이 설치 되어 있는지 확인 합니다.
 
-3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 예를 들면 다음과 같습니다.
+3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 예를 들어:
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -196,7 +196,7 @@ Azure Stack Edge Pro/Data Box Gateway 장치의 blob 저장소와 관련 된 오
 |이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
 |다음 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다 `Error parsing source location… The SSL connection could not be established` .|장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)를 참조 하세요.|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. 예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. 예를 들어:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |연결 시간이 초과 되었습니다.|Azure Stack Edge Pro에 로그인 한 후 잠금 해제 되어 있는지 확인 합니다. 장치가 다시 시작 될 때마다 사용자가 로그인 할 때까지 잠긴 상태로 유지 됩니다.|
 
 ## <a name="troubleshoot-iot-edge-errors"></a>IoT Edge 오류 문제 해결

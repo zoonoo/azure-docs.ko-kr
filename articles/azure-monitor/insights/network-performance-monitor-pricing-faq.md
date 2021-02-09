@@ -6,19 +6,22 @@ ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539655"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832881"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
 
 사용자의 의견을 수렴하여 최근에 Azure의 다양한 모니터링 서비스에 대한 [새로운 가격 책정 환경](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)을 도입했습니다. 이 문서는 Azure [NPM(네트워크 성능 모니터)](../../networking/network-monitoring-overview.md)과 관련된 가격 책정 변경 사항을 읽기 쉽게 질문과 대답 형식으로 담아낸 것입니다.
 
 네트워크 성능 모니터는 세 가지 구성 요소로 이루어집니다.
-* [성능 모니터](../../networking/network-monitoring-overview.md#performance-monitor)
+* [성능 모니터링](../../networking/network-monitoring-overview.md#performance-monitor)
 * [서비스 엔드포인트 모니터](../../networking/network-monitoring-overview.md)
 * [Express 경로 모니터](../../networking/network-monitoring-overview.md#expressroute-monitor)
 

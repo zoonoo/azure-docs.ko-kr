@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 11/05/2018
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a4adef26153870dbce4c24303a403c69285f7252
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5fa444e223991ba6f7e6587a66df858fb7f9c31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67182644"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831582"
 ---
 다음은 가상 디바이스의 로컬 웹 UI에 대해 지원되는 브라우저 목록입니다.
 
@@ -17,5 +17,5 @@ ms.locfileid: "67182644"
 |---------|---------|---------|
 |Google Chrome   |최신 버전         |         |
 |Microsoft Edge    | 최신 버전        |         |
-|Internet Explorer     | 최신 버전        |         |
+|Internet Explorer     | 최신 버전        |향상 된 보안 기능을 사용 하는 경우 로컬 웹 UI 페이지에 액세스할 수 없습니다. 보안 강화를 사용 하지 않도록 설정 하 고 브라우저를 다시 시작 합니다. |
 |FireFox    |최신 버전         |         |

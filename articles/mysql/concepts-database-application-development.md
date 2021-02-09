@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 20c6841bb596c7f4a32ef689423515a8da59a945
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 45447a26c0455fc5945af8b8e9f7442af7facfbe
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541558"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830688"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스에 대한 애플리케이션 개발 개요 
 이 문서에서는 개발자가 Azure Database for MySQL에 연결하기 위한 애플리케이션 코드를 작성할 때 따라야 하는 디자인 고려 사항을 설명합니다. 
@@ -23,7 +23,7 @@ ms.locfileid: "94541558"
 다양한 프로그래밍 언어 및 플랫폼에 대한 코드 샘플을 사용할 수 있습니다. [MySQL용 Azure 데이터베이스에 연결하는 데 사용되는 연결 라이브러리](concepts-connection-libraries.md)에서 코드 샘플에 대한 링크를 찾을 수 있습니다.
 
 ## <a name="tools"></a>도구
-MySQL용 Azure 데이터베이스는 워크벤치와 같은 MySQL 공통 관리 도구 또는 mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql) 등과 같은 MySQL 유틸리티와 호환되는 MySQL 커뮤니티 버전을 사용합니다. 또한 Azure Portal, Azure CLI, REST API를 사용하여 데이터베이스 서비스와 상호 작용할 수도 있습니다.
+Azure Database for MySQL는 mysql 커뮤니티 버전을 사용 합니다 .이 도구는 mysql.exe, [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql), [dbforge Studio for mysql](https://www.devart.com/dbforge/mysql/studio/) 및 기타와 같은 mysql 유틸리티와 같은 mysql 일반 관리 도구와 호환 됩니다. 또한 Azure Portal, Azure CLI, REST API를 사용하여 데이터베이스 서비스와 상호 작용할 수도 있습니다.
 
 ## <a name="resource-limitations"></a>리소스 제한
 Azure Database for MySQL은 다음 두 가지 메커니즘을 사용하여 서버에서 사용할 수 있는 리소스를 관리합니다. 

@@ -3,12 +3,12 @@ title: 템플릿 함수-비교
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 비교 하는 데 사용 하는 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920528"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834003"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>ARM 템플릿의 비교 함수
 
@@ -106,11 +106,11 @@ param objectToTest object = {
   ]
 }
 
-output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
-output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
-output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
-output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
-output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
+output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
+output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
+output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
+output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 ```
 
 ---
@@ -121,8 +121,8 @@ output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
 | ---- | ---- | ----- |
 | stringOutput | String | 기본값 |
 | intOutput | Int | 1 |
-| objectOutput | 개체 | {"first": "default"} |
-| arrayOutput | 배열 |  [1] |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | Array |  [1] |
 | emptyOutput | Bool | True |
 
 ## <a name="equals"></a>equals
@@ -387,7 +387,7 @@ output checkStrings bool = firstString > secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
+| checkInts | Bool | False |
 | checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -468,7 +468,7 @@ output checkStrings bool = firstString >= secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
+| checkInts | Bool | False |
 | checkStrings | Bool | True |
 
 ## <a name="less"></a>less
@@ -550,7 +550,7 @@ output checkStrings bool = firstString < secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | 거짓 |
+| checkStrings | Bool | False |
 
 ## <a name="lessorequals"></a>lessOrEquals
 
@@ -631,7 +631,7 @@ output checkStrings bool = firstString <= secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | 거짓 |
+| checkStrings | Bool | False |
 
 ## <a name="next-steps"></a>다음 단계
 

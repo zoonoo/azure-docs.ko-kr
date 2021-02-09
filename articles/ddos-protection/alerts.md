@@ -3,7 +3,7 @@ title: Azure DDoS Protection Standard에 대 한 DDoS protection 경고 보기 �
 description: Azure DDoS Protection Standard에 대 한 DDoS protection 경고를 확인 하 고 구성 하는 방법을 알아봅니다.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806293"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832524"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>DDoS 보호 경고 보기 및 구성
 
@@ -30,7 +30,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > * Azure Security Center에서 경고 보기
 > * 경고 유효성 검사 및 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하려면 먼저 [Azure DDoS standard 보호 계획](manage-ddos-protection.md) 을 만들고 가상 네트워크에서 DDoS Protection standard를 사용 하도록 설정 해야 합니다.
@@ -41,7 +41,8 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 이러한 템플릿을 사용 하 여 진단 로깅을 사용 하도록 설정한 모든 공용 IP 주소에 대 한 경고를 구성할 수 있습니다. 따라서 이러한 경고 템플릿을 사용 하려면 먼저 진단 설정이 사용 되는 Log Analytics 작업 영역이 필요 합니다. [DDoS 진단 로깅 보기 및 구성을](diagnostic-logging.md)참조 하세요.
 
 ### <a name="azure-monitor-alert-rule"></a>Azure Monitor 경고 규칙
-이 [Azure Monitor 경고 규칙](https://aka.ms/ddosmitigationstatus) 은 활성 DDoS 완화가 발생 한 경우를 검색 하는 간단한 쿼리를 실행 합니다. 이는 잠재적인 공격을 나타냅니다. 작업 그룹은 경고의 결과로 동작을 호출 하는 데 사용할 수 있습니다.
+
+이 [Azure Monitor 경고 규칙](https://aka.ms/DDOSmitigationstatus) 은 활성 DDoS 완화가 발생 한 경우를 검색 하는 간단한 쿼리를 실행 합니다. 이는 잠재적인 공격을 나타냅니다. 작업 그룹은 경고의 결과로 동작을 호출 하는 데 사용할 수 있습니다.
 
 [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
@@ -62,7 +63,7 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
     |설정                  |값                                                                                               |
     |---------                |---------                                                                                           |
-    | Scope                   | **리소스 선택** 을 선택합니다. </br> 로깅할 공용 IP 주소를 포함 하는 **구독** 을 선택 하 고 **리소스 종류** 에 대 한 **공용 ip 주소** 를 선택한 다음 메트릭을 로깅할 특정 공용 ip 주소를 선택 합니다. </br> **완료** 를 선택합니다. | 
+    | 범위                   | **리소스 선택** 을 선택합니다. </br> 로깅할 공용 IP 주소를 포함 하는 **구독** 을 선택 하 고 **리소스 종류** 에 대 한 **공용 ip 주소** 를 선택한 다음 메트릭을 로깅할 특정 공용 ip 주소를 선택 합니다. </br> **완료** 를 선택합니다. | 
     | 조건 | **조건 선택** 을 선택 합니다. </br> 신호 이름 아래에서 **DDoS 공격** 을 선택 합니다. </br> **연산자** 아래에서 **크거나 같음을** 선택 합니다. </br> **집계 유형** 에서 **최대값** 을 선택 합니다. </br> **임계값** 에 *1* 을 입력 합니다. **DDoS 공격을 받고 있지 않은** 경우 **0** 은 공격을 받고 있지 않으며 **1** 은 공격을 받고 있음을 의미 합니다. </br> **완료** 를 선택합니다. | 
     | 동작 | **작업 그룹 추가** 를 선택 합니다. </br> **작업 그룹 만들기** 를 선택합니다. </br> 알림 **아래의** **알림 유형** 에서 **전자 메일/SMS 메시지/푸시/음성** 을 선택 합니다. </br> **이름** 아래에 _MyUnderAttackEmailAlert_ 을 입력 합니다. </br> 편집 단추를 클릭 하 고 **전자 메일** 및 필요한 다음 옵션을 선택한 다음 **확인** 을 선택 합니다. </br> **검토 + 만들기** 를 선택합니다. | 
     | 경고 규칙 세부 정보 | **경고 규칙 이름** 아래에 _MyDdosAlert_ 을 입력 합니다. |

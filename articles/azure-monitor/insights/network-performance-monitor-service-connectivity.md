@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761042"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832932"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 [네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) .
 
 [네트워크 성능 모니터](network-performance-monitor.md)에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다. 이러한 엔드포인트에는 웹 사이트, SaaS 애플리케이션, PaaS 애플리케이션 및 SQL Database가 포함됩니다. 
 
@@ -30,7 +33,7 @@ ms.locfileid: "91761042"
 
 
 ## <a name="configuration"></a>구성 
-네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
+네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성** 을 선택합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-service-endpoint/npm-configure-button.png)
 
@@ -52,22 +55,22 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하기 위한 테스트를 만들기 시작합니다.
 
 1. **서비스 연결 모니터** 탭을 선택합니다.
-2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 작업 영역 당 최대 450 테스트를 만들 수 있습니다. 
+2. **테스트 추가** 를 선택하고 테스트 이름 및 설명을 입력합니다. 작업 영역 당 최대 450 테스트를 만들 수 있습니다. 
 3. 테스트 유형을 선택합니다.<br>
 
-    * **웹**을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>
-    * **네트워크**를 선택하여 TCP 요청에 응답하지만 HTTP/S 요청에 응답하지 않는 서비스(예: SQL Server, FTP 서버 Ehsms SSH 포트)에 대한 연결을 모니터링합니다. 
+    * **웹** 을 선택하여 HTTP/S 요청에 응답하는 서비스(예: outlook.office365.com 또는 bing.com)에 대한 연결을 모니터링합니다.<br>
+    * **네트워크** 를 선택하여 TCP 요청에 응답하지만 HTTP/S 요청에 응답하지 않는 서비스(예: SQL Server, FTP 서버 Ehsms SSH 포트)에 대한 연결을 모니터링합니다. 
     * 예: blob 저장소 계정에 대 한 웹 테스트를 만들려면 **웹** 을 선택 하 고 대상을 blob.core.windows.net *로 입력 합니다.* 마찬가지로 [이 링크](../../storage/common/storage-account-overview.md#storage-account-endpoints) 를 사용 하 여 다른 테이블 저장소, 큐 저장소 및 Azure Files에 대 한 테스트를 만들 수 있습니다.
 4. 네트워크 대기 시간, 패킷 손실 및 토폴로지 검색과 같은 네트워크 측정을 수행하지 않으려는 경우 **네트워크 측정 수행** 확인란의 선택을 취소합니다. 이 기능을 최대한 활용하기 위해 이 옵션을 선택해 둡니다. 
-5. **대상**에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
-6. **포트 번호**에서 대상 서비스의 포트 번호를 입력합니다. 
-7. **테스트 빈도**에서 테스트를 실행하려는 빈도에 대한 값을 입력합니다. 
+5. **대상** 에서 네트워크 연결을 모니터링하려는 URL/FQDN/IP 주소를 입력합니다.
+6. **포트 번호** 에서 대상 서비스의 포트 번호를 입력합니다. 
+7. **테스트 빈도** 에서 테스트를 실행하려는 빈도에 대한 값을 입력합니다. 
 8. 서비스에 대한 네트워크 연결을 모니터링하려는 노드를 선택합니다. 테스트 별로 추가 된 에이전트 수가 150 미만 인지 확인 합니다. 모든 에이전트는 최대 150 끝점/에이전트를 테스트할 수 있습니다.
 
     >[!NOTE]
     > Windows 서버 기반 노드의 경우 이 기능은 TCP 기반 요청을 사용하여 네트워크 측정을 수행합니다. Windows 클라이언트 기반 노드의 경우 이 기능은 ICMP 기반 요청을 사용하여 네트워크 측정을 수행합니다. 경우에 따라 노드가 Windows 클라이언트에 기반하는 경우 대상 애플리케이션은 들어오는 ICMP 기반 요청을 차단합니다. 솔루션은 네트워크 측정을 수행할 수 없습니다. 이러한 경우에 Windows Server 기반 노드를 사용하는 것이 좋습니다. 
 
-9. 선택한 항목에 대해 상태 이벤트를 만들지 않으려는 경우 **이 테스트에서 검사되는 대상에서 상태 모니터링 사용**의 선택을 취소합니다. 
+9. 선택한 항목에 대해 상태 이벤트를 만들지 않으려는 경우 **이 테스트에서 검사되는 대상에서 상태 모니터링 사용** 의 선택을 취소합니다. 
 10. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 선택한 네트워크 또는 서브네트워크 쌍에 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
 11. **저장** 을 선택 하 여 구성을 저장 합니다. 
 
@@ -117,7 +120,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
     - 서비스에 대한 네트워크 연결을 확인하는 데 사용되는 노드가 Windows 클라이언트 컴퓨터인 경우 대상 서비스가 ICMP 요청을 차단하거나 네트워크 방화벽이 노드에서 시작되는 ICMP 요청을 차단하게 됩니다.
     - **네트워크 측정 수행** 확인란이 테스트 구성에서 비어 있습니다. 
 
-* 서비스 응답 시간은 NA이지만 네트워크 손실 및 대기 시간은 유효한 경우 대상 서비스가 웹 애플리케이션이 아닐 수 있습니다. 테스트 구성을 편집하고, 테스트 형식을 **웹**이 아닌 **네트워크**로 선택합니다. 
+* 서비스 응답 시간은 NA이지만 네트워크 손실 및 대기 시간은 유효한 경우 대상 서비스가 웹 애플리케이션이 아닐 수 있습니다. 테스트 구성을 편집하고, 테스트 형식을 **웹** 이 아닌 **네트워크** 로 선택합니다. 
 
 * 애플리케이션이 느리게 실행되는 경우 애플리케이션 성능 저하가 네트워크 때문인지 또는 애플리케이션 공급자 끝의 문제 때문인지 확인합니다.
 
@@ -134,4 +137,3 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ## <a name="next-steps"></a>다음 단계
 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
-

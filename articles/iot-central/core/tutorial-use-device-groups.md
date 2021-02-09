@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8c26afc9cf9630f6d26ddc76759393a6ea1a8696
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990301"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832847"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>자습서: 디바이스 그룹을 사용하여 디바이스 원격 분석 수행
 
@@ -82,6 +82,10 @@ ms.locfileid: "94990301"
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="모든 Contoso 디바이스에 대한 평균 값을 보여주는 스크린샷":::
 
     뷰를 사용자 지정하고, 표시된 기간을 변경하고, 데이터를 내보낼 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

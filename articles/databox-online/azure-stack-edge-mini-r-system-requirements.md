@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 75eb847bd85f52e8fe168b0ee7270af4bdea20ed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467455"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834071"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Azure Stack Edge 미니 R 시스템 요구 사항
 
@@ -40,7 +40,7 @@ Edge 미니 R Azure Stack에 대 한 시스템 요구 사항은 다음과 같습
 
 다음 Edge 저장소 계정은 장치의 REST 인터페이스에서 지원 됩니다. Edge 저장소 계정이 장치에 만들어집니다. 자세한 내용은 [Edge storage 계정](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts) 을 참조 하세요.
 
-|Type  |스토리지 계정  |설명  |
+|Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 
@@ -51,7 +51,7 @@ Edge 미니 R Azure Stack에 대 한 시스템 요구 사항은 다음과 같습
 
 이러한 저장소 계정은 로컬 Azure Resource Manager에 연결 된 경우 장치 로컬 Api를 통해 수신 됩니다. 지원 되는 저장소 계정은 다음과 같습니다.
 
-|Type  |스토리지 계정  |설명  |
+|Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob, 페이지 Blob         | SKU 유형이 Standard_LRS입니다.        |
 |Premium   |GPv1: 블록 Blob, 페이지 Blob         |SKU 유형이 Premium_LRS입니다.         |

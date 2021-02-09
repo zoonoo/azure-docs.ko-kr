@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 0bb46c17ece9a38d9f1e10c79a4b026efa0ece4c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98164841"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833799"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 1 월 2021 일 이전에 만든 테스트를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 2024 년 2 월 29 일 이전에 Azure Network Watcher에서 네트워크 성능 모니터의 테스트를 새 연결 모니터로 마이그레이션합니다.
 
 한 번의 가동 중지 시간 없이 한 번의 클릭으로 네트워크 성능 모니터 (NPM)에서 새롭게 향상 된 연결 모니터로 테스트를 마이그레이션할 수 있습니다. 이점에 대 한 자세한 내용은 [연결 모니터](./connection-monitor-overview.md)를 참조 하세요.
 
@@ -35,7 +38,7 @@ ms.locfileid: "98164841"
    * **Log Analytics 데이터**: 마이그레이션 전에는 networkmonitoring 테이블에 NPM가 구성 된 작업 영역에 데이터가 남아 있습니다. 마이그레이션 후에 데이터는 동일한 작업 영역에 있는 NetworkMonitoring 테이블 및 ConnectionMonitor_CL 테이블로 이동 됩니다. NPM에서 테스트를 사용 하지 않도록 설정 하면 데이터는 ConnectionMonitor_CL 테이블에만 저장 됩니다.
    * **로그 기반 경고, 대시보드 및 통합**: 새 ConnectionMonitor_CL 테이블을 기반으로 쿼리를 수동으로 편집 해야 합니다. 메트릭에 대 한 경고를 다시 만들려면 [연결 모니터를 사용 하 여 네트워크 연결 모니터링](./connection-monitor-overview.md#metrics-in-azure-monitor)을 참조 하세요.
     
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 * 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 했는지 확인 합니다.
 * Log Analytics 에이전트가 설치 된 Azure 가상 머신은 Network Watcher 확장을 사용 하 여 사용 하도록 설정 해야 합니다.

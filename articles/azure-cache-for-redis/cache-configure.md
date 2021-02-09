@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734626"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831776"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -39,7 +39,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Ca
     * [액세스 키](#access-keys)
     * [고급 설정](#advanced-settings)
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-    * [크기 조정](#scale)
+    * [배율](#scale)
     * [클러스터 크기](#cluster-size)
     * [데이터 지속성](#redis-data-persistence)
     * [업데이트를 예약](#schedule-updates)
@@ -91,7 +91,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Ca
 * [액세스 키](#access-keys)
 * [고급 설정](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
-* [크기 조정](#scale)
+* [배율](#scale)
 * [클러스터 크기](#cluster-size)
 * [데이터 지속성](#redis-data-persistence)
 * [업데이트를 예약](#schedule-updates)
@@ -183,7 +183,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **권장 사항** 도구에서 검토 하는 메트릭 및 제한에 대 한 자세한 내용은 다음 표를 참조 하세요.
 
-| Azure Cache for Redis 메트릭 | 자세한 정보 |
+| Azure Cache for Redis 메트릭 | 추가 정보 |
 | --- | --- |
 | 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - maxclients](#maxclients) |
@@ -236,10 +236,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인** 을 클릭합니다. 유지 관리 기간은 UTC 단위입니다.
 
-> [!IMPORTANT]
-> **업데이트 예약** 기능은 프리미엄 계층 캐시에만 제공됩니다. 자세한 내용과 지침은 [Azure Cache for Redis 관리 - 업데이트 예약](cache-administration.md#schedule-updates)을 참조하세요.
->
->
+자세한 내용 및 지침은 [Redis 관리용 Azure Cache-업데이트 예약](cache-administration.md#schedule-updates) 을 참조 하세요.
 
 ### <a name="geo-replication"></a>지역에서 복제
 
@@ -307,10 +304,10 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-### <a name="reboot"></a>다시 부팅
+### <a name="reboot"></a>Reboot
 **다시 부팅** 블레이드에서는 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![다시 부팅](./media/cache-configure/redis-cache-reboot.png)
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
@@ -394,7 +391,7 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 | `maxmemory-samples` |3 |메모리를 절약하기 위해 LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘이 아닌 대략적인 알고리즘입니다. 기본적으로 Redis는 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다. |
 | `lua-time-limit` |5,000 |밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답하기 시작합니다. |
 | `lua-event-limit` |500 |스크립트 이벤트 큐의 최대 크기 |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [https://redis.io/topics/clients](https://redis.io/topics/clients)를 참조하세요. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [https://redis.io/topics/clients](https://redis.io/topics/clients)을(를) 참조하세요. |
 
 <a name="databases"></a>
 <sup>1</sup>`databases`에 대한 제한은 Azure Cache for Redis 가격 책정 계층마다 다르며 캐시를 만들 때 설정할 수 있습니다. 캐시를 만드는 동안 `databases` 설정이 지정되지 않았다면 기본값은 16입니다.

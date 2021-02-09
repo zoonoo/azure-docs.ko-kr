@@ -12,14 +12,14 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 07/17/2019
-ms.openlocfilehash: 017698975706aa8501cd059351cf9a9d88594f77
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a54907dd3f7b3fbc06033624f14b12de14d9afb9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779903"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831504"
 ---
-# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 사용자 지정 DNS 구성
+# <a name="configure-a-custom-dns-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 사용자 지정 DNS 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance는 Azure [VNet (가상 네트워크)](../../virtual-network/virtual-networks-overview.md)내에 배포 되어야 합니다. 프라이빗 호스트 이름이 SQL Managed Instance에서 확인되어야 하는 몇 가지 시나리오(예: db 메일, 클라우드 또는 하이브리드 환경의 다른 SQL Server 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. 
@@ -27,10 +27,10 @@ Azure SQL Managed Instance는 Azure [VNet (가상 네트워크)](../../virtual-n
 SQL Managed Instance는 내부 작동에 동일한 DNS를 사용 하기 때문에 공용 도메인 이름을 확인할 수 있도록 사용자 지정 DNS 서버를 구성 합니다.
 
 > [!IMPORTANT]
-> 항상 메일 서버에 대 한 FQDN (정규화 된 도메인 이름), SQL Server 인스턴스 및 다른 서비스에 대 한 FQDN (정규화 된 도메인 이름)은 개인 DNS 영역 내에 있는 경우에도 사용 합니다. 예를 들어 메일 서버에 대해를 사용 하는 경우가 `smtp.contoso.com` `smtp` 올바르게 확인 되지 않기 때문입니다. 동일한 가상 네트워크 내의 Vm SQL Server 참조 하는 연결 된 서버 또는 복제를 만들려면 FQDN과 기본 DNS 접미사도 필요 합니다. `SQLVM.internal.cloudapp.net`)을 입력합니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요.
+> 항상 메일 서버에 대 한 FQDN (정규화 된 도메인 이름), SQL Server 인스턴스 및 다른 서비스에 대 한 FQDN (정규화 된 도메인 이름)은 개인 DNS 영역 내에 있는 경우에도 사용 합니다. 예를 들어 메일 서버에 대해를 사용 하는 경우가 `smtp.contoso.com` `smtp` 올바르게 확인 되지 않기 때문입니다. 동일한 가상 네트워크 내의 Vm SQL Server 참조 하는 연결 된 서버 또는 복제를 만들려면 FQDN과 기본 DNS 접미사도 필요 합니다. 예들 들어 `SQLVM.internal.cloudapp.net`입니다. 자세한 내용은 [자체 DNS 서버를 사용 하는 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요.
 
 > [!IMPORTANT]
-> 가상 네트워크 DNS 서버를 업데이트 해도 SQL Managed Instance에 즉시 영향을 주지는 않습니다. SQL Managed Instance DNS 구성은 DHCP 임대가 만료 된 후 또는 플랫폼 업그레이드 후 (어느 쪽이 든 먼저 발생 하는 경우) 업데이트 됩니다. **사용자는 첫 번째 관리 되는 인스턴스를 만들기 전에 가상 네트워크 DNS 구성을 설정 하는 것이 좋습니다.**
+> 가상 네트워크 DNS 서버를 업데이트 해도 SQL Managed Instance에 즉시 영향을 주지는 않습니다. 자세한 내용은 [SQL Managed Instance 가상 클러스터의 가상 네트워크 DNS 서버를 동기화 하는 방법 설정을](synchronize-vnet-dns-servers-setting-on-virtual-cluster.md) 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

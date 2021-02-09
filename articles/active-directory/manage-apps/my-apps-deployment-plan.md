@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258289"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830722"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>내 앱 구성 Azure Active Directory 계획
 
 > [!NOTE]
-> 이 문서는 조직의 내 앱 포털의 구성을 계획 해야 하는 IT 전문가를 위해 작성 되었습니다. 내 앱 및 컬렉션을 사용 하는 방법에 대 한 최종 사용자 정보는 [My apps 포털에서 로그인 및 시작 앱](../user-help/my-apps-portal-end-user-access.md)을 참조 하세요.
+> 이 문서는 조직의 내 앱 포털의 구성을 계획 해야 하는 IT 전문가를 위해 작성 되었습니다. 
 >
 > **최종 사용자 설명서는 [My apps 포털에서 로그인 및 앱 시작](../user-help/my-apps-portal-end-user-access.md)을 참조** 하세요.
 
@@ -139,7 +139,7 @@ SSO에 대 한 SaaS (software as a service) 응용 프로그램을 구성 하는
 
 확장에 대 한 자세한 내용은 [My Apps browser 확장 설치](../user-help/my-apps-portal-end-user-access.md)를 참조 하세요.
 
-이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 옵션은 다음과 같습니다.
+이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 표시되는 옵션은 다음과 같습니다.
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 
@@ -256,11 +256,11 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 
 | 가상 사용자| 역할| Azure AD 역할 |
 | - | - | - |
-| 기술 지원팀 관리자| 계층 1 지원| 없음 |
-| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 전역 관리자 |
-| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
-| 인프라 관리자| 인증서 롤오버 소유자| 전역 관리자 |
-| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
+| 기술 지원팀 관리자| 계층 1 지원| None |
+| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
+| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
+| 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
+| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
 
 
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.

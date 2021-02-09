@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9343bc424a0a38da173a56701528c4fd7549aabd
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 908254fec0d9e92b0e30c2e4968c3c505bbbdbf8
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734660"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833833"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-tier-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 프리미엄 계층 Azure 캐시에 대 한 가상 네트워크 지원 구성
 
@@ -178,7 +178,7 @@ Azure Cache for Redis에 대 한 네트워크 연결 요구 사항은 처음에 
 * 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결. Redis 인스턴스에 대 한 Azure Cache와 동일한 지역에 있는 끝점과 *다른* Azure 지역에 있는 저장소 끝점도 포함 됩니다. Azure Storage 끝점은 다음 DNS 도메인에서 확인 됩니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*
 * *Ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com* 및 *crl.microsoft.com* 에 대 한 아웃 바운드 네트워크 연결입니다. TLS/SSL 기능을 지원 하려면이 연결이 필요 합니다.
 * 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다. 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.
-* 다음 Azure Monitor 끝점에 대 한 아웃 바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net* 및 *azglobal-red.azglobal.metrics.nsatc.net* DNS 도메인에서 확인 됩니다.
+* 다음 Azure Monitor 끝점에 대 한 아웃 바운드 네트워크 연결: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *EAST-PROD2.PROD2.METRICS.NSATC.NET*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com* 및 *shoebox3-black.prod.microsoftmetrics.com* DNS 도메인에서 확인 됩니다.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-virtual-network"></a>내 캐시가 가상 네트워크에서 작동 하는지 확인 하려면 어떻게 해야 하나요?
 
@@ -190,7 +190,7 @@ Azure Cache for Redis에 대 한 네트워크 연결 요구 사항은 처음에 
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구](cache-how-to-premium-vnet.md#inbound-port-requirements) 사항 및 [아웃 바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명 된 대로 필요한 모든 캐시 종속성에 연결할 수 없는 경우 캐시를 다시 시작할 수 없습니다.
 - 캐시 노드가 다시 시작 된 후 Azure Portal의 캐시 상태에서 보고 되는 경우 다음 테스트를 수행할 수 있습니다.
-  - [Tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용 하 여 캐시와 동일한 가상 네트워크 내에 있는 컴퓨터에서 포트 6380을 사용 하 여 캐시 끝점을 Ping 합니다. 예를 들면 다음과 같습니다.
+  - [Tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용 하 여 캐시와 동일한 가상 네트워크 내에 있는 컴퓨터에서 포트 6380을 사용 하 여 캐시 끝점을 Ping 합니다. 예를 들어:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -213,7 +213,7 @@ IP 주소를 통해 호스트에 연결 하는 것이 원인일 수 있습니다
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에는 `sslHost` Stackexchange 클라이언트에서 제공 하는와 같은 구성 옵션이 포함 됩니다. 이 옵션을 사용 하면 인증서 유효성 검사에 사용 되는 호스트 이름을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에는 `sslHost` Stackexchange 클라이언트에서 제공 하는와 같은 구성 옵션이 포함 됩니다. 이 옵션을 사용 하면 인증서 유효성 검사에 사용 되는 호스트 이름을 재정의할 수 있습니다. 예를 들어:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 

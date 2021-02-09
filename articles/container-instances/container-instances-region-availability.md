@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661377"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831283"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -34,7 +34,7 @@ ms.locfileid: "98661377"
 | 오스트레일리아 동부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 브라질 남부 | 4 | 16 | 2 | 8 | 50 | 해당 없음 |
 | 캐나다 중부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
-| 인도 중부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | V100 |
+| 인도 중부 | 4 | 16 | 4 | 4 | 50 | V100 |
 | 미국 중부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 동아시아 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 미국 동부 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

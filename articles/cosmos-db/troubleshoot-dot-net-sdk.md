@@ -3,18 +3,18 @@ title: Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 description: 클라이언트 쪽 로깅 및 기타 타사 도구와 같은 기능을 사용 하 여 .NET SDK를 사용 하는 경우 Azure Cosmos DB 문제를 식별, 진단 및 해결 합니다.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683104"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831249"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Azure Cosmos DB .NET SDK를 사용하는 경우 문제 진단 및 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "97683104"
 [포털 메트릭을](./monitor-cosmos-db.md) 확인 하면 클라이언트 쪽 문제 인지 또는 서비스에 문제가 있는지 확인 하는 데 도움이 됩니다. 예를 들어, 메트릭에 처리율이 제한 된 요청 (HTTP 상태 코드 429)이 포함 된 경우 요청을 제한 하는 것을 의미 하는 요청 [빈도 너무 큼](troubleshoot-request-rate-too-large.md) 섹션을 확인 합니다. 
 
 ## <a name="retry-logic"></a>다시 시도 논리 <a id="retry-logics"></a>
-SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한 작업을 다시 시도 합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
+IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실패한 작업을 다시 시도합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
 
 1. 읽기 및 쿼리 IO 오류는 SDK에서 최종 사용자에 게 표시 하지 않고 다시 시도 됩니다.
 2. 쓰기 (Create, Upsert, Replace, Delete)는 "not" idempotent 이므로 SDK는 항상 실패 한 쓰기 작업을 무조건 다시 시도할 수 없습니다. 사용자의 응용 프로그램 논리에서 오류를 처리 하 고 다시 시도 해야 합니다.
@@ -67,6 +67,7 @@ SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한
 |----------|-------------|
 | 400 | 잘못 된 요청 (오류 메시지에 따라 다름)| 
 | 401 | [권한 없음](troubleshoot-unauthorized.md) | 
+| 403 | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | [리소스를 찾을 수 없습니다.](troubleshoot-not-found.md) |
 | 408 | [요청 시간이 초과 되었습니다.](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | 충돌 오류는 쓰기 작업의 리소스에 제공 된 ID를 기존 리소스에서 사용 하는 경우에 발생 합니다. ID는 동일한 파티션 키 값을 가진 모든 문서 내에서 고유 해야 하므로이 문제를 해결 하려면 리소스에 다른 ID를 사용 합니다. |

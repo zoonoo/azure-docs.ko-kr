@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bf730dbc28d15c3d036e9ebeedbe035db087c5d8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 9bcf256b6144702254bbff4a57e5ff402abaa962
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673032"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834105"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
 
@@ -20,7 +20,7 @@ ms.locfileid: "97673032"
 
 :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="Iot 플러그 앤 플레이 bridge의 보고 된 원격 분석 (습도, 온도) 테이블이 있는 Azure IoT 탐색기를 보여 주는 스크린샷":::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 Windows 또는 Linux의 문서에서 샘플을 실행할 수 있습니다. 이 방법 가이드의 셸 명령은 경로 구분 기호 ' '에 대 한 Windows 규칙 `\` 을 따릅니다. Linux를 따라 이동 하는 경우 ' '에 대해 이러한 구분 기호를 교환 해야 `/` 합니다.
 
@@ -44,7 +44,7 @@ az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --
 
 ## <a name="download-and-run-the-bridge"></a>브리지를 다운로드 하 여 실행 합니다.
 
-이 문서에는 브리지를 실행 하는 두 가지 옵션이 있습니다. 다음과 같습니다.
+이 문서에는 브리지를 실행 하는 두 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 - 미리 작성 된 실행 파일을 다운로드 하 고이 섹션에 설명 된 대로 실행 합니다.
 - 소스 코드를 다운로드 한 다음, 다음 섹션에 설명 된 대로 [브리지를 빌드하고 실행](#build-and-run-the-bridge) 합니다.
@@ -279,6 +279,8 @@ Azure IoT 탐색기 용 모델을 다운로드 하려면 다음을 수행 합니
 브리지가 시작 된 후 Azure IoT explorer 도구를 사용 하 여 작동 하는지 확인 합니다. 모델에 정의 된 원격 분석, 속성 및 명령을 볼 수 있습니다 `dtmi:com:example:PnpBridgeEnvironmentalSensor;1` .
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+
+## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

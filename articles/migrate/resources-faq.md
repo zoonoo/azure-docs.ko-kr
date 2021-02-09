@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b36a4089a15118499b0ce57500f221b74af82242
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753752"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832575"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -35,7 +35,7 @@ Azure Migrate를 사용 하 여 온-프레미스 인프라, 응용 프로그램 
 - Azure Migrate를 사용 하 여 Azure Migrate 도구, 다른 Azure 서비스 및 타사 도구와의 상호 운용성 및 향후 확장성을 제공 합니다.
 - Azure Migrate: 서버 마이그레이션 도구는 Azure로의 서버 마이그레이션을 위해 작성 되었습니다. 마이그레이션에 최적화 되어 있습니다. 마이그레이션과 직접적인 관련이 없는 개념 및 시나리오에 대해 알 필요가 없습니다. 
 - VM에 대 한 복제가 시작 된 시간부터 180 일간의 마이그레이션에 대 한 도구 사용 요금은 없습니다. 마이그레이션을 완료 하는 데 걸리는 시간을 제공 합니다. 복제에 사용 되는 저장소 및 네트워크 리소스와 테스트 마이그레이션 중 사용 된 계산 요금에 대해서만 비용을 지불 합니다.
-- Azure Migrate은 Site Recovery에서 지원 되는 모든 마이그레이션 시나리오를 지원 합니다. 또한 VMware Vm의 경우 Azure Migrate는 에이전트 없는 마이그레이션 옵션을 제공 합니다.
+- Azure Migrate은 Site Recovery에서 지원 되는 모든 마이그레이션 시나리오를 지원 합니다. 또한 VMware Vm의 경우 Azure Migrate 에이전트 없는 마이그레이션 옵션을 제공 합니다.
 - Azure Migrate에 대 한 새로운 마이그레이션 기능에 우선 순위를 정 합니다. 서버 마이그레이션 도구에만 해당 됩니다. 이러한 기능은 Site Recovery 대상이 아닙니다.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 은 재해 복구에만 사용 해야 합니다.
@@ -44,7 +44,7 @@ Azure Migrate: 서버 마이그레이션 도구는 일부 온-프레미스 컴�
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Azure Migrate의 이전 클래식 환경을 갖춘 프로젝트가 있습니다. 새 버전을 사용 하 여 시작 어떻게 할까요??
 
-이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](./create-manage-projects.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
+클래식 Azure Migrate는 2 월 2024 일에 사용 중지 됩니다. 2024 년 2 월 일 이후 클래식 버전의 Azure Migrate는 더 이상 지원 되지 않으며 클래식 프로젝트의 인벤토리 메타 데이터가 삭제 됩니다. 이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](./create-manage-projects.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>서버 평가와 맵 도구 키트 Azure Migrate 간의 차이점은 무엇 인가요?
 

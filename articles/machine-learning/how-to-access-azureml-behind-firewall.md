@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc8044ee72689634a1d4ce3e0e8b1a499404c5ce
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 0fcea6a44f5379ff3da5b348ae45486be6c2516a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560297"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831317"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -82,7 +82,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
     * MicrosoftContainerRegistry
     * AzureFrontDoor.FirstParty
 
-    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예: `keyvault.westus`.
+    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예들 들어 `keyvault.westus`입니다.
 
     __프로토콜__ 에 대해를 선택 `TCP` 합니다. 원본 및 대상 __포트__ 의 경우를 선택 `*` 합니다.
 
@@ -123,6 +123,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Azure portal | management.azure.com | management.azure.us | management.azure.cn |
+| Azure 리소스 관리자 | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Azure Machine Learning 호스트**
 
@@ -146,7 +147,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
 | **필수** | **Azure 공용** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | 계산 클러스터/인스턴스 | \*. batchai.core.windows.net | \*. batchai.core.usgovcloudapi.net |\*. batchai.ml.azure.cn |
-| 계산 클러스터/인스턴스 | graph.windows.net |  |  |
+| 계산 클러스터/인스턴스 | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | 컴퓨팅 인스턴스 | \*. instances.azureml.net | \*. instances.azureml.us | \*. instances.azureml.cn |
 | 컴퓨팅 인스턴스 | \*. instances.azureml.ms |  |  |
 

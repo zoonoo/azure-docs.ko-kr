@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452652"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831583"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Azure Stack Edge Pro 시스템 요구 사항
 
 이 문서에서는 edge pro 솔루션과 Azure Stack에 연결 하는 클라이언트에 대 한 중요 한 시스템 요구 사항을 설명 Microsoft Azure Stack. Azure Stack Edge Pro를 배포 하기 전에 정보를 신중 하 게 검토 하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
 
-Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니다.
+Edge Pro Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니다. 
 
 - **호스트의 소프트웨어 요구 사항**: 지원되는 플랫폼, 로컬 구성 UI용 브라우저, SMB 클라이언트, 디바이스에 액세스하는 클라이언트에 대한 추가 요구 사항을 설명합니다.
 - **디바이스의 네트워킹 요구 사항**: 물리적 디바이스가 작동하기 위한 네트워킹 요구 사항에 관한 정보를 제공합니다.

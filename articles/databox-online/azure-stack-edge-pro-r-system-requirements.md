@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 3214718677b1e02c8cafff29e5f2657eca11cb7b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ef81494b6c93f2941cc41b367e566332d6bc7cc9
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467526"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831344"
 ---
 # <a name="azure-stack-edge-pro-r-system-requirements"></a>Azure Stack Edge Pro R 시스템 요구 사항
 
@@ -40,7 +40,7 @@ Edge Pro R Azure Stack에 대 한 시스템 요구 사항은 다음과 같습니
 
 Azure Stack에서 관리 되는 경우 다음과 같은 계층화 된 저장소 계정이 SMB/NFS/REST 인터페이스에서 지원 됩니다.
 
-|Type  |스토리지 계정  |설명  |
+|Type  |스토리지 계정  |주석  |
 |---------|---------|---------|
 |Standard     |GPv1: 블록 Blob         |         |
 |    |  Blob storage: 블록 Blob       | NAS 에서만 지원 됨     |

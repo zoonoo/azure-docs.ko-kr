@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 02/04/2021
+ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526639"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832762"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -32,6 +32,7 @@ ms.locfileid: "99526639"
 
 ## <a name="january-2021"></a>2021년 1월
 
+- [분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az. SecurityInsights PowerShell 모듈 (공개 미리 보기)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database 커넥터](#sql-database-connector)
 - [향상 된 인시던트 설명](#improved-incident-comments)
@@ -40,6 +41,16 @@ ms.locfileid: "99526639"
 - [분석 규칙 미리 보기 그래프를 사용 하 여 향상 된 규칙 튜닝](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)
+
+이제 Azure 센티널 예약 된 분석 규칙 마법사는 쿼리 작성 및 편집을 위해 다음과 같은 향상 된 기능을 제공 합니다.
+
+-   쿼리를 볼 수 있는 더 많은 화면 공간을 제공 하는 확장 가능한 편집 창
+-   쿼리 코드에서 강조 표시 되는 키 단어입니다.
+-   확장 된 자동 완성 지원.
+-   실시간 쿼리 유효성 검사 이제 쿼리의 오류는 스크롤 막대에 빨간색 블록으로 표시 되 고 **규칙 논리 설정** 탭 이름에 빨간색 점으로 표시 됩니다. 또한 오류가 있는 쿼리는 저장할 수 없습니다.
+
+자세한 내용은 [자습서: 즉시 위협 검색](tutorial-detect-threats-built-in.md)을 참조 하세요.
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Az. SecurityInsights PowerShell 모듈 (공개 미리 보기)
 
 이제 Azure 센티널은 새로운 [Az. SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell 모듈을 지원 합니다.
