@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940052"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989076"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -59,7 +59,7 @@ Vnet (가상 네트워크)는 [Cognitive Services을 사용할 수 있는 지역
 
 
 > [!NOTE]
-> LUIS를 사용 하는 경우 **CognitiveServicesManagement** 태그를 사용 하 여 SDK 또는 REST API 사용 하는 서비스를 사용할 수 있습니다. 가상 네트워크에서 LUIS 포털에 액세스 하 고이 포털을 사용 하려면 다음 태그를 사용 해야 합니다.  
+> LUIS 또는 Speech Services를 사용 하는 경우 **CognitiveServicesManagement** 태그를 사용 하 여 SDK 또는 REST API를 사용 하는 서비스를 사용할 수 있습니다. 가상 네트워크에서 LUIS 포털 및/또는 Speech Studio에 액세스 하 고이를 사용 하려면 다음 태그를 사용 해야 합니다.  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
 
@@ -169,7 +169,7 @@ VNet 내에서 Azure Cognitive Services에 대 한 [서비스 끝점](../virtual
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
-Cognitive Services 리소스에 가상 네트워크 규칙을 적용 하려면 추가할 서브넷에 대 한 적절 한 권한이 사용자에 게 있어야 합니다. 필요한 권한은 기본 _Contributor * 역할 또는 *Cognitive Services 기여자* 역할입니다. 필요한 사용 권한을 사용자 지정 역할 정의에 추가할 수도 있습니다.
+Cognitive Services 리소스에 가상 네트워크 규칙을 적용 하려면 추가할 서브넷에 대 한 적절 한 권한이 사용자에 게 있어야 합니다. 필요한 권한은 기본 *참가자* 역할 또는 *Cognitive Services 기여자* 역할입니다. 필요한 사용 권한을 사용자 지정 역할 정의에 추가할 수도 있습니다.
 
 다른 Azure AD 테 넌 트의 일부인 구독을 포함 하 여, Cognitive Services 리소스 및 액세스 권한이 부여 된 가상 네트워크가 서로 다른 구독에 있을 수 있습니다.
 
@@ -325,10 +325,10 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> [기본 규칙](#change-the-default-network-access-rule) 을 _ * deny * *로 설정 해야 하며, 그렇지 않으면 네트워크 규칙이 적용 되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>인터넷 IP 범위의 액세스 허가
 
@@ -472,10 +472,10 @@ Azure Portal, PowerShell 또는 Azure CLI를 통해 Cognitive Services 리소스
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> [기본 규칙](#change-the-default-network-access-rule) 을 _ * deny * *로 설정 해야 하며, 그렇지 않으면 네트워크 규칙이 적용 되지 않습니다.
+> 반드시 [기본 규칙](#change-the-default-network-access-rule)을 **거부** 로 설정해야 합니다. 그렇지 않으면 네트워크 규칙이 적용되지 않습니다.
 
 ## <a name="use-private-endpoints"></a>프라이빗 엔드포인트 사용
 

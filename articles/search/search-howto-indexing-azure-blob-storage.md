@@ -8,12 +8,13 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 266538a7aff11bff0b6dc5c2d2b6a7a3d25c18ab
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474984"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988715"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Cognitive Search에서 blob 인덱싱을 구성 하는 방법
 
@@ -199,9 +200,9 @@ api-key: [admin key]
 
   + **metadata_storage_name** ( `Edm.String` )-blob의 파일 이름입니다. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
 
-  + **metadata_storage_path** ( `Edm.String` )-저장소 계정을 포함 하 여 BLOB의 전체 URI입니다. 예를 들면 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`과 같습니다.
+  + **metadata_storage_path** ( `Edm.String` )-저장소 계정을 포함 하 여 BLOB의 전체 URI입니다. 예, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-  + **metadata_storage_content_type** ( `Edm.String` )-blob을 업로드 하는 데 사용한 코드에 지정 된 내용 유형입니다. 예들 들어 `application/octet-stream`입니다.
+  + **metadata_storage_content_type** ( `Edm.String` )-blob을 업로드 하는 데 사용한 코드에 지정 된 내용 유형입니다. 예: `application/octet-stream`.
 
   + **metadata_storage_last_modified** ( `Edm.DateTimeOffset` )-blob에 대해 마지막으로 수정 된 타임 스탬프입니다. Azure Cognitive Search는이 타임 스탬프를 사용 하 여 초기 인덱싱 후 모든 항목을 다시 인덱싱하도록 방지 하기 위해 변경 된 blob를 식별 합니다.
 
@@ -333,7 +334,7 @@ api-key: [admin key]
 
 + `"indexStorageMetadataOnlyForOversizedDocuments"` 너무 커서 처리할 수 없는 blob 콘텐츠에 대 한 저장소 메타 데이터를 인덱싱합니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. Blob 크기에 대 한 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [인덱서 만들기](search-howto-create-indexers.md)

@@ -2,13 +2,13 @@
 title: Traffic Manager를 배포 하 여 Azure VMware 솔루션 워크 로드 균형 조정
 description: Azure VMware 솔루션과 Traffic Manager를 통합 하 여 여러 지역의 여러 끝점에서 응용 프로그램 워크 로드의 균형을 조정 하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809737"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988603"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Traffic Manager를 배포 하 여 Azure VMware 솔루션 워크 로드 균형 조정
 
@@ -97,8 +97,8 @@ ms.locfileid: "97809737"
 
    - 프로필 이름
    - 라우팅 메서드 ( [가중치](../traffic-manager/traffic-manager-routing-methods.md) 사용
-   - 구독
-   - 리소스 그룹
+   - Subscription
+   - Resource group
 
 ## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Traffic Manager 프로필에 외부 끝점 추가
 
@@ -130,9 +130,9 @@ ms.locfileid: "97809737"
 
 ## <a name="next-steps"></a>다음 단계
 
-다음에 대해 자세히 알아봅니다.
+Azure VMware 솔루션과 azure Traffic Manager를 통합 하는 방법에 대해 설명 했으므로 다음에 대해 알아볼 수 있습니다.
 
-- [Azure VMware 솔루션에서 Azure 애플리케이션 게이트웨이 사용](protect-azure-vmware-solution-with-application-gateway.md)
-- [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)
-- [Azure에서 부하 분산 서비스 결합](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Traffic Manager 성능 측정](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Azure VMware 솔루션에서 Azure 애플리케이션 게이트웨이 사용](protect-azure-vmware-solution-with-application-gateway.md).
+- [라우팅 메서드를 Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)합니다.
+- [Azure에서 부하 분산 서비스를 결합](../traffic-manager/traffic-manager-load-balancing-azure.md)합니다.
+- [Traffic Manager 성능 측정](../traffic-manager/traffic-manager-performance-considerations.md).

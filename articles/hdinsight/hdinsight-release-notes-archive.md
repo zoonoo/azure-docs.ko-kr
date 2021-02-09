@@ -4,19 +4,47 @@ description: Azure HDInsight에 대 한 보관 된 릴리스 정보입니다. Ha
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 10/07/2020
-ms.openlocfilehash: 8e6f27c378a6cea8fffbdcda58c4fc3bb865e51e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/08/2021
+ms.openlocfilehash: 902b13c947cb005189e23dee943867100809564e
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932158"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988554"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
 ## <a name="summary"></a>요약
 
 Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
+
+## <a name="release-date-11182020"></a>릴리스 날짜: 11/18/2020
+
+이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+
+### <a name="new-features"></a>새로운 기능
+#### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>미사용 고객 관리 키 암호화에 대 한 자동 키 회전
+이 릴리스부터는 고객이 휴지 상태의 고객이 관리 하는 키 암호화를 위해 Azure KeyValut 버전 감소 암호화 키 Url을 사용할 수 있습니다. HDInsight는 키가 만료 되거나 새 버전으로 바뀔 때 자동으로 키를 회전 합니다. 자세한 내용은 [여기](./disk-encryption.md)를 참조하세요.
+
+#### <a name="ability-to-select-different-zookeeper-virtual-machine-sizes-for-spark-hadoop-and-ml-services"></a>Spark, Hadoop 및 ML 서비스에 대해 다른 사육 사 가상 머신 크기를 선택 하는 기능
+이전에 HDInsight는 Spark, Hadoop 및 ML 서비스 클러스터 유형에 대 한 아웃 지원팀 노드 크기 사용자 지정을 지원 하지 않았습니다. 기본적으로 A2_v2/A2 가상 머신 크기가 무료로 제공 됩니다. 이 릴리스에서는 시나리오에 가장 적합 한 사육 사 가상 머신 크기를 선택할 수 있습니다. A2_v2/A2 이외의 가상 컴퓨터 크기를 포함 하는 사육 아웃 노드에는 요금이 부과 됩니다. A2_v2 및 A2 가상 머신은 계속 무료로 제공 됩니다.
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
+이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 버전부터 서비스는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)으로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 만든 HDInsight 클러스터가 고객의 작업 없이도 가상 머신 확장 집합에서 실행 됩니다. 주요 변경 내용은 필요 하지 않습니다.
+
+### <a name="deprecation"></a>사용 중단
+#### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>HDInsight 3.6 ML 서비스 클러스터의 사용 중단
+HDInsight 3.6 ML Services 클러스터 유형은 12 월 31 2020 일까 지 지원 될 예정입니다. 고객은 12 월 31 2020 일 이후 새로운 3.6 ML 서비스 클러스터를 만들 수 없습니다. 기존 클러스터는 Microsoft의 지원 없이 있는 그대로 실행됩니다. [여기](./hdinsight-component-versioning.md#available-versions)에서 HDInsight 버전 및 클러스터 유형에 대 한 지원 만료를 확인 합니다.
+
+#### <a name="disabled-vm-sizes"></a>비활성화 된 VM 크기
+11 월 16 2020부터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 새 고객을 차단 합니다. 지난 3 달 동안 이러한 VM 크기를 사용한 기존 고객에 게는 영향을 주지 않습니다. 9 2021 년 1 월 1 일부 터 HDInsight는 standand_A8, standand_A9, standand_A10 및 standand_A11 VM 크기를 사용 하 여 클러스터를 만드는 모든 고객을 차단 합니다. 기존 클러스터는 그대로 실행 됩니다. 잠재적인 시스템/지원 중단을 방지 하려면 HDInsight 4.0로 이동 하는 것이 좋습니다.
+
+### <a name="behavior-changes"></a>동작 변경
+#### <a name="add-nsg-rule-checking-before-scaling-operation"></a>크기 조정 작업 전에 NSG 규칙 검사 추가
+HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) 및 UDRs (사용자 정의 경로) 검사를 추가 했습니다. 클러스터를 만들 뿐만 아니라 클러스터 크기 조정을 위해 동일한 유효성 검사가 수행 됩니다. 이 유효성 검사는 예기치 않은 오류를 방지 하는 데 도움이 됩니다. 유효성 검사를 통과 하지 못하면 크기 조정이 실패 합니다. NSGs 및 UDRs를 올바르게 구성 하는 방법에 대 한 자세한 내용은 [HDInsight 관리 IP 주소](./hdinsight-management-ip-addresses.md)를 참조 하세요.
+
+### <a name="component-version-change"></a>구성 요소 버전 변경
+이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
 
 ## <a name="release-date-11092020"></a>릴리스 날짜: 11/09/2020
 
@@ -595,11 +623,11 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
     b.  [**Apache Kafka 1.0의 새로운 기능**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***R Server 9.1을 Machine Learning Services 9.3 _로 업데이트** 합니다 .이 릴리스에서는 알고리즘 혁신 및 운영 화의 용이성을 통해 향상 된 오픈 소스를 제공 하는 데이터 과학자 및 엔지니어 Apache Spark를 제공 합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
+*  ***R Server 9.1을 Machine Learning Services 9.3로 업데이트*** –이 릴리스에서는 Apache Spark 속도를 사용 하 여 기본 설정 언어로 제공 되는 알고리즘 혁신 및 편의성을 통해 향상 된 오픈 소스를 제공 하는 데이터 과학자 및 엔지니어를 제공 합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
 
-_ ***Azure Data Lake Storage Gen2에 대 한 지원** _ – HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원 합니다. 사용 가능한 지역에서 고객은 ADLS Gen2 계정을 HDInsight 클러스터용 기본 또는 보조 저장소로 선택할 수 있습니다.
+*  ***Azure Data Lake Storage Gen2에 대한 지원*** - HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원합니다. 사용 가능한 지역에서 고객은 ADLS Gen2 계정을 HDInsight 클러스터용 기본 또는 보조 저장소로 선택할 수 있습니다.
 
-_ ***HDInsight Enterprise Security Package 업데이트 (미리 보기)** _ – (미리 보기) Virtual Network Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대 한 [서비스 끝점이](../virtual-network/virtual-network-service-endpoints-overview.md) 지원 됩니다.
+*  ***HDInsight Enterprise Security Package 업데이트 (미리 보기*** ) – (미리 보기) Virtual Network Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대 한 [서비스 끝점이](../virtual-network/virtual-network-service-endpoints-overview.md) 지원 됩니다.
 
 ### <a name="component-versions"></a>구성 요소 버전
 
@@ -797,7 +825,7 @@ HDP 2.6.4에서는 Hadoop Common 2.7.3 및 다음 Apache 패치를 제공합니�
 
 이 릴리스에서는 다음 패치 외에도 Hive 1.2.1 및 Hive 2.1.0을 제공합니다.
 
-_ *Hive 1.2.1 Apache 패치:**
+**Hive 1.2.1 Apache 패치:**
 
 -   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697): ObjectInspectorConvertors\#UnionConvertor에서 잘못된 변환을 수행합니다.
 

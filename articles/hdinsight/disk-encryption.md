@@ -5,12 +5,12 @@ description: 이 문서에서는 Azure HDInsight 클러스터의 미사용 데�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927333"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988620"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -98,7 +98,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |Description|
+    |속성 |설명|
     |---|---|
     |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|
@@ -116,7 +116,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 이제 HDInsight 클러스터를 만들 준비가 되었습니다. 고객 관리 키는 클러스터를 만드는 동안 새 클러스터에만 적용할 수 있습니다. 고객 관리 키 클러스터에서 암호화를 제거할 수 없으며 기존 클러스터에는 고객 관리 키를 추가할 수 없습니다.
 
-[11 월 2020 릴리스부터](hdinsight-release-notes.md#release-date-11182020)HDInsight는 버전이 지정 된 키 uri와 버전이 없는 키 uri를 모두 사용 하 여 클러스터를 만들 수 있도록 지원 합니다. 버전 없는 키 URI를 사용 하 여 클러스터를 만드는 경우 HDInsight 클러스터는 Azure Key Vault에서 키가 업데이트 될 때 키 자동 회전을 수행 하려고 합니다. 버전 지정 키 URI를 사용 하 여 클러스터를 만드는 경우 [암호화 키 회전](#rotating-the-encryption-key)에 설명 된 대로 수동 키 회전을 수행 해야 합니다.
+11 월 2020 릴리스부터 HDInsight는 버전이 지정 된 키 Uri와 버전이 없는 키 Uri를 모두 사용 하 여 클러스터를 만들 수 있도록 지원 합니다. 버전 없는 키 URI를 사용 하 여 클러스터를 만드는 경우 HDInsight 클러스터는 Azure Key Vault에서 키가 업데이트 될 때 키 자동 회전을 수행 하려고 합니다. 버전 지정 키 URI를 사용 하 여 클러스터를 만드는 경우 [암호화 키 회전](#rotating-the-encryption-key)에 설명 된 대로 수동 키 회전을 수행 해야 합니다.
 
 11 월 2020 릴리스 이전에 만든 클러스터의 경우 버전 키 URI를 사용 하 여 수동으로 키 회전을 수행 해야 합니다.
 
@@ -124,8 +124,8 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 클러스터를 만드는 동안 다음과 같은 방법으로 버전이 지정 된 키를 사용 하거나 versionless 키를 사용할 수 있습니다.
 
-- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`입니다.
-- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey`입니다.
+- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
+- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
 
 또한 관리 되는 id를 클러스터에 할당 해야 합니다.
 

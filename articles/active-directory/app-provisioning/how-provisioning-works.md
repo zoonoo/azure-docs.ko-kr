@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256342"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988972"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -43,7 +43,7 @@ Azure AD 프로비저닝 서비스는 자동 프로비저닝을 위해 [SCIM 2.0
 
 ## <a name="authorization"></a>권한 부여
 
-Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 갤러리 응용 프로그램의 경우 앱 자습서를 참조 하 여 응용 프로그램에 대 한 자격 증명 유형 및 요구 사항을 찾을 수 있습니다. 비 갤러리 응용 프로그램의 경우 [Scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) 설명서를 참조 하 여 자격 증명 유형 및 요구 사항을 이해할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
+Azure AD가 애플리케이션의 사용자 관리 API에 연결하려면 자격 증명이 필요합니다. 애플리케이션에 대해 자동 사용자 프로비저닝을 구성할 때는 유효한 자격 증명을 입력해야 합니다. 갤러리 응용 프로그램의 경우 앱 자습서를 참조 하 여 응용 프로그램에 대 한 자격 증명 유형 및 요구 사항을 찾을 수 있습니다. 비 갤러리 응용 프로그램의 경우 [Scim](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) 설명서를 참조 하 여 자격 증명 유형 및 요구 사항을 이해할 수 있습니다. Azure Portal에서, 제공된 자격 증명을 사용하여 Azure AD에서 해당 앱의 프로비전닝 앱에 연결해 봄으로써 자격 증명을 테스트할 수 있습니다.
 
 ## <a name="mapping-attributes"></a>매핑 특성
 

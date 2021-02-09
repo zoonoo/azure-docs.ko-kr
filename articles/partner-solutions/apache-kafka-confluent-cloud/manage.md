@@ -3,21 +3,21 @@ title: Confluent 클라우드 관리-Azure 파트너 솔루션
 description: 이 문서에서는 Azure Portal의 Confluent 클라우드 관리에 대해 설명 합니다. Single Sign-On를 설정 하 고, Confluent 조직을 삭제 하 고, 지원을 받는 방법
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253502"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989122"
 ---
-# <a name="manage-the-confluent-cloud-resource"></a>Confluent 클라우드 리소스 관리
+# <a name="manage-the-confluent-cloud-resource"></a>Confluent Cloud 리소스 관리
 
 이 문서에서는 Azure에서 Confluent Cloud의 Apache Kafka 인스턴스를 관리 하는 방법을 설명 합니다. SSO (Single Sign-On)를 설정 하 고, Confluent 조직을 삭제 하 고, 지원 요청을 만드는 방법을 보여 줍니다.
 
-## <a name="single-sign-on"></a>SSO(Single sign-on)
+## <a name="single-sign-on"></a>Single Sign-On
 
 조직에 대해 SSO를 구현 하기 위해 테 넌 트 관리자는 갤러리 응용 프로그램을 가져올 수 있습니다. 이 단계는 선택 사항입니다. 응용 프로그램을 가져오는 방법에 대 한 자세한 내용은 [빠른 시작: Azure Active Directory (AZURE AD) 테 넌 트에 응용 프로그램 추가](../../active-directory/manage-apps/add-application-portal.md)를 참조 하세요. 테 넌 트 관리자는 응용 프로그램을 가져올 때 Confluent 클라우드 포털에 대 한 액세스를 허용 하도록 사용자가 명시적으로 동의할 필요가 없습니다.
 
@@ -66,13 +66,23 @@ Confluent에 지원 요청을 제출 하려면 아래와 같이 [Confluent 지�
 > [!NOTE]
 > 처음 사용자의 경우 Confluent 지원 포털에 로그인 하기 전에 암호를 다시 설정 합니다. Confluent Cloud를 사용 하는 계정이 없는 경우 추가 지원을 위해에 전자 메일을 보냅니다 `cloud-support@confluent.io` .
 
+포털에서 Azure 도움말 및 지원을 통해 요청을 제출 하거나 Azure에서 Confluent 클라우드의 Apache Kafka 인스턴스에서 직접 요청을 제출할 수 있습니다.
+
+Azure 도움말 및 지원을 통해 요청을 제출 하려면:
+
+1. **도움말 + 지원** 을 선택합니다.
+1. **지원 요청 만들기를** 선택 합니다.
+1. 양식에서 **문제 유형** 에 대해 **기술** 을 선택 합니다. 구독을 선택합니다. 서비스 목록에서 **Confluent On Azure** 를 선택 합니다.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="도움말에서 지원 요청을 만듭니다.":::
+
 리소스에서 요청을 제출 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Confluent 조직을 선택 합니다.
 1. 화면의 왼쪽에 있는 메뉴에서 **새 지원 요청** 을 선택 합니다.
 1. 지원 요청을 만들려면 **Confluent 포털** 에 대 한 링크를 선택 합니다.
 
-    :::image type="content" source="media/support-request.png" alt-text="지원 요청을 만듭니다.":::
+    :::image type="content" source="media/support-request.png" alt-text="인스턴스에서 지원 요청을 만듭니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

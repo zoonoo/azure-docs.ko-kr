@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232975"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989089"
 ---
 # <a name="self-hosted-gateway-overview"></a>자체 호스팅 게이트웨이 개요
 
@@ -49,7 +49,7 @@ ms.locfileid: "82232975"
 
 - Azure Monitor 로그
 - 업스트림 (백 엔드 쪽) TLS 버전 및 암호화 관리
-- API Management 서비스에 업로드 된 [CA 루트 인증서](api-management-howto-ca-certificates.md) 를 사용 하 여 서버 및 클라이언트 인증서의 유효성을 검사 합니다. 사용자 지정 CA에 대 한 지원을 추가 하려면 CA의 루트 인증서를 설치 하는 자체 호스팅 게이트웨이 컨테이너 이미지에 계층을 추가 합니다.
+- API Management 서비스에 업로드 된 [CA 루트 인증서](api-management-howto-ca-certificates.md) 를 사용 하 여 서버 및 클라이언트 인증서의 유효성을 검사 합니다. 자세한 내용은 [자체 호스팅 게이트웨이의 인증서 유효성 검사](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway)를 참조 하세요.
 - [Service Fabric](../service-fabric/service-fabric-api-management-overview.md) 와 통합
 - TLS 세션 다시 시작
 - 클라이언트 인증서를 재협상 합니다. 즉, [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md) 에서 작동 하는 API 소비자는 초기 TLS 핸드셰이크의 일부로 인증서를 제공 해야 합니다. 이렇게 하려면 자체 호스팅 게이트웨이 사용자 지정 호스트 이름을 구성할 때 클라이언트 인증서 협상 설정을 사용 하도록 설정 합니다.

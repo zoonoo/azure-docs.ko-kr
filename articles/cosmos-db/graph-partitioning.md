@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91516c9815cfd71ffb59c399ea6580c6e28d8fce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576467"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988761"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할된 그래프 사용
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장을 통해 대규모 그래프를 처리하는 기능입니다. 컨테이너는 스토리지 및 처리량 측면에서 독립적으로 확장할 수 있습니다. 그래프 데이터를 저장하기 위해 자동으로 크기를 조정할 수 있는 Azure Cosmos DB에서 컨테이너를 만들 수 있습니다. 데이터는 지정된 **파티션 키** 를 기준으로 자동으로 균형이 조정됩니다.
 
-컨테이너의 크기가 20mb를 초과 하거나 1만 이상의 요청 단위 (RUs)를 할당 하려는 경우 분할이 내부적으로 수행 됩니다. 데이터는 사용자가 지정 하는 파티션 키에 따라 자동으로 분할 됩니다. Azure Portal 또는 Gremlin 드라이버의 3. x 이상 버전에서 graph 컨테이너를 만드는 경우에는 파티션 키가 필요 합니다. 2.x 또는 낮은 버전의 Gremlin 드라이버를 사용 하는 경우 파티션 키가 필요 하지 않습니다. 
+컨테이너의 크기가 20mb를 초과 하거나 1만 이상의 요청 단위 (RUs)를 할당 하려는 경우 분할이 내부적으로 수행 됩니다. 데이터는 사용자가 지정 하는 파티션 키에 따라 자동으로 분할 됩니다. Azure Portal 또는 Gremlin 드라이버의 3. x 이상 버전에서 graph 컨테이너를 만드는 경우에는 파티션 키가 필요 합니다. 2.x 또는 낮은 버전의 Gremlin 드라이버를 사용 하는 경우 파티션 키가 필요 하지 않습니다.
 
 [Azure Cosmos DB 분할 메커니즘과](partitioning-overview.md) 동일한 일반적인 원칙은 아래에 설명 된 몇 가지 그래프 특정 최적화와 함께 적용 됩니다.
 

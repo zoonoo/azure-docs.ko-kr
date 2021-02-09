@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062899"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988537"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -110,3 +110,11 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석을
     - [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
     - 자동화 된 작업 및 알림을 설정 하는 [작업 규칙](../azure-monitor/platform/alerts-action-rules.md)
     - [IT 서비스 관리 커넥터를 사용 하 여 Azure를 ITSM 도구에 연결](../azure-monitor/platform/itsmc-overview.md)합니다.
+    
+ ## <a name="next-steps"></a>다음 단계
+
+이제 Azure의 네이티브 도구를 사용 하 여 수명 주기 동안 Azure VMware 솔루션 Vm을 관리 했으므로 다음에 대해 알아볼 수 있습니다.
+
+- [Azure Security Center를 사용 하 여 Azure VMware 솔루션 Vm 보호](azure-security-integration.md).
+- [Azure VMware 솔루션에 대 한 Azure Backup Server를 설정](set-up-backup-server-for-azure-vmware-solution.md)합니다.
+- [허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합](concepts-hub-and-spoke.md)

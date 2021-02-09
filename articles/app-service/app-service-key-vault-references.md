@@ -3,15 +3,15 @@ title: Key Vault 참조 사용
 description: Azure App Service를 설정 하 고 Azure Functions Azure Key Vault 참조를 사용 하는 방법에 대해 알아봅니다. 응용 프로그램 코드에 Key Vault 암호를 사용할 수 있도록 합니다.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205849"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988763"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
 
@@ -38,26 +38,26 @@ Key Vault에서 비밀을 읽으려면 자격 증명 모음을 만들고 해당 
 Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여기서 `{referenceString}`은 다음 옵션 중 하나로 대체됩니다.
 
 > [!div class="mx-tdBreakAll"]
-> | 참조 문자열                                                            | Description                                                                                                                                                                                 |
+> | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931).  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
+> | SecretUri=_secretUri_                                                       | **SecretUri** 는 Key Vault의 비밀에 대 한 전체 데이터 평면 URI 여야 하며, 선택적으로 버전 (예: 또는)을 포함 해야 합니다. `https://myvault.vault.azure.net/secrets/mysecret/``https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** 는 필수 이며 Key Vault 리소스의 이름 이어야 합니다. **SecretName** 는 필수 이며 대상 암호의 이름 이어야 합니다. **SecretVersion** 는 선택 사항 이지만 현재는 사용할 암호의 버전을 나타냅니다. |
 
-> [!NOTE] 
-> 현재 버전이 필요 합니다. 비밀을 회전할 때 애플리케이션 구성에서 버전을 업데이트해야 합니다.
 예를 들어 전체 참조는 다음과 같습니다.
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 또는 다음과 같습니다.
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## <a name="rotation"></a>회전
+
+참조에 버전을 지정 하지 않으면 앱은 Key Vault에 있는 최신 버전을 사용 합니다. 순환 이벤트와 같이 최신 버전을 사용할 수 있게 되 면 앱은 자동으로 업데이트 되 고 1 일 이내에 최신 버전을 사용 합니다. 앱에 대 한 모든 구성 변경으로 인해 참조 된 모든 암호의 최신 버전으로 즉시 업데이트 됩니다.
 
 ## <a name="source-application-settings-from-key-vault"></a>Key Vault의 원본 애플리케이션 설정
 
@@ -191,15 +191,15 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 ### <a name="using-the-detector-for-app-service"></a>App Service에 대 한 탐지기 사용
 
 1. 포털에서 앱으로 이동 합니다.
-2. **문제 진단 및 해결**을 선택합니다.
+2. **문제 진단 및 해결** 을 선택합니다.
 3. **가용성 및 성능** 을 선택 하 고 **웹 앱 중단을 선택 합니다.**
-4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보**를 클릭 합니다.
+4. **Key Vault 응용 프로그램 설정 진단을** 찾고 **추가 정보** 를 클릭 합니다.
 
 
 ### <a name="using-the-detector-for-azure-functions"></a>Azure Functions에 대 한 탐지기 사용
 
 1. 포털에서 앱으로 이동 합니다.
 2. **플랫폼 기능으로 이동 합니다.**
-3. **문제 진단 및 해결**을 선택합니다.
+3. **문제 진단 및 해결** 을 선택합니다.
 4. **가용성 및 성능** 을 선택 하 고 **함수 앱 중단 또는 오류 보고를 선택 합니다.**
 5. **Key Vault 응용 프로그램 설정 진단을 클릭 합니다.**

@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션으로 Azure NetApp Files
 description: Azure VMware 솔루션 Vm과 Azure NetApp Files를 사용 하 여 온-프레미스 서버, Azure VMware 솔루션 Vm 및 클라우드 인프라에서 데이터를 마이그레이션하고 동기화 합니다.
 ms.topic: how-to
-ms.date: 02/01/2021
-ms.openlocfilehash: 8c101b652ffcefe05e9b6c11f166c1da3df2ede1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/08/2021
+ms.openlocfilehash: 69d4e3a99de28d55b2fd95b1fc05c04c2ae0a37b
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539369"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988648"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware 솔루션으로 Azure NetApp Files
 
@@ -16,7 +16,7 @@ ms.locfileid: "99539369"
 
 ## <a name="azure-netapp-files-overview"></a>Azure NetApp Files 개요
 
-[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) 는 데이터베이스, SAP 및 고성능 컴퓨팅 응용 프로그램을 비롯 하 여 클라우드에서 가장 까다로운 엔터프라이즈 파일 작업을 마이그레이션 및 실행 하는 Azure 자사 서비스로, 코드를 변경 하지 않습니다.
+[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) 은 클라우드에서 가장 까다로운 엔터프라이즈 파일 작업을 마이그레이션하기 위한 Azure 서비스입니다. 여기에는 코드를 변경 하지 않는 데이터베이스, SAP 및 고성능 컴퓨팅 응용 프로그램이 포함 됩니다.
 
 ### <a name="features"></a>기능
 Azure NetApp Files 사용 되는 서비스입니다.
@@ -31,13 +31,13 @@ Azure NetApp Files은 많은 Azure 지역에서 사용할 수 있으며 지역 �
 
 ## <a name="reference-architecture"></a>참조 아키텍처
 
-다음 다이어그램에서는 azure Express 경로를 통해 Azure VMware 솔루션 사설 클라우드로 연결 하는 방법을 보여 줍니다. Azure vmware 솔루션 Vm에 탑재 된 Azure NetApp Files 공유를 사용 하 여 Azure VMware 솔루션 환경에서 액세스 하는 방법을 보여 줍니다.
+다음 다이어그램에서는 azure Express 경로를 통해 Azure VMware 솔루션 사설 클라우드로 연결 하는 방법을 보여 줍니다. Azure VMware 솔루션 환경은 Azure VMware 솔루션 Vm에 탑재 된 Azure NetApp Files 공유에 액세스 합니다.
 
 ![Azure VMware 솔루션 아키텍처용 NetApp 파일을 보여 주는 다이어그램입니다.](media/net-app-files/net-app-files-topology.png)
 
 이 문서에서는 Azure VMware 솔루션 Vm에 대 한 파일 공유로 Azure NetApp Files 볼륨을 설정, 테스트 및 확인 하는 지침을 설명 합니다. 이 시나리오에서는 NFS 프로토콜을 사용 했습니다. Azure NetApp Files와 Azure VMware 솔루션은 동일한 Azure 지역에 생성 됩니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 > [!div class="checklist"]
 > * Azure NetApp Files 사용 하도록 설정 된 Azure 구독
@@ -83,11 +83,11 @@ Azure NetApp Files은 많은 Azure 지역에서 사용할 수 있으며 지역 �
 
     :::image type="content" source="media/net-app-files/configuration-of-volume.png" alt-text="볼륨의 구성 세부 정보를 보여 주는 스크린샷":::
 
-    크기가 200 GiB 볼륨 anfvolume이 용량 풀 anfpool1에 만들어지고 10.22.3.4:/ANFVOLUME.를 통해 NFS 파일 공유로 내보내집니다. Azure NetApp Files 및 VM에 탑재할 NFS 경로에 대해 Azure Virtual Network (VNet)에서 하나의 개인 IP를 만들었습니다. 크기 ("할당량")에 상대적인 Azure NetApp Files 볼륨 성능에 대 한 자세한 내용은 [Azure NetApp Files에 대 한 성능 고려 사항](../azure-netapp-files/azure-netapp-files-performance-considerations.md)을 참조 하세요. 
+    볼륨 anfvolume의 크기가 200 GiB이 고 용량 풀 anfpool1에 있는 것을 볼 수 있습니다.  10.22.3.4:/ANFVOLUME.를 통해 NFS 파일 공유로 내보내집니다. Azure NetApp Files 및 VM에 탑재할 NFS 경로에 대해 Azure Virtual Network (VNet)에서 하나의 개인 IP를 만들었습니다. 크기 또는 "할당량" Azure NetApp Files 볼륨 성능에 대 한 자세한 내용은 [Azure NetApp Files에 대 한 성능 고려 사항](../azure-netapp-files/azure-netapp-files-performance-considerations.md)을 참조 하세요. 
 
 ## <a name="verify-pre-configured-azure-vmware-solution-vm-share-mapping"></a>미리 구성 된 Azure VMware 솔루션 VM 공유 매핑 확인
 
-Azure NetApp Files의 접근성을 Azure VMware 솔루션 VM에 보여주는 하기 전에 SMB 및 NFS 공유 매핑을 이해 하는 것이 중요 합니다. SMB 또는 NFS 볼륨을 구성한 후에만 여기에 설명 된 대로 탑재할 수 있습니다.
+Azure VMware 솔루션 VM에서 Azure NetApp Files 공유에 액세스할 수 있도록 하려면 SMB 및 NFS 공유 매핑을 이해 하는 것이 중요 합니다. SMB 또는 NFS 볼륨을 구성한 후에만 여기에 설명 된 대로 탑재할 수 있습니다.
 
 - SMB 공유: SMB 볼륨을 배포 하기 전에 Active Directory 연결을 만듭니다. 연결에 성공 하려면 Azure NetApp Files의 위임 된 서브넷에서 지정 된 도메인 컨트롤러에 액세스할 수 있어야 합니다. Active Directory Azure NetApp Files 계정 내에서 구성 되 면 SMB 볼륨을 만드는 동안 선택 가능한 항목으로 표시 됩니다.
 
@@ -103,7 +103,7 @@ Azure NetApp Files의 접근성을 Azure VMware 솔루션 VM에 보여주는 하
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure VMware 솔루션 워크 로드와 Azure NetApp Files를 통합 한 후에는 다음에 대 한 자세한 내용을 확인할 수 있습니다.
+이제 Azure VMware 솔루션 워크 로드와 Azure NetApp Files를 통합 하는 방법에 대해 설명 했으므로 다음에 대해 알아볼 수 있습니다.
 
 - [Azure NetApp Files에 대 한 리소스 제한](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)입니다.
 - [Azure NetApp Files 네트워크 계획에 대 한 지침](../azure-netapp-files/azure-netapp-files-network-topologies.md)입니다.

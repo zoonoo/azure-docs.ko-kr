@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: a068ed90ea53b3b25a1f41cebd9a5b8e607afa54
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 72dc42fffb3653de81477fa504c11b9b0328d2eb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737187"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988695"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 
@@ -148,17 +148,17 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 `--helm-operator-params` : Helm 연산자(사용 설정된 경우)에 대한 선택적 차트 값입니다.  예: '--set helm.versions=v3'.
 
-`--helm-operator-chart-version` : Helm 연산자(사용 설정된 경우)에 대한 선택적 차트 버전입니다. 기본값: ' 1.2.0 '.
+`--helm-operator-version` : Helm 연산자(사용 설정된 경우)에 대한 선택적 차트 버전입니다. ' 1.2.0 ' 이상을 사용 합니다. 기본값: ' 1.2.0 '.
 
 `--operator-namespace` : 연산자 네임스페이스의 선택적 이름입니다. 기본값: ' default '. 최대 23 자.
 
-`--operator-params` : 연산자에 대한 선택적 매개 변수입니다. 작은따옴표 안에 지정해야 합니다. 예를 들어 ```--operator-params='--git-readonly --git-path=releases --sync-garbage-collection' ```
+`--operator-params` : 연산자에 대한 선택적 매개 변수입니다. 작은따옴표 안에 지정해야 합니다. 예를 들어 ```--operator-params='--git-readonly --sync-garbage-collection --git-branch=main' ```
 
 --operator-params에서 지원되는 옵션
 
 | 옵션 | Description |
 | ------------- | ------------- |
-| --git-branch  | Kubernetes 매니페스트에 사용할 Git 리포지토리의 분기입니다. 기본값은 'master'입니다. |
+| --git-branch  | Kubernetes 매니페스트에 사용할 Git 리포지토리의 분기입니다. 기본값은 'master'입니다. 최신 리포지토리에는 ' main ' 이라는 루트 분기가 있으며,이 경우에는--git-branch = main을 설정 해야 합니다. |
 | --git-path  | Kubernetes 매니페스트를 찾는 Flux에 대한 Git 리포지토리 내의 상대 경로입니다. |
 | --git-readonly | Git 리포지토리는 읽기 전용으로 간주됩니다. Flux는 리포지토리에 쓰기를 시도하지 않습니다. |
 | --manifest-generation  | 사용 설정된 경우 Flux는 .flux.yaml을 찾고 Kustomize 또는 기타 매니페스트 생성기를 실행합니다. |
@@ -226,16 +226,13 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-`sourceControlConfiguration`이 만들어지면 내부적으로 몇 가지 작업이 수행됩니다.
+`sourceControlConfiguration`가 만들어지거나 업데이트 되 면 내부적으로 몇 가지 작업이 수행 됩니다.
 
-1. Azure Arc `config-agent`가 Azure Resource Manager에서 새로운 구성 또는 업데이트된 구성(`Microsoft.KubernetesConfiguration/sourceControlConfigurations`)을 모니터링합니다.
-1. `config-agent`가 새로운 `Pending` 구성을 알립니다.
-1. `config-agent`가 구성 속성을 읽고 `flux`의 관리되는 인스턴스를 배포할 준비를 합니다.
-    * `config-agent`가 대상 네임스페이스를 만듭니다.
-    * `config-agent`가 적절한 권한(`cluster` 또는 `namespace` 범위)을 사용하여 Kubernetes 서비스 계정을 준비합니다.
-    * `config-agent`가 `flux`의 인스턴스를 배포합니다.
-    * `flux` SSH 키를 생성 하 고 공개 키를 로깅합니다 (Flux에서 생성 된 키와 함께 SSH 옵션을 사용 하는 경우).
-1. `config-agent`Azure의 리소스로 상태를 보고 합니다. `sourceControlConfiguration`
+1. Azure Arc는 `config-agent` 새로운 구성 또는 업데이트 된 구성 ()에 대 한 Azure Resource Manager를 모니터링 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` 하 고 새 구성을 공지 합니다 `Pending` .
+1. 는 `config-agent` 구성 속성을 읽고 대상 네임 스페이스를 만듭니다.
+1. Azure Arc는 `controller-manager` 적절 한 권한 (또는 범위)을 사용 하 여 Kubernetes 서비스 계정을 준비한 `cluster` `namespace` 후 인스턴스를 배포 `flux` 합니다.
+1. Flux에서 생성 된 키와 함께 SSH 옵션을 사용 하는 경우은 `flux` ssh 키를 생성 하 고 공개 키를 로깅합니다.
+1. 는 `config-agent` Azure의 리소스로 상태를 보고 합니다 `sourceControlConfiguration` .
 
 프로비전 프로세스가 진행되는 동안 `sourceControlConfiguration`이 몇 가지 상태 변경을 거칩니다. 위의 `az k8sconfiguration show ...` 명령을 사용하여 진행률을 모니터링합니다.
 
