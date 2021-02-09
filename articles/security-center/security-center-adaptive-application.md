@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820758"
+ms.locfileid: "99834394"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -44,7 +44,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 - 조직에서 금지 하는 특정 소프트웨어 방지
 - 중요 한 데이터에 액세스 하는 앱의 감독 증가
 
-사용할 수 있는 적용 옵션이 없으며 계획 된 항목이 없습니다. 적응 응용 프로그램 컨트롤은 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 제공 하기 위한 것입니다.
+현재는 적용 옵션을 사용할 수 없습니다. 적응 응용 프로그램 컨트롤은 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 제공 하기 위한 것입니다.
 
 ## <a name="availability"></a>가용성
 
@@ -238,7 +238,7 @@ REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
 ## <a name="faq---adaptive-application-controls"></a>FAQ-적응 응용 프로그램 컨트롤
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>응용 프로그램 제어를 적용 하는 옵션이 있나요?
-사용할 수 있는 적용 옵션이 없으며 계획 된 항목이 없습니다. 적응 응용 프로그램 컨트롤은 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 **보안 경고** 를 제공 하기 위한 것입니다. 이 페이지에 표시 된 것 처럼 다양 한 이점이 있습니다 ([적응 응용 프로그램 컨트롤의 이점](#what-are-the-benefits-of-adaptive-application-controls)).
+현재는 적용 옵션을 사용할 수 없습니다. 적응 응용 프로그램 컨트롤은 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 **보안 경고** 를 제공 하기 위한 것입니다. 이 페이지에 표시 된 것 처럼 다양 한 이점이 있습니다 ([적응 응용 프로그램 컨트롤의 이점](#what-are-the-benefits-of-adaptive-application-controls)).
 
  
 

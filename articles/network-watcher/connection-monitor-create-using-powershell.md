@@ -12,19 +12,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 99bcef2ba702235279c1327a2a5e51a8c6ab806d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7f175d82b650871437a506ea4513f0ae28360f68
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018482"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833034"
 ---
 # <a name="create-a-connection-monitor-by-using-powershell"></a>PowerShell을 사용 하 여 연결 모니터 만들기
+
+> [!IMPORTANT]
+> 2021 년 7 월 1 일부 터는 기존 작업 영역에 새 테스트를 추가 하거나 네트워크 성능 모니터에서 새 작업 영역을 사용 하도록 설정할 수 없습니다. 또한 연결 모니터 (클래식)에서 새 연결 모니터를 추가할 수 없습니다. 2021 년 7 월 1 일 이전에 만든 테스트 및 연결 모니터를 계속 사용할 수 있습니다. 현재 워크 로드에 대 한 서비스 중단을 최소화 하려면 [네트워크 성능 모니터에서 테스트를 마이그레이션하거나 ](migrate-to-connection-monitor-from-network-performance-monitor.md) ,  [연결 모니터 (클래식)](migrate-to-connection-monitor-from-connection-monitor-classic.md) 에서 Azure Network Watcher의 2024 년 2 월 29 일 이전에 새 연결 모니터로 마이그레이션합니다.
+
 
 Azure Network Watcher의 연결 모니터 기능을 사용 하 여 리소스 간의 통신을 모니터링 하는 방법에 대해 알아봅니다.
 
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 연결 모니터를 사용 하 여 만든 연결 모니터에서 온-프레미스 컴퓨터와 Azure Vm (가상 머신)을 모두 원본으로 추가할 수 있습니다. 이러한 연결 모니터는 끝점에 대 한 연결을 모니터링할 수도 있습니다. 끝점은 Azure 또는 다른 모든 URL 또는 IP에 있을 수 있습니다.
 
