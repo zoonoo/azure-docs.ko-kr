@@ -4,13 +4,15 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 2/3/21
 ms.author: parkerra
-ms.openlocfilehash: c97067c66296e8980a36b21298a7b2061e0f9b4c
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f6c2780ccbb914228a9870cb3b5fe4b0e3d0b214
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550407"
+ms.locfileid: "99569511"
 ---
+필요한 패키지를 다운로드하려면 <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a>이 설치되어 있어야 합니다.
+
 다음 명령을 실행하여 `<version_number>`를 현재 폴더에 다운로드할 Azure Spatial Anchors 버전으로 바꿉니다.
 
 ```bash
