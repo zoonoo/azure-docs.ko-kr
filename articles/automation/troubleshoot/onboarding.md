@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896514"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008165"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 
@@ -148,7 +148,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 기능 리소스를 제거하면 작업 영역의 연결을 끊을 수 있습니다. 작업 영역 및 Automation 계정의 이러한 기능에서 기존 아티팩트를 정리하는 것이 중요합니다.
 
 * 업데이트 관리의 경우 Automation 계정에서 **업데이트 배포(일정)** 를 제거합니다.
-* 작업 시간 외 VM 시작/중지의 경우 **설정** > **잠금** 에서 Automation 계정의 기능 구성 요소에 대한 잠금을 제거합니다. 자세한 내용은 [기능 제거](../automation-solution-vm-management.md#remove-the-feature)를 참조하세요.
+* 작업 시간 외 VM 시작/중지의 경우 **설정** > **잠금** 에서 Automation 계정의 기능 구성 요소에 대한 잠금을 제거합니다. 자세한 내용은 [기능 제거](../automation-solution-vm-management-remove.md)를 참조하세요.
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Windows용 Log Analytics 확장 오류
 

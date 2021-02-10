@@ -1,20 +1,20 @@
 ---
 title: Azure Automation 작업 시간 외 VM 시작/중지 개요
-description: 이 문서에서는 일정에 따라 VM을 시작 또는 중시하고 Azure Monitor 로그에서 선제적으로 모니터링하는 작업 시간 외 VM 시작/중지 기능에 대해 설명합니다.
+description: 이 문서에서는 일정에 따라 Vm을 시작 또는 중지 하 고 Azure Monitor 로그에서 사전 모니터링 하는 작업 시간 외 VM 시작/중지 기능에 대해 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055384"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007009"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
-작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다. 
+작업 시간 외 VM 시작/중지 기능은 사용 하도록 설정 된 Azure Vm을 시작 하거나 중지 합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/platform/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다.
 
 이 기능은 [new-azvm](/powershell/module/az.compute/start-azvm) cmdlet을 사용 하 여 vm을 시작 합니다. Vm을 중지 하는 데 [new-azvm](/powershell/module/az.compute/stop-azvm) 를 사용 합니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "99055384"
 
 - 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./automation-security-overview.md#run-as-accounts)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
-- 연결 된 Automation 계정 및 Log Analytics 작업 영역은 동일한 리소스 그룹에 있어야 합니다.
+- Runbook 작업 로그 및 작업 스트림을 저장 하는 [Azure Monitor Log Analytics 작업](../azure-monitor/platform/design-logs-deployment.md) 영역에서 쿼리 및 분석을 위해 작업 영역에 결과를 저장 합니다. Automation 계정은 신규 또는 기존 Log Analytics 작업 영역에 연결 될 수 있으며 두 리소스는 동일한 리소스 그룹에 있어야 합니다.
 
-- 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 모듈 업데이트는 프로덕션 Automation 계정으로 가져오기 전에 테스트 Automation 계정에서 테스트해 보는 것이 좋습니다.
+작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 업데이트 된 모듈을 프로덕션 Automation 계정으로 가져오기 전에 먼저 테스트 자동화 계정으로 가져와서 호환성 문제가 없는지 확인 하는 것이 좋습니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -148,7 +148,7 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 |Internal_ResourceGroupName | Automation 계정 리소스 그룹 이름입니다.|
 
 >[!NOTE]
->변수 `External_WaitTimeForVMRetryInSeconds`의 기본값이 600에서 2100으로 업데이트되었습니다. 
+>변수 `External_WaitTimeForVMRetryInSeconds`의 기본값이 600에서 2100으로 업데이트되었습니다.
 
 **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** 및 **ScheduledStartStop_Parent** Runbook의 쉼표로 구분된 VM 목록을 제외하고, 모든 시나리오에서 VM을 대상으로 지정하려면 `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` 변수가 필요합니다. 즉, 시작 및 중지 작업이 진행되려면 VM이 대상 리소스 그룹에 있어야 합니다. 이 논리는 구독 또는 리소스 그룹을 대상으로 지정할 수 있고 새로 만든 VM에서 작업이 상속된다는 측면에서 Azure Policy와 유사하게 작동합니다. 이 방법을 사용하면 모든 VM에 대해 별도 일정을 유지하고 시작 및 중지를 전체적으로 관리할 필요가 없습니다.
 
@@ -174,18 +174,14 @@ VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 �
 
 클라우드 서비스당 VM이 20개 이상인 경우에는 다음과 같은 권장 사항을 참조하세요.
 
-* 부모 Runbook **ScheduledStartStop_Parent** 를 사용하여 여러 일정을 만들고 일정당 20개의 VM을 지정합니다. 
-* 일정 속성에서 매개 변수를 사용 `VMList` 하 여 VM 이름을 쉼표로 구분 된 목록 (공백 없음)으로 지정 합니다. 
+* 부모 Runbook **ScheduledStartStop_Parent** 를 사용하여 여러 일정을 만들고 일정당 20개의 VM을 지정합니다.
+* 일정 속성에서 매개 변수를 사용 `VMList` 하 여 VM 이름을 쉼표로 구분 된 목록 (공백 없음)으로 지정 합니다.
 
 이렇게 하지 않으면 이 기능에 대한 Automation 작업이 3시간 이상 실행될 경우 [공평 분배](automation-runbook-execution.md#fair-share) 제한에 따라 일시적으로 언로드되거나 중지됩니다.
 
 Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. 작업 시간 외 VM 시작/중지 기능이 실행되면 이 기능에 클래식 리소스를 관리하기 위한 cmdlet이 있으므로 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [External_EnableClassicVMs](#variables) 변수를 False로 설정해야 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="enable-the-feature"></a>기능 사용
-
-이 기능의 사용을 시작하려면 [작업 시간 외 VM 시작/중지 사용](automation-solution-vm-management-enable.md)의 단계를 따릅니다.
 
 ## <a name="view-the-feature"></a>기능 보기
 
@@ -195,7 +191,7 @@ Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Reso
 
 * Automation 계정에 연결된 Log Analytics 작업 영역으로 이동합니다. 작업 영역을 선택한 다음 왼쪽 창에서 **솔루션** 을 선택합니다. 솔루션 페이지의 목록에서 **Start-Stop-VM[workspace]** 를 선택합니다.  
 
-기능을 선택하면 Start-Stop-VM[workspace] 페이지가 표시됩니다. 여기에서 **StartStopVM** 타일에 있는 정보와 같은 중요한 세부 정보를 검토할 수 있습니다. Log Analytics 작업 영역에서와 마찬가지로 이 타일에는 성공적으로 시작되고 완료된 기능에 대한 Runbook 작업의 수와 그래픽 표현이 나타납니다.
+기능을 선택 하면 **시작-VM [작업 영역]** 페이지가 표시 됩니다. 여기에서 **StartStopVM** 타일에 있는 정보와 같은 중요한 세부 정보를 검토할 수 있습니다. Log Analytics 작업 영역에서와 마찬가지로 이 타일에는 성공적으로 시작되고 완료된 기능에 대한 Runbook 작업의 수와 그래픽 표현이 나타납니다.
 
 ![Automation 업데이트 관리 페이지](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -203,37 +199,7 @@ Azure CSP 구독은 Azure Resource Manager 모델만 지원합니다. Azure Reso
 
 ## <a name="update-the-feature"></a>기능 업데이트
 
-작업 시간 외 VM 시작/중지의 이전 버전을 배포한 경우, 업데이트된 릴리스를 배포하기 전에 먼저 계정에서 삭제해야 합니다. [기능 제거](#remove-the-feature) 단계를 따른 다음 [사용 설정](automation-solution-vm-management-enable.md) 단계를 따릅니다.
-
-## <a name="remove-the-feature"></a>기능 제거
-
-이 기능을 더 이상 사용할 필요가 없으면 Automation 계정에서 삭제할 수 있습니다. 기능을 삭제하면 연결된 Runbook만 제거됩니다. 기능을 추가할 때 생성된 일정 또는 변수는 삭제되지 않습니다. 
-
-작업 시간 외 VM 시작/중지를 삭제하려면:
-
-1. Automation 계정의 **관련 리소스** 아래에서 **연결된 작업 영역** 을 선택합니다.
-
-2. **작업 영역으로 이동** 을 선택합니다.
-
-3. **일반** 아래에서 **솔루션** 을 클릭합니다. 
-
-4. 솔루션 페이지에서 **Start-Stop-VM[workspace]** 를 선택합니다. 
-
-5. VMManagementSolution[Workspace] 페이지의 메뉴에서 **삭제** 를 선택합니다.<br><br> ![VM 관리 기능 삭제](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. 솔루션 삭제 창에서 기능을 삭제할 것임을 확인합니다.
-
-7. 정보가 확인되고 기능이 삭제되는 동안 메뉴에서 **알림** 을 선택하여 진행 상황을 추적할 수 있습니다. 제거 프로세스가 끝나면 솔루션 페이지가 표시됩니다.
-
-8. Automation 계정 및 Log Analytics 작업 영역은 이 프로세스의 일부로 삭제되지 않습니다. Log Analytics 작업 영역을 유지하지 않으려는 경우 Azure Portal에서 수동으로 삭제해야 합니다.
-
-    1. **Log Analytics 작업 영역** 을 검색하여 선택합니다.
-
-    2. Log Analytics 작업 영역 페이지에서 작업 영역을 선택합니다.
-
-    3. 메뉴에서 **삭제** 를 선택합니다.
-
-    4. Azure Automation 계정 [기능 구성 요소](#components)를 유지하지 않으려면 각각을 수동으로 삭제할 수 있습니다.
+작업 시간 외 VM 시작/중지의 이전 버전을 배포한 경우, 업데이트된 릴리스를 배포하기 전에 먼저 계정에서 삭제해야 합니다. [기능 제거](automation-solution-vm-management-remove.md#delete-the-feature) 단계를 따른 다음 [사용 설정](automation-solution-vm-management-enable.md) 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

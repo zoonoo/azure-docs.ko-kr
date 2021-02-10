@@ -3,12 +3,12 @@ title: 이벤트 배달, 관리 서비스 id 및 개인 링크
 description: 이 문서에서는 Azure Event Grid 토픽에 대해 관리형 서비스 ID를 사용하도록 설정하는 방법을 설명합니다. 이 ID를 사용하여 지원되는 대상에 이벤트를 전달합니다.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054420"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007774"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>관리 id를 사용 하 여 이벤트 배달
 이 문서에서는 Azure event grid 사용자 지정 토픽 또는 도메인에 대해 [관리 서비스 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 하는 방법을 설명 합니다. 이 ID를 사용하여 Service Bus 큐 및 토픽, Event Hubs, 스토리지 계정 등의 지원되는 대상으로 이벤트를 전달합니다.
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Azure CLI Azure Storage 큐 사용 
-이 섹션에서는 Azure CLI 사용 하 여 시스템에 할당 된 id를 사용 하 여 Azure Storage 큐에 이벤트를 전달 하도록 설정 하는 방법에 대해 알아봅니다. 이 ID는 스토리지 계정의 **Storage Blob 데이터 기여자** 역할의 멤버여야 합니다.
+이 섹션에서는 Azure CLI 사용 하 여 시스템에 할당 된 id를 사용 하 여 Azure Storage 큐에 이벤트를 전달 하도록 설정 하는 방법에 대해 알아봅니다. Id는 저장소 계정에서 **저장소 큐 데이터 메시지 보낸 사람** 역할의 멤버 여야 합니다. 또한 배달 못한 편지 처리에 사용되는 스토리지 계정에서 **Storage Blob 데이터 기여자** 역할의 멤버여야 합니다.
 
 #### <a name="define-variables"></a>변수 정의  
 

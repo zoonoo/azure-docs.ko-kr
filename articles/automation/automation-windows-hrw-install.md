@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182787"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006992"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -20,7 +20,7 @@ Azure Automation는 runbook을 저장 하 고 관리 한 다음 하나 이상의
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -38,8 +38,8 @@ Hybrid Runbook Worker 역할에는 지원 되는 Windows 운영 체제에 대 �
 
 Hybrid Runbook Worker 기능은 다음과 같은 운영 체제를 지원 합니다.
 
-* Windows Server 2019
-* Windows Server 2016, 버전 1709 및 1803
+* Windows Server 2019 (Server Core 포함)
+* Windows Server 2016, 버전 1709 및 1803 (Server Core 제외)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2(x64), 2008 R2
 * Windows 10 Enterprise(다중 세션 포함) 및 Pro

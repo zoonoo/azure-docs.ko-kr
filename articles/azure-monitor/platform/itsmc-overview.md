@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed13837eabadc38cee50efac3b9340c973c8ea70
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d22bb05ad6db3630e9b0242e098fd81f65e34b05
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492436"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007315"
 ---
 # <a name="it-service-management-connector-overview"></a>IT 서비스 관리 커넥터 개요
 
@@ -32,7 +32,8 @@ ITSMC는 다음 ITSM 도구와의 연결을 지원합니다.
 -   Cherwell
 
    >[!NOTE]
-> Cherwell 및 Provance 고객에 게 웹 후크 [작업](./action-groups.md#webhook) 을 사용 하 여 Cherwell 및 Provance 끝점을 통합에 대 한 다른 솔루션으로 제안 합니다.
+> 2020 년 10 월-Cherwell 및 Azure 경고와 Provance ITSM 통합은 더 이상 새 고객에 대해 사용 하도록 설정 되지 않습니다. 새 ITSM 연결은 지원 되지 않습니다.
+> 기존 ITSM 연결이 지원 됩니다.
 
 ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 긴 오디오 API (미리 보기)-음성 서비스
+title: 긴 오디오 API-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 긴 오디오 API가 긴 형식의 텍스트를 음성으로 통합 하기 위해 디자인 되는 방법에 대해 알아봅니다.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 255cfe11f8601abc89a1d96f702f453c2af1ccbd
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: e28bd5b5caca259201758f0c633b2120a411f422
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96533063"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007451"
 ---
-# <a name="long-audio-api-preview"></a>긴 오디오 API (미리 보기)
+# <a name="long-audio-api"></a>긴 오디오 API
 
-긴 오디오 API는 긴 형식 텍스트를 음성으로 통합 (예: 오디오 서적, 뉴스 기사 및 문서) 하는 데 적합 합니다. 이 API는 합성 오디오를 실시간으로 반환 하지 않습니다. 대신 응답을 폴링하고 서비스에서 제공 되는 출력을 사용 하는 것이 예상 됩니다. 음성 SDK에서 사용 하는 텍스트-음성 API와 달리 긴 오디오 API는 10 분 이상 합성 오디오를 만들 수 있으므로 게시자 및 오디오 콘텐츠 플랫폼에 이상적입니다.
+긴 오디오 API는 긴 형식 텍스트를 음성으로 통합 (예: 오디오 서적, 뉴스 기사 및 문서) 하는 데 적합 합니다. 이 API는 합성 오디오를 실시간으로 반환 하지 않습니다. 대신 응답을 폴링하고 서비스에서 제공 되는 출력을 사용 하는 것이 예상 됩니다. 음성 SDK에서 사용 하는 텍스트 및 음성 API와는 달리 긴 오디오 API는 10 분 이상 합성 오디오를 만들 수 있으므로 게시자 및 오디오 콘텐츠 플랫폼에서 일괄 처리의 오디오 서적 같은 긴 오디오 콘텐츠를 만드는 데 적합 합니다.
 
 긴 오디오 API의 추가 이점은 다음과 같습니다.
 
@@ -47,53 +47,41 @@ ms.locfileid: "96533063"
 * 일반 텍스트의 경우 400 자 보다 크거나, SSML 텍스트에 대 한 400 [청구 가능 문자](./text-to-speech.md#pricing-note) 를 포함 하며, 1만 단락 보다 작음
   * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
   * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
-> [!NOTE]
-> 중국어 (중국), 중국어 (홍콩 특별 행정구), 중국어 (대만), 일본어 및 한국어의 경우 한 단어는 두 문자로 계산 됩니다. 
 
 ## <a name="python-example"></a>Python 예제
 
-이 섹션에는 긴 오디오 API의 기본 사용법을 보여 주는 Python 예제가 포함 되어 있습니다. 즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음이 코드 조각을 이라는 파일에 복사 `voice_synthesis_client.py` 합니다.
+이 섹션에는 긴 오디오 API의 기본 사용법을 보여 주는 Python 예제가 포함 되어 있습니다. 즐겨찾는 IDE 또는 편집기를 사용하여 새 Python 프로젝트를 만듭니다. 그런 다음이 코드 조각을 이라는 파일에 복사 `long_audio_synthesis_client.py` 합니다.
 
 ```python
-import argparse
 import json
 import ntpath
-import urllib3
 import requests
-import time
-from json import dumps, loads, JSONEncoder, JSONDecoder
-import pickle
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
-이러한 라이브러리는 인수를 구문 분석 하 고, HTTP 요청을 생성 하 고, 텍스트 음성 변환 긴 오디오 REST API 호출 하는 데 사용 됩니다.
+이러한 라이브러리는 HTTP 요청을 생성 하 고 텍스트 음성 변환 긴 오디오 합성 REST API 호출 하는 데 사용 됩니다.
 
 ### <a name="get-a-list-of-supported-voices"></a>지원 되는 음성 목록 가져오기
 
-이 코드를 사용 하 여 특정 지역/끝점에 대 한 전체 음성 목록을 가져올 수 있습니다. 코드를 다음에 추가 합니다 `voice_synthesis_client.py` .
+지원 되는 음성 목록을 가져오려면에 GET 요청을 보냅니다 `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices` .
 
+
+이 코드를 사용 하 여 특정 지역/끝점에 대 한 전체 음성 목록을 가져올 수 있습니다.
 ```python
-parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
-parser.add_argument('--voices', action="store_true", default=False, help='print voice list')
-parser.add_argument('-key', action="store", dest="key", required=True, help='the speech subscription key, like fg1f763i01d94768bda32u7a******** ')
-parser.add_argument('-region', action="store", dest="region", required=True, help='the region information, could be centralindia, canadacentral or uksouth')
-args = parser.parse_args()
-baseAddress = 'https://%s.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0-beta1/' % args.region
+def get_voices():
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/voices'.format(region)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def getVoices():
-    response=requests.get(baseAddress+"voicesynthesis/voices", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    voices = json.loads(response.text)
-    return voices
+    response = requests.get(url, headers=header)
+    print(response.text)
 
-if args.voices:
-    voices = getVoices()
-    print("There are %d voices available:" % len(voices))
-    for voice in voices:
-        print ("Name: %s, Description: %s, Id: %s, Locale: %s, Gender: %s, PublicVoice: %s, Created: %s" % (voice['name'], voice['description'], voice['id'], voice['locale'], voice['gender'], voice['isPublicVoice'], voice['created']))
+get_voices()
 ```
 
-명령을 사용 하 여 스크립트를 실행 하 `python voice_synthesis_client.py --voices -key <your_key> -region <region>` 고 다음 값을 바꿉니다.
+다음 값을 바꿉니다.
 
 * `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
 * 를 `<region>` 음성 리소스가 생성 된 지역 (예: `eastus` 또는)으로 바꿉니다 `westus` . 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
@@ -101,169 +89,327 @@ if args.voices:
 다음과 같은 출력이 표시 됩니다.
 
 ```console
-There are xx voices available:
-
-Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xxx , Id: xxx, Locale: en-US, Gender: Male, PublicVoice: xxx, Created: 2019-07-22T09:38:14Z
-Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
+{
+  "values": [
+    {
+      "locale": "en-US",
+      "voiceName": "en-US-AriaNeural",
+      "description": "",
+      "gender": "Female",
+      "createdDateTime": "2020-05-21T05:57:39.123Z",
+      "properties": {
+        "publicAvailable": true
+      }
+    },
+    {
+      "id": "8fafd8cd-5f95-4a27-a0ce-59260f873141"
+      "locale": "en-US",
+      "voiceName": "my custom neural voice",
+      "description": "",
+      "gender": "Male",
+      "createdDateTime": "2020-05-21T05:25:40.243Z",
+      "properties": {
+        "publicAvailable": false
+      }
+    }
+  ]
+}
 ```
 
-**Publicvoice** 매개 변수가 **True** 인 경우 음성은 공용 신경망입니다. 그렇지 않으면 사용자 지정 신경망입니다.
+**속성. publicAvailable** 이 **true** 인 경우 음성은 공용 신경망입니다. 그렇지 않으면 사용자 지정 신경망입니다.
 
 ### <a name="convert-text-to-speech"></a>텍스트 음성 변환
 
-일반 텍스트 또는 SSML 텍스트에서 입력 텍스트 파일을 준비한 후에 다음 코드를 추가 합니다 `voice_synthesis_client.py` .
+일반 텍스트 또는 SSML 텍스트에서 입력 텍스트 파일을 준비한 후에 다음 코드를 추가 합니다 `long_audio_synthesis_client.py` .
 
 > [!NOTE]
-> ' concatenateResult '은 선택적 매개 변수입니다. 이 매개 변수를 설정 하지 않으면 오디오 출력이 단락 단위로 생성 됩니다. 매개 변수를 설정 하 여 오디오 된 os를 1 개의 출력으로 연결할 수도 있습니다. 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력에 대 한 자세한 내용은 [오디오 출력 형식](#audio-output-formats)을 참조 하세요.
+> `concatenateResult` 는 선택적 매개 변수입니다. 이 매개 변수를 설정 하지 않으면 오디오 출력이 단락 단위로 생성 됩니다. 매개 변수를 설정 하 여 오디오 된 os를 1 개의 출력으로 연결할 수도 있습니다. 
+> `outputFormat` 도 선택 사항입니다. 기본적으로 오디오 출력은 riff-16khz-16 비트로 설정 됩니다. 지원 되는 오디오 출력 형식에 대 한 자세한 내용은 [오디오 출력 형식](#audio-output-formats)을 참조 하세요.
 
 ```python
-parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
-parser.add_argument('--concatenateResult', action="store_true", default=False, help='If concatenate result in a single wave file')
-parser.add_argument('-file', action="store", dest="file", help='the input text script file path')
-parser.add_argument('-voiceId', action="store", nargs='+', dest="voiceId", help='the id of the voice which used to synthesis')
-parser.add_argument('-locale', action="store", dest="locale", help='the locale information like zh-CN/en-US')
-parser.add_argument('-format', action="store", dest="format", default='riff-16khz-16bit-mono-pcm', help='the output audio format')
+def submit_synthesis():
+    region = '<region>'
+    key = '<your_key>'
+    input_file_path = '<input_file_path>'
+    locale = '<locale>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis'.format(region)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def submitSynthesis():
-    modelList = args.voiceId
-    data={'name': 'simple test', 'description': 'desc...', 'models': json.dumps(modelList), 'locale': args.locale, 'outputformat': args.format}
-    if args.concatenateResult:
-        properties={'ConcatenateResult': 'true'}
-        data['properties'] = json.dumps(properties)
-    if args.file is not None:
-        scriptfilename=ntpath.basename(args.file)
-        files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
-    response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
-    if response.status_code == 202:
-        location = response.headers['Location']
-        id = location.split("/")[-1]
-        print("Submit synthesis request successful")
-        return id
-    else:
-        print("Submit synthesis request failed")
-        print("response.status_code: %d" % response.status_code)
-        print("response.text: %s" % response.text)
-        return 0
+    voice_identities = [
+        {
+            'voicename': '<voice_name>'
+        }
+    ]
 
-def getSubmittedSynthesis(id):
-    response=requests.get(baseAddress+"voicesynthesis/"+id, headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    synthesis = json.loads(response.text)
-    return synthesis
+    payload = {
+        'displayname': 'long audio synthesis sample',
+        'description': 'sample description',
+        'locale': locale,
+        'voices': json.dumps(voice_identities),
+        'outputformat': 'riff-16khz-16bit-mono-pcm',
+        'concatenateresult': True,
+    }
 
-if args.submit:
-    id = submitSynthesis()
-    if (id == 0):
-        exit(1)
+    filename = ntpath.basename(input_file_path)
+    files = {
+        'script': (filename, open(input_file_path, 'rb'), 'text/plain')
+    }
 
-    while(1):
-        print("\r\nChecking status")
-        synthesis=getSubmittedSynthesis(id)
-        if synthesis['status'] == "Succeeded":
-            r = requests.get(synthesis['resultsUrl'])
-            filename=id + ".zip"
-            with open(filename, 'wb') as f:  
-                f.write(r.content)
-                print("Succeeded... Result file downloaded : " + filename)
-            break
-        elif synthesis['status'] == "Failed":
-            print("Failed...")
-            break
-        elif synthesis['status'] == "Running":
-            print("Running...")
-        elif synthesis['status'] == "NotStarted":
-            print("NotStarted...")
-        time.sleep(10)
+    response = requests.post(url, payload, headers=header, files=files)
+    print('response.status_code: %d' % response.status_code)
+    print(response.headers['Location'])
+
+submit_synthesis()
 ```
 
-명령을 사용 하 여 스크립트를 실행 하 `python voice_synthesis_client.py --submit -key <your_key> -region <region> -file <input> -locale <locale> -voiceId <voice_guid>` 고 다음 값을 바꿉니다.
+다음 값을 바꿉니다.
 
 * `<your_key>`를 Speech Service 구독 키로 바꿉니다. 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
 * 를 `<region>` 음성 리소스가 생성 된 지역 (예: `eastus` 또는)으로 바꿉니다 `westus` . 이 정보는 [Azure Portal](https://aka.ms/azureportal)의 리소스에 대 한 **개요** 탭에서 확인할 수 있습니다.
-* `<input>`텍스트 음성 변환에 대해 준비한 텍스트 파일의 경로로 대체 합니다.
+* `<input_file_path>`텍스트 음성 변환에 대해 준비한 텍스트 파일의 경로로 대체 합니다.
 * `<locale>`원하는 출력 로캘로 대체 합니다. 자세한 내용은 [언어 지원](language-support.md#neural-voices)을 참조 하세요.
-* `<voice_guid>`원하는 출력 음성으로 대체 합니다. 끝점에 대 한 이전 호출에서 반환 된 음성 중 하나를 사용 `/voicesynthesis/voices` 합니다.
+
+끝점에 대 한 이전 호출에서 반환 된 음성 중 하나를 사용 `/voices` 합니다.
+
+* 공용 신경망을 사용 하는 경우을 `<voice_name>` 원하는 출력 음성으로 바꿉니다.
+* 사용자 지정 신경망을 사용 하려면 변수를 `voice_identities` 다음으로 바꾸고 `<voice_id>` `id` 사용자 지정 신경망의로 대체 합니다.
+```Python
+voice_identities = [
+    {
+        'id': '<voice_id>'
+    }
+]
+```
 
 다음과 같은 출력이 표시 됩니다.
 
 ```console
-Submit synthesis request successful
-
-Checking status
-NotStarted...
-
-Checking status
-Running...
-
-Checking status
-Running...
-
-Checking status
-Succeeded... Result file downloaded : xxxx.zip
+response.status_code: 202
+https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
-결과에는 서비스에 의해 생성 되는 입력 텍스트와 오디오 출력 파일이 포함 됩니다. 이러한 파일은 zip에서 다운로드할 수 있습니다.
-
 > [!NOTE]
-> 입력 파일이 2 개 이상 있는 경우 여러 요청을 제출 해야 합니다. 유의 해야 하는 몇 가지 제한 사항이 있습니다. 
+> 입력 파일이 2 개 이상 있는 경우 여러 요청을 제출 해야 합니다. 유의 해야 하는 몇 가지 제한 사항이 있습니다.
 > * 클라이언트는 각 Azure 구독 계정에 대해 초당 최대 **5 개의** 요청을 서버에 제출할 수 있습니다. 이 제한이 초과 되 면 클라이언트는 429 오류 코드 (너무 많은 요청)를 가져옵니다. 초당 요청 크기를 줄이십시오.
-> * 서버를 실행 하 고 각 Azure 구독 계정에 대해 최대 **120** 요청을 큐에 대기 시킬 수 있습니다. 이 제한이 초과 되 면 서버는 429 오류 코드 (너무 많은 요청)를 반환 합니다. 잠시 후 요청이 완료 될 때까지 새 요청을 제출 하지 마세요.
+> * 서버를 실행 하 고 각 Azure 구독 계정에 대해 최대 **120** 요청을 큐에 대기 시킬 수 있습니다. 이 제한이 초과 되 면 서버는 429 오류 코드 (너무 많은 요청)를 반환 합니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요.
+
+출력의 URL은 요청 상태를 가져오는 데 사용할 수 있습니다.
+
+### <a name="get-information-of-a-submitted-request"></a>제출 된 요청에 대 한 정보 가져오기
+
+제출 된 합성 요청의 상태를 가져오려면 이전 단계에서 반환 된 URL에 GET 요청을 보냅니다.
+```Python
+
+def get_synthesis():
+    url = '<url>'
+    key = '<your_key>'
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+    response = requests.get(url, headers=header)
+    print(response.text)
+
+get_synthesis()
+```
+출력은 다음과 같습니다.
+```console
+response.status_code: 200
+{
+  "models": [
+    {
+      "voiceName": "en-US-AriaNeural"
+    }
+  ],
+  "properties": {
+    "outputFormat": "riff-16khz-16bit-mono-pcm",
+    "concatenateResult": false,
+    "totalDuration": "PT5M57.252S",
+    "billableCharacterCount": 3048
+  },
+  "id": "eb3d7a81-ee3e-4e9a-b725-713383e71677",
+  "lastActionDateTime": "2021-01-14T11:12:27.240Z",
+  "status": "Succeeded",
+  "createdDateTime": "2021-01-14T11:11:02.557Z",
+  "locale": "en-US",
+  "displayName": "long audio synthesis sample",
+  "description": "sample description"
+}
+```
+
+`status`속성에서이 요청의 상태를 읽을 수 있습니다. 요청은 상태에서 시작 되 고 `NotStarted` ,로 변경 되 `Running` 고, 마지막으로 또는가 됩니다 `Succeeded` `Failed` . 상태가가 될 때까지 루프를 사용 하 여이 API를 폴링할 수 있습니다 `Succeeded` .
+
+### <a name="download-audio-result"></a>오디오 결과 다운로드
+
+합성 요청이 성공 하면 GET API를 호출 하 여 오디오 결과를 다운로드할 수 있습니다 `/files` .
+
+```python
+def get_files():
+    id = '<request_id>'
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/{}/files'.format(region, id)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+
+    response = requests.get(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
+    print(response.text)
+
+get_files()
+```
+`<request_id>`결과를 다운로드 하려는 요청 ID로 대체 합니다. 이전 단계의 응답에서 찾을 수 있습니다.
+
+출력은 다음과 같습니다.
+```console
+response.status_code: 200
+{
+  "values": [
+    {
+      "name": "2779f2aa-4e21-4d13-8afb-6b3104d6661a.txt",
+      "kind": "LongAudioSynthesisScript",
+      "properties": {
+        "size": 4200
+      },
+      "createdDateTime": "2021-01-14T11:11:02.410Z",
+      "links": {
+        "contentUrl": "https://customvoice-usw.blob.core.windows.net/artifacts/input.txt?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
+      }
+    },
+    {
+      "name": "voicesynthesis_waves.zip",
+      "kind": "LongAudioSynthesisResult",
+      "properties": {
+        "size": 9290000
+      },
+      "createdDateTime": "2021-01-14T11:12:27.226Z",
+      "links": {
+        "contentUrl": "https://customvoice-usw.blob.core.windows.net/artifacts/voicesynthesis_waves.zip?st=2018-02-09T18%3A07%3A00Z&se=2018-02-10T18%3A07%3A00Z&sp=rl&sv=2017-04-17&sr=b&sig=e05d8d56-9675-448b-820c-4318ae64c8d5"
+      }
+    }
+  ]
+}
+```
+출력에는 2 개 파일의 정보가 포함 됩니다. 을 사용 하는 경우 `"kind": "LongAudioSynthesisScript"` 입력 스크립트가 전송 됩니다. 다른 하나는 `"kind": "LongAudioSynthesisResult"` 이 요청의 결과입니다.
+결과는 입력 텍스트의 복사본과 함께 생성 된 오디오 출력 파일을 포함 하는 zip입니다.
+
+두 파일은 모두 해당 속성의 URL에서 다운로드할 수 있습니다 `links.contentUrl` .
+
+### <a name="get-all-synthesis-requests"></a>모든 합성 요청 가져오기
+
+다음 코드를 사용 하 여 제출 된 모든 요청 목록을 가져올 수 있습니다.
+
+```python
+def get_synthesis():
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/'.format(region)    
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
+
+    response = requests.get(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
+    print(response.text)
+
+get_synthesis()
+```
+
+출력은 다음과 같습니다.
+```console
+response.status_code: 200
+{
+  "values": [
+    {
+      "models": [
+        {
+          "id": "8fafd8cd-5f95-4a27-a0ce-59260f873141",
+          "voiceName": "my custom neural voice"
+        }
+      ],
+      "properties": {
+        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "concatenateResult": false,
+        "totalDuration": "PT1S",
+        "billableCharacterCount": 5
+      },
+      "id": "f9f0bb74-dfa5-423d-95e7-58a5e1479315",
+      "lastActionDateTime": "2021-01-05T07:25:42.433Z",
+      "status": "Succeeded",
+      "createdDateTime": "2021-01-05T07:25:13.600Z",
+      "locale": "en-US",
+      "displayName": "Long Audio Synthesis",
+      "description": "Long audio synthesis sample"
+    },
+    {
+      "models": [
+        {
+          "voiceName": "en-US-AriaNeural"
+        }
+      ],
+      "properties": {
+        "outputFormat": "riff-16khz-16bit-mono-pcm",
+        "concatenateResult": false,
+        "totalDuration": "PT5M57.252S",
+        "billableCharacterCount": 3048
+      },
+      "id": "eb3d7a81-ee3e-4e9a-b725-713383e71677",
+      "lastActionDateTime": "2021-01-14T11:12:27.240Z",
+      "status": "Succeeded",
+      "createdDateTime": "2021-01-14T11:11:02.557Z",
+      "locale": "en-US",
+      "displayName": "long audio synthesis sample",
+      "description": "sample description"
+    }
+  ]
+}
+```
+
+`values` 속성은 합성 요청 목록을 포함 합니다. 최대 페이지 크기가 100 인 목록의 페이지가 매겨집니다. 100 개가 넘는 요청이 있는 경우 `"@nextLink"` 페이지가 매겨진 목록의 다음 페이지를 가져오도록 속성이 제공 됩니다.
+
+```console
+  "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
+```
+
+`skip`URL 매개 변수를 제공 하 여 페이지 크기를 사용자 지정 하 고 번호를 건너뛸 수도 있습니다 `top` .
 
 ### <a name="remove-previous-requests"></a>이전 요청 제거
 
 서비스는 각 Azure 구독 계정에 대해 최대 **2만** 개의 요청을 유지 합니다. 요청 금액이이 제한을 초과 하는 경우 새 요청을 만들기 전에 이전 요청을 제거 하세요. 기존 요청을 제거 하지 않으면 오류 알림이 수신 됩니다.
 
-다음 코드를 `voice_synthesis_client.py`에 추가합니다.
-
+다음 코드에서는 특정 합성 요청을 제거 하는 방법을 보여 줍니다.
 ```python
-parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
-parser.add_argument('--delete', action="store_true", default=False, help='delete a synthesis request')
-parser.add_argument('-synthesisId', action="store", nargs='+', dest="synthesisId", help='the id of the voice synthesis which need to be deleted')
+def delete_synthesis():
+    id = '<request_id>'
+    region = '<region>'
+    key = '<your_key>'
+    url = 'https://{}.customvoice.api.speech.microsoft.com/api/texttospeech/v3.0/longaudiosynthesis/{}/'.format(region, id)
+    header = {
+        'Ocp-Apim-Subscription-Key': key
+    }
 
-def getSubmittedSyntheses():
-    response=requests.get(baseAddress+"voicesynthesis", headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-    syntheses = json.loads(response.text)
-    return syntheses
-
-def deleteSynthesis(ids):
-    for id in ids:
-        print("delete voice synthesis %s " % id)
-        response = requests.delete(baseAddress+"voicesynthesis/"+id, headers={"Ocp-Apim-Subscription-Key":args.key}, verify=False)
-        if (response.status_code == 204):
-            print("delete successful")
-        else:
-            print("delete failed, response.status_code: %d, response.text: %s " % (response.status_code, response.text))
-
-if args.syntheses:
-    synthese = getSubmittedSyntheses()
-    print("There are %d synthesis requests submitted:" % len(synthese))
-    for synthesis in synthese:
-        print ("ID : %s , Name : %s, Status : %s " % (synthesis['id'], synthesis['name'], synthesis['status']))
-
-if args.delete:
-    deleteSynthesis(args.synthesisId)
+    response = requests.delete(url, headers=header)
+    print('response.status_code: %d' % response.status_code)
 ```
 
-을 실행 하 여 만든 `python voice_synthesis_client.py --syntheses -key <your_key> -region <region>` 합성 요청 목록을 가져옵니다. 다음과 같은 출력이 표시 됩니다.
+요청이 성공적으로 제거 되 면 응답 상태 코드는 HTTP 204 (콘텐츠 없음)입니다.
 
 ```console
-There are <number> synthesis requests submitted:
-ID : xxx , Name : xxx, Status : Succeeded
-ID : xxx , Name : xxx, Status : Running
-ID : xxx , Name : xxx : Succeeded
+response.status_code: 204
 ```
 
-요청을 삭제 하려면를 실행 하 `python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>` 고를 `<synthesis_id>` 이전 요청에서 반환 된 요청 ID 값으로 바꿉니다.
-
 > [!NOTE]
-> 상태가 ' 실행 중 '/' 대기 중 ' 인 요청은 제거 하거나 삭제할 수 없습니다.
+> 또는 상태의 요청은 `NotStarted` `Running` 제거 하거나 삭제할 수 없습니다.
 
-완성 된는 `voice_synthesis_client.py` [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py)에서 사용할 수 있습니다.
+완성 된는 `long_audio_synthesis_client.py` [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py)에서 사용할 수 있습니다.
 
 ## <a name="http-status-codes"></a>HTTP 상태 코드
 
 다음 표에서는 REST API의 HTTP 응답 코드 및 메시지에 대해 자세히 설명 합니다.
 
-| API | HTTP 상태 코드 | Description | 해결 방법 |
+| API | HTTP 상태 코드 | 설명 | 해결 방법 |
 |-----|------------------|-------------|----------|
 | 생성 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
 |        | 400 | 이 영역에 대 한 **표준** 음성 구독만 유효 합니다. | 음성 구독 키를 "표준" 가격 책정 계층으로 변경 합니다. |
@@ -278,7 +424,7 @@ ID : xxx , Name : xxx : Succeeded
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
 | 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
-| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
+| 삭제    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정 된 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인 합니다. |
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트

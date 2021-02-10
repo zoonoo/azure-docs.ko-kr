@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1e0dbd23fa14c1bd79275d3f9ff6a164293ac19
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728862"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007349"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](https://www.microsoft.com/en-us/trust-center?rtc=1)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -173,6 +173,8 @@ Windows 또는 관리 서버 에이전트에서 캐시한 데이터는 운영 �
 Log Analytics 서비스는 Azure 인증을 통해 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 처리되지 않은 원시 데이터는 데이터가 미사용 시 저장될 지역의 Azure Event Hub에 저장됩니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다. 그런 다음, Log Analytics 서비스가 원시 데이터를 처리해 데이터베이스로 수집합니다.
 
 데이터베이스에 저장된 수집 데이터의 보존 기간은 선택한 가격 책정 계획에 따라 다릅니다. *체험* 계층의 경우 수집된 데이터는 7일 동안 사용할 수 있습니다. *유료* 계층의 경우 수집된 데이터는 기본적으로 31일 동안 사용할 수 있지만 730일까지 사용할 수 있도록 연장 가능합니다. 데이터는 Azure Storage에 암호화되어 데이터 기밀성을 보장하며 로컬 중복 스토리지(LRS)를 사용하여 로컬 영역 내에 데이터가 복제됩니다. 마지막 2 주 데이터는 SSD 기반 캐시에도 저장 되 고이 캐시는 암호화 됩니다.
+
+수집 한 후에는 데이터베이스 저장소의 데이터를 변경할 수 없지만 [ *제거* API 경로](personal-data-mgmt.md#delete)를 통해 삭제할 수는 있습니다. 데이터를 변경할 수 없지만 일부 인증을 위해서는 데이터를 변경할 수 없는 상태로 유지 하 고 저장소에서 변경 하거나 삭제할 수 없습니다. 데이터 불변성은 [변경 불가능 한 저장소](../../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성 된 저장소 계정에 대 한 [데이터 내보내기를](logs-data-export.md) 사용 하 여 달성할 수 있습니다.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics를 사용 하 여 데이터에 액세스 합니다.
 Log Analytics 작업 영역에 액세스하려면 이전에 설정한 Microsoft 계정 또는 조직 계정을 사용하여 Azure Portal에 로그인합니다. 포털과 Log Analytics 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다. 포털을 사용할 때는 사용자 클라이언트(웹 브라우저)에 세션 ID가 생성되며 세션이 종료될 때까지 데이터가 로컬 캐시에 저장됩니다. 세션이 종료되면 캐시가 삭제됩니다. 개인 식별이 가능한 정보가 포함되지 않는 클라이언트 측 쿠키는 자동으로 제거되지 않습니다. 세션 쿠키는 HTTPOnly로 표시되며 보안됩니다. 사전 지정한 유휴 기간이 지나면 Azure Portal 세션이 종료됩니다.

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918926"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007043"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -374,8 +374,8 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 * 첫 번째 값은 nodeType에 대해 true로 설정 해야 하는 **multipleAvailabilityZones** 입니다.
 * 두 번째 값은 **sfZonalUpgradeMode** 이며 옵션입니다. 여러 AZ가 있는 nodetype이 클러스터에 이미 있는 경우에는이 속성을 수정할 수 없습니다.
       속성은 업그레이드 도메인의 Vm에 대 한 논리적 그룹화를 제어 합니다.
-          값이 false (플랫 모드)로 설정 된 경우 노드 형식의 Vm은 5 Ud의 영역 정보를 무시 하 고 UD로 그룹화 됩니다.
-          값이 생략 되거나 true (계층 모드)로 설정 된 경우 Vm은 최대 15 Ud 영역 배포를 반영 하도록 그룹화 됩니다. 각 3 개 영역에는 5 개의 Ud 있습니다.
+          Value가 "Parallel"으로 설정 된 경우 nodetype 아래의 Vm은 5 Ud의 영역 정보를 무시 하 고 Ud에 그룹화 됩니다.
+          Value를 생략 하거나 "계층형"로 설정 하면 Vm이 최대 15 Ud 영역 배포를 반영 하도록 그룹화 됩니다. 각 3 개 영역에는 5 개의 Ud 있습니다.
           이 속성은 ServiceFabric 응용 프로그램 및 코드 업그레이드에 대 한 업그레이드 동작만 정의 합니다. 기본 가상 머신 확장 집합 업그레이드는 모든 AZ의에서 계속 병렬 처리 됩니다.
       이 속성은 여러 영역을 사용 하지 않는 노드 형식에 대해 UD 배포에 영향을 주지 않습니다.
 * 세 번째 값은 **vmssZonalUpgradeMode = Parallel** 입니다. 여러 AZs를 포함 하는 nodeType을 추가 하는 경우 클러스터에서 구성 해야 하는 *필수* 속성입니다. 이 속성은 모든 AZ in에서 동시에 발생 하는 가상 머신 확장 집합 업데이트에 대 한 업그레이드 모드를 정의 합니다.

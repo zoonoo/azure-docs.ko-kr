@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896904"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007740"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -74,7 +74,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 |운영 체제  |메모  |
 |---------|---------|
-|Windows Server 2019(Datacenter/Datacenter Core/Standard)<br>Windows Server 2016(Datacenter/Datacenter Core/Standard)<br>Windows Server 2012 R2(Datacenter/Standard)<br>Windows Server 2012 |
+|Windows Server 2019 (Server Core를 포함 하는 Datacenter/Standard)<br><br>Windows Server 2016 (서버 코어를 제외 하 고 Datacenter/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2(RTM 및 SP1 Standard)| 업데이트 관리은이 운영 체제에 대 한 평가 및 패치를 지원 합니다. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) 는 Windows Server 2008 r 2에서 지원 됩니다. |
 |CentOS 6 및 7 (x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](view-update-assessments.md#linux)를 참조하세요.          |
 |Red Hat Enterprise 6 및 7 (x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |

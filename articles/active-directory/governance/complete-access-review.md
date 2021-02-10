@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779553"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008202"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 완료
 
@@ -29,7 +29,7 @@ ms.locfileid: "96779553"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Premium P2
 - 전역 관리자, 사용자 관리자, 보안 관리자 또는 보안 읽기 권한자
@@ -48,35 +48,47 @@ ms.locfileid: "96779553"
 
     액세스 검토의 이후 인스턴스를 보려면 액세스 검토로 이동 하 여 예약 된 검토를 선택 합니다.
 
-    **개요** 페이지에서 진행률을 볼 수 있습니다. 액세스 권한은 검토가 완료될 때까지 디렉터리에서 변경되지 않습니다.
+    **개요** 페이지에서 현재 인스턴스의 진행률을 볼 수 있습니다. 액세스 권한은 검토가 완료될 때까지 디렉터리에서 변경되지 않습니다.
 
-    ![액세스 검토 진행률](./media/complete-access-review/overview-progress.png)
-    
-    Microsoft 365 그룹 (미리 보기)에서 게스트 액세스를 검토 하는 액세스 검토를 보는 경우 개요 블레이드에는 검토의 각 그룹이 나열 됩니다.  
+     ![모든 회사 그룹의 검토](./media/complete-access-review/all-company-group.png)
 
-   ![Microsoft 365 그룹 간의 게스트 액세스 검토](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    현재 아래의 모든 블레이드는 각 검토 인스턴스 기간 동안에만 볼 수 있습니다. 
 
-    그룹을 클릭 하면 해당 그룹에 대 한 검토 진행률이 표시 됩니다.
+    결과 페이지에서는 결과를 중지, 다시 설정 및 다운로드 하는 기능을 포함 하 여 인스턴스에서 검토 중인 각 사용자에 대 한 자세한 정보를 제공 합니다.
+
+    ![Microsoft 365 그룹 간의 게스트 액세스 검토](./media/complete-access-review/all-company-group-results.png)
+
+
+    Microsoft 365 그룹 (미리 보기)에서 게스트 액세스를 검토 하는 액세스 검토를 보는 경우 개요 블레이드에는 검토의 각 그룹이 나열 됩니다. 
+   
+    ![Microsoft 365 그룹 간의 게스트 액세스 검토](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    그룹을 클릭 하 여 해당 그룹에 대 한 검토 진행률 및 중지, 다시 설정, 적용 및 삭제를 확인 합니다.
 
    ![Microsoft 365 그룹에서 게스트 액세스를 자세히 검토](./media/complete-access-review/progress-group-review.png)
 
 1. 예약 된 종료 날짜에 도달 하기 전에 액세스 검토를 중지 하려면 **중지** 단추를 클릭 합니다.
 
-    검토를 중지할 때 검토자는 더 이상 응답을 제공할 수 없습니다. 중단한 검토는 다시 시작할 수 없습니다.
+    검토를 중지 하면 검토자가 더 이상 응답을 제공할 수 없게 됩니다. 중단한 검토는 다시 시작할 수 없습니다.
 
 1. 액세스 검토에 더 이상 관심이 없는 경우 **삭제** 단추를 클릭 하 여 삭제할 수 있습니다.
 
 ## <a name="apply-the-changes"></a>변경 내용 적용
 
-**리소스에 결과 자동 적용** 이 사용 하도록 설정 되 고 **완료 설정 시** 의 선택에 따라 자동 적용이 검토의 종료 날짜 또는 수동으로 검토를 중지 한 후에 실행 됩니다.
+**완료 설정 시** 의 선택 항목에 따라 **리소스에 결과 자동 적용** 이 사용 하도록 설정 된 경우 검토의 종료 날짜 또는 수동으로 검토를 중지 한 후 자동 적용이 실행 됩니다.
 
-검토를 위해 **리소스에 결과 자동 적용** 이 사용 하도록 설정 되지 않은 경우 **적용** 을 클릭 하 여 변경 내용을 수동으로 적용 합니다. 검토에서 사용자의 액세스가 거부 된 경우 **적용** 을 클릭 하면 Azure AD에서 구성원 자격 또는 응용 프로그램 할당을 제거 합니다.
+검토를 위해 **리소스에 결과 자동 적용** 이 사용 하도록 설정 되지 않은 경우 검토 기간이 끝난 후 **시리즈** 아래의 **기록 검토** 로 이동 하거나 조기에 검토가 중지 된 후 적용 하려는 검토 인스턴스를 클릭 합니다.
 
 ![액세스 검토 변경 내용 적용](./media/complete-access-review/apply-changes.png)
 
+**적용** 을 클릭 하 여 변경 내용을 수동으로 적용 합니다. 검토에서 사용자의 액세스가 거부 된 경우 **적용** 을 클릭 하면 Azure AD에서 구성원 자격 또는 응용 프로그램 할당을 제거 합니다.
+
+![액세스 검토 변경 내용 적용 단추](./media/complete-access-review/apply-changes-button.png)
+
+
 검토 상태는 **완료 됨** 에서 **적용** 하는 등의 중간 상태와 마지막으로 적용 된 상태 **결과** 에 따라 변경 됩니다. 거부된 사용자(있는 경우)가 몇 분 내에 그룹 구성원 자격 또는 애플리케이션 할당에서 제거되는 것을 볼 수 있어야 합니다.
 
-구성된 자동 적용 검토를 선택하거나 **적용** 을 선택하더라도 온-프레미스 디렉터리 또는 동적 그룹에서 시작된 그룹에는 영향을 주지 않습니다. 온-프레미스에서 시작된 그룹을 변경하려면 결과를 다운로드하고 이러한 변경 내용을 해당 디렉터리의 그룹 표시에 적용합니다.
+수동으로 또는 자동으로 결과를 적용 해도 온-프레미스 디렉터리 또는 동적 그룹에서 시작 된 그룹에는 영향을 주지 않습니다. 온-프레미스에서 시작된 그룹을 변경하려면 결과를 다운로드하고 이러한 변경 내용을 해당 디렉터리의 그룹 표시에 적용합니다.
 
 ## <a name="retrieve-the-results"></a>결과 검색
 

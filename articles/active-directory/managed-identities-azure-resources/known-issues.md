@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825809"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008539"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -48,6 +48,10 @@ az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  princi
 응용 프로그램 개체와 서비스 주체 개체 라는 두 가지 구성 요소가 앱 등록. Azure 리소스에 대 한 관리 되는 Id에는 서비스 주체 개체와 같은 구성 요소 중 하나만 있습니다. 
 
 관리 id에는 디렉터리에 응용 프로그램 개체가 없으므로 MS graph에 대해 앱 사용 권한을 부여 하는 데 일반적으로 사용 됩니다. 대신 관리 되는 id에 대 한 MS graph 권한은 서비스 사용자에 게 직접 부여 해야 합니다.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>동일한 관리 id를 여러 지역에서 사용할 수 있나요?
+
+즉, 예를 들어 둘 이상의 Azure 지역에서 사용자 할당 관리 id를 사용할 수 있습니다. 더 긴 대답은 사용자 할당 관리 id가 지역 리소스로 생성 되는 반면, Azure AD에서 만든 연결 된 SPN ( [서비스 주체](../develop/app-objects-and-service-principals.md#service-principal-object) )은 전 세계에서 사용할 수 있다는 것입니다. 모든 Azure 지역에서 서비스 주체를 사용할 수 있으며 해당 가용성은 Azure AD의 가용성에 따라 달라 집니다. 예를 들어 South-Central 지역에서 사용자 할당 관리 id를 만들었으며 해당 지역을 사용할 수 없게 되는 경우이 문제는 관리 되는 id 자체의 [제어 평면](../../azure-resource-manager/management/control-plane-and-data-plane.md) 작업에만 영향을 줍니다.  관리 되는 id를 사용 하도록 이미 구성 된 리소스에서 수행 하는 작업은 영향을 받지 않습니다.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Azure 리소스에 대한 관리 ID가 Azure Cloud Services에서 작동하나요?
 

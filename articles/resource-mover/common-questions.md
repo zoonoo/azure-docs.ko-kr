@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820877"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007059"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
@@ -42,6 +42,10 @@ ms.locfileid: "99820877"
 
 영역 간에 이동 된에 대 한 리소스로 디스크를 선택할 수 없습니다. 그러나 디스크는 VM 이동의 일부로 이동 됩니다.
 
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>리소스 그룹을 이동 하는 것은 무엇을 의미 하나요?
+
+이동 하도록 리소스를 선택 하면 이동을 위해 해당 리소스 그룹이 자동으로 추가 됩니다. 대상 리소스는 대상에 있는 것과 같은 리소스 그룹에 배치 해야 하므로이 작업이 필요 합니다. Exsiting 리소스 그룹을 이동 하도록 추가한 후 사용자 지정 하 고 제공 하도록 선택할 수 있습니다. 리소스 그룹을 이동 하면 원본 리소스 그룹의 모든 리소스가 이동 하는 것을 의미 **하지는 않습니다** .
+
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>지역 간에 이동할 때 구독 간에 리소스를 이동할 수 있나요?
 
 리소스를 대상 지역으로 이동한 후 구독을 변경할 수 있습니다. 리소스를 다른 구독으로 이동 하는 방법에 [대해 자세히 알아보세요](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
@@ -69,7 +73,7 @@ Azure [Cosmos](../cosmos-db/database-encryption-at-rest.md) 데이터베이스 �
 - 포털의 여러 지역에서 리소스를 이동 하는 경우이 프로세스는 자동으로 수행 됩니다.
 - PowerShell을 사용 하 여 리소스를 이동 하는 경우 cmdlet을 실행 하 여 시스템 할당 id를 컬렉션에 할당 한 다음 올바른 구독 권한이 있는 역할을 id 주체에 할당 합니다. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>리소스 이동 기가 필요한 관리 되는 id 권한은 무엇 인가요?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>리소스 이동 기가 필요한 관리 되는 id 권한은 무엇 인가요? 
 
 Azure Resource Mover 관리되는 ID에는 적어도 다음 권한이 필요합니다. 
 

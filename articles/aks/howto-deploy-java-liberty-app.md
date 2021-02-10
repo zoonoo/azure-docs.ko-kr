@@ -7,16 +7,23 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aks, kubernetes
-ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d0e6f2fea6894378da736ba83a90ee28402ec7f9
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526893"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007138"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>AKS (Azure Kubernetes Service) 클러스터에서 Open Liberty 또는 WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
-이 가이드에서는 open Liberty 또는 WebSphere Liberty 런타임에 Java, Java EE, [자카르타 ee](https://jakarta.ee/)또는 [마이크로 프로필](https://microprofile.io/) 응용 프로그램을 실행 한 다음 open Liberty 연산자를 사용 하 여 AKS 클러스터에 컨테이너 화 된 응용 프로그램을 배포 하는 방법을 보여 줍니다. Open Liberty 연산자는 Open Liberty Kubernetes 클러스터에서 실행 되는 응용 프로그램의 배포 및 관리를 간소화 합니다. 연산자를 사용 하 여 추적 및 덤프를 수집 하는 등의 고급 작업을 수행할 수도 있습니다. 이 문서에서는 Liberty 응용 프로그램을 준비 하 고, application Docker 이미지를 빌드하고, AKS 클러스터에서 컨테이너 화 된 응용 프로그램을 실행 하는 과정을 안내 합니다.  Open Liberty에 대 한 자세한 내용은 [Open Liberty project 페이지](https://openliberty.io/)를 참조 하세요. IBM WebSphere 대 한 자세한 내용은 Liberty [Websphere Liberty product 페이지](https://www.ibm.com/cloud/websphere-liberty)를 참조 하세요.
+이 문서에서는 다음을 수행하는 방법을 보여줍니다.  
+* Open Liberty 또는 WebSphere Liberty 런타임에 Java, Java EE, 자카르타 EE 또는 마이크로 프로필 응용 프로그램을 실행 합니다.
+* Open Liberty container 이미지를 사용 하 여 application Docker 이미지를 빌드합니다.
+* Open Liberty 연산자를 사용 하 여 AKS 클러스터에 컨테이너 화 된 응용 프로그램을 배포 합니다.   
+
+Open Liberty 연산자는 Kubernetes 클러스터에서 실행 되는 응용 프로그램의 배포 및 관리를 간소화 합니다. Open Liberty 연산자를 사용 하 여 추적 및 덤프 수집과 같은 고급 작업을 수행할 수도 있습니다. 
+
+Open Liberty에 대 한 자세한 내용은 [Open Liberty project 페이지](https://openliberty.io/)를 참조 하세요. IBM WebSphere 대 한 자세한 내용은 Liberty [Websphere Liberty product 페이지](https://www.ibm.com/cloud/websphere-liberty)를 참조 하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,17 +31,20 @@ ms.locfileid: "99526893"
 
 * 이 문서에는 최신 버전의 Azure CLI가 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 * 이 가이드의 명령을 로컬로 실행 하는 경우 (Azure Cloud Shell 대신):
-  * Unix와 비슷한 운영 체제가 설치 된 로컬 컴퓨터를 준비 합니다 (예: Ubuntu, macOS).
+  * Unix와 비슷한 운영 체제가 설치 된 로컬 컴퓨터를 준비 합니다 (예: Ubuntu, macOS, Linux 용 Windows 하위 시스템).
   * Java SE 구현 (예: [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9))을 설치 합니다.
   * [Maven](https://maven.apache.org/download.cgi) 3.5.0 이상을 설치 합니다.
   * OS에 대 한 [Docker](https://docs.docker.com/get-docker/) 를 설치 합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. *E미국* 위치에서 [az group create](/cli/azure/group#az_group_create) 명령을 사용 하 여 리소스 그룹 *liberty* 을 만듭니다. AKS (ACR) 인스턴스 및 나중에 클러스터를 Azure Container Registry 만드는 데 사용 됩니다. 
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.  
+
+*E미국* 위치에서 [az group create](/cli/azure/group#az_group_create) 명령을 사용 하 여 *liberty* 라는 리소스 그룹을 만듭니다. 이 리소스 그룹은 나중에 ACR (Azure Container Registry) 인스턴스 및 AKS 클러스터를 만드는 데 사용 됩니다. 
 
 ```azurecli-interactive
-az group create --name java-liberty-project --location eastus
+RESOURCE_GROUP_NAME=java-liberty-project
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
 ## <a name="create-an-acr-instance"></a>ACR 인스턴스 만들기
@@ -42,7 +52,8 @@ az group create --name java-liberty-project --location eastus
 [Az acr create](/cli/azure/acr#az_acr_create) 명령을 사용 하 여 acr 인스턴스를 만듭니다. 다음 예에서는 *youruniqueacrname* 라는 ACR 인스턴스를 만듭니다. *Youruniqueacrname* 가 Azure 내에서 고유한 지 확인 합니다.
 
 ```azurecli-interactive
-az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
+REGISTRY_NAME=youruniqueacrname
+az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
 
 잠시 후 다음을 포함 하는 JSON 출력이 표시 됩니다.
@@ -55,10 +66,9 @@ az acr create --resource-group java-liberty-project --name youruniqueacrname --s
 
 ### <a name="connect-to-the-acr-instance"></a>ACR 인스턴스에 연결
 
-ACR 인스턴스에 이미지를 푸시 하려면 먼저 로그인 해야 합니다. 다음 명령을 실행 하 여 연결을 확인 합니다.
+이미지를 푸시 하려면 먼저 ACR 인스턴스에 로그인 해야 합니다. 다음 명령을 실행 하 여 연결을 확인 합니다.
 
 ```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
 LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
 USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
 PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
@@ -73,7 +83,8 @@ docker login $LOGIN_SERVER -u $USER_NAME -p $PASSWORD
 [az aks create](/cli/azure/aks#az_aks_create) 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster* 라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 ```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
+CLUSTER_NAME=myAKSCluster
+az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
 
 몇 분 후 명령이 완료 되 고 다음을 포함 하 여 클러스터에 대 한 JSON 형식 정보를 반환 합니다.
@@ -96,7 +107,7 @@ az aks install-cli
 Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) 명령을 사용합니다. 이 명령은 자격 증명을 다운로드하고 Kubernetes CLI가 해당 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
 ```
 
 > [!NOTE]
@@ -144,6 +155,7 @@ AKS 클러스터에서 Liberty 응용 프로그램을 배포 하 고 실행 하�
 1. 이 가이드에 대 한 샘플 코드를 복제 합니다. 이 샘플은 [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks)에 있습니다.
 1. `javaee-app-simple-cluster`로컬 클론의 디렉터리로 변경 합니다.
 1. `mvn clean package`응용 프로그램을 패키지 하려면를 실행 합니다.
+1. `mvn liberty:dev`을 실행 하 여 응용 프로그램을 테스트 합니다. `The defaultServer server is ready to run a smarter planet.`성공 하면 명령 출력에이 표시 됩니다. `CTRL-C`를 사용하여 애플리케이션을 중지합니다.
 1. 다음 명령 중 하나를 실행 하 여 응용 프로그램 이미지를 빌드하고 ACR 인스턴스에 푸시합니다.
    * Open Liberty을 경량 오픈 소스 Java™ 런타임으로 사용 하려면 Open Liberty base 이미지를 사용 하 여 빌드 하세요.
 
@@ -206,12 +218,12 @@ AKS 클러스터에 Liberty 응용 프로그램을 배포 하려면 아래 단�
 kubectl get service javaee-app-simple-cluster --watch
 
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:31732/TCP   68s
+javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-*외부 ip* 주소가 *보류 중* 에서 실제 공용 ip 주소로 변경 될 때까지 기다렸다가를 사용 `CTRL-C` 하 여 `kubectl` 조사 프로세스를 중지 합니다.
+*외부 ip* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경 되 면를 사용 `CTRL-C` 하 여 `kubectl` 조사 프로세스를 중지 합니다.
 
-응용 프로그램 홈 페이지를 보려면 웹 브라우저에서 서비스의 외부 IP 주소와 포트 ( `52.152.189.57:9080` 위 예제)를 엽니다. 페이지의 왼쪽 위에 표시 되는 응용 프로그램 복제본의 pod 이름이 표시 됩니다. 몇 분 동안 기다린 후 페이지를 새로 고치면 AKS 클러스터에서 제공 하는 부하 분산으로 인해 다른 pod 이름이 표시 될 것입니다.
+서비스의 외부 IP 주소 ( `52.152.189.57` 위 예의 경우)에 대 한 웹 브라우저를 열어 응용 프로그램 홈 페이지를 표시 합니다. 페이지의 왼쪽 위에 표시 되는 응용 프로그램 복제본의 pod 이름이 표시 됩니다. 몇 분 정도 기다렸다가 페이지를 새로 고쳐 AKS 클러스터에서 제공 하는 부하 분산으로 인해 표시 되는 다른 pod 이름이 표시 되는지 확인 합니다.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="AKS에 Java liberty 응용 프로그램이 배포 되었습니다.":::
 
@@ -220,10 +232,10 @@ javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:3
 
 ## <a name="clean-up-the-resources"></a>리소스 정리
 
-Azure 요금을 방지하려면 불필요한 리소스를 정리해야 합니다.  클러스터가 더 이상 필요 하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용 하 여 리소스 그룹, 컨테이너 서비스, 컨테이너 레지스트리 및 모든 관련 된 리소스를 제거 합니다.
+Azure 요금을 방지 하려면 불필요 한 리소스를 정리 해야 합니다.  클러스터가 더 이상 필요 하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용 하 여 리소스 그룹, 컨테이너 서비스, 컨테이너 레지스트리 및 모든 관련 된 리소스를 제거 합니다.
 
 ```azurecli-interactive
-az group delete --name java-liberty-project --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>다음 단계

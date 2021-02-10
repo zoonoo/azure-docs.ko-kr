@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: f2ea7af0ec9c740c07cd3a5e4ebd88a9ad1a031d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c2faf8e8b6a814989fa9e1693fddeedb525df13a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542646"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006856"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Azure Database for MySQL과 호환되는 MySQL 드라이버 및 관리 도구
 이 문서에서는 Azure Database for MySQL과 호환되는 드라이버 및 관리 도구를 설명합니다.
@@ -30,7 +30,7 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 | Python | MySQL 커넥터/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, MySQL 8.0에서 8.0.16 + 사용  | 1.2.2 이하 | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0부터, 0.8.1, 0.9.3 + | 0.9.0-0.9.2 (web2py의 회귀) | |
 | Java | MariaDB 커넥터/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 이하 | | 
-| Java | MySQL 커넥터/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, MySQL 8.0에 8.0.17 + 사용 | 5.1.20 및 아래 | |
+| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.21 +, MySQL 8.0에 8.0.17 + 사용 | 5.1.20 및 아래 | |
 | C | MySQL 커넥터/C (C #) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | MySQL 커넥터/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | MySQL 커넥터/c + + | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 및 아래 | | 
@@ -43,16 +43,16 @@ Azure Database for MySQL은 전 세계에서 가장 인기 있는 커뮤니티 �
 ## <a name="management-tools"></a>관리 도구
 호환성 장점은 데이터베이스 관리 도구까지 확장됩니다. 데이터베이스 조작이 사용자 권한의 범위 내에서 이루어지는 한, 기존 도구가 Azure Database for MySQL과 계속 호환됩니다. 다음 표에는 테스트를 통해 Azure Database for MySQL 5.6 및 5.7과 호환되는 것으로 확인된 세 가지 일반적인 데이터베이스 관리 도구가 정리되어 있습니다.
 
-|                                     | **MySQL Workbench 6.x 이상** | **Navicat 12** | **PHPMyAdmin 4.x 이상** |
-| :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| **만들기, 업데이트, 읽기, 쓰기, 삭제** | X | X | X |
-| **SSL 연결** | X | X | X |
-| **SQL 쿼리 자동 완성** | X | X |  |
-| **데이터 가져오기 및 내보내기** | X | X | X |
-| **여러 형식으로 내보내기** | X | X | X |
-| **백업 및 복원** |  | X |  |
-| **서버 매개 변수 표시** | X | X | X |
-| **클라이언트 연결 표시** | X | X | X |
+|                                     | **MySQL Workbench 6.x 이상** | **Navicat 12** | **PHPMyAdmin 4.x 이상** | **MySQL 9.0 용 dbForge Studio** |
+| :---------------------------------- | :----------------------------- | :------------- | :-------------------------| :------------------------------- |
+| **만들기, 업데이트, 읽기, 쓰기, 삭제** | X | X | X | X |
+| **SSL 연결** | X | X | X | X |
+| **SQL 쿼리 자동 완성** | X | X |  | X |
+| **데이터 가져오기 및 내보내기** | X | X | X | X |
+| **여러 형식으로 내보내기** | X | X | X | X |
+| **백업 및 복원** |  | X |  | X |
+| **서버 매개 변수 표시** | X | X | X | X |
+| **클라이언트 연결 표시** | X | X | X | X |
 
 ## <a name="next-steps"></a>다음 단계
 

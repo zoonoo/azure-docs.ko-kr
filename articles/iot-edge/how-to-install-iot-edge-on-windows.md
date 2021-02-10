@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: be807c7654123962f93820d9a3d54f3c7c070d97
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526961"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008573"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 장치에 Linux 용 Azure IoT Edge 설치 및 프로 비전 (미리 보기)
 
@@ -27,8 +27,10 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 
 >[!NOTE]
 >Windows의 Linux용 IoT Edge는 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
+>
+>Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

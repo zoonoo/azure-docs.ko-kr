@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878938"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008420"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -81,10 +81,12 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ### <a name="how-do-i-retrieve-log-data"></a>로그 데이터를 검색하려면 어떻게 해야 하나요?
 모든 데이터는 KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytics 작업 영역에서 검색됩니다. 사용자 고유의 쿼리를 작성하거나 특정 애플리케이션 또는 서비스에 대한 로그 쿼리가 포함된 솔루션과 인사이트를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](log-query/log-query-overview.md)를 참조하세요.
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 데이터를 삭제할 수 있나요?
 [보존 기간](platform/manage-cost-storage.md#change-the-data-retention-period)에 따라 작업 영역에서 데이터가 제거 됩니다. 개인 정보나 규정 준수 상의 이유로 특정 데이터를 삭제할 수 있습니다. 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법을](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) 참조 하세요.
 
+### <a name="is-log-analytics-storage-immutable"></a>Log Analytics 저장소를 변경할 수 있나요?
+수집 한 후에는 데이터베이스 저장소의 데이터를 변경할 수 없지만, [전용 데이터를 삭제 하기 위한 *제거* API 경로](platform/personal-data-mgmt.md#delete)를 통해 삭제할 수는 있습니다. 데이터를 변경할 수 없지만 일부 인증을 위해서는 데이터를 변경할 수 없는 상태로 유지 하 고 저장소에서 변경 하거나 삭제할 수 없습니다. 데이터 불변성은 [변경 불가능 한 저장소](../storage/blobs/storage-blob-immutability-policies-manage.md)로 구성 된 저장소 계정에 대 한 [데이터 내보내기를](platform/logs-data-export.md) 사용 하 여 달성할 수 있습니다.
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역은 무엇인가요?
 Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 영역에 저장됩니다. 작업 영역은 기본적으로 다양한 원본에서 로그 데이터가 수집되는 컨테이너입니다. 모든 모니터링 데이터에 대한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md)을 참조하세요.

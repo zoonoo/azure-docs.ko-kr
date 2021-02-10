@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832762"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007366"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -41,7 +41,7 @@ ms.locfileid: "99832762"
 - [분석 규칙 미리 보기 그래프를 사용 하 여 향상 된 규칙 튜닝](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)
 
 이제 Azure 센티널 예약 된 분석 규칙 마법사는 쿼리 작성 및 편집을 위해 다음과 같은 향상 된 기능을 제공 합니다.
 

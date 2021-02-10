@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8192d7104daf1474a2123331183edf05e6fa1ada
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968607"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007417"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>SAP 솔루션 공급자 용 Azure monitor (미리 보기)
 
@@ -41,7 +41,7 @@ SAP monitor 리소스를 배포할 때 고객이 공급자를 구성 하지 않�
 
 고객은 공급자 유형 *SAP HANA* 공급자를 하나 이상 구성 하 여 SAP HANA 데이터베이스에서 데이터 수집을 사용 하도록 설정할 수 있습니다. SAP HANA 공급자는 SQL 포트를 통해 SAP HANA 데이터베이스에 연결 하 여 데이터베이스에서 원격 분석 데이터를 가져오고 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. SAP HANA 공급자는 SAP HANA 데이터베이스에서 1 분 마다 데이터를 수집 합니다.  
 
-공개 미리 보기에서 고객은 SAP HANA 공급자를 사용 하 여 기본 인프라 사용률, SAP HANA 호스트 상태, SAP HANA 시스템 복제 및 SAP HANA 백업 원격 분석 데이터와 같은 데이터를 확인할 수 있습니다. SAP HANA 공급자를 구성 하려면 호스트 IP 주소, HANA SQL 포트 번호 및 SYSTEMDB 사용자 이름 및 암호가 필요 합니다. 고객은 SYSTEMDB에 대해 SAP HANA 공급자를 구성 하는 것이 좋지만 다른 데이터베이스 테 넌 트에 대해 추가 공급자를 구성할 수 있습니다.
+공개 미리 보기에서 고객은 SAP HANA 공급자를 사용 하 여 기본 인프라 사용률, SAP HANA 호스트 상태, SAP HANA 시스템 복제 및 SAP HANA 백업 원격 분석 데이터와 같은 데이터를 확인할 수 있습니다. SAP HANA 공급자를 구성 하려면 호스트 IP 주소, HANA SQL 포트 번호 및 SYSTEMDB 사용자 이름 및 암호가 필요 합니다. 고객은 SYSTEMDB에 대해 SAP HANA 공급자를 구성 하는 것이 좋지만 다른 데이터베이스 테 넌 트에 대해 더 많은 공급자를 구성할 수 있습니다.
 
 ![SAP 솔루션 공급자에 대 한 Azure Monitor-SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
@@ -68,10 +68,38 @@ SAP monitor 리소스를 배포할 때 고객이 공급자를 구성 하지 않�
    고가용성 클러스터 공급자를 구성 하려면 다음 정보가 필요 합니다.
    
    - **이름**. 이 공급자의 이름입니다. 이 Azure Monitor SAP solutions 인스턴스에 대해 고유 해야 합니다.
-   - **프로메테우스 끝점**. 일반적으로 http \: // \<servername or ip address\> : 9664/메트릭입니다.
+   - **프로메테우스 끝점**. http \: // \<servername or ip address\> : 9664/메트릭.
    - **SID**. SAP 시스템의 경우 SAP SID를 사용 합니다. 다른 시스템 (예: NFS 클러스터)의 경우 클러스터에 3 자 이름을 사용 합니다. SID는 모니터링 되는 다른 클러스터와 구별 되어야 합니다.   
    - **클러스터 이름** 입니다. 클러스터를 만들 때 사용 되는 클러스터 이름입니다. 클러스터 이름은 클러스터 속성에서 찾을 수 있습니다 `cluster-name` .
    - **호스트 이름**. VM의 Linux 호스트 이름입니다.  
+
+
+## <a name="provider-type-os-linux"></a>공급자 유형 OS (Linux)
+고객은 하나 이상의 공급자 유형 OS (Linux) 공급자를 구성 하 여 BareMetal 또는 VM 노드에서 데이터 수집을 사용 하도록 설정할 수 있습니다. OS (Linux) 공급자는 [Node_Exporter](https://github.com/prometheus/node_exporter)끝점을 사용 하 여 BAREMETAL 또는 VM 노드에 연결 하   고, 노드에서 원격 분석 데이터를 가져와서 고객 구독의 Log Analytics 작업 영역으로 푸시합니다. OS (Linux) 공급자는 노드의 대부분의 메트릭에 대해 60 초 마다 데이터를 수집 합니다. 
+
+공개 미리 보기에서 고객은 OS (Linux) 공급자를 사용 하 여 다음 데이터를 확인할 수 있습니다. 
+   - CPU 사용량, 프로세스별 CPU 사용량 
+   - 디스크 사용률, i/o 읽기 & 쓰기 
+   - 메모리 배포, 메모리 사용량, 스왑 메모리 사용 
+   - 네트워크 사용량, 네트워크 인바운드 & 아웃 바운드 트래픽 세부 정보입니다. 
+
+OS (Linux) 공급자를 구성 하기 위해 다음 두 가지 주요 단계가 관련 됩니다.
+1.  [](https://github.com/prometheus/node_exporter)   각 BareMetal 또는 VM 노드에 Node_Exporter를 설치 합니다.
+   [Node_exporter](https://github.com/prometheus/node_exporter)를 설치 하는 두 가지 옵션이 있습니다. 
+      - Ansible와 함께 자동화를 설치 하려면 각 BareMetal 또는 VM 노드에서 [Node_Exporter](https://github.com/prometheus/node_exporter) 를 사용 하 여 OS (Linux) 공급자를 설치 합니다.  
+      -  [수동 설치](https://prometheus.io/docs/guides/node-exporter/)를 수행 합니다.
+
+2. 사용자 환경에서 각 BareMetal 또는 VM 노드 인스턴스에 대해 OS (Linux) 공급자를 구성 합니다. 
+   OS (Linux) 공급자를 구성 하려면 다음 정보가 필요 합니다. 
+      - 이름. 이 공급자의 이름입니다. 이 Azure Monitor SAP solutions 인스턴스에 대해 고유 해야 합니다. 
+      - 노드 내보내기 끝점입니다. 일반적으로 http:// <servername or ip address> : 9100/메트릭 
+
+> [!NOTE]
+> 9100는 Node_Exporter 끝점에 대해 노출 되는 포트입니다.
+
+> [!Warning]
+> 노드를 다시 부팅 한 후 노드 내보내기가 계속 실행 되는지 확인 합니다. 
+
 
 ## <a name="provider-type-microsoft-sql-server"></a>공급자 유형 Microsoft SQL server
 

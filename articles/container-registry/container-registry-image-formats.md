@@ -3,12 +3,12 @@ title: 지원 되는 콘텐츠 형식
 description: Docker 호환 컨테이너 이미지, 투구 차트, OCI 이미지 및 OCI 아티팩트를 비롯 하 여 Azure Container Registry에서 지 원하는 콘텐츠 형식에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/30/2019
-ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a54c65d149a27ed9eae85c3308d657ed3471a3
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84695269"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008335"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
@@ -20,11 +20,11 @@ Azure Container Registry에서 프라이빗 리포지토리를 사용하여 다�
 
 * [Docker 이미지 매니페스트 V2, 스키마 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker 이미지 매니페스트 V2, 스키마 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - 레지스트리가 단일 "image:tag" 참조에서 다중 플랫폼 이미지를 저장할 수 있는 매니페스트 목록이 포함됩니다.
+* [Docker 이미지 매니페스트 V2, 스키마 2](https://docs.docker.com/registry/spec/manifest-v2-2/) -레지스트리가 단일 참조에서 [다중 아키텍처 이미지](push-multi-architecture-images.md) 를 저장할 수 있도록 하는 매니페스트 목록을 포함 합니다. `image:tag`
 
 ## <a name="oci-images"></a>OCI 이미지
 
-Azure Container Registry은 [OCI (Open Container 이니셔티브) 이미지 형식 사양을](https://github.com/opencontainers/image-spec/blob/master/spec.md)만족 하는 이미지를 지원 합니다. 패키지 형식에는 [SIF (특이성 Image Format)](https://github.com/sylabs/sif)가 포함 됩니다.
+Azure Container Registry은 선택적 [이미지 인덱스](https://github.com/opencontainers/image-spec/blob/master/image-index.md) 사양을 비롯 하 여 [OCI (Open Container 이니셔티브) 이미지 형식 사양을](https://github.com/opencontainers/image-spec/blob/master/spec.md)충족 하는 이미지를 지원 합니다. 패키지 형식에는 [SIF (특이성 Image Format)](https://github.com/sylabs/sif)가 포함 됩니다.
 
 ## <a name="oci-artifacts"></a>OCI 아티팩트
 

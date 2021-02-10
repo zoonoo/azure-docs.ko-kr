@@ -3,12 +3,12 @@ title: 리포지토리 & 이미지 정보
 description: Azure 컨테이너 레지스트리, 리포지토리 및 컨테이너 이미지의 주요 개념을 소개 합니다.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335897"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008522"
 ---
 # <a name="about-registries-repositories-and-images"></a>레지스트리, 리포지토리 및 이미지 정보
 
@@ -45,7 +45,7 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 - *acr-helloworld: v1*
 - *acr-helloworld: v2*
 
-리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예를 들면 다음과 같습니다.
+리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예를 들어:
 
 - *marketing/campaign10-18/웹: v2*
 - *marketing/campaign10-18/api: v3*
@@ -81,7 +81,30 @@ Azure container registry의 아티팩트 주소에는 다음과 같은 요소가
 
 ### <a name="manifest"></a>file:///
 
-컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지 또는 아티팩트는 *매니페스트와* 연결 됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
+컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지 또는 아티팩트는 *매니페스트와* 연결 됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. 
+
+Linux 이미지에 대 한 기본 매니페스트는 `hello-world` 다음과 유사 합니다.
+
+  ```json
+  {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 1510,
+        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+      },
+    "layers": [
+        {
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 977,
+          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+        }
+      ]
+  }
+  ```
+
+Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
