@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: 자습서
   items:
-    - name: 동적 구성 사용
+    - name: 폴링 모델을 사용하여 동적 구성 사용
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,6 +52,10 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+    - name: 푸시 모델을 사용하여 동적 구성 사용
+      items:
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
     - name: 기능 플래그 사용
       items:
         - name: ASP.NET Core

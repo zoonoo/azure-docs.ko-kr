@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: d6cba4bcb76094ed156ef35b1ea76cea7001c372
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: dcdd19faec5e428ac26917178aa8114245c205b3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95486299"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594572"
 ---
 # <a name="what-is-iot-plug-and-play"></a>IoT 플러그 앤 플레이란?
 
@@ -45,11 +45,13 @@ IoT 플러그 앤 플레이는 다음과 같은 두 가지 유형의 개발자�
 
 ## <a name="use-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 디바이스 사용
 
-솔루션 빌더는 IoT 플러그 앤 플레이 디바이스를 사용하는 클라우드 호스팅 IoT 솔루션을 개발할 수 있습니다. [IoT Hub](../iot-hub/about-iot-hub.md) - IoT 애플리케이션과 디바이스 간의 안전한 양방향 통신을 위한 메시지 허브 역할을 하는 관리형 클라우드 서비스입니다.
+솔루션 개발자는 [IoT Central](../iot-central/core/overview-iot-central.md) 또는 [IoT Hub](../iot-hub/about-iot-hub.md)를 통해 IoT 플러그 앤 플레이 디바이스를 사용하는 클라우드 호스팅 IoT 솔루션을 개발할 수 있습니다.
 
-IoT 플러그 앤 플레이 디바이스를 IoT 허브에 연결하면 [Azure IoT 탐색기](./howto-use-iot-explorer.md) 도구를 사용하여 모델을 구성하는 인터페이스에 정의된 원격 분석, 속성 및 명령을 볼 수 있습니다.
+IoT Central의 웹 UI를 통해 디바이스 상태를 모니터링하고, 규칙을 만들고, 전체 수명 주기 동안 수백만 대의 디바이스와 해당 데이터를 관리할 수 있습니다. IoT 플러그 앤 플레이 디바이스는 사용자 지정 가능한 대시보드를 사용하여 디바이스를 모니터링하고 제어할 수 있는 IoT Central 애플리케이션에 직접 연결합니다. IoT Central 웹 UI의 디바이스 템플릿을 사용하여 DTDL 모델을 만들고 편집할 수도 있습니다.
 
-Windows 또는 Linux 게이트웨이에 기존 센서가 연결되어 있는 경우 [IoT 플러그 앤 플레이 브리지](./concepts-iot-pnp-bridge.md)를 사용하여 이러한 센서를 연결하고 디바이스 소프트웨어/펌웨어([지원되는 프로토콜](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)에 대해)를 작성할 필요 없이 IoT 플러그 앤 플레이 디바이스를 만들 수 있습니다.
+IoT Hub - IoT 애플리케이션과 디바이스 간의 안전한 양방향 통신을 위한 메시지 허브 역할을 하는 관리형 클라우드 서비스입니다. IoT 플러그 앤 플레이 디바이스를 IoT 허브에 연결하면 [Azure IoT 탐색기](./howto-use-iot-explorer.md) 도구를 사용하여 DTDL 모델에 정의된 원격 분석, 속성 및 명령을 볼 수 있습니다.
+
+Windows 또는 Linux 게이트웨이에 기존 센서가 연결되어 있는 경우 [IoT 플러그 앤 플레이 브리지](./concepts-iot-pnp-bridge.md)를 사용하여 이러한 센서를 연결하고, ([지원되는 프로토콜](./concepts-iot-pnp-bridge.md#supported-protocols-and-sensors)에 대한) 디바이스 소프트웨어/펌웨어를 작성할 필요 없이 IoT 플러그 앤 플레이 디바이스를 만들 수 있습니다.
 
 ## <a name="develop-an-iot-device-application"></a>IoT 디바이스 애플리케이션 개발
 

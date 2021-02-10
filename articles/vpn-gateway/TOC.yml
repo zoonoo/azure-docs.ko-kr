@@ -161,7 +161,7 @@
               href: openvpn-azure-ad-mfa.md
             - name: VPN 클라이언트 구성
               href: openvpn-azure-ad-client.md
-            - name: 클라이언트 VPN 프로필 다운로드 파일 정보
+            - name: VPN 클라이언트 프로필 파일 작업
               href: about-vpn-profile-download.md
             - name: Intune - VPN 클라이언트 프로필 배포
               href: vpn-profile-intune.md

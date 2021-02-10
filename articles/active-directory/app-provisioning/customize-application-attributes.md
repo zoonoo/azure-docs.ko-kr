@@ -8,18 +8,22 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/25/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
-ms.translationtype: MT
+ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256410"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830705"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
 Microsoft Azure AD는 Salesforce, G Suite 등과 같은 타사 SaaS 애플리케이션에 대한 사용자 프로비저닝을 지원합니다. 타사 SaaS 애플리케이션에 대해 사용자 프로비저닝을 사용하도록 설정하면 Azure Portal은 특성 매핑을 통해 해당 특성 값을 제어합니다.
+
+시작하기 전에 앱 관리 및 **SSO(Single Sign-On)** 개념을 숙지하고 다음 링크를 확인하세요.
+- [Azure AD의 앱 관리에 대한 빠른 시작 시리즈](../manage-apps/view-applications-portal.md)
+- [SSO(Single Sign-On)란?](../manage-apps/what-is-single-sign-on.md)
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 및 특성 매핑 세트가 있습니다. 일부 앱은 사용자 외에도 다른 유형의 개체(예: 그룹)를 관리합니다.
 
@@ -75,7 +79,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
   - **만들기 작업 시에만** - 사용자 만들기 작업 시에만 이 매핑을 적용합니다.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>원본 및 대상 시스템의 일치하는 사용자
-Azure AD 프로 비전 서비스는 "녹색 필드" 시나리오 (사용자가 대상 시스템에서 종료 하지 않는 경우) 및 "brownfield" 시나리오 (사용자가 대상 시스템에 이미 있는 경우)에 배포할 수 있습니다. 두 시나리오를 모두 지원하기 위해 프로비저닝 서비스는 일치 특성이라는 개념을 사용합니다. 일치 특성을 사용하면 원본에서 사용자를 고유하게 식별하고 대상의 사용자와 일치시키는 방식을 결정할 수 있습니다. 배포 계획의 일부로 원본 및 대상 시스템에서 사용자를 고유하게 식별하는 데 사용할 수 있는 특성을 식별합니다. 참고 사항:
+Azure AD 프로비저닝 서비스는 "그린 필드" 시나리오(대상 시스템에 사용자가 존재하지 않는 경우)와 "브라운 필드" 시나리오(대상 시스템에 사용자가 이미 존재하는 경우) 모두에 배포할 수 있습니다. 두 시나리오를 모두 지원하기 위해 프로비저닝 서비스는 일치 특성이라는 개념을 사용합니다. 일치 특성을 사용하면 원본에서 사용자를 고유하게 식별하고 대상의 사용자와 일치시키는 방식을 결정할 수 있습니다. 배포 계획의 일부로 원본 및 대상 시스템에서 사용자를 고유하게 식별하는 데 사용할 수 있는 특성을 식별합니다. 참고 사항:
 
 - **일치 특성은 고유해야 합니다.** 고객은 userPrincipalName, mail 또는 object ID와 같은 특성을 일치 특성으로 사용하는 경우가 많습니다.
 - **여러 특성을 일치 특성으로 사용할 수 있습니다.** 사용자를 일치시킬 때 평가할 여러 특성을 정의하고, 사용자가 평가되는 순서(UI에서 일치 우선 순위로 정의됨)를 정의할 수 있습니다. 예를 들어 특성 3개를 일치 특성으로 정의하고 처음 특성 2개를 평가한 후 사용자가 고유하게 일치하면, 서비스는 3번째 특성을 평가하지 않습니다. 서비스는 일치 특성을 지정한 순서대로 평가하고 일치 항목을 찾으면 평가를 중지합니다.  

@@ -5,9 +5,12 @@
     - name: Azure IoT Central을 사용하여 의료 산업 솔루션 빌드
       href: overview-iot-central-healthcare.md
 - name: 자습서
+  expanded: true
   items:
     - name: 환자 연속 모니터링 앱 만들기
       href: tutorial-continuous-patient-monitoring.md
+    - name: 건강 데이터 심사 대시보드 만들기
+      href: howto-health-data-triage.md
 - name: 개념
   items:
     - name: 환자 연속 모니터링 아키텍처
@@ -18,8 +21,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: 방법 가이드
   items:
-    - name: 건강 데이터 심사 대시보드 만들기
-      href: howto-health-data-triage.md
     - name: 디바이스 연결 및 개발
       items:
         - name: Rigado Cascade 500 준비 및 연결

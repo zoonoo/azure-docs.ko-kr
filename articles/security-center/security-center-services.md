@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.author: memildin
-ms.openlocfilehash: 04dfd731f1dcf0e9e7c045e0f7ef335c8db5b359
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e827178d8ccb0f7de8d32433d03502a7412d1139
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805618"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834053"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -54,7 +54,7 @@ ms.locfileid: "98805618"
 
 |**기능**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc 지원 머신**|**Azure Defender 필요**
 |----|:----:|:----:|:----:|:----:|
-|[엔드포인트용 Microsoft Defender 통합](security-center-wdatp.md)|-|-|-|예|
+|[엔드포인트용 Microsoft Defender 통합](security-center-wdatp.md)|-|-|-|-|
 |[가상 머신 동작 분석(및 보안 경고)](./azure-defender.md)|✔</br>(지원되는 버전에서만)|✔</br>(지원되는 버전에서만)|✔|예|
 |[파일리스 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|예|
 |[네트워크 기반 보안 경고](other-threat-protections.md#network-layer)|✔|✔|-|예|
@@ -96,10 +96,10 @@ ms.locfileid: "98805618"
 | Trend Micro – Deep Security | Windows Server 제품군  | 아니요 | 예 |
 | Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
 | McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 * *\** _ |
-| Sophos V9+| Linux 서버 제품군  | 아니요 | 예 _*\**_  |
+| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 **\*** |
+| Sophos V9+| Linux 서버 제품군  | 아니요 | 예  **\***  |
 
- _*\**_ 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
+ **\*** 현재는 보호된 구독과 연결된 Log Analytics 작업 영역에서만 적용 범위 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영되지 않습니다.
 
 > [!NOTE]
 > Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell(v3.0 이상)이 설치된 후 SCEP가 설치되어야 합니다.
@@ -136,7 +136,7 @@ ms.locfileid: "98805618"
 |[Kubernetes 워크로드 보호](kubernetes-workload-protections.md)|-|-|
 |||
 
-(1) *서버용 Azure Defender** 필요
+(1) **서버용 Azure Defender** 필요
 
 (2) 부분
 

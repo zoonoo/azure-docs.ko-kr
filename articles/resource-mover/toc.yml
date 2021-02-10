@@ -12,6 +12,8 @@
   items:
     - name: 다른 지역으로 Azure VM 이동
       href: tutorial-move-region-virtual-machines.md
+    - name: 암호화된 Azure VM을 다른 지역으로 이동
+      href: tutorial-move-region-encrypted-virtual-machines.md
     - name: 다른 지역으로 SQL 리소스 이동
       href: tutorial-move-region-sql.md
 - name: 개념

@@ -3,19 +3,19 @@ title: Azure Application Gateway 설명서
 summary: 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다. 이 설명서에서는 Azure 리소스에 대한 웹 트래픽을 계획, 배포 및 관리하는 방법을 설명합니다.
 metadata:
   title: Azure Application Gateway 설명서
-  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다.
+  description: 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치인 Azure Application Gateway에 대해 알아보세요.
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/24/2020
-  ms.openlocfilehash: df125820d56aa5c2edda29306c69cef00e012a12
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+  ms.date: 02/08/2021
+  ms.openlocfilehash: 7493683355ea3be24bf086dab1a968f9f03b1e05
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059537"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99833255"
 landingContent:
 - title: Application Gateway에 대해 알아보기
   linkLists:

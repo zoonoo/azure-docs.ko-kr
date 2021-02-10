@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 57d3607b2076b7a5990361278c8c1372fff1b711
-  ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+  ms.openlocfilehash: 2f792ffb95323444d8666c4c676025995f5db438
+  ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/01/2021
-  ms.locfileid: "99225593"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "99979473"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -71,6 +71,12 @@ productDirectory:
     - ai-machine-learning
     - analytics
     url: /azure/databricks/
+  - title: Health Bot
+    summary: 가상 의료 도우미 개발을 위해 특별히 제작된 관리되는 서비스입니다.
+    imageSrc: media/index/health-bot-logo.svg
+    azureCategories:
+    - ai-machine-learning
+    url: /azure/health-bot/
   - title: Azure Machine Learning
     summary: 실험 및 모델 관리를 갖춘 엔드투엔드 확장 가능하고 신뢰할 수 있는 플랫폼 사용자에게 AI 적용
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg
@@ -1129,13 +1135,13 @@ productDirectory:
     azureCategories:
     - security
     url: security-center/azure-defender.md
-  - title: Azure Defender for IoT(미리 보기)
+  - title: IoT용 Azure Defender
     summary: 비관리형 및 관리형 IoT/OT 디바이스 모두에 대한 지속적인 자산 관리 및 위협 탐지
     imageSrc: ./media/index/defender-iot.svg
     azureCategories:
     - security
     - iot
-    url: ./security-center/azure-defender.md
+    url: ./defender-for-iot/index.yml
   - title: Azure DDoS Protection
     summary: DDoS(배포된 서비스 거부) 공격으로부터 애플리케이션 보호
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg

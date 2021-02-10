@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 68a4703cc2dc1b2898057e138fda7de9eff146e7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368664"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807465"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
+# <a name="use-powershell-to-create-a-private-endpoint"></a>PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
 Private Endpoint를 통해 Azure 웹앱에 안전하게 연결하여 Azure Private Link를 시작합니다.
 
@@ -264,7 +264,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 10. **myVM** 에 대한 베스천 연결에서 Internet Explorer를 엽니다.
 
-11. 웹앱의 URL( **https://\<your-webapp-name>.azurewebsites.net** )을 입력합니다.
+11. 웹앱의 URL(**https://\<your-webapp-name>.azurewebsites.net**)을 입력합니다.
 
 12. 애플리케이션이 배포되지 않은 경우 기본 웹앱 페이지가 표시됩니다.
 

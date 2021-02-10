@@ -244,7 +244,7 @@
               href: synthetic-partition-keys.md
         - name: SQL 쿼리(SQL query)
           items:
-            - name: 시작하기
+            - name: 시작
               displayName: 'sql query, query basics'
               href: sql-query-getting-started.md
             - name: 절
@@ -766,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: 승인되지 않은 문제 해결
                   href: troubleshoot-unauthorized.md
+                - name: 문제 해결 금지됨
+                  href: troubleshoot-forbidden.md
                 - name: 다중 지역 환경의 가용성 문제
                   href: troubleshoot-sdk-availability.md
             - name: .NET

@@ -3,16 +3,16 @@ title: Azure Security Center에 GCP 계정 연결
 description: Azure Security Center에서 GCP 리소스 모니터링
 author: memildin
 ms.author: memildin
-ms.date: 01/24/2021
+ms.date: 02/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8ee7b37861be299dd36a596ae1cd4899b0ebffab
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757613"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809408"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -44,7 +44,10 @@ GCP 계정을 Security Center에 온보딩하면 GCP Security Command Center와 
 
 ## <a name="connect-your-gcp-account"></a>GCP 계정 연결
 
-아래 단계에 따라 GCP 클라우드 커넥터를 만듭니다. 
+아래 단계에 따라 조직 또는 프로젝트 수준에서 Google Cloud 리소스를 연결하는 GCP 클라우드 커넥터를 만듭니다. 
+
+> [!TIP]
+> [여기](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)에 제공되는 온라인 문서에서 Google Cloud 리소스 계층 구조에 대해 알아보세요.
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>1단계: 보안 상태 분석을 사용하여 GCP Security Command Center 설정
 
@@ -120,6 +123,15 @@ GCP 계정을 Security Center에 온보딩하면 GCP Security Command Center와 
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="GCP 옵션을 보여 주는 자산 인벤토리 페이지의 리소스 종류 필터"::: 
 
+
+## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결에 대한 FAQ
+
+### <a name="can-i-connect-multiple-gcp-accounts-to-security-center"></a>Security Center에 여러 GCP 계정을 연결할 수 있나요?
+예. 위에서 언급했듯이, 조직 또는 프로젝트 수준에서 Google Cloud 리소스를 연결할 수 있습니다. [여기](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)에 제공되는 온라인 문서에서 Google Cloud 리소스 계층 구조에 대해 알아보세요.
+
+
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>내 GCP 리소스를 Security Center에 연결할 수 있는 API가 있나요?
+예. REST API를 사용하여 Security Center 클라우드 커넥터를 만들거나 편집하거나 삭제하려면 [커넥터 API](/rest/api/securitycenter/connectors) 세부 정보를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

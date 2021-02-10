@@ -30,6 +30,8 @@
       href: Concepts/azure-resources.md
     - name: 데이터 원본 및 콘텐츠
       href: Concepts/data-sources-and-content.md
+    - name: Azure RBAC(Azure 역할 기반 액세스 제어)
+      href: Concepts/role-based-access-control.md
     - name: 프로세스 순위 지정
       displayName: 'DefaultAnswer, Default answer'
       href: Concepts/query-knowledge-base.md
@@ -46,7 +48,7 @@
     - name: Azure 리소스 관리
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
-    - name: QnA Maker 앱 관리
+    - name: QnA Maker 리소스 액세스 관리
       href: How-To/manage-qna-maker-app.md
     - name: 활성 학습 설정
       href: How-To/use-active-learning.md
@@ -92,8 +94,6 @@
       href: Concepts/confidence-score.md
     - name: 문제 해결
       href: troubleshooting.md
-    - name: 질문 및 대답 쌍
-      href: Concepts/question-answer-set.md
     - name: 정확한 대답
       href: reference-precise-answering.md
     - name: 보안 SharePoint 파일 추가
@@ -105,14 +105,6 @@
       href: reference-app-service.md
     - name: 콘텐츠 형식 지침
       href: reference-document-format-guidelines.md
-    - name: 콘텐츠 및 데이터 형식
-      items:
-        - name: 콘텐츠 형식 지침
-          href: reference-document-format-guidelines.md
-        - name: URL
-          href: reference-document-type-url.md
-        - name: 데이터 가져오기 및 내보내기 지침
-          href: reference-data-guidelines.md
     - name: 표시 형식
       href: reference-markdown-format.md
     - name: Private Link
