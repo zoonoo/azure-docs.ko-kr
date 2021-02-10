@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: c3dc2f91fcd09807a7eaaaaa638e78ba3717faec
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.openlocfilehash: 85a5493e1d1c06a68aa9f4b64cd0f3d55c4f5f63
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98061772"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99580890"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -36,7 +36,7 @@ QnA Maker의 새로운 기능에 대해 알아봅니다.
 ### <a name="july-2020"></a>2020년 7월
 
 * [메타데이터: `OR` 여러 메타데이터 쌍의 논리적 조합](how-to/metadata-generateanswer-usage.md#logical-or-using-strictfilterscompoundoperationtype-property)
-* Cognitive Search 엔드포인트를 프라이빗으로 구성하는 [단계](how-to/set-up-qnamaker-service-azure.md#configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet)이지만 QnA Maker에는 액세스할 수 있습니다.
+* Cognitive Search 엔드포인트를 프라이빗으로 구성하는 [단계](how-to/set-up-qnamaker-service-azure.md#recommended-settings-for-network-isolation)이지만 QnA Maker에는 액세스할 수 있습니다.
 * [90일 동안 비활성 상태](how-to/set-up-qnamaker-service-azure.md#inactivity-policy-for-free-search-resources)일 경우 무료 Cognitive Search 리소스가 제거됩니다.
 
 ### <a name="june-2020"></a>2020년 6월

@@ -58,6 +58,8 @@
 - name: 개념
   expanded: false
   items:
+    - name: Teams 상호 운용성
+      href: concepts/teams-interop.md
     - name: 채팅
       items:
         - name: 채팅 클라이언트 라이브러리 개요
@@ -78,8 +80,6 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: 음성 및 비디오 개념
           href: concepts/voice-video-calling/about-call-types.md
-        - name: Teams 상호 운용성
-          href: concepts/voice-video-calling/teams-interop.md
     - name: UI 프레임워크
       items:
         - name: UI 프레임워크 개요

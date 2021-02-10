@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387788"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987909"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -212,4 +212,4 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 자세한 내용은 다음을 참조하세요.
 
 * [답변의 Markdown 형식](../reference-markdown-format.md)
-* QnA Maker [ 데이터 원본](../index.yml).
+* QnA Maker [ 데이터 원본](../Concepts/data-sources-and-content.md).

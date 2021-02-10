@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58ad4acaa60abe56849490df39c91949abec2f5d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8bb0c8e58c7b5eb1a0ba8a8ca4006ef04b2e2423
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948195"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99532107"
 ---
 <a name="HOLTop"></a>
 
@@ -255,9 +255,21 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 
-지정된 이미지에 대해 **ReadAsync** 메서드를 호출하는 다음 메서드를 추가합니다. 그러면 작업 ID가 반환되고 이미지의 콘텐츠를 읽는 비동기 프로세스가 시작됩니다. 그런 다음, **ReadAsync** 호출에서 반환된 작업 ID를 가져와서 작업 결과에 대해 서비스를 폴링하는 데 사용합니다. 마지막으로 추출된 텍스트를 콘솔에 인쇄합니다.
+텍스트를 읽기 위한 새 메서드를 정의합니다. 지정된 이미지에 대해 **ReadAsync** 메서드를 호출하는 아래 코드를 추가합니다. 그러면 작업 ID가 반환되고 이미지의 콘텐츠를 읽는 비동기 프로세스가 시작됩니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_1)]
+
+### <a name="get-read-results"></a>읽기 결과 가져오기
+
+그런 다음, **ReadAsync** 호출에서 반환된 작업 ID를 가져와서 서비스의 작업 결과를 쿼리합니다. 다음 코드는 결과가 반환될 때까지 작업을 검사합니다. 그런 다음, 추출된 텍스트 데이터를 콘솔에 출력합니다.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_2)]
+
+### <a name="display-read-results"></a>읽기 결과 표시
+
+검색된 텍스트 데이터를 구문 분석하고, 표시하고, 메서드 정의를 완료하는 다음 코드를 추가합니다.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readfileurl_3)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

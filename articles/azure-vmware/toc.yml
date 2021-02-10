@@ -107,7 +107,7 @@
         - name: 배포 실패에 대한 지원 요청 열기
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
 - name: 참조
   items:
     - name: Azure CLI
