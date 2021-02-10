@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8eb73fcfde7e294896a12289486ff71794a00ae6
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203248"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591721"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>자습서: 재질, 조명 및 효과 구체화
 
@@ -32,11 +32,11 @@ ms.locfileid: "92203248"
 
 사용자에게 시각적 피드백을 제공하는 것은 모든 애플리케이션에서 사용자 환경의 중요한 부분입니다. Azure Remote Rendering은 [계층 상태 재정의](../../../overview/features/override-hierarchical-state.md)를 통해 시각적 피드백 메커니즘을 제공합니다. 계층 상태 재정의는 모델의 로컬 인스턴스에 연결된 구성 요소를 사용하여 구현됩니다. [원격 개체 그래프를 Unity 계층 구조에 동기화](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy)에서 이러한 로컬 인스턴스를 만드는 방법을 알아보았습니다.
 
-먼저 래퍼를 [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) 구성 요소 주위에 만듭니다. **HierarchicalStateOverrideComponent**는 원격 엔터티에 대한 재정의를 제어하는 로컬 스크립트입니다. [**자습서 자산**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial)에는 래퍼를 만들기 위해 확장할 **BaseEntityOverrideController**라는 추상 기본 클래스가 포함되어 있습니다.
+먼저 래퍼를 [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) 구성 요소 주위에 만듭니다. **HierarchicalStateOverrideComponent** 는 원격 엔터티에 대한 재정의를 제어하는 로컬 스크립트입니다. [**자습서 자산**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial)에는 래퍼를 만들기 위해 확장할 **BaseEntityOverrideController** 라는 추상 기본 클래스가 포함되어 있습니다.
 
-1. **EntityOverrideController**라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
+1. **EntityOverrideController** 라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -154,21 +154,21 @@ ms.locfileid: "92203248"
     }
     ```
 
-**LocalOverride**의 기본 작업은 자체 및 해당 `RemoteComponent` 간의 링크를 만드는 것입니다. 그런 다음, **LocalOverride**를 사용하여 원격 엔터티에 바인딩된 로컬 구성 요소에서 상태 플래그를 설정할 수 있습니다. 재정의 및 해당 상태는 [계층 상태 재정의](../../../overview/features/override-hierarchical-state.md) 페이지에서 설명하고 있습니다. 
+**LocalOverride** 의 기본 작업은 자체 및 해당 `RemoteComponent` 간의 링크를 만드는 것입니다. 그런 다음, **LocalOverride** 를 사용하여 원격 엔터티에 바인딩된 로컬 구성 요소에서 상태 플래그를 설정할 수 있습니다. 재정의 및 해당 상태는 [계층 상태 재정의](../../../overview/features/override-hierarchical-state.md) 페이지에서 설명하고 있습니다. 
 
 이 구현에서는 한 번에 하나의 상태만 전환합니다. 그러나 단일 엔터티에 대해 여러 재정의를 결합하고 계층 구조의 여러 수준에서 조합을 만들 수 있습니다. 예를 들어 단일 구성 요소에서 `Selected` 및 `SeeThrough`를 결합하면 윤곽선을 제공하면서도 투명하게 만들 수 있습니다. 또는 자식 엔터티의 `Hidden` 재정의를 `ForceOff`로 설정하는 동시에 루트 엔터티의 `Hidden` 재정의를 `ForceOn`으로 설정하면 재정의가 적용된 자식을 제외한 모든 항목이 숨겨집니다.
 
-상태를 엔터티에 적용하기 위해 이전에 만든 **RemoteEntityHelper**를 수정할 수 있습니다.
+상태를 엔터티에 적용하기 위해 이전에 만든 **RemoteEntityHelper** 를 수정할 수 있습니다.
 
-1. **BaseRemoteEntityHelper** 추상 클래스를 구현하도록 **RemoteEntityHelper** 클래스를 수정합니다. 이렇게 수정하면 **자습서 자산**에 제공된 보기 컨트롤러를 사용할 수 있습니다. 수정되면 다음과 같습니다.
+1. **BaseRemoteEntityHelper** 추상 클래스를 구현하도록 **RemoteEntityHelper** 클래스를 수정합니다. 이렇게 수정하면 **자습서 자산** 에 제공된 보기 컨트롤러를 사용할 수 있습니다. 수정되면 다음과 같습니다.
 
-    ```csharp
+    ```cs
     public class RemoteEntityHelper : BaseRemoteEntityHelper
     ```
 
 2. 다음 코드를 사용하여 추상 메서드를 재정의합니다.
 
-    ```csharp
+    ```cs
     public override BaseEntityOverrideController EnsureOverrideComponent(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -227,7 +227,7 @@ ms.locfileid: "92203248"
     }
     ```
 
-이 코드는 **EntityOverrideController** 구성 요소가 대상 Entity에 추가되었는지 확인한 다음, 설정/해제 메서드 중 하나를 호출합니다. 원하는 경우 **TestModel** GameObject에서 **RemoteEntityHelper**를 **RemoteRayCastPointerHandler** 구성 요소의 `OnRemoteEntityClicked` 이벤트에 대한 콜백으로 추가하여 이러한 도우미 메서드를 호출해야 합니다.
+이 코드는 **EntityOverrideController** 구성 요소가 대상 Entity에 추가되었는지 확인한 다음, 설정/해제 메서드 중 하나를 호출합니다. 원하는 경우 **TestModel** GameObject에서 **RemoteEntityHelper** 를 **RemoteRayCastPointerHandler** 구성 요소의 `OnRemoteEntityClicked` 이벤트에 대한 콜백으로 추가하여 이러한 도우미 메서드를 호출해야 합니다.
 
 ![포인터 콜백](./media/pointer-event-callbacks.png)
 
@@ -245,11 +245,11 @@ ms.locfileid: "92203248"
 
 [평면 잘라내기](../../../overview/features/cut-planes.md)는 원격 엔터티에 추가할 수 있는 기능입니다. 가장 일반적으로, 평면 잘라내기 구성 요소를 유지하기 위해 메시 데이터와 연결되지 않은 새 원격 엔터티를 만듭니다. 평면 잘라내기의 위치와 방향은 연결된 원격 엔터티의 위치와 방향에 따라 결정됩니다.
 
-자동으로 원격 엔터티를 만들고, 평면 잘라내기 구성 요소를 추가하며, 로컬 개체의 변환을 평면 잘라내기 엔터티와 동기화하는 스크립트를 만듭니다. 그런 다음, **CutPlaneViewController**를 사용하여 절단면을 조작하는 데 사용할 수 있는 인터페이스에서 해당 절단면을 래핑할 수 있습니다.
+자동으로 원격 엔터티를 만들고, 평면 잘라내기 구성 요소를 추가하며, 로컬 개체의 변환을 평면 잘라내기 엔터티와 동기화하는 스크립트를 만듭니다. 그런 다음, **CutPlaneViewController** 를 사용하여 절단면을 조작하는 데 사용할 수 있는 인터페이스에서 해당 절단면을 래핑할 수 있습니다.
 
-1. **RemoteCutPlane**이라는 새 스크립트를 만들고, 해당 코드를 아래 코드로 바꿉니다.
+1. **RemoteCutPlane** 이라는 새 스크립트를 만들고, 해당 코드를 아래 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -318,18 +318,18 @@ ms.locfileid: "92203248"
     }
     ```
 
-    이 코드는 **자습서 자산**에 포함된 **BaseRemoteCutPlane** 클래스를 확장합니다. 원격으로 렌더링된 모델과 마찬가지로 이 스크립트는 원격 코디네이터의 `RemoteRenderingState` 변경을 연결하고 수신 대기합니다. 코디네이터에서 `RuntimeConnected` 상태에 도달하면 필요한 경우 코디네이터에서 연결을 자동으로 시도합니다. 또한 추적할 `CutPlaneComponent` 변수가 있습니다. 이는 원격 세션에서 절단면과 동기화하는 Azure Remote Rendering 구성 요소입니다. 절단면을 만들기 위해 수행해야 하는 작업을 살펴보겠습니다.
+    이 코드는 **자습서 자산** 에 포함된 **BaseRemoteCutPlane** 클래스를 확장합니다. 원격으로 렌더링된 모델과 마찬가지로 이 스크립트는 원격 코디네이터의 `RemoteRenderingState` 변경을 연결하고 수신 대기합니다. 코디네이터에서 `RuntimeConnected` 상태에 도달하면 필요한 경우 코디네이터에서 연결을 자동으로 시도합니다. 또한 추적할 `CutPlaneComponent` 변수가 있습니다. 이는 원격 세션에서 절단면과 동기화하는 Azure Remote Rendering 구성 요소입니다. 절단면을 만들기 위해 수행해야 하는 작업을 살펴보겠습니다.
 
 2. `CreateCutPlane()` 메서드를 아래의 완성된 버전으로 바꿉니다.
 
-    ```csharp
+    ```cs
     public override void CreateCutPlane()
     {
         if (remoteCutPlaneComponent != null)
             return; //Nothing to do!
 
         //Create a root object for the cut plane
-        var cutEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+        var cutEntity = RemoteRenderingCoordinator.CurrentSession.Connection.CreateEntity();
 
         //Bind the remote entity to this game object
         cutEntity.BindToUnityGameObject(this.gameObject);
@@ -339,7 +339,7 @@ ms.locfileid: "92203248"
         syncComponent.SyncEveryFrame = true;
 
         //Add a cut plane to the entity
-        remoteCutPlaneComponent = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.CutPlaneComponent, cutEntity) as CutPlaneComponent;
+        remoteCutPlaneComponent = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.CutPlaneComponent, cutEntity) as CutPlaneComponent;
 
         //Configure the cut plane
         remoteCutPlaneComponent.Normal = SliceNormal;
@@ -353,7 +353,7 @@ ms.locfileid: "92203248"
 
 3. `DestroyCutPlane()` 메서드를 아래의 완성된 버전으로 바꿉니다.
 
-    ```csharp
+    ```cs
     public override void DestroyCutPlane()
     {
         if (remoteCutPlaneComponent == null)
@@ -367,15 +367,15 @@ ms.locfileid: "92203248"
 
 원격 개체는 매우 간단하고 원격 엔드만 정리하므로(로컬 개체 유지) 원격 개체에 대한 `Destroy`를 호출하고 해당 참조를 지우기만 하면 됩니다.
 
-**AppMenu**에는 자동으로 절단면에 연결되어 상호 작용할 수 있는 보기 컨트롤러가 포함되어 있습니다. **AppMenu** 또는 보기 컨트롤러 중 하나를 사용할 필요는 없지만 더 나은 환경을 제공합니다. 이제 절단면과 해당 보기 컨트롤러를 테스트합니다.
+**AppMenu** 에는 자동으로 절단면에 연결되어 상호 작용할 수 있는 보기 컨트롤러가 포함되어 있습니다. **AppMenu** 또는 보기 컨트롤러 중 하나를 사용할 필요는 없지만 더 나은 환경을 제공합니다. 이제 절단면과 해당 보기 컨트롤러를 테스트합니다.
 
-1. 빈 새 GameObject를 장면에 만들고, 이름을 **CutPlane**으로 지정합니다.
+1. 빈 새 GameObject를 장면에 만들고, 이름을 **CutPlane** 으로 지정합니다.
 1. **RemoteCutPlane** 구성 요소를 **CutPlane** GameObject에 추가합니다.
 
    ![평면 잘라내기 구성 요소 구성](./media/cut-plane-config.png)
 
 1. Unity 편집기에서 Play(재생)를 눌러 원격 세션을 로드하고 연결합니다.
-1. MRTK의 손 시뮬레이션을 통해 CutPlane을 잡고 회전(Ctrl 키를 누른 채 회전)하여 장면 주위로 이동합니다. **TestModel**로 분할하여 내부 구성 요소가 표시되는 것을 확인합니다.
+1. MRTK의 손 시뮬레이션을 통해 CutPlane을 잡고 회전(Ctrl 키를 누른 채 회전)하여 장면 주위로 이동합니다. **TestModel** 로 분할하여 내부 구성 요소가 표시되는 것을 확인합니다.
 
 ![평면 잘라내기 예](./media/cut-plane-example-engine.png)
 
@@ -389,9 +389,9 @@ ms.locfileid: "92203248"
 
 로드 매개 변수 형식으로 사용 가능한 기본 제공 Cubemaps 목록을 포함하는 **RemoteSky** 스크립트를 만듭니다. 그런 다음, 사용자가 옵션 중 하나를 선택하여 로드할 수 있도록 허용합니다.
 
-1. **RemoteSky**라는 새 스크립트를 만들고, 전체 내용을 아래 코드로 바꿉니다.
+1. **RemoteSky** 라는 새 스크립트를 만들고, 전체 내용을 아래 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -402,7 +402,7 @@ ms.locfileid: "92203248"
 
     public class RemoteSky : BaseRemoteSky
     {
-        public override Dictionary<string, LoadTextureFromSASParams> AvailableCubemaps => builtInTextures;
+        public override Dictionary<string, LoadTextureFromSasOptions> AvailableCubemaps => builtInTextures;
 
         private bool canSetSky;
         public override bool CanSetSky
@@ -426,22 +426,22 @@ ms.locfileid: "92203248"
             }
         }
 
-        private Dictionary<string, LoadTextureFromSASParams> builtInTextures = new Dictionary<string, LoadTextureFromSASParams>()
+        private Dictionary<string, LoadTextureFromSasOptions> builtInTextures = new Dictionary<string, LoadTextureFromSasOptions>()
         {
-            {"Autoshop",new LoadTextureFromSASParams("builtin://Autoshop", TextureType.CubeMap)},
-            {"BoilerRoom",new LoadTextureFromSASParams("builtin://BoilerRoom", TextureType.CubeMap)},
-            {"ColorfulStudio",new LoadTextureFromSASParams("builtin://ColorfulStudio", TextureType.CubeMap)},
-            {"Hangar",new LoadTextureFromSASParams("builtin://Hangar", TextureType.CubeMap)},
-            {"IndustrialPipeAndValve",new LoadTextureFromSASParams("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
-            {"Lebombo",new LoadTextureFromSASParams("builtin://Lebombo", TextureType.CubeMap)},
-            {"SataraNight",new LoadTextureFromSASParams("builtin://SataraNight", TextureType.CubeMap)},
-            {"SunnyVondelpark",new LoadTextureFromSASParams("builtin://SunnyVondelpark", TextureType.CubeMap)},
-            {"Syferfontein",new LoadTextureFromSASParams("builtin://Syferfontein", TextureType.CubeMap)},
-            {"TearsOfSteelBridge",new LoadTextureFromSASParams("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
-            {"VeniceSunset",new LoadTextureFromSASParams("builtin://VeniceSunset", TextureType.CubeMap)},
-            {"WhippleCreekRegionalPark",new LoadTextureFromSASParams("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
-            {"WinterRiver",new LoadTextureFromSASParams("builtin://WinterRiver", TextureType.CubeMap)},
-            {"DefaultSky",new LoadTextureFromSASParams("builtin://DefaultSky", TextureType.CubeMap)}
+            {"Autoshop",new LoadTextureFromSasOptions("builtin://Autoshop", TextureType.CubeMap)},
+            {"BoilerRoom",new LoadTextureFromSasOptions("builtin://BoilerRoom", TextureType.CubeMap)},
+            {"ColorfulStudio",new LoadTextureFromSasOptions("builtin://ColorfulStudio", TextureType.CubeMap)},
+            {"Hangar",new LoadTextureFromSasOptions("builtin://Hangar", TextureType.CubeMap)},
+            {"IndustrialPipeAndValve",new LoadTextureFromSasOptions("builtin://IndustrialPipeAndValve", TextureType.CubeMap)},
+            {"Lebombo",new LoadTextureFromSasOptions("builtin://Lebombo", TextureType.CubeMap)},
+            {"SataraNight",new LoadTextureFromSasOptions("builtin://SataraNight", TextureType.CubeMap)},
+            {"SunnyVondelpark",new LoadTextureFromSasOptions("builtin://SunnyVondelpark", TextureType.CubeMap)},
+            {"Syferfontein",new LoadTextureFromSasOptions("builtin://Syferfontein", TextureType.CubeMap)},
+            {"TearsOfSteelBridge",new LoadTextureFromSasOptions("builtin://TearsOfSteelBridge", TextureType.CubeMap)},
+            {"VeniceSunset",new LoadTextureFromSasOptions("builtin://VeniceSunset", TextureType.CubeMap)},
+            {"WhippleCreekRegionalPark",new LoadTextureFromSasOptions("builtin://WhippleCreekRegionalPark", TextureType.CubeMap)},
+            {"WinterRiver",new LoadTextureFromSasOptions("builtin://WinterRiver", TextureType.CubeMap)},
+            {"DefaultSky",new LoadTextureFromSasOptions("builtin://DefaultSky", TextureType.CubeMap)}
         };
 
         public UnityBoolEvent OnCanSetSkyChanged;
@@ -485,10 +485,10 @@ ms.locfileid: "92203248"
             {
                 Debug.Log("Setting sky to " + skyKey);
                 //Load the texture into the session
-                var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+                var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
                 //Apply the texture to the SkyReflectionSettings
-                RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+                RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
                 SkyChanged?.Invoke(skyKey);
             }
             else
@@ -501,31 +501,31 @@ ms.locfileid: "92203248"
 
     이 코드에서 가장 중요한 부분은 단 몇 줄입니다.
 
-    ```csharp
+    ```cs
     //Load the texture into the session
-    var texture = await RemoteRenderingCoordinator.CurrentSession.Actions.LoadTextureFromSASAsync(AvailableCubemaps[skyKey]).AsTask();
+    var texture = await RemoteRenderingCoordinator.CurrentSession.Connection.LoadTextureFromSasAsync(AvailableCubemaps[skyKey]);
 
     //Apply the texture to the SkyReflectionSettings
-    RemoteRenderingCoordinator.CurrentSession.Actions.SkyReflectionSettings.SkyReflectionTexture = texture;
+    RemoteRenderingCoordinator.CurrentSession.Connection.SkyReflectionSettings.SkyReflectionTexture = texture;
     ```
 
     여기서는 기본 제공 Blob 스토리지에서 세션에 로드하여 사용할 질감에 대한 참조를 가져옵니다. 그런 다음, 해당 질감을 세션의 `SkyReflectionTexture`에만 할당하여 적용해야 합니다.
 
-1. 빈 GameObject를 장면에 만들고, 이름을 **SkyLight**로 지정합니다.
+1. 빈 GameObject를 장면에 만들고, 이름을 **SkyLight** 로 지정합니다.
 
 1. **RemoteSky** 스크립트를 **SkyLight** GameObject에 추가합니다.
 
-    하늘 광원 간의 전환은 `AvailableCubemaps`에 정의된 문자열 키 중 하나를 사용하여 `SetSky`를 호출함으로써 수행할 수 있습니다. **AppMenu**에 기본적으로 제공되는 보기 컨트롤러에서 자동으로 단추를 만들고, 해당 키를 사용하여 `SetSky`를 호출하도록 해당 이벤트를 후크합니다.
+    하늘 광원 간의 전환은 `AvailableCubemaps`에 정의된 문자열 키 중 하나를 사용하여 `SetSky`를 호출함으로써 수행할 수 있습니다. **AppMenu** 에 기본적으로 제공되는 보기 컨트롤러에서 자동으로 단추를 만들고, 해당 키를 사용하여 `SetSky`를 호출하도록 해당 이벤트를 후크합니다.
 1. Unity 편집기에서 Play(재생)를 누르고 연결에 대한 권한을 부여합니다.
-1. 로컬 런타임이 원격 세션에 연결되면 **AppMenu -> Session Tools(세션 도구) -> Remote Sky(원격 하늘)** 를 차례로 탐색하여 다양한 하늘 옵션을 검색하고 이러한 옵션이 **TestModel**에 미치는 영향을 확인합니다.
+1. 로컬 런타임이 원격 세션에 연결되면 **AppMenu -> Session Tools(세션 도구) -> Remote Sky(원격 하늘)** 를 차례로 탐색하여 다양한 하늘 옵션을 검색하고 이러한 옵션이 **TestModel** 에 미치는 영향을 확인합니다.
 
 ### <a name="scene-lights"></a>장면 광원
 
 원격 장면 광원에는 점, 스폿 및 방향성이 있습니다. 위에서 만든 절단면과 마찬가지로 이러한 장면 광원은 구성 요소가 연결된 원격 엔터티입니다. 원격 장면을 조명할 때 고려해야 할 중요한 사항은 로컬 장면의 조명과 일치시키려고 하는 것입니다. HoloLens 2에 대한 많은 Unity 애플리케이션에서 물리적 기반 렌더링을 로컬로 렌더링된 개체에 사용하지 않으므로 이 전략이 항상 가능하지는 않습니다. 그러나 Unity의 더 간단한 기본 조명은 특정 수준으로 시뮬레이션할 수 있습니다.
 
-1. **RemoteLight**라는 새 스크립트를 만들고, 해당 코드를 아래 코드로 바꿉니다.
+1. **RemoteLight** 라는 새 스크립트를 만들고, 해당 코드를 아래 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -618,7 +618,7 @@ ms.locfileid: "92203248"
 
             //Create a root object for the light
             if(lightEntity == null)
-                lightEntity = RemoteRenderingCoordinator.CurrentSession.Actions.CreateEntity();
+                lightEntity = RemoteRenderingCoordinator.CurrentSession.Connection.CreateEntity();
 
             //Bind the remote entity to this game object
             lightEntity.BindToUnityGameObject(this.gameObject);
@@ -631,13 +631,13 @@ ms.locfileid: "92203248"
             switch (RemoteLightType)
             {
                 case ObjectType.DirectionalLightComponent:
-                    var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
+                    var remoteDirectional = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.DirectionalLightComponent, lightEntity) as DirectionalLightComponent;
                     //No additional properties
                     remoteLightComponent = remoteDirectional;
                     break;
 
                 case ObjectType.PointLightComponent:
-                    var remotePoint = RemoteRenderingCoordinator.CurrentSession.Actions.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
+                    var remotePoint = RemoteRenderingCoordinator.CurrentSession.Connection.CreateComponent(ObjectType.PointLightComponent, lightEntity) as PointLightComponent;
                     remotePoint.Radius = 0;
                     remotePoint.Length = localLight.range;
                     //remotePoint.AttenuationCutoff = //No direct analog in Unity legacy lights
@@ -695,14 +695,14 @@ ms.locfileid: "92203248"
 
     이 스크립트는 스크립트가 연결된 로컬 Unity 광원 유형에 따라 다양한 유형의 원격 광원을 만듭니다. 원격 광원은 로컬 광원을 해당 위치, 회전, 색 및 광도로 복제합니다. 가능한 경우 원격 광원은 추가 구성도 설정합니다. Unity 광원은 PBR 광원이 아니므로 이는 완벽하게 일치하지 않습니다.
 
-1. 장면에서 **DirectionalLight** GameObject를 찾습니다. 장면에서 기본 **DirectionalLight**를 제거한 경우 위쪽 메뉴 모음에서 *GameObject -> Light(광원) -> DirectionalLight*를 차례로 선택하여 새 광원을 장면에 만듭니다.
+1. 장면에서 **DirectionalLight** GameObject를 찾습니다. 장면에서 기본 **DirectionalLight** 를 제거한 경우 위쪽 메뉴 모음에서 *GameObject -> Light(광원) -> DirectionalLight* 를 차례로 선택하여 새 광원을 장면에 만듭니다.
 
 1. **DirectionalLight** GameObject를 선택하고, **Add Component(구성 요소 추가)** 단추를 사용하여 **RemoteLight** 스크립트를 추가합니다.
 
 1. 이 스크립트는 `BaseRemoteLight` 기본 클래스를 구현하므로 제공된 **AppMenu** 보기 컨트롤러를 사용하여 원격 광원과 상호 작용할 수 있습니다. **AppMenu -> Session Tools(세션 도구) -> Directional Light(방향성 광원)** 로 차례로 이동합니다.
 
     > [!NOTE]
-    > 간단히 하기 위해 **AppMenu**의 UI가 단일 방향성 광원으로 제한되었습니다. 그러나 여전히 점 광원을 추가하고 **RemoteLight** 스크립트를 이에 연결하는 것이 좋습니다. 이러한 추가 광원은 편집기에서 Unity 광원의 속성을 편집하여 수정할 수 있습니다. 검사기에서 **RemoteLight** 상황에 맞는 메뉴를 사용하여 원격 광원에 대한 로컬 변경 내용을 수동으로 동기화해야 합니다.
+    > 간단히 하기 위해 **AppMenu** 의 UI가 단일 방향성 광원으로 제한되었습니다. 그러나 여전히 점 광원을 추가하고 **RemoteLight** 스크립트를 이에 연결하는 것이 좋습니다. 이러한 추가 광원은 편집기에서 Unity 광원의 속성을 편집하여 수정할 수 있습니다. 검사기에서 **RemoteLight** 상황에 맞는 메뉴를 사용하여 원격 광원에 대한 로컬 변경 내용을 수동으로 동기화해야 합니다.
     >
     > ![원격 광원 수동 동기화](./media/sync-remote-light.png)
 
@@ -718,15 +718,15 @@ ms.locfileid: "92203248"
 원격으로 렌더링된 [재질](../../../concepts/materials.md)을 수정하여 추가 시각적 효과를 제공하거나, 렌더링된 모델의 시각적 개체를 미세 조정하거나, 사용자에게 추가 피드백을 제공할 수 있습니다. 재질은 여러 가지 방법과 이유로 수정할 수 있습니다. 여기서는 재질의 albedo 색을 변경하고 PBR 재질의 황삭(roughness) 및 금속성(metalness)을 변경하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> 대부분의 경우 **HierarchicalStateOverrideComponent**를 사용하여 기능 또는 효과를 구현할 수 있는 경우 재질을 수정하는 대신 이를 사용하는 것이 좋습니다.
+> 대부분의 경우 **HierarchicalStateOverrideComponent** 를 사용하여 기능 또는 효과를 구현할 수 있는 경우 재질을 수정하는 대신 이를 사용하는 것이 좋습니다.
 
 대상 Entity를 허용하고 대상 Entity 재질의 속성을 변경하도록 몇 가지 `OverrideMaterialProperty` 개체를 구성하는 스크립트를 만듭니다. 먼저 메시에 사용된 재질의 목록이 포함된 대상 Entity의 [**MeshComponent**](../../../concepts/meshes.md#meshcomponent)를 가져옵니다. 간단히 하기 위해 처음 찾은 재질만 사용합니다. 이 순진한 전략은 콘텐츠가 작성된 방법에 따라 매우 쉽게 실패할 수 있으므로 더 복잡한 방법을 사용하여 적절한 재질을 선택하는 것이 좋습니다.
 
 재질에서는 albedo와 같은 일반적인 값에 액세스할 수 있습니다. 먼저 **GetMaterialColor** 메서드에서와 같이 해당 값을 검색하려면 재질을 적절한 `PbrMaterial` 또는 `ColorMaterial` 형식으로 캐스팅해야 합니다. 원하는 재질에 대한 참조가 있으면 해당 값만 설정하고 ARR에서 로컬 재질 속성과 원격 재질 간의 동기화를 처리하면 됩니다.
 
-1. **EntityMaterialController**라는 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
+1. **EntityMaterialController** 라는 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -890,7 +890,7 @@ ms.locfileid: "92203248"
 
 원하는 경우 `OverrideMaterialProperty` 형식은 몇 가지 다른 재질 값을 변경할 수 있을 만큼 유연해야 합니다. `OverrideMaterialProperty` 형식은 재정의 상태를 추적하고, 이전 값과 새 값을 유지하며, 대리자를 사용하여 재정의를 설정합니다. 예를 들어 `ColorOverride`를 살펴보세요.
 
-```csharp
+```cs
 ColorOverride = new OverrideMaterialProperty<Color>(
     GetMaterialColor(targetMaterial), //The original value
     targetMaterial, //The target material
@@ -901,7 +901,7 @@ ColorOverride = new OverrideMaterialProperty<Color>(
 
 `ColorOverride`는 `ApplyMaterialColor` 메서드를 사용하여 작업을 수행합니다.
 
-```csharp
+```cs
 private void ApplyMaterialColor(ARRMaterial material, Color color)
 {
     if (material.MaterialSubType == MaterialType.Color)
@@ -920,7 +920,7 @@ private void ApplyMaterialColor(ARRMaterial material, Color color)
 1. **EntityMaterialController** 스크립트를 **TestModel** GameObject에 추가합니다.
 1. Unity에서 Play(재생)를 눌러 장면을 시작하고 ARR에 연결합니다.
 1. 런타임이 원격 세션에 연결되고 모델이 로드되면 **AppMenu -> Model Tools(모델 도구) -> Edit Material(재질 편집)** 로 차례로 이동합니다.
-1. 시뮬레이션된 손을 통해 **TestModel**을 클릭하여 모델에서 Entity를 선택합니다.
+1. 시뮬레이션된 손을 통해 **TestModel** 을 클릭하여 모델에서 Entity를 선택합니다.
 1. 재질 보기 컨트롤러(**AppMenu -> Model Tools -> Edit Material**)가 대상 Entity로 업데이트되었는지 확인합니다.
 1. 재질 보기 컨트롤러를 사용하여 대상 Entity의 재질을 조정합니다.
 

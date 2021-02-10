@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5793e2958edce0a4c97660a75d0ecefa914c12d2
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 3a278b6e725488d6107e6b0819e002d1dafe4774
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559085"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99591666"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>자습서: 인터페이스 및 사용자 지정 모델
 
@@ -94,7 +94,7 @@ MRTK 및 자습서 자산이 프로젝트에 포함된 후에는 MRTK 프로필�
 
 1. **RemoteRenderingCoordinator** 와 동일한 폴더에 **RemoteRenderedModel** 이라는 새 스크립트를 만듭니다. 전체 내용을 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
