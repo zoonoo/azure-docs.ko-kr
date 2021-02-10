@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220289"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091043"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -42,7 +42,7 @@ ms.locfileid: "98220289"
 * 사용자는 보안 되지 않은 암호를 사용 하는 경우가 많습니다.
 * 사용자에 게 보안 적용의 예정 된 변경 내용, 영향을 받는 보안 암호를 선택 하는 방법에 대 한 정보를 알려 주어 야 합니다.
 
-기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
+기존 Active Directory 도메인 컨트롤러 배포 자동화에 영향을 주는 더 강력한 암호 유효성 검사를 수행할 수도 있습니다. 이러한 문제를 해결 하는 데 도움이 되도록 감사 기간 평가 중에 하나 이상의 DC 수준 올리기 및 DC 수준 내리기를 수행 하는 것이 좋습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Ntdsutil.exe에서 weak 디렉터리 서비스 복구 모드 암호를 설정할 수 없습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [취약 한 디렉터리 서비스 복구 모드 암호로 인해 도메인 컨트롤러 복제본 수준을 올리지 못했습니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
@@ -85,7 +85,8 @@ Azure AD 암호 보호 DC 에이전트 소프트웨어의 설계는 고가용성
 * Azure AD 암호 보호 구성 요소가 설치 된 도메인 컨트롤러를 비롯 한 모든 컴퓨터에는 유니버설 C 런타임이 설치 되어 있어야 합니다.
     * Windows 업데이트의 모든 업데이트가 있는지 확인 하 여 런타임을 가져올 수 있습니다. 또는 OS 특정 업데이트 패키지에서 가져올 수 있습니다. 자세한 내용은 [Windows에서 유니버설 C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)를 참조 하세요.
 * Azure AD에 Windows Server Active Directory 포리스트를 등록 하려면 포리스트 루트 도메인에서 도메인 관리자 권한이 Active Directory 있는 계정이 필요 합니다.
-* Windows Server 2012를 실행 하는 도메인의 모든 도메인 컨트롤러에서 키 배포 서비스를 사용 하도록 설정 해야 합니다. 기본적으로이 서비스는 수동 트리거 시작을 통해 사용 하도록 설정 됩니다.
+* Windows Server 2012 이상 버전을 실행 하는 도메인의 모든 도메인 컨트롤러에서 키 배포 서비스를 사용 하도록 설정 해야 합니다. 기본적으로이 서비스는 수동 트리거 시작을 통해 사용 하도록 설정 됩니다.
+
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호를 위해 프록시 서비스를 호스트 하는 하나 이상의 서버 간에 네트워크 연결이 존재 해야 합니다. 이 연결을 통해 도메인 컨트롤러에서 RPC 끝점 매퍼 포트 135 및 프록시 서비스의 RPC 서버 포트에 액세스할 수 있어야 합니다.
     * 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.

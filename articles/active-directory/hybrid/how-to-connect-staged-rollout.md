@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762975"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090601"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -83,10 +83,6 @@ ms.locfileid: "98762975"
     - 단계적 롤아웃에는 동적 그룹이 *지원되지 않습니다*.
     - 그룹 내의 연락처 개체는 그룹이 추가되는 것을 차단합니다.
 
-- 여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션에서 관리형으로 전환하지 않습니다.  도메인에 대 한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-pass-through-authentication.md) 을 참조 하세요.
-
-
-
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
 - 사용자가 준비 된 롤아웃 상태에서 EnforceCloudPasswordPolicyForPasswordSyncedUsers을 사용 하는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90 일로 설정 됩니다. 
@@ -95,7 +91,9 @@ ms.locfileid: "98762975"
 
 - 사용자의 온-프레미스 UPN을 라우팅할 수 없는 경우 모든 버전에 대 한 Windows 10 하이브리드 조인 또는 Azure AD 조인 기본 새로 고침 토큰 획득 이 시나리오는 준비 된 롤아웃 모드에 있는 동안 WS-Trust 끝점으로 대체 되지만, 준비 된 마이그레이션이 완료 되 고 사용자 로그온이 더 이상 페더레이션 서버에 의존 하지 않을 경우 작동이 중지 됩니다.
 
-
+  >[!NOTE]
+  >여전히 Azure AD Connect 또는 PowerShell을 사용하여 페더레이션 인증에서 클라우드 인증으로 최종적으로 전환해야 합니다. 단계적 롤아웃은 도메인을 페더레이션된에서 관리로 전환 하지 않습니다.  도메인에 대 한 자세한 내용은 [페더레이션에서 암호 해시 동기화로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 및 [페더레이션에서 통과 인증으로 마이그레이션](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) 을 참조 하세요.
+  
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작
 
 단계적 롤아웃을 사용하여 *암호 해시 동기화* 로그인을 테스트하려면 다음 섹션의 사전 작업 지침을 따릅니다.
@@ -257,3 +255,5 @@ A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [로그인 방법을 암호 해시 동기화로 변경 합니다.](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [로그인 방법을 통과 인증으로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

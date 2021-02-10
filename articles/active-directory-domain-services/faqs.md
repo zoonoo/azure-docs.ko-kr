@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: justinha
-ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491168"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090992"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>AD (Azure Active Directory) 도메인 서비스에 대 한 Faq (질문과 대답)
 
@@ -152,7 +152,7 @@ Azure AD Domain Services는 Azure 무료 평가판에 포함 되어 있습니다
 아니요. Azure AD Domain Services 관리 되는 도메인을 사용 하도록 설정 하면 관리 되는 도메인을 삭제할 때까지 선택한 가상 네트워크 내에서 서비스를 사용할 수 있습니다. 서비스를 일시 중지할 수 있는 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 기준으로 계속 청구됩니다.
 
 ### <a name="can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>DR 이벤트의 다른 지역으로 Azure AD Domain Services 장애 조치 (failover) 할 수 있나요?
-아니요. Azure AD Domain Services은 현재 지역 중복 배포 모델을 제공 하지 않습니다. Azure 지역의 단일 가상 네트워크로 제한 됩니다. 여러 Azure 지역을 사용하려면 Azure IaaS VM에서 Active Directory 도메인 컨트롤러를 실행해야 합니다. 아키텍처 지침은 [온-프레미스 Active Directory 도메인을 Azure로 확장](/azure/architecture/reference-architectures/identity/adds-extend-domain)을 참조 하세요.
+예, 관리 되는 도메인에 대 한 지리적 복원 력을 제공 하기 위해 Azure AD DS를 지 원하는 모든 Azure 지역의 피어 링 가상 네트워크에 추가 [복제본 집합](tutorial-create-replica-set.md) 을 만들 수 있습니다. 복제본 집합은 관리 되는 도메인과 동일한 네임 스페이스 및 구성을 공유 합니다.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?
 아니요. Azure AD Domain Services는 종 량 제 Azure 서비스 이며 EMS의 일부가 아닙니다. Azure AD Domain Services은 모든 버전의 Azure AD (무료 및 프리미엄)에서 사용할 수 있습니다. 사용량에 따라 시간 단위로 요금이 청구 됩니다.

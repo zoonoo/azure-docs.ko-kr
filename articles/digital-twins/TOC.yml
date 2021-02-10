@@ -259,6 +259,8 @@
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
         - name: DTMI 사양
           href: 'https://github.com/Azure/digital-twin-model-identifier'
+    - name: '학습: Azure Digital Twins로 개발'
+      href: /learn/paths/develop-azure-digital-twins/
     - name: Channel 9 동영상
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
     - name: 고객 사례

@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: b183abf8d42e6f4b1c43db2d87b2650721e0c2a9
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: eec88bf85f1b7a2ec8db2bf23c43629d84cc5106
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567953"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090448"
 ---
 # <a name="connect-your-squid-proxy-to-azure-sentinel"></a>Azure 센티널에 Squid 프록시 연결
 
 > [!IMPORTANT]
 > Squid 프록시 커넥터는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
-이 문서에서는 Squid 프록시 어플라이언스를 Azure 센티널에 연결 하는 방법을 설명 합니다. Squid Proxy data connector를 사용 하면 Squid 로그를 Azure 센티널에 쉽게 연결할 수 있으므로 통합 문서에서 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고, 조사를 개선 하는 데 통합할 수 있습니다. Squid 프록시와 Azure 센티널 간의 통합은 Syslog를 사용 합니다.
+이 문서에서는 Squid 프록시 어플라이언스를 Azure 센티널에 연결 하는 방법을 설명 합니다. Squid Proxy data connector를 사용 하면 Squid 로그를 Azure 센티널에 쉽게 연결할 수 있으므로 통합 문서에서 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고, 조사를 개선 하는 데 통합할 수 있습니다. Squid 프록시와 Azure 센티널 간의 통합으로 인해 Log Analytics 에이전트가 로컬 파일 처리를 사용 합니다.
 
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
-## <a name="forward-squid-proxy-logs-to-the-syslog-agent"></a>Squid 프록시 로그를 Syslog 에이전트로 전달  
+## <a name="forward-squid-proxy-logs-to-the-log-analytics-agent"></a>Log Analytics 에이전트에 Squid 프록시 로그 전달  
 
-Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 하도록 Squid Proxy를 구성 합니다.
+Log Analytics 에이전트를 통해 Azure 작업 영역에 로그 파일을 보내도록 Squid Proxy를 구성 합니다.
 
 1. Azure 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다.
 

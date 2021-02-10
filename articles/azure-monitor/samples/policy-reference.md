@@ -1,17 +1,17 @@
 ---
 title: Azure Monitor에 대한 기본 제공 정책 정의
 description: Azure Monitor에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f6c360163c4538016c952c86f1671da88d6260a6
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 926c8204737029c7769496c8d8d08adc6262210a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99559644"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091445"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Azure Monitor에 대한 Azure Policy 기본 제공 정의
 
