@@ -1,5 +1,5 @@
 ---
-title: 지원 되는 데이터 원본 및 파일 형식
+title: 지원되는 데이터 원본 및 파일 형식
 description: 이 문서에서는 부서의 범위에서 지원 되는 데이터 원본 및 파일 형식에 대 한 개념 정보를 제공 합니다.
 author: viseshag
 ms.author: viseshag
@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576675"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383894"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 데이터 원본 및 파일 형식
 
@@ -70,6 +71,28 @@ Azure 부서의 범위는 다음 소스를 지원 합니다.
 - 100 파일의 **다른 구조화 된 파일 형식 (JSON, XML, TXT)** -1은 ' 리소스 집합 '으로 간주 되는 파티션 파일의 폴더 또는 그룹 내에서 샘플링 (L3 검색) 합니다.
 - **SQL 개체 및 CosmosDB 엔터티** -각 파일은 L3 검색 됩니다.
 - **문서 파일 형식** -각 파일은 L3에서 검색 됩니다. 리소스 집합 패턴은 이러한 파일 형식에 적용 되지 않습니다.
+
+## <a name="scan-regions"></a>지역 검사
+다음은 부서의 범위 스캐너가 실행 되는 모든 Azure 데이터 원본 (데이터 센터) 영역 목록입니다. Azure 데이터 원본이이 목록 외부 영역에 있는 경우 스캐너가 부서의 범위 인스턴스의 지역에서 실행 됩니다.
+ 
+### <a name="purview-scanner-regions"></a>부서의 범위 스캐너 지역
+
+- EastUs
+- EastUs2 
+- SouthCentralUS
+- WestUs
+- WestUs2
+- SoutheastAsia
+- WestEurope
+- NorthEurope
+- Storage.westcentralus
+- AustraliaEast
+- CanadaCentral
+- BrazilSouth
+- CentralIndia
+- JapanEast
+- SouthAfricaNorth
+- FranceCentral
 
 ## <a name="classification"></a>분류
 

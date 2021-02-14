@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556136"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384506"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -286,15 +286,18 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 
 초기에 Azure Application Insights를 도입한 경우 Basic 및 Enterprise의 두 가지 가격 책정 요금제가 있습니다. Basic 가격 책정 계층은 위에 설명한 것과 동일한 기본 계층입니다. 여기에는 추가 비용 없이 모든 Enterprise 계층 기능이 포함됩니다. Basic 계층에서는 기본적으로 수집된 데이터의 볼륨에 따라 비용이 청구됩니다.
 
-> [!NOTE]
-> 이 레거시 가격 책정 계층의 이름이 변경되었습니다. Enterprise 가격 책정 계층은 **노드당** 계층으로 변경되었고, Basic 가격 책정 계층은 **GB당** 계층으로 변경되었습니다. 아래에서, 그리고 Azure Portal에서 이 새로운 이름이 사용됩니다.  
+이 레거시 가격 책정 계층의 이름이 변경되었습니다. Enterprise 가격 책정 계층은 **노드당** 계층으로 변경되었고, Basic 가격 책정 계층은 **GB당** 계층으로 변경되었습니다. 아래에서, 그리고 Azure Portal에서 이 새로운 이름이 사용됩니다.  
 
-노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다.
+노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다. 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](../platform/usage-estimated-costs.md)에 대해 자세히 알아보세요.
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요.
 
-> [!NOTE]
-> 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](../platform/usage-estimated-costs.md), 사용 패턴에 따라 [이 모델로 전환하는 영향을 평가](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs)하는 방법 및 [새 모델을 옵트인하는 방법](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)에 대해 자세히 알아봅니다.
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>레거시 엔터프라이즈 (노드당) 계층에서 청구 된 사용량 이해 
+
+아래에서 설명 하는 것 처럼 레거시 Enterprise (노드당) 계층은 구독의 모든 Application Insights 리소스에 대 한 사용량을 결합 하 여 노드 수와 데이터 초과분 계산 합니다. 이러한 조합 프로세스로 인해 **구독의 모든 Application Insights 리소스에 대 한 사용량은 리소스 중 하나에 대해서만 보고 됩니다**.  이렇게 하면 각 Application Insights 리소스에 대해 관찰 하는 사용량으로 [청구 된 사용량](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) 을 조정 하는 데 매우 복잡 합니다. 
+
+> [!WARNING]
+> 레거시 Enterprise (노드당) 계층에서 Application Insights 리소스의 사용량을 추적 하 고 이해 하는 복잡성 때문에 현재 종 량 제 가격 책정 계층을 사용 하는 것이 좋습니다. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>노드당 계층 및 Operations Management Suite 구독 자격
 
@@ -347,4 +350,3 @@ Azure Resource Management를 사용하여 가격 책정 계층을 설정하는 �
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

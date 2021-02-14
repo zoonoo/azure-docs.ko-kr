@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1cf94964f420f7a7d4fc0f6ba0b77813b3e75787
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539186"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393227"
 ---
 # <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "99539186"
 데이터베이스 또는 컨테이너와 같은 주요 리소스가 해당 시점에 존재 하는지 여부에 따라 복원이 수행 되지 않을 수 있습니다. 지정 된 시간 동안 시간을 입력 하 고 선택한 데이터베이스 또는 컨테이너를 확인 하 여 확인할 수 있습니다. 복원할 리소스가 없는 경우 복원 프로세스가 작동 하지 않습니다.
 
 ### <a name="how-can-i-track-if-an-account-is-being-restored"></a>계정이 복원 되는지 어떻게 추적할 수 있나요?
-복원 명령을 제출 하 고 동일한 페이지에서 대기 하 고 나면 작업이 완료 된 후 상태 표시줄에 성공적으로 복원 된 계정 메시지가 표시 됩니다. 복원 된 계정을 검색 하 고 [복원 중인 계정의 상태를 추적할](continuous-backup-restore-portal.md#track-restore-status)수도 있습니다. 복원이 진행 중인 동안에는 계정 상태가 "만들기"가 되 고 복원 작업이 완료 된 후 계정 상태가 "Online"으로 변경 됩니다.
+복원 명령을 제출 하 고 동일한 페이지에서 대기 하 고 나면 작업이 완료 된 후 상태 표시줄에 성공적으로 복원 된 계정 메시지가 표시 됩니다. 복원 된 계정을 검색 하 고 [복원 중인 계정의 상태를 추적할](continuous-backup-restore-portal.md#track-restore-status)수도 있습니다. 복원이 진행 중인 동안에는 계정 상태가 *생성* 되 고 복원 작업이 완료 된 후 계정 상태가 *온라인* 으로 변경 됩니다.
 
 마찬가지로 PowerShell 및 CLI의 경우 다음과 같이 명령을 실행 하 여 복원 작업의 진행률을 추적할 수 있습니다 `az cosmosdb show` .
 
@@ -39,7 +39,7 @@ ms.locfileid: "99539186"
 az cosmosdb show --name "accountName" --resource-group "resourceGroup"
 ```
 
-ProvisioningState는 계정이 온라인 상태일 때 "성공"을 표시 합니다.
+ProvisioningState는 계정이 온라인 상태일 때 *성공 했음을* 보여 줍니다.
 
 ```json
 {
@@ -60,7 +60,7 @@ ProvisioningState는 계정이 온라인 상태일 때 "성공"을 표시 합니
 ### <a name="how-can-i-find-out-whether-an-account-was-restored-from-another-account"></a>계정이 다른 계정에서 복원 되었는지 확인 하려면 어떻게 해야 하나요?
 명령을 실행 하 여 `az cosmosdb show` 출력에서 속성 값을 확인할 수 있습니다 `createMode` . 값이 **복원** 으로 설정 되어 있으면입니다. 계정이 다른 계정에서 복원 되었음을 나타냅니다. 속성에는 `restoreParameters` 와 같이 `restoreSource` 원본 계정 ID가 있는 추가 정보가 있습니다. 매개 변수의 마지막 GUID는 `restoreSource` 원본 계정의 instanceId입니다.
 
-예를 들어 다음 출력에서 원본 계정의 인스턴스 ID는 "7b4bb-f6a0-430e-ade1-638d781830cc"입니다.
+예를 들어 다음 출력에서 원본 계정의 인스턴스 ID는 *7b4bb-f6a0-430e-ade1-638d781830cc* 입니다.
 
 ```json
 "restoreParameters": {
@@ -75,9 +75,9 @@ ProvisioningState는 계정이 온라인 상태일 때 "성공"을 표시 합니
 전체 공유 처리량 데이터베이스가 복원 됩니다. 복원에 대 한 공유 처리량 데이터베이스에서 컨테이너의 하위 집합을 선택할 수 없습니다.
 
 ### <a name="what-is-the-use-of-instanceid-in-the-account-definition"></a>계정 정의에서 InstanceID의 용도는 무엇 인가요?
-지정 된 시점에 Azure Cosmos DB 계정의 "accountName" 속성은 활성 상태인 동안 전역적으로 고유 합니다. 그러나 계정이 삭제 된 후에는 이름이 같은 다른 계정을 만들 수 있으므로 "accountName"이 더 이상 계정 인스턴스를 식별 하기에 충분 하지 않습니다. 
+지정 된 시점에서 Azure Cosmos DB 계정의 `accountName` 속성은 활성 상태인 동안 전역적으로 고유 합니다. 그러나 계정이 삭제 된 후에는 이름이 같은 다른 계정을 만들 수 있으므로 "accountName"이 더 이상 계정 인스턴스를 식별 하기에 충분 하지 않습니다. 
 
-ID 또는 "instanceId"는 계정 인스턴스의 속성 이며 복원에 동일한 이름을 사용 하는 경우 여러 계정 (live 및 deleted)에서 명확 하 게 구분 하는 데 사용 됩니다. 또는 명령을 실행 하 여 인스턴스 ID를 가져올 수 있습니다 `Get-AzCosmosDBRestorableDatabaseAccount`  `az cosmosdb restorable-database-account` . Name 특성 값은 "InstanceID"를 나타냅니다.
+ID 또는은 `instanceId` 계정 인스턴스의 속성 이며 복원에 동일한 이름을 사용 하는 경우 여러 계정 (live 및 deleted)에서 명확 하 게 구분 하는 데 사용 됩니다. 또는 명령을 실행 하 여 인스턴스 ID를 가져올 수 있습니다 `Get-AzCosmosDBRestorableDatabaseAccount`  `az cosmosdb restorable-database-account` . Name 특성 값은 "InstanceID"를 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

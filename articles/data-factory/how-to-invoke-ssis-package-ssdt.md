@@ -1,23 +1,18 @@
 ---
 title: SSDT에서 SSIS 패키지 실행
 description: SSDT에서 Azure에서 SSIS 패키지를 실행 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
-ms.openlocfilehash: a455d547fa3db2fd6e963458a29c77f516112e18
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: f11a3845e8644f3f60425538b2ef32cff668d88d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556514"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384931"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
 

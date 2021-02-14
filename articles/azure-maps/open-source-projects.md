@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601592"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386750"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
@@ -66,11 +66,14 @@ ms.locfileid: "98601592"
 | [Azure Maps를 사용하여 IoT 공간 분석 구현](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | 공간과 시간에서 발생하는 관련 이벤트를 추적하고 캡처하는 것은 일반적인 IoT 시나리오입니다. |
 
 **타사 맵 컨트롤 플러그 인**
+<a name="third-part-map-control-plugins"></a>
 
 | 프로젝트 이름 | 설명 |
 |-|-|
+| [Azure Maps Cesium 플러그 인](https://github.com/azure-samples/azure-maps-cesium) | [타일 계층](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) 및 [지 오 코딩 서비스](https://docs.microsoft.com/rest/api/maps/search)와 같은 Azure Maps 서비스를 쉽게 통합할 수 있도록 하는 [Cesium JS](https://cesium.com/cesiumjs/) 플러그 인입니다. |
 | [Azure Maps Leaflet 플러그 인](https://github.com/azure-samples/azure-maps-leaflet) | [Azure Maps 타일 서비스](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)에서 타일 계층을 쉽게 오버레이 하는 데 사용 되는 [leaflet](https://leafletjs.com/) JavaScript 플러그 인입니다. |
- 
+ | [Azure Maps OpenLayers 플러그 인](https://github.com/azure-samples/azure-maps-openlayers) | [Azure Maps 타일 서비스](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)에서 타일 계층을 쉽게 오버레이 하는 [openlayers](https://www.openlayers.org/) JavaScript 플러그 인입니다. |
+
 **도구 및 리소스**
 
 | 프로젝트 이름 | 설명 |

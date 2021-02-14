@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 description: Azure Data Factory v1에서 Pig 활동을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0ad84a0e848abda1b786958947b4081b11b139a7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2f59734b5452b5a06b49583954f8851e84e8f84d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495348"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387175"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -86,10 +81,10 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
-| type |HDinsightPig |예 |
-| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
+| type |HDinsightPig |Yes |
+| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |예 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
-| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
+| linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |Yes |
 | 스크립트 |Pig 스크립트 인라인 지정 |예 |
 | scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
 | defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |

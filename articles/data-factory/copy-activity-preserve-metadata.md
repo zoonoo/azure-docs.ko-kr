@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory의 복사 작업을 사용 하 여 메타 데이터 및 Acl 유지
 description: Azure Data Factory에서 복사 작업을 사용 하 여 복사 하는 동안 메타 데이터 및 Acl을 유지 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: a96b04df56dc7d5ea26463073d673275b8a4a8c4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 396a598d143e85687f9dfbf765b3c18736627e41
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387719"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업을 사용 하 여 메타 데이터 및 Acl 유지
 
@@ -35,7 +30,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본에서 싱크로 데이
 
 **메타 데이터의 차이점을 처리 합니다.** Amazon S3 및 Azure Storage는 고객이 지정한 메타 데이터의 키에 다른 문자 집합을 허용 합니다. 복사 작업을 사용 하 여 메타 데이터를 유지 하도록 선택 하면 ADF에서 자동으로 잘못 된 문자를 ' _ '로 바꿉니다.
 
-Amazon S3/Azure Data Lake Storage Gen2/azure blob/azure File Storage에서 Azure Data Lake Storage Gen2/azure blob/azure File Storage에 이진 형식으로 파일을 있는 그대로 복사 하는 경우 활동 제작을 위한 **Preserve** **복사 작업**  >  **설정** 탭 또는 데이터 복사 도구의 **설정** 페이지에서 보존 옵션을 찾을 수 있습니다.
+Amazon S3/Azure Data Lake Storage Gen2/azure blob/azure File Storage에서 Azure Data Lake Storage Gen2/azure blob/azure File Storage에 이진 형식으로 파일을 있는 그대로 복사 하는 경우 활동 제작을 위한  **복사 작업**  >  **설정** 탭 또는 데이터 복사 도구의 **설정** 페이지에서 보존 옵션을 찾을 수 있습니다.
 
 ![복사 작업 메타 데이터 유지](./media/copy-activity-preserve-metadata/copy-activity-preserve-metadata.png)
 
@@ -98,7 +93,7 @@ Azure Data Lake Storage Gen1에서 Gen2로 업그레이드 하거나 ADLS Gen2 �
 >[!IMPORTANT]
 >Acl을 유지 하도록 선택 하는 경우 싱크 Data Lake Storage Gen2 계정에 대해 작동 하는 Data Factory에 대 한 충분 한 권한을 부여 해야 합니다. 예를 들어 계정 키 인증을 사용 하거나 저장소 Blob 데이터 소유자 역할을 서비스 주체 또는 관리 id에 할당 합니다.
 
-이진 형식 또는 이진 복사 옵션을 사용 하 여 소스를 Data Lake Storage Gen1/Gen2로 구성 하거나 이진 형식 또는 이진 복사 옵션을 사용 하 여 Data Lake Storage Gen2으로 싱크를 구성 하는 경우, 작업 작성을 위한 **복사 작업** 설정 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다  >  **Settings** .
+이진 형식 또는 이진 복사 옵션을 사용 하 여 소스를 Data Lake Storage Gen1/Gen2로 구성 하거나 이진 형식 또는 이진 복사 옵션을 사용 하 여 Data Lake Storage Gen2으로 싱크를 구성 하는 경우, 작업 작성을 위한 **복사 작업** 설정 탭 또는 데이터 복사 도구의 **설정** 페이지에서 **보존** 옵션을 찾을 수 있습니다  >   .
 
 ![Gen2/Gen2 to Preserve ACL Data Lake Storage Gen1](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 

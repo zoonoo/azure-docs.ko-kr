@@ -2,19 +2,16 @@
 title: Azure Data Factory의 XML 형식
 description: 이 항목에서는 Azure Data Factory에서 XML 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 1555d8b97f89b567cb1769c0ba10ecf50bca4366
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a4082e1e00ecb1d3b0157fcc35616704eaab0aae
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352604"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386359"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure Data Factory의 XML 형식
 
@@ -71,7 +68,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 
 ### <a name="xml-as-source"></a>원본으로 XML
 
-복사 작업 **_ \_ 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에서 자세히 알아보세요.
+복사 작업 ***\* 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에서 자세히 알아보세요.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -111,7 +108,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 | 유효성 검사 모드 | XML 스키마의 유효성을 검사할지 여부를 지정 합니다. | 예 | `None` (기본값, 유효성 검사 없음)<br>`xsd` (XSD를 사용 하 여 유효성 검사)<br>`dtd` DTD를 사용 하 여 유효성을 검사 합니다. | validationMode |
 | 네임스페이스 | XML 파일을 구문 분석할 때 네임 스페이스를 사용할지 여부를 지정 합니다. | 예 | `true` (기본값) 또는 `false` | 네임스페이스 |
 | 네임 스페이스 접두사 쌍 | Xml 파일을 구문 분석할 때 필드의 이름을 결정 하는 데 사용 되는 네임 스페이스 URI-접두사 매핑<br/>XML 파일에 네임 스페이스 및 네임 스페이스가 사용 되는 경우 기본적으로 필드 이름은 XML 문서에 있는 것과 동일 합니다.<br>이 맵에서 네임 스페이스 URI에 대해 정의 된 항목이 있는 경우 필드 이름은 `prefix:fieldName` 입니다. | 예 | 패턴이 포함 된 배열`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>XML 원본 스크립트 예제
 

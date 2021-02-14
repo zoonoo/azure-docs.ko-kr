@@ -5,30 +5,34 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690078"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370110"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
-아래 표에는 Azure Digital Twins의 기능 한도가 나열 되어 있습니다.
+다음 표에는 Azure Digital Twins의 기능 한도가 정리 되어 있습니다. 
+
+> [!TIP]
+> 모델링 권장 구성이 이러한 기능 제한 내에서 작동 하려면 [모델 디자인에 대 한 모범 사례](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)를 참조 하세요.
 
 | 영역 | 기능 | 기본 제한 | 빗변? |
 | --- | --- | --- | --- |
 | Azure 리소스 | 구독 당 지역의 Azure Digital Twins 인스턴스 수 | 10 | 예 |
-| Digital Twins | Azure Digital 쌍 인스턴스의 쌍 수 | 200,000 | 예 |
-| Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 최대 크기 (PUT 또는 PATCH 요청의 JSON 본문) | 32KB | 아니요 |
-| Digital Twins | 최대 요청 페이로드 크기 | 32KB | 아니요 | 
-| 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | 아니요 |
+| Digital Twins | Azure Digital 쌍 인스턴스의 쌍 수 | 200,000 | Yes |
+| Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | 예 |
+| Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | 예 |
+| Digital Twins | 단일 쌍의 최대 크기 (PUT 또는 PATCH 요청의 JSON 본문) | 32KB | 예 |
+| Digital Twins | 최대 요청 페이로드 크기 | 32KB | 예 | 
+| 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | 예 |
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 경로 수 | 6 | 예 |
-| 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | 예 |
-| 모델 | 단일 API 호출에서 업로드할 수 있는 모델 수 | 250 | 아니요 |
-| 모델 | 단일 페이지에 반환 된 항목 수 | 100 | 아니요 |
+| 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | Yes |
+| 모델 | 단일 API 호출에서 업로드할 수 있는 모델 수 | 250 | 예 |
+| 모델 | 단일 모델의 최대 크기 (PUT 또는 PATCH 요청의 JSON 본문) | 1MB | 예 |
+| 모델 | 단일 페이지에 반환 된 항목 수 | 100 | 예 |
 | 쿼리 | 단일 페이지에 반환 된 항목 수 | 100 | 예 |
 | 쿼리 | `AND`  /  `OR` 쿼리의 식 수 | 50 | 예 |
 | 쿼리 | 절의 배열 항목 수 `IN`  /  `NOT IN` | 50 | 예 |
@@ -42,11 +46,11 @@ ms.locfileid: "98690078"
 | API | 기능 | 기본 제한 | 빗변? |
 | --- | --- | --- | --- |
 | 모델 API | 초당 요청 수 | 100 | 예 |
-| Digital Twins API | 초당 요청 수 | 2,000 | 예 |
+| Digital Twins API | 초당 요청 수 | 2,000 | Yes |
 | Digital Twins API | **모든 쌍 및 관계** 에서 초당 생성/삭제 작업 수 | 50 | 예 |
 | Digital Twins API | **단일** 쌍 또는 해당 관계에서 초당 생성/업데이트/삭제 작업 수입니다. | 10 | 예 |
-| 쿼리 API | 초당 요청 수 | 500 | 예 |
-| 쿼리 API | 초당 [쿼리 단위](../articles/digital-twins/concepts-query-units.md) | 4,000 | 예 |
+| 쿼리 API | 초당 요청 수 | 500 | Yes |
+| 쿼리 API | 초당 [쿼리 단위](../articles/digital-twins/concepts-query-units.md) | 4,000 | Yes |
 | 이벤트 경로 API | 초당 요청 수 | 100 | 예 |
 
 ### <a name="other-limits"></a>기타 제한

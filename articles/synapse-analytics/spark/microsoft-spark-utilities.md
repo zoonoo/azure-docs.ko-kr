@@ -1,7 +1,7 @@
 ---
 title: Microsoft Spark 유틸리티 소개
 description: '자습서: Azure Synapse Analytics 노트북의 MSSparkutils'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954296"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368662"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Microsoft Spark 유틸리티 소개
 
@@ -25,9 +25,9 @@ Microsoft Spark 유틸리티 (MSSparkUtils)는 일반적인 작업을 쉽게 수
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 액세스 구성 
 
-Synapse 노트북은 azure AD (Azure active directory) 통과를 사용 하 여 ADLS Gen2 계정에 액세스 합니다. ADLS Gen2 계정 (또는 폴더)에 액세스 하려면 **Blob Storage 참가자** 여야 합니다. 
+Synapse 노트북은 azure AD (Azure active directory) 통과를 사용 하 여 ADLS Gen2 계정에 액세스 합니다. ADLS Gen2 계정 (또는 폴더)에 액세스 하려면 **Blob Storage 데이터 참가자** 여야 합니다. 
 
-Synapse 파이프라인은 MSI (작업 영역 id)를 사용 하 여 저장소 계정에 액세스 합니다. 파이프라인 활동에서 MSSparkUtils를 사용 하려면 ADLS Gen2 계정 (또는 폴더)에 액세스 하려면 작업 영역 id를 **참가자 Blob Storage** 해야 합니다.
+Synapse 파이프라인은 MSI (작업 영역 id)를 사용 하 여 저장소 계정에 액세스 합니다. 파이프라인 활동에서 MSSparkUtils를 사용 하려면 ADLS Gen2 계정 (또는 폴더)에 액세스 하기 위해 작업 영역 id를 **데이터 참가자로 Blob Storage** 해야 합니다.
 
 다음 단계를 수행 하 여 Azure AD 및 작업 영역 MSI가 ADLS Gen2 계정에 액세스할 수 있도록 합니다.
 1. [Azure Portal](https://portal.azure.com/) 및 액세스 하려는 저장소 계정을 엽니다. 액세스 하려는 특정 컨테이너를 탐색할 수 있습니다.

@@ -4,18 +4,14 @@ description: 데이터 팩터리를 만들고 하위 리소스를 사용하는 �
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053774"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364480"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -54,14 +50,13 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인 하는 데 사용 �
 
 Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 권한과 독립적입니다. 결과적으로, 독자 역할의 구성원으로서 리포지토리 사용 권한을 가진 사용자는 Data Factory 자식 리소스를 편집하고 리포지토리에 변경을 커밋할 수 있지만 이러한 변경 내용을 게시할 수는 없습니다.
 
+
 > [!IMPORTANT]
 > **데이터 팩터리 참가자** 역할을 통해 Resource Manager 템플릿을 배포하더라도 권한이 상승되지는 않습니다. 예를 들어 가상 머신 생성 권한이 없는데 Azure Virtual Machine을 만드는 템플릿을 배포하면 배포가 실패하며 권한 부여 오류가 표시됩니다.
 
-> [!IMPORTANT]
-> 게시 컨텍스트 내에서 두 모드 모두에 **DataFactory/factory/write** 권한이 필요 합니다.
-
+   게시 컨텍스트에서 **DataFactory/factory/write** 권한은 다음 모드에 적용 됩니다.
 - 이 권한은 고객이 전역 매개 변수를 수정 하는 경우에만 라이브 모드 에서만 필요 합니다.
-- 최종 커밋 id가 있는 팩터리 개체가 업데이트 되기 때문에 고객이 게시 한 후에는 항상 Git 모드에서이 사용 권한이 필요 합니다.
+- 최종 커밋 ID가 있는 팩터리 개체는 고객이 게시 한 후에 항상 Git 모드에서 필요 합니다.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>사용자 지정 시나리오 및 사용자 지정 역할
 
@@ -95,6 +90,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 - 사용자가 PowerShell이나 SDK에서는 데이터 팩터리를 업데이트할 수 있지만 Azure Portal에서는 업데이트할 수 없도록 설정합니다.
 
   사용자에게 데이터 팩터리 리소스에 대한 기본 제공 **참가자** 역할을 할당합니다. 이 역할이 있는 사용자는 Azure Portal에서 리소스를 확인할 수는 있지만 **게시** 및 **모두 게시** 단추는 사용할 수 없습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

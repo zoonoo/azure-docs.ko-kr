@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 85f268990ac9e0c04cba1b9c409a232a24ce0d61
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 8202b9bd496b4f539df99e35a3118ed109dbd31c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365109"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Red Hat Enterprise Linux Server의 Azure VM에서 IBM DB2 LUW의 고가용성
 
@@ -146,10 +146,6 @@ IBM Db2 LUW의 리소스 에이전트는 Red Hat Enterprise Linux Server HA 추�
     + 3 단계에서 만든 Azure 가용성 집합을 선택 하거나 가용성 영역 (3 단계와 동일한 영역이 아님)을 선택 합니다.
 1. Vm에 데이터 디스크를 추가한 다음 [SAP 워크 로드에 대 한 IBM Db2 Azure VIRTUAL MACHINES DBMS 배포][dbms-db2]문서에서 파일 시스템 설정에 대 한 권장 사항을 확인 합니다.
 
-## <a name="create-the-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
-    
-이 IBM Db2 서버에 대 한 기본 Pacemaker 클러스터를 만들려면 [Azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요. 
-
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>IBM Db2 LUW 및 SAP 환경 설치
 
 IBM Db2 LUW을 기반으로 SAP 환경 설치를 시작 하기 전에 다음 문서를 검토 하세요.
@@ -209,7 +205,7 @@ sudo firewall-cmd --add-port=4237/tcp</code></pre>
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템** **System copy**  >  **배포**  >  **데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다.
+1. **대상 시스템**   >  **배포**  >  **데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다.
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 
@@ -277,7 +273,6 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 369280
              READS_ON_STANDBY_ENABLED = N
 
 
-
 #Secondary output:
 Database Member 0 -- Database ID2 -- Standby -- Up 1 days 15:45:18 -- Date 2019-06-25-10.56.19.820474
 
@@ -324,84 +319,10 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
                  PEER_WINDOW(seconds) = 1000
                       PEER_WINDOW_END = 06/25/2019 11:12:59.000000 (1561461179)
              READS_ON_STANDBY_ENABLED = N
-
 </code></pre>
-
-
-
-## <a name="db2-pacemaker-configuration"></a>Db2 Pacemaker 구성
-
-노드 오류가 발생할 경우 자동 장애 조치 (failover)에 Pacemaker를 사용 하는 경우 Db2 인스턴스 및 Pacemaker를 적절 하 게 구성 해야 합니다. 이 섹션에서는 이러한 유형의 구성에 대해 설명 합니다.
-
-다음 항목에는 접두사가 추가 됩니다.
-
-- **[A]**: 모든 노드에 적용 가능
-- **[1]**: 노드 1에만 적용 가능 
-- **[2]**: 노드 2에만 적용 가능
-
-**[A]** Pacemaker 구성에 대 한 필수 구성 요소:
-1. Db2stop를 사용 하 여 사용자 db2를 사용 하는 두 데이터베이스 서버를 종료 \<sid> 합니다.
-1. Db2 사용자에 대 한 셸 환경을 \<sid> */bin/ksh* 로 변경 합니다.
-<pre><code># Install korn shell:
-sudo yum install ksh
-# Change users shell:
-sudo usermod -s /bin/ksh db2&lt;sid&gt;</code></pre>
-   
-
-### <a name="pacemaker-configuration"></a>Pacemaker 구성
-
-**[1]** IBM Db2 HADR 관련 Pacemaker 구성:
-<pre><code># Put Pacemaker into maintenance mode
-sudo pcs property set maintenance-mode=true 
-</code></pre>
-
-**[1]** IBM Db2 리소스 만들기:
-<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
-sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
-
-#Configure resource stickiness and correct cluster notifications for master resoruce
-sudo pcs resource update Db2_HADR_<b>ID2</b>-master meta notify=true resource-stickiness=5000
-
-# Configure virtual IP - same as Azure Load Balancer IP
-sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
-
-# Configure probe port for Azure load Balancer
-sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
-
-#Create a group for ip and Azure loadbalancer probe port
-sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
-
-#Create colocation constrain - keep Db2 HADR Master and Group on same node
-sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-master
-
-#Create start order constrain
-sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
-</code></pre>
-
-**[1]** IBM Db2 리소스를 시작 합니다.
-* Pacemaker를 유지 관리 모드로 전환 합니다.
-<pre><code># Put Pacemaker out of maintenance-mode - that start IBM Db2
-sudo pcs property set maintenance-mode=false</pre></code>
-
-**[1]** 클러스터 상태가 양호 이며 모든 리소스가 시작 되었는지 확인 합니다. 리소스가 실행 되는 노드는 중요 하지 않습니다.
-<pre><code>sudo pcs status</code>
-2 nodes configured
-5 resources configured
-
-온라인: [az-idb01 az-idb02]
-
-전체 리소스 목록:
-
- rsc_st_azure (stonith: fence_azure_arm): 시작 az-idb01 Master/슬레이브 Set: Db2_HADR_ID2-Master [Db2_HADR_ID2] Masters: [az-idb01] 슬레이브: [az-idb02] 리소스 그룹: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (ocf:: 하트 비트: IPaddr2): Started az-idb01 nc_db2id2_ID2 (ocf:: 하트 비트: azure-lb): Started az-idb01
-
-디먼 상태: corosync: 활성/사용 안 함 pacemaker: 활성/사용 안 함 pcsd: 활성/사용
-</pre>
-
-> [!IMPORTANT]
-> Pacemaker tools를 사용 하 여 Pacemaker 클러스터형 Db2 인스턴스를 관리 해야 합니다. Db2stop와 같은 db2 명령을 사용 하면 Pacemaker에서 작업을 리소스 실패로 검색 합니다. 유지 관리를 수행 하는 경우 노드 또는 리소스를 유지 관리 모드로 전환할 수 있습니다. Pacemaker는 모니터링 리소스를 일시 중단 하 고 일반 db2 관리 명령을 사용할 수 있습니다.
-
 
 ### <a name="configure-azure-load-balancer"></a>Azure Load Balancer 구성
+
 Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../../load-balancer/load-balancer-overview.md) 를 사용 하 고 다음을 수행 하는 것이 좋습니다.
 
 > [!NOTE]
@@ -409,7 +330,6 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
 
 > [!IMPORTANT]
 > 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
-
 
 1. 프런트 엔드 IP 풀을 만듭니다.
 
@@ -464,8 +384,119 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](../../.
    g. **확인** 을 선택합니다.
 
 **[A]** 프로브 포트에 대 한 방화벽 규칙 추가:
+
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
+
+## <a name="create-the-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
+    
+이 IBM Db2 서버에 대 한 기본 Pacemaker 클러스터를 만들려면 [Azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요. 
+
+## <a name="db2-pacemaker-configuration"></a>Db2 Pacemaker 구성
+
+노드 오류가 발생할 경우 자동 장애 조치 (failover)에 Pacemaker를 사용 하는 경우 Db2 인스턴스 및 Pacemaker를 적절 하 게 구성 해야 합니다. 이 섹션에서는 이러한 유형의 구성에 대해 설명 합니다.
+
+다음 항목에는 접두사가 추가 됩니다.
+
+- **[A]**: 모든 노드에 적용 가능
+- **[1]**: 노드 1에만 적용 가능 
+- **[2]**: 노드 2에만 적용 가능
+
+**[A]** Pacemaker 구성에 대 한 필수 구성 요소:
+1. Db2stop를 사용 하 여 사용자 db2를 사용 하는 두 데이터베이스 서버를 종료 \<sid> 합니다.
+1. Db2 사용자에 대 한 셸 환경을 \<sid> */bin/ksh* 로 변경 합니다.
+<pre><code># Install korn shell:
+sudo yum install ksh
+# Change users shell:
+sudo usermod -s /bin/ksh db2&lt;sid&gt;</code></pre>  
+
+### <a name="pacemaker-configuration"></a>Pacemaker 구성
+
+**[1]** IBM Db2 HADR 관련 Pacemaker 구성:
+<pre><code># Put Pacemaker into maintenance mode
+sudo pcs property set maintenance-mode=true 
+</code></pre>
+
+**[1]** IBM Db2 리소스 만들기:
+
+**RHEL 7.x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.
+
+<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
+sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
+
+#Configure resource stickiness and correct cluster notifications for master resoruce
+sudo pcs resource update Db2_HADR_<b>ID2</b>-master meta notify=true resource-stickiness=5000
+
+# Configure virtual IP - same as Azure Load Balancer IP
+sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
+
+# Configure probe port for Azure load Balancer
+sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
+
+#Create a group for ip and Azure loadbalancer probe port
+sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
+
+#Create colocation constrain - keep Db2 HADR Master and Group on same node
+sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-master
+
+#Create start order constrain
+sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
+</code></pre>
+
+**RHEL .x** 에서 클러스터를 빌드하는 경우 다음 명령을 사용 합니다.
+
+<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
+sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' promotable meta notify=true resource-stickiness=5000
+
+#Configure resource stickiness and correct cluster notifications for master resoruce
+sudo pcs resource update Db2_HADR_<b>ID2</b>-clone meta notify=true resource-stickiness=5000
+
+# Configure virtual IP - same as Azure Load Balancer IP
+sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
+
+# Configure probe port for Azure load Balancer
+sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
+
+#Create a group for ip and Azure loadbalancer probe port
+sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
+
+#Create colocation constrain - keep Db2 HADR Master and Group on same node
+sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-clone
+
+#Create start order constrain
+sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-clone then g_ipnc_<b>db2id2</b>_<b>ID2</b>
+</code></pre>
+
+**[1]** IBM Db2 리소스를 시작 합니다.
+* Pacemaker를 유지 관리 모드로 전환 합니다.
+<pre><code># Put Pacemaker out of maintenance-mode - that start IBM Db2
+sudo pcs property set maintenance-mode=false</pre></code>
+
+**[1]** 클러스터 상태가 양호 이며 모든 리소스가 시작 되었는지 확인 합니다. 리소스가 실행 되는 노드는 중요 하지 않습니다.
+<pre><code>sudo pcs status
+2 nodes configured
+5 resources configured
+
+Online: [ az-idb01 az-idb02 ]
+
+Full list of resources:
+
+ rsc_st_azure   (stonith:fence_azure_arm):      Started az-idb01
+ Master/Slave Set: Db2_HADR_ID2-master [Db2_HADR_ID2]
+     Masters: [ az-idb01 ]
+     Slaves: [ az-idb02 ]
+ Resource Group: g_ipnc_db2id2_ID2
+     vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb01
+     nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb01
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+</code></pre>
+
+> [!IMPORTANT]
+> Pacemaker tools를 사용 하 여 Pacemaker 클러스터형 Db2 인스턴스를 관리 해야 합니다. Db2stop와 같은 db2 명령을 사용 하면 Pacemaker에서 작업을 리소스 실패로 검색 합니다. 유지 관리를 수행 하는 경우 노드 또는 리소스를 유지 관리 모드로 전환할 수 있습니다. Pacemaker는 모니터링 리소스를 일시 중단 하 고 일반 db2 관리 명령을 사용할 수 있습니다.
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>연결에 가상 IP를 사용 하도록 SAP 프로필 변경
 HADR 구성의 기본 인스턴스에 연결 하려면 SAP 응용 프로그램 계층에서 Azure Load Balancer에 대해 정의 하 고 구성한 가상 IP 주소를 사용 해야 합니다. 다음과 같이 변경 해야 합니다.
@@ -479,11 +510,9 @@ j2ee/dbhost = db-virt-hostname
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
-
-
 ## <a name="install-primary-and-dialog-application-servers"></a>기본 및 대화 상자 응용 프로그램 서버 설치
 
-Db2 HADR 구성에 대해 기본 및 대화 상자 응용 프로그램 서버를 설치 하는 경우 구성에 대해 선택한 가상 호스트 이름을 사용 합니다. 
+Db2 HADR 구성에 대해 기본 및 대화 상자 응용 프로그램 서버를 설치 하는 경우 구성에 대해 선택한 가상 호스트 이름을 사용 합니다.
 
 Db2 HADR 구성을 만들기 전에 설치를 수행한 경우 이전 섹션에 설명 된 대로 또는 SAP Java 스택에 대해 다음과 같이 변경 합니다.
 
@@ -507,6 +536,7 @@ J2EE 구성 도구를 사용 하 여 JDBC URL을 확인 하거나 업데이트�
 1. Java 인스턴스를 다시 시작 합니다.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>HADR 설치를 위한 로그 보관 구성
+
 HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관 위치에서 자동 로그 검색 기능을 갖도록 주 데이터베이스와 대기 데이터베이스를 모두 구성 하는 것이 좋습니다. 주 데이터베이스와 대기 데이터베이스는 모두 데이터베이스 인스턴스 중 하나가 로그 파일을 보관할 수 있는 모든 로그 보관 위치에서 로그 보관 파일을 검색할 수 있어야 합니다. 
 
 로그 보관은 주 데이터베이스 에서만 수행 됩니다. 데이터베이스 서버의 HADR 역할을 변경 하거나 오류가 발생 한 경우 새 주 데이터베이스는 로그 보관을 담당 합니다. 여러 로그 보관 위치를 설정한 경우 로그는 두 번 보관 될 수 있습니다. 로컬 또는 원격으로 로그인 하는 경우 이전 주 서버에서 보관 된 로그를 새 주 서버의 활성 로그 위치에 수동으로 복사 해야 할 수도 있습니다.
@@ -553,9 +583,6 @@ SAP 시스템의 원래 상태는 다음 이미지와 같이 트랜잭션 DBACOC
 
 ![DBACockpit-마이그레이션 전](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
 
-
-
-
 ### <a name="test-takeover-of-ibm-db2"></a>IBM Db2의 인수 테스트
 
 
@@ -565,9 +592,12 @@ SAP 시스템의 원래 상태는 다음 이미지와 같이 트랜잭션 DBACOC
 > * 위치 제약 조건이 없습니다 (마이그레이션 테스트의 leftovers).
 > * IBM Db2 HADR 동기화가 작동 중입니다. 사용자 db2로 확인\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
-
 다음 명령을 실행 하 여 기본 Db2 데이터베이스를 실행 하는 노드를 마이그레이션합니다.
-<pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master</code></pre>
+<pre><code># On RHEL 7.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-master
+# On RHEL 8.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
+</code></pre>
 
 마이그레이션이 완료 되 면 crm 상태 출력은 다음과 같습니다.
 <pre><code>2 nodes configured
@@ -594,8 +624,13 @@ SAP 시스템의 원래 상태는 다음 이미지와 같이 트랜잭션 DBACOC
 "Pc 리소스 이동"을 사용 하는 리소스 마이그레이션은 위치 제약 조건을 만듭니다. 이 경우 위치 제약 조건이 az-idb01에서 IBM Db2 인스턴스를 실행 하는 것을 방지 합니다. 위치 제약 조건이 삭제 되지 않은 경우 리소스를 장애 복구 (failback) 할 수 없습니다.
 
 위치 제한 및 대기 노드는 az-idb01에서 시작 됩니다.
-<pre><code>sudo pcs resource clear Db2_HADR_<b>ID2</b>-master</code></pre>
+<pre><code># On RHEL 7.x
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
+# On RHEL 8.x
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
+
 및 클러스터 상태가 다음으로 변경:
+
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -613,13 +648,16 @@ Full list of resources:
 
 ![DBACockpit-제거 되는 위치 제약](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-clear-rhel.png)
 
-
 리소스를 *az-idb01* 로 다시 마이그레이션하고 location 제약 조건을 지웁니다.
-<pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master az-idb01
+<pre><code># On RHEL 7.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-master az-idb01
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
-</code></pre>
+# On RHEL 8.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **pc 리소스 이동 \<res_name> <host> :** 위치 제약 조건을 만들며 인수와 관련 된 문제를 일으킬 수 있습니다.
+- **RHEL 7.x-pc 리소스 이동 \<res_name> <host> :** 위치 제약 조건을 만들지만 인수와 관련 된 문제를 일으킬 수 있습니다.
+- **RHEL .x-pc 리소스 이동 \<res_name> --마스터:** 위치 제약 조건을 만들지만 인수와 관련 된 문제를 일으킬 수 있습니다.
 - **pc 리소스 지우기 \<res_name>**: 위치 제약 조건 지우기
 - **pc 리소스 정리 \<res_name>**: 리소스의 모든 오류를 지웁니다.
 
@@ -763,7 +801,7 @@ Failed Actions:
 
 ### <a name="crash-the-vm-that-runs-the-hadr-primary-database-instance-with-halt"></a>"중지"로 HADR 주 데이터베이스 인스턴스를 실행 하는 VM의 작동이 중단 됩니다.
 
-<pre><code>#Linux kernel panic. 
+<pre><code>#Linux kernel panic.
 sudo echo b > /proc/sysrq-trigger</code></pre>
 
 이 경우 Pacemaker는 주 데이터베이스 인스턴스를 실행 하는 노드가 응답 하지 않는다는 것을 감지 합니다.

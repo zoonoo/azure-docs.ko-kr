@@ -2,19 +2,16 @@
 title: Azure Data Factory의 이진 형식
 description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: be4338942057cf52bf26b7fd1e15f77e724d49f8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc5b54e99584b74b287fa66deba1694419b46b16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348911"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393686"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
@@ -73,7 +70,7 @@ ms.locfileid: "96348911"
 
 ### <a name="binary-as-source"></a>소스로 이진
 
-복사 작업 **_ \_ 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\* 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -120,7 +117,7 @@ ms.locfileid: "96348911"
 
 ### <a name="binary-as-sink"></a>싱크로 이진 파일
 
-복사 작업 **_ \_ 싱크 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\* 싱크 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |

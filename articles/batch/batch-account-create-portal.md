@@ -4,12 +4,12 @@ description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896021"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368509"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -67,6 +67,9 @@ Batch 계정에 적용 되는 [리소스 할당량](batch-quota-limit.md) 을 �
 ## <a name="additional-configuration-for-user-subscription-mode"></a>사용자 구독 모드에 대한 추가 구성
 
 사용자 구독 모드에서 배치 계정 만들기를 선택하면 계정을 만들기 전에 다음과 같은 추가 단계를 수행합니다.
+
+> [!IMPORTANT]
+> 사용자 구독 모드에서 Batch 계정을 만드는 사용자에 게는 Batch 계정이 생성 되는 구독에 대 한 참가자 또는 소유자 역할 할당이 있어야 합니다.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch에서 구독에 액세스하도록 허용(일회성 작업)
 

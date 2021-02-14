@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Marketo에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: 08f117e2fc4939eee1458c0807cac5a292785608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aae25536f0ac1d5d3b43b5173d3e5789cd66a774
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669888"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385645"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,12 +47,12 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Marketo**로 설정해야 합니다. | 예 |
-| 엔드포인트(endpoint) | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | 예 |
-| clientId | Marketo 서비스의 클라이언트 ID입니다.  | 예 |
+| type | 형식 속성은 **Marketo** 로 설정해야 합니다. | Yes |
+| 엔드포인트(endpoint) | Marketo 서버의 엔드포인트입니다. (즉, 123-ABC-321.mktorest.com)  | Yes |
+| clientId | Marketo 서비스의 클라이언트 ID입니다.  | Yes |
 | clientSecret | Marketo 서비스의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**
@@ -83,7 +78,7 @@ Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Marketo 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MarketoObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -113,11 +108,11 @@ Marketo에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 ### <a name="marketo-as-source"></a>Marketo를 원본으로
 
-MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MarketoSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+MarketoSource에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MarketoSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **MarketoSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성은 **MarketoSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Activitiy_Types"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예:**

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725131"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365364"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>민감도 레이블을 사용 하 여 액세스 제어 
 
@@ -66,7 +66,7 @@ ms.locfileid: "98725131"
 
 * HBI 데이터, 사이트 또는 Microsoft 365 그룹에 대 한 기본값은 무엇 인가요?
 
-* 에서 민감도 레이블을 사용 하 여 [암호화를 적용](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) 하거나 [컨테이너 액세스 제한을 적용](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)하는 것과 비교 하 여 [레이블 및 모니터링](/microsoft-365/compliance/label-analytics?view=o365-worldwide)을 수행 하나요?
+* 에서 민감도 레이블을 사용 하 여 [암호화를 적용](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) 하거나 [컨테이너 액세스 제한을 적용](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)하는 것과 비교 하 여 [레이블 및 모니터링](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide)을 수행 하나요?
 
 **전자 메일 및 콘텐츠**
 

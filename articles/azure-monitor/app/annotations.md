@@ -3,12 +3,12 @@ title: Application Insights에 대한 릴리스 주석 | Microsoft Docs
 description: Application Insights에서 배포 또는 빌드 표식을 메트릭 탐색기 차트에 추가합니다.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993723"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386036"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
@@ -81,7 +81,7 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 
 이제 릴리스 템플릿을 사용 하 여 새 릴리스를 배포할 때마다 주석이 Application Insights으로 전송 됩니다. 다음 위치에서 주석을 볼 수 있습니다.
 
-또한 릴리스 주석을 수동으로 만들 수 있는 사용 창:
+또한 릴리스 주석을 수동으로 만들 수 있는 **사용** 창:
 
 ![일정 시간 동안 표시 되는 사용자 방문 수를 포함 하는 가로 막대형 차트 스크린샷 릴리스 주석은 릴리스 발생 시점을 나타내는 차트 위에 녹색 표시 표시로 표시 됩니다.](./media/annotations/usage-pane.png)
 

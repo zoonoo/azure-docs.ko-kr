@@ -3,12 +3,12 @@ title: Azure Functions 보안 설정
 description: Azure에서 실행 중인 함수 코드가 일반적인 공격으로부터 더욱 안전하게 보호하는 방법을 알아봅니다.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368492"
 ---
 # <a name="securing-azure-functions"></a>Azure Functions 보안 설정
 
@@ -107,6 +107,8 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+관리 되는 id는 일부 트리거 및 바인딩에서의 연결에 대 한 암호 대신 사용할 수 있습니다. [Id 기반 연결](#identity-based-connections)을 참조 하세요.
+
 자세한 내용은 [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)을 참조하세요.
 
 #### <a name="restrict-cors-access"></a>CORS 액세스 제한
@@ -136,6 +138,14 @@ HTTPS가 필요한 경우 최신 TLS 버전도 필요합니다. 방법을 알아
 애플리케이션 설정은 대부분의 함수에 충분하지만 여러 서비스에서 동일한 비밀을 공유하고자 할 수 있습니다. 이 경우 비밀의 중복 스토리지로 인해 잠재적인 취약성이 발생합니다. 보다 안전한 방법은 중앙 비밀 스토리지 서비스와 비밀 대신 이 서비스에 대한 참조 사용입니다.      
 
 [Azure Key Vault](../key-vault/general/overview.md)는 액세스 정책 및 감사 기록에 대한 전체 제어와 함께 중앙 집중식 비밀 관리를 제공하는 서비스입니다. 애플리케이션 설정에서 연결 문자열 또는 키 대신 Key Vault 참조를 사용할 수 있습니다. 자세히 알아보려면 [App Service 및 Azure Functions의 Key Vault 참조 사용](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json)을 참조하세요.
+
+### <a name="identity-based-connections"></a>Id 기반 연결
+
+일부 리소스에 연결 하기 위해 암호 대신 id를 사용할 수 있습니다. 이는 암호 관리를 요구 하지 않는 이점이 며 보다 세분화 된 액세스 제어 및 감사를 제공 합니다. 
+
+[AZURE AD 인증을 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 대 한 연결을 만드는 코드를 작성 하는 경우 비밀 또는 연결 문자열 대신 id를 사용 하도록 선택할 수 있습니다. 두 연결 방법에 대 한 세부 정보는 각 서비스에 대 한 설명서에 설명 되어 있습니다.
+
+Id 기반 연결을 사용 하 여 일부 Azure Functions 트리거 및 바인딩 확장을 구성할 수 있습니다. 현재 여기에는 [Azure Blob](./functions-bindings-storage-blob.md) 및 [azure 큐](./functions-bindings-storage-queue.md) 확장이 포함 됩니다. Id를 사용 하도록 이러한 확장을 구성 하는 방법에 대 한 자세한 내용은 [Azure Functions에서 id 기반 연결을 사용 하는 방법](./functions-reference.md#configure-an-identity-based-connection)을 참조 하세요.
 
 ### <a name="set-usage-quotas"></a>사용 할당량 설정
 

@@ -2,13 +2,13 @@
 title: Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
 description: Azure VMware 솔루션에서 실행 되는 웹 앱을 안전 하 게 노출 하도록 Azure 애플리케이션 게이트웨이를 구성 합니다.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384200"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Azure 애플리케이션 Gateway를 사용 하 여 Azure VMware 솔루션에서 웹 앱 보호
 
@@ -35,9 +35,9 @@ ms.locfileid: "99988635"
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Azure VMware 솔루션 웹 응용 프로그램으로 Application Gateway의 유효성을 검사 하는 데 사용 되는 테스트 시나리오를 보여 주는 다이어그램입니다." border="false":::
 
-Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 표준 DDoS 보호를 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 라우터 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과 통신할 수 있습니다.
+Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니다. Azure 공용 IP 주소를 포함 합니다. 가상 네트워크에 대 한 표준 DDoS 보호를 활성화 하는 것이 좋습니다. 웹 서버는 NSX T0 및 T1 게이트웨이 뒤에 있는 Azure VMware 솔루션 사설 클라우드에서 호스팅됩니다. Azure VMware 솔루션은 [express 경로 Global Reach](../expressroute/expressroute-global-reach.md) 를 사용 하 여 허브 및 온-프레미스 시스템과 통신할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정.
 - Azure VMware 솔루션 사설 클라우드를 배포 하 고 실행 합니다.
@@ -57,7 +57,7 @@ Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니�
 
 4. Azure VMware 솔루션 인프라에서 실행 되는 Vm의 백 엔드 풀을 추가 합니다. Azure VMware 솔루션 사설 클라우드에서 실행 되는 웹 서버에 대 한 세부 정보를 제공 하 고 **추가** 를 선택 합니다.  그런 후 **다음: 구성>** 를 선택 합니다.
 
-1. **구성** 탭에서 **라우팅 규칙 추가** 를 선택 합니다.
+5. **구성** 탭에서 **라우팅 규칙 추가** 를 선택 합니다.
 
 6. **수신기** 탭에서 수신기에 대 한 세부 정보를 제공 합니다. HTTPS를 선택한 경우 PFX 파일 또는 기존 Azure Key Vault 인증서에서 인증서를 제공 해야 합니다. 
 
@@ -77,7 +77,7 @@ Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니�
 
 ## <a name="configuration-examples"></a>구성 예제
 
-이 섹션에서는 이러한 사용 사례에 대 한 백 엔드 풀로 Azure VMware 솔루션 Vm을 사용 하 여 Application Gateway를 구성 하는 방법을 알아봅니다. 
+이제 다음 사용 사례에 대 한 Azure VMware 솔루션 Vm을 백 엔드 풀로 Application Gateway를 구성 합니다. 
 
 - [여러 사이트 호스팅](#hosting-multiple-sites)
 - [URL로 라우팅](#routing-by-url)
@@ -94,7 +94,7 @@ Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니�
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="VSphere 클라이언트의 웹 서버 세부 정보에 대 한 요약을 보여 주는 스크린샷":::
 
-    이 자습서를 설명 하기 위해 설치 된 인터넷 정보 서비스 (IIS) 역할이 설치 된 Windows Server 2016을 사용 했습니다. Vm을 설치한 후에는 다음 PowerShell 명령을 실행 하 여 각 Vm에서 IIS를 구성 합니다. 
+    인터넷 정보 서비스 (IIS) 역할이 설치 된 Windows Server 2016를 사용 했습니다. Vm을 설치한 후에는 다음 PowerShell 명령을 실행 하 여 각 Vm에서 IIS를 구성 합니다. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -121,7 +121,7 @@ Application Gateway 인스턴스는 전용 서브넷의 허브에 배포 됩니�
 
 ### <a name="routing-by-url"></a>URL로 라우팅
 
-이 절차에서는 기존 application gateway의 Azure VMware 솔루션 사설 클라우드에서 실행 중인 Vm을 사용 하 여 백 엔드 주소 풀을 정의 하는 방법을 보여 줍니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
+다음 단계는 Azure VMware 솔루션 사설 클라우드에서 실행 되는 Vm을 사용 하 여 백 엔드 주소 풀을 정의 합니다. 사설 클라우드가 기존 application gateway에 있습니다. 그런 다음, 웹 트래픽이 풀의 적절한 서버에 도착하도록 하는 라우팅 규칙을 만듭니다.
 
 1. 사설 클라우드에서 웹 팜을 나타내는 가상 컴퓨터 풀을 만듭니다. 
 

@@ -1,22 +1,18 @@
 ---
 title: Azure Table Storage 간 데이터 복사
 description: Data Factory를 사용하여 지원되는 원본 스토리지에서 Azure Table Storage로 데이터를 복사하거나, Table Storage에서 지원되는 싱크 스토리지로 데이터를 복사하는 방법을 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/20/2020
-ms.openlocfilehash: b70c08df25f3f5d572f88879f5073756de588d52
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1448bb3ebf541af047759bc886b2c174d89c1c50
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636479"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383775"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
 
@@ -237,7 +233,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 |:--- |:--- |:--- |
 | type | 복사 활동 source의 type 속성은 **AzureTableSource** 로 설정해야 합니다. |예 |
 | AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다.<br/>원본 쿼리는 `$filter` Azure Table Storage에서 지 원하는 쿼리 옵션의 직접 맵입니다. [이 문서의](/rest/api/storageservices/querying-tables-and-entities#supported-query-options)구문에 대해 자세히 알아보고 다음 [azureTableSourceQuery 예제 섹션](#azuretablesourcequery-examples)의 예제를 참조 하세요. |예 |
-| azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False** (기본값)입니다. |예 |
+| azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |예 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
 
@@ -268,7 +264,7 @@ Azure 테이블로 데이터를 복사하려면 복사 작업의 싱크 형식�
 | azureTableDefaultPartitionKeyValue |싱크에서 사용할 수 있는 기본 파티션 키 값입니다. |예 |
 | azureTablePartitionKeyName |값이 파티션 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 "AzureTableDefaultPartitionKeyValue"가 파티션 키로 사용됩니다. |예 |
 | azureTableRowKeyName |열 값이 행 키로 사용되는 열의 이름을 지정합니다. 지정하지 않으면 각 행에 GUID를 사용합니다. |예 |
-| azureTableInsertType |Azure Table에 데이터를 삽입하는 모드입니다. 이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>허용되는 값은 **merge** (기본값) 및 **replace** 입니다. <br/><br> 이 설정은 테이블 수준이 아닌 행 수준에 적용됩니다. 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. merge 및 replace 설정이 작동하는 방법을 알아보려면 [Insert Or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity)(엔터티 삽입 또는 병합) 및 [Insert Or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity)(엔터티 삽입 또는 바꾸기)를 참조하세요. |예 |
+| azureTableInsertType |Azure Table에 데이터를 삽입하는 모드입니다. 이 속성은 출력 테이블에서 파티션 및 행 키가 일치하는 기존 행의 값을 바꿀지 또는 병합할지 제어합니다. <br/><br/>허용되는 값은 **merge**(기본값) 및 **replace** 입니다. <br/><br> 이 설정은 테이블 수준이 아닌 행 수준에 적용됩니다. 두 옵션 모두 출력 테이블에서 입력에 존재하지 않는 행을 삭제하지 않습니다. merge 및 replace 설정이 작동하는 방법을 알아보려면 [Insert Or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity)(엔터티 삽입 또는 병합) 및 [Insert Or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity)(엔터티 삽입 또는 바꾸기)를 참조하세요. |예 |
 | writeBatchSize |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
 | writeBatchTimeout |writeBatchSize 또는 writeBatchTimeout에 도달하면 Azure Table에 데이터를 삽입합니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:20:00"(20 분)입니다. |아니요(기본값: 90초 - 스토리지 클라이언트의 기본 시간 제한) |
 

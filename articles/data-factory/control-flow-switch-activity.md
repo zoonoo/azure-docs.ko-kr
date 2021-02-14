@@ -1,20 +1,18 @@
 ---
 title: Azure Data Factory의 전환 작업
 description: 전환 작업을 사용 하면 조건에 따라 처리 흐름을 제어할 수 있습니다.
-services: data-factory
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: fd5bb37d54183020e233774a778d27f5d4588bb4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4d58b032fe0371c9b54cf66ab13f525880867fb6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486013"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385356"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 전환 작업
 
@@ -71,8 +69,8 @@ Switch 활동은 프로그래밍 언어로 제공 되는 스위치 문과 동일
 -------- | ----------- | -------------- | --------
 name | 전환 활동의 이름입니다. | String | 예
 type | *스위치로* 설정 해야 합니다.* | String | 예
-식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | 예
-cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | 예
+식 | 문자열 값으로 계산 해야 하는 식입니다. | 결과 형식 문자열이 포함 된 식 | Yes
+cases | 값이 식 계산에 일치할 때 실행할 작업 집합 및 값을 포함 하는 사례 집합입니다. 하나 이상의 사례를 제공 해야 합니다. 최대 25 개의 사례 제한이 있습니다. | Case 개체의 배열 | Yes
 defaultActivities | 식 계산에 만족 하지 않을 때 실행 되는 작업 집합입니다. | 작업 배열 | 예
 
 ## <a name="example"></a>예제

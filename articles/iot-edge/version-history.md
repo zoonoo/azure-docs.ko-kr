@@ -4,16 +4,16 @@ description: 최신 릴리스의 새로운 기능에 대 한 정보를 제공 �
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/08/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e7b85f3e01a1c9a9c354599cfed8359b4a56d549
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 9db51fe9298b7f3329d35df375d027046e1f272e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631457"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366152"
 ---
 # <a name="azure-iot-edge-versions-and-release-notes"></a>Azure IoT Edge 버전 및 릴리스 정보
 
@@ -23,16 +23,19 @@ Azure IoT Edge는 GitHub에 호스트 된 오픈 소스 IoT Edge 프로젝트에
 
 이 사이트에 대 한 IoT Edge 설명서는 서로 다른 두 버전의 제품에 사용할 수 있으므로 IoT Edge 환경에 적용 되는 콘텐츠를 선택할 수 있습니다. 현재 지원 되는 두 가지 버전은 다음과 같습니다.
 
-* **IoT Edge 1.0.10** 에는 [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10)의 최신 릴리스를 통해 모든 기능 및 기능이 포함 되어 있습니다.
+* **LTS (IoT Edge 1.1** )는 IoT Edge의 lts (장기 지원) 버전입니다. 이 버전에 대 한 설명서에서는 모든 이전 버전의 모든 기능 및 기능을 1.1 이상 다룹니다. 이 설명서 버전은 지원 되는 버전 1.1의 수명 동안 안정적 이며 이후 버전에서 릴리스된 새로운 기능을 반영 하지 않습니다. 1.1 릴리스는 일반적으로 사용 가능한 최신 버전의 IoT Edge입니다.
 * **IoT Edge 1.2 (미리 보기)** 에는 최신 미리 보기 릴리스에 포함 된 기능에 대 한 추가 내용이 포함 되어 있습니다. [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1)
   * IoT Edge 1.2는 미리 보기 상태 이지만 릴리스 후보 버전을 설치 해야 합니다. 자세한 내용은 [오프 라인 또는 특정 버전 설치](how-to-install-iot-edge.md?tabs=linux#offline-or-specific-version-installation-optional)를 참조 하세요.
+
+IoT Edge 릴리스에 대 한 자세한 내용은 [지원 되는 시스템 Azure IoT Edge](support.md)을 참조 하세요.
 
 ## <a name="version-history"></a>버전 기록
 
 이 표에서는 IoT Edge 패키지 릴리스에 대 한 최신 버전 기록을 제공 하며, 각 버전에 대해 적용 된 문서 업데이트를 강조 표시 합니다.
 
-| 릴리스 정보 및 자산 | 형식 | Date | 주요 항목 |
+| 릴리스 정보 및 자산 | 형식 | 날짜 | 주요 항목 |
 | ------------------------ | ---- | ---- | ---------- |
+| [1.1](https://github.com/Azure/azure-iotedge/releases/tag/1.1.0) | LTS(장기 지원) | 2021년 2월 | [장기적인 지원 계획 및 지원 되는 시스템 업데이트](support.md) |
 | [1.2-rc1](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) | 미리 보기 | 2020년 11월 | [게이트웨이 뒤에 있는 장치 IoT Edge](how-to-connect-downstream-iot-edge-device.md?view=iotedge-2020-11&preserve-view=true)<br>[IoT Edge MQTT broker](how-to-publish-subscribe.md?view=iotedge-2020-11&preserve-view=true) |
 | [1.0.10](https://github.com/Azure/azure-iotedge/releases/tag/1.0.10) | Stable | 2020년 10월 | [UploadSupportBundle direct 메서드](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics)<br>[런타임 메트릭 업로드](how-to-access-built-in-metrics.md)<br>[경로 우선 순위 및 ttl (time-to-live)](module-composition.md#priority-and-time-to-live)<br>[모듈 시작 순서](module-composition.md#configure-modules)<br>[X.509 수동 프로 비전](how-to-register-device.md) |
 | [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | 2020년 3월 | [X.509 자동 프로 비전 DPS](how-to-auto-provision-x509-certs.md)<br>[RestartModule direct 메서드](how-to-edgeagent-direct-method.md#restart-module)<br>[지원-번들 명령](troubleshoot.md#gather-debug-information-with-support-bundle-command) |

@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ee281e60a0eb6f6192e63a9733146714e4aaf2eb
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510685"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104385"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -35,7 +35,7 @@ ms.locfileid: "97510685"
 |Microsoft.AppConfiguration/configurationStores |예 | 예 | [App Configuration](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/Spring | 예 | 예 | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automationAccounts | 예| 예 | [자동화 계정](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft AVS/privateClouds | 예 | 예 | |
+|Microsoft AVS/privateClouds | 예 | 예 | [Azure VMware 솔루션](./metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batch/batchAccounts | 예 | 예 | [일괄 처리 계정](./metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.Cache/Redis | 예 | 예 | [Azure Cache for Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 예 | 예 | [클래식 Cloud Services](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -54,7 +54,7 @@ ms.locfileid: "97510685"
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | 예 | 예 | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| 예| 예 | [데이터 팩터리 V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft.DataFactory/factories |예 | 예 | [데이터 팩터리 V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/accounts | 예 | 예 | |
+|Microsoft.DataShare/accounts | 예 | 예 | [데이터 공유](./metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servers | 예 | 예 | [MariaDB 용 DB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | 예 | 예 |[MySQL용 DB](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers | 예 | 예 | [PostgreSQL용 DB](./metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -62,7 +62,7 @@ ms.locfileid: "97510685"
 |Microsoft.DBforPostgreSQL/flexibleServers | 예 | 예 | [PostgreSQL 용 DB (유연한 서버)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | 예 | 예 |[IoT Hub](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| 예 | 예 | [장치 프로 비전 서비스](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|DigitalTwins/digitalTwinsInstances | 예 | 예 | |
+|DigitalTwins/digitalTwinsInstances | 예 | 예 | [Digital Twins](./metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/databaseAccounts | 예 | 예 | [Cosmos DB](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft.EventGrid/domains | 예 | 예 | [Event Grid 도메인](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft EventGrid/systemTopics | 예 | 예 | [Event Grid 시스템 항목](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -87,10 +87,10 @@ ms.locfileid: "97510685"
 |Microsoft.Network/expressRouteCircuits | 예 | 예 |[Express 경로 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRoutePorts | 예 | 예 |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 예 | [부하 분산 장치](./metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft. Network/natGateways| 예 | 예 | |
-|Microsoft. Network/privateEndpoints| 예 | 예 | |
-|Microsoft.Network/privateLinkServices| 예 | 예 |
-|Microsoft.Network/publicipaddresses | 예 | 예 |[공용 IP 주소](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft. Network/natGateways| 예 | 예 | [NAT 게이트웨이](./metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft. Network/privateEndpoints| 예 | 예 | [프라이빗 엔드포인트](./metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| 예 | 예 | [개인 링크 서비스](./metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresses | 예 | 예 | [공용 IP 주소](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | 예 | 예 | [Traffic Manager 프로필](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| 예 | 예 | [Log Analytics 작업 영역](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft 피어 링/피어 링 | 예 | 예 | [피어 링](./metrics-supported.md#microsoftpeeringpeerings) |
@@ -107,7 +107,7 @@ ms.locfileid: "97510685"
 |Microsoft.Storage/storageAccounts/fileServices | 예| 예 | [저장소 계정-파일](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAccounts/queueServices | 예| 예 | [저장소 계정-큐](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAccounts/tableServices | 예| 예 | [저장소 계정-테이블](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | 예 | 예 | |
+|Microsoft.StorageCache/caches | 예 | 예 | [HPC 캐시](./metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft.storagesync/storageSyncServices | 예 | 예 | [스토리지 동기화 서비스](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | 예 | 예 | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | 예 | 예 | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |

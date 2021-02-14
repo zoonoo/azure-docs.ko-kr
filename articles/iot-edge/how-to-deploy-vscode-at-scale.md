@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043819"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377519"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Visual Studio Code를 사용 하 여 규모에 IoT Edge 모듈 배포
 
@@ -44,7 +44,7 @@ Visual Studio Code에 대 한 Azure IoT 확장을 사용 하 여 허브를 통�
 
 1. **Azure IoT Hub** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다.
 
-1. **IoT Hub 선택**을 선택합니다.
+1. **IoT Hub 선택** 을 선택합니다.
 
 1. Azure 계정에 로그인 하지 않은 경우 프롬프트에 따라 작업을 수행 합니다.
 
@@ -82,7 +82,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -91,7 +91,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -218,9 +218,9 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
 
 1. **보기** 메뉴에서 **명령 팔레트** 를 선택 하 고 **Azure IoT Edge: 크기 조정 시 배포 만들기** 명령을 선택 합니다.
 
-1. 사용하려는 배포 매니페스트 JSON 파일로 이동하고 **에지 배포 매니페스트 선택**을 클릭합니다.
+1. 사용하려는 배포 매니페스트 JSON 파일로 이동하고 **에지 배포 매니페스트 선택** 을 클릭합니다.
 
-1. **배포 ID**부터 시작 하 여 값을 입력 합니다.
+1. **배포 ID** 부터 시작 하 여 값을 입력 합니다.
 
    ![배포 ID 지정](./media/how-to-deploy-monitor-vscode/create-deployment-at-scale.png)
 
@@ -229,8 +229,8 @@ Visual Studio Code에서 장치 쌍을 편집 하 여 태그를 구성할 수 �
   | 매개 변수 | 설명 |
   | --- | --- |
   | 배포 ID | IoT hub에서 생성 될 배포의 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다. |
-  | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다. 조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.예를 들면 `tags.environment='test' and properties.reported.devicemodel='4000x'` 입니다. |
-  | 우선순위 |  양의 정수 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
+  | 대상 조건 | 대상 조건을 입력 하 여이 배포의 대상으로 지정할 장치를 결정 합니다.  조건은 디바이스 쌍 태그 또는 보고되는 디바이스 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다.  `tags.environment='test' and properties.reported.devicemodel='4000x'`)을 입력합니다. |
+  | 우선 순위 |  양의 정수 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우 우선 순위 값이 가장 높은 배포가 적용 됩니다. |
 
   우선 순위를 지정 하면 터미널은 다음 표시와 유사한 출력을 표시 합니다.
 

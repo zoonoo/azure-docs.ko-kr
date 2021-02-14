@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687394"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393244"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,16 +25,16 @@ ms.locfileid: "97687394"
 
 ## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
-Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하지 않는 계산 계층은 계산 자동 크기 조정 범위 및 autopause 지연에 의해 매개 변수화 됩니다. 이러한 매개 변수의 구성에는 데이터베이스 성능 경험과 계산 비용이 있습니다.
+Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하지 않는 계산 계층은 계산 자동 크기 조정 범위와 자동 일시 중지 지연에 의해 매개 변수화 됩니다. 이러한 매개 변수의 구성에는 데이터베이스 성능 경험과 계산 비용이 있습니다.
 
 ![서버리스 청구](./media/serverless-tier-overview/serverless-billing.png)
 
 ### <a name="performance-configuration"></a>성능 구성
 
 - **최소 vcores** 및 **최대 vcores** 는 데이터베이스에 사용할 수 있는 계산 용량의 범위를 정의 하는 구성 가능한 매개 변수입니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
-- **Autopause delay** 는 데이터베이스를 자동으로 일시 중지 하기 전에 비활성 상태로 유지 해야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 autopausing를 사용 하지 않도록 설정할 수 있습니다.
+- **자동 일시 중지 지연** 시간은 자동으로 일시 중지 되기 전에 데이터베이스가 비활성 상태로 유지 되어야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 자동 일시 중지를 사용 하지 않도록 설정할 수 있습니다.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>비용
 
 - 서버를 사용 하지 않는 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
 - 계산 사용법이 구성 된 최소 및 최대 한도 사이에 있는 경우 계산 비용은 vCore 및 사용 되는 메모리를 기반으로 합니다.
@@ -48,16 +48,16 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 
 서버리스는 간헐적이고 예측 불가능한 사용 패턴이 있는 단일 데이터베이스에 최적화된 가격 대비 성능이며, 유휴 사용 기간 후 컴퓨팅 준비가 약간 지연될 수 있습니다. 반면, 프로비저닝된 컴퓨팅 계층은 컴퓨팅 준비를 지연할 수 없는 평균 사용량이 많은 탄력적 풀의 단일 데이터베이스 또는 다중 데이터베이스에 최적화된 가격 대비 성능입니다.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>서버리스 컴퓨팅에 적합한 시나리오
+### <a name="scenarios-well-suited-for-serverless-compute"></a>서버를 사용 하지 않는 계산에 대해 적합 한 시나리오
 
 - 시간에 따른 비활성 시간 및 낮은 평균 계산 사용률을 포함 하는 간헐적이 고 예측할 수 없는 사용 패턴이 포함 된 단일 데이터베이스.
 - 서비스에 계산 크기 조정을 위임 하는 고객을 선호 하는 프로 비전 된 계산 계층의 단일 데이터베이스 재조정.
 - SQL Database에서 배포 하기 전에 계산 크기 조정을 어렵거나 예측할 수 없는 사용 기록이 없는 새로운 단일 데이터베이스.
 
-### <a name="scenarios-well-suited-for-provisioned-compute"></a>프로비저닝된 컴퓨팅에 적합한 시나리오
+### <a name="scenarios-well-suited-for-provisioned-compute"></a>프로 비전 된 계산에 대해 적합 한 시나리오
 
 - 정기적이 고 예측 가능한 사용 패턴이 있으며 시간이 지남에 따라 평균 계산 사용률을 높이는 단일 데이터베이스.
-- 일시 중지된 상태에서 메모리 조정 또는 자동 다시 시작 지연이 자주 발생하여 성능 절충을 허용할 수 없는 데이터베이스가 있습니다.
+- 일시 중지 된 상태에서 다시 시작 하는 동안 메모리를 더 자주 자르는 작업이 나 지연으로 인해 성능 장단점을 허용할 수 없는 데이터베이스입니다.
 - 더 나은 가격 대비 성능 최적화를 위해 탄력적 풀로 통합 될 수 있는 간헐적이 고 예측할 수 없는 사용 패턴이 있는 여러 데이터베이스
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>프로비저닝된 컴퓨팅 계층과의 비교
@@ -93,40 +93,40 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 - 가장 최근에 사용한 캐시 항목의 전체 크기가 일정 시간 동안 임계값 미만이 되 면 활성 캐시 사용률은 낮은 것으로 간주 됩니다.
 - 캐시 재사용이 트리거되면 대상 캐시 크기가 점차적으로 이전 크기의 분수로 줄어들고 사용량이 낮은 경우에만 회수 됩니다.
 - 캐시를 다시 사용할 때 제거할 캐시 항목을 선택 하는 정책은 메모리 압력이 높으면 프로 비전 된 계산 데이터베이스와 동일한 선택 정책입니다.
-- 캐시 크기는 구성할 수 있는 최소 vCores에 정의 된 최소 메모리 제한 아래로 축소 되지 않습니다.
+- 캐시 크기는 구성할 수 있는 min vCores에 정의 된 최소 메모리 한도 이하로 축소 되지 않습니다.
 
 서버 리스 서버와 프로 비전 된 계산 데이터베이스 모두에서 사용 가능한 모든 메모리를 사용 하는 경우 캐시 항목이 제거 될 수 있습니다.
 
-CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업 및 QDS 정리 태스크는 삭제 되도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
+CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업 및 QDS 정리 태스크는 삭제 되도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스가 실행 될 때까지 물리적으로 삭제 되지 않습니다.
 
 #### <a name="cache-hydration"></a>캐시 하이드레이션
 
 SQL 캐시는 프로 비전 된 데이터베이스의 경우와 동일한 방식으로 디스크에서 데이터를 인출 하는 것과 동일한 속도로 증가 합니다. 데이터베이스가 사용 중인 경우 캐시는 최대 메모리 제한까지 제한 시간을 늘릴 수 있습니다.
 
-## <a name="autopausing-and-autoresuming"></a>Autopausing 및 autoresuming
+## <a name="auto-pause-and-auto-resume"></a>자동 일시 중지 및 자동 다시 시작
 
-### <a name="autopausing"></a>Autopausing
+### <a name="auto-pause"></a>자동 일시 중지
 
-Autopause 지연 기간 동안 다음 조건이 모두 true 인 경우 Autopausing이 트리거됩니다.
+자동 일시 중지 지연 시간 동안 다음 조건이 모두 충족 되는 경우 자동 일시 중지가 트리거됩니다.
 
 - 세션 수 = 0
 - 사용자 풀에서 실행 되는 사용자 작업에 대 한 CPU = 0
 
-원하는 경우 autopausing를 사용 하지 않도록 설정 하는 옵션이 제공 됩니다.
+원하는 경우 자동 일시 중지를 사용 하지 않도록 설정 하는 옵션이 제공 됩니다.
 
-다음 기능은 autopausing을 지원 하지 않지만 자동 크기 조정을 지원 합니다.  다음 기능 중 하나를 사용 하는 경우 autopausing를 사용 하지 않도록 설정 해야 하며 데이터베이스 비활성 기간에 관계 없이 데이터베이스가 온라인 상태로 유지 됩니다.
+다음 기능은 자동 일시 중지를 지원 하지 않지만 자동 크기 조정을 지원 합니다.  다음 기능 중 하나를 사용 하는 경우 자동 일시 중지를 사용 하지 않도록 설정 해야 하며 데이터베이스 비활성 기간에 관계 없이 데이터베이스가 온라인 상태로 유지 됩니다.
 
 - 지역에서 복제 (활성 지역 복제 및 자동 장애 조치 그룹)
 - 장기 백업 보존 (LTR).
-- SQL 데이터 동기화에 사용 되는 동기화 데이터베이스입니다.  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 autopausing을 지원 합니다.
+- SQL 데이터 동기화에 사용 되는 동기화 데이터베이스입니다.  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 자동 일시 중지를 지원 합니다.
 - DNS 별칭
 - 탄력적 작업 (미리 보기)에 사용 되는 작업 데이터베이스입니다.
 
-Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 차단 됩니다.  이러한 경우 서비스 업데이트가 완료 되 면 autopausing가 다시 허용 됩니다.
+자동 일시 중지는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 차단 됩니다.  이러한 경우, 서비스 업데이트가 완료 되 면 자동 일시 중지가 다시 허용 됩니다.
 
-### <a name="autoresuming"></a>Autoresuming
+### <a name="auto-resuming"></a>자동 다시 시작
 
-언제 든 지 다음 조건 중 하나라도 충족 되 면 Autoresuming가 트리거됩니다.
+언제 든 지 다음 조건 중 하나라도 충족 되 면 자동 다시 시작이 트리거됩니다.
 
 |기능|자동 다시 시작 트리거|
 |---|---|
@@ -139,7 +139,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |취약점 평가|임시 검색 및 정기적 검색 사용 (사용 하도록 설정 된 경우)|
 |쿼리(성능) 데이터 저장소|쿼리 저장소 설정 수정 또는 보기|
 |성능 권장 사항|성능 권장 사항 보기 또는 적용|
-|자동 튜닝|자동 인덱싱과 같은 자동 실행 추천 사항의 적용 및 확인|
+|자동 조정|자동 조정 권장 사항 (예: 자동 인덱싱)의 응용 프로그램 및 확인|
 |데이터베이스 복사|복사본으로 데이터베이스를 만듭니다.<br>BACPAC 파일로 내보냅니다.|
 |SQL 데이터 동기화|구성 가능한 예약에 따라 실행되거나 수동으로 수행되는 허브 및 멤버 데이터베이스 간의 동기화|
 |특정 데이터베이스 메타데이터 수정|새 데이터베이스 태그를 추가 하 고 있습니다.<br>최대 vCores, min vCores 또는 autopause delay를 변경 합니다.|
@@ -147,7 +147,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 
 위에 나열 된 작업을 수행 하는 모니터링, 관리 또는 기타 솔루션은 자동 다시 시작을 트리거합니다.
 
-Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안에도 트리거됩니다.
+자동 다시 시작은 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안에도 트리거됩니다.
 
 ### <a name="connectivity"></a>연결
 
@@ -155,7 +155,7 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
 ### <a name="latency"></a>대기 시간
 
-서버를 사용 하지 않는 데이터베이스를 autoresume 및 autopause 하는 대기 시간은 일반적으로 1 분에서 autoresume로, 1-10 분에서 autopause로 정렬 됩니다.
+서버를 사용 하지 않는 데이터베이스를 자동으로 다시 시작 하 고 자동으로 일시 중지 하는 대기 시간은 일반적으로 1 분에서 자동 다시 시작 하 고 자동으로 일시 중지 하는 데 1-10 분입니다.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>고객 관리 BYOK (투명 한 데이터 암호화)
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-자세한 내용은 [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)를 참조 하세요.  
+자세한 내용은 [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)를 참조 하세요.  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스 이동
 
@@ -234,14 +234,14 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Transact-sql 사용 (T-sql)
 
-T-sql을 사용 하는 경우 최소 vcore 및 autopause delay에 대해 기본값이 적용 됩니다.
+T-sql을 사용 하는 경우 최소 vcore 및 자동 일시 중지 지연에 대해 기본값이 적용 됩니다.
 
 ```sql
 ALTER DATABASE testdb 
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-자세한 내용은 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)를 참조 하세요.
+자세한 내용은 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true)를 참조 하세요.
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>서버를 사용 하지 않는 계산 계층에서 프로 비전 된 계산 계층으로 데이터베이스 이동
 
@@ -276,7 +276,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|Description|단위|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
@@ -307,7 +307,7 @@ az sql db show --name $databasename --resource-group $resourcegroupname --server
 ```
 
 
-## <a name="resource-limits"></a>리소스 한계
+## <a name="resource-limits"></a>리소스 제한
 
 리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.
 
@@ -333,7 +333,7 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 
 서버를 사용 하지 않는 데이터베이스가 일시 중지 되 면 계산 청구서는 0입니다.  서버를 사용 하지 않는 데이터베이스가 일시 중지 되지 않은 경우 최소 계산 청구서는 최대 (최소 vCores, 최소 메모리 GB * 1/3)를 기반으로 하는 vCores의 크기 보다 낮습니다.
 
-예제:
+예:
 
 - 서버를 사용 하지 않는 데이터베이스를 일시 중지 하 고 8 최대 Vcores 및 1 분 Vcores를 사용 하 여 3.0 GB min memory로 구성 했다고 가정 합니다.  그런 다음 최소 계산 요금은 최대 (1 vCore, 3.0 g b * 1 vCore/3gb) = 1 vCore를 기반으로 합니다.
 - 서버를 사용 하지 않는 데이터베이스를 일시 중지 하 고 4 개의 최대 vCores 및 0.5 분 vCores를 사용 하 여 2.1 GB min memory로 구성 한다고 가정 합니다.  그런 다음 최소 compute 청구는 최대 (0.5 vCores, 2.1 GB * 1 Vcores/3gb) = 0.7 Vcores를 기반으로 합니다.

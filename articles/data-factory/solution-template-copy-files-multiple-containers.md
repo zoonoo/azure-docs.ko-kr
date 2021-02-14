@@ -1,22 +1,18 @@
 ---
 title: 여러 컨테이너의 파일 복사
 description: Azure Data Factory를 사용 하 여 솔루션 템플릿을 사용 하 여 여러 컨테이너의 파일을 복사 하는 방법을 알아봅니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629428"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376091"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Azure Data Factory를 사용 하 여 여러 폴더 복사
 

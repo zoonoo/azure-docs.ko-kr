@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539199"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377332"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>연속 백업 및 지정 시간 복원 (미리 보기)을 사용 하 여 구성 및 관리-Azure CLI 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ Azure Cosmos DB의 지정 시간 복원 기능 (미리 보기)을 사용 하면 
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>연속 백업을 사용 하 여 SQL API 계정 프로 비전
 
-연속 백업을 사용 하 여 SQL API 계정을 프로 비전 하려면 `--backup-policy-type Continuous` 일반 프로 비전 명령과 함께 추가 인수를 전달 해야 합니다. 다음 명령은 `pitracct2` "myrg" 리소스 그룹의 "미국 서 부" 지역에서 생성 된 연속 백업 정책으로 명명 된 단일 지역 쓰기 계정의 예입니다.
+연속 백업을 사용 하 여 SQL API 계정을 프로 비전 하려면 `--backup-policy-type Continuous` 일반 프로 비전 명령과 함께 추가 인수를 전달 해야 합니다. 다음 명령은 `pitracct2` *myrg* 리소스 그룹의 *미국 서 부* 지역에서 생성 된 연속 백업 정책이 있는 라는 단일 지역 쓰기 계정의 예입니다.
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>연속 백업을 사용 하 여 MongoDB 용 Azure Cosmos DB API 계정 프로 비전
 
-다음 명령은 `pitracct3` "myrg" 리소스 그룹에서 "미국 서 부" 영역을 만든 연속 백업 정책으로 명명 된 단일 지역 쓰기 계정의 예를 보여 줍니다.
+다음 명령은 `pitracct3` *myrg* 리소스 그룹에서 *미국 서 부* 지역을 만든 연속 백업 정책으로 명명 된 단일 지역 쓰기 계정의 예를 보여 줍니다.
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ az cosmosdb restorable-database-account list --account-name "pitrbb"
   }
 ```
 
-계정에 대 한 "CreationTime" 또는 "DeletionTime"와 마찬가지로 해당 지역에 대 한 "CreationTime" 또는 "DeletionTime"도 있습니다. 이러한 시간을 사용 하 여 해당 지역으로 복원할 올바른 지역 및 유효한 시간 범위를 선택할 수 있습니다.
+`CreationTime`계정에 대 한 또는와 마찬가지로 `DeletionTime` `CreationTime` 지역에도 또는가 있습니다 `DeletionTime` . 이러한 시간을 사용 하 여 해당 지역으로 복원할 올바른 지역 및 유효한 시간 범위를 선택할 수 있습니다.
 
 **라이브 데이터베이스 계정에 있는 모든 버전의 데이터베이스 나열**
 
 데이터베이스의 모든 버전을 나열 하면 데이터베이스의 실제 존재 시간을 알 수 없는 경우 올바른 데이터베이스를 선택할 수 있습니다.
 
-다음 CLI 명령을 실행 하 여 모든 버전의 데이터베이스를 나열 합니다. 이 명령은 live 계정 에서만 작동 합니다. "InstanceId" 및 "location" 매개 변수는 명령 응답의 "name" 및 "location" 속성에서 가져옵니다 `az cosmosdb restorable-database-account list` . InstanceId 특성은 복원 되는 원본 데이터베이스 계정의 속성 이기도 합니다.
+다음 CLI 명령을 실행 하 여 모든 버전의 데이터베이스를 나열 합니다. 이 명령은 live 계정 에서만 작동 합니다. `instanceId`및 `location` 매개 변수는 `name` `location` 명령 응답의 및 속성에서 가져옵니다 `az cosmosdb restorable-database-account list` . InstanceId 특성은 복원 되는 원본 데이터베이스 계정의 속성 이기도 합니다.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ az cosmosdb sql restorable-database list \
 
 **라이브 데이터베이스 계정에 있는 데이터베이스의 모든 버전의 SQL 컨테이너를 나열 합니다.**
 
-다음 명령을 사용 하 여 모든 버전의 SQL 컨테이너를 나열 합니다. 이 명령은 live 계정 에서만 작동 합니다. "DatabaseRid" 매개 변수는 복원 하려는 데이터베이스의 "ResourceId"입니다. 이 값은 명령의 응답에서 찾은 "소유자 Resourceid" 특성의 값입니다 `az cosmosdb sql restorable-database list` .
+다음 명령을 사용 하 여 모든 버전의 SQL 컨테이너를 나열 합니다. 이 명령은 live 계정 에서만 작동 합니다. `databaseRid`매개 변수는 `ResourceId` 복원 하려는 데이터베이스의입니다. `ownerResourceid`명령의 응답에 있는 특성의 값입니다 `az cosmosdb sql restorable-database list` .
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>MongoDB API 계정에 대 한 복원 가능한 리소스 열거
 
-아래에 설명 된 열거 명령은 다양 한 타임 스탬프에서 복원에 사용할 수 있는 리소스를 검색 하는 데 도움이 됩니다. 또한 복원 가능한 계정, 데이터베이스 및 컨테이너 리소스에 대 한 주요 이벤트의 피드를 제공 합니다. SQL API와 마찬가지로 명령에는 " `az cosmosdb` sql" 대신 "mongodb"를 매개 변수로 사용할 수 있습니다. 이러한 명령은 라이브 계정에 대해서만 작동 합니다.
+아래에 설명 된 열거 명령은 다양 한 타임 스탬프에서 복원에 사용할 수 있는 리소스를 검색 하는 데 도움이 됩니다. 또한 복원 가능한 계정, 데이터베이스 및 컨테이너 리소스에 대 한 주요 이벤트의 피드를 제공 합니다. SQL API와 마찬가지로 `az cosmosdb` 명령을 `mongodb` 대신 매개 변수로 사용할 수 있습니다 `sql` . 이러한 명령은 라이브 계정에 대해서만 작동 합니다.
 
 **라이브 데이터베이스 계정에 있는 mongodb 데이터베이스의 모든 버전을 나열 합니다.**
 

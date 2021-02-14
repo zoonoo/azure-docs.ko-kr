@@ -13,18 +13,19 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449255"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369427"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure 전면 도어의 도메인에 대 한 지역 필터링
 
 기본적으로 Azure Front 도어가 요청이 발생 하는 위치에 관계 없이 모든 사용자 요청에 응답 합니다. 일부 시나리오에서는 국가/지역에 따라 웹 응용 프로그램에 대 한 액세스를 제한 하는 것이 좋습니다. 전면 도어의 WAF (웹 응용 프로그램 방화벽) 서비스를 사용 하면 지정 된 국가/지역에서 액세스를 허용 하거나 차단 하는 끝점의 특정 경로에 대 한 사용자 지정 액세스 규칙을 사용 하 여 정책을 정의할 수 있습니다. 
 
-WAF 정책은 사용자 지정 규칙 집합을 포함 합니다. 규칙은 일치 조건, 동작 및 우선 순위로 구성 됩니다. 일치 조건에서 일치 변수, 연산자 및 일치 값을 정의 합니다. 지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이 고 연산자는 GeoMatch 이며 값은 두 문자 국가/지역 코드입니다. GeoMatch 조건 및 REQUEST_URI 문자열 일치 조건을 결합 하 여 경로 기반 지역 필터링 규칙을 만들 수 있습니다.
+WAF 정책은 사용자 지정 규칙 집합을 포함 합니다. 규칙은 일치 조건, 동작 및 우선 순위로 구성 됩니다. 일치 조건에서 일치 변수, 연산자 및 일치 값을 정의 합니다. 지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이 고 연산자는 GeoMatch 이며 값은 두 문자 국가/지역 코드입니다. "ZZ" 국가 코드 또는 "알 수 없음" 국가는 데이터 집합의 국가에 아직 매핑되지 않은 IP 주소를 캡처합니다. 일치 조건에 ZZ를 추가 하 여 가양성을 방지할 수 있습니다. GeoMatch 조건 및 REQUEST_URI 문자열 일치 조건을 결합 하 여 경로 기반 지역 필터링 규칙을 만들 수 있습니다. 
+
 
 [Azure PowerShell](front-door-tutorial-geo-filtering.md) 를 사용 하거나 [빠른 시작 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)사용 하 여 Front 문에 대해 지역 필터링 정책을 구성할 수 있습니다.
 

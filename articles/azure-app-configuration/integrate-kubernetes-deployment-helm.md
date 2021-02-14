@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4e38366ddcee07f38ca390acf9d580b8764c1c00
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426716"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979830"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Helm을 사용하여 Kubernetes 배포와 통합
 
@@ -33,7 +33,7 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.4.0 이상) 설치
+- [Azure CLI](/cli/azure/install-azure-cli)(버전 2.4.0 이상) 설치
 - [Helm](https://helm.sh/docs/intro/install/)(버전 2.14.0 이상) 설치
 - Kubernetes 클러스터
 
@@ -57,10 +57,10 @@ Helm을 실행할 때 추가 YAML 기반 구성 파일을 명령줄에 제공하
 3. **구성 탐색기** 를 선택합니다.
 
 4. **+ 만들기** > **Key Vault 참조** 를 선택하고 다음 값을 지정합니다.
-    - **키** : **secrets.password** 를 선택합니다.
-    - **레이블** : 이 값은 빈 상태로 둡니다.
-    - **구독** , **리소스 그룹** 및 **Key Vault** : 이전 단계에서 만든 키 자격 증명 모음의 값에 해당하는 값을 입력합니다.
-    - **비밀** : 이전 섹션에서 만든 **Password** 라는 비밀을 선택합니다.
+    - **키**: **secrets.password** 를 선택합니다.
+    - **레이블**: 이 값은 빈 상태로 둡니다.
+    - **구독**, **리소스 그룹** 및 **Key Vault**: 이전 단계에서 만든 키 자격 증명 모음의 값에 해당하는 값을 입력합니다.
+    - **비밀**: 이전 섹션에서 만든 **Password** 라는 비밀을 선택합니다.
 
 ## <a name="create-helm-chart"></a>Helm 차트 만들기 ##
 먼저, 다음 명령을 사용하여 Helm 차트 샘플을 만듭니다.
@@ -185,7 +185,7 @@ settings:
 먼저, 구성을 App Configuration에서 *myConfig.yaml* 파일로 다운로드합니다. 키 필터를 사용하여 **settings.** 로 시작하는 키만 다운로드합니다. 키 필터가 키 자격 증명 모음 참조의 키를 제외하는 데 충분하지 않은 경우 **--skip-keyvault** 인수를 사용하여 제외할 수 있습니다. 
 
 > [!TIP]
-> [export 명령](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export)에 대해 자세히 알아보세요. 
+> [export 명령](/cli/azure/appconfig/kv#az-appconfig-kv-export)에 대해 자세히 알아보세요. 
 
 ```azurecli-interactive
 az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
@@ -242,4 +242,4 @@ App Configuration에서 Key Vault 참조로 저장되는 하나의 비밀인 **p
 이 자습서에서는 Helm을 사용하여 Kubernetes 배포에 사용할 Azure App Configuration 데이터를 내보냈습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig)
