@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: cff1298f12d26b1260213d75701c282e0a82511d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fc8d211160e757c78a8e2adafad703118628e6dc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004157"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095047"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
@@ -27,6 +27,11 @@ ms.locfileid: "96004157"
 
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/index.yml)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
+>
+> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-groups-information"></a>그룹 정보 보기
 
@@ -40,7 +45,11 @@ ms.locfileid: "96004157"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 경우에도 조직의 도메인 이름 (예: contoso.com) 또는 다음 Url 중 하나를 사용 하 여 관리자 로부터 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     조직에서 소유하고 사용자가 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573193"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361709"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk 제한
 
@@ -64,7 +64,7 @@ Azure Storage 서비스 제한에 대한 최신 정보 및 공유, 컨테이너 
 
 | 데이터 형식             | 기본 제한          |
 |--------------------------|------------------------|
-| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [azure standard storage 배율 목표](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정 대상](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
+| 블록 blob, 페이지 blob    | 이러한 제한에 대 한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [azure standard storage 배율 목표](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)및 [Azure Files 크기 조정](../storage/files/storage-files-scale-targets.md)을 참조 하세요. <br /><br /> 제한에는 Data Box Disk를 포함 하 여 모든 원본의 데이터가 포함 됩니다.|
 
 
 ## <a name="azure-object-size-limits"></a>Azure 개체 크기 제한

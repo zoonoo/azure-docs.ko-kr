@@ -1,22 +1,19 @@
 ---
 title: 파일 기반 저장소 간에 파일 이동
 description: Azure Data Factory를 사용 하 여 솔루션 템플릿을 사용 하 여 파일 기반 저장소 간에 파일을 이동 하는 방법을 알아봅니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88f2d25046ee017fccd2cee6e951be72d4dda91
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522723"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361947"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory 파일 이동
 
@@ -62,7 +59,7 @@ ADF 복사 작업은 저장소 저장소 간에 이진 파일을 복사할 때 "
 
     ![파이프라인 표시](media/solution-template-move-files/move-files4.png)
 
-5. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.   매개 변수는 파일을 이동 하려는 폴더 경로 및 파일을 이동 하려는 폴더 경로입니다. 
+5. **디버그** 를 선택하고 **매개 변수** 를 입력한 다음, **마침** 을 선택합니다.   매개 변수는 파일을 이동 하려는 폴더 경로 및 파일을 이동 하려는 폴더 경로입니다. 
 
     ![파이프라인 실행](media/solution-template-move-files/move-files5.png)
 

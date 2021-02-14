@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a08756a1e3153aa69bd0e79dc23e88d4bf211e5d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bad4bc4d0016b2898b315bfb9799dc8972be7b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950689"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99822362"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 검색 결과에 페이징 추가
 
@@ -57,7 +57,7 @@ ms.locfileid: "91950689"
 
 1. SearchData.cs 모델 파일을 엽니다.
 
-1. 페이지 매김을 지원하는 글로벌 변수를 추가합니다. MVC에서 글로벌 변수는 자체의 정적 클래스로 선언됩니다. **ResultsPerPage**는 페이지당 결과의 수를 설정합니다. **MaxPageRange**는 보기에 표시되는 페이지 번호의 숫자를 결정합니다. **PageRangeDelta**는 가장 왼쪽 또는 가장 오른쪽 페이지 번호를 선택할 때 왼쪽 또는 오른쪽으로 이동할 페이지 수를 결정합니다. 일반적으로 이 두 번째 숫자는 **MaxPageRange**의 절반 정도입니다. 다음 코드를 네임스페이스에 추가합니다.
+1. 페이지 매김을 지원하는 글로벌 변수를 추가합니다. MVC에서 글로벌 변수는 자체의 정적 클래스로 선언됩니다. **ResultsPerPage** 는 페이지당 결과의 수를 설정합니다. **MaxPageRange** 는 보기에 표시되는 페이지 번호의 숫자를 결정합니다. **PageRangeDelta** 는 가장 왼쪽 또는 가장 오른쪽 페이지 번호를 선택할 때 왼쪽 또는 오른쪽으로 이동할 페이지 수를 결정합니다. 일반적으로 이 두 번째 숫자는 **MaxPageRange** 의 절반 정도입니다. 다음 코드를 네임스페이스에 추가합니다.
 
     ```csharp
     public static class GlobalVariables
@@ -88,7 +88,7 @@ ms.locfileid: "91950689"
     ```
 
     >[!Tip]
-    >랩톱과 같이 화면이 작은 디바이스에서 이 프로젝트를 실행하는 경우 **ResultsPerPage**를 2로 변경하는 것이 좋습니다.
+    >랩톱과 같이 화면이 작은 디바이스에서 이 프로젝트를 실행하는 경우 **ResultsPerPage** 를 2로 변경하는 것이 좋습니다.
 
 1. 페이징 속성을 **searchText** 속성 뒤의 **SearchData** 클래스에 추가합니다.
 
@@ -272,7 +272,7 @@ ms.locfileid: "91950689"
     이제 세 번째 매개 변수로 인해 **RunQueryAsync** 메서드에서 구문 오류를 표시합니다.
 
     > [!Note]
-    > **TempData**를 호출하면 값(**object**)이 임시 스토리지에 저장되지만, 이 스토리지는 1회 호출_에만_ 유지됩니다. 무언가를 임시 데이터에 저장하는 경우 컨트롤러 작업에 대한 다음 호출에 해당 항목을 사용할 수 있지만, 그 후의 호출에서는 해당 항목이 확실히 사라집니다. 이 짧은 수명으로 인해 하나도 빠짐없이 **PageAsync**에 대한 모든 호출에서 검색 텍스트와 페이징 속성을 임시 스토리지에 다시 저장합니다.
+    > **TempData** 를 호출하면 값(**object**)이 임시 스토리지에 저장되지만, 이 스토리지는 1회 호출 _에만_ 유지됩니다. 무언가를 임시 데이터에 저장하는 경우 컨트롤러 작업에 대한 다음 호출에 해당 항목을 사용할 수 있지만, 그 후의 호출에서는 해당 항목이 확실히 사라집니다. 이 짧은 수명으로 인해 하나도 빠짐없이 **PageAsync** 에 대한 모든 호출에서 검색 텍스트와 페이징 속성을 임시 스토리지에 다시 저장합니다.
 
 1. 임시 변수를 저장하고 가장 왼쪽 페이지 매개 변수를 **RunQueryAsync** 호출에 추가하도록 **Index(model)** 작업을 업데이트합니다.
 
@@ -360,7 +360,7 @@ ms.locfileid: "91950689"
     }
     ```
 
-1. 마지막으로, 보기를 약간 변경합니다. 이제 **resultList.Results.TotalCount** 변수에는 총 수가 아니라 한 페이지에 반환되는 결과의 수(예제의 경우 3)가 포함됩니다. **IncludeTotalCount**를 true로 설정했으므로 **resultList.TotalCount** 변수에는 이제 결과의 총 수가 포함됩니다. 따라서 보기에서 결과의 수가 표시되는 위치를 찾아 다음 코드로 변경합니다.
+1. 마지막으로, 보기를 약간 변경합니다. 이제 **resultList.Results.TotalCount** 변수에는 총 수가 아니라 한 페이지에 반환되는 결과의 수(예제의 경우 3)가 포함됩니다. **IncludeTotalCount** 를 true로 설정했으므로 **resultList.TotalCount** 변수에는 이제 결과의 총 수가 포함됩니다. 따라서 보기에서 결과의 수가 표시되는 위치를 찾아 다음 코드로 변경합니다.
 
     ```csharp
     // Show the result count.
@@ -379,11 +379,11 @@ ms.locfileid: "91950689"
     ```
 
     > [!Note]
-    > 이 합계는 Azure Cognitive Search에서 계산해야 하므로 **IncludeTotalCount**를 true로 설정하면 성능이 약간 저하됩니다. 복잡한 데이터 세트를 사용하면 반환되는 값이 _근사값_이라는 경고가 표시됩니다. 호텔 검색 문서 모음은 크기가 작으므로 정확도가 높을 것입니다.
+    > 이 합계는 Azure Cognitive Search에서 계산해야 하므로 **IncludeTotalCount** 를 true로 설정하면 성능이 약간 저하됩니다. 복잡한 데이터 세트를 사용하면 반환되는 값이 _근사값_ 이라는 경고가 표시됩니다. 호텔 검색 문서 모음은 크기가 작으므로 정확도가 높을 것입니다.
 
 ### <a name="compile-and-run-the-app"></a>앱 컴파일 및 실행
 
-이제 **디버그하지 않고 시작**을 선택하거나 F5 키를 누릅니다.
+이제 **디버그하지 않고 시작** 을 선택하거나 F5 키를 누릅니다.
 
 1. 많은 결과를 반환하는 문자열을 검색합니다(예: "wifi"). 이러한 결과를 깔끔하게 페이지징할 수 있나요?
 
@@ -422,7 +422,7 @@ ms.locfileid: "91950689"
 
     이 변수는 결과의 다음 페이지를 보내야 하는 경우 "다음"을 유지하는 문자열이거나 검색의 첫 번째 페이지에 대해 null이 됩니다.
 
-1. 동일한 파일 및 네임스페이스 내에서 하나의 속성이 있는 글로벌 변수 클래스를 추가합니다. MVC에서 글로벌 변수는 자체의 정적 클래스로 선언됩니다. **ResultsPerPage**는 페이지당 결과의 수를 설정합니다. 
+1. 동일한 파일 및 네임스페이스 내에서 하나의 속성이 있는 글로벌 변수 클래스를 추가합니다. MVC에서 글로벌 변수는 자체의 정적 클래스로 선언됩니다. **ResultsPerPage** 는 페이지당 결과의 수를 설정합니다. 
 
     ```csharp
     public static class GlobalVariables
@@ -590,14 +590,14 @@ ms.locfileid: "91950689"
 
 ### <a name="compile-and-run-your-project"></a>프로젝트 컴파일 및 실행
 
-이제 **디버그하지 않고 시작**을 선택하거나 F5 키를 누릅니다.
+이제 **디버그하지 않고 시작** 을 선택하거나 F5 키를 누릅니다.
 
 1. 많은 결과를 얻을 수 있는 용어(예: "pool")를 입력한 다음, 세로 스크롤 막대를 테스트합니다. 결과의 새 페이지가 트리거되나요?
 
     !["pool" 결과를 통한 무한 스크롤](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > 스크롤 막대가 첫 번째 페이지에 표시되도록 하려면 결과의 첫 번째 페이지가 표시되는 영역의 높이를 약간 초과해야 합니다. 예제에서 **.box1**의 높이는 30픽셀이고, **.box2**의 높이는 100픽셀이며, 아래쪽 여백은 24픽셀입니다. 따라서 각 항목은 154픽셀을 사용합니다. 세 항목에서 모두 3 x 154 = 462셀을 차지합니다. 세로 스크롤 막대가 표시되도록 하려면 표시 영역의 높이를 462픽셀보다 작게 설정해야 합니다(461픽셀에서도 작동함). 이 문제는 스크롤 막대가 표시되어야 하는 첫 번째 페이지에서만 발생합니다. 업데이트할 줄은 **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** 입니다.
+    > 스크롤 막대가 첫 번째 페이지에 표시되도록 하려면 결과의 첫 번째 페이지가 표시되는 영역의 높이를 약간 초과해야 합니다. 예제에서 **.box1** 의 높이는 30픽셀이고, **.box2** 의 높이는 100픽셀이며, 아래쪽 여백은 24픽셀입니다. 따라서 각 항목은 154픽셀을 사용합니다. 세 항목에서 모두 3 x 154 = 462셀을 차지합니다. 세로 스크롤 막대가 표시되도록 하려면 표시 영역의 높이를 462픽셀보다 작게 설정해야 합니다(461픽셀에서도 작동함). 이 문제는 스크롤 막대가 표시되어야 하는 첫 번째 페이지에서만 발생합니다. 업데이트할 줄은 **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** 입니다.
 
 1. 결과의 맨 아래까지 완전히 스크롤합니다. 이제 모든 정보가 단일 보기 페이지에 표시되는 방법을 확인합니다. 서버 호출을 트리거하지 않고 맨 위까지 완전히 다시 스크롤할 수 있습니다.
 

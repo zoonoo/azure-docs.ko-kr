@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory 유효성 검사 작업
 description: 유효성 검사 작업은 사용자가 지정 하는 특정 조건에 따라 연결 된 데이터 집합의 유효성을 검사할 때까지 파이프라인의 실행을 계속 하지 않습니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 63f4a7df76fc0480a2b0cdf2de13ff5e85aa93ef
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e00090fc31c129f35632d30b9a5ed6c39c13a414
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485854"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385254"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Azure Data Factory 유효성 검사 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,10 +60,10 @@ ms.locfileid: "96485854"
 -------- | ----------- | -------------- | --------
 name | ' 유효성 검사 ' 활동의 이름입니다. | String | 예 |
 type | **유효성 검사** 로 설정 되어야 합니다. | String | 예 |
-데이터 세트 | 작업은이 데이터 집합 참조가 있고 지정 된 조건을 만족 하거나 시간 제한에 도달 하 여 유효성을 검사할 때까지 실행을 차단 합니다. 제공 된 데이터 집합은 "이상 크기" 또는 "ChildItems" 속성을 지원 해야 합니다. | 데이터 집합 참조 | 예 |
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. 값을 지정 하지 않으면 기본값은 7 일 ("7.00:00:00")입니다. 형식은 d. hh: mm: ss입니다. | String | 아니요 |
+데이터 세트 | 작업은이 데이터 집합 참조가 있고 지정 된 조건을 만족 하거나 시간 제한에 도달 하 여 유효성을 검사할 때까지 실행을 차단 합니다. 제공 된 데이터 집합은 "이상 크기" 또는 "ChildItems" 속성을 지원 해야 합니다. | 데이터 집합 참조 | Yes |
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. 값을 지정 하지 않으면 기본값은 7 일 ("7.00:00:00")입니다. 형식은 d. hh: mm: ss입니다. | String | 예 |
 sleep | 유효성 검사 시도 간의 지연 시간 (초)입니다. 값을 지정 하지 않으면 기본값은 10 초입니다. | 정수 | 예 |
-childItems | 폴더에 자식 항목이 있는지 여부를 확인 합니다. -True로 설정할 수 있습니다. 즉, 폴더가 있고 항목이 있는지 확인 합니다. 폴더에 적어도 하나의 항목이 있을 때까지 차단 됩니다. 또는 시간 제한 값에 도달 했습니다.-false: 폴더가 존재 하 고 비어 있는지 확인 합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단 합니다. 값을 지정 하지 않으면 폴더가 존재 하거나 시간 제한에 도달할 때까지 활동이 차단 됩니다. | 부울 | 아니요 |
+childItems | 폴더에 자식 항목이 있는지 여부를 확인 합니다. -True로 설정할 수 있습니다. 즉, 폴더가 있고 항목이 있는지 확인 합니다. 폴더에 적어도 하나의 항목이 있을 때까지 차단 됩니다. 또는 시간 제한 값에 도달 했습니다.-false: 폴더가 존재 하 고 비어 있는지 확인 합니다. 폴더가 비어 있거나 시간 제한 값에 도달할 때까지 차단 합니다. 값을 지정 하지 않으면 폴더가 존재 하거나 시간 제한에 도달할 때까지 활동이 차단 됩니다. | 부울 | 예 |
 minimumSize | 파일의 최소 크기 (바이트)입니다. 값을 지정 하지 않으면 기본값은 0 바이트입니다. | 정수 | 예 |
 
 

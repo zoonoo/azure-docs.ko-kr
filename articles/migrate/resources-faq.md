@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5db000ad76f23be60d279923a590204c2fcf5e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832575"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377383"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -22,7 +22,7 @@ ms.locfileid: "99832575"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아봅니다](migrate-services-overview.md).
+Azure Migrate은 온-프레미스 앱 및 워크 로드와 Azure에 대 한 사설 및 공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 허브는 평가 및 마이그레이션과 타사 ISV 제품에 대 한 Azure Migrate 도구를 제공 합니다. [자세히 알아보기](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure Migrate로 무엇을 할 수 있나요?
 
@@ -44,7 +44,7 @@ Azure Migrate: 서버 마이그레이션 도구는 일부 온-프레미스 컴�
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Azure Migrate의 이전 클래식 환경을 갖춘 프로젝트가 있습니다. 새 버전을 사용 하 여 시작 어떻게 할까요??
 
-클래식 Azure Migrate는 2 월 2024 일에 사용 중지 됩니다. 2024 년 2 월 일 이후 클래식 버전의 Azure Migrate는 더 이상 지원 되지 않으며 클래식 프로젝트의 인벤토리 메타 데이터가 삭제 됩니다. 이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](./create-manage-projects.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
+클래식 Azure Migrate는 2 월 2024 일에 사용 중지 됩니다. 2024 년 2 월 일 이후 클래식 버전의 Azure Migrate는 더 이상 지원 되지 않으며 클래식 프로젝트의 인벤토리 메타 데이터가 삭제 됩니다. 이전 버전의 프로젝트나 구성 요소를 새 버전으로 업그레이드할 수 없습니다. [새 Azure Migrate 프로젝트를 생성](create-manage-projects.md)하고 [평가 및 마이그레이션 도구를 추가](./create-manage-projects.md)해야 합니다. 사용 가능한 평가 및 마이그레이션 도구를 사용하는 방법을 이해하려면 자습서를 사용하세요. 클래식 프로젝트에 연결 된 Log Analytics 작업 영역이 있는 경우 클래식 프로젝트를 삭제 한 후에 현재 버전의 프로젝트에 연결할 수 있습니다.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>서버 평가와 맵 도구 키트 Azure Migrate 간의 차이점은 무엇 인가요?
 

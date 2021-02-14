@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: 전용 호스트 사용(미리 보기)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: 전용 호스트 사용
           items:
+            - name: 개요
+              href: ../virtual-machines/dedicated-hosts.md
             - name: CLI
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

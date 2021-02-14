@@ -2,13 +2,13 @@
 title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916885"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519102"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 
@@ -74,7 +74,7 @@ Azure Monitor에 대한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 | 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
+|들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다. 이 메트릭은 자동 전달 되는 메시지를 포함 하지 않습니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
 |보내는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: 합계 <br/> 차원: 엔터티 이름|
 | 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: 엔터티 이름 |
 | 활성 메시지| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: 엔터티 이름 |

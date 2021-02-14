@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065289"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834377"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정
 
@@ -107,6 +107,10 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 ## <a name="enable-or-disable-a-rule-for-specific-devices"></a>특정 디바이스에 규칙을 사용하도록 또는 사용하지 않도록 설정
 
 사용자 지정할 규칙을 선택합니다. **대상 디바이스** 섹션에서 하나 이상의 필터를 사용하여 모니터링할 디바이스에 대한 규칙 범위를 좁힐 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Resource Manager에 대한 기본 제공 정책 정의
 description: Azure Resource Manager에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 34eb9eaea50444e174ff14bb4f4681b979179f84
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 910dce52752d9cce3dbf369658302c184e5c61c4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561851"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094046"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-resource-manager"></a>Azure Resource Manager에 대한 Azure Policy 기본 제공 정의
 

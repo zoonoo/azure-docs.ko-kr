@@ -1,22 +1,18 @@
 ---
 title: 템플릿 개요
 description: 미리 정의된 템플릿을 사용하여 Azure Data Factory를 빠르게 시작하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: 2725d498b6fded56ad28235b051b1e8f4fbadadb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8c0e4db2bc686fff2bd718f45c63a0fc26f6cd55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461206"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375394"
 ---
 # <a name="templates"></a>템플릿
 

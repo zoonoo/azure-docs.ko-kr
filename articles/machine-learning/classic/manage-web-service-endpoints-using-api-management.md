@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): API Management를 사용 하 여 웹 서비스 �
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: b00e75c5fda8a05f4ed0f3a756ba20cca570ba5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 293643ab5354c51142baaf281b1845cfc9fa6f23
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305996"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518031"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio(클래식) 웹 서비스 관리
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>개요
@@ -43,7 +43,7 @@ API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스
 3. 검색 상자에 "API Management"를 입력한 다음 "API Management" 리소스를 선택합니다.
 4. **만들기** 를 클릭합니다.
 5. **이름** 값은 고유한 URL을 만드는 데 사용됩니다(이 예제에서는 "demoazureml" 사용).
-6. 서비스 인스턴스의 **구독** , **리소스 그룹** 및 **위치** 를 선택합니다.
+6. 서비스 인스턴스의 **구독**, **리소스 그룹** 및 **위치** 를 선택합니다.
 7. **조직 이름** 의 값을 지정합니다(이 예제에서는 "demoazureml" 사용).
 8. **관리자 전자 메일** 입력 - 이 전자 메일은 API Management 시스템의 알림에 사용됩니다.
 9. **만들기** 를 클릭합니다.
@@ -74,7 +74,7 @@ API를 만들려면:
 
 ## <a name="add-the-operations"></a>작업 추가
 
-게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API Management 서비스에 대해 Azure Portal에서 **게시자 포털** 을 클릭하고, **API** , **작업** 을 선택하고, **작업 추가** 를 클릭합니다.
+게시자 포털에서 작업을 API에 추가하고 구성합니다. 게시자 포털에 액세스하려면 API Management 서비스에 대해 Azure Portal에서 **게시자 포털** 을 클릭하고, **API**, **작업** 을 선택하고, **작업 추가** 를 클릭합니다.
 
 ![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
@@ -163,7 +163,7 @@ API를 만들려면:
 
    ![스크린샷에서 보내기 단추를 표시 합니다.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태** , **응답 헤더** , **응답 콘텐츠** 가 표시됩니다.
+작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태**, **응답 헤더**, **응답 콘텐츠** 가 표시됩니다.
 
 ![스크린샷 응답 상태, 응답 대기 시간, 응답 헤더 및 응답 콘텐츠를 표시 하는 개발자 포털을 보여 줍니다.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -187,7 +187,7 @@ API를 만들려면:
 
 ![도서 리뷰 데이터 세트 모듈을 프로젝트 열 모듈에 연결](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
-**데이터 세트의 열 선택** , **열 선택기 시작** 을 차례로 클릭하고 **Col2** 를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
+**데이터 세트의 열 선택**, **열 선택기 시작** 을 차례로 클릭하고 **Col2** 를 선택합니다. 확인 표시를 클릭하여 변경 내용을 적용합니다.
 
 ![열 이름을 사용하여 열 선택](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
@@ -219,7 +219,7 @@ API를 만들려면:
 ### <a name="test-the-web-service"></a>웹 서비스 테스트
 AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 엔드포인트로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 아래 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다( [Python을 설치하는 방법](/azure/developer/python/azure-sdk-install) 참조).
 
-또한 다음 샘플 원본에 대한 실험의 **workspace** , **service** 및 **api_key** 가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행** 을 클릭하여 workspace 및 service를 찾을 수 있습니다.
+또한 다음 샘플 원본에 대한 실험의 **workspace**, **service** 및 **api_key** 가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **Batch 실행** 을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 
 ![스크린샷에는 작업 영역 및 서비스 값을 찾을 수 있는 요청 창이 표시 됩니다.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -244,7 +244,7 @@ RRS 엔드포인트를 테스트하는 간편한 방법은 웹 서비스 대시�
 ##### <a name="sample-code"></a>샘플 코드
 RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하는 것입니다. 대시보드에서 **요청/응답** 을 클릭하고 아래쪽으로 스크롤하면 C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 요청 URI, 헤더 및 본문을 포함한 RRS 요청 구문도 표시됩니다.
 
-이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace** , **service** 및 **api_key** 를 사용하여 예제를 수정해야 합니다.
+이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api_key** 를 사용하여 예제를 수정해야 합니다.
 
 ```python
 import urllib2
@@ -278,7 +278,7 @@ try:
 #### <a name="test-bes-endpoint"></a>BES 엔드포인트 테스트
 대시보드에서 **Batch 실행** 을 클릭하고 아래쪽으로 스크롤합니다. C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 작업을 제출하고, 작업을 시작하고, 작업의 상태나 결과를 가져오고, 작업을 삭제하기 위한 BES 요청 구문도 표시됩니다.
 
-이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace** , **service** 및 **api_key** 를 사용하여 예제를 수정해야 합니다. 또한 **스토리지 계정 이름** , **스토리지 계정 키** 및 **스토리지 컨테이너 이름** 을 수정해야 합니다. 마지막으로 **입력 파일** 의 위치와 **출력 파일** 의 위치를 수정해야 합니다.
+이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api_key** 를 사용하여 예제를 수정해야 합니다. 또한 **스토리지 계정 이름**, **스토리지 계정 키** 및 **스토리지 컨테이너 이름** 을 수정해야 합니다. 마지막으로 **입력 파일** 의 위치와 **출력 파일** 의 위치를 수정해야 합니다.
 
 ```python
 import urllib2

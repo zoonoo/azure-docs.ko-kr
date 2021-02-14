@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: 7801145ba1bcaa2ffd543becfe190f05d232e8c8
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 8ca77c1fa1232f7aed88b0d6942d8a0085caf0d5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104963"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380222"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Azure Monitor에 ServiceNow 연결
 
@@ -23,6 +23,7 @@ ms.locfileid: "100104963"
 
 * Azure AD가 등록 됩니다.
 * 지원 되는 버전의 ServiceNow 이벤트 관리-ITOM (뉴욕 이상 버전)이 있습니다.
+* ServiceNow 인스턴스에 [응용 프로그램이](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ac4c9c57dbb1d090561b186c1396191a/1.2.0?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%26q%3Devent%2520management%2520connectors&sl=sh) 설치 되었습니다.
 
 ## <a name="configure-the-servicenow-connection"></a>ServiceNow 연결 구성
 

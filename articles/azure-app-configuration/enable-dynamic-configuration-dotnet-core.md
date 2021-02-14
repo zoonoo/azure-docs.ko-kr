@@ -15,16 +15,16 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012359"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979864"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>자습서: .NET Core 앱에서 동적 구성 사용
 
-App Configuration .NET Core 클라이언트 라이브러리는 애플리케이션을 다시 시작하지 않고도 주문형 구성 설정 세트의 업데이트를 지원합니다. 이는 구성 공급 기업의 옵션에서 먼저 `IConfigurationRefresher`의 인스턴스를 가져온 다음, 코드의 해당 인스턴스에서 `TryRefreshAsync`를 호출하여 구현할 수 있습니다.
+App Configuration .NET Core 클라이언트 라이브러리는 요청이 있을 시 애플리케이션을 다시 시작하지 않고도 구성을 업데이트할 수 있습니다. 이는 구성 공급 기업의 옵션에서 먼저 `IConfigurationRefresher`의 인스턴스를 가져온 다음, 코드의 해당 인스턴스에서 `TryRefreshAsync`를 호출하여 구현할 수 있습니다.
 
 설정을 업데이트하고 구성 저장소에 대한 너무 많은 호출을 피하기 위해 각 설정에 대해 캐시를 사용합니다. 설정의 캐시된 값이 만료될 때까지 새로 고침 작업은 구성 저장소에서 값이 변경된 경우에도 값을 업데이트하지 않습니다. 각 요청의 기본 만료 시간은 30초지만, 필요한 경우 재정의할 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: f9b970f498db7530b35c57a75edeae55dec3f22d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739188"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098846"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -100,7 +100,7 @@ az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STAN
 
  ## <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> 계산 클러스터 비용 낮추기
 
-[우선 순위가 낮은 vm](concept-plan-manage-cost.md#low-pri-vm) 을 사용 하 여 작업의 일부 또는 전체를 실행 하도록 선택할 수도 있습니다. 이러한 VM은 가용성이 보장되지 않고 사용 중에 선점될 수 있습니다. 선점된 작업은 계속되지 않고 다시 시작됩니다. 
+[우선 순위가 낮은 vm](concept-plan-manage-cost.md#low-pri-vm) 을 사용 하 여 작업의 일부 또는 전체를 실행 하도록 선택할 수도 있습니다. 이러한 VM은 가용성이 보장되지 않고 사용 중에 선점될 수 있습니다. 선점 된 작업을 다시 시작 해야 합니다. 
 
 이러한 방법 중 하나를 사용 하 여 우선 순위가 낮은 VM을 지정 합니다.
     

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f3e1ea8861646490875667f6238b3f8813bd6c4b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096392"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518167"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -233,7 +233,7 @@ NVA 디바이스 설정 및 라우팅 문제 해결에 도움이 필요한 경�
 
 ### <a name="failed-to-peer-a-databricks-virtual-network"></a>Databricks 가상 네트워크를 피어링할 수 없음
 
-이 문제를 해결하려면 **Azure Databricks** 에서 가상 네트워크 피어링을 구성한 다음, **리소스 ID** 를 사용하여 대상 가상 네트워크를 지정합니다. 자세한 내용은 [원격 가상 네트워크에 Databricks 가상 네트워크 피어링](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)를 참조하세요.
+이 문제를 해결하려면 **Azure Databricks** 에서 가상 네트워크 피어링을 구성한 다음, **리소스 ID** 를 사용하여 대상 가상 네트워크를 지정합니다. 자세한 내용은 [원격 가상 네트워크에 Databricks 가상 네트워크 피어링](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2)를 참조하세요.
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>원격 가상 네트워크에 게이트웨이 없음
 

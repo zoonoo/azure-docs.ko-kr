@@ -3,12 +3,12 @@ title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6a8efcebcd6ae18eaf91c6ec1e7df184db8c244c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881302"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378675"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -106,7 +106,7 @@ az deployment group create \
 
 저장소 계정에 저장 된 상대 경로를 사용 하 여 원격 연결 된 템플릿을 배포 하려면를 사용 `query-string` 하 여 SAS 토큰을 지정 합니다.
 
-```azurepowershell
+```azurecli-interactive
 az deployment group create \
   --name linkedTemplateWithRelativePath \
   --resource-group myResourceGroup \

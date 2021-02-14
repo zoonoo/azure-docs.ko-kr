@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 템플릿을 사용하여 공유 쿼리 만들기'
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 OS별 가상 머신 수를 계산하는 Resource Graph 공유 쿼리를 만듭니다.
-ms.date: 10/14/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057011"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594319"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
 
-Resource Graph 쿼리를 _프라이빗 쿼리_ 또는 _공유 쿼리_로 저장할 수 있습니다. 프라이빗 쿼리는 개인 포털 프로필에 저장되며 다른 사람들에게는 보이지 않습니다. 공유 쿼리는 권한 및 역할 기반 액세스를 통해 다른 사람들과 공유할 수 있는 Resource Manager 개체입니다. 공유 쿼리를 사용하면 보편적이고 일관적인 방법으로 리소스를 검색할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 공유 쿼리를 만듭니다.
+Resource Graph 쿼리를 _프라이빗 쿼리_ 또는 _공유 쿼리_ 로 저장할 수 있습니다. 프라이빗 쿼리는 개인 포털 프로필에 저장되며 다른 사람들에게는 보이지 않습니다. 공유 쿼리는 권한 및 역할 기반 액세스를 통해 다른 사람들과 공유할 수 있는 Resource Manager 개체입니다. 공유 쿼리를 사용하면 보편적이고 일관적인 방법으로 리소스를 검색할 수 있습니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 공유 쿼리를 만듭니다.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서는 _OS별 VM 수 계산_이라는 공유 쿼리를 만듭니다. SDK 또는 포털에서 Resource Graph Explorer를 사용하여 이 쿼리를 시도해 보려면 [샘플 - OS 유형별로 가상 머신 개수 계산](./samples/starter.md#count-os)을 참조하세요.
+이 빠른 시작에서는 _OS별 VM 수 계산_ 이라는 공유 쿼리를 만듭니다. SDK 또는 포털에서 Resource Graph Explorer를 사용하여 이 쿼리를 시도해 보려면 [샘플 - OS 유형별로 가상 머신 개수 계산](./samples/starter.md#count-os)을 참조하세요.
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/)에서 나온 것입니다.
 
@@ -51,14 +51,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    | Name | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
-   | Resource group | **새로 만들기**를 선택하고 이름을 지정한 다음, **확인**을 선택합니다. |
+   | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. |
    | 위치 | 지역을 선택합니다. 예: **미국 중부** |
-   | 쿼리 이름 | 기본값을 그대로 둡니다. **OS별 VM 수를 계산**합니다. |
+   | 쿼리 이름 | 기본값을 그대로 둡니다. **OS별 VM 수를 계산** 합니다. |
    | 쿼리 코드 | 기본값(`Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)`)을 그대로 둡니다. |
    | 쿼리 설명 | 기본값을 그대로 둡니다. **이 공유 쿼리는 OS 유형별로 모든 가상 머신 리소스 수를 계산하고 요약합니다.** |
    | 위에 명시된 사용 약관에 동의함 | (선택) |
 
-1. **구매**를 선택합니다.
+1. **구매** 를 선택합니다.
 
 몇 가지 추가 리소스:
 
@@ -71,17 +71,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 새 공유 쿼리를 실행하려면 다음 단계를 수행합니다.
 
-1. 포털 검색 창에서 **Resource Graph 쿼리**를 검색하여 선택합니다.
+1. 포털 검색 창에서 **Resource Graph 쿼리** 를 검색하여 선택합니다.
 
-1. **OS별 VM 수 계산**이라는 공유 쿼리를 선택한 다음, **개요** 페이지에서 **결과** 탭을 선택합니다.
+1. **OS별 VM 수 계산** 이라는 공유 쿼리를 선택한 다음, **개요** 페이지에서 **결과** 탭을 선택합니다.
 
 Resource Graph Explorer에서 공유 쿼리를 열 수도 있습니다.
 
-1. 포털 검색 창에서 **Resource Graph Explorer**를 검색하여 선택합니다.
+1. 포털 검색 창에서 **Resource Graph Explorer** 를 검색하여 선택합니다.
 
 1. **쿼리 열기** 단추를 선택합니다.
 
-1. **형식**을 _공유 쿼리_로 변경합니다. 목록에 **OS별 VM 수 계산**이 보이지 않으면 필터 상자를 사용하여 결과를 제한합니다. **OS별 VM 수 계산**이라는 공유 쿼리가 보이면 이름을 선택합니다.
+1. **형식** 을 _공유 쿼리_ 로 변경합니다. 목록에 **OS별 VM 수 계산** 이 보이지 않으면 필터 상자를 사용하여 결과를 제한합니다. **OS별 VM 수 계산** 이라는 공유 쿼리가 보이면 이름을 선택합니다.
 
 1. 쿼리가 로드되면 **쿼리 실행** 단추를 선택합니다. 결과는 **결과** 탭에 표시됩니다.
 
@@ -89,9 +89,9 @@ Resource Graph Explorer에서 공유 쿼리를 열 수도 있습니다.
 
 만든 공유 쿼리를 제거하려면 다음 단계를 수행합니다.
 
-1. 포털 검색 창에서 **Resource Graph 쿼리**를 검색하여 선택합니다.
+1. 포털 검색 창에서 **Resource Graph 쿼리** 를 검색하여 선택합니다.
 
-1. **OS별 VM 수 계산**이라는 공유 쿼리 옆에 있는 확인란을 선택합니다.
+1. **OS별 VM 수 계산** 이라는 공유 쿼리 옆에 있는 확인란을 선택합니다.
 
 1. 페이지 맨 위에서 **삭제** 단추를 선택합니다.
 

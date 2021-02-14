@@ -3,8 +3,7 @@ title: Linux 용 Azure DSC 확장
 description: Desired State Configuration을 사용하여 Azure Linux VM을 구성할 수 있도록 OMI 및 DSC 패키지를 설치합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -13,20 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: robreed
-ms.openlocfilehash: 1d1a5cf67a10a83a227f240fc31d25abfe9c7dd0
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.author: magoedte
+ms.openlocfilehash: bfd5da519116eff66aede607f4cab7c207b30ee6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955942"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093712"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
 DSC (필요한 상태 구성)는 구성을 사용 하 여 IT 및 개발 인프라를 코드로 관리 하는 데 사용할 수 있는 관리 플랫폼입니다.
 
 > [!NOTE]
-> Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](./oms-linux.md) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다. 동일한 VM에서 두 솔루션을 함께 사용 하지 마세요.
+> Linux 용 DSC 확장 및 [linux 용 Log Analytics 가상 머신 확장](./oms-linux.md) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다. 동일한 VM에서 두 솔루션을 함께 사용 하지 마세요.
 
 DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. DSC 확장은 다음 작업을 수행할 수도 있습니다.
 
@@ -36,7 +35,7 @@ DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI
 - Linux VM에 사용자 지정 DSC 모듈을 설치 합니다 (ExtensionAction 설치).
 - Linux VM에서 사용자 지정 DSC 모듈을 제거 합니다 (ExtensionAction 제거).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -75,10 +74,10 @@ Pull, Pull, Install 등의 다른 작업을 수행 하려면 Azure Storage 및 G
 * `RegistrationUrl`: (옵션, 문자열) Azure Automation 계정의 URL입니다.
 * `RegistrationKey`: (옵션, 문자열) Azure Automation 계정의 액세스 키
 
-
 ## <a name="scenarios"></a>시나리오
 
 ### <a name="register-an-azure-automation-account"></a>Azure Automation 계정 등록
+
 protected.json
 ```json
 {
@@ -144,7 +143,6 @@ $publicConfig = '{
 }'
 ```
 
-
 ### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>공용 저장소의 MOF 구성 파일을 VM에 적용
 
 public.json
@@ -193,14 +191,18 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 메타 MOF 구성 파일(공용 스토리지에 있음) 적용
+
 public.json
+
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
   "ExtensionAction": "Pull"
 }
 ```
+
 PowerShell 형식
+
 ```powershell
 $publicConfig = '{
   "FileUri": "<meta-mof-file-uri>",
@@ -209,14 +211,18 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>VM에 사용자 지정 리소스 모듈 (Azure storage 계정의 zip 파일)을 설치 합니다.
+
 protected.json
+
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
+
 public.json
+
 ```json
 {
   "ExtensionAction": "Install",
@@ -238,14 +244,19 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>VM에 사용자 지정 리소스 모듈 (공용 저장소의 zip 파일)을 설치 합니다.
+
 public.json
+
 ```json
 {
   "ExtensionAction": "Install",
   "FileUri": "<resource-zip-file-uri>"
 }
+
 ```
+
 PowerShell 형식
+
 ```powershell
 $publicConfig = '{
   "ExtensionAction": "Install",
@@ -254,14 +265,18 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>VM에서 사용자 지정 리소스 모듈 제거
+
 public.json
+
 ```json
 {
   "ResourceName": "<resource-name>",
   "ExtensionAction": "Remove"
 }
 ```
+
 PowerShell 형식
+
 ```powershell
 $publicConfig = '{
   "ResourceName": "<resource-name>",
@@ -277,10 +292,10 @@ Resource Manager 템플릿 샘플은 [201-dsc-linux-azure-storage-on-ubuntu](htt
 
 Azure Resource Manager 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조 하세요.
 
-
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
 ### <a name="use-azure-cliazure-cli"></a>[Azure CLI] [Azure-CLI] 사용
+
 DSCForLinux 확장을 배포 하기 전에 `public.json` `protected.json` 섹션 3의 다른 시나리오에 따라 및를 구성 합니다.
 
 #### <a name="classic"></a>Classic
@@ -288,33 +303,40 @@ DSCForLinux 확장을 배포 하기 전에 `public.json` `protected.json` 섹션
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 클래식 배포 모드는 Azure 서비스 관리 모드 라고도 합니다. 다음을 실행하여 클래식 모드로 전환할 수 있습니다.
+
 ```
 $ azure config mode asm
 ```
 
 다음을 실행 하 여 DSCForLinux 확장을 배포할 수 있습니다.
+
 ```
 $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 
 사용 가능한 최신 확장 버전을 확인하려면 다음을 실행합니다.
+
 ```
 $ azure vm extension list
 ```
 
 #### <a name="resource-manager"></a>리소스 관리자
+
 다음을 실행하여 Azure Resource Manager 모드로 전환할 수 있습니다.
+
 ```
 $ azure config mode arm
 ```
 
 다음을 실행 하 여 DSCForLinux 확장을 배포할 수 있습니다.
+
 ```
 $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
+
 > [!NOTE]
 > Azure Resource Manager 모드에서는 `azure vm extension list` 현재에서 사용할 수 없습니다.
 >
@@ -340,6 +362,7 @@ $version = '< version>'
 ```
 
 이전 섹션에서 다른 시나리오에 따라 $privateConfig 및 $publicConfig의 내용을 변경 합니다.
+
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -354,7 +377,7 @@ $publicConfig = '{
 }'
 ```
 
-```
+```powershell
 Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher `
   -Version $version -PrivateConfiguration $privateConfig `
   -PublicConfiguration $publicConfig | Update-AzureVM
@@ -382,6 +405,7 @@ $version = '< version>'
 ```
 
 이전 섹션에서 다른 시나리오에 따라 $privateConfig 및 $publicConfig의 내용을 변경 합니다.
+
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -396,7 +420,7 @@ $publicConfig = '{
 }'
 ```
 
-```
+```powershell
 Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
@@ -421,11 +445,10 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 오류 코드: 51은 지원 되지 않는 배포 또는 지원 되지 않는 확장 작업을 나타냅니다.
 경우에 따라 컴퓨터에 OMI의 상위 버전이 이미 있는 경우 DSC Linux 확장에서 OMI를 설치 하지 못합니다. [오류 응답: (000003) 다운그레이드가 허용되지 않음]
 
-
-
 ### <a name="support"></a>지원
 
 이 문서의 어디서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의하세요. 또는 Azure 지원 인시던트를 파일에 추가할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동 하 여 **지원 받기** 를 선택 합니다. Azure 지원 사용에 대 한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 확장에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](features-linux.md)을 참조하세요.

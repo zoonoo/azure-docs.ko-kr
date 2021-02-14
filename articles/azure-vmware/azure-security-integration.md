@@ -1,26 +1,26 @@
 ---
 title: Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호
-description: Azure Security Center의 단일 대시보드에서 Azure의 기본 보안 도구를 사용 하 여 Azure VMware 솔루션 Vm을 보호 하는 방법에 대해 알아봅니다.
+description: Azure Security Center 대시보드에서 Azure의 기본 보안 도구를 사용 하 여 Azure VMware 솔루션 Vm을 보호 합니다.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 02/12/2021
+ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584960"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516365"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호
 
-Azure native security tools는 Azure, Azure VMware 솔루션 및 온-프레미스 Vm (가상 머신)의 하이브리드 환경에 대 한 보안 인프라를 제공 합니다. 이 문서에서는 하이브리드 환경 보안을 위해 Azure tools를 설정 하는 방법을 보여 줍니다. 다양 한 도구를 사용 하 여 다양 한 유형의 위협을 식별 하 고 해결 합니다.
+Azure native security tools는 Azure, Azure VMware 솔루션 및 온-프레미스 Vm (가상 머신)의 하이브리드 환경에 대 한 보호를 제공 합니다. 이 문서에서는 하이브리드 환경 보안을 위해 Azure tools를 설정 하는 방법을 보여 줍니다. 이러한 도구를 사용 하 여 다양 한 위협을 식별 하 고 해결 합니다.
 
 ## <a name="azure-native-services"></a>Azure 기본 서비스
 
-다음은 각 Azure native service에 대 한 간략 한 요약입니다.
+Azure native services에 대 한 간략 한 요약은 다음과 같습니다.
 
 - **Log Analytics 작업 영역:** Log Analytics 작업 영역은 로그 데이터를 저장 하는 고유한 환경입니다. 각 작업 영역에는 고유한 데이터 리포지토리 및 구성이 있습니다. 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장 하도록 구성 됩니다.
-- **Azure Security Center:** Azure Security Center는 통합 인프라 보안 관리 시스템입니다. 데이터 센터의 보안 상태를 강화 하 고 클라우드 또는 온-프레미스에서 하이브리드 작업을 통해 고급 위협 방지를 제공 합니다.
-- **Azure 센티널:** Azure 센티널은 클라우드 기본 SIEM (보안 정보 이벤트 관리) 및 대화 충성도 (security orchestration 자동화 된 응답) 솔루션입니다. 환경 전체에서 지능형 보안 분석 및 위협 인텔리전스를 제공 합니다. 이는 경고 검색, 위협 표시 유형, 자동 관리 구하기 및 위협 대응을 위한 단일 솔루션입니다.
+- **Azure Security Center:** Azure Security Center는 통합 인프라 보안 관리 시스템입니다. 데이터 센터의 보안을 강화 하 고 클라우드 또는 온-프레미스에서 하이브리드 작업을 통해 고급 위협 방지 기능을 제공 합니다.
+- **Azure 센티널:** Azure 센티널은 클라우드 기본 SIEM (보안 정보 이벤트 관리) 솔루션입니다. 환경 전체에서 보안 분석, 경고 검색 및 자동화 된 위협 응답을 제공 합니다.
 
 ## <a name="topology"></a>토폴로지
 
@@ -30,7 +30,7 @@ Log Analytics 에이전트는 Azure, Azure VMware 솔루션 및 온-프레미스
 
 Log Analytics 작업 영역에서 로그를 수집한 후에는 Azure Security Center를 사용 하 여 Log Analytics 작업 영역을 구성할 수 있습니다. Azure Security Center는 Azure VMware 솔루션 Vm의 취약점 상태를 평가 하 고 위험 취약성에 대 한 경고를 발생 시킵니다. 예를 들어 누락 된 운영 체제 패치, 보안 잘못 된 구성을 평가 하 고 [endpoint protection](../security-center/security-center-services.md)을 평가 합니다.
 
-경고 검색, 위협 표시 유형, 자동 관리 구하기 및 위협 응답을 위해 Azure 센티널을 사용 하 여 Log Analytics 작업 영역을 구성할 수 있습니다. 위의 다이어그램에서 Azure Security Center는 Azure Security Center 커넥터를 사용 하 여 Azure 센티널에 연결 됩니다. Azure Security Center는 Azure 센티널에 환경 취약성을 전달 하 여 인시던트를 만들고 다른 위협에 매핑합니다. 또한 예약 된 규칙 쿼리를 만들어 원치 않는 활동을 검색 하 고이를 인시던트로 변환할 수 있습니다.
+경고 검색, 위협 표시 유형, 검색 및 위협 응답을 위해 Azure 센티널을 사용 하 여 Log Analytics 작업 영역을 구성할 수 있습니다. 위의 다이어그램에서 Azure Security Center는 Azure Security Center 커넥터를 사용 하 여 Azure 센티널에 연결 됩니다. Azure Security Center는 Azure 센티널에 환경 취약성을 전달 하 여 인시던트를 만들고 다른 위협에 매핑합니다. 또한 예약 된 규칙 쿼리를 만들어 원치 않는 활동을 검색 하 고이를 인시던트로 변환할 수 있습니다.
 
 ## <a name="benefits"></a>이점
 
@@ -54,11 +54,11 @@ Log Analytics 작업 영역에서 로그를 수집한 후에는 Azure Security C
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm Security Center 배포 및 구성
 
-Azure Security Center는 미리 구성 된 도구 이며 배포를 요구 하지 않습니다. Azure Portal에서 **Security Center** 를 검색 하 여 선택 합니다.
+Azure Security Center는 배포가 필요 하지 않은 미리 구성 된 도구입니다. Azure Portal에서 **Security Center** 를 검색 하 여 선택 합니다.
 
 ### <a name="enable-azure-defender"></a>Azure Defender 사용
 
-Azure Defender는 온-프레미스와 클라우드 모두에서 하이브리드 워크 로드를 통해 Azure Security Center의 advanced threat protection을 확장 합니다. 따라서 Azure VMware 솔루션 Vm을 보호 하려면 Azure Defender를 사용 하도록 설정 해야 합니다. 
+Azure Defender는 온-프레미스와 클라우드에서 하이브리드 워크 로드를 통해 Azure Security Center의 advanced threat protection을 확장 합니다. 따라서 Azure VMware 솔루션 Vm을 보호 하려면 Azure Defender를 사용 하도록 설정 해야 합니다. 
 
 1. Security Center에서 **시작** 을 선택 합니다.
 
@@ -82,7 +82,7 @@ Azure Defender는 온-프레미스와 클라우드 모두에서 하이브리드 
 
 5. **리소스 세부 정보** 탭에서 다음 세부 정보를 입력 합니다. 
     - 구독
-    - 리소스 그룹
+    - Resource group
     - 지역 
     - 운영 체제
     - 프록시 서버 정보
@@ -149,7 +149,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 ## <a name="create-rules-to-identify-security-threats"></a>보안 위협을 식별 하는 규칙 만들기
 
-데이터 원본을 Azure 센티널에 연결한 후 검색 된 위협에 따라 경고를 생성 하는 규칙을 만들 수 있습니다. 다음 예제에서는 잘못 된 암호를 사용 하 여 Windows server에 로그인 하려는 시도를 식별 하는 규칙을 만듭니다.
+데이터 원본을 Azure 센티널에 연결한 후 검색 된 위협에 대 한 경고를 생성 하는 규칙을 만들 수 있습니다. 다음 예제에서는 잘못 된 암호를 사용 하 여 Windows server에 로그인 하려고 시도 하는 규칙을 만듭니다.
 
 1. Azure 센티널 개요 페이지의 구성에서 **분석** 을 선택 합니다.
 
@@ -196,7 +196,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 세 번째로 Windows server에 로그인 하지 못한 후에 생성 된 규칙은 실패 한 모든 시도에 대해 인시던트를 트리거합니다.
 
-## <a name="view-generated-alerts"></a>생성 된 경고 보기
+## <a name="view-alerts"></a>경고 보기
 
 Azure 센티널을 사용 하 여 생성 된 인시던트를 볼 수 있습니다. 인시던트를 할당 하 고 해결 된 후에도 Azure 센티널 내에서 종료할 수 있습니다.
 

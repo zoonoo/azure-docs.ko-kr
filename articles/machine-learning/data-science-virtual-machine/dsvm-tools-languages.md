@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Data Science Virtual Machine에 미리 설치 되어 있는 지원 되는 프로그램 언어 및 관련 도구입니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42110eb896a751080044247932770f37617174c9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87843269"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516433"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -56,7 +55,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
   Visual Studio Community edition에 설치 된 PTVS (Visual Studio용 Python 도구)를 사용 합니다. 기본적으로 PTVS에서 자동으로 설정 되는 유일한 환경은 Python 3.6입니다. 
 
     > [!NOTE]
-    > PTVS에서 Python 2.7을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community Edition에서이 환경 경로를 설정 하려면 **도구**  ->  **python 도구**  ->  **python 환경** 으로 이동한 다음 **+ 사용자 지정**을 선택 합니다. 그런 다음 위치를 **c:\anaconda\envs\python2** 로 설정 하 고 **자동 검색**을 선택 합니다.
+    > PTVS에서 Python 2.7을 가리키도록 하려면 PTVS에서 사용자 지정 환경을 만들어야 합니다. Visual Studio Community Edition에서이 환경 경로를 설정 하려면 **도구**  ->  **python 도구**  ->  **python 환경** 으로 이동한 다음 **+ 사용자 지정** 을 선택 합니다. 그런 다음 위치를 **c:\anaconda\envs\python2** 로 설정 하 고 **자동 검색** 을 선택 합니다.
 
 * Jupyter에서 사용:
 
@@ -177,7 +176,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * Jupyter에서 사용:
 
-  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전**으로 설정할 수 있습니다.
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전** 으로 설정할 수 있습니다.
 
 * 줄리아 패키지 설치:
 
@@ -194,7 +193,7 @@ DSVM (Data Science Virtual Machine)은 AI (인공 지능) 응용 프로그램을
 
 * Jupyter에서 사용:
 
-  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전**으로 설정할 수 있습니다.
+  Jupyter를 열고 **새로** 만들기를 선택 하 여 새 노트북을 만듭니다. 커널 유형을 **줄리아 버전** 으로 설정할 수 있습니다.
 
 * 줄리아 패키지 설치:
 

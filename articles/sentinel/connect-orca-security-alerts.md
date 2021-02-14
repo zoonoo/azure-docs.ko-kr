@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 735f4b447d7258a9b444f3b75a6537dec20b1307
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18a50e3d06135f2c17b7e7c5b2969be33f408c62
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076270"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093083"
 ---
 # <a name="connect-your-orca-security-alerts-to-azure-sentinel"></a>Orca.exe 보안 경고를 Azure 센티널에 연결 
 
@@ -46,7 +46,7 @@ Orca.exe 보안 경고는 로그를 Azure 센티널로 직접 통합 하 고 내
 Orca.exe 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면를 검색 `OrcaAlerts_CL` 합니다.
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

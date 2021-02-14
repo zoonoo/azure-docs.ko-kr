@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 DB2에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 DB2에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638196"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381123"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -79,10 +74,10 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`).<br>DB2 커넥터는 DDM/DRDA 프로토콜을 사용하며, 포트를 지정하지 않으면 기본적으로 포트 50000을 사용합니다. 특정 DB2 데이터베이스에서 사용하는 포트는 버전 및 설정에 따라 다를 수 있습니다. 예를 들어, DB2 LUW의 경우 기본 포트는 50000이고, AS400의 경우 기본 포트는 446 또는 448(TLS를 사용하도록 설정한 경우)입니다. 일반적으로 포트를 구성하는 방법에 대해서는 DB2 문서 [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) 및 [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html)를 참조하세요. |예 |
 | 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
-| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic** . |예 |
+| authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic**. |예 |
 | 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성하는 위치를 지정합니다. 이 값을 설정하지 않으면 Data Factory는 {username}을 기본값으로 사용합니다. | 예 |
+| packageCollection    | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지를 자동으로 생성하는 위치를 지정합니다. 이 값을 설정하지 않으면 Data Factory는 {username}을 기본값으로 사용합니다. | 예 |
 | certificateCommonName | SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안) 암호화를 사용하는 경우 인증서 일반 이름에 값을 입력해야 합니다. | 예 |
 
 > [!TIP]

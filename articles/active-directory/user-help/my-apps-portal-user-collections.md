@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609672"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095123"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>내 앱의 사용자 컬렉션 (미리 보기)
 
@@ -33,6 +33,12 @@ ms.locfileid: "97609672"
 - 컬렉션 숨기기
 - 숨겨진 컬렉션 표시
 - 컬렉션 삭제
+
+>[!Note]
+>개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="create-a-collection"></a>컬렉션 만들기
 
@@ -103,6 +109,7 @@ ms.locfileid: "97609672"
 숨겨진 컬렉션을 표시 하려면 다음을 수행 합니다.
 
 1. [내 앱 컬렉션](https://myapplications.microsoft.com/?endUserCollections) 으로 이동 하 여 회사 또는 학교 계정을 사용 하 여 로그인 합니다.
+
 1. 페이지 메뉴를 열고 :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="페이지 수준 메뉴에 대 한 줄임표 아이콘을 선택한":::다음 **관리** 를 선택 합니다.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="페이지 메뉴에는 앱을 관리 하는 관리 명령이 있습니다.":::

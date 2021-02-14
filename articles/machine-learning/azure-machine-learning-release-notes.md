@@ -9,16 +9,46 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097078"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375564"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 참조 페이지를 참조 하세요.
+
+
+## <a name="2021-02-09"></a>2021-02-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1220"></a>Azure Machine Learning SDK for Python v 1.22.0
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + 비전 모델용 conda iisnode.yml 파일에 추가 pip 종속성이 추가 된 버그가 수정 되었습니다.
+  + **azureml-automl-runtime**
+    + 귀속 대상 값을 가진 행이 없는 경우 기존 예측 모델 (예: AutoArima)이 학습 데이터를 받을 수 있는 버그를 수정 했습니다. 이러한 모델의 데이터 계약이 위반 되었습니다. * 시계열 지연 연산자에서 발생 한 지연 동작으로 다양 한 버그를 수정 했습니다. 이전에는 발생 별 지연 작업에서 모든 귀속 행을 올바르게 표시 하지 않았으므로 항상 올바른 발생 지연 값을 생성 하지는 않습니다. 또한 지연 연산자와 발생 지연 동작을 포함 하는 롤링 창 연산자 간의 일부 호환성 문제가 해결 되었습니다. 이로 인해 이전에는 이동 창 연산자가 학습 데이터에서 다른 방법으로 사용 해야 하는 행을 삭제 했습니다.
+  + **azureml-core**
+    + 사용자가 토큰 인증에 대 한 지원을 추가 합니다.
+    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 에를 추가 합니다.
+  + **azureml-pipeline-steps**
+    + 이제 [Commandstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) 이 GA 이며 더 이상 실험적이 아닙니다.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): allowed_failed_count 인수를 추가 하 고 allowed_failed_percent 하 여 미니 일괄 처리 수준에서 오류 임계값을 확인 합니다. 오류 임계값에는 이제 다음과 같은 3 가지 종류가 있습니다.
+       + error_threshold-허용 된 실패 한 미니 일괄 처리 항목 수 
+       + allowed_failed_count-허용 된 최소 미니 일괄 처리 수 
+       + allowed_failed_percent-허용 된 미니 일괄 처리 중 실패 한 비율입니다. 
+       
+       가이 중 하나를 초과 하면 작업이 중지 됩니다. error_threshold은 이전 버전과의 호환성을 유지 하는 데 필요 합니다. 값을 무시 하려면-1로 설정 합니다.
+    + AutoMLStep 이름에서 공백 처리를 수정 했습니다.
+    + ScriptRunConfig는 이제 Hyper드라이브 Estep에서 지원 됩니다.
+  + **azureml-train-core**
+    + 이제 스크립트가 호출 되는 하이퍼 드라이브 실행이 자식 실행으로 간주 됩니다.
+    + `process_count`다중 프로세스 다중 노드 PyTorch 작업을 지원 하려면 [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) 에를 추가 합니다.
+  + **azureml-widgets**
+    + 위젯 ParallelRunStepDetails를 추가 하 여 ParallelRunStep의 상태를 시각화 합니다.
+    + 하이퍼 드라이브 사용자가 병렬 좌표 차트에서 각 자식 실행에 대 한 각 하이퍼 매개 변수 집합에 해당 하는 메트릭 값을 표시 하는 추가 축을 볼 수 있습니다.
+
 
  ## <a name="2021-01-31"></a>2021-01-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Azure Machine Learning Studio 노트북 환경 (1 월 업데이트)
@@ -35,6 +65,7 @@ ms.locfileid: "100097078"
   + 성능 향상 
   + 향상 된 속도 및 커널 안정성
   
+
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Azure Machine Learning SDK for Python v 1.21.0
@@ -145,7 +176,7 @@ ms.locfileid: "100097078"
     + HyperDriveRun.get_children_sorted_by_primary_metric ()는 지금 보다 빨리 완료 되어야 합니다.
     + 하이퍼 드라이브 SDK에서 오류 처리가 개선 되었습니다.
     +  사용 되지 않는 모든 평가기 클래스는 실험 실행을 구성 하기 위해 ScriptRunConfig를 사용 하는 것을 선호 합니다. 사용 되지 않는 클래스는 다음과 같습니다.
-        + MMLBaseEstimator
+        + MMLBase
         + 평가자
         + PyTorch 
         + TensorFlow 
@@ -940,7 +971,7 @@ ms.locfileid: "100097078"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     Description  |
+| 웹 기반 도구  |     설명  |
 |---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
@@ -1452,7 +1483,7 @@ ms.locfileid: "100097078"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | Description | 
+| 웹 기반 도구 | 설명 | 
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 

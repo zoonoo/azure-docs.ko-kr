@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 MSIX 앱 연결 포털 미리 보기-Azure
 description: Azure Portal를 사용 하 여 Windows 가상 데스크톱에 대 한 MSIX 앱 연결을 설정 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185957"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373473"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Azure Portal을 사용하여 MSIX 앱 연결 설정
 
@@ -65,7 +65,7 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 
 관리 인터페이스를 설정 하려면:
 
-1. [Preview 포털을 엽니다](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Azure Portal를 엽니다](https://portal.azure.com).
 2. 확장을 신뢰할 수 있는지 여부를 묻는 메시지가 표시 되 면 **허용** 을 선택 합니다.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ MSIX 이미지가 이미 있는 경우 [앱 그룹에 MSIX 앱 게시](#publish-
 ## <a name="assign-a-user-to-an-app-group"></a>앱 그룹에 사용자 할당
 
 앱 그룹에 MSIX 앱을 할당 한 후에는 사용자에 게 액세스 권한을 부여 해야 합니다. 게시 된 MSIX 응용 프로그램으로 앱 그룹에 사용자 또는 사용자 그룹을 추가 하 여 액세스 권한을 할당할 수 있습니다. Azure Portal를 사용 하 여 [앱 그룹 관리](manage-app-groups.md) 의 지침에 따라 사용자를 앱 그룹에 할당 합니다.
+
+>[!NOTE]
+>공개 미리 보기 중에 원격 앱을 테스트 하는 경우 MSIX 앱 연결 원격 앱이 피드에서 사라질 수 있습니다. 평가 환경에서 사용 하는 호스트 풀이 프로덕션 환경의 RD Broker에서 제공 되므로 앱이 표시 되지 않습니다. 프로덕션 환경의 RD Broker는 MSIX 앱 연결 원격 앱의 현재 상태를 등록 하지 않으므로 피드에 앱이 표시 되지 않습니다.
 
 ## <a name="change-msix-package-state"></a>MSIX 패키지 상태 변경
 

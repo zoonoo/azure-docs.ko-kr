@@ -1,24 +1,18 @@
 ---
 title: 분할 된 시간 파일 이름을 기반으로 새 파일 증분 복사
 description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 로드 합니다.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: ae66bb025f2a49a79120fe86e0de7c4a3ccf26ca
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8e68852434a4a8bea43b575523a60c9346b2a569
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555382"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384778"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
 
@@ -36,10 +30,10 @@ ms.locfileid: "94555382"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure storage 계정** : Blob storage를 _원본_  및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure storage 계정**: Blob storage를 _원본_  및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-account-create.md)의 지침을 참조하세요.
 
 ### <a name="create-two-containers-in-blob-storage"></a>Blob 저장소에 두 개의 컨테이너 만들기
 
@@ -56,7 +50,7 @@ ms.locfileid: "94555382"
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 메뉴에서 **리소스**  >  **통합**  >  **Data Factory** 만들기를 선택 합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
 
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -97,7 +91,7 @@ ms.locfileid: "94555382"
 
     b. **작업 흐름 또는 작업 일정** 에서 **일정에 따라 정기적으로 실행** 을 선택 합니다.
 
-    다. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
+    c. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
 
     d. **되풀이** 에서 **1 시간** 을 입력 합니다.
 
@@ -112,7 +106,7 @@ ms.locfileid: "94555382"
     
     b. 갤러리에서 Azure Blob Storage를 선택한 다음, 계속을 선택합니다.
     
-    다. **새 연결 된 서비스 (Azure Blob Storage)** 페이지에서 연결 된 서비스의 이름을 입력 합니다. Azure 구독을 선택 하 고 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트한 다음, **만들기** 를 선택합니다.
+    c. **새 연결 된 서비스 (Azure Blob Storage)** 페이지에서 연결 된 서비스의 이름을 입력 합니다. Azure 구독을 선택 하 고 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트한 다음, **만들기** 를 선택합니다.
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
 
@@ -126,7 +120,7 @@ ms.locfileid: "94555382"
 
     b. **파일 로드 동작** 에서 **증분 로드: 시간 분할 된 폴더/파일 이름** 을 선택 합니다.
 
-    다. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 스크린샷에 표시 된 대로 형식을 변경 합니다. **이진 복사** 를 선택 하 고 **다음** 을 클릭 합니다.
+    c. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 스크린샷에 표시 된 대로 형식을 변경 합니다. **이진 복사** 를 선택 하 고 **다음** 을 클릭 합니다.
 
     ![선택한 폴더를 사용 하 여 입력 파일 또는 폴더 선택 대화 상자를 보여 주는 스크린샷](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 

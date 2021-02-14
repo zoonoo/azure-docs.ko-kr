@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027002"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361624"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Azure AD Multi-Factor Authentication 설정 구성
 
@@ -25,7 +25,7 @@ Azure AD Multi-Factor Authentication에 대 한 최종 사용자 환경을 사�
 
 Azure Portal에서 사용할 수 있는 Azure AD Multi-Factor Authentication 설정은 다음과 같습니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 | ------- | ----------- |
 | [계정 잠금](#account-lockout) | 한 행에 거부 된 인증 시도가 너무 많으면 Azure AD Multi-Factor Authentication를 사용 하지 못하도록 일시적으로 계정을 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Azure AD Multi-Factor Authentication 요청을 받을 수 없도록 차단 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단 된 시간부터 90 일 동안 차단 된 상태로 유지 되거나 수동으로 차단 해제 됩니다. |
@@ -65,9 +65,7 @@ Azure Portal에서 사용할 수 있는 Azure AD Multi-Factor Authentication 설
 
 1. **Azure Active Directory** > **보안** > **MFA** > **사용자 차단/차단 해제** 로 이동합니다.
 1. **추가** 를 선택하여 사용자를 차단합니다.
-1. **복제 그룹** 을 선택 하 고 *Azure 기본값* 을 선택 합니다.
-
-    차단 된 사용자의 사용자 이름을로 입력 `username\@domain.com` 하 고 *이유* 필드에 주석을 입력 합니다.
+1. 차단 된 사용자의 사용자 이름을로 입력 `username@domain.com` 하 고 *이유* 필드에 주석을 입력 합니다.
 1. 준비가 되 면 **확인** 을 선택 하 여 사용자를 차단 합니다.
 
 ### <a name="unblock-a-user"></a>사용자 차단 해제
@@ -315,7 +313,7 @@ Azure AD Multi-Factor Authentication의 _신뢰할 수_ 있는 ip 기능은 정�
 
 다음과 같은 확인 방법을 사용할 수 있습니다.
 
-| 메서드 | Description |
+| 방법 | Description |
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
 | 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 관리자는 이전에 양방향 SMS를 사용한 사용자에게 다른 방법을 사용하도록 설정해야 합니다.|

@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): 모델 교차 유효성 검사 & 평가-Azure'
 description: Azure Machine Learning Studio (클래식)에서 모델 성능을 모니터링 하는 데 사용할 수 있는 메트릭에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b2ca78d30659fce6e4246c81216cae94b404955e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310157"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520020"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 모델 성능 평가 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 이 문서에서는 Azure Machine Learning Studio (클래식)에서 모델 성능을 모니터링 하는 데 사용할 수 있는 메트릭에 대해 알아볼 수 있습니다.  모델 성능 평가는 데이터 과학 프로세스의 핵심 단계 중 하나입니다. 이는 학습된 모델에서 데이터 세트 점수 매기기(예측)에 성공한 정도를 나타냅니다. Azure Machine Learning Studio (클래식)은 두 가지 주요 기계 학습 모듈을 통해 모델 평가를 지원 합니다. 
@@ -47,7 +47,7 @@ ms.locfileid: "93310157"
 다음 섹션에서는 간단한 회귀 및 분류 모델을 빌드하고 [모델 평가][evaluate-model] 및 [모델 교차 유효성 검사][cross-validate-model] 모듈을 둘 다 사용하여 해당 성능을 평가합니다.
 
 ## <a name="evaluating-a-regression-model"></a>회귀 모델 평가
-차원, 마 력, 엔진 사양 등과 같은 기능을 사용 하 여 자동차의 가격을 예측 하려고 한다고 가정 합니다. 이는 대상 변수( *price* )가 연속 숫자 값인 일반적인 회귀 문제입니다. 특정 자동차의 기능 값을 고려 하 여 해당 자동차의 가격을 예측할 수 있는 선형 회귀 모델에 맞출 수 있습니다. 이 회귀 모델을 사용하여 학습한 동일한 데이터 세트의 점수를 매길 수 있습니다. 차량 가격이 예측 되 면 예측의 평균 가격을 확인 하 여 모델 성능을 평가할 수 있습니다. 이를 설명 하기 위해 Machine Learning Studio (클래식)의 **저장 된 데이터 집합** 섹션에서 제공 되는 *자동차 가격 데이터 (원시) 데이터 집합* 을 사용 합니다.
+차원, 마 력, 엔진 사양 등과 같은 기능을 사용 하 여 자동차의 가격을 예측 하려고 한다고 가정 합니다. 이는 대상 변수(*price*)가 연속 숫자 값인 일반적인 회귀 문제입니다. 특정 자동차의 기능 값을 고려 하 여 해당 자동차의 가격을 예측할 수 있는 선형 회귀 모델에 맞출 수 있습니다. 이 회귀 모델을 사용하여 학습한 동일한 데이터 세트의 점수를 매길 수 있습니다. 차량 가격이 예측 되 면 예측의 평균 가격을 확인 하 여 모델 성능을 평가할 수 있습니다. 이를 설명 하기 위해 Machine Learning Studio (클래식)의 **저장 된 데이터 집합** 섹션에서 제공 되는 *자동차 가격 데이터 (원시) 데이터 집합* 을 사용 합니다.
 
 ### <a name="creating-the-experiment"></a>실험 만들기
 Azure Machine Learning Studio (클래식)의 작업 영역에 다음 모듈을 추가 합니다.
@@ -65,7 +65,7 @@ Azure Machine Learning Studio (클래식)의 작업 영역에 다음 모듈을 �
 그림 1. 회귀 모델 평가
 
 ### <a name="inspecting-the-evaluation-results"></a>평가 결과 검사
-실험을 실행한 후 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 *시각화* 를 선택하여 평가 결과를 확인할 수 있습니다. 회귀 모델에 사용할 수 있는 평가 메트릭은 *절대 평균 오차* , *루트 절대 평균 오차* , *상대 절대 오차* , *상대 제곱된 오차* 및 *결정 계수* 입니다.
+실험을 실행한 후 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 *시각화* 를 선택하여 평가 결과를 확인할 수 있습니다. 회귀 모델에 사용할 수 있는 평가 메트릭은 *절대 평균 오차*, *루트 절대 평균 오차*, *상대 절대 오차*, *상대 제곱된 오차* 및 *결정 계수* 입니다.
 
 여기서 "오차"는 예측 값과 실제 값 간의 차이를 나타냅니다. 예측 값과 실제 값의 차이는 경우에 따라 음수일 수 있으므로 모든 인스턴스에서 오차의 총 크기를 캡처하기 위해 일반적으로 이 차이의 절대값 또는 제곱이 컴퓨팅됩니다. 오차 메트릭은 실제 값에서 예측 값의 평균 편차로 회귀 모델의 예측 성능을 측정합니다. 오차 값이 낮을수록 모델의 예측이 더 정확함을 의미합니다. 전체 오차 메트릭이 0이라는 것은 모델이 데이터에 완벽하게 적합하다는 의미입니다.
 
@@ -107,7 +107,7 @@ Azure Machine Learning Studio (클래식)의 작업 영역에 다음 모듈을 �
 그림 5. 이진 분류 모델 평가
 
 ### <a name="inspecting-the-evaluation-results"></a>평가 결과 검사
-실험을 실행한 후 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 *시각화* 를 선택하여 평가 결과를 확인할 수 있습니다(그림 7). 이진 분류 모델에 사용할 수 있는 평가 메트릭은 *정확도* , *전체 자릿수* , *재현율* , *F1 점수* 및 *AUC* 입니다. 또한 이 모듈은 *ROC* , *전체 자릿수/재현율* 및 *양력* 곡선뿐만 아니라 참 긍정, 거짓 부정, 거짓 긍정 및 참 부정 수를 보여 주는 혼동 행렬을 출력합니다.
+실험을 실행한 후 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 *시각화* 를 선택하여 평가 결과를 확인할 수 있습니다(그림 7). 이진 분류 모델에 사용할 수 있는 평가 메트릭은 *정확도*, *전체 자릿수*, *재현율*, *F1 점수* 및 *AUC* 입니다. 또한 이 모듈은 *ROC*, *전체 자릿수/재현율* 및 *양력* 곡선뿐만 아니라 참 긍정, 거짓 부정, 거짓 긍정 및 참 부정 수를 보여 주는 혼동 행렬을 출력합니다.
 
 정확도는 올바르게 분류된 인스턴스의 비율일 뿐입니다. 이는 일반적으로 분류자를 평가할 때 확인하는 첫 번째 메트릭입니다. 그러나 대부분의 인스턴스가 클래스 중 하나에 속하는 경우 테스트 데이터가 불균형 하거나 클래스 중 하나에 대 한 성능에 더 관심이 있으면 정확도는 분류자의 효율성을 정확히 캡처하지 않습니다. 소득 수준 분류 시나리오에서는 인스턴스의 99%가 연간 소득이 50K 이하인 사람을 나타내는 일부 데이터를 테스트하는 것으로 가정합니다. 모든 인스턴스에 대해 "<= 50K" 클래스를 예측 하 여 0.99 정확도를 달성할 수 있습니다. 이 경우 분류자는 전반적으로 양호한 것처럼 보이지만 실제로는 고소득자(1%)를 올바르게 분류하지 못합니다.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754951"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104113"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 
@@ -41,7 +41,7 @@ MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라
 
 현재 **웹** 플랫폼 리디렉션 URI를 사용하여 구성된 앱 등록에 대해 다음 단계를 수행합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> 에 로그인 하 고 **Azure Active Directory** 테 넌 트를 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인하고 **Azure Active Directory** 테넌트를 선택합니다.
 1. **앱 등록** 에서 애플리케이션, **인증** 을 차례로 선택합니다.
 1. **웹** 플랫폼 타일의 **리디렉션 URI** 에서 URI를 마이그레이션해야 함을 나타내는 경고 배너를 선택합니다.
 

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 8c963f11a34217253f02cb5d116d66cdbf8bcc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033960"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391544"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -37,6 +37,9 @@ Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하려�
 - [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
 
 Azure Portal에서 blob 데이터에 액세스 하려고 하면 포털은 먼저 **Microsoft. Storage/storageAccounts/listkeys/action** 을 사용 하 여 역할이 할당 되었는지 여부를 확인 합니다. 이 작업을 사용 하 여 역할을 할당 한 경우 포털에서 blob 데이터에 액세스 하기 위해 계정 키를 사용 합니다. 이 작업을 사용 하 여 역할을 할당 하지 않은 경우 포털은 Azure AD 계정을 사용 하 여 데이터에 액세스 하려고 시도 합니다.
+
+> [!IMPORTANT]
+> Azure Resource Manager **ReadOnly** 잠금을 사용 하 여 저장소 계정이 잠긴 경우 해당 저장소 계정에 대 한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용 되지 않습니다. **목록 키** 는 게시 작업 이며, 계정에 대해 **ReadOnly** 잠금이 구성 된 경우 모든 post 작업은 차단 됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있는 경우 사용자는 Azure AD 자격 증명을 사용 하 여 포털에서 blob 데이터에 액세스 해야 합니다. Azure AD를 사용 하 여 포털에서 blob 데이터에 액세스 하는 방법에 대 한 자세한 내용은 [AZURE ad 계정 사용](#use-your-azure-ad-account)을 참조 하세요.
 
 > [!NOTE]
 > 클래식 구독 관리자 역할 서비스 관리자 및 Co-Administrator에는 Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할에 해당 하는 항목이 포함 됩니다. **Owner** 역할은 **Microsoft. Storage/storageaccounts/listkeys/action** 을 비롯 한 모든 동작을 포함 하므로 이러한 관리 역할 중 하나가 있는 사용자는 계정 키를 사용 하 여 blob 데이터에 액세스할 수도 있습니다. 자세한 내용은 [클래식 구독 관리자 역할, Azure 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)을 참조하세요.
@@ -111,6 +114,6 @@ Blob 업로드 작업에 권한을 부여 하는 방법을 지정 하려면 다�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 인증](../common/storage-auth-aad.md)
-- [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-portal.md)
+- [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](../common/storage-auth-aad-rbac-portal.md)
 - [Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-cli.md)
 - [Azure PowerShell 모듈을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](../common/storage-auth-aad-rbac-powershell.md)

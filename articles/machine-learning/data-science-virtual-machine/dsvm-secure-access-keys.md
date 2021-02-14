@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Data Science Virtual Machine에 대한 액세스 자격 증명을 안전하게 저장하는 방법을 알아봅니다. 관리 서비스 id 및 Azure Key Vault를 사용 하 여 액세스 자격 증명을 저장 하는 방법을 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: d5604e42c2c27463e10c136ccd18c3c21846fc5a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: adc66fc794ac6cce3fc0f8fd1552f701a4968860
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309151"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519680"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Azure Data Science Virtual Machine에 안전 하 게 액세스 자격 증명 저장
 

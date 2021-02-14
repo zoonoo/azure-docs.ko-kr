@@ -2,19 +2,19 @@
 title: Apache Spark에 대 한 라이브러리 관리
 description: Azure Synapse Analytics에서 Apache Spark에 사용 되는 라이브러리를 추가 하 고 관리 하는 방법을 알아봅니다.
 services: synapse-analytics
-author: euangMS
+author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 62610e1b86671021e66891ae232bacbd4b3e40ed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0458fb8b140166b7bdf0fc0df41dbb207fdce3c9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518524"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 
@@ -26,19 +26,21 @@ ms.locfileid: "96458817"
 ## <a name="default-installation"></a>기본 설치
 Azure Synapse Analytics의 Apache Spark에는 완전 한 Anacondas 설치와 추가 라이브러리가 있습니다. 전체 라이브러리 목록은 [Apache Spark 버전 지원](apache-spark-version-support.md)에서 찾을 수 있습니다. 
 
-Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 Python 및 사용자 지정 빌드 패키지는 Spark 풀 수준에서 추가할 수 있습니다.
+Spark 인스턴스가 시작 되 면 이러한 라이브러리가 자동으로 포함 됩니다. 추가 Python 및 사용자가 작성 한 패키지는 Spark 풀 수준에서 추가할 수 있습니다.
 
 
 ## <a name="manage-python-packages"></a>Python 패키지 관리
 Spark 응용 프로그램에 사용할 라이브러리를 확인 한 후에는 Spark 풀에 설치할 수 있습니다. 
 
- *requirements.txt* 파일 (명령의 출력)을 `pip freeze` 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 풀을 시작할 때 PyPi에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
+ *requirements.txt* 파일 (명령의 출력)을 `pip freeze` 사용 하 여 가상 환경을 업그레이드할 수 있습니다. 설치 또는 업그레이드를 위해이 파일에 나열 된 패키지는 풀을 시작할 때 PyPI에서 다운로드 됩니다. 이 요구 사항 파일은 spark 인스턴스를 Spark 풀에서 만들 때마다 사용 됩니다.
 
 > [!IMPORTANT]
 > - 설치 하는 패키지가 크거나 설치 하는 데 시간이 오래 걸리는 경우 Spark 인스턴스 시작 시간에 영향을 줍니다.
 > - 설치 시 GCC와 같이 컴파일러 지원이 필요한 패키지는 지원되지 않습니다.
 > - 패키지를 다운 그레이드할 수 없습니다. 추가 하거나 업그레이드할 수 있습니다.
-> - 라이브러리를 설치 하려면 Synapse 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 저장소 Blob 데이터 참가자 또는 저장소 Blob 데이터 소유자 권한이 있어야 합니다.
+> - PySpark, Python, Scala/Java, .NET 또는 Spark 버전을 변경 하는 것은 지원 되지 않습니다.
+> - PyPI에서 패키지 설치는 DEP 사용 작업 영역 내에서 지원 되지 않습니다.
+
 
 ### <a name="requirements-format"></a>요구 사항 형식
 
@@ -53,6 +55,9 @@ alabaster==0.7.10
 ### <a name="install-python-packages"></a>Python 패키지 설치
 Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이트 하거나 새 라이브러리를 설치 해야 하는 경우가 있습니다. 풀을 만들 때 또는 이후에 라이브러리를 업데이트할 수 있습니다.
 
+> [!IMPORTANT]
+> 라이브러리를 설치 하려면 Synapse 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 저장소 Blob 데이터 참가자 또는 저장소 Blob 데이터 소유자 권한이 있어야 합니다.
+
 #### <a name="install-packages-during-pool-creation"></a>풀을 만드는 동안 패키지 설치
 풀을 만드는 동안 Spark 풀에 라이브러리를 설치 하려면 다음을 수행 합니다.
    
@@ -66,7 +71,7 @@ Spark 응용 프로그램을 개발할 때 기존 라이브러리를 업데이�
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Synapse 작업 영역에서 패키지 설치
-Azure Synapse Analytics 포털에서 Spark 풀에 라이브러리를 추가 하거나 업데이트 하려면 다음을 수행 합니다.
+Azure Synapse Analytics 포털에서 Spark 풀에 라이브러리를 더 추가 하거나 업데이트 하려면 다음을 수행 합니다.
 
 1.  Azure Portal에서 Azure Synapse Analytics 작업 영역으로 이동 합니다.
    
@@ -101,7 +106,7 @@ for d in pkg_resources.working_set:
      print(d)
 ```
 ### <a name="update-python-packages"></a>Python 패키지 업데이트
-세션 간에 언제 든 지 패키지를 추가 하거나 수정할 수 있습니다. 새 패키지 구성 파일을 업로드 하면 기존 패키지 및 버전을 덮어씁니다.  
+세션 간에 언제 든 지 패키지를 추가 하거나 수정할 수 있습니다. 새 패키지 구성 파일은 기존 패키지 및 버전을 덮어씁니다.  
 
 라이브러리를 업데이트 하거나 제거 하려면:
 1. Azure Synapse Analytics 작업 영역으로 이동 합니다. 
@@ -124,13 +129,15 @@ for d in pkg_resources.working_set:
 ## <a name="manage-a-python-wheel"></a>Python 휠 관리
 
 ### <a name="install-a-custom-wheel-file"></a>사용자 지정 휠 파일 설치
-모든 휠 파일을 Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 업로드 하 여 Apache Spark 풀에 사용자 지정 기본 휠 패키지를 설치할 수 있습니다. 
+Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 모든 휠 파일을 업로드 하 여 Apache Spark 풀에 사용자 지정 기반 휠 패키지를 설치할 수 있습니다. 
 
 저장소 계정의 기본 컨테이너에 있는 다음 경로에 파일을 업로드 해야 합니다. 
 
 ```
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
+
+폴더가 ```python``` 아직 없는 경우 폴더 내에 폴더를 추가 해야 할 수도 있습니다 ```libraries``` .
 
 >[!IMPORTANT]
 >세션 간에 사용자 지정 패키지를 추가 하거나 수정할 수 있습니다. 그러나 업데이트 된 패키지를 보려면 풀과 세션이 다시 시작 될 때까지 기다려야 합니다.

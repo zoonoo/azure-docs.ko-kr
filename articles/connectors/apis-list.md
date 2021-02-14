@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/12/2021
+ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019638"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382891"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -452,15 +452,21 @@ SQL 또는 SFTP-SSH와 같은 되풀이 연결 기반 트리거에서 일정은 
 >
 > ISEs를 만드는 방법에 대 한 자세한 내용은 [Azure Logic Apps에서 Azure virtual network에 연결](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 참조 하세요.
 
+## <a name="get-ready-for-deployment"></a>배포 준비 완료
+
+논리 앱 내에서 연결을 만드는 경우에도 연결은 자체 리소스 정의가 포함 된 별도의 Azure 리소스입니다. 이러한 연결 리소스 정의를 검토 하려면 [Azure에서 Visual Studio로 논리 앱을 다운로드](../logic-apps/manage-logic-apps-with-visual-studio.md)합니다 .이는 일반적으로 배포할 준비가 된 유효한 매개 변수가 있는 논리 앱 템플릿을 만드는 가장 쉬운 방법입니다.
+
 <a name="block-connections"></a>
 
 ## <a name="block-creating-connections"></a>연결 만들기 차단
 
 조직에서 Azure Logic Apps의 커넥터를 사용 하 여 특정 리소스에 대 한 연결을 허용 하지 않는 경우 [Azure Policy](../governance/policy/overview.md)를 사용 하 여 논리 앱 워크플로에서 특정 커넥터에 대 한 [연결을 만드는 기능을 차단할](../logic-apps/block-connections-connectors.md) 수 있습니다. 자세한 내용은 [Azure Logic Apps에서 특정 커넥터에 의해 생성 된 연결 차단](../logic-apps/block-connections-connectors.md)을 참조 하세요.
 
-## <a name="get-ready-for-deployment"></a>배포 준비 완료
+## <a name="known-issues"></a>알려진 문제
 
-논리 앱 내에서 연결을 만드는 경우에도 연결은 자체 리소스 정의가 포함 된 별도의 Azure 리소스입니다. 이러한 연결 리소스 정의를 검토 하려면 [Azure에서 Visual Studio로 논리 앱을 다운로드](../logic-apps/manage-logic-apps-with-visual-studio.md)합니다 .이는 일반적으로 배포할 준비가 된 유효한 매개 변수가 있는 논리 앱 템플릿을 만드는 가장 쉬운 방법입니다.
+#### <a name="error-badgateway-client-request-id-guid"></a>오류: BadGateway. 클라이언트 요청 id: ' {GUID} '
+
+이 오류는 하나 이상의 연결이 SFTP AD SQL과 같은 Azure Active Directory (Azure AD) OAuth 인증을 지원 하지 않고 해당 연결을 중단 하는 논리 앱의 태그를 업데이트 하는 것으로 인해 발생 합니다. 이러한 동작을 방지 하려면 해당 태그를 업데이트 하지 마십시오.
 
 ## <a name="next-steps"></a>다음 단계
 
