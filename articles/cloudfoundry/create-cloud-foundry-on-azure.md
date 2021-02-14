@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040794"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821984"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Azure에서 Pivotal Cloud Foundry 클러스터 만들기
 
@@ -42,11 +42,13 @@ ssh-keygen -t rsa -b 2048
 
 > [!NOTE]
 >
-> 서비스 주체를 만들려면 소유자 계정 권한이 필요합니다. 또한 서비스 주체를 자동으로 만드는 스크립트를 작성할 수도 있습니다. 예를 들어 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest) Azure CLI를 사용할 수 있습니다.
+> 서비스 주체를 만들려면 소유자 계정 권한이 필요합니다. 또한 서비스 주체를 자동으로 만드는 스크립트를 작성할 수도 있습니다. 예를 들어 [az ad sp create-for-rbac](/cli/azure/ad/sp) Azure CLI를 사용할 수 있습니다.
 
 1. Azure 계정에 로그인합니다.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Azure CLI 로그인](media/deploy/az-login-output.png )
  
@@ -54,11 +56,15 @@ ssh-keygen -t rsa -b 2048
 
 2. 이 구성에 대한 기본 구독을 설정합니다.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. PCF용 Azure Active Directory 애플리케이션을 만듭니다. 고유한 영숫자 암호를 지정합니다. 암호를 나중에 사용할 **clientSecret** 로 저장합니다.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     출력의 "appId" 값을 나중에 사용할 **clientID** 로 복사합니다.
 
@@ -68,23 +74,31 @@ ssh-keygen -t rsa -b 2048
 
 4. 새 앱 ID를 사용하여 서비스 주체를 만듭니다.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. 서비스 주체의 권한 역할을 기여자로 설정합니다.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     또는 다음을 사용할 수도 있습니다.
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![서비스 주체 역할 할당](media/deploy/svc-princ.png )
 
 6. 앱 ID, 암호 및 테넌트 ID를 사용하여 서비스 주체에 성공적으로 로그인할 수 있는지 확인합니다.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. .json 파일을 다음 형식으로 만듭니다. 이전에 복사한 **subscription ID** , **tenantID** , **clientID** 및 **clientSecret** 값을 사용합니다. 파일을 저장합니다.
+7. .json 파일을 다음 형식으로 만듭니다. 이전에 복사한 **subscription ID**, **tenantID**, **clientID** 및 **clientSecret** 값을 사용합니다. 파일을 저장합니다.
 
     ```json
     {
@@ -123,7 +137,7 @@ ssh-keygen -t rsa -b 2048
          
     > [!NOTE]
     >
-    > "사이트가 안전하지 않습니다"라는 경고 메시지로 인해 Internet Explorer 브라우저가 실패하면 **추가 정보** 를 선택하고 웹 페이지로 이동합니다. Firefox의 경우 **Advance** (다음)를 선택하고, 인증서를 추가하여 계속 진행합니다.
+    > "사이트가 안전하지 않습니다"라는 경고 메시지로 인해 Internet Explorer 브라우저가 실패하면 **추가 정보** 를 선택하고 웹 페이지로 이동합니다. Firefox의 경우 **Advance**(다음)를 선택하고, 인증서를 추가하여 계속 진행합니다.
 
 5. 배포된 Azure 인스턴스가 PCF Ops Manager에 표시됩니다. 이제 여기서 애플리케이션을 배포하고 관리할 수 있습니다.
                

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807549"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518082"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Power BI 테 넌 트 등록 및 검사 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "99807549"
 
 ## <a name="create-a-security-group-for-permissions"></a>사용 권한에 대 한 보안 그룹 만들기
 
-인증을 설정 하려면 보안 그룹을 만들고 해당 그룹에 카탈로그의 관리 되는 id를 추가 합니다.
+인증을 설정 하려면 보안 그룹을 만들고 부서의 범위 관리 id를 추가 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 를 검색 합니다.
 1. [기본 그룹 만들기 및 Azure Active Directory를 사용 하 여 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 수행 하 여 Azure Active Directory에서 새 보안 그룹을 만듭니다.
@@ -35,11 +35,11 @@ ms.locfileid: "99807549"
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="보안 그룹 종류":::
 
-1. 이 보안 그룹에 카탈로그의 관리 되는 id를 추가 합니다. **멤버** 를 선택 하 고 **+ 구성원 추가** 를 선택 합니다.
+1. 부서의 범위 관리 id를이 보안 그룹에 추가 합니다. **멤버** 를 선택 하 고 **+ 구성원 추가** 를 선택 합니다.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="카탈로그의 관리 되는 인스턴스를 그룹에 추가 합니다.":::
 
-1. 카탈로그를 검색 하 고 선택 합니다.
+1. 부서의 범위 관리 id를 검색 하 고 선택 합니다.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="검색 하 여 카탈로그 추가":::
 
@@ -61,14 +61,14 @@ ms.locfileid: "99807549"
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="서비스 사용자가 읽기 전용 Power BI admin API 권한을 가져오도록 허용 하는 방법을 보여 주는 이미지":::
 
     > [!Caution]
-    > 사용자가 만든 보안 그룹 (데이터 카탈로그 관리 되는 id를 구성원으로 포함)을 사용 하 여 읽기 전용 Power BI 관리 Api를 사용 하는 경우이 테 넌 트의 모든 Power BI 아티팩트에 대 한 메타 데이터 (예: 대시보드 및 보고서 이름, 소유자, 설명 등)에 액세스 하도록 허용할 수도 있습니다. 메타 데이터를 Azure 부서의 범위로 끌어온 후에는 Power BI 권한이 없는 부서의 범위의 사용 권한을 통해 해당 메타 데이터를 볼 수 있는 사람을 결정 합니다.
+    > 사용자가 만든 보안 그룹 (부서의 범위 관리 되는 id가 멤버인 경우)을 사용 하 여 읽기 전용 Power BI 관리 Api를 사용 하는 경우이 테 넌 트의 모든 Power BI 아티팩트에 대 한 메타 데이터 (예: 대시보드 및 보고서 이름, 소유자, 설명 등)에 액세스 하도록 허용할 수도 있습니다. 메타 데이터를 Azure 부서의 범위로 끌어온 후에는 Power BI 권한이 없는 부서의 범위의 사용 권한을 통해 해당 메타 데이터를 볼 수 있는 사람을 결정 합니다.
 
     > [!Note]
     > 개발자 설정에서 보안 그룹을 제거할 수 있지만 이전에 추출 된 메타 데이터는 부서의 범위 계정에서 제거 되지 않습니다. 원할 경우 별도로 삭제할 수 있습니다.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Power BI 등록 및 검색 설정
 
-Power BI 테 넌 트의 관리 API에 연결할 수 있는 카탈로그 권한을 제공 했으므로 카탈로그 포털에서 검색을 설정할 수 있습니다.
+Power BI 테 넌 트의 관리 API에 연결 하기 위한 부서의 범위 관리 Id 권한을 제공 했으므로 Azure 부서의 범위 Studio에서 검색을 설정할 수 있습니다.
 
 먼저 부서의 범위 URL에 특수 기능 플래그를 추가 합니다. 
 

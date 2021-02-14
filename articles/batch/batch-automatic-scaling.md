@@ -4,12 +4,12 @@ description: 풀의 컴퓨팅 노드 수를 동적으로 조정하려면 클라�
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381429"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 컴퓨팅 노드의 크기를 조정하는 자동 수식 만들기
 
@@ -128,6 +128,7 @@ $NodeDeallocationOption = taskcompletion;
 | $PendingTasks |$ActiveTasks 및 $RunningTasks의 합입니다. |
 | $SucceededTasks |성공적으로 완료된 태스크 수. |
 | $FailedTasks |실패한 태스크 수. |
+| $TaskSlotsPerNode |풀의 단일 계산 노드에서 동시 작업을 실행 하는 데 사용할 수 있는 태스크 슬롯의 수입니다. |
 | $CurrentDedicatedNodes |현재 전용 컴퓨팅 노드 수. |
 | $CurrentLowPriorityNodes |선점된 노드를 포함하여 우선 순위가 낮은 컴퓨팅 노드의 현재 수입니다. |
 | $PreemptedNodeCount | 선점 상태에 있는 풀의 노드 수입니다. |
@@ -284,13 +285,13 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 다음 메서드를 사용 하 여 서비스 정의 변수에 대 한 샘플 데이터를 가져올 수 있습니다.
 
-| 메서드 | Description |
+| 방법 | Description |
 | --- | --- |
 | GetSample() |`GetSample()` 메서드는 데이터 샘플의 벡터를 반환합니다.<br/><br/>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.<ul><li>`doubleVec GetSample(double count)`: 수집 된 최신 샘플에서 가져올 샘플 수를 지정 합니다. `GetSample(1)`은 사용 가능한 마지막 샘플을 반환합니다. 그러나와 같은 메트릭의 경우 `$CPUPercent` `GetSample(1)` 샘플이 수집 된 *시기* 를 알 수 없기 때문에를 사용할 수 없습니다. 최근 일 수도 있고 시스템 문제로 인해 훨씬 오래 된 것일 수도 있습니다. 이러한 경우에는 아래와 같이 시간 간격을 사용 하는 것이 좋습니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: 샘플 데이터를 수집 하기 위한 시간 프레임을 지정 합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다. 예를 들어은 `$CPUPercent.GetSample(TimeInterval_Minute * 10)` 지난 10 분 동안의 모든 샘플이 기록에 있는 경우 20 개 샘플을 반환 합니다 `CPUPercent` . 최근 기록 시간 (분)을 사용할 수 없는 경우 18 개의 샘플만 반환 됩니다. 이 경우 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` 샘플의 90%만 사용할 수 있지만 성공 하기 때문에 실패 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` 합니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: 시작 시간과 종료 시간을 모두 사용 하 여 데이터를 수집 하기 위한 시간 프레임을 지정 합니다. 위에서 언급 한 것 처럼 샘플이 수집 되는 시간과 수식에서 사용할 수 있는 시간 사이에 지연이 발생 합니다. `GetSample` 메서드를 사용할 때 이 지연을 고려해 보세요. 아래 `GetSamplePercent` 참조 |
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`)을 입력합니다. 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예들 들어 `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`입니다. 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples"></a>샘플
 

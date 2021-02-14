@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 SharePoint Online 목록에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474950"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393431"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SharePoint Online 목록에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -196,7 +191,7 @@ SharePoint Online 목록에서 데이터를 복사하는 경우 SharePoint Onlin
 | 여러 줄 텍스트                          | Edm.String                                           | String                                   |
 | 선택(선택할 메뉴)                    | Edm.String                                           | String                                   |
 | 숫자(1, 1.0, 100)                            | Edm.Double                                           | Double                                   |
-| 통화($, ¥, €)                              | Edm.Double                                           | Double                                   |
+| 통화 ($, ¥, &euro; )                              | Edm.Double                                           | Double                                   |
 | 날짜 및 시간                                   | Edm.DateTime                                         | DateTime                                 |
 | 조회(이 사이트에 이미 있는 정보)       | Edm.Int32                                            | Int32                                    |
 | 예/아니요(확인란)                              | Edm.Boolean                                          | 부울                                  |

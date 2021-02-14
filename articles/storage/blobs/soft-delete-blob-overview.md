@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: a370a7f04e0e43b96e4a574313c4f24c4990ab6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979297"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390360"
 ---
 # <a name="soft-delete-for-blobs"></a>Blob에 대한 일시 삭제
 
@@ -83,11 +83,11 @@ Blob **배치**, **블록 목록 배치** 또는 **blob 복사** 를 사용 하 
 > [!NOTE]  
 > 일시 삭제된 Blob이 덮어쓰여지는 경우 쓰기 작업 전에 Blob 상태의 일시 삭제된 스냅샷이 자동으로 생성됩니다. 새 Blob은 덮어쓰여진 Blob의 계층을 상속합니다.
 
-일시 삭제는 컨테이너 또는 계정이 삭제 되는 경우 나 blob 메타 데이터 및 blob 속성을 덮어쓰는 경우에는 데이터를 저장 하지 않습니다. 저장소 계정이 삭제 되지 않도록 보호 하기 위해 Azure Resource Manager를 사용 하 여 잠금을 구성할 수 있습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)Azure Resource Manager 문서를 참조 하세요.
+일시 삭제는 컨테이너 또는 계정이 삭제 되는 경우 나 blob 메타 데이터 및 blob 속성을 덮어쓰는 경우에는 데이터를 저장 하지 않습니다. 저장소 계정이 삭제 되지 않도록 보호 하기 위해 Azure Resource Manager를 사용 하 여 잠금을 구성할 수 있습니다. 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)Azure Resource Manager 문서를 참조 하세요.  컨테이너를 실수로 삭제 하지 않도록 보호 하려면 저장소 계정에 대 한 컨테이너 일시 삭제를 구성 합니다. 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
 
 다음 표는 일시 삭제가 설정된 경우 예상되는 동작을 자세히 설명합니다.
 
-| REST API 작업 | 리소스 유형 | Description | 동작 변경 |
+| REST API 작업 | 리소스 종류 | 설명 | 동작 변경 |
 |--------------------|---------------|-------------|--------------------|
 | [Delete](/rest/api/storagerp/StorageAccounts/Delete) | 계정 | 포함하는 모든 컨테이너 및 Blob을 포함하여 스토리지 계정을 삭제합니다.                           | 변경되지 않았습니다. 삭제된 계정의 컨테이너 및 Blob은 복구할 수 없습니다. |
 | [컨테이너 삭제](/rest/api/storageservices/delete-container) | 컨테이너 | 포함하는 모든 Blob을 포함하여 컨테이너를 삭제합니다. | 변경되지 않았습니다. 삭제된 컨테이너의 Blob은 복구할 수 없습니다. |
@@ -115,7 +115,7 @@ Blob을 일시 삭제 된 특정 스냅숏으로 복원 하려면 기본 blob에
 
 일시 삭제된 Blob 및 Blob 스냅샷을 보려면 **Blob 나열** 에 삭제된 데이터를 포함하도록 선택할 수 있습니다. 일시 삭제된 기본 Blob만을 보거나 일시 삭제된 Blob 스냅샷도 포함하도록 선택할 수 있습니다. 모든 일시 삭제된 데이터의 경우 데이터가 삭제되었던 시간 및 데이터가 영구적으로 만료되기 전까지의 일 수를 볼 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음은 일시 삭제가 설정 된 경우 *HelloWorld* 라는 blob을 업로드, 덮어쓰기, 스냅숏, 삭제 및 복원 하는 .net 스크립트의 콘솔 출력입니다.
 

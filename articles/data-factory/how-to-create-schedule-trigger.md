@@ -1,23 +1,19 @@
 ---
 title: Azure Data Factory에서 일정 트리거 만들기
 description: 일정에 따라 파이프라인을 실행하는 Azure Data Factory에서 트리거를 만드는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001986"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387583"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -349,7 +345,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 ### <a name="schema-overview"></a>스키마 개요
 다음 테이블은 트리거의 되풀이 및 일정 계획과 관련된 주요 스키마 요소의 공급 개요를 제공합니다.
 
-| JSON 속성 | Description |
+| JSON 속성 | 설명 |
 |:--- |:--- |
 | **startTime** | 날짜-시간 값입니다. 단순한 일정의 경우 **startTime** 속성의 값이 첫 번째 되풀이에 적용됩니다. 복잡한 일정의 경우 트리거는 특정 **startTime** 값 이후에 시작합니다. <br> UTC 표준 시간대의 경우 format은이 `'yyyy-MM-ddTHH:mm:ssZ'` 고 다른 표준 시간대의 경우 형식은입니다 `'yyyy-MM-ddTHH:mm:ss'` . |
 | **endTime** | 트리거의 종료 날짜 및 시간입니다. 트리거는 지정된 종료 날짜 및 시간 이후에 실행되지 않습니다. 속성에 대한 값은 이전에 있을 수 없습니다. 이 속성은 선택 사항입니다.  <br> UTC 표준 시간대의 경우 format은이 `'yyyy-MM-ddTHH:mm:ssZ'` 고 다른 표준 시간대의 경우 형식은입니다 `'yyyy-MM-ddTHH:mm:ss'` . |
@@ -366,7 +362,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예제 |
+| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 예 | 없음 | ISO-8601 날짜-시간 | UTC 표준 시간대 `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> 기타 표준 시간대 `"2013-01-09T09:30:00-08:00"` |
 | **표준** | String | 예 | 없음 | [표준 시간대 값](#time-zone-option)  | `"UTC"` |
@@ -387,8 +383,8 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 | 동부 표준시 (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
 | GMT (그리니치 표준시) | 0 | `GMT Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중부 유럽 표준시 | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
-| 인도 표준시 (IST) | + 5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
-| 중국 표준시 | + 8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| 인도 표준시 (IST) | + 5:30 | `India Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
+| 중국 표준시 | + 8 | `China Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 
 이 목록은 완전 하지 않습니다. 표준 시간대 옵션의 전체 목록을 보려면 Data Factory 포털 [트리거 만들기 페이지](#data-factory-ui) 에서 탐색 하세요.
 
@@ -418,7 +414,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 다음 테이블에서는 **일정** 요소의 세부 정보를 설명합니다.
 
 
-| JSON 요소 | Description | 유효한 값 |
+| JSON 요소 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |
 | **내** | 트리거가 실행될 시간(분)입니다. | <ul><li>정수</li><li>정수 배열</li></ul>
 | **시간의** | 트리거가 실행될 일(시간)입니다. | <ul><li>정수</li><li>정수 배열</li></ul> |
@@ -432,7 +428,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 예제에서 **interval** 값은 1이고 **frequency** 값은 일정 정의에 따라 올바르다고 가정합니다. 예를 들어 "day" 라는 **frequency** 값을 가질 수 없으며 **schedule** 개체에서 "monthdays"를 수정할 수도 있습니다. 이러한 제한 사항은 이전 섹션의 테이블에서 언급했습니다.
 
-| 예제 | Description |
+| 예제 | 설명 |
 |:--- |:--- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |

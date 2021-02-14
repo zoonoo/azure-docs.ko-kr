@@ -8,12 +8,12 @@ ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: 036f086c88267f6a20da51746ca875c48a248712
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538853"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393142"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Azure Cosmos DB의 지정 시간 복원 (미리 보기) 기능을 사용한 연속 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,7 +33,7 @@ Azure Cosmos DB는 추가로 프로 비전 된 처리량 (RUs)을 사용 하거�
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Blob Storage에 데이터 백업을 Azure Cosmos DB 합니다." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-복원에 사용할 수 있는 기간 (보존 기간이 라고도 함)은 다음과 같은 두 가지 값입니다. "과거에 30 일 뒤로" 또는 "리소스를 만든 시간"입니다. 복원에 대 한 지정 시간은 보존 기간 내에 모든 타임 스탬프가 될 수 있습니다.
+복원에 사용할 수 있는 기간 (보존 기간이 라고도 함)은 다음 두 가지 값으로 구성 됩니다. *30 일은 지금부터 30 일 사이* 이거나 *리소스 생성 시간을* 초과 합니다. 복원에 대 한 지정 시간은 보존 기간 내에 모든 타임 스탬프가 될 수 있습니다.
 
 공개 미리 보기에서는 [Azure Portal](continuous-backup-restore-portal.md), [Azure 명령줄 인터페이스](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md)또는 [Azure Resource Manager](continuous-backup-restore-template.md)를 사용 하 여 SQL API에 대 한 Azure Cosmos DB 계정 또는 MongoDB 콘텐츠 지점을 다른 계정으로 복원할 수 있습니다.
 
@@ -59,17 +59,18 @@ Azure Cosmos DB는 추가로 프로 비전 된 처리량 (RUs)을 사용 하거�
 
 ## <a name="restore-scenarios"></a>복원 시나리오
 
-다음은 특정 시점 복원 기능으로 해결 된 주요 시나리오 중 일부입니다. 시나리오 [a] ~ [c]는 복원 타임 스탬프를 미리 알 수 있는 경우 복원을 트리거하는 방법을 보여 줍니다. 그러나 실수로 인 한 삭제 또는 손상의 정확한 시간을 모르는 시나리오는 있을 수 있습니다. 시나리오 [d] 및 [e]는 복원 가능한 데이터베이스 또는 컨테이너에서 새 이벤트 피드 Api를 사용 하 여 복원 타임 스탬프를 _검색_ 하는 방법을 보여 줍니다.
+다음은 특정 시점 복원 기능으로 해결 된 주요 시나리오 중 일부입니다. 시나리오 [a] ~ [c]는 복원 타임 스탬프를 미리 알 수 있는 경우 복원을 트리거하는 방법을 보여 줍니다.
+그러나 실수로 인 한 삭제 또는 손상의 정확한 시간을 모르는 시나리오는 있을 수 있습니다. 시나리오 [d] 및 [e]는 복원 가능한 데이터베이스 또는 컨테이너에서 새 이벤트 피드 Api를 사용 하 여 복원 타임 스탬프를 _검색_ 하는 방법을 보여 줍니다.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="복원 가능한 계정에 대 한 타임 스탬프가 포함 된 수명 주기 이벤트입니다." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **삭제 된 계정 복원** -복원할 수 있는 삭제 된 모든 계정은 **복원** 창에서 볼 수 있습니다. 예를 들어 "Account A"가 T3 타임 스탬프에서 삭제 되는 경우입니다. 이 경우 T3, 위치, 대상 계정 이름, 리소스 그룹 및 대상 계정 이름 직전의 타임 스탬프는 [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore)에서 복원 하기에 충분 합니다.  
+a. **삭제 된 계정 복원** -복원할 수 있는 삭제 된 모든 계정은 **복원** 창에서 볼 수 있습니다. 예를 들어 *Account A* 가 T3 타임 스탬프에서 삭제 되는 경우입니다. 이 경우 T3, 위치, 대상 계정 이름, 리소스 그룹 및 대상 계정 이름 직전의 타임 스탬프는 [Azure Portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore)에서 복원 하기에 충분 합니다.  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="복원 가능한 데이터베이스 및 컨테이너에 대 한 타임 스탬프가 포함 된 수명 주기 이벤트입니다." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **특정 지역에 있는 계정의 데이터를 복원** 합니다. 예를 들어 "계정 a"가 "미국 동부" 및 "미국 서 부"의 두 지역에 있는 경우에는 타임 스탬프 T3에 있습니다. "미국 서 부"에 계정 A의 복사본이 필요한 경우 미국 서 부를 대상 위치로 사용 하 여 [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 특정 시점 복원을 수행할 수 있습니다.
+b. **특정 지역에 있는 계정의 데이터를 복원** 합니다. 예를 들어 *ACCOUNT a* 가 *미국 동부* 와 미국 동부에 있는 두 지역에 존재 하는 경우에는 타임 스탬프가 T3로 복원 됩니다.  *미국 서 부* 에 계정 a의 복사본이 필요한 경우 미국 서 부를 대상 위치로 사용 하 여 [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 특정 시점 복원을 수행할 수 있습니다.
 
-c. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어 "데이터베이스 1"에 있는 "컨테이너 1"의 내용이 **발생 하면 타임** 스탬프가 T3로 수정 되었습니다. [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
+c. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어, *데이터베이스 1* 의 *컨테이너 1* 콘텐츠가 실수로 타임 스탬프가 T3로 수정 되었음을 **알** 수 있습니다. [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
 
 d. **데이터베이스를 실수로 삭제 하기 전 이전 시점으로 계정 복원** - [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)에서 이벤트 피드 창을 사용 하 여 데이터베이스가 삭제 된 시간을 확인 하 고 복원 시간을 찾을 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) 및 [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)을 사용 하면 데이터베이스 이벤트 피드를 열거 하 여 데이터베이스 삭제 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
 
@@ -81,7 +82,7 @@ Azure Cosmos DB를 사용 하면 연속 백업 계정에 대 한 복원 권한�
 
 ## <a name="pricing"></a><a id="continuous-backup-pricing"></a>가격 책정
 
-연속 백업을 사용 하도록 설정 된 Azure Cosmos DB 계정은 "백업 저장" 및 "데이터 복원"에 추가 월별 요금이 부과 됩니다. 복원 작업을 시작할 때마다 복원 비용이 추가 됩니다. 연속 백업을 사용 하 여 계정을 구성 하지만 데이터를 복원 하지 않는 경우에는 백업 저장소 비용도 청구서에 포함 됩니다.
+연속 백업을 사용 하도록 설정 된 Azure Cosmos DB 계정을 추가 하 여 *백업을 저장* 하 고 *데이터를 복원* 하는 추가 월별 요금이 발생 합니다. 복원 작업을 시작할 때마다 복원 비용이 추가 됩니다. 연속 백업을 사용 하 여 계정을 구성 하지만 데이터를 복원 하지 않는 경우에는 백업 저장소 비용도 청구서에 포함 됩니다.
 
 다음 예는 미국의 비 정부 지역에 배포 된 Azure Cosmos 계정에 대 한 가격을 기준으로 합니다. 가격 책정 및 계산은 사용 중인 지역에 따라 다를 수 있습니다. 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
 

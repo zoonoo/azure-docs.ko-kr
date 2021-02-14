@@ -1,22 +1,18 @@
 ---
 title: 제어 테이블을 사용하여 데이터베이스에서 대량 복사
 description: 외부 제어 테이블을 사용하여 Azure Data Factory에서 원본 테이블의 파티션 목록을 저장하는 방식으로 솔루션 템플릿을 사용하여 데이터베이스에서 데이터를 대량으로 복사하는 방법을 알아봅니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: d89fd8b4102333603fa71b2cc28a49b732b91b08
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: eed7a304bdd57846cd038cc9bf9a67e8150ca505
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920881"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392462"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>제어 테이블을 사용하여 데이터베이스에서 대량 복사
 

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 10f21067f48155a394ac20337d77e3e82aae64d8
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 8edf540c3f67a3a8bee075569f0a2588cae18a62
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985940"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390014"
 ---
 # <a name="what-is-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale 이란?
 
@@ -48,7 +48,7 @@ Azure (PaaS)에서 Database as a Service로 제공 되는 postgres 데이터베�
 Azure Arc 사용 데이터 서비스에서 사용할 수 있는 postgres 데이터베이스 엔진의 대규모 폼 요소입니다. 또한 하이퍼 크기 조정 환경을 가능 하 게 하는 Citus 확장을 기반으로 합니다. 이 폼 팩터에서 고객은 시스템을 호스트 하 고 운영 하는 인프라를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- **사용해 보세요.** Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요. 
+- **사용해 보세요.** Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) 를 빠르게 시작 하세요. 
 
 - **직접 만듭니다.** 사용자 고유의 Kubernetes 클러스터를 만들려면 다음 단계를 따르세요. 
    1. [클라이언트 도구 설치](install-client-tools.md)

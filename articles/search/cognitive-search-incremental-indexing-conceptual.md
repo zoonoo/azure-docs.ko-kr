@@ -7,13 +7,13 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390864"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
@@ -23,7 +23,7 @@ ms.locfileid: "90971635"
 
 *증분 보강* [기술력과](cognitive-search-working-with-skillsets.md)를 대상으로 하는 기능입니다. Azure Storage 활용 하 여 이후 인덱서 실행에서 다시 사용할 수 있도록 보강 파이프라인에서 내보낸 처리 출력을 저장 합니다. 가능 하면 인덱서는 여전히 유효한 모든 캐시 된 출력을 재사용 합니다. 
 
-증분 보강는 처리 (특히 OCR 및 이미지 처리)에 대 한 현금 투자를 유지할 뿐만 아니라 더 효율적인 시스템을 위해 사용 하기도 합니다. 구조와 콘텐츠를 캐시 하는 경우 인덱서는 변경 된 기술을 확인 하 고 다운스트림 종속 기술 뿐만 아니라 수정 된 기술을 실행할 수 있습니다. 
+증분 보강는 처리 (특히 OCR 및 이미지 처리)에 대 한 현금 투자를 유지할 뿐만 아니라 더 효율적인 시스템을 위해 사용 하기도 합니다. 
 
 증분 캐싱을 사용 하는 워크플로에는 다음 단계가 포함 됩니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "90971635"
 다음 예에서는 매개 변수가 있는 Update 기술 요청을 보여 줍니다.
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>데이터 원본 유효성 검사 무시
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 대부분의 데이터 원본 정의를 변경 하면 캐시가 무효화 됩니다. 그러나 연결 문자열을 변경 하거나 저장소 계정에서 키를 회전 하는 것과 같이 변경으로 캐시가 무효화 되지 않아야 하는 경우에는 `ignoreResetRequirement` 데이터 원본 업데이트에 매개 변수를 추가 합니다. 이 매개 변수를로 설정 하면 `true` 모든 개체를 다시 작성 하 고 처음부터 채우기 위해 다시 설정 조건을 트리거하지 않고 커밋을 진행할 수 있습니다.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>강제 기술 평가
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 (예: 사용자 지정 기술 등의 외부 코드를 변경 하는 경우)을 변경 한다고 가정 합니다.
 
 이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](/rest/api/searchservice/preview-api/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
+
+### <a name="reset-documents"></a>문서 다시 설정
+
+[인덱서를 다시 설정](/rest/api/searchservice/reset-indexer) 하면 검색 모음 모든 문서가 다시 처리 됩니다. 몇 개의 문서만 다시 처리 해야 하 고 데이터 원본을 업데이트할 수 없는 시나리오에서는 [문서 다시 설정 (미리 보기)](/rest/api/searchservice/preview-api/reset-documents) 을 사용 하 여 특정 문서를 강제로 다시 처리 합니다. 문서를 다시 설정 하면 인덱서는 해당 문서에 대 한 캐시를 무효화 하 고 문서는 데이터 원본에서 읽어 다시 처리 됩니다. 자세한 내용은 [인덱서, 기술 및 문서 실행 또는 다시 설정](search-howto-run-reset-indexers.md)을 참조 하세요.
 
 ## <a name="change-detection"></a>변경 내용 검색
 

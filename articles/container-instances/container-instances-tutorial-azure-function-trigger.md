@@ -4,12 +4,12 @@ description: Azure 컨테이너 인스턴스 만들기를 자동화하는 HTTP �
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7b94d583ca26b88d093810528d3193f20d765f1d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e7315796f2f7f89800b58f5fa607e69cd7ae3447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349251"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821231"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>자습서: HTTP 트리거 Azure 함수를 사용하여 컨테이너 그룹 만들기
 
@@ -105,7 +105,7 @@ if ($name) {
 
 ## <a name="run-the-function-in-azure"></a>Azure에서 함수 실행
 
-배포가 성공적으로 완료되면 함수 URL을 가져옵니다. 예를 들어 Visual Studio Code의 **Azure: Functions** 영역을 사용하여 **HttpTrigger** 함수 URL을 복사하거나 [Azure Portal](../azure-functions/functions-create-first-azure-function.md#test-the-function)에서 함수 URL을 가져옵니다.
+배포가 성공적으로 완료되면 함수 URL을 가져옵니다. 예를 들어 Visual Studio Code의 **Azure: Functions** 영역을 사용하여 **HttpTrigger** 함수 URL을 복사하거나 [Azure Portal](../azure-functions/functions-get-started.md)에서 함수 URL을 가져옵니다.
 
 함수 URL의 형식은 다음과 같습니다.
 

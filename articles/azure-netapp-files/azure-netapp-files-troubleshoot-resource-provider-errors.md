@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483468"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374884"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Azure NetApp Files 리소스 공급자 오류 문제 해결 
 
 이 문서에서는 일반적인 Azure NetApp Files 리소스 공급자 오류, 해당 원인, 해결 방법 (있는 경우)을 설명 합니다.
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>일반적인 Azure NetApp Files 리소스 공급자 오류
+
+***이 영역에서는을 (를) 만들 수 `netAppAccounts` 없습니다.***
+
+이러한 상황은 Azure NetApp Files에 대 한 구독이 waitlisted 사용자가 NetApp 계정을 만들려고 할 때 발생 합니다.
+
+* 원인:   
+Azure NetApp Files에 대 한 Azure 리소스 공급자가 등록 되지 않았습니다. 
+ 
+* 해결 방법:   
+구독을 waitlisted 한 후 [Azure NetApp 리소스 공급자 등록](azure-netapp-files-register.md#resource-provider) 에 설명 된 모든 단계를 완료 합니다.
 
 ***BareMetalTenantId를 변경할 수 없습니다.***  
 
@@ -259,7 +269,7 @@ Azure API는 Azure NetApp Files API를 사용 하 여 볼륨을 관리 합니다
 * 원인:   
 내부 오류가 발생 하 여 작업을 완료 하지 못했습니다.
 * 해결 방법:   
-이 오류는 일시적일 수 있습니다. 잠시 기다린 후 다시 시도하세요. 문제가 지속 되 면 기술 지원을 통해 문제를 조사할 티켓을 만듭니다.
+이 오류는 일시적일 수 있습니다. 잠시 기다린 다음 다시 시도하십시오. 문제가 지속 되 면 기술 지원을 통해 문제를 조사할 티켓을 만듭니다.
 * 해결 방법:   
 몇 분 정도 기다렸다가 문제가 지속 되는지 확인 합니다.
 

@@ -3,12 +3,12 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ac35f09e1a7274019a8ca504fc697ca81de000f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920473"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370112"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -168,7 +168,7 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 [!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
 
@@ -364,6 +364,9 @@ SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소
 
 Azure Synapse Analytics 제한에 대해서는 [Azure Synapse 리소스 제한](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
 
+## <a name="azure-files-and-azure-file-sync"></a>Azure Files 및 Azure 파일 동기화
+Azure Files 및 파일 동기화에 대 한 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../../storage/files/storage-files-scale-targets.md)를 참조 하세요.
+
 ## <a name="storage-limits"></a>스토리지 제한
 
 <!--like # storage accts -->
@@ -378,16 +381,6 @@ Standard storage 계정에 대 한 제한 사항에 대 한 자세한 내용은 
 ### <a name="azure-blob-storage-limits"></a>Azure Blob Storage 용량 한도
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### <a name="azure-files-limits"></a>Azure Files 한도
-
-Azure Files 제한에 대 한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../../storage/files/storage-files-scale-targets.md)를 참조 하세요.
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### <a name="azure-file-sync-limits"></a>Azure 파일 동기화 한도
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-queue-storage-limits"></a>Azure Queue storage 용량 한도
 

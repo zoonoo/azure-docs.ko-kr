@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 1b9d515c197b56f7e0520539b23be60504059675
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131256"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362763"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 
@@ -45,7 +45,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 구체적으로 설명 하기 위해이 문서에서는 분류 태스크에 대 한 간단한 파이프라인을 만듭니다. 이 태스크는 Titanic을 예측 하 고 있지만, 전달 하는 것을 제외 하 고 데이터 또는 태스크에 대해서는 다루지 않습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 ### <a name="retrieve-initial-dataset"></a>초기 데이터 집합 검색
 
@@ -108,32 +108,15 @@ compute_target = ws.compute_targets[compute_name]
 
 ### <a name="configure-the-training-run"></a>학습 실행 구성
 
-다음 단계는 원격 학습 실행에 학습 단계에 필요한 모든 종속성이 있는지 확인 하는 것입니다. 개체를 만들고 구성 하 여 종속성 및 런타임 컨텍스트를 설정 `RunConfiguration` 합니다. 
+AutoMLStep는 작업을 제출 하는 동안 자동으로 해당 종속성을 구성 합니다. 개체를 만들고 구성 하 여 런타임 컨텍스트를 설정 합니다 `RunConfiguration` . 여기서는 계산 대상을 설정 합니다.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-
-USE_CURATED_ENV = True
-if USE_CURATED_ENV :
-    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
-    aml_run_config.environment = curated_environment
-else:
-    aml_run_config.environment.python.user_managed_dependencies = False
-    
-    # Add some packages relied on by data prep step
-    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-        conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk[automl]', 'azureml-dataprep[fuse,pandas]'], 
-        pin_sdk_version=False)
 ```
-
-위의 코드는 종속성을 처리 하는 두 가지 옵션을 보여 줍니다. 에서 설명한 대로 `USE_CURATED_ENV = True` 구성은 큐 레이트 환경을 기반으로 합니다. 큐 레이트 환경은 일반적인 상호 종속 라이브러리를 포함 하는 "prebaked" 이며 온라인으로 전환 하는 데 훨씬 더 빠르게 수행할 수 있습니다. 큐 레이트 환경은 [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner)에 미리 빌드된 Docker 이미지를 포함 합니다. 로 변경 하면 `USE_CURATED_ENV` `False` 종속성을 명시적으로 설정 하는 패턴이 표시 됩니다. 이 시나리오에서는 새 사용자 지정 Docker 이미지가 만들어지고 리소스 그룹 내의 Azure Container Registry에 등록 됩니다 ( [Azure의 개인 Docker 컨테이너 레지스트리 소개](../container-registry/container-registry-intro.md)참조). 이 이미지를 빌드하고 등록 하려면 몇 분 정도 걸릴 수 있습니다. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>자동화 된 기계 학습을 위한 데이터 준비
 

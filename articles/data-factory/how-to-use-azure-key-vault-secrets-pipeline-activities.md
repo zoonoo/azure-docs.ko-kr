@@ -1,21 +1,17 @@
 ---
 title: 파이프라인 작업에서 Azure Key Vault 비밀 사용
 description: Azure 주요 자격 증명 모음에서 저장 된 자격 증명을 가져와서 데이터 팩터리 파이프라인 실행 중에 사용 하는 방법을 알아봅니다.
-services: data-factory
 author: ChrisLound
-manager: anandsub
-editor: ''
+ms.author: chlound
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: chlound
-ms.openlocfilehash: 1766705e73afab5d15cdb5aa2c5bb1487ad3d7c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d7e1133b8f3880c4c1616ef5ca955ed014348935
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013890"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383962"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
@@ -23,7 +19,7 @@ ms.locfileid: "96013890"
 
 Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프라인 실행 중에 사용 하 여 작업에 전달할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다.  [Data Factory에 대 한 관리 id](./data-factory-service-identity.md) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리가 연결 된 것이 있는지 확인 합니다.
 
@@ -53,7 +49,7 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
     |---------|---------|
     |보안 출력     |True         |
     |URL     |[사용자의 비밀 URI 값]? api-version = 7.0         |
-    |메서드     |GET         |
+    |방법     |GET         |
     |인증     |MSI         |
     |리소스        |https://vault.azure.net       |
 

@@ -1,22 +1,17 @@
 ---
 title: Azure SSIS 통합 런타임을 구성 하 여 가상 네트워크에 가입 하는 자습서
 description: Azure SSIS 통합 런타임을 조인 하 여 Azure 가상 네트워크에 가입 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: fc34c2422816f23c0c3eb8adf8a02b5e7ed3b4c0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3dbbce4adc44696fdd12f6ce948b48b34caaed75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636989"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391238"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 가입 하기 위해 Azure SQL Server Integration Services (SSIS) IR (통합 런타임) 구성
 
@@ -31,14 +26,14 @@ ms.locfileid: "92636989"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure-SSIS 통합 런타임** . Azure SSIS 통합 런타임이 없는 경우 시작 하기 전에 [Azure Data Factory에서 AZURE ssis 통합 런타임을 프로 비전](tutorial-deploy-ssis-packages-azure.md) 합니다.
+- **Azure-SSIS 통합 런타임**. Azure SSIS 통합 런타임이 없는 경우 시작 하기 전에 [Azure Data Factory에서 AZURE ssis 통합 런타임을 프로 비전](tutorial-deploy-ssis-packages-azure.md) 합니다.
 
-- **사용자 권한** . Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
+- **사용자 권한**. Azure-SSIS IR를 만드는 사용자는 아래 옵션 중 하나를 사용하여 적어도 Azure Data Factory 리소스에서 [역할 할당](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)이 있어야 합니다.
 
     - 기본 제공 네트워크 참가자 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
     - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 또한 Azure Resource Manager 가상 네트워크에 연결 하는 동안 Azure-SSIS IR에 대 한 공용 IP 주소를 가져오려면 역할에 _Microsoft. network/publicIPAddresses/*/join/action_ 권한도 포함 해야 합니다.
 
-- **가상 네트워크** .
+- **가상 네트워크**.
 
     - 가상 네트워크가 없는 경우 [Azure Portal를 사용 하 여 가상 네트워크를 만듭니다](../virtual-network/quick-create-portal.md).
 

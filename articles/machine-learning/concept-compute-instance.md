@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862140"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099798"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -32,7 +32,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 계산 인스턴스는 machine learning 개발 환경에 최적화 된 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 다음과 같은 이점을 제공합니다.
 
-|주요 이점|설명|
+|주요 이점|Description|
 |----|----|
 |생산성|Azure Machine Learning studio에서 통합 된 노트북 및 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (미리 보기)<br/>계산 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합 됩니다. 작업 영역의 다른 데이터 과학자와 전자 필기장 및 데이터를 공유할 수 있습니다.<br/> 계산 인스턴스와 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 를 사용할 수도 있습니다.
 |관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>-리소스 관리자 템플릿 또는 Azure Machine Learning SDK에서 autoprovisioning 비전<br/>- [Azure 역할 기반 access control (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [가상 네트워크 지원](./how-to-secure-training-vnet.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
@@ -51,7 +51,7 @@ Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 �
 
 SSH가 필요 없는 원격 서버로 계산 인스턴스를 사용 하 여 [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) 에서 Jupyter 노트북을 실행할 수 있습니다. [원격 SSH 확장](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/)을 통해 VS Code 통합을 사용 하도록 설정할 수도 있습니다.
 
-패키지를 [설치](how-to-create-manage-compute-instance.md#install-packages) 하 고 계산 인스턴스에 [커널을 추가할](how-to-create-manage-compute-instance.md#add-new-kernels) 수 있습니다.  
+패키지를 [설치](how-to-access-terminal.md#install-packages) 하 고 계산 인스턴스에 [커널을 추가할](how-to-access-terminal.md#add-new-kernels) 수 있습니다.  
 
 다음 도구 및 환경은 계산 인스턴스에 이미 설치 되어 있습니다. 
 
@@ -77,7 +77,7 @@ SSH가 필요 없는 원격 서버로 계산 인스턴스를 사용 하 여 [VS 
 |Anaconda Python||
 |Jupyter 및 확장||
 |Jupyterlab 및 확장||
-[Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-run-jupyter-notebooks.md#terminal) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
+[Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-access-terminal.md) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
 |기타 PyPI 패키지|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda 패키지|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |딥 러닝 패키지|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -132,10 +132,10 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 
 계산 인스턴스를 만들려면 다음 동작에 대 한 사용 권한이 있어야 합니다.
 * *Microsoft.MachineLearningServices/workspaces/computes/write*
-* *MachineLearningServices/작업 영역/checkComputeNameAvailability/작업*
+* *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>계산 인스턴스 만들기
+### <a name="create-a-compute-instance"></a><a name="create"></a>컴퓨팅 인스턴스 만들기
 
 Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 [새 계산 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance) . 
 

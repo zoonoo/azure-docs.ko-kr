@@ -1,22 +1,18 @@
 ---
 title: Azure File Storage 간에 데이터 복사
 description: Azure File Storage에서 지원되는 싱크 데이터 저장소로 (또는) 지원되는 원본 데이터 저장소에서 Azure File Storage으로 Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/31/2020
-ms.openlocfilehash: 4c5cee412dea286a76b5678f93637e655e308b26
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3eb9ab7cf33f3829e90edf4205221243b666c9cf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346149"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385849"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure File Storage 간에 데이터 복사
 
@@ -63,8 +59,8 @@ Data Factory는 Azure File Storage 계정 키 인증에 대 한 다음 속성을
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureFileStorage**. | 예 |
-| connectionString | Azure File Storage에 연결 하는 데 필요한 정보를 지정 합니다. <br/> Azure Key Vault에 계정 키를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `accountKey` . 자세한 내용은 Azure Key Vault 문서의 다음 샘플 및 [저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요. |예 |
-| 공유 | 파일 공유를 지정 합니다. | 예 |
+| connectionString | Azure File Storage에 연결 하는 데 필요한 정보를 지정 합니다. <br/> Azure Key Vault에 계정 키를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `accountKey` . 자세한 내용은 Azure Key Vault 문서의 다음 샘플 및 [저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요. |Yes |
+| 공유 | 파일 공유를 지정 합니다. | Yes |
 | 스냅샷 | 스냅숏에서 복사 하려는 경우 [파일 공유 스냅숏의](../storage/files/storage-snapshots-files.md) 날짜를 지정 합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -123,8 +119,8 @@ Data Factory는 공유 액세스 서명 인증을 사용 하는 다음 속성을
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **AzureFileStorage**. | 예 |
-| sasUri | 리소스에 대 한 공유 액세스 서명 URI를 지정 합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 사용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조 하세요. | 예 |
-| 공유 | 파일 공유를 지정 합니다. | 예 |
+| sasUri | 리소스에 대 한 공유 액세스 서명 URI를 지정 합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 사용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조 하세요. | Yes |
+| 공유 | 파일 공유를 지정 합니다. | Yes |
 | 스냅샷 | 스냅숏에서 복사 하려는 경우 [파일 공유 스냅숏의](../storage/files/storage-snapshots-files.md) 날짜를 지정 합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -266,18 +262,18 @@ Data Factory는 공유 액세스 서명 인증을 사용 하는 다음 속성을
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | 아래의 type 속성은 `storeSettings` **AzureFileStorageReadSettings** 로 설정 해야 합니다. | 예                                           |
-| **_복사할 파일 찾기:_* _ |  |  |
-| 옵션 1: 정적 경로<br> | 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 폴더의 모든 파일을 복사하려면 `wildcardFileName`을 `_`로 지정합니다. |  |
+| ***복사할 파일 찾기:*** |  |  |
+| 옵션 1: 정적 경로<br> | 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 폴더의 모든 파일을 복사하려면 `wildcardFileName`을 `*`로 지정합니다. |  |
 | 옵션 2: 파일 접두사<br>- 접두사 | 원본 파일을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 파일 공유 아래의 파일 이름에 대 한 접두사입니다. 로 시작 하는 이름의 파일이 `fileshare_in_linked_service/this_prefix` 선택 됩니다. Azure File Storage에 대 한 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다. [레거시 연결 된 서비스 모델](#legacy-model)을 사용 하는 경우에는이 기능이 지원 되지 않습니다. | 예                                                          |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링할 와일드카드 문자가 포함된 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 옵션 3: 와일드카드<br>- wildcardFileName | 원본 파일을 필터링하기 위해 지정된 folderPath/wildcardFolderPath 아래의 와일드카드 문자가 포함된 파일 이름입니다. <br>허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 파일 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다.  더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
 | 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용하는 경우 데이터 세트에서 파일 이름을 지정하지 마세요. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
-| ***추가 설정:** _ |  | |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. <br>허용 되는 값은 _ *true** (기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
+| ***추가 설정:*** |  | |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 아니요                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 예                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 스토리지 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대한 동시 연결 수를 제한하려는 경우에만 지정합니다. | 예                                            |
 

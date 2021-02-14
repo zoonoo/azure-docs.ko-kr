@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383537"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Azure Cognitive Search 인덱싱에서 blob에 대 한 변경 및 삭제 검색을 설정 하는 방법
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Blob 인덱싱에서 변경 및 삭제 검색 (Azure Cognitive Search)
 
 초기 검색 인덱스를 만든 후에는 후속 인덱서 작업에서 새 문서만 선택 하도록 할 수 있습니다. Azure Blob 저장소에서 발생 하는 검색 콘텐츠의 경우 인덱싱을 트리거하는 일정을 사용 하면 변경 내용 검색이 자동으로 발생 합니다. 기본적으로 서비스는 blob의 타임 스탬프에 따라 결정 된 대로 변경 된 blob만 다시 인덱싱합니다 `LastModified` . 검색 인덱서에 의해 지원 되는 다른 데이터 원본과 달리 blob에는 항상 타임 스탬프가 있으므로 변경 검색 정책을 수동으로 설정 하지 않아도 됩니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "99430563"
 > [!IMPORTANT]
 > 기본 blob 일시 삭제에 대 한 지원은 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2020-06-30-미리 보기](./search-api-preview.md) 에서이 기능을 제공 합니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 + [Blob에 대해 일시 삭제를 사용 하도록 설정](../storage/blobs/soft-delete-blob-enable.md)합니다.
 + Blob은 Azure Blob 저장소 컨테이너에 있어야 합니다. Cognitive Search 기본 blob 일시 삭제 정책은 Azure Data Lake Storage Gen2 blob에 대해 지원 되지 않습니다.

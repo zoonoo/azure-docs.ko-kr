@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560289"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388858"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
 
@@ -24,7 +24,12 @@ ms.locfileid: "99560289"
 인식 기능을 향상 시키기 위해 많은 기록 데이터 샘플이 필요 하며, 10 ~ 20 시간 간의 기록 데이터를 제공 하는 것이 좋습니다. 이 페이지에서는 고품질의 고급 기능을 만들 수 있도록 설계 된 지침을 검토 합니다. 이 가이드는 미국 영어, 중국어 (북경어) 및 독일어 섹션을 사용 하 여 로캘로 구분 됩니다.
 
 > [!NOTE]
-> 모든 기본 모델이 오디오 파일의 사용자 지정을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 학습은 관련 텍스트가 사용 되는 것과 동일한 방식으로 문자열을 사용 합니다.
+> 모든 기본 모델이 오디오 파일의 사용자 지정을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 학습은 관련 텍스트가 사용 되는 것과 동일한 방식으로 문자열을 사용 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
+
+> [!NOTE]
+> 학습에 사용 되는 기본 모델을 변경 하 고 학습 데이터 집합에 오디오가 있는 경우 선택한 새 기본 모델에서 [오디오 데이터로 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인 합니다. 이전에 사용 된 기본 모델에서 오디오 데이터에 대 한 학습을 지원 하지 않고 학습 데이터 집합에 오디오가 포함 된 경우 새 기본 모델의 학습 시간이 **크게** 증가 하 고 몇 시간에서 며칠 이상으로 쉽게 이동할 수 있습니다. 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 특히 그렇습니다.
+>
+> 위의 단락에 설명 된 문제를 직면 하는 경우 데이터 집합의 오디오 양을 줄이거나 텍스트를 완전히 제거 하 여 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 매우 권장 됩니다.
 
 ## <a name="us-english-en-us"></a>미국 영어(en-US)
 

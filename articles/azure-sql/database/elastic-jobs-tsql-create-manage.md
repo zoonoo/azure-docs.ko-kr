@@ -6,44 +6,46 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
+dev_langs:
+- TSQL
 ms.topic: how-to
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 02/07/2020
-ms.openlocfilehash: 76f9fb4ed5c3b88b3a1f69e352f50079586ec336
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.date: 02/01/2021
+ms.openlocfilehash: 11b94ba5bcedf56f0115b8730dc58f808aff5c58
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663335"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371603"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Transact-sql (T-sql)을 사용 하 여 Elastic Database 작업 만들기 및 관리 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 문서에서는 T-SQL을 사용하여 탄력적 작업을 시작할 수 있는 다양한 예제 시나리오를 제공합니다.
 
-예제에서는 [*작업 데이터베이스*](job-automation-overview.md#job-database)에서 사용할 수 있는 [저장 프로시저](#job-stored-procedures)와 [보기](#job-views)를 사용합니다.
+예제에서는 [*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에서 사용할 수 있는 [저장 프로시저](#job-stored-procedures)와 [보기](#job-views)를 사용합니다.
 
 T-SQL(Transact-SQL)은 작업을 생성, 구성, 실행 및 관리하는 데 사용됩니다. 탄력적 작업 에이전트 만들기는 T-SQL에서 지원되지 않으므로, 먼저 포털 또는 [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent)을 사용하여 *탄력적 작업 에이전트* 를 만들어야 합니다.
 
 ## <a name="create-a-credential-for-job-execution"></a>작업 실행에 대한 자격 증명 만들기
 
-자격 증명은 스크립트 실행을 위해 대상 데이터베이스에 연결하는 데 사용됩니다. 자격 증명에는 스크립트를 성공적으로 실행하기 위해 대상 그룹에서 지정한 데이터베이스에 대한 적절한 권한이 필요합니다. [논리 SQL server](logical-servers.md) 및/또는 풀 대상 그룹 구성원을 사용 하는 경우 작업 실행 시 서버 및/또는 풀을 확장 하기 전에 자격 증명을 새로 고치는 데 사용할 마스터 자격 증명을 만드는 것이 좋습니다. 데이터베이스 범위 자격 증명은 작업 에이전트 데이터베이스에 만들어집니다. 대상 데이터베이스에 대한 *로그인 만들기* 및 *로그인에서 사용자를 만들어 데이터베이스 로그인 권한 부여* 에서 동일한 자격 증명을 사용해야 합니다.
+자격 증명은 스크립트 실행을 위해 대상 데이터베이스에 연결하는 데 사용됩니다. 자격 증명에는 스크립트를 성공적으로 실행하기 위해 대상 그룹에서 지정한 데이터베이스에 대한 적절한 권한이 필요합니다. [논리 SQL server](logical-servers.md) 및/또는 풀 대상 그룹 구성원을 사용 하는 경우 작업 실행 시 서버 및/또는 풀을 확장 하기 전에 자격 증명을 새로 고치는 데 사용할 자격 증명을 만드는 것이 좋습니다. 데이터베이스 범위 자격 증명은 작업 에이전트 데이터베이스에 만들어집니다. 대상 데이터베이스에 대한 *로그인 만들기* 및 *로그인에서 사용자를 만들어 데이터베이스 로그인 권한 부여* 에서 동일한 자격 증명을 사용해야 합니다.
 
 ```sql
---Connect to the job database specified when creating the job agent
+--Connect to the new job database specified when creating the Elastic Job agent
 
--- Create a db master key if one does not already exist, using your own password.  
+-- Create a database master key if one does not already exist, using your own password.  
 CREATE MASTER KEY ENCRYPTION BY PASSWORD='<EnterStrongPasswordHere>';  
   
--- Create a database scoped credential.  
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
+-- Create two database scoped credentials.  
+-- The credential to connect to the Azure SQL logical server, to execute jobs
+CREATE DATABASE SCOPED CREDENTIAL job_credential WITH IDENTITY = 'job_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
-
--- Create a database scoped credential for the master database of server1.
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
+-- The credential to connect to the Azure SQL logical server, to refresh the database metadata in server
+CREATE DATABASE SCOPED CREDENTIAL refresh_credential WITH IDENTITY = 'refresh_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
 ```
@@ -51,20 +53,20 @@ GO
 ## <a name="create-a-target-group-servers"></a>대상 그룹(서버) 만들기
 
 다음 예제에서는 서버의 모든 데이터베이스에 대해 작업을 실행하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 -- Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group 'ServerGroup1'
+EXEC jobs.sp_add_target_group 'ServerGroup1';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
+@target_group_name = 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server1.database.windows.net'
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net';
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -74,29 +76,29 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-an-individual-database"></a>개별 데이터베이스 제외
 
 다음 예에서는 *MappingDB* 라는 데이터베이스를 제외 하 고 서버의 모든 데이터베이스에 대해 작업을 실행 하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = N'London.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server2.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net';
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +107,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name = N'MappingDB'
+@database_name = N'MappingDB';
 GO
 
 --View the recently created target group and target group members
@@ -116,21 +118,21 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>대상 그룹(풀) 만들기
 
 다음 예제에서는 하나 이상의 탄력적 풀에 있는 모든 데이터베이스를 대상으로 지정하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing pool(s)
-EXEC jobs.sp_add_target_group 'PoolGroup'
+EXEC jobs.sp_add_target_group 'PoolGroup';
 
 -- Add an elastic pool(s) target member
 EXEC jobs.sp_add_target_group_member
-'PoolGroup',
+@target_group_name = 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
 @server_name = 'server1.database.windows.net',
-@elastic_pool_name = 'ElasticPool-1'
+@elastic_pool_name = 'ElasticPool-1';
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -140,20 +142,20 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>여러 데이터베이스에 새 스키마 배포
 
 다음 예제에서는 새 스키마를 모든 데이터베이스에 배포하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test';
 
 -- Add job step for create table
 EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
 @command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name = 'myjobcred',
-@target_group_name = 'PoolGroup'
+@credential_name = 'job_credential',
+@target_group_name = 'PoolGroup';
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>기본 제공 매개 변수를 사용하여 데이터 수집
@@ -188,7 +190,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 3. Internal_execution_id 열에 명명 된 비클러스터형 인덱스 `IX_<TableName>_Internal_Execution_ID` 입니다.
 4. `CREATE TABLE`데이터베이스에 대 한 사용 권한을 제외한 위에 나열 된 모든 권한
 
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -200,32 +202,34 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 EXEC jobs.sp_add_jobstep
 @job_name = 'ResultsJob',
 @command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name = 'myjobcred',
+@credential_name = 'job_credential',
 @target_group_name = 'PoolGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = '<resultsdb>',
-@output_table_name = '<resutlstable>'
-Create a job to monitor pool performance
+@output_table_name = '<resutlstable>';
+
+--Create a job to monitor pool performance
+
 --Connect to the job database specified when creating the job agent
 
--- Add a target group containing master database
-EXEC jobs.sp_add_target_group 'MasterGroup'
+-- Add a target group containing Elastic Job database
+EXEC jobs.sp_add_target_group 'ElasticJobGroup';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name = 'MasterGroup',
+@target_group_name = 'ElasticJobGroup',
 @target_type = 'SqlDatabase',
 @server_name = 'server1.database.windows.net',
-@database_name = 'master'
+@database_name = 'master';
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
 @job_name = 'ResultsPoolsJob',
 @description = 'Demo: Collection Performance data from all pools',
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,61 +250,61 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name = 'myjobcred',
-@target_group_name = 'MasterGroup',
+@credential_name = 'job_credential',
+@target_group_name = 'ElasticJobGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = 'resultsdb',
-@output_table_name = 'resutlstable'
+@output_table_name = 'resutlstable';
 ```
 
 ## <a name="view-job-definitions"></a>작업 정의 보기
 
 다음 예제에서는 현재 작업 정의를 보는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- View all jobs
-SELECT * FROM jobs.jobs
+SELECT * FROM jobs.jobs;
 
 -- View the steps of the current version of all jobs
 SELECT js.* FROM jobs.jobsteps js
 JOIN jobs.jobs j
-  ON j.job_id = js.job_id AND j.job_version = js.job_version
+  ON j.job_id = js.job_id AND j.job_version = js.job_version;
 
 -- View the steps of all versions of all jobs
-select * from jobs.jobsteps
+SELECT * FROM jobs.jobsteps;
 ```
 
 ## <a name="begin-unplanned-execution-of-a-job"></a>계획 되지 않은 작업 실행 시작
 
 다음 예제에서는 작업을 즉시 시작하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Execute the latest version of a job
-EXEC jobs.sp_start_job 'CreateTableTest'
+EXEC jobs.sp_start_job 'CreateTableTest';
 
 -- Execute the latest version of a job and receive the execution id
-declare @je uniqueidentifier
-exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output
-select @je
+declare @je uniqueidentifier;
+exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output;
+select @je;
 
-select * from jobs.job_executions where job_execution_id = @je
+select * from jobs.job_executions where job_execution_id = @je;
 
 -- Execute a specific version of a job (e.g. version 1)
-exec jobs.sp_start_job 'CreateTableTest', 1
+exec jobs.sp_start_job 'CreateTableTest', 1;
 ```
 
 ## <a name="schedule-execution-of-a-job"></a>작업 실행 예약
 
 다음 예제에서는 나중에 실행하도록 작업을 예약하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -309,13 +313,13 @@ EXEC jobs.sp_update_job
 @job_name = 'ResultsJob',
 @enabled=1,
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 ```
 
 ## <a name="monitor-job-execution-status"></a>작업 실행 상태 모니터링
 
 다음 예제에서는 모든 작업에 대한 실행 상태 세부 정보를 보는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -323,27 +327,27 @@ EXEC jobs.sp_update_job
 --View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all top-level execution status for all jobs
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 -- View all active executions
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ## <a name="cancel-a-job"></a>작업 취소
 
 다음 예제에서는 작업을 취소하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -351,23 +355,23 @@ ORDER BY start_time DESC
 -- View all active executions to determine job execution id
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1 AND job_name = 'ResultPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 GO
 
 -- Cancel job execution with the specified job execution id
-EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
+EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef';
 ```
 
 ## <a name="delete-old-job-history"></a>이전 작업 기록 삭제
 
 다음 예제에서는 특정 날짜 이전의 작업 기록을 삭제하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job’s executions older than the specified date
-EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
+-- Delete history of a specific job's executions older than the specified date
+EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
@@ -375,19 +379,19 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>작업 및 관련된 모든 작업 기록 삭제
 
 다음 예제에서는 작업 및 관련된 모든 작업 기록을 삭제하는 방법을 보여 줍니다.  
-[*작업 데이터베이스*](job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
+[*작업 데이터베이스*](job-automation-overview.md#elastic-job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
-EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
+EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
 ## <a name="job-stored-procedures"></a>작업 저장 프로시저
 
-[작업 데이터베이스](job-automation-overview.md#job-database)에 있는 저장 프로시저는 다음과 같습니다.
+[작업 데이터베이스](job-automation-overview.md#elastic-job-database)에 있는 저장 프로시저는 다음과 같습니다.
 
 |저장 프로시저  |Description  |
 |---------|---------|
@@ -431,7 +435,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 작업에 대한 설명입니다. description은 nvarchar(512) 형식이며, 기본값은 NULL입니다. description이 생략되면 빈 문자열이 사용됩니다.
 
 [ **\@ enabled =** ] 사용  
-작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
+작업 일정 사용 여부를 지정 합니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
 [ **\@ schedule_interval_type =**] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 기본값은 Once이고, 다음 값 중 하나일 수 있습니다.
@@ -462,7 +466,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 #### <a name="remarks"></a>설명
 
 sp_add_job은 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 실행해야 합니다.
-sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
+sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0 이며, 첫 번째 단계가 추가 되 면 1 씩 증가 합니다.
 
 #### <a name="permissions"></a>사용 권한
 
@@ -501,7 +505,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 작업에 대한 설명입니다. description은 nvarchar(512) 형식입니다.
 
 [ **\@ enabled =** ] 사용  
-작업 일정이 사용되는지(1), 아니면 사용되지 않는지(0) 여부를 지정합니다. enabled는 bit 형식입니다.
+작업 일정의 사용 여부 (1) 또는 사용 안 함 (0)을 지정 합니다. enabled는 bit 형식입니다.
 
 [ **\@ schedule_interval_type =** ] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 다음 값 중 하나일 수 있습니다.
@@ -528,7 +532,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="remarks"></a>설명
 
-sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
+sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0 이며, 첫 번째 단계가 추가 되 면 1 씩 증가 합니다.
 
 #### <a name="permissions"></a>사용 권한
 
@@ -651,7 +655,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
 [ **\@ output_type =** ] ' output_type '  
-null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
+Null이 아닌 경우 명령의 첫 번째 결과 집합을 쓸 대상의 유형입니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
@@ -674,7 +678,7 @@ null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name은 nvarchar(128) 형식입니다.
 
 [ **\@ output_table_name =** ] ' output_table_name '  
-null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
+Null이 아닌 경우 명령의 첫 번째 결과 집합이 기록 될 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
 [ **\@ job_version =** ] job_version 출력  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
@@ -688,7 +692,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 #### <a name="remarks"></a>설명
 
-sp_add_jobstep이 성공하면 작업의 현재 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다. 작업이 현재 실행 중이면 해당 실행에는 새 단계가 포함되지 않습니다.
+Sp_add_jobstep 성공 하면 작업의 현재 버전 번호가 증가 합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다. 작업이 현재 실행 중이면 해당 실행에는 새 단계가 포함되지 않습니다.
 
 #### <a name="permissions"></a>사용 권한
 
@@ -782,7 +786,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
 [ **\@ output_type =** ] ' output_type '  
-null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
+Null이 아닌 경우 명령의 첫 번째 결과 집합을 쓸 대상의 유형입니다. output_type의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
@@ -799,7 +803,7 @@ null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_schema_name은 nvarchar(128) 형식입니다.
 
 [ **\@ output_table_name =** ] ' output_table_name '  
-null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
+Null이 아닌 경우 명령의 첫 번째 결과 집합이 기록 될 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
 [ **\@ job_version =** ] job_version 출력  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
@@ -813,7 +817,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 
 #### <a name="remarks"></a>설명
 
-진행 중인 모든 작업 실행은 영향을 받지 않습니다. sp_update_jobstep이 성공하면 작업의 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
+진행 중인 모든 작업 실행은 영향을 받지 않습니다. Sp_update_jobstep 성공 하면 작업의 버전 번호가 증가 합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
 
 #### <a name="permissions"></a>사용 권한
 
@@ -856,7 +860,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="remarks"></a>설명
 
-진행 중인 모든 작업 실행은 영향을 받지 않습니다. sp_update_jobstep이 성공하면 작업의 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
+진행 중인 모든 작업 실행은 영향을 받지 않습니다. Sp_update_jobstep 성공 하면 작업의 버전 번호가 증가 합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
 
 다른 작업 단계는 삭제된 작업 단계에서 남겨진 간격을 채우기 위해 번호가 자동으로 다시 매겨집니다.
 
@@ -1023,22 +1027,22 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 멤버를 추가할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **\@ membership_type =** ] ' membership_type '  
-대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 'Include'입니다. Membership_type에 유효한 값은 ' Include ' 또는 ' i n t '입니다.
+대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar (128) 이며 기본값은 ' Include '입니다. Membership_type에 유효한 값은 ' Include ' 또는 ' i n t '입니다.
 
 [ **\@ target_type =** ] ' target_type '  
-서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다.
+서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. Target_type에 유효한 값은 ' SqlServer ', ' SqlElasticPool ', ' Backup-sqldatabase ' 또는 ' SqlShardMap '입니다.
 
 [ **\@ refresh_credential_name =** ] ' refresh_credential_name '  
 데이터베이스 범위 자격 증명의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **\@ server_name =** ] ' server_name '  
-지정 된 대상 그룹에 추가 해야 하는 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+지정 된 대상 그룹에 추가 해야 하는 서버의 이름입니다. target_type ' SqlServer ' 인 경우 server_name 지정 해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **\@ database_name =** ] ' database_name '  
-지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type이 'SqlDatabase'이면 database_name을 지정해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type ' Backup-sqldatabase ' 인 경우 database_name 지정 해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **\@ elastic_pool_name =** ] ' elastic_pool_name '  
-지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'이면 elastic_pool_name을 지정해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type ' SqlElasticPool ' 인 경우 elastic_pool_name 지정 해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **\@ shard_map_name =** ] ' shard_map_name '  
 지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type ' SqlShardMap ' 인 경우 elastic_pool_name 지정 해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
@@ -1059,33 +1063,33 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 London 및 NewYork 서버에 있는 모든 데이터베이스를 Servers Maintaining Customer Information(고객 정보 유지 관리 서버) 그룹에 추가합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
-USE ElasticJobs ;
+USE ElasticJobs;
 GO
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information'
+EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'London.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'NewYork.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'NewYork.database.windows.net';
 GO
 
 --View the recently added members to the target group
@@ -1128,7 +1132,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 Servers Maintaining Customer Information 그룹에서 London 서버를 제거합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
@@ -1139,12 +1143,12 @@ GO
 
 -- Retrieve the target_id for a target_group_members
 declare @tid uniqueidentifier
-SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net'
+SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net';
 
 -- Remove a target group member of type server
 EXEC jobs.sp_delete_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
-@target_id = @tid
+@target_id = @tid;
 GO
 ```
 
@@ -1187,7 +1191,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 London 및 NewYork 서버에 있는 모든 데이터베이스를 Servers Maintaining Customer Information(고객 정보 유지 관리 서버) 그룹에 추가합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
@@ -1202,9 +1206,9 @@ GO
 
 ## <a name="job-views"></a>작업 보기
 
-[작업 데이터베이스](job-automation-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
+[작업 데이터베이스](job-automation-overview.md#elastic-job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
 
-|보기  |Description  |
+|보기  |설명  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  작업 실행 기록을 표시합니다.      |
 |[직업](#jobs-view)     |   모든 작업을 표시합니다.      |
@@ -1228,18 +1232,18 @@ GO
 |**job_version** | int | 작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.
 |**step_id** |int | 해당 작업에 관한 단계의 고유 ID입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**is_active** | bit | 정보가 활성 또는 비활성 상태인지 여부를 나타냅니다. 1은 활성 작업을 나타내고, 0은 비활성 작업을 나타냅니다.
-|**주기** | nvarchar(50) | 작업 상태를 나타내는 값: ‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
+|**주기** | nvarchar(50) | 작업 상태를 나타내는 값: ' Created ', ' 진행 중 ', ' 실패 ', ' 성공 ', ' 건너뜀 ', ' SucceededWithSkipped '|
 |**create_time**| datetime2(7) | 작업을 만든 날짜 및 시간입니다.
 |**start_time** | datetime2(7) | 작업 실행을 시작한 날짜 및 시간입니다. 작업이 아직 실행되지 않은 경우 NULL입니다.
 |**end_time** | datetime2(7) | 작업 실행을 완료한 날짜 및 시간입니다. 작업이 아직 실행되지 않았거나 실행이 아직 완료되지 않은 경우 NULL입니다.
 |**current_attempts** | int | 단계를 다시 시도한 횟수입니다. 부모 작업은 0이고, 자식 작업 실행은 실행 정책에 따라 1 이상입니다.
 |**current_attempt_start_time** | datetime2(7) | 작업 실행을 시작한 날짜 및 시간입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**last_message** | nvarchar(max) | 작업 또는 단계 기록 메시지입니다.
-|**target_type** | nvarchar(128) | 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool' 또는 'SqlDatabase'입니다. NULL은 부모 작업 실행임을 나타냅니다.
+|**target_type** | nvarchar(128) | 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. Target_type에 유효한 값은 ' SqlServer ', ' SqlElasticPool ' 또는 ' Backup-sqldatabase '입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**target_id** | uniqueidentifier | 대상 그룹 멤버의 고유 ID입니다.  NULL은 부모 작업 실행임을 나타냅니다.
 |**target_group_name** | nvarchar(128) | 대상 그룹의 이름입니다. NULL은 부모 작업 실행임을 나타냅니다.
-|**target_server_name** | nvarchar(256)  | 대상 그룹에 포함 된 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. NULL은 부모 작업 실행임을 나타냅니다.
-|**target_database_name** | nvarchar(128) | 대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다. NULL은 부모 작업 실행임을 나타냅니다.
+|**target_server_name** | nvarchar(256)  | 대상 그룹에 포함 된 서버의 이름입니다. Target_type가 ' SqlServer ' 인 경우에만 지정 됩니다. NULL은 부모 작업 실행임을 나타냅니다.
+|**target_database_name** | nvarchar(128) | 대상 그룹에 포함된 데이터베이스의 이름입니다. Target_type가 ' Backup-sqldatabase ' 인 경우에만 지정 됩니다. NULL은 부모 작업 실행임을 나타냅니다.
 
 ### <a name="jobs-view"></a>작업 보기
 
@@ -1283,8 +1287,8 @@ GO
 |**job_version**|int|작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.|
 |**step_id**|int|해당 작업에 관한 단계의 고유 ID입니다.|
 |**step_name**|nvarchar(128)|이 작업의 단계에 대한 고유 이름입니다.|
-|**command_type**|nvarchar(50)|작업 단계에서 실행할 명령의 유형입니다. v1의 경우 값은 기본값인 'TSql'과 같아야 합니다.|
-|**command_source**|nvarchar(50)|명령의 위치입니다. v1의 경우 'Inline'이 기본값이며, 허용되는 유일한 값입니다.|
+|**command_type**|nvarchar(50)|작업 단계에서 실행할 명령의 유형입니다. V1의 경우 값은와 동일 해야 하며 기본값은 ' i n t i n s '입니다.|
+|**command_source**|nvarchar(50)|명령의 위치입니다. V 1의 경우 ' s i d '는 기본값이 며 유일 하 게 허용 되는 값입니다.|
 |**command**|nvarchar(max)|command_type을 통해 탄력적 작업에서 실행할 명령입니다.|
 |**credential_name**|nvarchar(128)|작업 실행에 사용된 데이터베이스 범위 자격 증명의 이름입니다.|
 |**target_group_name**|nvarchar(128)|대상 그룹의 이름입니다.|
@@ -1301,7 +1305,7 @@ GO
 |**output_server_name**|nvarchar(256)|결과 집합에 대한 대상 서버의 이름입니다.|
 |**output_database_name**|nvarchar(128)|결과 집합에 대한 대상 데이터베이스의 이름입니다.|
 |**output_schema_name**|nvarchar(max)|대상 스키마의 이름입니다. 지정되지 않은 경우 기본값은 dbo입니다.|
-|**output_table_name**|nvarchar(max)|쿼리 결과의 결과 집합을 저장할 테이블의 이름입니다. 테이블이 아직 없는 경우 결과 집합의 스키마를 기반으로 하여 자동으로 만들어집니다. 스키마는 결과 집합의 스키마와 일치해야 합니다.|
+|**output_table_name**|nvarchar(max)|쿼리 결과의 결과 집합을 저장할 테이블의 이름입니다. 테이블은 이미 존재 하지 않는 경우 결과 집합의 스키마에 따라 자동으로 만들어집니다. 스키마는 결과 집합의 스키마와 일치해야 합니다.|
 |**max_parallelism**|int|작업 단계가 한 번에 실행될 탄력적 풀당 최대 데이터베이스 수입니다. 기본값은 NULL이며, 제한이 없음을 의미합니다. |
 
 ### <a name="jobstep_versions-view"></a><a name="jobstep_versions-view"></a>jobstep_versions 보기
@@ -1331,16 +1335,16 @@ GO
 |-----|-----|-----|
 |**target_group_name**|nvarchar(128)|데이터베이스 컬렉션인 대상 그룹의 이름입니다. |
 |**target_group_id**|uniqueidentifier|대상 그룹의 고유 ID입니다.|
-|**membership_type**|int|대상 그룹 멤버가 대상 그룹에 포함되거나 제외되는지 여부를 지정합니다. target_group_name에 대해 유효한 값은 'Include' 또는 'Exclude'입니다.|
-|**target_type**|nvarchar(128)|서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다.|
+|**membership_type**|int|대상 그룹 멤버가 대상 그룹에 포함되거나 제외되는지 여부를 지정합니다. Target_group_name에 유효한 값은 ' Include ' 또는 ' i n t '입니다.|
+|**target_type**|nvarchar(128)|서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. Target_type에 유효한 값은 ' SqlServer ', ' SqlElasticPool ', ' Backup-sqldatabase ' 또는 ' SqlShardMap '입니다.|
 |**target_id**|uniqueidentifier|대상 그룹 멤버의 고유 ID입니다.|
 |**refresh_credential_name**|nvarchar(128)|대상 그룹 멤버에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다.|
 |**subscription_id**|uniqueidentifier|구독의 고유 ID입니다.|
 |**resource_group_name**|nvarchar(128)|대상 그룹 멤버가 있는 리소스 그룹의 이름입니다.|
-|**server_name**|nvarchar(128)|대상 그룹에 포함 된 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. |
-|**database_name**|nvarchar(128)|대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다.|
-|**elastic_pool_name**|nvarchar(128)|대상 그룹에 포함된 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'인 경우에만 지정됩니다.|
-|**shard_map_name**|nvarchar(128)|대상 그룹에 포함 된 분할 된 맵의 이름입니다. target_type이 'SqlShardMap'인 경우에만 지정됩니다.|
+|**server_name**|nvarchar(128)|대상 그룹에 포함 된 서버의 이름입니다. Target_type가 ' SqlServer ' 인 경우에만 지정 됩니다. |
+|**database_name**|nvarchar(128)|대상 그룹에 포함된 데이터베이스의 이름입니다. Target_type가 ' Backup-sqldatabase ' 인 경우에만 지정 됩니다.|
+|**elastic_pool_name**|nvarchar(128)|대상 그룹에 포함된 탄력적 풀의 이름입니다. Target_type가 ' SqlElasticPool ' 인 경우에만 지정 됩니다.|
+|**shard_map_name**|nvarchar(128)|대상 그룹에 포함 된 분할 된 맵의 이름입니다. Target_type가 ' SqlShardMap ' 인 경우에만 지정 됩니다.|
 
 ## <a name="resources"></a>리소스
 

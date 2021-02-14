@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905777"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821918"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -935,6 +935,10 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
  * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017)를 참조하세요.
 
 [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [라이브 샘플 보기](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) 및 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 사용하여 Azure Maps의 적용 범위 및 기능에 대해 자세히 알아볼 수 있습니다. [데이터 기반 스타일 식을 사용](data-driven-style-expressions-web-sdk.md)하여 비즈니스 논리에 적용할 수도 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

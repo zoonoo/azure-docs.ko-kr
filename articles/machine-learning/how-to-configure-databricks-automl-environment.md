@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872607"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516926"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Azure Databricks 및 AutoML을 사용 하 여 개발 환경 설정 Azure Machine Learning 
 
@@ -125,13 +125,13 @@ AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수�
 
 * **패키지 설치 시 실패**
 
-    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
+    추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
     ```
 
-    또는 Python 라이브러리와의 연결을 유지 하는 경우 init 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)를 참조 하세요.
+    또는 Python 라이브러리와의 연결을 유지 하는 경우 init 스크립트를 사용할 수 있습니다. 이 방법은 공식적으로 지원 되지 않습니다. 자세한 내용은 [클러스터 범위 init 스크립트](/azure/databricks/clusters/init-scripts#cluster-scoped-init-scripts)를 참조 하세요.
 
 * **가져오기 오류: `Timedelta` `pandas._libs.tslibs` 에서 이름을 가져올 수 없음**: 자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되 면 노트북에서 다음 두 줄을 실행 합니다.
     ```

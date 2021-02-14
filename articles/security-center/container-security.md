@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132719"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007819"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -70,11 +70,25 @@ IaaS Linux VM에 호스트되는 관리되지 않는 컨테이너를 모니터�
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Kubernetes 클러스터를 지속적으로 모니터링
 Security Center는 컨테이너화된 애플리케이션을 개발, 배포 및 관리하는 데 사용되는 Microsoft의 관리형 컨테이너 오케스트레이션 서비스인 AKS(Azure Kubernetes Service)와 함께 작동합니다.
 
-AKS는 클러스터의 보안 태세에 대한 보안 제어 및 가시성을 제공합니다. Security Center는 이러한 기능을 사용하여 다음과 같은 일을 합니다.
-* AKS 클러스터의 구성을 지속적으로 모니터링
-* 업계 표준을 따르는 보안 권장 사항 생성
+AKS는 클러스터의 보안 태세에 대한 보안 제어 및 가시성을 제공합니다. Security Center는 이러한 기능을 사용하여 AKS 클러스터의 구성을 지속적으로 모니터링하면서 업계 표준에 맞는 보안 권장 사항을 생성합니다.
+
+다음은 Azure Security Center, Azure Kubernetes Service 및 Azure Policy 간의 상호 작용을 보여주는 개략적인 다이어그램입니다.
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Azure Security Center, Azure Kubernetes Service 및 Azure Policy 간의 상호 작용에 대한 개략적인 아키텍처" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+Security Center에서 수신하고 분석한 항목에 다음이 포함된 것을 알 수 있습니다.
+
+- API 서버의 감사 로그
+- Log Analytics 에이전트의 원시 보안 이벤트
+
+    > [!NOTE]
+    > 현재는 가상 머신 확장 집합에서 실행되는 Azure Kubernetes Service 클러스터에 Log Analytics 에이전트를 설치할 수 없습니다.
+
+- AKS 클러스터의 클러스터 구성 정보
+- **Kubernetes용 Azure Policy 추가 항목** 을 통해 Azure Policy에서 워크로드 구성
 
 이 기능에 대해 표시될 수 있는 관련 Security Center 권장 사항에 대한 자세한 내용은 권장 사항 참조 표의 [컴퓨팅 섹션](recommendations-reference.md#recs-compute)을 참조하세요.
+
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Kubernetes 허용 제어를 사용하여 워크로드 보호 모범 사례
 

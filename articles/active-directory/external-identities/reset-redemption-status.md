@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576917"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365415"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>게스트 사용자의 상환 상태 다시 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "99576917"
 - 사용자가 다른 회사로 이동 했지만 여전히 리소스에 대 한 동일한 액세스 권한이 있어야 합니다.
 - 사용자의 책임이 다른 사용자에 게 전달 되었습니다.
 
-이러한 시나리오를 이전에 관리 하려면 디렉터리에서 게스트 사용자의 계정을 수동으로 삭제 하 고 사용자를 reinvite 합니다. 이제 PowerShell 또는 Microsoft Graph 초대 API를 사용 하 여 사용자의 상환 상태를 다시 설정 하 고 사용자의 개체 ID, 그룹 멤버 자격 및 앱 할당을 유지 하면서 사용자를 reinvite 수 있습니다. 사용자가 새 초대를 교환 새 전자 메일 주소는 사용자의 UPN이 됩니다. 사용자는 이후에 새 전자 메일 또는 `otherMails` 사용자 개체의 속성에 추가한 전자 메일을 사용 하 여 로그인 할 수 있습니다.
+이러한 시나리오를 이전에 관리 하려면 디렉터리에서 게스트 사용자의 계정을 수동으로 삭제 하 고 사용자를 reinvite 합니다. 이제 PowerShell 또는 Microsoft Graph 초대 API를 사용 하 여 사용자의 상환 상태를 다시 설정 하 고 사용자의 개체 ID, 그룹 멤버 자격 및 앱 할당을 유지 하면서 사용자를 reinvite 수 있습니다. 사용자가 새 초대를 교환 사용자의 UPN은 변경 되지 않지만 사용자의 로그인 이름이 새 전자 메일로 변경 됩니다. 사용자는 이후에 새 전자 메일 또는 `otherMails` 사용자 개체의 속성에 추가한 전자 메일을 사용 하 여 로그인 할 수 있습니다.
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>PowerShell을 사용 하 여 상환 상태 다시 설정
 

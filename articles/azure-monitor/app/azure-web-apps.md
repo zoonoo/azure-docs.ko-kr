@@ -4,19 +4,19 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186374"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365228"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
 이제 [Azure 앱 서비스](../../app-service/index.yml) 에서 실행 되는 ASP.NET 및 ASP.NET Core 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 훨씬 쉬워졌습니다. 이전에 사이트 확장을 수동으로 설치 해야 하는 경우에는 이제 기본적으로 최신 확장/에이전트가 app service 이미지에 기본 제공 됩니다. 이 문서에서는 Application Insights 모니터링을 사용 하도록 설정 하는 과정을 안내 하 고 대규모 배포 프로세스를 자동화 하기 위한 예비 지침을 제공 합니다.
 
 > [!NOTE]
-> **개발 도구** 확장을 통해 Application Insights 사이트 확장을 수동으로 추가 하  >  **Extensions** 는 것은 더 이상 사용 되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 됩니다. 파일은에 있으며 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 각 안정적인 릴리스로 자동 업데이트 됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용 하는 경우 사용 되지 않는 확장이 자동으로 제거 됩니다.
+> **개발 도구** 확장을 통해 Application Insights 사이트 확장을 수동으로 추가 하  >   는 것은 더 이상 사용 되지 않습니다. 이 확장 설치 방법은 각 새 버전의 수동 업데이트에 따라 달라 집니다. 확장의 안정적인 최신 릴리스는 이제 App Service 이미지의 일부로  [미리 설치](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) 됩니다. 파일은에 있으며 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 각 안정적인 릴리스로 자동 업데이트 됩니다. 에이전트 기반 지침에 따라 아래 모니터링을 사용 하는 경우 사용 되지 않는 확장이 자동으로 제거 됩니다.
 
 ## <a name="enable-application-insights"></a>Application Insights 사용
 
@@ -75,7 +75,8 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-지원 되는 ASP.NET Core 버전: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+> [!IMPORTANT]
+> 지원 되는 ASP.NET Core 버전은 ASP.NET Core 2.1, 3.1 및 5.0입니다. 버전 2.0, 2.2 및 3.0은 사용 중지 되어 더 이상 지원 되지 않습니다. 자동 계측 기능을 사용 하려면 [지원 되](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) 는 .net Core 버전으로 업그레이드 하세요.
 
 ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 기능은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
 
@@ -90,11 +91,11 @@ ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에�
 
      ![웹앱 계측](./media/azure-web-apps/create-resource-01.png)
 
-2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. ASP.NET Core ASP.NET Core 2.1, 2.2, 3.0 및 3.1에 대해 **권장 되는 컬렉션** 을 제공 하거나 **사용 하지 않도록 설정** 합니다.
+2. 사용할 리소스를 지정한 후에는 응용 프로그램에 대 한 플랫폼별 데이터 수집 Application Insights 방법을 선택할 수 있습니다. ASP.NET Core은 **권장 되는 컬렉션** 을 제공 하거나 ASP.NET Core 2.1 및 3.1에 대해 **사용 하지 않도록 설정** 합니다.
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 App Service 웹 앱 내의 **설정** 에서  >  **Application Insights**  >  **사용** 을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
@@ -141,7 +142,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
    * 설정을 **저장** 하고 앱을 **다시 시작** 합니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](./javascript.md)해야 합니다.
 
@@ -419,6 +420,12 @@ Azure 앱 Services에서 또는 런타임을 사용 하 여 웹 앱을 만들 �
 ### <a name="connection-string-and-instrumentation-key"></a>연결 문자열 및 계측 키
 
 코드 없는 모니터링을 사용 하는 경우 연결 문자열만 필요 합니다. 그러나 수동 계측을 수행할 때 이전 버전의 SDK와 이전 버전과의 호환성을 유지 하기 위해 계측 키를 설정 하는 것이 좋습니다.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Application Insights와 Azure App Service 메트릭의 표준 메트릭에 차이가 있나요?
+
+Application Insights는 응용 프로그램에 대해 수행한 해당 요청에 대 한 원격 분석을 수집 합니다. WebApps/IIS에서 오류가 발생 하 여 요청이 사용자 응용 프로그램에 도달 하지 않은 경우에는 Application Insights에 대 한 원격 분석이 없습니다.
+
+`serverresponsetime`Application Insights에서 계산 되는 기간은 Web Apps에서 관찰 되는 서버 응답 시간과 일치 하지 않을 수 있습니다. 이는 Application Insights 요청이 실제로 사용자 응용 프로그램에 도달 하는 경우에만 기간이 계산 되기 때문입니다. 요청이 IIS에서 중단/대기 중인 경우 해당 대기 시간은 웹 앱 메트릭에 포함 되지만 Application Insights 메트릭에는 포함 되지 않습니다.
 
 ## <a name="release-notes"></a>릴리스 정보
 

@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 description: MySQL 데이터베이스에서 싱크로 지원되는 데이터 저장소로 데이터를 복사할 수 있게 해주는 Azure Data Factory의 MySQL 커넥터에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a2253a4a124fe5e3725863c799f91714e66cab
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375258"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 
@@ -39,7 +34,7 @@ ms.locfileid: "89612639"
 
 MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 MySQL 커넥터는 MySQL **버전 5.6, 5.7 및 8.0**을 지원합니다.
+특히 이 MySQL 커넥터는 MySQL **버전 5.6, 5.7 및 8.0** 을 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -99,13 +94,13 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
         "type": "MySql",
         "typeProperties": {
             "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

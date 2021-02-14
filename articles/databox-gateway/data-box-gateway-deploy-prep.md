@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f1b00273314c845a36c7efdb9cf9f4de9d5cdd46
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580572"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822133"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 배포 준비
 
@@ -50,11 +50,11 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 시작하기 전에 다음 사항을 확인합니다.
 
-* Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다.
+* Data Stack Edge 리소스에 대해 Microsoft Azure 구독이 활성화되어 있습니다. [Microsoft EA(기업계약)](https://azure.microsoft.com/overview/sales-number/), [CSP(클라우드 솔루션 공급자)](/partner-center/azure-plan-lp) 또는 [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/)과 같은 지원되는 구독을 사용했는지 확인합니다.
 * Azure Stack Edge / Data Box Gateway, IoT Hub 및 Azure Storage 리소스에 대한 리소스 그룹 수준의 소유자 또는 기여자 액세스 권한이 있습니다.
     - Azure Stack Edge / Data Box Gateway 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정된 기여자(또는 그 이상)로서 권한이 있어야 합니다. 또한 `Microsoft.DataBoxEdge` 공급자가 등록되어 있는지 확인해야 합니다. 등록 방법에 대한 정보는 [리소스 공급자 등록](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers)으로 이동하세요.
     - 스토리지 계정 리소스를 만들려면 리소스 그룹 수준에서 범위가 지정되는 기여자 이상의 액세스 권한이 다시 필요합니다. Azure Storage는 기본적으로 등록된 리소스 공급자입니다.
-- Microsoft Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조하세요.
+- Microsoft Graph API에 대한 관리자 또는 사용자 액세스 권한이 있습니다. 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조하세요.
 - 액세스 자격 증명이 있는 Microsoft Azure Storage 계정이 있습니다.
 
 ### <a name="for-the-data-box-gateway-device"></a>Data Box Gateway 디바이스의 경우
@@ -90,7 +90,7 @@ Data Box Gateway 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 1. Microsoft Azure 자격 증명을 사용하여 다음 포털 중 하나에 로그인합니다.
 
     - URL [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인하거나
-    - [https://portal.azure.us](https://portal.azure.us) URL의 Azure Government 포털. 자세한 내용은 [포털을 사용하여 Azure Government에 연결](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)을 참조하세요.
+    - [https://portal.azure.us](https://portal.azure.us) URL의 Azure Government 포털. 자세한 내용은 [포털을 사용하여 Azure Government에 연결](../azure-government/documentation-government-get-started-connect-with-portal.md)을 참조하세요.
     
 2. **+ 리소스 만들기** 를 선택합니다.
 
@@ -193,5 +193,3 @@ Data Box Gateway를 위한 가상 머신을 프로비전하는 방법을 알아�
 
 > [!div class="nextstepaction"]
 > [VMware에서 Data Box Gateway 프로비전](./data-box-gateway-deploy-provision-vmware.md)
-
-

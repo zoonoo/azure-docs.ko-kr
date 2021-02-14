@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185362"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392768"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 기본 기능을 제공 합니다.
 
-가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
+가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
 - 규정 준수를 위한 데이터 개인 정보 및 요구 사항에 대 한 표준을 충족 하는 데 도움이 됩니다.
 - 중요 한 데이터에 대 한 모니터링 (감사) 액세스와 같은 다양 한 보안 시나리오
@@ -75,7 +75,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 > [!NOTE]
 > 아래 예제에서는 Azure SQL Database를 사용 하지만 데이터 검색 & 분류를 구성 하려는 적절 한 제품을 선택 해야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. Azure SQL Database 창의 **보안** 제목 아래에서 **데이터 검색 & 분류** 로 이동 합니다. 개요 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [4 단계로 건너뜁니다](#step-4).
 
@@ -183,6 +183,13 @@ REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으
 - [Get](/rest/api/sql/sensitivitylabels/get): 지정 된 열의 민감도 레이블을 가져옵니다.
 - [데이터베이스당 현재 데이터베이스 나열](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): 지정 된 데이터베이스의 현재 민감도 레이블을 가져옵니다.
 - [데이터베이스에서 권장 하는 목록](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): 지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>FAQ-고급 분류 기능
+
+**질문**: [AZURE 부서의 범위](https://docs.microsoft.com/azure/purview/overview) 는 Sql 데이터 검색 & 분류를 대체 하거나, Sql 데이터 검색 & 분류가 곧 사용 중지 되나요?
+**답변**: SQL 데이터 검색 & 분류를 계속 지원 하 고 고급 분류 기능 및 데이터 관리를 구동 하는 다양 한 기능을 갖춘 [Azure 부서의 범위](https://docs.microsoft.com/azure/purview/overview) 를 채택 하는 것이 좋습니다. 서비스, 기능, API 또는 SKU를 사용 중지 하기로 결정 한 경우 마이그레이션 또는 전환 경로를 포함 하는 사전 통지를 받게 됩니다. Microsoft 수명 주기 정책에 대 한 자세한 내용은 여기를 참조 하세요.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>다음 단계
 

@@ -1,22 +1,18 @@
 ---
 title: Azure 데이터 팩터리 - 질문과 대답
 description: Azure 데이터 팩터리에 대한 질문과 대답입니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 57f2beef3dc14a47480950bf9e3bdf35a1fd6ce8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4ddadec327f1a4f6aa22d51ac073b9aebb0dee82
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495823"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383197"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -25,7 +21,7 @@ ms.locfileid: "96495823"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>일반적인 질문
-### <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
+### <a name="what-is-azure-data-factory"></a>Azure Data Factory란?
 Data Factory는 **데이터의 이동과 변환을 자동화** 하는 클라우드 기반 데이터 통합 서비스입니다. 원자재를 가져다가 완제품으로 만들기 위해 장비를 작동하는 공장처럼 데이터 팩터리는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다.
 
 Data Factory를 사용하면 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있을 뿐 아니라, Azure HDInsight 및 Azure Data Lake 분석과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리/변환할 수 있습니다. 필요한 작업을 수행하는 파이프라인을 만든 후 정기적(매시간, 매일, 매주 등...)으로 실행되도록 예약할 수 있습니다.   
