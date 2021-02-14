@@ -1,21 +1,18 @@
 ---
 title: 데이터 변환
 description: Hadoop, Azure Machine Learning Studio (클래식) 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory 데이터를 변환 하거나 데이터를 처리 합니다.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632328"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361403"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 

@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용하여 클래스룸 랩 설정 | Microsoft Do
 description: 이 자습서에서는 Azure Lab Services를 사용하여 클래스의 학생이 사용하는 가상 머신이 포함된 클래스룸 랩을 설정합니다.
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602511"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821526"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -127,7 +127,7 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
 
 사용자를 수동으로 추가하거나 삭제할 필요가 없도록 랩 사용자 목록을 기존 Azure AD(Azure Active Directory) 그룹에 동기화할 수 있습니다. 
 
-조직 리소스 및 클라우드 기반 앱에 대한 액세스를 관리하기 위해 Azure AD 그룹을 조직의 Azure Active Directory 내에 만들 수 있습니다. 자세한 내용은 [Azure AD 그룹](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)을 참조하세요. 조직에서 Microsoft Office 365 또는 Azure 서비스를 사용하는 경우 조직에는 이미 Azure Active Directory를 관리하는 관리자가 있습니다. 
+조직 리소스 및 클라우드 기반 앱에 대한 액세스를 관리하기 위해 Azure AD 그룹을 조직의 Azure Active Directory 내에 만들 수 있습니다. 자세한 내용은 [Azure AD 그룹](../active-directory/fundamentals/active-directory-manage-groups.md)을 참조하세요. 조직에서 Microsoft Office 365 또는 Azure 서비스를 사용하는 경우 조직에는 이미 Azure Active Directory를 관리하는 관리자가 있습니다. 
 
 > [!IMPORTANT]
 > 사용자 목록이 비어 있어야 합니다. 수동으로 또는 CSV 파일 가져오기를 통해 추가한 랩 내에 기존 사용자가 있는 경우 랩을 기존 그룹에 동기화하는 옵션이 표시되지 않습니다. 
@@ -204,4 +204,3 @@ CSV 텍스트 파일은 CSV(쉼표로 구분) 테이블 형식 데이터(숫자 
 
 > [!div class="nextstepaction"]
 > [클래스룸 랩의 VM에 연결](tutorial-connect-virtual-machine-classroom-lab.md)
-

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913773"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821524"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -234,8 +234,8 @@ az storage account keys list -n vaultrotationstorage
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자습서: [한 개의 자격 증명 세트에 대한 비밀 회전](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
+- 자습서: [한 개의 자격 증명 세트에 대한 비밀 회전](./tutorial-rotation.md)
 - 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](../general/event-grid-overview.md)
-- 방법: [Azure Portal에서 첫 번째 함수 만들기](../../azure-functions/functions-create-first-azure-function.md)
+- 방법: [Azure Portal에서 첫 번째 함수 만들기](../../azure-functions/functions-get-started.md)
 - 방법: [Key Vault 비밀 변경 시 이메일 받기](../general/event-grid-logicapps.md)
 - 참조: [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)

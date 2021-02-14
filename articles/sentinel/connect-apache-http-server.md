@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 59ef34f9d6d42277d8e83bf4e0ebb8ee29096f52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566867"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096857"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Azure 센티널에 Apache HTTP 서버 연결
 
@@ -31,13 +31,13 @@ ms.locfileid: "99566867"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
 ## <a name="configure-and-integrate-apache-http-server-logs-via-log-analytics-agent"></a>Log Analytics 에이전트를 통해 Apache HTTP 서버 로그 구성 및 통합
 
-Log Analytics 에이전트를 통해 Azure 작업 영역으로 데이터를 전달 하도록 Apache HTTP 서버 로그 파일 위치를 구성 합니다.
+Log Analytics 에이전트를 통해 Azure 작업 영역에 로그 파일을 보내도록 Apache HTTP 서버를 구성 합니다.
 Apache HTTP 서버 로그 파일을 읽도록 Log Analytics agent를 구성 합니다.
 
 1. 의 지침 https://httpd.apache.org/docs/2.4/logs.html 에 따라 APACHE HTTP 서버에서 로그 파일 위치를 설정 합니다.

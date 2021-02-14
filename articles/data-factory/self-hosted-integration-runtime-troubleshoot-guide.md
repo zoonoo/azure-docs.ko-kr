@@ -1,18 +1,17 @@
 ---
 title: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제 해결
 description: Azure Data Factory에서 자체 호스팅 Integration Runtime 문제를 해결하는 방법을 알아봅니다.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551079"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376465"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -83,8 +82,8 @@ Azure Data Factory 인터페이스에서 동시 작업 제한을 늘릴 때 프�
 동시 작업 수에 대 한 제한은 컴퓨터의 논리 코어 및 메모리에 따라 달라 집니다. 값을 24와 같은 값으로 조정 하 고 결과를 확인 합니다.
 
 > [!TIP] 
-> - 논리 코어 수와 컴퓨터의 논리 코어 수를 확인 하는 방법에 대 한 자세한 내용은 [Windows 10의 CPU에서 코어 수를 확인 하는 4 가지 방법](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)을 참조 하세요.
-> - Math .log를 계산 하는 방법을 알아보려면 로그 [계산기](https://www.rapidtables.com/calc/math/Log_Calculator.html)로 이동 합니다.
+> -    논리 코어 수와 컴퓨터의 논리 코어 수를 확인 하는 방법에 대 한 자세한 내용은 [Windows 10의 CPU에서 코어 수를 확인 하는 4 가지 방법](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)을 참조 하세요.
+> -    Math .log를 계산 하는 방법을 알아보려면 로그 [계산기](https://www.rapidtables.com/calc/math/Log_Calculator.html)로 이동 합니다.
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>자체 호스팅 IR HA (고가용성) SSL 인증서 문제

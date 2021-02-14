@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 6eb17537fd64b192f64c36b38bab57e11d751328
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: f9791fa8932792398efdea39fe0d39a967420596
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400780"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99821488"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -28,19 +28,19 @@ Azure SQL Database Managed Instance 데이터 원본에서 지원하는 기능�
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-Azure Purview는 Azure SQL Managed Instance의 [보기](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15)에 대한 검사를 지원하지 않습니다.
+Azure Purview는 Azure SQL Managed Instance의 [보기](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true)에 대한 검사를 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 아직 Purview 계정이 없는 경우 새로 만듭니다.
 
-- [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성](../azure-sql/managed-instance/public-endpoint-configure.md)
     > [!Note]
     > Purview에서 **프라이빗 엔드포인트를 아직 지원하지 않으므로** 조직에서 퍼블릭 엔드포인트를 허용할 수 있어야 합니다. 따라서 프라이빗 엔드포인트를 사용하면 검사가 성공하지 않습니다.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>검사 인증 설정
 
-Azure SQL Database Managed Instance를 검사하기 위한 인증입니다. 새 인증을 만들어야 하는 경우 [SQL Database Managed Instance에 대한 데이터베이스 액세스 권한을 부여](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)해야 합니다. 현재 Purview에서 지원하는 세 가지 인증 방법은 다음과 같습니다.
+Azure SQL Database Managed Instance를 검사하기 위한 인증입니다. 새 인증을 만들어야 하는 경우 [SQL Database Managed Instance에 대한 데이터베이스 액세스 권한을 부여](../azure-sql/database/logins-create-manage.md)해야 합니다. 현재 Purview에서 지원하는 세 가지 인증 방법은 다음과 같습니다.
 
 - SQL 인증
 - 서비스 주체
@@ -51,7 +51,7 @@ Azure SQL Database Managed Instance를 검사하기 위한 인증입니다. 새 
 > [!Note]
 > 프로비전 프로세스를 통해 만들어진 서버 수준의 보안 주체 로그인이나 master 데이터베이스에서 `loginmanager` 데이터베이스 역할이 할당된 멤버만 새 로그인을 만들 수 있습니다. 이 작업에는 권한을 부여한 후 **15분** 정도 걸립니다. Purview 계정에는 리소스를 검사할 수 있는 적절한 권한이 있어야 합니다.
 
-Azure SQL Database Managed Instance에 대한 로그인을 사용할 수 없는 경우 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 해당 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
+Azure SQL Database Managed Instance에 대한 로그인을 사용할 수 없는 경우 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)의 지침에 따라 해당 로그인을 만들 수 있습니다. 다음 단계를 수행하려면 **사용자 이름** 및 **암호** 가 필요합니다.
 
 1. Azure Portal에서 키 자격 증명 모음으로 이동합니다.
 1. **설정 > 비밀** 을 차례로 선택합니다.
@@ -85,8 +85,8 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>데이터베이스 계정에서 Azure AD 인증 구성
 
 서비스 주체 또는 관리 ID에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다.
-- [Azure SQL에서 Azure AD 인증 구성 및 관리](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure)
-- [Azure AD ID에 매핑된 포함된 사용자 만들기](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)에 대한 필수 구성 요소 및 자습서에 따라 Azure SQL Database Managed Instance에서 Azure AD 사용자를 만듭니다.
+- [Azure SQL에서 Azure AD 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)
+- [Azure AD ID에 매핑된 포함된 사용자 만들기](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)에 대한 필수 구성 요소 및 자습서에 따라 Azure SQL Database Managed Instance에서 Azure AD 사용자를 만듭니다.
 - `db_owner`(**추천**) 권한을 ID에 할당합니다.
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>키 자격 증명 모음 및 Purview의 자격 증명에 서비스 주체 추가
@@ -104,20 +104,6 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 1. **만들기** 를 선택하여 완료합니다.
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 만들어야 합니다](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account).
 1. 마지막으로 서비스 주체를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
-
-### <a name="firewall-settings"></a>방화벽 설정
-
-데이터베이스 서버에서 Azure 연결이 사용되도록 허용해야 합니다. 이렇게 하면 Azure Purview에서 서버에 도달하여 연결할 수 있습니다. [Azure 내부에서 연결](../azure-sql/database/firewall-configure.md#connections-from-inside-azure)에 대한 방법 가이드를 따를 수 있습니다.
-
-1. 데이터베이스 계정으로 이동합니다.
-1. **개요** 페이지에서 서버 이름을 선택합니다.
-1. **보안 > 방화벽 및 가상 네트워크** 를 차례로 선택합니다.
-1. **Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용** 에 대해 **예** 를 선택합니다.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/sql-firewall.png" alt-text="원본 등록 옵션" border="true":::
-    
-> [!Note]
-> 현재 Azure Purview는 VNET 구성을 지원하지 않습니다. 따라서 IP 기반 방화벽 설정을 수행할 수 없습니다.
 
 ## <a name="register-an-azure-sql-database-managed-instance-data-source"></a>Azure SQL Database Managed Instance 데이터 원본 등록
 

@@ -6,12 +6,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 933b71d75eacdca015a38524870f25a345e76d22
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 820482a268af038737557c517ccda086cd65d943
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746168"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822257"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>자습서: Azure Portal을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -103,7 +103,7 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 VPN 게이트웨이가 있으면 연결을 구성할 수 있습니다. 다음 문서는 가장 일반적인 구성 몇 가지를 만드는 데 도움이 됩니다.
 
 > [!div class="nextstepaction"]
-> [사이트 간 VPN 연결](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [사이트 간 VPN 연결](./tutorial-site-to-site-portal.md)
 
 > [!div class="nextstepaction"]
 > [지점 및 사이트 간 VPN 연결](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

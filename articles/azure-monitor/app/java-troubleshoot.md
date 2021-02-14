@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133245"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097554"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Java SDK에 대 한 Application Insights 문제 해결 및 Q 및 A
 
@@ -170,7 +170,7 @@ java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 
 예, 서버가 공용 인터넷을 통해 Application Insights 포털에 원격 분석을 보낼 수 있는 경우 가능합니다.
 
-방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
+SDK에서 포털에 데이터를 보낼 수 있도록 [서버 방화벽에서 일부 나가는 포트를 열어야](./ip-addresses.md#outgoing-ports) 할 수도 있습니다.
 
 ## <a name="data-retention"></a>데이터 보존
 **데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?**
@@ -193,7 +193,7 @@ Application Insights는 `org.apache.http`를 사용합니다. 이 모듈은 Appl
 * [진단 로그 캡처][javalogs]
 
 ## <a name="get-help"></a>도움말 보기
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [GitHub에서 문제 제출](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

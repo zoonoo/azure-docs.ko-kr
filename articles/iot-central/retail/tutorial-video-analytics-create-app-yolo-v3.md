@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 10/06/2020
-ms.openlocfilehash: ecc32908aea2fb474d2ebe5bd94f556527eda814
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 70769ec97affcd95d07a1365d6357262072c86ec
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763449"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832076"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central-yolo-v3"></a>자습서: Azure IoT Central(YOLO v3)에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -127,3 +127,25 @@ ms.locfileid: "96763449"
 *lva-configuration* 폴더로 이동한 다음, 앞에서 편집한 *deployment.amd64.json* 매니페스트 파일을 선택합니다. **업로드** 를 선택합니다. 유효성 검사가 완료되면 **바꾸기** 를 선택합니다.
 
 [!INCLUDE [iot-central-video-analytics-part4](../../../includes/iot-central-video-analytics-part4.md)]
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+애플리케이션 사용을 마친 후에는 앞에서 만든 모든 리소스를 다음과 같이 제거할 수 있습니다.
+
+1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제** 를 선택합니다.
+1. Azure Portal에서 **lva-rg** 리소스 그룹을 삭제합니다.
+1. 로컬 머신에서 **amp-viewer** Docker 컨테이너를 중지합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+**비디오 분석 - 개체 및 동작 감지** 애플리케이션 템플릿을 사용하여 IoT Central 애플리케이션을 만들고, 게이트웨이 디바이스에 대한 디바이스 템플릿을 만들고, 게이트웨이 디바이스를 애플리케이션에 추가했습니다.
+
+시뮬레이션된 비디오 스트림을 사용하는 클라우드 VM을 실행하는 IoT Edge 모듈에서 비디오 분석 - 개체 및 동작 감지 애플리케이션을 사용해 보려면 다음을 수행합니다.
+
+> [!div class="nextstepaction"]
+> [비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)](tutorial-video-analytics-iot-edge-vm.md)
+
+실제 **ONVIF** 카메라를 사용하는 실제 디바이스를 실행하는 IoT Edge 모듈에서 비디오 분석 - 개체 및 동작 감지 애플리케이션을 사용해 보려면 다음을 수행합니다.
+
+> [!div class="nextstepaction"]
+> [비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)](tutorial-video-analytics-iot-edge-nuc.md)

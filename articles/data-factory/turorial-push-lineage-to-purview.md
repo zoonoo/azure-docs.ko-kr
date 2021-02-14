@@ -1,24 +1,20 @@
 ---
 title: Data Factory 계보 데이터를 Azure Purview에 푸시
 description: Azure 부서의 범위에 Data Factory 계보 데이터를 푸시하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: lle
 author: lrtoyou1223
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3f2297ae619145ec19b53ba79d70b7c085cbcaab
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935460"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361454"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Azure 부서의 범위 (미리 보기)에 Data Factory 계보 데이터 푸시
 
@@ -26,7 +22,7 @@ ms.locfileid: "98935460"
 
 이 자습서에서는 Data Factory UI (사용자 인터페이스)를 사용 하 여 Azure 부서의 범위 계정에 작업을 실행 하 고 계보 데이터를 보고 하는 파이프라인을 만듭니다. 그런 다음 Azure 부서의 범위 계정에서 모든 계보 정보를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Data Factory**. Azure Data Factory 없는 경우 [Azure Data Factory 만들기](./quickstart-create-data-factory-portal.md)를 참조 하세요.
 * **Azure 부서의 범위 계정**. 부서의 범위 계정은 데이터 팩터리에서 생성 된 모든 계보 데이터를 캡처합니다. Azure 부서의 범위 계정이 없는 경우 [Azure 부서의 범위 만들기](../purview/create-catalog-portal.md)를 참조 하세요.

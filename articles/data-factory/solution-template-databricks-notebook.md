@@ -1,22 +1,18 @@
 ---
 title: Azure Databricks를 통한 변환
 description: 솔루션 템플릿을 사용하여 Azure Data Factory의 Databricks 노트북을 통해 데이터를 변환하는 방법을 알아봅니다.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 1c20508d27d03c00a6842979731fb905bbaa9def
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ee663423071458605f37f07293693dbc91f592bb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362117"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
 
@@ -34,7 +30,7 @@ ms.locfileid: "96461253"
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 싱크로 사용 하기 위해 라는 컨테이너가 있는 Azure Blob storage 계정 `sinkdata` .
 
@@ -167,7 +163,7 @@ Databricks 작업 영역으로 **변환** 노트북을 가져오려면 다음을
 
    - **Destinationfilesdataset** -데이터를 싱크 대상 위치로 복사 합니다. 다음 값을 사용합니다.
 
-     - **Linked service**  -  `sinkBlob_LS` 이전 단계에서 만든 연결 된 서비스입니다.
+     -   -  `sinkBlob_LS` 이전 단계에서 만든 연결 된 서비스입니다.
 
      - **파일 경로**  -  `sinkdata/staged_sink` 입니다.
 

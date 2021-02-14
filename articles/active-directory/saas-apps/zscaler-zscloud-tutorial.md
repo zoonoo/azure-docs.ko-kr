@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: daeef90c78fe1f4b98ee1865f48ce86fb3b48023
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 605f033ed48dd79fd164aabd95e326a6467d0ecd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936467"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99822350"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>자습서: Azure Active Directory와 Zscaler ZSCloud 통합
 
@@ -109,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     f. **저장** 을 클릭합니다.
 
     > [!NOTE]
-    > [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
+    > [여기](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)를 클릭하여 Azure AD에서 역할을 구성하는 방법을 알아봅니다.
 
 7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -249,7 +249,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Zscaler ZSCloud 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler ZSCloud 타일을 클릭하면 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Zscaler ZSCloud 타일을 클릭하면 Zscaler ZSCloud 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

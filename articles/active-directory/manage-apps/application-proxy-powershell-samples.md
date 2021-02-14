@@ -3,7 +3,7 @@ title: Azure AD 애플리케이션 프록시에 대한 PowerShell 샘플
 description: Azure AD 애플리케이션 프록시에 대해 이러한 PowerShell 샘플을 사용하여 디렉터리의 애플리케이션 프록시 앱 및 커넥터에 대한 정보를 가져오고, 앱에 사용자 및 그룹을 할당하고, 인증서 정보를 가져옵니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b0955e67c5a35cbea96490a0395522fa145dad1
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 117b4fec13c22ffb2f3163d50be44734d24ef3fa
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858368"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99821823"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에 대한 Azure AD PowerShell 예제
 

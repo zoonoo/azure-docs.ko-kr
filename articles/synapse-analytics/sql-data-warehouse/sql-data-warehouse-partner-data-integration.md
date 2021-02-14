@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f207509baba2499adf5d5d00df0ccd0503a25491
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 918dd929244c7177790a77bfff32589847073c70
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98665194"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104787"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 데이터 통합 파트너
 
@@ -52,7 +52,8 @@ Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터 웨어�
 | ![TimeXtender](./media/sql-data-warehouse-partner-data-integration/timextender-logo.png) |**TimeXtender**<br>TimeXtender의 Discovery Hub를 사용하여 기업들은 데이터 인사이트 획득 시간을 10배까지 가속화하는 통합 데이터 관리 플랫폼을 제공하여 최신 데이터 자산을 구축할 수 있습니다. 일상적인 ETL 및 ELT를 벗어나서 단일 플랫폼에서 데이터 액세스, 데이터 모델링 및 규정 준수를 위한 기능을 제공 합니다. 검색 허브는 클라우드 규모 분석을 위한 긴밀 한 데이터 패브릭을 제공 합니다. 이를 통해 분석 및 AI에 대 한 다양 한 데이터 사일로, 카탈로그, 모델, 이동 및 문서 데이터를 연결 하 고 통합할 수 있습니다. | [제품 페이지](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
 | ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta를 사용하여 개인 및 조직은 분석을 위해 다양한 데이터를 탐색하고 결합할 수 있습니다. Trifacta Wrangler는 대규모로 많은 최종 사용자에게 데이터를 지원해야 하는 데이터 랭글링 워크로드를 처리하도록 디자인되었습니다.|[제품 페이지](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/trifactainc1587522950142.trifactaazure?tab=Overview) |
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED는 팀에 ETL 워크플로를 능률화하기 위한 자동화 도구를 제공하는 IDE입니다. IDE는 인기 있는 데이터 대상에 최적화된 모범 사례 네이티브 코드를 제공합니다. WhereScape RED를 사용하면 데이터 인프라를 개발, 배포 및 운영하는 시간을 단축할 수 있습니다.|[제품 페이지](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
-| ![Xplenty](./media/sql-data-warehouse-partner-data-integration/xplenty-logo.png) |**Xplenty**<br> Xplenty ELT 플랫폼을 사용 하면 간단한 클라우드 서비스를 사용 하 여 분석 및 프로덕션 사용 사례에 대 한 데이터를 빠르고 쉽게 준비할 수 있습니다. Xplenty의 point & 클릭 & drop interface를 끌어서 소프트웨어를 설치, 배포 또는 유지 관리 하지 않고 데이터 통합, 처리 및 준비를 수행할 수 있습니다. Azure Synapse, Azure blob storage 및 SQL Server을 포함 하 여 광범위 한 데이터 리포지토리 및 SaaS 응용 프로그램에 연결 하 고 통합 합니다. Xplenty는 Rest API를 통해 액세스할 수 있는 모든 웹 서비스도 지원 합니다.|[제품 페이지](https://www.xplenty.com/integrations/azure-synapse-analytics/ )<br> |
+| ![Xpert BI](./media/sql-data-warehouse-partner-data-integration/xpertbi-logo.png) |**Xpert BI**<br> Xpert BI를 사용 하면 조직에서 메타 데이터 기반 자동화를 통해 Azure에서 강력 하 고 확장 가능한 데이터 플랫폼을 빌드 및 유지 관리할 수 있습니다. 모범 사례 및 DataOps를 사용 하 여 Azure Synapse를 확장 하 여 기본 제공 데이터 거 버 넌 스 기능을 통해 agile 데이터를 개발 합니다. Xpert BI를 사용 하 여 비즈니스 및 분석을 변경 하 고 확장 해야 하므로 Azure Synapse, Azure Data Lake Storage, Azure SQL Database 등의 다양 한 Azure 솔루션을 빠르게 테스트 하 고 전환할 수 있습니다.|[제품 페이지](https://www.bi-builders.com/adding-automation-and-governance-to-azure-analytics/)<br> |
+| ![Xplenty](./media/sql-data-warehouse-partner-data-integration/xplenty-logo.png) |**Xplenty**<br> Xplenty ELT 플랫폼을 사용 하면 간단한 클라우드 서비스를 사용 하 여 분석 및 프로덕션 사용 사례에 대 한 데이터를 빠르고 쉽게 준비할 수 있습니다. Xplenty의 point & select, drop interface를 끌어서 & 놓아 모든 소프트웨어를 설치, 배포 또는 유지 관리 하지 않고 데이터 통합, 처리 및 준비를 수행할 수 있습니다. Azure Synapse, Azure blob storage 및 SQL Server을 포함 하 여 광범위 한 데이터 리포지토리 및 SaaS 응용 프로그램에 연결 하 고 통합 합니다. Xplenty는 Rest API를 통해 액세스할 수 있는 모든 웹 서비스도 지원 합니다.|[제품 페이지](https://www.xplenty.com/integrations/azure-synapse-analytics/ )<br> |
 
 
 ## <a name="next-steps"></a>다음 단계

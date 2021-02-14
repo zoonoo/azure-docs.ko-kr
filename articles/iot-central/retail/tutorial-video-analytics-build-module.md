@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e5236bb7034ae4d5f86ab2f8f965bdbfbc3d6ccd
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124897"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832048"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>자습서: 라이브 비디오 분석 게이트웨이 모듈 수정 및 빌드
 
@@ -43,7 +43,7 @@ VS Code를 사용하여 로컬 *live-video-analytics* 리포지토리 폴더를 
 
 ## <a name="edit-the-deploymentamd64json-file"></a>deployment.amd64.json 파일 편집
 
-1. 아직 수행하지 않은 경우 **lva-gateway** 리포지토리의 로컬 복사본에 *ref-apps/lva-edge-iot-central-gateway/storage*라는 폴더를 만듭니다. 실수로 기밀 정보를 체크 인하는 것을 방지하기 위해 이 폴더는 Git에서 무시됩니다.
+1. 아직 수행하지 않은 경우 **lva-gateway** 리포지토리의 로컬 복사본에 *ref-apps/lva-edge-iot-central-gateway/storage* 라는 폴더를 만듭니다. 실수로 기밀 정보를 체크 인하는 것을 방지하기 위해 이 폴더는 Git에서 무시됩니다.
 1. *setup* 폴더에서 *storage* 폴더로 *deployment.amd64.json* 파일을 복사합니다.
 1. VS Code에서 *storage/deployment.amd64.json* 파일을 엽니다.
 1. `registryCredentials` 섹션을 편집하여 Azure Container Registry 자격 증명을 추가합니다.
@@ -73,6 +73,13 @@ VS Code를 사용하여 로컬 *live-video-analytics* 리포지토리 폴더를 
 1. VS Code 터미널을 사용하여 **npm version patch** 명령을 실행합니다. 이 빌드 스크립트는 컨테이너 레지스트리에 이미지를 배포합니다. VS Code 터미널 창의 출력은 빌드에 성공했는지 여부를 표시합니다.
 
 1. **LvaEdgeGatewayModule** 이미지의 버전은 빌드가 완료될 때마다 증가합니다. 이 버전은 배포 매니페스트 파일에서 사용해야 합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+애플리케이션 사용을 마친 후에는 앞에서 만든 모든 리소스를 다음과 같이 제거할 수 있습니다.
+
+1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제** 를 선택합니다.
+1. Azure Portal에서 **lva-rg** 리소스 그룹을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

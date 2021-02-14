@@ -1,14 +1,14 @@
 ---
 title: 렌더링 애플리케이션
 description: Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다. 그러나 Azure Marketplace VM 이미지는 미리 설치된 일반적인 애플리케이션에 사용할 수 있습니다.
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 4eeb87c866858f2f1733b81e3e2154f4521e94bc
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430031"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362236"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>일괄 처리 렌더링 VM 이미지에 미리 설치 된 응용 프로그램
 
@@ -18,20 +18,15 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 
 일부 애플리케이션은 Windows만 지원하나 대부분 Windows와 Linux를 모두 지원합니다.
 
-## <a name="applications-on-centos-7-rendering-image"></a>CentOS 7 렌더링 이미지의 응용 프로그램
+## <a name="applications-on-latest-centos-7-rendering-image"></a>최신 CentOS 7 렌더링 이미지의 응용 프로그램
 
-다음 목록은 CentOS 7.6, 버전 1.1.6 렌더링 이미지에 적용됩니다.
+다음 목록은 CentOS 렌더링 이미지 버전 1.1.7에 적용 됩니다.
 
-* Autodesk Maya I/O 2017 업데이트 5(201708032230 잘라내기)
-* Autodesk Maya I/O 2018 업데이트 2(201711281015 컷)
-* Autodesk Maya I/O 2019 업데이트 1
-* Autodesk Arnold for Maya 2017(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2017
-* Autodesk Arnold for Maya 2018(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2018
-* Autodesk Arnold for Maya 2019(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2019
-* Maya 2017용 Chaos Group V-Ray(버전 3.60.04)
-* Maya 2018용 Chaos Group V-Ray(버전 3.60.04)
-* Blender(2.68)
-* Blender(2.8)
+* Autodesk Maya i/o 2020 업데이트 4.6
+* Maya 2020에 대 한 Autodesk Arnold (Arnold version 6.2.0.0) MtoA-4.2.0-2020
+* Maya 2020 (버전 5.00.21)의 비정상 그룹 V-광선
+* Blender(2.80)
+* AZ 10
 
 ## <a name="applications-on-latest-windows-server-rendering-image"></a>최신 Windows Server 렌더링 이미지의 응용 프로그램
 
@@ -96,6 +91,21 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 
 > [!NOTE]
 > Chaos Group V-Ray for 3ds Max 2019(버전 4.10.01)에는 V-ray에 대한 호환성이 손상되는 변경이 도입되었습니다. 이전 버전(버전 3.60.02)을 사용하려면 Windows Server 2016, 버전 1.3.2 렌더링 노드를 사용하세요.
+
+## <a name="applications-on-previous-centos-rendering-images"></a>이전 CentOS 이미지 렌더링의 응용 프로그램
+
+다음 목록은 CentOS 7.6, 버전 1.1.6 렌더링 이미지에 적용됩니다.
+
+* Autodesk Maya I/O 2017 업데이트 5(201708032230 잘라내기)
+* Autodesk Maya I/O 2018 업데이트 2(201711281015 컷)
+* Autodesk Maya I/O 2019 업데이트 1
+* Autodesk Arnold for Maya 2017(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2017
+* Autodesk Arnold for Maya 2018(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2018
+* Autodesk Arnold for Maya 2019(Arnold 버전 5.3.1.1) MtoA-3.2.1.1-2019
+* Maya 2017용 Chaos Group V-Ray(버전 3.60.04)
+* Maya 2018용 Chaos Group V-Ray(버전 3.60.04)
+* Blender(2.68)
+* Blender(2.8)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178741"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104148"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: azure ad 테 넌 트에서 사용자 집합으로 Azure AD 앱 제한
 
@@ -47,7 +47,7 @@ ms.locfileid: "98178741"
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>엔터프라이즈 응용 프로그램 (전역 관리자 역할 필요)
 
-1. **전역 관리자 권한** 으로 <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> 에 로그인 합니다.
+1. **전역 관리자** 로 <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램** 을 선택 합니다.
@@ -59,13 +59,13 @@ ms.locfileid: "98178741"
 
 ### <a name="app-registration"></a>앱 등록
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
 1. 관리 하려는 앱을 만들거나 선택 합니다. 이 응용 프로그램의 **소유자** 여야 합니다.
 1. 응용 프로그램의 **개요** 페이지에 있는 **Essentials** 섹션의 **로컬 디렉터리에서 관리 되는 응용 프로그램** 링크를 선택 합니다.
-1. **관리** 아래에서 **속성** 을 선택 합니다.
+1. **관리** 에서 **속성** 을 선택합니다.
 1. **사용자 할당이 필요합니까?** 설정을 찾아 **예** 로 설정합니다. 이 옵션을 **예** 로 설정 하면 테 넌 트의 사용자를 먼저이 응용 프로그램에 할당 해야 합니다. 그렇지 않으면이 응용 프로그램에 로그인 할 수 없습니다.
 1. **저장** 을 선택합니다.
 

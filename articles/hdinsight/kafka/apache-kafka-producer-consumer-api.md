@@ -1,19 +1,16 @@
 ---
 title: '자습서: Apache Kafka 생산자 및 소비자 API - Azure HDInsight'
 description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 애플리케이션에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: e5a635a8837aadaf423c6f3a0925dbac4080e60f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629309"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822205"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -219,7 +216,7 @@ Kafka에 저장된 레코드는 파티션 내에서 받은 순서대로 저장�
 
 1. **항목 만들기 실패** 클러스터가 엔터프라이즈 보안 팩을 사용하도록 설정된 경우 [생산자 및 소비자에 대해 미리 빌드된 JAR 파일](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar)을 사용합니다. [`DomainJoined-Producer-Consumer` 하위 디렉터리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)의 코드에서 ESP jar을 빌드할 수 있습니다. 생산자 및 소비자 속성에는 ESP 사용 클러스터에 대한 추가 속성 `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG`가 있습니다.
 
-2. **ESP 사용 클러스터의 오류** : 생산 및 소비 작업이 실패하고 ESP 지원 클러스터를 사용하는 경우 사용자 `kafka`가 모든 Ranger 정책에 있는지 확인합니다. 없는 경우 모든 Ranger 정책에 추가합니다.
+2. **ESP 사용 클러스터의 오류**: 생산 및 소비 작업이 실패하고 ESP 지원 클러스터를 사용하는 경우 사용자 `kafka`가 모든 Ranger 정책에 있는지 확인합니다. 없는 경우 모든 Ranger 정책에 추가합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

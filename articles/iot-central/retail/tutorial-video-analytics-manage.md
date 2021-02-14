@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874801"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832609"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 모니터링 및 관리
 
@@ -46,7 +46,7 @@ IoT Central 애플리케이션에서 이전에 만든 **LVA Gateway 001** 디바
 | RTSP 암호  |                         | password    |
 | 검색 유형 | 드롭다운                | 개체 감지       |
 
-다음과 같이 **실행**을 선택하여 카메라 디바이스를 추가합니다.
+다음과 같이 **실행** 을 선택하여 카메라 디바이스를 추가합니다.
 
 :::image type="content" source="media/tutorial-video-analytics-manage/add-camera.png" alt-text="카메라 추가":::
 
@@ -61,7 +61,7 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 다음과 같이 **LVA Gateway 001** 디바이스의 **다운스트림 디바이스** 탭을 선택하여 방금 추가한 카메라 디바이스를 확인합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="검사":::
 
 카메라 디바이스는 애플리케이션의 **디바이스** 페이지에 있는 목록에도 표시됩니다.
 
@@ -94,11 +94,11 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 | 신뢰도 임계값 | 개체 감지가 유효한지 확인하는 자격 백분율 | 70 |
 | 유추 프레임 샘플 속도(fps) | [여기에 설명] | 2 |
 
-**저장**을 선택합니다.
+**저장** 을 선택합니다.
 
 몇 초 후에 다음과 같이 각 설정에 대한 **수락됨** 확인 메시지가 표시됩니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="개체 감지":::
 
 ## <a name="start-lva-processing"></a>LVA 처리 시작
 
@@ -108,27 +108,27 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 명령이 완료되면 명령 기록을 살펴보고 오류가 없는지 확인합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="LVA 처리 시작 명령":::
 
 ## <a name="monitor-the-cameras"></a>카메라 모니터링
 
 **camera-003** 디바이스로 이동하여 **대시보드** 탭을 선택합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="카메라 대시보드":::
 
 **감지 횟수** 타일에는 1초 감지 간격 동안 선택한 각 감지 클래스 개체의 평균 감지 횟수가 표시됩니다.
 
 **감지 클래스** 원형 차트는 각 클래스 형식의 감지 비율을 보여줍니다.
 
-**유추 이벤트 비디오**는 감지를 포함하는 Azure Media Services 자산에 대한 링크 목록입니다. 이 링크는 다음 섹션에 설명된 호스트 플레이어를 사용합니다.
+**유추 이벤트 비디오** 는 감지를 포함하는 Azure Media Services 자산에 대한 링크 목록입니다. 이 링크는 다음 섹션에 설명된 호스트 플레이어를 사용합니다.
 
 ## <a name="start-the-streaming-endpoint"></a>스트리밍 엔드포인트 시작
 
 기록된 비디오를 클라이언트 Media Player 애플리케이션에서 스트리밍할 수 있도록 Media Services 엔드포인트를 시작합니다.
 
 * Azure Portal에서 **lva-rg** 리소스 그룹으로 이동합니다.
-* **스트리밍 엔드포인트**를 엽니다.
-* **스트리밍 엔드포인트 세부 정보** 페이지에서 **시작**을 선택합니다. 엔드포인트가 시작되면 대금 청구가 시작된다는 경고가 표시됩니다.
+* **스트리밍 엔드포인트** 를 엽니다.
+* **스트리밍 엔드포인트 세부 정보** 페이지에서 **시작** 을 선택합니다. 엔드포인트가 시작되면 대금 청구가 시작된다는 경고가 표시됩니다.
 
 ## <a name="view-stored-video"></a>저장된 비디오 보기
 
@@ -138,7 +138,7 @@ IoT Edge 게이트웨이 디바이스에 카메라 두 대를 연결한 경우 �
 
 IoT Central 애플리케이션은 Azure Media Services에 비디오를 저장하며, 여기서 비디오를 스트리밍할 수 있습니다. Azure Media Services에 저장된 비디오를 재생하려면 비디오 플레이어가 필요합니다.
 
-**Docker**가 로컬 머신에서 실행되고 있는지 확인합니다.
+**Docker** 가 로컬 머신에서 실행되고 있는지 확인합니다.
 
 명령 프롬프트를 열고 다음 명령을 사용하여 로컬 머신의 Docker 컨테이너에서 비디오 플레이어를 실행합니다. 명령의 자리 표시자를 앞에서 *scratchpad.txt* 파일에 기록해 둔 값으로 바꿉니다. 앞에서 Media Services 계정의 서비스 주체를 만들 때 `amsAadClientId`, `amsAadSecret`, `amsAadTenantId`, `amsSubscriptionId` 및 `amsAccountName`을 기록해 두었습니다.
 
@@ -157,32 +157,32 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 **camera-003** 디바이스로 이동하여 **대시보드** 탭을 선택합니다. 그런 다음, **유추 이벤트 비디오** 타일에서 캡처된 개체 감지 하이퍼링크 중 하나를 클릭합니다. 로컬 비디오 플레이어가 표시하는 페이지에 비디오가 나타납니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="비디오 코드 조각":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>애플리케이션 대시보드에서 시뮬레이션된 디바이스 변경
 
 애플리케이션 대시보드는 원래 IoT Central 시뮬레이션된 디바이스에서 생성된 원격 분석 및 속성으로 채워집니다. 실제 카메라 또는 Live555 시뮬레이터에서 원격 분석에 대한 타일을 구성하려면 다음 단계를 수행합니다.
 
 1. **(샘플) 실제 카메라 모니터** 애플리케이션 대시보드로 이동합니다.
-1. **편집**을 선택합니다.
+1. **편집** 을 선택합니다.
 1. **메모** 타일을 선택하고 삭제합니다.
-1. 대시보드 제목을 *실제 카메라 모니터*로 변경합니다.
+1. 대시보드 제목을 *실제 카메라 모니터* 로 변경합니다.
 1. **유추 횟수** 타일에서 구성 아이콘을 선택합니다.
 1. **차트 구성** 섹션의 **LVA Edge 개체 감지기** 디바이스 그룹에서 실제 카메라를 하나 이상 선택합니다.
 1. `AI Inference Interface/Inference Count` 원격 분석 필드를 선택합니다.
-1. **업데이트**를 선택합니다.
+1. **업데이트** 를 선택합니다.
 
 1. 다음 타일에 대한 단계를 반복합니다.
     1. **감지** 원형 차트는 `AI Inference Interface/Inference/entity/tag/value` 원격 분석 유형을 사용합니다.
-    1. **유추**는 마지막으로 알려진 `AI Inference Interface/Inference/entity/tag/value` 값을 사용합니다.
+    1. **유추** 는 마지막으로 알려진 `AI Inference Interface/Inference/entity/tag/value` 값을 사용합니다.
     1. **신뢰도 %** 는 마지막으로 알려진 `AI Inference Interface/Inference/entity/tag/confidence` 값을 사용합니다.
-    1. **스냅샷**은 이미지로 표시된 `AI Inference Interface/Inference Image`를 사용합니다.
-    1. **유추 이벤트 비디오**는 링크로 표시된 `AI Inference Interface/Inference Event Video`를 사용합니다.
-1. **저장**을 선택합니다.
+    1. **스냅샷** 은 이미지로 표시된 `AI Inference Interface/Inference Image`를 사용합니다.
+    1. **유추 이벤트 비디오** 는 링크로 표시된 `AI Inference Interface/Inference Event Video`를 사용합니다.
+1. **저장** 을 선택합니다.
 
 이제 **실제 카메라 모니터링** 대시보드는 다음과 같이 실제 카메라 디바이스의 값을 표시합니다.
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="카메라 추가":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="실제 카메라 애플리케이션 대시보드":::
 
 ## <a name="pause-processing"></a>처리 일시 중지
 
@@ -193,13 +193,13 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 1. 다음과 같이 Media Services 계정의 스트리밍 엔드포인트를 중지합니다.
     * Azure Portal에서 **lva-rg** 리소스 그룹으로 이동합니다.
     * **스트리밍 엔드포인트** 리소스를 클릭합니다.
-    * **스트리밍 엔드포인트 세부 정보** 페이지에서 **중지**를 선택합니다.
+    * **스트리밍 엔드포인트 세부 정보** 페이지에서 **중지** 를 선택합니다.
 
-## <a name="tidy-up"></a>정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 애플리케이션 사용을 마친 후에는 앞에서 만든 모든 리소스를 다음과 같이 제거할 수 있습니다.
 
-1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제**를 선택합니다.
+1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제** 를 선택합니다.
 1. Azure Portal에서 **lva-rg** 리소스 그룹을 삭제합니다.
 1. 로컬 머신에서 **amp-viewer** Docker 컨테이너를 중지합니다.
 

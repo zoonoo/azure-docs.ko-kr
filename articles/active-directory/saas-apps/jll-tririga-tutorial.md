@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/17/2020
 ms.author: jeedes
-ms.openlocfilehash: fbf0b6f929fc0999249298f5f271a86ccf3bef39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: b33db1b766d99aeb8d0a08f6396b5384948f118e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602915"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821276"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jll-tririga"></a>자습서: JLL TRIRIGA와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -140,11 +140,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 JLL TRIRIGA에 자동으로 로그인됩니다.
 
-* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 JLL TRIRIGA 타일을 클릭하면 SSO를 설정한 JLL TRIRIGA에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 JLL TRIRIGA 타일을 클릭하면 SSO를 설정한 JLL TRIRIGA에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-JLL TRIRIGA가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+JLL TRIRIGA가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

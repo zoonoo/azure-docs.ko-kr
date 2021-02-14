@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 25d9d53b9bc597b5eb51586c594dd631609f476e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549391"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362151"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -84,6 +84,7 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 ## <a name="change-log"></a>로그 변경
 
+- 02/11/2021: [Red Hat Enterprise Linux 서버의 Azure vm에서 IBM DB2 LUW의 고가용성](./high-availability-guide-rhel-ibm-db2-luw.md) 을 변경 하 여 RHEL 8.x의 pacemaker 클러스터 명령을 수정 합니다.
 - 02/03/2021: stonith create 명령의 pcmk_host_map를 업데이트 하려면 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경
 - 02/03/2021: stonith create 명령에 pcmk_host_map를 추가 하려면 [Azure에서 SLES의 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md) 변경 
 - 02/03/2021: SUSE의 i/o scheduler 설정에 대 한 자세한 내용은 [Azure 가상 컴퓨터 저장소 구성 SAP HANA](./hana-vm-operations-storage.md) 문서를 참조 하세요.

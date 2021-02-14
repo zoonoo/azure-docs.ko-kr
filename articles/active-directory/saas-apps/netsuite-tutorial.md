@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 9272114dd472717e59680b40c07d8435dea19682
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d99a19efcef0cae518d8d21d3371adaf37d32ff7
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181971"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821919"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -41,7 +41,6 @@ NetSuite는 다음을 지원합니다.
 
 * IDP 시작 SSO
 * JIT(Just-In-Time) 사용자 프로비저닝
-* [자동화된 사용자 프로비저닝](NetSuite-provisioning-tutorial.md)
 
 > [!NOTE]
 > 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.

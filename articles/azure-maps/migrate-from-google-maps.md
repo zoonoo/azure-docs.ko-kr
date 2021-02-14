@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: decf289614179718d5c3424f6d4482a5ce2c43e1
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6241f6156b01c3c90f00578ae5416e4e77270930
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386801"
 ---
 # <a name="tutorial-migrate-from-google-maps-to-azure-maps"></a>자습서: Google Maps에서 Azure Maps로 마이그레이션
 
@@ -48,7 +48,7 @@ Azure Maps는 모든 산업의 개발자에게 강력한 지리 공간적 기능
 | REST 서비스 API           | ✓                                      |
 | 방향(라우팅)        | ✓                                      |
 | 거리 행렬             | ✓                                      |
-| 상승                   | 계획                                |
+| 상승                   | ✓(미리 보기)                            |
 | 지오코딩(정방향/역방향) | ✓                                      |
 | 지리적 위치                 | 해당 없음                                    |
 | 가장 가까운 도로               | ✓                                      |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62ed3915dcaf596d144a2f59817626cdf8ec47e5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588249"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092777"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Forcepoint DLP를 Azure 센티널에 연결
 
@@ -38,15 +38,15 @@ Forcepoint dlp [통합 가이드](https://frcpnt.com/dlp-sentinel)에 설명 된
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-Forcepoint DLP 커넥터를 설정 하면 데이터는 CustomLogs **ForcepointDLPEvents_CL**의 Log Analytics에 표시 됩니다.
+Forcepoint DLP 커넥터를 설정 하면 데이터는 CustomLogs **ForcepointDLPEvents_CL** 의 Log Analytics에 표시 됩니다.
 
 
-Forcepoint DLP에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **ForcepointDLPEvents_CL**를 검색 합니다.
+Forcepoint DLP에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **ForcepointDLPEvents_CL** 를 검색 합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

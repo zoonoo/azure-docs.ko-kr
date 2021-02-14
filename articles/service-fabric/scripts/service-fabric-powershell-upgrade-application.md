@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1b04a0c4d2865cf72d9fbccb51f0f083872ea799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b55dc6a400f936ac23b233e4c84a6b1aebf45cb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87037885"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821996"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Service Fabric 애플리케이션 업그레이드
 
@@ -37,18 +37,18 @@ ms.locfileid: "87037885"
 
 | 명령 | 메모 |
 |---|---|
-| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Service Fabric 클러스터의 모든 애플리케이션 또는 특정 애플리케이션을 가져옵니다.  |
-| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Service Fabric 애플리케이션 업그레이드의 상태를 가져옵니다. |
-| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) | Service Fabric 클러스터에 등록된 Service Fabric 애플리케이션 유형을 가져옵니다. |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Service Fabric 애플리케이션 유형을 등록 취소합니다.  |
-| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Service Fabric 애플리케이션 패키지를 이미지 저장소에 복사합니다.  |
-| [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Service Fabric 애플리케이션 유형을 등록합니다. |
-| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Service Fabric 애플리케이션을 지정된 애플리케이션 유형 버전으로 업그레이드합니다. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
+| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) | Service Fabric 클러스터의 모든 애플리케이션 또는 특정 애플리케이션을 가져옵니다.  |
+| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade) | Service Fabric 애플리케이션 업그레이드의 상태를 가져옵니다. |
+| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype) | Service Fabric 클러스터에 등록된 Service Fabric 애플리케이션 유형을 가져옵니다. |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype) | Service Fabric 애플리케이션 유형을 등록 취소합니다.  |
+| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) | Service Fabric 애플리케이션 패키지를 이미지 저장소에 복사합니다.  |
+| [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) | Service Fabric 애플리케이션 유형을 등록합니다. |
+| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) | Service Fabric 애플리케이션을 지정된 애플리케이션 유형 버전으로 업그레이드합니다. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview?view=azureservicefabricps)를 참조하세요.
+Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.

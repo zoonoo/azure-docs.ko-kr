@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy 게스트 구성 클라이언트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210123"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104810"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -142,11 +142,15 @@ _구성_ 으로 시작하는 정의를 할당하는 경우 _필수 조건을 배
 
 게스트 구성에 사용할 수 있는 감사 정책 정의에는 **HybridCompute/machines** 리소스 종류가 포함 됩니다. 정책 할당 범위 내에 있는 [서버용 Azure Arc](../../../azure-arc/servers/overview.md)에 온보딩된 모든 머신이 자동으로 포함됩니다.
 
+## <a name="troubleshooting-guest-configuration"></a>게스트 구성 문제 해결
+
+게스트 구성 문제 해결에 대 한 자세한 내용은 [Azure Policy 문제 해결](../troubleshoot/general.md)을 참조 하세요.
+
 ### <a name="multiple-assignments"></a>여러 할당
 
 현재 게스트 구성 정책 정의는 정책 할당에서 다른 매개 변수를 사용 하는 경우에도 컴퓨터 마다 한 번 동일한 게스트 할당 할당을 지원 합니다.
 
-## <a name="client-log-files"></a>클라이언트 로그 파일
+### <a name="client-log-files"></a>클라이언트 로그 파일
 
 게스트 구성 확장은 다음 위치에 로그 파일을 씁니다.
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>클라이언트 파일
+
+게스트 구성 클라이언트는 콘텐츠 패키지를 컴퓨터에 다운로드 하 고 콘텐츠를 추출 합니다.
+다운로드 및 저장 된 콘텐츠를 확인 하려면 아래에 지정 된 폴더 위치를 확인 합니다.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>게스트 구성 샘플
 

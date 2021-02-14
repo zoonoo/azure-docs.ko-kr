@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory에서 데이터 집합 만들기
 description: offset 및 anchorDateTime과 같은 속성을 사용하는 예제를 통해 Azure Data Factory에서 데이터 세트를 만드는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9bf6ff2971de57338dc299d48e24f6ffebd4b6b5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495942"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376839"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Azure Data Factory의 데이터 집합 (버전 1)
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -79,13 +75,13 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| name |데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
-| type |데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#Type)을 참조 하세요. |예 |해당 없음 |
-| structure |데이터 세트의 스키마입니다.<br/><br/>자세한 내용은 [데이터 집합 구조](#Structure)를 참조 하세요. |아니요 |해당 없음 |
+| name |데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |Yes |해당 없음 |
+| type |데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#Type)을 참조 하세요. |Yes |해당 없음 |
+| structure |데이터 세트의 스키마입니다.<br/><br/>자세한 내용은 [데이터 집합 구조](#Structure)를 참조 하세요. |예 |해당 없음 |
 | typeProperties | 형식 속성은 형식마다 다릅니다(예: Azure Blob, Azure SQL 테이블). 지원되는 형식 및 해당 속성에 대한 자세한 내용은 [데이터 세트 형식](#Type)을 참조하세요. |예 |해당 없음 |
-| external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. 활동에 대한 입력 데이터 세트가 현재 파이프라인에서 생성되지 않으면 이 플래그를 true로 설정합니다. 파이프라인에서 첫 번째 활동의 입력 데이터 세트에 대해서는 이 플래그를 true로 설정합니다.  |아니요 |false |
-| availability | 데이터 세트 생성에 대한 처리 기간(예: 매시간 또는 매일) 또는 조각화 모델을 정의합니다. 각 데이터 단위는 데이터 조각이라는 작업 실행으로 사용되고 생성됩니다. 출력 데이터 세트의 가용성을 매일(frequency - Day, interval - 1)로 설정하면 조각이 매일 생성됩니다. <br/><br/>자세한 내용은 데이터 세트 가용성을 참조하세요. <br/><br/>데이터 세트 조각화 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. |예 |해당 없음 |
-| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>자세한 내용은 [데이터 세트 정책](#Policy)을 참조하세요. |아니요 |해당 없음 |
+| external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. 활동에 대한 입력 데이터 세트가 현재 파이프라인에서 생성되지 않으면 이 플래그를 true로 설정합니다. 파이프라인에서 첫 번째 활동의 입력 데이터 세트에 대해서는 이 플래그를 true로 설정합니다.  |예 |false |
+| availability | 데이터 세트 생성에 대한 처리 기간(예: 매시간 또는 매일) 또는 조각화 모델을 정의합니다. 각 데이터 단위는 데이터 조각이라는 작업 실행으로 사용되고 생성됩니다. 출력 데이터 세트의 가용성을 매일(frequency - Day, interval - 1)로 설정하면 조각이 매일 생성됩니다. <br/><br/>자세한 내용은 데이터 세트 가용성을 참조하세요. <br/><br/>데이터 세트 조각화 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. |Yes |해당 없음 |
+| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>자세한 내용은 [데이터 세트 정책](#Policy)을 참조하세요. |예 |해당 없음 |
 
 ## <a name="dataset-example"></a>데이터 세트 예제
 다음 예제에서 데이터 집합은 SQL database에서 **MyTable** 이라는 테이블을 나타냅니다.
@@ -194,7 +190,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 | name |열의 이름입니다. |예 |
 | type |열의 데이터 형식입니다.  |예 |
 | culture |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 .NET 기반 culture(문화권)입니다. 기본값은 `en-us`입니다. |예 |
-| format |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. |아니요 |
+| format |type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할 format(서식) 문자열입니다. |예 |
 
 다음 지침은 structure 정보를 포함할 시기 및 **structure** 섹션에 포함할 내용을 결정하는 데 도움이 됩니다.
 
@@ -233,11 +229,11 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
-| interval |빈도에 대한 승수를 지정합니다.<br/><br/>"frequency x interval"은 조각을 생성하는 빈도를 결정합니다. 예를 들어 데이터 세트를 매시간 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/>**frequency** 를 **Minute** 로 지정하는 경우 interval을 15 이상으로 설정해야 합니다. |예 |해당 없음 |
-| 스타일 |간격의 시작/끝에서 조각을 생성해야 하는지 여부를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>**frequency** 를 **Month** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매월 마지막 일에 생성합니다. **style** 을 **StartOfInterval** 로 설정하는 경우 조각을 매월 첫째 일에 생성합니다.<br/><br/>**frequency** 를 **Day** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매일 마지막 시간에 생성합니다.<br/><br/>**frequency** 를 **Hour** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매시간 끝에 생성합니다. 예를 들어 오후 1-2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/>이 속성에 지정 된 빈도 보다 더 세분화 된 날짜 부분이 있는 경우 더 세분화 된 부분은 무시 됩니다. 예를 들어 **간격** 이 **매시간**(frequency: Hour 및 interval: 1)이고 **anchorDateTime** 에 **분 및 초** 가 포함되는 경우 **anchorDateTime** 의 분 및 초 부분은 무시됩니다. |아니요 |01/01/0001 |
-| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/>**anchorDateTime** 및 **offset** 이 모두 지정되면 결합된 결과로 나타납니다. |아니요 |해당 없음 |
+| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |Yes |해당 없음 |
+| interval |빈도에 대한 승수를 지정합니다.<br/><br/>"frequency x interval"은 조각을 생성하는 빈도를 결정합니다. 예를 들어 데이터 세트를 매시간 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/>**frequency** 를 **Minute** 로 지정하는 경우 interval을 15 이상으로 설정해야 합니다. |Yes |해당 없음 |
+| 스타일 |간격의 시작/끝에서 조각을 생성해야 하는지 여부를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>**frequency** 를 **Month** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매월 마지막 일에 생성합니다. **style** 을 **StartOfInterval** 로 설정하는 경우 조각을 매월 첫째 일에 생성합니다.<br/><br/>**frequency** 를 **Day** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매일 마지막 시간에 생성합니다.<br/><br/>**frequency** 를 **Hour** 로 설정하고 **style** 을 **EndOfInterval** 로 설정하는 경우 조각을 매시간 끝에 생성합니다. 예를 들어 오후 1-2시 기간에 대한 조각은 오후 2시에 생성됩니다. |예 |EndOfInterval |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/>이 속성에 지정 된 빈도 보다 더 세분화 된 날짜 부분이 있는 경우 더 세분화 된 부분은 무시 됩니다. 예를 들어 **간격** 이 **매시간**(frequency: Hour 및 interval: 1)이고 **anchorDateTime** 에 **분 및 초** 가 포함되는 경우 **anchorDateTime** 의 분 및 초 부분은 무시됩니다. |예 |01/01/0001 |
+| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/>**anchorDateTime** 및 **offset** 이 모두 지정되면 결합된 결과로 나타납니다. |예 |해당 없음 |
 
 ### <a name="offset-example"></a>offset example
 기본적으로 조각은 매일(`"frequency": "Day", "interval": 1`) 오전 12시(자정) UTC(협정 세계시)에 시작합니다. 대신, 시작 시간을 UTC 시간으로 오전 6시로 설정하려면 다음 코드 조각과 같이 오프셋을 설정합니다.
@@ -280,8 +276,8 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 ### <a name="validation-policies"></a>정책 유효성 검사
 | 정책 이름 | 설명 | 적용 대상 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |**Azure Blob Storage** 의 데이터가 최소 크기 요구 사항(MB)을 충족하는지 확인합니다. |Azure Blob 스토리지 |아니요 |해당 없음 |
-| minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블** 에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
+| minimumSizeMB |**Azure Blob Storage** 의 데이터가 최소 크기 요구 사항(MB)을 충족하는지 확인합니다. |Azure Blob Storage |예 |해당 없음 |
+| minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블** 에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |예 |해당 없음 |
 
 #### <a name="examples"></a>예제
 **minimumSizeMB:**
@@ -316,10 +312,10 @@ Data Factory에서 데이터 세트를 생성하지 않는 한 **external** 로 
 
 | Name | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 검사를 지연하는 시간입니다. 예를 들어 이 설정을 사용하여 시간별 검사를 지연할 수 있습니다.<br/><br/>이 설정은 현재 시간에만 적용됩니다. 예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이전 시간에는 이 설정으로 조각에 영향을 주지 않습니다. 이제 **조각 종료 시간이**  +  **datadelay** 인 조각이  <  **Now** 지연 없이 처리 됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
-| retryInterval |실패 이후 다음 다시 시도까지의 대기 시간입니다. 이 설정은 현재 시간에 적용됩니다. 이전 시도가 실패한 경우 다음 시도는 **retryInterval** 기간 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 시간이 1분이고 작업이 실패한 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
-| retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성을 10분으로 설정하면 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>모든 유효성 검사 시도에서 시간을 초과하면 조각이 **TimedOut** 으로 표시됩니다. |아니요 |00:10:00 (10분) |
-| maximumRetry |외부 데이터의 가용성을 검사하는 횟수입니다. 허용되는 최대값은 10입니다. |아니요 |3 |
+| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 검사를 지연하는 시간입니다. 예를 들어 이 설정을 사용하여 시간별 검사를 지연할 수 있습니다.<br/><br/>이 설정은 현재 시간에만 적용됩니다. 예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이전 시간에는 이 설정으로 조각에 영향을 주지 않습니다. 이제 **조각 종료 시간이**  +  **datadelay** 인 조각이  <   지연 없이 처리 됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |예 |0 |
+| retryInterval |실패 이후 다음 다시 시도까지의 대기 시간입니다. 이 설정은 현재 시간에 적용됩니다. 이전 시도가 실패한 경우 다음 시도는 **retryInterval** 기간 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 시간이 1분이고 작업이 실패한 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |예 |00:01:00 (1분) |
+| retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성을 10분으로 설정하면 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>모든 유효성 검사 시도에서 시간을 초과하면 조각이 **TimedOut** 으로 표시됩니다. |예 |00:10:00 (10분) |
+| maximumRetry |외부 데이터의 가용성을 검사하는 횟수입니다. 허용되는 최대값은 10입니다. |예 |3 |
 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기

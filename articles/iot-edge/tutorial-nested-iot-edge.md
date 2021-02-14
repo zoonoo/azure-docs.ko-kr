@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: a9591a394d80e7b4c60f28fda6c0a425ba3d0a4f
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 05d6607c091361ecee3fcd5527025b6f9fb59051
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180067"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573210"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기(미리 보기)
 
@@ -425,6 +425,7 @@ IoT Edge 런타임 구성을 완료하고 워크로드를 배포하기 위한 �
                            "env": {
                                "REGISTRY_PROXY_REMOTEURL": {
                                    "value": "https://mcr.microsoft.com"
+                               } 
                            },
                            "status": "running",
                            "restartPolicy": "always"
@@ -453,7 +454,7 @@ IoT Edge 런타임 구성을 완료하고 워크로드를 배포하기 위한 �
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },
@@ -575,7 +576,7 @@ Azure Portal 및 Azure CLI를 모두 사용하여 클라우드에서 **하위 �
                    },
                    "runtime": {
                        "settings": {
-                           "minDockerVersion": "v1.25",
+                           "minDockerVersion": "v1.25"
                        },
                        "type": "docker"
                    },

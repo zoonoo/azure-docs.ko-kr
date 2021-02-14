@@ -1,23 +1,18 @@
 ---
 title: 새 파일 및 업데이트 된 파일을 증분 방식으로 복사 하는 데이터 도구
 description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구를 사용 하 여 LastModifiedDate에 따라 새 파일을 증분 방식으로 로드 합니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555416"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361148"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
@@ -37,10 +32,10 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* **Azure 구독** : Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure Storage 계정** : 원본 및 싱크 데이터 저장소에 Blob 저장소를 사용 합니다. Azure Storage 계정이 없으면 [저장소 계정 만들기](../storage/common/storage-account-create.md)의 지침을 따르세요.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**: 원본 및 싱크 데이터 저장소에 Blob 저장소를 사용 합니다. Azure Storage 계정이 없으면 [저장소 계정 만들기](../storage/common/storage-account-create.md)의 지침을 따르세요.
 
 ## <a name="create-two-containers-in-blob-storage"></a>Blob 저장소에 두 개의 컨테이너 만들기
 
@@ -92,7 +87,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **작업 흐름 또는 작업 일정** 에서 **일정에 따라 정기적으로 실행** 을 선택 합니다.
 
-    다. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
+    c. **트리거 유형** 에서 **연속 창** 을 선택 합니다.
 
     d. **되풀이** 에서 **15 분** 을 입력 합니다.
 
@@ -110,7 +105,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     ![Azure 블로그 저장소 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    다. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기** 를 선택 합니다.
+    c. **새 연결 된 서비스 (Azure Blob Storage)** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 합니다. 연결을 테스트 한 후 **만들기** 를 선택 합니다.
 
     d. 새 연결 된 서비스를 선택 하 고 **다음** 을 선택 합니다.
 
@@ -124,11 +119,11 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
     b. **파일 로드 동작** 에서 **증분 로드: LastModifiedDate** 를 선택 합니다.
 
-    다. **이진 복사** 를 선택 하 고 **다음** 을 선택 합니다.
+    c. **이진 복사** 를 선택 하 고 **다음** 을 선택 합니다.
 
      ![입력 파일 또는 폴더 선택 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. **대상 데이터 저장소** 페이지에서 사용자가 만든 **azureblobstorage** 서비스를 선택 합니다. 원본 데이터 저장소와 동일한 저장소 계정입니다. **다음** 을 선택합니다.
+5. **대상 데이터 저장소** 페이지에서 사용자가 만든 **azureblobstorage** 서비스를 선택 합니다. 원본 데이터 저장소와 동일한 저장소 계정입니다. 그런 후 **다음** 을 선택합니다.
 
 6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
 

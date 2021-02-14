@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.author: banders
-ms.openlocfilehash: f0645115246995c9605563626d99bbf6a76784e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 887b7013eb3060020a39d2df0082768b8185bdde
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133571"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575469"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -42,7 +42,7 @@ ms.locfileid: "98133571"
 
 청구 프로필의 역할에는 청구서 및 결제 방법을 보고 관리할 수 있는 권한이 있습니다. 조직의 회계 팀원처럼 청구서 대금을 결제하는 사용자에게 이러한 역할을 할당해야 합니다. 자세한 내용은 [청구 프로필 역할 및 작업](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks)을 참조하세요.
 
-계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
+계정이 업데이트되면 다른 사람에게 [청구서 보기](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice) 권한을 부여한 각 구독에서 소유자, 기여자, 읽기 권한자 또는 청구 읽기 권한자 Azure 역할이 있는 사용자에게 해당 청구 프로필에 대한 읽기 권한자 역할이 부여됩니다.
 
 ## <a name="invoice-sections"></a>청구서 섹션
 

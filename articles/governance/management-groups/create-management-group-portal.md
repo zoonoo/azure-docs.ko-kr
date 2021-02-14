@@ -1,14 +1,14 @@
 ---
 title: 포털을 사용하여 관리 그룹 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: c8cb7b8bd3ad33d1f315670bfbb1782972e6e97f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a336fe4caf5d2f825a93b5c7b8f8d05f6255c39
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661745"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592435"
 ---
 # <a name="quickstart-create-a-management-group"></a>빠른 시작: 관리 그룹 만들기
 
@@ -26,33 +26,33 @@ ms.locfileid: "89661745"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **모든 서비스** > **관리 그룹 + 거버넌스**를 선택합니다.
+1. **모든 서비스** > **관리 그룹 + 거버넌스** 를 선택합니다.
 
-1. **관리 그룹**을 선택합니다.
+1. **관리 그룹** 을 선택합니다.
 
-1. **+ 관리 그룹 추가**를 선택합니다.
+1. **+ 관리 그룹 추가** 를 선택합니다.
 
    :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷" border="false":::
 
-1. **새로 만들기**를 선택한 상태로 두고 관리 그룹 ID 필드를 입력합니다.
+1. **새로 만들기** 를 선택한 상태로 두고 관리 그룹 ID 필드를 입력합니다.
 
-   - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에는 편집할 수 없습니다. [루트 관리 그룹](./overview.md#root-management-group-for-each-directory)은 Azure Active Directory ID인 ID를 사용하여 자동으로 생성됩니다. 다른 모든 관리 그룹의 경우 고유 ID를 할당합니다.
+   - **관리 그룹 ID** 는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에는 편집할 수 없습니다. [루트 관리 그룹](./overview.md#root-management-group-for-each-directory)은 Azure Active Directory ID인 ID를 사용하여 자동으로 생성됩니다. 다른 모든 관리 그룹의 경우 고유 ID를 할당합니다.
    - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.
 
-   :::image type="content" source="./media/create_context_menu.png" alt-text="자식 관리 그룹 및 구독을 보여주는 관리 그룹 페이지 스크린샷":::
+   :::image type="content" source="./media/create_context_menu.png" alt-text="새 관리 그룹을 만들기 위한 '관리 그룹 추가' 옵션 스크린샷":::
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 생성한 관리 그룹을 제거하려면 다음 단계를 수행합니다.
 
-1. **모든 서비스** > **관리 그룹 + 거버넌스**를 선택합니다.
+1. **모든 서비스** > **관리 그룹 + 거버넌스** 를 선택합니다.
 
-1. **관리 그룹**을 선택합니다.
+1. **관리 그룹** 을 선택합니다.
 
-1. 위에서 만든 관리 그룹을 찾아 선택한 다음, 이름 옆에 있는 **세부 정보**를 선택합니다.
-   그런 다음, **삭제**를 선택하고 프롬프트를 확인합니다.
+1. 위에서 만든 관리 그룹을 찾아 선택한 다음, 이름 옆에 있는 **세부 정보** 를 선택합니다.
+   그런 다음, **삭제** 를 선택하고 프롬프트를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

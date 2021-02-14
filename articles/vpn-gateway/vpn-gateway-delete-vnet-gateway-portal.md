@@ -4,15 +4,15 @@ description: Azure Portal를 사용 하 여 가상 네트워크 게이트웨이 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 7d9ae31b5701707589d79fd5f3d7eb0802038eb9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148203"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376390"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>포털을 사용하여 가상 네트워크 게이트웨이 삭제
 
@@ -44,24 +44,24 @@ ms.locfileid: "92148203"
 
 #### <a name="to-delete-the-local-network-gateway"></a>로컬 네트워크 게이트웨이를 삭제하려면
 
-1. **모든 리소스**에서 각 연결에 연결 된 로컬 네트워크 게이트웨이를 찾습니다.
-1. 로컬 네트워크 게이트웨이의 **개요** 블레이드에서 **삭제**를 클릭합니다.
+1. **모든 리소스** 에서 각 연결에 연결 된 로컬 네트워크 게이트웨이를 찾습니다.
+1. 로컬 네트워크 게이트웨이의 **개요** 블레이드에서 **삭제** 를 클릭합니다.
 
 #### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>게이트웨이에 대한 공용 IP 주소 리소스를 삭제하려면
 
-1. **모든 리소스**에서 게이트웨이와 연결된 공용 IP 주소 리소스를 찾습니다. 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
-1. 공용 IP 주소에 대한 **개요** 페이지에서 **삭제**, **예**를 차례로 클릭하여 확인합니다.
+1. **모든 리소스** 에서 게이트웨이와 연결된 공용 IP 주소 리소스를 찾습니다. 가상 네트워크 게이트웨이가 활성-활성인 경우 두 개의 공용 IP 주소가 표시됩니다.
+1. 공용 IP 주소에 대한 **개요** 페이지에서 **삭제**, **예** 를 차례로 클릭하여 확인합니다.
 
 #### <a name="to-delete-the-gateway-subnet"></a>게이트웨이 서브넷을 삭제하려면
 
-1. **모든 리소스**에서 가상 네트워크를 찾습니다. 
-1. **서브넷** 블레이드에서 **게이트웨이 서브넷**, **삭제**를 차례로 클릭합니다. 
-1. **예**를 클릭하여 게이트웨이 서브넷 삭제를 확인합니다.
+1. **모든 리소스** 에서 가상 네트워크를 찾습니다. 
+1. **서브넷** 블레이드에서 **게이트웨이 서브넷**, **삭제** 를 차례로 클릭합니다. 
+1. **예** 를 클릭하여 게이트웨이 서브넷 삭제를 확인합니다.
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>리소스 그룹을 삭제하여 VPN 게이트웨이 삭제
 
 리소스 그룹에 리소스를 유지하지 않고 새로 시작하려는 경우 전체 리소스 그룹을 삭제하면 됩니다. 모든 항목을 제거하는 빠른 방법입니다. 다음 단계는 Resource Manager 배포 모델에만 적용됩니다.
 
-1. **모든 리소스**에서 리소스 그룹을 찾고 클릭하여 블레이드를 엽니다.
-1. **삭제**를 클릭합니다. 삭제 블레이드에서 영향을 받는 리소스를 봅니다. 해당 리소스를 모두 삭제할 것인지 확인합니다. 그렇지 않은 경우 이 문서의 맨 위에 있는 VPN Gateway 삭제 단계를 사용합니다.
-1. 계속하려면 삭제할 리소스 그룹의 이름을 입력한 다음 **삭제**를 클릭합니다.
+1. **모든 리소스** 에서 리소스 그룹을 찾고 클릭하여 블레이드를 엽니다.
+1. **삭제** 를 클릭합니다. 삭제 블레이드에서 영향을 받는 리소스를 봅니다. 해당 리소스를 모두 삭제할 것인지 확인합니다. 그렇지 않은 경우 이 문서의 맨 위에 있는 VPN Gateway 삭제 단계를 사용합니다.
+1. 계속하려면 삭제할 리소스 그룹의 이름을 입력한 다음 **삭제** 를 클릭합니다.
