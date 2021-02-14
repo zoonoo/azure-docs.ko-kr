@@ -1,19 +1,19 @@
 ---
 title: Synapse에서 일반적인 작업을 수행 하는 데 필요한 역할 이해
 description: 이 문서에서는 특정 작업을 수행 하는 데 필요한 기본 제공 Synapse RBAC 역할에 대해 설명 합니다.
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9735293c182e7fe67a498529425459c13a199101
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109796"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102107"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse에서 일반적인 작업을 수행 하는 데 필요한 역할 이해
 

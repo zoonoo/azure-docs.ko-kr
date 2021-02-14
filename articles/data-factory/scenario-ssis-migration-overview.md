@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory에서 ssis (온-프레미스 SQL Server Integration Services) 워크 로드를 SSIS로 마이그레이션 (ADF)
 description: 온-프레미스 SSIS 워크 로드를 ADF의 SSIS로 마이그레이션합니다.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: ef4b01e38a60d6770ba476988fab934ada0bc631
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635697"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373609"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>온-프레미스 SSIS 워크로드를 ADF의 SSIS로 마이그레이션
 
@@ -49,7 +44,7 @@ DMA(Data Migration Assistant)는 이 목적을 위해 로컬에서 설치 및 �
   - MSDB는 SSIS 패키지를 저장 하는 데 사용 되는 SQL Server의 시스템 데이터베이스입니다.
   - SSIS 패키지를 저장 하는 데 사용 되는 SQL Server 설치 경로의 특정 폴더인 관리 파일 시스템입니다.
 
-Dma는 현재 **dma 버전 v 5.0** 이후 **파일 시스템** , **패키지 저장소** 및 **SSIS 카탈로그** 에 저장 된 패키지의 일괄 처리 평가를 지원 합니다.
+Dma는 현재 **dma 버전 v 5.0** 이후 **파일 시스템**, **패키지 저장소** 및 **SSIS 카탈로그** 에 저장 된 패키지의 일괄 처리 평가를 지원 합니다.
 
 [DMA](/sql/dma/dma-overview)를 가져오고 [이를 사용 하 여 패키지 평가를 수행](/sql/dma/dma-assess-ssis)합니다.
 
@@ -80,7 +75,7 @@ Dma는 현재 **dma 버전 v 5.0** 이후 **파일 시스템** , **패키지 저
 |SQL Server (MSDB)|SSMS/dtutil을 통해 파일 시스템/파일 공유/Azure Files로 내보냅니다. 자세한 내용은 [SSIS 패키지 내보내기](/sql/integration-services/service/package-management-ssis-service#import-and-export-packages)를 참조 하세요.|스크립트/SSMS/ADF 포털을 통해 ADF 파이프라인/활동/트리거로 변환 합니다. 자세한 내용은 [SSMS 일정 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조 하세요.|
 |패키지 저장소|SSMS/dtutil을 통해 파일 시스템/파일 공유/Azure Files로 내보내거나, dtinstall/dtutil/manual 복사를 통해 파일 공유/Azure Files에 다시 배포 하거나, VNet/자체 호스팅 IR을 통해 액세스 하도록 파일 시스템에 보관 합니다. 자세한 내용은 dtutil 유틸리티를 참조 하세요. 자세한 내용은 [dtutil 유틸리티](/sql/integration-services/dtutil-utility)를 참조 하세요.|스크립트/SSMS/ADF 포털을 통해 ADF 파이프라인/활동/트리거로 변환 합니다. 자세한 내용은 [SSMS 일정 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조 하세요.|
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure Data Factory](./introduction.md)
 - [데이터베이스 마이그레이션 도우미](/sql/dma/dma-overview)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 34f2cfa06cbdbb75b8fd610cd1f76fb33dde4cde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e11c4182520e143007b46c8a7907b5e71bfb27d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059849"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097588"
 ---
 # <a name="connect-your-qualys-vm-to-azure-sentinel-with-azure-function"></a>Azure 함수를 사용 하 여 Qualys VM을 Azure 센티널에 연결
 
@@ -38,7 +38,7 @@ Azure Functions는 Qualys VM에서 직접 이벤트와 로그를 통합 하 고 
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Qualys 취약성 관리** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기**를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택 합니다.
 
 1. **Qualys 취약성 관리** 페이지의 지침을 따릅니다.
 
@@ -48,7 +48,7 @@ Azure Functions는 Qualys VM에서 직접 이벤트와 로그를 통합 하 고 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

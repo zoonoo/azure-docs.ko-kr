@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 3599f098aa73b7433e2e5af0047c694634e2f933
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630533"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594555"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -64,6 +64,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicip
 
@@ -78,7 +79,7 @@ $publicip = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicip
 
@@ -342,6 +343,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
+    Zone = 1,2,3
 }
 New-AzPublicIpAddress @publicipout
 
@@ -356,7 +358,7 @@ $publicipout = @{
     Location = 'eastus'
     Sku = 'Standard'
     AllocationMethod = 'static'
-    Zone = '1'
+    Zone = 1
 }
 New-AzPublicIpAddress @publicipout
 

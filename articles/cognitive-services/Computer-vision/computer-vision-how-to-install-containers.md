@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: 온-프레미스, OCR, Docker, 컨테이너
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008590"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391776"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>읽기 OCR Docker 컨테이너 (미리 보기) 설치 
 
@@ -41,16 +41,16 @@ ms.locfileid: "100008590"
 * 신뢰도 점수.
 * 인쇄 및 필기 텍스트를 모두 포함 하는 문서 지원.
 * 문서에서 선택한 페이지 에서만 텍스트를 추출할 수 있습니다.
-* 기본적으로 텍스트 줄 출력 순서를 보다 자연 스런 읽기 순서로 선택 합니다.
+* 기본적으로 텍스트 줄 출력 순서를 라틴어 언어에 대해서만 보다 자연 스런 읽기 순서로 선택 합니다.
 * 텍스트 줄 분류를 필기 스타일로 입력 하거나 라틴어 언어에 대해서만 사용할 수 없습니다.
 
 지금 읽기 2.0 컨테이너를 사용 하는 경우 새 버전의 변경 내용에 대해 알아보려면 [마이그레이션 가이드](read-container-migration-guide.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows** 에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: de42854f512a69b7b70a15a10fe8499ca1d0bf8b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017732"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391493"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 blob 데이터 액세스
 
@@ -28,6 +28,9 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 
 Azure Storage 확장은 blob 데이터에 대 한 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. 컨테이너 Azure Storage에 대 한 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **Blob 데이터 판독기** 역할이 할당 된 경우 컨테이너에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **Blob 데이터 참가자** 역할이 할당 된 경우 컨테이너 또는 해당 컨테이너에 포함 된 데이터를 읽거나 쓰고 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
 
 컨테이너의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.  
+
+> [!IMPORTANT]
+> Azure Resource Manager **ReadOnly** 잠금을 사용 하 여 저장소 계정이 잠긴 경우 해당 저장소 계정에 대 한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용 되지 않습니다. **목록 키** 는 게시 작업 이며, 계정에 대해 **ReadOnly** 잠금이 구성 된 경우 모든 post 작업은 차단 됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유 하 고 있지 않은 사용자는 Azure AD 자격 증명을 사용 하 여 blob 데이터에 액세스 해야 합니다. PowerShell에서 `-UseConnectedAccount` 매개 변수를 포함 하 여 AZURE AD 자격 증명을 사용 하 여 **Azurestoragecontext** 개체를 만듭니다.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령 호출
 

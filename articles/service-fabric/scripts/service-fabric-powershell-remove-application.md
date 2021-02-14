@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8b4b07288ce2c3570da5482a446b9418c7319011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 686afa791df88382e3e5e1b2d233317c36bf1dd6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086203"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821874"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Powershell을 사용하여 Service Fabric 클러스터에서 애플리케이션 제거
 
@@ -37,11 +37,11 @@ ms.locfileid: "87086203"
 
 | 명령 | 메모 |
 |---|---|
-| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | 클러스터에서 실행 중인 Service Fabric 애플리케이션 인스턴스를 제거합니다.  |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | 클러스터에서 Service Fabric 애플리케이션 유형 및 버전을 등록 취소합니다. |
+| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication) | 클러스터에서 실행 중인 Service Fabric 애플리케이션 인스턴스를 제거합니다.  |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype) | 클러스터에서 Service Fabric 애플리케이션 유형 및 버전을 등록 취소합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview?view=azureservicefabricps)를 참조하세요.
+Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.

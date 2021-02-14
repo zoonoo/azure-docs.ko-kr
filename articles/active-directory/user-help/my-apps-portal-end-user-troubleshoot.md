@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833982"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094970"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>내 앱 포털 문제 해결
 
@@ -31,9 +31,9 @@ ms.locfileid: "94833982"
 
     - **Microsoft Edge.** Windows 10 Anniversary Edition 이상에서 실행됩니다.
 
-    - **Google Chrome.** Windows 7 이상 및 Mac OS X 이상에서 실행됩니다.
+    - **Google Chrome.** Windows 7 이상 및 macOS X 이상에서 실행 됩니다.
 
-    - **Mozilla Firefox 26.0 이상.** Windows XP SP2 이상 및 Mac OS X 10.6 이상에서 실행됩니다.
+    - **Mozilla Firefox 26.0 이상.** Windows XP SP2 이상 및 macOS X 10.6 이상에서 실행 됩니다.
 
     - **Internet Explorer 11.** Windows 7 이상에서 실행됩니다(제한적 지원).
 
@@ -46,6 +46,11 @@ ms.locfileid: "94833982"
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>**내 앱** 포털에 로그인할 수 없습니다.
 
 **내 앱** 포털에 로그인하는 데 문제가 있는 경우 다음을 시도할 수 있습니다.
+
+- 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 - 올바른 URL을 사용하고 있는지 확인합니다. https://myapps.microsoft.com/contoso.com 과 같이 조직의 https://myapps.microsoft.com 또는 사용자 지정된 페이지여야 합니다.
 

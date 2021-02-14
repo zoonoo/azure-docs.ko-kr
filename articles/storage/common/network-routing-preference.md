@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797630"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362746"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Azure Storage의 네트워크 라우팅 기본 설정 구성(미리 보기)
 
 Azure Storage 계정의 네트워크 [라우팅 기본 설정](../../virtual-network/routing-preference-overview.md)(미리 보기)을 구성하여 네트워크 트래픽이 인터넷을 통해 클라이언트에서 계정으로 라우팅되는 방식을 지정할 수 있습니다. 기본적으로 인터넷에서 들어오는 트래픽은 [Microsoft 글로벌 네트워크](../../networking/microsoft-global-network.md)를 통해 스토리지 계정의 퍼블릭 엔드포인트로 라우팅됩니다. Azure Storage는 스토리지 계정에 트래픽이 라우팅되는 방식을 구성하기 위한 추가 옵션을 제공합니다.
 
 라우팅 기본 설정을 구성하면 프리미엄 네트워크 성능 또는 비용에 맞게 트래픽을 자유롭게 최적화할 수 있습니다. 라우팅 기본 설정을 구성하는 경우 기본적으로 스토리지 계정의 퍼블릭 엔드포인트로 트래픽을 전송하는 방법을 지정합니다. 스토리지 계정의 경로별 엔드포인트를 게시할 수도 있습니다.
+
+> [!NOTE]
+> 이 기능은 프리미엄 성능 계층 또는 ZRS (영역 중복 저장소)를 사용 하도록 구성 된 저장소 계정에서 지원 되지 않습니다.
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Microsoft 글로벌 네트워크와 인터넷 라우팅 비교
 

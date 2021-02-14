@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a9b8009d896a2ee87df3e1c4493d249a887566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e76aea8a3fc59827664900a6d5686e2e725e258d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083925"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093118"
 ---
 # <a name="connect-your-okta-single-sign-on-to-azure-sentinel-with-azure-function"></a>Azure Function을 사용 하 여 Azure 센티널에 Okta Single Sign-On 연결
 
@@ -38,7 +38,7 @@ Azure Functions은 Okta 단일 Sign-On에서 직접 이벤트와 로그를 통�
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Okta Single sign-on** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기**를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택 합니다.
 
 1. **Okta Single sign-on** 페이지의 지침을 따릅니다.
 
@@ -48,7 +48,7 @@ Azure Functions은 Okta 단일 Sign-On에서 직접 이벤트와 로그를 통�
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

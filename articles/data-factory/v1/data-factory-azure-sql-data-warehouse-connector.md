@@ -1,23 +1,18 @@
 ---
 title: Azure Synapse Analytics 간 데이터 복사
 description: Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간에 데이터를 복사 하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0d071599b72f6a71bdff815f514311fb87f53d5b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392088"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -71,7 +66,7 @@ Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |Type 속성은 **AzureSqlDW** 로 설정 해야 합니다. |예 |
-| connectionString |ConnectionString 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 기본 인증만 지원됩니다. |예 |
+| connectionString |ConnectionString 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 기본 인증만 지원됩니다. |Yes |
 
 > [!IMPORTANT]
 > [Azure SQL Database 방화벽](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure)과 데이터베이스 서버를 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](/previous-versions/azure/ee621782(v=azure.100)#ConnectingFromAzure) 해야 합니다. 또한 데이터 팩터리 게이트웨이를 사용 하 여 온-프레미스 데이터 원본을 포함 한 azure 외부에서 azure Synapse Analytics로 데이터를 복사 하는 경우 Azure Synapse Analytics로 데이터를 전송 하는 컴퓨터에 대 한 적절 한 IP 주소 범위를 구성 합니다.
@@ -83,7 +78,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결 된 서비스가 참조 하는 Azure Synapse Analytics 데이터베이스에 있는 테이블 또는 뷰의 이름입니다. |예 |
+| tableName |연결 된 서비스가 참조 하는 Azure Synapse Analytics 데이터베이스에 있는 테이블 또는 뷰의 이름입니다. |Yes |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -144,15 +139,15 @@ GO
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성 섹션](#repeatability-during-copy)을 참조하세요. |쿼리 문입니다. |예 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **Azure Synapse Analytics로 데이터를 로드 하는 권장 방법은 PolyBase를 사용 하는 것입니다.** 제약 조건 및 세부 정보는 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요. |True <br/>False(기본값) |예 |
-| polyBaseSettings |**allowPolybase** 속성이 **true** 로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |아니요 |
+| polyBaseSettings |**allowPolybase** 속성이 **true** 로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |예 |
 | rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>[외부 테이블 만들기 (transact-sql)](/sql/t-sql/statements/create-external-table-transact-sql) 항목의 **인수** 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아보세요. |0(기본값), 1, 2, … |예 |
 | rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |예 |
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. |1, 2, … |예. **rejectType** 이 **백분율** 인 경우 |
 | useTypeDefault |PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. |True, False(기본값) |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |아니요 |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |예 |
 
 #### <a name="sqldwsink-example"></a>SqlDWSink 예제
 
@@ -305,7 +300,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| 비트 | 비트 |
+| bit | bit |
 | Decimal | Decimal |
 | 숫자 | Decimal |
 | Float | Float |
@@ -314,7 +309,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | SmallMoney | SmallMoney |
 | 이진 | 이진 |
 | Varbinary | Varbinary(최대 8000) |
-| 날짜 | Date |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | 시간 | 시간 |
@@ -328,7 +323,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | NChar | NChar |
 | VarChar | VarChar(최대 8000) |
 | NVarChar | NVarChar(최대 4000) |
-| xml | Varchar(최대 8000) |
+| Xml | Varchar(최대 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -368,7 +363,7 @@ Azure Synapse Analytics에서 &로 데이터를 이동 하는 경우 SQL 형식�
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |개체 * |
-| text |String, Char[] |
+| 텍스트 |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |

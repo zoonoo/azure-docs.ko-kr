@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 57362aa84886d7b7d764617ce5a43ca2393bed52
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0e644b7937f6ccb23b4833405b8f4ed3119879a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018244"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362287"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>에이전트 설치 Azure AD Connect Health
 
@@ -34,7 +34,7 @@ ms.locfileid: "98018244"
 
 | 요구 사항 | Description |
 | --- | --- |
-| Azure AD Premium 설치 되었습니다. |Azure AD Connect Health은 Azure AD Premium의 기능입니다. 자세한 내용은 [Azure AD Premium에 등록](../fundamentals/active-directory-get-started-premium.md)을 참조 하세요. <br /><br />30 일 무료 평가판을 시작 하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조 하세요. |
+| Azure AD Premium (P1 또는 P2) 구독 있습니다.  |Azure AD Connect Health은 Azure AD Premium (P1 또는 P2)의 기능입니다. 자세한 내용은 [Azure AD Premium에 등록](../fundamentals/active-directory-get-started-premium.md)을 참조 하세요. <br /><br />30 일 무료 평가판을 시작 하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조 하세요. |
 | Azure AD의 전역 관리자입니다. |기본적으로 전역 관리자만 상태 에이전트를 설치 및 구성 하 고, 포털에 액세스 하 고, Azure AD Connect Health 내에서 작업을 수행할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-whatis.md)를 참조하세요. <br /><br /> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 조직의 다른 사용자가 Azure AD Connect Health에 액세스할 수 있도록 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health에 대 한 AZURE RBAC](how-to-connect-health-operations.md#manage-access-with-azure-rbac)를 참조 하세요. <br /><br />**중요**: 회사 또는 학교 계정을 사용 하 여 에이전트를 설치 합니다. Microsoft 계정를 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조 하세요. |
 | Azure AD Connect Health 에이전트는 각 대상 서버에 설치 됩니다. | 상태 에이전트는 데이터를 수신 하 고 모니터링 및 분석 기능을 제공할 수 있도록 대상 서버에 설치 되 고 구성 되어야 합니다. <br /><br />예를 들어 Active Directory Federation Services (AD FS) 인프라에서 데이터를 가져오려면 AD FS 서버와 웹 응용 프로그램 프록시 서버에 에이전트를 설치 해야 합니다. 마찬가지로 온-프레미스 Azure AD Domain Services (Azure AD DS) 인프라에서 데이터를 가져오려면 도메인 컨트롤러에 에이전트를 설치 해야 합니다.  |
 | Azure 서비스 끝점에는 아웃 바운드 연결이 있습니다. | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽이 아웃 바운드 연결을 차단 하는 경우에는 [아웃 바운드 연결 끝점](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) 을 허용 목록에 추가 합니다. |
@@ -64,7 +64,7 @@ ms.locfileid: "98018244"
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
 | 일반 공용 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42; servicebus.windows.net: 5671 (이 끝점은 최신 버전의 에이전트에서 필요 하지 않습니다.)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
-| Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
+| Azure 독일 | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https: \/ /www.office.de (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https: \/ /www.office.com (이 끝점은 등록 중에 검색 목적 으로만 사용 됩니다.)</li> <li>https://aadcdn.msftauth.net</li><li>https://aadcdn.msauth.net</li> |
 
 
@@ -195,7 +195,7 @@ PowerShell 창이 열리고 에이전트 등록 프로세스가 시작 됩니다
 ![서버의 동기화 서비스에 대해 실행 중인 Azure AD Connect Health를 보여 주는 스크린샷](./media/how-to-connect-health-agent-install/services.png)
 
 > [!NOTE]
-> Azure AD Connect Health를 사용 하려면 Azure AD Premium 있어야 합니다. Azure AD Premium 없는 경우 Azure Portal에서 구성을 완료할 수 없습니다. 자세한 내용은 [요구 사항](how-to-connect-health-agent-install.md#requirements)을 참조 하세요.
+> Azure AD Connect Health를 사용 하려면 Azure AD Premium (P1 또는 P2)가 있어야 합니다. Azure AD Premium 없는 경우 Azure Portal에서 구성을 완료할 수 없습니다. 자세한 내용은 [요구 사항](how-to-connect-health-agent-install.md#requirements)을 참조 하세요.
 >
 >
 
@@ -325,7 +325,7 @@ HTTP 프록시를 사용 하도록 Azure AD Connect Health 에이전트를 구�
 * 기존 프록시 구성의 선택을 취소 합니다.
 
 > [!NOTE]
-> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령을 실행합니다.
+> 프록시 설정을 업데이트 하려면 모든 Azure AD Connect Health 에이전트 서비스를 다시 시작 해야 합니다. 다음 명령 실행:
 >
 > `Restart-Service AzureADConnectHealth*`
 
@@ -355,7 +355,7 @@ Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
 `Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443`
 
-이 예제에서:
+이 예제에서는 다음이 적용됩니다.
 * `address`설정은 DNS가 확인할 수 있는 서버 이름 또는 IPv4 주소일 수 있습니다.
 * 를 생략할 수 있습니다 `port` . 이렇게 하면 443가 기본 포트입니다.
 

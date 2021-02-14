@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: f30b99a1d9c8303d5b2ed4b02819d0ca837946d2
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905743"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821204"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
@@ -27,7 +27,7 @@ Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 �
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 클라우드의 [Azure Notebooks](../notebooks/index.yml)에서 Jupyter Notebook 파일을 만들고 실행합니다.
+> * 클라우드의 [Azure Notebooks](https://notebooks.azure.com)에서 Jupyter Notebook 파일을 만들고 실행합니다.
 > * Python에서 Azure Maps REST API를 호출합니다.
 > * 전기 차량의 소비 모델에 따라 도달 가능한 범위를 검색합니다.
 > * 도달 가능한 범위 또는 등시선 내에서 전기 차량 충전소를 검색합니다.
@@ -49,7 +49,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 이 자습서를 수행하려면 Azure Notebooks 프로젝트를 만들고 Jupyter Notebook 파일을 다운로드하여 실행해야 합니다. Jupyter Notebook 파일에는 이 자습서의 시나리오를 구현하는 Python 코드가 포함되어 있습니다. Azure Notebooks 프로젝트를 만들고 Jupyter Notebook 문서를 이 프로젝트에 업로드하려면 다음 단계를 수행합니다.
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작: 로그인 및 사용자 ID 설정](../notebooks/quickstart-sign-in-azure-notebooks.md)을 참조하세요.
+1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작: 로그인 및 사용자 ID 설정](https://notebooks.azure.com)을 참조하세요.
 1. 퍼블릭 프로필 페이지의 위쪽에서 **내 프로젝트** 를 선택합니다.
 
     ![내 프로젝트 단추](./media/tutorial-ev-routing/myproject.png)
@@ -399,9 +399,13 @@ display(Image(staticMapImage))
 * [경로 방향 가져오기](/rest/api/maps/route/getroutedirections)
 * [Azure Maps REST API](./consumption-model.md)
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Notebooks에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure 노트](../notebooks/index.yml)
+> [Azure 노트](https://notebooks.azure.com)

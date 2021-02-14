@@ -4,12 +4,12 @@ description: 클러스터 자동 크기 조정기를 사용하여 AKS(Azure Kube
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223145"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373252"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려는 경우 [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 `--enable-cluster-autoscaler` , `--min-count` 및 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다 `--max-count` .
+
+> [!NOTE]
+> 여러 영역에 걸쳐 있는 nodepools에서 클러스터 autoscaler를 사용 하 고 볼륨 토폴로지 일정과 같은 영역에 관련 된 예약 기능을 활용 하는 경우 영역 당 하나의 nodepools를 사용 하 고 autoscaler 프로필을 통해를 사용 하도록 설정 하는 것이 좋습니다 `--balance-similar-node-groups` . 이렇게 하면 autoscaler이 성공적으로 확장 되 고 nodepools의 크기를 조정 하 고 유지 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550847"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102260"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -180,7 +180,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 복제된 VM에 디스크 추가 | 지원 안 됨<br/> VM에 대해 복제를 사용 하지 않도록 설정 하 고, 디스크를 추가한 다음, 복제를 다시 사용 하도록 설정 합니다.
 
 > [!NOTE]
-> 디스크 id를 변경 하는 것은 지원 되지 않습니다. 예를 들어 디스크 분할이 GPT에서 MBR로 또는 그 반대로 변경 된 경우 디스크 id가 변경 됩니다. 이러한 시나리오에서는 복제가 중단 되 고 새로 설치가 필요 합니다. 
+> 디스크 id를 변경 하는 것은 지원 되지 않습니다. 예를 들어 디스크 분할이 GPT에서 MBR로 또는 그 반대로 변경 된 경우 디스크 id가 변경 됩니다. 이러한 시나리오에서는 복제가 중단 되 고 새로 설치가 필요 합니다. Linux 컴퓨터의 경우 디스크 id에 영향을 주므로 장치 이름 변경이 지원 되지 않습니다.
 
 ## <a name="network"></a>네트워크
 
@@ -218,29 +218,29 @@ Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 아니요
+Docker 디스크 구성 | 예
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
 호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 아니요
-게스트/서버 암호화된 디스크 | 아니요
-게스트/서버 NFS | 아니요
+게스트/서버 공유 클러스터 디스크 | 예
+게스트/서버 암호화된 디스크 | 예
+게스트/서버 NFS | 예
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 아니요
+게스트/서버 SMB 3.0 | 예
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 예
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 | 예
 논리 볼륨 관리(LVM)| 굵고 프로 비전-예 <br></br> 씬 프로비저닝-아니요
-게스트/서버 - 스토리지 공간 | 아니요
-게스트/서버-NVMe 인터페이스 | 아니요
-게스트/서버 디스크 핫 추가/제거 | 아니요
+게스트/서버 - 스토리지 공간 | 예
+게스트/서버-NVMe 인터페이스 | 예
+게스트/서버 디스크 핫 추가/제거 | 예
 게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 아니요
+게스트/서버 다중 경로(MPIO) | 예
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전 4 개가 지원 되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
 게스트/서버 EFI/UEFI 부팅 | -Site Recovery 모바일 에이전트 버전 9.30부터 모든 [Azure MARKETPLACE UEFI os](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) 에 대해 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. [자세한 정보](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
@@ -249,9 +249,9 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       아니요  |
-|오프 라인 시드        |   아니요      |
-| Azure Data Box | 아니요
+|ODX (오프 로드 된 데이터 전송)    |       예  |
+|오프 라인 시드        |   예      |
+| Azure Data Box | 예
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -260,15 +260,15 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 로컬 중복 스토리지 | 예
 지역 중복 스토리지 | 예
 읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 아니요
-핫 스토리지| 아니요
-블록 Blob | 아니요
+쿨 스토리지 | 예
+핫 스토리지| 예
+블록 Blob | 예
 미사용 암호화 (SSE)| 예
 미사용 암호화 (CMK)| 예 (PowerShell Az 3.3.0 모듈을 통해)
 휴지 상태의 이중 암호화 | 예 (PowerShell Az 3.3.0 모듈을 통해). [Windows](../virtual-machines/disk-encryption.md) 및 [Linux](../virtual-machines/disk-encryption.md)에 대해 지원 되는 지역에 대해 자세히 알아보세요.
 Premium Storage | 예
 보안 전송 옵션 | 예
-Import/Export 서비스 | 아니요
+Import/Export 서비스 | 예
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -277,7 +277,7 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 **기능** | **지원됨**
 --- | ---
 가용성 집합 | 예
-가용성 영역 | 아니요
+가용성 영역 | 예
 HUB | 예
 관리 디스크 | 예
 
@@ -333,10 +333,10 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 **작업** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 아니요
-구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니요
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니요
+리소스 그룹 간 자격 증명 모음 이동 | 예
+구독 내 및 구독 간에 자격 증명 모음 이동 | 예
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 예
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 예
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기

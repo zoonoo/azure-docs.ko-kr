@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521141"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093168"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -26,6 +26,7 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 * 클러스터에는 최소한 두 개의 작업자 노드가 있어야 합니다. 클러스터 작업자의 크기를 0으로 조정 하지 마십시오. 또는 클러스터를 종료 하는 것이 정상입니다.
 * 클러스터 Prometheus 및 Alertmanager 서비스를 제거하거나 수정하지 마세요.
 * Service Alertmanager 규칙을 제거하지 마세요.
+* 네트워크 보안 그룹을 제거 하거나 수정 하지 마십시오.
 * Azure Red Hat OpenShift 서비스 로깅(mdsd pod)을 제거하거나 수정하지 마세요.
 * 'arosvc.azurecr.io' 클러스터 풀 비밀을 제거하거나 수정하지 마세요.
 * 모든 클러스터 가상 머신에는 최소한 ARM(Azure Resource Manager) 및 서비스 로깅(Geneva) 엔드포인트에 대한 직접적인 아웃바운드 인터넷 액세스 권한이 있어야 합니다.  HTTPS 프록시 형식은 지원되지 않습니다.

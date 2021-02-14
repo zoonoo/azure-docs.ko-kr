@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104362"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381531"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Blob storage 바인딩
 
@@ -34,6 +34,13 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 | C # 스크립트, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 은 Visual Studio Code와 함께 사용 하는 것이 좋습니다. |
 | C # 스크립트 (온라인 전용 Azure Portal)         | 바인딩 추가                            | 함수 앱을 다시 게시 하지 않고 기존 바인딩 확장을 업데이트 하려면 [확장 업데이트]를 참조 하세요. |
 
+#### <a name="storage-extension-5x-and-higher"></a>저장소 확장 5.x 이상
+
+새 버전의 저장소 바인딩 확장은 [Preview NuGet 패키지로](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2)사용할 수 있습니다. 이 미리 보기에서는 [비밀 대신 id를 사용 하 여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입 되었습니다. .NET 응용 프로그램의 경우에는에 바인딩할 수 있는 형식도 변경 하 여 `WindowsAzure.Storage` `Microsoft.Azure.Storage` [Azure. Storage. blob](/dotnet/api/azure.storage.blobs)의 형식을 최신 형식으로 바꿉니다.
+
+> [!NOTE]
+> 미리 보기 패키지는 확장 번들에 포함 되지 않으며 수동으로 설치 해야 합니다. .NET 앱의 경우 패키지에 대 한 참조를 추가 합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조 하세요.
+
 [core tools]: ./functions-run-local.md
 [확장 번들]: ./functions-bindings-register.md#extension-bundles
 [NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
@@ -45,6 +52,28 @@ Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)
 함수 1.x 앱은 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 패키지 버전 2.x를 자동으로 참조 합니다.
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
+## <a name="hostjson-settings"></a>host.json 설정
+
+> [!NOTE]
+> 5.0.0 이전 버전의 확장 버전을 사용 하는 경우에는이 섹션이 적용 되지 않습니다. 이러한 버전의 경우 blob에 대 한 전역 구성 설정이 없습니다.
+
+이 섹션에서는 [확장 버전 5.0.0 이상을](#storage-extension-5x-and-higher)사용 하는 경우이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래 파일 *에host.js* 예제에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 기능 버전 2.x 이상에서 전역 구성 설정에 대 한 자세한 내용은 [ Azure Functions에 대 한 참조host.js](functions-host-json.md)를 참조 하세요.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "blobs": {
+            "maxDegreeOfParallelism": "4"
+        }
+    }
+}
+```
+
+|속성  |기본값 | 설명 |
+|---------|---------|---------|
+|maxDegreeOfParallelism|8 * (사용 가능한 코어 수)|각 blob 트리거 함수에 대해 허용 되는 동시 호출의 정수 수입니다. 허용 되는 최소값은 1입니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

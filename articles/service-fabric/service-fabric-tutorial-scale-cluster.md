@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에서 Service Fabric 클러스터의 �
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702177"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821693"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -809,7 +809,7 @@ Service Fabric 클러스터를 만든 후에 노드 유형(가상 머신 확장 
 > [!WARNING]
 > Remove-AzServiceFabricNodeType을 사용하여 프로덕션 클러스터에서 노드 유형을 제거하는 것은 자주 사용하지 않는 것이 좋습니다. 노드 유형 뒤의 가상 머신 확장 집합 리소스가 삭제되므로 위험한 명령입니다. 
 
-노드 유형을 제거하려면 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet을 실행합니다.  노드 유형은 Silver 또는 Gold [내구성 수준][durability]이어야 합니다. 이 cmdlet은 노드 유형과 연결된 확장 집합을 삭제하고 완료하는 데 약간의 시간이 걸립니다.  그런 다음, 제거할 각 노드에서 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) cmdlet을 실행하여 노드 상태를 삭제하고 클러스터에서 노드를 제거합니다. 해당 노드에 서비스가 있으면 먼저 해당 서비스가 다른 노드로 이동됩니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
+노드 유형을 제거하려면 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet을 실행합니다.  노드 유형은 Silver 또는 Gold [내구성 수준][durability]이어야 합니다. 이 cmdlet은 노드 유형과 연결된 확장 집합을 삭제하고 완료하는 데 약간의 시간이 걸립니다.  그런 다음, 제거할 각 노드에서 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) cmdlet을 실행하여 노드 상태를 삭제하고 클러스터에서 노드를 제거합니다. 해당 노드에 서비스가 있으면 먼저 해당 서비스가 다른 노드로 이동됩니다. 클러스터 관리자가 복제본/서비스에 대한 노드를 찾을 수 없으면 작업이 지연/차단됩니다.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

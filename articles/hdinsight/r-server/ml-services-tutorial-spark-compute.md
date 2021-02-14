@@ -1,19 +1,16 @@
 ---
 title: '자습서: Azure HDInsight에서 Spark 컴퓨팅 컨텍스트에 R 사용'
 description: 자습서 - Azure HDInsight Machine Learning Service 클러스터에서 R 및 Spark 시작
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545908"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821587"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Spark 컴퓨팅 컨텍스트에 R 사용
 
@@ -43,7 +40,7 @@ RStudio Server는 클러스터의 에지 노드에서 실행됩니다. 다음 �
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-처음 로그인할 때는 두 번 인증합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 사용자 이름 및 암호(기본값 *admin* )를 입력합니다. 두 번째 인증 프롬프트에서는 SSH 사용자 이름 및 암호(기본값 *sshuser* )를 입력합니다. 그 다음부터는 로그인할 때 SSH 자격 증명만 필요합니다.
+처음 로그인할 때는 두 번 인증합니다. 첫 번째 인증 프롬프트에서는 클러스터 관리자 사용자 이름 및 암호(기본값 *admin*)를 입력합니다. 두 번째 인증 프롬프트에서는 SSH 사용자 이름 및 암호(기본값 *sshuser*)를 입력합니다. 그 다음부터는 로그인할 때 SSH 자격 증명만 필요합니다.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>로컬 스토리지에 샘플 데이터 다운로드
 
