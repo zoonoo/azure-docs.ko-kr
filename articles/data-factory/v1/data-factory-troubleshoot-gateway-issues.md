@@ -1,22 +1,18 @@
 ---
 title: 데이터 관리 Gateway 문제 해결
 description: 데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896568"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388348"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -99,7 +95,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 ### <a name="6-problem"></a>6. 문제
 게이트웨이 등록할 때 다음 오류 메시지가 표시될 수 있습니다.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![게이트웨이 키가 잘못되었거나 비어 있음](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -109,7 +105,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치** 를 클릭하여 게이트
 #### <a name="resolution"></a>해결 방법
 게이트웨이가 삭제된 경우 포털에서 게이트웨이를 다시 만들고 **등록** 을 클릭한 다음 포털에서 키를 복사하여 붙여넣고 게이트웨이를 등록합니다.
 
-게이트웨이가 여전히 존재하지만 해당 키가 다시 생성된 경우 새 키를 사용하여 게이트웨이를 등록합니다. 키가 없는 경우 포털에서 키를 다시 생성합니다.
+게이트웨이가 여전히 존재하지만 해당 키가 다시 생성된 경우 새 키를 사용하여 게이트웨이를 등록합니다. 키가 없으면 포털에서 키를 다시 생성 합니다.
 
 ### <a name="7-problem"></a>7. 문제
 게이트웨이를 등록할 때 인증서의 경로와 암호를 입력해야 할 수 있습니다.
@@ -256,7 +252,7 @@ SQL 데이터베이스에 연결 하기 전에 데이터 관리 게이트웨이 
 6. 작업이 완료되면 다음 스크린샷과 같은 대화 상자가 표시됩니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 상태](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. **보고서 ID** 를 저장하고 Microsoft 지원과 공유합니다. 보고서 ID는 문제를 해결하기 위해 업로드한 게이트웨이 로그를 찾는 데 사용됩니다.  또한 보고서 ID는 이벤트 뷰어에도 저장됩니다.  "25" 이벤트 ID를 확인하여 찾을 수 있으며 날짜와 시간을 확인할 수 있습니다.
+7. **보고서 ID** 를 저장하고 Microsoft 지원과 공유합니다. 보고서 ID는 문제를 해결하기 위해 업로드한 게이트웨이 로그를 찾는 데 사용됩니다.  또한 보고서 ID는 이벤트 뷰어에도 저장됩니다.  이벤트 ID "25"를 확인 하 고 날짜 및 시간을 확인 하 여 찾을 수 있습니다.
 
     ![데이터 관리 게이트웨이 - 로그 보내기 보고서 ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 

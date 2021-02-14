@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905539"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517691"
 ---
 # <a name="about-virtual-wan-pricing"></a>가상 WAN 가격 정보
 
@@ -23,14 +23,13 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 가상 WAN의 각 서비스는 가격이 책정 됩니다. 따라서 단일 가격을 제안 하는 것은 가상 WAN에는 적용 되지 않습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 는 가상 WAN에서 프로 비전 된 서비스를 기반으로 비용을 도출 하는 메커니즘을 제공 합니다. 이 문서에서는 가상 WAN 가격에 대 한 자주 묻는 질문을 설명 합니다.
 
 >[!NOTE]
->최신 가격 책정 정보는 [가상 WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조 하세요.
->
+>최신 가격 책정 정보는 [가상 WAN 가격](https://azure.microsoft.com/pricing/details/virtual-wan/)을 참조 하세요. 허브 간 (허브에서 허브로) 요금은 Inter-Region (내부/본토) 요금 청구 [Azure 데이터 전송 요금](https://azure.microsoft.com/pricing/details/bandwidth/)에 따라 가상 WAN 가격 책정 페이지에 표시 되지 않습니다.
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>일반적인 가격 책정 질문
 
 ### <a name="what-is-a-scale-unit"></a><a name="scale-unit"></a>배율 단위 란 무엇 인가요?
 
-**배율 단위** 는 가상 허브에서 S2S (사이트 간), 지점 및 사이트 간 (P2S) 및 express 경로 (ER)의 용량을 집계 하는 단위를 제공 합니다. 예를 들어:
+**배율 단위** 는 가상 허브에서 S2S (사이트 간), 지점 및 사이트 간 (P2S) 및 express 경로 (ER)의 용량을 집계 하는 단위를 제공 합니다. 예를 들면 다음과 같습니다.
 
 * **1 S2S vpn 배율 단위** 는 가상 허브 비용 $0.361/시간에 500 Mbps vpn 게이트웨이의 총 용량을 의미 합니다 (이중 인스턴스는 복원 력을 위해 배포 됨).
 * **1 ER 배율 단위** 는 가상 허브 비용 $0.42/hr에서 총 2 Gbps ER 게이트웨이를 의미 합니다.
@@ -38,7 +37,7 @@ Azure 가상 WAN은 통합 프레임 워크에서 여러 네트워크 및 보안
 
 ### <a name="what-is-a-connection-unit"></a><a name="connection-unit"></a>연결 단위 란 무엇 인가요?
 
-**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우이 값은 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우이 값은 원격 사용자를 의미 합니다. Express 경로의 경우이 값은 Express 경로 회로 연결을 의미 합니다.<br>예를 들어:
+**연결 단위** 는 Azure 게이트웨이에 연결 하는 모든 온-프레미스/비 Microsoft 끝점에 적용 됩니다. 사이트 간 VPN의 경우이 값은 분기를 의미 합니다. 사용자 VPN (지점 및 사이트 간)의 경우이 값은 원격 사용자를 의미 합니다. Express 경로의 경우이 값은 Express 경로 회로 연결을 의미 합니다.<br>예를 들면 다음과 같습니다.
 
 * 가상 허브에서 Azure VPN에 연결 하는 단일 분기 연결 비용은 $0.05/hr입니다. 따라서 100 Azure 가상 허브에 연결 하는 분기 연결의 비용은 $0.05 * 100/시간입니다.
 

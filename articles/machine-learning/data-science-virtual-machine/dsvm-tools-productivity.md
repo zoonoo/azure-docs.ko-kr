@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 데이터 과학 Virtual Machines의 생산성 도구에 대해 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f0a54d99b7f2e84f7ac392de2fe9cb1c7c31a3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761195"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516450"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine의 생산성 도구
 

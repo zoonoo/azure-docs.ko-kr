@@ -1,24 +1,19 @@
 ---
 title: Azure 데이터 팩터리 문제 해결
 description: Azure 데이터 팩터리 사용과 관련된 문제를 해결하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ed831e5f07eb29110b858dfb16b73f276926424f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494973"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388246"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>데이터 팩터리 문제 해결
 > [!NOTE]
@@ -35,14 +30,15 @@ ms.locfileid: "96494973"
 1. Azure PowerShell을 시작합니다.
 2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
-    ```powershell
-    Connect-AzAccount
-    ```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. 다음 명령을 실행하여 Azure Data Factory 공급자를 등록합니다.
 
-    ```powershell        
-    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>문제: 데이터 팩터리 cmdlet을 실행할 때 권한 없음 오류 발생
 Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있지 않습니다. 다음 cmdlet을 사용하여 Azure PowerShell에서 사용할 올바른 Azure 계정 및 구독을 선택합니다.
@@ -67,7 +63,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>문제: 입력 조각이 무기한 대기 상태입니다.
 이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true** 로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 세트는 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
-**external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 필요에 따라 **externalData** _을 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예제를 참조하세요. 외부를 true로 설정 하는 경우 선택적으로 **externalData***를 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [데이터 세트](data-factory-create-datasets.md) 문서를 참조하세요.
 
@@ -97,7 +93,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 }
 ```
 
-오류를 해결 하려면 _ *external** 속성과 선택적 **externalData** 섹션을 입력 테이블의 JSON 정의에 추가 하 고 테이블을 다시 만듭니다.
+오류를 해결하려면 입력 테이블의 JSON 정의에 **external** 속성과 **externalData** 섹션을 추가하고 테이블을 다시 만듭니다.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>문제: 하이브리드 복사 작업 실패
 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 저장소 간 복사 작업에서 발생하는 문제를 해결하는 단계는 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.

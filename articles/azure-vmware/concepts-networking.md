@@ -3,12 +3,12 @@ title: 개념-Network 상호 연결과
 description: Azure VMware 솔루션에서 네트워킹 및 상호 연결과의 주요 측면과 사용 사례에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538978"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364905"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Azure VMware 솔루션 네트워킹 및 상호 연결과 개념
 
@@ -69,4 +69,5 @@ Azure VMware 솔루션 사설 클라우드의 사용 사례는 다음과 같습�
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md

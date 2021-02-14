@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574434"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393856"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Azure 파일 공유 성능 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "99574434"
 
 ### <a name="cause-1-share-was-throttled"></a>원인 1: 공유가 제한 됨
 
-파일 공유에 대 한 IOPS (초당 I/o 작업 수), 수신 또는 송신 한도에 도달 하면 요청이 제한 됩니다. 표준 및 프리미엄 파일 공유에 대 한 한도를 이해 하려면 [파일 공유 및 파일 배율 목표](./storage-files-scale-targets.md#file-share-and-file-scale-targets)를 참조 하세요.
+파일 공유에 대 한 IOPS (초당 I/o 작업 수), 수신 또는 송신 한도에 도달 하면 요청이 제한 됩니다. 표준 및 프리미엄 파일 공유에 대 한 한도를 이해 하려면 [파일 공유 및 파일 배율 목표](./storage-files-scale-targets.md#azure-file-share-scale-targets)를 참조 하세요.
 
 공유를 제한 하 고 있는지 확인 하려면 포털에서 Azure 메트릭에 액세스 하 고 사용할 수 있습니다.
 

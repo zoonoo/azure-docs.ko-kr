@@ -1,24 +1,18 @@
 ---
 title: 예약 하는 방법 Azure-SSIS Integration Runtime
 description: 이 문서에서는 Azure Data Factory를 사용하여 Azure-SSIS 통합 런타임의 시작 및 중지를 예약하는 방법을 설명합니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 2d9be3ec005b2eb6c1cc8e530c44117ba8fbb401
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 40c3b8ab228c93fd4c681281d89d16f88ddf30f1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635034"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384370"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure-SSIS 통합 런타임을 시작하고 중지하는 방법
 
@@ -49,7 +43,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 ### <a name="create-your-adf"></a>ADF 만들기
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.    
-2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **데이터 + 분석** , **Data Factory** 를 차례로 클릭합니다. 
+2. 왼쪽 메뉴에서 **새로 만들기** 를 클릭하고 **데이터 + 분석**, **Data Factory** 를 차례로 클릭합니다. 
    
    ![새로 만들기->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
    
@@ -178,7 +172,7 @@ Azure-SSIS IR을 아직 프로비전하지 않은 경우 [자습서](./tutorial-
 
    ![파이프라인 실행](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
 
-2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크( **작업 실행 보기** )를 선택합니다. 세 번째 파이프라인에는 파이프라인의 연결된 작업당 하나씩 총 세 개의 작업 실행이 있습니다(IR을 시작하는 웹 작업, 패키지를 실행하는 저장 프로시저 작업, IR을 중지하는 웹 작업). 파이프라인 실행을 다시 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
+2. 파이프라인 실행과 연결된 작업 실행을 보려면 **작업** 열에서 첫 번째 링크(**작업 실행 보기**)를 선택합니다. 세 번째 파이프라인에는 파이프라인의 연결된 작업당 하나씩 총 세 개의 작업 실행이 있습니다(IR을 시작하는 웹 작업, 패키지를 실행하는 저장 프로시저 작업, IR을 중지하는 웹 작업). 파이프라인 실행을 다시 보려면 위쪽의 **파이프라인** 링크를 선택합니다.
 
    ![작업 실행](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
 

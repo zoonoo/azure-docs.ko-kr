@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936161"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517266"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -27,7 +27,7 @@ ms.locfileid: "97936161"
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 해당 계정에는 Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정이 포함됩니다.
+함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정에는 blob 전용 저장소 계정 및 Azure Premium Storage이 포함 됩니다.
 
 스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#core-storage-services)를 참조하세요. 
 

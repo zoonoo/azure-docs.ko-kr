@@ -3,27 +3,27 @@ title: 'ML Studio (클래식): 다시 학습 기존 웹 서비스-Azure'
 description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 모델을 사용 하도록 모델을 다시 학습 하 고 기존 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325794"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517572"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
 
-**적용 대상:** ![ 녹색 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ X를 표시 하지 않습니다. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**적용 대상:** ![ 녹색 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ X를 표시 하지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](./retrain-machine-learning-model.md)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      
@@ -76,7 +76,7 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 이제 학습된 모델을 사용하여 이전에 만든 점수 매기기 엔드포인트를 업데이트할 수 있습니다.
 
-다음 샘플 코드는 *BaseLocation* , *RelativeLocation* , *SasBlobToken* 및 PATCH URL을 사용하여 엔드포인트를 업데이트하는 방법을 보여 줍니다.
+다음 샘플 코드는 *BaseLocation*, *RelativeLocation*, *SasBlobToken* 및 PATCH URL을 사용하여 엔드포인트를 업데이트하는 방법을 보여 줍니다.
 
 ```csharp
 private async Task OverwriteModel()

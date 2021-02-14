@@ -1,22 +1,17 @@
 ---
 title: 복사 작업 모니터
 description: Azure Data Factory에서 복사 작업 실행을 모니터링 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440612"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388297"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -67,7 +62,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
 | sinkPeakConnections| 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 (단위 없음) |
-| sqlDwPolyBase | 데이터가 Azure Synapse Analytics로 복사 될 때 (이전에 SQL Data Warehouse) PolyBase를 사용할지 여부입니다. | 부울 |
+| sqlDwPolyBase | Azure Synapse Analytics로 데이터를 복사할 때 PolyBase를 사용할지 여부입니다. | 부울 |
 | redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | 부울 |
 | hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | 부울 |
 | effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임 형식 `<IR name> (<region if it's Azure IR>)` 입니다. | 텍스트(문자열) |

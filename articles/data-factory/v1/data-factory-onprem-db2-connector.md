@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory를 사용 하 여 DB2에서 데이터 이동
 description: Azure Data Factory 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001068"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387362"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +27,7 @@ ms.locfileid: "96001068"
 
 Data Factory는 현재 DB2 데이터베이스에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원하고, 다른 데이터 저장소에서 DB2 데이터베이스로 데이터를 이동하는 작업은 지원하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Data Factory는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 사용하여 온-프레미스 DB2 데이터베이스에 연결하는 작업을 지원합니다. 데이터를 이동하기 위해 게이트웨이 데이터 파이프라인을 설정하는 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 DB2가 Azure IaaS VM에 호스팅되는 경우에도 게이트웨이가 필요합니다. 데이터 저장소와 동일한 IaaS VM에 게이트웨이를 설치할 수 있습니다. 게이트웨이에서 데이터베이스에 연결할 수 있으면 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -78,15 +73,15 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 ## <a name="db2-linked-service-properties"></a>DB2 연결된 서비스 속성
 다음 표에는 DB2 연결된 서비스와 관련된 JSON 속성이 나열되어 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **type** |이 속성을 **OnPremisesDb2** 로 설정해야 합니다. |Yes |
 | **server** |DB2 서버의 이름입니다. |Yes |
 | **database** |DB2 데이터베이스의 이름입니다. |Yes |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |No |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |예 |
 | **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |Yes |
-| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |No |
-| **password** |사용자 계정의 암호입니다. |No |
+| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |예 |
+| **password** |사용자 계정의 암호입니다. |예 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -94,7 +89,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스에서 참조하는 DB2 데이터베이스 인스턴스의 테이블 이름입니다. 대/소문자를 구분합니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -105,7 +100,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
+| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.

@@ -1,22 +1,18 @@
 ---
 title: ServiceNow에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 ServiceNow에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: bc48f651a1adb099017e8f47d9fa6bcfa8078fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7ebc422a9fd8503c5a3b004e1d06cb5ebfb987
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415346"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378454"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ServiceNow에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -44,17 +40,17 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 ServiceNow 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **ServiceNow**로 설정해야 합니다. | 예 |
+| type | type 속성은 **ServiceNow** 로 설정해야 합니다. | Yes |
 | 엔드포인트(endpoint) | ServiceNow 서버(`http://<instance>.service-now.com`)의 엔드포인트입니다.  | 예 |
-| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Basic**, **OAuth2**입니다. | 예 |
+| authenticationType | 사용할 인증 유형입니다. <br/>허용되는 값은 **Basic**, **OAuth2** 입니다. | 예 |
 | 사용자 이름 | 기본 및 OAuth2 인증을 위해 ServiceNow 서버에 연결하는 데 사용되는 사용자 이름입니다.  | 예 |
 | password | 기본 및 OAuth2 인증의 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| clientId | OAuth2 인증의 클라이언트 ID입니다.  | 아니요 |
+| clientId | OAuth2 인증의 클라이언트 ID입니다.  | 예 |
 | clientSecret | OAuth2 인증의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**
@@ -81,9 +77,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ServiceNow 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ServiceNowObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ServiceNowObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **ServiceNowObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -111,23 +107,22 @@ ServiceNow에서 데이터를 복사하려면 데이터 세트의 type 속성을
 
 ### <a name="servicenow-as-source"></a>ServiceNow 원본
 
-ServiceNow에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ServiceNowSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+ServiceNow에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ServiceNowSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **ServiceNowSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성은 **ServiceNowSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Actual.alm_asset"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 쿼리에서 ServiceNow에 대해 스키마 및 열을 지정하는 경우 다음에 유의하고, **복사 성능에 미치는 영향에 대한 [성능 팁](#performance-tips)을 참조하세요**.
 
-- **스키마:** ServiceNow 쿼리에는 [ServiceNow restful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET)를 호출할 때 `sysparm_display_value`의 매개 변수를 true 또는 false로 볼 수 있는 `Actual` 또는 `Display`로 스키마를 지정합니다. 
+- **스키마:** ServiceNow 쿼리에는 [ServiceNow restful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET)를 호출할 때 `sysparm_display_value`의 매개 변수를 true 또는 false로 볼 수 있는 `Actual` 또는 `Display`로 스키마를 지정합니다. 
 - **열:**`Actual` 스키마의 실제 값에 대한 열 이름은 `[column name]_value`이며 `Display` 스키마의 표시 값에 대한 열 이름은 `[column name]_display_value`입니다. 열 이름은 쿼리에 사용되는 스키마에 매핑되어야 합니다.
 
 **예제 쿼리:** 
- `SELECT col_value FROM Actual.alm_asset` 디스크나 
-`SELECT col_display_value FROM Display.alm_asset`
+ `SELECT col_value FROM Actual.alm_asset` 디스크나`SELECT col_display_value FROM Display.alm_asset`
 
-**예:**
+**예제:**
 
 ```json
 "activities":[

@@ -2,19 +2,16 @@
 title: Azure Data Factory에서 지원 되는 파일 형식 (레거시)
 description: 이 항목에서는 Azure Data Factory에서 파일 기반 커넥터가 지원하는 파일 형식 및 압축 코드를 설명합니다.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.author: jingwang
-ms.openlocfilehash: b3241bc16c0613189faa169032632303788dac3e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: d95927a9ea7d3084387a9aedb0dcdd86f84b8e7f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634133"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384829"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원 되는 파일 형식 및 압축 코덱 (레거시)
 
@@ -34,13 +31,13 @@ ms.locfileid: "92634133"
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하도록 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |하나의 문자만 허용됩니다. **기본값** 은 **쉼표 (', ')** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
-| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |하나의 문자만 허용됩니다. **기본값** 은 read에서 **["\r\n", "\r", "\n"]** 및 **"\r\n"** 값 중 하나입니다. |아니요 |
-| escapeChar |입력 파일의 내용에서 열 구분 기호를 이스케이프하는 데 사용되는 특수 문자입니다. <br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표 (', ')를 사용 하지만 텍스트에 쉼표 문자를 포함 하려는 경우 (예: "Hello, 세계") 이스케이프 문자로 ' $ '를 정의 하 고 원본에서 "Hello $, 세계" 문자열을 사용할 수 있습니다. |아니요 |
-| quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
-| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |아니요 |
-| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](/dotnet/api/system.text.encoding)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8** 입니다. |아니요 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |참<br/><b>False(기본값)</b> |아니요 |
+| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하도록 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |하나의 문자만 허용됩니다. **기본값** 은 **쉼표 (', ')** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |예 |
+| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |하나의 문자만 허용됩니다. **기본값** 은 read에서 **["\r\n", "\r", "\n"]** 및 **"\r\n"** 값 중 하나입니다. |예 |
+| escapeChar |입력 파일의 내용에서 열 구분 기호를 이스케이프하는 데 사용되는 특수 문자입니다. <br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표 (', ')를 사용 하지만 텍스트에 쉼표 문자를 포함 하려는 경우 (예: "Hello, 세계") 이스케이프 문자로 ' $ '를 정의 하 고 원본에서 "Hello $, 세계" 문자열을 사용할 수 있습니다. |예 |
+| quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |예 |
+| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |예 |
+| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](/dotnet/api/system.text.encoding)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8** 입니다. |예 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |예 |
 | skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |예 |
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. |**True (기본값)**<br/>False |예 |
 
@@ -88,13 +85,13 @@ ms.locfileid: "92634133"
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat** 으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects** 이고 **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
-| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8** 입니다. |아니요 |
-| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects** 이고 **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |예 |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원됩니다. | 예 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일 **에서** 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 예 |
+| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8** 입니다. |예 |
+| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |예 |
 
 >[!NOTE]
 >배열의 데이터를 여러 행에 교차 적용 하는 경우 ( [JsonFormat 예제](#jsonformat-example)에서는 사례 1 > sample 2), 속성을 사용 하 여 단일 배열을 확장 하도록 선택할 수 있습니다 `jsonNodeReference` .
@@ -431,11 +428,11 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
-- **JRE를 사용 하려면** : 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
-- **OpenJDK 사용** : IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+- **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 >[!TIP]
->자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space** ”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
+>자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다.
 
 ![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -445,7 +442,7 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | 해당 없음 | 해당 없음 |
+| Boolean | Boolean | N/A | N/A |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -454,17 +451,17 @@ Parquet 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR�
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/이진 | UInt64 | Decimal |
-| Single | Float | 해당 없음 | 해당 없음 |
-| Double | Double | 해당 없음 | 해당 없음 |
+| Single | Float | N/A | N/A |
+| Double | Double | N/A | N/A |
 | Decimal | 이진 | Decimal | Decimal |
 | String | 이진 | Utf8 | Utf8 |
-| DateTime | Int96 | 해당 없음 | 해당 없음 |
-| TimeSpan | Int96 | 해당 없음 | 해당 없음 |
-| DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
-| ByteArray | 이진 | 해당 없음 | 해당 없음 |
+| DateTime | Int96 | N/A | N/A |
+| TimeSpan | Int96 | N/A | N/A |
+| DateTimeOffset | Int96 | N/A | N/A |
+| ByteArray | 이진 | N/A | N/A |
 | GUID | 이진 | Utf8 | Utf8 |
 | Char | 이진 | Utf8 | Utf8 |
-| CharArray | 지원되지 않음 | 해당 없음 | 해당 없음 |
+| CharArray | 지원되지 않음 | N/A | N/A |
 
 ## <a name="orc-format-legacy"></a><a name="orc-format"></a> ORC 형식 (레거시)
 
@@ -491,8 +488,8 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서 실행 되는 경우 ADF는 먼저 JRE에 대 한 레지스트리를 확인 하 여 *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* (찾을 수 없는 경우) OpenJDK의 시스템 변수를 확인 하 여 Java 런타임을 찾습니다 *`JAVA_HOME`* .
 
-- **JRE를 사용 하려면** : 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
-- **OpenJDK 사용** : IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
+- **JRE를 사용 하려면**: 64 비트 IR에 64 비트 JRE가 필요 합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
+- **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 ### <a name="data-type-mapping-for-orc-files"></a>ORC 파일에 대한 데이터 형식 매핑
 
@@ -507,7 +504,7 @@ ORC 파일 직렬화/deserialization을 사용 하 여 자체 호스팅 IR에서
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | String |
-| 단일 | Float |
+| Single | Float |
 | Double | Double |
 | Decimal | Decimal |
 | String | String |
@@ -575,16 +572,16 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 **압축** 섹션에는 두 가지 속성이 있습니다.
 
-* **유형:** **GZIP** , **Deflate** , **BZIP2** 또는 **ZipDeflate** 수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` .
+* **유형:** **GZIP**, **Deflate**, **BZIP2** 또는 **ZipDeflate** 수 있는 압축 코덱입니다. 참고 복사 작업을 사용 하 여 ZipDeflate 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓰려면 파일이 폴더로 추출 됩니다 `<path specified in dataset>/<folder named as source zip file>/` .
 * **수준:****최적** 또는 **가장 빠름** 이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
-  * **최적** : 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
+  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
 
     자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 
 > [!NOTE]
-> 현재 **AvroFormat** , **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
+> 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>지원 되지 않는 파일 형식 및 압축 형식
 

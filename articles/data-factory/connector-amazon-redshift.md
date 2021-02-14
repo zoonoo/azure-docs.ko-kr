@@ -1,21 +1,17 @@
 ---
 title: Amazon Redshift에서 데이터 복사
 description: Azure Data Factory를 사용하여 Amazon Redshift에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: b17c567b2e83bef3c37c8f1272091021a1943b15
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 9441885766dad97dfc237ab81a59710245bf13ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008329"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364259"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -55,9 +51,9 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 
 Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | Type 속성은 **AmazonRedshift** 로 설정 해야 합니다. | 예 |
+| type | Type 속성은 **AmazonRedshift** 로 설정 해야 합니다. | Yes |
 | 서버 |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | 데이터베이스 |Amazon Redshift 데이터베이스의 이름입니다. |예 |
@@ -97,7 +93,7 @@ Amazon Redshift 연결된 서비스에 다음 속성이 지원됩니다.
 
 Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AmazonRedshiftTable** 로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
@@ -132,11 +128,11 @@ Amazon Redshift에서 데이터를 복사 하기 위해 지원 되는 속성은 
 
 Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonRedshiftSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **AmazonRedshiftSource** 로 설정해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "tableName"이 지정된 경우) |
-| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 아니요 |
+| redshiftUnloadSettings | Amazon Redshift UNLOAD를 사용하는 경우 속성 그룹입니다. | 예 |
 | s3LinkedServiceName | “AmazonS3” 형식의 연결된 서비스 이름을 지정하여 중간 저장소로 사용하려는 Amazon S3을 참조합니다. | 예(UNLOAD를 사용하는 경우) |
 | bucketName | 중간 데이터를 저장할 S3 버킷을 지정합니다. 제공되지 않은 경우 Data Factory 서비스는 자동으로 생성합니다.  | 예(UNLOAD를 사용하는 경우) |
 
@@ -225,7 +221,7 @@ Amazon Redshift에서 데이터를 복사하는 경우 Amazon Redshift 데이터
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
-| 실수 |Single |
+| real |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
 | timestamp |DateTime |

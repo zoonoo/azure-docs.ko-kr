@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937664"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516518"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 제한
 
@@ -66,6 +66,13 @@ ms.locfileid: "96937664"
 
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](../howto-migrate-using-dump-and-restore.md)합니다.
 
+### <a name="storage"></a>스토리지
+
+- 구성 된 후에는 저장소 크기를 줄일 수 없습니다.
+- 현재 저장소 자동 확장 기능을 사용할 수 없습니다. 사용량을 모니터링 하 고 저장소 크기를 늘려 보세요. 
+- 저장소 사용량이 95%에 도달 하거나 사용 가능한 용량이 5 GiB 미만이 면 서버가 디스크 전체 상황과 관련 된 오류를 방지 하기 위해 자동으로 **읽기 전용 모드로** 전환 됩니다. 
+- `storage used`저장소 크기를 늘려야 하는 등의 `storage percent` 작업을 사전에 수행할 수 있도록 또는가 특정 임계값을 초과 하는 경우 경고 규칙을 설정 하는 것이 좋습니다. 예를 들어 저장소 백분율이 80% 사용량을 초과 하는 경우 경고를 설정할 수 있습니다.
+  
 ### <a name="networking"></a>네트워킹
 
 - 현재 VNET의 이동 및 외부로의 이동은 지원 되지 않습니다.

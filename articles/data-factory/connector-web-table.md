@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용 하 여 웹 테이블에서 데이터 복사
 description: 웹 테이블의 데이터를 데이터 팩터리에서 싱크로 지원하는 데이터 저장소로 복사할 수 있는 Azure Data Factory의 웹 테이블 커넥터에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410209"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367013"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블의 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -28,9 +23,9 @@ ms.locfileid: "81410209"
 
 이 웹 테이블 커넥터인 [REST 커넥터](connector-rest.md)와 [HTTP 커넥터](connector-http.md) 간의 차이점은 다음과 같습니다.
 
-- **웹 테이블 커넥터**는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
+- **웹 테이블 커넥터** 는 HTML 웹 페이지에서 테이블 콘텐츠를 추출합니다.
 - **REST 커넥터** 는 특히 RESTful api의 데이터 복사를 지원 합니다.
-- **HTTP 커넥터**는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 
+- **HTTP 커넥터** 는 일반적으로 모든 HTTP 엔드포인트에서 데이터를 검색합니다(예: 파일 다운로드). 
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -41,7 +36,7 @@ ms.locfileid: "81410209"
 
 웹 테이블 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출**하도록 지원합니다.
+특히 이 웹 테이블 커넥터는 **HTML 페이지에서 테이블 콘텐츠를 추출** 하도록 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -57,11 +52,11 @@ ms.locfileid: "81410209"
 
 웹 테이블 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **웹** |예 |
 | url | 웹 원본에 대한 URL입니다. |예 |
-| authenticationType | 허용되는 값은 **Anonymous**입니다. |예 |
+| authenticationType | 허용되는 값은 **Anonymous** 입니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예:**
@@ -87,11 +82,11 @@ ms.locfileid: "81410209"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 웹 테이블 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-웹 테이블에서 데이터를 복사하려면 데이터 세트의 type 속성을 **WebTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+웹 테이블에서 데이터를 복사하려면 데이터 세트의 type 속성을 **WebTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **WebTable**로 설정해야 합니다. | 예 |
+| type | 데이터 세트의 type 속성을 **WebTable** 로 설정해야 합니다. | 예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. |아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
 | 인덱스 |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
 
@@ -121,9 +116,9 @@ ms.locfileid: "81410209"
 
 ### <a name="web-table-as-source"></a>웹 테이블을 원본으로
 
-웹 테이블에서 데이터를 복사하려면 복사 작업에서 원본 유형을 **WebSource**로 설정합니다. 추가적인 속성은 지원되지 않습니다.
+웹 테이블에서 데이터를 복사하려면 복사 작업에서 원본 유형을 **WebSource** 로 설정합니다. 추가적인 속성은 지원되지 않습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -158,16 +153,16 @@ ms.locfileid: "81410209"
 
 [데이터 세트 속성](#dataset-properties)에서 구성해야 하는 테이블의 인덱스를 가져오려면 다음과 같은 도구(예: Excel 2016)를 사용할 수 있습니다.
 
-1. **Excel 2016**을 시작하고 **데이터** 탭으로 전환합니다.
-2. 도구 모음에서 **새 쿼리**를 클릭하고 **기타 원본에서**를 가리킨 다음 **웹에서**를 클릭합니다.
+1. **Excel 2016** 을 시작하고 **데이터** 탭으로 전환합니다.
+2. 도구 모음에서 **새 쿼리** 를 클릭하고 **기타 원본에서** 를 가리킨 다음 **웹에서** 를 클릭합니다.
 
     ![파워 쿼리 메뉴](./media/copy-data-from-web-table/PowerQuery-Menu.png)
-3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 세트에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인**을 클릭합니다.
+3. **웹에서** 대화 상자에서 연결된 서비스 JSON에 사용할 **URL**(예: https://en.wikipedia.org/wiki/))과 데이터 세트에 대해 지정할 경로(예: AFI%27s_100_Years...100_Movies)를 입력하고 **확인** 을 클릭합니다.
 
     ![웹 대화 상자](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
     이 예제에서 사용되는 URL은 https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies입니다.
-4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증**을 선택하고 **연결**을 클릭합니다.
+4. **웹 콘텐츠 액세스** 대화 상자가 표시된 경우 오른쪽 **URL**, **인증** 을 선택하고 **연결** 을 클릭합니다.
 
    ![웹 콘텐츠 액세스 대화 상자](./media/copy-data-from-web-table/AccessWebContentDialog.png)
 5. 트리 뷰에서 **테이블** 항목을 클릭하여 테이블에서 콘텐츠를 표시한 다음 아래쪽의 **편집** 단추를 클릭합니다.  

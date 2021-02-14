@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 34f24b8fbdb28e1b1f73e9db428c510d3f4661ce
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 4b48e98ab35b620030b15165d4c9341c0f11b440
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804849"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393278"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway"></a>Azure 지점 및 사이트 간 VPN Gateway에 대 한 OpenVPN 구성
 
@@ -31,12 +31,12 @@ ms.locfileid: "99804849"
 ## <a name="portal"></a>포털
 
 1. 포털에서 **가상 네트워크 게이트웨이-> 지점 및 사이트 간 구성** 으로 이동 합니다.
-1. **터널 유형** 의 드롭다운에서 **openvpn (Ssl)** 또는 **IKEV2 및 openvpn (ssl)** 을 선택 합니다.
+1. **터널 유형** 의 드롭다운에서 **OPENVPN (SSL)** 을 선택 합니다.
 
    :::image type="content" source="./media/vpn-gateway-howto-openvpn/portal.png" alt-text="드롭다운에서 OpenVPN SSL을 선택 합니다.":::
 1. 변경 내용을 저장 하 고 **다음 단계** 를 계속 합니다.
 
-게이트웨이에서 OpenVPN을 사용하도록 설정합니다.
+## <a name="enable-openvpn-on-your-gateway-using-powershell"></a>PowerShell을 사용 하 여 게이트웨이에서 OpenVPN을 사용 하도록 설정 합니다.
 
 1. 다음 예제를 사용 하 여 게이트웨이에서 OpenVPN을 사용 하도록 설정 합니다.
 

@@ -1,21 +1,18 @@
 ---
 title: Azure Data Factory의 식과 함수
 description: 이 문서에서는 Data Factory 엔터티 만들기에 사용할 수 있는 식과 함수에 대한 정보를 제공합니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 1b10146e59cefb17ff267eb0b470dd83004a7c2a
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 997700b27f52af174dab914097ceeef8d20ff148
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976574"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385628"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 

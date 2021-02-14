@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881926"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378301"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -19,7 +19,7 @@ ms.locfileid: "98881926"
 [host.json](functions-host-json.md) 파일과 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
 
 > [!NOTE]  
-> 응용 프로그램 설정을 사용 하 여 파일 자체에서 host.js를 변경할 필요 없이 값 설정에 대 한 host.js를 재정의할 수 있습니다. 이 기능은 특정 환경에 대 한 설정에서 특정 host.js를 구성 하거나 수정 해야 하는 경우에 유용 합니다. 이렇게 하면 프로젝트를 다시 게시 하지 않고도 설정 host.js을 변경할 수 있습니다. 자세한 내용은 [ 참조에서host.js문서](functions-host-json.md#override-hostjson-values)를 참조 하세요.  
+> 응용 프로그램 설정을 사용 하 여 파일 자체에서 host.js를 변경할 필요 없이 값 설정에 대 한 host.js를 재정의할 수 있습니다. 이 기능은 특정 환경에 대 한 설정에서 특정 host.js를 구성 하거나 수정 해야 하는 경우에 유용 합니다. 이렇게 하면 프로젝트를 다시 게시 하지 않고도 설정 host.js을 변경할 수 있습니다. 자세한 내용은 [ 참조에서host.js문서](functions-host-json.md#override-hostjson-values)를 참조 하세요. 함수 앱 설정을 변경하려면 함수 앱을 다시 시작해야 합니다.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -46,7 +46,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
 
-|키|값|Description|
+|키|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
@@ -55,7 +55,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
 
-|키|값|Description|
+|키|값|설명|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
@@ -213,7 +213,7 @@ Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 �
 
 자세한 내용은 Python 개발자 참조의 [사용자 지정 종속성](functions-reference-python.md#remote-build-with-extra-index-url) 을 참조 하세요.
 
-## <a name="scale_controller_logging_enable"></a>크기 조정 \_ 컨트롤러 \_ 로깅 \_ 사용
+## <a name="scale_controller_logging_enabled"></a>크기 조정 \_ 컨트롤러 \_ 로깅 \_ 사용
 
 _이 설정은 현재 미리 보기로 있습니다._  
 
@@ -221,7 +221,7 @@ _이 설정은 현재 미리 보기로 있습니다._
 
 |키|샘플 값|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights: 자세한 정보 표시|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights: 자세한 정보 표시|
 
 이 키의 값은 다음과 같이 정의 된 형식으로 제공 됩니다 `<DESTINATION>:<VERBOSITY>` .
 
@@ -235,7 +235,7 @@ Windows에서 실행 되는 이벤트 기반 확장 계획에 함수 앱 코드�
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-Windows에서 실행 중인 소비 또는 프리미엄 계획에 배포 하는 경우에만 사용 됩니다. Linux에서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요. 
+프리미엄 계획에 배포 하거나 Windows에서 실행 중인 소비 계획에 배포 하는 경우에만 사용 됩니다. Linux를 실행 하는 사용 제한을 계획에 대해서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요. 
 
 ## <a name="website_contentovervnet"></a>웹 사이트 \_ CONTENT과잉 VNET
 
@@ -253,7 +253,7 @@ Windows에서 이벤트 기반 크기 조정 계획의 함수 앱 코드와 구�
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Windows에서 실행 중인 소비 또는 프리미엄 계획의 함수 앱 에서만 사용 됩니다. Linux에서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요.
+프리미엄 계획에 배포 하거나 Windows에서 실행 중인 소비 계획에 배포 하는 경우에만 사용 됩니다. Linux를 실행 하는 사용 제한을 계획에 대해서는 지원 되지 않습니다. 이 설정을 변경 하거나 제거 하면 함수 앱이 시작 되지 않을 수 있습니다. 자세히 알아보려면 [이 문제 해결 문서](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)를 참조 하세요.
 
 Azure Resource Manager를 사용 하 여 배포 하는 동안 함수 앱을 만드는 경우 템플릿에 WEBSITE_CONTENTSHARE를 포함 하지 마십시오. 이 응용 프로그램 설정은 배포 중에 생성 됩니다. 자세히 알아보려면 [함수 앱에 대 한 리소스 배포 자동화](functions-infrastructure-as-code.md#windows)를 참조 하세요.   
 

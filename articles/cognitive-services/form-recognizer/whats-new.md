@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581264"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364694"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -148,7 +148,7 @@ ms.locfileid: "99581264"
   다음 이미지는 테이블을 인식 하 고 추출 하는 방법의 예입니다.
 
   > [!div class="mx-imgBorder"]
-  > ![샘플 레이블 지정 도구를 사용 하는 테이블 시각화](./media/whats-new/formre-table-viz.png)
+  > ![샘플 레이블 지정 도구를 사용 하는 테이블 시각화](./media/whats-new/table-viz.png)
 
     추출 된 테이블은의 JSON 출력에서 사용할 수 있습니다 `"pageResults"` .
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937880"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103195"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -42,7 +42,7 @@ ms.locfileid: "98937880"
 > 사용할 포털은 응용 프로그램이 Microsoft Azure 공용 클라우드 또는 국가 또는 소 버린 클라우드에서 실행 되는지에 따라 달라 집니다. 자세한 내용은 [국가별 클라우드](./authentication-national-cloud.md#app-registration-endpoints)를 참조 하세요.
 
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다. 
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다. 
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "98937880"
 1. **관리** 에서 **인증** 을 선택 하 고 다음 정보를 추가 합니다.
    1. **웹** 섹션에서를 `https://localhost:44321/signin-oidc` **리디렉션 URI** 로 추가 합니다.
    1. **전면 채널 로그 아웃 URL** 에을 입력 `https://localhost:44321/signout-oidc` 합니다.
-   1. **암시적 허용 및 하이브리드 흐름** 에서 **ID 토큰** 을 선택 합니다.
+   1. **암시적 권한 부여 및 하이브리드 흐름** 에서 **ID 토큰** 을 선택합니다.
    1. **저장** 을 선택합니다.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -68,7 +68,7 @@ ms.locfileid: "98937880"
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고의 **리디렉션 uri** 를 입력 `https://localhost:44326/` 합니다.
    1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
+1. **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
 1. **저장** 을 선택합니다.
 
 # <a name="java"></a>[Java](#tab/java)

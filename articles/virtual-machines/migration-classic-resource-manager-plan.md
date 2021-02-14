@@ -1,22 +1,22 @@
 ---
 title: 클래식에서 Azure Resource Manager로 마이그레이션 계획
-description: 이 문서에서는 클래식에서 Linux Azure Resource Manager로 IaaS 리소스 마이그레이션을 계획 하는 방법에 대해 알아봅니다.
-services: virtual-machines-linux
+description: 이 문서에서는 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션을 계획 하는 방법에 대해 알아봅니다.
+services: virtual-machines
 author: tanmaygore
 manager: vashan
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 271a20c5c9b6e157343246afb79f40894fe8a097
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: c29ca5f51e59775479fa5e97e88b28dba110d866
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94904732"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366078"
 ---
-# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Linux에서 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션 계획
+# <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 
 > [!IMPORTANT]
 > 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](classic-vm-deprecation.md#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .

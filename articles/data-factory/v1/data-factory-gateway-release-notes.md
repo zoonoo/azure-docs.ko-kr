@@ -1,22 +1,18 @@
 ---
 title: 데이터 관리 게이트웨이에 대한 릴리스 정보
 description: 데이터 관리 게이트웨이 릴리스 정보
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001629"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363919"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -39,19 +35,19 @@ ms.locfileid: "96001629"
 ## <a name="earlier-versions"></a>이전 버전
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>향상된 기능
-- 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 service bus를 허용 하는 DNS 항목을 추가할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
+- 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 service bus를 허용 하는 DNS 항목을 추가할 수 있습니다. Azure Portal (Data Factory > ' 작성자 및 배포 '-> ' 게이트웨이 '-> "serviceUrls" (JSON)에서 해당 DNS 항목을 찾을 수 있습니다.
 - 이제 HDFS 커넥터는 TLS 유효성 검사를 건너뛸 수 있으므로 자체 서명 된 공용 인증서를 지원 합니다.
 - 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능
--   필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 Service Bus를 허용 하는 DNS 항목을 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
--   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
--   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
--   수정 됨: 멱 등 성 기능을 사용 하 여 문서 DB에서 SQL Server로 복사 하는 동안 범위를 벗어난 문제가 발생 했습니다.
--   수정 됨: SQL 정리 스크립트가 복사 마법사의 SQL Server에서 작동 하지 않습니다.
--   끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
+-    필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 Service Bus를 허용 하는 DNS 항목을 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+-    이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
+-    복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
+-    수정 됨: 멱 등 성 기능을 사용 하 여 문서 DB에서 SQL Server로 복사 하는 동안 범위를 벗어난 문제가 발생 했습니다.
+-    수정 됨: SQL 정리 스크립트가 복사 마법사의 SQL Server에서 작동 하지 않습니다.
+-    끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>향상된 기능
@@ -128,7 +124,7 @@ ms.locfileid: "96001629"
     *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 스토리지에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
 *  데이터 관리 게이트웨이를 사용 하 여 SQL Server 데이터베이스에서 직접 데이터를 Azure Machine Learning로 수신할 수 있습니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 도구에서 SQL Server에 대해 스키마/미리 보기를 보는 성능이 향상됩니다.
 
@@ -144,7 +140,7 @@ ms.locfileid: "96001629"
 
 *  자동 업데이트가 실패하면 게이트웨이 설치 관리자는 자동 업데이트를 최대 3회까지 다시 시도합니다.
 
-*  성능 개선
+*  성능 향상
 
     * 코드가 없는 복사 시나리오를 통해 온-프레미스 서버의 큰 테이블을 로드하는 성능을 개선합니다.
 
@@ -152,7 +148,7 @@ ms.locfileid: "96001629"
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  성능 개선
+*  성능 향상
 
 *  버그 수정
 
@@ -160,38 +156,38 @@ ms.locfileid: "96001629"
 
 *  0 터치 자동 업데이트 기능
 *  게이트웨이 상태 표시기 포함 새 트레이 아이콘
-*  클라이언트에서 "지금 업데이트"하는 기능
+*  클라이언트에서 "지금 업데이트" 하는 기능
 *  업데이트 일정 시간을 설정하는 기능
 *  자동 업데이트를 설정/해제하기 위한 PowerShell 스크립트
 *  JSON 형식 파일 지원  
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  문제 해결 환경 개선
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  온-프레미스 HDFS 원본/싱크 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656761"></a>1.6.5676.1
@@ -208,7 +204,7 @@ ms.locfileid: "96001629"
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Azure 데이터 팩터리에 대 한 ODBC 데이터 원본의 테이블 이름 지원
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +225,13 @@ ms.locfileid: "96001629"
 
 *  Azure Data Factory에 대해 관계형 데이터베이스 5개(MySQL, PostgreSQL, DB2, Teradata, Sybase) 지원
 *  압축 지원(Gzip 및 Deflate)
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Azure 데이터 팩터리에 대 한 Oracle 데이터 원본 지원 추가
-*  성능 개선
+*  성능 향상
 *  버그 수정
 
 ### <a name="1454921"></a>1.4.5492.1

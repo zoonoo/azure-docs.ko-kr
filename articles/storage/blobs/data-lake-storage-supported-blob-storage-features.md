@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 02/11/2021
 ms.author: normesta
-ms.reviewer: stewu
-ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879312"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516281"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -45,18 +44,19 @@ ms.locfileid: "98879312"
 |변경 불가능한 스토리지|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|미리 보기<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
 |컨테이너 일시 삭제|미리 보기|미리 보기|[컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md)|
 |Azure Storage 인벤토리|미리 보기|미리 보기|[Azure Storage 인벤토리를 사용 하 여 blob 데이터 관리 (미리 보기)](blob-inventory.md)|
+|사용자 지정 도메인|미리 보기<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|미리 보기<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|
 |Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](./soft-delete-blob-overview.md)|
 |Blobfuse|일반 공급|일반 공급|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|
 |익명 공용 액세스 |일반 공급|일반 공급| [컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 구성](anonymous-read-access-configure.md)을 참조 하세요.|
 |고객 관리 계정 장애 조치 (failover)|아직 지원되지 않음|아직 지원되지 않음|[재해 복구 및 계정 장애 조치(failover)](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |고객이 제공한 키|아직 지원되지 않음|아직 지원되지 않음|[Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)|
-|사용자 지정 도메인|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)|
 |암호화 범위|아직 지원되지 않음|아직 지원되지 않음|[암호화 범위 만들기 및 관리 (미리 보기)](encryption-scope-manage.md)|
 |변경 피드|아직 지원되지 않음|아직 지원되지 않음|[Azure Blob Storage의 변경 피드 지원](storage-blob-change-feed.md)|
 |개체 복제|아직 지원되지 않음|아직 지원되지 않음|[블록 blob에 대 한 개체 복제 구성](object-replication-configure.md)|
 |Blob 버전 관리|아직 지원되지 않음|아직 지원되지 않음|[Blob 버전 관리 설정 및 관리](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup> Data Lake Storage Gen2를 사용 하 여 스냅숏, 변경할 수 없는 저장소 또는 정적 웹 사이트를 사용 하려면이 <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>양식을</a>완료 하 여 미리 보기에 등록 해야 합니다.  </div>
+<div id="preview-form-2"><sup>2</sup> 사용자 지정 도메인 이름은 blob service 또는 정적 웹 사이트 끝점에만 매핑될 수 있습니다. Data Lake 저장소 끝점은 지원 되지 </a> 않습니다.  </div>
 
 ## <a name="see-also"></a>참고 항목
 

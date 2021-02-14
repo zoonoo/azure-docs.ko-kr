@@ -3,7 +3,7 @@ title: 자격 관리 문제 해결-Azure AD
 description: Azure Active Directory 자격 관리에 대 한 문제 해결에 도움이 되는 몇 가지 항목에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bca78195d4fb7bb265c4a7fd8d78ea49a35335b6
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 5b01321c2cbb15be5526bbe9ed04f52238390574
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746714"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516892"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -47,7 +47,6 @@ ms.locfileid: "97746714"
 
 * 팀의 구성원을 제거 하면 해당 구성원도 Microsoft 365 그룹에서 제거 됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](/microsoftteams/office-365-groups#group-membership)을 참조 하세요.
 
-* 디렉터리가 다중 지역에 대해 구성되지 않았는지 확인합니다. 권한 관리는 현재 SharePoint Online에 대한 다중 지역 위치를 지원하지 않습니다. SharePoint Online 사이트는 권한 관리로 제어되는 기본 지리적 위치에 있어야 합니다. 자세한 내용은 [OneDrive 및 SharePoint Online의 다중 지역 기능](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365)을 참조 하세요.
 
 ## <a name="access-packages"></a>액세스 패키지
 

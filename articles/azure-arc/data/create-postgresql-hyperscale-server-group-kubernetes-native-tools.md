@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 250c1ef837793c2149ff653f395f40272cf43335
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955249"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384948"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Kubernetes tools를 사용 하 여 PostgreSQL Hyperscale 서버 그룹 만들기
 
@@ -44,14 +44,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -107,7 +107,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>이름 사용자 지정
 
-템플릿의 이름 특성에 ' example ' 값이 있습니다.  이를 변경할 수 있지만 DNS 명명 표준을 따르는 문자 여야 합니다.  또한 일치 하는 암호의 이름을 변경 해야 합니다.  예를 들어 PostgreSQL Hyperscale 서버 그룹의 이름을 ' postgres1 '로 변경 하는 경우 암호의 이름을 ' '에서 ' postgres1 '로 변경 해야 합니다.
+이 템플릿의 값은 name 특성에 대해 ' p g 1 '입니다.  이를 변경할 수 있지만 DNS 명명 표준을 따르는 문자 여야 합니다.  또한 일치 하는 암호의 이름을 변경 해야 합니다.  예를 들어 PostgreSQL Hyperscale 서버 그룹의 이름을 ' p g 2 '로 변경 하는 경우 암호의 이름을 ' p g 1 '에서 ' p g 2-secret '로 변경 해야 합니다.
 
 ### <a name="customizing-the-engine-version"></a>엔진 버전 사용자 지정
 
@@ -152,10 +152,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 PostgreSQL Hyperscale 서버 그룹을 만드는 것은 완료 하는 데 몇 분 정도 걸립니다. 다음 명령을 사용 하 여 다른 터미널 창에서 진행률을 모니터링할 수 있습니다.
 
 > [!NOTE]
->  아래 예제 명령에서는 이름이 ' t r u e ' 인 ' postgres1 ' 및 Kubernetes namespace 라는 PostgreSQL Hyperscale 서버 그룹을 만들었다고 가정 합니다.  다른 namespace/PostgreSQL Hyperscale 서버 그룹 이름을 사용 하는 경우 ' arc ' 및 ' postgres1 '를 사용자의 이름으로 바꿀 수 있습니다.
+>  아래 예제 명령에서는 이름이 ' t r u e ' 인 ' p g 1 ' 및 Kubernetes namespace 라는 PostgreSQL Hyperscale 서버 그룹을 만들었다고 가정 합니다.  다른 namespace/PostgreSQL Hyperscale 서버 그룹 이름을 사용 하는 경우 ' arc ' 및 ' p g 1 '를 사용자의 이름으로 바꿀 수 있습니다.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -168,7 +168,7 @@ kubectl get pods --namespace arc
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>생성 문제 해결

@@ -1,23 +1,18 @@
 ---
 title: Data Factory를 사용 하 여 검색 인덱스에 데이터 푸시
 description: Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터를 푸시하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0226ab75d53733b94a9ae5734b42b7340998759c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194910"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379270"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -37,9 +32,9 @@ ms.locfileid: "84194910"
 ## <a name="getting-started"></a>시작
 다른 도구/a p i를 사용 하 여 원본 데이터 저장소에서 검색 인덱스로 데이터를 푸시하는 복사 작업을 사용 하 여 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -57,9 +52,9 @@ ms.locfileid: "84194910"
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | Type 속성은 **Azuresearch**로 설정 되어야 합니다. | 예 |
-| url | 검색 서비스에 대 한 URL입니다. | 예 |
-| key | 검색 서비스에 대 한 관리 키입니다. | 예 |
+| type | Type 속성은 **Azuresearch** 로 설정 되어야 합니다. | 예 |
+| url | 검색 서비스에 대 한 URL입니다. | Yes |
+| key | 검색 서비스에 대 한 관리 키입니다. | Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -67,8 +62,8 @@ ms.locfileid: "84194910"
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
-| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
+| type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| Yes |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -78,8 +73,8 @@ ms.locfileid: "84194910"
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아니요 |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 예 |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 예 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 데이터를 쓸 때 AzureSearchSink가 삽입됩니다. 즉, 문서를 작성할 때 문서 키가 검색 인덱스에 이미 있는 경우 Azure Cognitive Search는 충돌 예외를 throw 하는 대신 기존 문서를 업데이트 합니다.
@@ -89,7 +84,7 @@ AzureSearchSink는 AzureSearch SDK를 사용하여 다음 두 가지 삽입 동�
 - **병합**: 새 문서의 모든 열을 기존 문서와 결합합니다. 새 문서에서 null 값을 가진 열의 경우 기존 문서의 값이 유지됩니다.
 - **업로드**: 새 문서가 기존 문서를 대체합니다. 새 문서에 지정되지 않은 열의 경우 기본 문서에 null이 아닌 값이 있는지 여부에 상관없이 값이 null로 설정됩니다.
 
-기본 동작은 **병합**입니다.
+기본 동작은 **병합** 입니다.
 
 ### <a name="writebatchsize-property"></a>writeBatchSize 속성
 Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있도록 지원 합니다. 일괄 처리는 1~1,000개의 동작을 포함할 수 있습니다. 하나의 동작에서 하나의 문서를 처리하여 업로드/병합 작업을 수행합니다.
@@ -154,7 +149,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 **SQL Server 입력 데이터 세트**
 
-샘플은 Azure SQL에서 만든 "MyTable" 테이블에 시계열 데이터에 대한 "timestampcolumn"이라는 열이 포함되어 있다고 가정합니다. 단일 데이터 세트를 사용하여 동일한 데이터베이스 내 여러 테이블에 대해 쿼리를 실행할 수 있지만, 데이터 세트의 tableName typeProperty에 대해서는 단일 테이블이 사용되어야 합니다.
+이 샘플에서는 SQL Server에 "MyTable" 테이블을 만들었고 시계열 데이터에 대 한 "timestampcolumn" 라는 열을 포함 하 고 있다고 가정 합니다. 단일 데이터 세트를 사용하여 동일한 데이터베이스 내 여러 테이블에 대해 쿼리를 실행할 수 있지만, 데이터 세트의 tableName typeProperty에 대해서는 단일 테이블이 사용되어야 합니다.
 
 "external": "true"를 설정하면 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다.
 
@@ -185,7 +180,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 **Azure Cognitive Search 출력 데이터 집합:**
 
-이 샘플은 이름이 **products**인 Azure Cognitive Search 인덱스에 데이터를 복사 합니다. Data Factory는 인덱스를 만들지 않습니다. 이 샘플을 테스트하려면 이 이름의 인덱스를 만듭니다. 입력 데이터 집합에서와 동일한 수의 열을 사용 하 여 검색 인덱스를 만듭니다. 새 항목은 1 시간 마다 검색 인덱스에 추가 됩니다.
+이 샘플은 이름이 **products** 인 Azure Cognitive Search 인덱스에 데이터를 복사 합니다. Data Factory는 인덱스를 만들지 않습니다. 이 샘플을 테스트하려면 이 이름의 인덱스를 만듭니다. 입력 데이터 집합에서와 동일한 수의 열을 사용 하 여 검색 인덱스를 만듭니다. 새 항목은 1 시간 마다 검색 인덱스에 추가 됩니다.
 
 ```JSON
 {
@@ -206,7 +201,7 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 **SQL 원본 및 Azure Cognitive Search 인덱스 싱크를 사용 하는 파이프라인의 복사 작업:**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**로 설정되고 **sink** 형식은 **AzureSearchIndexSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource** 로 설정되고 **sink** 형식은 **AzureSearchIndexSink** 로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```JSON
 {
