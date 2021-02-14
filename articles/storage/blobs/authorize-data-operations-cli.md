@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 060bfb6c88bbed8ba12c5b5ebfd2e9617f5abfb2
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637475"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361675"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Azure CLI를 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 방법을 선택 합니다.
 
@@ -33,6 +33,9 @@ Blob 데이터를 읽고 쓰기 위한 Azure CLI 명령에는 선택적 `--auth-
 - `--auth-mode` `key` 권한 부여에 사용할 계정 액세스 키를 검색 하려는 경우 매개 변수를 레거시 값으로 설정 합니다. 매개 변수를 생략 하는 경우에 `--auth-mode` 도 Azure CLI는 액세스 키를 검색 하려고 시도 합니다.
 
 매개 변수를 사용 하려면 `--auth-mode` Azure CLI 버전 2.0.46 이상을 설치 했는지 확인 합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
+
+> [!NOTE]
+> Azure Resource Manager **ReadOnly** 잠금을 사용 하 여 저장소 계정이 잠긴 경우 해당 저장소 계정에 대 한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용 되지 않습니다. **목록 키** 는 게시 작업 이며, 계정에 대해 **ReadOnly** 잠금이 구성 된 경우 모든 post 작업은 차단 됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유 하 고 있지 않은 사용자는 Azure AD 자격 증명을 사용 하 여 blob 데이터에 액세스 해야 합니다.
 
 > [!IMPORTANT]
 > 매개 변수를 생략 `--auth-mode` 하거나로 설정 하 `key` 는 경우 Azure CLI은 권한 부여를 위해 계정 액세스 키를 사용 하려고 시도 합니다. 이 경우 명령 또는 **AZURE_STORAGE_KEY** 환경 변수에 액세스 키를 제공 하는 것이 좋습니다. 환경 변수에 대 한 자세한 내용은 [권한 부여 매개 변수에 대 한 환경 변수 설정](#set-environment-variables-for-authorization-parameters)섹션을 참조 하세요.
@@ -82,6 +85,9 @@ az storage container create \
     --account-key <key>
     --auth-mode key
 ```
+
+> [!IMPORTANT]
+> Azure Resource Manager **ReadOnly** 잠금을 사용 하 여 저장소 계정이 잠긴 경우 해당 저장소 계정에 대 한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용 되지 않습니다. **목록 키** 는 게시 작업 이며, 계정에 대해 **ReadOnly** 잠금이 구성 된 경우 모든 post 작업은 차단 됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있는 경우 사용자는 Azure AD 자격 증명을 사용 하 여 데이터에 액세스 해야 합니다.
 
 ## <a name="authorize-with-a-sas-token"></a>SAS 토큰을 사용 하 여 권한 부여
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/12/2021
-ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 01/29/2021
+ms.openlocfilehash: cb5ea99223b803435ecd8716a7a57152266878a8
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117132"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99821351"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -261,7 +261,6 @@ SQL Database와 Azure Synapse Analytics의 경우 모두 Azure 서비스에서 S
         ```
 
         ![싱크 복사 설정](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-
 
 1. **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 

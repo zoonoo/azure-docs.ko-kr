@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132085"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392326"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+자동화 된 ML을 사용 하 여 예측 모델을 학습 하는 데 필요한 데이터 양은 `forecast_horizon` 를 `n_cross_validations` `target_lags` `target_rolling_window_size` 구성할 때 지정 된,, 및 값 `AutoMLConfig` 의 영향을 받습니다. 
+
+다음 수식은 시계열 기능을 생성 하는 데 필요한 기록 데이터의 양을 계산 합니다.
+
+필요한 최소 기록 데이터: (2x `forecast_horizon` ) + # `n_cross_validations` + max (max ( `target_lags` ), `target_rolling_window_size` )
+
+지정 된 관련 설정에 대해 필요한 기록 데이터 양을 충족 하지 않는 데이터 집합의 모든 계열에 대해 오류 예외가 발생 합니다. 
+
 ### <a name="featurization-steps"></a>기능화 단계
 
 자동화 된 모든 기계 학습 실험에서 자동 크기 조정 및 정규화 기술이 기본적으로 데이터에 적용 됩니다. 이러한 기술은 다양 한 규모의 기능에 중요 한 *특정* 알고리즘을 지 원하는 **기능화** 의 유형입니다. [AutoML에서 기능화](how-to-configure-auto-features.md#automatic-featurization) 의 기본 기능화 단계에 대 한 자세한 정보
@@ -250,7 +258,7 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 
 심층 학습을 사용 하도록 설정 하 고 대상 롤링 창 집계를 지정 하는 등의 예측 태스크에 대 한 추가 옵션 구성을 사용할 수 있습니다. 
 
-### <a name="enable-deep-learning"></a>심층 학습 사용
+### <a name="enable-deep-learning"></a>딥 러닝 사용
 
 > [!NOTE]
 > 자동화 Machine Learning의 예측에 대 한 DNN 지원은 **미리 보기** 상태 이며 로컬 실행을 지원 하지 않습니다.
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.predict(test_data)`를 실행하여 미래 가치를 예측합니다.
 
 > [!NOTE]
-> `forecast_horizon`보다 큰 기간 동안의 값은 예측할 수 없습니다. 현재 구간을 넘어서는 미래 가치를 예측하려면 모델을 더 큰 구간으로 다시 학습해야 합니다.
+> `target_lags`및/또는을 사용 하도록 설정한 경우에는 자동화 된 ML을 사용 하 여 예측에 대 한 샘플에서 예측을 지원 하지 않습니다 `target_rolling_window_size` .
 
 
 ## <a name="example-notebooks"></a>노트북 예제

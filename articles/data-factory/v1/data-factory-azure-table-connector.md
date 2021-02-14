@@ -1,23 +1,18 @@
 ---
 title: Azure 테이블 간 데이터 이동
 description: Azure Data Factory를 사용하여 Azure Table Storage 간 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d7802a3fe4fb904aad7fd9257edbf8b10efe127
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cc8e0272dc690ed541883ae943c118cbbe2f1854
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637431"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392122"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure 테이블 간 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -38,7 +33,7 @@ ms.locfileid: "92637431"
 
 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio** , **Azure PowerShell** **Azure Resource Manager 템플릿** , **.net API** 및 **REST API** . 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
 
@@ -60,7 +55,7 @@ Azure Blob Storage를 Azure Data Factory에 연결하는 데 사용할 수 있�
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureTable** 데이터 세트 형식에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
@@ -159,9 +154,9 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **Azure 테이블 입력 데이터 세트:**
 
-샘플은 Azure 테이블에 "MyTable" 테이블을 만들었다고 가정합니다.
+이 샘플에서는 Azure 테이블에 "MyTable" 테이블을 만들었다고 가정 합니다.
 
-"external": "true"로 설정하면 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
+"external": "true" 설정은 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실을 Data Factory 서비스에 전달합니다.
 
 ```JSON
 {
@@ -327,7 +322,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **Azure Blob 입력 데이터 집합:**
 
-데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정을 사용하는 경우 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다.
+데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 집합이 data factory의 외부에 있으며 data factory의 활동에 의해 생성 되지 않는다는 것을 Data Factory 서비스에 알립니다.
 
 ```JSON
 {
@@ -396,7 +391,7 @@ Azure Data Factory는 두 가지 유형의 Azure Storage 연결된 서비스: **
 
 **Azure 테이블 출력 데이터 세트:**
 
-샘플은 Azure 테이블의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
+샘플은 Azure 테이블의 "MyTable" 이라는 테이블에 데이터를 복사 합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure 테이블을 만듭니다. 새 행은 매시간 테이블에 추가됩니다.
 
 ```JSON
 {
@@ -540,7 +535,7 @@ Azure 테이블 OData 형식에서 .NET 형식에 형식 매핑을 지정하면 
 | name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
-다음으로, Azure 테이블 데이터 세트를 다음과 같이 정의합니다. 형식 정보가 기본 데이터 저장소에 이미 지정되어 있으므로 형식 정보로 "structure" 섹션을 지정할 필요가 없습니다.
+다음으로, Azure 테이블 데이터 세트를 다음과 같이 정의합니다. 형식 정보가 기본 데이터 저장소에 이미 지정 되어 있으므로 형식 정보로 "structure" 섹션을 지정할 필요가 없습니다.
 
 ```JSON
 {

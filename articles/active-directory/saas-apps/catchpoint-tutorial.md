@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 940915186176efcb39be03efe6673c138132ebd6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: a8515920985c569df74b1e328d6bfe1c4ec97195
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916306"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99822188"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>자습서: Catchpoint와 Azure Active Directory Single Sign-On 통합
 
@@ -101,7 +101,7 @@ Azure Portal에서 다음 단계를 수행하여 Azure AD SSO를 사용하도록
     | 네임스페이스 | user.assignedrole |
 
     > [!NOTE]
-    > `namespace` 클레임은 계정 이름과 매핑되어야 합니다. 이 계정 이름은 Azure AD의 역할로 설정되어 SAML 응답에서 다시 전달되어야 합니다. Azure AD의 역할에 대한 자세한 내용은 [엔터프라이즈 애플리케이션의 SAML 토큰에서 발급된 역할 클레임 구성](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)을 참조하세요.
+    > `namespace` 클레임은 계정 이름과 매핑되어야 합니다. 이 계정 이름은 Azure AD의 역할로 설정되어 SAML 응답에서 다시 전달되어야 합니다. Azure AD의 역할에 대한 자세한 내용은 [엔터프라이즈 애플리케이션의 SAML 토큰에서 발급된 역할 클레임 구성](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)을 참조하세요.
 
 1. **SAML로 Single Sign-On 설정** 페이지로 이동합니다. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾습니다. **다운로드** 를 선택하여 인증서를 컴퓨터에 저장합니다.
 
@@ -176,7 +176,7 @@ Catchpoint는 기본적으로 사용하도록 설정된 Just-In-Time 사용자 �
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Catchpoint 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Catchpoint 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Catchpoint에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 > [!NOTE]

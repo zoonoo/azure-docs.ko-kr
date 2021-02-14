@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38403eed56dc718afdfce13375dd2662beb13eb6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374170"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Power BI의 Azure Time Series Insights에서 데이터 시각화
 
@@ -26,7 +26,7 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 * Power BI에 보고서를 게시 하 고 나머지 조직과 공유
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 아직 Azure 구독이 없는 경우 [평가판 Azure 구독](https://azure.microsoft.com/free/)에 등록합니다.
 * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 다운로드 및 설치
@@ -37,9 +37,7 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 > [!IMPORTANT]
 > * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/)를 다운로드 하 여 설치 합니다. 이 문서의 단계를 수행 하려면 Power BI Desktop의 12 월 2020 (2.88.321.0) 버전이 설치 되어 있는지 확인 하세요. 
 
-## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Azure Time Series Insights의 데이터를 Power BI에 연결
-
-### <a name="1-export-data-into-power-bi-desktop"></a>1. Power BI desktop으로 데이터 내보내기
+## <a name="export-data-from-azure-time-series-insights-into-power-bi-desktop"></a>Azure Time Series Insights에서 Power BI 데스크톱으로 데이터 내보내기
 
 시작하기:
 
@@ -53,37 +51,36 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
    * **데이터 형식**: **집계 데이터** 또는 **원시 이벤트** 를 Power BI로 내보낼지 여부를 선택 합니다. 
 
        > [!NOTE]
-       > * 원시 이벤트를 내보내는 경우 나중에 Power BI에서 해당 데이터를 집계할 수 있습니다. 그러나 집계 데이터를 내보내는 경우에는 Power BI 원시 데이터로 되돌릴 수 없습니다. 
-       > * 원시 이벤트 수준 데이터에는 25만 이벤트 수 제한이 있습니다.
+       > 원시 이벤트를 내보내는 경우 나중에 Power BI에서 해당 데이터를 집계할 수 있습니다. 그러나 집계 데이터를 내보내는 경우에는 Power BI 원시 데이터로 되돌릴 수 없습니다. 원시 이벤트 수준 데이터에는 25만 이벤트 수 제한이 있습니다.
 
    * **시간 범위**: **고정** 된 시간 범위 또는 Power BI의 **최신** 데이터를 볼 지 여부를 선택 합니다. 고정 된 시간 범위를 선택 하면 차트에 사용 되는 검색 범위의 데이터가 Power BI로 내보내집니다. 최근 시간 범위를 선택 하면 Power BI에서 사용자가 선택한 검색 범위의 최신 데이터를 가져옵니다. 예를 들어 1 시간 분량의 데이터를 차트로 작성 하 고 "최신" 설정을 선택 하는 경우 커넥터 Power BI는 항상 최근 1 시간 분량의 데이터를 쿼리 합니다.)
   
-   * **저장소 유형**: **웜 스토어** 또는 **콜드 스토어** 에 대해 선택한 쿼리를 실행할지 여부를 선택 합니다. 
+   * **저장소 유형**: **웜 스토어** 또는 **콜드 스토어** 에 대해 선택한 쿼리를 실행할지 여부를 선택 합니다. 콜드 및 웜 저장소 둘 다에 걸쳐 있는 범위를 선택 하면 웜 저장소에 최신 데이터만 포함 되기 때문에 기본적으로 쿼리는 콜드 저장소로 라우팅됩니다. 수동으로 storeType 매개 변수를 변경 하는 것은 허용 되지만 최상의 환경에서는 권장 되지 않습니다. 
 
-    > [!TIP]
-    > * Azure Time Series Insights 탐색기는 내보내기 위해 선택한 데이터에 따라 권장 매개 변수를 자동으로 선택 합니다. 
+    > [!TIP] 
+    > Azure Time Series Insights 탐색기는 내보내기 위해 선택한 데이터의 검색 범위 및 뷰에 따라 권장 매개 변수를 자동으로 선택 합니다. 
 
 1. 설정을 구성 했으면 **클립보드에 쿼리 복사** 를 선택 합니다.
 
     [![Azure Time Series Insights 탐색기 내보내기 모달](media/how-to-connect-power-bi/choose-explorer-parameters.jpg)](media/how-to-connect-power-bi/choose-explorer-parameters.jpg#lightbox)
 
-2. Power BI Desktop을 시작합니다.
+1. Power BI Desktop을 시작합니다.
    
-3. **홈** 탭의 Power BI Desktop에서 왼쪽 위 모서리에 있는 **데이터 가져오기** 를 선택 하 고 **추가** 를 선택 합니다.
+1. **홈** 탭의 Power BI Desktop에서 왼쪽 위 모서리에 있는 **데이터 가져오기** 를 선택 하 고 **추가** 를 선택 합니다.
 
     [![Power BI에서 데이터 가져오기](media/how-to-connect-power-bi/get-data-power-bi.jpg)](media/how-to-connect-power-bi/get-data-power-bi.jpg#lightbox)
 
-4. **Azure Time Series Insights** 를 검색 하 고 **Azure Time Series Insights (베타)** 를 선택한 다음 **연결** 을 선택 합니다.
+1. **Azure Time Series Insights** 를 검색 하 고 **Azure Time Series Insights (베타)** 를 선택한 다음 **연결** 을 선택 합니다.
 
     [![Azure Time Series Insights에 Power BI 연결](media/how-to-connect-power-bi/select-tsi-connector.jpg)](media/how-to-connect-power-bi/select-tsi-connector.jpg#lightbox)
 
     또는 **Azure** 탭으로 이동 하 **Azure Time Series Insights (베타)** 를 선택한 다음 **연결** 을 선택 합니다.
 
-5. Azure Time Series Insights 탐색기에서 복사한 쿼리를 **사용자 지정 쿼리** 필드에 붙여넣은 다음 **확인** 을 누릅니다.
+1. Azure Time Series Insights 탐색기에서 복사한 쿼리를 **사용자 지정 쿼리** 필드에 붙여넣은 다음 **확인** 을 누릅니다.
 
     [![사용자 지정 쿼리를 붙여넣고 확인을 선택 합니다.](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-6.  이제 데이터 테이블이 로드 됩니다. **Load** 를 눌러 Power BI으로 로드 합니다. 데이터에 대 한 변환을 수행 하려는 경우 **데이터 변환** 을 클릭 하 여 지금 작업을 수행할 수 있습니다. 데이터를 로드 한 후 변형할 수도 있습니다.
+1.  이제 데이터 테이블이 로드 됩니다. **Load** 를 눌러 Power BI으로 로드 합니다. 데이터에 대 한 변환을 수행 하려는 경우 **데이터 변환** 을 클릭 하 여 지금 작업을 수행할 수 있습니다. 데이터를 로드 한 후 변형할 수도 있습니다.
 
     [![테이블의 데이터를 검토 하 고 로드를 선택 합니다.](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 

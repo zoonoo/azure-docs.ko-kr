@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: 작업 시간 외 VM 시작/중지에서 로그 쿼리
           href: automation-solution-vm-management-logs.md
+        - name: 작업 시간 외 VM 시작/중지 제거
+          href: automation-solution-vm-management-remove.md
         - name: 작업 시간 외 VM 중지/시작 문제 해결
           href: troubleshoot/start-stop-vm.md
     - name: 업데이트 관리

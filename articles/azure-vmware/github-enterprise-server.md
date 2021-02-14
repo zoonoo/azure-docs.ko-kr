@@ -2,17 +2,17 @@
 title: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
 description: Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 02/03/2021
-ms.openlocfilehash: 2b05e352fd8a81d6d180d4c60e67ab48465b284f
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.date: 02/11/2021
+ms.openlocfilehash: 59a76c3976f6fcda88423b7b78344f2abed1ea84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549105"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382024"
 ---
 # <a name="set-up-github-enterprise-server-on-your-azure-vmware-solution-private-cloud"></a>Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise 서버 설정
 
-이 문서에서는 Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise Server, "온-프레미스" 버전의 [GitHub.com](https://github.com/)을 설정 하는 단계를 안내 합니다. 이 연습에서 다루는 시나리오는 GitHub 작업에서 최대 25 개의 작업을 실행 하는 최대 3000 명의 개발자를 제공할 수 있는 GitHub Enterprise 서버 인스턴스에 대 한 것입니다. 여기에는 GitHub 작업과 같은 *미리 보기* 기능 (작성 시점)의 설정이 포함 됩니다. 특정 요구 사항에 맞게 설정을 사용자 지정 하려면 [VMware에서 GitHub Enterprise Server 설치](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)에 나열 된 요구 사항을 검토 하세요.
+이 문서에서는 Azure VMware 솔루션 사설 클라우드에서 GitHub Enterprise Server, "온-프레미스" 버전의 [GitHub.com](https://github.com/)을 설정 하는 단계를 안내 합니다. GitHub 작업에서 최대 25 개의 작업을 실행 하는 최대 3000 명의 개발자를 지원할 수 있는 GitHub Enterprise Server 인스턴스를 다룰 시나리오입니다. 여기에는 GitHub 작업과 같은 *미리 보기* 기능 (작성 시점)의 설정이 포함 됩니다. 특정 요구 사항에 맞게 설정을 사용자 지정 하려면 [VMware에서 GitHub Enterprise Server 설치](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#hardware-considerations)에 나열 된 요구 사항을 검토 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -30,7 +30,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 가져온 후에는 요구 사항에 따라 [하드웨어 구성을 조정](https://docs.github.com/en/enterprise/admin/installation/installing-github-enterprise-server-on-vmware#creating-the-github-enterprise-server-instance) 합니다. 예제 시나리오에서는 다음과 같은 구성이 필요 합니다.
 
-| 리소스 | 표준 설정 | 표준 설치 + "베타 기능" (작업) |
+| 리소스 | 표준 설정 | 표준 설정 + "베타 기능" (작업) |
 | --- | --- | --- |
 | vCPU | 4 | 8 |
 | 메모리 | 32GB | 61 GB |
@@ -59,7 +59,7 @@ VMware ESXi/vSphere 대 한 [GitHub Enterprise Server의 현재 릴리스](https
 
 :::image type="content" source="media/github-enterprise-server/create-admin-account.png" alt-text="관리자 계정을 만듭니다.":::
 
-인스턴스가 다시 시작 되 면 인스턴스에 새 관리자 계정을 만듭니다. 이 사용자의 암호를 기록해 두어야 합니다.
+인스턴스를 다시 시작한 후 인스턴스에 새 관리자 계정을 만들 수 있습니다. 이 사용자의 암호를 기록해 두어야 합니다.
 
 ### <a name="other-configuration-steps"></a>기타 구성 단계
 
@@ -178,7 +178,7 @@ Run.sh 명령을 사용 하 여 runner를 *실행* 합니다.
 
 :::image type="content" source="media/github-enterprise-server/edit-runner-access.png" alt-text="Runner 액세스를 편집 합니다.":::
 
-여기서는 모든 조직에서 사용할 수 있도록 하지만 조직의 하위 집합 및 특정 리포지토리에 대 한 액세스를 제한할 수도 있습니다.
+여기서는 모든 조직에서 사용할 수 있도록 하지만 조직의 하위 집합 및 특정 리포지토리에 대 한 액세스를 제한할 수 있습니다.
 
 ## <a name="optional-configuring-github-connect"></a>필드 GitHub 연결 구성
 
@@ -221,9 +221,9 @@ GitHub 연결을 사용 하지 않도록 선택한 경우 다음과 같은 대�
 
 :::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="리포지토리의 예":::
 
-축하합니다! Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
+지금까지 Azure VMware 솔루션 사설 클라우드에서 실행 되는 GitHub Enterprise 서버에서 첫 번째 작업 워크플로를 완료 했습니다.
 
-이 문서에서는 Azure VMware 솔루션 사설 클라우드 위에 GitHub Enterprise Server (자체 호스팅 GitHub.com)의 새 인스턴스를 설정 합니다. 이 인스턴스에는 GitHub 동작에 대 한 지원이 포함 되며 로그 및 아티팩트의 지 속성에 Azure Blob Storage 사용 됩니다. 그러나 GitHub 작업으로 수행할 수 있는 작업의 사실일 됩니다. [GitHub Marketplace](https://github.com/marketplace)에서 작업 목록을 확인 하거나 [직접 만듭니다](https://docs.github.com/en/actions/creating-actions).
+이 문서에서는 Azure VMware 솔루션 사설 클라우드 위에 GitHub Enterprise Server (자체 호스팅 GitHub.com)의 새 인스턴스를 설정 합니다. 이 인스턴스에는 GitHub 동작에 대 한 지원이 포함 되며 로그 및 아티팩트의 지 속성에 Azure Blob Storage 사용 됩니다. 그러나 GitHub 작업으로 수행할 수 있는 작업의 화면을 사실일 합니다. [GitHub Marketplace](https://github.com/marketplace)에서 작업 목록을 확인 하거나 [직접 만듭니다](https://docs.github.com/en/actions/creating-actions).
 
 ## <a name="next-steps"></a>다음 단계
 

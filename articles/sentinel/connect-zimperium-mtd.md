@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77587943"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097452"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Zimperium 모바일 위협 방어를 Azure 센티널에 연결
 
@@ -35,10 +35,10 @@ Zimperium 모바일 위협 방어 커넥터는 Zimperium 위협 로그를 Azure 
 
 ## <a name="configure-and-connect-zimperium-mobile-threat-defense"></a>Zimperium 모바일 위협 방어 구성 및 연결
 
-Zimperium 모바일 위협 방어는 로그를 **Azure 센티널**로 직접 통합 하 고 내보낼 수 있습니다.
+Zimperium 모바일 위협 방어는 로그를 **Azure 센티널** 로 직접 통합 하 고 내보낼 수 있습니다.
 
-1. Azure 센티널 포털에서 데이터 커넥터를 클릭 하 고 **Zimperium 모바일 위협 방어**를 선택 합니다.
-2. **커넥터 페이지 열기**를 선택 합니다.
+1. Azure 센티널 포털에서 데이터 커넥터를 클릭 하 고 **Zimperium 모바일 위협 방어** 를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택 합니다.
 3. **Zimperium 모바일 위협 방어** 커넥터 페이지의 지침에 따라 다음과 같이 요약 합니다.
  1. ZConsole의 탐색 모음에서 **관리** 를 클릭 합니다.
  2. **통합** 탭을 클릭합니다.
@@ -58,7 +58,7 @@ Zimperium 모바일 위협 방어를 위해 Log Analytics에서 관련 스키마
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

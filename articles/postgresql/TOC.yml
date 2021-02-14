@@ -30,6 +30,9 @@
     - name: 버전 관리 정책
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: 알려진 문제 및 제한 사항
+      href: concepts-known-issues-limitations.md
+      displayName: 'issues, limitations, postgresql'
 - name: 단일 서버
   expanded: true
   items:

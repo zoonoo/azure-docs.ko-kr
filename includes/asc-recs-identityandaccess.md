@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 01-26-2021
+ms.date: 02/09/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 7487262faa8af74af26ac2123686a8e202254e76
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: e1d2039ba3a667e40740acd7781090c9c0cf5281
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797149"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007615"
 ---
 이 범주에는 **21** 개의 권장 사항이 있습니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "98797149"
 |Azure Defender for Key Vault를 사용해야 합니다. |Azure Security Center에는 Azure Defender for Key Vault가 포함되어 있으며, 추가 보안 인텔리전스를 계층에 제공합니다.<br>Azure Defender for Key Vault는 Key Vault 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도를 탐지합니다.<br><br>중요: 이 권장 사항에 따라 수정하면 키 자격 증명 모음을 보호하기 위한 요금이 부과됩니다. 이 구독에 키 자격 증명 모음이 없으면 요금이 발생하지 않습니다.<br>나중에 이 구독에 키 자격 증명 모음을 만들면 자동으로 보호되고 해당 시간에 요금이 청구됩니다.<br> <a href='https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault'>Azure Defender for Key Vault에 대해 자세히 알아보세요.</a><br />(관련 정책: [Azure Defender for Key Vault를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)) |높음 |
 |더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다. |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [사용되지 않는 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)) |높음 |
 |소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다. |로그인할 수 없도록 차단된 사용자 계정은 구독에서 제거해야 합니다.<br>이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [소유자 권한이 있는 사용되지 않는 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)) |높음 |
-|Key Vault의 진단 로그를 사용하도록 설정해야 합니다. |로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br />(관련 정책: [Key Vault에서 진단 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcf820ca0-f99e-4f3e-84fb-66e913812d21)) |낮음 |
+|Key Vault의 진단 로그를 사용하도록 설정해야 합니다. |로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br />(관련 정책: [Key Vault에서 리소스 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcf820ca0-f99e-4f3e-84fb-66e913812d21)) |낮음 |
 |소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 소유자 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [소유자 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff8456c1c-aa66-4dfb-861a-25d127b775c9)) |높음 |
 |읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 읽기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [읽기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5f76cf89-fbf2-47fd-a3f4-b891fa780b60)) |높음 |
 |쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다. |도메인 이름(외부 계정)이 다른 쓰기 권한이 있는 계정은 구독에서 제거해야 합니다. 이렇게 하면 모니터링되지 않는 액세스를 방지합니다. 이러한 계정은 검색하지 않고 데이터에 액세스하는 방법을 찾으려는 공격자의 대상이 될 수 있습니다.<br />(관련 정책: [쓰기 권한이 있는 외부 계정을 구독에서 제거해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5c607a2e-c700-4744-8254-d77e7c9eb5e4)) |높음 |

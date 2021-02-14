@@ -3,12 +3,12 @@ title: 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디�
 description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f8a828d27b69fedefe7ccbc2ad7290bf300afc16
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060183"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99822451"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
 
@@ -23,10 +23,11 @@ ms.locfileid: "98060183"
 > * 이벤트 모니터링
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요. 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료
 
-시작하기 전에 다음 문서를 읽어보세요.
+시작하기 전에 다음 문서를 참조하세요.
 
 * [Live Video Analytics on IoT Edge 개요](overview.md)
 * [Live Video Analytics on IoT Edge 용어](terminology.md)
@@ -109,8 +110,8 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
     CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"   
@@ -136,10 +137,10 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 1. lvaEdge 및 공간 분석 모듈 createOptions의 `IpcMode`는 동일해야 하며 host로 설정되어야 합니다.
 1. RTSP 시뮬레이터가 작동하려면 볼륨 범위를 설정했는지 확인합니다. 자세한 내용은 [Docker 볼륨 탑재 설정](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts)을 참조하세요.
 
-    1. [SMB 공유에 연결](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 bulldozer 비디오 파일](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv)을 로컬 공유에 복사합니다.
+    1. [SMB 공유에 연결](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 bulldozer 비디오 파일](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv)을 로컬 공유에 복사합니다.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. rtspsim 모듈이 다음과 같이 구성되었는지 확인합니다.
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>배포 매니페스트 생성 및 배포
 
 배포 매니페스트는 에지 디바이스에 배포되는 모듈을 정의합니다. 또한 해당 모듈에 대한 구성 설정을 정의합니다.
@@ -200,7 +203,7 @@ MediaGraphCognitiveServicesVisionExtension 노드는 프록시의 역할을 수�
 
 이러한 이벤트를 보려면 다음 단계를 수행합니다.
 
-1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누르고) Azure IoT Hub를 검색합니다.
+1. Visual Studio Code에서 **확장** 탭을 열고(또는 Ctrl+Shift+X를 누름) Azure IoT Hub를 검색합니다.
 1. 마우스 오른쪽 단추를 클릭하고 **확장 설정** 을 선택합니다.
 
     > [!div class="mx-imgBorder"]

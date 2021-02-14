@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808474"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373313"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -42,7 +42,7 @@ IMDS에 액세스 하려면 [Azure Resource Manager](/rest/api/resources/) 또�
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -98,7 +98,7 @@ IMDS는 프록시 뒤에서 사용 하기 위한 것이 **아니며** 지원 되
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 다음은 그 예입니다.  
+IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 예를 들면 다음과 같습니다. 
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -274,7 +274,7 @@ IMDS API에는 서로 다른 데이터 소스를 나타내는 여러 끝점 범�
 | `/metadata/identity` | [IMDS를 통한 관리 되는 id](#managed-identity) 참조 | 2018-02-01
 | `/metadata/instance` | [인스턴스 메타 데이터](#instance-metadata) 를 참조 하세요. | 2017-04-02
 | `/metadata/scheduledevents` | [IMDS를 통해 Scheduled Events](#scheduled-events) 를 참조 하세요. | 2017-08-01
-| `/metadata/versions` | [버전](#versions) 참조 | 해당 없음
+| `/metadata/versions` | [버전](#versions) 참조 | N/A
 
 ## <a name="versions"></a>버전
 
@@ -494,7 +494,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -653,7 +653,7 @@ AzurePublicCloud
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -724,7 +724,7 @@ GET /metadata/attested/document
 | 속성 | 필수/선택 | 설명 |
 |------|-------------------|-------------|
 | `api-version` | 필수 | 요청을 처리 하는 데 사용 되는 버전입니다.
-| `nonce` | Optional | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
+| `nonce` | 선택 사항 | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
 
 #### <a name="response"></a>응답
 
@@ -983,7 +983,7 @@ IMDS에서 `Metadata: true` 요청에 헤더를 전달 해야 합니다. REST �
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
-1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 다음은 그 예입니다. 
+1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들면 다음과 같습니다.
     ```console
     > route print
     IPv4 Route Table

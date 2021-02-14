@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: bcba2b48fdecda311ce349f90ba43023b906bd44
-  ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+  ms.openlocfilehash: 29f3b0bf0a00c9e4e238e8bb514f80e7451d30a6
+  ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/26/2020
-  ms.locfileid: "96186408"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "100007757"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
@@ -23,6 +23,14 @@ landingContent:
     links:
     - text: Azure Digital Twins란?
       url: overview.md
+  - linkListType: concept
+    links:
+    - text: 사용자 지정 모델
+      url: concepts-models.md
+    - text: Digital Twins 및 쌍 그래프
+      url: concepts-twins-graph.md
+    - text: 쿼리 언어
+      url: concepts-query-language.md
 - title: 빠른 시작으로 시작
   linkLists:
   - linkListType: quickstart
@@ -43,20 +51,6 @@ landingContent:
     links:
     - text: 엔드투엔드 솔루션 연결
       url: tutorial-end-to-end.md
-- title: 배우기
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 사용자 지정 모델
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Digital Twins 및 쌍 그래프
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: 쿼리 언어
-      url: concepts-query-language.md
 - title: 개발
   linkLists:
   - linkListType: how-to-guide
@@ -115,3 +109,19 @@ landingContent:
     links:
     - text: Logic Apps 커넥터용 사용자 지정 Swagger
       url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+- title: Microsoft Learn을 통한 시나리오 기반 학습
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: '학습 경로: Azure Digital Twins로 개발'
+      url: /learn/paths/develop-azure-digital-twins/
+  - linkListType: learn
+    links:
+    - text: '학습 모듈: Azure Digital Twins 소개'
+      url: /learn/modules/develop-with-azure-digital-twins/introduction-to-azure-digital-twins/
+    - text: '학습 모듈: 초콜릿 공장 생산 라인을 위한 Azure Digital Twins 그래프 빌드'
+      url: /learn/modules/develop-with-azure-digital-twins/build-azure-digital-twins-graph-for-chocolate-factory/
+    - text: '학습 모듈: Azure Digital Twins로 데이터 수집'
+      url: /learn/modules/develop-with-azure-digital-twins/ingest-data-into-azure-digital-twins/
+    - text: '학습 모듈: Azure Digital Twins에서 다운스트림 서비스로 출력'
+      url: /learn/modules/develop-with-azure-digital-twins/route-output-from-azure-digital-twins-to-downstream-services/

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d475c76d338270cb9b8e34ea8563cdfd8fdf5122
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563061"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821566"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -161,15 +161,15 @@ IoT Hub는 IoT 애플리케이션과 이 애플리케이션이 관리하는 디�
 > [!NOTE]
 > 디바이스 원격 분석 이벤트를 Event Grid에 게시하는 기능은 현재 공개 미리 보기로 제공됩니다. 이 기능은 미국 동부, 미국 서부, 서유럽, Azure Government, Azure 중국 21Vianet 및 Azure 독일을 제외한 모든 지역에서 사용할 수 있습니다.
 
-*ContosoRental* 리소스 그룹에서 IoT 허브를 만들려면 [IoT 허브 만들기](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub)의 단계를 따릅니다.
+*ContosoRental* 리소스 그룹에서 IoT 허브를 만들려면 [IoT 허브 만들기](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub)의 단계를 따릅니다.
 
 ## <a name="register-a-device-in-your-iot-hub"></a>IoT 허브에 디바이스 등록
 
-디바이스가 IoT 허브 ID 레지스트리에 등록되지 않으면 IoT 허브에 연결할 수 없습니다. 여기서는 *InVehicleDevice* 라는 이름으로 단일 디바이스를 만듭니다. IoT 허브 내에서 디바이스를 만들고 등록하려면 [IoT 허브에서 새 디바이스 등록](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub)의 단계를 따릅니다. 디바이스의 기본 연결 문자열을 복사해 둡니다. 나중에 필요합니다.
+디바이스가 IoT 허브 ID 레지스트리에 등록되지 않으면 IoT 허브에 연결할 수 없습니다. 여기서는 *InVehicleDevice* 라는 이름으로 단일 디바이스를 만듭니다. IoT 허브 내에서 디바이스를 만들고 등록하려면 [IoT 허브에서 새 디바이스 등록](../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub)의 단계를 따릅니다. 디바이스의 기본 연결 문자열을 복사해 둡니다. 나중에 필요합니다.
 
 ## <a name="create-a-function-and-add-an-event-grid-subscription"></a>함수 만들기 및 Event Grid 구독 추가
 
-Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거나 관리할 필요 없이 작은 코드("함수")를 실행할 수 있는 서버리스 컴퓨팅 서비스입니다. 자세한 내용은 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)를 참조하세요.
+Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거나 관리할 필요 없이 작은 코드("함수")를 실행할 수 있는 서버리스 컴퓨팅 서비스입니다. 자세한 내용은 [Azure Functions](../azure-functions/functions-overview.md)를 참조하세요.
 
 함수는 특정 이벤트에 의해 "트리거"됩니다. 여기서는 Event Grid 트리거로 트리거되는 함수를 만듭니다. IoT Hub 디바이스 원격 분석 이벤트에 대한 이벤트 구독을 만들어서 트리거와 함수 간의 관계를 만듭니다. 디바이스 원격 분석 이벤트가 발생하면 함수가 엔드포인트로 호출되고, 이전에 IoT Hub에 등록한 디바이스와 관련된 데이터를 받습니다.
 
@@ -223,7 +223,7 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 
 ## <a name="filter-events-by-using-iot-hub-message-routing"></a>IoT Hub 메시지 라우팅을 사용하여 이벤트 필터링
 
-Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시지 경로가 자동으로 만들어집니다. 메시지 라우팅을 사용하면 다양한 데이터 형식을 다양한 엔드포인트로 라우팅할 수 있습니다. 예를 들어 디바이스 원격 분석 메시지, 디바이스 수명 주기 이벤트 및 디바이스 쌍 변경 이벤트를 라우팅할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅 사용](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)을 참조하세요.
+Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시지 경로가 자동으로 만들어집니다. 메시지 라우팅을 사용하면 다양한 데이터 형식을 다양한 엔드포인트로 라우팅할 수 있습니다. 예를 들어 디바이스 원격 분석 메시지, 디바이스 수명 주기 이벤트 및 디바이스 쌍 변경 이벤트를 라우팅할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅 사용](../iot-hub/iot-hub-devguide-messages-d2c.md)을 참조하세요.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-route.png" alt-text="IoT 허브의 메시지 라우팅 스크린샷":::
 
@@ -232,7 +232,7 @@ Event Grid 구독을 Azure 함수에 추가하면 지정된 IoT 허브에 메시
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="라우팅 메시지 필터링 스크린샷":::
 
 >[!TIP]
->IoT 디바이스-클라우드 메시지를 쿼리하는 다양한 방법이 있습니다. 메시지 라우팅에 대한 자세한 내용은 [IoT Hub 메시지 라우팅 사용](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax)을 참조하세요.
+>IoT 디바이스-클라우드 메시지를 쿼리하는 다양한 방법이 있습니다. 메시지 라우팅에 대한 자세한 내용은 [IoT Hub 메시지 라우팅 사용](../iot-hub/iot-hub-devguide-routing-query-syntax.md)을 참조하세요.
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>IoT Hub에 원격 분석 데이터 보내기
 
@@ -283,6 +283,10 @@ Azure Maps REST API의 전체 목록은 다음을 참조하세요.
 IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방문하세요.
 
 * [Azure Certified 디바이스](https://catalog.azureiotsolutions.com/)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

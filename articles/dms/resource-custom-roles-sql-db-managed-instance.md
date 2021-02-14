@@ -11,17 +11,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/08/2021
+ms.openlocfilehash: 1228234b6a2904c453ec92f3c09a7b3f55604953
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961484"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363766"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Azure SQL Managed Instance 온라인 마이그레이션에 SQL Server 하기 위한 사용자 지정 역할
 
-Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 상호 작용 합니다. 앱 ID를 사용 하려면 구독 수준의 참가자 역할 (많은 회사 보안 부서에서 허용 하지 않음) 또는 Azure database migration Service에 필요한 특정 사용 권한을 부여 하는 사용자 지정 역할을 만들어야 합니다. Azure Active Directory에는 사용자 지정 역할 2000의 제한이 있으므로 앱 ID에 필요한 모든 사용 권한을 하나 또는 두 개의 사용자 지정 역할로 결합 한 다음 특정 개체 또는 리소스 그룹 (구독 수준에서)에 대 한 사용자 지정 역할을 앱 ID에 부여 해야 할 수 있습니다. 사용자 지정 역할 수가 그다지 중요 하지 않은 경우에는 리소스 유형별로 사용자 지정 역할을 분할 하 여 아래에 설명 된 대로 총 세 개의 사용자 지정 역할을 만들 수 있습니다.
+Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 상호 작용 합니다. 앱 ID를 사용 하려면 구독 수준의 참가자 역할 (많은 회사 보안 부서에서 허용 하지 않음) 또는 Azure Database Migration Service 필요한 특정 사용 권한을 부여 하는 사용자 지정 역할을 만들어야 합니다. Azure Active Directory에는 사용자 지정 역할 2000의 제한이 있으므로 앱 ID에 필요한 모든 사용 권한을 하나 또는 두 개의 사용자 지정 역할로 결합 한 다음 특정 개체 또는 리소스 그룹 (구독 수준에서)에 대 한 사용자 지정 역할을 앱 ID에 부여 해야 할 수 있습니다. 사용자 지정 역할 수가 그다지 중요 하지 않은 경우에는 리소스 유형별로 사용자 지정 역할을 분할 하 여 아래에 설명 된 대로 총 세 개의 사용자 지정 역할을 만들 수 있습니다.
 
 역할 정의 json 문자열의 AssignableScopes 섹션에서는 포털의 **역할 할당 추가** UI에 사용 권한이 표시 되는 위치를 제어할 수 있습니다. 추가 역할이 있는 UI를 복잡 하 게 방지 하기 위해 리소스 그룹 또는 리소스 수준에서 역할을 정의 하는 것이 좋습니다. 실제 역할 할당을 수행 하지 않습니다.
 
@@ -32,7 +32,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 > [!NOTE]
 > 새 SQL Managed Instance 코드가 Azure에 배포 되 면 최종적으로 마지막 사용자 지정 역할 요구 사항이 제거 될 수 있습니다.
 
-**앱 ID에 대 한 사용자 지정 역할** 입니다. 이 역할은 *리소스* 또는 *리소스 그룹* 수준에서 마이그레이션을 Azure Database Migration Service 하는 데 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)문서를 참조 하세요.
+**앱 ID에 대 한 사용자 지정 역할** 입니다. 이 역할은 Azure Database Migration Service를 호스트 *하는 리소스 또는* *리소스 그룹* 수준에서 Azure Database Migration Service 마이그레이션에 필요 합니다. 앱 ID에 대 한 자세한 내용은 포털을 [사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)문서를 참조 하세요.
 
 ```json
 {
@@ -63,7 +63,7 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 }
 ```
 
-**앱 ID-구독에 대 한 사용자 지정 역할** 입니다. 이 역할은 *구독* 수준에서 Azure Database Migration Service 마이그레이션을 위해 필요 합니다.
+**앱 ID-구독에 대 한 사용자 지정 역할** 입니다. 이 역할은 SQL Managed Instance를 호스팅하는 *구독* 수준에서 Azure Database Migration Service 마이그레이션을 수행 하는 데 필요 합니다.
 
 ```json
 {
@@ -87,8 +87,8 @@ Azure Database Migration Service는 앱 ID를 사용 하 여 Azure 서비스와 
 
 이러한 사용자 지정 역할을 만든 후에는 사용자 및 앱 ID에 역할 할당을 적절 한 리소스 또는 리소스 그룹에 추가 해야 합니다.
 
-* "DMS 역할-앱 ID" 역할은 마이그레이션에 사용 되는 앱 ID에 부여 되어야 하 고 저장소 계정, Azure Database Migration Service 인스턴스 및 SQL Managed Instance 리소스 수준 에서도 부여 되어야 합니다.
-* 구독 수준에서 앱 ID에 "DMS 역할-앱 ID-Sub" 역할을 부여 해야 합니다. 리소스 또는 리소스 그룹에 대 한 부여는 실패 합니다. 이 요구 사항은 코드 업데이트가 배포 될 때까지 일시적입니다.
+* "DMS 역할-앱 ID" 역할은 마이그레이션에 사용 되는 앱 ID에 부여 되어야 하 고 저장소 계정, Azure Database Migration Service 인스턴스 및 SQL Managed Instance 리소스 수준 에서도 부여 되어야 합니다. Azure Database Migration Service를 호스트 하는 리소스 또는 리소스 그룹 수준에서 부여 됩니다.
+* SQL Managed Instance를 호스트 하는 구독 수준에서 앱 ID에 "DMS 역할-앱 ID-Sub" 역할을 부여 해야 합니다 (리소스 또는 리소스 그룹에 대 한 부여는 실패 함). 이 요구 사항은 코드 업데이트가 배포 될 때까지 일시적입니다.
 
 ## <a name="expanded-number-of-roles"></a>확장 된 역할 수
 

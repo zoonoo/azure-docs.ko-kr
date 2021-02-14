@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736754"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374136"
 ---
-# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Querying Data from Azure Time Series Insights Gen2(Azure Time Series Insights Gen2의 데이터 쿼리)
+# <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2에서 데이터 쿼리
 
 Azure Time Series Insights Gen2를 사용 하면 공용 surface Api를 통해 환경에 저장 된 메타 데이터 및 이벤트에 대 한 데이터를 쿼리할 수 있습니다. 이러한 Api는 [Azure Time Series Insights TSI 탐색기](./concepts-ux-panels.md)에서도 사용 됩니다.
 
@@ -54,13 +54,12 @@ Azure Time Series Insights Gen2는 시계열 [변수](./concepts-variables.md)�
 
 ## <a name="time-series-query-tsq-apis"></a>TSQ(Time Series Query) API
 
-이러한 Api는 다중 계층 저장소 솔루션에서 매장 (웜 및 콜드) 모두에서 사용할 수 있습니다. 쿼리 URL 매개 변수를 사용 하 여 쿼리를 실행 해야 하는 [저장소 유형을](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) 지정 합니다.
+이러한 Api는 다중 계층 저장소 솔루션에서 매장 (웜 및 콜드) 모두에서 사용할 수 있습니다. 
 
 * [Get EVENTS API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): 원본 공급자의 Azure Time Series Insights Gen2에 기록 된 대로 원시 이벤트와 관련 이벤트 타임 스탬프가 쿼리 및 검색을 사용 하도록 설정 합니다. 이 API는 지정 된 시계열 ID 및 검색 범위에 대 한 원시 이벤트 검색을 허용 합니다. 이 API는 선택한 입력에 대 한 전체 응답 데이터 집합을 검색 하는 페이지 매김을 지원 합니다.
 
   > [!IMPORTANT]
-
-  > * 앞으로 제공 되는 [JSON 평면화 및 이스케이프 규칙 변경](./ingestion-rules-update.md)의 일부로 배열은 **동적** 형식으로 저장 됩니다. 이 유형으로 저장 된 페이로드 속성은 **Get EVENTS API를 통해서만 액세스할 수** 있습니다.
+  > 앞으로 제공 되는 [JSON 평면화 및 이스케이프 규칙 변경](./ingestion-rules-update.md)의 일부로 배열은 **동적** 형식으로 저장 됩니다. 이 유형으로 저장 된 페이로드 속성은 **Get EVENTS API를 통해서만 액세스할 수** 있습니다.
 
 * [SERIES API 가져오기](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): 원시 이벤트에 대 한 변수로 정의 된 계산을 적용 하 여 계산 된 값 및 관련 이벤트 타임 스탬프의 쿼리 및 검색을 수행할 수 있습니다. 이러한 변수는 시계열 모델에서 정의 하거나 쿼리에 인라인으로 제공할 수 있습니다. 이 API는 선택한 입력에 대 한 전체 응답 데이터 집합을 검색 하는 페이지 매김을 지원 합니다.
 
@@ -69,6 +68,16 @@ Azure Time Series Insights Gen2는 시계열 [변수](./concepts-variables.md)�
   지정 된 검색 범위 및 간격에 대해이 API는 시계열 ID에 대 한 변수 당 간격당 집계 된 응답을 반환 합니다. 응답 데이터 집합의 간격 수는 epoch 틱 (Unix epoch-Jan 1, 1970 이후 경과 된 시간 (밀리초))을 계산 하 고 틱을 쿼리에 지정 된 간격 범위 크기로 나누는 방법으로 계산 됩니다.
 
   응답 집합에서 반환 된 타임 스탬프는 간격에서 샘플링 된 이벤트가 아니라 왼쪽 간격 경계입니다.
+
+
+### <a name="selecting-store-type"></a>저장소 유형 선택
+
+위의 Api는 한 번의 호출로 두 개의 저장소 유형 (콜드 또는 웜) 중 하나에 대해서만 실행할 수 있습니다. 쿼리 URL 매개 변수를 사용 하 여 쿼리를 실행 해야 하는 [저장소 유형을](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) 지정 합니다. 
+
+매개 변수를 지정 하지 않으면 기본적으로 콜드 저장소에서 쿼리가 실행 됩니다. 쿼리가 콜드 및 웜 저장소와 겹치는 시간 범위에 걸쳐 있는 경우 웜 저장에는 일부 데이터만 포함 되기 때문에 최상의 환경을 위해 콜드 저장소로 쿼리를 라우팅하는 것이 좋습니다. 
+
+[Azure Time Series Insights 탐색기](./concepts-ux-panels.md) 및 [Power BI 커넥터](./how-to-connect-power-bi.md) 는 위의 api를 호출 하 고 적절 한 storetype 매개 변수를 자동으로 선택 합니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

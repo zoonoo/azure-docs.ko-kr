@@ -3,12 +3,12 @@ title: 새 구독 또는 리소스 그룹으로 Azure Vm 이동
 description: Azure Resource Manager를 사용 하 여 가상 컴퓨터를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456327"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104912"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>가상 컴퓨터에 대 한 이동 지침
 
@@ -58,7 +58,7 @@ Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 
 Azure Backup를 사용 하 여 구성 된 가상 컴퓨터를 이동 하려면 자격 증명 모음에서 복원 위치를 삭제 해야 합니다.
 
-가상 컴퓨터에 대해 [일시 삭제](../../../backup/backup-azure-security-feature-cloud.md) 를 사용 하는 경우 해당 복원 지점이 유지 되는 동안에는 가상 컴퓨터를 이동할 수 없습니다. [일시 삭제를 사용 하지 않도록 설정](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) 하거나 복원 지점이 삭제 된 후 14 일 동안 기다립니다.
+가상 컴퓨터에 대해 [일시 삭제](../../../backup/soft-delete-virtual-machines.md) 를 사용 하는 경우 해당 복원 지점이 유지 되는 동안에는 가상 컴퓨터를 이동할 수 없습니다. [일시 삭제를 사용 하지 않도록 설정](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) 하거나 복원 지점이 삭제 된 후 14 일 동안 기다립니다.
 
 ### <a name="portal"></a>포털
 

@@ -4,12 +4,12 @@ description: X.509 인증서를 사용 하 여 보호 되는 Service Fabric 클�
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: 722c84c25cb5188e45dd96363bab9af6ff93f6dc
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: a8a7e8954f3c9d5b54c2e1ed9caa330ef92d4512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901269"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099509"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Service Fabric 클러스터의 인증서 관리
 
@@ -427,6 +427,7 @@ Service Fabric의 인증서는 페더레이션 계층의 상호 인증에서 관
 KVVM 확장의 ' linkOnRenewal ' 플래그를 발견 했을 수 있으며 false로 설정 되어 있습니다. 여기서는이 플래그에 의해 제어 되는 동작과 클러스터 기능에 미치는 영향을 자세히 설명 합니다. 참고이 동작은 Windows에만 해당 됩니다.
 
 [정의](../virtual-machines/extensions/key-vault-windows.md#extension-schema)에 따라:
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```

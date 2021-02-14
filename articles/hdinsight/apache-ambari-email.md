@@ -1,18 +1,15 @@
 ---
 title: '자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성'
 description: 이 문서에서는 이메일 알림을 위해 SendGrid를 Apache Ambari와 함께 사용하는 방법을 설명합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542559"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822134"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성
 
@@ -52,11 +49,11 @@ ms.locfileid: "92542559"
 
 1. **작업** 드롭다운 목록에서 **알림 관리** 를 선택합니다.
 
-1. **Manage Alert Notifications** (경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
+1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
 
     ![스크린샷은 Alert Notifications 관리 대화 상자를 보여줍니다.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
-1. **Create Alert Notification** (경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
+1. **Create Alert Notification**(경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
 
     |속성 |Description |
     |---|---|
@@ -77,9 +74,9 @@ ms.locfileid: "92542559"
 
     ![스크린샷은 Alert Notification 만들기 대화 상자를 보여줍니다.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    **저장** 을 선택합니다. **Manage Alert Notifications** (경고 알림 관리) 창이 다시 열립니다.
+    **저장** 을 선택합니다. **Manage Alert Notifications**(경고 알림 관리) 창이 다시 열립니다.
 
-1. **Manage Alert Notifications** (경고 알림 관리) 창에서 **닫기** 를 선택합니다.
+1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **닫기** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

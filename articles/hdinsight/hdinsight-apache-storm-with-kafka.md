@@ -1,19 +1,16 @@
 ---
 title: '자습서: Apache Storm 및 Apache Kafka - Azure HDInsight'
 description: HDInsight에서 Apache Storm 및 Apache Kafka를 사용하여 스트리밍 파이프라인을 만드는 방법을 알아봅니다. 이 자습서에서는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에서 데이터를 스트리밍합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85963532"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822071"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
@@ -420,9 +417,9 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
    
       ![템플릿 매개 변수 그림](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
-3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
+3. **사용 약관** 을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
-4. 마지막으로 **대시보드에 고정**을 선택한 다음 **구매**를 선택합니다.
+4. 마지막으로 **대시보드에 고정** 을 선택한 다음 **구매** 를 선택합니다.
 
 > [!NOTE]  
 > 클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
@@ -449,7 +446,7 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
 
 ## <a name="configure-the-topology"></a>토폴로지 구성
 
-1. 다음 방법 중 하나를 사용하여 HDInsight 클러스터에서 **Kafka**에 대한 Kafka broker 호스트를 검색합니다.
+1. 다음 방법 중 하나를 사용하여 HDInsight 클러스터에서 **Kafka** 에 대한 Kafka broker 호스트를 검색합니다.
 
     ```powershell
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -526,11 +523,11 @@ Azure Virtual Network를 만든 후 그 안에 Kafka 및 Storm 클러스터를 �
     scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
-    **USERNAME**은 클러스터의 SSH 사용자 이름으로 바꿉니다. **BASENAME**은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
+    **USERNAME** 은 클러스터의 SSH 사용자 이름으로 바꿉니다. **BASENAME** 은 클러스터를 만들 때 사용한 기본 이름으로 바꿉니다.
 
 ## <a name="create-the-kafka-topic"></a>Kafka 토픽 만들기
 
-Kafka에서는 데이터를 _토픽_에 저장합니다. Storm 토폴로지를 시작하기 전에 토픽을 만들어야 합니다. 토폴로지를 만들려면 다음 단계를 사용합니다.
+Kafka에서는 데이터를 _토픽_ 에 저장합니다. Storm 토폴로지를 시작하기 전에 토픽을 만들어야 합니다. 토폴로지를 만들려면 다음 단계를 사용합니다.
 
 1. 다음 명령을 사용하여 SSH를 통해 __Kafka__ 클러스터에 연결합니다. `sshuser`은 클러스터를 만들 때 사용한 SSH 사용자 이름으로 바꿉니다. `kafkaclustername`을 Kafka 클러스터의 이름으로 바꿉니다.
 

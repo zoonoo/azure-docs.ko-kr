@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355123"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382357"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service (Microsoft Dataverse)에서 레코드 만들기 및 관리
 
 > [!NOTE]
 > 11 월 2020에서 Common Data Service은 Microsoft Dataverse로 이름이 변경 되었습니다.
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](/connectors/commondataservice/)를 사용 하 여 [Common Data Service 이제 Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 만들 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. Common Data Service 데이터베이스에서 정보를 가져와 논리 앱에서 사용할 수 있는 다른 작업에 대 한 출력을 제공할 수도 있습니다. 예를 들어 Common Data Service 데이터베이스에서 레코드가 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [Common Data Service 커넥터](/connectors/commondataservice/)를 사용 하 여 [Common Data Service 이제 Microsoft dataverse](/powerapps/maker/common-data-service/data-platform-intro) 데이터베이스에서 레코드를 관리 하는 자동화 된 워크플로를 만들 수 있습니다. 이러한 워크플로는 레코드를 만들고, 레코드를 업데이트 하 고, 기타 작업을 수행할 수 있습니다. 또한 Dataverse 데이터베이스에서 정보를 가져오고 논리 앱에서 사용할 다른 작업에 대해 출력을 사용할 수 있도록 설정할 수 있습니다. 예를 들어, 레코드가 Dataverse 데이터베이스에서 업데이트 되는 경우 Office 365 Outlook 커넥터를 사용 하 여 전자 메일을 보낼 수 있습니다.
 
 이 문서에서는 새 잠재 고객 레코드를 만들 때마다 작업 레코드를 만드는 논리 앱을 빌드하는 방법을 보여 줍니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "97355123"
   * [자세한 정보: Common Data Service 시작](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)
 
-* Common Data Service 데이터베이스의 레코드에 액세스 하려는 논리 앱 및 논리 앱을 [만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 기술 자료입니다. Common Data Service 트리거를 사용 하 여 논리 앱을 시작 하려면 빈 논리 앱이 필요 합니다. Azure Logic Apps를 처음 사용 하는 경우 [빠른 시작: Azure Logic Apps를 사용 하 여 첫 번째 워크플로 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
+* Dataverse 데이터베이스의 레코드에 액세스 하려는 논리 앱 및 논리 앱을 [만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md) 에 대 한 기본 기술 자료입니다. Common Data Service 트리거를 사용 하 여 논리 앱을 시작 하려면 빈 논리 앱이 필요 합니다. Azure Logic Apps를 처음 사용 하는 경우 [빠른 시작: Azure Logic Apps를 사용 하 여 첫 번째 워크플로 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
 ## <a name="add-common-data-service-trigger"></a>Common Data Service 트리거 추가
 
@@ -54,9 +54,9 @@ ms.locfileid: "97355123"
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
-   | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
-   | **범위** | 예 | 새 레코드를 만든 원본 (예: 조직 내 사용자 또는 사업부의 사용자)입니다. 이 예에서는 "비즈니스 단위"를 사용 합니다. |
+   | **환경** | Yes | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
+   | **엔터티 이름** | Yes | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
+   | **범위** | Yes | 새 레코드를 만든 원본 (예: 조직 내 사용자 또는 사업부의 사용자)입니다. 이 예에서는 "비즈니스 단위"를 사용 합니다. |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Common Data Service 작업 추가
@@ -75,9 +75,9 @@ ms.locfileid: "97355123"
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
-   | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
-   | **Subject** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
+   | **조직 이름** | Yes | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
+   | **엔터티 이름** | Yes | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
+   | **제목** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
    ||||
 
    1. **Subject** 속성의 경우 뒤에 공백을 사용 하 여이 텍스트를 입력 합니다.
@@ -170,6 +170,62 @@ ms.locfileid: "97355123"
 ## <a name="connector-reference"></a>커넥터 참조
 
 커넥터의 Swagger 설명 (예: 트리거, 작업, 제한 및 기타 세부 정보)을 기반으로 하는 기술 정보는 [커넥터의 참조 페이지](/connectors/commondataservice/)를 참조 하세요.
+
+## <a name="troubleshooting-problems"></a>문제 해결
+
+### <a name="calls-from-multiple-environments"></a>여러 환경에서 호출
+
+커넥터, Common Data Service 및 Common Data Service (현재 환경) 모두 Microsoft Dataverse에서 엔터티를 사용 하 여 엔터티 변경에 대 한 알림을 받아야 하는 논리 앱 워크플로에 대 한 정보를 저장 `callbackregistrations` 합니다. Dataverse 조직을 복사 하면 웹 후크도 복사 됩니다. 조직에 매핑된 워크플로를 사용 하지 않도록 설정 하기 전에 조직을 복사 하는 경우 복사 된 웹 후크가 동일한 논리 앱을 가리키고, 그러면 여러 조직에서 알림을 받게 됩니다.
+
+원치 않는 알림을 중지 하려면 다음 단계를 수행 하 여 해당 알림을 보내는 조직에서 콜백 등록을 삭제 합니다.
+
+1. 알림을 제거 하려는 원본 메시지 조직을 식별 하 고 해당 조직에 로그인 합니다.
+
+1. Chrome 브라우저에서 다음 단계를 수행 하 여 삭제할 콜백 등록을 찾습니다.
+
+   1. 엔터티 내의 데이터를 볼 수 있도록 다음 OData URI의 모든 콜백 등록에 대 한 제네릭 목록을 검토 합니다 `callbackregistrations` .
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > 반환 된 값이 없는 경우이 엔터티 유형을 볼 수 있는 권한이 없거나 올바른 조직에 로그인 하지 않았을 수 있습니다.
+
+   1. 트리거하는 엔터티의 논리적 이름과 `entityname` 논리 앱 워크플로 (메시지)와 일치 하는 알림 이벤트를 필터링 합니다. 각 이벤트 형식은 다음과 같이 메시지 정수로 매핑됩니다.
+
+      | 이벤트 유형 | 메시지 정수 |
+      |------------|-----------------|
+      | 만들기 | 1 |
+      | 삭제 | 2 |
+      | 업데이트 | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      이 예제에서는 `Create` `nov_validation` 예제 조직에 대해 다음 OData URI를 사용 하 여 라는 엔터티의 알림을 필터링 하는 방법을 보여 줍니다.
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![주소 표시줄에 브라우저 창과 OData URI를 표시 하는 스크린샷](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > 동일한 엔터티 또는 이벤트에 대 한 여러 트리거가 있는 경우 및 특성과 같은 추가 필터를 사용 하 여 목록을 필터링 할 수 있습니다 `createdon` `_owninguser_value` . 소유자 사용자의 이름은 아래에 나타납니다 `/api/data/v9.0/systemusers({id})` .
+
+   1. 삭제할 콜백 등록의 ID를 찾은 후에는 다음 단계를 수행 합니다.
+   
+      1. Chrome 브라우저에서 Chrome 개발자 도구 (키보드: F12)를 엽니다.
+
+      1. 창의 위쪽에서 **콘솔** 탭을 선택 합니다.
+
+      1. 명령줄 프롬프트에서 다음 명령을 입력 합니다 .이 명령은 지정 된 콜백 등록을 삭제 하는 요청을 보냅니다.
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > 예를 들어 OData 또는 API 응답 페이지 자체와 같은 UCI (비 통합 클라이언트 인터페이스) 페이지에서 요청을 수행 해야 합니다. 그렇지 않으면 app.js 파일의 논리가이 작업을 방해할 수 있습니다.
+
+   1. 콜백 등록이 더 이상 존재 하지 않는지 확인 하려면 콜백 등록 목록을 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
