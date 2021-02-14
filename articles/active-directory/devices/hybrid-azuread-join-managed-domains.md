@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861054"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822367"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -90,23 +90,21 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
 1. Azure AD Connect를 시작한 다음, **구성** 을 선택합니다.
 
-   ![시작](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. **추가 작업** 에서 **디바이스 옵션 구성**, **다음** 을 차례로 선택합니다.
 
    ![추가 작업](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. **개요** 에서 **다음** 을 선택합니다.
 
-   ![개요](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. **Azure AD에 연결** 에서 Azure AD 테넌트에 대한 글로벌 관리자의 자격 증명을 입력합니다.  
-
-   ![Azure에 연결](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. **디바이스 옵션** 에서 **하이브리드 Azure AD 조인 구성**, **다음** 을 차례로 선택합니다.
 
    ![디바이스 옵션](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. **디바이스 운영 체제** 에서 Active Directory 환경의 디바이스에서 사용하는 운영 체제를 선택하고, **다음** 을 선택합니다.
+
+   ![디바이스 운영 체제](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. **SCP 구성** 에서 Azure AD Connect를 통해 SCP를 구성하려는 각 포리스트에 대해 다음 단계를 완료하고, **다음** 을 선택합니다.
 
@@ -116,17 +114,9 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. **디바이스 운영 체제** 에서 Active Directory 환경의 디바이스에서 사용하는 운영 체제를 선택하고, **다음** 을 선택합니다.
-
-   ![디바이스 운영 체제](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. **구성 준비 완료** 에서 **구성** 을 선택합니다.
 
-   ![구성 준비](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. **구성 완료** 에서 **끝내기** 를 선택합니다.
-
-   ![구성 완료](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 

@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2f7746f079e740493348731376d0a5a7b1a9e954
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cdfeb2fdeefabb0d2d4af2fb63222adda5d023fb
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317849"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99822037"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>자습서: ML 실험을 프로덕션 Python 코드로 변환
 
@@ -33,7 +33,7 @@ ms.locfileid: "93317849"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - [MLOpsPython 템플릿](https://github.com/microsoft/MLOpsPython/generate)을 생성하고 `experimentation/Diabetes Ridge Regression Training.ipynb` 및 `experimentation/Diabetes Ridge Regression Scoring.ipynb` 노트북을 사용합니다. 이러한 노트북은 실험에서 프로덕션으로 변환하는 예로 사용 됩니다. 이러한 Notebooks는 [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation)에서 찾을 수 있습니다.
-- `nbconvert`설치 [Installation](https://nbconvert.readthedocs.io/en/latest/install.html)(설치) 페이지의 __Installing nbconvert__ (nbconvert 설치) 섹션에 있는 설치 지침을 따릅니다.
+- `nbconvert`설치 [Installation](https://nbconvert.readthedocs.io/en/latest/install.html)(설치) 페이지의 __Installing nbconvert__(nbconvert 설치) 섹션에 있는 설치 지침을 따릅니다.
 
 ## <a name="remove-all-nonessential-code"></a>불필요한 코드 모두 제거
 
@@ -353,7 +353,7 @@ print("Test result: ", prediction)
 명령 프롬프트에서 다음 명령문을 실행하여 Notebook을 실행 가능한 스크립트로 변환합니다. 여기에는 `nbconvert` 패키지와 `experimentation/Diabetes Ridge Regression Training.ipynb` 경로가 사용됩니다.
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
+jupyter nbconvert "Diabetes Ridge Regression Training.ipynb" --to script --output train
 ```
 
 Notebook이 `train.py`로 변환된 후에는 필요 없는 주석을 제거합니다. 파일 끝부분의 `main()` 호출을 다음 코드와 비슷한 조건부 호출로 바꿉니다.
@@ -441,7 +441,7 @@ MLOpsPython 리포지토리의 `diabetes_regression/training` 디렉터리에 �
 `nbconvert` 패키지와 `experimentation/Diabetes Ridge Regression Scoring.ipynb` 경로가 사용되는 명령 프롬프트에서 다음 명령문을 실행하여 Notebook을 실행 가능한 스크립트로 변환합니다.
 
 ```
-jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
+jupyter nbconvert "Diabetes Ridge Regression Scoring.ipynb" --to script --output score
 ```
 
 Notebook이 `score.py`로 변환된 후에는 필요 없는 주석을 제거합니다. `score.py` 파일은 다음 코드와 같은 모양입니다.

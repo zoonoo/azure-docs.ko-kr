@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475255"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099951"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>일반적인 Windows 가상 데스크톱 에이전트 문제 해결
 
@@ -153,7 +153,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 
 명령 프롬프트에서 **qwinsta** 를 실행 하 고 **rdp-sxs** 옆에 표시 되는 버전 번호를 적어둡니다. **Qwinsta** 를 실행 한 후에 **수신 대기** 하는 **rdp-tcp** 및 **rdp-sxs** 구성 요소가 표시 되지 않거나, 이러한 구성 요소가 모두 표시 되지 않는 경우 스택 문제가 있음을 의미 합니다. 스택 업데이트는 에이전트 업데이트와 함께 설치 되며,이 설치가 awry 되 면 Windows 가상 데스크톱 수신기가 작동 하지 않습니다.
 
-이 문제를 해결하려면:
+이 문제를 해결하려면 다음을 수행합니다.
 1. 레지스트리 편집기를 엽니다.
 2. **HKEY_LOCAL_MACHINE**  >  **SYSTEM**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations** 로 이동 합니다.
 3. **WinStations** 아래에서 스택 버전 마다 여러 폴더가 표시 될 수 있습니다. 명령 프롬프트에서 **qwinsta** 를 실행할 때 표시 되는 버전 정보와 일치 하는 폴더를 선택 합니다.
@@ -184,7 +184,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 1. 관리자 권한으로 명령 프롬프트를 엽니다.
 2. **Qwinsta** 명령을 입력 하 고 실행 합니다.
 3. 표시 되는 두 가지 스택 구성 요소는 **rdp-tcp** 및 **rdp-sxs** 입니다. 
-   - 사용 중인 OS의 버전에 따라 다음 스크린샷에 표시 된 것 처럼 **rdp-sxs** 뒤에 빌드 번호가 올 수 있습니다. 표시 되는 경우 나중에이 숫자를 기록해 두어야 합니다.
+   - 사용 중인 OS 버전에 따라 **rdp-sxs** 뒤에 빌드 번호가 올 수 있습니다. 표시 되는 경우 나중에이 숫자를 기록해 두어야 합니다.
 4. 레지스트리 편집기를 엽니다.
 5. **HKEY_LOCAL_MACHINE**  >  **SYSTEM**  >  **CurrentControlSet**  >  **Control**  >  **Terminal Server**  >  **WinStations** 로 이동 합니다.
 6. **WinStations** 아래에는 다양 한 스택 버전에 대 한 여러 폴더가 표시 될 수 있습니다. 3 단계의 버전 번호와 일치 하는 폴더를 선택 합니다.
@@ -207,7 +207,7 @@ Windows 가상 데스크톱 에이전트는 여러 요소로 인해 연결 문�
 관리자 권한으로 PowerShell 창을 열고 다음 cmdlet을 실행 합니다.
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 호스트 풀에서 세션 호스트 또는 호스트에 대해 나열 된 상태가 항상 **사용할 수 없음** 또는 **업그레이드** 인 경우 에이전트 또는 스택 설치가 실패 했을 수 있습니다.
@@ -229,7 +229,7 @@ Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Selec
 
 Vm이 연결 제한에 있을 수 있으므로 VM은 새 연결을 수락할 수 없습니다.
 
-이 문제를 해결하려면:
+이 문제를 해결하려면 다음을 수행합니다.
    - 최대 세션 제한을 줄입니다. 이렇게 하면 리소스가 세션 호스트 간에 균등 하 게 분산 되 고 리소스가 고갈 되지 않습니다.
    - Vm의 리소스 용량을 늘립니다.
 
@@ -250,7 +250,7 @@ Side-by-side 스택은 Windows Enterprise 또는 Windows Server Sku 에서만 �
 
 VM 이름이 이미 등록 되어 있는 것 같습니다.
 
-이 문제를 해결하려면:
+이 문제를 해결하려면 다음을 수행합니다.
 1. [호스트 풀에서 세션 호스트 제거](#step-2-remove-the-session-host-from-the-host-pool) 섹션의 단계를 따릅니다.
 2. [다른 VM을 만듭니다](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). 이 VM에 대 한 고유한 이름을 선택 해야 합니다.
 3. Azure Portal]로 이동 하 https://portal.azure.com) 고 VM이 있는 호스트 풀의 **개요** 페이지를 엽니다. 

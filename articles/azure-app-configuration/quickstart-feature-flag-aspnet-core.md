@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: a4890dd93cf77e20aff09ca6fd33ec3434a45a4b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8ca4a6e78ab3c6ccf492869bb68c5296ae91de21
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663049"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806073"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -207,7 +207,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. *보기*\\*공유* 디렉터리에서 *_Layout.cshtml* 을 엽니다. `<body>` > `<header>`에서 `<nav>` 바코드를 찾습니다. 아래 강조 표시된 줄에 표시된 대로 *홈* 및 *개인 정보* 탐색 모음 항목 사이에 새 `<feature>` 태그를 삽입합니다.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="14-18":::
 
 1. 다음 표시를 포함하는 *Views/Beta* 디렉터리 및 *Index.cshtml* 파일을 만듭니다.
 

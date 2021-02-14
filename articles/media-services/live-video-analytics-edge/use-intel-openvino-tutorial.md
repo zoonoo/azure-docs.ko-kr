@@ -4,12 +4,12 @@ description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 9fb2f533d433c89d13ee0c29058f87aab3521a78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821885"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -23,6 +23,8 @@ ms.locfileid: "98060200"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
+  > [!NOTE]
+  > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절한 권한이 없는 경우 계정 관리자에게 문의하여 적절한 권한을 부여하세요. 
 * 다음 확장이 포함된 [Visual Studio Code](https://code.visualstudio.com/)
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
@@ -122,6 +124,12 @@ Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/
     그렇지 않으면 왼쪽 아래 모서리의 **Azure IoT Hub** 창 근처에서 **기타 작업** 아이콘을 선택한 다음, **IoT Hub 연결 문자열 설정** 을 선택합니다. *appsettings.json* 파일에서 문자열을 복사할 수 있습니다. 또는 Visual Studio Code 내에서 적절한 IoT 허브를 구성했는지 확인하려면 [IoT 허브 선택 명령](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)을 사용합니다.
     
     ![IoT Hub 연결 문자열 설정](./media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 1. *src/edge/config/deployment.openvino.amd64.json* 파일을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기** 를 클릭합니다. 
 

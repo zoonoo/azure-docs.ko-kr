@@ -257,7 +257,7 @@
               href: log-query/query-audit.md
             - name: 쿼리 최적화
               href: log-query/query-optimization.md
-            - name: 함수
+            - name: Functions
               href: log-query/functions.md
             - name: 텍스트 데이터 구문 분석
               href: log-query/parse-text.md
@@ -781,6 +781,8 @@
             - name: 가용성 경고
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: SLA 보고서
+              href: app/sla-report.md
             - name: 문제 해결
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,6 +796,8 @@
         - name: 라이브 메트릭 스트림
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: 작업 항목 통합
+          href: app/work-item-integration.md
         - name: 메트릭
           items:
             - name: 로그 기반 및 사전 집계 메트릭
@@ -1022,7 +1026,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: 로그 쿼리를 사용하여 데이터 분석
           href: insights/vminsights-log-search.md
-        - name: 성능 모니터링
+        - name: 경고
           href: insights/vminsights-alerts.md
         - name: 변경 내용 모니터링
           href: insights/vminsights-change-analysis.md
@@ -1255,7 +1259,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예
+            - name: 예제
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

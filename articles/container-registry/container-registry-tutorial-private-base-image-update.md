@@ -4,12 +4,12 @@ description: 이 자습서에서는 다른 프라이빗 Azure 컨테이너 레�
 ms.topic: tutorial
 ms.date: 11/20/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 50eb89ccfafa27a7dcb0e97f21d14feec0ef9525
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: ce06e792fd5a4582e77d18313052ea91a38121a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030461"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821586"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>자습서: 다른 프라이빗 컨테이너 레지스트리에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 
@@ -91,7 +91,7 @@ az acr task create \
     --registry $ACR_NAME \
     --name baseexample2 \
     --image helloworld:{{.Run.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT \
     --arg REGISTRY_NAME=$BASE_ACR.azurecr.io \

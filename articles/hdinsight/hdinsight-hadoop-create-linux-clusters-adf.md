@@ -1,19 +1,16 @@
 ---
 title: '자습서: Data Factory를 사용하는 Azure HDInsight의 주문형 클러스터'
 description: 자습서 - Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: ea4f8c33a906bff96ea93f9a7aea3e6f625556cb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 762938ebb4785a54224771e96c5bca274721dc30
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900900"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821289"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 
@@ -51,13 +48,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2. Azure 리소스 그룹을 만듭니다.
 3. Azure Storage 계정을 만듭니다.
 4. 스토리지 계정에 Blob 컨테이너를 만듭니다.
-5. 샘플 HiveQL 스크립트( **partitionweblogs.hql** )를 Blob 컨테이너에 복사합니다. 스크립트는 [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)에서 사용할 수 있습니다. 샘플 스크립트를 이미 다른 공용 Blob 컨테이너에서 사용할 수 있습니다. 아래의 PowerShell 스크립트는 만든 Azure Storage 계정에 이러한 파일의 복사본을 만듭니다.
+5. 샘플 HiveQL 스크립트(**partitionweblogs.hql**)를 Blob 컨테이너에 복사합니다. 스크립트는 [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)에서 사용할 수 있습니다. 샘플 스크립트를 이미 다른 공용 Blob 컨테이너에서 사용할 수 있습니다. 아래의 PowerShell 스크립트는 만든 Azure Storage 계정에 이러한 파일의 복사본을 만듭니다.
 
 ### <a name="create-storage-account-and-copy-files"></a>스토리지 계정 만들기 및 파일 복사
 
 > [!IMPORTANT]  
 > 스크립트로 생성될 Azure 리소스 그룹 및 Azure Storage 계정 이름을 지정합니다.
-> 스크립트에 출력된 **리소스 그룹 이름** , **스토리지 계정 이름** 및 **스토리지 계정 키** 를 적어 둡니다. 다음 섹션에 필요합니다.
+> 스크립트에 출력된 **리소스 그룹 이름**, **스토리지 계정 이름** 및 **스토리지 계정 키** 를 적어 둡니다. 다음 섹션에 필요합니다.
 
 ```powershell
 $resourceGroupName = "<Azure Resource Group Name>"
@@ -177,7 +174,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 2. 입력 데이터는 클러스터에서 HiveQL 스크립트를 실행하여 처리됩니다. 이 자습서에서 hive 작업과 관련된 HiveQL 스크립트는 다음 작업을 수행합니다.
 
-    * 기존 테이블( *hivesampletable* )을 사용하여 다른 테이블( **HiveSampleOut** )을 만듭니다.
+    * 기존 테이블(*hivesampletable*)을 사용하여 다른 테이블(**HiveSampleOut**)을 만듭니다.
     * **HiveSampleOut** 테이블을 원본 *hivesampletable* 의 특정 열로만 채웁니다.
 
 3. 처리가 완료된 후 HDInsight Hadoop 클러스터가 삭제되고 클러스터는 구성된 시간(timeToLive 설정) 동안 유휴 상태입니다 이 timeToLive 유휴 시간에 처리를 위해 다음 데이터 조각이 제공되면 조각을 처리하는 데 동일한 클러스터가 사용됩니다.  
@@ -215,8 +212,8 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 이 섹션에서는 데이터 팩터리 내에서 연결된 2개의 서비스를 작성합니다.
 
-* Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스** . 이 스토리지는 주문형 HDInsight 클러스터에서 사용됩니다. 또한 클러스터에서 실행되는 Hive 스크립트를 포함합니다.
-* **주문형 HDInsight 연결된 서비스** . Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고 Hive 스크립트를 실행합니다. 그런 다음 클러스터가 미리 구성된 시간 동안 유휴 상태를 유지하면 HDInsight 클러스터를 삭제합니다.
+* Azure Storage 계정을 데이터 팩터리에 연결하는 **Azure Storage 연결된 서비스**. 이 스토리지는 주문형 HDInsight 클러스터에서 사용됩니다. 또한 클러스터에서 실행되는 Hive 스크립트를 포함합니다.
+* **주문형 HDInsight 연결된 서비스**. Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고 Hive 스크립트를 실행합니다. 그런 다음 클러스터가 미리 구성된 시간 동안 유휴 상태를 유지하면 HDInsight 클러스터를 삭제합니다.
 
 ### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 

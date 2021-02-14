@@ -1,23 +1,23 @@
 ---
 title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 컨트롤
 description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 9f036c7e1a749043a0b81717b75202a5c6c37c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: df143a871db3d871fe6354eab23b7ca6dc012b78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932229"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821394"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 제어 매핑
 
 다음 문서에서는 Azure Blueprints 오스트레일리아 정부 ISM PROTECTED 청사진 샘플이 ISM PROTECTED 제어에 매핑되는 방법에 대해 자세히 설명합니다. 제어에 대한 자세한 내용은 [ISM PROTECTED](https://www.cyber.gov.au/ism)를 참조하세요.
 
-다음은 **ISM PROTECTED** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
+다음은 **ISM PROTECTED** 제어에 대한 매핑입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: 오스트레일리아 정부 ISM PROTECTED 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포** 기본 제공 정책 이니셔티브를 찾아서 선택합니다.
 
 > [!IMPORTANT]
-> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수**는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md)을 참조하세요.
+> 아래의 각 컨트롤은 하나 이상의 [Azure Policy](../../../policy/overview.md) 정의와 연결되어 있습니다. 이러한 정책은 컨트롤을 사용한 [규정 준수 평가](../../../policy/how-to/get-compliance-data.md)에 도움이 될 수 있지만, 컨트롤과 하나 이상의 정책 간에 일대일 또는 완벽한 일치 관계가 없는 경우도 많습니다. 따라서 Azure Policy의 **규정 준수** 는 정책 자체만 가리킬 뿐, 컨트롤의 모든 요구 사항을 완벽하게 준수한다는 것은 아닙니다. 또한 규정 준수 표준에는 현재 Azure Policy 정의에서 처리되지 않은 컨트롤이 포함되어 있습니다. 따라서 Azure Policy의 규정 준수는 전반적인 규정 준수 상태를 부분적으로 표시할 뿐입니다. 이 규정 준수 청사진 샘플에 대한 컨트롤과 Azure Policy 정의 간의 연결은 시간이 지남에 따라 변경될 수 있습니다. 변경 기록을 보려면 [GitHub 커밋 기록](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md)을 참조하세요.
 
 
 ## <a name="location-constraints"></a>위치 제약 조건

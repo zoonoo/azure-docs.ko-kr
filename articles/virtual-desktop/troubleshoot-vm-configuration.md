@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 84a49ea2f6ce4a5119af024ab3de67fa2b89c02e
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: f1f2caa194972bb870dc58cfa0bd6ccb2f8db053
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539731"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099917"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -193,7 +193,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 > [!div class="mx-imgBorder"]
 > ![Qwinsta와 함께 설치 되거나 사용 하도록 설정 된 side-by-side 스택에는 출력에 rdp-sxs로 나열 됩니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-아래에 나열 된 레지스트리 항목을 확인 하 고 해당 값이 일치 하는지 확인 합니다. 레지스트리 키가 없거나 값이 일치 하지 않으면 side-by-side 스택을 다시 설치 하는 방법에 대 한 [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md) 의 지침을 따르세요.
+아래에 나열 된 레지스트리 항목을 확인 하 고 해당 값이 일치 하는지 확인 합니다. 레지스트리 키가 없거나 값이 일치 하지 않는 경우 [지원 되는 운영 체제를](troubleshoot-agent.md#error-operating-a-pro-vm-or-other-unsupported-os)실행 하 고 있는지 확인 합니다. 그렇다면 side-by-side 스택을 다시 설치 하는 방법에 대 한 [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md) 의 지침을 따르세요.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal

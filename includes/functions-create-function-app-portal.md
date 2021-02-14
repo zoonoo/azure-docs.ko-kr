@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187076"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980945"
 ---
 1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187076"
     | **[리소스 그룹](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
     | **함수 앱 이름** | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.  |
     |**게시**| 코드 | 코드 파일 또는 Docker 컨테이너를 게시하는 옵션입니다. |
-    | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. 현재 [Python 개발](../articles/azure-functions/functions-reference-python.md)에는 포털 내 편집이 지원되지 않습니다. |
+    | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. 포털 내 편집은 JavaScript, PowerShell, TypeScript 및 C# 스크립트에만 사용할 수 있습니다. C# 클래스 라이브러리, Java 및 Python 함수는 [로컬로 개발](../articles/azure-functions/functions-develop-local.md#local-development-environments)해야 합니다.  |
     |**버전**| 버전 번호 | 설치된 런타임의 버전을 선택합니다. |
     |**지역**| 기본 지역 | 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)을 선택합니다. |
 

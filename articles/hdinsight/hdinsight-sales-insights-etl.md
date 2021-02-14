@@ -1,19 +1,16 @@
 ---
 title: '자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 ETL 파이프라인 만들기'
 description: Spark 주문형 클러스터 및 Power BI를 사용하여 판매 데이터에서 인사이트를 얻기 위해 Azure HDInsight에서 ETL 파이프라인을 만들어 사용하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746469"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821759"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 

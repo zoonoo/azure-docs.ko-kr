@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: f9e7547b8b9a8728c2c1ce7d1d01d06ad1d55dc1
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387244"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821812"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -90,7 +90,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
     - 고객 관리형 키를 사용하여 미사용 데이터 암호화
 
    > [!NOTE]
-   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](https://go.microsoft.com/fwlink/?linkid=2151800)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
+   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
   
 10. **Azure 하이브리드 혜택** 에서
 

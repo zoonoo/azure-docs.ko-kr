@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431000"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097078"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -162,7 +162,7 @@ ms.locfileid: "99431000"
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Azure Machine Learning Studio 노트북 환경 (11 월 업데이트)
 + **새로운 기능**
-   + 기본 터미널입니다. 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다 [.](./how-to-run-jupyter-notebooks.md#terminal)
+   + 기본 터미널입니다. 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다 [.](./how-to-access-terminal.md)
   + 중복 폴더 
   + 계산 드롭다운 비용 
   + 오프 라인 계산 Pylance 

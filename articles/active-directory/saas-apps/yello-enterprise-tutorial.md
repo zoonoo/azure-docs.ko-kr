@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 3d1840b2741b06421db21aa38dcf83a5fbf8d026
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: dc9c8e622840d30f1d18ab783cc20e2659a1b5e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97747043"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821517"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yello-enterprise"></a>자습서: Yello Enterprise와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -137,11 +137,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Yello Enterprise에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Yello Enterprise 타일을 클릭하면 SSO를 설정한 Yello Enterprise에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Yello Enterprise 타일을 클릭하면 SSO를 설정한 Yello Enterprise에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Yello Enterprise가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Yello Enterprise가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

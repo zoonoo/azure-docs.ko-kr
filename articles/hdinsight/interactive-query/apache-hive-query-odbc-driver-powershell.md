@@ -2,19 +2,16 @@
 title: ODBC 드라이버 및 PowerShell로 Apache Hive 쿼리 - Azure HDInsight
 description: Microsoft Hive ODBC 드라이버와 PowerShell을 사용하여 Azure HDInsight에서 Apache Hive 클러스터를 쿼리합니다.
 keywords: hive,hive odbc,powershell
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 211b23db56b6deebb519b9eaac4164ea83edabac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078574"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822373"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>자습서: ODBC와 PowerShell로 Apache Hive 쿼리
 
@@ -33,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* HDInsight의 대화형 쿼리 클러스터. 만들려면 [Azure HDInsight 시작](../hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 클러스터 유형으로 **대화형 쿼리**를 선택합니다.
+* HDInsight의 대화형 쿼리 클러스터. 만들려면 [Azure HDInsight 시작](../hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 클러스터 유형으로 **대화형 쿼리** 를 선택합니다.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버 설치
 
@@ -47,9 +44,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![OBDC 데이터 원본 관리자](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "ODBC 데이터 원본 관리자를 사용하여 DSN 구성")
 
-1. **사용자 DSN** 탭에서 **추가**를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
+1. **사용자 DSN** 탭에서 **추가** 를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
 
-1. **Microsoft Hive ODBC 드라이버**를 선택한 다음, **마침**을 선택하여 **Microsoft Hive ODBC 드라이버 DSN 설정** 창을 엽니다.
+1. **Microsoft Hive ODBC 드라이버** 를 선택한 다음, **마침** 을 선택하여 **Microsoft Hive ODBC 드라이버 DSN 설정** 창을 엽니다.
 
 1. 다음 값을 입력하거나 선택합니다.
 
@@ -57,13 +54,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
    |  호스트 |`CLUSTERNAME.azurehdinsight.net`를 입력합니다. 예를 들어 `myHDICluster.azurehdinsight.net` |
-   |  포트 |**443**을 사용합니다.|
-   |  데이터베이스 |**기본값**을 사용합니다. |
-   |  메커니즘 |**Windows Azure HDInsight Service**를 선택합니다. |
-   |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin**입니다. |
+   |  포트 |**443** 을 사용합니다.|
+   |  데이터베이스 |**기본값** 을 사용합니다. |
+   |  메커니즘 |**Windows Azure HDInsight Service** 를 선택합니다. |
+   |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin** 입니다. |
    |  암호 |HDInsight 클러스터 사용자 암호 입력 **암호 저장(암호화됨)** 확인란을 선택합니다.|
 
-1. 선택 사항: **고급 옵션**을 선택합니다.  
+1. 선택 사항: **고급 옵션** 을 선택합니다.  
 
    | 매개 변수 | Description |
    | --- | --- |
@@ -73,13 +70,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![고급 DSN 구성 옵션](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "고급 DSN 구성 옵션")
 
-1. **테스트**를 선택하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우 테스트 결과가 **성공**으로 표시됩니다.  
+1. **테스트** 를 선택하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우 테스트 결과가 **성공** 으로 표시됩니다.  
 
-1. **확인**을 선택하여 테스트 창을 닫습니다.  
+1. **확인** 을 선택하여 테스트 창을 닫습니다.  
 
-1. **확인**을 선택하여 **Microsoft Hive ODBC Driver DSN 설정** 창을 닫습니다.  
+1. **확인** 을 선택하여 **Microsoft Hive ODBC Driver DSN 설정** 창을 닫습니다.  
 
-1. **확인**을 선택하여 **ODBC 데이터 원본 관리자** 창을 닫습니다.  
+1. **확인** 을 선택하여 **ODBC 데이터 원본 관리자** 창을 닫습니다.  
 
 ## <a name="query-data-with-powershell"></a>PowerShell로 데이터 쿼리
 
@@ -110,7 +107,7 @@ function Get-ODBC-Data {
 }
 ```
 
-다음 코드 조각은 위의 함수를 사용하여 자습서의 시작 부분에서 만든 대화형 쿼리 클러스터에서 쿼리를 실행합니다. `DATASOURCENAME`을 **Microsoft Hive ODBC 드라이버 DSN 설정** 화면에서 지정한 **데이터 원본 이름**으로 바꿉니다. 자격 증명을 입력하라는 메시지가 표시되면 클러스터를 만들 때 **클러스터 로그인 사용자 이름**과 **클러스터 로그인 암호**에 입력한 사용자 이름과 암호를 입력합니다.
+다음 코드 조각은 위의 함수를 사용하여 자습서의 시작 부분에서 만든 대화형 쿼리 클러스터에서 쿼리를 실행합니다. `DATASOURCENAME`을 **Microsoft Hive ODBC 드라이버 DSN 설정** 화면에서 지정한 **데이터 원본 이름** 으로 바꿉니다. 자격 증명을 입력하라는 메시지가 표시되면 클러스터를 만들 때 **클러스터 로그인 사용자 이름** 과 **클러스터 로그인 암호** 에 입력한 사용자 이름과 암호를 입력합니다.
 
 ```powershell
 
@@ -123,7 +120,7 @@ Get-ODBC-Data -query $query -dsn $dsn
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, HDInsight 클러스터 및 스토리지 계정을 삭제합니다. 이렇게 하려면 클러스터를 만든 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, HDInsight 클러스터 및 스토리지 계정을 삭제합니다. 이렇게 하려면 클러스터를 만든 리소스 그룹을 선택하고 **삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

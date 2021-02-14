@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 7c10d3066dc7b9ee0994de8c327b286bf8c917e7
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701639"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099475"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -28,7 +28,7 @@ Azure Machine Learning는 로컬 git 리포지토리의 정보를 추적 하므�
 
 ## <a name="clone-git-repositories-into-your-workspace-file-system"></a>작업 영역 파일 시스템에 Git 리포지토리 복제
 Azure Machine Learning는 작업 영역에 있는 모든 사용자에 게 공유 파일 시스템을 제공 합니다.
-이 파일 공유에 Git 리포지토리를 복제 하려면 계산 인스턴스 & 만들어 터미널을 여는 것이 좋습니다.
+이 파일 공유에 Git 리포지토리를 복제 하려면 계산 인스턴스 & 만들어 [터미널을 여](how-to-access-terminal.md)는 것이 좋습니다.
 터미널이 열리면 전체 Git 클라이언트에 액세스할 수 있고 Git CLI 환경을 통해 Git를 복제 하 고 사용할 수 있습니다.
 
 사용자가 작업 분기에서 직접 충돌 하지 않도록 사용자 디렉터리에 리포지토리를 복제 하는 것이 좋습니다.
@@ -39,7 +39,7 @@ Azure Machine Learning는 작업 영역에 있는 모든 사용자에 게 공유
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>SSH를 사용 하 여 Git 계정 인증
 ### <a name="generate-a-new-ssh-key"></a>새 SSH 키 생성
-1) Azure Machine Learning 노트북 탭에서 [터미널 창을 엽니다](./how-to-run-jupyter-notebooks.md#terminal) .
+1) Azure Machine Learning 노트북 탭에서 [터미널 창을 엽니다](./how-to-access-terminal.md) .
 
 2) 전자 메일 주소를 대체 하 여 아래 텍스트를 붙여넣습니다.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  **2 단계** 에서 시작 합니다.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs&preserve-view=true)  **2 단계** 에서 시작 합니다.
 
 + [BitBucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). **4 단계** 에서 시작 합니다.
 

@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)을 지속적으로 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588134"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821857"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>자습서: ARM 템플릿과 Azure Pipelines의 연속 통합
 
@@ -39,12 +39,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * 템플릿의 리포지토리를 만드는 데 사용할 **GitHub 계정**. 계정이 없는 경우 [체험 계정](https://github.com)을 만들 수 있습니다. GitHub 리포지토리 사용에 대한 자세한 내용은 [GitHub 리포지토리 빌드](/azure/devops/pipelines/repos/github)를 참조하세요.
 * **Git를 설치** 합니다. 이 자습서의 지침에서는 *Git Bash* 또는 *Git Shell* 을 사용합니다. 지침은 [Git 설치](https://www.atlassian.com/git/tutorials/install-git)를 참조하세요.
-* **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기](/azure/devops/organizations/accounts/create-organization?view=azure-devops)를 참조하세요.
+* **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기](/azure/devops/organizations/accounts/create-organization)를 참조하세요.
 * (선택 사항)**Resource Manager 도구 확장이 포함된 Visual Studio Code**. [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 ## <a name="prepare-a-github-repository"></a>GitHub 리포지토리 준비
 
-GitHub는 Resource Manager 템플릿을 비롯한 프로젝트 소스 코드를 저장하는 데 사용됩니다. 지원되는 다른 리포지토리에 대한 내용은 [Azure DevOps에서 지원하는 리포지토리](/azure/devops/pipelines/repos/?view=azure-devops)를 참조하세요.
+GitHub는 Resource Manager 템플릿을 비롯한 프로젝트 소스 코드를 저장하는 데 사용됩니다. 지원되는 다른 리포지토리에 대한 내용은 [Azure DevOps에서 지원하는 리포지토리](/azure/devops/pipelines/repos/)를 참조하세요.
 
 ### <a name="create-a-github-repository"></a>GitHub 리포지토리 만들기
 

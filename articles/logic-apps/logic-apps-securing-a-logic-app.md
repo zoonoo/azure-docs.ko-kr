@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a74868beea6e5903b6b17a7bc0c82cc822fcd36f
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/12/2021
+ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055181"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104504"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -70,7 +70,7 @@ Azure의 보안에 대 한 자세한 내용은 다음 항목을 참조 하세요
 
 | 쿼리 매개 변수 | Description |
 |-----------------|-------------|
-| `sp` | 사용이 허용된 HTTP 메서드에 대한 권한을 지정합니다. |
+| `sp` | 사용할 수 있는 HTTP 메서드에 대 한 사용 권한을 지정 합니다. |
 | `sv` | 서명을 생성하는 데 사용할 SAS 버전을 지정합니다. |
 | `sig` | 트리거에 대한 액세스를 인증하는 데 사용할 서명을 지정합니다. 서명은 모든 URL 경로 및 속성에 관한 비밀 액세스 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 절대 노출되거나 공개되지 않는, 이 키는 암호화되고 논리 앱에 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다. |
 |||
@@ -123,11 +123,11 @@ POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Azure AD OAuth(Azure Active Directory 공개 인증) 사용
 
-요청 기반 트리거에서 만든 끝점에 대 한 인바운드 호출의 경우 논리 앱에 대 한 권한 부여 정책을 정의 하거나 추가 하 여 [Azure Active Directory 오픈 인증 (AZURE AD OAuth)](../active-directory/develop/index.yml) 을 사용 하도록 설정할 수 있습니다. 이러한 방식으로 인바운드 호출은 권한 부여에 OAuth [액세스 토큰](../active-directory/develop/access-tokens.md) 을 사용 합니다.
+요청 기반 트리거에서 만든 끝점에 대 한 인바운드 호출의 경우 논리 앱에 대 한 권한 부여 정책을 정의 하거나 추가 하 여 [AZURE AD OAuth](../active-directory/develop/index.yml) 를 사용 하도록 설정할 수 있습니다. 이러한 방식으로 인바운드 호출은 권한 부여에 OAuth [액세스 토큰](../active-directory/develop/access-tokens.md) 을 사용 합니다.
 
 논리 앱이 OAuth 액세스 토큰을 포함 하는 인바운드 요청을 수신 하는 경우 Azure Logic Apps 서비스는 토큰의 클레임을 각 권한 부여 정책에 지정 된 클레임에 대해 비교 합니다. 토큰의 클레임과 하나 이상의 정책에 있는 모든 클레임 사이에 일치하는 항목이 있으면 인바운드 요청에 대한 권한 부여가 성공합니다. 토큰은 권한 부여 정책에 지정된 수보다 많은 클레임을 가질 수 있습니다.
 
-Azure AD OAuth를 사용 하도록 설정 하기 전에 다음 고려 사항을 검토 합니다.
+#### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Azure AD OAuth를 사용 하기 전에 고려해 야 할 사항
 
 * 요청 끝점에 대 한 인바운드 호출은 Azure AD OAuth 또는 [SAS (공유 액세스 서명)](#sas)중 하나의 권한 부여 체계를 사용할 수 있습니다. 한 스키마를 사용 하면 다른 체계가 비활성화 되지 않지만 Logic Apps 서비스에서 선택할 체계를 알지 못하기 때문에 두 스키마를 동시에 사용 하면 오류가 발생 합니다.
 
@@ -180,11 +180,15 @@ Azure AD OAuth를 사용 하도록 설정 하기 전에 다음 고려 사항을 
    }
    ```
 
+#### <a name="enable-azure-ad-oauth-for-your-logic-app"></a>논리 앱에 Azure AD OAuth 사용
+
+Azure Portal 또는 Azure Resource Manager 템플릿에 대해 다음 단계를 수행 합니다.
+
 <a name="define-authorization-policy-portal"></a>
 
-#### <a name="define-authorization-policy-in-azure-portal"></a>Azure Portal에서 권한 부여 정책 정의
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설정 하려면 다음 단계를 수행 하 여 논리 앱에 하나 이상의 권한 부여 정책을 추가 합니다.
+[Azure Portal](https://portal.azure.com)에서 하나 이상의 권한 부여 정책을 논리 앱에 추가 합니다.
 
 1. [Azure Portal](https://portal.microsoft.com)의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
@@ -216,9 +220,9 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
 
 <a name="define-authorization-policy-template"></a>
 
-#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 권한 부여 정책 정의
+#### <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
 
-ARM 템플릿에서 논리 앱을 배포 하기 위해 Azure AD OAuth를 사용 하도록 설정 하려면 다음 단계 및 구문을 수행 합니다.
+ARM 템플릿에서 아래 단계와 구문을 따라 권한 부여 정책을 정의 합니다.
 
 1. `properties` [논리 앱의 리소스 정의](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)에 대 한 섹션에서 `accessControl` 개체를 포함 하는 개체 (없는 경우)를 추가 `triggers` 합니다.
 
@@ -271,6 +275,8 @@ ARM 템플릿에서 논리 앱을 배포 하기 위해 Azure AD OAuth를 사용 
 ],
 ```
 
+---
+
 <a name="include-auth-header"></a>
 
 #### <a name="include-authorization-header-in-request-trigger-outputs"></a>요청 트리거 출력에 ' Authorization ' 헤더 포함
@@ -310,11 +316,13 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 지정 하는 IP 주소에 관계 없이 [Logic Apps REST API: 워크플로 트리거-실행](/rest/api/logic/workflowtriggers/run) 요청 또는 API Management를 사용 하 여 요청 기반 트리거를 포함 하는 논리 앱을 계속 실행할 수 있습니다. 하지만 이 시나리오에는 Azure REST API에 대한 [인증](../active-directory/develop/authentication-vs-authorization.md)이 여전히 필요합니다. 모든 이벤트는 Azure 감사 로그에 나타납니다. 그에 따라 액세스 제어 정책을 설정했는지 확인하십시오.
 
+논리 앱에 대 한 인바운드 IP 주소를 제한 하려면 Azure Portal 또는 Azure Resource Manager 템플릿에 대해 다음 단계를 수행 합니다.
+
 <a name="restrict-inbound-ip-portal"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Azure Portal에서 인바운드 IP 범위 제한
+#### <a name="portal"></a>[포털](#tab/azure-portal)
 
-포털을 사용 하 여 논리 앱에 대 한 인바운드 IP 주소를 제한 하는 경우 이러한 제한 사항은 포털의 설명에 따라 **허용 되는 인바운드 ip 주소** 아래에 *도 트리거와 작업* 에 영향을 줍니다. 작업과 별도로 트리거에 대 한 제한을 설정 하려면 [ `accessControl` 논리 앱의 Azure Resource Manager 템플릿](#restrict-inbound-ip-template) 또는 Logic Apps REST API의 개체 ( [워크플로-만들기 또는 업데이트 작업)](/rest/api/logic/workflows/createorupdate)를 사용 합니다.
+[Azure Portal](https://portal.azure.com)에서이 필터는 **허용 된 인바운드 IP 주소** 아래에 있는 포털의 설명과 *달리 트리거와 작업* 에 모두 영향을 줍니다. 트리거와 작업에 대해이 필터를 별도로 설정 하려면 `accessControl` 논리 앱의 Azure Resource Manager 템플릿 또는 [Logic Apps REST API: 워크플로-만들기 또는 업데이트 작업](/rest/api/logic/workflows/createorupdate)에서 개체를 사용 합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
@@ -323,23 +331,23 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 1. **액세스 제어 구성** 섹션의 **허용 된 인바운드 IP 주소** 에서 시나리오의 경로를 선택 합니다.
 
    * 기본 제공 [Azure Logic Apps 작업](../logic-apps/logic-apps-http-endpoint.md)을 사용 하 여 논리 앱을 중첩 된 논리 앱 으로만 호출할 수 있도록 하려면 **Azure Logic Apps** 작업을 사용 하 여 중첩 된 논리 앱을 호출 하는 경우에 *만* 작동 하는 **다른 Logic Apps만** 선택 합니다.
-   
+
      이 옵션은 논리 앱 리소스에 빈 배열을 작성 하며, 기본 제공 **Azure Logic Apps** 작업을 사용 하는 부모 논리 앱의 호출만 중첩 된 논리 앱을 트리거할 수 있어야 합니다.
 
    * HTTP 작업을 사용 하 여 논리 앱을 중첩 된 앱 으로만 호출할 수 있도록 하려면 **다른 Logic Apps 뿐만** *아니라* **특정 IP 범위** 를 선택 합니다. **트리거의 IP 범위** 상자가 표시 되 면 부모 논리 앱의 [아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)를 입력 합니다. 유효한 IP 범위는 다음 형식을 사용 합니다. x. x. x */x* 또는 *x*. x. x. x. x. x. x. x. x.
-   
+
      > [!NOTE]
      > **다른 Logic Apps** 옵션과 HTTP 작업을 사용 하 여 중첩 된 논리 앱을 호출 하는 경우에는 호출이 차단 되 고 "401 권한 없음" 오류가 발생 합니다.
-        
+
    * 다른 ip에서 인바운드 호출을 제한 하려는 경우에는 **트리거의 ip 범위** 상자가 나타날 때 트리거에서 허용 하는 ip 주소 범위를 지정 합니다. 유효한 IP 범위는 다음 형식을 사용 합니다. x. x. x */x* 또는 *x*. x. x. x. x. x. x. x. x.
 
 1. 필요에 따라 **실행 기록에서 입력 및 출력 메시지를 가져오는 호출을 제공 된 ip 주소로 제한 하** 는 경우, 실행 기록에서 입력 및 출력 메시지에 액세스할 수 있는 인바운드 호출에 대 한 IP 주소 범위를 지정할 수 있습니다.
 
 <a name="restrict-inbound-ip-template"></a>
 
-#### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 인바운드 IP 범위 제한
+#### <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
 
-[리소스 관리자 템플릿을 사용 하 여 논리 앱에 대 한 배포를 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)하는 경우 섹션을 사용 하 여 논리 앱의 리소스 정의에서 허용 되는 인바운드 IP 주소 범위를 지정할 수 있습니다 `accessControl` . 이 섹션에서는 속성을 사용 하 여 섹션을 포함 하 고 속성 값을 x. x. x/x 또는 x. x. x. x. x. x. x. x. x `triggers` `actions` `contents` `allowedCallerIpAddresses` `addressRange` 형식의  허용 되는 IP 범위로 설정  하 여 적절 한, 및 선택적 섹션을 사용 합니다.
+ARM 템플릿에서 섹션을 사용 하 여 논리 앱의 리소스 정의에 허용 되는 인바운드 IP 주소 범위를 지정 합니다 `accessControl` . 이 섹션에서는 속성을 사용 하 여 섹션을 포함 하 고 속성 값을 x. x. x/x 또는 x. x. x. x. x. x. x. x. x `triggers` `actions` `contents` `allowedCallerIpAddresses` `addressRange` 형식의  허용 되는 IP 범위로  설정 하 여 적절 한, 및 선택적 섹션을 사용 합니다.
 
 * 중첩 된 논리 앱이 Azure Logic Apps 작업을 사용 하는 다른 논리 앱 에서만 인바운드 호출을 허용 하는 **다른 Logic Apps** 옵션만 사용 하는 경우 `addressRange` 속성을 빈 배열 (**[]**)로 설정 합니다.
 
@@ -439,6 +447,8 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 }
 ```
 
+---
+
 <a name="secure-operations"></a>
 
 ## <a name="access-to-logic-app-operations"></a>논리 앱 작업에 대한 액세스
@@ -473,11 +483,15 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
 ### <a name="restrict-access-by-ip-address-range"></a>IP 주소 범위를 통한 액세스 제한
 
-논리 앱의 실행 기록에 포함된 입력 및 출력에 대한 액세스 권한을 제한하여 특정 IP 주소 범위의 요청만 해당 데이터를 볼 수 있도록 할 수 있습니다. 예를 들어, 입력 및 출력에 아무도 액세스하지 못하게 하려면 `0.0.0.0-0.0.0.0`와 같은 IP 주소 범위를 지정합니다. 이러한 제한은 관리자 권한이 있는 사용자만 제거할 수 있기 때문에 논리 앱 데이터에 대한 “Just-In-Time” 액세스 가능성을 제공합니다. 제한할 IP 범위는 Azure Portal을 사용하거나 논리 앱 배포에 사용하는 Azure Resource Manager 템플릿에서 지정할 수 있습니다.
+논리 앱의 실행 기록에 포함된 입력 및 출력에 대한 액세스 권한을 제한하여 특정 IP 주소 범위의 요청만 해당 데이터를 볼 수 있도록 할 수 있습니다.
 
-#### <a name="restrict-ip-ranges-in-azure-portal"></a>Azure Portal에서 IP 범위 제한
+예를 들어, 입력 및 출력에 아무도 액세스하지 못하게 하려면 `0.0.0.0-0.0.0.0`와 같은 IP 주소 범위를 지정합니다. 이러한 제한은 관리자 권한이 있는 사용자만 제거할 수 있기 때문에 논리 앱 데이터에 대한 “Just-In-Time” 액세스 가능성을 제공합니다.
 
-1. Azure Portal의 Logic Apps 디자이너에서 논리 앱을 엽니다.
+허용 되는 IP 범위를 지정 하려면 Azure Portal 또는 Azure Resource Manager 템플릿에 대해 다음 단계를 수행 합니다.
+
+#### <a name="portal"></a>[포털](#tab/azure-portal)
+
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
 1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정** 을 선택합니다.
 
@@ -487,9 +501,9 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 
    올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다.
 
-#### <a name="restrict-ip-ranges-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 IP 범위 제한
+#### <a name="resource-manager-template"></a>[Resource Manager 템플릿](#tab/azure-resource-manager)
 
-[Resource Manager 템플릿을 사용하여 논리 앱 배포를 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)하는 경우 논리 앱의 리소스 정의에서 `accessControl` 섹션에 `contents` 섹션을 사용하여 IP 범위를 지정할 수 있습니다.
+ARM 템플릿에서 `accessControl` 논리 앱의 리소스 정의에서 섹션과 섹션을 사용 하 여 IP 범위를 지정 합니다 `contents` . 예를 들면 다음과 같습니다.
 
 ``` json
 {
@@ -528,11 +542,41 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 }
 ```
 
+---
+
 <a name="obfuscate"></a>
 
 ### <a name="secure-data-in-run-history-by-using-obfuscation"></a>난독 처리를 사용하여 실행 기록의 데이터 보호
 
-많은 트리거와 작업에는 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 보호하는 설정이 있습니다. 이러한 설정을 사용하여 데이터를 보호하기 전에 [고려 사항을 검토하세요](#obfuscation-considerations).
+많은 트리거와 작업에는 논리 앱의 실행 기록에서 입력, 출력 또는 둘 다를 보호하는 설정이 있습니다. 이러한 설정을 사용 하 여이 데이터의 보안을 유지 하기 전에 다음 사항을 검토 하십시오.
+
+* 트리거 또는 작업에서 입력 또는 출력을 가리면 Logic Apps는 보안 데이터를 Azure Log Analytics로 보내지 않습니다. 또한 모니터링을 위해 해당 트리거 또는 작업에 [추적된 속성](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)을 추가할 수 없습니다.
+
+* [워크플로 기록을 처리하는 Logic Apps API](/rest/api/logic/)는 보안 출력을 반환하지 않습니다.
+
+* 입력을 가리는 동작에서 출력을 보호하거나 출력을 명시적으로 가리려면 해당 동작에서 **보안 출력** 을 수동으로 켭니다.
+
+* 실행 기록이 해당 데이터를 가릴 필요가 있는 다운스트림 작업에서 **보안 입력** 또는 **보안 출력** 을 켜야 합니다.
+
+  **보안 출력 설정**
+
+  트리거 또는 작업에서 **보안 출력** 을 수동으로 켜면 Logic Apps는 해당 출력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 이렇게 보안 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 해당 작업의 입력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다.
+
+  ![다운스트림 및 입력으로 사용되는 보안 출력이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  작성, JSON 구문 분석, 응답 작업에는 **보안 입력** 설정만 있으며, 켜지면, 설정으로 인해 이러한 작업의 출력도 숨겨집니다. 이러한 작업의 입력으로 업스트림 보안 출력을 명시적으로 사용하면 Logic Apps는 이러한 작업의 입력 및 출력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다. 다운스트림 작업의 입력으로 작성, JSON 구문 분석, 응답 작업의 숨겨진 출력이 명시적으로 사용되면 Logic App은 이러한 다운스트림 작업의 입력 또는 출력을 숨기지 않습니다.
+
+  ![다운스트림에 입력으로 사용되는 보안 출력이 특정 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **보안 입력 설정**
+
+  트리거 또는 작업에서 **보안 입력** 을 수동으로 켜면 Logic Apps는 해당 입력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 트리거 또는 작업에 보이는 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 다운스트림 작업의 입력을 숨기지만 작업의 **보안 입력** 은 활성화되지 않으며 작업의 출력을 숨기지 않습니다.
+
+  ![보안 입력 및 다운스트림이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
+
+  작성, JSON 구문 분석, 응답 작업에 보안 입력이 포함된 작업이나 트리거에 보이는 출력이 명시적으로 사용되면 Logic Apps는 해당 작업의 입력 및 출력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다. 다운스트림 작업의 입력으로 작성, JSON 구문 분석, 응답 작업의 숨겨진 출력이 명시적으로 사용되면 Logic App은 이러한 다운스트림 작업의 입력 또는 출력을 숨기지 않습니다.
+
+  ![보안입력 및 다운스트림이 특정 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 #### <a name="secure-inputs-and-outputs-in-the-designer"></a>디자이너의 보안 입력 및 출력
 
@@ -575,8 +619,6 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
 * `"inputs"`: 실행 기록의 입력을 보호합니다.
 * `"outputs"`: 실행 기록의 출력을 보호합니다.
 
-이 설정을 사용하여 데이터를 보호하는 경우 [고려할 사항](#obfuscation-considerations)이 있습니다.
-
 ```json
 "<trigger-or-action-name>": {
    "type": "<trigger-or-action-type>",
@@ -594,38 +636,6 @@ SAS(공유 액세스 서명)와 마찬가지로 논리 앱을 호출할 수 있�
    <other-attributes>
 }
 ```
-
-<a name="obfuscation-considerations"></a>
-
-#### <a name="considerations-when-securing-inputs-and-outputs"></a>입력 및 출력 보안 시 고려 사항
-
-* 트리거 또는 작업에서 입력 또는 출력을 가리면 Logic Apps는 보안 데이터를 Azure Log Analytics로 보내지 않습니다. 또한 모니터링을 위해 해당 트리거 또는 작업에 [추적된 속성](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data)을 추가할 수 없습니다.
-
-* [워크플로 기록을 처리하는 Logic Apps API](/rest/api/logic/)는 보안 출력을 반환하지 않습니다.
-
-* 입력을 가리는 동작에서 출력을 보호하거나 출력을 명시적으로 가리려면 해당 동작에서 **보안 출력** 을 수동으로 켭니다.
-
-* 실행 기록이 해당 데이터를 가릴 필요가 있는 다운스트림 작업에서 **보안 입력** 또는 **보안 출력** 을 켜야 합니다.
-
-  **보안 출력 설정**
-
-  트리거 또는 작업에서 **보안 출력** 을 수동으로 켜면 Logic Apps는 해당 출력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 이렇게 보안 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 해당 작업의 입력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다.
-
-  ![다운스트림 및 입력으로 사용되는 보안 출력이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  작성, JSON 구문 분석, 응답 작업에는 **보안 입력** 설정만 있으며, 켜지면, 설정으로 인해 이러한 작업의 출력도 숨겨집니다. 이러한 작업의 입력으로 업스트림 보안 출력을 명시적으로 사용하면 Logic Apps는 이러한 작업의 입력 및 출력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다. 다운스트림 작업의 입력으로 작성, JSON 구문 분석, 응답 작업의 숨겨진 출력이 명시적으로 사용되면 Logic App은 이러한 다운스트림 작업의 입력 또는 출력을 숨기지 않습니다.
-
-  ![다운스트림에 입력으로 사용되는 보안 출력이 특정 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-  **보안 입력 설정**
-
-  트리거 또는 작업에서 **보안 입력** 을 수동으로 켜면 Logic Apps는 해당 입력을 실행 기록에서 숨깁니다. 다운스트림 작업의 입력으로 트리거 또는 작업에 보이는 출력이 명시적으로 사용되면 Logic Apps는 실행 기록에서 다운스트림 작업의 입력을 숨기지만 작업의 **보안 입력** 은 활성화되지 않으며 작업의 출력을 숨기지 않습니다.
-
-  ![보안 입력 및 다운스트림이 대부분의 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
-
-  작성, JSON 구문 분석, 응답 작업에 보안 입력이 포함된 작업이나 트리거에 보이는 출력이 명시적으로 사용되면 Logic Apps는 해당 작업의 입력 및 출력을 숨기지만 해당 작업의 **보안 입력** 설정은 활성화되지 않습니다. 다운스트림 작업의 입력으로 작성, JSON 구문 분석, 응답 작업의 숨겨진 출력이 명시적으로 사용되면 Logic App은 이러한 다운스트림 작업의 입력 또는 출력을 숨기지 않습니다.
-
-  ![보안입력 및 다운스트림이 특정 작업에 미치는 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 
@@ -1120,7 +1130,7 @@ Authorization: OAuth realm="Photos",
 
    **관리 되는 커넥터 트리거 및 작업**
 
-   | 속성(디자이너) | 필수 | 값 | Description |
+   | 속성(디자이너) | 필수 | 값 | 설명 |
    |---------------------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> ||
    | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |

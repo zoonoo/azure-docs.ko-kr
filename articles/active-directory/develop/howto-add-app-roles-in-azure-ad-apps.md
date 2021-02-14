@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013705"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104249"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>방법: 응용 프로그램에 앱 역할을 추가 하 고 토큰에서 수신
 
@@ -49,7 +49,7 @@ Azure Portal를 사용 하 여 앱 역할을 선언 하는 방법에는 두 가�
 
 Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들려면 다음을 수행 합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 앱 역할을 추가 하려는 앱 등록을 포함 하는 Azure Active Directory 테 넌 트를 선택 합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **앱 등록** 를 선택 하 고 응용 프로그램 역할을 정의 하려는 응용 프로그램을 선택 합니다.
@@ -66,7 +66,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
     | **허용 되는 멤버 유형** | 이 앱 역할을 사용자, 응용 프로그램 또는 둘 다에 할당할 수 있는지 여부를 지정 합니다.<br/><br/>에서 사용할 수 있는 경우 `applications` 앱 역할은 api 권한 > 앱 등록의 **관리** 섹션에서 응용 프로그램 권한으로 표시 **> Api > 사용 권한을 추가 > api > 응용 프로그램 사용 권한을 선택할** 수 있습니다. | `Users/Groups` |
     | **값** | 응용 프로그램이 토큰에서 필요로 하는 역할 클레임의 값을 지정 합니다. 값은 응용 프로그램 코드에서 참조 된 문자열과 정확 하 게 일치 해야 합니다. 값에는 공백을 사용할 수 없습니다. | `Survey.Create` |
     | **설명** | 관리 앱 할당 및 동의 환경에서 표시 되는 앱 역할에 대 한 자세한 설명입니다. | `Writers can create surveys.` |
-    | **이 앱 역할을 사용 하도록 설정 하 시겠습니까?** | 앱 역할을 사용 하도록 설정할지 여부를 지정 합니다. 앱 역할을 삭제 하려면이 확인란의 선택을 취소 하 고 삭제 작업을 시도 하기 전에 변경 내용을 적용 합니다. | *선택됨* |
+    | **이 앱 역할을 사용 하도록 설정 하 시겠습니까?** | 앱 역할을 사용 하도록 설정할지 여부를 지정 합니다. 앱 역할을 삭제 하려면이 확인란의 선택을 취소 하 고 삭제 작업을 시도 하기 전에 변경 내용을 적용 합니다. | *검사할* |
 
 1. **적용** 을 선택하여 변경 내용을 저장합니다.
 
@@ -74,7 +74,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
 
 매니페스트를 직접 편집 하 여 역할을 추가 하려면:
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 앱 역할을 추가 하려는 앱 등록을 포함 하는 Azure Active Directory 테 넌 트를 선택 합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 에서 **앱 등록** 를 선택 하 고 응용 프로그램 역할을 정의 하려는 응용 프로그램을 선택 합니다.
@@ -136,7 +136,7 @@ Azure Portal의 사용자 인터페이스를 사용 하 여 앱 역할을 만들
 
 Azure Portal를 사용 하 여 사용자 및 그룹을 역할에 할당 하려면 다음을 수행 합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. **Azure Active Directory** 의 왼쪽 탐색 메뉴에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 1. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다. 응용 프로그램이 목록에 표시 되지 않으면 **모든 응용 프로그램** 목록의 맨 위에 있는 필터를 사용 하 여 목록을 제한 하거나 목록을 아래로 스크롤하여 응용 프로그램을 찾습니다.
 1. 역할에 사용자 또는 보안 그룹을 할당할 애플리케이션을 선택합니다.
@@ -158,7 +158,7 @@ Azure Portal를 사용 하 여 사용자 및 그룹을 역할에 할당 하려�
 
 Azure Portal를 사용 하 여 응용 프로그램에 앱 역할을 할당 하려면 다음을 수행 합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. **Azure Active Directory** 의 왼쪽 탐색 메뉴에서 **앱 등록** 를 선택 합니다.
 1. **모든 애플리케이션** 을 선택하여 모든 애플리케이션 목록을 봅니다. 응용 프로그램이 목록에 표시 되지 않으면 **모든 응용 프로그램** 목록의 맨 위에 있는 필터를 사용 하 여 목록을 제한 하거나 목록을 아래로 스크롤하여 응용 프로그램을 찾습니다.
 1. 앱 역할을 할당 하려는 응용 프로그램을 선택 합니다.
@@ -170,7 +170,7 @@ Azure Portal를 사용 하 여 응용 프로그램에 앱 역할을 할당 하�
 
 새로 추가 된 역할이 앱 등록의 **API 권한** 창에 표시 됩니다.
 
-#### <a name="grant-admin-consent"></a>관리자 동의 부여
+#### <a name="grant-admin-consent"></a>관리자 동의 허용
 
 위임 된 권한이 아닌 *응용 프로그램 권한* 이므로 관리자는 응용 프로그램에 할당 된 앱 역할을 사용 하는 데 동의를 부여 해야 합니다.
 

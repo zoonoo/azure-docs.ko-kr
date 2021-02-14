@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, contperf-fy21q2
-ms.openlocfilehash: b5f4b6d42d67b69bd8b6be1ada6f5651d0cb8675
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6971fa129c01fc4cdf64e0dc681ac0fab4f707b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029841"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833816"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -156,9 +156,6 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 
 이제 IoT Central에 대한 개요를 살펴보았으므로 다음 몇가지 제안된 단계는 다음과 같습니다.
 
-- 사용 가능한 [IoT 솔루션을 만들기 위한 Azure 기술 및 서비스](../../iot-fundamentals/iot-services-and-technologies.md)를 이해합니다.
 - 디바이스 개발자이고 몇 가지 코드에 대해 자세히 알아보려면 다음 단계를 [클라이언트 애플리케이션을 만들고 Azure IoT Central 애플리케이션에 연결](./tutorial-connect-device.md)하는 것이 좋습니다.
 - [Azure IoT Central UI](overview-iot-central-tour.md)를 숙지합니다.
 - [Azure IoT Central 애플리케이션을 생성](quick-deploy-iot-central.md)하여 시작합니다.
-- [Azure IoT Edge 디바이스 연결](./tutorial-add-edge-as-leaf-device.md) 방법에 대해 자세히 알아봅니다.
-- [Azure IoT 기술 및 서비스](../../iot-fundamentals/iot-services-and-technologies.md)에 대해 자세히 알아봅니다.

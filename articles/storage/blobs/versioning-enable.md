@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993750"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095847"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
 
-Blob 저장소 버전 관리를 사용 하도록 설정 하 여 이전 버전의 개체를 자동으로 유지 관리할 수 있습니다.  Blob 버전 관리를 사용 하는 경우 데이터를 잘못 수정 하거나 삭제 한 경우 이전 버전의 blob을 복원 하 여 데이터를 복구할 수 있습니다.
+Blob 저장소 버전 관리를 사용 하도록 설정 하 여 blob이 수정 되거나 삭제 될 때 blob의 이전 버전을 자동으로 유지할 수 있습니다. Blob 버전 관리를 사용 하는 경우 데이터를 잘못 수정 하거나 삭제 한 경우 이전 버전의 blob을 복원 하 여 데이터를 복구할 수 있습니다.
 
 이 문서에서는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 저장소 계정에 대 한 blob 버전 관리를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다. Blob 버전 관리에 대해 자세히 알아보려면 [blob 버전 관리](versioning-overview.md)를 참조 하세요.
 
@@ -29,13 +29,39 @@ Blob 저장소 버전 관리를 사용 하도록 설정 하 여 이전 버전의
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal에서 blob 버전 관리를 사용 하도록 설정 하려면
+Azure Portal에서 저장소 계정에 대 한 blob 버전 관리를 사용 하도록 설정 하려면:
 
 1. 포털에서 저장소 계정으로 이동 합니다.
 1. **Blob service** 에서 **데이터 보호** 를 선택 합니다.
 1. **버전 관리** 섹션에서 **사용** 을 선택 합니다.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Azure Portal에서 blob 버전 관리를 사용 하도록 설정 하는 방법을 보여 주는 스크린샷":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell을 사용 하 여 저장소 계정에 대 한 blob 버전 관리를 사용 하도록 설정 하려면 먼저 [Az. storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 2.3.0 이상을 설치 합니다. 그런 다음, 다음 예제와 같이 [AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) 명령을 호출 하 여 버전 관리를 사용 하도록 설정 합니다. 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용 하 여 저장소 계정에 대 한 blob 버전 관리를 사용 하도록 설정 하려면 먼저 Azure CLI 버전 2.2.0 이상을 설치 합니다. 그런 다음, 다음 예제와 같이 [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) 명령을 호출 하 여 버전 관리를 사용 하도록 설정 합니다. 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[템플릿](#tab/template)
 

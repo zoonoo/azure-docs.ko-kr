@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695437"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822509"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -240,7 +240,7 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 새로 배포된 웹 서비스의 사용을 용이하게 하는 Power BI 지원 스키마를 만드는 방법에 대한 단계별 설명은 이 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [웹 서비스 사용](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [웹 서비스 사용](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + [자동화된 기계 학습](concept-automated-ml.md)에 대한 자세한 정보
 + 분류 메트릭 및 차트에 대한 자세한 내용은 [자동화된 기계 학습 결과 이해](how-to-understand-automated-ml.md) 문서를 참조하세요.

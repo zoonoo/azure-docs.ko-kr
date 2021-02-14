@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124815"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095021"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행
 
@@ -29,6 +29,11 @@ ms.locfileid: "93124815"
 
 >[!Important]
 >이 콘텐츠는 **내 앱** 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/index.yml)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
+>
+> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="manage-access-reviews"></a>액세스 검토 관리
 
@@ -41,17 +46,17 @@ ms.locfileid: "93124815"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다.
+1. 웹 브라우저를 열고 https://myapps.microsoft.com 으로 이동하거나 조직에서 제공하는 링크를 사용합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 과 같이 조직의 사용자 지정된 페이지로 이동할 수 있습니다.
 
     조직에서 소유하고 사용자가 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
     ![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-home.png)
 
-3. **액세스 검토** 타일을 선택하여 승인을 기다리는 액세스 검토의 목록을 확인합니다.
+1. **액세스 검토** 타일을 선택하여 승인을 기다리는 액세스 검토의 목록을 확인합니다.
 
     ![조직에 대한 액세스 검토가 보류 중인 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. **검토 시작** 을 선택하여 액세스 검토를 시작합니다.
+1. **검토 시작** 을 선택하여 액세스 검토를 시작합니다.
 
 5. 액세스를 검토하고 해당 액세스가 여전히 필요한지 여부를 결정합니다.
 

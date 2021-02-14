@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896b4db433164471f41aa09791ede5d677028bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015003"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822426"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>자습서: PowerShell Runbook 만들기
 
@@ -51,13 +51,13 @@ PowerShell Runbook에는 이러한 차이점 외에도 PowerShell 워크플로 R
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 
-2. **프로세스 자동화** 아래에서 **Runbook**을 선택하여 Runbook 목록을 엽니다.
+2. **프로세스 자동화** 아래에서 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
 
-3. **Runbook 만들기**를 선택하여 새 Runbook을 만듭니다.
+3. **Runbook 만들기** 를 선택하여 새 Runbook을 만듭니다.
 
-4. Runbook 이름을 **MyFirstRunbook-PowerShell**로 지정합니다.
+4. Runbook 이름을 **MyFirstRunbook-PowerShell** 로 지정합니다.
 
-5. 여기서는 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만듭니다. **Runbook 형식**에 대해 **PowerShell**을 선택합니다.
+5. 여기서는 [PowerShell Runbook](../automation-runbook-types.md#powershell-runbooks)을 만듭니다. **Runbook 형식** 에 대해 **PowerShell** 을 선택합니다.
 
 6. **만들기** 를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
@@ -69,7 +69,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
    ![Hello World](../media/automation-tutorial-runbook-textual-powershell/automation-helloworld.png)
 
-2. **저장**을 클릭하여 Runbook을 저장합니다.
+2. **저장** 을 클릭하여 Runbook을 저장합니다.
 
 ## <a name="step-3---test-the-runbook"></a><a name="step-3---test-the-runbook"> </a> 3단계 - Runbook 테스트
 
@@ -93,21 +93,21 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 방금 만든 Runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하기 전에 먼저 게시해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 경우에 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
 
-1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
+1. **게시** 를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예** 를 클릭합니다.
 
-2. Runbook 페이지에서 왼쪽으로 스크롤하여 Runbook을 살펴보고, **작성 상태** 값이 **게시됨**으로 설정되어 있는지 확인합니다.
+2. Runbook 페이지에서 왼쪽으로 스크롤하여 Runbook을 살펴보고, **작성 상태** 값이 **게시됨** 으로 설정되어 있는지 확인합니다.
 
 3. 오른쪽으로 다시 스크롤하여 **MyFirstRunbook-PowerShell** 페이지를 봅니다.
    
    위쪽의 옵션을 사용하면 지금 Runbook을 시작하거나, 향후의 시작 시간을 예약하거나, [웹후크](../automation-webhooks.md)를 만들어 HTTP 호출을 통해 Runbook을 시작할 수 있습니다.
 
-4. **시작**을 선택하고 Runbook을 시작할지 확인하는 메시지가 표시되면 **예**를 선택합니다. 
+4. **시작** 을 선택하고 Runbook을 시작할지 확인하는 메시지가 표시되면 **예** 를 선택합니다. 
 
-5. 만든 Runbook 작업에 대한 [작업] 창이 열립니다. 이 창을 닫을 수 있지만, 작업 진행 상황을 볼 수 있도록 지금 열어 둡니다. 작업 상태는 **작업 요약**에 표시되며, 가능한 상태는 Runbook 테스트에 대해 설명한 대로입니다.
+5. 만든 Runbook 작업에 대한 [작업] 창이 열립니다. 이 창을 닫을 수 있지만, 작업 진행 상황을 볼 수 있도록 지금 열어 둡니다. 작업 상태는 **작업 요약** 에 표시되며, 가능한 상태는 Runbook 테스트에 대해 설명한 대로입니다.
 
    ![작업 요약](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-jobsummary.png)
 
-6. Runbook 상태가 '완료됨'으로 표시되면 **출력**을 클릭하여 [출력] 페이지를 엽니다. 여기서는 `Hello World`가 표시됩니다.
+6. Runbook 상태가 '완료됨'으로 표시되면 **출력** 을 클릭하여 [출력] 페이지를 엽니다. 여기서는 `Hello World`가 표시됩니다.
 
    ![작업 출력](../media/automation-tutorial-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
@@ -121,7 +121,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 9. [스트림] 창과 [작업] 창을 닫고 MyFirstRunbook-PowerShell 페이지로 돌아갑니다.
 
-10. **세부 정보** 아래에서 **작업**을 클릭하여 이 Runbook에 대한 [작업] 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 여기서는 작업을 한 번만 실행했으므로 하나의 작업만 나열됩니다.
+10. **세부 정보** 아래에서 **작업** 을 클릭하여 이 Runbook에 대한 [작업] 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 여기서는 작업을 한 번만 실행했으므로 하나의 작업만 나열됩니다.
 
    ![작업 목록](../media/automation-tutorial-runbook-textual-powershell/runbook-control-job-tile.png)
 
@@ -131,7 +131,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다. 이렇게 하려면 Runbook에서 Automation 계정을 만들 때 자동으로 만들어진 실행 계정을 사용하여 인증할 수 있어야 합니다.
 
-아래 예제에서와 같이 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) cmdlet을 사용하여 실행 연결이 설정됩니다. 여러 구독에서 리소스를 관리하는 경우 [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0)에서 `AzContext` 매개 변수를 사용해야 합니다.
+아래 예제에서와 같이 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 실행 연결이 설정됩니다. 여러 구독에서 리소스를 관리하는 경우 [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext)에서 `AzContext` 매개 변수를 사용해야 합니다.
 
 > [!NOTE]
 > PowerShell Runbook의 경우 `Add-AzAccount` 및 `Add-AzureRMAccount`는 `Connect-AzAccount`에 대한 별칭입니다. 이러한 cmdlet을 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업데이트](../automation-update-azure-modules.md)할 수 있습니다. 새 Automation 계정을 만든 경우에도 모듈을 업데이트해야 할 수 있습니다.
@@ -162,7 +162,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
    Get-AzVM -ResourceGroupName myResourceGroup -AzContext $AzureContext
    ```
 
-1. MyFirstRunbook-PowerShell 페이지에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
+1. MyFirstRunbook-PowerShell 페이지에서 **편집** 을 클릭하여 텍스트 편집기를 엽니다.
 
 2. `Write-Output` 줄은 더 이상 필요하지 않습니다. 계속 삭제하면 됩니다.
 
@@ -188,7 +188,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
    }
    ```
 
-4. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
+4. Runbook을 테스트할 수 있도록 **테스트 창** 을 클릭합니다.
 
 5. **시작** 을 클릭하여 테스트를 시작합니다. 완료되면 다음과 비슷한 출력이 표시됩니다. 여기서는 계정의 기본 정보를 보여 줍니다. 이 출력에서는 실행 계정이 유효한지 확인합니다.
 
@@ -198,7 +198,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작하는 명령을 추가해 보겠습니다. Azure 구독에서 가상 머신을 선택할 수 있지만, 지금은 해당 이름을 Runbook에 하드 코딩하면 됩니다.
 
-1. [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet을 Runbook 스크립트에 추가하여 가상 머신을 시작합니다. 아래와 같이 cmdlet에서 이름이 `VMName`이고 리소스 그룹 이름이 `ResourceGroupName`인 가상 머신을 시작합니다.
+1. [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) cmdlet을 Runbook 스크립트에 추가하여 가상 머신을 시작합니다. 아래와 같이 cmdlet에서 이름이 `VMName`이고 리소스 그룹 이름이 `ResourceGroupName`인 가상 머신을 시작합니다.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -221,9 +221,9 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
    Start-AzVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
 
-2. Runbook을 저장한 다음, 테스트할 수 있도록 **테스트 창**을 클릭합니다.
+2. Runbook을 저장한 다음, 테스트할 수 있도록 **테스트 창** 을 클릭합니다.
 
-3. **시작**을 클릭하여 테스트를 시작합니다. 완료되면 가상 머신이 시작되었는지 확인합니다.
+3. **시작** 을 클릭하여 테스트를 시작합니다. 완료되면 가상 머신이 시작되었는지 확인합니다.
 
 ## <a name="step-7---add-an-input-parameter"></a>7단계 - 입력 매개 변수 추가
 
@@ -266,7 +266,7 @@ Runbook에서 현재 Runbook에 하드 코딩된 가상 머신을 시작합니�
 
 6. **시작** 을 클릭하여 runbook을 시작합니다. 
 
-7. 시작할 가상 머신에 대한 **VMNAME** 및 **RESOURCEGROUPNAME** 값을 입력한 다음, **확인**을 클릭합니다.
+7. 시작할 가상 머신에 대한 **VMNAME** 및 **RESOURCEGROUPNAME** 값을 입력한 다음, **확인** 을 클릭합니다.
 
     ![매개 변수 전달](../media/automation-tutorial-runbook-textual-powershell/automation-pass-params.png)
 
@@ -275,7 +275,7 @@ Runbook에서 현재 Runbook에 하드 코딩된 가상 머신을 시작합니�
 ## <a name="next-steps"></a>다음 단계
 
 * 언어 참조 및 학습 모듈을 포함하여 PowerShell에 대한 자세한 내용은 [PowerShell 문서](/powershell/scripting/overview)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 * 그래픽 Runbook을 시작하려면 [그래픽 Runbook 만들기](automation-tutorial-runbook-graphical.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [PowerShell 워크플로 Runbook 만들기](automation-tutorial-runbook-textual.md)를 참조하세요.
 * Runbook의 형식, 장점 및 제한 사항에 대해 자세히 알아보려면 [Azure Automation Runbook 형식](../automation-runbook-types.md)을 참조하세요.

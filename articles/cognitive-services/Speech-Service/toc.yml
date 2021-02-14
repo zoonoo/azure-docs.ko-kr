@@ -529,8 +529,6 @@
           displayName: 'ACI,azure container instances,container instances,containers'
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
-        - name: 컨테이너 FAQ
-          href: speech-container-faq.md
         - name: Cognitive Services 컨테이너 설명서
           href: ../containers/index.yml
 - name: 디바이스

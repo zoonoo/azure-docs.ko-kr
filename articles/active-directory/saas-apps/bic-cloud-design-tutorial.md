@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 6ac9dea5f77a47926e8dec5bda0befc66e4e675b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 7a706eb120f45fcd08febd0bda9aaaa54a82135a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963847"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821861"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bic-cloud-design"></a>자습서: BIC Cloud Design과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -159,7 +159,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * BIC Cloud Design 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 BIC Cloud Design 타일을 클릭하면 BIC Cloud Design 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 BIC Cloud Design 타일을 클릭하면 BIC Cloud Design 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

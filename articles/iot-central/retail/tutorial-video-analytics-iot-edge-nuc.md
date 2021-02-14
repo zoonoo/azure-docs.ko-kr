@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 64cdb41540d9750be8664dc60c2b6ceda6c324ca
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427992"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831929"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)
 
@@ -148,6 +148,14 @@ IoT Edge 디바이스에 연결된 카메라의 RTSP 스트림 URL을 식별합�
 
 > [!TIP]
 > VLC와 같은 미디어 플레이어를 사용하여 IoT Edge 컴퓨터에서 카메라 스트림을 보도록 시도합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+애플리케이션 사용을 마친 후에는 앞에서 만든 모든 리소스를 다음과 같이 제거할 수 있습니다.
+
+1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제** 를 선택합니다.
+1. Azure Portal에서 **lva-rg** 리소스 그룹을 삭제합니다.
+1. 로컬 머신에서 **amp-viewer** Docker 컨테이너를 중지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

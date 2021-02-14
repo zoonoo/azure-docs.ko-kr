@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d8aaf093a7e2a0ad1470d72d815e919f5b4e2d05
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896683"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821565"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>자습서: Azure Maps Route Service 및 지도 컨트롤을 사용하여 경로 방향을 표시하는 방법
 
@@ -174,7 +174,7 @@ ms.locfileid: "92896683"
 
 3. **MapRoute.html** 을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="맵에서 경로 시작점과 종료점 보기":::
 
 <a id="getroute"></a>
 
@@ -183,7 +183,7 @@ ms.locfileid: "92896683"
 이 섹션에서는 Azure Maps 경로 방향 API를 사용하여 한 지점에서 다른 지점까지의 경로 방향 및 예상 도착 시간을 가져오는 방법을 보여줍니다.
 
 >[!TIP]
->Azure Maps 경로 서비스는 거리, 트래픽 조건 및 사용되는 운송 모드를 기준으로 *가장 빠른* , *가장 짧은* , *에코* , *스릴* 경로와 같은 다양한 경로 유형을 기반으로 경로를 계획하는 API를 제공합니다. 서비스를 통해 사용자는 과거 트래픽 조건을 기준으로 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
+>Azure Maps 경로 서비스는 거리, 트래픽 조건 및 사용되는 운송 모드를 기준으로 *가장 빠른*, *가장 짧은*, *에코*, *스릴* 경로와 같은 다양한 경로 유형을 기반으로 경로를 계획하는 API를 제공합니다. 서비스를 통해 사용자는 과거 트래픽 조건을 기준으로 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
 
 1. `GetMap` 함수에서 컨트롤의 `ready` 이벤트 처리기 내에 다음을 JavaScript 코드에 추가합니다.
 
@@ -216,9 +216,13 @@ ms.locfileid: "92896683"
 
 3. **MapRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. 이제 지도에 시작점부터 도착점까지의 경로가 표시됩니다.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure 지도 컨트롤 및 Route Service":::
 
 [여기](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)에서 샘플의 전체 소스 코드를 가져올 수 있습니다. 라이브 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)에서 확인할 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 145372fa872c481ec1a7c3de016c35fdc0f9d960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d25ede5ae871eddd965594224b518ec42525451
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083806"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821810"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 배포
 
@@ -41,14 +41,14 @@ ms.locfileid: "87083806"
 
 | 명령 | 메모 |
 |---|---|
-|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Service Fabric 클러스터에 대한 끝점을 만듭니다. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | 애플리케이션 패키지를 클러스터 이미지 저장소에 복사합니다.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| 애플리케이션 유형 및 버전을 클러스터에 등록합니다. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| 등록된 애플리케이션 유형에서 애플리케이션을 만듭니다. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
+|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster)| Service Fabric 클러스터에 대한 끝점을 만듭니다. |
+|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) | 애플리케이션 패키지를 클러스터 이미지 저장소에 복사합니다.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype)| 애플리케이션 유형 및 버전을 클러스터에 등록합니다. |
+|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication)| 등록된 애플리케이션 유형에서 애플리케이션을 만듭니다. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage) | 이미지 저장소에서 Service Fabric 애플리케이션 패키지를 제거합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview?view=azureservicefabricps)를 참조하세요.
+Service Fabric PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/service-fabric/overview)를 참조하세요.
 
 Azure Service Fabric에 대한 추가 PowerShell 샘플은 [Azure PowerShell 샘플](../service-fabric-powershell-samples.md)에서 확인할 수 있습니다.

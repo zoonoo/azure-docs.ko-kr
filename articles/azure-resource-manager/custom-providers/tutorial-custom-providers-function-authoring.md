@@ -3,14 +3,14 @@ title: RESTful 엔드포인트 작성
 description: 이 자습서에서는 사용자 지정 공급자에 대한 RESTful 엔드포인트를 작성하는 방법을 보여줍니다. 지원되는 RESTful HTTP 메서드에 대한 요청 및 응답을 처리하는 방법을 자세히 설명합니다.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75648730"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200212"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>사용자 지정 공급자를 위한 RESTful 엔드포인트 작성
 
@@ -57,7 +57,7 @@ public class CustomResource : TableEntity
     public string Data { get; set; }
 }
 ```
-**CustomResource**는 모든 입력 데이터를 수락하는 간단한 제네릭 클래스입니다. 데이터를 저장하는 데 사용되는 **TableEntity**를 기반으로 합니다. **CustomResource** 클래스는 **TableEntity**에서 두 가지 속성 **partitionKey** 및 **rowKey**를 상속합니다.
+**CustomResource** 는 모든 입력 데이터를 수락하는 간단한 제네릭 클래스입니다. 데이터를 저장하는 데 사용되는 **TableEntity** 를 기반으로 합니다. **CustomResource** 클래스는 **TableEntity** 에서 두 가지 속성 **partitionKey** 및 **rowKey** 를 상속합니다.
 
 ## <a name="support-custom-provider-restful-methods"></a>사용자 지정 공급자 RESTful 메서드 지원
 
@@ -132,7 +132,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-**CreateCustomResource** 메서드는 Azure 관련 필드 **id**, **이름**, **유형**을 포함하도록 들어오는 요청을 업데이트합니다. 이러한 필드는 Azure 전체의 서비스에서 사용되는 최상위 속성입니다. 이러한 필드를 통해 사용자 지정 공급자는 Azure Policy, Azure Resource Manager 템플릿, Azure Activity Logs 등의 다른 서비스와 상호 운용할 수 있습니다.
+**CreateCustomResource** 메서드는 Azure 관련 필드 **id**, **이름**, **유형** 을 포함하도록 들어오는 요청을 업데이트합니다. 이러한 필드는 Azure 전체의 서비스에서 사용되는 최상위 속성입니다. 이러한 필드를 통해 사용자 지정 공급자는 Azure Policy, Azure Resource Manager 템플릿, Azure Activity Logs 등의 다른 서비스와 상호 운용할 수 있습니다.
 
 속성 | 예제 | Description
 ---|---|---
@@ -347,7 +347,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf8fc9916384c9eef24c4c50f7647632c0e6b7a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e3521603c4651133f1420809e4921ad27279860
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077460"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822124"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 이미지 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "87077460"
 
 ## <a name="overview"></a>개요
 
-[공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
+[공유 이미지 갤러리](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
 
 Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
 
@@ -50,11 +50,11 @@ Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="get-the-vm"></a>VM 가져오기
 
-[Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름과 해당 리소스 그룹을 알 수 있으면 `Get-AzVM`을 다시 사용하여 VM 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *sourceVM*이라는 VM을 가져온 후 변수 *$sourceVM*에 할당합니다. 
+[Get-AzVM](/powershell/module/az.compute/get-azvm)을 사용하여 리소스 그룹에서 사용할 수 있는 VM 목록을 볼 수 있습니다. VM 이름과 해당 리소스 그룹을 알 수 있으면 `Get-AzVM`을 다시 사용하여 VM 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *sourceVM* 이라는 VM을 가져온 후 변수 *$sourceVM* 에 할당합니다. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -66,7 +66,7 @@ $sourceVM = Get-AzVM `
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *미국 동부* 지역에 *myGalleryRG*라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *미국 동부* 지역에 *myGalleryRG* 라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -78,7 +78,7 @@ $resourceGroup = New-AzResourceGroup `
 
 이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름에 허용되는 문자는 대문자 또는 소문자, 숫자, 점 및 마침표입니다. 갤러리 이름에 대시를 사용할 수 없습니다. 갤러리 이름은 구독 내에서 고유해야 합니다. 
 
-[New-AzGallery](/powershell/module/az.compute/new-azgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
+[New-AzGallery](/powershell/module/az.compute/new-azgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery* 라는 갤러리를 만듭니다.
 
 ```azurepowershell-interactive
 $gallery = New-AzGallery `
@@ -91,9 +91,9 @@ $gallery = New-AzGallery `
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 내부에서 생성된 이미지 버전에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../shared-image-galleries.md#image-definitions)를 참조하세요.
 
-[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지는 *myGalleryImage*로 이름이 지정되고 특수 이미지에 대해 만들어집니다. 
+[New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지는 *myGalleryImage* 로 이름이 지정되고 특수 이미지에 대해 만들어집니다. 
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -115,7 +115,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-이 예제에서 이미지 버전은 *1.0.0*이며, *미국 동부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제할 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함해야 합니다.
+이 예제에서 이미지 버전은 *1.0.0* 이며, *미국 동부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제할 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함해야 합니다.
 
 VM에서 이미지 버전을 만들려면 `-Source`에 대해 `$vm.Id.ToString()`을 사용합니다.
 
@@ -207,7 +207,7 @@ Remove-AzResourceGroup -Name myResoureceGroup
 
 ## <a name="azure-image-builder"></a>Azure 이미지 작성기
 
-Azure는 [Azure VM 이미지 작성기](./image-builder-overview.md)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
+Azure는 [Azure VM 이미지 작성기](../image-builder-overview.md)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

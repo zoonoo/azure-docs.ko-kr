@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127879"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095004"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -31,6 +31,11 @@ ms.locfileid: "93127879"
 
 > [!IMPORTANT]
 > 이 콘텐츠는 **내 앱** 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/index.yml)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
+>
+> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 

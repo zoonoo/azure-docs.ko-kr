@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 969ca74d628da2bf91e0a7c091c9792f2676fb71
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555607"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095684"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 지원하는 서비스
 
@@ -355,6 +355,17 @@ Azure VM 이미지 작성기 (사용 가능한 지역)에 대해 관리 id를 �
 Azure SignalR Service에 대 한 관리 되는 id를 구성 하려면 다음 목록을 참조 하세요 (사용 가능한 지역).
 
 - [Azure Resource Manager 템플릿](../../azure-signalr/howto-use-managed-identity.md)
+
+### <a name="azure-resource-mover"></a>Azure Resource Mover
+
+관리 ID 유형 | 모든 일반 공급<br>전 세계 Azure 지역 | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| 시스템 할당 | Azure 리소스 이동 서비스를 사용할 수 있는 지역에서 사용할 수 있습니다. | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+| 사용자 할당 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 | 사용할 수 없음 |
+
+Azure 리소스 이동 기를 사용 하려면 다음 문서를 참조 하세요.
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure AD 인증을 지원하는 Azure 서비스
 

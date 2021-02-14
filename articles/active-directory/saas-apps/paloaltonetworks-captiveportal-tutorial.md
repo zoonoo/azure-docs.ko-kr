@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 0e16cb3d24f9dd33b156bca72ce1c99e7aae957a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1b9c9182b8ffc6e9ea2e05fd4863783f111f81dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963607"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>자습서: Palo Alto Networks Captive Portal과 Azure Active Directory 통합
 
@@ -150,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Palo Alto Networks Captive Portal에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Palo Alto Networks Captive Portal 타일을 클릭하면 SSO를 설정한 Palo Alto Networks Captive Portal 애플리케이션에 자동으로 로그온됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Palo Alto Networks Captive Portal 타일을 클릭하면 SSO를 설정한 Palo Alto Networks Captive Portal 애플리케이션에 자동으로 로그온됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

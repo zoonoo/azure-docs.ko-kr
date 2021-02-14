@@ -39,8 +39,6 @@
       href: access-control.md
     - name: 로컬 RBAC 기본 제공 역할
       href: built-in-roles.md
-- name: 방법 가이드
-  items: null
 - name: 참조
   items:
     - name: Azure PowerShell

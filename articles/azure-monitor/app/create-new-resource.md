@@ -2,17 +2,20 @@
 title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/10/2021
+ms.openlocfilehash: 3233aed895eac269bd34a961728b3302581ff360
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062916"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104589"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
 Azure 애플리케이션 Insights는 Microsoft Azure *리소스* 에 응용 프로그램에 대 한 데이터를 표시 합니다. 따라서 새 리소스 만들기는 [새 애플리케이션을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 새 리소스를 만든 후에는 해당 계측 키를 가져오고이를 사용 하 여 Application Insights SDK를 구성할 수 있습니다. 계측 키는 원격 분석을 리소스에 연결 합니다.
+
+> [!IMPORTANT]
+> 클래식 Application Insights는 더 이상 사용 되지 않습니다. [작업 영역 기반 Application Insights로 업그레이드 하는 방법에 대 한 지침](convert-classic-resource.md)을 따르세요.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Microsoft Azure에 로그인
 
@@ -24,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ![왼쪽 위 모서리에 있는 ' + ' 기호를 클릭 합니다. 개발자 도구 다음에 Application Insights를 선택 합니다.](./media/create-new-resource/new-app-insights.png)
 
-   | 설정        |  값           | Description  |
+   | 설정        |  값           | 설명  |
    | ------------- |:-------------|:-----|
    | **이름**      | `Unique value` | 모니터링할 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | `myResourceGroup`      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |

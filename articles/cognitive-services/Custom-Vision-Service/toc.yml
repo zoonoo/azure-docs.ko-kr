@@ -31,7 +31,7 @@
   items:
     - name: 모델 테스트
       href: test-your-model.md
-    - name: 분류자 개선
+    - name: 모델 개선
       href: getting-started-improving-your-classifier.md
     - name: 도메인 선택
       href: select-domain.md

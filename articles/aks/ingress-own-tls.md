@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고유한 인증�
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: e5a766eafb8f4b576a571b9b5379f343bbef54ea
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ee196bd749ad5821a1855d4549b22698c724b3f5
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729046"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104929"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러를 만들고 고유한 TLS 인증서 사용
 
@@ -219,7 +219,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   tls:
   - hosts:

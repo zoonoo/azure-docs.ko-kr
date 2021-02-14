@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b8fe0109a4dd2e054106b67f893def2ee596b0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804802"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095089"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -149,7 +149,7 @@ $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" 
 $targetVault.ID
 ```
 
-Or
+또는
 
 ```powershell
 $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -526,6 +526,53 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
 > 디스크를 선택적으로 복원 하려면 디스크를 선택적으로 백업 해야 합니다. 자세한 내용은 [여기](selective-disk-backup-restore.md#selective-disk-restore)에 나와 있습니다.
 
 디스크를 복원한 후 다음 섹션으로 이동하여 VM을 만듭니다.
+
+#### <a name="restore-disks-to-a-secondary-region"></a>디스크를 보조 지역으로 복원
+
+Vm을 보호 한 자격 증명 모음에서 지역 간 복원이 사용 하도록 설정 된 경우 백업 데이터가 보조 지역에 복제 됩니다. 백업 데이터를 사용 하 여 복원을 수행할 수 있습니다. 보조 지역에서 복원을 트리거하려면 다음 단계를 수행 합니다.
+
+1. Vm이 보호 되는 [자격 증명 모음 ID를 가져옵니다](#fetch-the-vault-id) .
+1. [복원할 올바른 백업 항목](#select-the-vm-when-restoring-files)을 선택 하십시오.
+1. 복원 하는 데 사용 하려는 보조 지역에서 적절 한 복구 지점을 선택 합니다.
+
+    이 단계를 완료 하려면 다음 명령을 실행 합니다.
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. 매개 변수를 사용 하 여 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) cmdlet을 실행 `-RestoreToSecondaryRegion` 하 여 보조 지역에서 복원을 트리거합니다.
+
+    이 단계를 완료 하려면 다음 명령을 실행 합니다.
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    다음 예제와 유사하게 출력됩니다.
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. 매개 변수를 사용 하 여 [AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet을 실행 `-UseSecondaryRegion` 하 여 복원 작업을 모니터링 합니다.
+
+    이 단계를 완료 하려면 다음 명령을 실행 합니다.
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    다음 예제와 유사하게 출력됩니다.
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
 
 ## <a name="replace-disks-in-azure-vm"></a>Azure VM에서 디스크 교체
 

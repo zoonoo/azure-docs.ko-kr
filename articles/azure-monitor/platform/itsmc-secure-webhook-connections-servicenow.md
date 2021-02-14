@@ -6,23 +6,23 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/31/2020
-ms.openlocfilehash: fc384ffbc246f5ce9fa84b8161cbc4a5226fa5c8
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7801145ba1bcaa2ffd543becfe190f05d232e8c8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841191"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104963"
 ---
 # <a name="connect-servicenow-to-azure-monitor"></a>Azure Monitor에 ServiceNow 연결
 
 다음 섹션에서는 Azure에서 ServiceNow 제품 및 보안 내보내기를 연결 하는 방법에 대 한 세부 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 
 * Azure AD가 등록 됩니다.
-* 지원 되는 버전의 ServiceNow 이벤트 관리-ITOM (버전 올랜도 이상)이 있습니다.
+* 지원 되는 버전의 ServiceNow 이벤트 관리-ITOM (뉴욕 이상 버전)이 있습니다.
 
 ## <a name="configure-the-servicenow-connection"></a>ServiceNow 연결 구성
 

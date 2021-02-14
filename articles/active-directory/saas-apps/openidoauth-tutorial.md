@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 17d78b4d6db9e65868995d8ea7835a0d911e8589
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 32f79f24df6fe705146b39750c710450ef8f1f7b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348700"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821335"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 애플리케이션 구성
 
@@ -160,4 +160,4 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+[Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 OIDC 기반 SSO(Single Sign-On) 설정](../manage-apps/add-application-portal-setup-oidc-sso.md)

@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: 1c038e896a9f9fc65c3b2201b3e763e966285c56
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1dec8253d785973aa900434c10f85ec0a63e0599
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684680"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99574875"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "88684680"
 
 서비스 플랜:
 
-- Reserved VM Instances: 예약을 구매할 때 **인스턴스 크기 유연성에 맞게 최적화**를 선택하는 경우 할인 적용 범위는 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../../virtual-machines/reserved-vm-instance-size-flexibility.md)을 참조하세요.
+- Reserved VM Instances: 예약을 구매할 때 **인스턴스 크기 유연성에 맞게 최적화** 를 선택하는 경우 할인 적용 범위는 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../../virtual-machines/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 - Azure Storage 예약 용량: 표준 Azure Storage 계정에 대해 예약된 용량을 월 100TiB 또는 1PiB 단위로 구매할 수 있습니다. Azure Storage 예약 용량을 지원하는 지역에 대한 자세한 내용은 [블록 Blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요. Azure Storage 예약 용량은 모든 액세스 계층(핫, 쿨 또는 보관)과 모든 복제 구성(LRS, GRS 또는 ZRS)에 사용할 수 있습니다.
 - SQL Database 예약 용량: 할인 적용 범위는 선택하는 성능 계층에 따라 달라집니다. 자세한 내용은 [Azure 예약 할인이 적용되는 방식 이해](understand-reservation-charges.md)를 참조하세요.
 - Azure Cosmos DB 예약 용량: 할인 적용 범위는 프로비전되는 처리량에 따라 달라집니다. 자세한 내용은 [Azure Cosmos DB 예약 할인이 적용되는 방식 이해](understand-cosmosdb-reservation-charges.md)를 참조하세요.
@@ -48,7 +48,7 @@ ms.locfileid: "88684680"
 
 특정 Azure 서비스에 할인이 적용되는 방법을 알아보려면 다음 문서를 읽어보세요.
 
-- [App Service](reservation-discount-app-service-isolated-stamp.md)
+- [App Service](reservation-discount-app-service.md)
 - [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
 - [Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Database for MariaDB](understand-reservation-charges-mariadb.md)

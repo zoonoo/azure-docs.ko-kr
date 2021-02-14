@@ -3,17 +3,17 @@ title: CLI 스크립트 - 크기 조정 서버 - Azure Database for MariaDB
 description: 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 Azure Database for MariaDB 서버를 다양한 성능 수준으로 확장합니다.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 71a2ad5b8d09812eb999ab75a3522caf5a8dd20a
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ac59ee30b75f4d6cab7d773b3561fcea542cb778
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536628"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99822480"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for MariaDB 서버에 대한 컴퓨팅 및 스토리지를 확장합니다. 컴퓨팅을 확장하거나 축소할 수 있습니다. 스토리지는 확장만 가능합니다.

@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948955"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99822358"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Azure 사용자 지정 공급자를 위한 Azure Functions 설정
 
@@ -21,19 +21,19 @@ ms.locfileid: "91948955"
 > [!NOTE]
 > 이 자습서에서는 Azure 함수 앱을 사용하는 간단한 서비스 엔드포인트를 만듭니다. 그러나 사용자 지정 공급자는 공개적으로 액세스할 수 있는 엔드포인트를 사용할 수 있습니다. 대안에는 Azure Logic Apps, Azure API Management 및 Azure App Service의 Web Apps 기능이 포함됩니다.
 
-이 자습서를 시작하려면 [Azure Portal에서 첫 번째 Azure 함수 앱 만들기](../../azure-functions/functions-create-first-azure-function.md) 자습서를 먼저 수행해야 합니다. 이 자습서에서는 Azure Portal에서 수정할 수 있는 .NET Core 웹후크 함수를 만듭니다. 또한 현재 자습서의 기반이 됩니다.
+이 자습서를 시작하려면 [Azure Portal에서 첫 번째 Azure 함수 앱 만들기](../../azure-functions/functions-get-started.md) 자습서를 먼저 수행해야 합니다. 이 자습서에서는 Azure Portal에서 수정할 수 있는 .NET Core 웹후크 함수를 만듭니다. 또한 현재 자습서의 기반이 됩니다.
 
 ## <a name="install-azure-table-storage-bindings"></a>Azure Table Storage 바인딩 설치
 
 Azure Table Storage 바인딩을 설치하려면 다음을 수행합니다.
 
 1. HttpTrigger의 **통합** 탭으로 이동합니다.
-1. **+ 새 입력**을 선택합니다.
-1. **Azure Table Storage**를 선택합니다.
+1. **+ 새 입력** 을 선택합니다.
+1. **Azure Table Storage** 를 선택합니다.
 1. 아직 설치되지 않은 경우 Microsoft.Azure.WebJobs.Extensions.Storage 확장을 설치합니다.
-1. **테이블 매개 변수 이름** 상자에 **tableStorage**를 입력합니다.
-1. **테이블 이름** 상자에 **myCustomResources**를 입력합니다.
-1. **저장**을 선택하여 업데이트된 입력 매개 변수를 저장합니다.
+1. **테이블 매개 변수 이름** 상자에 **tableStorage** 를 입력합니다.
+1. **테이블 이름** 상자에 **myCustomResources** 를 입력합니다.
+1. **저장** 을 선택하여 업데이트된 입력 매개 변수를 저장합니다.
 
 ![테이블 바인딩을 보여주는 사용자 지정 공급자 개요](./media/create-custom-provider/azure-functions-table-bindings.png)
 
@@ -42,7 +42,7 @@ Azure Table Storage 바인딩을 설치하려면 다음을 수행합니다.
 사용자 지정 공급자 RESTful 요청 메서드를 포함하도록 Azure 함수를 설정하려면 다음을 수행합니다.
 
 1. HttpTrigger의 **통합** 탭으로 이동합니다.
-1. **선택한 HTTP 메서드**에서 **GET**, **POST**, **DELETE** 및 **PUT**을 선택합니다.
+1. **선택한 HTTP 메서드** 에서 **GET**, **POST**, **DELETE** 및 **PUT** 을 선택합니다.
 
 ![HTTP 메서드를 보여주는 사용자 지정 공급자 개요](./media/create-custom-provider/azure-functions-http-methods.png)
 

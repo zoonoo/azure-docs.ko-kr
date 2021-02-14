@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2617308d342be19f74e1f3145a1137fadb04d073
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914691"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821216"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 
@@ -75,7 +75,7 @@ VM이 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
 
-먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
+먼저 [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
