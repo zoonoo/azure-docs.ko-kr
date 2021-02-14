@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535664"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520598"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
@@ -21,7 +21,7 @@ ms.locfileid: "91535664"
 
 기본적으로 응답에 상위 50개 항목이 반환되지만 **$top** 매개 변수를 사용하여 반환되는 항목 수를 늘리거나 줄일 수 있으며(최대 1,000개 항목) **$skip** 매개 변수를 사용하여 다음 결과 세트를 가져올 수 있습니다.
 
-검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure Cognitive Search에서는 검색 용어와 일치하는 문서를 찾은 다음([searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)에 따라 일부 또는 전체), 검색 용어가 많이 포함된 문서에 높은 점수를 할당합니다. 해당 용어가 데이터 인덱스에는 거의 없지만 해당 문서 내에서는 자주 나오는 경우 검색 점수가 더 높아집니다. 이와 같은 관련성 계산 방식의 기준을 *TF-IDF*, 즉 용어 빈도와 문서 빈도 반비례라고 합니다.
+검색 점수는 쿼리와 데이터의 통계 속성에 따라 계산됩니다. Azure Cognitive Search에서는 검색 용어와 일치하는 문서를 찾은 다음([searchMode](/rest/api/searchservice/search-documents#query-parameters)에 따라 일부 또는 전체), 검색 용어가 많이 포함된 문서에 높은 점수를 할당합니다. 해당 용어가 데이터 인덱스에는 거의 없지만 해당 문서 내에서는 자주 나오는 경우 검색 점수가 더 높아집니다. 이와 같은 관련성 계산 방식의 기준을 *TF-IDF*, 즉 용어 빈도와 문서 빈도 반비례라고 합니다.
 
 전체 결과 집합에서 검색 점수 값이 반복될 수 있습니다. 여러 적중 항목의 검색 점수가 같은 경우 동일 점수의 항목 순서는 정의되지 않았으므로 항목이 안정적으로 정렬되지 않습니다. 쿼리를 다시 실행하면, 특히 무료 서비스를 사용하거나 여러 복제본이 청구 가능한 서비스를 사용하는 경우 항목 이동 위치가 표시될 수 있습니다. 즉, 두 항목의 점수가 같은 경우 어떤 항목이 먼저 표시되는지 보장되지 않습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "91535664"
 
 ## <a name="scoring-profiles"></a>점수 매기기 프로필
 
-사용자 지정 *점수 매기기 프로필*을 정의하여 다양한 필드의 순위 지정 방식을 사용자 지정할 수 있습니다. 점수 매기기 프로필을 사용하면 검색 결과에서 항목의 순위를 보다 강력하게 제어할 수 있습니다. 예를 들어 잠재 수익을 기준으로 하여 특정 항목을 상승시키거나, 새 항목을 프로모션하거나, 너무 오랫동안 재고에 포함되어 있던 항목을 상승시킬 수 있습니다. 
+사용자 지정 *점수 매기기 프로필* 을 정의하여 다양한 필드의 순위 지정 방식을 사용자 지정할 수 있습니다. 점수 매기기 프로필을 사용하면 검색 결과에서 항목의 순위를 보다 강력하게 제어할 수 있습니다. 예를 들어 잠재 수익을 기준으로 하여 특정 항목을 상승시키거나, 새 항목을 프로모션하거나, 너무 오랫동안 재고에 포함되어 있던 항목을 상승시킬 수 있습니다. 
 
 점수 매기기 프로필은 가중 필드, 함수 및 매개 변수로 구성된 인덱스 정의의 일부입니다. 정의 방법에 대한 자세한 내용은 [점수 매기기 프로필](index-add-scoring-profiles.md)을 참조하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "91535664"
 
 기본적으로 문서 점수는 *분할된 데이터베이스 내* 데이터의 통계 속성에 따라 계산됩니다. 이 방법은 일반적으로 많은 양의 데이터 모음이 있을 때는 문제가 되지 않으며, 모든 분할된 데이터베이스의 정보를 기준으로 점수를 계산해야 하는 경우보다 더 나은 성능을 제공합니다. 즉, 이러한 성능 최적화를 사용하면 매우 유사한 두 개의 문서(또는 동일한 문서)가 서로 다른 분할된 데이터베이스에 속하게 될 때 서로 다른 관련성 점수를 갖게 될 수 있습니다.
 
-모든 분할된 데이터베이스의 통계 속성에 따라 점수를 계산하려면 [쿼리 매개 변수](/rest/api/searchservice/search-documents)로 *scoringStatistics=global*을 추가하여(또는 [쿼리 요청](/rest/api/searchservice/search-documents)의 본문 매개 변수로 *"scoringStatistics": "global"* 추가) 이렇게 할 수 있습니다.
+모든 분할된 데이터베이스의 통계 속성에 따라 점수를 계산하려면 [쿼리 매개 변수](/rest/api/searchservice/search-documents)로 *scoringStatistics=global* 을 추가하여(또는 [쿼리 요청](/rest/api/searchservice/search-documents)의 본문 매개 변수로 *"scoringStatistics": "global"* 추가) 이렇게 할 수 있습니다.
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
@@ -105,6 +105,6 @@ Azure Cognitive Search는 두 가지 유사성 순위 알고리즘인 *클래식
 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial) 에서 이러한 데이터 요소를 사용 하거나 정보를 사용 하 여 검색 관련성 문제를 디버그할 수 있습니다.
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
  [점수 매기기 프로필](index-add-scoring-profiles.md) [REST API 참조](/rest/api/searchservice/) [검색 문서 API](/rest/api/searchservice/search-documents) [Azure Cognitive Search .net SDK](/dotnet/api/overview/azure/search)

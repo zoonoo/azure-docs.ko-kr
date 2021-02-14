@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory의 파일 및 압축 형식
 description: Azure Data Factory에서 지원하는 파일 형식을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 874ee264d2d8778e2ea413575c3b8b2ab6c5373d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7b53d9cd64c50d8305714878324dd355eb6d1840
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636139"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368730"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 파일 및 압축 형식
 *이 항목은 커넥터 [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [파일 시스템](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) 및 [SFTP](data-factory-sftp-connector.md)에 적용됩니다.*
@@ -37,13 +33,13 @@ Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하는 방법을 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |하나의 문자만 허용됩니다. **기본값** 은 **쉼표 (', ')** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |아니요 |
-| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |하나의 문자만 허용됩니다. **기본값** 은 read에서 **["\r\n", "\r", "\n"]** 및 **"\r\n"** 값 중 하나입니다. |아니요 |
-| escapeChar |입력 파일의 내용에서 열 구분 기호를 이스케이프하는 데 사용되는 특수 문자입니다. <br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 "Hello, world"와 같이 쉼표 문자를 포함하려는 경우에는 이스케이프 문자로 '$'를 정의하고 원본에서 "Hello$, world" 문자열을 사용하면 됩니다. |아니요 |
-| quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
-| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |아니요 |
-| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](/dotnet/api/system.text.encoding)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8** 입니다. |아니요 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |참<br/><b>False(기본값)</b> |아니요 |
+| columnDelimiter |파일의 열을 구분하는 데 사용되는 문자입니다. 데이터에 없을 가능성이 높은 인쇄할 수 없는 희귀 문자를 사용하는 방법을 고려할 수도 있습니다. 예를 들어 헤딩의 시작(SOH)을 나타내는 "\u0001"을 지정합니다. |하나의 문자만 허용됩니다. **기본값** 은 **쉼표 (', ')** 입니다. <br/><br/>유니코드 문자를 사용하려면 [유니코드 문자](https://en.wikipedia.org/wiki/List_of_Unicode_characters)를 참조하여 해당하는 코드를 가져옵니다. |예 |
+| rowDelimiter |파일의 행을 구분하는 데 사용되는 문자입니다. |하나의 문자만 허용됩니다. **기본값** 은 read에서 **["\r\n", "\r", "\n"]** 및 **"\r\n"** 값 중 하나입니다. |예 |
+| escapeChar |입력 파일의 내용에서 열 구분 기호를 이스케이프하는 데 사용되는 특수 문자입니다. <br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표 (', ')를 사용 하지만 텍스트에 쉼표 문자를 포함 하려는 경우 (예: "Hello, 세계") 이스케이프 문자로 ' $ '를 정의 하 고 원본에서 "Hello $, 세계" 문자열을 사용할 수 있습니다. |예 |
+| quoteChar |문자열 값을 인용하는 데 사용되는 문자입니다. 인용 문자 안의 열과 행 구분 기호는 문자열 값의 일부로 처리됩니다. 이 속성은 입력 및 출력 데이터 세트 모두에 적용할 수 있습니다.<br/><br/>테이블에 escapeChar와 quoteChar를 둘 다 지정할 수 없습니다. |하나의 문자만 허용됩니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |예 |
+| nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값** 은 읽기의 경우 " **\n" 및 "NULL"** 이 고 쓰기의 경우 **"\n"** 입니다. |예 |
+| encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [EncodingName 속성](/dotnet/api/system.text.encoding)을 참조 하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값** 은 **u t f-8** 입니다. |예 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |예 |
 | skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 행의 수를 나타냅니다. skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |예 |
 | treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. |**True (기본값)**<br/>False |예 |
 
@@ -85,13 +81,13 @@ Azure Data Factory는 다음과 같은 파일 형식을 지원합니다.
 
 JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면 `format` 섹션의 `type` 속성을 **JsonFormat** 으로 설정합니다. `format` 섹션에서 다음 **선택적** 속성을 지정할 수도 있습니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects** 이고 **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
-| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 아니요 |
-| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 아니요 |
-| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8** 입니다. |아니요 |
-| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |아니요 |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 사용 가능한 값은 **setOfObjects** 및 **arrayOfObjects** 이고 **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |예 |
+| jsonNodeReference | 동일한 패턴으로 배열 필드 내부의 개체에서 데이터를 반복하고 추출하려면 해당 배열의 JSON 경로를 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원됩니다. | 예 |
+| jsonPathDefinition | 사용자 지정된 열 이름(소문자로 시작)으로 각 열 매핑에 대한 JSON 경로 식을 지정합니다. 이 속성은 JSON 파일에서 데이터를 복사할 때만 지원되며 개체 또는 배열에서 데이터를 추출할 수 있습니다. <br/><br/> 루트 개체 아래의 필드는 root $로 시작하며, `jsonNodeReference` 속성으로 선택된 배열 내부의 필드는 배열 요소에서 시작합니다. 구성 방법은 [JsonFormat 예제](#jsonformat-example) 섹션을 참조하세요. | 예 |
+| encodingName |인코딩 이름을 지정합니다. 유효한 인코딩 이름 목록은 [Encoding.EncodingName](/dotnet/api/system.text.encoding) 속성을 참조하세요. 예: windows-1250 또는 shift_jis **기본값** 은 **u t f-8** 입니다. |예 |
+| nestingSeparator |중첩 수준을 구분하는데 사용되는 문자입니다. 기본값은 '.'(점)입니다. |예 |
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 
@@ -408,7 +404,7 @@ Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `
 }
 ```
 
-Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조하세요.
+Hive 테이블에서 Avro 형식을 사용 하려면 [Apache Hive의 자습서](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe)를 참조할 수 있습니다.
 
 다음 사항에 유의하세요.  
 
@@ -483,15 +479,15 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 샘플 데이터 세트가 복사 작업의 출력으로 사용된다고 가정하면 복사 작업은 최적의 비율을 사용하여 GZIP 코덱으로 출력 데이터를 압축한 다음, 압축된 데이터를 Azure Blob Storage에서 pagecounts.csv.gz라는 이름의 파일로 작성합니다.
 
 > [!NOTE]
-> 현재 **AvroFormat** , **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.   
+> 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat** 의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.   
 
 **압축** 섹션에는 두 가지 속성이 있습니다.  
 
-* **유형:** **GZIP** , **Deflate** , **BZIP2** 또는 **ZipDeflate** 수 있는 압축 코덱입니다.  
+* **유형:** **GZIP**, **Deflate**, **BZIP2** 또는 **ZipDeflate** 수 있는 압축 코덱입니다.  
 * **수준:****최적** 또는 **가장 빠름** 이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
-  * **최적** : 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
+  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
 
     자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 

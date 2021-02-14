@@ -1,6 +1,6 @@
 ---
 title: AD FS에서 Azure Active Directory로 응용 프로그램 인증 이동
-description: 이 문서는 조직에서 페더레이션된 SaaS 애플리케이션에 중점을 두고 애플리케이션을 Azure AD로 이동하는 방법을 이해할 수 있도록 돕기 위한 것입니다.
+description: 이 문서는 조직에서 페더레이션 SaaS 응용 프로그램에 초점을 맞춘 응용 프로그램을 Azure Active Directory로 이동 하는 방법을 이해 하는 데 도움을 주기 위해 작성 되었습니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -8,25 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/01/2020
+ms.date: 02/10/2021
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27ccf5a861295ae83b5ddc021e77de75962de48
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: b8ad137389ac11a41872190122eae6405a126b5b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258391"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381242"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
 [Azure Active Directory (AZURE AD)](../fundamentals/active-directory-whatis.md) 는 사용자, 파트너 및 고객에 게 응용 프로그램에 액세스 하 고 모든 플랫폼과 장치에서 공동 작업 하는 단일 id를 제공 하는 범용 id 플랫폼을 제공 합니다. Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory-whatis.md)포함 되어 있습니다. 응용 프로그램 (앱) 인증 및 권한 부여를 Azure AD로 표준화 하면 이러한 기능이 제공 하는 이점을 누릴 수 있습니다.
 
 > [!TIP]
-> 이 문서는 개발자를 대상으로 작성 되었습니다. 프로젝트 관리자와 관리자가 Azure AD로 응용 프로그램 이동을 계획 하는 것은 [AZURE ad로 응용 프로그램 인증 마이그레이션](https://aka.ms/migrateapps/whitepaper) 백서 (PDF)를 참조 하세요.
+> 이 문서는 개발자를 대상으로 작성 되었습니다. 응용 프로그램을 Azure AD로 이동 하려는 프로젝트 관리자와 관리자는 [AZURE ad로 응용 프로그램 인증 마이그레이션](migrate-application-authentication-to-azure-active-directory.md) 문서를 참조 하세요.
 
 ## <a name="introduction"></a>소개
 
@@ -198,13 +195,13 @@ Azure AD가 응용 프로그램에서 미리 구성 된 끝점에만 토큰을 �
 
 | 구성 설정| AD FS| Azure AD에서을 구성 하는 방법| SAML 토큰 |
 | - | - | - | - |
-| **앱 로그온 URL** <p>SP (서비스 공급자)가 시작한 SAML 흐름에서 앱에 로그인 하는 데 사용할 수 있는 URL입니다.| 해당 없음| SAML 기반 로그온에서 기본 SAML 구성 열기| 해당 없음 |
+| **앱 로그온 URL** <p>SP (서비스 공급자)가 시작한 SAML 흐름에서 앱에 로그인 하는 데 사용할 수 있는 URL입니다.| N/A| SAML 기반 로그온에서 기본 SAML 구성 열기| N/A |
 | **앱 회신 URL** <p>Id 공급자 (IdP)의 관점에서 앱의 URL입니다. IdP 사용자가 IdP에 로그인 한 후 사용자 및 토큰을 여기에 보냅니다.  이를 **SAML assertion consumer 엔드포인트** 라고도 합니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| SAML 토큰의 Destination 요소입니다. 예제 값: `https://contoso.my.salesforce.com` |
-| **앱 로그아웃 URL** <p>사용자가 앱에서 로그 아웃할 때 "로그 아웃 정리" 요청을 전송 하는 URL입니다. IdP는 다른 모든 앱에서 사용자를 로그 아웃 하는 요청을 보냅니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| 해당 없음 |
+| **앱 로그아웃 URL** <p>사용자가 앱에서 로그 아웃할 때 "로그 아웃 정리" 요청을 전송 하는 URL입니다. IdP는 다른 모든 앱에서 사용자를 로그 아웃 하는 요청을 보냅니다.| **끝점** 탭을 선택 합니다.| SAML 기반 로그온에서 기본 SAML 구성 열기| N/A |
 | **앱 식별자** <p>IdP의 관점에서 가져온 앱 식별자입니다. 로그인 URL 값은 종종 식별자에 사용 되지만 항상 그렇지는 않습니다.  앱에서 "엔터티 ID"를 호출 하는 경우도 있습니다.| **식별자** 탭 선택|SAML 기반 로그온에서 기본 SAML 구성 열기| SAML 토큰의 **대상** 요소에 매핑됩니다. |
-| **앱 페더레이션 메타 데이터** <p>앱의 페더레이션 메타 데이터의 위치입니다. IdP에서 엔드포인트 또는 암호화 인증서와 같은 특정 구성 설정을 자동으로 업데이트하는 데 사용합니다.| **모니터링** 탭을 선택 합니다.| 해당 없음. Azure AD는 응용 프로그램 페더레이션 메타 데이터를 직접 사용 하도록 지원 하지 않습니다. 페더레이션 메타 데이터를 수동으로 가져올 수 있습니다.| 해당 없음 |
+| **앱 페더레이션 메타 데이터** <p>앱의 페더레이션 메타 데이터의 위치입니다. IdP에서 엔드포인트 또는 암호화 인증서와 같은 특정 구성 설정을 자동으로 업데이트하는 데 사용합니다.| **모니터링** 탭을 선택 합니다.| 해당 없음. Azure AD는 응용 프로그램 페더레이션 메타 데이터를 직접 사용 하도록 지원 하지 않습니다. 페더레이션 메타 데이터를 수동으로 가져올 수 있습니다.| N/A |
 | **사용자 id/이름 ID** <p>Azure AD 또는 AD FS의 사용자 ID를 앱에 고유하게 표시하는 데 사용되는 특성입니다.  이 특성은 일반적으로 사용자의 UPN 또는 이메일 주소입니다.| 클레임 규칙. 대부분의 경우 클레임 규칙은 NameIdentifier로 끝나는 형식의 클레임을 발급 합니다.| **사용자 특성 및 클레임** 헤더에서 식별자를 찾을 수 있습니다. 기본적으로 UPN이 사용 됩니다.| SAML 토큰의 **NameID** 요소에 매핑됩니다. |
-| **기타 클레임** <p>IdP에서 앱으로 일반적으로 전송 되는 다른 클레임 정보의 예로는 이름, 성, 전자 메일 주소, 그룹 멤버 자격이 있습니다.| AD FS에서는 신뢰 당사자에 대한 다른 클레임 규칙으로 찾을 수 있습니다.| **클레임 & 사용자 특성** 헤더 아래에서 식별자를 찾을 수 있습니다. **보기** 를 선택하고 다른 모든 사용자 특성을 편집합니다.| 해당 없음 |
+| **기타 클레임** <p>IdP에서 앱으로 일반적으로 전송 되는 다른 클레임 정보의 예로는 이름, 성, 전자 메일 주소, 그룹 멤버 자격이 있습니다.| AD FS에서는 신뢰 당사자에 대한 다른 클레임 규칙으로 찾을 수 있습니다.| **클레임 & 사용자 특성** 헤더 아래에서 식별자를 찾을 수 있습니다. **보기** 를 선택하고 다른 모든 사용자 특성을 편집합니다.| N/A |
 
 
 ### <a name="map-identity-provider-idp-settings"></a>IdP (지도 Id 공급자) 설정

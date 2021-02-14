@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966193"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382857"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
@@ -41,7 +41,7 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 | 지원되는 운영 체제 | 필요한 버전 | 추가 요구 사항/메모 |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>운영 체제에 기본적으로 있는 소프트웨어 iSCSI 초기자만 지원됩니다. 하드웨어 iSCSI 초기자는 지원되지 않습니다.<br></br>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅샷 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI 볼륨은 다음과 같은 Windows 디스크 유형에 사용하는 경우에만 지원됩니다.<ul><li>기본 디스크의 단순 볼륨</li><li>동적 디스크의 단순 및 미러 볼륨</li></ul>운영 체제에 기본적으로 있는 소프트웨어 iSCSI 초기자만 지원됩니다. 하드웨어 iSCSI 초기자는 지원되지 않습니다.<br></br>Windows Server 2012 및 2016 씬 프로비전 및 ODX 기능은 StorSimple iSCSI 볼륨을 사용하는 경우에 지원됩니다.<br><br>StorSimple은 씬 프로비전된 볼륨과 완전히 프로비전된 볼륨을 만들 수 있습니다. 부분적으로 프로비전된 볼륨은 만들 수 없습니다.<br><br>씬 프로비전된 볼륨을 다시 포맷하는 데에는 시간이 오래 걸릴 수 있습니다. 다시 포맷하는 대신 볼륨을 삭제했다가 새 볼륨을 만드는 것이 좋습니다. 그래도 볼륨을 다시 포맷하려면,<ul><li>공간 재사용에 따른 지연을 방지하려면 다시 포맷하기 전에 다음 명령을 실행합니다. <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>서식 지정이 완료된 후에 다음 명령을 사용하여 공간 재사용을 다시 활성화합니다.<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>[KB 2878635](https://support.microsoft.com/kb/2870270)에 설명된 대로 Windows Server 컴퓨터에 Windows Server 2012 핫픽스를 적용합니다.</li></ul></li></ul></ul> StorSimple 스냅샷 관리자 또는 SharePoint용 StorSimple 어댑터를 구성하려면 [선택적 구성 요소에 대한 소프트웨어 요구 사항](#software-requirements-for-optional-components)으로 이동하세요. <br> Windows Server 클라이언트에서 SMB 프로토콜을 사용 하 여 StorSimple 장치에 액세스 하는 경우에는 병렬 처리의 향상에 대 한 지침을 보려면 [smb 파일 서버에 대 한 성능 튜닝](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) 으로 이동 합니다.|
 | VMware ESX |5.5 및 6.0 |iSCSI 클라이언트로 VMware vSphere와 함께 지원됩니다. VAAI 블록 기능은 StorSimple 디바이스에서 VMware vSphere와 함께 지원됩니다. |
 | Linux RHEL/CentOS |5, 6 및 7 |Open iSCSI 초기자 버전 5, 6 및 7과 함께 Linux iSCSI 클라이언트를 지원합니다. |
 | Linux |SUSE Linux 11 | |
@@ -63,13 +63,13 @@ Microsoft Azure StorSimple 시작을 환영합니다. 이 문서에서는 중요
 
 StorSimple 디바이스는 잠긴 디바이스입니다. 하지만 iSCSI, 클라우드 및 관리 트래픽에 허용하도록 포트가 방화벽에서 열려야 합니다. 다음 표에서 방화벽에서 열려야 하는 포트를 나열합니다. 이 테이블에서 *인* 또는 *인바운드* 는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드* 는 배포 후 데이터를 외부로 보내는 StorSimple 디바이스에서 방향을 참조합니다.
 
-| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 메모 |
+| 포트 번호 <sup>1, 2</sup> | 인 또는 아웃 | 포트 범위 | 필수 | 참고 |
 | --- | --- | --- | --- | --- |
 | TCP 80(HTTP)<sup>3</sup> |아웃 |WAN |예 |<ul><li>업데이트 복구를 위한 인터넷 액세스에는 아웃바운드 포트가 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li></ul> |
-| TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |예 |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
+| TCP 443(HTTPS)<sup>3</sup> |아웃 |WAN |Yes |<ul><li>아웃바운드 포트는 클라우드의 데이터에 액세스하는 데 사용됩니다.</li><li>아웃바운드 웹 프록시는 사용자가 구성할 수 있습니다.</li><li>시스템 업데이트를 허용하려면 컨트롤러 고정 IP에 대해 이 포트도 오픈되어야 합니다.</li><li>이 포트도 가비지 수집을 위한 두 컨트롤러에 대해 사용됩니다.</li></ul> |
 | UDP 53(DNS) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 DNS 서버로 사용하는 경우에만 필요합니다. |
 | UDP 123(NTP) |아웃 |WAN |일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
-| TCP 9354 |아웃 |WAN |예 |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
+| TCP 9354 |아웃 |WAN |Yes |아웃바운드 포트는 StorSimple 디바이스에서 StorSimple 디바이스 관리자 서비스와 통신하는 데 사용됩니다. |
 | 3260(iSCSI) |In(다음 안에) |LAN |예 |이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다. |
 | 5985 |In(다음 안에) |LAN |예 |인바운드 포트는 StorSimple 디바이스와의 통신을 위해 StorSimple 스냅샷 관리자에 사용됩니다.<br>이 포트는 HTTP를 통해 StorSimple용 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
 | 5986 |In(다음 안에) |LAN |예 |이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
@@ -233,7 +233,7 @@ StorSimple 디바이스 모델 8600에는 기본 인클로저 외에도 확장 E
 * 두 EBOD 인클로저 컨트롤러 모듈, 두 SAS 케이블 및 모든 하드 디스크 드라이브가 설치되어 있어야 합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 즉시 교체를 요청합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
-* Ebod 컨트롤러 모듈을 교체 하는 동안 **모니터**  >  **하드웨어 상태** 에 액세스 하 여 StorSimple Device Manager 서비스에서 구성 요소의 상태를 지속적으로 모니터링 합니다.
+* Ebod 컨트롤러 모듈을 교체 하는 동안 **모니터**  >  **하드웨어 상태** 에 액세스 하 여 StorSimple 장치 관리자 서비스에서 구성 요소의 상태를 지속적으로 모니터링 합니다.
 * SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 * 언제든지 시스템에서 두 SAS 케이블을 동시에 제거하지 마십시오.
 

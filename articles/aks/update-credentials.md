@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에 대 한 서비스 �
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427516"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389011"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 대 한 자격 증명 업데이트 또는 순환
 
@@ -47,6 +47,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### <a name="reset-the-existing-service-principal-credential"></a>기존 서비스 사용자 자격 증명 다시 설정
 
 기존 서비스 주체의 자격 증명을 업데이트하려면 [az aks show][az-aks-show] 명령을 사용하여 클러스터의 서비스 주체 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 ID를 가져옵니다. 서비스 사용자 ID는 추가 명령에서 사용할 *SP_ID* 라는 변수로 설정 됩니다. 이러한 명령은 Bash 구문을 사용 합니다.
+
+> [!WARNING]
+> Azure Virtual Machine Scale Sets를 사용 하는 AKS 클러스터에서 클러스터 자격 증명을 다시 설정 하는 경우 새 자격 증명 정보를 사용 하 여 노드를 업데이트 하기 위해 [노드 이미지 업그레이드가][node-image-upgrade] 수행 됩니다.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -138,3 +141,4 @@ az aks update-credentials \
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

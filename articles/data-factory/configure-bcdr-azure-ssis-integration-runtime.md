@@ -1,23 +1,19 @@
 ---
 title: SQL Database 장애 조치(Failover)를 위해 Azure-SSIS 통합 런타임 구성
 description: 이 문서에서는 SSISDB 데이터베이스의 Azure SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임을 구성하는 방법을 설명합니다.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: 6b37a0df994546762abbcf3452d8e7b52dec6847
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: e12939d1003ce708889ca0b3dbc710096f9ee955
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331416"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364446"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-sql-database-geo-replication-and-failover"></a>SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS 통합 런타임 구성
 

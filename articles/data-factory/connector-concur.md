@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Concur에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030801"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383673"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
 
@@ -49,11 +44,11 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 다음은 Concur 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Concur** 로 설정해야 합니다. | Yes |
 | connectionProperties | Concur에 연결 하는 방법을 정의 하는 속성 그룹입니다. | Yes |
-| **_`connectionProperties` :_* _ | | |
+| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
 | authenticationType | 허용 되는 값은 `OAuth_2.0_Bearer` 및 `OAuth_2.0` (레거시)입니다. OAuth 2.0 인증 옵션은 2017 년 2 월부터 사용 되지 않는 이전 Concur API와 함께 작동 합니다. | 예 |
 | host | Concur 서버의 끝점 (예:) `implementation.concursolutions.com` 입니다.  | Yes |
 | baseUrl | Concur의 인증 URL의 기본 URL입니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
@@ -61,11 +56,11 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 | clientSecret | 클라이언트 ID에 해당 하는 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
 | 사용자 이름 | Concur service에 액세스 하는 데 사용 하는 사용자 이름입니다. | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | No |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | No |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | No |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
-_ *예:**
+**예:**
 
 ```json
 { 
@@ -123,7 +118,7 @@ _ *예:**
 
 Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **ConcurObject** 로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **ConcurObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -154,7 +149,7 @@ Concur에서 데이터를 복사하려면 데이터 세트의 type 속성을 **C
 
 Concur에서 데이터를 복사하려면 복사 작업의 원본 형식을 **ConcurSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **ConcurSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Opportunities where Id = xxx "` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

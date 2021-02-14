@@ -1,28 +1,24 @@
 ---
 title: Azure Data Factory의 데이터 집합 열 매핑
 description: 원본 열을 대상 열에 매핑하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318878"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371127"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
-열 매핑은 원본 테이블 맵의 “structure”에서 지정한 열을 싱크 테이블의 “structure”에서 지정한 열과 매핑하는 방법을 지정하는 데 사용할 수 있습니다. **columnMapping** 속성은 Copy 작업의 **typeProperties** 섹션에서 사용할 수 있습니다.
+열 매핑을 사용 하 여 원본 테이블의 "구조"에 지정 된 열이 싱크 테이블의 "structure"에 지정 된 열에 매핑되는 방식을 지정할 수 있습니다. **columnMapping** 속성은 Copy 작업의 **typeProperties** 섹션에서 사용할 수 있습니다.
 
 열 매핑에서는 다음과 같은 시나리오가 지원됩니다.
 
@@ -31,7 +27,7 @@ ms.locfileid: "85318878"
 
 다음은 예외가 발생하는 오류 조건입니다.
 
-* 더 적은 열 또는 더 많은 열 "의 구조에서" 싱크 테이블 보다 매핑에 지정 합니다.
+* 매핑에 지정 된 것 보다 더 많은 열이 싱크 테이블의 "구조"에 있습니다.
 * 중복 매핑
 * SQL 쿼리 결과에는 매개 변수 매핑에서 지정한 열 이름이 없습니다.
 
@@ -140,7 +136,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
 ![열 매핑 흐름](./media/data-factory-map-columns/column-mapping-flow.png)
 
 ## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>예제 2 – SQL 쿼리를 사용하여 Azure SQL에서 Azure Blob로 열 매핑
-이 예제에서는 단순히 “structure” 섹션에서 테이블 이름과 열 이름을 지정하는 대신 SQL 쿼리를 사용하여 Azure SQL의 데이터를 추출합니다. 
+이 샘플에서는 "structure" 섹션에서 테이블 이름과 열 이름을 단순히 지정 하는 대신 SQL 쿼리를 사용 하 여 Azure SQL에서 데이터를 추출 합니다. 
 
 ```json
 {
@@ -172,7 +168,7 @@ File Storage에서 Blob Storage로 복사할 경우 기본 Blob 형식은 블록
         }
 }
 ```
-이 경우 쿼리 결과가 먼저 원본의 "structure"에서 지정된 열에 매핑됩니다. 다음으로, 원본 "structure"의 열이 columnMappings에서 지정된 규칙을 통해 싱크 "structure"의 열에 매핑됩니다.  쿼리가 5개 열, 원본의 "structure"에 지정된 열보다 두 개 더 많은 열을 차례로 반환한다고 가정합니다.
+이 경우 쿼리 결과는 먼저 원본의 "structure"에 지정 된 열에 매핑됩니다. 그런 다음 원본 "structure"의 열이 columnMappings 지정 된 규칙을 사용 하 여 싱크 "structure"의 열에 매핑됩니다.  쿼리에서 원본의 "structure"에 지정 된 열 보다 두 개의 열을 반환 하는 5 개의 열을 반환 한다고 가정 합니다.
 
 **열 매핑 흐름**
 

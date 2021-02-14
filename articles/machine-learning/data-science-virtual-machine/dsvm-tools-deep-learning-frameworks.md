@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Azure Data Science Virtual Machine에서 사용할 수 있는 심층 학습 프레임 워크 및 도구입니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309030"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519493"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -146,5 +145,5 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.0.3 |
 | 지원 되는 DSVM 버전      | Ubuntu 16.04 |
-| DSVM에 구성/설치 방법  |Theano는 Python 2.7 ( _root_ ) 및 python 3.5 ( _py35_ ) 환경에 설치 됩니다. |
+| DSVM에 구성/설치 방법  |Theano는 Python 2.7 (_root_) 및 python 3.5 (_py35_) 환경에 설치 됩니다. |
 | 실행 방법      |  터미널: 원하는 Python 버전 (root 또는 py35)을 활성화 하 고 Python을 실행 한 다음 Theano를 가져옵니다.<br/>* Jupyter: Python 2.7 또는 3.5 커널을 선택 하 고 Theano를 가져옵니다.  <br/>최신 MKL MKL (math kernel library) 버그를 해결 하려면 먼저 다음과 같이 MKL 스레딩 계층을 설정 해야 합니다.<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

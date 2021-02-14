@@ -3,16 +3,16 @@ title: Azure Service Bus와 메시지 교환
 description: Azure Logic Apps에서 Azure Service Bus를 사용 하 여 메시지를 보내고 받는 자동화 된 작업 및 워크플로 만들기
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019715"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367421"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -169,7 +169,7 @@ ms.locfileid: "96019715"
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>논리 앱에 대 한 업데이트의 지연이 적용 됩니다.
 
-Service Bus 트리거의 폴링 간격이 작은 경우 (예: 10 초) 논리 앱에 대 한 업데이트가 최대 10 분 동안 적용 되지 않을 수 있습니다. 이 문제를 해결 하려면 논리 앱을 업데이트 하기 전에 폴링 간격을 일시적으로 더 큰 값 (예: 30 초 또는 1 분)으로 늘릴 수 있습니다. 업데이트를 수행한 후에는 폴링 간격을 원래 값으로 다시 설정할 수 있습니다. 
+Service Bus 트리거의 폴링 간격이 작은 경우 (예: 10 초) 논리 앱에 대 한 업데이트가 최대 10 분 동안 적용 되지 않을 수 있습니다. 이 문제를 해결 하려면 논리 앱을 사용 하지 않도록 설정 하 고 변경한 다음 논리 앱을 다시 사용 하도록 설정 하면 됩니다.
 
 <a name="connector-reference"></a>
 

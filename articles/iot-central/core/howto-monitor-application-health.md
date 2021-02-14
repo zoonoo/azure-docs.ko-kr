@@ -3,25 +3,25 @@ title: Azure IoT Central 응용 프로그램의 상태 모니터링 | Microsoft 
 description: 운영자 또는 관리자는 IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760771"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515872"
 ---
-# <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 모니터링 합니다.
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>IoT Central 응용 프로그램의 전반적인 상태를 모니터링 합니다.
 
 > [!NOTE]
 > 메트릭은 버전 3 IoT Central 응용 프로그램에만 사용할 수 있습니다. 응용 프로그램 버전을 확인 하는 방법에 [대 한 자세한 내용은 응용 프로그램 정보](./howto-get-app-info.md)를 참조 하세요.
 
 *이 문서는 운영자 및 관리자에 게 적용 됩니다.*
 
-이 문서에서는 IoT Central에서 제공 하는 메트릭 집합을 사용 하 여 IoT Central 응용 프로그램에 연결 된 장치의 전반적인 상태를 평가 하는 방법에 대해 알아봅니다.
+이 문서에서는 IoT Central에서 제공 하는 메트릭 집합을 사용 하 여 IoT Central 응용 프로그램에 연결 된 장치의 상태와 실행 중인 데이터 내보내기의 상태를 평가 하는 방법에 대해 알아봅니다.
 
 메트릭은 IoT Central 응용 프로그램에 대해 기본적으로 사용 하도록 설정 되며 [Azure Portal](https://portal.azure.com/)에서 액세스할 수 있습니다. [Azure Monitor 데이터 플랫폼은 이러한 메트릭을 노출](../../azure-monitor/platform/data-platform-metrics.md) 하 고 여러 가지 방법을 제공 하 여 상호 작용할 수 있습니다. 예를 들어 Azure Portal, REST API 또는 PowerShell 또는 Azure CLI의 쿼리에서 차트를 사용할 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "98760771"
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭 보기
 
-다음 단계에서는 일부 [연결 된 장치](./tutorial-connect-device.md)를 포함 하는 [IoT Central 응용 프로그램이](./quick-deploy-iot-central.md) 있다고 가정 합니다.
+다음 단계에서는 일부 [연결 된 장치](./tutorial-connect-device.md) 또는 실행 중인 [데이터 내보내기가](howto-export-data.md)있는 [IoT Central 응용 프로그램이](./quick-deploy-iot-central.md) 있다고 가정 합니다.
 
 포털에서 IoT Central 메트릭을 보려면 다음을 수행 합니다.
 

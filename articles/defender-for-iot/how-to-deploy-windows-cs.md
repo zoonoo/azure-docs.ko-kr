@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 6c441c9f81477a586c3e153e23b1fc63f2f76344
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 4d99cdbb2f50d04eff790cdfe675d0f8031c48a9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819930"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517181"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Windows 용 IoT c # 기반 보안 에이전트로 Defender 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "99819930"
 > * 에이전트 제거
 > * 문제 해결
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다른 플랫폼 및 에이전트 버전의 경우 [올바른 보안 에이전트 선택](how-to-deploy-agent.md)을 참조 하세요.
 
@@ -62,7 +62,7 @@ ms.locfileid: "99819930"
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -73,11 +73,11 @@ ms.locfileid: "99819930"
 이 스크립트는 다음 작업을 수행 합니다.
 
 * 필수 구성 요소를 설치합니다.
-* 서비스 사용자를 추가 합니다 (대화형 로그인 사용 안 함).
+* 서비스 사용자 (대화형 로그인이 사용 하지 않도록 설정 됨)를 추가 합니다.
 * 에이전트를 **시스템 서비스** 로 설치합니다.
 * 제공된 인증 매개 변수를 사용하여 에이전트를 구성합니다.
 
-추가 도움말을 보려면 PowerShell에서 Get-Help 명령을 사용 합니다.
+추가 도움말을 보려면 PowerShell에서 Get-Help 명령을 사용 하세요.
 
 Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
 
@@ -119,7 +119,7 @@ Get-Help 예:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 1. 다음 PowerShell 또는 명령줄을 실행하여 에이전트를 다시 시작합니다.
 
-    **슬래시**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"

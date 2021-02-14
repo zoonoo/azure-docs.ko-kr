@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): 웹 서비스 다시 학습-Azure'
 description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 기계 학습 모델을 사용 하도록 웹 서비스를 업데이트 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325822"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517589"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio (클래식)에서 machine learning 모델을 다시 학습 하 고 새 웹 서비스로 배포 하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
@@ -96,7 +96,7 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusInput.csv") A
 1. 왼쪽 탐색 열에서 **blob** 을 클릭 합니다.
 1. 기존 컨테이너를 선택하거나 새 컨테이너를 만들어 이름을 저장합니다.
 
-*StorageAccountName* , *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 포털에서 저장한 값을 업데이트합니다.
+*StorageAccountName*, *StorageAccountKey* 및 *StorageContainerName* 선언을 찾아 포털에서 저장한 값을 업데이트합니다.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Outputs = new Dictionary<string, AzureBlobDataReference>() {
 
 애플리케이션을 실행할 때 출력은 평가 결과를 액세스하는 데 필요한 URL 및 공유 액세스 서명 토큰을 포함합니다.
 
-*output2* 에 대한 출력 결과의 *BaseLocation* , *RelativeLocation* 및 *SasBlobToken* 을 조합하고 브라우저 주소 표시줄에 전체 URL을 붙여넣어 다시 학습된 모델의 성능 결과를 확인할 수 있습니다.
+*output2* 에 대한 출력 결과의 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken* 을 조합하고 브라우저 주소 표시줄에 전체 URL을 붙여넣어 다시 학습된 모델의 성능 결과를 확인할 수 있습니다.
 
 결과를 검사하여 새로 학습된 모델이 기존 모델보다 성능이 뛰어난지 여부를 확인합니다.
 
-출력 결과에서 *BaseLocation* , *RelativeLocation* 및 *SasBlobToken* 을 저장합니다.
+출력 결과에서 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken* 을 저장합니다.
 
 ## <a name="update-the-predictive-experiment"></a>예측 실험 업데이트
 

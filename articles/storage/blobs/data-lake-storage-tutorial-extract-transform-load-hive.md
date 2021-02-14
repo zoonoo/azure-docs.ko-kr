@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912657"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821851"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>자습서: Azure HDInsight를 사용하여 데이터 추출, 변환 및 로드
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * **Azure SQL Database**: Azure SQL Database를 대상 데이터 저장소로 사용합니다. SQL Database에 데이터베이스가 없는 경우 [Azure Portal의 Azure SQL Database에서 데이터베이스 만들기](../../azure-sql/database/single-database-create-quickstart.md)를 참조하세요.
 
-* **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+* **Azure CLI**: 아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 * **SSH(보안 셸) 클라이언트**: 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

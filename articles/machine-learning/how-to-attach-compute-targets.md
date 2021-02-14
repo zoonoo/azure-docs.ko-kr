@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e4d25b5ec50346c7a2ecabff835209218d1a3b63
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093406"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518694"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>모델 학습 및 배포를 위한 계산 대상 설정
 
@@ -225,7 +225,7 @@ Azure Databricks를 컴퓨팅 대상으로 연결하려면 다음 정보를 제�
 
 * __Databricks compute name__:이 계산 리소스에 할당할 이름입니다.
 * __Databricks 작업 영역 이름__: Azure Databricks 작업 영역의 이름입니다.
-* __Databricks access token__: Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) 문서를 참조하세요.
+* __Databricks access token__: Azure Databricks을 인증 하는 데 사용 되는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](/azure/databricks/dev-tools/api/latest/authentication) 문서를 참조하세요.
 
 다음 코드는 Azure Machine Learning SDK를 사용 하 여 Azure Databricks를 계산 대상으로 연결 하는 방법을 보여 줍니다.__Databricks 작업 영역은 AML 작업 영역과 동일한 구독에 있어야 합니다__.
 

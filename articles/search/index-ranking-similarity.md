@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2caa09d41abb1842100ed8259e82ec411390ccb
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535732"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520632"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search의 순위 알고리즘
 
@@ -24,7 +24,7 @@ ms.locfileid: "91535732"
 
 이 문서에서는 미리 보기 API를 사용 하 여 만들고 쿼리 하는 새 인덱스에 대해 기존 검색 서비스에서 새로운 BM25 순위 알고리즘을 사용 하는 방법을 설명 합니다.
 
-Azure Cognitive Search은 이전에 사용 된 *ClassicSimilarity* 구현을 대체 하는 OKAPI BM25 algorithm *BM25Similarity*의 공식 Lucene 구현을 채택 하는 과정에 있습니다. 이전 ClassicSimilarity 알고리즘과 마찬가지로 BM25Similarity는 용어 빈도 (TF) 및 역 문서 주기 (IDF)를 변수로 사용 하 여 각 문서-쿼리 쌍의 관련성 점수를 계산 하는 데 사용 하는 TF-IDF와 유사한 검색 함수 이며 순위에 사용 됩니다. 
+Azure Cognitive Search은 이전에 사용 된 *ClassicSimilarity* 구현을 대체 하는 OKAPI BM25 algorithm *BM25Similarity* 의 공식 Lucene 구현을 채택 하는 과정에 있습니다. 이전 ClassicSimilarity 알고리즘과 마찬가지로 BM25Similarity는 용어 빈도 (TF) 및 역 문서 주기 (IDF)를 변수로 사용 하 여 각 문서-쿼리 쌍의 관련성 점수를 계산 하는 데 사용 하는 TF-IDF와 유사한 검색 함수 이며 순위에 사용 됩니다. 
 
 이전 클래식 유사성 알고리즘과 개념적으로 유사 하지만 BM25는 확률 정보 검색에서 루트를 사용 하 여이를 개선 합니다. 또한 BM25는 사용자가 관련성 점수가 일치 조건에 따라 확장 되는 방식을 결정할 수 있도록 허용 하는 고급 사용자 지정 옵션을 제공 합니다.
 
@@ -32,7 +32,7 @@ Azure Cognitive Search은 이전에 사용 된 *ClassicSimilarity* 구현을 대
 
 새 인덱스를 만들 때 **유사성** 속성을 설정 하 여 알고리즘을 지정할 수 있습니다. 아래와 같이 또는를 사용할 수 있습니다 `api-version=2019-05-06-Preview` `api-version=2020-06-30` .
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
 ```
 
@@ -63,7 +63,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 | 속성 | 설명 |
 |----------|-------------|
-| 유사성 | (선택 사항) 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
+| 유사성 | 선택 사항입니다. 유효한 값에는 *#Microsoft "ClassicSimilarity"* 또는 *#Microsoft "BM25Similarity"* 가 포함 됩니다. <br/> `api-version=2019-05-06-Preview`2020 년 7 월 15 일 이전에 생성 된 검색 서비스에서 이상을 사용 해야 합니다. |
 
 2020 년 7 월 15 일 이후에 만들어진 새 서비스의 경우 BM25이 자동으로 사용 되며 유일한 유사성 알고리즘입니다. 새 서비스에서 **유사성** 을로 설정 하려고 하면 `ClassicSimilarity` 새 서비스에서 해당 알고리즘이 지원 되지 않기 때문에 400 오류가 반환 됩니다.
 
@@ -103,7 +103,7 @@ B 또는 k1 값을 사용자 지정 하려면 BM25를 사용할 때 유사성 �
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>추가 정보  
 
 + [REST API 참조](/rest/api/searchservice/)
 + [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)

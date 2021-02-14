@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/10/2021
 ms.author: tisande
-ms.openlocfilehash: 58ee3bcd0ba14359ea9adaa131b8280b81008b57
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 26465eb9826c60daad7b44e1c2fe6ae3c19b1ed0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526775"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378811"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -290,7 +290,7 @@ WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true)
 ORDER BY c.firstName, c.lastName
 ```
 
-다음은 필터 및 절을 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때 사용 하는 고려 사항입니다 `ORDER BY` .
+필터 및 절을 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때는 다음 사항을 고려해 야 합니다 `ORDER BY` .
 
 * 한 속성에 대 한 필터와 다른 속성을 사용 하는 별도의 절이 있는 쿼리에 복합 인덱스를 정의 하지 않으면 `ORDER BY` 쿼리는 성공 합니다. 그러나 특히 절의 속성에 높은 카디널리티가 있는 경우 복합 인덱스를 사용 하 여 쿼리의 사용 비용을 줄일 수 있습니다 `ORDER BY` .
 * 쿼리가 속성을 필터링 하는 경우 이러한 속성은 먼저 절에 포함 되어야 합니다 `ORDER BY` .
@@ -308,6 +308,26 @@ ORDER BY c.firstName, c.lastName
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
+### <a name="queries-with-a-filter-and-an-aggregate"></a>필터 및 집계를 사용 하 여 쿼리 
+
+쿼리가 하나 이상의 속성에 대해 필터링 하 고 집계 시스템 함수를 포함 하는 경우 필터 및 집계 시스템 함수에서 속성에 대 한 복합 인덱스를 만드는 것이 유용할 수 있습니다. 이 최적화는 [SUM](sql-query-aggregate-sum.md) 및 [AVG](sql-query-aggregate-avg.md) 시스템 함수에 적용 됩니다.
+
+필터 및 집계 시스템 함수를 사용 하 여 쿼리를 최적화 하기 위해 복합 인덱스를 만들 때는 다음 사항을 고려해 야 합니다.
+
+* 복합 인덱스는 집계를 사용 하 여 쿼리를 실행할 때 선택 사항입니다. 그러나 쿼리의 사용 비용은 복합 인덱스를 사용 하 여 상당히 줄어들 수 있습니다.
+* 쿼리가 여러 속성을 필터링 하는 경우 같음 필터는 복합 인덱스의 첫 번째 속성 이어야 합니다.
+* 복합 인덱스 당 최대 하나의 범위 필터를 사용할 수 있으며 집계 시스템 함수의 속성에 있어야 합니다.
+* 집계 시스템 함수의 속성은 복합 인덱스에서 마지막으로 정의 되어야 합니다.
+* `order`( `ASC` 또는)는 `DESC` 중요 하지 않습니다.
+
+| **복합 인덱스**                      | **예제 쿼리**                                  | **복합 인덱스에서 지원되나요?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
 ## <a name="index-transformationmodifying-the-indexing-policy"></a>인덱싱 정책을 수정 하는 <인덱스 변환>
 

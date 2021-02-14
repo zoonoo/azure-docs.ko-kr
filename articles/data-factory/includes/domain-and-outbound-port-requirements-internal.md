@@ -1,18 +1,17 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle
-ms.openlocfilehash: 45c6bbb88ef1f01f729451af27ecc73244483216
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 24a541080b580eab967987fa7c92cea64b99d65c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121675"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389508"
 ---
 | 도메인 이름                                          | 아웃바운드 포트 | Description                |
 | ----------------------------------------------------- | -------------- | ---------------------------|

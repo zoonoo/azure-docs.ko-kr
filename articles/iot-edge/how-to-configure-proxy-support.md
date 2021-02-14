@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: fb7cb0638ca86ea736749e6fb35e2295128162aa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7fc57b46055281c64b39767047f6b7cb5b748ad2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032986"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373830"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -245,7 +245,7 @@ Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만�
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
         "createOptions": ""
     },
     "env": {
@@ -275,7 +275,7 @@ IoT Edge 디바이스의 confige.yaml 파일에 **UpstreamProtocol** 환경 변�
 
 사용 하려는 프록시가 TLS 보안 연결에서 트래픽 검사를 수행 하는 경우 x.509 인증서를 사용 하는 인증이 작동 하지 않는다는 점에 유의 해야 합니다. IoT Edge는 제공 된 인증서와 키를 사용 하 여 종단 간 암호화 된 TLS 채널을 설정 합니다. 트래픽 검사를 위해 채널이 끊어지면 프록시가 적절 한 자격 증명을 사용 하 여 채널을 다시 설정할 수 없으며 IoT Hub IoT Hub 장치 프로 비전 서비스에서 오류를 반환 합니다 `Unauthorized` .
 
-트래픽 검사를 수행 하는 프록시를 사용 하려면 공유 액세스 서명 인증을 사용 하거나, IoT Hub를 사용 하 고, 검사를 방지 하기 위해 IoT Hub 장치 프로 비전 서비스를 allowlist에 추가 해야 합니다.
+트래픽 검사를 수행 하는 프록시를 사용 하려면 공유 액세스 서명 인증을 사용 하거나 IoT Hub을 사용 해야 하며 검사를 방지 하려면 허용 목록에 IoT Hub device 프로 비전 서비스를 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

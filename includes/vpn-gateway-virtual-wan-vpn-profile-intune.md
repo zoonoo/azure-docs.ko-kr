@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fb1c1be8a0203d9f36712fda8e30f0f9354091
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576118"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514889"
 ---
 Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대 한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용 하 여 Intune 프로필을 만드는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 장치가 Intune MDM에 이미 등록 되어 있습니다.
 * Windows 10 용 Azure VPN 클라이언트가 클라이언트 컴퓨터에 이미 배포 되어 있습니다.
@@ -46,21 +46,14 @@ Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대
       <PluginProfile>
         <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
         <CustomConfiguration>
+
         </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
     </VPNProfile>
    ```
 1. 및의 항목을 ```<ServerUrlList>``` ```</ServerUrlList>``` 다운로드 한 프로필의 항목 (azurevpnconfig.xml)으로 수정 합니다. 사용자 환경에 맞게 "사용자의 네트워크 검색" FQDN을 변경 합니다.
-1. Azure 다운로드 한 프로필 (azurevpnconfig.xml)을 열고 텍스트를 강조 표시 하 고 + C를 눌러 클립보드에 내용을 복사 <ctrl> 합니다. 다음 AzVpnProfile 줄 사이에 모든 항목을 복사 하 되 AzVpnProfile 줄 자체는 복사 하지 않습니다.
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-   For example - copy the text in your xml that is located here.
-   </AzVpnProfile>
-   ```
+1. Azure 다운로드 한 프로필 (azurevpnconfig.xml)을 열고 텍스트를 강조 표시 하 고 (ctrl) + C를 눌러 전체 콘텐츠를 클립보드에 복사 합니다. 
 1. 이전 단계에서 복사한 텍스트를 태그 사이에 2 단계에서 만든 파일에 붙여넣습니다 ```<CustomConfiguration>  </CustomConfiguration>``` . Xml 확장명을 사용 하 여 파일을 저장 합니다.
 1. 태그의 값을 기록 ```<name>  </name>``` 합니다. 프로필 이름입니다. Intune에서 프로필을 만들 때이 이름이 필요 합니다. 파일을 닫고 저장 위치를 저장 합니다.
 

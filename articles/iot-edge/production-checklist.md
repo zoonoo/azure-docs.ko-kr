@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7850763abe2ef40aea4ab3b97187d50f7060fa18
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388773"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -188,11 +188,11 @@ Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리�
 
 * EdgeAgent
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
 
 * EdgeHub
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
+    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
 ## <a name="networking"></a>네트워킹
 
@@ -285,7 +285,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예들 들어 다음과 같습니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```yml
 "createOptions": {

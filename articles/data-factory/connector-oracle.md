@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용 하 여 Oracle 간 데이터 복사
 description: Data Factory를 사용 하 여 지원 되는 원본 저장소에서 Oracle 데이터베이스로 데이터를 복사 하거나 Oracle에서 지원 되는 싱크 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91407829"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381344"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 
@@ -53,7 +48,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 > [!Note]
 > Oracle 프록시 서버는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -71,8 +66,8 @@ Oracle 연결 된 서비스는 다음 속성을 지원 합니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **Oracle**로 설정해야 합니다. | 예 |
-| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 다음 샘플을 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md) 하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Tnsnames에 항목을 추가 하도록 선택할 수 있습니다 [. ](http://www.orafaq.com/wiki/Tnsnames.ora) Oracle 서버에 있는 ORA 파일을 선택 하 고 ADF oracle 연결 된 서비스에서 Oracle 서비스 이름 연결 유형을 사용 하도록 선택 하 고 해당 하는 서비스 이름을 구성 합니다. | 예 |
+| type | type 속성은 **Oracle** 로 설정해야 합니다. | 예 |
+| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 다음 샘플을 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md) 하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름** 을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Tnsnames에 항목을 추가 하도록 선택할 수 있습니다 [. ](http://www.orafaq.com/wiki/Tnsnames.ora) Oracle 서버에 있는 ORA 파일을 선택 하 고 ADF oracle 연결 된 서비스에서 Oracle 서비스 이름 연결 유형을 사용 하도록 선택 하 고 해당 하는 서비스 이름을 구성 합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 >[!TIP]
@@ -90,7 +85,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
 
 -   3DES ( **TRIPLE DES) 및 AES(Advanced Encryption Standard) (AES)** 를 사용 하려면 oracle 서버 쪽에서 Oracle Advanced SECURITY (OAS)로 이동 하 여 암호화 설정을 구성 합니다. 자세한 내용은이 [Oracle 설명서](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조 하세요. Oracle ADF (응용 프로그램 개발 프레임 워크) 커넥터는 Oracle에 대 한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 자동으로 협상 합니다.
 
--   **TLS**를 사용 하려면:
+-   **TLS** 를 사용 하려면:
 
     1.  TLS/SSL 인증서 정보를 가져옵니다. TLS/SSL 인증서의 DER (Distinguished Encoding Rules)로 인코딩된 인증서 정보를 가져오고 출력을 저장 합니다 (-----Begin Certificate ... End Certificate -----)을 텍스트 파일로 저장합니다.
 
@@ -154,13 +149,13 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         "type": "Oracle",
         "typeProperties": {
             "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -217,14 +212,14 @@ Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `OracleSource` . | 예 |
-| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
-| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable**및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
+| type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `OracleSource` . | Yes |
+| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
+| partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange** 입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 예 |
 | 파티션 이름 | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 
 **예: 파티션이 없는 기본 쿼리를 사용 하 여 데이터 복사**
 
@@ -264,9 +259,9 @@ Oracle에 데이터를 복사 하려면 복사 작업의 싱크 형식을로 설
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성은로 설정 해야 합니다 `OracleSink` . | 예 |
+| type | 복사 작업 싱크의 type 속성은로 설정 해야 합니다 `OracleSink` . | Yes |
 | writeBatchSize | 버퍼 크기가에 도달 하면 SQL 테이블에 데이터를 삽입 `writeBatchSize` 합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요 |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 예 |
 | preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
 
 **예:**
@@ -315,7 +310,7 @@ Data Factory Oracle 커넥터는 Oracle의 데이터를 병렬로 복사 하기 
 | 실제 파티션이 있는 초대형 테이블에서 전체 로드          | **파티션 옵션**: 테이블의 실제 파티션입니다. <br><br/>실행 중에는 Data Factory에서 실제 파티션을 자동으로 검색 하 고 파티션으로 데이터를 복사 합니다. |
 | 데이터 분할을 위한 정수 열을 포함 하는 동시에 실제 파티션이 없는 많은 테이블에서 전체 로드 | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정 하지 않으면 기본 키 열이 사용 됩니다. |
 | 실제 파티션에 사용자 지정 쿼리를 사용 하 여 많은 양의 데이터를 로드 합니다. | **파티션 옵션**: 테이블의 실제 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**파티션 이름**: 데이터를 복사할 파티션 이름을 지정 합니다. 지정 하지 않으면 Data Factory Oracle 데이터 집합에서 지정한 테이블의 실제 파티션을 자동으로 검색 합니다.<br><br>실행 중 Data Factory `?AdfTabularPartitionName` 은 실제 파티션 이름으로 대체 하 여 Oracle에 보냅니다. |
-| 데이터 분할을 위한 정수 열을 포함 하 여 실제 파티션이 없는 사용자 지정 쿼리를 사용 하 여 많은 양의 데이터를 로드 합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**분할 상한** 및 **파티션**하 한: 파티션 열에 대해 필터링 하 여 하 한 및 상한 간에만 데이터를 검색 하도록 지정 합니다.<br><br>실행 중 Data Factory는, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound` 및를 `?AdfRangePartitionLowbound` 각 파티션에 대 한 실제 열 이름과 값 범위로 바꾸고 Oracle로 보냅니다. <br>예를 들어 파티션 열 "ID"가 하한값을 1로 설정 하 고 상한이 80로 설정 된 경우 병렬 복사를 4로 설정 하면 Data Factory 4 개의 파티션으로 데이터를 검색 합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
+| 데이터 분할을 위한 정수 열을 포함 하 여 실제 파티션이 없는 사용자 지정 쿼리를 사용 하 여 많은 양의 데이터를 로드 합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다. 정수 데이터 형식의 열에 대해 분할할 수 있습니다.<br>**분할 상한** 및 **파티션** 하 한: 파티션 열에 대해 필터링 하 여 하 한 및 상한 간에만 데이터를 검색 하도록 지정 합니다.<br><br>실행 중 Data Factory는, `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound` 및를 `?AdfRangePartitionLowbound` 각 파티션에 대 한 실제 열 이름과 값 범위로 바꾸고 Oracle로 보냅니다. <br>예를 들어 파티션 열 "ID"가 하한값을 1로 설정 하 고 상한이 80로 설정 된 경우 병렬 복사를 4로 설정 하면 Data Factory 4 개의 파티션으로 데이터를 검색 합니다. 해당 ID는 [1, 20], [21, 40], [41, 60] 및 [61, 80] 사이에 각각 있습니다. |
 
 > [!TIP]
 > 분할 되지 않은 테이블에서 데이터를 복사 하는 경우 "동적 범위" 파티션 옵션을 사용 하 여 정수 열에 대해 분할할 수 있습니다. 원본 데이터에 이러한 유형의 열이 없는 경우 원본 쿼리에서 [ORA_HASH]( https://docs.oracle.com/database/121/SQLRF/functions136.htm) 함수를 활용 하 여 열을 생성 하 고이를 파티션 열로 사용할 수 있습니다.
@@ -363,7 +358,7 @@ Oracle에서 Oracle로 데이터를 복사 하는 경우 다음 매핑이 적용
 | CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
-| 정수 |Decimal, 문자열(전체 자릿수의 경우 > 28) |
+| INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | LONG |String |
 | LONG RAW |Byte[] |
 | NCHAR |String |

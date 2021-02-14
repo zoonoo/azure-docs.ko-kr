@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872895"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391023"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -30,9 +30,6 @@ RHEL (Red Hat Enterprise Linux) 이미지는 종 량 제 또는 BYOS (BYOS) (Red
 - Red Hat 골드 이미지에서 프로 비전 된 Vm은 RHEL 종 량 제 이미지와 관련 된 RHEL 요금을 운반 하지 않습니다.
 - 이미지에 대 한 자격이 없습니다. Red hat에서 직접 업데이트를 받으려면 Red Hat Subscription-Manager를 사용 하 여 Vm을 등록 하 고 구독 해야 합니다.
 - [Azure 하이브리드 혜택](../../linux/azure-hybrid-benefit-linux.md)를 사용 하 여 종 량 제 이미지에서 byos로 전환할 수 있습니다. 그러나 처음에 배포한 BYOS에서 Linux 이미지에 대 한 종 량 제 청구 모델로 전환 하는 것은 불가능 합니다. 청구 모델을 BYOS에서 종 량 제로 전환 하려면 해당 이미지에서 VM을 다시 배포 해야 합니다.
-
->[!NOTE]
-> 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. 2 세대 RHEL BYOS 이미지가 필요한 경우 Red Hat 구독 관리에서 클라우드 액세스 대시보드를 방문 합니다. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)를 참조 하세요.
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Red Hat 골드 이미지에 액세스 하기 위한 요구 사항 및 조건
 

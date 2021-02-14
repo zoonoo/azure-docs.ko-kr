@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1f2ea8bd51b7eeda9afdd6a94d5de1d58acef57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520649"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -25,7 +25,7 @@ HDInsight는 계산 노드에 로컬로 연결 된 분산 컨테이너에 대 �
 HDFS CLI에 대 한 자세한 내용은 [공식 설명서](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) 및 [Hdfs 사용 권한 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 를 참조 하세요.
 
 >[!NOTE]
->HDInsight 대신 Azure Databricks를 사용 하는 경우 명령줄 인터페이스를 사용 하 여 데이터와 상호 작용 하려면 Databricks CLI를 사용 하 여 Databricks 파일 시스템과 상호 작용할 수 있습니다. [DATABRICKS CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조 하세요.
+>HDInsight 대신 Azure Databricks를 사용 하는 경우 명령줄 인터페이스를 사용 하 여 데이터와 상호 작용 하려면 Databricks CLI를 사용 하 여 Databricks 파일 시스템과 상호 작용할 수 있습니다. [DATABRICKS CLI](/azure/databricks/dev-tools/cli/)를 참조 하세요.
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux에서 HDInsight Hadoop 클러스터로 HDFS CLI 사용
 
@@ -58,7 +58,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 컨테이너 또는 컨테이너 폴더의 URI로 바꿉니다.
 
-`hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
+예: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
@@ -66,7 +66,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>`자리 표시자를 루트 컨테이너 이름 또는 컨테이너 내의 폴더로 바꿉니다.
 
-`hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+예: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
 ## <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
 
@@ -74,7 +74,7 @@ Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스
 
 `<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
 
-`hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
+예: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ## <a name="display-the-access-control-lists-acls-of-files-and-directories"></a>파일 및 디렉터리의 Access Control Lists(ACL) 표시
 

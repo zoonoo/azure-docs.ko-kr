@@ -1,24 +1,20 @@
 ---
 title: 관리 되는 가상 네트워크 & 관리 되는 전용 끝점
 description: Azure Data Factory에서 관리 되는 가상 네트워크 및 관리 되는 개인 끝점에 대해 알아봅니다.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980381"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379576"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -51,7 +47,7 @@ Azure Data Factory 관리 되는 Virtual Network (VNET) 내에서 IR (Azure Inte
 
 ![새 관리형 프라이빗 엔드포인트](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (이전의 SQL Data Warehouse))에 액세스할 수 있습니다.
+Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용 하면 Azure (PaaS) 서비스 (예: Azure Storage, Azure Cosmos DB, Azure Synapse Analytics)에 액세스할 수 있습니다.
 
 개인 링크를 사용 하는 경우 데이터 저장소와 관리 되는 Virtual Network 간의 트래픽이 Microsoft 백본 네트워크를 통해 완전히 트래버스 됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 
@@ -86,7 +82,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure 파일
 - Azure Data Lake Gen2
 - Azure SQL Database (Azure SQL Managed Instance를 포함 하지 않음)
-- Azure Synapse Analytics(이전의 SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure 개인 링크 서비스
@@ -106,7 +102,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - 북유럽
 - 서유럽
 - 영국 남부
-- 동남아시아
+- 동남 아시아
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
 
@@ -115,7 +111,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure Storage 및 Azure Data Lake Gen2는 ADF 관리 Virtual Network의 공용 끝점을 통해 연결할 수 없습니다.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault 연결 된 서비스 만들기 
-- Azure Key Vault에 대 한 연결 된 서비스를 만들 때 Azure Integration Runtime 참조는 없습니다. 따라서 연결 된 서비스를 만드는 동안에는 Azure Key Vault 개인 끝점을 만들 수 없습니다. 그러나 Azure Key Vault 연결 된 서비스를 참조 하는 데이터 저장소에 대 한 연결 된 서비스를 만들 때이 연결 된 서비스에서 관리 되는 Virtual Network를 사용 하도록 설정 된 Azure Integration Runtime 참조 하는 경우 생성 하는 동안 Azure Key Vault 연결 된 서비스에 대 한 개인 끝점을 만들 수 있습니다. 
+- Azure Key Vault에 대한 연결된 서비스를 만들 때 Azure Integration Runtime 참조가 없습니다. 따라서 연결 된 서비스를 만드는 동안에는 Azure Key Vault 개인 끝점을 만들 수 없습니다. 그러나 Azure Key Vault 연결 된 서비스를 참조 하는 데이터 저장소에 대 한 연결 된 서비스를 만들 때이 연결 된 서비스에서 관리 되는 Virtual Network를 사용 하도록 설정 된 Azure Integration Runtime 참조 하는 경우 생성 하는 동안 Azure Key Vault 연결 된 서비스에 대 한 개인 끝점을 만들 수 있습니다. 
 - 연결 된 Azure Key Vault 서비스에 대 한 **연결 테스트** 작업은 URL 형식의 유효성만 검사 하지만 네트워크 작업은 수행 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

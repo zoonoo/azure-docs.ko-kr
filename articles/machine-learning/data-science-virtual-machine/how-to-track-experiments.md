@@ -3,18 +3,17 @@ title: 실험 추적 및 배포 모델
 titleSuffix: Azure Data Science Virtual Machine
 description: Azure Machine Learning 및/또는 MLFlow를 사용 하 여 Data Science Virtual Machine에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704543"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518541"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
@@ -30,7 +29,7 @@ ms.locfileid: "98704543"
 
 ## <a name="create-a-new-notebook"></a>새 Notebook 만들기
 
-Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되어 있으며 **azureml_py36_ \** _ conda 환경에서 액세스할 수 있습니다. JupyterLab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
+Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되며 **azureml_py36_ \*** conda 환경에서 액세스할 수 있습니다. JupyterLab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
 
 ![커널 선택](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ with mlflow.start_run():
 
 __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 합니다.
 
-_ 계산 이름
+* 계산 이름
 * Kubernetes Service-새로 만들기를 선택 합니다.
 * 지역 선택
 * VM 크기를 선택 합니다 .이 자습서의 목적에는 Standard_D3_v2의 기본값 만으로도 충분 합니다.

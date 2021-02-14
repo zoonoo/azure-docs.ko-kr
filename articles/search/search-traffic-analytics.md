@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 10bb0364bf7c54cd07d6dfa5725b3a626622d390
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2ad6f5bf18d362f846e12720e00584b854729366
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097795"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515668"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>검색 트래픽 분석을 위한 원격 분석 데이터 수집
 
@@ -168,7 +168,7 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 + **ScoringProfile**: (문자열) 사용된 점수 매기기 프로필의 이름(있는 경우).
 
 > [!NOTE]
-> 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [문서 검색(REST)](/rest/api/searchservice/search-documents#counttrue--false)을 참조하세요.
+> 검색 쿼리에 $count=true를 추가하여 사용자가 생성한 쿼리 수를 요청합니다. 자세한 내용은 [문서 검색(REST)](/rest/api/searchservice/search-documents#query-parameters)을 참조하세요.
 >
 
 **C# 사용**

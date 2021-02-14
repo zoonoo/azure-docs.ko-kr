@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: 이러한 샘플과 연습을 통해 Data Science Virtual Machine를 사용 하 여 일반적인 작업 및 시나리오를 처리 하는 방법을 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012572"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519765"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
 

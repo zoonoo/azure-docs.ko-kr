@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001255"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381514"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
 
@@ -366,7 +366,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | Description |
+| 속성    | 설명 |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -398,13 +398,15 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 큐를 나타내는 변수의 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**queueName** |**QueueName** | 큐의 이름입니다. |
-|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 4.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용 하는 경우 연결을 정의 하는 구성 섹션에 대 한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조 하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>사용
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>기본값
 
 와 같은 메서드 매개 변수를 사용 하 여 단일 큐 메시지를 작성 `out T paramName` 합니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
 
@@ -420,7 +422,18 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 * `ICollector<T>` 또는 `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
+### <a name="additional-types"></a>추가 형식
+
+[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
+
+이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>기본값
 
 와 같은 메서드 매개 변수를 사용 하 여 단일 큐 메시지를 작성 `out T paramName` 합니다. 는 `paramName` `name` *function.js* 의 속성에 지정 된 값입니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
 
@@ -436,6 +449,15 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 * `ICollector<T>` 또는 `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
+### <a name="additional-types"></a>추가 형식
+
+[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 레거시 및 형식에 대 한 지원을 `CloudQueue` `CloudQueueMessage` 다음 형식으로 대체 합니다.
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- 여러 큐 메시지를 쓰기 위한 [QueueClient](/dotnet/api/azure.storage.queues.queueclient)
+
+이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+
 # <a name="java"></a>[Java](#tab/java)
 
 [Queueoutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) 주석을 사용 하 여 함수에서 큐 메시지를 출력 하는 두 가지 옵션이 있습니다.
@@ -450,7 +472,7 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-`Push-OutputBinding`function.js파일의 바인딩 매개 변수에 지정 된 이름과 일치 하는 인수를 전달 하 여 큐 메시지에 대 한 출력을 사용할 수 있습니다 `name` . *function.json*
+`Push-OutputBinding`function.js파일의 바인딩 매개 변수에 지정 된 이름과 일치 하는 인수를 전달 하 여 큐 메시지에 대 한 출력을 사용할 수 있습니다 `name` . 
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -469,38 +491,6 @@ C# 및 C# 스크립트에서 다음 형식 중 하나를 사용하여 여러 큐
 | 큐 | [큐 오류 코드](/rest/api/storageservices/queue-service-error-codes) |
 | Blob, 테이블, 큐 | [스토리지 오류 코드](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, 테이블, 큐 |  [문제 해결](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>host.json 설정
-
-이 섹션에서는 버전 2.x 이상에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래 파일에 host.js예제에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 2.x 이상 버전의 전역 구성 설정에 대 한 자세한 내용은 [ Azure Functions에 대 한 참조host.js](functions-host-json.md)를 참조 하세요.
-
-> [!NOTE]
-> Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "queues": {
-            "maxPollingInterval": "00:00:02",
-            "visibilityTimeout" : "00:00:30",
-            "batchSize": 16,
-            "maxDequeueCount": 5,
-            "newBatchThreshold": 8
-        }
-    }
-}
-```
-
-|속성  |기본값 | Description |
-|---------|---------|---------|
-|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100 (100 밀리초)이 고 최대 00:01:00 (1 분) 씩 증가 합니다.  1.x에서 데이터 형식은 밀리초이 고, 2.x 이상에서 TimeSpan입니다.|
-|visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
-|batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
-|maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|
-|newBatchThreshold|batchSize/2|동시에 처리되는 메시지의 수가 이 숫자로 내려갈 때마다 런타임은 다른 일괄 처리를 검색합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

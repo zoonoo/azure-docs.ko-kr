@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001238"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381497"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -21,7 +21,7 @@ ms.locfileid: "96001238"
 
 함수에 *base64* 로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64* 로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 새 항목이 큐에 수신될 때 큐 트리거를 사용하여 함수를 시작합니다. 큐 메시지는 함수에 입력으로 제공됩니다.
 
@@ -327,7 +327,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| 속성    | Description |
+| 속성    | 설명 |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -357,13 +357,15 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction**| 해당 없음 | *function.json* 파일에서만 적용됩니다. `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 |함수 코드에서 큐 항목 페이로드를 포함하는 변수 이름입니다.  |
 |**queueName** | **QueueName**| 폴링할 큐의 이름입니다. |
-|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
+|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 4.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용 하는 경우 연결을 정의 하는 구성 섹션에 대 한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조 하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>사용
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>기본값
 
 와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
@@ -374,7 +376,17 @@ Python에서는 특성을 지원하지 않습니다.
 
 `CloudQueueMessage`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
+### <a name="additional-types"></a>추가 형식
+
+[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
+
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>기본값
 
 와 같은 메서드 매개 변수를 사용 하 여 메시지 데이터에 액세스 합니다 `string paramName` . 는 `paramName` `name` *function.js* 의 속성에 지정 된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
@@ -384,6 +396,14 @@ Python에서는 특성을 지원하지 않습니다.
 * [CloudQueueMessage]
 
 `CloudQueueMessage`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+
+### <a name="additional-types"></a>추가 형식
+
+[5.0.0 이상의 저장소 확장 버전](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.queues-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 형식에 대 한 지원을 삭제 `CloudQueueMessage` 합니다.
+
+- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples)를 참조 하세요.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -407,9 +427,9 @@ Python에서는 특성을 지원하지 않습니다.
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 멤버입니다.
 
-|속성|형식|Description|
+|속성|형식|설명|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . *function.json*|
+|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드가 문자열이 면에서 `QueueTrigger`function.js의 속성으로 명명 된 변수와 동일한 값을 갖습니다 `name` . |
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
 |`ExpirationTime`|`DateTimeOffset`|메시지가 만료되는 시간입니다.|
 |`Id`|`string`|큐 메시지 ID입니다.|
@@ -448,7 +468,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="hostjson-properties"></a>host.json 속성
 
-[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-storage-queue-output.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
+[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [ 설정에](functions-bindings-storage-queue.md#hostjson-settings) 대 한host.js섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

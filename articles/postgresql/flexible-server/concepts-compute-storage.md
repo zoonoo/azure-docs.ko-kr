@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710076"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519391"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션
 
@@ -89,7 +89,7 @@ ms.locfileid: "91710076"
 추가 스토리지 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다.
 
 >[!NOTE]
-> 저장소는 다운 되지 않고 확장만 가능 합니다.
+> 스토리지는 스케일 다운이 아닌 스케일 업만 가능합니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 용량 한도, 저장소 비율, 사용 된 저장소 및 IO 백분율](concepts-monitoring.md)입니다.
 
@@ -151,7 +151,10 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 저장소 용량 한도에 도달 하면 서버에서 오류를 반환 하기 시작 하 고 추가 수정 작업을 방지 합니다. 이로 인해 백업 및 WAL 보관과 같은 다른 작동 활동과 관련 된 문제가 발생할 수도 있습니다.
 
+이러한 상황을 방지 하기 위해 저장소 사용량이 95%에 도달 하거나 사용 가능한 용량이 5 GiB 미만이 면 서버가 자동으로 **읽기 전용 모드로** 전환 됩니다.
+
 사용 중인 디스크 공간을 적극적으로 모니터링 하는 것이 좋으며, 디스크 크기를 초과 하는 경우에는 디스크 크기를 늘려야 합니다. 서버 저장소가 디스크에 근접 하는 경우 사용자에 게 알리는 경고를 설정 하 여 디스크 부족으로 인 한 문제를 방지할 수 있습니다. 자세한 내용은 [경고 설정 방법](howto-alert-on-metrics.md)에 관한 설명서를 참조하세요.
+
 
 ### <a name="storage-auto-grow"></a>저장소 자동 증가
 
@@ -174,7 +177,7 @@ VCores 또는 compute 계층 수를 변경 하면 새 서버 유형을 적용 �
 
 ## <a name="pricing"></a>가격 책정
 
-최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/PostgreSQL/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가**를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for PostgreSQL**을 선택하여 옵션을 사용자 지정합니다.
+최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/PostgreSQL/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for PostgreSQL** 을 선택하여 옵션을 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

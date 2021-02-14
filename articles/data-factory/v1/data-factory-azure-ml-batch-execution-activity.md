@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory를 사용 하 여 예측 데이터 파이프라인 만들기
 description: Azure Data Factory 및 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: c04c94ef2a73085b982fde3efefecea351b083af
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: a7042a67081475311341ad6d56e35b2a71b8b12c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608071"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379338"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Azure Machine Learning Studio (클래식) 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기
 
@@ -132,7 +128,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
 >
 >
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 이 예제에서는 Azure Storage를 사용하여 입력 및 출력 데이터를 저장합니다.
 
 이 예제를 진행하기 전에 [Data Factory를 사용하여 첫 번째 파이프라인 빌드][adf-build-1st-pipeline] 자습서를 살펴보는 것이 좋습니다. 이 예제에서는 Data Factory Editor를 사용하여 Data Factory 아티팩트(연결된 서비스, 데이터 세트, 파이프라인)를 만듭니다.
@@ -183,7 +179,7 @@ Azure Data Factory를 사용 하 여 데이터 이동 및 처리를 오케스트
    }
    ```
 
-   입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업** 을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader** 를 **true** 로 설정해야 합니다. 예:
+   입력 csv 파일에는 열 머리글 행이 있어야 합니다. **복사 작업** 을 사용하여 csv를 만들고 Blob Storage로 이동하는 경우 싱크 속성 **blobWriterAddHeader** 를 **true** 로 설정해야 합니다. 예를 들면 다음과 같습니다.
 
    ```json
    sink:
@@ -355,7 +351,7 @@ Studio (클래식) 실험에서 판독기 모듈을 사용 하는 경우 Azure B
 
 ![Azure Blob 속성](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 #### <a name="pipeline-with-azuremlbatchexecution-activity-with-web-service-parameters"></a>AzureMLBatchExecution 작업 및 웹 서비스 매개 변수가 포함된 파이프라인
 
 ```JSON
