@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e0fb337defc69354aa625fe63bef9768dbc4cf1f
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ee6eedbc078e1b9c07ed00922ce1c37b38410128
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538852"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381871"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-portal"></a>연속 백업 및 지정 시간 복원 (미리 보기)을 사용 하 여 구성 및 관리-Azure Portal 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -74,7 +74,7 @@ Azure Portal의 복원 지점 시간을 채울 때 복원 지점을 식별 하�
 삭제 된 후 30 일 이내에 삭제 된 계정을 완전히 복원 하려면 Azure Portal를 사용할 수 있습니다. 다음 단계를 사용 하 여 삭제 된 계정을 복원 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 전역 검색 창에서 "Azure Cosmos DB" 리소스를 검색 합니다. 모든 기존 계정을 나열 합니다.
+1. 전역 검색 창에서 *Azure Cosmos DB* 리소스를 검색 합니다. 모든 기존 계정을 나열 합니다.
 1. 그런 다음 **복원** 단추를 선택 합니다. 복원 창에는 보존 기간 내에 복원할 수 있는 삭제 된 계정 목록이 표시 됩니다. 삭제 시간은 30 일입니다.
 1. 복원 하려는 계정을 선택 합니다.
 
@@ -95,7 +95,7 @@ Azure Portal의 복원 지점 시간을 채울 때 복원 지점을 식별 하�
 
 ## <a name="track-the-status-of-restore-operation"></a><a id="track-restore-status"></a>복원 작업의 상태를 추적 합니다.
 
-복원 작업을 시작한 후 포털의 오른쪽 위 모퉁이에 있는 **알림** 벨 아이콘을 선택 합니다. 복원 중인 계정의 상태를 표시 하는 링크를 제공 합니다. 복원이 진행 중인 동안에는 계정 상태가 "만들기"가 되 고 복원 작업이 완료 된 후 계정 상태가 "Online"으로 변경 됩니다.
+복원 작업을 시작한 후 포털의 오른쪽 위 모퉁이에 있는 **알림** 벨 아이콘을 선택 합니다. 복원 중인 계정의 상태를 표시 하는 링크를 제공 합니다. 복원이 진행 중인 동안에는 계정 상태가 *생성* 되 고 복원 작업이 완료 된 후 계정 상태가 *온라인* 으로 변경 됩니다.
 
 :::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="작업이 완료 되 면 복원 된 계정 상태가 만들기에서 온라인으로 변경 됩니다." border="true":::
 

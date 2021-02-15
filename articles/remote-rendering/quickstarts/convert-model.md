@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c9b5d525954e7f0742cd13fe4d64a73df64ea854
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281347"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594470"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>빠른 시작: 렌더링을 위해 모델 변환
 
@@ -155,7 +155,7 @@ Blob 스토리지를 만들려면 먼저 스토리지 계정이 필요합니다.
 
 **accountSettings** 그룹(계정 ID 및 키) 내의 구성은 [Unity를 사용하여 모델 렌더링 빠른 시작](render-model.md)의 자격 증명과 비슷하게 작성해야 합니다.
 
-**assetConversionSettings** 그룹 내에서 **resourceGroup** , **blobInputContainerName** 및 **blobOutputContainerName** 을 위에서 표시한 대로 변경해야 합니다.
+**assetConversionSettings** 그룹 내에서 **resourceGroup**, **blobInputContainerName** 및 **blobOutputContainerName** 을 위에서 표시한 대로 변경해야 합니다.
 **arrtutorialstorage** 값은 스토리지 계정을 만드는 중에 선택한 고유 이름으로 바꿔야 합니다.
 
 변환하려는 모델이 포함된 디스크의 디렉터리를 가리키도록 **localAssetDirectoryPath** 를 변경합니다. 경로에서 이중 백슬래시("\\\\")를 사용하여 백슬래시("\\")를 적절히 이스케이프해야 합니다.
@@ -188,13 +188,13 @@ Connect-AzAccount
 ### <a name="3-conversion-via-api-calls"></a>3. API 호출을 통한 변환
 
 C# 및 C++ API는 모두 서비스와 상호 작용할 수 있는 진입점을 제공합니다.
-* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
-* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+* [C# RemoteRenderingClient.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.remoterenderingclient.startassetconversionasync)
+* [C++ RemoteRenderingClient::StartAssetConversionAsync()](/cpp/api/remote-rendering/remoterenderingclient#startassetconversionasync)
 
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>빠른 시작 샘플 앱에 새 모델 삽입
 
-변환 스크립트는 변환된 모델에 대한 *SAS(공유 액세스 서명)* URI를 생성합니다. 이제 이 URI를 **Model Name(모델 이름)** 으로 빠른 시작 샘플 앱에 복사할 수 있습니다( [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 참조).
+변환 스크립트는 변환된 모델에 대한 *SAS(공유 액세스 서명)* URI를 생성합니다. 이제 이 URI를 **Model Name(모델 이름)** 으로 빠른 시작 샘플 앱에 복사할 수 있습니다([빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md) 참조).
 
 ![Unity에서 모델 바꾸기](./media/replace-model-in-unity.png)
 

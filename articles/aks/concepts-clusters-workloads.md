@@ -3,13 +3,13 @@ title: 개념 - AKS(Azure Kubernetes Service)의 Kubernetes 기본 사항
 description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와 AKS(Azure Kubernetes Service)의 기능과의 관계에 대해 알아봅니다.
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674929"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373235"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -31,12 +31,12 @@ AKS(Azure Kubernetes Service)는 업그레이드 조정을 포함하여 배포 �
 
 Kubernetes 클러스터는 다음 두 가지 구성 요소로 구분됩니다.
 
-- *제어 평면* 노드는 응용 프로그램 워크 로드의 핵심 Kubernetes 서비스 및 오케스트레이션을 제공 합니다.
-- *노드* 에서 애플리케이션 워크로드를 실행합니다.
+- *컨트롤 평면은* 응용 프로그램 작업의 핵심 Kubernetes 서비스 및 오케스트레이션을 제공 합니다.
+- 응용 프로그램 워크 로드를 실행 하는 *노드* .
 
 ![Kubernetes 제어 평면 및 노드 구성 요소](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="control-plane"></a>컨트롤 플레인
+## <a name="control-plane"></a>제어 평면
 
 AKS 클러스터를 만들면 컨트롤 평면이 자동으로 만들어지고 구성 됩니다. 이 컨트롤 평면은 사용자 로부터 추상화 된 관리 되는 Azure 리소스로 제공 됩니다. 제어 평면에 대 한 비용은 없으며 AKS 클러스터의 일부인 노드만 있습니다. 제어 평면과 해당 리소스는 클러스터를 만든 지역에만 있습니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979538"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362797"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -62,7 +62,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -132,8 +132,8 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 }
 ```
 
-## <a name="natural-reading-order-output"></a>자연 스러운 읽기 순서 출력
-[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `readingOrder` . `natural`다음 예제와 같이 사용자에 게 친숙 한 읽기 순서 출력에 사용 합니다.
+## <a name="natural-reading-order-output-latin-only"></a>자연 읽기 순서 출력 (라틴어 전용)
+[Read 3.2 PREVIEW API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 쿼리 매개 변수를 사용 하 여 텍스트 줄이 출력 되는 순서를 지정 합니다 `readingOrder` . `natural`다음 예제와 같이 사용자에 게 친숙 한 읽기 순서 출력에 사용 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR 읽기 순서 예":::
 

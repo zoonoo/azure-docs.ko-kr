@@ -1,22 +1,17 @@
 ---
 title: Azure SQL Managed Instance를 사용 하 여 데이터베이스 작업 대상으로 SSIS 마이그레이션
 description: Azure SQL Managed Instance를 사용 하 여 데이터베이스 작업 대상으로 SSIS를 마이그레이션합니다.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 184cd7ec0dd490152e7234383bffe4f0fd822913
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3d2bc60f8ba7120f8d962500c06be50e905c11a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635714"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373592"
 ---
 # <a name="ssis-migration-with-azure-sql-managed-instance-as-the-database-workload-destination"></a>Azure SQL Managed Instance를 사용 하 여 데이터베이스 작업 대상으로 SSIS 마이그레이션
 
@@ -36,7 +31,7 @@ SQL Managed Instance에는 온-프레미스 SQL Server 에이전트와 마찬가
 
 SSIS 작업을 위한 마이그레이션 도구를 아직 사용할 수 없으므로 스크립트/수동 복사를 통해 온-프레미스에서 SQL Managed Instance 에이전트로 SQL Server 에이전트로 마이그레이션해야 합니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure Data Factory](./introduction.md)
 - [Azure SSIS 통합 런타임](./create-azure-ssis-integration-runtime.md)

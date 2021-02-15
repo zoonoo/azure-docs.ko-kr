@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920412"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988569"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -26,8 +26,8 @@ ms.locfileid: "98920412"
 
 알림 이메일에 대한 고유한 기본 설정을 정의하기 위해 Azure Security Center의 **이메일 알림** 설정 페이지에서 다음을 선택할 수 있습니다.
 
-- **알려야 하는 _사람_** - 특정 개인 또는 구독에 대해 지정된 Azure 역할이 있는 사람에게 이메일을 보낼 수 있습니다. 
-- **알려야 하는 _내용_** - Security Center에서 보내야 하는 알림의 심각도 수준을 수정합니다.
+- **알려야 하는 *사람*** - 특정 개인 또는 구독에 대해 지정된 Azure 역할이 있는 사람에게 이메일을 보낼 수 있습니다. 
+- **알려야 하는 *내용*** - Security Center에서 보내야 하는 알림의 심각도 수준을 수정합니다.
 
 경고 피로를 방지하기 위해 Security Center는 보내는 메일의 볼륨을 제한합니다. 각 구독에 대해 Security Center는 다음을 보냅니다.
 
@@ -48,8 +48,7 @@ ms.locfileid: "98920412"
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>보안 경고 이메일 알림 사용자 지정<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>포털을 통해 보안 경고 이메일 알림 사용자 지정<a name="email"></a>
 개인 또는 특정 Azure 역할을 가진 모든 사용자에게 이메일 알림을 보낼 수 있습니다.
 
 1. Security Center의 **가격 책정 및 설정** 영역에서 관련 구독을 선택하고 **이메일 알림** 을 선택합니다.
@@ -60,6 +59,28 @@ ms.locfileid: "98920412"
     - 특정 이메일 주소를 쉼표로 구분하여 입력합니다. 입력할 수 있는 이메일 주소 수에는 제한이 없습니다.
 
 1. 보안 연락처 정보를 구독에 적용하려면 **저장** 을 선택합니다.
+
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>API를 통해 경고 이메일 알림 사용자 지정
+제공된 REST API를 통해 이메일 알림을 관리할 수도 있습니다. 자세한 내용은 [SecurityContacts API 설명서](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts)를 참조하세요.
+
+다음은 보안 연락처 구성을 만들 때 PUT 요청의 본문 예제입니다.
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
 
 
 ## <a name="see-also"></a>참고 항목

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554417"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391595"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Azure 부서의 범위에서 연결 문제 해결
 
@@ -53,11 +53,11 @@ Azure Key Vault에 액세스 하도록 부서의 범위 관리 id에 대해 올�
 이를 확인 하려면 다음 단계를 수행 합니다.
 
 1. 키 자격 증명 모음 및 **액세스 정책** 섹션으로 이동 합니다.
-1. 부서의 범위 관리 id가 *현재 액세스 정책* 섹션 아래에 표시 되는 암호에 대 한 **get** 권한으로 표시 되는지 확인 합니다.
+1. 부서의 범위 관리 id가 *현재 액세스 정책* 섹션 아래에 표시 되는 암호에 대 한 **get** 및 **list** 권한이 있는 다음 이상 인지 확인 합니다.
 
 부서의 범위 관리 id가 표시 되지 않으면 [검색에 대 한 자격 증명 만들기 및 관리](manage-credentials.md) 의 단계에 따라 추가 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 부서의 범위 Data catalog 찾아보기](how-to-browse-catalog.md)
-- [Azure 부서의 범위 Data Catalog 검색](how-to-search-catalog.md)
+- [Azure Purview 데이터 카탈로그 찾아보기](how-to-browse-catalog.md)
+- [Azure Purview Data Catalog 검색](how-to-search-catalog.md)

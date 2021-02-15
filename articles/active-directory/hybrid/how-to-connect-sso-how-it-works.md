@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bde937adba8d2469390a6cf404f6cce8c5008e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: addb90ed3929847612fd423e3af01c1b3982c2d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144711"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369648"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -67,6 +67,10 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 6. Active Directory는 컴퓨터 계정을 찾아서 컴퓨터 계정의 비밀로 암호화된 Kerberos 티켓을 브라우저에 반환합니다.
 7. 브라우저는 Active Directory에서 받은 Kerberos 티켓을 Azure AD에 전달합니다.
 8. Azure AD는 이전에 공유한 키를 사용하여 회사 디바이스에 로그인한 사용자의 ID가 포함된 Kerberos 티켓을 암호 해독합니다.
+
+   >[!NOTE]
+   >Azure AD는 Kerberos 티켓의 사용자 UPN과 userPrincipalName 특성에 해당 하는 값이 있는 Azure AD 사용자 개체를 일치 시 키 려 고 합니다. 이 작업이 실패 하는 경우 Azure AD는 onPremisesSamAccountName 특성에 해당 값이 있는 Azure AD 사용자 개체에 대 한 samAccountName을 Kerberos 티켓의 일치 항목으로 대체 합니다.
+   
 9. 평가 후에 Azure AD는 애플리케이션에 토큰을 반환하거나 사용자에게 Multi-Factor Authentication과 같은 추가 증명을 수행하도록 요청합니다.
 10. 사용자 로그인에 성공하면 해당 사용자는 해당 애플리케이션에 액세스할 수 있습니다.
 
@@ -99,6 +103,6 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 ## <a name="next-steps"></a>다음 단계
 
 - [**빠른 시작**](how-to-connect-sso-quick-start.md) - Azure AD Seamless SSO를 준비하고 실행합니다.
-- [**FAQ(질문과 대답)** ](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
+- [**FAQ(질문과 대답)**](how-to-connect-sso-faq.md) - 질문과 대답을 다루고 있습니다.
 - [**문제 해결**](tshoot-connect-sso.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 새로운 기능 요청을 제출합니다.

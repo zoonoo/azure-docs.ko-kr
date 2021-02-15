@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968469"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373371"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Custom Speech 모델 학습 및 배포
 
@@ -40,7 +40,19 @@ ms.locfileid: "97968469"
 3. **모델 학습** 을 선택 합니다.
 4. 교육에 **이름** 및 **설명을** 제공 합니다.
 5. **시나리오 및 기준 모델** 목록에서 도메인에 가장 적합 한 시나리오를 선택 합니다. 선택할 시나리오를 잘 모르는 경우에는 **일반** 을 선택 합니다. 기준선 모델은 학습을 위한 시작점입니다. 일반적으로 최신 모델을 선택 하는 것이 가장 좋습니다.
-6. **학습 데이터 선택** 페이지에서 학습에 사용할 하나 이상의 관련 텍스트 데이터 집합 또는 오디오 + 사람이 레이블 지정 된 기록 데이터 집합을 선택 합니다. 새 모델을 학습 하는 경우 관련 텍스트를 사용 하 여 시작 합니다. 오디오 + 사용자 레이블이 지정 된 기록을 사용한 교육은 훨씬 더 오래 걸릴 수 있습니다 (최대 [며칠](how-to-custom-speech-evaluate-data.md#improve-model-recognition)).
+6. **학습 데이터 선택** 페이지에서 학습에 사용할 하나 이상의 관련 텍스트 데이터 집합 또는 오디오 + 사람이 레이블 지정 된 기록 데이터 집합을 선택 합니다.
+
+> [!NOTE]
+> 새 모델을 학습 하는 경우 관련 텍스트를 사용 하 여 시작 합니다. 오디오 + 사용자 레이블이 지정 된 기록을 사용한 교육은 훨씬 더 오래 걸릴 수 있습니다 **(최대 [며칠](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**).
+
+> [!NOTE]
+> 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
+
+> [!NOTE]
+> 학습에 사용 되는 기본 모델을 변경 하 고 학습 데이터 집합에 오디오가 있는 경우 선택한 새 기본 모델에서 [오디오 데이터로 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인 합니다. 이전에 사용 된 기본 모델에서 오디오 데이터에 대 한 학습을 지원 하지 않고 학습 데이터 집합에 오디오가 포함 된 경우 새 기본 모델의 학습 시간이 **크게** 증가 하 고 몇 시간에서 며칠 이상으로 쉽게 이동할 수 있습니다. 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 특히 그렇습니다.
+>
+> 위의 단락에 설명 된 문제를 직면 하는 경우 데이터 집합의 오디오 양을 줄이거나 텍스트를 완전히 제거 하 여 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 매우 권장 됩니다.
+
 7. 학습을 완료 한 후에는 새로 학습 된 모델에 대 한 정확도 테스트를 수행할 수 있습니다. 이 단계는 선택 사항입니다.
 8. 만들기를 선택 하 여 사용자 지정 모델을 **만듭니다** .
 

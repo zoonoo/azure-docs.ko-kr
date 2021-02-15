@@ -4,16 +4,16 @@ description: 새 데이터 내보내기를 사용 하 여 Azure 및 사용자 �
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/05/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226065"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515906"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
@@ -22,7 +22,7 @@ ms.locfileid: "99226065"
 
 이 문서에서는 Azure IoT Central의 새로운 데이터 내보내기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하 여 IoT Central 응용 프로그램에서 필터링 및 보강 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 통찰력, 분석 및 저장소에 대 한 클라우드 솔루션의 다른 부분에 거의 실시간으로 변경 내용을 푸시합니다.
 
-예를 들어 다음 작업을 할 수 있습니다.
+예를 들어, 다음을 수행할 수 있습니다.
 
 - JSON 형식의 원격 분석 데이터 및 속성 변경을 거의 실시간으로 계속 내보냅니다.
 - 데이터 스트림을 필터링 하 여 사용자 지정 조건과 일치 하는 데이터를 내보냅니다.
@@ -32,7 +32,7 @@ ms.locfileid: "99226065"
 > [!Tip]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 내보내기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
 
@@ -96,10 +96,10 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
 
     |성능 계층|계정 유형|
     |-|-|
-    |표준|범용 V2|
-    |표준|범용 V1|
-    |표준|Blob 스토리지|
-    |프리미엄|블록 Blob 저장소|
+    |Standard|범용 V2|
+    |Standard|범용 V1|
+    |Standard|Blob Storage|
+    |Premium|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.
 
@@ -165,6 +165,17 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
 1. **+ 대상** 을 선택 하 고 드롭다운에서 대상을 선택 합니다. 단일 내보내기에 최대 5 개의 대상을 추가할 수 있습니다.
 
 1. 내보내기 설정을 완료 한 후 **저장** 을 선택 합니다. 몇 분 후에 데이터가 대상에 표시 됩니다.
+
+## <a name="monitor-your-export"></a>내보내기 모니터링
+
+IoT Central 내보내기의 상태를 확인 하는 것 외에도 내보내기를 통해 흐르는 데이터의 양을 모니터링 하 고 Azure Monitor 데이터 플랫폼에서 내보내기 오류를 관찰할 수 있습니다. Azure Portal, REST API 또는 PowerShell 또는 Azure CLI 쿼리의 차트에서 내보내기 및 장치 상태에 대 한 메트릭에 액세스할 수 있습니다. 현재 Azure Monitor에서 이러한 데이터 내보내기 메트릭을 모니터링할 수 있습니다.
+
+1. 필터가 적용 되기 전에 내보내기 위해 들어오는 메시지 수
+2. 필터를 통해 전달 되는 메시지 수
+3. 대상에 성공적으로 내보낸 메시지 수
+4. 발생 한 오류 수
+ 
+[IoT Central 메트릭에 액세스 하는 방법에 대해 자세히 알아보세요.](howto-monitor-application-health.md)
 
 ## <a name="destinations"></a>대상
 
@@ -233,7 +244,6 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
     }
 }
 ```
-
 ### <a name="message-properties"></a>메시지 속성
 
 원격 분석 메시지에는 원격 분석 페이로드 외에 메타 데이터에 대 한 속성도 있습니다. 위의 코드 조각에서는 및와 같은 시스템 메시지의 예를 보여 줍니다 `deviceId` `enqueuedTime` . 시스템 메시지 속성에 대해 자세히 알아보려면 [D2C IoT Hub 메시지의 시스템 속성](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages)을 참조 하세요.

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218368"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384523"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>제한 된 네트워크에서 작업 영역 리소스에 연결
 
@@ -74,7 +74,7 @@ Azure Synapse Analytics Studio에 액세스 하려면 Azure Portal에서 개인 
 
 Azure Synapse Analytics Studio 작업 영역 리소스 내의 리소스에 액세스 하려면 다음을 만들어야 합니다.
 
-- **개발자** 형식의 **대상 하위 리소스** 를 사용 하는 하나 이상의 개인 링크 끝점입니다.
+- **대상 하위 리소스** 형식의 **Dev** 를 사용 하는 하나 이상의 개인 링크 끝점입니다.
 - 액세스 하려는 작업 영역에 있는 리소스에 따라 **Sql** 또는 **SqlOnDemand** 유형을 포함 하는 두 개의 다른 선택적 개인 링크 끝점입니다.
 
 이러한 만들기는 이전 단계에서 끝점을 만드는 방법과 비슷합니다.  
@@ -146,7 +146,8 @@ Azure Synapse Analytics Studio 작업 영역에서 저장소 탐색기를 사용
 
 * **이름** 에 대해 다른 개인 끝점의 전용 이름 문자열을 입력 합니다. 
   * **웹** 은 Azure Synapse Analytics Studio 액세스를 위한 개인 끝점입니다.
-  * "***YourWorkSpaceName * * _"는 sql 풀에서의 sql 쿼리 실행 전용 끝점과 Azure Synapse Analytics Studio 작업 영역 내 다른 모든 항목에 액세스 하는 전용 끝점에 대 한 것입니다. _ "*** YourWorkSpaceName *-ondemand * *"는 기본 제공 풀에서 sql 쿼리 실행의 개인 끝점에 대 한 것입니다.
+  * "***YourWorkSpaceName***"은 sql 풀에서의 sql 쿼리 실행 전용 끝점과 Azure Synapse Analytics Studio 작업 영역 내 다른 모든 항목에 액세스 하는 개인 끝점에 대 한 것입니다.
+  * "***YourWorkSpaceName *-ondemand**"는 기본 제공 풀에서 sql 쿼리 실행의 개인 끝점에 대 한 것입니다.
 * **유형** 에 대해 DNS 레코드 유형 **A** 만을 선택 합니다. 
 * **Ip 주소** 에 대해 각 개인 끝점의 해당 ip 주소를 입력 합니다. 개인 끝점 개요에서 **네트워크 인터페이스** 의 IP 주소를 가져올 수 있습니다.
 

@@ -1,20 +1,20 @@
 ---
 title: Azure 스폿 Vm을 사용 하는 확장 집합 만들기
 description: 집중 Vm을 사용 하 여 비용을 절약 하는 Azure 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03bf5e0ef7e6268e68139b6d73685f67d88f6231
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729018"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385934"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -30,21 +30,39 @@ ms.locfileid: "91729018"
 
 가변 가격 책정을 사용 하는 경우 최대 5 개의 소수 자릿수를 사용 하 여 미국 달러 (USD)로 최대 가격을 설정 하는 옵션을 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하면 `-1` 인스턴스는 가격에 따라 제거 되지 않습니다. 인스턴스의 가격은 사용 가능한 용량 및 할당량을 초과 하는 경우 더 작은 표준 인스턴스의 현재 가격 또는 가격입니다.
 
+
+## <a name="limitations"></a>제한 사항
+
+Azure 지점에 대해 지원 되지 않는 크기는 다음과 같습니다.
+ - B 시리즈
+ - 모든 크기의 프로 모션 버전 (예: Dv2, NV, NC, H 프로 모션 크기)
+
+Azure 스팟은 Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 배포할 수 있습니다.
+
+<a name="channel"></a>
+
+현재 지원 되는 [제품 유형은](https://azure.microsoft.com/support/legal/offer-details/) 다음과 같습니다.
+
+-   기업 계약
+-   종 량 제 제품 코드 003P
+-   후원
+- CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
+
 ## <a name="eviction-policy"></a>제거 정책
 
-별색 확장 집합을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제*로 설정할 수 있습니다. 
+별색 확장 집합을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
 
 *할당* 취소 정책은 제거 된 인스턴스를 제거 된 인스턴스를 다시 배포할 수 있도록 중지-할당 취소 된 상태로 이동 합니다. 그러나 할당이 성공하리라는 보장은 없습니다. 할당 취소된 VM은 확장 집합 인스턴스 할당량에 따라 계산되며 기본 디스크에 대한 요금이 청구됩니다. 
 
-별색 확장 집합의 인스턴스가 제거 될 때 삭제 되도록 하려면 제거 정책을 *삭제*로 설정할 수 있습니다. 삭제하도록 제거 정책을 설정하면 확장 집합 인스턴스 수 속성을 늘려 새 VM을 만들 수 있습니다. 제거된 VM은 기본 디스크와 함께 삭제되므로 스토리지에 대한 요금이 청구되지 않습니다. 확장 집합의 자동 크기 조정 기능을 사용하여 제거된 VM을 자동으로 시도하고 보정할 수 있지만 성공적인 할당을 보장하지는 않습니다. 디스크 비용을 방지 하 고 할당량 한도에 도달 하려면 제거 정책을 삭제로 설정 하는 경우에만 지점 크기 집합에서 자동 크기 조정 기능을 사용 하는 것이 좋습니다. 
+별색 확장 집합의 인스턴스가 제거 될 때 삭제 되도록 하려면 제거 정책을 *삭제* 로 설정할 수 있습니다. 삭제하도록 제거 정책을 설정하면 확장 집합 인스턴스 수 속성을 늘려 새 VM을 만들 수 있습니다. 제거된 VM은 기본 디스크와 함께 삭제되므로 스토리지에 대한 요금이 청구되지 않습니다. 확장 집합의 자동 크기 조정 기능을 사용하여 제거된 VM을 자동으로 시도하고 보정할 수 있지만 성공적인 할당을 보장하지는 않습니다. 디스크 비용을 방지 하 고 할당량 한도에 도달 하려면 제거 정책을 삭제로 설정 하는 경우에만 지점 크기 집합에서 자동 크기 조정 기능을 사용 하는 것이 좋습니다. 
 
 사용자는 [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md)를 통해 VM 내 알림을 받도록 옵트인 (opt in) 할 수 있습니다. 이렇게 하면 Vm을 제거 하는 경우에 알림이 표시 되며, 제거 되기 전에 작업을 완료 하 고 종료 작업을 수행 하는 데 30 초 정도 걸립니다. 
 
 ## <a name="placement-groups"></a>배치 그룹
-배치 그룹은 자체 장애 도메인 및 업그레이드 도메인을 포함 하는 Azure 가용성 집합과 비슷한 구문입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. 확장 집합 속성이 `singlePlacementGroup` *false*로 설정 된 경우 확장 집합은 여러 배치 그룹으로 구성 될 수 있으며 범위는 0 ~ 1000 인 vm입니다. 
+배치 그룹은 자체 장애 도메인 및 업그레이드 도메인을 포함 하는 Azure 가용성 집합과 비슷한 구문입니다. 기본적으로 확장 집합은 최대 100대의 VM을 갖춘 단일 배치 그룹으로 구성됩니다. 확장 집합 속성이 `singlePlacementGroup` *false* 로 설정 된 경우 확장 집합은 여러 배치 그룹으로 구성 될 수 있으며 범위는 0 ~ 1000 인 vm입니다. 
 
 > [!IMPORTANT]
-> HPC와 함께 Infiniband를 사용 하지 않는 경우 확장 집합 속성을 false로 설정 하 여 `singlePlacementGroup` 여러 *false* 배치 그룹을 사용 하 여 지역 또는 영역 전체의 크기를 조정 하는 것이 좋습니다. 
+> HPC와 함께 Infiniband를 사용 하지 않는 경우 확장 집합 속성을 false로 설정 하 여 `singlePlacementGroup` 여러  배치 그룹을 사용 하 여 지역 또는 영역 전체의 크기를 조정 하는 것이 좋습니다. 
 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>확장 집합에 지점 Vm 배포
 
@@ -79,7 +97,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 지점 Vm을 사용 하 여 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-powershell.md)에 자세히 설명 된 것과 동일 합니다.
-'-Priority 스폿 '을 추가 하 고 AzVmssConfig에를 제공 `-max-price` 합니다. [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig)
+'-Priority 스폿 '을 추가 하 고 AzVmssConfig에를 제공 `-max-price` 합니다. [](/powershell/module/az.compute/new-azvmssconfig)
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -163,22 +181,7 @@ $vmssConfig = New-AzVmssConfig `
 
 **Q:**  자동 크기 조정은 제거 정책 (할당 취소 및 삭제) 모두에서 작동 하나요?
 
-**A:** 예. 그러나 자동 크기 조정을 사용 하는 경우 삭제 하도록 제거 정책을 설정 하는 것이 좋습니다. 할당 취소된 인스턴스가 확장 집합에서 용량 수에 따라 계산되기 때문입니다. 자동 크기 조정을 사용할 때 할당 취소되고 제거된 인스턴스로 인해 신속하게 대상 인스턴스 수를 달성할 수 있을 것 같습니다. 또한 크기 조정 작업은 스폿 제거의 영향을 받을 수 있습니다. 예를 들어 VMSS 인스턴스는 크기 조정 작업 중 여러 지점 제거로 인해 설정 된 최소 개수 보다 작을 수 있습니다. 
-
-**Q:** 지점 Vm을 지 원하는 채널은 무엇 인가요?
-
-**A:** 지점 VM 가용성에 대 한 아래 표를 참조 하세요.
-
-<a name="channel"></a>
-
-| Azure 채널               | Azure 스폿 Vm 가용성       |
-|------------------------------|-----------------------------------|
-| 기업 계약         | 예                               |
-| 종량제 통화 요금                | 예                               |
-| CSP(클라우드 서비스 공급자) | [파트너에 게 문의](/partner-center/azure-plan-get-started) |
-| 이점                     | 사용할 수 없음                     |
-| 후원                    | 예                               |
-| 무료 평가판                   | 사용할 수 없음                     |
+**A:** 예. 그러나 자동 크기 조정을 사용 하는 경우 삭제 하도록 제거 정책을 설정 하는 것이 좋습니다. 할당 취소된 인스턴스가 확장 집합에서 용량 수에 따라 계산되기 때문입니다. 자동 크기 조정을 사용할 때 할당 취소되고 제거된 인스턴스로 인해 신속하게 대상 인스턴스 수를 달성할 수 있을 것 같습니다. 또한 크기 조정 작업은 스폿 제거의 영향을 받을 수 있습니다. 예를 들어 가상 머신 확장 집합 인스턴스는 크기 조정 작업 중 여러 지점 제거로 인해 설정 된 최소 개수 보다 작을 수 있습니다. 
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?

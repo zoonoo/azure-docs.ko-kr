@@ -4,15 +4,15 @@ description: Azure 방호 보안 기준은 Azure 보안 벤치 마크에 지정 
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723934"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392377"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Azure 방호의 azure 보안 기준
 
@@ -69,7 +69,11 @@ Azure 인증서를 통해 게이트웨이 관리자 및 Azure 서비스 태그�
 
 **지침**: azure 방호은 azure의 기본 id 및 액세스 관리 서비스인 azure AD (Azure Active Directory)와 통합 됩니다. 사용자는 azure AD 인증을 사용 하 여 Azure Portal에 액세스 하 여 Azure 방호 서비스를 관리할 수 있습니다 (요새 리소스 만들기, 업데이트 및 삭제).
 
-Azure 방호를 사용 하 여 가상 머신에 연결 하는 것은 SSH 키 또는 사용자 이름/암호를 사용 하며 현재는 Azure AD 자격 증명의 사용을 지원 하지 않습니다.
+Azure 방호를 사용 하 여 가상 머신에 연결 하는 것은 SSH 키 또는 사용자 이름/암호를 사용 하며 현재는 Azure AD 자격 증명의 사용을 지원 하지 않습니다. 
+
+SSH 키를 Azure Key Vault 암호로 저장 하 고 이러한 암호를 사용 하 여 Azure 방호를 사용 하는 가상 머신에 연결할 수 있습니다. 개별 사용자 또는 Azure AD 그룹에 [Key Vault 액세스 정책을 할당](../key-vault/general/assign-access-policy-portal.md) 하 여 이러한 비밀에 대 한 사용자 액세스를 제어할 수 있습니다. 이 방법을 사용 하 여 가상 컴퓨터에 연결 하려면 사용자에 게 다음 권한이 필요 합니다.
+- 선택한 Azure Key Vault에 저장 된 암호에 대 한 액세스 권한 **얻기**
+- 선택한 Azure Key Vault에 저장 된 암호에 대 한 액세스 **나열**
 
 SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 가상 머신에 연결 하는 경우 사용자에 게 다음 역할 할당이 필요 합니다.
 - 대상 가상 컴퓨터에 대 한 읽기 권한자 역할
@@ -106,7 +110,8 @@ SSH 키 또는 사용자 이름/암호 외에도 Azure 방호를 사용 하 여 
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: 모든 Azure Active Directory 기반 액세스에 강력한 인증 제어 사용
 
-**지침**: azure 방호은 서비스에 대 한 액세스 및 관리를 위해 azure AD (Azure Active Directory)와 통합 됩니다. Azure AD 테 넌 트에 대해 Azure Multi-Factor Authentication를 구성 합니다. Azure AD는 MFA (multi-factor authentication) 및 강력한 암호 없는 메서드를 통한 강력한 인증 제어를 지원 합니다.  
+**지침**: azure 방호은 서비스에 대 한 액세스 및 관리를 위해 azure AD (Azure Active Directory)와 통합 됩니다. Azure AD 테 넌 트에 대 한 Azure Active Directory Multi-Factor Authentication를 구성 합니다. Azure AD는 MFA (multi-factor authentication) 및 강력한 암호 없는 메서드를 통한 강력한 인증 제어를 지원 합니다.
+  
 - Multi-factor authentication: Azure AD MFA를 사용 하도록 설정 하 고 MFA 설정에 대 한 Azure Security Center id 및 액세스 관리 권장 사항을 따릅니다. MFA는 모든 사용자에 게 적용 하거나, 사용자를 선택 하거나, 로그인 조건 및 위험 요소에 따라 사용자 단위 수준에서 적용할 수 있습니다. 
 
 - 암호 없는 인증: 3 개의 암호 없는 인증 옵션을 사용할 수 있습니다. Windows Hello for Business, Microsoft Authenticator 앱 및 스마트 카드와 같은 온-프레미스 인증 방법입니다. 
@@ -375,7 +380,7 @@ Azure 방호 리소스를 배포한 가상 네트워크에 적용 되는 네트�
 
 - [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Azure 방호에 Azure 리소스 로그 사용 ](diagnostic-logs.md)
+- [Azure 방호에 Azure 리소스 로그 사용](diagnostic-logs.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

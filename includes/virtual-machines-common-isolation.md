@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477784"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515075"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리 된 크기는 라이브 및 특정 하드웨어 생성에 대해 작동 하며 하드웨어 생성이 사용 중지 되 면 사용 되지 않습니다.
 
@@ -23,14 +23,14 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 또한 격리 된 크기의 Vm이 큰 경우 고객은 [중첩 된 가상 컴퓨터에 대 한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용 하 여 이러한 vm의 리소스를 세분 하도록 선택할 수 있습니다.
 
 현재 격리 가상 머신 제품에는 다음이 포함됩니다.
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>격리 된 VM 크기의 사용 중단
 
-격리 된 VM 크기는 하드웨어를 사용 하는 크기 이므로 Azure는 크기의 공식 사용 중단 전에 미리 알림을 12 개월 전에 제공 합니다.  또한 Azure는 고객이 워크 로드를 이동 하는 것으로 간주할 수 있는 다음 하드웨어 버전에 업데이트 된 격리 된 크기를 제공 합니다.
+격리 된 VM 크기는 하드웨어의 수명이 제한적입니다. Azure는 크기의 공식 사용 중단 날짜를 미리 미리 알림을 12 개월 후 고려 하 여 업데이트 된 격리 된 제품을 제공 합니다.
 
 | 크기 | 격리 사용 중지 날짜 | 
 | --- | --- |
@@ -49,7 +49,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 
 
 ## <a name="faq"></a>FAQ
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>Q: 크기는 사용 중지 되거나 "격리" 기능만 사용 되나요?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>Q: 크기는 사용 중지 되거나 "격리" 기능 으로만 사용 되나요?
 **A**: 가상 컴퓨터 크기에 "i" 첨자가 없으면 "격리" 기능만 사용이 중지 됩니다. 격리가 필요 하지 않은 경우에는 수행할 작업이 없으며 VM은 예상 대로 계속 작동 합니다. Standard_DS15_v2, Standard_D15_v2, Standard_M128ms 등의 예가 포함 됩니다. 가상 컴퓨터 크기에 "i" 첨자가 포함 되어 있으면 크기는 사용 중지 됩니다.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q: vm이 격리 되지 않은 하드웨어에 있는 경우 가동 중지 시간이 있나요?

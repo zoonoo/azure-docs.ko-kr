@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098642"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388212"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "100098642"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -72,7 +72,7 @@ ms.locfileid: "100098642"
 
 다음 표에서는 실험을 위해 생성 된 각 분류 모델에 대해 자동화 된 ML에서 계산 하는 모델 성능 메트릭을 요약 하 여 보여 줍니다. 자세한 내용은 각 메트릭의 **계산** 필드에 연결 된 scikit-학습 설명서를 참조 하세요. 
 
-|메트릭|Description|계산|
+|메트릭|설명|계산|
 |--|--|---|
 |AUC | CC는 [받는 사람 운영 특성 곡선](#roc-curve)의 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원 되는 메트릭 이름에는 다음이 포함 됩니다. <li>`AUC_macro`-각 클래스에 대 한 각 클래스의 산술 평균입니다.<li> `AUC_micro`각 클래스에서 참 긍정 및 거짓 긍정을 결합 하 여 계산 됩니다. <li> `AUC_weighted`, 각 클래스의 점수에 대 한 산술 평균은 각 클래스의 실제 인스턴스 수에 의해 가중치가 적용 됩니다.   |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| 정확도는 진정한 클래스 레이블과 정확히 일치 하는 예측의 비율입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -186,7 +186,7 @@ weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 �
 
 다음 표에서는 회귀 및 예측 실험에 대해 생성 된 모델 성능 메트릭을 요약 합니다. 이러한 메트릭은 분류 메트릭과 마찬가지로 scikit 배우기 구현을 기반으로 합니다. 적절 한 scikit 학습 설명서는 **계산** 필드에서 적절 하 게 연결 됩니다.
 
-|메트릭|Description|계산|
+|메트릭|설명|계산|
 --|--|--|
 explained_variance|설명 된 분산은 모델에서 대상 변수의 변형에 대해 설명 하는 범위를 측정 합니다. 오차 분산에 대한 원래 데이터의 분산 감소율입니다. 오류의 평균은 0 인 경우 결정 계수와 같습니다 (아래 r2_score 참조). <br> <br> **목표:** 1에 가까울수록 좋음 <br> **범위:** (-inf, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|절대 평균 오차는 대상과 예측의 절대값의 예상 값입니다.<br><br> **목표:** 0에 가까울수록 좋음 <br> **범위:** [0, inf) <br><br> 종류 <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`mean_absolute_error 데이터의 범위로 구분 됩니다. | [계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
@@ -234,10 +234,7 @@ spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이
 
 모델 평가 메트릭과 차트는 모델의 일반 품질을 측정 하는 데 적합 하지만, 책임이 있는 AI를 실행할 때 예측을 만드는 데 사용 되는 모델의 데이터 집합 기능을 검사 하는 것이 중요 합니다. 자동화 된 ML은 데이터 집합 기능의 상대적 기여도를 측정 하 고 보고 하는 모델 interpretability 대시보드를 제공 합니다.
 
-![기능 importances](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 스튜디오에서 interpretability 대시보드를 보려면 다음을 수행 합니다.
-
 1. [Studio에 로그인](https://ml.azure.com/) 하 고 작업 영역으로 이동 합니다.
 2. 왼쪽 메뉴에서 **실험** 을 선택 합니다.
 3. 실험 목록에서 실험을 선택 합니다.
@@ -246,10 +243,11 @@ spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이
 6. 설명 탭에서 모델이 가장 적합 한 경우에 대 **한 설명이 이미** 생성 된 것을 볼 수 있습니다.
 7. 새 설명을 만들려면 **설명 모델** 을 선택 하 고 설명을 계산할 원격 계산을 선택 합니다.
 
+[자동화 된 ML의 모델 설명에 대해 자세히 알아보세요](how-to-machine-learning-interpretability-automl.md).
+
 > [!NOTE]
 > ForecastTCN 모델은 현재 자동화 된 ML 설명에서 지원 되지 않으며 다른 예측 모델은 interpretability 도구에 대 한 액세스가 제한 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 자동화 된 [machine learning 모델 설명 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)을 사용해 보세요.
-* [자동화 된 ML의 담당 AI 제품](how-to-machine-learning-interpretability-automl.md)에 대해 자세히 알아보세요.
 * 자동 ML 관련 질문에 대해서는에 문의 askautomatedml@microsoft.com 하세요.

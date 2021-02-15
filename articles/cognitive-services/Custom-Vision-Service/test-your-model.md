@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 5a3aacd1d07ff068fe50312b2c1d47ac080e5c2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 736d135323e2a2df38a13dc46189e2a243fbe381
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391726"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097537"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Custom Vision Service를 사용하여 모델 테스트 및 다시 학습
 
@@ -23,7 +23,7 @@ ms.locfileid: "85391726"
 
 ## <a name="test-your-model"></a>모델 테스트
 
-1. [Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택합니다. 맨 위 메뉴 모음의 오른쪽에서 **빠른 테스트**를 선택합니다. 이 작업은 **빠른 테스트**라는 창을 엽니다.
+1. [Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택합니다. 맨 위 메뉴 모음의 오른쪽에서 **빠른 테스트** 를 선택합니다. 이 작업은 **빠른 테스트** 라는 창을 엽니다.
 
     ![빠른 테스트 단추는 창의 오른쪽 위에 표시됩니다.](./media/test-your-model/quick-test-button.png)
 
@@ -31,7 +31,7 @@ ms.locfileid: "85391726"
 
     ![이미지 제출 페이지 이미지](./media/test-your-model/submit-image.png)
 
-선택한 이미지가 페이지 중간에 나타납니다. 그런 다음, 이미지 아래에 **태그** 및 **신뢰도**라는 두 개의 열이 있는 표 형태로 결과가 표시됩니다. 결과를 본 후 **빠른 테스트** 창을 닫을 수 있습니다.
+선택한 이미지가 페이지 중간에 나타납니다. 그런 다음, 이미지 아래에 **태그** 및 **신뢰도** 라는 두 개의 열이 있는 표 형태로 결과가 표시됩니다. 결과를 본 후 **빠른 테스트** 창을 닫을 수 있습니다.
 
 이제 이 테스트 이미지를 모델에 추가하고 모델을 다시 학습할 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "85391726"
     > [!TIP]
     > 분류자를 가장 개선할 수 있는 이미지가 맨 위에 오도록 이미지에 순위가 지정됩니다. 다른 정렬을 선택하려면 __정렬__ 섹션을 사용합니다.
 
-    학습 데이터에 이미지를 추가하려면 이미지, 태그, __저장 후 닫기__를 차례로 선택합니다. 이미지가 __예측__에서 제거되고 학습 이미지에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
+    학습 데이터에 이미지를 추가하려면 이미지, 태그, __저장 후 닫기__ 를 차례로 선택합니다. 이미지가 __예측__ 에서 제거되고 학습 이미지에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
 
     ![태그 지정 페이지 이미지](./media/test-your-model/tag-image.png)
 
@@ -59,4 +59,4 @@ ms.locfileid: "85391726"
 
 ## <a name="next-steps"></a>다음 단계
 
-[분류자 개선](getting-started-improving-your-classifier.md)
+[모델 개선](getting-started-improving-your-classifier.md)

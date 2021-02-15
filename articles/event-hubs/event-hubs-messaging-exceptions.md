@@ -2,13 +2,13 @@
 title: Azure Event Hubs-예외 (레거시)
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
-ms.date: 11/02/2020
-ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 02/10/2021
+ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340970"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390898"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs 메시징 예외-.NET (레거시)
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -125,14 +125,14 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
 
     Tu * 제한 (초당 1mb의 수신 또는 1000 요청, 송신에 대 한 요청) 보다 높은 값이 표시 되는 경우 Event Hubs 네임 스페이스의 왼쪽 메뉴에 있는 **크기** 를 사용 하 여 tu 수를 늘려 수동으로 확장 하거나 Event Hubs의 [자동](event-hubs-auto-inflate.md) 확장 기능을 사용 합니다. 자동 확장은 최대 20 개의 TU 늘릴 수 있습니다. 정확 하 게 40 Tu를 발생 시키려면 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출 합니다.
 
-### <a name="error-code-50001"></a>오류 코드 50001
+### <a name="error-code-50008"></a>오류 코드 50008
 
 이 오류는 드물게 발생합니다. 네임스페이스에 대한 코드를 실행하는 컨테이너의 CPU가 낮아서 Event Hubs 부하 분산 장치가 몇 초 이내에 시작되지 못할 때 이 오류가 발생합니다.
 
-**해결** 방법: GetRuntimeInformation 메서드에 대 한 호출을 제한 합니다. Azure Event Hubs는 초당 GetRuntimeInfo에 대 한 초당 최대 50 개의 호출을 지원 합니다. 한도에 도달 하면 다음과 유사한 예외가 표시 될 수 있습니다.
+**해결** 방법: GetRuntimeInformation 메서드로 호출을 제한 합니다. Azure Event Hubs는 초당 최대 50 개의 호출을 GetRuntimeInfo에 대 한 소비자 그룹당 지원 합니다. 한도에 도달 하면 다음과 유사한 예외가 표시 될 수 있습니다.
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 

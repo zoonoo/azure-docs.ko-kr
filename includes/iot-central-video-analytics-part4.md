@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 0b3ccc31c9159b5d7b1615add89e8fdc308bf8df
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: d9c2aea284a2ab84b5d45fe35a35785adfc88123
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763464"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832075"
 ---
 ### <a name="publish-the-device-template"></a>디바이스 템플릿 게시
 
@@ -61,16 +61,3 @@ ms.locfileid: "96763464"
 
 1. **닫기** 를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계
-
-**비디오 분석 - 개체 및 동작 감지** 애플리케이션 템플릿을 사용하여 IoT Central 애플리케이션을 만들고, 게이트웨이 디바이스에 대한 디바이스 템플릿을 만들고, 게이트웨이 디바이스를 애플리케이션에 추가했습니다.
-
-시뮬레이션된 비디오 스트림을 사용하는 클라우드 VM을 실행하는 IoT Edge 모듈에서 비디오 분석 - 개체 및 동작 감지 애플리케이션을 사용해 보려면 다음을 수행합니다.
-
-> [!div class="nextstepaction"]
-> [비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-vm.md)
-
-실제 **ONVIF** 카메라를 사용하는 실제 디바이스를 실행하는 IoT Edge 모듈에서 비디오 분석 - 개체 및 동작 감지 애플리케이션을 사용해 보려면 다음을 수행합니다.
-
-> [!div class="nextstepaction"]
-> [비디오 분석용 IoT Edge 인스턴스 만들기(Intel NUC)](../articles/iot-central/retail/tutorial-video-analytics-iot-edge-nuc.md)

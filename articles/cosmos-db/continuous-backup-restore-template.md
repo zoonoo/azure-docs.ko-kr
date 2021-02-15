@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 642c61414d882b9cfe83f585fda8ff5404e8834a
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538479"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381820"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>연속 백업 및 지정 시간 복원 (미리 보기)을 구성 하 고 관리 하며 Azure Resource Manager 템플릿을 사용 합니다.
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB의 지정 시간 복원 기능 (미리 보기)을 사용 하면 
 
 ## <a name="provision-an-account-with-continuous-backup"></a><a id="provision"></a>연속 백업으로 계정 프로 비전
 
-Azure Resource Manager 템플릿을 사용 하 여 연속 모드로 Azure Cosmos DB 계정을 배포할 수 있습니다. 계정을 프로 비전 하도록 템플릿을 정의 하는 경우 다음 예제와 같이 "backupPolicy" 매개 변수를 포함 합니다.
+Azure Resource Manager 템플릿을 사용 하 여 연속 모드로 Azure Cosmos DB 계정을 배포할 수 있습니다. 계정을 프로 비전 하기 위해 템플릿을 정의 하는 경우 `backupPolicy` 다음 예제와 같이 매개 변수를 포함 합니다.
 
 ```json
 {
@@ -66,9 +66,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 리소스 관리자 템플릿을 사용 하 여 계정을 복원할 수도 있습니다. 템플릿을 정의 하는 경우 다음 매개 변수를 포함 합니다.
 
-* "CreateMode" 매개 변수를 "Restore"로 설정 합니다.
-* "RestoreParameters"를 정의 합니다. "restoreSource" 값은 `az cosmosdb restorable-database-account list` 원본 계정에 대 한 명령의 출력에서 추출 됩니다. 계정 이름에 대 한 인스턴스 ID 특성을 사용 하 여 복원을 수행 합니다.
-* "RestoreMode" 매개 변수를 "PointInTime"으로 설정 하 고 "restoreTimestampInUtc" 값을 구성 합니다.
+* `createMode` *복원* 에 대 한 매개 변수 설정
+* 를 정의 합니다 `restoreParameters` `restoreSource` .이 값은 `az cosmosdb restorable-database-account list` 소스 계정에 대 한 명령의 출력에서 추출 됩니다. 계정 이름에 대 한 인스턴스 ID 특성을 사용 하 여 복원을 수행 합니다.
+* `restoreMode`매개 변수를 *Pointintime* 으로 설정 하 고 `restoreTimestampInUtc` 값을 구성 합니다.
 
 ```json
 {

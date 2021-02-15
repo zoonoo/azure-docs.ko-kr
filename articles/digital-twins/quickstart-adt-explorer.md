@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f6bd6b13ab4a2e654bdabc86355f2c3388abed31
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9d09bca246938f972a212f7ee71f03a618e16ac4
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050530"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575693"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>빠른 시작 - ADT Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -306,11 +306,15 @@ ADT 탐색기를 사용하여 그래프에 표시된 쌍의 속성을 편집할 
 
 이 빠른 시작의 작업을 마치려면 먼저 실행 중인 콘솔 앱을 종료합니다. 이 작업은 브라우저에서 ADT Explorer 앱에 대한 연결을 종료합니다. 더 이상 브라우저에서 라이브 데이터를 볼 수 없습니다. 브라우저 탭을 닫을 수 있습니다.
 
-Azure Digital Twins 자습서를 계속 진행할 생각이라면 이 빠른 시작의 인스턴스를 해당 문서에 다시 사용할 수 있으므로 제거할 필요가 없습니다.
+그러고 나서 다음에 수행하려는 작업에 따라 제거할 리소스를 선택할 수 있습니다.
+
+* **Azure Digital Twins 자습서를 계속 진행할 생각이라면** 이 빠른 시작의 인스턴스를 해당 문서에 다시 사용할 수 있으므로 제거할 필요가 없습니다.
+
+[!INCLUDE [digital-twins-cleanup-clear-instance.md](../../includes/digital-twins-cleanup-clear-instance.md)]
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-마지막으로, 로컬 컴퓨터에 다운로드한 프로젝트 샘플 폴더 **Azure_Digital_Twins__ADT__explorer** 를 삭제합니다. 압축된 버전과 압축을 푼 버전을 모두 삭제해야 할 수도 있습니다.
+로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

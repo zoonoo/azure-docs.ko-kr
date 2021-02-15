@@ -7,20 +7,22 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/28/2021
-ms.openlocfilehash: dfd8526a035d4eef4d07539e541e37c88023b500
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/09/2021
+ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063216"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097979"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 예약 하는 방법
 
 인덱서는 생성 후 즉시 한 번 실행 됩니다. 그런 다음 Azure Portal, [인덱서 실행 (REST)](/rest/api/searchservice/run-indexer)또는 Azure SDK를 사용 하 여 요청 시 다시 실행할 수 있습니다. 또는 일정에 따라 실행 되도록 인덱서를 구성할 수도 있습니다. 인덱서 일정을 유용 하 게 사용할 수 있는 경우는 다음과 같습니다.
 
-* 원본 데이터는 시간이 지남에 따라 변경 되며 검색 인덱서가 델타를 자동으로 처리 하려고 합니다.
-* 원본 데이터가 매우 크고 인덱서 처리를 시간에 따라 분산 하려고 합니다. 대량의 데이터를 인덱싱하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search에서 대용량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)을 참조 하세요.
+* 원본 데이터는 시간이 지남에 따라 변경 되며 검색 인덱서가 자동으로 차이를 처리 하려고 합니다.
+
+* 원본 데이터가 매우 크고 인덱서 처리를 시간에 따라 분산 하려고 합니다. 인덱서 작업에는 일반 데이터 원본에 대해 최대 24 시간 동안 실행 되는 최대 시간 및 기술력과를 사용 하는 인덱서의 경우 2 시간이 적용 됩니다. 최대 간격 내에 인덱싱을 완료할 수 없는 경우 2 시간 마다 실행 되는 일정을 구성할 수 있습니다. 인덱서는 인덱싱이 마지막으로 종료 된 위치를 표시 하는 내부 상위 워터 마크로 복합적 서 자동으로 중단 된 위치에서 자동으로 선택할 수 있습니다. 되풀이 된 2 시간 일정에 인덱서를 실행 하면 단일 작업에 대해 허용 되는 간격을 넘어 매우 큰 데이터 집합 (수많은 문서)을 처리할 수 있습니다. 대용량 데이터 볼륨을 인덱싱하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search에서 대용량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)을 참조 하세요.
+
 * 검색 인덱스는 여러 데이터 원본에서 채워지고 인덱서는 충돌을 줄이기 위해 서로 다른 시간에 실행 하려고 합니다.
 
 시각적으로 일정은 1 월 1 일에 시작 하 여 50 분 마다 실행 되는 것 처럼 보일 수 있습니다.

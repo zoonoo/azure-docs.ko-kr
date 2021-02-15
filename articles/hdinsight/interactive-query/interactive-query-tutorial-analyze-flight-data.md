@@ -1,19 +1,16 @@
 ---
 title: '자습서: 대화형 쿼리를 사용한 ETL 작업 - Azure HDInsight'
 description: 자습서 - 원시 CSV 데이터 세트에서 데이터를 추출하는 방법을 알아봅니다. HDInsight에서 대화형 쿼리를 사용하여 변환합니다. 그런 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL Database에 로드합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 13b6b8658aa2d896ec154cfa3c7a961e37df6cbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534586"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822371"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 대화형 쿼리를 사용하여 데이터 추출, 변환 및 로드
 
@@ -165,7 +162,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연** 이라는 Hive 테이블�
     FROM delays_raw;
     ```
 
-3. 파일을 저장하려면 **Ctrl + X** , **Y** , Enter를 차례로 누릅니다.
+3. 파일을 저장하려면 **Ctrl + X**, **Y**, Enter를 차례로 누릅니다.
 
 4. Hive를 시작하고 **flightdelays.hql** 파일을 실행하려면 다음 명령을 사용합니다.
 

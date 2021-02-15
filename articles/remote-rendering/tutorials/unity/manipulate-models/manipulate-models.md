@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48c835070329b5cb0892b10760d37708e46bfa1d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: cec97134173cfc7879baf1d914d8f224a0736430
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96559136"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593047"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -37,7 +37,7 @@ ms.locfileid: "96559136"
 1. 새 스크립트를 **RemoteRenderedModel** 과 동일한 디렉터리에 만들고, 이름을 **RemoteBounds** 로 지정합니다.
 1. 스크립트의 내용을 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -51,8 +51,6 @@ ms.locfileid: "96559136"
     {
         //Remote bounds works with a specific remotely rendered model
         private BaseRemoteRenderedModel targetModel = null;
-
-        private BoundsQueryAsync remoteBoundsQuery = null;
 
         private RemoteBoundsState currentBoundsState = RemoteBoundsState.NotReady;
 
@@ -94,14 +92,8 @@ ms.locfileid: "96559136"
             }
         }
 
-        // Create a query using the model entity
-        private void QueryBounds()
-        {
-            //Implement me
-        }
-
-        // Check the result and apply it to the local Unity bounding box if it was successful
-        private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
+        // Create an async query using the model entity
+        async private void QueryBounds()
         {
             //Implement me
         }
@@ -113,31 +105,21 @@ ms.locfileid: "96559136"
 
     이 스크립트는 **BaseRemoteRenderedModel** 을 구현하는 스크립트와 동일한 GameObject에 추가해야 합니다. 이 경우 **RemoteRenderedModel** 을 의미합니다. 이전 스크립트와 비슷하게 이 초기 코드는 원격 범위와 관련된 모든 상태 변경, 이벤트 및 데이터를 처리합니다.
 
-    구현해야 할 **QueryBounds** 및 **ProcessQueryResult** 의 두 가지 메서드가 있습니다. **QueryBounds** 는 범위를 가져오고, **ProcessQueryResult** 는 쿼리 결과를 가져와서 로컬 **BoxCollider** 에 적용합니다.
+    구현할 메서드는 **QueryBounds** 하나뿐입니다. **QueryBounds** 는 경계를 비동기적으로 가져오고, 쿼리 결과를 가져와서 로컬 **BoxCollider** 에 적용합니다.
 
-    **QueryBounds** 메서드는 간단합니다. 즉, 쿼리를 원격 렌더링 세션으로 보내고 `Completed` 이벤트를 수신 대기합니다.
+    **QueryBounds** 메서드는 간단합니다. 즉, 쿼리를 원격 렌더링 세션으로 보내고 결과를 기다립니다.
 
 1. **QueryBounds** 메서드를 완성된 다음 메서드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Create a query using the model entity
-    private void QueryBounds()
+    async private void QueryBounds()
     {
         remoteBoundsQuery = targetModel.ModelEntity.QueryLocalBoundsAsync();
         CurrentBoundsState = RemoteBoundsState.Updating;
-        remoteBoundsQuery.Completed += ProcessQueryResult;
-    }
-    ```
+        await remoteBounds;
 
-    **ProcessQueryResult** 도 간단합니다. 결과가 성공적인지 확인합니다. 그렇다면 반환된 범위를 **BoxCollider** 에서 허용할 수 있는 형식으로 변환하여 적용합니다.    
-
-1. **ProcessQueryResult** 메서드를 완성된 다음 메서드로 바꿉니다.
-
-    ```csharp
-    // Check the result and apply it to the local Unity bounding box if it was successful
-    private void ProcessQueryResult(BoundsQueryAsync remoteBounds)
-    {
-        if (remoteBounds.IsRanToCompletion)
+        if (remoteBounds.IsCompleted)
         {
             var newBounds = remoteBounds.Result.toUnity();
             BoundsBoxCollider.center = newBounds.center;
@@ -151,6 +133,8 @@ ms.locfileid: "96559136"
         }
     }
     ```
+
+    쿼리 결과가 성공적인지 확인합니다. 그렇다면 반환된 범위를 **BoxCollider** 에서 허용할 수 있는 형식으로 변환하여 적용합니다.
 
 이제 **RemoteBounds** 스크립트가 **RemoteRenderedModel** 과 동일한 게임 개체에 추가될 때 필요한 경우 **BoxCollider** 가 추가되고, 모델이 `Loaded` 상태에 도달하는 경우 범위가 자동으로 쿼리되어 **BoxCollider** 에 적용됩니다.
 
@@ -198,7 +182,7 @@ ms.locfileid: "96559136"
 
 1. **RemoteRayCaster** 라는 새 스크립트를 만들고, 해당 내용을 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -220,7 +204,8 @@ ms.locfileid: "96559136"
             if(RemoteRenderingCoordinator.instance.CurrentCoordinatorState == RemoteRenderingCoordinator.RemoteRenderingState.RuntimeConnected)
             {
                 var rayCast = new RayCast(origin.toRemotePos(), dir.toRemoteDir(), maxDistance, hitPolicy);
-                return await RemoteRenderingCoordinator.CurrentSession.Actions.RayCastQueryAsync(rayCast).AsTask();
+                var result = await RemoteRenderingCoordinator.CurrentSession.Connection.RayCastQueryAsync(rayCast);
+                return result.Hits;
             }
             else
             {
@@ -243,7 +228,7 @@ ms.locfileid: "96559136"
 
 1. **RemoteRayCastPointerHandler** 라는 새 스크립트를 만들고, 코드를 다음 코드로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -314,7 +299,7 @@ ms.locfileid: "96559136"
 
 1. **RemoteEntityHelper** 라는 새 스크립트를 만들고, 해당 내용을 아래와 같이 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
     
@@ -359,7 +344,7 @@ ms.locfileid: "96559136"
 
 1. 다음 메서드도 포함하도록 **RemoteEntityHelper** 스크립트를 수정합니다.
 
-    ```csharp
+    ```cs
     public void MakeSyncedGameObject(Entity entity)
     {
         var entityGameObject = entity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);

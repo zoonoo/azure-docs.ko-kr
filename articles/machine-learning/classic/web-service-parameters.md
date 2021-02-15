@@ -4,23 +4,22 @@ description: Azure Machine Learning 웹 서비스 매개 변수를 사용하여 
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.workload: data-services
 ms.topic: how-to
 ms.date: 01/12/2017
-ms.openlocfilehash: 4a5857e44623f545f2807592c0f6f7b6dae366f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49814d01209b58666c011a6bbd7fe6c328d460f8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308624"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518337"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Azure Machine Learning Studio (클래식) 웹 서비스 매개 변수 사용
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈이 포함된 실험을 게시하여 만듭니다. 경우에 따라 웹 서비스가 실행되는 동안 모듈 동작을 변경할 수도 있습니다. *웹 서비스 매개 변수* 를 통해 이 태스크를 수행할 수 있습니다. 
@@ -45,7 +44,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 > 
 > 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 예를 들어 Azure Blob Storage로 정보를 전송하는 [데이터 내보내기][writer] 모듈이 포함된 실험이 있다고 가정합니다. 고객이 새 데이터(PUT Blob, PUT 블록, PUT 페이지, PUT 파일 등)를 Blob 또는 File Storage에 기록할 경우 모든 기록 내용이 가장 강력한 블록 암호화 중 하나인 256비트 AES 암호화를 사용하여 암호화됩니다.
 
 1. Machine Learning Studio (클래식)에서 [데이터 내보내기][writer] 모듈을 클릭 하 여 선택 합니다. 실험 캔버스 오른쪽에 있는 속성 창에 해당 속성이 표시됩니다.
@@ -74,7 +73,7 @@ Azure Machine Learning 웹 서비스는 구성 가능한 매개 변수로 모듈
 
 이제 웹 서비스 사용자가 웹 서비스에 액세스할 때 [데이터 내보내기][writer] 모듈에 대한 새 대상을 지정할 수 있습니다.
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 자세한 예제는 [Machine Learning 블로그](/archive/blogs/machinelearning/azureml-web-service-parameters)의 [웹 서비스 매개 변수](/archive/blogs/machinelearning/azureml-web-service-parameters) 항목을 참조하세요.
 
 Machine Learning 웹 서비스 액세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](consume-web-services.md)을 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739708"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821630"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -24,7 +24,7 @@ CI(지속적인 통합) 및 CD(지속적인 배포)는 모든 코드를 커밋�
 
 Azure Pipelines는 온-프레미스 또는 클라우드 모두에서 가상 머신에 배포할 수 있는 완전한 기능을 갖춘 CI/CD 자동화 도구 세트를 제공합니다.
 
-이 자습서에서는 YAML 기반 CI/CD 파이프라인을 설정하여 앱을 Azure Pipelines [환경](/azure/devops/pipelines/process/environments?view=azure-devops)에 배포합니다. 이 경우 Linux 가상 머신을 리소스로 사용하여 각각 앱을 실행하는 웹 서버 역할을 합니다.
+이 자습서에서는 YAML 기반 CI/CD 파이프라인을 설정하여 앱을 Azure Pipelines [환경](/azure/devops/pipelines/process/environments)에 배포합니다. 이 경우 Linux 가상 머신을 리소스로 사용하여 각각 앱을 실행하는 웹 서버 역할을 합니다.
 
 다음 방법을 알아봅니다.
 
@@ -41,7 +41,7 @@ Azure Pipelines는 온-프레미스 또는 클라우드 모두에서 가상 머�
   [무료 Azure DevOps Services 조직](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308)을 얻을 수 있습니다.
 
   > [!NOTE]
-  > 자세한 내용은 [Azure DevOps Services에 연결](/azure/devops/organizations/projects/connect-to-projects?view=vsts)을 참조하세요.
+  > 자세한 내용은 [Azure DevOps Services에 연결](/azure/devops/organizations/projects/connect-to-projects)을 참조하세요.
 
 *  배포 대상으로 Linux 가상 머신이 필요합니다.  자세한 내용은 [Azure CLI로 Linux VM 만들기 및 관리](./tutorial-manage-vm.md)를 참조하세요.
 
@@ -222,7 +222,7 @@ jobs:
        tags: web
    ```
 2. 환경에서 각 가상 머신에 대해 정의한 **tags** 를 지정하여 배포를 받는 환경에서 특정 가상 머신 세트를 선택할 수 있습니다.
-[여기](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
+[여기](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job)에는 배포 작업에 대한 전체 YAML 스키마가 있습니다.
 
 3. 배포 전략으로 `runOnce` 또는 `rolling`을 지정할 수 있습니다. 
 

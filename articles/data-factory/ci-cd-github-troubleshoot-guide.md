@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556310"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393754"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -78,14 +77,14 @@ ms.locfileid: "98556310"
 
 #### <a name="cause"></a>원인
 
-이는 대상 팩터리에 이름이 같지만 형식이 다른 Integration Runtime 때문입니다. Integration Runtime를 배포할 때 동일한 유형 이어야 합니다.
+이는 대상 팩터리에 이름이 같지만 형식이 다른 통합 런타임 때문입니다. Integration Runtime를 배포할 때 동일한 유형 이어야 합니다.
 
 #### <a name="recommendation"></a>권장
 
 - 아래의 CI/CD에 대 한 모범 사례를 참조 하세요.
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Integration runtime은 자주 변경 되지 않으며 CI/CD의 모든 단계에서 유사 하므로 Data Factory는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용할 것으로 예상 합니다. 이름 및 형식 & 속성이 다르면 원본 및 대상 IR 구성과 일치 하는지 확인 하 고 릴리스 파이프라인을 배포 합니다.
+- Integration runtime은 자주 변경 되지 않으며 CI/CD의 모든 단계에서 유사 하므로 Data Factory는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용할 것으로 예상 합니다. 이름 및 형식 & 속성이 다르면 원본 및 대상 integration runtime 구성과 일치 하는지 확인 하 고 릴리스 파이프라인을 배포 합니다.
 - 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>잘못 된 참조로 인해 문서를 만들거나 업데이트 하지 못했습니다.
@@ -133,7 +132,7 @@ Git 구성을 분리 하 고 다시 설정 하 고 "기존 리소스 가져오�
 
 #### <a name="resolution"></a>해결 방법
 
-이동 작업을 허용 하려면 SSIS-IR 및 공유 IRs를 삭제 해야 합니다. IRs를 삭제 하지 않으려는 경우, 복사 및 복제 문서에 따라 복사를 수행 하 고 완료 된 후 이전 데이터 팩터리를 삭제 하는 것이 가장 좋습니다.
+이동 작업을 허용 하려면 SSIS-IR 및 공유 IRs를 삭제 해야 합니다. 통합 런타임을 삭제 하지 않으려는 경우, 복사 및 복제 문서에 따라 복사를 수행 하 고 완료 한 후에는 이전 Data Factory를 삭제 하는 것이 가장 좋습니다.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>ARM 템플릿을 내보내고 가져올 수 없습니다.
 
@@ -150,6 +149,34 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 #### <a name="resolution"></a>해결 방법
 
 이 문제를 해결 하려면 *DataFactory/factory/queryFeaturesValue/action* 역할에 다음 권한을 추가 해야 합니다. 이 권한은 기본적으로 "Data Factory 참여자" 역할에 포함 되어야 합니다.
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>게시 단추를 클릭 하지 않고 CI/CD에 대 한 자동 게시  
+
+#### <a name="issue"></a>문제
+
+ADF 포털의 단추 클릭으로 수동 게시는 CI/CD 자동 작업을 사용 하지 않습니다.
+
+#### <a name="cause"></a>원인
+
+최근에 까지는 배포를 위해 ADF 파이프라인을 게시 하는 방법만 ADF 포털 단추를 클릭 합니다. 이제 프로세스를 자동으로 만들 수 있습니다. 
+
+#### <a name="resolution"></a>해결 방법
+
+CI/CD 프로세스가 향상 되었습니다. **자동화 된 게시** 기능은 ADF UX의 모든 AZURE RESOURCE MANAGER (ARM) 템플릿 기능을 사용 하 고 유효성을 검사 하 고 내보냅니다. 이를 통해 공개적으로 사용할 수 있는 npm 패키지를 통해 논리를 사용할 수 있습니다 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . 이렇게 하면 ADF UI로 이동 하 여 단추를 클릭 하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 그러면 CI/CD 파이프라인이 **진정한** 연속 통합 환경을 제공 합니다. 자세한 내용은 [ADF CI/CD 게시 개선 사항](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) 을 참조 하세요. 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>4mb ARM 템플릿 제한 때문에 게시할 수 없습니다.  
+
+#### <a name="issue"></a>문제
+
+최대 4mb의 템플릿 크기 Azure Resource Manager에 도달 하 여 배포할 수 없습니다. 제한을 초과 하 고 나면 배포할 솔루션이 필요 합니다. 
+
+#### <a name="cause"></a>원인
+
+Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의 크기를 4mb로 제한 하 고 각 매개 변수 파일을 64 KB로 제한 합니다. 4mb 제한은 반복 리소스 정의를 사용 하 여 확장 된 템플릿의 최종 상태와 변수 및 매개 변수의 값에 적용 됩니다. 그러나 제한을 초과 했습니다. 
+
+#### <a name="resolution"></a>해결 방법
+
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

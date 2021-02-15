@@ -4,23 +4,22 @@ description: 데이터 가져오기 및 내보내기 데이터 모듈을 사용�
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308473"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520564"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure Machine Learning Studio(클래식) 웹 서비스 배포
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. Microsoft Azure 가상 머신 및 클라우드 서비스는 탑재된 공유를 통해 여러 애플리케이션 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 애플리케이션은 File Storage API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(Batch 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
@@ -41,7 +40,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 3. 결과 목록에서 *데이터 가져오기* 모듈을 실험 캔버스에 추가합니다.
 4. *데이터 가져오기* 모듈의 출력을 *누락 데이터 정리* 모듈의 입력에 연결합니다.
 5. 속성 창의 **데이터 원본** 드롭다운에서 **Azure SQL Database** 를 선택합니다.
-6. **데이터베이스 서버 이름** , **데이터베이스 이름** , **사용자 이름** 및 **암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
+6. **데이터베이스 서버 이름**, **데이터베이스 이름**, **사용자 이름** 및 **암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
 7. 데이터베이스 쿼리 필드에 다음 쿼리를 입력합니다.
 
     ```tsql
@@ -73,7 +72,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 4. 결과 목록에서 *데이터 내보내기* 모듈을 실험 캔버스에 추가합니다.
 5. *모델 점수 매기기* 모듈의 출력을 *데이터 내보내기* 모듈의 입력에 연결합니다.
 6. 속성 창의 데이터 대상 드롭다운에서 **Azure SQL Database** 를 선택합니다.
-7. **데이터베이스 서버 이름** , **데이터베이스 이름** , **서버 사용자 계정 이름** 및 **서버 사용자 계정 암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
+7. **데이터베이스 서버 이름**, **데이터베이스 이름**, **서버 사용자 계정 이름** 및 **서버 사용자 계정 암호** 필드에 데이터베이스에 대한 적절한 정보를 입력합니다.
 8. **쉼표로 구분된 저장할 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 9. **데이터 테이블 이름 필드** 에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.
 10. **쉼표로 구분된 데이터베이스 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.

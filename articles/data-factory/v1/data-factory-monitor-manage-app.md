@@ -1,23 +1,18 @@
 ---
 title: 데이터 파이프라인 모니터링 및 관리-Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495704"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380375"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -162,7 +157,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
     <th align="left">상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
-    <td rowspan="8">대기</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
+    <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
@@ -193,7 +188,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 <td>작업 창을 처리 중입니다.</td>
 </tr>
 <tr>
-<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>취소됨</td><td>활동 기간이 사용자 작업으로 인해 취소되었습니다.</td>
@@ -286,7 +281,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ## <a name="perform-batch-actions"></a>배치 작업 수행
 ### <a name="rerun-selected-activity-windows"></a>선택한 작업 창 다시 실행
-작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 **Rerun** 고,  /  **파이프라인에서 업스트림으로 다시 실행** 을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
+작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 고,  /  **파이프라인에서 업스트림으로 다시 실행** 을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
     ![작업 창 다시 실행](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 활동 기간을 필터링(예: **실패**)한 다음, 활동 기간에 실패를 일으키는 문제를 해결한 후에 실패한 활동 기간을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  

@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory에서 조회 작업
 description: 조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 이후 작업에서 계속 참조할 수 있습니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 66a17b61fef652160dc6d4a02bf330adbf0c7362
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385475"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -56,7 +51,7 @@ ms.locfileid: "96006828"
 
 ## <a name="type-properties"></a>형식 속성
 
-Name | Description | Type | 필수 여부
+Name | 설명 | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
@@ -105,7 +100,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
     } 
     ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 예제에서 파이프라인에는 두 가지 작업 ( **조회** 및 **복사**)이 포함 되어 있습니다. 복사 작업은 Azure SQL Database 인스턴스의 SQL 테이블에서 Azure Blob 저장소로 데이터를 복사 합니다. SQL 테이블의 이름은 Blob Storage의 JSON 파일에 저장됩니다. 조회 작업은 런타임 시 테이블 이름을 조회합니다. JSON은 이 방법을 사용하여 동적으로 수정됩니다. 따라서 사용자가 파이프라인 또는 데이터 세트를 다시 배포할 필요가 없습니다. 
 

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257780"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370821"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -106,6 +106,15 @@ SSL 인증서를 업로드 한 후에는 포털에서 "잘못 된 인증서, 잘
 
 아니요. 현재는 지원되지 않습니다.
 
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>앱 등록에서 CWAP_AuthSecret (클라이언트 암호)를 삭제 하면 어떻게 되나요?
+
+*CWAP_AuthSecret* 라고도 하는 클라이언트 암호는 Azure AD 응용 프로그램 프록시 앱을 만들 때 응용 프로그램 개체 (앱 등록)에 자동으로 추가 됩니다.
+
+클라이언트 암호는 1 년 동안 유효 합니다. 현재 유효한 클라이언트 암호가 만료 되기 전에 새 1 년 클라이언트 비밀이 자동으로 생성 됩니다. 3 개의 CWAP_AuthSecret 클라이언트 비밀이 항상 응용 프로그램 개체에 유지 됩니다. 
+
+> [!IMPORTANT]
+> CWAP_AuthSecret 삭제 하면 Azure AD 응용 프로그램 프록시에 대 한 사전 인증이 중단 됩니다. CWAP_AuthSecret를 삭제 하지 마세요.
+
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>응용 프로그램에서 로드 하는 방문 페이지를 변경 어떻게 할까요??
 
 응용 프로그램 등록 페이지에서 홈페이지 URL을 방문 페이지의 원하는 외부 URL로 변경할 수 있습니다. 응용 프로그램이 내 앱 또는 Office 365 포털에서 시작 되 면 지정 된 페이지가 로드 됩니다. 구성 단계는 Azure를 [사용 하 여 게시 된 앱에 대 한 사용자 지정 홈 페이지 설정](./application-proxy-configure-custom-home-page.md) 을 참조 하세요 AD 응용 프로그램 프록시
@@ -187,11 +196,11 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ## <a name="websocket"></a>서버당
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket은 QlikSense 이외의 응용 프로그램에 대해 작업을 지원 하나요?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>WebSocket은 QlikSense 및 원격 데스크톱 웹 클라이언트 (HTML5) 이외의 다른 응용 프로그램에서 작업을 지원 하나요?
 
 현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. 에서 사용자 의견을 보내 주시기 바랍니다 aadapfeedback@microsoft.com .
 
-Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트 (HTML5)의 기능 (Eventlogs, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동 하지 않습니다.
+Windows 관리 센터 (WAC)의 기능 (Eventlogs, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동 하지 않습니다.
 
 ## <a name="link-translation"></a>링크 변환
 

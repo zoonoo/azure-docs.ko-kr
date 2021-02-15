@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 01/14/2021
+ms.date: 02/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232678"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372147"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -311,12 +311,13 @@ az account list
 고객을 성공적으로 등록할 수 없거나 사용자에 게 위임 된 리소스에 액세스 하는 데 문제가 있는 경우 다음 팁 및 요구 사항을 확인 하 고 다시 시도 하세요.
 
 - `managedbyTenantId`값은 등록 중인 구독의 테 넌 트 ID와 달라 야 합니다.
-- 동일 하 게 동일한 범위에서 여러 할당을 사용할 수 없습니다 `mspOfferName` . 
+- 동일 하 게 동일한 범위에서 여러 할당을 사용할 수 없습니다 `mspOfferName` .
 - 위임 된 구독에 대해 **Microsoft ManagedServices** 리소스 공급자를 등록 해야 합니다. 이는 배포 중에 자동으로 수행 되지만 그렇지 않은 경우 [수동으로 등록할](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)수 있습니다.
 - 권한 부여에는 [소유자](../../role-based-access-control/built-in-roles.md#owner) 기본 제공 역할이 있는 사용자 또는 [dataactions](../../role-based-access-control/role-definitions.md#dataactions)를 사용 하는 기본 제공 역할이 포함 되지 않아야 합니다.
 - [**그룹**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) 을 **Microsoft 365** 하지 않고 **보안** 으로 설정 하 여 그룹을 만들어야 합니다.
 - [중첩 된 그룹](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md)에 대 한 액세스를 사용 하도록 설정 하기 전에 추가 지연이 있을 수 있습니다.
 - Azure Portal에서 리소스를 확인 해야 하는 사용자에 게는 [읽기](../../role-based-access-control/built-in-roles.md#reader) 권한자 역할 (또는 읽기 권한자 액세스를 포함 하는 다른 기본 제공 역할)이 있어야 합니다.
+- 권한 부여에 포함 하는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 에는 사용 되지 않는 역할이 포함 되지 않아야 합니다. Azure 기본 제공 역할이 더 이상 사용 되지 않는 경우 해당 역할을 등록 하는 모든 사용자는 액세스할 수 없게 되며 추가 위임을 등록할 수 없습니다. 이 문제를 해결 하려면 지원 되는 기본 제공 역할만 사용 하도록 템플릿을 업데이트 한 다음 새 배포를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
