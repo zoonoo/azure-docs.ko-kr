@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684008"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575808"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -401,18 +401,15 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다. 
+이 자습서를 완료한 후 다음에 수행하려는 작업에 따라 제거할 리소스를 선택할 수 있습니다.
 
-[Azure Cloud Shell](https://shell.azure.com)을 사용하면 [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹(Azure Digital Twins 인스턴스, IoT 허브와 허브 디바이스 등록, 이벤트 그리드 토픽과 관련 구독, 스토리지와 같은 관련 리소스를 모두 포함하는 Azure Functions 앱)이 제거됩니다.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
+* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
 
-마지막으로, 로컬 컴퓨터에 다운로드한 프로젝트 샘플 폴더를 삭제합니다.
+로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

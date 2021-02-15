@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: b33c456d47426a3721e8582f24ffd603db0429c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: feb84a1261e37600c68d8e372162033d4021f564
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340036"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522923"
 ---
 # <a name="security-module"></a>보안 모듈
 
@@ -40,7 +40,7 @@ IoT 용 Defender는 서비스의 각 장치에 대 한 보안 모듈 쌍을 유�
 
 쌍을 만들고 사용자 지정 하 고 구성 하는 방법을 알아보려면 [보안 모듈 쌍 만들기](quickstart-create-security-twin.md) 및 [보안 에이전트 구성](how-to-agent-configuration.md) 을 참조 하세요. IoT Hub에서 모듈 쌍의 개념에 대해 자세히 알아보려면 [모듈 쌍 이해](../iot-hub/iot-hub-devguide-module-twins.md) 를 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 - [IoT 용 Defender 개요](overview.md)
 - [보안 에이전트 배포](how-to-deploy-agent.md)

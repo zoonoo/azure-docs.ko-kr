@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509051"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523841"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>장치 맵의 센서 검색 조사
 
@@ -36,7 +36,7 @@ ms.locfileid: "99509051"
 
 사용자 역할은 장치 맵 창에서 사용할 수 있는 도구를 결정 합니다. 사용자 역할에 대 한 자세한 내용은 [사용자 만들기 및 관리](how-to-create-and-manage-users.md) 를 참조 하세요.
 
-| 기호 | 설명 |
+| 기호 | Description |
 |---|---|
 | :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| 특정 장치에 대 한 IP 주소 또는 MAC 주소를 검색 합니다. 텍스트 상자에 IP 주소 또는 MAC 주소를 입력 합니다. 지도에는 연결 된 장치로 검색 한 장치가 표시 됩니다. |
 | 그룹 강조 표시 및 필터 <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="그룹이 강조 표시 되 고 필터가 강조 표시 됩니다."::: | 기본 및 사용자 지정 장치 그룹을 기준으로 맵을 필터링 하거나 강조 표시 합니다. |
@@ -118,7 +118,7 @@ IT 서브넷을 축소 하려면:
 
 다음과 같은 미리 정의 된 그룹을 사용할 수 있습니다.
 
-| 그룹 이름 | 설명 |
+| 그룹 이름 | Description |
 |--|--|
 | **알려진 응용 프로그램** | TCP와 같은 예약 된 포트를 사용 하는 장치  |
 | **비표준 포트 (기본값)** | 비표준 포트 또는 별칭이 할당 되지 않은 포트를 사용 하는 장치입니다. |
@@ -267,7 +267,7 @@ IT 서브넷을 축소 하려면:
 
 맵의 장치에 다음 레이블과 표시기가 나타날 수 있습니다.
 
-| 장치 레이블 | 설명 |
+| 장치 레이블 | Description |
 |--|--|
 | :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="IP 호스트 이름"::: | IP 주소 호스트 이름 및 IP 주소 또는 서브넷 주소 |
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="경고 수"::: | 장치와 연결 된 경고 수 |
@@ -305,9 +305,9 @@ IT 서브넷을 축소 하려면:
 
 다음 정보를 수동으로 업데이트할 수 있습니다. 수동으로 입력 한 정보는 IoT 용 Defender에서 검색 된 정보를 재정의 합니다.
 
-  - Name
+  - 속성
 
-  - 유형
+  - Type
 
   - OS
 
@@ -315,22 +315,22 @@ IT 서브넷을 축소 하려면:
 
   - Description
 
-| 항목 | 설명 |
+| 항목 | Description |
 |--|--|
 | 기본 정보 | 필요한 기본 정보입니다. |
-| Name | 디바이스 이름. <br /> 기본적으로 센서는 네트워크에 정의 된 대로 장치 이름을 검색 합니다. 예를 들어 DNS 서버에 정의 된 이름이 있습니다. <br /> 이러한 이름을 정의 하지 않으면 장치 IP 주소가이 필드에 표시 됩니다. <br /> 장치 이름을 수동으로 변경할 수 있습니다. 장치에 해당 기능을 반영 하는 의미 있는 이름을 지정 합니다. |
-| 유형 | 센서에서 감지한 장치 유형입니다. <br /> 자세한 내용은 [장치 형식 보기](#view-device-types)를 참조 하세요. |
+| 속성 | 디바이스 이름. <br /> 기본적으로 센서는 네트워크에 정의 된 대로 장치 이름을 검색 합니다. 예를 들어 DNS 서버에 정의 된 이름이 있습니다. <br /> 이러한 이름을 정의 하지 않으면 장치 IP 주소가이 필드에 표시 됩니다. <br /> 장치 이름을 수동으로 변경할 수 있습니다. 장치에 해당 기능을 반영 하는 의미 있는 이름을 지정 합니다. |
+| Type | 센서에서 감지한 장치 유형입니다. <br /> 자세한 내용은 [장치 형식 보기](#view-device-types)를 참조 하세요. |
 | Vendor | 장치 공급 업체입니다. 이는 장치 MAC 주소의 선행 문자에 따라 결정 됩니다. 이 필드는 읽기 전용입니다. |
 | 운영 체제 | 센서에서 감지한 장치 OS입니다. |
 | Purdue 계층 | 다음을 포함 하 여이 장치에 대 한 센서에 의해 식별 되는 Purdue 계층입니다. <br /> -자동 <br /> -Process 컨트롤 <br /> -감독 기관과 이러한 <br /> - 엔터프라이즈 |
-| 설명 | 자유 텍스트 필드입니다. <br /> 장치에 대 한 추가 정보를 추가 합니다. |
+| Description | 자유 텍스트 필드입니다. <br /> 장치에 대 한 추가 정보를 추가 합니다. |
 | 특성 | 학습 기간 동안 장치에 대해 검색 되었으며 다른 범주에 속하지 않는 추가 정보는 특성 섹션에 표시 됩니다. <br /> 정보는 RO입니다. |
 | 설정 | 가양성을 방지 하기 위해 장치 설정을 수동으로 변경할 수 있습니다. <br /> - **권한 있는 장치**: 학습 기간 동안 네트워크에서 검색 된 모든 장치가 승인 된 장치로 식별 됩니다. 학습 기간 후에 장치가 검색 되 면 기본적으로 권한이 없는 장치로 표시 됩니다. 이 정의를 수동으로 변경할 수 있습니다. <br /> - **스캐너로 알려짐**:이 장치를 스캐너 라고 하 고 사용자에 게 경고 하지 않아도 되는 경우이 옵션을 사용 하도록 설정 합니다. <br /> - **프로그래밍 장치**:이 장치를 프로그래밍 장치 라고 하 고 프로그래밍 변경을 수행 하는 데 사용 되는 경우이 옵션을 사용 하도록 설정 합니다. 프로그래밍 장치로 식별 하면이 자산에서 발생 하는 변경 내용 프로그래밍에 대 한 경고를 방지할 수 있습니다. |
 | 사용자 지정 그룹 | 이 장치가 참여 하는 장치 맵의 사용자 지정 그룹입니다. |
 | 시스템 상태 | 장치의 보안 및 권한 부여 상태: <br /> - `Secured` 경고가 없는 경우 상태입니다. <br /> -장치에 대 한 경고가 표시 되 면 경고 수가 표시 됩니다. <br /> - `Unauthorized` 학습 기간 후 네트워크에 추가 된 장치에 대 한 상태가 표시 됩니다. 설정에서 장치를 수동으로 정의할 수 있습니다. `Authorized Device` <br /> -이 장치의 주소가 동적 주소로 정의 되는 경우 `DHCP` 가 상태에 추가 됩니다. |
 
 
-| 네트워크 | 설명 |
+| 네트워크 | Description |
 |--|--|
 | 인터페이스 | 장치 인터페이스입니다. RO 필드입니다. |
 | 프로토콜 | 장치에서 사용 하는 프로토콜입니다. RO 필드입니다. |
@@ -357,7 +357,7 @@ IT 서브넷을 축소 하려면:
 
 다음 표에서는 시스템의 모든 형식을 보여 줍니다.
 
-| 범주 | 디바이스 유형 |
+| Category | 디바이스 유형 |
 |--|--|
 | ICS | 엔지니어링 스테이션 <br /> PLC <br />Historian <br />HMI <br />I <br />DC 컨트롤러 <br />RTU <br />산업용 패키징 시스템 <br />산업용 크기 조정 <br />산업 로봇 <br />슬롯 <br />미터 <br />가변 주파수 드라이브  <br />로봇 컨트롤러 <br />서보 드라이브 <br />공기압 장치 <br />Marquee |
 | IT | 도메인 컨트롤러 <br />DB 서버 <br />워크스테이션 <br />서버 <br />터미널 스테이션 <br />스토리지 <br />스마트폰 <br />태블릿 <br />백업 서버 |
@@ -489,7 +489,7 @@ PLC에 여러 개의 모듈이 랙 및 슬롯으로 분리 되어 있으면 모�
 
 :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="프로그래밍 타임 라인 창":::
 
-|프로그래밍 타임 라인 형식 | 설명 |
+|프로그래밍 타임 라인 형식 | Description |
 |--|--|
 | 프로그래밍 장치 | 호스트 이름 및 파일을 포함 하 여 프로그래밍 된 장치에 대 한 세부 정보를 제공 합니다. |
 | 최근 이벤트 | 센서에서 검색 된 최신 이벤트 50를 표시 합니다. <br />이벤트를 강조 표시 하려면 해당 이벤트 위로 마우스를 이동 하 고 별을 클릭 합니다. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> 최근 50 이벤트를 볼 수 있습니다. |
@@ -544,7 +544,7 @@ PLC에 여러 개의 모듈이 랙 및 슬롯으로 분리 되어 있으면 모�
 
 프로그래밍 타임 라인의 세부 정보를 검토 하는 것 외에도 장치 속성 창 및 장치 인벤토리에서 프로그래밍 정보에 액세스할 수 있습니다.
 
-| 디바이스 유형 | 설명 |
+| 디바이스 유형 | Description |
 |--|--|
 | 디바이스 속성 | 장치 속성 창은 device\. 검색 된 마지막 프로그래밍 이벤트에 대 한 정보를 제공 합니다. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="장치의 속성"::: |
 | 장치 인벤토리 | 장치 인벤토리는 장치가 프로그래밍 장치 인지 여부를 나타냅니다. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="장치 인벤토리"::: |
@@ -709,6 +709,6 @@ Microsoft Excel 또는 Word 파일로 보고서를 저장할 수 있습니다.
 
 1. 내보내기 옵션을 선택 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [장치 인벤토리에서 센서 검색 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

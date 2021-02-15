@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 Shared Services 청사진 샘플 컨트롤
 description: ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: c79159fca9d619b727ef651bf42044182144ab35
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 64266e72bf2aa24ac7fbf70f87f27739709fa0be
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842518"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99822536"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플에 대한 컨트롤 매핑
 

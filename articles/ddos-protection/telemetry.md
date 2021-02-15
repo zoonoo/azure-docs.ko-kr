@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516705"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522668"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
@@ -37,7 +37,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
 
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description |
 | --- | --- | --- | --- | --- |
 | BytesDroppedDDoS | 인바운드 바이트가 삭제된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 삭제된 DDoS| 
 | BytesForwardedDDoS | 인바운드 바이트가 전달된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 전달된 DDoS |
@@ -70,7 +70,7 @@ Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/
 
 ## <a name="view-ddos-protection-telemetry"></a>DDoS protection 원격 분석 보기
 
-공격에 대한 원격 분석이 Azure Monitor를 통해 실시간으로 제공됩니다. 이러한 원격 분석 기능은 공용 IP 주소의 위험이 완화되는 동안에만 사용할 수 있습니다. 공격이 완화되기 전 또는 후에는 원격 분석이 표시되지 않습니다.
+공격에 대한 원격 분석이 Azure Monitor를 통해 실시간으로 제공됩니다. 원격 분석은 공용 IP 주소를 완화 하는 경우에만 사용할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 여 DDoS Protection 요금제로 이동 합니다.
 2. **모니터링** 아래에서 **메트릭** 을 선택합니다.

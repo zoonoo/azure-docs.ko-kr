@@ -1,19 +1,17 @@
 ---
 title: 파일에서 데이터베이스로 대량 복사
 description: 솔루션 템플릿을 사용하여 Azure Data Lake Storage Gen2에서 Azure Synapse Analytics/Azure SQL Database로 데이터를 대량으로 복사하는 방법을 알아봅니다.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: e1bd5852ca12ca03e7202cf9cfb89372d076bad9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5f68c7b33a26bc8c01f3f413943351ff8d61b380
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920424"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376124"
 ---
 # <a name="bulk-copy-from-files-to-database"></a>파일에서 데이터베이스로 대량 복사
 

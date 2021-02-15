@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98623757"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522583"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -225,7 +225,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 | 매개 변수 | Description |
 |--|--|
-| Name | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
+| 속성 | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
 | IP | 센서 IP 주소입니다. |
 | 버전 | 센서 버전입니다. |
 | 연결 | 센서 연결 상태입니다. 상태를 연결 하거나 **연결** 을 **끊을** 수 있습니다. |
@@ -316,6 +316,6 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 3. 사이트에서 할당 되지 않은 센서를 삭제 하려면 할당 되지 않은 센서 목록에서 센서를 선택 하 고를 선택 :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [센서 및 온-프레미스 관리 콘솔 문제 해결](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

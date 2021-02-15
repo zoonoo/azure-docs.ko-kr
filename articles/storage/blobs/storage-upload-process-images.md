@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: c20c78cb3c946c666b1640ccac6f86c9b52387ea
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: b50aadfa16ed95bacb5247187c15489a1b017d39
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843879"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821921"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -55,7 +55,7 @@ CLI를 로컬로 설치하고 사용하려면 Azure CLI 버전 2.0.4 이상을 �
 
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
-```bash
+```azurecli
 az group create --name myResourceGroup --location southeastasia
 ```
 
@@ -72,7 +72,7 @@ az group create --name myResourceGroup --location southeastasia
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자가 표시되는 Blob Storage 계정에 대해 글로벌로 고유한 이름으로 바꿉니다.
 
-```bash
+```azurecli
 blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia \
@@ -130,7 +130,7 @@ Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이
 
 다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
-```bash
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
@@ -144,7 +144,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. *이름이 `<web_app>`인 웹 사이트가 이미 있습니다.* 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
 
-```bash
+```azurecli
 webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
@@ -164,7 +164,7 @@ App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지�
 
 샘플 프로젝트에는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 이 앱은 이미지를 받아들이고, 스토리지 계정에 저장하고, 썸네일 이미지 컨테이너에서 이미지를 표시합니다. 웹앱은 [Azure.Storage](/dotnet/api/azure.storage), [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs) 및 [Azure.Storage.Blobs.Models](/dotnet/api/azure.storage.blobs.models) 네임스페이스를 사용하여 Azure Storage 서비스와 상호 작용합니다.
 
-```bash
+```azurecli
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
@@ -180,7 +180,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
-```bash
+```azurecli
 az webapp deployment source config --name $webapp --resource-group myResourceGroup \
   --branch master --manual-integration \
   --repo-url https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs
@@ -200,7 +200,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 샘플 웹앱은 [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
-```bash
+```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AzureStorageConfig__AccountName=$blobStorageAccount \
     AzureStorageConfig__ImageContainer=images \
@@ -220,7 +220,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 샘플 웹앱은 [JavaScript용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에서 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
-```bash
+```azurecli
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
   --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
     AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey

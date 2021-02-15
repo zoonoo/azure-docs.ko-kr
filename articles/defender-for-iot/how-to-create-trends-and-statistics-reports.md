@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/24/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 20b47204ea8f64bc430f436a9bcf1b2311409aa6
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: c28e2f1c24d39ceb915be9f4f6f222d70de9ee73
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509489"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522226"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>센서 추세 및 통계 보고서
 
@@ -93,7 +93,7 @@ ms.locfileid: "99509489"
 
 기본적으로 지난 7 일 동안 검색에 대 한 결과가 표시 됩니다. 필터 도구를 사용 하 여이 범위를 변경할 수 있습니다. 예를 들어, 무료 텍스트 검색입니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [위험 평가 보고](how-to-create-risk-assessment-reports.md) 
  [센서 데이터 마이닝 쿼리](how-to-create-data-mining-queries.md) 

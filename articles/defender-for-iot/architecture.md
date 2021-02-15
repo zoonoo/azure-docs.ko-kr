@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 1eb939a63edc4abc638dc128af0d9ebbd7241bef
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 28449c4e80e22548d2f727e5ad330ab487528847
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809306"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521903"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>IoT 용 Azure Defender 아키텍처
 
@@ -104,7 +104,7 @@ SOC 워크플로 및 실행 서적에 긴밀 하 게 통합 되어 있어 완화
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="모든 경고 및 정보를 관리 합니다.":::
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure의 IoT 용 Defender 포털은 다음을 도와 주는 데 사용 됩니다.
 
@@ -116,7 +116,7 @@ Azure의 IoT 용 Defender 포털은 다음을 도와 주는 데 사용 됩니다
 
 - 위협 인텔리전스 패키지 업데이트
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [IoT 용 Defender FAQ](resources-frequently-asked-questions.md)
 

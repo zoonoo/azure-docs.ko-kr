@@ -3,19 +3,16 @@ title: 예측 데이터 파이프라인 만들기
 description: Azure Data Factory에서 Azure Machine Learning Studio (클래식)-일괄 처리 실행 작업을 사용 하 여 예측 파이프라인을 만드는 방법에 대해 알아봅니다.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637737"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375666"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Azure Machine Learning Studio (클래식) 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기
 
@@ -27,9 +24,9 @@ ms.locfileid: "92637737"
 
 [Azure Machine Learning Studio (클래식)](https://azure.microsoft.com/documentation/services/machine-learning/) 를 사용 하 여 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다. 대략적인 관점에서 이 작업은 다음 세 단계로 수행됩니다.
 
-1. **학습 실험을 만듭니다** . Azure Machine Learning Studio (클래식)를 사용 하 여이 단계를 수행 합니다. Azure Machine Learning Studio (클래식)은 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트 하는 데 사용 하는 공동 작업 시각적 개발 환경입니다.
+1. **학습 실험을 만듭니다**. Azure Machine Learning Studio (클래식)를 사용 하 여이 단계를 수행 합니다. Azure Machine Learning Studio (클래식)은 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트 하는 데 사용 하는 공동 작업 시각적 개발 환경입니다.
 2. **예측 실험으로 변환** 합니다. 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 점수 매기기를 위해 실험을 준비하고 간소화합니다.
-3. **웹 서비스로 배포** . 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
+3. **웹 서비스로 배포**. 점수 매기기 실험을 Azure 웹 서비스로 게시할 수 있습니다. 이 웹 서비스 끝점을 통해 데이터를 모델로 전송하고 모델로부터 결과 예측을 받을 수 있습니다.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory 및 Azure Machine Learning Studio (클래식)
 Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 [Azure Machine Learning Studio (클래식)](https://azure.microsoft.com/documentation/services/machine-learning) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업** 을 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
@@ -126,15 +123,15 @@ Azure Machine Learning Studio (클래식)은 예측 실험을 위해 기존 웹 
 }
 ```
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | 파이프라인의 작업 이름입니다.     | 예      |
 | description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type              | Data Lake Analytics U-SQL 활동의 경우 활동 유형은 **AzureMLBatchExecution** 입니다. | 예      |
 | linkedServiceName | Azure Machine Learning Studio (클래식) 연결 된 서비스에 연결 된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| webServiceInputs  | Azure Machine Learning Studio (클래식) 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키가 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 입력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| webServiceOutputs | Azure Machine Learning Studio (클래식) 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 출력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| globalParameters  | Azure Machine Learning Studio (클래식) Batch 실행 서비스 끝점에 전달 되는 키/값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 웹 서비스 매개 변수의 이름과 일치 해야 합니다. 값은 Azure Machine Learning Studio (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성으로 전달 됩니다. | 아니요       |
+| webServiceInputs  | Azure Machine Learning Studio (클래식) 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키가 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 입력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
+| webServiceOutputs | Azure Machine Learning Studio (클래식) 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 출력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
+| globalParameters  | Azure Machine Learning Studio (클래식) Batch 실행 서비스 끝점에 전달 되는 키/값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 웹 서비스 매개 변수의 이름과 일치 해야 합니다. 값은 Azure Machine Learning Studio (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성으로 전달 됩니다. | 예       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 

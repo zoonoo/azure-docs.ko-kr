@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947403"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584654"
 ---
 > [!IMPORTANT]
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
@@ -81,15 +81,15 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient`는 다음에 대한 작업을 제공합니다.
 
- * 사용자 지정 양식을 인식하도록 학습된 사용자 지정 모델을 사용하여 양식 필드 및 콘텐츠를 인식합니다. 이러한 값은 `RecognizedForm` 개체의 컬렉션에서 반환됩니다.
+ * 사용자 지정 양식을 분석하도록 학습된 사용자 지정 모델을 사용하여 양식 필드 및 콘텐츠를 인식합니다. 이러한 값은 `RecognizedForm` 개체의 컬렉션에서 반환됩니다.
  * 모델을 학습하지 않고도 테이블, 줄 및 단어를 비롯한 양식 콘텐츠를 인식합니다. 양식 콘텐츠는 `FormPage` 개체의 컬렉션에서 반환됩니다.
  * Form Recognizer 서비스에서 미리 학습된 영수증 모델을 사용하여 영수증에서 공통 필드를 인식합니다. 이러한 필드 및 메타데이터는 `RecognizedReceipt`의 컬렉션에서 반환됩니다.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient`는 다음에 대한 작업을 제공합니다.
 
-* 사용자 지정 양식에서 발견된 모든 필드와 값을 인식하도록 사용자 지정 모델을 학습합니다. 모델이 인식할 양식 유형과 각 양식 유형에 대해 추출할 필드를 나타내는 `CustomFormModel`이 반환됩니다. 학습 데이터 세트를 만드는 방법에 대한 자세한 설명은 [레이블이 없는 모델 학습에 대한 서비스의 설명서](#train-a-model-without-labels)를 참조하세요.
-* 사용자 지정 모델을 학습하여 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 인식합니다. 모델이 추출하는 필드와 각 필드에 대한 예상 정확도를 나타내는 `CustomFormModel`이 반환됩니다. 학습 데이터 세트에 레이블을 적용하는 방법에 대한 자세한 설명은 [레이블이 지정된 모델 학습에 대한 서비스의 설명서](#train-a-model-with-labels)를 참조하세요.
+* 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킵니다. 모델이 분석할 양식 유형과 각 양식 유형에 대해 추출할 필드를 나타내는 `CustomFormModel`이 반환됩니다. 학습 데이터 세트를 만드는 방법에 대한 자세한 설명은 [레이블이 없는 모델 학습에 대한 서비스의 설명서](#train-a-model-without-labels)를 참조하세요.
+* 사용자 지정 양식에 레이블을 지정하여 사용자가 지정한 특정 필드 및 값을 분석하도록 사용자 지정 모델을 학습시킵니다. 모델이 추출하는 필드와 각 필드에 대한 예상 정확도를 나타내는 `CustomFormModel`이 반환됩니다. 학습 데이터 세트에 레이블을 적용하는 방법에 대한 자세한 설명은 [레이블이 지정된 모델 학습에 대한 서비스의 설명서](#train-a-model-with-labels)를 참조하세요.
 * 계정에서 생성된 모델을 관리합니다.
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
@@ -128,7 +128,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 ## <a name="analyze-layout"></a>레이아웃 분석
 
-Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 인식할 수 있습니다. 지정된 URI에서 파일의 콘텐츠를 인식하려면 `beginRecognizeContentFromUrl` 메서드를 사용합니다.
+Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 표, 줄 및 단어를 분석할 수 있습니다. 레이아웃 추출에 대한 자세한 내용은 [레이아웃 개념 가이드](../../concept-layout.md)를 참조하세요. 지정된 URI에서 파일의 콘텐츠를 분석하려면 `beginRecognizeContentFromUrl` 메서드를 사용합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -152,31 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="analyze-receipts"></a>영수증 분석
 
-이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 인식 및 추출하는 방법을 보여 줍니다.
-
-URI를 통해 영수증을 확인하려면 `beginRecognizeReceiptsFromUrl` 메서드를 사용합니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> 로컬 영수증 이미지를 인식할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
-
-### <a name="output"></a>출력
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
-```
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
@@ -187,7 +163,7 @@ First receipt:
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
-학습 문서에 수동으로 레이블을 지정하지 않고 사용자 지정 양식에서 발견된 모든 필드와 값을 인식하도록 사용자 지정 모델을 학습시킬 수 있습니다.
+학습 문서에 수동으로 레이블을 지정하지 않고 사용자 지정 양식에서 발견된 모든 필드와 값을 분석하도록 사용자 지정 모델을 학습시킬 수 있습니다.
 
 다음 함수는 지정된 문서 세트를 모델에 학습시키고 모델의 상태를 콘솔에 출력합니다. 
 
@@ -320,6 +296,32 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
+```
+
+## <a name="analyze-receipts"></a>영수증 분석
+
+이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요.
+
+URI에서 영수증을 분석하려면 `beginRecognizeReceiptsFromUrl` 메서드를 사용합니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+
+### <a name="output"></a>출력
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
 ```
 
 ## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리

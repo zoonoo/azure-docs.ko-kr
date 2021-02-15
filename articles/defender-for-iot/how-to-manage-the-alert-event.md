@@ -7,23 +7,24 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: c0670f37da0cead5e3bd05a1d69e17191e8c0ccf
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6a1a4d13ee9f9032c739773b678600d52dec82b8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508746"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523926"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
 
 경고 이벤트를 관리 하는 데 사용할 수 있는 옵션은 다음과 같습니다.
 
- | 작업 | 설명 |
+ | 작업 | Description |
  |--|--|
  | **Learn** | 검색 된 이벤트에 권한을 부여 합니다. 자세한 내용은 [학습 및 학습 이벤트 정보](#about-learning-and-unlearning-events)를 참조 하세요. |
  | **승인** | 검색 된 이벤트에 대해 한 번 경고를 숨깁니다. 이벤트가 다시 검색 되 면 경고가 다시 트리거됩니다. 자세한 내용은 [승인 및 승인 되지 않은 이벤트 정보](#about-acknowledging-and-unacknowledging-events)를 참조 하세요. |
  | **음소거** | 동일한 장치 및 동급 트래픽이 있는 활동을 계속 무시 합니다. 자세한 내용은 [음소거 및 unmuting 이벤트 정보](#about-muting-and-unmuting-events)를 참조 하세요. |
-
+ 
+경고 정보를 내보낼 수도 있습니다.
 ## <a name="about-learning-and-unlearning-events"></a>학습 및 학습 이벤트 정보
 
 학습 된 네트워크의 편차를 나타내는 이벤트는 유효한 네트워크 변경 내용을 반영할 수 있습니다. 예를 들면 네트워크 또는 권한 있는 펌웨어 업데이트에 가입한 새 권한 있는 장치가 포함 될 수 있습니다.
@@ -68,7 +69,7 @@ ms.locfileid: "99508746"
 > [!NOTE] 
 > 인터넷 장치가 원본 또는 대상으로 정의 된 이벤트는 음소거 할 수 없습니다.
 
-### <a name="what-traffic-is-muted"></a>음소거 된 트래픽
+### <a name="what-alert-activity-is-muted"></a>음소거 된 경고 활동은 무엇 인가요?
 
 음소거 된 시나리오에는 이벤트에 대해 검색 된 네트워크 장치 및 트래픽이 포함 됩니다. 경고 제목은 음소거 되는 트래픽을 설명 합니다.
 
@@ -106,6 +107,25 @@ ms.locfileid: "99508746"
 
 2. 경고를 가리켜 음소거 되어 있는지 확인 합니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="export-alert-information"></a>경고 정보 내보내기
+
+경고 정보를 .csv 파일로 내보냅니다. 필터링 된 보기를 기반으로 검색 된 모든 경고 또는 내보내기 정보에 대 한 정보를 내보낼 수 있습니다. 다음 정보를 내보냅니다.
+
+- 소스 주소
+- 대상 주소
+- 경고 제목
+- 경고 심각도
+- 경고 메시지
+- 추가 정보
+- 승인 상태
+- PCAP 가용성
+
+내보내기:
+
+1. 측면 메뉴에서 경고를 선택 합니다.
+1. 내보내기를 선택합니다.
+1. 여러 장치를 포함 하는 각 경고에 대해 별도의 행으로 경고 정보를 내보내려면 확장 된 경고 내보내기를 선택 합니다. 확장 된 경고 내보내기를 선택 하는 경우 .csv 파일은 각 행의 고유한 항목을 사용 하 여 경고 이벤트의 중복 행을 만듭니다. 이 옵션을 사용 하면 내보낸 경고 이벤트를 보다 쉽게 조사할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
 
 [모니터링된 트래픽 제어](how-to-control-what-traffic-is-monitored.md)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 81ede3506337e76c84e20203ac27a3d441fdcef8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624645"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522277"
 ---
 # <a name="define-global-access-control"></a>전역 액세스 제어 정의
 
@@ -88,6 +88,6 @@ ms.locfileid: "98624645"
 
 - 사업부 또는 지역이 선택 되지 않은 경우 사용자는 정의 된 모든 사업부 및 지역에 액세스할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [IoT 콘솔 사용자를 위한 Defender 정보](how-to-create-and-manage-users.md)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955436"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523722"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
 
@@ -185,7 +185,7 @@ ms.locfileid: "97955436"
 
 1. IoT 사용자에 대 한 Defender로 센서 CLI에 로그인 하 고을 입력 `sudo cyberx-xsense-limit-interface-I eth0 -l value` 합니다.
 
-   `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
+   예: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
 
    > [!NOTE]
    > 실제 어플라이언스의 경우 em1 인터페이스를 사용 합니다.
@@ -258,7 +258,7 @@ ms.locfileid: "97955436"
 
 1. 내보낼 데이터를 정의 하려면 데이터 범주를 선택 합니다.  
 
-    | 범주 내보내기 | 설명 |
+    | 범주 내보내기 | Description |
     |--|--|
     | **운영 체제 로그** | 운영 체제 상태에 대 한 정보를 가져오려면이 옵션을 선택 합니다. |
     | **설치/업그레이드 로그** | 설치 및 업그레이드 구성 매개 변수를 조사 하려면이 옵션을 선택 합니다. |
@@ -283,7 +283,7 @@ ms.locfileid: "97955436"
 
 보관 된 로그 목록에는 최대 5 개의 항목이 포함 될 수 있습니다. 목록의 항목 수가 해당 숫자를 벗어나면 가장 이른 항목이 삭제 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 - [경고 보기](how-to-view-alerts.md)
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624594"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523960"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>관리 콘솔에서 센서 관리
 
@@ -215,7 +215,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 
 정의 된 백업 수를 초과 하면 가장 오래 된 백업 파일이 삭제 되어 새 백업 파일이 적용 됩니다.
 
-센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예를 들어 `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`을 참조하십시오. 
+센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar` 
 
 센서를 백업 하려면:
 
@@ -315,6 +315,6 @@ CLI를 사용 하 여 복원 하려면:
 
 9. `Backup.shared_location`를 `<backup_folder_name_on_cyberx_server>`로 설정합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [개별 센서 관리](how-to-manage-individual-sensors.md)

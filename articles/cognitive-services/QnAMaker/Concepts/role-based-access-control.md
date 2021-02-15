@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 1d434697802596a0200dc0cb5f1afe5bc67afef5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c411250f7d850e56c9c54c27e888cba8f3acfece
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379712"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522209"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -25,7 +25,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 * 제어가 기술 자료 수준이 아닌 리소스 수준에 있기 때문에 리소스의 모든 기술 자료에 작성자와 편집기를 빠르게 추가 합니다.
 
 > [!NOTE]
-> 리소스에 대 한 사용자 지정 하위 도메인을 추가 하 고 있는지 확인 합니다. [사용자 지정 하위 도메인](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 은 기본적으로 제공 되어야 하지만 그렇지 않은 경우 추가 하세요.
+> 리소스에 대 한 사용자 지정 하위 도메인을 추가 해야 합니다. [사용자 지정 하위 도메인](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 은 기본적으로 제공 되어야 하지만 그렇지 않은 경우 추가 하세요.
 
 ## <a name="access-is-provided-by-a-defined-role"></a>정의 된 역할에서 액세스를 제공 합니다.
 
@@ -38,7 +38,7 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 > [!div class="mx-imgBorder"]
 > ![다음 다이어그램에서는 작성자의 관점에서 QnA Maker 포털에 로그인 하 고 제작 Api를 사용 하는 흐름을 보여 줍니다.](../media/qnamaker-how-to-collaborate-knowledge-base/rbac-flow-from-portal-to-service.png)
 
-|단계|설명|
+|단계|Description|
 |--|--|
 |1|포털에서 QnA Maker 리소스에 대 한 토큰을 가져옵니다.|
 |2|포털은 키 대신 토큰을 전달 하는 적절 한 APIM (QnA Maker authoring API)를 호출 합니다.|

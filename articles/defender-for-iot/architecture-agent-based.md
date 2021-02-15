@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 1729a20825eb554a4fd2ee60141994e57e62f030
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 3a7dabfed86dab463b38ae45278ead7f5acb5ef9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809926"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521954"
 ---
 # <a name="agent-based-solution-for-device-builders"></a>디바이스 빌더를 위한 에이전트 기반 솔루션
 
@@ -44,7 +44,7 @@ Defender for IoT 권장 사항 및 경고 (분석 파이프라인 출력)는 각
 
 :::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="마이크로 에이전트 아키텍처입니다.":::
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [IoT 용 Defender FAQ](resources-frequently-asked-questions.md)
 

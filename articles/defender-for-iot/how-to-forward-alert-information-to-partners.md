@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841143"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522736"
 ---
 # <a name="forward-alert-information"></a>경고 정보 전달
 
@@ -203,6 +203,6 @@ NetWitness 모니터를 전달 하는 매개 변수를 정의 하려면:
 
 즉, 사용자가 정의한 전달 규칙은 관리자가 만든 제외 규칙에 따라 무시 될 수 있습니다. 제외 규칙은 온-프레미스 관리 콘솔에 정의 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2021
 ms.author: Zhchia
-ms.openlocfilehash: f8018200e64646ec7894ac76999e2cb766ef380c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb3df574029a7c13488830e01354e738930fcd7f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417779"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523433"
 ---
 # <a name="tutorial-configure-hoxhunt-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Hoxhunt 구성
 
@@ -41,19 +41,18 @@ ms.locfileid: "100417779"
 * [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자). 
 * Hoxhunt 테 넌 트입니다.
-* 관리자 권한이 있는 Hoxhunt의 사용자 계정
-
+* 조직의 SCIM API 키 및 SCIM 끝점 URL (Hoxhunt 지원으로 구성 됨)
+?
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
 2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
 3. [AZURE AD와 Hoxhunt 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
 
 ## <a name="step-2-configure-hoxhunt-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 Hoxhunt 구성
-
-Azure AD를 사용 하 여 프로 비전을 지원 하도록 Hoxhunt를 구성 하려면 Hoxhunt 지원 ()에 전자 메일을 작성 하세요 support@hoxhunt.com .
-**인증 토큰과** **SCIM 끝점 URL** 을 제공 합니다.
-
-## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Hoxhunt 추가
+?
+Azure AD를 사용 하 여 프로 비전을 지원 하도록 Hoxhunt를 구성 하기 위해 SCIM API 키 및 SCIM 끝점 URL을 받으려면 [hoxhunt 지원](mailto:support@hoxhunt.com) 담당자에 게 문의 하세요.
+?
+## <a name="step-3-add-hoxhunt-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Hoxhunt 추가
 
 Azure AD 응용 프로그램 갤러리에서 Hoxhunt를 추가 하 여 Hoxhunt에 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Hoxhunt를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

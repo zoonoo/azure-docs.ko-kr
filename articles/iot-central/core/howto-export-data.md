@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515906"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522617"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
@@ -98,7 +98,7 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
     |-|-|
     |Standard|범용 V2|
     |Standard|범용 V1|
-    |Standard|Blob Storage|
+    |Standard|Blob 스토리지|
     |Premium|블록 Blob 저장소|
 
 1. 저장소 계정에서 컨테이너를 만들려면 저장소 계정으로 이동 합니다. **Blob 서비스** 에서 **Blob 찾아보기** 를 선택합니다. 맨 위에서 **+ 컨테이너** 를 선택하여 새 컨테이너를 만듭니다.
@@ -168,14 +168,14 @@ V2 응용 프로그램이 있는 경우 [v2 IoT Central 응용 프로그램을 V
 
 ## <a name="monitor-your-export"></a>내보내기 모니터링
 
-IoT Central 내보내기의 상태를 확인 하는 것 외에도 내보내기를 통해 흐르는 데이터의 양을 모니터링 하 고 Azure Monitor 데이터 플랫폼에서 내보내기 오류를 관찰할 수 있습니다. Azure Portal, REST API 또는 PowerShell 또는 Azure CLI 쿼리의 차트에서 내보내기 및 장치 상태에 대 한 메트릭에 액세스할 수 있습니다. 현재 Azure Monitor에서 이러한 데이터 내보내기 메트릭을 모니터링할 수 있습니다.
+IoT Central에서 내보내기의 상태를 확인 하는 것 외에도 [Azure Monitor](../../azure-monitor/overview.md) 를 사용 하 여 내보내는 데이터의 양과 내보내기 오류를 확인할 수 있습니다. Azure Portal의 차트에서 REST API 또는 PowerShell 또는 Azure CLI의 쿼리를 사용 하 여 내보내기 및 장치 상태 메트릭에 액세스할 수 있습니다. 현재 Azure Monitor에서 다음 데이터 내보내기 메트릭을 모니터링할 수 있습니다.
 
-1. 필터가 적용 되기 전에 내보내기 위해 들어오는 메시지 수
-2. 필터를 통해 전달 되는 메시지 수
-3. 대상에 성공적으로 내보낸 메시지 수
-4. 발생 한 오류 수
- 
-[IoT Central 메트릭에 액세스 하는 방법에 대해 자세히 알아보세요.](howto-monitor-application-health.md)
+- 필터를 적용 하기 전에 내보내기 위해 들어오는 메시지 수입니다.
+- 필터를 통해 전달 되는 메시지 수입니다.
+- 대상에 성공적으로 내보낸 메시지 수입니다.
+- 오류가 발생한 횟수입니다.
+
+자세히 알아보려면 [IoT Central 응용 프로그램의 전반적인 상태 모니터링](howto-monitor-application-health.md)을 참조 하세요.
 
 ## <a name="destinations"></a>대상
 

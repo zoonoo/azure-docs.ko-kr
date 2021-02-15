@@ -2,19 +2,19 @@
 title: Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법
 description: 이 문서에서는 Azure 역할, Synapse 역할, SQL 사용 권한 및 Git 권한을 사용 하 여 Synapse 작업 영역에 대 한 액세스를 제어 하는 방법을 설명 합니다.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218079"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102175"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법 
 
@@ -43,7 +43,7 @@ Synapse 작업 영역을 보호 하려면 다음 항목을 구성 하는 패턴�
 
 이 문서에서는 지침을 단순화하기 위해 표준 이름을 사용합니다. 사용자가 선택한 이름으로 바꿉니다.
 
-|설정 | 표준 이름 | Description |
+|Setting | 표준 이름 | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse 작업 영역** | `workspace1` |  Synapse 작업 영역의 이름입니다. |
 | **ADLSGEN2 계정** | `storage1` | 작업 영역에 사용할 ADLS 계정입니다. |

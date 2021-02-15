@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977016"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522345"
 ---
 # <a name="about-defender-for-iot-console-users"></a>IoT 콘솔 사용자를 위한 Defender 정보
 
@@ -185,7 +185,7 @@ Active Directory를 구성 하려면:
 
 1. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
 
-   | 서버 매개 변수 | 설명 |
+   | 서버 매개 변수 | Description |
    |--|--|
    | 도메인 컨트롤러 FQDN | FQDN (정규화 된 도메인 이름)은 LDAP 서버에 표시 된 대로 정확 하 게 설정 합니다. 예를 들어 다음과 같이 입력합니다. `host1.subdomain.domain.com` |
    | 도메인 컨트롤러 포트 | LDAP가 구성 된 포트를 정의 합니다. |
@@ -265,7 +265,7 @@ CyberX 또는 지원 사용자에 대 한 암호를 다시 설정 하려면:
 
 1. **업데이트** 를 선택합니다.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 센서 활성화 및 [설정](how-to-activate-and-set-up-your-sensor.md) 
  [온-프레미스 관리 콘솔](how-to-activate-and-set-up-your-on-premises-management-console.md) 

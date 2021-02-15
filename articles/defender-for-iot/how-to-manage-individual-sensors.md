@@ -4,15 +4,15 @@ description: 활성화 파일 관리, 백업 수행 및 독립 실행형 센서 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: ba98eb7e87ba277dcd5279ecf17373a8276b1cb1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508763"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523977"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
 
@@ -86,7 +86,7 @@ ms.locfileid: "99508763"
 
 - **클라우드 연결 센서**: 센서를 인터넷에 연결할 수 없습니다. 센서의 네트워크 구성을 확인 하세요. 인터넷에 액세스 하기 위해 웹 프록시를 통해 센서를 연결 해야 하는 경우 **센서 네트워크 구성** 화면에서 프록시 서버가 올바르게 구성 되어 있는지 확인 합니다. \*Azure-devices.net:443가 방화벽 및/또는 프록시에서 허용 되는지 확인 합니다. 와일드 카드가 지원 되지 않거나 더 많은 제어를 원하는 경우 IoT hub에 대 한 특정 Defender에 대 한 FQDN을 방화벽 및/또는 프록시에서 열어야 합니다. 자세한 내용은 [참조 IoT Hub 끝점](../iot-hub/iot-hub-devguide-endpoints.md)을 참조 하세요.  
 
-- **클라우드 연결 센서의 경우**: 정품 인증 파일은 올바르지만 IoT 용 Defender는이 파일을 거부 했습니다. 이 문제를 해결할 수 없는 경우 Defender IoT 포털의 **센서 관리** 페이지에서 다른 정품 인증을 다운로드할 수 있습니다. 그래도 작동 하지 않으면 Microsoft 지원에 문의 하세요.
+- **클라우드 연결 센서의 경우**: 정품 인증 파일은 올바르지만 IoT 용 Defender는이 파일을 거부 했습니다. 이 문제를 해결할 수 없는 경우 Defender IoT 포털의 사이트 및 센서 페이지에서 다른 정품 인증을 다운로드할 수 있습니다. 그래도 작동 하지 않으면 Microsoft 지원에 문의 하세요.
 
 ## <a name="manage-certificates"></a>인증서 관리
 
@@ -114,7 +114,7 @@ IoT 센서 및 온-프레미스 관리 콘솔의 Defender는 SSL을 사용 하 �
  
  - 센서와 온-프레미스 관리 콘솔 간의 통신을 보호 합니다. 
 
-설치가 완료 되 면 어플라이언스는 웹 콘솔에 대 한 사전 액세스를 허용 하는 로컬 자체 서명 된 인증서를 생성 합니다. 명령줄 도구를 사용 하 여 엔터프라이즈 SSL 및 TLS 인증서를 설치할 수 있습니다 [`cyberx-xsense-certificate-import`](#cli-commands) . 
+설치가 완료 되 면 어플라이언스는 웹 콘솔에 대 한 사전 액세스를 허용 하는 로컬 자체 서명 된 인증서를 생성 합니다. 명령줄 도구를 사용 하 여 엔터프라이즈 SSL 및 TLS 인증서를 설치할 수 있습니다 [`cyberx-xsense-certificate-import`](#cli-commands) .
 
  > [!NOTE]
  > 기기가 세션의 클라이언트 및 개시자 인 통합 및 전달 규칙의 경우 특정 인증서가 사용 되 고 시스템 인증서와 관련 되지 않습니다.  
@@ -282,7 +282,7 @@ CLI 명령을 사용 하는 경우:
 
 다음 명령을 사용 하 여 인증서를 관리 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 새 개인 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +292,7 @@ CLI 명령을 사용 하는 경우:
 
 인증서, CSR 또는 개인 키 내의 정보를 확인 해야 하는 경우 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | CSR (인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
 | 개인 키 확인 | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +300,13 @@ CLI 명령을 사용 하는 경우:
 
 개인 키가 인증서와 일치 하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시 되 면 다음 명령을 사용 하 여 오류를 해결 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 공개 키의 MD5 해시를 확인 하 여 CSR 또는 개인 키에 있는 항목과 일치 하는지 확인 합니다. | 1(sp1). `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 인증서와 키를 다른 형식으로 변환 하 여 특정 유형의 서버 또는 소프트웨어와 호환 되도록 하려면 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | DER 파일 (.crt. .cer)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -363,15 +363,23 @@ CLI 명령을 사용 하는 경우:
 
 이름을 변경하는 방법은 다음과 같습니다.
 
-1. IoT 용 Azure Defender 포털에서 **센서 관리** 페이지로 이동 합니다.
+1. IoT 용 Azure Defender 포털에서 사이트 및 센서 페이지로 이동 합니다.
 
-1. 센서 **관리** 창에서 센서를 삭제 합니다.
+1. 사이트 및 센서 페이지에서 센서를 삭제 합니다.
 
-1. 새 이름으로 다시 등록 합니다.
+1. 시작 페이지에서 **온보드 센서** 를 선택 하 여 새 이름으로 등록 합니다.
 
 1. 새 활성화 파일을 다운로드 합니다.
 
-1. 센서에 로그인 하 고 새 활성화 파일을 업로드 합니다.
+1. IoT 센서 콘솔용 Defender에 로그인 합니다.
+
+1. 센서 콘솔에서 **시스템 설정** 을 선택 하 고 다시 **활성화** 를 선택 합니다.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="활성화 파일을 업로드 하 여 센서를 다시 활성화 합니다.":::
+
+1. **업로드** 를 선택 하 고 저장 한 파일을 선택 합니다.
+
+1. **활성화** 를 선택합니다.
 
 ## <a name="update-the-sensor-network-configuration"></a>센서 네트워크 구성 업데이트
 
@@ -387,9 +395,9 @@ CLI 명령을 사용 하는 경우:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="네트워크 설정을 구성 합니다.":::
 
-3. 다음과 같이 매개 변수를 설정 합니다.
+3. 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | IP 주소 | 센서 IP 주소 |
     | 서브넷 마스크 | 마스크 주소 |
@@ -406,7 +414,7 @@ CLI 명령을 사용 하는 경우:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/time-and-region.png" alt-text="시간과 지역을 구성 합니다.":::
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | 표준 시간대 | 다음에 대 한 표준 시간대 정의:<br />-경고<br />-추세 및 통계 위젯<br />-데이터 마이닝 보고서<br />   -위험 평가 보고서<br />-공격 벡터 |
 | 날짜 형식 | 다음 서식 옵션 중 하나를 선택 합니다.<br />-dd/MM/yyyy HH: MM: ss<br />-MM/dd/yyyy HH: MM: ss<br />-yyyy/MM/dd HH: MM: ss |
@@ -458,7 +466,7 @@ CLI 명령을 사용 하는 경우:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. 편집 `fstab`: 
+3. 편집 `fstab`:
 
     - `sudo nano /etc/fstab`
 
@@ -526,7 +534,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="로그인 한 후 표시 되는 업그레이드 버전의 스크린샷":::
 
-## <a name="forward-sensor-failure-alerts"></a>센서 오류 전달 경고 
+## <a name="forward-sensor-failure-alerts"></a>센서 오류 전달 경고
 
 다음에 대 한 세부 정보를 제공 하기 위해 타사에 경고를 전달할 수 있습니다.
 
@@ -562,7 +570,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 3. **일반** 섹션에서 **시스템 속성** 을 선택 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [위협 인텔리전스 연구 및 패키지](how-to-work-with-threat-intelligence-packages.md)
 

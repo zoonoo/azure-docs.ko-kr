@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 93d5d422709fad3d4f732b3b232f67d60d79b507
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 33c767d847d9e70e95b3ee1648be7852aa5cec98
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493722"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522889"
 ---
 # <a name="upgrade-public-ip-addresses"></a>공용 IP 주소 업그레이드
 
@@ -36,7 +36,7 @@ Azure 공용 IP 주소는 SKU (기본 또는 표준)를 사용 하 여 생성 �
 공용 IP를 업그레이드 하려면 리소스와 연결 되지 않아야 합니다. 공용 IP의 연결을 해제 하는 방법에 대 한 자세한 내용은 [이 페이지](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) 를 참조 하세요.
 
 >[!IMPORTANT]
->기본에서 표준 SKU로 업그레이드 된 공용 Ip에는 계속 사용할 수 있는 [가용성 영역이](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)없습니다.  즉, 영역 중복 이거나이가 제공 된 지역에서 미리 지정 된 영역에 연결 된 Azure 리소스에 연결할 수 없습니다.
+>기본에서 표준 SKU로 업그레이드 된 공용 Ip는 계속 해 서 보장 되는 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)을 유지 하지 않습니다.  IP 주소를 연결할 리소스를 선택할 때이를 염두에 두십시오.
 
 ---
 # <a name="basic-to-standard---powershell"></a>[**기본에서 표준으로-PowerShell**](#tab/option-upgrade-powershell)

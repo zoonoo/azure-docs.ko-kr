@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat Ope
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트 되는 Azure Monitor을 사용 하 여 Kubernetes 클러스터에 대 한 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944535"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521631"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
 
@@ -29,7 +29,7 @@ ms.locfileid: "98944535"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -121,7 +121,7 @@ ms.locfileid: "98944535"
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    예:
+    다음은 내보내기 명령을 사용 하 여 3 개의 변수를 채운 후 실행 해야 하는 명령입니다.
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 

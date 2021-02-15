@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428591"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098081"
 ---
 # <a name="trusted-storage-for-media-services"></a>Media Services에 대 한 신뢰할 수 있는 저장소
 
@@ -22,7 +22,11 @@ Media Services 계정을 만드는 경우 저장소 계정과 연결 해야 합�
 
 ## <a name="trusted-storage-with-a-firewall"></a>방화벽이 있는 신뢰할 수 있는 저장소
 
-그러나 방화벽을 사용 하 여 저장소 계정을 보호 하 고 신뢰할 수 있는 저장소를 사용 하려는 경우에는 [관리 되는 id](concept-managed-identities.md) 인증이 기본 설정 된 옵션입니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다.
+그러나 방화벽을 사용 하 여 저장소 계정을 보호 하 고 신뢰할 수 있는 저장소를 사용 하려는 경우에는 [관리 되는 id](concept-managed-identities.md) 인증이 기본 설정 된 옵션입니다. 이를 통해 Media Services는 신뢰할 수 있는 저장소 액세스를 통해 방화벽이 나 VNet 제한으로 구성 된 저장소 계정에 액세스할 수 있습니다.
+
+## <a name="tutorial"></a>자습서
+
+신뢰할 수 있는 저장소를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Media Services 신뢰할](tutorial-trusted-storage-rest.md) 수 있는 저장소 자습서를
 
 > [!NOTE]
 > Media Services에서 저장소 계정에 대 한 읽기 및 쓰기를 위해 AMS 관리 Id 저장소 Blob 데이터 참가자 액세스 권한을 부여 해야 합니다.  일반 참가자 역할을 부여 하는 것은 데이터 평면에 대 한 올바른 권한을 사용 하지 않으므로 작동 하지 않습니다.

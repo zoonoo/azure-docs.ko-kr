@@ -1,5 +1,5 @@
 ---
-title: IoT CLI 명령을 위한 Defender 작업
+title: Defender for IoT CLI 명령 작업
 description: 이 문서에서는 센서 및 온-프레미스 관리 콘솔에 대 한 IoT CLI 명령인 Defender를 설명 합니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845249"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523144"
 ---
-# <a name="work-with-defender-for-iot-cli-commands"></a>IoT CLI 명령을 위한 Defender 작업
+# <a name="work-with-defender-for-iot-cli-commands"></a>Defender for IoT CLI 명령 작업
 
 이 문서에서는 센서 및 온-프레미스 관리 콘솔에 대 한 CLI 명령을 설명 합니다. 이 명령은 관리자, cyberx 사용자 및 지원 사용자가 액세스할 수 있습니다.
 
@@ -31,7 +31,7 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙 내에서 정의할 수 있는 특성은 다음과 같습니다.
 
-| attribute | 설명 |
+| attribute | Description |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | -n 이름 | 만들고 있는 규칙의 이름입니다. |
@@ -71,7 +71,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| attribute | 설명|
+| attribute | Description|
 | --------- | ---------------------------------- |
 | -n 이름 | 삭제할 규칙의 이름입니다. |
 
@@ -103,7 +103,7 @@ ntp disable IP
 
 다음 표에서는 IoT 용 Azure Defender에 대 한 네트워크 옵션을 구성 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|Name|명령|설명|
+|속성|명령|Description|
 |-----------|-------|-----------|
 |Ping|`ping IP `| IoT 용 Defender 플랫폼 외부에서 주소를 ping 합니다.|
 |Blink|`network blink`|네트워크 구성 매개 변수를 변경할 수 있습니다.|
@@ -127,7 +127,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | 설명 |
+| attribute | Description |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 포함 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 포함 합니다. |
@@ -143,7 +143,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | 설명 |
+| attribute | Description |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 제외 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 제외 합니다. 즉, 두 장치 간의 모든 트래픽을 의미 합니다. |
@@ -241,7 +241,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 명령을 사용 하 여 다음 특성을 사용할 수 있습니다 `directions` .
 
-| attribute | 설명 |
+| attribute | Description |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | [--식별자 식별자] | 서버 식별자입니다. |
@@ -254,7 +254,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 ## <a name="system-actions"></a>시스템 작업
 다음 표에서는 IoT 용 Defender 내에서 다양 한 시스템 작업을 수행 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|Name|코드|Description|
+|속성|코드|Description|
 |----|----|-----------|
 |호스트 다시 부팅|`system reboot`|호스트 장치를 다시 부팅 합니다.|
 |호스트 종료|`system shutdown`|호스트를 종료 합니다.|
@@ -290,6 +290,6 @@ cyberx-xsense-certificate-import
 
 - DNS 서버와 해당 IP 주소를 사용 하 여 어플라이언스 도메인 (인증서에 표시 된 대로)을 확인 합니다. 
     
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 [IoT API 센서 및 관리 콘솔 Api 용 Defender](references-work-with-defender-for-iot-apis.md)

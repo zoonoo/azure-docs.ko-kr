@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840574"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523552"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>센서에 대 한 경고 사용
 
@@ -68,9 +68,9 @@ ms.locfileid: "97840574"
 
   - 네트워크 장치에서 검색 된 맬웨어 이벤트는 위험 평가 보고서에 보고 됩니다. 맬웨어 이벤트에 대 한 경고가 *음소거* 되 면 위험 평가 보고서에서 영향을 받는 장치가 계산 되지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
-- [학습 및 스마트 IT 학습 모드](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
-- [경고에 제공 된 정보 보기](how-to-view-information-provided-in-alerts.md)
-- [경고 이벤트 관리](how-to-manage-the-alert-event.md)
-- [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)
+[학습 및 스마트 IT 학습 모드](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
+ 경고에 제공 [된 정보 보기](how-to-view-information-provided-in-alerts.md) 
+ [경고 이벤트 관리](how-to-manage-the-alert-event.md) 
+ [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)

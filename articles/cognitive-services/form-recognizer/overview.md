@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044767"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584569"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -87,13 +87,13 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리를 위한 미리 빌드된 모델도 포함되어 있습니다.
 
 ### <a name="prebuilt-invoice-model"></a>미리 빌드된 송장 모델
-미리 빌드된 송장 모델은 다양한 형식의 청구서에서 데이터를 추출하고 구조화된 데이터를 반환합니다. 이 모델은 송장 ID, 고객 세부 정보, 공급 업체 세부 정보, 배송지, 청구지, 합계, 세금, 소계 등과 같은 주요 정보를 추출합니다. 또한 미리 빌드된 송장 모델은 송장의 모든 텍스트와 표를 인식하고 반환하도록 학습됩니다. 자세한 내용은 [송장](./concept-invoices.md) 개념 가이드를 참조하세요.
+미리 빌드된 송장 모델은 다양한 형식의 청구서에서 데이터를 추출하고 구조화된 데이터를 반환합니다. 이 모델은 송장 ID, 고객 세부 정보, 공급 업체 세부 정보, 배송지, 청구지, 합계, 세금, 소계 등과 같은 주요 정보를 추출합니다. 또한 미리 빌드된 청구서 모델은 청구서의 모든 텍스트와 표를 분석하고 반환하도록 학습됩니다. 자세한 내용은 [송장](./concept-invoices.md) 개념 가이드를 참조하세요.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="샘플 송장" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>미리 빌드된 영수증 모델
 
-미리 빌드된 영수증 모델은 오스트레일리아, 캐나다, 영국, 인도, 미국&mdash;(식당, 주유소, 소매점 등)에서 사용되는 유형의 영어 판매 영수증을 읽는 데 사용됩니다. 이 모델은 트랜잭션 시간 및 날짜, 판매자 정보, 세금의 합계, 줄 항목, 총액 등과 같은 주요 정보를 추출합니다. 또한 미리 빌드된 영수증 모델은 영수증의 모든 텍스트를 인식하고 반환하도록 학습됩니다. 자세한 내용은 [영수증](./concept-receipts.md) 개념 가이드를 참조하세요.
+미리 빌드된 영수증 모델은 오스트레일리아, 캐나다, 영국, 인도, 미국&mdash;(식당, 주유소, 소매점 등)에서 사용되는 유형의 영어 판매 영수증을 읽는 데 사용됩니다. 이 모델은 트랜잭션 시간 및 날짜, 판매자 정보, 세금의 합계, 줄 항목, 총액 등과 같은 주요 정보를 추출합니다. 또한 미리 빌드된 영수증 모델은 영수증의 모든 텍스트를 분석하고 반환하도록 학습됩니다. 자세한 내용은 [영수증](./concept-receipts.md) 개념 가이드를 참조하세요.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="샘플 영수증" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자가 선택한 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [빠른 시작](quickstarts/client-library.md)을 완료하세요.
+사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 양식 처리 앱 작성을 시작하려면 [빠른 시작](quickstarts/client-library.md)을 완료하세요.

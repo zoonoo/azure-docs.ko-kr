@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 14d7a0de1cd29b8c07f90c759a4d423d7186fdb9
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 64e81e246ec62c8995d0e31629b4f21a2c1096b0
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839678"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522549"
 ---
 # <a name="accelerate-alert-workflows"></a>경고 워크플로 가속화
 
@@ -70,11 +70,11 @@ ms.locfileid: "97839678"
 
 다음 접두사가 포함 된 지원 되는 파트너 솔루션에 경고 그룹이 표시 됩니다.
 
-  - QRadar, ArcSight, Syslog CEF, Syslog LEEF 용 **고양이**
+- QRadar, ArcSight, Syslog CEF, Syslog LEEF 용 **고양이**
 
-  - Syslog 텍스트 메시지에 대 한 **경고 그룹**
+- Syslog 텍스트 메시지에 대 한 **경고 그룹**
 
-  - Syslog 개체에 대 한 **alert_group**
+- Syslog 개체에 대 한 **alert_group**
 
 이러한 필드는 파트너 솔루션에서 경고 그룹 이름을 표시 하도록 구성 해야 합니다. 경고 그룹과 연결 된 경고가 없으면 파트너 솔루션의 필드가 **NA** 를 표시 합니다.
 
@@ -92,11 +92,29 @@ ms.locfileid: "97839678"
 | 명령 실패 | 운영 문제 |  |
 | 구성 변경 내용 | 프로그래밍 |  |
 
-경고 그룹은 미리 정의 되어 있습니다. 경고 그룹과 연결 된 경고에 대 한 자세한 내용 및 사용자 지정 경고 그룹을 만드는 방법에 대 한 자세한 내용은 [Microsoft 지원](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099)를 참조 하세요.
+경고 그룹은 미리 정의 되어 있습니다. 경고 그룹과 연결 된 경고에 대 한 자세한 내용 및 사용자 지정 경고 그룹을 만드는 방법에 대 한 자세한 내용은 [Microsoft 지원](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099)를 참조 하세요.
 
 ## <a name="customize-alert-rules"></a>경고 규칙 사용자 지정
 
-개별 센서가 검색 하는 정보에 따라 사용자 지정 경고 규칙을 추가할 수 있습니다. 예를 들어 프로토콜에서 원본 IP, 대상 IP 또는 명령 (프로토콜 내)을 기반으로 경고를 트리거하도록 지시 하는 규칙을 정의 합니다. 센서가 규칙에 정의 된 트래픽을 감지 하면 경고나 이벤트가 생성 됩니다.
+사용자 지정 경고 규칙을 사용 하 여 관심 있는 활동을 더욱 구체적으로 파악 합니다. 
+
+다음을 기준으로 사용자 지정 경고 규칙을 추가할 수 있습니다.
+
+- 범주 (예: 프로토콜, 포트 또는 파일)입니다.
+- 원본 및 대상 주소
+- 선택한 범주를 기반으로 하는 조건 (예: 프로토콜에 연결 된 함수, 파일 이름, 포트 또는 전송 번호)입니다.
+- 날짜 및 시간 참조를 기반으로 하는 조건입니다. 예를 들어 특정 날 또는 특정 날에 대 한 검색이 수행 된 경우입니다.
+
+센서가 규칙에 설명 된 활동을 감지 하면 경고가 전송 됩니다.
+개별 센서가 검색 하는 정보입니다. 예를 들어 프로토콜에서 원본 IP, 대상 IP 또는 명령 (프로토콜 내)을 기반으로 경고를 트리거하도록 지시 하는 규칙을 정의 합니다. 센서가 규칙에 정의 된 트래픽을 감지 하면 경고나 이벤트가 생성 됩니다.
+
+또한 경고 규칙 작업을 사용 하 여 Defender for IoT에 다음을 수행할 수 있습니다.
+
+- 사용자가 경고에서 PCAP 파일에 액세스할 수 있도록 허용 합니다.
+- 경고 심각도를 할당 합니다.
+- 경고가 아닌 이벤트를 생성 합니다. 검색 된 정보가 이벤트 타임 라인에 표시 됩니다.
+
+:::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="사용자 정의 규칙을 보여 주는 스크린샷":::
 
 경고 메시지는 사용자 정의 규칙이 경고를 트리거 했음을 나타냅니다.
 
@@ -106,24 +124,24 @@ ms.locfileid: "97839678"
 
 1. 센서의 측면 메뉴에서 **사용자 지정 경고** 를 선택 합니다.
 1. 더하기 기호 ()를 선택 **+** 하 여 규칙을 만듭니다.
-
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="사용자 정의 규칙을 보여 주는 스크린샷":::
-
 1. 규칙 이름을 정의 합니다.
 1. **범주 창에서** 범주 또는 프로토콜을 선택 합니다.
 1. 특정 원본 및 대상 IP 또는 MAC 주소를 정의 하거나 임의의 주소를 선택 합니다.
-1. 조건을 추가 합니다. 조건 목록과 해당 속성은 각 범주에 대해 고유 합니다. 각 경고에 대해 둘 이상의 조건을 선택할 수 있습니다.
-1. 규칙이 **경보** 또는 **이벤트** 를 트리거 하는지 여부를 표시 합니다.
-1. 경고에 심각도 수준을 할당 합니다.
-1. 경고에 PCAP 파일이 포함 되어 있는지 여부를 표시 합니다.
+1. 하나 또는 여러 규칙 조건을 정의 합니다. 다음 두 가지 범주의 조건을 만들 수 있습니다.
+    - 선택한 범주와 연결 된 고유 값을 기반으로 하는 조건입니다. 추가를 선택 하 고 값을 정의 합니다.
+    - 활동이 검색 된 시간을 기반으로 하는 조건입니다. 검색 섹션에서 경고를 보내기 위해 검색을 수행 해야 하는 기간 및 일을 선택 합니다. 작업 시간이 나 후에 언제 든 지 작업이 검색 되 면 경고를 보내도록 선택할 수 있습니다. 작업 시간 정의 옵션을 사용 하 여 조직에 대 한 IoT 작업 시간을 Defender에 지시할 수 있습니다.
+1. 규칙 작업 정의: 
+    - 규칙이 **경보** 또는 **이벤트** 를 트리거 하는지 여부를 표시 합니다.
+    - 경고에 심각도 수준을 할당 합니다.
+    - 경고에 PCAP 파일이 포함 되어 있는지 여부를 표시 합니다.
 1. **저장** 을 선택합니다.
 
 규칙은 **사용자 지정 된 경고 규칙** 목록에 추가 됩니다. 여기서 기본 규칙 매개 변수를 검토 하 고, 규칙이 마지막으로 트리거된 시간 등을 확인할 수 있습니다. 목록에서 규칙을 사용 하거나 사용 하지 않도록 설정할 수도 있습니다.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="사용자가 추가한 사용자 지정 규칙의 스크린샷":::
 
-### <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
-[경고에 제공 된 정보 보기](how-to-view-information-provided-in-alerts.md)
+[경고에 제공된 정보 보기](how-to-view-information-provided-in-alerts.md)
 
 [경고 이벤트 관리](how-to-manage-the-alert-event.md)

@@ -7,24 +7,24 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509075"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523671"
 ---
 # <a name="view-alerts"></a>경고 보기
 
 이 문서에서는 센서에 의해 트리거되는 경고를 확인 하 고 경고 도구를 사용 하 여 관리 하는 방법을 설명 합니다.
 
-보관 또는 고정 된 경고와 같은 다양 한 범주에 따라 경고를 볼 수 있습니다. 또는 IP 또는 MAC 주소를 기반으로 하는 경고와 같이 관심 있는 경고를 검색할 수 있습니다.  
+보관 또는 고정 된 경고와 같은 다양 한 범주에 따라 경고를 볼 수 있습니다. 또한 IP 또는 MAC 주소를 기반으로 하는 경고와 같이 관심 있는 경고를 검색할 수 있습니다.  
 
 센서 대시보드에서 경고를 볼 수도 있습니다.
 
 경고를 보려면
 
-- 측면 메뉴에서 **경고** 를 선택 합니다. **경고** 창에 센서가 감지한 경고가 표시 됩니다.
+- 측면 메뉴에서 **경고** 를 선택 합니다. 경고 창에 센서가 감지한 경고가 표시 됩니다.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="경고 화면의 뷰입니다.":::
 
@@ -32,7 +32,7 @@ ms.locfileid: "99509075"
 
 **경고** 주 보기에서 다양 한 범주에 따라 경고를 볼 수 있습니다. 경고를 선택 하 여 세부 정보를 검토 하 고 이벤트를 관리 합니다.
 
-| 유형별 정렬 | 설명 |
+| 유형별 정렬 | Description |
 |--|--|
 | **중요 한 알림** | 경고가 중요도 별로 정렬 되었습니다. |
 | **고정 된 경고** | 추가 조사를 위해 사용자에 게 고정 된 경고입니다. 고정 된 경고는 보관 되지 않으며 고정 된 폴더에 14 일 동안 저장 됩니다. |
@@ -42,21 +42,21 @@ ms.locfileid: "99509075"
 
 ## <a name="search-for-alerts-of-interest"></a>관심 경고 검색
 
-**경고** 주 보기는 관심 있는 경고를 찾는 데 도움이 되는 다양 한 검색 기능을 제공 합니다.
+경고 주 보기는 관심 있는 경고를 찾는 데 도움이 되는 다양 한 검색 기능을 제공 합니다.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="경고 학습 스크린샷.":::
 
-### <a name="text-search"></a>텍스트 검색 
+### <a name="text-search"></a>텍스트 검색
 
-텍스트, 숫자 또는 문자를 기준으로 경고를 검색 하려면 **무료 검색** 옵션을 사용 합니다.
+텍스트, 숫자 또는 문자를 기준으로 경고를 검색 하려면 무료 검색 옵션을 사용 합니다.
 
 검색 대상:
 
-- **사용 가능한 검색** 필드에 필요한 텍스트를 입력 하 고 키보드에서 enter 키를 누릅니다.
+- 사용 가능한 검색 필드에 필요한 텍스트를 입력 하 고 키보드에서 Enter 키를 누릅니다.
 
 검색을 지우려면:
 
-- **사용 가능한 검색** 필드에서 텍스트를 삭제 하 고 키보드에서 enter 키를 누릅니다.
+- 사용 가능한 검색 필드에서 텍스트를 삭제 하 고 키보드에서 Enter 키를 누릅니다.
 
 ### <a name="device-group-or-device-ip-address-search"></a>장치 그룹 또는 장치 IP 주소 검색
 
@@ -100,7 +100,7 @@ ms.locfileid: "99509075"
 
 - :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false":::모든 경고를 알아보고 승인 하려면 선택 합니다.
 
-- :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false":::경고 목록을 CSV 파일로 내보내고 내보내기 옵션을 선택 하려면 선택 합니다. 일반 내보내기-CSV 옵션에 대 한 **경고 내보내기** 를 선택 합니다. 또는 CSV 파일에서 경고에 대 한 추가 정보를 위해 별도의 행을 추가할 수 있도록 **확장 된 경고 내보내기** 를 선택 합니다.
+- :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false":::경고 정보를 .csv 파일로 내보내려면 선택 합니다. 확장 된 **경고 내보내기** 옵션을 사용 하 여 여러 장치를 포함 하는 각 경고에 대 한 경고 정보를 별도의 행으로 내보낼 수 있습니다.
 
 ## <a name="alert-pop-up-window-options"></a>경고 팝업 창 옵션
 

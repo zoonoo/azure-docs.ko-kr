@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 051ce1be66f91d60f719ca3695f15e6c8001b20f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839919"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523824"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>SNMP MIB 모니터링 설정
 
@@ -24,7 +24,7 @@ SNMP 모니터링 구성을 시작 하기 전에 방화벽에서 UDP 161 포트�
 
 ## <a name="oids"></a>Oid
 
-| 관리 콘솔 및 센서 | OID | 형식 | 설명 |
+| 관리 콘솔 및 센서 | OID | 서식 | Description |
 |--|--|--|--|
 | 어플라이언스 이름 | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | 온-프레미스 관리 콘솔의 어플라이언스 이름 |
 | Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Microsoft 지원 (support.microsoft.com) |
@@ -74,7 +74,7 @@ SNMP v3 상태 모니터링을 정의 하려면:
 
 4. **인증** 섹션에서 다음 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | **사용자 이름** | SNMP 사용자 이름은 최대 32 문자를 포함할 수 있으며 영숫자 (대문자, 소문자 및 숫자)를 조합 하 여 포함할 수 있습니다. 공백은 허용되지 않습니다. <br /> <br />SNMP v3 인증에 대 한 사용자 이름은 시스템 및 SNMP 서버에서 구성 해야 합니다. |
     | **암호** | 대/소문자를 구분 하는 인증 암호를 입력 합니다. 인증 암호는 8 ~ 12 자의 문자를 포함할 수 있으며 영숫자 (대문자, 소문자 및 숫자)를 조합 하 여 포함할 수 있습니다. <br /> <br/>SNMP v3 인증에 대 한 사용자 이름은 시스템 및 SNMP 서버에서 구성 해야 합니다. |
@@ -84,6 +84,6 @@ SNMP v3 상태 모니터링을 정의 하려면:
 
 5. **저장** 을 선택합니다.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 [문제 해결 로그 내보내기](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

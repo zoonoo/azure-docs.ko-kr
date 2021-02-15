@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 81c936acc00801f8473c1ec74aa50dbf2abb4936
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2e766bcdee2afa3ff4ed75476c619326c4c0e0c2
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397028"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99822470"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 트래픽 관리
 
@@ -48,8 +48,8 @@ az group delete --name myResourceGroupAG --yes
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](/cli/azure/network/vnet) | 가상 네트워크를 만듭니다. |
 | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | 가상 네트워크에 서브넷을 만듭니다. |
-| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | 애플리케이션 게이트웨이의 공용 IP 주소를 만듭니다. |
-| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | 애플리케이션 게이트웨이를 만듭니다. |
+| [az network public-ip create](/cli/azure/network/public-ip) | 애플리케이션 게이트웨이의 공용 IP 주소를 만듭니다. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | 애플리케이션 게이트웨이를 만듭니다. |
 | [az vmss create](/cli/azure/vmss) | 가상 머신 확장 집합을 만듭니다. |
 | [az network public-ip show](/cli/azure/network/public-ip) | 애플리케이션 게이트웨이의 공용 IP 주소를 가져옵니다. |
 

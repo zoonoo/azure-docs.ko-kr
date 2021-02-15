@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539343"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523943"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 
@@ -144,7 +144,7 @@ IoT 센서 및 온-프레미스 관리 콘솔의 Defender는 SSL을 사용 하 �
 - 서버 인증서를 발급 한 CA 인증서가 먼저 파일에 있고 그 뒤에 루트까지 있는 인증서가 있어야 합니다. 
 - 체인에는 모음 특성을 포함할 수 있습니다.
 
-**전달**
+**암호**
 
 - 하나의 키가 지원 됩니다.
 
@@ -226,7 +226,7 @@ CLI 명령을 사용 하는 경우:
 
 다음 명령을 사용 하 여 인증서를 관리 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 새 개인 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -236,7 +236,7 @@ CLI 명령을 사용 하는 경우:
 
 인증서, CSR 또는 개인 키 내의 정보를 확인 해야 하는 경우 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | CSR (인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
 | 개인 키 확인 | `openssl rsa -in privateKey.key -check` |
@@ -244,13 +244,13 @@ CLI 명령을 사용 하는 경우:
 
 개인 키가 인증서와 일치 하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시 되 면 다음 명령을 사용 하 여 오류를 해결 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 공개 키의 MD5 해시를 확인 하 여 CSR 또는 개인 키에 있는 항목과 일치 하는지 확인 합니다. | 1(sp1). `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 인증서와 키를 다른 형식으로 변환 하 여 특정 유형의 서버 또는 소프트웨어와 호환 되도록 하려면 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | DER 파일 (.crt. .cer)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -328,7 +328,7 @@ CLI 명령을 사용 하는 경우:
 
 VLAN 이름은 센서와 관리 콘솔 간에 동기화 되지 않습니다. 구성 요소에 동일한 이름을 정의 해야 합니다.
 
-네트워킹 영역에서 **vlan** 을 선택 하 고 검색 된 vlan id에 이름을 추가 합니다. 그런 다음, **저장** 을 선택합니다.
+네트워킹 영역에서 **vlan** 을 선택 하 고 검색 된 vlan id에 이름을 추가 합니다. 그런 다음 **저장** 을 선택합니다.
 
 ## <a name="define-a-proxy-to-sensors"></a>센서에 대 한 프록시 정의
 
@@ -415,7 +415,7 @@ VLAN 이름은 센서와 관리 콘솔 간에 동기화 되지 않습니다. 구
 
 1. IoT 용 Defender **업데이트** 페이지에서 다운로드 한 파일을 선택 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [관리 콘솔에서 센서 관리](how-to-manage-sensors-from-the-on-premises-management-console.md)
 
