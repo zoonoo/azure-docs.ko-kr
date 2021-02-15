@@ -1,6 +1,5 @@
 ---
 title: Media Services v3으로 비디오 분석
-titleSuffix: Azure Media Services
 description: Azure Media Services를 사용하여 비디오를 분석하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7bdc658ab5db9a3ffb27f3c155272f8928bbfb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3ca3197e786bbfac20bec2370d2aa920ad2c4df
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265867"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822512"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>자습서: Media Services v3으로 비디오 분석
 
@@ -68,8 +67,8 @@ ms.locfileid: "89265867"
 
 샘플은 다음 작업을 완료합니다.
 
-1. 비디오를 분석하는 **변환** 및 **작업**을 만듭니다.
-2. 입력 **자산**을 만들고 비디오를 업로드합니다. 자산은 작업의 입력으로 사용됩니다.
+1. 비디오를 분석하는 **변환** 및 **작업** 을 만듭니다.
+2. 입력 **자산** 을 만들고 비디오를 업로드합니다. 자산은 작업의 입력으로 사용됩니다.
 3. 작업의 출력을 저장하는 출력 자산을 만듭니다.
 4. 작업을 제출합니다.
 5. 작업의 상태를 확인합니다.
@@ -108,19 +107,19 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 
 ### <a name="create-a-transform-and-a-job-that-analyzes-videos"></a>비디오를 분석하는 Transform 및 Job 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 각각의 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](./transforms-jobs-concept.md)을 참조하세요. 이 자습서에 설명된 샘플은 지정된 비디오를 분석하는 레시피를 정의합니다.
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 각각의 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Job](./transforms-jobs-concept.md)을 참조하세요. 이 자습서에 설명된 샘플은 지정된 비디오를 분석하는 레시피를 정의합니다.
 
 #### <a name="transform"></a>변환
 
-새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. **TransformOutput**은 필수 매개 변수입니다. 각 **TransformOutput**에는 **Preset**이 포함됩니다. **Preset**은 원하는 **TransformOutput**을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 예제에서는 **VideoAnalyzerPreset** preset이 사용되며 해당 생성자에게 언어("en-US")가 전달됩니다(`new VideoAnalyzerPreset("en-US")`). 이 preset을 통해 비디오에서 여러 개의 오디오 및 비디오 인사이트를 추출할 수 있습니다. 비디오에서 여러 오디오 인사이트를 추출해야 하는 경우 **AudioAnalyzerPreset** preset을 사용할 수 있습니다.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. **TransformOutput** 은 필수 매개 변수입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 예제에서는 **VideoAnalyzerPreset** preset이 사용되며 해당 생성자에게 언어("en-US")가 전달됩니다(`new VideoAnalyzerPreset("en-US")`). 이 preset을 통해 비디오에서 여러 개의 오디오 및 비디오 인사이트를 추출할 수 있습니다. 비디오에서 여러 오디오 인사이트를 추출해야 하는 경우 **AudioAnalyzerPreset** preset을 사용할 수 있습니다.
 
-**Transform**을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인합니다. 아래 코드를 참조하세요. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null**을 반환합니다(이름의 대/소문자를 구분하지 않음).
+**Transform** 을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인합니다. 아래 코드를 참조하세요. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null** 을 반환합니다(이름의 대/소문자를 구분하지 않음).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#EnsureTransformExists)]
 
 #### <a name="job"></a>작업
 
-위에서 언급했듯이 [Transform](/rest/api/media/transforms) 개체는 레시피이며 [Job](/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. Media Service 계정에 있는 HTTPS URL, SAS URL 또는 자산을 사용하여 비디오 위치를 지정할 수 있습니다.
+위에서 언급했듯이 [Transform](/rest/api/media/transforms) 개체는 레시피이며 [Job](/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform** 을 적용하라는 Media Services에 대한 실제 요청입니다. **Job** 은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. Media Service 계정에 있는 HTTPS URL, SAS URL 또는 자산을 사용하여 비디오 위치를 지정할 수 있습니다.
 
 이 예에서 작업 입력은 로컬 비디오입니다.  
 
@@ -134,7 +133,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다. 자세한 내용은 [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고, 취소가 완료되면 **취소됨**이 표시됩니다.
+**작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고, 취소가 완료되면 **취소됨** 이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 

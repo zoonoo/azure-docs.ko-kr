@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756041"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104283"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -76,7 +76,7 @@ ms.locfileid: "98756041"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | Description                                | 메모 |
+| JWT 클레임     | Name                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
@@ -94,7 +94,7 @@ V2 토큰 형식의 향상 된 기능 중 일부는 보안 및 안정성 향상�
 **표 4: v1.0 전용 선택적 클레임**
 
 
-| JWT 클레임     | Name                            | Description | 메모 |
+| JWT 클레임     | Name                            | 설명 | 메모 |
 |---------------|---------------------------------|-------------|-------|
 |`aud`          | 사용자 | 항상 JWTs에 있지만, v1 액세스 토큰에서는 후행 슬래시를 사용 하거나 사용 하지 않고 리소스의 클라이언트 ID를 사용 하 여 다양 한 방법으로 내보낼 수 있습니다. 토큰 유효성 검사를 수행 하는 경우이 임의 대상으로 코딩 하기 어려울 수 있습니다.  [이 클레임에 대 한 추가 속성](#additional-properties-of-optional-claims) 을 사용 하 여 항상 v1 액세스 토큰에서 리소스의 클라이언트 ID로 설정 되도록 합니다. | v1 JWT 액세스 토큰만|
 |`preferred_username` | 기본 사용자 이름        | V1 토큰 내에서 기본 설정 된 사용자 이름 클레임을 제공 합니다. 이렇게 하면 앱이 사용자 이름 힌트를 제공 하 고 토큰 형식에 관계 없이 사용자가 읽을 수 있는 표시 이름을 볼 수 있습니다.  예를 들어 또는를 사용 하는 대신이 선택적인 클레임을 사용 하는 것이 좋습니다. `upn` `unique_name` | v1 ID 토큰 및 액세스 토큰 |
@@ -138,7 +138,7 @@ V2 토큰 형식의 향상 된 기능 중 일부는 보안 및 안정성 향상�
 
 UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대한 선택적 클레임을 구성할 수 있습니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>로 이동 합니다. 
+1. <a href="https://portal.azure.com/" target="_blank">Azure 포털</a>로 이동합니다. 
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
@@ -201,7 +201,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | Type                       | Description                                           |
+| Name          | 유형                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -214,7 +214,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -246,7 +246,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **UI를 통해 그룹 선택적 클레임 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
@@ -259,7 +259,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **애플리케이션 매니페스트를 통해 그룹 선택적 클레임 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
@@ -388,7 +388,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **UI 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 
 1. **Azure Active Directory** 를 검색하고 선택합니다.
@@ -411,7 +411,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 **매니페스트 구성:**
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 인증한 후에 페이지의 오른쪽 위 모서리에서 Azure AD 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 찾아서 선택합니다.

@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud에 대한 기본 제공 정책 정의
 description: Azure Spring Cloud에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java
-ms.openlocfilehash: 398967fe168d25f18743e860d2234f8c00abf95f
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 01a2647ab75ca0dbc06d44e54693655087bc3e7b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556702"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099859"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Azure Spring Cloud에 대한 Azure Policy 기본 제공 정의
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384489"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>데이터 반출 보호를 사용 하는 작업 영역 만들기
 이 문서에서는 데이터 반출 보호를 사용 하도록 설정 된 작업 영역을 만드는 방법과이 작업 영역에 대해 승인 된 Azure AD 테 넌 트를 관리 하는 방법을 설명 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "97590563"
 >[!Note]
 >작업 영역을 만든 후에는 관리 되는 가상 네트워크 및 데이터 반출 보호에 대 한 작업 영역 구성을 변경할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - Azure에서 작업 영역 리소스를 만들 수 있는 권한.
 - 관리 되는 개인 끝점을 만들 수 있는 작업 영역 권한을 Synapse 합니다.
 - 네트워킹 리소스 공급자에 등록 된 구독입니다. [자세한 정보](../../azure-resource-manager/management/resource-providers-and-types.md)
@@ -49,6 +49,9 @@ ms.locfileid: "97590563"
 >[!IMPORTANT]
 >작업 영역 테 넌 트 이외의 테 넌 트에 있는 리소스는 SQL 풀에 연결 하기 위해 방화벽 규칙을 차단 하지 않아야 합니다. 작업 영역에서 관리 되는 가상 네트워크 (예: Spark 클러스터) 내의 리소스는 방화벽으로 보호 되는 리소스에 대 한 관리 되는 개인 링크를 통해 연결할 수 있습니다.
 
+## <a name="known-limitations"></a>알려진 제한 사항
+사용자는 PyPI와 같은 공용 리포지토리에서 Python 패키지를 설치 하는 환경 구성 파일을 제공할 수 있습니다. 데이터 반출 보호 된 작업 영역에서 아웃 바운드 리포지토리에 대 한 연결이 차단 됩니다. 결과적으로 PyPI와 같은 공용 리포지토리에서 설치 된 Python 라이브러리는 지원 되지 않습니다. 
+  
 ## <a name="next-steps"></a>다음 단계
 
 [Synapse 작업 영역에서 데이터 반출 보호](./workspace-data-exfiltration-protection.md) 에 대 한 자세한 정보

@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482728"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366571"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -19,7 +19,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 이 모범 사례 문서는 클러스터 운영자의 네트워크 연결 및 보안을 집중적으로 다룹니다. 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * AKS에서 Azure CNI 네트워크 모드와 Kubenet 비교
+> * AKS의 kubenet 및 Azure 컨테이너 네트워킹 인터페이스 (CNI) 네트워크 모드 비교
 > * 필수 IP 주소 및 연결 계획
 > * 부하 분산 장치, 수신 컨트롤러 또는 WAF (웹 응용 프로그램 방화벽)를 사용 하 여 트래픽 분산
 > * 클러스터 노드에 안전하게 연결
@@ -33,11 +33,13 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 * **Kubenet 네트워킹** - Azure는 클러스터가 배포될 때 가상 네트워크 리소스를 관리하고 [kubenet][kubenet] Kubernetes 플러그 인을 사용합니다.
 * **AZURE cni 네트워킹** -가상 네트워크에 배포 하 고 [Cni (Azure Container 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용 합니다. Pod는 다른 네트워크 서비스 또는 온-프레미스 리소스로 라우팅될 수 있는 개별 IP를 수신합니다.
 
-CNI(컨테이너 네트워킹 인터페이스)는 컨테이너 런타임이 네트워크 공급자에게 요청할 수 있도록 하는 공급업체 중립 프로토콜입니다. 사용자가 기존 Azure Virtual Network에 연결할 때 Azure CNI는 pod 및 노드에 IP 주소를 할당하고, IPAM(IP 주소 관리) 기능을 제공합니다. 각 노드 및 pod 리소스는 Azure Virtual Network에서 IP 주소를 받으며, 다른 리소스 또는 서비스와 통신하기 위해 추가 라우팅이 필요하지 않습니다.
+프로덕션 배포의 경우 kubenet와 Azure CNI는 모두 유효한 옵션입니다.
+
+### <a name="cni-networking"></a>CNI 네트워킹
+
+CNI(컨테이너 네트워킹 인터페이스)는 컨테이너 런타임이 네트워크 공급자에게 요청할 수 있도록 하는 공급업체 중립 프로토콜입니다. 사용자가 기존 Azure Virtual Network에 연결할 때 Azure CNI는 pod 및 노드에 IP 주소를 할당하고, IPAM(IP 주소 관리) 기능을 제공합니다. 각 노드 및 pod 리소스는 Azure 가상 네트워크에서 IP 주소를 받으며 다른 리소스나 서비스와 통신 하는 데 추가 라우팅이 필요 하지 않습니다.
 
 ![각 노드를 단일 Azure VNet에 연결하는 브리지가 있는 두 노드를 보여주는 다이어그램](media/operator-best-practices-network/advanced-networking-diagram.png)
-
-프로덕션 배포의 경우 kubenet와 Azure CNI는 모두 유효한 옵션입니다.
 
 프로덕션에 대 한 Azure CNI 네트워킹의 주목할 만한 장점으로는 네트워크 모델을 통해 리소스 제어 및 관리를 구분할 수 있습니다. 보안 관점에서, 해당 리소스를 관리하는 팀과 보호하는 팀을 구분하려는 경우가 종종 있습니다. Azure CNI 네트워킹을 사용하면 각 pod에 할당된 IP 주소를 통해 직접 기존 Azure 리소스, 온-프레미스 리소스 또는 기타 서비스에 연결할 수 있습니다.
 
@@ -51,18 +53,22 @@ AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소�
 
 필요한 IP 주소를 계산하려면 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조하세요.
 
+Azure CNI 네트워킹을 사용 하 여 클러스터를 만드는 경우 Docker 브리지 주소, DNS 서비스 IP 및 서비스 주소 범위와 같은 클러스터에서 사용할 다른 주소 범위를 지정 합니다. 일반적으로 이러한 주소 범위는 서로 겹치면 안 되며 가상 네트워크, 서브넷, 온-프레미스 및 피어 링 네트워크를 포함 하 여 클러스터와 연결 된 네트워크와 겹치지 않아야 합니다. 이러한 주소 범위에 대 한 제한 및 크기 조정에 대 한 구체적인 정보는 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조 하세요.
+
 ### <a name="kubenet-networking"></a>Kubenet 네트워킹
 
 Kubenet에서는 클러스터를 배포하기 전에 가상 네트워크를 설정할 필요가 없지만 다음과 같은 단점이 있습니다.
 
-* 노드 및 pod가 서로 다른 IP 서브넷에 배치됩니다. Pod와 노드 간에 트래픽을 라우팅하는 데 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 이 추가 라우팅으로 인해 네트워크 성능이 줄어듭니다.
+* 노드 및 pod가 서로 다른 IP 서브넷에 배치됩니다. Pod와 노드 간에 트래픽을 라우팅하는 데 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 이 추가 라우팅은 네트워크 성능을 저하 시킬 수 있습니다.
 * 기존 온-프레미스 네트워크에 연결하거나 다른 Azure Virtual Network에 피어링하는 작업이 복잡할 수 있습니다.
 
-Kubenet은 AKS 클러스터에서 가상 네트워크 및 서브넷을 별도로 만들 필요가 없으므로 소규모 개발 또는 테스트 워크로드에 적합합니다. 트래픽이 낮은 간단한 웹 사이트를 사용하거나, 워크로드를 컨테이너로 이동 전환(lift & shift)하려는 경우 Kubenet 네트워킹을 사용하여 배포된 AKS 클러스터의 단순성을 활용할 수도 있습니다. 대부분의 프로덕션 배포에서는 Azure CNI 네트워킹을 계획하여 사용해야 합니다. 또한 [Kubenet을 사용하여 고유한 IP 주소 범위 및 가상 네트워크를 구성][aks-configure-kubenet-networking]할 수 있습니다.
+Kubenet은 AKS 클러스터에서 가상 네트워크 및 서브넷을 별도로 만들 필요가 없으므로 소규모 개발 또는 테스트 워크로드에 적합합니다. 트래픽이 낮은 간단한 웹 사이트를 사용하거나, 워크로드를 컨테이너로 이동 전환(lift & shift)하려는 경우 Kubenet 네트워킹을 사용하여 배포된 AKS 클러스터의 단순성을 활용할 수도 있습니다. 대부분의 프로덕션 배포에서는 Azure CNI 네트워킹을 계획하여 사용해야 합니다.
+
+또한 [Kubenet을 사용하여 고유한 IP 주소 범위 및 가상 네트워크를 구성][aks-configure-kubenet-networking]할 수 있습니다. Azure CNI 네트워킹과 마찬가지로 이러한 주소 범위는 서로 겹칠 수 없으며 가상 네트워크, 서브넷, 온-프레미스 및 피어 링 네트워크를 포함 하 여 클러스터와 연결 된 네트워크와 겹치지 않아야 합니다. 이러한 주소 범위에 대 한 제한 및 크기 조정에 대 한 구체적인 정보는 [AKS에서 고유한 IP 주소 범위를 사용 하 여 kubenet 네트워킹 사용][aks-configure-kubenet-networking]을 참조 하세요.
 
 ## <a name="distribute-ingress-traffic"></a>수신 트래픽 분산
 
-**모범 사례 지침** - HTTP 또는 HTTPS 트래픽을 애플리케이션으로 분산하려면 수신 리소스 및 컨트롤러를 사용합니다. 수신 컨트롤러는 일반 Azure Load Balancer를 능가하는 추가 기능을 제공하며 기본 Kubernetes 리소스로 관리할 수 있습니다.
+**모범 사례 지침** - HTTP 또는 HTTPS 트래픽을 애플리케이션으로 분산하려면 수신 리소스 및 컨트롤러를 사용합니다. 수신 컨트롤러는 일반적인 Azure 부하 분산 장치를 통해 추가 기능을 제공 하며, 기본 Kubernetes 리소스로 관리할 수 있습니다.
 
 Azure Load Balancer는 AKS 클러스터의 애플리케이션에 고객 트래픽을 배포할 수 있지만 해당 트래픽에 대한 정보가 제한됩니다. 부하 분산 장치 리소스는 계층 4에서 작동하며, 프로토콜 또는 포트를 기준으로 트래픽을 분산합니다. HTTP 또는 HTTPS를 사용 하는 대부분의 웹 응용 프로그램은 계층 7에서 작동 하는 Kubernetes 수신 리소스 및 컨트롤러를 사용 해야 합니다. 수신 쪽은 애플리케이션의 URL을 기준으로 트래픽을 분산하며 TLS/SSL 종료를 처리할 수 있습니다. 또한 이 기능은 사용자가 노출 및 매핑하는 IP 주소 수를 줄입니다. 부하 분산 장치를 사용할 경우 각 애플리케이션은 일반적으로 AKS 클러스터의 서비스에 공용 IP 주소가 할당 및 매핑되어야 합니다. 수신 리소스를 사용할 경우 단일 IP 주소로 여러 애플리케이션에 트래픽을 분산할 수 있습니다.
 
@@ -70,10 +76,10 @@ Azure Load Balancer는 AKS 클러스터의 애플리케이션에 고객 트래�
 
  수신 쪽에는 두 가지 구성 요소가 있습니다.
 
- * 바로 수신 *리소스*와
+ * 바로 수신 *리소스* 와
  * 수신 *컨트롤러*
 
-수신 리소스는 AKS 클러스터에서 실행되는 서비스로 트래픽을 라우팅하기 위한 호스트, 인증서 및 규칙을 정의하는 YAML 매니페스트 `kind: Ingress`입니다. 다음 예제의 YAML 매니페스트는 *myapp.com*에 대한 트래픽을 두 서비스 *blogservice* 또는 *storeservice* 중 하나로 분산합니다. 고객은 액세스하는 URL에 따라 특정 서비스로 이동됩니다.
+수신 리소스는 AKS 클러스터에서 실행되는 서비스로 트래픽을 라우팅하기 위한 호스트, 인증서 및 규칙을 정의하는 YAML 매니페스트 `kind: Ingress`입니다. 다음 예제의 YAML 매니페스트는 *myapp.com* 에 대한 트래픽을 두 서비스 *blogservice* 또는 *storeservice* 중 하나로 분산합니다. 고객은 액세스하는 URL에 따라 특정 서비스로 이동됩니다.
 
 ```yaml
 kind: Ingress
@@ -118,7 +124,7 @@ spec:
 
 ![Azure App Gateway와 같은 WAF(웹 애플리케이션 방화벽)로 AKS 클러스터에 대한 트래픽을 보호하고 분산할 수 있음](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추가적인 보안 계층을 제공합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 애플리케이션 게이트웨이][app-gateway] (현재 AKS의 미리 보기 상태)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 AKS 클러스터와 통합 하 여 이러한 보안 기능을 제공할 수 있는 waf입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
+WAF (웹 응용 프로그램 방화벽)는 들어오는 트래픽을 필터링 하 여 추가 보안 계층을 제공 합니다. OWASP(Open Web Application Security Project)는 교차 사이트 스트립팅 또는 쿠키 악성 침입과 같은 공격을 감시하기 위한 규칙 세트를 제공합니다. [Azure 애플리케이션 게이트웨이][app-gateway] (현재 AKS의 미리 보기 상태)는 트래픽이 AKS 클러스터 및 응용 프로그램에 도달 하기 전에 AKS 클러스터와 통합 하 여 이러한 보안 기능을 제공할 수 있는 waf입니다. 기타 타사 솔루션도 이러한 기능을 수행하므로 지정된 제품의 기존 투자 또는 전문 지식을 계속 사용할 수 있습니다.
 
 부하 분산 장치 또는 수신 리소스는 트래픽 분산을 미세 조정하기 위해 AKS 클러스터에서 계속 실행됩니다. App Gateway는 리소스 정의를 사용하여 중앙에서 수신 컨트롤러로 관리될 수 있습니다. 시작하려면 [Application Gateway 수신 컨트롤러를 만드세요][app-gateway-ingress].
 

@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-ms.date: 01/21/2021
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 27712dcd30857ca8c677de4f99dc4ed7e2e7b292
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: cc42830fc73612e744942bdd8b353832e0ccbf2a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662129"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368458"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -48,60 +48,17 @@ Arc 사용 서버의 경우 컴퓨터 이름을 바꾸기 전에 먼저 VM 확�
 > [!WARNING]
 > 컴퓨터의 컴퓨터 이름을 바꾸는 것을 방지 하 고 반드시 필요한 경우에만이 절차를 수행 하는 것이 좋습니다.
 
-아래 단계에서는 컴퓨터 이름 바꾸기 절차를 요약 합니다.
-
 1. 컴퓨터에 설치 된 VM 확장을 감사 하 고 [Azure CLI](manage-vm-extensions-cli.md#list-extensions-installed) 또는 [Azure PowerShell](manage-vm-extensions-powershell.md#list-extensions-installed)를 사용 하 여 구성을 확인 합니다.
 
-2. PowerShell, Azure CLI 또는 Azure Portal를 사용 하 여 VM 확장을 제거 합니다.
+2. [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension)또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)를 사용 하 여 [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension)에서 설치 된 VM 확장을 제거 합니다.
 
-    > [!NOTE]
-    > Azure Policy 게스트 구성 정책을 사용 하 여 insights (VM용 Azure Monitor) 에이전트 또는 Log Analytics 에이전트를 배포한 경우 다음 [평가 주기](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) 후와 이름이 바뀐 컴퓨터가 Arc 사용 서버에 등록 된 후에 에이전트가 다시 배포 됩니다.
+3. **Azcmagent** 도구를 [연결 끊기](manage-agent.md#disconnect) 매개 변수와 함께 사용 하 여 azure Arc에서 컴퓨터의 연결을 끊고 azure에서 컴퓨터 리소스를 삭제 합니다. Arc 사용 서버에서 컴퓨터 연결을 끊으면 연결 된 컴퓨터 에이전트는 제거 되지 않으므로이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 대화형으로 로그온 하는 동안이를 수동으로 실행 하거나, 여러 에이전트를 등록 하는 데 사용한 것과 동일한 서비스 주체를 사용 하거나 Microsoft id 플랫폼 [액세스 토큰](../../active-directory/develop/access-tokens.md)을 사용 하 여 자동화할 수 있습니다. 서비스 주체를 사용 하 여 Azure Arc 사용 서버에 컴퓨터를 등록 하지 않은 경우 서비스 주체를 만들려면 다음 [문서](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 를 참조 하세요.
 
-3. PowerShell, Azure CLI 또는 포털을 사용 하 여 Arc 사용 서버에서 컴퓨터의 연결을 끊습니다.
+4. 컴퓨터의 컴퓨터 이름 이름을 바꿉니다.
 
-4. 컴퓨터의 이름을 바꿉니다.
+5. 연결 된 컴퓨터 에이전트를 Arc 사용 서버에 다시 등록 합니다. `azcmagent` [Connect](manage-agent.md#connect) 매개 변수를 사용 하 여이 도구를 실행 합니다.
 
-5. 도구를 사용 하 여 Arc 사용 서버에 컴퓨터를 연결 `Azcmagent` 하 여 Azure에서 새 리소스를 등록 하 고 만듭니다.
-
-6. 대상 컴퓨터에 이전에 설치 된 VM 확장을 배포 합니다.
-
-다음 단계를 사용 하 여이 작업을 완료 합니다.
-
-1. [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension)또는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)를 사용 하 여 [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension)에서 설치 된 VM 확장을 제거 합니다.
-
-2. 다음 방법 중 하나를 사용 하 여 Azure Arc에서 컴퓨터의 연결을 끊습니다. Arc 사용 서버에서 컴퓨터 연결을 끊으면 연결 된 컴퓨터 에이전트는 제거 되지 않으므로이 프로세스의 일부로 에이전트를 제거할 필요가 없습니다. 컴퓨터에 배포 된 모든 VM 확장은이 과정에서 계속 작동 합니다.
-
-    # <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
-
-    1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
-    1. 포털에서 **서버-Azure Arc** 로 이동 하 여 목록에서 하이브리드 컴퓨터를 선택 합니다.
-    1. 선택한 등록 된 Arc 사용 서버에서 맨 위의 막대에서 **삭제** 를 선택 하 여 Azure에서 리소스를 삭제 합니다.
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-    
-    ```azurecli
-    az resource delete \
-      --resource-group ExampleResourceGroup \
-      --name ExampleArcMachine \
-      --resource-type "Microsoft.HybridCompute/machines"
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
-
-    ```powershell
-    Remove-AzResource `
-     -ResourceGroupName ExampleResourceGroup `
-     -ResourceName ExampleArcMachine `
-     -ResourceType Microsoft.HybridCompute/machines
-    ```
-
-3. 컴퓨터의 컴퓨터 이름 이름을 바꿉니다.
-
-### <a name="after-renaming-operation"></a>이름 바꾸기 작업 후
-
-컴퓨터의 이름을 바꾼 후에는 연결 된 컴퓨터 에이전트를 Arc 사용 서버에 다시 등록 해야 합니다. `azcmagent` [Connect](#connect) 매개 변수를 사용 하 여이 도구를 실행 합니다.
-
-원래 컴퓨터에 배포 된 VM 확장을 Arc 사용 서버에서 다시 배포 합니다. Azure Policy 게스트 구성 정책을 사용 하 여 insights (VM용 Azure Monitor) 에이전트 또는 Log Analytics 에이전트를 배포한 경우 다음 [평가 주기](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)후에 에이전트가 다시 배포 됩니다.
+6. 원래 컴퓨터에 배포 된 VM 확장을 Arc 사용 서버에서 다시 배포 합니다. Azure 정책을 사용 하 여 VM용 Azure Monitor (insights) 에이전트 또는 Log Analytics 에이전트를 배포한 경우 다음 [평가 주기](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers)후에 에이전트가 다시 배포 됩니다.
 
 ## <a name="upgrading-agent"></a>에이전트 업그레이드
 

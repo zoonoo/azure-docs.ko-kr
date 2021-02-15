@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 Netezza에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Netezza에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b12c1f24f389634004de3d487a693bc588a7241
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84216382"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374357"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Netezza에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,7 +51,7 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | **형식** 속성은 **Netezza**로 설정되어야 합니다. | 예 |
+| type | **형식** 속성은 **Netezza** 로 설정되어야 합니다. | 예 |
 | connectionString | Netezza에 연결할 ODBC 연결 문자열입니다. <br/>Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
@@ -94,13 +89,13 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
         "type": "Netezza",
         "typeProperties": {
             "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -117,7 +112,7 @@ Azure Data Factory는 연결을 허용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md)를 참조하세요.
 
-Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성을 **NetezzaTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성을 **NetezzaTable** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
@@ -153,13 +148,13 @@ Netezza에서 데이터를 복사하려면 데이터 세트의 **형식** 속성
 >[!TIP]
 >데이터 분할을 사용하여 Netezza에서 데이터를 효율적으로 로드하려면 [Netezza에서 병렬 복사](#parallel-copy-from-netezza) 섹션에서 자세히 알아보세요.
 
-Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을 **NetezzaSource**로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
+Netezza에서 데이터를 복사하려면 복사 작업의 **원본** 형식을 **NetezzaSource** 로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **형식** 속성을 **NetezzaSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 **형식** 속성을 **NetezzaSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
-| partitionOptions | Netezza에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용되는 값은 **None**(기본값), **DataSlice**, **DynamicRange**입니다.<br>파티션 옵션을 사용하도록 설정하는 경우 (즉, `None`은 안 됨), Netezza 데이터베이스에서 데이터를 동시에 로드하는 병렬 처리 수준이 복사 작업에서 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. | 예 |
+| partitionOptions | Netezza에서 데이터를 로드하는 데 사용되는 데이터 분할 옵션을 지정합니다. <br>허용되는 값은 **None**(기본값), **DataSlice**, **DynamicRange** 입니다.<br>파티션 옵션을 사용하도록 설정하는 경우 (즉, `None`은 안 됨), Netezza 데이터베이스에서 데이터를 동시에 로드하는 병렬 처리 수준이 복사 작업에서 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 설정에 의해 제어됩니다. | 예 |
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용합니다. | 예 |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정하지 않으면 테이블의 기본 키가 자동으로 검색되어 파티션 열로 사용됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionColumnName`을 후크합니다. [Netezza에서 병렬 복사](#parallel-copy-from-netezza)에서 예제를 참조하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용합니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`을 후크합니다. 예제는 [Netezza에서 병렬 복사](#parallel-copy-from-netezza) 섹션을 참조하세요. | 예 |

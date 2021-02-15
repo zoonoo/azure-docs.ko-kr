@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 5477aa0c4eb2a66af816b287a8b6d7da8a53952f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534894"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517980"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
 
@@ -46,7 +46,7 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 | **방화벽** | 데이터를 보호하기 위해, 방화벽 규칙은 사용자가 권한 있는 컴퓨터를 지정하기 전에는 데이터베이스 서버에 대한 모든 액세스를 차단합니다. [MySQL용 Azure 데이터베이스 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요. |
 | **SSL** | 이 서비스는 애플리케이션 및 데이터베이스 서버 간의 SSL 연결 적용을 지원합니다.  [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. |
 
-## <a name="stopstart-an-azure-database-for-mysql-preview"></a>Azure Database for MySQL 중지/시작 (미리 보기)
+## <a name="stopstart-an-azure-database-for-mysql"></a>Azure Database for MySQL 중지/시작
 
 Azure Database for MySQL 사용 하지 않을 때 서버를 **중지** 하 고 작업을 다시 시작할 때 서버를 **시작** 하는 기능을 제공 합니다. 이는 기본적으로 데이터베이스 서버에 대 한 비용을 절감 하 고 사용 하는 경우에만 리소스에 대 한 비용을 지불 합니다. 이는 개발-테스트 워크 로드에 대해 매우 중요 하 고 하루 중에만 서버를 사용 하는 경우에도 더욱 중요 합니다. 서버를 중지 하면 모든 활성 연결이 삭제 됩니다. 나중에 서버를 다시 온라인 상태로 전환 하려는 경우 [Azure Portal](how-to-stop-start-server.md) 또는 [CLI](how-to-stop-start-server.md)를 사용할 수 있습니다.
 

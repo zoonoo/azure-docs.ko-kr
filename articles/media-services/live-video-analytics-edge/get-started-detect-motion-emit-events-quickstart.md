@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507790"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99573809"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -563,6 +563,12 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 3. 마우스 오른쪽 단추로 **lva-sample-device** 를 클릭한 다음, **기본 제공 이벤트 모니터링 시작** 을 선택합니다.
 
     ![Iot Hub 이벤트 모니터링 시작](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > IoT Hub에 대한 기본 제공 엔드포인트 정보를 제공하라는 메시지가 표시될 수 있습니다. 해당 정보를 가져오려면 Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 **기본 제공 엔드포인트** 옵션을 찾습니다. 여기를 클릭하고 **Event Hub 호환 엔드포인트** 섹션에서 **Event Hub 호환 엔드포인트** 를 찾습니다. 상자의 텍스트를 복사하여 사용합니다. 엔드포인트는 다음과 같이 표시됩니다.  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 **출력** 창에 다음 메시지가 표시됩니다.
 
@@ -595,13 +601,6 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

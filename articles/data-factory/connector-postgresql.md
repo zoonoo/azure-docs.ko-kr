@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용 하 여 PostgreSQL에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 PostgreSQL에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d10e7b9b24817eb738172bd0f2d2c3e7f8f2cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d8783c4b07c8c87e57ccd9a5d65983825347c9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416758"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384098"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -36,7 +31,7 @@ ms.locfileid: "81416758"
 
 PostgreSQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-특히 이 PostgreSQL 커넥터는 PostgreSQL **버전 7.4 이상**을 지원합니다.
+특히 이 PostgreSQL 커넥터는 PostgreSQL **버전 7.4 이상** 을 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,9 +49,9 @@ Integration Runtime은 버전 3.7부터 시작하는 기본 제공 PostgreSQL �
 
 PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **PostgreSql**로 설정해야 합니다. | 예 |
+| type | 형식 속성은 **PostgreSql** 로 설정해야 합니다. | 예 |
 | connectionString | Azure Database for PostgreSQL에 연결하는 ODBC 연결 문자열입니다. <br/>Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -64,7 +59,7 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예: `EncryptionMethod=<0/1/6>;`| 0(암호화 없음)**(기본값)** / 1(SSL) / 6(RequestSSL) | 아니요 |
+| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예: `EncryptionMethod=<0/1/6>;`| 0(암호화 없음)**(기본값)** / 1(SSL) / 6(RequestSSL) | 예 |
 | ValidateServerCertificate(VSC) | SSL 암호화를 사용할 때(암호화 메서드=1) 데이터베이스 서버에서 보내는 인증서의 유효성을 드라이버가 검사하는지 여부를 결정합니다. 예: `ValidateServerCertificate=<0/1>;`| 0(사용 안 함)**(기본값)** / 1(사용) | 예 |
 
 **예:**
@@ -94,13 +89,13 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
         "type": "PostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -143,7 +138,7 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 PostgreSQL에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **PostgreSqlTable** 로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
@@ -178,7 +173,7 @@ PostgreSQL에서 데이터를 복사 하기 위해 지원 되는 속성은 다�
 
 PostgreSQL에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **PostgreSqlSource** 로 설정 해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

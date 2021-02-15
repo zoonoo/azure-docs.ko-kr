@@ -1,22 +1,18 @@
 ---
 title: Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션
 description: 솔루션 템플릿을 사용 하 여 AWS S3의 파티션 목록을 Azure Data Factory와 함께 저장 하 여 Amazon s 3에서 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398223"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361995"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션
 
@@ -111,7 +107,7 @@ ms.locfileid: "91398223"
 
     ![AWS S3에서 Azure Data Lake Storage Gen2 템플릿으로 기록 데이터를 마이그레이션하는 것을 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
-4. **이 템플릿 사용**을 선택합니다.
+4. **이 템플릿 사용** 을 선택합니다.
 
     ![이 템플릿 사용 단추를 강조 표시 하는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
     
@@ -119,7 +115,7 @@ ms.locfileid: "91398223"
 
     ![두 파이프라인 및 템플릿을 사용 하 여 생성 된 세 개의 데이터 집합을 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
+6. "BulkCopyFromS3" 파이프라인으로 이동 하 고 **디버그** 를 선택한 다음 **매개 변수** 를 입력 합니다. **마침** 을 선택합니다.
 
     ![마침을 선택 하기 전에 디버그를 선택 하 고 매개 변수를 입력할 위치를 보여 주는 스크린샷](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -174,7 +170,7 @@ ms.locfileid: "91398223"
 
     ![새 연결 만들기](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
-4. **이 템플릿 사용**을 선택합니다.
+4. **이 템플릿 사용** 을 선택합니다.
 
     ![이 템플릿 사용](media/solution-template-migration-s3-azure/delta-migration-s3-azure2.png)
     
@@ -182,7 +178,7 @@ ms.locfileid: "91398223"
 
     ![파이프라인 검토](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. **디버그**를 선택하고 **매개 변수**를 입력한 다음, **마침**을 선택합니다.
+6.  "DeltaCopyFromS3" 파이프라인으로 이동 하 고 **디버그** 를 선택한 다음 **매개 변수** 를 입력 합니다. **마침** 을 선택합니다.
 
     ![**디버그** 클릭](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

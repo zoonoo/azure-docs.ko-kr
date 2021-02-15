@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125972"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832133"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -31,16 +31,16 @@ ms.locfileid: "92125972"
 
    ![Microsoft 계정 로그인 대화 상자의 스크린샷](./media/tutorial-in-store-analytics-create-app/sign-in.png)
 
-1. 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션**을 선택합니다.
+1. 새로운 Azure IoT Central 애플리케이션 만들기를 시작하려면 **새 애플리케이션** 을 선택합니다.
 
-1. **소매**를 선택합니다.  소매 페이지는 여러 소매점 애플리케이션 템플릿을 표시합니다.
+1. **소매** 를 선택합니다.  소매 페이지는 여러 소매점 애플리케이션 템플릿을 표시합니다.
 
 미리 보기 기능을 사용하는 새로운 마이크로 처리 센터 애플리케이션을 만들려면 다음을 수행합니다.  
 1. **마이크로 처리 센터** 애플리케이션 템플릿을 선택합니다. 이 템플릿에는 이 자습서에서 사용되는 모든 디바이스용 디바이스 템플릿이 포함되어 있습니다. 이 템플릿은 처리 센터 내의 상태와 로봇 캐리어의 상태를 모니터링하는 운영자 대시보드도 제공합니다. 
 
     ![Azure IoT Central의 IoT 애플리케이션 페이지 빌드 페이지에 대한 스크린샷](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
-1. 필요에 따라 친숙한 **애플리케이션 이름**을 선택합니다. 이 애플리케이션 템플릿은 Northwind Traders라는 가상의 회사를 기반으로 합니다. 
+1. 필요에 따라 친숙한 **애플리케이션 이름** 을 선택합니다. 이 애플리케이션 템플릿은 Northwind Traders라는 가상의 회사를 기반으로 합니다. 
 
     >[!NOTE]
     >친숙한 애플리케이션 이름을 사용하는 경우에도 고유한 값을 애플리케이션 URL에 사용해야 합니다.
@@ -49,13 +49,13 @@ ms.locfileid: "92125972"
 
     디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기](../core/quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
     ![Azure IoT Central의 새 애플리케이션 페이지에 대한 스크린샷](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
 ## <a name="walk-through-the-application"></a>애플리케이션 살펴보기 
 
-앱 템플릿이 성공적으로 배포되면 **Northwind Traders 마이크로 처리 센터 대시보드**가 표시됩니다. Northwind Trader는 이 Azure IoT Central 애플리케이션에서 마이크로 처리 센터를 관리하는 가상의 소매업체입니다. 이 운영자 대시보드에는 수행할 수 있는 명령, 작업 및 동작 세트와 함께 이 템플릿의 디바이스에 대한 정보 및 원격 분석 데이터가 표시됩니다. 대시보드는 논리적으로 두 섹션으로 분할됩니다. 왼쪽에서는 처리 구조 내에서 환경 상태를 모니터링할 수 있고, 오른쪽에서는 시설 내 로봇 캐리어의 상태를 모니터링할 수 있습니다.  
+앱 템플릿이 성공적으로 배포되면 **Northwind Traders 마이크로 처리 센터 대시보드** 가 표시됩니다. Northwind Trader는 이 Azure IoT Central 애플리케이션에서 마이크로 처리 센터를 관리하는 가상의 소매업체입니다. 이 운영자 대시보드에는 수행할 수 있는 명령, 작업 및 동작 세트와 함께 이 템플릿의 디바이스에 대한 정보 및 원격 분석 데이터가 표시됩니다. 대시보드는 논리적으로 두 섹션으로 분할됩니다. 왼쪽에서는 처리 구조 내에서 환경 상태를 모니터링할 수 있고, 오른쪽에서는 시설 내 로봇 캐리어의 상태를 모니터링할 수 있습니다.  
 
 대시보드에서 수행할 수 있는 작업은 다음과 같습니다.
    * 선택 횟수, 처리된 주문 수, 속성(예: 구조 시스템 상태)과 같은 디바이스 원격 분석을 확인합니다.  
@@ -86,14 +86,13 @@ ms.locfileid: "92125972"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 애플리케이션을 계속 사용하지 않으려면 애플리케이션 템플릿을 삭제합니다. **관리** > **애플리케이션 설정**으로 차례로 이동하고, **삭제**를 선택합니다.
+이 애플리케이션을 계속 사용하지 않으려면 애플리케이션 템플릿을 삭제합니다. **관리** > **애플리케이션 설정** 으로 차례로 이동하고, **삭제** 를 선택합니다.
 
 ![마이크로 처리 센터 애플리케이션 설정 페이지의 스크린샷](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 정보
+다음에 대해 자세히 알아봅니다.
+
 > [!div class="nextstepaction"]
 > [마이크로 처리 센터 솔루션 아키텍처](./architecture-micro-fulfillment-center.md)
-* [Azure IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대한 자세한 정보
-* [Azure IoT Central](../core/overview-iot-central.md)에 대한 자세한 정보

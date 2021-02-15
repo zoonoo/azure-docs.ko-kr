@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421382"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831266"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
 
@@ -137,15 +137,14 @@ IoT 플러그 앤 플레이 디바이스는 일련의 간단한 규칙을 따라
 * `DEVICE_TELEMETRY_MESSAGE`는 디바이스에서 IoT 허브에 원격 분석을 보고하는 데 사용하는 토픽을 정의합니다.
 
 MQTT에 대한 자세한 내용은 [Azure IoT에 대한 MQTT 샘플](https://github.com/Azure-Samples/IoTMQTTSample/) GitHub 리포지토리를 참조하세요.
-  
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT 플러그 앤 플레이 규칙을 따르도록 MQTT 디바이스 클라이언트를 수정하는 방법을 배웠습니다. IoT 플러그 앤 플레이에 대한 자세한 내용은 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [아키텍처](concepts-architecture.md)
-
-MQTT 프로토콜의 IoT Hub 지원에 대한 자세한 내용은 다음 항목을 참조하세요.
+이 자습서에서는 IoT 플러그 앤 플레이 규칙을 따르도록 MQTT 디바이스 클라이언트를 수정하는 방법을 배웠습니다. MQTT 프로토콜의 IoT Hub 지원에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [MQTT 프로토콜을 사용하여 IoT 허브와 통신](../iot-hub/iot-hub-mqtt-support.md)

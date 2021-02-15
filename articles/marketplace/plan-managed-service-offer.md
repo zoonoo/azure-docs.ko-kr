@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879278"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371943"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 관리 서비스 제품을 계획 하는 방법
 
 이 문서에서는 파트너 센터를 통해 Microsoft 상업적 marketplace에 관리 되는 서비스 제품을 게시 하기 위한 요구 사항을 소개 합니다.
 
-관리 서비스는 Azure Lighthouse를 사용 하 여 교차 테 넌 트 및 다중 테 넌 트 관리를 가능 하 게 하는 제공 Azure Marketplace입니다. 자세히 알아보려면 [Azure Lighthouse?](../lighthouse/overview.md) 을 참조 하세요. 고객이 관리 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다.
+관리 서비스는 Azure Lighthouse를 사용 하 여 교차 테 넌 트 및 다중 테 넌 트 관리를 가능 하 게 하는 제공 Azure Marketplace입니다. 자세히 알아보려면 [Azure Lighthouse?](../lighthouse/overview.md) 을 참조 하세요. 고객이 관리 서비스 제품을 구매할 때 하나 이상의 구독 또는 리소스 그룹을 위임할 수 있습니다. 그런 다음 Azure Lighthouse의 [azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md) 기능을 사용 하 여 해당 리소스에 대 한 작업을 수행할 수 있습니다.
 
 ## <a name="eligibility-requirements"></a>자격 요구 사항
 
-관리 서비스를 게시 하려면 클라우드 플랫폼에서 골드 또는 실버 Microsoft 역량을 달성 해야 합니다. 이 역량은 고객에 대 한 전문 지식을 보여줍니다. 자세한 내용은 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership/competencies)역량을 참조 하세요.
+관리 서비스 제품을 게시 하려면 클라우드 플랫폼에서 골드 또는 실버 Microsoft 역량을 달성 해야 합니다. 이 역량은 고객에 대 한 전문 지식을 보여줍니다. 자세한 내용은 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership/competencies)역량을 참조 하세요.
 
 제품은 Azure Marketplace에 게시할 수 있는 모든 [상용 marketplace 인증 정책을](/legal/marketplace/certification-policies) 충족 해야 합니다.
 

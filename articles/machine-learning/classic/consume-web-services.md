@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): 웹 서비스 사용-Azure'
 description: Azure Machine Learning Studio (클래식)에서 machine learning 서비스를 배포한 후에는 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: eaf0131877e7a333fe2a6f157523da5ad7bcf07b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 0dc49265c0ea799e194e4ac7004b558d8a9d4dd8
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500002"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519272"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
 
-**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다.  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것   ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio(클래식)  ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (클래식) 예측 모델을 웹 서비스로 배포 하면 REST API를 사용 하 여 it 데이터를 전송 하 고 예측을 얻을 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.

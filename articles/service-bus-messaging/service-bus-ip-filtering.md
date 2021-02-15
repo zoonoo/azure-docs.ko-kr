@@ -2,13 +2,13 @@
 title: Azure Service Bus에 대한 IP 방화벽 규칙 구성
 description: 특정 IP 주소에서 Azure Service Bus로 연결을 허용하도록 방화벽 규칙을 사용하는 방법입니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3aacf54dca07f0e1f2a66c8cdd85f892dda68cd4
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: 11a17575e65bc8878819767804d7f69f3d590ad3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426584"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516552"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>특정 IP 주소 또는 범위에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Service Bus 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -37,7 +37,8 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에 적용됩니다.
     > [!NOTE]
     > **프리미엄** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다.  
     
-    기본적으로 **선택한 네트워크** 옵션이 선택 되어 있습니다. 이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않으면 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용).
+    >[!WARNING]
+    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지-기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -50,7 +51,7 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에 적용됩니다.
     3. **신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용** 할지 여부를 지정합니다. 
 
         > [!WARNING]
-        > **선택한 네트워크** 옵션을 선택하고 IP 주소 또는 주소 범위를 지정하지 않으면 서비스는 모든 네트워크에 들어오는 트래픽을 허용합니다. 
+        > **선택한 네트워크** 옵션을 선택하고 IP 주소 또는 주소 범위를 지정하지 않으면 서비스는 모든 네트워크로부터의 트래픽을 허용합니다. 
 
         ![Azure Portal 네트워킹 페이지의 스크린샷 선택한 네트워크에서 액세스를 허용 하는 옵션이 선택 되 고 방화벽 섹션이 강조 표시 됩니다.](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
 3. 도구 모음에서 **저장** 을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.
@@ -61,28 +62,12 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에 적용됩니다.
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
-이 섹션에는 가상 네트워크 및 방화벽 규칙을 만드는 샘플 Azure Resource Manager 템플릿이 있습니다.
+이 섹션에는 기존 Service Bus 네임 스페이스에 가상 네트워크 및 방화벽 규칙을 추가 하는 샘플 Azure Resource Manager 템플릿이 있습니다.
 
+**ipMask** 는 단일 IPv4 주소 또는 CIDR 표기법인 IP 주소 블록입니다. 예를 들어 CIDR 표기법으로 70.37.104.0/24는 70.37.104.0부터 70.37.104.255까지의 256개 IPv4 주소를 나타냅니다. 여기서 24는 범위에 대한 중요 접두사 비트의 수를 의미합니다.
 
-다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
+가상 네트워크 또는 방화벽 규칙을 추가할 때의 값을 `defaultAction` 로 설정 `Deny` 합니다.
 
-템플릿 매개 변수:
-
-- **ipMask** 는 단일 IPv4 주소 또는 CIDR 표기법인 IP 주소 블록입니다. 예를 들어 CIDR 표기법으로 70.37.104.0/24는 70.37.104.0부터 70.37.104.255까지의 256개 IPv4 주소를 나타냅니다. 여기서 24는 범위에 대한 중요 접두사 비트의 수를 의미합니다.
-
-> [!NOTE]
-> 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
-> Virtual Network 또는 방화벽 규칙을 만들 때 **_"defaultAction"_ 를 변경 해야 합니다.**
-> 
-> 원본
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -147,6 +132,10 @@ IP 방화벽 규칙은 Service Bus 네임스페이스 수준에 적용됩니다.
 ```
 
 템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
+
+> [!IMPORTANT]
+> IP 및 가상 네트워크 규칙이 없는 경우를로 설정 하더라도 모든 트래픽이 네임 스페이스로 흐릅니다 `defaultAction` `deny` . 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다.  
+
 
 ## <a name="next-steps"></a>다음 단계
 

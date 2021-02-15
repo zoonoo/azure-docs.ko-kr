@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1e5a04d385ba6c6dda5b52b23fd4793860f991dc
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737204"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371552"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
 
@@ -92,7 +92,7 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## <a name="client-applications-in-app-configuration"></a>앱 구성의 클라이언트 응용 프로그램 
 
-앱 구성에 대 한 과도 한 요청은 제한 또는 초과분 요금이 발생할 수 있습니다. 응용 프로그램은 현재 제공 되는 캐싱과 새로 고침 기능을 활용 하 여 전송 하는 요청 수를 최적화 합니다. 이 프로세스는 구성 저장소에 대 한 직접 연결을 방지 하 여 대용량 클라이언트 응용 프로그램에서 미러링할 수 있습니다. 대신, 클라이언트 응용 프로그램은 사용자 지정 서비스에 연결 하 고이 서비스는 구성 저장소와 통신 합니다. 이 프록시 솔루션은 클라이언트 응용 프로그램이 구성 저장소의 제한 제한에 접근 하지 않도록 보장할 수 있습니다. 제한에 대 한 자세한 내용은 [FAQ](./faq.md#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration)를 참조 하세요.  
+앱 구성에 대 한 과도 한 요청은 제한 또는 초과분 요금이 발생할 수 있습니다. 응용 프로그램은 현재 제공 되는 캐싱과 새로 고침 기능을 활용 하 여 전송 하는 요청 수를 최적화 합니다. 이 프로세스는 구성 저장소에 대 한 직접 연결을 방지 하 여 대용량 클라이언트 응용 프로그램에서 미러링할 수 있습니다. 대신, 클라이언트 응용 프로그램은 사용자 지정 서비스에 연결 하 고이 서비스는 구성 저장소와 통신 합니다. 이 프록시 솔루션은 클라이언트 응용 프로그램이 구성 저장소의 제한 제한에 접근 하지 않도록 보장할 수 있습니다. 제한에 대 한 자세한 내용은 [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration)를 참조 하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 

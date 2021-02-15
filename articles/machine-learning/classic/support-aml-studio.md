@@ -3,21 +3,21 @@ title: ML Studio (클래식) 자습서 & 교육 지원-Azure
 description: 지원 및 교육을 받고 Azure Machine Learning Studio (클래식)에 대 한 피드백 제공
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: c49437db6bc3651d27181ef8e8f5248b5785e089
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 606229f8baf1016938ed531682d11297d14145fd
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325660"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517470"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 지원 및 교육 받기
 
-**적용 대상:** ![ 녹색 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ X를 표시 하지 않습니다. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**적용 대상:** ![ 녹색 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) ![ X를 표시 하지 않습니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -38,10 +38,10 @@ ms.locfileid: "93325660"
 
 다음 지원 리소스를 확인하세요.
 
-+ **Azure 고객에 대 한 기술 지원** : Azure Portal을 통해 [지원 요청을 제출 하 고 관리](../../azure-portal/supportability/how-to-create-azure-support-request.md) 합니다.
++ **Azure 고객에 대 한 기술 지원**: Azure Portal을 통해 [지원 요청을 제출 하 고 관리](../../azure-portal/supportability/how-to-create-azure-support-request.md) 합니다.
 
-+ **사용자 포럼** : [Azure Machine Learning Studio (클래식) 지원 포럼](/answers/topics/azure-machine-learning.html)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
++ **사용자 포럼**: [Azure Machine Learning Studio (클래식) 지원 포럼](/answers/topics/azure-machine-learning.html)에서 질문을 하 고 질문에 대답 하 고 다른 사용자와 연결 하세요.
 
-+ **Stack Overflow** : "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
++ **Stack Overflow**: "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
 
 + [Azure Machine Learning 피드백 채널](https://feedback.azure.com/forums/257792-machine-learning)에서 **제품 제안 및 기능 요청을 공유** 합니다. 피드백을 공유하려면 각 문서의 끝에 있는 **제품 피드백** 단추를 선택합니다.

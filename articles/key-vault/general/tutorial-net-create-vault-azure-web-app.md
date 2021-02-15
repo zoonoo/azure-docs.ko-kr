@@ -10,23 +10,23 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2504efcbd79ab0e43f958b86564709b6ac6295a6
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 2960726cf687908e8e4aed9333fce490dd7ff006
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733059"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821941"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-in-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure 웹앱에 연결
 
 [Azure Key Vault](./overview.md)는 보안이 강화된 자격 증명 및 기타 비밀을 저장하는 방법을 제공합니다. 그러나 코드는 Key Vault에 인증하여 이러한 항목을 검색해야 합니다. [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 표시할 필요가 없습니다.
 
-이 자습서에서는 Azure 웹 애플리케이션을 만들고 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)에 배포합니다. 관리 ID를 사용하여 [.NET용 Azure Key Vault 비밀 클라이언트 라이브러리](/dotnet/api/overview/azure/key-vault) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 통해 Azure Key Vault로 Azure 웹앱을 인증합니다. 선택한 개발 언어, Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
+이 자습서에서는 Azure 웹 애플리케이션을 만들고 [Azure App Service](../../app-service/overview.md)에 배포합니다. 관리 ID를 사용하여 [.NET용 Azure Key Vault 비밀 클라이언트 라이브러리](/dotnet/api/overview/azure/key-vault) 및 [Azure CLI](/cli/azure/get-started-with-azure-cli)를 통해 Azure Key Vault로 Azure 웹앱을 인증합니다. 선택한 개발 언어, Azure PowerShell 및/또는 Azure Portal을 사용하는 경우에도 동일한 기본 원칙이 적용됩니다.
 
 이 자습서에서 제공하는 Azure App Service 웹 애플리케이션 및 배포에 대한 자세한 내용은 다음을 참조하세요.
-- [App Service 개요](https://docs.microsoft.com/azure/app-service/overview)
-- [Azure App Service에서 ASP.NET Core 웹앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)
-- [Azure App Service에 로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git)
+- [App Service 개요](../../app-service/overview.md)
+- [Azure App Service에서 ASP.NET Core 웹앱 만들기](../../app-service/quickstart-dotnetcore.md)
+- [Azure App Service에 로컬 Git 배포](../../app-service/deploy-local-git.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -67,7 +67,7 @@ dotnet run
 
 페이지에 표시된 샘플 앱의 "Hello World!" 메시지가 표시됩니다.
 
-Azure용 웹 애플리케이션을 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 ASP.NET Core 웹앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-dotnetcore)를 참조하세요.
+Azure용 웹 애플리케이션을 만드는 방법에 대한 자세한 내용은 [Azure App Service에서 ASP.NET Core 웹앱 만들기](../../app-service/quickstart-dotnetcore.md)를 참조하세요.
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
@@ -228,7 +228,7 @@ http://<your-webapp-name>.azurewebsites.net
 
 이전에 `http://localhost:5000`을 방문했을 때 확인한 "Hello World!" 메시지가 표시됩니다.
 
-Git을 사용한 웹 애플리케이션 배포에 대한 자세한 내용은 [Azure App Service에 로컬 Git 배포](https://docs.microsoft.com/azure/app-service/deploy-local-git)를 참조하세요.
+Git을 사용한 웹 애플리케이션 배포에 대한 자세한 내용은 [Azure App Service에 로컬 Git 배포](../../app-service/deploy-local-git.md)를 참조하세요.
  
 ## <a name="configure-the-web-app-to-connect-to-key-vault"></a>웹앱을 구성하여 Key Vault에 연결
 
@@ -264,7 +264,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>"
 
 ### <a name="modify-the-app-to-access-your-key-vault"></a>키 자격 증명 모음에 액세스하도록 앱 수정
 
-이 자습서에서는 [Azure Key Vault 비밀 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.secrets-readme)를 데모용으로 사용합니다. 또한 [Azure Key Vault 인증서 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.certificates-readme) 또는 [Azure Key Vault 키 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/security.keyvault.keys-readme)를 사용할 수 있습니다.
+이 자습서에서는 [Azure Key Vault 비밀 클라이언트 라이브러리](/dotnet/api/overview/azure/security.keyvault.secrets-readme)를 데모용으로 사용합니다. 또한 [Azure Key Vault 인증서 클라이언트 라이브러리](/dotnet/api/overview/azure/security.keyvault.certificates-readme) 또는 [Azure Key Vault 키 클라이언트 라이브러리](/dotnet/api/overview/azure/security.keyvault.keys-readme)를 사용할 수 있습니다.
 
 #### <a name="install-the-packages"></a>패키지 설치
 

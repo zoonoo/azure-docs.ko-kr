@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 02/10/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fecf3f1a302a6734d92335bc15722df4d5288a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95904038"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362423"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -180,7 +180,7 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 
 정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요** 를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

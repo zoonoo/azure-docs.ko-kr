@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터의 노드 유형 추가 및 제거(
 description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노드 유형을 추가 및 제거하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 51cc83b4accae5f2791ce378e30f6fa692446b1c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: bb33512652677fc4e46d8ba3668dca985bbcfe01
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316202"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99822424"
 ---
 # <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터에서 노드 유형 추가 및 제거(미리 보기)
 
@@ -29,7 +29,7 @@ ms.locfileid: "92316202"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Service Fabric 관리형 클러스터([*관리형 클러스터 배포*](tutorial-managed-cluster-deploy.md) 참조)
-* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) 이상([*Azure PowerShell 설치*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0) 참조)
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) 이상([*Azure PowerShell 설치*](/powershell/azure/install-az-ps) 참조)
 
 ## <a name="add-a-node-type-to-a-service-fabric-managed-cluster"></a>Service Fabric 관리형 클러스터에 노드 유형 추가
 
@@ -39,7 +39,7 @@ Azure Resource Manager 템플릿, PowerShell 또는 CLI를 통해 노드 유형�
 
 * **노드 유형 이름**: 클러스터의 기존 노드 유형에서 고유한 이름입니다.
 * **인스턴트 개수**: 새 노드 유형의 초기 노드 수입니다.
-* **VM 크기**: 노드에 대한 VM SKU입니다. 지정하지 않으면 기본값 *Standard_D2*가 사용됩니다.
+* **VM 크기**: 노드에 대한 VM SKU입니다. 지정하지 않으면 기본값 *Standard_D2* 가 사용됩니다.
 
 > [!NOTE]
 > 추가하는 노드 유형이 클러스터에서 첫 번째 또는 유일한 노드 유형인 경우 Primary 속성을 사용해야 합니다.

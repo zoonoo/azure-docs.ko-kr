@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550120"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391578"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -35,6 +35,7 @@ ms.locfileid: "99550120"
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **동일한 지역 내에서 VM 마이그레이션** | 지원되지 않습니다.
+**Azure 전용 호스트** | 지원되지 않습니다.
 
 ## <a name="region-support"></a>지역 지원
 
@@ -75,7 +76,7 @@ Premium Storage | 지원되지 않음 | 표준 스토리지 계정은 캐시 스
 
 ## <a name="replicated-machine-operating-systems"></a>복제된 컴퓨터 운영 체제
 
-Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM의 복제를 지원합니다. 이미 복제 중인 머신이 이후 다른 주 커널로 업그레이드(또는 다운그레이드)된 경우에는 복제를 해제하고 업그레이드한 후 복제를 다시 설정해야 합니다.
+Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM의 복제를 지원합니다. 이미 복제 하는 컴퓨터가 이후 주 커널로 업그레이드 또는 다운 그레이드 된 경우에는 업그레이드를 사용 하지 않도록 설정 하 고 업그레이드 후 복제를 다시 사용 하도록 설정 해야 합니다.
 
 ### <a name="windows"></a>Windows
 
@@ -205,7 +206,7 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM �
 Azure RBAC 정책 | 지원되지 않음 | Vm의 azure RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
 확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치(failover) VM에 복제되지 않습니다. 장애 조치(failover) 후 수동으로 설치해야 합니다.
 근접 배치 그룹 | 지원됨 | 근접 배치 그룹 내에 있는 가상 머신은 Site Recovery를 사용 하 여 보호할 수 있습니다.
-태그  | 지원됨 | 원본 가상 컴퓨터에 적용 된 사용자 생성 태그는 테스트 장애 조치 (failover) 또는 장애 조치 (failover) 후 대상 가상 컴퓨터로 전달 됩니다.
+태그  | 지원됨 | 원본 가상 컴퓨터에 적용 된 사용자 생성 태그는 테스트 장애 조치 (failover) 또는 장애 조치 (failover) 후 대상 가상 컴퓨터로 전달 됩니다. Vm의 태그는 대상 지역에 VM이 있는 경우 24 시간 마다 한 번씩 복제 됩니다.
 
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
@@ -265,7 +266,7 @@ NVMe 디스크 | 지원되지 않음
 Azure 공유 디스크 | 지원되지 않음
 보안 전송 옵션 | 지원됨
 쓰기 가속기 사용 디스크 | 지원되지 않음
-태그  | 사용자가 생성 한 태그는 24 시간 마다 복제 됩니다.
+태그  | 지원됨 | 사용자가 생성 한 태그는 24 시간 마다 복제 됩니다.
 
 >[!IMPORTANT]
 > 성능 문제를 방지 하려면 [관리 디스크](../virtual-machines/disks-scalability-targets.md)에 대 한 VM 디스크 확장성 및 성능 목표를 준수 하는지 확인 합니다. 기본 설정을 사용하는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 스토리지 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 따릅니다.

@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 0291d2e6f0cee07bd7164b63dfd4ac8b02c42a01
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 47215070893c6fefd42554fdf4514e4aa8b45047
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583046"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103348"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -33,7 +33,7 @@ Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api
 
 애플리케이션 매니페스트를 구성하려면
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>로 이동 합니다. **Azure Active Directory** 서비스를 검색하고 선택합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure 포털</a>로 이동합니다. **Azure Active Directory** 서비스를 검색하고 선택합니다.
 1. **앱 등록** 을 선택합니다.
 1. 구성하려는 앱을 선택합니다.
 1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드** 를 선택하여 로컬로 매니페스트를 편집하고 **업로드** 를 사용하여 애플리케이션에 다시 적용할 수 있습니다.

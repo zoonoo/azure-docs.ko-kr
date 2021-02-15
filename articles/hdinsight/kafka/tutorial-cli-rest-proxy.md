@@ -1,19 +1,16 @@
 ---
 title: '자습서: Azure CLI를 사용하여 HDInsight에서 Apache Kafka REST 프록시 사용 클러스터 만들기'
 description: Azure HDInsight에서 Kafka REST 프록시를 사용하여 Apache Kafka 작업을 수행하는 방법을 알아봅니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff11b8461b483f5a66df19bb1b108a1fe1168fb9
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539482"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821641"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>자습서: Azure CLI를 사용하여 HDInsight에서 Apache Kafka REST 프록시 사용 클러스터 만들기
 
@@ -56,8 +53,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |위치|LOCATION을 클러스터가 만들어질 지역으로 바꿉니다. 올바른 위치 목록을 보려면 `az account list-locations` 명령을 사용합니다.|
     |clusterName|CLUSTERNAME을 전역적으로 고유한 새 클러스터 이름으로 바꿉니다.|
     |storageAccount|STORAGEACCOUNTNAME을 새 스토리지 계정의 이름으로 바꿉니다.|
-    |httpPassword|PASSWORD를 클러스터 로그인( **admin** )의 암호로 바꿉니다.|
-    |sshPassword|PASSWORD를 보안 셸 사용자 이름( **sshuser** )의 암호로 바꿉니다.|
+    |httpPassword|PASSWORD를 클러스터 로그인(**admin**)의 암호로 바꿉니다.|
+    |sshPassword|PASSWORD를 보안 셸 사용자 이름(**sshuser**)의 암호로 바꿉니다.|
     |securityGroupName|SECURITYGROUPNAME을 Kafka REST 프록시의 클라이언트 AAD 보안 그룹 이름으로 바꿉니다. 이 변수는 `az-hdinsight-create`의 `--kafka-client-group-name` 매개 변수로 전달됩니다.|
     |securityGroupID|SECURITYGROUPID를 Kafka REST 프록시의 클라이언트 AAD 보안 그룹 ID로 바꿉니다. 이 변수는 `az-hdinsight-create`의 `--kafka-client-group-id` 매개 변수로 전달됩니다.|
     |storageContainer|클러스터에서 사용할 스토리지 컨테이너이며, 이 자습서에서는 있는 그대로 둡니다. 이 변수는 클러스터의 이름으로 설정됩니다.|

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857361"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388943"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 개선
 
@@ -33,7 +33,7 @@ ms.locfileid: "97857361"
 * 삭제 (D): 가설 성적 증명서에서 감지 되지 않은 단어
 * 대체 (S): 참조와 가설 사이에서 대체 된 단어입니다.
 
-예는 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ![잘못 식별 된 단어의 예](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -115,10 +115,15 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 * 성적 증명서가 변경 되는 경우 매우 좋은 문장 (예: 키 구를 포함 하는 고급 문구)을 복제 하 여 가중치를 늘릴 수 있습니다.
 * 음성 서비스는 관련 텍스트로 추가 된 것 처럼 도메인 특정 단어와 구의 인식 기능을 개선 하기 위해 자동으로 성적 증명서를 사용 합니다.
 * 오디오를 사용한 교육은 오디오를 이해 하기 어려운 경우 가장 많은 이점을 제공 합니다. 대부분의 경우 관련 텍스트를 사용 하 여 학습을 시작 해야 합니다.
-* 학습 작업을 완료 하는 데 몇 일이 걸릴 수 있습니다. 학습 속도를 높이려면 학습을 위한 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에서 음성 서비스 구독을 만들어야 합니다.
+* 학습 작업을 완료 하는 데 몇 일이 걸릴 수 있습니다. 학습 속도를 높이려면 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에서 음성 서비스 구독을 만들어야 합니다.
 
 > [!NOTE]
-> 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다.
+> 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
+
+> [!NOTE]
+> 학습에 사용 되는 기본 모델을 변경 하 고 학습 데이터 집합에 오디오가 있는 경우 선택한 새 기본 모델에서 [오디오 데이터로 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인 합니다. 이전에 사용 된 기본 모델에서 오디오 데이터에 대 한 학습을 지원 하지 않고 학습 데이터 집합에 오디오가 포함 된 경우 새 기본 모델의 학습 시간이 **크게** 증가 하 고 몇 시간에서 며칠 이상으로 쉽게 이동할 수 있습니다. 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 특히 그렇습니다.
+>
+> 위의 단락에 설명 된 문제를 직면 하는 경우 데이터 집합의 오디오 양을 줄이거나 텍스트를 완전히 제거 하 여 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 매우 권장 됩니다.
 
 ### <a name="add-new-words-with-pronunciation"></a>발음이 있는 새 단어 추가
 

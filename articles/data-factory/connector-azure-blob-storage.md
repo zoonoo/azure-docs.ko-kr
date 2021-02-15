@@ -3,19 +3,16 @@ title: Azure Blob Storage에서 데이터 복사 및 변환
 description: Data Factory를 사용하여 Blob Storage 간에 데이터를 복사하고 Blob Storage에서 데이터를 변환하는 방법에 대해 알아봅니다.
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/08/2020
-ms.openlocfilehash: 85600bbee15dadcce7315300ffde481cbfc2e255
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 63613307847ba2bf617d7a6a1018d083dc5db3fe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034716"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393125"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -78,7 +75,7 @@ Data Factory는 저장소 계정 키 인증에 대 한 다음 속성을 지원 �
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **azureblobstorage** (제안) 또는 **azurestorage** 로 설정 해야 합니다 (다음 참고 참조). |예 |
 | connectionString | **ConnectionString** 속성에 대 한 저장소에 연결 하는 데 필요한 정보를 지정 합니다. <br/> Azure Key Vault에 계정 키를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `accountKey` . 자세한 내용은 Azure Key Vault 문서의 다음 샘플 및 [저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
 
 >[!NOTE]
 >계정 키 인증을 사용 하는 경우 보조 Blob service 끝점이 지원 되지 않습니다. 다른 인증 유형을 사용할 수 있습니다.
@@ -86,7 +83,7 @@ Data Factory는 저장소 계정 키 인증에 대 한 다음 속성을 지원 �
 >[!NOTE]
 >"AzureStorage" 형식 연결 된 서비스를 사용 하는 경우 아직 그대로 지원 됩니다. 그러나 앞으로 새 "AzureBlobStorage" 연결 된 서비스 유형을 사용 하는 것이 좋습니다.
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -148,12 +145,12 @@ Data Factory는 공유 액세스 서명 인증을 사용 하는 다음 속성을
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **azureblobstorage** (제안) 또는 **azurestorage** 로 설정 해야 합니다 (다음 참고 참조). |예 |
 | sasUri | Blob 또는 컨테이너와 같은 저장소 리소스에 대 한 공유 액세스 서명 URI를 지정 합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 합니다. SAS 토큰을 Azure Key Vault에 배치 하 여 자동 회전을 사용 하 고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조 하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
 
 >[!NOTE]
 >"AzureStorage" 형식 연결 된 서비스를 사용 하는 경우 아직 그대로 지원 됩니다. 그러나 앞으로 새 "AzureBlobStorage" 연결 된 서비스 유형을 사용 하는 것이 좋습니다.
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -235,9 +232,9 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | accountKind | 저장소 계정의 종류를 지정 합니다. 허용 되는 값은 **저장소** (범용 v1), **StorageV2** (범용 V2), **blobstorage** 또는 **blockblobstorage** 입니다. <br/> 데이터 흐름에서 Azure Blob 연결 된 서비스를 사용 하는 경우 계정 종류가 비어 있거나 "저장소" 인 경우 관리 id 또는 서비스 주체 인증이 지원 되지 않습니다. 적절 한 계정 종류를 지정 하거나 다른 인증을 선택 하거나 storage 계정을 범용 v2로 업그레이드 합니다. |예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모퉁이를 가리켜 검색 합니다. | 예 |
+| tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모퉁이를 가리켜 검색 합니다. | Yes |
 | azureCloudType | 서비스 사용자 인증의 경우 Azure Active Directory 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부** 및 **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
 
 >[!NOTE]
 >Blob 계정에서 [일시 삭제](../storage/blobs/soft-delete-blob-overview.md)를 사용 하는 경우 서비스 주체 인증이 데이터 흐름에서 지원 되지 않습니다.
@@ -245,7 +242,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 >[!NOTE]
 >서비스 사용자 인증은 이전 "AzureStorage" 형식 연결 된 서비스가 아닌 "AzureBlobStorage" 유형의 연결 된 서비스 에서만 지원 됩니다.
 
-**예:**
+**예제:**
 
 ```json
 {
@@ -293,7 +290,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | type | **Type** 속성은 **azureblobstorage** 로 설정 해야 합니다. |예 |
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob Storage 서비스 엔드포인트를 지정합니다. |예 |
 | accountKind | 저장소 계정의 종류를 지정 합니다. 허용 되는 값은 **저장소** (범용 v1), **StorageV2** (범용 V2), **blobstorage** 또는 **blockblobstorage** 입니다. <br/> 데이터 흐름에서 Azure Blob 연결 된 서비스를 사용 하는 경우 계정 종류가 비어 있거나 "저장소" 인 경우 관리 id 또는 서비스 주체 인증이 지원 되지 않습니다. 적절 한 계정 종류를 지정 하거나 다른 인증을 선택 하거나 storage 계정을 범용 v2로 업그레이드 합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |아니요 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 이 속성이 지정 되지 않은 경우 서비스는 기본 Azure integration runtime을 사용 합니다. |예 |
 
 > [!NOTE]
 > Blob 계정에서 [일시 삭제](../storage/blobs/soft-delete-blob-overview.md)를 사용 하는 경우 관리 되는 Id 인증은 데이터 흐름에서 지원 되지 않습니다.
@@ -375,25 +372,25 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | 아래의 **type** 속성은 `storeSettings` **Azureblobstoragereadsettings** 로 설정 되어야 합니다. | 예                                           |
-| **_복사할 파일 찾기:_* _ |  |  |
-| 옵션 1: 정적 경로<br> | 제공된 컨테이너 또는 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 컨테이너 또는 폴더에서 모든 blob을 복사 하려면 as를 추가로 지정 `wildcardFileName` `_` 합니다. |  |
+| ***복사할 파일 찾기:*** |  |  |
+| 옵션 1: 정적 경로<br> | 제공된 컨테이너 또는 데이터 세트에 지정된 폴더/파일 경로에서 복사합니다. 컨테이너 또는 폴더에서 모든 blob을 복사 하려면 as를 추가로 지정 `wildcardFileName` `*` 합니다. |  |
 | 옵션 2: Blob 접두사<br>- prefix | 원본 blob을 필터링 하기 위해 데이터 집합에 구성 된 지정 된 컨테이너 아래의 blob 이름에 대 한 접두사입니다. 이름이로 시작 하 `container_in_dataset/this_prefix` 는 blob이 선택 됩니다. Blob 저장소에 대 한 서비스 쪽 필터를 활용 하 여 와일드 카드 필터 보다 더 나은 성능을 제공 합니다.<br><br>접두사를 사용 하 고 유지 계층 구조를 유지 하는 파일 기반 싱크로 복사를 선택 하는 경우 접두사에서 마지막 "/" 이후의 하위 경로를 유지 합니다. 예를 들어 소스가 있고  `container/folder/subfolder/file.txt` 접두사를로 구성한 후에 `folder/sub` 는 유지 되는 파일 경로가 `subfolder/file.txt` 입니다. | 예                                                          |
 | 옵션 3: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링 하기 위해 데이터 집합에 구성 된 지정 된 컨테이너 아래에 와일드 카드 문자가 있는 폴더 경로입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 처리 합니다. <br>더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예                                            |
 | 옵션 3: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 컨테이너 및 폴더 경로 (또는 와일드 카드 폴더 경로) 아래에 와일드 카드 문자가 있는 파일 이름입니다. <br>허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다. `^`파일 이름에 와일드 카드 또는이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. 더 많은 예는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples)를 참조하세요. | 예 |
 | 옵션 4: 파일 목록<br>- fileListPath | 지정된 파일 집합을 복사하도록 지정합니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리키고, 데이터 집합에 구성 된 경로에 대 한 상대 경로인 한 줄에 하나씩 파일을 표시 합니다.<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마십시오. [파일 목록 예](#file-list-examples)에서 더 많은 예를 참조하세요. |예 |
-| ***추가 설정:** _ |  | |
-| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. _ *Recursive**를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
+| ***추가 설정:*** |  | |
+| recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. **Recursive** 를 **true** 로 설정 하 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 **true**(기본값) 및 **false** 입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일은 특성을 기준으로 필터링 됩니다. 마지막으로 수정한 날짜입니다. <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 "2018-12-01T05:00:00Z" 형식의 UTC 표준 시간대에 적용 됩니다. <br> 속성은 **NULL** 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 **NULL** 이면 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
 | Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 예                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/>-접두사를 사용 하는 경우 파티션 루트 경로는 마지막 "/" 앞의 하위 경로입니다. <br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요                                            |
+| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예                                            |
 
 > [!NOTE]
 > Parquet/구분 된 텍스트 형식의 경우 다음 섹션에 언급 된 복사 작업 원본에 대 한 **blobsource** 형식은 이전 버전과의 호환성을 위해 계속 지원 됩니다. Data Factory 작성 UI가 이러한 새 형식을 생성 하도록 전환 될 때까지 새 모델을 사용 하는 것이 좋습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -528,7 +525,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 매핑 데이터 흐름에서 데이터를 변환 하는 경우 Azure Blob storage에서 다음과 같은 형식으로 파일을 읽고 쓸 수 있습니다.
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [구분된 텍스트](format-delimited-text.md#mapping-data-flow-properties)
-* [삼각](format-delta.md#mapping-data-flow-properties)
+* [델타](format-delta.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)
@@ -643,7 +640,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 >[!TIP]
 >폴더 아래에서 모든 Blob을 복사하려면 **folderPath** 만을 지정합니다.<br>지정 된 이름의 단일 blob을 복사 하려면 파일 이름 **에 대 한 폴더 및 파일** 이름에 대해 **folderPath** 를 지정 합니다.<br>폴더 아래에 있는 blob의 하위 집합을 복사 하려면 와일드 카드 필터를 사용 하 여 폴더 파트 및 **파일 이름** 에 대해 **folderPath** 를 지정 합니다. 
 
-**예:**
+**예제:**
 
 ```json
 {
