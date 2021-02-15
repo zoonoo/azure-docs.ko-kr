@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0b2fa06bc04bdb584367312b1e89939ed386b4f2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 1c6dad28ada14151b9a1cca0da490e38972ad54d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952851"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379168"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
 
@@ -48,15 +48,15 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 * **연결 형식:** 지점 및 사이트 간
 * **클라이언트 주소 풀:** 172.16.201.0/24<br>이 지점 및 사이트 간 연결을 사용하여 VNet에 연결되는 VPN 클라이언트는 클라이언트 주소 풀에서 IP 주소를 받습니다.
 
-## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1. 가상 네트워크 만들기
+## <a name="virtual-network"></a><a name="createvnet"></a>가상 네트워크
 
-시작하기 전에 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
+이 섹션에서는 가상 네트워크를 만듭니다.
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="2-create-a-virtual-network-gateway"></a><a name="creategw"></a>2. 가상 네트워크 게이트웨이 만들기
+## <a name="virtual-network-gateway"></a><a name="creategw"></a>가상 네트워크 게이트웨이
 
 이 단계에서는 VNet용 가상 네트워크 게이트웨이를 만듭니다. 종종 선택한 게이트웨이 SKU에 따라 게이트웨이를 만드는 데 45분 이상 걸릴 수 있습니다.
 
@@ -68,9 +68,9 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-## <a name="3-generate-certificates"></a><a name="generatecert"></a>3. 인증서 생성
+## <a name="generate-certificates"></a><a name="generatecert"></a>인증서 생성
 
-지점 및 사이트 간 VPN 연결을 통해 VNet에 연결되는 클라이언트를 인증하기 위해 Azure에 의해 인증서가 사용됩니다. 루트 인증서를 얻었으면 Azure에 공개 키 정보를 [업로드](#uploadfile)합니다. 그러면 루트 인증서는 P2S를 통한 가상 네트워크 연결을 위해 Azure에서 '신뢰할 수 있는' 것으로 간주됩니다. 또한 신뢰할 수 있는 루트 인증서에서 클라이언트 인증서를 생성한 후 각 클라이언트 컴퓨터에 인증서를 설치합니다. 클라이언트 인증서는 VNet에 대한 연결을 시작할 때 해당 클라이언트를 인증하는 데 사용됩니다. 
+지점 및 사이트 간 VPN 연결을 통해 VNet에 연결되는 클라이언트를 인증하기 위해 Azure에 의해 인증서가 사용됩니다. 루트 인증서를 얻었으면 Azure에 공개 키 정보를 [업로드](#uploadfile)합니다. 그러면 루트 인증서는 P2S를 통한 가상 네트워크 연결을 위해 Azure에서 '신뢰할 수 있는' 것으로 간주됩니다. 또한 신뢰할 수 있는 루트 인증서에서 클라이언트 인증서를 생성한 후 각 클라이언트 컴퓨터에 인증서를 설치합니다. 클라이언트 인증서는 VNet에 대한 연결을 시작할 때 해당 클라이언트를 인증하는 데 사용됩니다.
 
 ### <a name="generate-a-root-certificate"></a><a name="getcer"></a>루트 인증서 생성
 
@@ -80,38 +80,36 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="4-add-the-client-address-pool"></a><a name="addresspool"></a>4. 클라이언트 주소 풀 추가
+## <a name="client-address-pool"></a><a name="addresspool"></a>클라이언트 주소 풀
 
 클라이언트 주소 풀은 사용자가 지정한 개인 IP 주소 범위입니다. 지점 및 사이트 간 VPN을 통해 연결하는 클라이언트는 동적으로 이 범위의 IP 주소를 수신합니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다. 여러 프로토콜을 구성 하 고 SSTP가 프로토콜 중 하나인 경우 구성 된 주소 풀이 구성 된 프로토콜 간에 동일 하 게 분할 됩니다.
 
 1. 가상 네트워크 게이트웨이가 생성된 후에는 가상 네트워크 게이트웨이 페이지의 **설정** 섹션으로 이동합니다. **설정** 에서 지점 및 **사이트 간 구성을** 선택 합니다. **지금 구성** 을 선택 하 여 구성 페이지를 엽니다.
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="지점 및 사이트 간 구성 페이지" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
-1. 지점 및 **사이트 간 구성** 페이지에서 다양 한 설정을 구성할 수 있습니다. 이 페이지에 터널 유형 또는 인증 유형이 표시 되지 않으면 게이트웨이에서 기본 SKU를 사용 하 고 있는 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다. 이러한 설정을 사용 하려면 다른 게이트웨이 SKU를 사용 하 여 게이트웨이를 삭제 하 고 다시 만들어야 합니다.
+1. 지점 및 **사이트 간 구성** 페이지의 **주소 풀** 상자에 사용 하려는 개인 IP 주소 범위를 추가 합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. 활성/수동 구성의 경우 최소 서브넷 마스크는 29 비트이 고 활성/비활성 구성의 경우 28 비트입니다.
+1. 다음 섹션으로 계속 진행 하 여 인증 및 터널 유형을 구성 합니다.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png" alt-text="주소 풀 지정" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png":::
-1. **주소 풀** 상자에 사용 하려는 개인 IP 주소 범위를 추가 합니다. VPN 클라이언트는 동적으로 지정된 범위에서 IP 주소를 수신합니다. 활성/수동 구성의 경우 최소 서브넷 마스크는 29 비트이 고 활성/비활성 구성의 경우 28 비트입니다.
-1. 터널 유형을 구성 하려면 다음 섹션으로 이동 합니다.
+## <a name="authentication-and-tunnel-types"></a><a name="type"></a>인증 및 터널 유형
 
-## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. 터널 유형 구성
+이 섹션에서는 인증 유형 및 터널 유형을 구성 합니다. 지점 및 **사이트 간 구성** 페이지에서 **터널 유형** 또는 **인증 유형이** 표시 되지 않으면 게이트웨이에서 기본 SKU를 사용 하 고 있는 것입니다. 기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다. 이러한 설정을 사용 하려면 다른 게이트웨이 SKU를 사용 하 여 게이트웨이를 삭제 하 고 다시 만들어야 합니다.
 
-터널 종류를 선택 합니다. 터널 옵션은 OpenVPN, SSTP 및 IKEv2입니다.
+### <a name="tunnel-type"></a><a name="tunneltype"></a>터널 종류
+
+지점 및 **사이트 간 구성** 페이지에서 터널 종류를 선택 합니다. 터널 옵션은 OpenVPN, SSTP 및 IKEv2입니다.
 
 * Android 및 Linux의 strongSwan 클라이언트와 iOS 및 OSX의 네이티브 IKEv2 VPN 클라이언트는 IKEv2 터널만 사용하여 연결합니다.
 * Windows 클라이언트는 먼저 IKEv2를 시도 하 고, 연결 되지 않으면 SSTP로 대체 합니다.
 * OpenVPN 클라이언트를 사용 하 여 OpenVPN 터널 형식에 연결할 수 있습니다.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel-ike.png" alt-text="터널 종류":::
-
-## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. 인증 유형 구성
+### <a name="authentication-type"></a><a name="authenticationtype"></a>인증 유형
 
 **인증 유형** 으로 **Azure 인증서** 를 선택 합니다.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="인증 유형":::
 
-## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. 루트 인증서 공용 인증서 데이터를 업로드 합니다.
+## <a name="root-certificate-data"></a><a name="uploadfile"></a>루트 인증서 데이터
 
-신뢰할 수 있는 루트 인증서는 최대 20개까지 추가로 업로드할 수 있습니다. 공용 인증서 데이터가 업로드되면 Azure는 이 데이터를 사용하여 신뢰할 수 있는 루트 인증서에서 생성된 클라이언트 인증서를 설치한 클라이언트를 인증합니다. 루트 인증서의 공개 키 정보를 Azure에 업로드합니다.
+이 섹션에서는 공용 루트 인증서 데이터를 Azure에 업로드 합니다. 공용 인증서 데이터가 업로드되면 Azure는 이 데이터를 사용하여 신뢰할 수 있는 루트 인증서에서 생성된 클라이언트 인증서를 설치한 클라이언트를 인증합니다.
 
 1. **루트 인증서** 섹션의 **지점 및 사이트 간 구성** 페이지에 인증서가 추가됩니다.
 1. 루트 인증서를 Base-64 인코딩된 X.509(.cer) 파일로 내보내야 합니다. 이 형식으로 내보내야 텍스트 편집기에서 인증서를 열 수 있습니다.
@@ -125,7 +123,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
    :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="구성 저장" border="false":::
 
-## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. 내보낸 클라이언트 인증서 설치
+## <a name="client-certificate"></a><a name="installclientcert"></a>클라이언트 인증서
 
 클라이언트 인증서를 생성하는 데 사용한 것 외의 클라이언트 컴퓨터에서 P2S 연결을 만들려는 경우 클라이언트 인증서를 설치해야 합니다. 클라이언트 인증서를 설치하는 경우 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
 
@@ -133,11 +131,13 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 설치 단계는 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 
-## <a name="9-generate-and-install-the-vpn-client-configuration-package"></a><a name="clientconfig"></a>9. VPN 클라이언트 구성 패키지를 생성 하 고 설치 합니다.
+## <a name="vpn-client-configuration-package"></a><a name="clientconfig"></a>VPN 클라이언트 구성 패키지
 
-VPN 클라이언트 구성 파일에는 P2S 연결을 통해 VNet에 연결하도록 디바이스를 구성하는 설정이 포함되어 있습니다. VPN 클라이언트 구성 파일을 생성하고 설치하는 지침은 [네이티브 Azure 인증서 인증 P2S 구성에 VPN 클라이언트 구성 파일 만들기 및 설치](point-to-site-vpn-client-configuration-azure-cert.md)를 참조하세요.
+클라이언트 구성 설정을 사용 하 여 VPN 클라이언트를 구성 해야 합니다. VPN 클라이언트 구성 패키지에는 P2S 연결을 통해 VNet에 연결 하기 위해 VPN 클라이언트를 구성 하는 설정이 포함 된 파일이 포함 되어 있습니다.
 
-## <a name="10-connect-to-azure"></a><a name="connect"></a>10. Azure에 연결
+VPN 클라이언트 구성 파일을 생성 하 고 설치 하는 단계는 [네이티브 Azure 인증서 인증 P2S 구성에 대 한 vpn 클라이언트 구성 파일 만들기 및 설치](point-to-site-vpn-client-configuration-azure-cert.md)를 참조 하세요.
+
+## <a name="connect-to-azure"></a><a name="connect"></a>Azure에 연결
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Windows VPN 클라이언트에서 연결
 
@@ -217,9 +217,11 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>지점 및 사이트 간 FAQ
 
+이 섹션에는 지점 및 사이트 간 구성과 관련 된 FAQ 정보가 포함 되어 있습니다. VPN Gateway에 대 한 추가 정보는 [VPN GATEWAY FAQ](vpn-gateway-vpn-faq.md) 를 볼 수도 있습니다.
+
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
-연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.
+연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조 하세요. 네트워킹 및 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.
 
 P2S 문제 해결 정보는 [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)을 참조하세요.

@@ -3,22 +3,22 @@ title: Machine Learning Studio (클래식)에서 R 사용-Azure
 description: 이 R 프로그래밍 자습서를 사용 하 여 R에서 Azure Machine Learning Studio (클래식)를 시작 하 여 예측 솔루션을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c619b51f9323477bda4f1ec99aeeb1bfa01028fc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95507204"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517742"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>R에서 Azure Machine Learning Studio (클래식) 시작
 
-**적용 대상:** ![ 이는이 문서가 Machine Learning Studio (클래식)에 적용 됨을 의미 하는 확인 표시입니다. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (클래식) 이것 ![ 은 X 이므로이 문서는 Azure Machine Learning에 적용 됩니다.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**적용 대상:**  ![이는 이 문서가 Machine Learning Studio(클래식)에 적용됨을 의미하는 확인 표시입니다.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식) ![이는 이 문서가 Azure Machine Learning에 적용됨을 의미하는 X입니다.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 <!-- Stephen F Elston, Ph.D. -->
 이 자습서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 R 코드를 만들고 테스트 하 고 실행 하는 방법에 대해 알아봅니다. 끝에는 완전 한 예측 솔루션이 있습니다.
@@ -152,7 +152,7 @@ RStudio를 사용 하는 방법에 대 한 자세한 내용은 [RStudio 설명�
 
 이제 Machine Learning Studio (클래식)에 일부 데이터가 있으므로 분석을 수행 하는 실험을 만들어야 합니다.  
 
-1. 화면 왼쪽 아래에서 **+ 새로 만들기** 를 선택 하 고 **Experiment**  >  **빈 실험** 실험을 선택 합니다.
+1. 화면 왼쪽 아래에서 **+ 새로 만들기** 를 선택 하 고   >  **빈 실험** 실험을 선택 합니다.
 1. 페이지 위쪽의 제목 **에 생성 된 실험** 을 선택 하 고 수정 하 여 실험의 이름을로 설정 합니다. 예를 들어 **CA 유제품 분석** 으로 변경 합니다.
 1. 실험 페이지의 왼쪽에서 **저장 된 데이터 집합**  >  **내 데이터** 집합을 선택 합니다. 이전에 업로드 한 **cadairydata.csv** 파일이 표시 됩니다.
 1. **csdairydata.csv 데이터 집합** 을 실험으로 끌어 옵니다.
@@ -230,7 +230,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
    maml.mapOutputPort('cadairydata')
    ```
 
-1. Zip 파일을 만들고 스크립트를이 zip 파일에 복사 합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭 하 고 압축 된 **폴더로 보내기를** 선택할 수 있습니다  >  **Compressed folder**. 이 작업은 simpleplot.r를 포함 하는 새 zip 파일을 만듭니다 **. R** 파일.
+1. Zip 파일을 만들고 스크립트를이 zip 파일에 복사 합니다. Windows에서 파일을 마우스 오른쪽 단추로 클릭 하 고 압축 된 **폴더로 보내기를** 선택할 수 있습니다  >  . 이 작업은 simpleplot.r를 포함 하는 새 zip 파일을 만듭니다 **. R** 파일.
 
 1. Machine Learning Studio (클래식)의 **데이터 집합** 에 파일을 추가 하 고 유형을 **zip** 으로 지정 합니다. 이제 데이터 세트에 zip 파일이 표시됩니다.
 
@@ -1028,10 +1028,10 @@ summary(milk.lm)
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1061,10 +1061,10 @@ summary(milk.lm)
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
 ## ---
-## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1112,21 +1112,21 @@ summary(milk.lm2)
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
 ## ---
-## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1

@@ -1,23 +1,18 @@
 ---
 title: 복사 활동을 사용하여 데이터 이동
 description: Data Factory 파이프라인에서 데이터를 이동하는 방법(클라우드 저장소 간/온-프레미스 저장소와 클라우드 저장소 간에 데이터 마이그레이션)에 대해 알아봅니다. 또한 복사 활동을 사용하는 방법을 살펴봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195976"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364021"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -75,9 +70,9 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 > *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
 
 ### <a name="supported-file-formats"></a>지원되는 파일 형식
-복사 활동을 사용해서 파일 기반 데이터 저장소 간에 **파일을 있는 그대로 복사**하고, 입력 및 출력 데이터 세트 정의 둘 다에서 [형식 섹션](data-factory-create-datasets.md)을 건너뛸 수 있습니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
+복사 활동을 사용해서 파일 기반 데이터 저장소 간에 **파일을 있는 그대로 복사** 하고, 입력 및 출력 데이터 세트 정의 둘 다에서 [형식 섹션](data-factory-create-datasets.md)을 건너뛸 수 있습니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
-복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
+복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate** 가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 

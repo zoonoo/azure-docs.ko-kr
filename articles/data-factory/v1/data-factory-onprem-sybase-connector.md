@@ -1,23 +1,18 @@
 ---
 title: Azure 데이터 팩터리를 사용하여 Sybase에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 Sybase 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/02/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cefa0c15dd50f95780034dcb63f888a2e1c6b65e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8142ec51f93a066faafa1f3e44d0f87517187425
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707364"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387243"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Sybase에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -47,8 +42,8 @@ Sybase SQL ASA(Anywhere) 버전 16 이상이 지원됩니다. IQ 및 ASE는 지�
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
-- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
+- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -65,14 +60,14 @@ Sybase SQL ASA(Anywhere) 버전 16 이상이 지원됩니다. IQ 및 ASE는 지�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesSybase** |예 |
+| type |형식 속성은 **OnPremisesSybase** |Yes |
 | 서버 |Sybase 서버의 이름입니다. |예 |
 | 데이터베이스 |Sybase 데이터베이스의 이름입니다. |예 |
 | 스키마 |데이터베이스에서 스키마의 이름입니다. |예 |
 | authenticationType |Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 Sybase 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 Sybase 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -81,7 +76,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 Sybase 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
+| tableName |연결된 서비스가 참조하는 Sybase 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -92,7 +87,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
 
 ## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON 예: Sybase에서 Azure Blob으로 데이터 복사
@@ -146,9 +141,9 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 **Sybase 입력 데이터 세트:**
 
-샘플은 Sybase에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestamp" 라는 열이 포함되어 있다고 가정합니다.
+이 샘플에서는 Sybase에서 "MyTable" 테이블을 만들었고 시계열 데이터에 대 한 "timestamp" 라는 열을 포함 한다고 가정 합니다.
 
-"external": true를 설정하면 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다. 연결된 서비스의 **type**을 **RelationalTable**로 설정합니다.
+"External": true로 설정 하면이 데이터 집합이 data factory의 외부에 있으며 data factory의 활동에 의해 생성 되지 않는다는 Data Factory 서비스에 알립니다. 연결된 서비스의 **type** 을 **RelationalTable** 로 설정합니다.
 
 ```JSON
 {
@@ -235,7 +230,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 데이터베이스의 DBA.Orders 테이블에서 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 데이터베이스의 DBA.Orders 테이블에서 데이터를 선택합니다.
 
 ```JSON
 {

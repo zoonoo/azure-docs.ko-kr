@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 1c1ba7d8cd0e4202003a98153a48e0593d1fcd04
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: dfb7e7c7c93a8af2b59f6d3d7049e2c14b8f382a
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543156"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611052"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -184,11 +184,11 @@ Visual Studio에서 **F5** 키를 누르거나 **시작** 을 클릭하여 애�
 
 ![콘솔 앱 실행](media/storage-create-geo-redundant-storage/figure3.png)
 
-샘플 코드에서 `circuitbreaker.py` 파일의 `run_circuit_breaker` 메서드는 [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python-previous#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) 메서드를 사용하여 스토리지 계정에서 이미지를 다운로드하는 데 사용됩니다.
+샘플 코드에서 `circuitbreaker.py` 파일의 `run_circuit_breaker` 메서드는 [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) 메서드를 사용하여 스토리지 계정에서 이미지를 다운로드하는 데 사용됩니다.
 
 Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 요청을 다시 시도할 때까지 전에 대기할 시간(초)을 지정합니다. 1차 시도에 대한 초기 요청이 실패했을 때 2차 시도에 대해 다시 요청해야 하는 경우 **retry\_to\_secondary** 값을 true로 설정합니다. 샘플 애플리케이션에서 사용자 지정 다시 시도 정책은 스토리지 개체의 `retry_callback` 함수에 정의되어 있습니다.
 
-다운로드하기 전에 Service 개체 [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
+다운로드하기 전에 Service 개체 [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) 및 [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
 
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
@@ -276,7 +276,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
-이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 엔드포인트에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
+이미지 다운로드가 실패하고 다시 시도하도록 설정된 경우 `retry_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에 정의된 최대 다시 시도 횟수에 도달하면 요청의 [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode)가 `SECONDARY`로 변경됩니다. 이 설정을 사용하면 애플리케이션이 보조 엔드포인트에서 이미지 다운로드를 강제로 시도합니다. 이 구성은 기본 엔드포인트가 무한으로 다시 시도되지 않으므로 이미지를 요청하는 데 소요되는 시간이 줄여줍니다.
 
 ```python
 def retry_callback(retry_context):
@@ -300,7 +300,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>완료된 이미지 처리기 요청
 
-이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 엔드포인트을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 엔드포인트을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python)를 `PRIMARY`로 다시 설정하고 기본 엔드포인트을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
+이미지 다운로드가 성공하면 `response_callback` 이벤트 처리기가 호출됩니다. 애플리케이션에서 보조 엔드포인트을 사용하고 있는 경우 애플리케이션은 최대 20회까지 이 엔드포인트을 계속 사용합니다. 20회 후에 이 애플리케이션은 [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode)를 `PRIMARY`로 다시 설정하고 기본 엔드포인트을 다시 반복합니다. 요청이 성공하면 애플리케이션은 기본 엔드포인트에서 읽기를 계속합니다.
 
 ```python
 def response_callback(response):

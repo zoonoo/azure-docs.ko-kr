@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628174"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373711"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>ArcMap\ArcGIS Desktop에 대 한 랩 설정
 
@@ -55,7 +55,7 @@ ArcGIS Desktop에 사용 하도록 권장 되는 VM (가상 머신)의 크기는
 1.  템플릿 VM을 시작 하 고 RDP를 사용 하 여 컴퓨터에 연결 합니다.
 
 2.  ESRI의 지침을 사용 하 여 ArcGIS 데스크톱 구성 요소를 다운로드 하 고 설치 합니다.  이러한 단계에는 동시 사용 라이선스에 라이선스 관리자를 할당 하는 작업이 포함 됩니다. 
-    - [ArcGIS Desktop 설치 및 구성 소개](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [ArcGIS Desktop 설치 및 구성 소개](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  학생용 외부 백업 저장소를 설정 합니다.  학생은 할당 된 VM에 파일을 직접 저장할 수 있습니다. 이렇게 하면 모든 변경 내용이 세션 전체에 저장 되기 때문입니다.  그러나 학생 들이 다음과 같은 이유로 VM에서 외부에 있는 저장소에 작업을 백업 하는 것이 좋습니다.
     - 학생 들이 클래스 및 랩이 종료 된 후 해당 작업에 액세스할 수 있게 합니다.  

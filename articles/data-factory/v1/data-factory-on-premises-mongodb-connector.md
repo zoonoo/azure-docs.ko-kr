@@ -1,20 +1,17 @@
 ---
 title: MongoDB에서 데이터 이동
 description: Azure Data Factory를 사용하여 MongoDB 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79281341"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387515"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 이동
 
@@ -44,9 +41,9 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 MongoDB 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -61,17 +58,17 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 **OnPremisesMongoDB** 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesMongoDb** |예 |
+| type |형식 속성은 **OnPremisesMongoDb** |Yes |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |선택 사항, 기본값: 27017 |
 | authenticationType |Basic 또는 Anonymous입니다. |예 |
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | password |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
-| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
-| gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |예 |
+| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |Yes |
+| gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |Yes |
 | encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |선택 사항 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -79,9 +76,9 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **MongoDbCollection** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
+| collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |Yes |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -92,7 +89,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트**의 **collectionName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: select * from MyTable. |아니요(**데이터 세트** 의 **collectionName** 이 지정된 경우) |
 
 
 
@@ -230,7 +227,7 @@ Azure Data Factory 서비스가 사용자의 온-프레미스 MongoDB 데이터�
 
 **MongoDB 소스 및 Blob 싱크를 사용하는 파이프라인의 복사 작업:**
 
-파이프라인은 위의 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **MongoDbSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **MongoDbSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 ```json
 {

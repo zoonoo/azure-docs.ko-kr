@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 12/08/2020
+ms.date: 02/11/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370549"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
 
@@ -28,9 +28,9 @@ ms.locfileid: "96905828"
 
 이 문서에서는 권한 있는 Azure 리소스 역할에 대 한 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-[권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator)
+ 액세스 검토를 만들려면 해당 리소스에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 또는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure 역할에 할당 되어야 합니다.
 
 ## <a name="open-access-reviews"></a>액세스 검토 열기
 

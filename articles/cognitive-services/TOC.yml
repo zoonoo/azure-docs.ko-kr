@@ -51,7 +51,7 @@
     - name: 컨테이너 이미지 태그 및 릴리스 정보
       href: ./containers/container-image-tags.md
     - name: 컨테이너 FAQ
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: 컨테이너 레시피
       items:
         - name: 컨테이너 다시 사용

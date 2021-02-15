@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: db7006c01f59e8a11872d99b3a16f24f65ef7588
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413380"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378709"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
+
+이 설명서에서는 Azure Maps 웹 SDK를 사용 하지만 Azure Maps 서비스는 모든 지도 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인의를 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음과](open-source-projects.md#third-part-map-control-plugins) 같습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -200,7 +202,7 @@ ms.locfileid: "94413380"
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps는 렌더링 된 맵의 언어 및 지역 뷰를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 네임 스페이스에 추가 하는 것입니다 `atlas` . 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어 ("fr-fr")로 설정 하 고 국가별 보기를 "Auto"로 설정 합니다.
+Azure Maps는 렌더링 된 맵의 언어 및 지역 뷰를 설정 하는 두 가지 다른 방법을 제공 합니다. 첫 번째 옵션은이 정보를 전역 네임 스페이스에 추가 하는 것입니다 `atlas` . 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정을 기본값으로 설정 합니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "Auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');

@@ -1,20 +1,20 @@
 ---
 title: 사용자 지정 규칙 및 알림을 사용 하 여 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 장치에서 원격 분석 전송을 중지할 때 전자 메일 알림을 보내도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Stream Analytics, Azure Functions 및 SendGrid를 사용 합니다.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 7e3292a9070e6676faad15e73d357e7f6875b5f4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220268"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371684"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -28,7 +28,7 @@ ms.locfileid: "98220268"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -63,7 +63,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 | 설정 | 값 |
 | ------- | ----- |
 | Name    | 네임 스페이스 이름 선택 |
-| 가격 책정 계층 | Basic |
+| 가격 책정 계층 | 기본 |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
 | 위치 | 미국 동부 |
@@ -97,22 +97,18 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 | 런타임 스택 | .NET |
 | 스토리지 | 새로 만들기 |
 
-### <a name="sendgrid-account"></a>SendGrid 계정
+### <a name="sendgrid-account-and-api-keys"></a>SendGrid 계정 및 API 키
 
-Azure Portal를 사용 하 여 다음 설정으로 [SendGrid 계정을 만듭니다](https://portal.azure.com/#create/Sendgrid.sendgrid) .
+Sendgrid 계정이 없는 경우 시작 하기 전에 [무료 계정](https://app.sendgrid.com/) 을 만듭니다.
 
-| 설정 | 값 |
-| ------- | ----- |
-| Name    | SendGrid 계정 이름 선택 |
-| 암호 | 암호 만들기 |
-| Subscription | 사용자의 구독 |
-| Resource group | DetectStoppedDevices |
-| 가격 책정 계층 | F1 무료 |
-| 연락처 정보 | 필요한 정보를 입력 합니다. |
+1. 왼쪽 메뉴의 Sendgrid 대시보드 설정에서 **API 키** 를 선택 합니다.
+1. **API 키 만들기를 클릭 합니다.**
+1. 새 API 키의 이름을 **AzureFunctionAccess로 입력 합니다.**
+1. **& 보기 만들기** 를 클릭 합니다.
 
-필요한 모든 리소스를 만든 경우 **DetectStoppedDevices** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
+    :::image type="content" source="media/howto-create-custom-rules/sendgrid-api-keys.png" alt-text="Create SendGrid API 키의 스크린샷":::
 
-![중지 된 장치 검색 리소스 그룹](media/howto-create-custom-rules/resource-group.png)
+그런 다음 API 키가 제공 됩니다. 나중에 사용 하기 위해이 문자열을 저장 합니다.
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
@@ -121,21 +117,9 @@ Azure Portal를 사용 하 여 다음 설정으로 [SendGrid 계정을 만듭니
 1. Azure Portal에서 Event Hubs 네임 스페이스로 이동 하 고 **+ 이벤트 허브** 를 선택 합니다.
 1. 이벤트 허브의 이름을 **centralexport** 으로 선택 하 고 **만들기** 를 선택 합니다.
 
-Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
+Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다. 
 
-![Event Hubs 네임스페이스](media/howto-create-custom-rules/event-hubs-namespace.png)
-
-## <a name="get-sendgrid-api-key"></a>SendGrid API 키 가져오기
-
-함수 앱에는 전자 메일 메시지를 보내기 위한 SendGrid API 키가 필요 합니다. SendGrid API 키를 만들려면 다음을 수행 합니다.
-
-1. Azure Portal에서 SendGrid 계정으로 이동 합니다. 그런 다음 **관리** 를 선택 하 여 SendGrid 계정에 액세스 합니다.
-1. SendGrid 계정에서 **설정**, **API 키** 를 차례로 선택 합니다. **API 키 만들기** 를 선택 합니다.
-
-    ![SendGrid API 키 만들기](media/howto-create-custom-rules/sendgrid-api-keys.png)
-
-1. **API 키 만들기** 페이지에서 **모든** 권한이 있는 **AzureFunctionAccess** 라는 키를 만듭니다.
-1. API 키를 기록해 둡니다. 함수 앱을 구성할 때 필요 합니다.
+    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
 ## <a name="define-the-function"></a>함수 정의
 
@@ -143,37 +127,22 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 
 1. Azure Portal에서 **DetectStoppedDevices** 리소스 그룹의 **App Service** 인스턴스로 이동 합니다.
 1. **+** 새 함수를 만들려면 선택 합니다.
-1. **개발 환경 선택** 페이지에서 **포털 내** 를 선택한 다음 **계속** 을 선택 합니다.
-1. **함수 만들기** 페이지에서 **Webhook + API** 를 선택한 다음 **만들기** 를 선택 합니다.
+1. **HTTP 트리거** 를 선택 합니다.
+1. **추가** 를 선택합니다.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="기본 HTTP 트리거 함수의 이미지"::: 
+
+## <a name="edit-code-for-http-trigger"></a>HTTP 트리거에 대 한 코드 편집
 
 포털에서 **HttpTrigger1** 라는 기본 함수를 만듭니다.
 
-![기본 HTTP 트리거 함수](media/howto-create-custom-rules/default-function.png)
+    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-### <a name="configure-function-bindings"></a>함수 바인딩 구성
-
-SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수에 대 한 바인딩을 구성 해야 합니다.
-
-1. **통합** 을 선택 하 고, 출력 **HTTP ($return)** 를 선택한 다음, **삭제** 를 선택 합니다.
-1. **+ 새 출력** 을 선택 하 고 **SendGrid** 를 선택한 다음 **선택** 을 선택 합니다. **설치** 를 선택 하 여 SendGrid 확장을 설치 합니다.
-1. 설치가 완료 되 면 **함수 반환 값 사용** 을 선택 합니다. 유효한 받는 사람 **주소** 를 추가 하 여 전자 메일 알림을 받습니다.  전자 메일 보낸 사람으로 사용할 유효한 **보낸 사람 주소** 를 추가 합니다.
-1. **SENDGRID API 키 앱 설정** 옆에서 **새로 만들기** 를 선택 합니다. **Sendgridapikey** 를 키로 입력 하 고 이전에 값으로 적어둔 SendGrid API 키를 입력 합니다. 그런 다음 **만들기** 를 선택합니다.
-1. **저장** 을 선택 하 여 함수에 대 한 SendGrid 바인딩을 저장 합니다.
-
-통합 설정은 다음 스크린샷 처럼 보입니다.
-
-![함수 앱 통합](media/howto-create-custom-rules/function-integrate.png)
-
-### <a name="add-the-function-code"></a>함수 코드 추가
-
-함수를 구현 하려면 c # 코드를 추가 하 여 들어오는 HTTP 요청을 구문 분석 하 고 다음과 같이 전자 메일을 보냅니다.
-
-1. 함수 앱에서 **HttpTrigger1** 함수를 선택 하 고 c # 코드를 다음 코드로 바꿉니다.
+1. C # 코드를 다음 코드로 바꿉니다.
 
     ```csharp
     #r "Newtonsoft.Json"
-    #r "..\bin\SendGrid.dll"
-
+    #r "SendGrid"
     using System;
     using SendGrid.Helpers.Mail;
     using Microsoft.Azure.WebJobs.Host;
@@ -196,7 +165,7 @@ SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수
             content += $"<tr><td>{notification.deviceid}</td><td>{notification.time}</td></tr>";
         }
         content += "</table>";
-        message.AddContent("text/html", content);
+        message.AddContent("text/html", content);  
 
         return message;
     }
@@ -209,8 +178,45 @@ SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수
     ```
 
     새 코드를 저장할 때까지 오류 메시지가 표시 될 수 있습니다.
-
 1. **저장** 을 선택 하 여 함수를 저장 합니다.
+
+## <a name="add-sendgrid-key"></a>SendGrid 키 추가
+
+SendGrid API 키를 추가 하려면 다음과 같이 **함수 키** 에 추가 해야 합니다.
+
+1. **기능 키** 를 선택 합니다.
+1. **+ 새 함수 키** 를 선택 합니다.
+1. 이전에 만든 API 키의 *이름과* *값* 을 입력 합니다.
+1. **확인.**
+
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Add Sangrid Key의 스크린샷":::
+
+
+## <a name="configure-httptrigger-function-to-use-sendgrid"></a>SendGrid를 사용 하도록 HttpTrigger 함수 구성
+
+SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수에 대 한 바인딩을 구성 해야 합니다.
+
+1. **통합** 을 선택합니다.
+1. **HTTP ($return)** 아래에서 **출력 추가** 를 선택 합니다.
+1. **삭제를 선택 합니다.**
+1. **+ 새 출력** 을 선택 합니다.
+1. 바인딩 형식에 대해 **SendGrid** 를 선택 합니다.
+1. SendGrid API 키 설정 형식에서 새로 만들기를 클릭 합니다.
+1. SendGrid API 키의 *이름과* *값* 을 입력 합니다.
+1. 다음 정보를 추가합니다.
+
+| 설정 | 값 |
+| ------- | ----- |
+| 메시지 매개 변수 이름 | 이름 선택 |
+| 대상 주소 | 주소록의 이름을 선택 합니다. |
+| 보낸 사람 주소 | 보낸 사람 주소의 이름을 선택 합니다. |
+| 메시지 제목 | 제목 머리글 입력 |
+| 메시지 텍스트 | 통합에서 메시지 입력 |
+
+1. **확인** 을 선택합니다.
+
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="SandGrid Output 추가의 스크린샷":::
+
 
 ### <a name="test-the-function-works"></a>함수 작동 테스트
 
@@ -222,7 +228,7 @@ SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수
 
 함수 로그 메시지는 **로그** 패널에 표시 됩니다.
 
-![함수 로그 출력](media/howto-create-custom-rules/function-app-logs.png)
+    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
 몇 분 후 받는 **사람 전자 메일 주소는 다음** 내용이 포함 된 전자 메일을 받습니다.
 
@@ -303,14 +309,14 @@ test-device-3    2019-05-02T14:24:28.919Z
 1. **저장** 을 선택합니다.
 1. Stream Analytics 작업을 시작 하려면 **개요**, **시작**, **지금** 을 차례로 선택한 다음 **시작** 을 선택 합니다.
 
-    ![Stream Analytics](media/howto-create-custom-rules/stream-analytics.png)
+    :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Stream Analytics의 스크린샷":::
 
 ## <a name="configure-export-in-iot-central"></a>IoT Central에서 내보내기 구성
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기** 를 선택 하 고, **Azure Event Hubs** 를 선택 합니다.
-1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장** 을 선택 합니다.
+1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장** 을 선택 합니다. 
 
     | 설정 | 값 |
     | ------- | ----- |
@@ -322,7 +328,7 @@ test-device-3    2019-05-02T14:24:28.919Z
     | 디바이스 | 끄기 |
     | 디바이스 템플릿 | 끄기 |
 
-![연속 데이터 내보내기 구성](media/howto-create-custom-rules/cde-configuration.png)
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="연속 데이터 내보내기 구성의 스크린샷":::
 
 계속 하기 전에 내보내기 상태가 **실행 중** 이 될 때까지 기다립니다.
 

@@ -1,22 +1,18 @@
 ---
 title: Azure Integration Runtime IP 주소
 description: 데이터 저장소에 대 한 네트워크 액세스를 보호 하기 위해 방화벽을 제대로 구성 하기 위해에서 인바운드 트래픽을 허용 해야 하는 IP 주소에 대해 알아봅니다.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638298"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371399"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
 

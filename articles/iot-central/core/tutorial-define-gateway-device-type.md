@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995525"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832388"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>자습서 - Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
@@ -51,11 +51,11 @@ ms.locfileid: "95995525"
 
 1. **검토** 페이지에서 **만들기** 를 선택하여 애플리케이션에 디바이스 템플릿을 추가합니다. 
 
-**_RS40 선점 센서_* 디바이스에 대한 디바이스 템플릿을 만들려면 다음을 수행합니다.
+***RS40 선점 센서** 디바이스에 대한 디바이스 템플릿을 만드는 방법은 다음과 같습니다.
 
 1. 왼쪽 창에서 **디바이스 템플릿** 을 선택합니다. **+** 기호를 선택하여 템플릿 추가를 시작합니다.
 
-1. **_RS40 선점 센서_* 디바이스의 타일이 보일 때까지 아래로 스크롤합니다. 이 타일을 선택하고, **다음: 사용자 지정** 을 선택합니다.
+1. ***RS40 선점 센서** 디바이스의 타일이 보일 때까지 아래로 스크롤합니다. 이 타일을 선택하고, **다음: 사용자 지정** 을 선택합니다.
 
 1. **검토** 페이지에서 **만들기** 를 선택하여 애플리케이션에 디바이스 템플릿을 추가합니다. 
 
@@ -198,6 +198,10 @@ ms.locfileid: "95995525"
 
 게이트웨이 디바이스 템플릿과 게이트웨이 디바이스 인스턴스를 선택하고, **조인** 을 선택합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
@@ -208,9 +212,6 @@ ms.locfileid: "95995525"
 * 디바이스 원격 분석에 대한 시각화를 정의합니다.
 * 관계를 추가합니다.
 * 디바이스 템플릿을 게시합니다.
-
-> [!NOTE]
-> VS Code 기반 코드 생성은 현재 IoT Central에서 모델링된 게이트웨이 디바이스에 대해 지원되지 않습니다.
 
 다음으로, 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 

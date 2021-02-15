@@ -1,19 +1,17 @@
 ---
 title: 데이터 흐름 코드 조각을 사용 하 여 행 중복 제거 및 null 찾기
 description: 데이터 흐름에서 코드 조각을 사용 하 여 행을 쉽게 중복 제거 하 고 null을 찾는 방법에 대해 알아봅니다.
-services: data-factory
 author: kromerm
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: makromer
-ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1b49b2584c4cb462c7c0f520fe8d1b5bf69c8674
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632450"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393669"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>데이터 흐름 코드 조각을 사용 하 여 행 중복 제거 및 null 찾기
 
@@ -53,7 +51,7 @@ ms.locfileid: "92632450"
 
    이제 데이터 흐름은 모든 열 값에서 일반 해시를 사용 하 여 모든 행을 기준으로 그룹화 하는 집계 변환을 사용 하 여 원본에서 중복 행을 제거 합니다.
     
-1. Null을 포함 하는 행과 다른 스트림을 포함 하는 하나의 스트림으로 데이터를 분할 하는 코드 조각을 추가 합니다. 이를 수행하려면:
+1. Null을 포함 하는 행과 다른 스트림을 포함 하는 하나의 스트림으로 데이터를 분할 하는 코드 조각을 추가 합니다. 그러려면 다음을 수행합니다.
 
 1. [조각 라이브러리로 돌아가서 NULL 검사를 위해 코드를 복사 합니다.](./data-flow-script.md#check-for-nulls-in-all-columns)
 

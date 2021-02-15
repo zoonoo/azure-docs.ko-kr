@@ -2,13 +2,13 @@
 title: 휴지 상태의 데이터를 암호화 하기 위한 고유한 키 구성 Azure Service Bus
 description: 이 문서에서는 rest Azure Service Bus 데이터를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928088"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378318"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 데이터 Azure Service Bus 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Service Bus Premium은 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Service Bus Premium은 Azure Storage를 사용 하 여 데이터를 저장 합니다. Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 사용자 고유의 키 (BYOK 또는 고객이 관리 Bring Your Own Key 하는 키 라고도 함)를 사용 하는 경우 데이터는 Microsoft 관리 키를 사용 하 여 계속 암호화 되지만 Microsoft 관리 키는 고객 관리 키를 사용 하 여 암호화 됩니다. 이 기능을 사용 하면 Microsoft에서 관리 하는 키를 암호화 하는 데 사용 되는 고객 관리 키에 대 한 액세스를 만들고, 회전, 사용 하지 않도록 설정 및 취소할 수 있습니다. BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에서 한 번만 설정 하면 됩니다.
@@ -94,6 +94,17 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 암호화 키에 대 한 액세스를 취소 해도 Service Bus의 데이터는 제거 되지 않습니다. 그러나 Service Bus 네임 스페이스에서 데이터에 액세스할 수 없습니다. 액세스 정책을 통해 또는 키를 삭제 하 여 암호화 키를 해지할 수 있습니다. 키 자격 증명 [모음에 대 한 보안 액세스](../key-vault/general/secure-your-key-vault.md)에서 액세스 정책 및 키 자격 증명 모음 보안에 대해 자세히 알아보세요.
 
 암호화 키가 해지 되 면 암호화 된 네임 스페이스의 Service Bus 서비스가 작동 하지 않게 됩니다. 키에 대 한 액세스를 사용 하도록 설정 하거나 삭제 된 키를 복원 하는 경우 Service Bus 서비스는 암호화 된 Service Bus 네임 스페이스의 데이터에 액세스할 수 있도록 키를 선택 합니다.
+
+## <a name="caching-of-keys"></a>키 캐싱
+Service Bus 인스턴스는 5 분 마다 나열 된 암호화 키를 폴링합니다. 5 분 후에 다음 폴링까지 캐시 하 고 사용 합니다. 하나 이상의 키를 사용할 수 있는 한, 큐 및 토픽에 액세스할 수 있습니다. 모든 나열 된 키를 폴링할 때 액세스할 수 없으면 모든 큐와 항목을 사용할 수 없게 됩니다. 
+
+다음은 자세한 내용입니다. 
+
+- 5 분 마다 Service Bus 서비스는 네임 스페이스의 레코드에 나열 된 모든 고객 관리 키를 폴링합니다.
+    - 키를 회전 한 경우 레코드가 새 키로 업데이트 됩니다.
+    - 키가 해지 되 면 키가 레코드에서 제거 됩니다.
+    - 모든 키가 해지 되 면 네임 스페이스의 암호화 상태가 **해지** 됨으로 설정 됩니다. Service Bus 네임 스페이스에서 데이터에 액세스할 수 없습니다. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>리소스 관리자 템플릿을 사용 하 여 암호화 사용
 이 섹션에서는 **Azure Resource Manager 템플릿을** 사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 

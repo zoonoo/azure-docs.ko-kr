@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 7e58dcf8206ae9feab4d8a09517bf9efda244dd5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd1715dc0a3767bc5826154616bbdc97c7b61dd3
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451584"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99821251"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 
@@ -36,7 +36,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 이메일 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/).
 
@@ -47,6 +47,8 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 * [체험판 Microsoft Azure Storage Explorer](https://storageexplorer.com/)를 다운로드하여 설치합니다. 이 도구를 사용하여 스토리지 컨테이너가 올바르게 설정되었는지 확인할 수 있습니다.
 
+* 논리 앱이 특정 IP 주소로 트래픽을 제한하는 방화벽을 통해 통신해야 하는 경우 해당 방화벽은 논리 앱이 있는 Azure 지역의 런타임 또는 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용해야 합니다. 논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound) *모두* 에 대한 액세스도 허용해야 합니다.
+
 ## <a name="set-up-storage-to-save-attachments"></a>첨부 파일을 저장하도록 스토리지 설정
 
 수신 이메일 및 첨부 파일을 [Azure Storage 컨테이너](../storage/common/storage-introduction.md)에 BLOB으로 저장할 수 있습니다.
@@ -55,7 +57,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
 1. 스토리지 컨테이너를 만들려면 먼저 Azure Portal의 **기본** 탭에서 다음 설정을 사용하여 [스토리지 계정 만들기](../storage/common/storage-account-create.md)를 수행해야 합니다.
 
-   | 설정 | 값 | 설명 |
+   | 설정 | 값 | Description |
    |---------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름 |  
    | **리소스 그룹** | <*Azure-resource-group*> | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름. 이 예제에서는 "LA-Tutorial-RG"를 사용합니다. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. |
@@ -86,7 +88,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
       ![스토리지 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   스토리지 계정의 액세스 키를 가져오려면 [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) 또는 [Azure CLI](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다.
+   스토리지 계정의 액세스 키를 가져오려면 [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) 또는 [Azure CLI](/cli/azure/storage/account/keys)를 사용할 수도 있습니다.
 
 1. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
 
@@ -102,7 +104,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
       ![완료된 스토리지 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   스토리지 컨테이너를 만들려면 [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다.
+   스토리지 컨테이너를 만들려면 [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](/cli/azure/storage/container#az-storage-container-create)를 사용할 수도 있습니다.
 
 다음으로, Storage Explorer를 스토리지 계정에 연결합니다.
 
@@ -236,7 +238,7 @@ Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스
 
    ![논리 앱 정보 제공](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | 설정 | 값 | 설명 |
+   | 설정 | 값 | Description |
    | ------- | ----- | ----------- |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |

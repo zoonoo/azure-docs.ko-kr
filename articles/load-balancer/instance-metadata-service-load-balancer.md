@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: dcc9f71404e5a7c6509e4a8e821d66831ba02382
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d7d08eb5e77e744fb6ce0abefc550bc79de4c8c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417824"
+ms.locfileid: "100519085"
 ---
 # <a name="retrieve-load-balancer-information-by-using-the-azure-instance-metadata-service"></a>Azure Instance Metadata Service을 사용 하 여 부하 분산 장치 정보 검색
 
@@ -29,7 +29,7 @@ Azure 표준 Load Balancer 뒤에 가상 컴퓨터 또는 가상 컴퓨터 집�
 
 ## <a name="access-the-load-balancer-metadata-using-the-imds"></a>IMDS를 사용 하 여 부하 분산 장치 메타 데이터에 액세스
 
-부하 분산 장치 메타 데이터에 액세스 하는 방법에 대 한 자세한 내용은 [Azure Instance Metadata Service를 사용 하 여 부하 분산 장치 정보에 액세스](howto-load-balancer-imds.md) 를 참조 하세요. 부하 분산 장치 정보에 액세스 합니다.
+부하 분산 장치 메타 데이터에 액세스 하는 방법에 대 한 자세한 내용은 [Azure Instance Metadata Service를 사용 하 여 부하 분산 장치 정보에 액세스](howto-load-balancer-imds.md)를 참조 하세요.
 
 ## <a name="troubleshoot-common-error-codes"></a>일반적인 오류 코드 문제 해결
 
@@ -40,7 +40,7 @@ Azure 표준 Load Balancer 뒤에 가상 컴퓨터 또는 가상 컴퓨터 집�
 여러 번 시도한 후 메타 데이터 응답을 검색할 수 없는 경우 Azure Portal에서 지원 문제를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service) 에 대 한 자세한 정보
+[Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) 에 대 한 자세한 정보
 
 [표준 부하 분산 장치 배포](quickstart-load-balancer-standard-public-portal.md)
 

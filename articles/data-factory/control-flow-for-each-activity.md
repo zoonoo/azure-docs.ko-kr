@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory의 ForEach 작업
 description: ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 컬렉션에 대한 반복 작업에 사용되며 특정 작업을 실행합니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 71e96e6245d4cf922b82162e01a972264699f3ac
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c59108752677fc33e28578c3c679be24108806d5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499512"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385611"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory의 ForEach 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -76,8 +72,8 @@ name | for-each 작업의 이름입니다. | String | 예
 type | **ForEach** 로 설정되어야 합니다. | String | 예
 isSequential | 순차 또는 병렬로 루프를 실행할지 지정합니다.  한 번에 최대 20개의 루프 반복을 병렬로 실행할 수 있습니다. 예를 들어 **isSequential** 이 False로 설정된 10개의 다른 원본과 싱크 데이터 세트가 있는 복사 작업에 대해 반복되는 ForEach 작업의 경우, 모든 복사가 한 번에 실행됩니다. 기본값은 False입니다. <br/><br/> "IsSequential"이 False로 설정된 경우 여러 실행 파일을 실행하기 위해 정확한 구성이 있는지 확인합니다. 그렇지 않으면 쓰기 충돌이 발생하지 않도록 이 속성을 주의하여 사용해야 합니다. 자세한 내용은 [병렬 실행](#parallel-execution) 섹션을 참조하세요. | 부울 | 아니요. 기본값은 False입니다.
 batchCount | 병렬 실행 수를 제어하는 데 사용하는 Batch 계정입니다(IsSequential이 false로 설정된 경우). 이는 상한 동시성 제한 이지만 각 활동은 항상이 숫자에서 실행 되지 않습니다. | 정수(최대값 50) | 아니요. 기본값은 20입니다.
-항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | 예
-활동 | 실행할 작업 | 작업 목록 | 예
+항목 | 반복되는 JSON 배열을 반환하는 식 | 식(JSON 배열 반환) | Yes
+활동 | 실행할 작업 | 작업 목록 | Yes
 
 ## <a name="parallel-execution"></a>병렬 실행
 **isSequential** 이 false로 설정된 경우 최대 20개의 동시 반복에서 병렬로 작업이 반복됩니다. 이 설정은 주의해서 사용해야 합니다. 동시 반복을 동일한 폴더의 다른 파일에 쓰는 것은 괜찮습니다. 동시 반복을 동시에 정확히 동일한 파일에 쓸 경우 오류가 발생할 가능성이 높습니다. 

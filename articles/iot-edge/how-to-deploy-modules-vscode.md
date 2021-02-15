@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ccc87b1b3103e799a5974542de602090df8e1e4b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6a6415aa55a67b37d9564398eb77dacb48cf16f0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048392"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378114"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
@@ -61,7 +61,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                  "createOptions": "{}"
                }
              },
@@ -70,7 +70,7 @@ Visual Studio Code를 사용하여 모듈을 배포하려면 배포 매니페스
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                  "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                }
              }
@@ -119,7 +119,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 1. **Azure IoT Hub** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다.
 
-1. **IoT Hub 선택**을 선택합니다.
+1. **IoT Hub 선택** 을 선택합니다.
 
 1. Azure 계정에 로그인하지 않은 경우, 프롬프트를 따라 로그인합니다.
 
@@ -136,11 +136,11 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 1. 배포 매니페스트로 구성하려는 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭합니다.
 
     > [!TIP]
-    > 선택한 디바이스가 IoT Edge 디바이스인지 확인하려면 선택하여 모듈 목록을 확장하고 **$edgeHub** 및 **$edgeAgent**가 있는지 확인합니다. 모든 IoT Edge 디바이스에 이러한 두 모듈이 포함됩니다.
+    > 선택한 디바이스가 IoT Edge 디바이스인지 확인하려면 선택하여 모듈 목록을 확장하고 **$edgeHub** 및 **$edgeAgent** 가 있는지 확인합니다. 모든 IoT Edge 디바이스에 이러한 두 모듈이 포함됩니다.
 
-1. **단일 디바이스용 배포 만들기**를 선택합니다.
+1. **단일 디바이스용 배포 만들기** 를 선택합니다.
 
-1. 사용하려는 배포 매니페스트 JSON 파일로 이동하고 **에지 배포 매니페스트 선택**을 클릭합니다.
+1. 사용하려는 배포 매니페스트 JSON 파일로 이동하고 **에지 배포 매니페스트 선택** 을 클릭합니다.
 
    ![에지 배포 매니페스트 선택](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 

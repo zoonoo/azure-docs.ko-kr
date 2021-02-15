@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory의 필터 작업
 description: 필터 작업은 입력을 필터링합니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 2026bdd1898df460bfed2ae9d5544f90c532308f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 035ee5a5f1fe193fcb4579f1d46472ad9cd0b8b5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507441"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385594"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure Data Factory의 필터 작업
 입력 배열에 필터 식을 적용하려면 파이프라인에서 필터 작업을 사용할 수 있습니다. 
@@ -41,7 +37,7 @@ ms.locfileid: "97507441"
 -------- | ----------- | -------------- | --------
 name | `Filter` 작업의 이름입니다. | String | 예
 type | **필터** 로 설정되어야 합니다. | String | 예
-condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | 예
+condition(조건) | 입력을 필터링하는 데 사용할 조건입니다. | 식 | Yes
 items | 필터를 적용해야 하는 입력 배열입니다. | 식 | 예
 
 ## <a name="example"></a>예제

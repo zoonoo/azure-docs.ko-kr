@@ -5,18 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/14/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 76a602ae722bd975e634631819ebc703e8896c98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7dd255e9767309c7b273dccfa0ee5675eed18568
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028418"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380497"
 ---
-### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 게이트웨이 연결 없음
-
 추가 주소 접두사를 추가하려면:
 
 1. LocalNetworkGateway에 대한 변수를 설정합니다.
@@ -24,7 +22,7 @@ ms.locfileid: "96028418"
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. 접두사를 수정합니다.
+1. 접두사를 수정합니다.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -40,50 +38,9 @@ ms.locfileid: "96028418"
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-2. 업데이트된 접두사를 사용하는 게이트웨이를 설정합니다.
+1. 업데이트된 접두사를 사용하는 게이트웨이를 설정합니다.
 
    ```azurepowershell-interactive
    Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
    -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-   ```
-
-### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>로컬 네트워크 게이트웨이 IP 주소 접두사를 수정하려면 - 기존 게이트웨이 연결
-
-게이트웨이 연결이 있고 로컬 네트워크 게이트웨이에 포함된 IP 주소 접두사를 추가 또는 제거하려면 다음 단계를 순서대로 수행해야 합니다. 이로 인해 VPN 연결에 약간의 가동 중지 시간이 발생합니다. IP 주소 접두사를 수정할 때 VPN Gateway를 삭제할 필요가 없습니다. 연결만 제거하면 됩니다.
-
-1. 연결을 제거합니다.
-
-   ```azurepowershell-interactive
-   Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
-   ```
-2. 수정된 주소 접두사를 사용하는 로컬 네트워크 게이트웨이를 설정합니다.
-   
-   LocalNetworkGateway에 대한 변수를 설정합니다.
-
-   ```azurepowershell-interactive
-   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-   ```
-   
-   접두사를 수정합니다.
-   
-   ```azurepowershell-interactive
-   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
-   -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
-   ```
-3. 연결을 만듭니다. 이 예제에서는 IPsec 연결 형식을 구성합니다. 연결을 다시 만들 때 구성에 대해 지정된 연결 유형을 사용합니다. 추가 연결 형식은 [PowerShell cmdlet](/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection) 페이지를 참조하세요.
-   
-   VirtualNetworkGateway에 대한 변수를 설정합니다.
-
-   ```azurepowershell-interactive
-   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW  -ResourceGroupName TestRG1
-   ```
-   
-   연결을 만듭니다. 이 예제에서는 2단계에서 설정한 $local 변수를 사용합니다.
-
-   ```azurepowershell-interactive
-   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
-   -ResourceGroupName TestRG1 -Location 'East US' `
-   -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-   -ConnectionType IPsec `
-   -RoutingWeight 10 -SharedKey 'abc123'
    ```

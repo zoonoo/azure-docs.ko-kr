@@ -8,22 +8,22 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 35e32627eaf26eb6f73ca382f119eab61ebd8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5196b03ccd513e4afd93b8b8fcf18f7c2580024a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417829"
+ms.locfileid: "100519221"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)를 사용 하 여 부하 분산 장치 메타 데이터 검색
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 요청에 대 한 [최신 API 버전](/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) 을 사용 합니다.
+* 요청에 대 한 [최신 API 버전](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) 을 사용 합니다.
 
 ## <a name="sample-request-and-response"></a>예제 요청 및 응답
 > [!IMPORTANT]
-> 이 예에서는 프록시를 무시 합니다. IMDS를 쿼리할 때 프록시를 무시 **해야** 합니다. 자세한 내용은 [프록시](/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies)를 참조 하세요.
+> 이 예에서는 프록시를 무시 합니다. IMDS를 쿼리할 때 프록시를 무시 **해야** 합니다. 자세한 내용은 [프록시](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies)를 참조 하세요.
 ### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
@@ -82,9 +82,9 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ## <a name="next-steps"></a>다음 단계
 [일반적인 오류 코드 및 문제 해결 단계](troubleshoot-load-balancer-imds.md)
 
-[Azure Instance Metadata Service](/virtual-machines/windows/instance-metadata-service) 에 대 한 자세한 정보
+[Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) 에 대 한 자세한 정보
 
-[인스턴스의 모든 메타 데이터 검색](/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
+[인스턴스의 모든 메타 데이터 검색](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [표준 부하 분산 장치 배포](quickstart-load-balancer-standard-public-portal.md)
 

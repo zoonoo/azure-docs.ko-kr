@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805093"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390813"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -70,6 +70,9 @@ Log Analytics 플랫폼 요구 사항과 Azure 센티널 고객과 관련 된 �
 
 ## <a name="parsers"></a>파서에서
 
+- [구문 분석 이란?](#what-is-parsing)
+- [쿼리 시간 파서 사용](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>구문 분석 이란?
 
 정의 된 정규화 된 테이블의 기본 집합을 사용할 수 있으므로 데이터를 이러한 테이블로 변환 (구문 분석/매핑) 해야 합니다. 즉, 원시 형식에서 정규화 된 스키마의 잘 알려진 열로 특정 데이터를 추출 합니다. Azure 센티널의 구문 분석은 **쿼리 시간** 에 발생 합니다. 파서는 기존 테이블의 데이터 (예: CommonSecurityLog, 사용자 지정 로그 테이블, syslog)를 정규화 된 테이블 스키마로 변환 하는 Log Analytics 사용자 함수 (Kusto query KQL 사용)로 빌드됩니다.
@@ -77,6 +80,10 @@ Log Analytics 플랫폼 요구 사항과 Azure 센티널 고객과 관련 된 �
 Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석은 수집 **시간** 을 통해 데이터 원본에서 수집 정규화 된 테이블로 데이터를 직접 수집할 수 있습니다. 수집 시간 구문 분석은 함수를 사용할 필요 없이 데이터 모델을 직접 쿼리할 때 향상 된 성능을 제공 합니다.
 
 ### <a name="using-query-time-parsers"></a>쿼리 시간 파서 사용
+
+- [파서 설치](#installing-a-parser)
+- [파서 사용](#using-the-parsers)
+- [파서 사용자 지정](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>파서 설치
 
@@ -119,6 +126,12 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 각 개별 파서를 클릭 하 고, 사용 하는 기본 함수를 확인 하 여 실행 하거나, 위에 설명 된 대로 해당 별칭으로 직접 액세스할 수 있습니다. 일부 파서는 편의를 위해 원래 필드를 정규화 된 필드와 나란히 유지할 수 있습니다. 이는 파서의 쿼리에서 쉽게 편집할 수 있습니다.
 
+> [!TIP]
+> 검색 쿼리를 비롯 한 모든 쿼리에서 Azure 센티널 테이블 대신 저장 된 함수를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+>
+> - [Azure 센티널의 데이터 정규화](normalization.md#parsers)
+> - [Azure Monitor 로그의 텍스트 구문 분석](/azure/azure-monitor/log-query/parse-text)
+>
 #### <a name="customizing-parsers"></a>파서 사용자 지정
 
 위의 단계를 반복 하 여 (쿼리 탐색기에서 파서를 찾고) 관련 파서를 클릭 하 고 함수 구현을 볼 수 있습니다.
@@ -131,6 +144,8 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 :::image type="content" source="./media/normalization/are-you-sure.png" alt-text="확실한가요":::
 
 #### <a name="additional-information"></a>추가 정보
+
+JSON, XML 및 CSV는 쿼리 시 구문 분석에 특히 유용 합니다. Azure 센티널에는 json, XML 및 CSV에 대 한 기본 제공 구문 분석 함수 뿐만 아니라 JSON 구문 분석 도구도 있습니다.  자세한 내용은 [Azure 센티널에서 JSON 필드 사용](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (블로그)을 참조 하세요. 
 
 Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/example-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
 

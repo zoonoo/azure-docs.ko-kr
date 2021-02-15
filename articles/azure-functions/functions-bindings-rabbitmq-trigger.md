@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388994"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 트리거
 
@@ -27,7 +27,7 @@ RabbitMQ 트리거를 사용 하 여 RabbitMQ 큐의 메시지에 응답 합니�
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-다음 예제에서는 RabbitMQ 메시지를 [RabbitMQ 이벤트](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)로 읽고 기록 하는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다.
+다음 예제에서는 RabbitMQ 메시지를 [RabbitMQ 이벤트](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)로 읽고 기록 하는 [c # 함수](functions-dotnet-class-library.md) 를 보여 줍니다.
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -229,7 +229,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-기본 메시지 유형은 [RabbitMQ event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
+기본 메시지 유형은 [RabbitMQ event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
 
 * `An object serializable as JSON` -메시지가 유효한 JSON 문자열로 전달 됩니다.
 * `string`
@@ -238,7 +238,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-기본 메시지 유형은 [RabbitMQ event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
+기본 메시지 유형은 [RabbitMQ event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)이며 `Body` RabbitMQ 이벤트의 속성은 아래 나열 된 유형으로 읽을 수 있습니다.
 
 * `An object serializable as JSON` -메시지가 유효한 JSON 문자열로 전달 됩니다.
 * `string`
@@ -280,7 +280,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |prefetchCount|30|메시지 수신자가 동시에 요청 하 고 캐시 하는 메시지 수를 가져오거나 설정 합니다.|
 |queueName|해당 없음| 메시지를 받을 큐의 이름입니다.|
@@ -308,7 +308,7 @@ Java [특성 및 주석](#attributes-and-annotations)을 참조 하세요.
 }
 ```
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |hostName|해당 없음|(connectionString을 사용 하는 경우 무시 됨) <br>큐의 호스트 이름 (예: 10.26.45.210)|
 |userName|해당 없음|(connectionString을 사용 하는 경우 무시 됨) <br>큐에 액세스 하는 이름 |

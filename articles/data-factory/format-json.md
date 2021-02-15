@@ -2,19 +2,16 @@
 title: Azure Data Factory JSON 형식
 description: 이 항목에서는 Azure Data Factory에서 JSON 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: d582278debef67e3a6cf9c9e13ffd45e4f320778
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386546"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure Data Factory JSON 형식
 
@@ -71,7 +68,7 @@ JSON 파일에서 데이터를 추출 하 고, 데이터를 싱크 데이터 저
 
 ### <a name="json-as-source"></a>JSON을 소스로
 
-복사 작업 **_ \_ 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\* 원본 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -90,7 +87,7 @@ JSON 파일에서 데이터를 추출 하 고, 데이터를 싱크 데이터 저
 
 ### <a name="json-as-sink"></a>JSON을 싱크로
 
-복사 작업 **_ \_ 싱크 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\* 싱크 \**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
@@ -206,18 +203,18 @@ JSON 파일에서 데이터를 복사 하는 경우 복사 작업은 다음과 �
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | no | String[] | wildcardPaths |
-| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | no | String | 파티션 (partitionRootPath) |
-| 파일 목록 | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | no | `true` 또는 `false` | fileList |
-| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | no | String | rowUrlColumn |
-| 완료 후 | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | no | 삭제: `true` 또는 `false` <br> 옮기고 `['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | no | 타임스탬프 | modifiedAfter <br> modifiedBefore |
-| 단일 문서 | 데이터 흐름 매핑 각 파일에서 하나의 JSON 문서를 읽습니다. | no | `true` 또는 `false` | singleDocument |
-| 따옴표 붙지 않은 열 이름 | 따옴표 **붙지 않은 열 이름을** 선택 하는 경우 데이터 흐름 매핑이 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | no | `true` 또는 `false` |  unquotedColumnNames |
-| 설명 있음 | JSON 데이터에 C 또는 c + + 스타일 주석이 있으면 **주석 포함** 을 선택 합니다. | no | `true` 또는 `false` | asComments |
-| 작은따옴표 | 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | no | `true` 또는 `false` | singleQuoted |
-| 백슬래시가 이스케이프 되었습니다. | 백슬래시를 사용 하 여 JSON 데이터의 문자를 이스케이프 하는 경우 **백슬래시 이스케이프** 를 선택 합니다. | no | `true` 또는 `false` | backslashEscape |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
+| 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요 | String[] | wildcardPaths |
+| 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | 파티션 (partitionRootPath) |
+| 파일 목록 | 소스에서 처리할 파일을 나열 하는 텍스트 파일을 가리키고 있는지 여부 | 아니요 | `true` 또는 `false` | fileList |
+| 파일 이름을 저장할 열 | 원본 파일 이름 및 경로를 사용 하 여 새 열을 만듭니다. | 아니요 | String | rowUrlColumn |
+| 완료 후 | 처리 후 파일을 삭제 하거나 이동 합니다. 컨테이너 루트에서 파일 경로가 시작 됩니다. | 아니요 | 삭제: `true` 또는 `false` <br> 옮기고 `['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| 마지막으로 수정한 사람 필터링 | 마지막으로 변경 된 시간에 따라 파일을 필터링 하도록 선택 | 아니요 | 타임스탬프 | modifiedAfter <br> modifiedBefore |
+| 단일 문서 | 데이터 흐름 매핑 각 파일에서 하나의 JSON 문서를 읽습니다. | 아니요 | `true` 또는 `false` | singleDocument |
+| 따옴표 붙지 않은 열 이름 | 따옴표 **붙지 않은 열 이름을** 선택 하는 경우 데이터 흐름 매핑이 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | 아니요 | `true` 또는 `false` |  unquotedColumnNames |
+| 설명 있음 | JSON 데이터에 C 또는 c + + 스타일 주석이 있으면 **주석 포함** 을 선택 합니다. | 아니요 | `true` 또는 `false` | asComments |
+| 작은따옴표 | 따옴표로 묶여 있지 않은 JSON 열을 읽습니다. | 아니요 | `true` 또는 `false` | singleQuoted |
+| 백슬래시가 이스케이프 되었습니다. | 백슬래시를 사용 하 여 JSON 데이터의 문자를 이스케이프 하는 경우 **백슬래시 이스케이프** 를 선택 합니다. | 아니요 | `true` 또는 `false` | backslashEscape |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>원본 형식 옵션
 
@@ -302,8 +299,8 @@ JSON 필드와 값에 큰따옴표 대신 작은따옴표를 사용 하는 경�
 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |
-| 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다. `part-#####-tid-<guid>` | no | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력: `['<fileName>']`  | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |
+| 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
+| 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다. `part-#####-tid-<guid>` | 아니요 | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력: `['<fileName>']`  | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>파생 열에 JSON 구조 만들기
 

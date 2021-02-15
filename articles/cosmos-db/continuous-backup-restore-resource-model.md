@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538507"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369971"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 리소스 모델
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ ms.locfileid: "99538507"
 
 ### <a name="backuppolicy"></a>BackupPolicy
 
-"Backuppolicy" 매개 변수 아래에서 "Type" 이라는 계정 수준 백업 정책의 새 속성은 연속 백업 및 지정 시간 복원 기능을 사용 하도록 설정 합니다. 이 모드를 **연속 백업** 이라고 합니다. 공개 미리 보기에서는 계정을 만들 때만이 모드를 설정할 수 있습니다. 사용 하도록 설정 된 후에는이 계정 내에서 만들어진 모든 컨테이너와 데이터베이스에 연속 백업 및 지정 시간 복원 기능이 기본적으로 사용 되도록 설정 됩니다.
+매개 변수 아래에 명명 된 계정 수준 백업 정책의 새 속성은 `Type` `backuppolicy` 연속 백업 및 지정 시간 복원 기능을 사용 하도록 설정 합니다. 이 모드를 **연속 백업** 이라고 합니다. 공개 미리 보기에서는 계정을 만들 때만이 모드를 설정할 수 있습니다. 사용 하도록 설정 된 후에는이 계정 내에서 만들어진 모든 컨테이너와 데이터베이스에 연속 백업 및 지정 시간 복원 기능이 기본적으로 사용 되도록 설정 됩니다.
 
 > [!NOTE]
 > 현재 지정 시간 복원 기능은 공개 미리 보기로 제공 되며 MongoDB 및 SQL 계정에 대 한 Azure Cosmos DB API에 사용할 수 있습니다. 연속 모드를 사용 하 여 계정을 만든 후에는 정기적 모드로 전환할 수 없습니다.
 
 ### <a name="createmode"></a>CreateMode
 
-이 속성은 계정을 만든 방법을 나타냅니다. 가능한 값은 "Default" 및 "Restore"입니다. 복원을 수행 하려면이 값을 "Restore"로 설정 하 고 속성에 적절 한 값을 제공 합니다 `RestoreParameters` .
+이 속성은 계정을 만든 방법을 나타냅니다. 가능한 값은 *Default* 및 *Restore* 입니다. 복원을 수행 하려면이 값을 *복원* 으로 설정 하 고 속성에 적절 한 값을 제공 합니다 `RestoreParameters` .
 
 ### <a name="restoreparameters"></a>RestoreParameters
 
@@ -45,7 +45,7 @@ ms.locfileid: "99538507"
 
 |속성 이름 |설명  |
 |---------|---------|
-|restoreMode  | 복원 모드는 "PointInTime" 이어야 합니다. |
+|restoreMode  | 복원 모드는 *Pointintime* 이어야 합니다. |
 |restoreSource   |  복원이 시작 되는 원본 계정의 instanceId입니다.       |
 |restoreTimestampInUtc  | 계정을 복원 해야 하는 시간 (UTC)입니다. |
 |databasesToRestore   | `DatabaseRestoreSource`복원 해야 하는 데이터베이스 및 컨테이너를 지정 하는 개체의 목록입니다. 이 값이 비어 있으면 전체 계정이 복원 됩니다.   |

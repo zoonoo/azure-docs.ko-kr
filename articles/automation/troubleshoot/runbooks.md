@@ -2,16 +2,15 @@
 title: Azure Automation Runbook 문제 해결
 description: 이 문서에서는 Azure Automation Runbook과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.subservice: ''
-ms.date: 11/03/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053672"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388025"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Runbook 문제 해결
 
@@ -224,37 +223,46 @@ Runbook을 실행하면 Runbook에서 Azure 리소스를 관리하지 못합니�
 
 ### <a name="cause"></a>원인
 
-Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다.
+Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다. Runbook에서 실수로 잘못 된 구독에 액세스 하려고 했기 때문일 수 있습니다.
+
+다음과 같은 오류가 표시 될 수 있습니다.
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### <a name="resolution"></a>해결 방법
 
-Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 Runbook에 전달되도록 클라이언트 Runbook에서 컨텍스트를 `AzureRmContext` 매개 변수의 `Start-AzureRmAutomationRunbook` cmdlet에 전달하도록 합니다. 지정된 자격 증명이 현재 Runbook에만 사용되도록 `Scope` 매개 변수가 `Process`로 설정된 `Disable-AzureRmContextAutosave` cmdlet을 사용합니다. 자세한 내용은 [구독](../automation-runbook-execution.md#subscriptions)을 참조하세요.
+Runbook에서 여러 Runbook을 호출하면 구독 컨텍스트가 손실될 수 있습니다. 실수로 잘못 된 구독에 액세스를 시도 하지 않도록 하려면 아래 지침을 따라야 합니다.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* 잘못 된 구독을 참조 하지 않으려면 각 runbook을 시작할 때 다음 코드를 사용 하 여 Automation runbook에서 컨텍스트 저장을 사용 하지 않도록 설정 합니다.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* Azure PowerShell cmdlet은 매개 변수를 지원 합니다 `-DefaultProfile` . 동일한 프로세스에서 여러 PowerShell 스크립트를 실행 하도록 지원 하기 위해 모든 Az 및 AzureRm cmdlet에 추가 되었습니다 .이를 통해 컨텍스트와 각 cmdlet에 사용할 구독을 지정할 수 있습니다. Runbook을 사용 하 여 runbook을 만들 때 (즉, 계정이 로그인 할 때) runbook에 컨텍스트 개체를 저장 하 고, 변경 될 때마다 Az cmdlet을 지정할 때 컨텍스트를 참조할 수 있습니다.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > [AzContext](/powershell/module/az.accounts/Set-AzContext) 또는 [AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription)와 같은 cmdlet을 사용 하 여 직접 컨텍스트를 조작 하는 경우에도 컨텍스트 개체를 전달 해야 합니다.
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>시나리오: 다단계 인증을 사용하도록 설정하여 Azure에 대한 인증이 실패함
 
 ### <a name="issue"></a>문제

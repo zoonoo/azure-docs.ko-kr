@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575163"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517827"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,22 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+## <a name="march-2021"></a>2021년 3월
+여러 지역의 다음 SQL 게이트웨이가 비활성화 되 고 있습니다.
+
+- 브라질 남부: 104.41.11.5
+- 동아시아: 191.234.2.139
+- 미국 동부: 191.238.6.43
+- 일본 동부: 191.237.240.43
+- 일본 서 부: 191.238.68.11
+- 북아메리카 유럽: 191.235.193.75
+- 미국 중부 중부: 23.98.162.75
+- 동남 아시아: 23.100.117.95
+- 유럽 서부: 191.237.232.75
+- 미국 서 부: 23.99.34.75
+
+이러한 게이트웨이 (이전 하드웨어에서 실행)는 고객 트래픽을 라우팅 하지 않으므로 고객에 게 영향을 미치지 않습니다. 이러한 게이트웨이의 IP 주소는 2021 년 3 월 15 일에 비활성화 됩니다.
+
 ## <a name="february-2021"></a>2021년 2월
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 

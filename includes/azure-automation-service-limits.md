@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 4a6b21d3782931e3bee4a13ff95e7f313dcc1af2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379770"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974641"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
@@ -22,9 +22,10 @@ ms.locfileid: "92379770"
 | Azure Automation 계정당 30초마다 제출할 수 있는 새 작업의 최대 수(예약되지 않은 작업) |100 |이 한도에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. 클라이언트는 오류 응답을 받습니다.|
 | Automation 계정당 동일한 인스턴스 시간에 동시 실행 작업의 최대 수(예약되지 않은 작업) |200 |이 한도에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. 클라이언트는 오류 응답을 받습니다.|
 | 30일 롤링 기간 동안 작업 메타데이터의 최대 스토리지 크기 | 10GB(약 4백만 개 작업)|이 한도에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. |
-| 최대 작업 스트림 한도|1MiB|단일 스트림은 1MB보다 클 수 없습니다.|
+| 최대 작업 스트림 한도|1MiB|단일 스트림이 1MiB를 초과하면 안 됩니다.|
 | Automation 계정당 30초마다 가져올 수 있는 모듈의 최대 수 |5 ||
 | 모듈의 최대 크기 |100MB ||
+| 노드 구성 파일의 최대 크기 | 1MB | 상태 구성에 적용 |
 | 작업 런타임, 무료 계층 |월별 구독당 500분 ||
 | 샌드박스당 허용되는 디스크 공간의 최대 크기<sup>1</sup> |1 GB |Azure 샌드박스에만 적용됩니다.|
 | 샌드박스에 지정된 최대 메모리 양<sup>1</sup> |400 MB |Azure 샌드박스에만 적용됩니다.|

@@ -59,10 +59,8 @@
       href: ./update-application-to-3.0-sdk.md
 - name: 참조
   items:
-    - name: Custom Vision 교육 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Custom Vision 예측 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/custom-vision/'
     - name: SDK
       items:
         - name: .NET

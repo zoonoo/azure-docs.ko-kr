@@ -1,23 +1,18 @@
 ---
 title: Data Factory를 사용 하 여 Cassandra에서 데이터 이동
 description: Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f96680f1ea91434c84d6606e3637c68c1cb5a84
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019636"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387413"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +29,7 @@ ms.locfileid: "96019636"
 ## <a name="supported-versions"></a>지원되는 버전
 Cassandra 커넥터는 Cassandra 2.X 및 3.x 버전을 지원합니다. 자체 호스팅 Integration Runtime에서 활동 실행의 경우 Cassandra 3.x는 IR 버전 3.7 이상에서 지원됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에 연결할 수 있도록 하려면 데이터베이스와 리소스 경쟁을 피하려면 데이터 관리 게이트웨이를 데이터베이스를 호스트하는 컴퓨터와 동일한 컴퓨터 또는 별도의 컴퓨터에 설치해야 합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하게 관리되는 방식으로 연결하는 구성 요소입니다. 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 데이터 이동을 위한 데이터 파이프라인 및 게이트웨이 설정에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 데이터베이스가 클라우드(예: Azure IaaS VM)에서 호스팅되는 경우에도 게이트웨이를 사용하여 Cassandra 데이터베이스에 연결해야 합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한, 데이터베이스를 호스팅하는 동일한 VM 또는 별도의 VM에 게이트웨이를 포함할 수 있습니다.
@@ -63,7 +58,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Cassandra 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
@@ -72,7 +67,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | password |사용자 계정으로 password를 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | gatewayName |온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. |Yes |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |No |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |예 |
 
 >[!NOTE]
 >현재 TLS를 사용 하는 Cassandra에 연결 하는 것은 지원 되지 않습니다.
@@ -82,7 +77,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **CassandraTable** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
@@ -290,13 +285,13 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 데이터베이스에 연결하고 데이터를 복사합니다. 맵, 집합 및 목록을 포함하는 컬렉션 형식의 경우 드라이버는 데이터를 해당 가상 테이블로 다시 정규화합니다. 특히, 테이블에 컬렉션 열이 포함되어 있으면 드라이버는 다음 가상 테이블을 생성합니다.
 
 * **기본 테이블**: 컬렉션 열을 제외하고 실제 테이블과 동일한 데이터가 포함되어 있습니다. 기본 테이블은 나타내는 실제 테이블과 동일한 이름을 사용합니다.
-* **가상 테이블** : 컬렉션 열에 대해 생성되며, 중첩된 데이터를 확장합니다. 컬렉션을 나타내는 가상 테이블 이름은 실제 테이블의 이름, 구분 기호 "*vt*" 및 열 이름을 사용 하 여 지정 됩니다.
+* **가상 테이블** : 컬렉션 열에 대해 생성되며, 중첩된 데이터를 확장합니다. 컬렉션을 나타내는 가상 테이블 이름은 실제 테이블의 이름, 구분 기호 "*vt*" 및 열 이름을 사용하여 지정합니다.
 
 가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 자세한 내용은 예제 섹션을 참조하세요. 가상 테이블을 쿼리 및 조인하여 Cassandra 컬렉션의 콘텐츠에 액세스할 수 있습니다.
 
 [복사 마법사](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity)를 사용하여 가상 테이블을 비롯한 Cassandra 데이터베이스의 테이블 목록을 표시하고 내부의 데이터를 미리 볼 수 있습니다. 또한 복사 마법사에서 쿼리를 생성하고 결과가 유효한지 확인할 수도 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 예를 들어 다음 "ExampleTable"은 "pk_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
 
 | pk_int | 값 | 목록 | 맵 | StringSet |
@@ -306,14 +301,14 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 드라이버는 이 단일 테이블을 나타내는 여러 개의 가상 테이블을 생성합니다. 가상 테이블의 외래 키 열은 실제 테이블의 기본 키 열을 참조하고, 가상 테이블 행에 해당하는 실제 테이블 행을 나타냅니다.
 
-첫 번째 가상 테이블은 다음 테이블에 표시된 "ExampleTable"이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
+첫 번째 가상 테이블은 다음 표에 표시 된 "ExampleTable" 이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
 
 | pk_int | 값 |
 | --- | --- |
 | 1 |"sample value 1" |
 | 3 |"sample value 3" |
 
-다음 표에서는 List, Map 및 StringSet 열의 데이터를 다시 정규화하는 가상 테이블을 보여 줍니다. 이름이 “_index” 또는 “_key”로 끝나는 열은 원본 목록이나 맵 내의 데이터 위치를 나타냅니다. 이름이 "_value"로 끝나는 열에는 컬렉션에서 확장된 데이터가 포함됩니다.
+다음 표에서는 List, Map 및 StringSet 열의 데이터를 다시 정규화하는 가상 테이블을 보여 줍니다. 이름이 "_index" 또는 "_key"로 끝나는 열은 원본 목록이나 맵 내의 데이터 위치를 나타냅니다. 이름이 "_value"로 끝나는 열에는 컬렉션에서 확장된 데이터가 포함됩니다.
 
 #### <a name="table-exampletable_vt_list"></a>테이블 "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
@@ -326,14 +321,14 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletable_vt_map"></a>테이블 “ExampleTable_vt_Map”:
+#### <a name="table-exampletable_vt_map"></a>테이블 "ExampleTable_vt_Map":
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletable_vt_stringset"></a>테이블 “ExampleTable_vt_StringSet”:
+#### <a name="table-exampletable_vt_stringset"></a>테이블 "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |
