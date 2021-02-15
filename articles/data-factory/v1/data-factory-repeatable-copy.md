@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory에서 반복 가능한 복사
 description: 데이터를 복사하는 조각이 두 번 이상 실행되더라도 중복을 방지하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cd0f389615c95ef9b9bc8280b6486740ddba4fb4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c427cd90412121e896738ca43f4c66dd24b096dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456826"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387090"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
 
@@ -27,7 +22,7 @@ ms.locfileid: "96456826"
 > [!NOTE]
 > 다음 예제는 Azure SQL에 대한 것이지만, 직사각 데이터 세트를 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 데이터 저장소에 대해 소스의 **type** 및 **query** 속성(예: sqlReaderQuery 대신 query)을 조정해야 할 수도 있습니다.   
 
-일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예: 
+일반적으로 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure Data Factory에서 제공하는 WindowStart 및 WindowEnd 시스템 변수를 사용하면 됩니다. [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서에서 Azure Data Factory의 변수 및 함수 부분을 읽어보세요. 예제: 
 
 ```json
 "source": {
@@ -59,7 +54,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-원본 파일에서 오류를 발견하고 Down Tube의 수량을 2에서 4로 업데이트했다고 가정해 보겠습니다. 해당 기간의 데이터 조각을 수동으로 다시 실행하면 Azure/SQL Server 데이터베이스에 새 레코드가 두 개 추가된 것을 알 수 있습니다. 이 예에서는 테이블에 기본 키 제약 조건이 있는 열이 없다고 가정합니다.
+원본 파일에서 오류를 발견하고 Down Tube의 수량을 2에서 4로 업데이트했다고 가정해 보겠습니다. 해당 기간에 대 한 데이터 조각을 수동으로 다시 실행 하면 Azure SQL/SQL Server 데이터베이스에 추가 되는 두 개의 새 레코드가 발견 됩니다. 이 예에서는 테이블에 기본 키 제약 조건이 있는 열이 없다고 가정합니다.
 
 ```
 ID    Product        Quantity    ModifiedDate

@@ -4,12 +4,12 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936739"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386903"
 ---
 # <a name="azure-functions-developer-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -40,11 +40,11 @@ function.json 파일은 함수의 트리거, 바인딩 및 기타 구성 설정�
 
 `bindings` 속성은 트리거와 바인딩을 모두 구성하는 곳에 위치합니다. 각 바인딩은 몇 가지 공통적인 설정과 특정한 바인딩 형식에 해당하는 일부 설정을 공유합니다. 모든 바인딩에는 다음 설정이 필요합니다.
 
-| 속성 | 값/형식 | 의견 |
-| --- | --- | --- |
-| `type` |문자열 |바인딩 형식 예들 들어 `queueTrigger`입니다. |
-| `direction` |'in', 'out' |함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
-| `name` |문자열 |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
+| 속성    | 값 | 유형 | 의견|
+|---|---|---|---|
+| 형식  | 바인딩 이름입니다.<br><br>예들 들어 `queueTrigger`입니다. | 문자열 | |
+| direction | `in`, `out`  | 문자열 | 함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
+| name | 함수 식별자입니다.<br><br>예들 들어 `myQueue`입니다. | 문자열 | 함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
 
 ## <a name="function-app"></a>함수 앱
 함수 앱은 함수가 실행되는 Azure의 실행 컨텍스트를 제공합니다. 이는 함수에 대 한 배포 및 관리 단위입니다. 함수 앱은 함께 관리, 배포 및 크기 조정되는 하나 이상의 개별 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 배포 방법 및 런타임 버전을 공유 합니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 자세히 알아보려면 [함수 앱을 관리 하는 방법](functions-how-to-use-azure-function-app-settings.md)을 참조 하세요. 
@@ -91,6 +91,83 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 바인딩에서 들어오는 오류와 함께 문제가 있습니까? [Azure Functions 바인딩 오류 코드](functions-bindings-error-pages.md) 설명서를 참조하세요.
+
+
+## <a name="connections"></a>Connections
+
+함수 프로젝트가 구성 공급자에서 이름별로 연결 정보를 참조 합니다. 연결 정보를 직접 허용 하지 않으므로 환경 간에 변경 될 수 있습니다. 예를 들어 트리거 정의에는 속성이 포함 될 수 있습니다 `connection` . 이는 연결 문자열을 참조할 수 있지만에서 직접 연결 문자열을 설정할 수 없습니다 `function.json` . 대신 `connection` 연결 문자열을 포함 하는 환경 변수의 이름으로를 설정 합니다.
+
+기본 구성 공급자는 환경 변수를 사용 합니다. 이러한 설정은 Azure Functions 서비스에서 실행 되는 경우 [응용 프로그램 설정](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) 에서 설정 하거나 로컬에서 개발할 때 [로컬 설정 파일](functions-run-local.md#local-settings-file) 에서 설정할 수 있습니다.
+
+### <a name="connection-values"></a>연결 값
+
+연결 이름이 정확히 단일 값으로 확인 되 면 런타임은 일반적으로 암호를 포함 하는 _연결 문자열로_ 값을 식별 합니다. 연결 문자열의 세부 정보는 연결 하려는 서비스에 의해 정의 됩니다.
+
+그러나 연결 이름은 여러 구성 항목의 컬렉션을 참조할 수도 있습니다. Double 밑줄로 끝나는 공유 접두사를 사용 하 여 환경 변수를 컬렉션으로 처리할 수 있습니다 `__` . 그런 다음 연결 이름을이 접두사로 설정 하 여 그룹을 참조할 수 있습니다.
+
+예를 들어 `connection` Azure Blob 트리거 정의의 속성은 일 수 있습니다 `Storage1` . 이름으로로 구성 된 단일 문자열 값이 없으면 `Storage1` `Storage1__serviceUri` 연결의 속성에이 사용 됩니다 `serviceUri` . 연결 속성은 서비스 마다 다릅니다. 연결을 사용 하는 확장에 대 한 설명서를 참조 하세요.
+
+### <a name="configure-an-identity-based-connection"></a>Id 기반 연결 구성
+
+Azure Functions의 일부 연결은 비밀 대신 id를 사용 하도록 구성 됩니다. 지원은 연결을 사용 하는 확장에 따라 달라 집니다. 연결 하는 서비스에서 id 기반 연결을 지 원하는 경우에도 함수에서 연결 문자열이 필요할 수 있습니다.
+
+> [!IMPORTANT]
+> 바인딩 확장에서 id 기반 연결을 지 원하는 경우에도 해당 구성은 아직 소비 계획에서 지원 되지 않을 수 있습니다. 아래의 지원 표를 참조 하세요.
+
+Id 기반 연결은 다음 트리거 및 바인딩 확장에서 지원 됩니다.
+
+| 확장 이름 | 확장 버전                                                                                     | 소비 계획에서 id 기반 연결을 지원 합니다. |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Azure Blob     | [버전 5.0.0-beta1 이상](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | 예                                    |
+| Azure Queue    | [버전 5.0.0-beta1 이상](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | 예                                    |
+
+> [!NOTE]
+> 핵심 동작에 대 한 함수 런타임에 사용 되는 저장소 연결에는 id 기반 연결에 대 한 지원을 아직 사용할 수 없습니다. 이는 `AzureWebJobsStorage` 설정이 연결 문자열 이어야 함을 의미 합니다.
+
+#### <a name="connection-properties"></a>연결 속성
+
+Azure 서비스에 대 한 id 기반 연결에는 다음 속성이 적용 됩니다.
+
+| 속성    | 환경 변수 | 필수 여부 | 설명 |
+|---|---|---|---|
+| 서비스 URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | 연결 중인 서비스의 데이터 평면 URI입니다. |
+
+지정 된 연결 유형에 대해 추가 옵션이 지원 될 수 있습니다. 연결을 설정 하는 구성 요소에 대 한 설명서를 참조 하세요.
+
+Azure Functions 서비스에서 호스트 되는 경우 id 기반 연결에 [는 관리 id](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)가 사용 됩니다. 시스템 할당 id는 기본적으로 사용 됩니다. 로컬 개발과 같은 다른 컨텍스트에서 실행 하는 경우 대체 연결 매개 변수를 사용 하 여 사용자 지정할 수 있지만 대신 개발자 id를 사용 합니다.
+
+##### <a name="local-development"></a>로컬 개발
+
+로컬로 실행 하는 경우 위의 구성은 로컬 개발자 id를 사용 하도록 런타임에 지시 합니다. 연결은 다음 위치에서 토큰을 순서 대로 가져오려고 시도 합니다.
+
+- Microsoft 응용 프로그램 간에 공유 되는 로컬 캐시
+- Visual Studio의 현재 사용자 컨텍스트입니다.
+- Visual Studio Code의 현재 사용자 컨텍스트입니다.
+- Azure CLI의 현재 사용자 컨텍스트입니다.
+
+이러한 옵션 중 하나라도 충족 되지 않으면 오류가 발생 합니다.
+
+경우에 따라 다른 id를 사용 하도록 지정할 수 있습니다. 대체 id를 가리키는 연결에 대 한 구성 속성을 추가할 수 있습니다.
+
+> [!NOTE]
+> 다음 구성 옵션은 Azure Functions 서비스에서 호스팅될 때 지원 되지 않습니다.
+
+클라이언트 ID와 암호를 사용 하 여 Azure Active Directory 서비스 주체를 사용 하 여 연결 하려면 다음 속성을 사용 하 여 연결을 정의 합니다.
+
+| 속성    | 환경 변수 | 필수 여부 | 설명 |
+|---|---|---|---|
+| 서비스 URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | 연결 중인 서비스의 데이터 평면 URI입니다. |
+| 테넌트 ID | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | Azure Active Directory 테 넌 트 (디렉터리) ID입니다. |
+| 클라이언트 ID | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  테 넌 트에서 앱 등록의 클라이언트 (응용 프로그램) ID입니다. |
+| 클라이언트 암호 | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | 앱 등록을 위해 생성 된 클라이언트 암호입니다. |
+
+#### <a name="grant-permission-to-the-identity"></a>Id에 권한 부여
+
+사용 되는 모든 id에는 의도 한 작업을 수행할 수 있는 권한이 있어야 합니다. 일반적으로이 작업은 연결 하는 서비스에 따라 Azure RBAC에서 역할을 할당 하거나 액세스 정책에 id를 지정 하 여 수행 됩니다. 필요한 권한 및 설정 방법에 대 한 각 서비스에 대 한 설명서를 참조 하세요.
+
+> [!IMPORTANT]
+> 일부 사용 권한은 모든 컨텍스트에 필요 하지 않은 서비스에 의해 노출 될 수 있습니다. 가능 하면 **최소한의 권한 원칙** 을 준수 하 여 id에 필요한 권한만 부여 합니다. 예를 들어 앱이 blob에서 읽기만 해야 하는 경우 저장소 blob 데이터 [소유자](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 에 게 읽기 작업에 대 한 과도 한 권한이 포함 되므로 [저장소 blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할을 사용 합니다.
+
 
 ## <a name="reporting-issues"></a>문제 보고
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

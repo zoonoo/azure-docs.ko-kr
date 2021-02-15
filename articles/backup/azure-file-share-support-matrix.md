@@ -4,16 +4,19 @@ description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사�
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819863"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370991"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
 
 [Azure Backup 서비스](./backup-overview.md)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
+
+> [!NOTE]
+> Azure Backup 현재 NFS 공유를 지원 하지 않습니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 

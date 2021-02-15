@@ -3,36 +3,48 @@
 - name: 개요
   items:
     - name: Azure Batch란?
+      displayName: overview
       href: batch-technical-overview.md
 - name: 빠른 시작
   expanded: true
   items:
     - name: Batch 작업 실행 - CLI
+      displayName: 'quickstart, first, create'
       href: quick-create-cli.md
     - name: Batch 작업 실행 - 포털
+      displayName: 'quickstart, first, create'
       href: quick-create-portal.md
     - name: Batch 작업 실행 - .NET
+      displayName: 'quickstart, first, create, c#, csharp'
       href: quick-run-dotnet.md
     - name: Batch 작업 실행 - Python
+      displayName: 'quickstart, first, create'
       href: quick-run-python.md
     - name: 배치 계정 만들기 - ARM 템플릿
       href: quick-create-template.md
-      displayName: Resource Manager
+      displayName: 'Resource Manager, quickstart, first, create'
 - name: 자습서
   items:
     - name: 병렬 파일 처리 - .NET
+      displayName: 'tutorial, hpc, high-performance, large, c#, csharp'
       href: tutorial-parallel-dotnet.md
     - name: 병렬 파일 처리 - Python
+      displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
     - name: Arnold를 사용하여 렌더링하는 장면
+      displayName: tutorial
       href: tutorial-rendering-cli.md
     - name: Batch Explorer를 사용한 렌더링
+      displayName: tutorial
       href: tutorial-rendering-batchexplorer-blender.md
     - name: 병렬 R 시뮬레이션
+      displayName: 'tutorial, doAzureParallel, rstudio'
       href: tutorial-r-doazureparallel.md
     - name: Batch 및 Functions를 사용하는 OCR
+      displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
     - name: Data Factory를 사용하는 Python 스크립트
+      displayName: tutorial
       href: tutorial-run-python-batch-azure-data-factory.md
 - name: 샘플
   items:
@@ -68,20 +80,20 @@
         - name: 보안 모범 사례
           href: security-best-practices.md
     - name: Batch 서비스 워크플로 및 리소스
-      displayName: developer features
+      displayName: 'developer features, core, component, overview'
       href: batch-service-workflow-features.md
       items:
         - name: Batch 계정
           displayName: storage account
           href: accounts.md
         - name: 노드 및 풀
-          displayName: 'compute node, application package, scaling, schedule, os'
+          displayName: 'compute node, application package, scaling, schedule, os, configuration'
           href: nodes-and-pools.md
         - name: 작업 및 태스크
-          displayName: Batch job
+          displayName: 'Batch job, start task, environment'
           href: jobs-and-tasks.md
         - name: 파일 및 디렉터리
-          displayName: Batch file
+          displayName: 'Batch file, working directory'
           href: files-and-directories.md
     - name: API 및 도구
       href: batch-apis-tools.md
@@ -131,26 +143,34 @@
     - name: 풀 만들기 및 관리
       items:
         - name: 자동 크기 조정 컴퓨팅 노드
+          displayName: 'scaling, dynamic, formula'
           href: batch-automatic-scaling.md
         - name: 컴퓨팅 노드에 대한 VM 크기 선택
           href: batch-pool-vm-sizes.md
         - name: 클라우드 서비스에서 가상 머신 풀로 이동
+          displayName: migrate
           href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: 컴퓨팅 노드에 대한 액세스 구성
+          displayName: 'rdp, ssh, network, remote'
           href: pool-endpoint-configuration.md
         - name: Shared Image Gallery를 사용하여 풀 만들기
+          displayName: 'managed image, sig'
           href: batch-sig-images.md
         - name: 관리형 이미지 리소스를 사용하여 풀 만들기
           href: batch-custom-images.md
         - name: 가용성 영역에 풀 만들기
+          displayName: 'region, zonal policy'
           href: create-pool-availability-zones.md
         - name: 디스크 암호화가 사용된 풀 만들기
           href: disk-encryption.md
         - name: 가상 네트워크에서 풀 만들기
+          displayName: vNet
           href: batch-virtual-network.md
         - name: 공용 IP 주소를 사용하여 풀 만들기
+          displayName: static
           href: create-pool-public-ip.md
         - name: 공용 IP 주소가 없는 풀 만들기
+          displayName: private
           href: batch-pool-no-public-ip-address.md
         - name: 가상 파일 시스템 탑재
           href: virtual-file-mount.md
@@ -161,17 +181,21 @@
         - name: Linux 컴퓨팅 노드 사용
           href: batch-linux-nodes.md
         - name: 우선 순위가 낮은 VM 사용
+          displayName: 'preempted, surplus, capacity'
           href: batch-low-pri-vms.md
         - name: 풀 및 노드 오류 확인
+          displayName: 'troubleshoot, failure'
           href: batch-pool-node-error-checking.md
     - name: Batch에 대한 CI/CD 파이프라인 만들기
+      displayName: 'Azure DevOps, devops, continuous'
       href: batch-ci-cd.md
     - name: 작업 및 태스크 관리
       items:
         - name: 작업 준비 및 완료 작업
+          displayName: 'release, job release'
           href: batch-job-prep-release.md
         - name: 동시 노드 작업
-          displayName: concurrent
+          displayName: 'variable, maximize'
           href: batch-parallel-node-tasks.md
         - name: 작업 종속성
           href: batch-task-dependencies.md
@@ -182,6 +206,7 @@
         - name: 효율성을 위해 작업 예약
           href: batch-job-schedule.md
         - name: 작업 및 태스크 오류 확인
+          displayName: 'failure, troubleshoot'
           href: batch-job-task-error-checking.md
     - name: 작업 및 태스크 출력 유지
       href: batch-task-output.md
@@ -194,29 +219,37 @@
       href: monitoring-overview.md
       items:
         - name: 메트릭 및 진단 로그 사용
+          displayName: 'alert, monitor'
           href: batch-diagnostics.md
         - name: Application Insights로 모니터링
+          displayName: debug
           href: monitor-application-insights.md
         - name: 상태별 리소스 개수
           href: batch-get-resource-counts.md
         - name: 효율적으로 리소스 쿼리
+          displayName: 'monitor, queries'
           href: batch-efficient-list-queries.md
     - name: 스크립팅 도구 사용
       items:
         - name: Azure PowerShell 사용
+          displayName: 'ps, scripting, cmdlet'
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI 사용
+          displayName: command line
           href: batch-cli-get-started.md
-          items:
-            - name: Batch CLI 템플릿 사용
-              href: batch-cli-templates.md
+        - name: Batch CLI 템플릿 사용
+          diplayName: extension
+          href: batch-cli-templates.md
     - name: Batch Node.js SDK 사용
+      displayName: json
       href: batch-nodejs-get-started.md
     - name: 워크로드 실행
       items:
-        - name: MPI 작업
+        - name: MPI
+          displayName: 'multi-instance, message passing interface'
           href: batch-mpi.md
         - name: 컨테이너 워크로드
+          displayName: docker
           href: batch-docker-container-workloads.md
         - name: 렌더링
           items:
@@ -231,6 +264,7 @@
             - name: 렌더링 애플리케이션 참조
               href: batch-rendering-application-reference.md
             - name: Storage 및 데이터 이동
+              displayName: 'rendering, assets'
               href: batch-rendering-storage-data-movement.md
             - name: 렌더링 아키텍처
               href: batch-rendering-architectures.md

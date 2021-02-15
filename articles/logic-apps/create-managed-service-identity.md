@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: 9ac8a23569d9a85787768419a0377967026e9bd9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 02/12/2021
+ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251598"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520666"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -27,9 +27,12 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 
 * Azure API Management
 * Azure App Services
-* Azure Functions
+* Azure 기능
 * HTTP
 * HTTP + Webhook
+
+> [!NOTE]
+> HTTP 트리거 및 작업은 시스템 할당 관리 id를 사용 하 여 Azure 방화벽 뒤에 Azure Storage 계정에 대 한 연결을 인증할 수 있지만 사용자 할당 관리 id를 사용 하 여 동일한 연결을 인증할 수는 없습니다.
 
 **관리 되는 커넥터**
 
@@ -37,7 +40,7 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 * Azure Event Grid
 * Azure Key Vault
 * Azure Monitor 로그
-* Azure 리소스 관리자
+* Azure Resource Manager
 * Azure AD를 사용하는 HTTP
 
 관리 커넥터에 대 한 지원은 현재 미리 보기 상태입니다. 현재 목록은 트리거와 인증을 [지 원하는 동작에 대 한 인증 형식](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions)을 참조 하세요.
@@ -177,7 +180,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
    ![사용자가 할당한 관리 ID 만들기](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예에서는 라는 새 그룹을 만듭니다 `fabrikam-managed-identities-RG` . |

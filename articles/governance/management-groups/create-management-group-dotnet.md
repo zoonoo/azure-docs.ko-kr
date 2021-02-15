@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: .NET Core를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 .NET Core를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 09/30/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 138998fdc23fd8a296ca50093e2952017888041f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604562"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592571"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>빠른 시작: .NET Core를 사용하여 관리 그룹 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "91604562"
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-- _clientId_ 및 _clientSecret_을 포함하는 Azure 서비스 주체. Azure Policy에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
+- _clientId_ 및 _clientSecret_ 을 포함하는 Azure 서비스 주체. Azure Policy에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
   .NET Core 패키지를 설치하는 단계는 건너뜁니다. 다음 단계에서 수행할 것입니다.
 
 - 테넌트의 모든 Azure AD 사용자는 [계층 구조 보호](./how-to/protect-resource-hierarchy.md#setting---require-authorization)가 활성화되지 않은 경우 해당 사용자에게 할당된 관리 그룹 쓰기 권한 없이 관리 그룹을 만들 수 있습니다. 이 새 관리 그룹은 루트 관리 그룹 또는 [기본 관리 그룹](./how-to/protect-resource-hierarchy.md#setting---default-management-group)의 자식이 되며 작성자에게 "소유자" 역할 할당이 부여됩니다. 관리 그룹 서비스는 이 기능을 허용하므로 루트 수준에서 역할 할당이 필요하지 않습니다. 루트 관리 그룹이 생성될 때 사용자는 액세스할 수 있는 권한이 없습니다. 관리 그룹 사용을 시작하기 위해 Azure AD 전역 관리자를 찾는 장애물을 방지하기 위해 루트 수준에서 초기 관리 그룹을 만들 수 있습니다.

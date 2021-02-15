@@ -1,22 +1,18 @@
 ---
 title: 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터 마이그레이션
 description: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638128"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367795"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -27,7 +23,7 @@ Azure Data Factory은 온-프레미스 HDFS에서 Azure Blob storage 또는 Azur
 Data Factory은 온-프레미스 HDFS에서 Azure로 데이터를 마이그레이션하는 두 가지 기본적인 방법을 제공 합니다. 시나리오에 따라 방법을 선택할 수 있습니다. 
 
 - **Data Factory distcp 모드** (권장): Data Factory에서 [distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (분산 복사)를 사용 하 여 Azure Blob storage (준비 된 복사 포함) Azure Data Lake Store 또는 Gen2 ( [준비 된 복사](./copy-activity-performance.md#staged-copy)포함)로 파일을 복사할 수 있습니다. DistCp와 통합 된 Data Factory를 사용 하 여 기존의 강력한 클러스터를 활용 하 여 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 예약 및 통합 모니터링 환경을 활용 하는 이점을 얻을 수 있습니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 생성 하 고, 데이터를 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링 합니다. 온-프레미스 Hadoop 클러스터에서 Azure로 데이터를 마이그레이션하기 위해 DistCp 모드 Data Factory 하는 것이 좋습니다.
-- **Data Factory native integration runtime 모드** : distcp는 모든 시나리오에서 옵션이 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
+- **Data Factory native integration runtime 모드**: distcp는 모든 시나리오에서 옵션이 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
 
 이 문서에서는 두 가지 방법에 대 한 다음 정보를 제공 합니다.
 > [!div class="checklist"]
@@ -110,7 +106,7 @@ Data Factory native integration runtime 모드에서는 데이터 파티션이 �
 
 Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수를 사용 하 고, `-update` 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 기록 하 여 델타 데이터를 마이그레이션할 수 있습니다.
 
-Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv* )의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
+Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv*)의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
 
 또는 HDFS의 데이터가 시간 분할 되지 않은 경우 **LastModifiedDate** 값을 사용 하 여 새 파일 또는 변경 된 파일을 식별할 수 Data Factory. Data Factory는 HDFS에서 모든 파일을 검색 하 고, 마지막으로 수정 된 타임 스탬프가 설정 된 값 보다 큰 새 파일 및 업데이트 된 파일만 복사 합니다. 
 

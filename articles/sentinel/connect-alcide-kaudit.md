@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: cf8da1d88529a823ff4399fb955c8a5e0abbd20e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d1314b79f09f1bed2de5d6964b0a6224b5962ca
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87038242"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096874"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Azure 센티널에 Alcide kAudit 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "87038242"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -54,7 +54,7 @@ Alcide kAudit는 로그를 Azure 센티널로 직접 내보낼 수 있습니다.
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-연결이 설정 되 면 데이터는 **Customlogs**의 다음 데이터 형식 아래에 있는 **로그** 에 표시 됩니다.
+연결이 설정 되 면 데이터는 **Customlogs** 의 다음 데이터 형식 아래에 있는 **로그** 에 표시 됩니다.
 
 - **alcide_kaudit_detections_1_CL** alcide kaudit 검색 
 - **alcide_kaudit_activity_1_CL** -alcide kaudit 활동 로그
@@ -63,7 +63,7 @@ Alcide kAudit는 로그를 Azure 센티널로 직접 내보낼 수 있습니다.
 
 Alcide kAudit에 대 한 로그에서 관련 스키마를 사용 하려면 위에서 언급 한 데이터 형식을 검색 합니다.
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

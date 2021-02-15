@@ -1,19 +1,19 @@
 ---
 title: Azure 스폿 Vm 사용
 description: Azure 스폿 Vm을 사용 하 여 비용을 절감 하는 방법을 알아봅니다.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202133"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375462"
 ---
 # <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
 
@@ -58,7 +58,7 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 현재 지원 되는 [제품 유형은](https://azure.microsoft.com/support/legal/offer-details/) 다음과 같습니다.
 
 -   기업 계약
--   종량제
+-   종 량 제 제품 코드 003P
 -   후원
 - CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
 

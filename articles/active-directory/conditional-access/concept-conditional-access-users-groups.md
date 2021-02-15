@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364582"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
@@ -42,6 +42,9 @@ ms.locfileid: "92366363"
    - 사용자 및 그룹
       - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다. 정책이 중첩 된 사용자 및 그룹에 적용 됩니다.
 
+> [!IMPORTANT]
+> 조건부 액세스 정책에 포함 되는 사용자 및 그룹을 선택 하는 경우 조건부 액세스 정책에 직접 추가할 수 있는 개별 사용자 수에 제한이 있습니다. 조건부 액세스 정책에 직접 추가 해야 하는 많은 수의 개별 사용자가 있는 경우 사용자를 그룹에 배치 하 고 대신 그룹을 조건부 액세스 정책에 할당 하는 것이 좋습니다.
+
 > [!WARNING]
 > 사용자 또는 그룹이 2048를 초과 하는 그룹의 구성원 인 경우 해당 액세스는 차단 될 수 있습니다. 이 제한은 직접 및 중첩 그룹 멤버 자격에 모두 적용 됩니다.
 
@@ -66,7 +69,7 @@ ms.locfileid: "92366363"
 
 ### <a name="preventing-administrator-lockout"></a>관리자 잠금 방지
 
-**모든 사용자** 및 **모든 앱**에 적용 되는 정책을 만들 때 관리자가 자신의 디렉터리에서 자동으로 잠그지 못하도록 방지 하기 위해 다음과 같은 경고가 표시 됩니다.
+**모든 사용자** 및 **모든 앱** 에 적용 되는 정책을 만들 때 관리자가 자신의 디렉터리에서 자동으로 잠그지 못하도록 방지 하기 위해 다음과 같은 경고가 표시 됩니다.
 
 > 직접 잠그지 마세요. 먼저 소수의 사용자 집합에 정책을 적용 하 여 예상 대로 작동 하는지 확인 하는 것이 좋습니다. 또한이 정책에서 관리자를 한 명 이상 제외 하는 것이 좋습니다. 이렇게 하면 변경 내용이 필요한 경우에도 계속 액세스할 수 있으며 정책을 업데이트할 수 있습니다. 영향을 받는 사용자 및 앱을 검토 하세요.
 

@@ -1,22 +1,17 @@
 ---
 title: 복사 활동의 세션 로그
 description: Azure Data Factory의 복사 작업에서 세션 로그를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593650"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385271"
 ---
 #  <a name="session-log-in-copy-activity"></a>복사 활동의 세션 로그
 
@@ -101,6 +96,9 @@ linkedServiceName | 세션 로그 파일을 저장할 [Azure Blob Storage](conne
         }
 
 ```
+
+> [!NOTE]
+> `enableCopyActivityLog`속성이로 설정 된 경우 `Enabled` 로그 파일 이름은 시스템에서 생성 됩니다.
 
 ### <a name="the-schema-of-the-log-file"></a>로그 파일의 스키마입니다.
 

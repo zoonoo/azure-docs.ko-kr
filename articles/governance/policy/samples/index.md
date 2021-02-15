@@ -3,12 +3,12 @@ title: 정책 샘플의 인덱스
 description: Azure Policy에 대한 기본 제공 인덱스입니다. 범주 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 있습니다.
 ms.date: 01/29/2021
 ms.topic: sample
-ms.openlocfilehash: ad608f594c544cc8de2d80f7cedaeeffdc2b83ea
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ae016e42af582847b871624844773ed971ef583d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095743"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095599"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy 샘플
 
@@ -43,6 +43,7 @@ ms.locfileid: "99095743"
 - [CMMC Level 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [ISO 27001:2013](./iso-27001.md)
+- [뉴질랜드 정보 보안 설명서](./new-zealand-ism.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 

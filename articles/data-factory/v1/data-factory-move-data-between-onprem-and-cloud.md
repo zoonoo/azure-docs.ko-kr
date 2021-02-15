@@ -1,23 +1,18 @@
 ---
 title: 데이터 이동-데이터 관리 게이트웨이
 description: 데이터 게이트웨이를 설정하여 온-프레미스와 클라우드 간에 데이터를 이동합니다. Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019687"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380290"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -61,7 +56,7 @@ ms.locfileid: "96019687"
     ![시작 보드에 추가](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialOnPremDF”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialOnPremDF) 다시 만듭니다. 이 자습서의 나머지 단계를 수행하는 동안 ADFTutorialOnPremDF 대신에 이 이름을 사용합니다.
+   > Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "ADFTutorialOnPremDF"를 사용할 수 없습니다. 라는** 오류가 표시 되 면 데이터 팩터리의 이름 (예: yournameADFTutorialOnPremDF)을 변경 하 고 다시 만들어 보세요. 이 자습서의 나머지 단계를 수행하는 동안 ADFTutorialOnPremDF 대신에 이 이름을 사용합니다.
    >
    > 데이터 팩터리의 이름은 나중에 **DNS** 이름으로 등록 될 수 있으므로 공개적으로 표시 될 수 있습니다.
    >
@@ -236,7 +231,7 @@ ms.locfileid: "96019687"
             }
         }
     }     
-    ```     
+    ```       
    다음 사항에 유의하세요.
 
    * **type** 을 **SqlServerTable** 로 설정합니다.
@@ -384,7 +379,7 @@ ms.locfileid: "96019687"
     확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 데이터 세트 위치 지정, 계보 정보 표시(선택한 항목의 업스트림/다운스트림 항목 강조 표시)를 수행할 수 있습니다.  개체(입출력 데이터 세트 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
-이 단계에서는 Azure Portal을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 세트와 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
+이 단계에서는 Azure Portal를 사용 하 여 Azure data factory에서 진행 되는 작업을 모니터링 합니다. 또한 PowerShell cmdlet을 사용하여 데이터 세트와 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
 
 1. 다이어그램에서 **EmpOnPremSQLTable** 을 두 번 클릭합니다.  
 

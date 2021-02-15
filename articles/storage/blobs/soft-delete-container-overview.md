@@ -10,12 +10,12 @@ ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979109"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390184"
 ---
 # <a name="soft-delete-for-containers-preview"></a>컨테이너에 대 한 일시 삭제 (미리 보기)
 
@@ -28,11 +28,11 @@ Blob 데이터에 대 한 종단 간 보호의 경우 다음과 같은 데이터
 - Blob 일시 삭제-삭제 된 blob 또는 버전을 복원 합니다. Blob 일시 삭제를 사용 하도록 설정 하는 방법을 알아보려면 [blob에 대 한 일시 삭제 설정 및 관리](soft-delete-blob-enable.md)를 참조 하세요.
 
 > [!WARNING]
-> 저장소 계정 삭제는 실행 취소할 수 없습니다. 일시 삭제는 저장소 계정 삭제를 방지 하는 것이 아니라 해당 계정의 데이터 개체 삭제에 대해서만 보호 합니다. 저장소 계정이 삭제 되지 않도록 보호 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure Resource Manager 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+> 저장소 계정 삭제는 실행 취소할 수 없습니다. 컨테이너 일시 삭제는 저장소 계정 삭제를 방지 하는 것이 아니라 해당 계정의 컨테이너 삭제에 대해서만 보호 합니다. 저장소 계정이 삭제 되지 않도록 보호 하려면 저장소 계정 리소스에 대 한 잠금을 구성 합니다. Azure Resource Manager 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 
 ## <a name="how-container-soft-delete-works"></a>컨테이너 일시 삭제 작동 방식
 
-컨테이너 일시 삭제를 사용 하도록 설정 하는 경우 1 일에서 365 일 사이의 삭제 된 컨테이너에 대 한 보존 기간을 지정할 수 있습니다. 기본 보존 기간은 7 일입니다. 보존 기간 중에 삭제 **취소 컨테이너** 작업을 호출 하 여 삭제 된 컨테이너를 복구할 수 있습니다.
+컨테이너 일시 삭제를 사용 하도록 설정 하는 경우 1 일에서 365 일 사이의 삭제 된 컨테이너에 대 한 보존 기간을 지정할 수 있습니다. 기본 보존 기간은 7 일입니다. 보존 기간 중에는 **컨테이너 복원** 작업을 호출 하 여 삭제 된 컨테이너를 복구할 수 있습니다.
 
 컨테이너를 복원 하면 컨테이너의 blob 및 모든 blob 버전도 복원 됩니다. 그러나 컨테이너 자체가 삭제 된 경우에만 컨테이너 일시 삭제를 사용 하 여 blob을 복원할 수 있습니다. 부모 컨테이너가 삭제 되지 않은 경우 삭제 된 blob을 복원 하려면 blob 일시 삭제 또는 blob 버전 관리를 사용 해야 합니다.
 

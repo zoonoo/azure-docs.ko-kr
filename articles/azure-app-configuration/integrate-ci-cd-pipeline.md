@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928452"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979847"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>CI/CD 파이프라인과 통합
 
@@ -35,9 +35,9 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-로컬로 빌드하는 경우 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)가 아직 없으면 Azure CLI를 다운로드하여 설치합니다.
+로컬로 빌드하는 경우 [Azure CLI](/cli/azure/install-azure-cli)가 아직 없으면 Azure CLI를 다운로드하여 설치합니다.
 
-클라우드 빌드를 수행하려면(예: Azure DevOps) 빌드 시스템에 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)가 설치되어 있어야 합니다.
+클라우드 빌드를 수행하려면(예: Azure DevOps) 빌드 시스템에 [Azure CLI](/cli/azure/install-azure-cli)가 설치되어 있어야 합니다.
 
 ### <a name="export-an-app-configuration-store"></a>App Configuration 저장소 내보내기
 
@@ -107,4 +107,4 @@ Azure App Configuration의 [Export](./howto-import-export-data.md#export-data) �
 이 자습서에서는 배포 파이프라인에서 사용할 Azure App Configuration 데이터를 내보냈습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig)

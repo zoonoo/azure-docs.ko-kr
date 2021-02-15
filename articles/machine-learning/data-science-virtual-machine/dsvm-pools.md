@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만들어 팀에 대 한 공유 리소스로 배포 & 하는 방법에 대해 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: eb1242189f4c5a38421a7f44e8f5e738c44970b6
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a118d5a3e716a80bda21ffe82a8cefd1da1202f3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705526"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519714"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 

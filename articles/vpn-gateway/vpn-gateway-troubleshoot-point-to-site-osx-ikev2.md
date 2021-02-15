@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 03/27/2018
+ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c8657f8a40084a726280efe471c0791931294f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366639"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
 
@@ -26,26 +26,26 @@ ms.locfileid: "91359327"
 
 
 ## <a name="troubleshoot-certificate-based-authentication"></a><a name="VPNClient"></a> 인증서 기반 인증 문제 해결
-1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정**으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
+1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정** 으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
 
    ![IKEv2 인증서 기반 인증](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
-2. **서버 주소**가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
-3. **원격 ID**는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
-4. **로컬 ID**는 클라이언트 인증서의 **주체**와 동일해야 합니다.
-5. **인증 설정**을 클릭하여 인증 설정 페이지를 엽니다.
+2. **서버 주소** 가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
+3. **원격 ID** 는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
+4. **로컬 ID** 는 클라이언트 인증서의 **주체** 와 동일해야 합니다.
+5. **인증 설정** 을 클릭하여 인증 설정 페이지를 엽니다.
 
    ![인증서가 선택 된 인증 설정 대화 상자를 보여 주는 스크린샷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
-6. 드롭다운에서 **인증서**가 선택되었는지 확인합니다.
-7. **선택** 단추를 클릭하고 올바른 인증서가 선택되었는지 확인합니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+6. 드롭다운에서 **인증서** 가 선택되었는지 확인합니다.
+7. **선택** 단추를 클릭하고 올바른 인증서가 선택되었는지 확인합니다. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="troubleshoot-username-and-password-authentication"></a><a name="ikev2"></a>사용자 이름 및 암호 인증 문제 해결
 
-1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정**으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
+1. VPN 클라이언트 설정을 확인합니다. Command+Shift를 눌러 **네트워크 설정** 으로 이동한 다음, “VPN”을 입력하여 VPN 클라이언트 설정을 확인합니다. 목록에서 조사해야 하는 VPN 항목을 클릭합니다.
 
    ![IKEv2 사용자 이름 암호](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
-2. **서버 주소**가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
-3. **원격 ID**는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
-4. **로컬 ID**는 공백일 수 있습니다.
+2. **서버 주소** 가 완전한 FQDN이고 cloudapp.net을 포함하는지 확인합니다.
+3. **원격 ID** 는 서버 주소(게이트웨이 FQDN)와 동일해야 합니다.
+4. **로컬 ID** 는 공백일 수 있습니다.
 5. **인증 설정** 단추를 클릭하고 드롭다운에서 “사용자 이름”이 선택되었는지 확인합니다.
 
    ![스크린샷 선택한 사용자 이름으로 인증 설정 대화 상자를 표시 합니다.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
@@ -55,7 +55,7 @@ ms.locfileid: "91359327"
 
 이전 단계를 시도했으며 모든 항목이 제대로 구성된 경우 [Wireshark](https://www.wireshark.org/#download)를 다운로드하고 패킷 캡처를 수행합니다.
 
-1. *isakmp*를 필터링하고 **IKE_SA** 패킷을 확인합니다. **페이로드: 보안 연결** 아래에서 SA 제안 세부 정보를 확인할 수 있습니다. 
+1. *isakmp* 를 필터링하고 **IKE_SA** 패킷을 확인합니다. **페이로드: 보안 연결** 아래에서 SA 제안 세부 정보를 확인할 수 있습니다. 
 2. 클라이언트와 서버에 공통 집합이 있는지 확인합니다.
 
    ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 

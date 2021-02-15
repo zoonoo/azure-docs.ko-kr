@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a6e31115fb2548f8248f741213970605f230036
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920023"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390728"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -36,7 +36,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 
 다음과 같은 지원 되는 작업을 감사할 수 있습니다.
 
-|작업 이름|    리소스 유형|
+|작업 이름|    리소스 종류|
 |----|----|
 |통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
 |통합 문서 삭제    |Microsoft Insights/통합 문서|
@@ -75,15 +75,6 @@ Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터�
     ```
 
 
-
-## <a name="vendor-documentation"></a>공급 업체 설명서
-
-| **공급업체**  | **Azure 센티널에서 인시던트 사용** | **링크**|
-|----|----|----|
-| GitHub| 커뮤니티 페이지에 액세스 하는 데 사용 됩니다.| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| CEF 구성| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Kusto 쿼리 언어 과정| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
-
 ## <a name="blogs-and-forums"></a>블로그 및 포럼
 
 사용자의 의견을 환영 합니다.
@@ -96,8 +87,6 @@ Azure 활동 로그에서 Azure 센티널로 스트리밍 하 여이 데이터�
 
     - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
     - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
-Azure 보안 및 규정 준수에 대 한 자세한 내용은 [Microsoft Azure 보안 및 규정 준수 블로그](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 5165f7d6e16e0d136dbf8d4507090c78372185cb
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348053"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831719"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서:  Azure IoT Central에서 운영자 대시보드 사용자 지정 및 디바이스 관리
 
@@ -246,7 +246,12 @@ RuuviTag 센서의 환경 데이터를 표시하는 타일을 추가하려면 �
 
 1. 필요에 따라 **다시 부팅** 타일을 선택하여 게이트웨이에서 다시 부팅 명령을 실행합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 * 대시보드 이름 변경

@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory에 대한 Azure Private Link
 description: Azure Data Factory에서 Azure 개인 링크의 작동 방식에 대해 알아봅니다.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389181"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -76,7 +72,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Data Factory ' DataFactoryA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
 | DataFactoryA. {region}. privatelink. datafactory. | CNAME   | < data factory 서비스 공용 끝점 > |
@@ -84,7 +80,7 @@ Azure Data Factory 서비스에 대 한 통신은 개인 링크를 통해 이동
 
 DataFactoryA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet에서 확인 되는 경우 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA. {region}. datafactory | CNAME   | DataFactoryA. {region}. privatelink. datafactory. |
 | DataFactoryA. {region}. privatelink. datafactory.   | A | < 개인 끝점 IP 주소 > |

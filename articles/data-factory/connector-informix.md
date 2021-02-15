@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용 하 여 IBM Informix 간에 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용 하 여 IBM Informix 간에 데이터를 복사 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 93f484bd30de1ba0ca0f7aa5db263243bebc5b09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508812"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383503"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 IBM Informix 간에 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,8 +47,8 @@ Informix 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **Informix** 로 설정 해야 합니다. | 예 |
-| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정 하거나 Integration Runtime 컴퓨터에서 설정한 시스템 DSN (데이터 원본 이름)을 사용할 수 있습니다 .이에 따라 연결 된 서비스에서 자격 증명 부분을 계속 지정 해야 합니다. <br> Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다  `password`   . 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조   하세요.| 예 |
-| authenticationType | Informix 데이터 저장소에 연결 하는 데 사용 되는 인증 유형입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. | 예 |
+| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정 하거나 Integration Runtime 컴퓨터에서 설정한 시스템 DSN (데이터 원본 이름)을 사용할 수 있습니다 .이에 따라 연결 된 서비스에서 자격 증명 부분을 계속 지정 해야 합니다. <br> Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 을 참조 하세요.| 예 |
+| authenticationType | Informix 데이터 저장소에 연결 하는 데 사용 되는 인증 유형입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous** 입니다. | 예 |
 | userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 예 |
 | password | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | 자격 증명(credential) | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 이 필드를 SecureString으로 표시합니다. | 예 |
@@ -163,8 +158,8 @@ Informix에 데이터를 복사 하려면 복사 작업 **싱크** 섹션에서 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성은 **InformixSink** 로 설정 해야 합니다. | 예 |
-| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예: “00:30:00”(30분). |예 |
+| type | 복사 작업 싱크의 type 속성은 **InformixSink** 로 설정 해야 합니다. | Yes |
+| writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: "00:30:00"(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 0 - 자동 검색됨) |
 | preCopyScript |각 실행 시 데이터 저장소에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
 

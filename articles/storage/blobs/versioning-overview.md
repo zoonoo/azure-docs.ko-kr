@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 692a820bea69071485a973a988ae91bd70b74f35
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980283"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380817"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -28,7 +28,7 @@ Blob 버전 관리는 저장소 계정에서 사용 하도록 설정 되며 저�
 Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [blob 버전 관리 사용 및 관리](versioning-enable.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> Blob 버전 관리를 통해 저장소 계정이 나 컨테이너를 실수로 삭제 하는 경우를 복구할 수 없습니다. 저장소 계정이 실수로 삭제 되지 않도록 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+> Blob 버전 관리를 통해 저장소 계정이 나 컨테이너를 실수로 삭제 하는 경우를 복구할 수 없습니다. 저장소 계정이 실수로 삭제 되지 않도록 하려면 저장소 계정 리소스에 대 한 잠금을 구성 합니다. Azure 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요. 컨테이너를 실수로 삭제 하지 않도록 보호 하려면 저장소 계정에 대 한 컨테이너 일시 삭제를 구성 합니다. 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -191,7 +191,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 Azure RBAC 작업을 보여 줍니다.
 
-| Description | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
+| 설명 | Blob service 작업 | Azure RBAC 데이터 작업 필요 | Azure 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -204,7 +204,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| DELETE         | x              | Blob 버전을 삭제 합니다. |
+| 삭제         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -297,7 +297,7 @@ Blob 일시 삭제를 사용 하는 경우 계층을 명시적으로 설정한 �
 | Blob 일시 삭제 및 버전 관리를 모두 사용 하는 경우 | 계층에 관계 없이 모든 기존 버전은 전체 콘텐츠 길이입니다. |
 | Blob 일시 삭제를 사용 하도록 설정 했지만 버전 관리를 사용 하지 않는 경우 | 계층에 관계 없이 모든 기존 일시 삭제 스냅숏이 전체 콘텐츠 길이에 있습니다. |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)
 - [Blob의 스냅숏 만들기](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

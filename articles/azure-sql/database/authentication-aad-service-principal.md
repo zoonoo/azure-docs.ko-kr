@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
-ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 02/11/2021
+ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669826"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380596"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure SQL을 사용하는 Azure Active Directory 서비스 주체
 
@@ -52,7 +52,7 @@ SQL Database, Azure Synapse 및 SQL Managed Instance는 다음과 같은 Azure A
 
 Azure ad 응용 프로그램을 대신 하 여 SQL Database 및 Azure Synapse에서 Azure AD 개체 만들기를 사용 하도록 설정 하려면 다음 설정이 필요 합니다.
 
-1. 서버 id 할당
+1. 서버 id를 할당 합니다. 할당 된 서버 id는 MSI (관리 시스템 Id)를 나타냅니다. 현재 Azure SQL의 서버 id는 사용자 관리 Id (UMI)를 지원 하지 않습니다.
     - 새 Azure SQL 논리 서버에 대해 다음 PowerShell 명령을 실행 합니다.
     
     ```powershell

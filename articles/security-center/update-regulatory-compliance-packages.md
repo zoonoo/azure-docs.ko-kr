@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3fca96c6cf11e0b35cd830fe4c0d8ccac8e66bd2
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 768f686889663d9b1af4b88d84b361ac9460a5a0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99548867"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381735"
 ---
 # <a name="customize-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 집합 사용자 지정
 
@@ -92,7 +92,7 @@ Microsoft는 규정 표준 자체를 추적 하 고 시간에 따라 일부 패�
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="규정 준수 대시보드" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
-## <a name="removing-a-standard-from-your-dashboard"></a>대시보드에서 표준 제거
+## <a name="remove-a-standard-from-your-dashboard"></a>대시보드에서 표준 제거
 
 제공 된 규정 표준이 조직과 관련이 없는 경우 UI에서이를 제거 하는 간단한 프로세스입니다. 이를 통해 규정 준수 대시보드를 추가로 사용자 지정 하 고 해당 하는 표준에만 집중할 수 있습니다.
 

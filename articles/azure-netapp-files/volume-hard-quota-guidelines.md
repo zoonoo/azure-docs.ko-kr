@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808225"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374493"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>Azure NetApp Files 서비스에 대 한 볼륨 하드 할당량을 변경 하는 것은 무엇 인가요?
 
 서비스의 시작부터 Azure NetApp Files는 용량 풀 프로 비전 및 자동 증가 메커니즘을 사용 했습니다. Azure NetApp Files 볼륨은 선택한 계층 및 크기의 고객이 프로 비전 된 용량 풀을 중심으로 씬 프로 비전 됩니다. 볼륨 크기 (할당량)는 성능 및 용량을 제공 하는 데 사용 되며, 언제 든 지 즉시 할당량을 조정할 수 있습니다. 이 동작은 현재 볼륨 할당량이 볼륨에 대 한 대역폭을 제어 하는 데 사용 되는 성능 레버 임을 의미 합니다. 현재 용량이 가득 차면 용량 풀을 자동으로 확장 합니다.   
 
 > [!IMPORTANT] 
-> 볼륨 및 용량 풀 프로 비전의 Azure NetApp Files 동작은 *수동* 및 *제어* 가능한 메커니즘으로 변경 됩니다. **2021 년 3 월 15 일부 터 볼륨 크기 (할당량)는 프로 비전 된 용량 뿐만 아니라 대역폭 성능도 관리 하며, 기본 용량 풀은 더 이상 자동으로 증가 하지 않습니다.** 
+> 볼륨 및 용량 풀 프로 비전의 Azure NetApp Files 동작은 *수동* 및 *제어* 가능한 메커니즘으로 변경 됩니다. **2021 년 4 월 1 일부 터 볼륨 크기 (할당량)는 프로 비전 된 용량 뿐만 아니라 대역폭 성능도 관리 하며, 기본 용량 풀은 더 이상 자동으로 증가 하지 않습니다.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>볼륨 하드 할당량 변경 이유
 

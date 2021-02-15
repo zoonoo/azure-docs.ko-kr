@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: df393f54e7dfa83c8fc0feab3dbf42a156b296b7
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a274e96defa8b6b74c046923d87f198029399dd4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430465"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098098"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -62,7 +62,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 문서 크랙은 파일을 열고 콘텐츠를 추출 하는 프로세스입니다. 데이터 원본 유형에 따라 인덱서는 잠재적으로 인덱싱 가능한 콘텐츠를 추출 하기 위해 다른 작업을 수행 합니다.  
 
-예제:  
+예:  
 
 + 문서가 [AZURE SQL 데이터 원본의](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)레코드인 경우 인덱서는 레코드에 대 한 각 필드를 추출 합니다.
 + 문서가 [Azure Blob Storage 데이터 원본의](search-howto-indexing-azure-blob-storage.md)PDF 파일이 면 인덱서가 텍스트, 이미지 및 메타 데이터를 추출 합니다.
@@ -118,6 +118,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 이제 소개 했으므로 다음 단계는 인덱서 속성과 매개 변수, 예약 및 인덱서 모니터링을 검토 하는 것입니다. 또는 특정 소스에 대 한 자세한 내용은 [지원 되는 데이터 원본](#supported-data-sources) 목록으로 돌아갈 수 있습니다.
 
 + [인덱서 만들기](search-howto-create-indexers.md)
++ [인덱서 다시 설정 및 실행](search-howto-run-reset-indexers.md)
 + [인덱서 일정](search-howto-schedule-indexers.md)
 + [필드 매핑 정의](search-indexer-field-mappings.md)
 + [인덱서 상태 모니터링](search-howto-monitor-indexers.md)

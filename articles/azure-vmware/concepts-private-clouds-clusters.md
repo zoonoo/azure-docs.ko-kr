@@ -3,12 +3,12 @@ title: 개념-사설 클라우드 및 클러스터
 description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538927"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391391"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념
 
@@ -25,7 +25,7 @@ Azure 구독, Azure VMware 솔루션 사설 클라우드, vSAN 클러스터 및 
 
 ## <a name="private-clouds"></a>프라이빗 클라우드
 
-사설 클라우드에는 완전 한 운영 체제 미 설치 Azure 호스트로 빌드된 vSAN 클러스터가 포함 됩니다. 각 사설 클라우드에는 동일한 vCenter server 및 NSX manager에서 관리 하는 여러 클러스터가 있을 수 있습니다. 포털, CLI 또는 PowerShell에서 사설 클라우드를 배포 하 고 관리할 수 있습니다. 
+사설 클라우드에는 완전 한 운영 체제 미 설치 Azure 호스트로 빌드된 vSAN 클러스터가 포함 됩니다. 각 사설 클라우드에는 동일한 vCenter server 및 NSX Manager에서 관리 하는 여러 클러스터가 있을 수 있습니다. 포털, CLI 또는 PowerShell에서 사설 클라우드를 배포 하 고 관리할 수 있습니다. 
 
 다른 리소스와 마찬가지로 사설 클라우드는 Azure 구독 내에서 설치 및 관리 됩니다. 구독 내의 사설 클라우드 수는 확장할 수 있습니다. 처음에는 구독 당 하나의 사설 클라우드로 제한 됩니다.
 
@@ -73,6 +73,7 @@ Microsoft는 NSX Manager 및 NSX Edge와 같은 NSX-T 어플라이언스의 수�
 - [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 
 <!-- LINKS - internal -->
+[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838

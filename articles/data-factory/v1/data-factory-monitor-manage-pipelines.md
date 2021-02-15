@@ -1,22 +1,18 @@
 ---
 title: Azure Portal 및 PowerShell을 사용 하 여 파이프라인 모니터링 및 관리
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495857"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380409"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -87,10 +83,10 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 <table>
 <tr>
-    <th align="left">주</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
-    <td rowspan="8">대기</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
+    <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>업스트림 종속성이 준비되지 않습니다.</td>
@@ -121,7 +117,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>조각이 처리되고 있습니다.</td>
 </tr>
 <tr>
-<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>취소됨</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
@@ -178,7 +174,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +185,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -222,7 +218,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -236,7 +232,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -287,10 +283,10 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 
 ![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### <a name="use-azure-powershell"></a>Azure Powershell 사용
+### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 **AzDataFactorySliceStatus** cmdlet을 사용 하 여 실패를 다시 실행할 수 있습니다. Cmdlet에 대 한 구문 및 기타 세부 정보는 [AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) 항목을 참조 하세요.
 
-**예:**
+**예제:**
 
 다음 예제에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'Waiting'(대기 중)으로 설정합니다.
 

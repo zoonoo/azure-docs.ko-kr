@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475187"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389742"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ ms.locfileid: "99475187"
 | **AppServiceManagement** | App Service Environment 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **AzureActiveDirectory** | Azure Active Directory. | 아웃바운드 | 예 | 예 |
 | **AzureActiveDirectoryDomainServices** | Azure Active Directory Domain Services 전용 배포에 대한 관리 트래픽 | 모두 | 예 | 예 |
-| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 아니요 |
+| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection | 아웃바운드 | 예 | 예 |
 | **AzureArcInfrastructure** | Azure Arc 사용 서버, Azure Arc enabled Kubernetes 및 게스트 구성 트래픽<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**,**AzureTrafficManager** 및 **AzureResourceManager** 태그에 종속 됩니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다*.| 아웃바운드 | 예 | 예 |
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
@@ -64,7 +64,7 @@ ms.locfileid: "99475187"
 | **AzureDatabricks** | Azure Databricks입니다. | 모두 | 예 | 예 |
 | **AzureDataExplorerManagement** | Azure Data Explorer 관리 기능입니다. | 인바운드 | 예 | 예 |
 | **AzureDataLake** | Azure Data Lake Storage Gen1입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 아니요 |
+| **AzureDevSpaces** | Azure Dev Spaces입니다. | 아웃바운드 | 예 | 예 |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.*| 인바운드 | 예 | 예 |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*참고:* 이 태그 또는이 태그에 포함 된 IP 주소는 이벤트 경로에 대해 구성 된 끝점에 대 한 액세스를 제한 하는 데 사용할 수 있습니다. *이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 인바운드 | 예 | 예 |
 | **AzureEventGrid** | Azure Event Grid. | 모두 | 예 | 예 |
@@ -97,7 +97,7 @@ ms.locfileid: "99475187"
 | **LogicAppsManagement** | Logic Apps에 대한 관리 트래픽입니다. | 인바운드 | 예 | 예 |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security입니다. | 아웃바운드 | 예 | 예 |
 | **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리입니다. <br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **PowerBI** | PowerBi. *참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 아니요|
+| **PowerBI** | PowerBi. *참고:이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 모두 | 예 | 예|
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |
@@ -153,6 +153,7 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 ### <a name="tips"></a>팁 
 - JSON 파일에서 증가된 *changeNumber* 값을 기록하여 한 게시에서 다음 게시까지의 업데이트를 검색할 수 있습니다. 각 하위 섹션(예: **Storage.WestUS**)에는 변경이 발생할 때마다 증가하는 고유한 *changeNumber* 가 있습니다. 하위 섹션이 변경될 때 파일의 *changeNumber* 최상위 수준이 증가합니다.
 - 서비스 태그 정보를 구문 분석하는 방법에 대한 예제(예: WestUS의 스토리지에 대한 모든 주소 범위 가져오기)를 보려면 [서비스 태그 검색 API PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2) 설명서를 참조하세요.
+- 서비스 태그에 새 IP 주소를 추가 하는 경우 Azure에서 1 주일 이상 사용 되지 않습니다. 이렇게 하면 서비스 태그와 연결 된 IP 주소를 추적 해야 하는 시스템을 업데이트 하는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [네트워크 보안 그룹 만들기](tutorial-filter-network-traffic.md)에 대해 알아보세요.

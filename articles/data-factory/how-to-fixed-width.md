@@ -1,19 +1,17 @@
 ---
 title: Azure Data Factory에서 데이터 흐름이 매핑되는 고정 길이 텍스트 파일 처리
 description: 데이터 흐름 매핑을 사용 하 여 Azure Data Factory에서 고정 길이 텍스트 파일을 처리 하는 방법에 대해 알아봅니다.
-services: data-factory
 author: balakreshnan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 23b812da8c84ebf055ac4eabdc4649828c139a7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2297364e8f1a531b4512f2497bc4d99963d61179
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051018"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386206"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Data Factory 매핑 데이터 흐름을 사용 하 여 고정 길이 텍스트 파일 처리
 
@@ -29,7 +27,7 @@ Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용 하 여 고
 
     ![고정 너비 파이프라인](media/data-flow/fwpipe.png)
 
-3. 데이터 흐름 작업에서 **새 매핑 데이터 흐름**을 선택 합니다.
+3. 데이터 흐름 작업에서 **새 매핑 데이터 흐름** 을 선택 합니다.
 
 4. 원본, 파생 열, 선택 및 싱크 변환을 추가 합니다.
 
@@ -57,11 +55,11 @@ Microsoft Azure Data Factory에서 매핑 데이터 흐름을 사용 하 여 고
     1234567813572468
     ```
 
-7. 원본 변환의 **프로젝션** 탭에 *Column_1*라는 문자열 열이 표시 됩니다.
+7. 원본 변환의 **프로젝션** 탭에 *Column_1* 라는 문자열 열이 표시 됩니다.
 
 8. 파생 열에서 새 열을 만듭니다.
 
-9. 열에는 *col1*과 같은 단순한 이름을 지정 합니다.
+9. 열에는 *col1* 과 같은 단순한 이름을 지정 합니다.
 
 10. 식 작성기에서 다음을 입력 합니다.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537309"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097639"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 개요
 
@@ -98,7 +98,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 "행 수준 보안"이 필요한 솔루션에 대 한 해결 방법에는 보안 그룹 또는 사용자 id를 나타내는 데이터 원본에 필드를 만든 다음 Cognitive Search에서 필터를 사용 하 여 id를 기준으로 문서 및 콘텐츠의 검색 결과를 선택적으로 트리밍하는 것이 있습니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | 설명 |
+| 접근 방식 | Description |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 Azure cloud platform의 [무료 서비스](https://azure.microsoft.com/free/) 중 하나인 Azure Active Directory (azure AD)에서 id를 검색 하는 단계를 제공 하는 이전 문서를 확장 합니다. |
@@ -113,12 +113,6 @@ Azure Cognitive Search에서 리소스 관리자를 사용 하 여 서비스를 
 
 > [!Note]
 > Azure 전체 메커니즘을 사용 하 여 구독 또는 리소스를 잠가 관리자 권한이 있는 사용자가 실수로 검색 서비스를 삭제 하지 못하도록 할 수 있습니다. 자세한 내용은 [예기치 않은 삭제를 방지 하기 위해 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
-
-## <a name="threat-protection"></a>위협 보호
-
-검색 서비스의 콘텐츠에 대 한 액세스는 쿼리를 통해서만 사용할 수 있습니다. 검색 서비스가 쿼리 공격의 대상이 면 시스템이 최대 용량에 도달할 때 시스템이 쿼리를 삭제 합니다. 
-
-제한은 API마다 다르게 동작합니다. 쿼리 API(검색/제안/자동 완성) 및 인덱싱 API는 서비스의 부하에 따라 동적으로 제한됩니다. 인덱스 Api 및 서비스 작업 API에는 정적 요청 률 제한이 있습니다. 제한 [제한](search-limits-quotas-capacity.md#throttling-limits)에서 정적 전송률 요청 제한을 검토할 수 있습니다. 조정 동작에 대 한 자세한 내용은 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조 하세요.
 
 <a name="encryption"></a>
 

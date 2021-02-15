@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f49abd4ca1cc1ccdcb7ba2b0fab3bad953dede5d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217892"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380545"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -80,7 +80,7 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": ["47.6", "-122.1"]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
@@ -188,9 +188,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-다음은 몇 가지 예입니다.
+몇 가지 예제는 다음과 같습니다.
 
-|목적|작업|
+|용도|작업|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트의 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|
