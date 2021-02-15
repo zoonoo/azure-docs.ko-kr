@@ -3,18 +3,18 @@ title: 'ML Studio (클래식): 학습 데이터 가져오기-Azure'
 description: 다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)로 데이터를 가져오는 방법 지원되는 데이터 형식에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: c69ed7b9e2aaa7113637868e1c1329ed2962b931
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: db5f3cc4b9530c4aeac40786756b36cc0ac98728
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302777"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520377"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기
 
@@ -73,12 +73,12 @@ Machine Learning Studio (클래식)은 사각형 또는 표 형식 데이터 (�
 * DateTime
 * TimeSpan
 
-스튜디오는 ***data table** _ 이라는 내부 데이터 형식을 사용 하 여 모듈 간에 데이터를 전달 합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
+Studio에서는 ***데이터 테이블*** 이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 
 데이터 테이블 이외의 형식을 허용하는 모든 모듈에서는 다음 모듈에 데이터를 전달하기 전에 데이터 테이블로 자동 변환합니다.
 
 필요한 경우 다른 변환 모듈을 사용하여 데이터 테이블 형식을 다시 CSV, TSV, ARFF 또는 SVMLight 형식으로 변환할 수 있습니다.
-모듈 팔레트의 _ *데이터 형식 변환** 섹션에서 이러한 기능을 수행 하는 모듈을 확인 합니다.
+모듈 팔레트의 **데이터 형식 변환** 섹션에서 이러한 함수를 수행하는 모듈을 찾습니다.
 
 ## <a name="data-capacities"></a>데이터 용량
 

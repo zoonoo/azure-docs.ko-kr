@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d1d22d57464266239aea96f427020351eb749d5
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740660"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99822364"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
@@ -84,7 +84,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 ## <a name="bitlocker-considerations"></a>BitLocker 고려 사항
 
 * Data Box Gateway 가상 머신에서 BitLocker를 사용하도록 설정하는 것이 좋습니다. 기본적으로 BitLocker가 활성화되지 않았습니다. 자세한 내용은 다음을 참조하세요.
-  * [Hyper-V 관리자의 암호화 지원 설정](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Hyper-V 관리자의 암호화 지원 설정](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [가상 머신의 BitLocker 지원](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 디바이스 프로비전

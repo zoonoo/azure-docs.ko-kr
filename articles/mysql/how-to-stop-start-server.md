@@ -6,21 +6,21 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: d297d215d4b0edfdd67b603ba4707bf02057ad78
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241160"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516875"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Azure Database for MySQL 중지/시작
 
 > [!IMPORTANT]
-> Azure Database for MySQL에 대 한 중지/시작 기능은 현재 공개 미리 보기로 제공 됩니다.
+>  서버를 **중지** 하면 스트레치에서 다음 7 일 동안 해당 상태가 유지 됩니다. 이 시간 동안 수동으로 **시작** 하지 않는 경우 서버는 7 일이 끝날 때 자동으로 시작 됩니다. 서버를 사용 하지 않는 경우 다시 **중지** 하도록 선택할 수 있습니다.
 
 이 문서에서는 단일 서버의 중지 및 시작을 수행 하는 단계별 절차를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 

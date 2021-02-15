@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70bfd12b018e785e7b3b91e098c99fea1101c04
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021752"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093100"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>경계 81 활동 로그를 Azure 센티널에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "87021752"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -52,9 +52,9 @@ ms.locfileid: "87021752"
 
 ## <a name="find-your-data"></a>데이터 찾기
 
-연결이 설정 되 면 데이터는 **customlogs**Perimeter81_CL의 **로그** 에 표시 됩니다  -  **Perimeter81_CL**.
+연결이 설정 되 면 데이터는 **customlogs** Perimeter81_CL의 **로그** 에 표시 됩니다  -  .
 
-로그가 나타날 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 나타나기 시작할 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

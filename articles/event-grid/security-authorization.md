@@ -2,13 +2,13 @@
 title: Azure Event Grid 보안 및 인증
 description: Azure Event Grid 및 해당 개념을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 02/12/2021
+ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109592"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371723"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Event Grid 리소스에 대 한 액세스 권한 부여
 Azure Event Grid를 사용 하면 다양 한 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 **관리 작업** 을 수행 하는 데 지정 된 액세스 수준을 제어할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 Event Grid입니다.
@@ -51,6 +51,8 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
         "Actions": [
           "Microsoft.Authorization/*/read",
           "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
+          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
           "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
@@ -188,11 +190,11 @@ WebHook(예: 이벤트 허브 또는 Queue Storage)이 아닌 이벤트 처리�
 이벤트 소스인 리소스에 **Microsoft.EventGrid/EventSubscriptions/Write** 권한이 있어야 합니다. 리소스의 범위에서 새 구독을 작성하기 때문에 이 권한이 있어야 합니다. 필요한 리소스는 시스템 항목 또는 사용자 지정 항목을 구독하는지 여부에 따라 다릅니다. 두 형식은 모두 이 섹션에 설명되어 있습니다.
 
 ### <a name="system-topics-azure-service-publishers"></a>시스템 항목(Azure 서비스 게시자)
-시스템 항목의 경우 이벤트를 게시하는 리소스의 범위에서 새 이벤트 구독을 쓸 수 있는 사용 권한이 필요합니다. 리소스의 형식은 다음과 같습니다. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+시스템 항목의 경우 원본 리소스의 소유자 또는 참가자가 아닌 경우 이벤트를 게시 하는 리소스의 범위에서 새 이벤트 구독을 쓸 수 있는 권한이 있어야 합니다. 리소스의 형식은 다음과 같습니다. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 예를 들어 **myacct** 라는 스토리지 계정에 이벤트를 구독하려면 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`에 대한 Microsoft.EventGrid/EventSubscriptions/Write 권한이 필요합니다.
 
-### <a name="custom-topics"></a>사용자 지정 토픽
+### <a name="custom-topics"></a>사용자 지정 항목
 사용자 지정 항목의 경우 Event Grid 항목의 범위에서 새 이벤트 구독을 쓸 수 있는 권한이 필요합니다. 리소스의 형식은 다음과 같습니다. `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
 예를 들어 **mytopic** 이라는 사용자 지정 항목을 구독하려면 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`에 대한 Microsoft.EventGrid/EventSubscriptions/Write 권한이 필요합니다.

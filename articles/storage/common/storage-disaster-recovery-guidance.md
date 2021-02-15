@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783983"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379831"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -23,7 +23,7 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 
 Azure Storage 지역 중복 저장소 계정에 대 한 계정 장애 조치 (failover)를 지원 합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다. 장애 조치(failover)는 스토리지 계정의 기본 엔드포인트가 되도록 보조 엔드포인트를 업데이트합니다. 장애 조치(failover)가 완료되면 클라이언트는 새 기본 엔드포인트에 쓰기 시작할 수 있습니다.
 
-계정 장애 조치 (failover)는 Azure Resource Manager 배포를 사용 하는 범용 v1, 범용 v2 및 Blob storage 계정 유형에 사용할 수 있습니다. 계정 장애 조치 (failover)는 모든 공용 지역에 대해 지원 되지만 지금은 소 버린 또는 국가별 클라우드에서 사용할 수 없습니다.
+계정 장애 조치(failover)는 Azure Resource Manager 배포를 사용하는 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형에 사용할 수 있습니다. 계정 장애 조치 (failover)는 모든 공용 지역에 대해 지원 되지만 지금은 소 버린 또는 국가별 클라우드에서 사용할 수 없습니다.
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치 (failover)를 시작 하는 방법을 알아보려면 [계정 장애 조치 (failover) 시작](storage-initiate-account-failover.md)을 참조 하세요.
 
@@ -55,7 +55,7 @@ Azure Storage의 중복성에 대 한 자세한 내용은 [중복성 Azure Stora
 
 - **디스크:** [Azure Backup](https://azure.microsoft.com/services/backup/) 를 사용 하 여 Azure 가상 머신에서 사용 하는 VM 디스크를 백업 합니다. 또한 [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)를 사용하여 지역 재해 발생 시 VM을 보호하는 것이 좋습니다.
 - **블록 blob:** [일시 삭제](../blobs/soft-delete-blob-overview.md) 를 설정 하 여 개체 수준 삭제 및 덮어쓰기를 방지 하거나 [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)또는 [Azure 데이터 이동 라이브러리](storage-use-data-movement-library.md)를 사용 하 여 다른 지역에 있는 다른 저장소 계정에 블록 blob을 복사 합니다.
-- **파일:** [AzCopy](./storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/) 를 사용 하 여 다른 지역에 있는 다른 저장소 계정으로 파일을 복사 합니다.
+- **파일:** [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) 를 사용 하 여 파일 공유를 백업 합니다. 또한 실수로 인 한 파일 공유 삭제 로부터 보호 하기 위해 [일시 삭제](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) 를 사용 하도록 설정 합니다. GRS를 사용할 수 없을 때 지리적 중복성을 위해 [AzCopy](./storage-use-azcopy-v10.md) 또는 [Azure PowerShell](/powershell/module/az.storage/) 를 사용 하 여 다른 지역의 다른 저장소 계정에 파일을 복사 합니다.
 - **테이블:**[AzCopy](./storage-use-azcopy-v10.md)를 사용하여 다른 지역에 있는 다른 스토리지 계정으로 테이블 데이터를 내보냅니다.
 
 ## <a name="track-outages"></a>중단 추적
@@ -171,7 +171,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 된 경우 응용 프로그램은 보조 지역에서 읽을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [지리적 중복성을 사용하여 고가용성 애플리케이션 설계](geo-redundant-design.md)
 - [계정 장애 조치(failover) 시작](storage-initiate-account-failover.md)

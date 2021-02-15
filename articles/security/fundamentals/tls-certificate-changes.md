@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 04b68899b796088bd4b89509a413c7a1fe5369bb
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 9e4edbcfd9e4180e727cd885902d9f0150a967ca
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475355"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389402"
 ---
 # <a name="azure-tls-certificate-changes"></a>Azure TLS 인증서 변경  
 
@@ -24,7 +24,7 @@ Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록
 
 기존 Azure 끝점은 2020 년 8 월 13 일 이후 단계적으로 전환 되었습니다. 새로 만든 모든 Azure TLS/SSL 엔드포인트에는 새로운 루트 CA에 연결하는 업데이트된 인증서가 포함되어 있습니다.
 
-서비스 관련 세부 정보:
+모든 Azure 서비스는 이러한 변경의 영향을 받습니다. 특정 서비스에 대 한 몇 가지 추가 정보는 다음과 같습니다.
 
 - Azure AD([Azure Active Directory](../../active-directory/index.yml)) 서비스는 2020년 7월 7일에 이 전환을 시작했습니다.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) 및 [DPS](../../iot-dps/index.yml)는 Baltimore CyberTrust Root CA에 그대로 남아 있지만 중간 Ca는 변경됩니다. [자세한 내용을 보려면 여기를 클릭하세요](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).

@@ -3,18 +3,17 @@ title: Linux 살펴보기
 titleSuffix: Azure Data Science Virtual Machine
 description: Linux Data Science Virtual Machine을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 알아봅니다.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315792"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517674"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Azure에서 Ubuntu Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -146,7 +145,7 @@ labs(fill="spam", y="Density")
 스팸 또는 햄을 포함하도록 데이터 세트에서 메일을 분류하는 기계 학습 모델 두 가지를 학습하겠습니다. 이 섹션에서는 의사 결정 트리 모델 및 임의 포리스트 모델을 학습합니다. 그런 다음 예측의 정확도를 테스트합니다.
 
 > [!NOTE]
-> 다음 코드에 사용되는 *rpart* (재귀 분할 및 회귀 트리) 패키지는 이미 DSVM에 설치되어 있습니다.
+> 다음 코드에 사용되는 *rpart*(재귀 분할 및 회귀 트리) 패키지는 이미 DSVM에 설치되어 있습니다.
 
 먼저 데이터 세트를 학습 집합과 테스트 집합으로 분할합니다.
 
@@ -315,7 +314,7 @@ DSVM에서 Anaconda 배포판에는 Jupyter Notebook, Python R 공유를 위한 
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html)( *R* *A* nalytical *T* ool *T* o *L* earn *E* asily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 Rattle의 기능을 보여 주는 연습을 제공합니다.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html)(*R* *A* nalytical *T* ool *T* o *L* earn *E* asily)은 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 손쉽게 데이터를 로드, 탐색 및 변환하고 모델을 빌드 및 평가할 수 있는 직관적인 인터페이스가 있습니다. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf)(Rattle: R용 데이터 마이닝 GUI)은 Rattle의 기능을 보여 주는 연습을 제공합니다.
 
 다음 명령을 실행하여 Rattle을 설치하고 시작합니다.
 

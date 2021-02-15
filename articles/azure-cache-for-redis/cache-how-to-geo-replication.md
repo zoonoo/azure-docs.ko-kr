@@ -1,24 +1,28 @@
 ---
-title: Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법 | Microsoft Docs
-description: 지리적 지역 간에 Azure Cache for Redis 인스턴스를 복제하는 방법을 알아봅니다.
+title: Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대 한 지역에서 복제 구성
+description: Azure 지역에서 Redis Premium 인스턴스에 대 한 Azure 캐시를 복제 하는 방법을 알아봅니다.
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 27ccc81ddf0a771de9fb15f60820dfd3efa6146e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536881"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386876"
 ---
-# <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
+# <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대 한 지역에서 복제 구성
 
-지역 복제는 두 개의 프리미엄 계층 Azure Cache for Redis 인스턴스를 연결하는 메커니즘을 제공합니다. 캐시 하나는 기본 연결 된 캐시로, 다른 하나는 보조 연결 된 캐시로 선택 됩니다. 보조 연결된 캐시는 읽기 전용이 되고 주 캐시에 쓴 데이터는 보조 연결된 캐시에 복제됩니다. 기본 및 보조 캐시 인스턴스 간의 데이터 전송은 TLS로 보호 됩니다. 지역에서 복제를 사용 하 여 두 개의 Azure 지역에 걸쳐 있는 캐시를 설정할 수 있습니다. 이 문서에서는 Redis 인스턴스에 대 한 프리미엄 계층 Azure 캐시에 대 한 지역에서 복제를 구성 하는 지침을 제공 합니다.
+이 문서에서는 Azure Portal를 사용 하 여 지역에서 복제 된 Azure 캐시를 구성 하는 방법을 알아봅니다.
+
+지역에서 복제는 Redis 인스턴스에 대 한 두 개의 Premium Azure 캐시를 함께 연결 하 고 데이터 복제 관계를 만듭니다. 이러한 캐시 인스턴스는 일반적으로 다른 Azure 지역에 있지만 반드시 필요한 것은 아닙니다. 한 인스턴스는 주 복제본 역할을 하 고 다른 인스턴스는 보조 데이터베이스 역할을 합니다. 주 복제본은 읽기 및 쓰기 요청을 처리 하 고 변경 내용을 보조로 전파 합니다. 이 프로세스는 두 인스턴스 간의 링크가 제거 될 때까지 계속 됩니다.
 
 > [!NOTE]
-> 지역에서 복제는 재해 복구 솔루션으로 설계 되었습니다. 기본적으로 응용 프로그램은 주 지역에서 쓰고 읽습니다. 선택적으로 보조 지역에서 읽도록 구성할 수 있습니다. 지역에서 복제는 응용 프로그램의 나머지 부분이 주 지역에 남아 있는 경우 지역 간에 추가 된 네트워크 대기 시간을 초과 하는 문제로 인해 자동 장애 조치 (failover)를 제공 하지 않습니다. 보조 캐시의 연결을 해제 하 여 장애 조치 (failover)를 관리 하 고 시작 해야 합니다. 그러면 새 주 인스턴스로 승격 됩니다.
+> 지역에서 복제는 재해 복구 솔루션으로 설계 되었습니다.
+>
+>
 
 ## <a name="geo-replication-prerequisites"></a>지역에서 복제 필수 조건
 

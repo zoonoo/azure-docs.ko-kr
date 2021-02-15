@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Azure 파일 동기화 배포
           href: storage-sync-files-deployment-guide.md
-        - name: 프리미엄 파일 공유 만들기
-          href: storage-how-to-create-premium-fileshare.md
         - name: NFS 공유 만들기
           href: storage-files-how-to-create-nfs-shares.md
         - name: 프리미엄 파일 공유 기능이 있는 FCI SQL Server

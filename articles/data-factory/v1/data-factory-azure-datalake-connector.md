@@ -1,24 +1,19 @@
 ---
 title: Azure Data Lake Storage Gen1 간 데이터 복사
 description: Azure Data Factory를 사용하여 Data Lake Store 간 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 16cef1fb35efcbe12a4054304e3f354c03b37227
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8bdfceff562ae2501a9d95774f7134669e929b7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637652"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379406"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Storage Gen1 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -49,12 +44,12 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 특히 예약된 데이터 복사의 경우 서비스 주체 인증을 사용하는 것이 좋습니다. 사용자 자격 증명 인증의 경우 토큰 만료 동작이 발생할 수 있습니다. 구성 세부 정보에서 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 다른 도구/API를 사용하여 Azure Data Lake Store 간에 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
 데이터를 복사하기 위한 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 자습서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio** , **Azure PowerShell** **Azure Resource Manager 템플릿** , **.net API** 및 **REST API** . 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -70,9 +65,9 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 연결된 서비스는 데이터 저장소를 데이터 팩터리에 연결합니다. Data Lake Store 데이터를 데이터 팩터리에 연결하는 **AzureDataLakeStore** 형식의 연결된 서비스를 만듭니다. 다음 표에서는 Data Lake Store 연결된 서비스와 관련된 JSON 요소에 대해 설명합니다. 서비스 주체와 사용자 자격 증명 인증 중에서 선택할 수 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| **type** | Type 속성은 **AzureDataLakeStore** 로 설정 해야 합니다. | 예 |
+| **type** | Type 속성은 **AzureDataLakeStore** 로 설정 해야 합니다. | Yes |
 | **dataLakeStoreUri** | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
 | **subscriptionId** | Data Lake Store 계정이 속하는 Azure 구독 ID. | 싱크에 필요 |
 | **resourceGroupName** | Data Lake Store 계정이 속하는 Azure 리소스 그룹 이름. | 싱크에 필요 |
@@ -91,7 +86,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다. | 예 |
@@ -118,10 +113,10 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 ### <a name="user-credential-authentication"></a>사용자 자격 증명 인증
 또는 아래 속성을 지정하여 사용자 자격 증명 인증을 사용하여 Data Lake Store로 데이터를 복사하거나 Data Lake Store에서 다른 위치로 복사할 수 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| **인증과** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | 예 |
-| **세션** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | 예 |
+| **인증과** | Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 자동 생성된 authorization URL이 이 속성에 할당됩니다. | Yes |
+| **세션** | OAuth 권한 부여 세션에서 가져온 OAuth 세션 ID입니다. 각 세션 ID는 고유하고 한 번만 사용될 수 있습니다. 이 설정은 Data Factory 편집기를 사용하는 경우 자동으로 생성됩니다. | Yes |
 
 > [!IMPORTANT]
 > Azure Data Lake Store에서 사용자에게 적절한 권한을 부여해야 합니다.
@@ -233,17 +228,17 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     ```
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
-Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 **type** 속성을 **AzureDataLakeStore** 로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Data Lake Store 연결된 서비스의 이름으로 설정합니다. 데이터 세트 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **구조** , **가용성** 및 **정책** 과 JSON의 데이터 세트 섹션은 모든 데이터 세트 형식(예: Azure SQL 데이터베이스, Azure Blob, Azure 테이블)에 대해 유사합니다. **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다.
+Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 **type** 속성을 **AzureDataLakeStore** 로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Data Lake Store 연결된 서비스의 이름으로 설정합니다. 데이터 세트 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **구조**, **가용성** 및 **정책** 과 JSON의 데이터 세트 섹션은 모든 데이터 세트 형식(예: Azure SQL 데이터베이스, Azure Blob, Azure 테이블)에 대해 유사합니다. **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 서식 등에 대한 정보를 제공합니다.
 
 **AzureDataLakeStore** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName** 을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName** 을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath** 에 모든 파일을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 형식입니다 `Data._Guid_.txt` . 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
-| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath** 는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 partitionedBy 속성을 참조하세요. |아니요 |
-| **format** | **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format** 의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니요 |
-| **압축** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip** , **Deflate** , **BZip2** 및 **ZipDeflate** 입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |Yes |
+| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName** 을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName** 을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath** 에 모든 파일을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 형식입니다 `Data._Guid_.txt` . 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
+| **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath** 는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 partitionedBy 속성을 참조하세요. |예 |
+| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format** 의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |예 |
+| **압축** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 속성
 **partitionedBy** 속성, Data Factory 함수 및 시스템 변수를 사용하여 시계열 데이터의 동적 **folderPath** 및 **fileName** 속성을 지정할 수 있습니다. 자세한 내용은 [Azure Data Factory - 함수 및 시스템 변수](data-factory-functions-variables.md) 문서를 참조하세요.
@@ -283,7 +278,7 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **재귀** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
+| **재귀** |하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |예 |
 
 **AzureDataLakeStoreSink** 는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 

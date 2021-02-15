@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629666"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379117"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -187,7 +187,9 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 
 탑재 된 볼륨에는  `.snapshot` (NFS 클라이언트에서) 또는 `~snapshot` 클라이언트에서 액세스할 수 있는 (SMB 클라이언트) 라는 스냅숏 디렉터리가 포함 되어 있습니다. 스냅숏 디렉터리는 볼륨의 스냅숏에 해당 하는 하위 디렉터리를 포함 합니다. 각 하위 디렉터리에는 스냅숏의 파일이 포함 되어 있습니다. 실수로 파일을 삭제 하거나 덮어쓴 경우 snapshot 하위 디렉터리에서 읽기/쓰기 디렉터리로 파일을 복사 하 여 부모 읽기/쓰기 디렉터리에 파일을 복원할 수 있습니다. 
 
-스냅숏 디렉터리가 표시 되지 않으면 스냅숏 경로 숨기기 옵션을 현재 사용할 수 있기 때문에이 디렉터리가 숨겨져 있을 수 있습니다. [스냅숏 경로 숨기기 옵션을 편집](#edit-the-hide-snapshot-path-option) 하 여 사용 하지 않도록 설정할 수 있습니다.  
+스냅숏 [경로 숨기기 옵션](#edit-the-hide-snapshot-path-option)을 사용 하 여 스냅숏 디렉터리에 대 한 액세스를 제어할 수 있습니다. 이 옵션은 클라이언트에서 디렉터리를 숨길지 여부를 제어 합니다. 따라서 스냅숏의 파일 및 폴더에 대 한 액세스도 제어 합니다.  
+
+NFSv 4.1에는 디렉터리 ()가 표시 되지 않습니다 `.snapshot` `ls -la` . 그러나 스냅숏 경로 숨기기 옵션을 설정 하지 않은 경우에도 `.snapshot` `cd <snapshot-path>` 클라이언트 명령줄에서 명령을 사용 하 여 nfsv 4.1을 통해 디렉터리에 액세스할 수 있습니다. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Linux NFS 클라이언트를 사용 하 여 파일 복원 
 
@@ -269,4 +271,4 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 * [스냅샷 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
-* [Azure 애플리케이션 일치 스냅숏 도구 란?](azacsnap-introduction.md)
+* [Azure Application Consistent Snapshot Tool이란?](azacsnap-introduction.md)

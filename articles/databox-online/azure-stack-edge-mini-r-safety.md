@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: eb42a9a77927d8577dfec3c9167294eb8f809fec
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981032"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382630"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Azure Stack Edge 미니 R 안전 지침
 
@@ -27,14 +27,14 @@ Azure Stack Edge 미니 R 장치를 사용 하기 전에이 문서에 있는 모
 
 위험 경고 기호에 대 한 다음 신호 단어는 다음과 같습니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험물 기호](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **위험:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생 하는 위험한 상황을 나타냅니다. <br> **경고:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생할 수 있는 유해 상황을 나타냅니다. <br> **주의:** 피해를 주지 않는 경우 사소한 또는 보통 부상을 일으킬 수 있는 위험한 상황을 나타냅니다.|
 |
 
 Azure Stack Edge 미니 R 장치를 설정 하 고 실행할 때 다음 위험 아이콘이 관찰 됩니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![모든 지침을 먼저 읽을 것](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png) | 모든 지침을 먼저 읽을 것 |
 | ![참고 아이콘](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **고지:** | 중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. |
@@ -161,7 +161,6 @@ Netgear A6150 WiFi USB 어댑터는 승인 된 안테나에만 사용 해야 합
 
 ![규정 정보 경고-실내 사용](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
 
-
 사용자는 고성능 radars이 대역 5250 – 5350 MHz 및 5650 – 5850 MHz의 기본 사용자 (우선 순위 사용자)로 할당 되 고 이러한 radars로 인해 LE 장치에 간섭 및/또는 손상이 발생할 수 있습니다.
 
 이 장비는 무선 주파수 에너지를 생성, 사용 및 방사 수 있으며, 지침에 따라 설치 되지 않고 사용 되는 경우 라디오 통신에 유해한 간섭을 일으킬 수 있습니다. 그러나 특정 설치에서는 간섭이 발생 하지 않을 수도 있습니다.
@@ -205,11 +204,13 @@ Netgear A6150 WiFi USB 어댑터는 미제어 환경에 대해 설정 된 캐나
 
 #### <a name="european-union"></a>유럽 연합:
 
-이 장비에 대 한 EU 준수 선언 사본을 요청 하세요.
+이 장비에 대 한 EU 준수 선언 사본을 요청 하세요. [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com)에 이메일을 보냅니다.
 
 이 장비와 함께 제공 되는 Netgear A6150 WiFi USB 어댑터는 2014/53/EU 지시어를 준수 하며 요청 시 제공할 수도 있습니다.
 
-> ![경고 아이콘 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) 제품 클래스입니다. 국내 환경에서 이 제품은 무선 간섭을 일으킬 수 있으며 이 경우 사용자는 적절한 조치를 취해야 합니다.
+![경고 아이콘 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **경고:**  
+
+이 제품은 클래스 A 제품입니다. 국내 환경에서 이 제품은 무선 간섭을 일으킬 수 있으며 이 경우 사용자는 적절한 조치를 취해야 합니다.
 
 폐 배터리와 전기 및 전자 장비의 폐기:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787301"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516705"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
@@ -37,9 +37,8 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
 
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
-| ByteCount | 바이트 수 | 개수 | 합계 | 기간 내에 전송된 총 바이트 수 |
 | BytesDroppedDDoS | 인바운드 바이트가 삭제된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 삭제된 DDoS| 
 | BytesForwardedDDoS | 인바운드 바이트가 전달된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 전달된 DDoS |
 | BytesInDDoS | 인바운드 바이트 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트 DDoS |
@@ -47,11 +46,9 @@ Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/
 | DDoSTriggerTCPPackets | DDoS 완화를 트리거하는 인바운드 TCP 패킷 | 초당 개수 | 최대 | DDoS 완화를 트리거하는 인바운드 TCP 패킷 |
 | DDoSTriggerUDPPackets | DDoS 완화를 트리거하는 인바운드 UDP 패킷 | 초당 개수 | 최대 | DDoS 완화를 트리거하는 인바운드 UDP 패킷 |
 | IfUnderDDoSAttack | DDoS 공격 진행 여부 | 개수 | 최대 | DDoS 공격 진행 여부 |
-| PacketCount | 패킷 수 | 개수 | 합계 | 기간 내에 전송된 총 패킷 수 |
 | PacketsDroppedDDoS | 인바운드 패킷이 삭제된 DDoS | 초당 개수 | 최대 | 인바운드 패킷이 삭제된 DDoS |
 | PacketsForwardedDDoS | 인바운드 패킷이 전달된 DDoS | 초당 개수 | 최대 | 인바운드 패킷이 전달된 DDoS |
 | PacketsInDDoS | 인바운드 패킷 DDoS | 초당 개수 | 최대 | 인바운드 패킷 DDoS |
-| SynCount | SYN 수 | 개수 | 합계 | 기간 내에 전송된 총 SYN 패킷 수 |
 | TCPBytesDroppedDDoS | 인바운드 TCP 바이트가 삭제된 DDoS | 초당 바이트 수 | 최대 | 인바운드 TCP 바이트가 삭제된 DDoS |
 | TCPBytesForwardedDDoS | 인바운드 TCP 바이트가 전달된 DDoS | 초당 바이트 수 | 최대 | 인바운드 TCP 바이트가 전달된 DDoS |
 | TCPBytesInDDoS | 인바운드 TCP 바이트 DDoS | 초당 바이트 수 | 최대 | 인바운드 TCP 바이트 DDoS |
@@ -64,7 +61,6 @@ Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/
 | UDPPacketsDroppedDDoS | 인바운드 UDP 패킷이 삭제된 DDoS | 초당 개수 | 최대 | 인바운드 UDP 패킷이 삭제된 DDoS |
 | UDPPacketsForwardedDDoS | 인바운드 UDP 패킷이 전달된 DDoS | 초당 개수 | 최대 | 인바운드 UDP 패킷이 전달된 DDoS |
 | UDPPacketsInDDoS | 인바운드 UDP 패킷 DDoS | 초당 개수 | 최대 | 인바운드 UDP 패킷 DDoS |
-| VipAvailability | 데이터 경로 가용성 | 개수 | 평균 | 기간당 평균 IP 주소 가용성 |
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -77,7 +73,7 @@ Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/
 공격에 대한 원격 분석이 Azure Monitor를 통해 실시간으로 제공됩니다. 이러한 원격 분석 기능은 공용 IP 주소의 위험이 완화되는 동안에만 사용할 수 있습니다. 공격이 완화되기 전 또는 후에는 원격 분석이 표시되지 않습니다.
 
 1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 여 DDoS Protection 요금제로 이동 합니다.
-2. **모니터링** 에서 **메트릭** 을 선택합니다.
+2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
 3. **범위** 를 선택합니다. 로깅할 공용 IP 주소를 포함 하는 **구독** 을 선택 하 고 **리소스 종류** 에 대 한 **공용 ip 주소** 를 선택한 다음 메트릭을 로깅할 특정 공용 Ip 주소를 선택 하 고 **적용** 을 선택 합니다.
 4. **집계** 유형을 **Max** 로 선택 합니다.
 

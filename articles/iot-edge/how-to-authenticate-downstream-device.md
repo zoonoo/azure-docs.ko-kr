@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678826"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391986"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -68,6 +68,11 @@ Visual Studio Code용 Azure Portal, Azure CLI 또는 IoT 확장을 사용하여 
 * **부모 장치 설정** 을 선택 하 고이 다운스트림 장치에서 연결할 IoT Edge 게이트웨이 장치를 선택 합니다. 부모를 나중에 언제 든 지 변경할 수 있습니다.
 
    ![포털에서 대칭 키 인증을 사용하여 디바이스 ID 만들기](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >대칭 키 인증을 사용 하는 다운스트림 장치에 대 한 선택적 단계로 사용 되는 부모 장치 설정 그러나 IoT Edge 버전 1.1.0부터 시작 하 여 모든 다운스트림 장치를 부모 장치에 할당 해야 합니다.
+   >
+   >환경 변수 **AuthenticationMode** 를 **cloudandscope** 값으로 설정 하 여 이전 동작으로 다시 이동 하도록 IoT Edge 허브를 구성할 수 있습니다.
 
 [Azure CLI에 대 한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 을 사용 하 여 동일한 작업을 완료할 수도 있습니다. 다음 예제에서는 [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) 명령을 사용 하 여 대칭 키 인증을 사용 하는 새 iot 장치를 만들고 부모 장치를 할당 합니다.
 
@@ -201,7 +206,7 @@ HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 다음은 그 예입니다. 
+부모/자식 관계 덕분에 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

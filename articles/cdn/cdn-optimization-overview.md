@@ -4,22 +4,16 @@ description: Azure Content Delivery Network 콘텐츠 유형에 따라 배달 �
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387923"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>콘텐츠 전송 형식에 맞게 Azure CDN 최적화
 
@@ -64,7 +58,11 @@ ms.locfileid: "96004503"
 
 ## <a name="select-and-configure-optimization-types"></a>최적화 형식 선택 및 구성
 
-CDN 엔드포인트를 만들 때 엔드포인트를 전송하려는 시나리오 및 콘텐츠 형식과 가장 잘 맞는 최적화 형식을 선택하세요. **일반 웹 배달** 이 기본 선택 항목입니다. **Akamai의 기존 Azure CDN 표준** 엔드포인트의 경우 언제든지 최적화 옵션을 업데이트할 수 있습니다. 이러한 변경으로 인해 Azure CDN에서 배달이 중단되지는 않습니다. 
+CDN 엔드포인트를 만들 때 엔드포인트를 전송하려는 시나리오 및 콘텐츠 형식과 가장 잘 맞는 최적화 형식을 선택하세요. 
+
+**일반 웹 배달** 이 기본 선택 항목입니다. Akamai 끝점 최적화에서는 언제 든 지 **Azure CDN Standard** 를 업데이트할 수 있습니다. 
+
+**Microsoft의 Azure CDN standard** 의 경우 **verizon의 standard** 및 **verizon의 Azure CDN Premium** 을 Azure CDN 수 없습니다.
 
 1. **Akamai의 Azure CDN 표준** 프로필에서 엔드포인트를 선택합니다.
 

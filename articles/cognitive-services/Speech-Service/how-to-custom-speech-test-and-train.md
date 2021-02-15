@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702205"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367982"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Custom Speech에 대한 데이터 준비
 
@@ -46,9 +46,9 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 | 데이터 형식 | 테스트에 사용 됨 | 권장 수량 | 학습에 사용 됨 | 권장 수량 |
 |-----------|-----------------|----------|-------------------|----------|
-| [비디오](#audio-data-for-testing) | 예<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 아니요 | 해당 없음 |
-| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | 예<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | 예 | 1-20 시간 (오디오) |
-| [관련 텍스트](#related-text-data-for-training) | 아니요 | 해당 사항 없음 | 예 | 1-200 MB의 관련 텍스트 |
+| [오디오](#audio-data-for-testing) | Yes<br>시각적 검사에 사용 됨 | 5 + 오디오 파일 | 예 | 해당 없음 |
+| [오디오 + 사람이 레이블 지정 된 성적 증명서](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>정확도를 평가 하는 데 사용 됩니다. | 0.5-오디오의 5 시간 | Yes | 1-20 시간 (오디오) |
+| [관련 텍스트](#related-text-data-for-training) | 예 | 해당 사항 없음 | Yes | 1-200 MB의 관련 텍스트 |
 
 새 모델을 학습 하는 경우 [관련 텍스트로](#related-text-data-for-training)시작 합니다. 이 데이터는 이미 특수 한 사용 약관의 인식을 향상 시킵니다. 텍스트를 사용한 교육은 오디오 학습 보다 훨씬 빠릅니다 (몇 분 및 며칠).
 
@@ -57,9 +57,17 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 > [!TIP]
 > 빠르게 시작 하려면 샘플 데이터를 사용 하는 것이 좋습니다. <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">샘플 Custom Speech 데이터 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 는이 GitHub 리포지토리를 참조 하세요.
 
+> [!NOTE]
+> 모든 기본 모델에서 오디오로의 학습을 지원 하지는 않습니다. 기본 모델이 지원 하지 않는 경우 음성 서비스는 성적 증명서의 텍스트만 사용 하 고 오디오는 무시 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
+
+> [!NOTE]
+> 학습에 사용 되는 기본 모델을 변경 하 고 학습 데이터 집합에 오디오가 있는 경우 선택한 새 기본 모델에서 [오디오 데이터로 학습을 지원](language-support.md#speech-to-text)하는지 *항상* 확인 합니다. 이전에 사용 된 기본 모델에서 오디오 데이터에 대 한 학습을 지원 하지 않고 학습 데이터 집합에 오디오가 포함 된 경우 새 기본 모델의 학습 시간이 **크게** 증가 하 고 몇 시간에서 며칠 이상으로 쉽게 이동할 수 있습니다. 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 특히 그렇습니다.
+>
+> 위의 단락에 설명 된 문제를 직면 하는 경우 데이터 집합의 오디오 양을 줄이거나 텍스트를 완전히 제거 하 여 학습 시간을 빠르게 줄일 수 있습니다. 두 번째 옵션은 음성 서비스 구독이 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에 **있지 않은** 경우에 매우 권장 됩니다.
+
 ## <a name="upload-data"></a>데이터 업로드
 
-데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털로 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
+데이터를 업로드 하려면 <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>로 이동 합니다. 포털에서 **데이터 업로드** 를 클릭 하 여 마법사를 시작 하 고 첫 번째 데이터 집합을 만듭니다. 데이터를 업로드 하기 전에 데이터 집합에 대 한 음성 데이터 형식을 선택 하 라는 메시지가 표시 됩니다.
 
 ![음성 포털에서 오디오 업로드 옵션을 강조 표시 하는 스크린샷](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -76,7 +84,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 이 표를 사용 하 여 Custom Speech에서 사용 하기 위해 오디오 파일의 형식이 올바르게 지정 되었는지 확인 합니다.
 
-| 속성                 | Value                 |
+| 속성                 | 값                 |
 |--------------------------|-----------------------|
 | 파일 형식              | RIFF(WAV)            |
 | 샘플 속도              | 8000 hz 또는 16000 Hz |
@@ -104,7 +112,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 오디오 파일은 기록의 시작과 끝에 소리가 있을 수 있습니다. 가능 하면 각 샘플 파일에서 음성 앞과 뒤에 소리 하나 이상을 포함 합니다. 녹음 볼륨이 낮거나 배경 노이즈가 심한 오디오는 유용 하지 않지만 사용자 지정 모델을 사용 하면 안 됩니다. 오디오 샘플을 수집 하기 전에 항상 마이크 및 신호 처리 하드웨어를 업그레이드 하는 것이 좋습니다.
 
-| 속성                 | Value                               |
+| 속성                 | 값                               |
 |--------------------------|-------------------------------------|
 | 파일 형식              | RIFF(WAV)                          |
 | 샘플 속도              | 8000 hz 또는 16000 Hz               |
@@ -121,7 +129,7 @@ Microsoft 음성 인식의 정확도를 테스트 하거나 사용자 지정 모
 
 단어 삭제 또는 대체와 같은 문제를 해결 하기 위해 많은 양의 데이터가 필요 하므로 인식 기능을 향상 시킬 수 있습니다. 일반적으로 약 10 ~ 20 시간의 오디오에 대해 word를 통해 word를 제공 하는 것이 좋습니다. 모든 WAV 파일에 대한 전사는 단일 일반 텍스트 파일에 포함되어야 합니다. 전사 파일의 각 줄은 오디오 파일 중 하나의 이름을 포함하고 그 뒤에 해당 전사가 와야 합니다. 파일 이름과 전사는 탭(\t)으로 구분 해야 합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 <!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
 
@@ -136,14 +144,14 @@ speech03.wav    the lazy dog was not amused
 
 전사는 시스템에서 처리할 수 있도록 텍스트로 정규화됩니다. 그러나 데이터를 Speech Studio로 업로드 하기 전에 수행 해야 하는 몇 가지 중요 한 normalizations 있습니다. 사용자를 준비할 때 사용할 적절 한 언어는 [사람이 레이블 지정 된 기록을 만드는 방법](how-to-custom-speech-human-labeled-transcriptions.md) 을 참조 하세요.
 
-오디오 파일 및 해당 하는 해당 하는 항목을 수집한 후에는 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드 하기 전에 단일 .zip 파일로 패키지 합니다. 다음은 3 개의 오디오 파일과 사람이 레이블이 지정 된 기록 파일이 있는 예제 데이터 집합입니다.
+오디오 파일 및 해당 하는 해당 하는 항목을 수집한 후에는 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드 하기 전에 단일 .zip 파일로 패키지 합니다. 다음은 3 개의 오디오 파일과 사람이 레이블이 지정 된 기록 파일이 있는 예제 데이터 집합입니다.
 
 > [!div class="mx-imgBorder"]
 > ![음성 포털에서 오디오를 선택 합니다.](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 음성 서비스 구독에 대해 권장 되는 지역 목록은 [Azure 계정 설정](custom-speech-overview.md#set-up-your-azure-account) 을 참조 하세요. 이러한 지역 중 하나에서 음성 구독을 설정 하면 모델을 학습 하는 데 걸리는 시간이 줄어듭니다. 이러한 지역에서 교육은 하루에 약 10 시간의 오디오를 하루에 한 시간에 한 번만 다른 지역에서 처리할 수 있습니다. 모델 학습을 일주일 내에 완료할 수 없는 경우에는 모델이 실패로 표시 됩니다.
 
-모든 기본 모델에서 오디오 데이터로의 학습을 지 원하는 것은 아닙니다. 기본 모델에서이를 지원 하지 않는 경우 서비스는 오디오를 무시 하 고, 바로 텍스트를 사용 하 여 학습 합니다. 이 경우 학습은 관련 텍스트의 학습 과정과 동일 합니다.
+모든 기본 모델에서 오디오 데이터로의 학습을 지 원하는 것은 아닙니다. 기본 모델에서이를 지원 하지 않는 경우 서비스는 오디오를 무시 하 고, 바로 텍스트를 사용 하 여 학습 합니다. 이 경우 학습은 관련 텍스트의 학습 과정과 동일 합니다. 오디오 데이터로 학습을 지 원하는 기본 모델 목록은 [언어 지원](language-support.md#speech-to-text) 을 참조 하세요.
 
 ## <a name="related-text-data-for-training"></a>학습에 대 한 관련 텍스트 데이터
 
@@ -154,7 +162,7 @@ speech03.wav    the lazy dog was not amused
 | 문장 (길이 발언) | 문장의 컨텍스트 내에서 제품 이름 또는 산업별 어휘를 인식할 때 정확성을 향상 시킵니다. |
 | 발음 | 특수 하지 않은 용어, 머리글자어 또는 기타 단어 (정의 되지 않은 발음)의 발음을 개선 합니다. |
 
-문장은 단일 텍스트 파일 또는 여러 텍스트 파일로 제공 될 수 있습니다. 정확도를 높이기 위해 예상 되는 음성 길이 발언 더 가까운 텍스트 데이터를 사용 합니다. 발음는 단일 텍스트 파일로 제공 되어야 합니다. 모든 항목을 단일 zip 파일로 패키지 하 고 <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech 포털 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드할 수 있습니다.
+문장은 단일 텍스트 파일 또는 여러 텍스트 파일로 제공 될 수 있습니다. 정확도를 높이기 위해 예상 되는 음성 길이 발언 더 가까운 텍스트 데이터를 사용 합니다. 발음는 단일 텍스트 파일로 제공 되어야 합니다. 모든 항목은 단일 zip 파일로 패키지 하 여 <a href="https://speech.microsoft.com/customspeech" target="_blank">음성 스튜디오 <span class="docon docon-navigate-external x-hidden-focus"></span> </a>에 업로드할 수 있습니다.
 
 관련 텍스트로의 교육은 일반적으로 몇 분 이내에 완료 됩니다.
 
@@ -166,7 +174,7 @@ speech03.wav    the lazy dog was not amused
 
 이 표를 사용 하 여 길이 발언에 대 한 관련 데이터 파일의 형식이 올바르게 지정 되었는지 확인 합니다.
 
-| 속성 | Value |
+| 속성 | 값 |
 |----------|-------|
 | 텍스트 인코딩 | UTF-8 BOM |
 | 줄당 발언의 # | 1 |
@@ -197,14 +205,14 @@ speech03.wav    the lazy dog was not amused
 
 사용자 지정 된 발음은 영어 ( `en-US` ) 및 독일어 ()로 제공 됩니다 `de-DE` . 다음 표에서는 언어에 따라 지원 되는 문자를 보여 줍니다.
 
-| Language | Locale | 문자 |
+| 언어 | Locale | 문자 |
 |----------|--------|------------|
 | 영어 | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | 독일어 | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 다음 표를 사용 하 여 발음에 대 한 관련 데이터 파일의 형식이 올바르게 지정 되었는지 확인 합니다. 발음 파일은 작으며 크기가 몇 킬로바이트 여야 합니다.
 
-| 속성 | Value |
+| 속성 | 값 |
 |----------|-------|
 | 텍스트 인코딩 | UTF-8 BOM (ANSI도 영어에 대해 지원 됨) |
 | 줄 당 발음 수 | 1 |

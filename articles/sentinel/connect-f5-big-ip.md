@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e895640daeb3fbbba2f2708969ee4cf856bf1033
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 17c31bbe54326962c26ab53f702cbd28d1e36c6d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621184"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092794"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>F5 빅 IP 어플라이언스 연결 
 
@@ -42,7 +42,7 @@ F5 빅 IP는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 수 �
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다. 
 
 
 

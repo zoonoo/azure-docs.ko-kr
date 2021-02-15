@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory의 데이터 중복성 | Microsoft Docs
 description: Azure Data Factory의 메타 데이터 중복 메커니즘에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: weehyongtok
 ms.reviewer: abnarain
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 7f95adc264ed91e75eef668b43f674ddeb7d9e89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350027"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369699"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Azure Data Factory 데이터 중복성**
 
@@ -49,7 +44,7 @@ Azure Data Factory를 사용 하 여 온-프레미스 및 클라우드에 있는
 
  
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 - [Azure 지역 쌍](../best-practices-availability-paired-regions.md)
 - [Azure의 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)

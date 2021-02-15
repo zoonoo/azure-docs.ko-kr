@@ -1,23 +1,18 @@
 ---
 title: Azure Data Lake Storage Gen2에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: ca9ca495f2b3449b5aeb933bbd8d312fc9341fd9
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 61e34d41d9f7a60b6ad74e12331864e6ba08e4f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554137"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370804"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
 
@@ -42,17 +37,17 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-1. 왼쪽 메뉴에서 **리소스**  >  **통합**  >  **Data Factory** 만들기를 선택 합니다.
+1. 왼쪽 메뉴에서 **리소스 만들기** > **통합** > **Data Factory** 를 선택합니다.
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. **새 데이터 팩터리** 페이지에서 다음 필드에 대 한 값을 제공 합니다.
  
-    * **Name** : Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "Data factory name *YourDataFactoryName* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory** 라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
-    * **구독** : 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
-    * **리소스 그룹** : 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
-    * **버전** : **V2** 를 선택합니다.
-    * **위치** : 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 
+    * **Name**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "Data factory name *YourDataFactoryName* 를 사용할 수 없습니다." 오류가 표시 되 면 데이터 팩터리에 대해 다른 이름을 입력 합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory** 라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
+    * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/management/overview.md)를 참조하세요.  
+    * **버전**: **V2** 를 선택합니다.
+    * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 
 
 3. **만들기** 를 선택합니다.
 
@@ -97,7 +92,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 8. **새 연결 된 서비스 (Azure Data Lake Storage Gen2)** 페이지에서 다음 단계를 수행 합니다.
 
    1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 지원 계정을 선택합니다.
-   2. **만들기** 를 선택 하 여 연결을 만듭니다. **다음** 을 선택합니다.   
+   2. **만들기** 를 선택 하 여 연결을 만듭니다. 그런 후 **다음** 을 선택합니다.   
 
         ![Azure Data Lake Storage Gen2 계정 지정](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
 
@@ -119,7 +114,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
     ![파이프라인 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
 
-14. 파이프라인 실행과 연결 된 활동 실행을 보려면 파이프라인 이름 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택 합니다. 복사 작업에 대 한 자세한 내용을 보려면 작업 이름 열에서 **세부 정보** 링크 (안경 아이콘)를 선택 합니다. 원본에서 싱크로 복사 되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계 및 사용 된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
+14. 파이프라인 실행과 연결 된 활동 실행을 보려면 파이프라인 이름 열에서 **CopyFromAmazonS3ToADLS** 링크를 선택 합니다. 복사 작업에 대한 자세한 내용을 보려면 활동 이름 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 원본에서 싱크로 복사 되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계 및 사용 된 구성과 같은 세부 정보를 모니터링할 수 있습니다.
  
     ![작업 실행 모니터링](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
     

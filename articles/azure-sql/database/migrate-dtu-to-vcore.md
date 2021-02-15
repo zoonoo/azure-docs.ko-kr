@@ -9,13 +9,13 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 05/28/2020
-ms.openlocfilehash: aa236ecaaa9c38c68e66d1813280cd98b85b9463
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/09/2021
+ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790392"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361658"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 Azure SQL Database 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,24 +52,33 @@ VCore 모델을 사용 하는 경우 고객은 하드웨어 생성과 Vcore (논
 ```SQL
 WITH dtu_vcore_map AS
 (
-SELECT TOP (1) rg.slo_name,
-               CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
-                    WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
-                    WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
-               END AS dtu_hardware_gen,
-               s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
-               CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
+SELECT rg.slo_name,
+       DATABASEPROPERTYEX(DB_NAME(), 'Edition') AS dtu_service_tier,
+       CASE WHEN rg.slo_name LIKE '%SQLG4%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLGZ%' THEN 'Gen4'
+            WHEN rg.slo_name LIKE '%SQLG5%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG6%' THEN 'Gen5'
+            WHEN rg.slo_name LIKE '%SQLG7%' THEN 'Gen5'
+       END AS dtu_hardware_gen,
+       s.scheduler_count * CAST(rg.instance_cap_cpu/100. AS decimal(3,2)) AS dtu_logical_cpus,
+       CAST((jo.process_memory_limit_mb / s.scheduler_count) / 1024. AS decimal(4,2)) AS dtu_memory_per_core_gb
 FROM sys.dm_user_db_resource_governance AS rg
 CROSS JOIN (SELECT COUNT(1) AS scheduler_count FROM sys.dm_os_schedulers WHERE status = 'VISIBLE ONLINE') AS s
 CROSS JOIN sys.dm_os_job_object AS jo
 WHERE dtu_limit > 0
       AND
       DB_NAME() <> 'master'
+      AND
+      rg.database_id = DB_ID()
 )
 SELECT dtu_logical_cpus,
        dtu_hardware_gen,
        dtu_memory_per_core_gb,
+       dtu_service_tier,
+       CASE WHEN dtu_service_tier = 'Basic' THEN 'General Purpose'
+            WHEN dtu_service_tier = 'Standard' THEN 'General Purpose or Hyperscale'
+            WHEN dtu_service_tier = 'Premium' THEN 'Business Critical or Hyperscale'
+       END AS vcore_service_tier,
        CASE WHEN dtu_hardware_gen = 'Gen4' THEN dtu_logical_cpus
             WHEN dtu_hardware_gen = 'Gen5' THEN dtu_logical_cpus * 0.7
        END AS Gen4_vcores,
@@ -97,7 +106,7 @@ Vcores (논리 Cpu) 수와 하드웨어 생성 외에도 몇 가지 다른 요�
 - 동일한 하드웨어 생성과 동일한 수의 Vcores에 대해, Vcores 데이터베이스에 대 한 IOPS 및 트랜잭션 로그 처리량 리소스 제한은 DTU 데이터베이스 보다 높습니다. IO 바운드 워크 로드의 경우 동일한 수준의 성능을 얻기 위해 Vcores 모델에서 vCores 수를 낮출 수 있습니다. DTU 및 vCore 데이터베이스에 대 한 리소스 제한은 절대 값으로 [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 보기에 표시 됩니다. 마이그레이션할 DTU 데이터베이스와 약 일치 하는 서비스 목표를 사용 하는 vCore 데이터베이스 간에 이러한 값을 비교 하면 vCore 서비스 목표를 보다 정확 하 게 선택할 수 있습니다.
 - 또한 매핑 쿼리는 마이그레이션할 DTU 데이터베이스 또는 탄력적 풀에 대 한 코어 당 메모리 양과 vCore 모델의 각 하드웨어 생성을 반환 합니다. VCore로 마이그레이션한 후에도 전체 메모리를 더 많이 또는 더 높게 유지 하는 것은 충분 한 성능을 얻기 위해 큰 메모리 데이터 캐시가 필요한 작업 또는 쿼리 처리를 위한 큰 메모리 부여가 필요한 워크 로드에 중요 합니다. 이러한 워크 로드의 경우 실제 성능에 따라 충분 한 총 메모리를 얻기 위해 vCores 수를 늘려야 할 수 있습니다.
 - VCore 서비스 목표를 선택할 때 DTU 데이터베이스의 [과거 리소스 사용률](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 을 고려해 야 합니다. 일관 되 게 사용 되는 CPU 리소스를 사용 하는 DTU 데이터베이스는 매핑 쿼리에서 반환 된 수보다 많은 vCores가 필요할 수 있습니다. 반대로, 지속적으로 높은 CPU 사용률이 있는 DTU 데이터베이스는 쿼리에 의해 반환 되는 것 보다 더 많은 vCores가 필요할 수 있습니다.
-- 간헐적 이거나 예측할 수 없는 사용 패턴을 사용 하 여 데이터베이스를 마이그레이션하는 경우 [서버](serverless-tier-overview.md) 리스 계산 계층을 사용 하는 것이 좋습니다.  서버를 사용 하지 않는 동시 작업자 (요청)의 최대 수는 구성 된 동일한 수의 최대 vcore 수에 대해 프로 비전 된 계산의 한도를 75%입니다.  또한 서버 리스에서 사용할 수 있는 최대 메모리는 구성 된 최대 vcore 수의 3 GB입니다. 예를 들어 최대 메모리는 40 최대 vcore 구성 될 때 120 GB입니다.   
+- 간헐적 이거나 예측할 수 없는 사용 패턴을 사용 하 여 데이터베이스를 마이그레이션하는 경우 [서버](serverless-tier-overview.md) 리스 계산 계층을 사용 하는 것이 좋습니다. 서버를 사용 하지 않는 동시 작업자 (요청)의 최대 수는 구성 된 동일한 수의 최대 vcore 수에 대해 프로 비전 된 계산의 한도를 75%입니다. 또한 서버 리스에서 사용할 수 있는 최대 메모리는 구성 된 최대 vcore 수의 3 GB입니다. 예를 들어 최대 메모리는 40 최대 vcore 구성 될 때 120 GB입니다.   
 - VCore 모델에서 지원 되는 최대 데이터베이스 크기는 하드웨어 생성에 따라 다를 수 있습니다. 대량 데이터베이스의 경우 [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대 한 vcore 모델에서 지원 되는 최대 크기를 확인 합니다.
 - 탄력적 풀의 경우 [DTU](resource-limits-dtu-elastic-pools.md) 및 [vcore](resource-limits-vcore-elastic-pools.md) 모델은 풀 당 지원 되는 최대 데이터베이스 수에 차이가 있습니다. 이는 여러 데이터베이스로 탄력적 풀을 마이그레이션할 때 고려해 야 합니다.
 - 일부 하드웨어 생성은 모든 지역에서 사용 하지 못할 수 있습니다. [하드웨어 생성](service-tiers-vcore.md#hardware-generations)에서 가용성을 확인 합니다.
@@ -168,11 +177,11 @@ DTU 기반 모델에서 vCore 기반 구매 모델로 마이그레이션하는 �
 |현재 서비스 계층|대상 서비스 계층|마이그레이션 유형|사용자 작업|
 |---|---|---|---|
 |Standard|범용 가상 컴퓨터|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
-|프리미엄|중요 비즈니스용|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
+|Premium|중요 비즈니스용|수평|모든 순서로 마이그레이션할 수 있지만, 위에 설명 된 대로 적절 한 vCore 크기 조정을 보장 해야 합니다.|
 |Standard|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 |중요 비즈니스용|Standard|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|프리미엄|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|범용 가상 컴퓨터|프리미엄|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
+|Premium|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
+|범용 가상 컴퓨터|Premium|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 |중요 비즈니스용|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
 |범용 가상 컴퓨터|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
 ||||

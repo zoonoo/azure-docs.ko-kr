@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fec95dc033eb5eacaf79f5bbd2b6b294628667b9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97725095"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821519"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>자습서: EasySSO for Bamboo와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -199,7 +199,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 내 앱을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-내 앱에서 EasySSO for Bamboo 타일을 클릭하면 SSO를 설정한 Bamboo 인스턴스에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+내 앱에서 EasySSO for Bamboo 타일을 클릭하면 SSO를 설정한 Bamboo 인스턴스에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ### <a name="sp-initiated-workflow"></a>SP 시작 워크플로
 

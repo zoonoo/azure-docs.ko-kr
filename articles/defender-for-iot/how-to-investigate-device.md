@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820605"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516841"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
@@ -39,12 +39,12 @@ IoT 서비스 경고에 대 한 Defender는 IoT 장치에서 의심 스러운 �
 1. IoT Hub를 엽니다.
 1. **보안** 아래에서 **설정** 을 선택 하 고 **데이터 수집** 을 선택 합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다.
-1. **저장** 을 클릭합니다.
+1. **저장** 을 선택합니다.
 
 구성이 완료되면 다음을 수행하여 Log Analytics 작업 영역에 저장된 데이터에 액세스합니다.
 
-1. IoT Hub에서 IoT 경고에 대 한 Defender를 선택 하 고 클릭 합니다.
-1. **추가 조사** 를 클릭합니다.
+1. IoT Hub에서 IoT 용 Defender 경고를 선택 하 고 선택 합니다.
+1. **추가 조사** 를 선택 합니다.
 1. **이 경고가 있는 디바이스를 확인하려면 여기를 클릭하여 DeviceId 열을 보십시오** 를 선택합니다.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>의심스러운 IoT 디바이스에 대한 조사 단계
@@ -55,7 +55,7 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
 
 ### <a name="related-alerts"></a>관련 경고
 
-대략 비슷한 시간에 다른 경고가 트리거되었는지 확인하려면 다음 kql 쿼리를 사용합니다.
+다음 kql 쿼리를 통해 동시에 다른 경고가 트리거된 지 확인할 수 있습니다.
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,9 +143,9 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
 
 이 쿼리 결과를 사용하여 다음을 검색합니다.
 
-- 어떤 사용자가 디바이스에 로그인했습니까?
+- 장치에 로그인 한 사용자는 무엇입니까?
 - 로그인 한 사용자가 로그인 해야 하나요?
-- 로그인한 사용자가 예상 IP 주소 또는 예기치 않은 IP 주소에서 연결했습니까?
+- 로그인 한 사용자가 예상 또는 예기치 않은 IP 주소에서 연결 했습니까?
 
 ### <a name="process-list"></a>프로세스 목록
 
@@ -182,7 +182,7 @@ IoT 장치에 대 한 정보 및 원시 데이터를 보려면 Log Analytics 작
 
 - 디바이스에서 의심스러운 프로세스가 실행되고 있습니까?
 - 적절한 사용자가 프로세스를 실행했습니까?
-- 명령줄 실행에 올바른 예상 인수가 포함되었습니까?
+- 명령줄 실행에 올바른 인수와 예상 인수가 포함 되었습니까?
 
 ## <a name="next-steps"></a>다음 단계
 

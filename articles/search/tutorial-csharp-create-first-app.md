@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939725"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821341"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 첫 번째 검색 앱 만들기
 
@@ -71,13 +71,13 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
 
 1. GitHub에서 [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11)의 버전을 설치해도 됩니다.
 
-1. [루트 폴더](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 **코드**를 선택한 다음, **복제** 또는 **ZIP 다운로드**를 선택하여 프로젝트의 프라이빗 로컬 복사본을 만듭니다.
+1. [루트 폴더](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 **코드** 를 선택한 다음, **복제** 또는 **ZIP 다운로드** 를 선택하여 프로젝트의 프라이빗 로컬 복사본을 만듭니다.
 
-1. Visual Studio를 사용하여 기본 검색 페이지("1-basic-search-page")의 솔루션을 찾아서 열고, **디버깅 없이 시작**을 선택(또는 F5 키)하여 프로그램을 빌드하고 실행합니다.
+1. Visual Studio를 사용하여 기본 검색 페이지("1-basic-search-page")의 솔루션을 찾아서 열고, **디버깅 없이 시작** 을 선택(또는 F5 키)하여 프로그램을 빌드하고 실행합니다.
 
 1. 이 인덱스는 호텔 인덱스이므로 호텔을 검색하는 데 사용할 수 있는 몇 가지 단어(예: "wifi", "뷰", "바", "주차")를 입력하고 결과를 검사합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="*풀* 검색" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="*wifi* 검색" border="true":::
 
 이 프로젝트가 원활하게 진행되어 웹앱이 실행되기를 바랍니다. 보다 세련된 검색 기능을 구현하기 위한 여러 필수 구성 요소가 이 앱 하나에 포함되어 있으므로, 이 앱을 살펴보고 단계별로 만들어 보는 것이 좋습니다. 다음 섹션에서는 이러한 단계를 설명합니다.
 
@@ -85,19 +85,19 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
 
 이 프로젝트를 처음부터 새로 만들고 마음 속에 그리고 있는 Azure Cognitive Search 개념을 강화하려면 Visual Studio 프로젝트로 시작하세요.
 
-1. Visual Studio에서 **새로 만들기** > **프로젝트**를 선택한 다음, **ASP.NET Core 웹 애플리케이션**을 선택합니다.
+1. Visual Studio에서 **새로 만들기** > **프로젝트** 를 선택한 다음, **ASP.NET Core 웹 애플리케이션** 을 선택합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="*풀* 검색" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="클라우드 프로젝트 만들기" border="true":::
 
-1. 프로젝트 이름(예: "FirstSearchApp")을 지정하고 위치를 설정합니다. **만들기**를 선택합니다.
+1. 프로젝트 이름(예: "FirstSearchApp")을 지정하고 위치를 설정합니다. **만들기** 를 선택합니다.
 
 1. **웹 애플리케이션(Model-View-Controller)** 프로젝트 템플릿을 선택합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="*풀* 검색" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="MVC 프로젝트 만들기" border="true":::
 
-1. 클라이언트 라이브러리를 설치합니다. **도구** > **NuGet 패키지 관리자** > **솔루션용 NuGet 패키지 관리...** 에서 **찾아보기**를 선택한 다음, "azure.search.documents"를 검색합니다. **Azure.Search.Documents**(버전 11 이상)를 설치하고, 라이선스 계약 및 종속성에 동의합니다.
+1. 클라이언트 라이브러리를 설치합니다. **도구** > **NuGet 패키지 관리자** > **솔루션용 NuGet 패키지 관리...** 에서 **찾아보기** 를 선택한 다음, "azure.search.documents"를 검색합니다. **Azure.Search.Documents**(버전 11 이상)를 설치하고, 라이선스 계약 및 종속성에 동의합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="*풀* 검색" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="NuGet을 사용하여 Azure 라이브러리 추가" border="true":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Azure Cognitive Search 초기화
 
@@ -112,9 +112,9 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
     }
     ```
 
-1. 솔루션 탐색기에서 파일을 선택하고, [속성]에서 **출력 디렉터리로 복사** 설정을 **새 버전이면 복사**로 변경합니다.
+1. 솔루션 탐색기에서 파일을 선택하고, [속성]에서 **출력 디렉터리로 복사** 설정을 **새 버전이면 복사** 로 변경합니다.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="*풀* 검색" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="앱 설정을 출력에 복사" border="true":::
 
 ## <a name="model-data-structures"></a>데이터 구조 모델링
 
@@ -124,9 +124,9 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
 
 **Hotel**, **Address** 및 **Room** 클래스 세트를 [*복합 형식*](search-howto-complex-data-types.md)이라고 하며, Azure Cognitive Search의 중요한 기능입니다. 복합 형식은 다양한 클래스 및 하위 클래스 레벨 깊이를 지원하며, *단순 형식*(기본 멤버만 포함하는 클래스)을 사용할 때보다 훨씬 복잡한 데이터 구조를 지원합니다.
 
-1. 솔루션 탐색기에서 **모델** > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭합니다.
+1. 솔루션 탐색기에서 **모델** > **추가** > **새 항목** 을 마우스 오른쪽 단추로 클릭합니다.
 
-1. **클래스**를 선택하고 항목 이름을 Hotel.cs로 지정합니다. Hotel.cs의 모든 콘텐츠를 다음 코드로 바꿉니다. 클래스의 **Address** 및 **Room** 멤버를 보면, 필드 자체가 클래스이므로 필드에도 모델이 필요합니다.
+1. **클래스** 를 선택하고 항목 이름을 Hotel.cs로 지정합니다. Hotel.cs의 모든 콘텐츠를 다음 코드로 바꿉니다. 클래스의 **Address** 및 **Room** 멤버를 보면, 필드 자체가 클래스이므로 필드에도 모델이 필요합니다.
 
     ```csharp
     using Azure.Search.Documents.Indexes;
@@ -243,7 +243,7 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
     }
     ```
 
-1. 이 자습서에서 만들 마지막 모델은 **SearchData**라는 클래스이며, 이 클래스는 사용자의 입력(**searchText**) 및 검색의 출력(**resultList**)을 나타냅니다. 출력 형식 **SearchResults&lt;Hotel&gt;** 이 매우 중요합니다. 이 형식은 검색 결과와 정확하게 일치하므로 이 참조를 보기에 전달해야 합니다. 기본 템플릿을 다음 코드로 바꿉니다.
+1. 이 자습서에서 만들 마지막 모델은 **SearchData** 라는 클래스이며, 이 클래스는 사용자의 입력(**searchText**) 및 검색의 출력(**resultList**)을 나타냅니다. 출력 형식 **SearchResults&lt;Hotel&gt;** 이 매우 중요합니다. 이 형식은 검색 결과와 정확하게 일치하므로 이 참조를 보기에 전달해야 합니다. 기본 템플릿을 다음 코드로 바꿉니다.
 
     ```csharp
     using Azure.Search.Documents.Models;
@@ -263,7 +263,7 @@ Microsoft에서 호스트하는 공용 샘플 검색 인덱스를 사용 중이�
 
 ## <a name="create-a-web-page"></a>웹 페이지 만들기
 
-프로젝트 템플릿은 **Views** 폴더에 여러 클라이언트 보기가 함께 제공됩니다. 정확한 보기는 사용하는 Core .NET 버전에 따라 달라집니다(이 샘플에서는 3.1 사용). 이 자습서에서는 검색 페이지의 요소를 포함하도록 **Index.cshtml**을 수정합니다.
+프로젝트 템플릿은 **Views** 폴더에 여러 클라이언트 보기가 함께 제공됩니다. 정확한 보기는 사용하는 Core .NET 버전에 따라 달라집니다(이 샘플에서는 3.1 사용). 이 자습서에서는 검색 페이지의 요소를 포함하도록 **Index.cshtml** 을 수정합니다.
 
 Index.cshtml의 콘텐츠 전체를 삭제하고, 다음 단계에 따라 파일을 빌드합니다.
 
@@ -327,7 +327,7 @@ Index.cshtml의 콘텐츠 전체를 삭제하고, 다음 단계에 따라 파일
     </body>
     ```
 
-1. 스타일 시트를 추가합니다. Visual Studio의 **파일**> **새로 만들기** > **파일**에서 **스타일 시트**를 선택합니다(**일반**이 강조 표시된 상태로).
+1. 스타일 시트를 추가합니다. Visual Studio의 **파일**> **새로 만들기** > **파일** 에서 **스타일 시트** 를 선택합니다(**일반** 이 강조 표시된 상태로).
 
    기본 코드를 다음 코드로 바꿉니다. 이 파일을 자세히 살펴보지는 않겠습니다. 스타일은 표준 HTML입니다.
 
@@ -412,7 +412,7 @@ Index.cshtml의 콘텐츠 전체를 삭제하고, 다음 단계에 따라 파일
 
 ## <a name="define-methods"></a>메서드 정의
 
-이 단계에서는 **홈 컨트롤러**의 콘텐츠를 수정합니다.
+이 단계에서는 **홈 컨트롤러** 의 콘텐츠를 수정합니다.
 
 1. HomeController.cs 파일을 열고 **using** 문을 다음과 같이 바꿉니다.
 
@@ -461,7 +461,7 @@ MVC 앱에서 **Index()** 메서드는 모든 컨트롤러에 사용 가능한 �
         }
     ```
 
-    메서드의 **async** 선언과 **RunQueryAsync**에 대한 **await** 호출을 살펴봅니다. 두 키워드는 호출을 비동기적으로 처리하므로 서버의 스레드를 차단하지 않습니다.
+    메서드의 **async** 선언과 **RunQueryAsync** 에 대한 **await** 호출을 살펴봅니다. 두 키워드는 호출을 비동기적으로 처리하므로 서버의 스레드를 차단하지 않습니다.
 
     **catch** 블록은 기본적으로 생성되는 오류 모델을 사용합니다.
 
@@ -524,21 +524,21 @@ Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니�
     }
     ```
 
-    이 메서드에서는 먼저 Azure 구성이 시작되는지 확인한 다음, 검색 옵션을 설정합니다. **선택** 옵션은 결과에 반환할 필드를 지정하므로 **hotel** 클래스의 속성 이름과 일치합니다. **선택**을 생략하면 숨겨진 필드가 모두 반환되며, 가능한 모든 필드의 하위 집합에만 관심이 있는 경우에는 이것이 비효율적일 수 있습니다.
+    이 메서드에서는 먼저 Azure 구성이 시작되는지 확인한 다음, 검색 옵션을 설정합니다. **선택** 옵션은 결과에 반환할 필드를 지정하므로 **hotel** 클래스의 속성 이름과 일치합니다. **선택** 을 생략하면 숨겨진 필드가 모두 반환되며, 가능한 모든 필드의 하위 집합에만 관심이 있는 경우에는 이것이 비효율적일 수 있습니다.
 
-    검색에 대한 비동기 호출은 요청(**searchText**로 모델링) 및 응답(**searchResult**로 모델링)을 작성합니다. 이 코드를 디버깅할 때 **model.resultList**의 내용을 검사해야 하는 경우 **SearchResult** 클래스는 중단점을 설정하기에 적합한 후보입니다. 이 방법이 직관적이고, 요청한 데이터를 받을 수 있으며, 그 외의 데이터는 별로 반환되지 않는다는 것을 알 수 있습니다.
+    검색에 대한 비동기 호출은 요청(**searchText** 로 모델링) 및 응답(**searchResult** 로 모델링)을 작성합니다. 이 코드를 디버깅할 때 **model.resultList** 의 내용을 검사해야 하는 경우 **SearchResult** 클래스는 중단점을 설정하기에 적합한 후보입니다. 이 방법이 직관적이고, 요청한 데이터를 받을 수 있으며, 그 외의 데이터는 별로 반환되지 않는다는 것을 알 수 있습니다.
 
 ### <a name="test-the-app"></a>앱 테스트
 
 이제 앱이 올바르게 실행되는지 확인하겠습니다.
 
-1. **디버그** > **디버그하지 않고 시작**을 선택하거나 **F5** 키를 누릅니다. 앱이 예상대로 실행되면 초기 인덱스 보기가 제공됩니다.
+1. **디버그** > **디버그하지 않고 시작** 을 선택하거나 **F5** 키를 누릅니다. 앱이 예상대로 실행되면 초기 인덱스 보기가 제공됩니다.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="*풀* 검색" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="앱 열기" border="true":::
 
 1. "해변"(또는 떠오르는 아무 텍스트) 등의 텍스트를 입력하고, 검색 아이콘을 클릭하여 요청을 보냅니다.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="*풀* 검색" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="*해변* 검색" border="true":::
 
 1. "5성"을 입력합니다. 이 쿼리는 결과를 반환하지 않습니다. 보다 세련된 검색은 "5성"을 그와 동의어인 "고급"으로 처리하고 해당 결과를 반환하는 것입니다. [동의어](search-synonyms.md) 지원은 Azure Cognitive Search에서 제공되지만, 이 자습서 시리즈에서는 다루지 않습니다.
 
@@ -554,7 +554,7 @@ Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니�
 
 2. 앱을 실행하고, 검색 텍스트로 "바"를 입력하고, 검색 아이콘을 클릭합니다. 예외가 오류 보기로 이어집니다.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="*풀* 검색" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="오류 발생" border="true":::
 
     > [!Important]
     > 오류 페이지의 내부 오류 번호를 반환하면 보안 위험이 높아집니다. 앱이 범용인 경우 오류 발생 시 무엇을 반환해야 하는지 보안 및 모범 사례를 조사하세요.
@@ -567,7 +567,7 @@ Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니�
 
 * Azure Cognitive Search 호출은 간결하며, 결과를 쉽게 해석할 수 있습니다.
 * 비동기 호출은 컨트롤러의 복잡성이 살짝 증가하지만, 고품질의 앱을 개발하려는 경우 가장 좋은 방법입니다.
-* 이 앱은 **searchOptions**에 설정된 정의에 따라 간단한 텍스트 검색을 수행했습니다. 그러나 이 클래스를 검색의 정교함을 높이는 여러 멤버로 채울 수 있습니다. 이 앱의 성능을 높이기 위해 그렇게 많은 추가 작업이 필요하지는 않습니다.
+* 이 앱은 **searchOptions** 에 설정된 정의에 따라 간단한 텍스트 검색을 수행했습니다. 그러나 이 클래스를 검색의 정교함을 높이는 여러 멤버로 채울 수 있습니다. 이 앱의 성능을 높이기 위해 그렇게 많은 추가 작업이 필요하지는 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

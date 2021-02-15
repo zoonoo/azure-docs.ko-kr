@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): 끝점 & 다중 모델 만들기-Azure'
 description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 35b5fe4556f1d557d3fc0420e9069f2fb510eec4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322852"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520513"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>ML Studio (클래식) 및 PowerShell을 사용 하 여 한 실험에서 여러 웹 서비스 끝점 만들기
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 세트를 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용 하 여 Azure Machine Learning Studio (클래식)의 규모에서이 작업을 수행 하는 방법을 보여 줍니다.
 
@@ -99,7 +99,7 @@ For ($i = 1; $i -le 10; $i++){
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell을 사용하여 별도의 학습 데이터 세트를 사용하도록 엔드포인트 업데이트
 다음 단계는 각 고객의 개별 데이터에서 고유하게 학습된 모델로 엔드포인트를 업데이트하는 것입니다. 하지만 먼저 **Bike Rental Training** 웹 서비스에서 이러한 모델을 생성해야 합니다. **Bike Rental Training** 웹 서비스를 다시 살펴보겠습니다. 10가지 서로 다른 모델을 생성하기 위해서는 10개의 서로 다른 학습 데이터 세트로 BES 엔드포인트를 10번 호출해야 합니다. **InovkeAmlWebServiceBESEndpoint** PowerShell cmdlet을 사용하여 이 작업을 수행합니다.
 
-Blob Storage 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **Azure Portal** ( *스토리지* 탭)에 표시되는 계정 이름 중 하나일 수 있습니다. 스토리지 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키* 를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 스토리지의 상대적인 경로입니다. 예를 들어 다음 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage Explorer](../../storage/common/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.iLearner 파일)을 저장할 새 컨테이너를 스토리지에 만드는 것이 좋습니다. 스토리지 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 다음 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
+Blob Storage 계정에 대한 자격 증명을 `$configContent`, 즉 `AccountName`, `AccountKey` 및 `RelativeLocation` 필드에 제공해야 합니다. `AccountName`은 **Azure Portal**(*스토리지* 탭)에 표시되는 계정 이름 중 하나일 수 있습니다. 스토리지 계정에서 클릭하면 아래쪽의 **선택키 관리** 단추를 누르고 *기본 선택키* 를 복사하여 해당 `AccountKey`를 찾을 수 있습니다. `RelativeLocation`은 새 모델을 저장할 스토리지의 상대적인 경로입니다. 예를 들어 다음 스크립트의 경로 `hai/retrain/bike_rental/`은 `hai`라는 컨테이너를 가리키고 `/retrain/bike_rental/`은 하위 폴더입니다. 현재 포털 UI 통해 하위 폴더를 만들 수는 없지만 [여러 Azure Storage Explorer](../../storage/common/storage-explorers.md)에서 이 작업을 수행할 수 있습니다. 다음과 같이 학습된 새 모델(.iLearner 파일)을 저장할 새 컨테이너를 스토리지에 만드는 것이 좋습니다. 스토리지 페이지 아래쪽의 **추가** 단추를 클릭하고 `retrain`으로 이름을 지정합니다. 요약하면 다음 스크립트의 필수 변경 내용은 `AccountName`, `AccountKey` 및 `RelativeLocation`(:`"retrain/model' + $seq + '.ilearner"`)과 관련이 있습니다.
 
 ```powershell
 # Invoke the retraining API 10 times

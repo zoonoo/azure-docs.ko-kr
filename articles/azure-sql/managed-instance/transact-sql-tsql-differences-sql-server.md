@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378624"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
 - SQL Server 에이전트를 사용하거나 사용하지 않도록 설정하는 기능은 현재 SQL Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행됩니다.
+- 유휴 CPU를 기반으로 하는 작업 일정 트리거는 지원 되지 않습니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. 이 프로시저는 `sp_set_agent_properties` SQL Managed Instance에서 지원 되지 않습니다. 
 - 작업
   - T-SQL 작업 단계가 지원됩니다.
@@ -305,14 +306,8 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
   - 경고는 아직 지원되지 않습니다.
   - 프록시는 지원되지 않습니다.
 - EventLog는 지원되지 않습니다.
-- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 사용자가 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 만들거나 수정 하거나 실행 하는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
-
-현재 지원되지 않는 SQL 에이전트 기능은 다음과 같습니다.
-
-- 프록시
-- 유휴 CPU에 대한 작업 예약
-- 에이전트 사용 또는 사용 안 함
-- 경고
+- SQL 에이전트 작업을 만들거나, 수정 하거나, 실행 하려면 사용자를 Azure AD 서버 보안 주체 (로그인)에 직접 매핑해야 합니다. 사용자가 직접 매핑되지 않은 사용자 (예: SQL 에이전트 작업을 생성, 수정 또는 실행할 수 있는 권한이 있는 Azure AD 그룹에 속한 사용자)는 이러한 작업을 효율적으로 수행할 수 없습니다. 이는 Managed Instance 가장 및 [실행 제한](#logins-and-users)으로 인 한 것입니다.
+- Master/target (MSX/TSX) 작업에 대 한 다중 서버 관리 기능은 지원 되지 않습니다.
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](/sql/ssms/agent/sql-server-agent)를 참조하세요.
 

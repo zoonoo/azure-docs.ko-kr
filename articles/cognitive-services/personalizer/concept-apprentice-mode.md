@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951330"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385033"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>기존 응용 프로그램에 영향을 주지 않고 Personalizer를 학습 하려면 수련 한 모드를 사용 합니다.
 
@@ -63,7 +63,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 |--|--|--|
 |사용자 경험에 미치는 영향|기존 사용자 동작을 사용 하 여 **기본 작업이** 수행 된 것과 획득 한 보상을 관찰 (영향을 주지 않음) 하도록 하 여 Personalizer를 교육할 수 있습니다. 즉, 사용자의 경험과 비즈니스 결과는 영향을 받지 않습니다.|사용자 동작에 영향을 주기 위해 Rank 호출에서 반환 된 상위 작업을 표시 합니다.|
 |학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업** 에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|
-|"천장" 학습 효율성|Personalizer는 대략적으로 거의 일치 하지 않으며 기본 비즈니스 논리 (각 순위 호출의 **기본 작업** 에서 달성 한 보상 합계)의 성능을 초과할 수 없습니다.|Personalizer는 응용 프로그램 기준을 초과 해야 하며, 지연 되는 시간에 따라 모델에 대 한 향상 된 기능을 계속 사용할 수 있도록 오프 라인 평가 및 기능 평가를 수행 해야 합니다. |
+|"천장" 학습 효율성|Personalizer는 대략적으로 거의 일치 하지 않으며 기본 비즈니스 논리 (각 순위 호출의 **기본 작업** 에서 달성 한 보상 합계)의 성능을 초과할 수 없습니다. 이 근사값의 최대값은 탐색으로 줄어듭니다. 예를 들어 탐색이 20% 인 경우 매우 드문 경우입니다. 즉, 성능이 80%를 초과 하며, 60%는 온라인 모드로 졸업 할 수 있는 적절 한 대상입니다.|Personalizer는 응용 프로그램 기준을 초과 해야 하며, 지연 되는 시간에 따라 모델에 대 한 향상 된 기능을 계속 사용할 수 있도록 오프 라인 평가 및 기능 평가를 수행 해야 합니다. |
 |RewardActionId에 대 한 순위 API 값|_RewardActionId_ 는 항상 순위 요청에서 전송 하는 첫 번째 작업 이므로 사용자 환경이 영향을 받지 않습니다. 즉, 순위 API는 응용 프로그램에 대해 수련 여가 표시 되지 않습니다. 응용 프로그램의 보상 Api는 한 모드와 다른 모드 사이에 보상 API를 사용 하는 방법을 변경 해서는 안 됩니다.|사용자 환경은 응용 프로그램에 대해 Personalizer에서 선택 하는 _rewardActionId_ 에서 변경 됩니다. |
 |평가|Personalizer는 기본 비즈니스 논리가 가져오는 보상 합계를 비교 하 고, 해당 시점에 온라인 모드에서 보상 합계 Personalizer을 가져옵니다. 비교는 해당 리소스에 대 한 Azure Portal에서 사용할 수 있습니다.|[오프 라인 평가](concepts-offline-evaluation.md)를 실행 하 여 Personalizer의 효율성을 평가 합니다 .이를 통해 Personalizer는 응용 프로그램 기준의 잠재적 보상에 대해 달성 한 총 보상을 비교할 수 있습니다.|
 

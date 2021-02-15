@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b82e300128a41f8315132e1ff93af33c853edb15
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173518"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102549"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Id 웹 인증 라이브러리
 
@@ -70,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### <a name="github"></a>GitHub
 
-Microsoft Identity Web은 GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-Identity-Web <span class="docon docon-navigate-external x-hidden-focus"></span> </a> 에서 호스트 되는 오픈 소스 프로젝트입니다.
+Microsoft Identity Web은 GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-Identity-Web</a> 에서 호스트 되는 오픈 소스 프로젝트입니다.
 
 [리포지토리 wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) 에는 추가 설명서가 포함 되어 있습니다. 도움이 필요 하거나 버그를 검색 하는 경우 [문제](https://github.com/AzureAD/microsoft-identity-web/issues)를 해결할 수 있습니다.
 
@@ -82,11 +82,11 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | 웹 앱에서 [사용자 로그인](scenario-web-app-sign-user-app-configuration.md)             | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
 | [웹 Api 보호](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
-| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | No                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](../../active-directory-b2c/index.yml) |
+| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 예                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](../../active-directory-b2c/index.yml) |
 | 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 예                                                                   | 예                                                                                                     |
 | 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 예                                                                   | 예                                                                                                     |
-| 인증서 자격 증명 지원                                                         | No                                                                   | 예, Azure Key Vault 포함                                                                          |
-| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | No                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
+| 인증서 자격 증명 지원                                                         | 예                                                                   | 예, Azure Key Vault 포함                                                                          |
+| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 예                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
 | 웹 Api의 토큰 암호화 인증서                                                | 예                                                                   | 예                                                                                                     |
 | [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 예                                                                   | 예                                                                                                     |
 | `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 예                                                                   | 예                                                                                                     |
@@ -99,12 +99,14 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 
 GitHub의 Microsoft Identity 웹 wiki에는 라이브러리의 다양 한 기능에 대 한 광범위 한 참조 설명서가 포함 되어 있습니다. 예를 들어 인증서 사용, 증분 승인 및 조건부 액세스 참조는 다음 위치에서 찾을 수 있습니다.
 
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Microsoft. Identity. Web <span class="docon docon-navigate-external x-hidden-focus"></span> 에서 certificate 사용</a> GitHub
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">증분 동의 및 조건부 액세스 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> GitHub
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Microsoft에서 인증서 사용</a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">증분 동의 및 조건부 액세스</a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
 <!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
 <!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
 <!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
-[시나리오-api 호출]: 시나리오-웹-api-version-api 호출-api. md # 옵션-1--sdk [시나리오-api---------------------------------------.
+[시나리오-api]: 시나리오-웹-api-version # 옵션-------------sdk  
+[시나리오-api-version]: scenario-api-version # option---------------sdk  
+[시나리오-api-유효성 검사]: scenario-protected-web-api-verification-scope-app-roles.md  

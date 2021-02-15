@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 32ec711309190d4bb7c6c98a05b6a75cf88a8f5c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920509"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390830"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 
@@ -37,11 +37,14 @@ ms.locfileid: "98920509"
 | **Network**                          | NSG 흐름 로그          | AzureNetworkAnalytics  | [트래픽 분석에서 스키마 및 데이터 집계](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
+> [!NOTE]
+> 자세한 내용은 전체 [Azure Monitor 데이터 참조](/azure/azure-monitor/reference/)를 참조 하세요.
+>
 ## <a name="3rd-party-vendor-data-sources"></a>타사 공급 업체 데이터 원본
 
 다음 표에는 지원 되는 타사 공급 업체와 각 범주 유형에 대 한 CEF 필드 매핑 및 샘플 로그가 포함 된 다양 한 지원 되는 로그 유형에 대 한 CEF (Common Event Format) 매핑 설명서가 나와 있습니다.
 
-| 형식 |    Vendor |    Product | Log Analytics tablename | CEF 필드 매핑 참조  |
+| 형식 |    Vendor |    제품 | Log Analytics tablename | CEF 필드 매핑 참조  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Palo Alto   | OS 이동    | CommonSecurityLog |   [팬-OS 9.0 일반적인 이벤트 형식 통합 가이드](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) ( *cef 스타일의 로그 형식* 검색) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [로그 필드 설명](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |

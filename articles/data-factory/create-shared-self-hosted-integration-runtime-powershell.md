@@ -1,22 +1,18 @@
 ---
 title: PowerShell을 사용하여 자체 호스팅 Integration Runtime 공유 만들기
 description: Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만들어 여러 데이터 팩터리가 통합 런타임에 액세스할 수 있도록 하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 16feeb124859fa6199303d9d590fa0a286033ef9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118254"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389436"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 자체 호스팅 Integration Runtime 공유 만들기
 

@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory에서 데이터 관리 게이트웨이를 사용 하는 고가용성
 description: 이 문서에서는 노드를 더 많이 추가하여 데이터 관리 게이트웨이를 확장하고, 노드에서 실행할 수 있는 동시 작업 수를 늘려 강화하는 방법을 설명합니다.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003619"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391731"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -98,7 +93,7 @@ Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 �
         > TLS/SSL 인증서 사용에 대한 요구 사항 목록은 [TLS/SSL 인증서 요구 사항](#tlsssl-certificate-requirements) 섹션을 참조하세요. 
     5. 게이트웨이가 성공적으로 설치된 후 [구성 관리자 시작]을 클릭합니다.
     
-        ![수동 설치 - 구성 관리자 시작](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![수동 설치 - 구성 관리자 시작](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. 연결 상태, **게이트웨이 이름** 및 **노드 이름** 을 보여 주는 노드(온-프레미스 Windows 컴퓨터)에서 데이터 관리 게이트웨이 구성 관리자가 표시됩니다.  
 
         ![데이터 관리 게이트웨이 - 성공적인 설치](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -165,7 +160,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
   > [!NOTE]
   > 자격 증명 관리자 애플리케이션은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/프라이빗 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
 - 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com** 인 경우 인증서의 주체 이름으로 **_. domain.contoso.com_* 을 사용할 수 있습니다.
-- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com** 인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com** 인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
+- SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예를 들어 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com** 인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com** 인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - 는 TLS/SSL 인증서에 대해 Windows Server 2012 r 2에서 지 원하는 모든 키 크기를 지원 합니다.
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.
 
@@ -183,7 +178,7 @@ Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리�
 
 **게이트웨이** 페이지에서 **고급 설정** 을 활성화하여 **네트워크**(수신/송신), 게이트웨이 문제를 디버깅하는 데 유용한 **역할 및 자격 증명 상태** 및 성능 튜닝 중의 결과에 따라 수정/변경할 수 있는 **동시 작업**(실행/제한)과 같은 고급 메트릭을 확인할 수 있습니다. 다음 표에서는 **게이트웨이 노드** 목록의 열에 대해 설명합니다.  
 
-모니터링 속성 | Description
+모니터링 속성 | 설명
 :------------------ | :---------- 
 Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요. 
@@ -200,7 +195,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **게이트웨이 노드** 에 가능한 상태에 대해 설명합니다. 
 
-상태  | 설명/시나리오
+상태    | 설명/시나리오
 :------- | :------------------
 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다.
 오프라인 | 노드가 오프라인 상태입니다.
@@ -246,11 +241,11 @@ Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환�
 - 노드 버전이 논리 게이트웨이 버전보다 낮은 경우 게이트웨이 노드를 논리 게이트웨이에 등록할 수 없습니다. 낮은 버전의 노드(다운그레이드)를 등록할 수 있도록 포털에서 논리 게이트웨이의 모든 노드를 삭제합니다. 논리 게이트웨이의 모든 노드를 삭제하는 경우 수동으로 새 노드를 설치하고 해당 논리 게이트웨이에 등록합니다. 이 경우 기본 설치는 지원되지 않습니다.
 - 클라우드 자격 증명을 사용하는 기존 논리 게이트웨이에는 기본 설치를 사용하여 노드를 설치할 수 없습니다. [설정] 탭의 게이트웨이 구성 관리자에서 자격 증명이 저장된 위치를 확인할 수 있습니다.
 - 노드 간 암호화가 사용되는 기존 논리 게이트웨이에는 기본 설치를 사용하여 노드를 설치할 수 없습니다. 암호화 모드 설정에는 수동으로 인증서를 추가하는 것이 관련되므로 기본 설치가 더 이상 선택 사항이 될 수 없습니다. 
-- 온-프레미스 환경에서 파일을 복사하는 경우 localhost 또는 로컬 드라이브에서 모든 노드를 통해 액세스할 수 없으므로 \\localhost 또는 C:\files를 더 이상 사용하면 안됩니다. 대신 \\ServerName\files를 사용하여 파일의 위치를 지정합니다.
+- 온-프레미스 환경에서 파일을 복사하는 경우 localhost 또는 로컬 드라이브에서 모든 노드를 통해 액세스할 수 없으므로 \\localhost 또는 C:\files를 더 이상 사용하면 안됩니다. 대신 ServerName\files를 사용 \\ 하 여 파일의 위치를 지정 합니다.
 
 
 ## <a name="rolling-back-from-the-preview"></a>미리 보기에서 롤백 
-미리 보기에서 롤백하려면 하나의 노드만 제외한 모든 노드를 삭제합니다. 어떤 노드를 삭제해도 문제가 되지 않지만 논리 게이트웨이에 하나 이상의 노드가 있도록 합니다. 컴퓨터에서 게이트웨이를 제거하거나 Azure Portal을 사용하여 노드를 삭제할 수 있습니다. Azure Portal의 **Data Factory** 페이지에서 [연결된 서비스]를 클릭하여 **연결된 서비스** 페이지를 시작합니다. 게이트웨이를 선택하여 **게이트웨이** 페이지를 시작합니다. [게이트웨이] 페이지에서 게이트웨이와 연결된 노드를 확인할 수 있습니다. 이 페이지에서는 게이트웨이에서 노드를 삭제할 수 있습니다.
+미리 보기에서 롤백하려면 하나의 노드만 제외한 모든 노드를 삭제합니다. 삭제 하는 노드는 중요 하지 않지만 논리 게이트웨이에서 노드가 하나 이상 있는지 확인 합니다. 컴퓨터에서 게이트웨이를 제거하거나 Azure Portal을 사용하여 노드를 삭제할 수 있습니다. Azure Portal의 **Data Factory** 페이지에서 [연결된 서비스]를 클릭하여 **연결된 서비스** 페이지를 시작합니다. 게이트웨이를 선택하여 **게이트웨이** 페이지를 시작합니다. [게이트웨이] 페이지에서 게이트웨이와 연결된 노드를 확인할 수 있습니다. 이 페이지에서는 게이트웨이에서 노드를 삭제할 수 있습니다.
  
 삭제한 후에는 동일한 Azure Portal 페이지에서 **미리 보기 기능** 을 클릭하고 미리 보기 기능을 비활성화합니다. 게이트웨이를 하나의 노드 GA(일반 가용성) 게이트웨이로 다시 설정했습니다.
 

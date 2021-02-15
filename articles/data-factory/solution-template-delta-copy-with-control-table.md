@@ -1,23 +1,18 @@
 ---
 title: 컨트롤 테이블을 사용 하 여 데이터베이스에서 델타 복사
 description: 솔루션 템플릿을 사용하여 증분 방식으로 Azure Data Factory의 데이터베이스에서 새 행 또는 업데이트된 행만 복사하는 방법을 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 3f15ffd6f7ed784cce398d419e013a69c60289d8
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: b3b5679b254a07b275cc7fd1295ba4ca5b405fbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96921804"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362015"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 

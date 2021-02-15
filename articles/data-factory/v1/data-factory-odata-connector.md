@@ -1,23 +1,18 @@
 ---
 title: OData 소스에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 OData 소스에서 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019653"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380069"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 OData 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -60,7 +55,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 OData 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OData** 로 설정 되어야 합니다. |예 |
 | url |OData 서비스의 URL입니다. |예 |
@@ -68,7 +63,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 | 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | authorizedCredential |OAuth를 사용하는 경우 Data Factory Copy Wizard 또는 Editor에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 이 속성의 값이 자동으로 생성됩니다. |예(OAuth 인증을 사용하는 경우에만) |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |No |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |예 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 ```json
@@ -145,9 +140,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **ODataResource** 형식(OData 데이터 세트 포함)의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 경로 |OData 리소스에 대한 경로 |No |
+| path |OData 리소스에 대한 경로 |예 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -156,9 +151,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 원본이 **RelationalSource** (OData 포함) 형식인 경우 typeProperties섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 예제 | 필수 |
+| 속성 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |No |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |예 |
 
 ## <a name="type-mapping-for-odata"></a>OData에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에 설명 된 것 처럼 복사 작업은 다음 2 단계 접근 방법을 사용 하 여 소스 형식에서 싱크 형식으로 자동 형식 변환을 수행 합니다.
@@ -233,7 +228,7 @@ OData의 데이터를 이동하는 경우 OData 형식에서 .NET 형식으로 �
 
 **OData 입력 데이터 세트:**
 
-"external": "true"로 설정하면 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
+"external": "true" 설정은 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실을 Data Factory 서비스에 전달합니다.
 
 ```json
 {

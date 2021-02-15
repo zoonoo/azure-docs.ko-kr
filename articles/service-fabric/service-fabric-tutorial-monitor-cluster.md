@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecd05a838425d57e0eaff2fa571d72b5a87e92a6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331994"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99822067"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 모니터링
 
@@ -227,9 +227,9 @@ Reliable Actors에 대한 자세한 이벤트를 구성하려면 클러스터 �
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 성능 카운터 보기
 성능 카운터를 보려면 [Azure Portal](https://portal.azure.com) 및 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. 
 
-**ServiceFabric(mysfomsworkspace)** 리소스, **Log Analytics 작업 영역** , **고급 설정** 을 차례로 선택합니다.
+**ServiceFabric(mysfomsworkspace)** 리소스, **Log Analytics 작업 영역**, **고급 설정** 을 차례로 선택합니다.
 
-**데이터** , **Windows 성능 카운터** 를 차례로 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](/windows/desktop/PerfCtrs/specifying-a-counter-path) 설명되어 있습니다. **저장** 을 클릭한 다음, **확인** 을 클릭합니다.
+**데이터**, **Windows 성능 카운터** 를 차례로 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](/windows/desktop/PerfCtrs/specifying-a-counter-path) 설명되어 있습니다. **저장** 을 클릭한 다음, **확인** 을 클릭합니다.
 
 [고급 설정] 블레이드를 닫고, **일반** 제목 아래에서 **작업 영역 요약** 을 선택합니다. 사용하도록 설정된 각 솔루션에는 Service Fabric에 대한 타일을 포함하여 그래픽 타일이 있습니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
 
@@ -240,7 +240,7 @@ Reliable Actors에 대한 자세한 이벤트를 구성하려면 클러스터 �
 ## <a name="query-the-eventstore-service"></a>EventStore 서비스 쿼리
 [EventStore 서비스](service-fabric-diagnostics-eventstore.md)는 특정 시점에서 클러스터 또는 워크로드의 상태를 파악할 수 있는 방법을 제공합니다. EventStore는 클러스터에서 이벤트를 유지 관리하는 상태 저장 Service Fabric 서비스입니다. 이벤트는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), REST 및 API를 통해 공개됩니다. EventStore는 클러스터를 직접 쿼리하여 클러스터의 엔터티에 대한 진단 데이터를 가져옵니다. EventStore에서 사용할 수 있는 전체 이벤트 목록을 보려면 [Service Fabric 이벤트](service-fabric-diagnostics-event-generation-operational.md)를 참조하세요.
 
-EventStore API는 [Service Fabric 클라이언트 라이브러리](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library)를 사용하여 프로그래밍 방식으로 쿼리할 수 있습니다.
+EventStore API는 [Service Fabric 클라이언트 라이브러리](/dotnet/api/overview/azure/service-fabric#client-library)를 사용하여 프로그래밍 방식으로 쿼리할 수 있습니다.
 
 GetClusterEventListAsync 함수를 통해 2018-04-03T18:00:00Z 및 2018-04-04T18:00:00Z 사이의 모든 클러스터 이벤트에 대한 요청 예제는 다음과 같습니다.
 
@@ -299,10 +299,10 @@ Service Fabric은 시스템 구성 요소와 Watchdog에서 모니터링하는 �
 
 자동으로 클러스터는 시스템 구성 요소에 의해 전송되는 상태 보고서로 채워집니다. 추가 정보는 [시스템 상태 보고서를 사용하여 문제 해결](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)을 참조하세요.
 
-서비스 패브릭은 각각의 지원되는 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 대해 상태 쿼리를 노출합니다. 이러한 항목은 [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlet 및 REST의 메서드를 사용하여 API를 통해 액세스할 수 있습니다. 이러한 쿼리는 집계된 성능 상태, 엔터티 상태 이벤트, 자식 상태(해당되는 경우), 엔터티가 정상이 아닐 때 비정상적 평가 및 자식 상태 통계(해당되는 경우) 등을 포함한 엔터티에 대한 완전한 상태 정보를 반환합니다.
+서비스 패브릭은 각각의 지원되는 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 대해 상태 쿼리를 노출합니다. 이러한 항목은 [FabricClient.HealthManager](/dotnet/api/system.fabric.fabricclient.healthmanager), PowerShell cmdlet 및 REST의 메서드를 사용하여 API를 통해 액세스할 수 있습니다. 이러한 쿼리는 집계된 성능 상태, 엔터티 상태 이벤트, 자식 상태(해당되는 경우), 엔터티가 정상이 아닐 때 비정상적 평가 및 자식 상태 통계(해당되는 경우) 등을 포함한 엔터티에 대한 완전한 상태 정보를 반환합니다.
 
 ### <a name="get-cluster-health"></a>클러스터 상태 가져오기
-[Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth)은 클러스터 엔터티의 상태를 반환하고, 애플리케이션과 노드(클러스터의 자식)의 상태를 포함합니다.  먼저 [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)을 사용하여 클러스터에 연결합니다.
+[Get-ServiceFabricClusterHealth cmdlet](/powershell/module/servicefabric/get-servicefabricclusterhealth)은 클러스터 엔터티의 상태를 반환하고, 애플리케이션과 노드(클러스터의 자식)의 상태를 포함합니다.  먼저 [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster)을 사용하여 클러스터에 연결합니다.
 
 클러스터 상태는 설명한 대로 구성된 11개 노드, 시스템 애플리케이션 및 fabric:/Voting입니다.
 
@@ -454,7 +454,7 @@ HealthEvents            : None
 ```
 
 ### <a name="get-node-health"></a>노드 상태 가져오기
-[Get-ServiceFabricNodeHealth cmdlet](/powershell/module/servicefabric/get-servicefabricnodehealth)은 노드 엔터티의 상태를 반환하고 노드에서 보고된 상태 이벤트를 포함합니다. 먼저 [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)을 사용하여 클러스터에 연결합니다. 다음 예제에서는 기본 상태 정책을 사용하여 특정 노드의 상태를 가져옵니다.
+[Get-ServiceFabricNodeHealth cmdlet](/powershell/module/servicefabric/get-servicefabricnodehealth)은 노드 엔터티의 상태를 반환하고 노드에서 보고된 상태 이벤트를 포함합니다. 먼저 [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster)을 사용하여 클러스터에 연결합니다. 다음 예제에서는 기본 상태 정책을 사용하여 특정 노드의 상태를 가져옵니다.
 
 ```powershell
 Get-ServiceFabricNodeHealth _nt1vm_3

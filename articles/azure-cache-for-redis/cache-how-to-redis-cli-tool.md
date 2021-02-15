@@ -1,19 +1,19 @@
 ---
-title: Redis 용 Azure Cache에서 redis를 사용 하는 방법
+title: Redis 용 Azure Cache에서 redis 사용
 description: Redis 용 Azure Cache for client와 상호 작용 하기 위한 명령줄 도구로 *redis-cli.exe* 를 사용 하는 방법에 대해 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 3a1e1cdb7706cb284da57e10e35afe3420deaf75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538020"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375309"
 ---
-# <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구를 사용하는 방법
+# <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Redis 용 Azure Cache와 함께 Redis 명령줄 도구 사용
 
 *redis-cli.exe* 는 Azure Cache for Redis 클라이언트와 상호 작용하는 데 인기 있는 명령줄 도구입니다. 이 도구는 Azure Cache for Redis에도 사용할 수 있습니다.
 
@@ -66,7 +66,7 @@ Redis 용 Azure Cache를 사용 하 여 TLS 포트 (6380)만 기본적으로 사
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Redis 명령줄 도구를 사용하여 연결합니다.
 
-stunnel을 사용하는 경우 *redis-cli.exe* 를 실행하고 *포트* 및 *액세스 키* (기본 또는 보조)만 전달하여 캐시에 연결합니다.
+stunnel을 사용하는 경우 *redis-cli.exe* 를 실행하고 *포트* 및 *액세스 키*(기본 또는 보조)만 전달하여 캐시에 연결합니다.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![캐시에 대 한 연결이 성공 했음을 보여 주는 스크린샷](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-**비보안** TLS 이외의 포트를 사용 하 여 테스트 캐시를 사용 하는 경우를 실행 하 `redis-cli.exe` 고 *호스트 이름* , *포트* 및 *액세스 키* (기본 또는 보조)를 전달 하 여 테스트 캐시에 연결 합니다.
+**비보안** TLS 이외의 포트를 사용 하 여 테스트 캐시를 사용 하는 경우를 실행 하 `redis-cli.exe` 고 *호스트 이름*, *포트* 및 *액세스 키* (기본 또는 보조)를 전달 하 여 테스트 캐시에 연결 합니다.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

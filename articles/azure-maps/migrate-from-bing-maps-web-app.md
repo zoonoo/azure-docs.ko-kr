@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679401"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821570"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>자습서: Bing Maps에서 웹앱 마이그레이션
 
@@ -85,7 +85,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 
 다음과 같은 Bing Maps와 Azure Maps 웹 SDK의 주요 차이점을 알고 있어야 합니다.
 
-* Azure Maps 웹 SDK에 액세스하기 위한 호스트된 엔드포인트를 제공하는 것 외에도, 원하는 경우 NPM 패키지를 사용하여 웹 SDK를 앱에 포함할 수 있습니다. 자세한 내용은 이 [설명서](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control)를 참조하세요. 이 패키지에는 TypeScript 정의도 포함됩니다.
+* Azure Maps 웹 SDK에 액세스하기 위한 호스트된 엔드포인트를 제공하는 것 외에도, 원하는 경우 NPM 패키지를 사용하여 웹 SDK를 앱에 포함할 수 있습니다. 자세한 내용은 이 [설명서](./how-to-use-map-control.md)를 참조하세요. 이 패키지에는 TypeScript 정의도 포함됩니다.
 * Bing Maps는 SDK의 두 가지 호스트된 분기를 제공하는데, 하나는 릴리스 분기이고 다른 하나는 실험 분기입니다. 새로운 개발이 진행되는 경우 실험 분기는 매일 여러 업데이트를 받을 수 있습니다. Azure Maps는 릴리스 분기만 호스트하지만, 실험적 기능은 오픈 소스 Azure Maps 코드 샘플 프로젝트에서 사용자 지정 모듈로 생성됩니다. Bing Maps는 이전에는 고정된 분기를 사용하여 업데이트 빈도가 낮았기 때문에 릴리스로 인한 호환성이 손상되는 변경의 위험이 낮았습니다. Azure Maps에서는 NPM 모듈을 사용하여 이전 부 버전 릴리스를 가리킬 수 있습니다.
 
 > [!TIP]
@@ -95,7 +95,7 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 * 두 플랫폼 모두 기본 맵에 비슷한 바둑판식 배열 시스템을 사용하지만, Bing Maps의 타일은 크기가 256픽셀이고 Azure Maps의 타일은 512픽셀입니다. 따라서 Azure Maps에서 Bing Maps와 동일한 맵 보기를 만들려면 Azure Maps에서는 Bing Maps에 사용되는 확대/축소 수준에서 1을 빼야 합니다.
 * Bing Maps의 좌표는 `latitude, longitude`라고 하며, Azure Maps는 `longitude, latitude`를 사용합니다. 이 형식은 대부분의 GIS 플랫폼이 따르는 표준 `[x, y]`와 일치합니다.
 
-* Azure Maps 웹 SDK의 도형은 GeoJSON 스키마를 기반으로 합니다. 도우미 클래스는 [atlas.data 네임스페이스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data)를 통해 노출됩니다. GeoJSON 개체를 래핑하고 데이터 바인딩 가능한 방식으로 쉽게 업데이트하고 유지 관리하는 데 사용할 수 있는 [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) 클래스도 있습니다.
+* Azure Maps 웹 SDK의 도형은 GeoJSON 스키마를 기반으로 합니다. 도우미 클래스는 [atlas.data 네임스페이스](/javascript/api/azure-maps-control/atlas.data)를 통해 노출됩니다. GeoJSON 개체를 래핑하고 데이터 바인딩 가능한 방식으로 쉽게 업데이트하고 유지 관리하는 데 사용할 수 있는 [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) 클래스도 있습니다.
 * Azure Maps의 좌표는 `[longitude, latitude]` 또는 `new atlas.data.Position(longitude, latitude)` 형식의 단순 숫자 배열로 지정할 수 있는 Position 개체로 정의됩니다.
 
 > [!TIP]

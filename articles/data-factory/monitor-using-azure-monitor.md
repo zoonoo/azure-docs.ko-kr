@@ -1,22 +1,18 @@
 ---
 title: Azure Monitor를 사용하여 데이터 팩터리 모니터링
 description: Azure Monitor를 사용 하 여 Data Factory 정보로 진단 로그를 사용 하도록 설정 하 여/Azure Data Factory 파이프라인을 모니터링 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555715"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373150"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
 
@@ -269,7 +265,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | Description |
+| 속성 | 형식 | 설명 |
 | --- | --- | --- |
 | **storageAccountId** |String | 진단 로그를 보낼 저장소 계정의 리소스 ID입니다. |
 | **serviceBusRuleId** |String | 진단 로그 스트리밍을 위해 Event Hubs 생성 하려는 service bus 네임 스페이스의 service bus 규칙 ID입니다. 규칙 ID의 형식은 `{service bus resource ID}/authorizationrules/{key name}` 입니다.|
@@ -284,7 +280,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ##### <a name="response"></a>응답
 
-200 정상.
+200 정상입니다.
 
 ```json
 {
@@ -350,7 +346,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ##### <a name="response"></a>응답
 
-200 정상.
+200 정상입니다.
 
 ```json
 {
@@ -442,7 +438,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | Description | 예제 |
+| 속성 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -488,7 +484,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | Description | 예제 |
+| 속성 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -531,7 +527,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | Type | Description | 예제 |
+| 속성 | 형식 | 설명 | 예 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -568,7 +564,7 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 }
 ```
 
-| 속성                   | Type   | Description                                                   | 예제                        |
+| 속성                   | 형식   | 설명                                                   | 예                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance` |
@@ -608,7 +604,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | Type   | Description                                                          | 예제                        |
+| 속성                   | 형식   | 설명                                                          | 예                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -658,7 +654,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | Type   | Description                                                        | 예제                        |
+| 속성                   | 형식   | 설명                                                        | 예                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -707,7 +703,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통
 }
 ```
 
-| 속성                   | Type   | Description                                                      | 예제                        |
+| 속성                   | 형식   | 설명                                                      | 예                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -752,7 +748,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                   | Type   | Description                                                         | 예제                        |
+| 속성                   | 형식   | 설명                                                         | 예                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -800,7 +796,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                     | Type   | Description                                                        | 예제                        |
+| 속성                     | 형식   | 설명                                                        | 예                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -829,7 +825,7 @@ Log Analytics는 다음과 같은 예외를 제외 하 고 모니터에서 스�
 * "Level" 열이 없습니다.
 * 동적 "속성" 열은 다음과 같은 동적 JSON blob 유형으로 유지 됩니다.
 
-    | Azure Monitor 열 | Log Analytics 열 | Type |
+    | Azure Monitor 열 | Log Analytics 열 | 형식 |
     | --- | --- | --- |
     | $. 속성. UserProperties | UserProperties | 동적 |
     | $. 속성. 달 | 주석 | 동적 |

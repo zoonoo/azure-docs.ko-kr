@@ -1,23 +1,18 @@
 ---
 title: Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 description: Teradata 데이터베이스에서 데이터를 이동시킬 수 있는 데이터 팩터리 서비스용 Teradata 커넥터에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef992ed907bc070643f290e7fd536de05ebf9242
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019602"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387209"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -31,7 +26,7 @@ ms.locfileid: "96019602"
 
 온-프레미스 Teradata 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조 하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Teradata 데이터 저장소로 데이터 이동이 아닌 Teradata 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 데이터 팩터리는 데이터 관리 게이트웨이를 통해 온-프레미스 Teradata 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 게이트웨이는 Teradata가 Azure IaaS VM에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 IaaS VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -61,13 +56,13 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Teradata 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |형식 속성은 **OnPremisesTeradata** |Yes |
 | 서버 |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |No |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -135,7 +130,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 **Teradata 입력 데이터 세트:**
 
-샘플은 Teradata에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestamp"라는 열이 포함되어 있다고 가정합니다.
+이 샘플은 Teradata에서 "MyTable" 테이블을 만들었으며 시계열 데이터에 대 한 "timestamp" 라는 열을 포함 한다고 가정 합니다.
 
 "external": true를 설정하면 테이블이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실이 Data Factory 서비스에 전달됩니다.
 
