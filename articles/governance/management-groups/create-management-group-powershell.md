@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Azure PowerShell을 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 74e4f0769bbf4deafefd27e166e0dae2c2e019a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 216cfeb6e1389793afcfd27d8785a5f912db2c97
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237086"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592537"
 ---
 # <a name="quickstart-create-a-management-group-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 관리 그룹 만들기
 
@@ -29,13 +29,13 @@ ms.locfileid: "89237086"
 
 ### <a name="create-in-azure-powershell"></a>Azure PowerShell에서 만들기
 
-PowerShell의 경우 [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet을 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **GroupName**은 _Contoso_입니다.
+PowerShell의 경우 [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet을 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **GroupName** 은 _Contoso_ 입니다.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName**은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
+**GroupName** 은 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
 
 관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 **DisplayName** 매개 변수를 추가합니다. 예를 들어, GroupName이 Contoso이고 표시 이름이 "Contoso Group"인 관리 그룹을 만들려면 다음 cmdlet을 사용합니다.
 

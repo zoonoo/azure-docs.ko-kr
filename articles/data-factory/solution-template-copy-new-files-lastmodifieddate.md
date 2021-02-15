@@ -1,22 +1,19 @@
 ---
 title: LastModifiedDate를 기준으로 새 파일 및 변경 된 파일 복사
 description: 솔루션 템플릿을 사용 하 여 LastModifiedDate Azure Data Factory으로 새 파일 및 변경 된 파일을 복사 하는 방법에 대해 알아봅니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 94d09dc96d017dba3b16cc5fe113272a9393741d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362083"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
 

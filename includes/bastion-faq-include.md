@@ -5,20 +5,16 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9ba0e7173c41e26a698596fa18bf1fc1453f3fb3
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183930"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628875"
 ---
-### <a name="which-regions-are-available"></a><a name="regions"></a>이용 가능한 지역은 어디인가요?
-
-[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
-
 ### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>Azure Bastion을 통해 연결하려면 내 가상 머신에 공용 IP가 필요한가요?
 
 아니요. Azure Bastion을 사용하여 VM에 연결하는 경우 연결하려는 Azure 가상 머신에는 공용 IP가 필요하지 않습니다. Bastion 서비스는 가상 네트워크 내부에서 가상 머신의 개인 IP를 통해 가상 머신에 대한 RDP/SSH 세션/연결을 설정합니다.

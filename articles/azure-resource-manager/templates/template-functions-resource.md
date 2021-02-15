@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 리소스
 description: 리소스에 대 한 값을 검색 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/04/2021
-ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.date: 02/10/2021
+ms.openlocfilehash: da85308e7d214f198b29b40bc380a4d33947c865
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861424"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364565"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -204,6 +204,7 @@ resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
 | Microsoft.apimanagement/서비스/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft.apimanagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft.apimanagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
+| Microsoft.apimanagement/서비스/구독 | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -246,7 +247,7 @@ resource myAssignment 'Microsoft.Authorization/policyAssignments@2019-09-01' = {
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-06-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -516,7 +517,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 이전 예제의 출력은 세 개의 배열을 반환 합니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | ["1"] |
 | notSupportedRegion | array | [] |
@@ -1344,7 +1345,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

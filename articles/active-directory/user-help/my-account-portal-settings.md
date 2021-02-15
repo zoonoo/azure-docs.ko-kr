@@ -9,22 +9,31 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 7dcaae80842f06714759cb5c933a62ccd85aac63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 249b013a35df8978a7296086b4e5ada3b78b2c52
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798094"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093831"
 ---
 # <a name="view-or-change-your-settings-in-the-my-account-portal"></a>내 계정 포털에서 설정 보기 또는 변경
 
 **내 계정** 포털의 **설정 & 개인 정보** 페이지에서 언어 또는 표준 시간대와 같은 내 계정 포털의 계정 설정을 보거나 변경할 수 있습니다.
 
+>[!Note]
+> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+
 ## <a name="view-and-manage-your-language-and-regional-settings"></a>언어 및 국가별 설정 보기 및 관리
 
-1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, https://myaccount.microsoft.com/ 페이지로 이동합니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 경우에도 조직의 도메인 이름 (예: contoso.com) 또는 다음 Url 중 하나를 사용 하 여 관리자 로부터 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+
+   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 1. 왼쪽 탐색 창에서 **설정 & 개인 정보** 를 선택 하거나 설정 **& 개인 정보** 블록에서 설정 **및 개인 정보 보기** 링크를 선택 합니다.
 

@@ -1,22 +1,18 @@
 ---
 title: SAP ECC에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
-ms.openlocfilehash: 1f3ab61c6030c2871356f494db228711305e5466
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901578"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386699"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -61,9 +57,9 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 이 SAP ECC 커넥터를 사용 하려면 sap 게이트웨이를 통해 OData 서비스를 통해 SAP ECC 엔터티를 노출 해야 합니다. 더 구체적으로 살펴보면 다음과 같습니다.
 
-- **SAP 게이트웨이 설정** . SAP NetWeaver 버전이 7.4 이상인 서버에는 SAP 게이트웨이가 이미 설치되어 있습니다. 이전 버전의 경우 OData 서비스를 통해 SAP ECC 데이터를 노출하기 전에 포함된 SAP 게이트웨이 또는 SAP 게이트웨이 허브 시스템을 설치해야 합니다. SAP 게이트웨이를 설정하려면 [설치 가이드](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)를 참조하세요.
+- **SAP 게이트웨이 설정**. SAP NetWeaver 버전이 7.4 이상인 서버에는 SAP 게이트웨이가 이미 설치되어 있습니다. 이전 버전의 경우 OData 서비스를 통해 SAP ECC 데이터를 노출하기 전에 포함된 SAP 게이트웨이 또는 SAP 게이트웨이 허브 시스템을 설치해야 합니다. SAP 게이트웨이를 설정하려면 [설치 가이드](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)를 참조하세요.
 
-- **SAP OData 서비스 활성화 및 구성** . 수초 내에 TCODE SICF를 통해 OData 서비스를 활성화할 수 있습니다. 공개해야 하는 개체를 구성할 수도 있습니다. 자세한 내용은 [단계별 가이드](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)를 참조하세요.
+- **SAP OData 서비스 활성화 및 구성**. 수초 내에 TCODE SICF를 통해 OData 서비스를 활성화할 수 있습니다. 공개해야 하는 개체를 구성할 수도 있습니다. 자세한 내용은 [단계별 가이드](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)를 참조하세요.
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -77,7 +73,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapEcc`로 설정해야 합니다. | 예 |
 | `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
@@ -116,7 +112,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 `type` 속성을 
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
@@ -149,12 +145,12 @@ SAP ECC에서 데이터를 복사하려면 복사 작업의 `source` 섹션에�
 
 복사 작업의 `source` 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | `type` | 복사 작업 `source` 섹션의 `type` 속성을 `SapEccSource`로 설정해야 합니다. | 예 |
 | `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예를 들면 다음과 같습니다.<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터가 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
-| `sapDataColumnDelimiter` | 출력 데이터를 분할 하기 위해 SAP RFC에 전달 된 구분 기호로 사용 되는 단일 문자입니다. | 아니요 |
-| `httpRequestTimeout` | HTTP 요청이 응답을 받을 시간 제한( **TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정 하지 않으면 기본값은 **00:30:00** (30 분)입니다. | 예 |
+| `sapDataColumnDelimiter` | 출력 데이터를 분할 하기 위해 SAP RFC에 전달 된 구분 기호로 사용 되는 단일 문자입니다. | 예 |
+| `httpRequestTimeout` | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정 하지 않으면 기본값은 **00:30:00** (30 분)입니다. | 예 |
 
 ### <a name="example"></a>예제
 

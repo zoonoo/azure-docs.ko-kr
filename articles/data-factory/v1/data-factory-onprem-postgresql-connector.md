@@ -1,23 +1,18 @@
 ---
 title: Azure Data Factory를 사용 하 여 PostgreSQL에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 PostgreSQL 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca8770944a12c6e0dd3e4f95d286758ebee5f9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082837"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387277"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -47,7 +42,7 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 PostgreSQL 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 - 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다.
   - Visual Studio
   - Azure PowerShell
@@ -72,14 +67,14 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesPostgreSql** |예 |
+| type |형식 속성은 **OnPremisesPostgreSql** |Yes |
 | 서버 |PostgreSQL 서버의 이름입니다. |예 |
 | 데이터베이스 |PostgreSQL 데이터베이스의 이름입니다. |예 |
 | 스키마 |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |예 |
 | authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다.
@@ -88,7 +83,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource**의 **쿼리**가 지정된 경우) |
+| tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -99,12 +94,12 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""` |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 `""`(큰따옴표)로 묶습니다.
 
-**예:**
+**예제:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
@@ -160,7 +155,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 ```
 **PostgreSQL 입력 데이터 세트:**
 
-샘플은 PostgreSQL에서 만든 테이블 "MyTable"에 시계열 데이터에 대한 "timestamp"라는 열이 포함되어 있다고 가정합니다.
+이 샘플에서는 PostgreSQL에서 "MyTable" 테이블을 만들었고 시계열 데이터에 대 한 "timestamp" 라는 열을 포함 하 고 있다고 가정 합니다.
 
 `"external": true` 설정을 사용하는 경우 데이터 세트가 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 정보가 Data Factory 서비스에 전달됩니다.
 
@@ -249,7 +244,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 PostgreSQL 데이터베이스의 public.usstates 테이블에서 데이터를 선택합니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource** 로 설정되고 **sink** 형식은 **BlobSink** 로 설정됩니다. **query** 속성에 지정된 SQL 쿼리는 PostgreSQL 데이터베이스의 public.usstates 테이블에서 데이터를 선택합니다.
 
 ```json
 {
@@ -317,7 +312,7 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | cid | |String |
 | cidr | |String |
 | circle | |Byte[], String |
-| date | |DateTime |
+| 날짜 | |DateTime |
 | daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |

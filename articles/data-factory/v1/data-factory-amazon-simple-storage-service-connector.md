@@ -1,23 +1,18 @@
 ---
 title: Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 이동
 description: Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스(S3)에서 데이터를 이동하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d254a535b1db53478772b481bd029a8c4db6f3c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361349"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -42,9 +37,9 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 ## <a name="getting-started"></a>시작
 다른 도구 또는 API를 사용하여 Amazon S3 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용 하는 것입니다. 빠른 연습을 위해서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 빠른 연습을 위해서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -65,7 +60,7 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | accessKeyID |비밀 액세스 키의 ID입니다. |문자열 |예 |
-| secretAccessKey |비밀 액세스 키 자체입니다. |암호화된 비밀 문자열 |예 |
+| secretAccessKey |비밀 액세스 키 자체입니다. |암호화된 비밀 문자열 |Yes |
 
 >[!NOTE]
 >이 커넥터를 사용하려면 Amazon S3에서 데이터를 복사하기 위해 IAM 계정에 대한 액세스 키가 필요합니다. [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)은 지원되지 않습니다.
@@ -87,7 +82,7 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 ```
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
-Azure Blob Storage에서 입력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 형식 속성을 **AmazonS3**으로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Amazon S3 연결된 서비스의 이름으로 설정합니다. 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md)를 참조하세요. 
+Azure Blob Storage에서 입력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 형식 속성을 **AmazonS3** 으로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Amazon S3 연결된 서비스의 이름으로 설정합니다. 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md)를 참조하세요. 
 
 구조, 가용성 및 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(예: SQL Database, Azure Blob, Azure 테이블). **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **AmazonS3** 형식(Amazon S3 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
@@ -97,12 +92,12 @@ Azure Blob Storage에서 입력 데이터를 표시할 데이터 세트를 지�
 | key |S3 개체 키입니다. |String |예 |
 | 접두사 |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |String |예 |
 | 버전 |S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |String |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. | |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. | |아니요 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. | |예 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. | |예 |
 
 
 > [!NOTE]
-> **bucketName + 키**는 S3 개체의 위치를 지정합니다. 여기서 버킷은 S3 개체에 대한 루트 컨테이너이며 키는 S3 개체의 전체 경로입니다.
+> **bucketName + 키** 는 S3 개체의 위치를 지정합니다. 여기서 버킷은 S3 개체에 대한 루트 컨테이너이며 키는 S3 개체의 전체 경로입니다.
 
 ### <a name="sample-dataset-with-prefix"></a>접두사를 사용한 샘플 데이터 세트
 
@@ -174,7 +169,7 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |S3 개체를 디렉터리 아래에 재귀적으로 나열할 것인지를 지정합니다. |true/false |아니요 |
+| recursive |S3 개체를 디렉터리 아래에 재귀적으로 나열할 것인지를 지정합니다. |true/false |예 |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>JSON 예제: Amazon S3에서 Azure Blob Storage로 데이터 복사
 이 샘플은 Amazon S3 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여줍니다. 그러나 Data Factory의 복사 작업을 사용하여 [지원되는 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 직접 데이터를 복사할 수 있습니다.
@@ -220,7 +215,7 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 
 ### <a name="amazon-s3-input-dataset"></a>Amazon S3 입력 데이터 세트
 
-**"external": true**로 설정하면 데이터 세트가 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 세트에서 이 속성을 true로 설정합니다.
+**"external": true** 로 설정하면 데이터 세트가 데이터 팩터리의 외부에 있다는 사실이 Data Factory 서비스에 전달됩니다. 파이프라인에서의 작업에 의해 생성되지 않은 입력 데이터 세트에서 이 속성을 true로 설정합니다.
 
 ```json
     {
@@ -308,7 +303,7 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 
 ### <a name="copy-activity-in-a-pipeline-with-an-amazon-s3-source-and-a-blob-sink"></a>Amazon S3 원본 및 Blob 싱크를 사용하는 파이프라인의 복사 작업
 
-파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **FileSystemSource**로 설정 되 고 **싱크** 형식은 **blobsink**로 설정 됩니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **FileSystemSource** 로 설정 되 고 **싱크** 형식은 **blobsink** 로 설정 됩니다.
 
 ```json
 {

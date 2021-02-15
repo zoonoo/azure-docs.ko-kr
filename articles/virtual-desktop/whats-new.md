@@ -8,12 +8,12 @@ ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258798"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575316"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -56,7 +56,7 @@ Azure Resource Manager 중첩 템플릿에서 networkSecurityGroupRules 기본�
 
 이전 릴리스(2.9.7621.30127)의 문제를 해결하기 위해 FSLogix 버전 2009 HF_01(2.9.7654.46150)이 릴리스되었습니다. 이전 버전 사용을 중지하고 FSLogix를 가능한 한 빨리 업데이트하는 것이 좋습니다.
 
-자세한 내용은 [FSLogix의 새로운 기능](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150)에 있는 릴리스 정보를 참조하세요.
+자세한 내용은 [FSLogix의 새로운 기능](/fslogix/whats-new#fslogix-apps-2009-hf_01-29765446150)에 있는 릴리스 정보를 참조하세요.
 
 ### <a name="azure-portal-experience-improvements"></a>향상된 Azure Portal 환경 기능
 

@@ -1,23 +1,18 @@
 ---
 title: SAP Cloud for Customer 간에 데이터 복사
 description: Data Factory를 사용하여 SAP Cloud for Customer에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 SAP Cloud for Customer로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2021
-ms.openlocfilehash: 9578b87e16f418a7923cd71aa0638fa4e9279cfd
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4590129b8d0d7a63ef4291a023ea4d980c89368c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430885"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386648"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
 
@@ -86,7 +81,7 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerResource** |예 |
 | 경로 | SAP C4C OData 엔터티의 경로를 지정합니다. |예 |
@@ -118,7 +113,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
 
 SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSource**  | 예 |
 | Query | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 예 |
@@ -162,7 +157,7 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 
 SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **SapCloudForCustomerSink**  | 예 |
 | writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |

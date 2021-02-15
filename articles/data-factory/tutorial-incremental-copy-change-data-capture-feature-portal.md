@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: fd9e78b6bc3513f79b05c9522e891d346e3d31a0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637516"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555919"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>CDC(변경 데이터 캡처)를 사용하여 Azure SQL Managed Instance에서 Azure Storage로 데이터 증분 로드
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure SQL Database Managed Instance** 데이터베이스를 **원본** 데이터 저장소로 사용합니다. Azure SQL Database Managed Instance가 없는 경우 [Azure SQL Database Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md) 문서를 참조하세요.
-* **Azure Storage 계정** . Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **원시** 라는 컨테이너를 만들려면: 
+* **Azure Storage 계정**. Blob Storage를 **싱크** 데이터 스토리지로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 문서를 참조하세요. **원시** 라는 컨테이너를 만들려면: 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Azure SQL Database에 데이터 원본 테이블 만들기
 
@@ -75,7 +75,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     > [!NOTE]
     > - &lt;원본 스키마 이름&gt;을 고객 테이블이 있는 Azure SQL MI의 스키마로 바꿉니다.
-    > - 변경 데이터 캡처는 추적 중인 테이블을 변경하는 트랜잭션의 일부로써 어떤 작업도 수행하지 않습니다. 대신 삽입, 업데이트 및 삭제 작업이 트랜잭션 로그에 기록됩니다. 변경 테이블에 보관되어 있는 데이터는 주기적이며 체계적으로 정리하지 않으면 관리할 수 없을 정도로 커집니다. 자세한 내용은 [데이터베이스에 대한 변경 데이터 캡처 사용](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15)을 참조하세요.
+    > - 변경 데이터 캡처는 추적 중인 테이블을 변경하는 트랜잭션의 일부로써 어떤 작업도 수행하지 않습니다. 대신 삽입, 업데이트 및 삭제 작업이 트랜잭션 로그에 기록됩니다. 변경 테이블에 보관되어 있는 데이터는 주기적이며 체계적으로 정리하지 않으면 관리할 수 없을 정도로 커집니다. 자세한 내용은 [데이터베이스에 대한 변경 데이터 캡처 사용](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server#enable-change-data-capture-for-a-database)을 참조하세요.
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -142,7 +142,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스를 만듭니다.
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
 
-1. **연결** , **+ 새로 만들기** 를 차례로 클릭합니다.
+1. **연결**, **+ 새로 만들기** 를 차례로 클릭합니다.
 
    ![새 연결 단추](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-connection-button-storage.png)
 2. **새 연결된 서비스** 창에서 **Azure Blob Storage** 를 선택하고 **계속** 을 클릭합니다.
@@ -163,7 +163,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!NOTE]
 > SQL MI를 사용하는 경우 공용 vs 프라이빗 엔드포인트를 통해 액세스하는 방법에 대한 자세한 내용은 [여기](./connector-azure-sql-managed-instance.md#prerequisites)를 참조하세요. 프라이빗 엔드포인트를 사용하는 경우 자체 호스팅 통합 런타임을 사용하여 이 파이프라인을 실행해야 합니다. VM 또는 VNet 시나리오에서 온-프레미스를 실행하는 SQL Server에도 동일하게 적용됩니다.
 
-1. **연결** , **+ 새로 만들기** 를 차례로 클릭합니다.
+1. **연결**, **+ 새로 만들기** 를 차례로 클릭합니다.
 2. **새 연결된 서비스** 창에서 **Azure SQL Database Managed Instance** 를 선택하고 **계속** 을 클릭합니다.
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
@@ -193,7 +193,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **Set 속성** 탭에서 데이터 세트 이름 및 연결 정보를 설정합니다.
  
    1. **연결된 서비스** 에 대해 **AzureSqlMI1** 를 선택합니다.
-   2. **테이블 이름** 에 대한 **[dbo].[dbo_customers_CT]** 를 선택합니다.  참고: CDC를 고객 테이블에서 실행할 때 이 테이블이 자동으로 생성되었습니다. 변경된 데이터는 이 테이블에서 직접 쿼리하지 않지만[CDC 함수](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15)를 통해 추출됩니다.
+   2. **테이블 이름** 에 대한 **[dbo].[dbo_customers_CT]** 를 선택합니다.  참고: CDC를 고객 테이블에서 실행할 때 이 테이블이 자동으로 생성되었습니다. 변경된 데이터는 이 테이블에서 직접 쿼리하지 않지만[CDC 함수](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql)를 통해 추출됩니다.
 
    ![원본 연결](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
@@ -309,7 +309,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="configure-the-tumbling-window-trigger-and-cdc-window-parameters"></a>연속 창 트리거 및 CDC 창 매개 변수를 구성합니다. 
 이 단계에서는 빈번한 일정에 따라 작업을 실행하는 연속 창 트리거를 만듭니다. 연속 창 트리거의 WindowStart 및 WindowEnd 시스템 변수를 사용하여 CDC 쿼리에 사용할 파이프라인에 매개 변수로 전달합니다.
 
-1. **IncrementalCopyPipeline** 파이프라인의 **매개 변수** 탭으로 이동하고 **+ 새** 단추를 사용하여 파이프라인에 두 개의 매개 변수( **triggerStartTime** 및 **triggerEndTime** )를 추가합니다. 이는 연속 창 시작 및 종료 시간을 나타냅니다. 디버깅을 위해 **YYYY-MM-DD HH24:MI:SS.FFF** 형식의 기본값을 추가합니다. 하지만 테이블에서 triggerStartTime이 CDC를 사용하도록 설정되어 있지 않은지 확인합니다. 그렇지 않으면 오류가 발생합니다.
+1. **IncrementalCopyPipeline** 파이프라인의 **매개 변수** 탭으로 이동하고 **+ 새** 단추를 사용하여 파이프라인에 두 개의 매개 변수(**triggerStartTime** 및 **triggerEndTime**)를 추가합니다. 이는 연속 창 시작 및 종료 시간을 나타냅니다. 디버깅을 위해 **YYYY-MM-DD HH24:MI:SS.FFF** 형식의 기본값을 추가합니다. 하지만 테이블에서 triggerStartTime이 CDC를 사용하도록 설정되어 있지 않은지 확인합니다. 그렇지 않으면 오류가 발생합니다.
 
     ![지금 트리거 메뉴](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-parameters.png)
 2. **조회** 작업의 설정 탭을 클릭하고 시작 및 종료 매개 변수를 사용하도록 쿼리를 구성합니다. 다음을 쿼리에 복사합니다.

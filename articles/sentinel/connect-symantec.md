@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 67fc80b5f34cf3a98fd39ddc352cb2dd9a5e7151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b32baa23a31342095e542d60745a503b81e89a9
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564916"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092709"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Symantec ICDx 어플라이언스 연결 
 
@@ -37,15 +37,15 @@ Symantec ICDx 커넥터를 사용 하면 Azure 센티널에 모든 Symantec 보�
 Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 수 있습니다.
 
 1. ICDx 관리 콘솔을 열어 Microsoft Azure 센티널 (Log Analytics) 전달자를 추가 합니다.
-2. ICDx 탐색 모음에서 **구성**을 클릭 합니다. 
-3. **구성** 화면 맨 위에서 **전달자**를 클릭 합니다.
-4. **전달자**에서 Microsoft Azure 센티널 (Log Analytics) 옆에 있는 **추가**를 클릭 합니다. 
-4. **Microsoft Azure 센티널 (Log Analytics)** 창에서 **고급 표시**를 클릭 합니다. 
+2. ICDx 탐색 모음에서 **구성** 을 클릭 합니다. 
+3. **구성** 화면 맨 위에서 **전달자** 를 클릭 합니다.
+4. **전달자** 에서 Microsoft Azure 센티널 (Log Analytics) 옆에 있는 **추가** 를 클릭 합니다. 
+4. **Microsoft Azure 센티널 (Log Analytics)** 창에서 **고급 표시** 를 클릭 합니다. 
 5. Microsoft Azure 센티널 (Log Analytics) 창의 위쪽에서 다음을 수행 합니다.
     -   **이름**: 전달 자의 이름을 30 자 미만으로 입력 합니다. 고유 하 고 의미 있는 이름을 선택 합니다. 이 이름은 **구성** 화면의 전달자 목록 및 **대시보드** 화면에 표시 됩니다. 예: Microsoft Azure Log Analytics 동부. 이 필드는 필수 필드입니다.
     -   **설명**: 전달자에 대 한 설명을 입력 합니다. 이 설명은 **구성** 화면의 전달자 목록에도 표시 됩니다. 전달 되는 이벤트 유형과 데이터를 검사 해야 하는 그룹 등의 세부 정보를 포함 합니다.
     -   **시작 유형**: 전달자 구성의 시작 방법을 선택 합니다. 옵션은 수동 및 자동입니다.<br>기본값은 자동입니다. 
-6. **이벤트**에서 다음을 수행 합니다. 
+6. **이벤트** 에서 다음을 수행 합니다. 
     - **원본**: 이벤트를 전달 하는 보관 파일을 하나 이상 선택 합니다. 활성 수집기 보관 파일 (일반적인 보관 파일 포함), 분리 된 수집기 보관 파일 (삭제 한 수집기에 대 한 보관 파일), ICDx 수신기 보관 또는 시스템 보관을 선택할 수 있습니다. <br>기본값은 일반적인 보관 파일입니다.
       > [!NOTE]
       > ICDx 받는 사람 보관 파일은 이름별로 별도로 나열 됩니다. 
@@ -59,18 +59,18 @@ Symantec ICDx는 로그를 Azure 센티널로 직접 통합 하 고 내보낼 �
     - **제외 된 특성**: 전달 된 데이터에서 제외할 특성의 쉼표로 구분 된 목록을 입력 합니다.
     - **일괄 처리 크기**: 일괄 처리당 전송할 이벤트 수를 선택 합니다. 옵션은 10, 50, 100, 500 및 1000입니다.<br>기본값은 100입니다. 
     - **속도 제한**: 이벤트를 전달 하는 속도를 선택 하 여 초당 이벤트로 표시 합니다. 옵션은 무제한, 500, 1000, 5000, 1만입니다. <br> 기본값은 5000입니다. 
-7. **Azure Destination**에서 다음을 수행 합니다. 
+7. **Azure Destination** 에서 다음을 수행 합니다. 
     - **작업 영역 id**: 아래에서 작업 영역 id를 붙여 넣습니다. 이 필드는 필수 필드입니다.
     - **기본 키**: 아래에서 기본 키를 붙여넣습니다. 이 필드는 필수 필드입니다.
     - **사용자 지정 로그 이름**: 이벤트를 전달 하려는 Microsoft Azure portal Log Analytics 작업 영역에 사용자 지정 로그 이름을 입력 합니다. 기본값은 SymantecICDx입니다. 이 필드는 필수 필드입니다.
 8. *저장* 을 클릭 하 여 전달자 구성을 완료 합니다. 
-9. 전달자를 시작 하려면 **옵션**에서 **추가** 를 클릭 한 다음 **시작**을 클릭 합니다.
-10. Symantec ICDx 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면 **SymantecICDx_CL**를 검색 합니다.
+9. 전달자를 시작 하려면 **옵션** 에서 **추가** 를 클릭 한 다음 **시작** 을 클릭 합니다.
+10. Symantec ICDx 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면 **SymantecICDx_CL** 를 검색 합니다.
 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다. 
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다. 
 
 
 

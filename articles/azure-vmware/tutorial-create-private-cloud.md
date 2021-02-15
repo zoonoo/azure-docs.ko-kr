@@ -3,12 +3,12 @@ title: 자습서 - Azure에서 vSphere 클러스터 배포
 description: Azure VMware Solution을 사용하여 Azure에 vSphere 클러스터를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966312"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093950"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>자습서: Azure에서 Azure VMware Solution 프라이빗 클라우드 배포
 
@@ -74,25 +74,6 @@ az group create --name myResourceGroup --location eastus
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드 삭제
-
-더 이상 필요하지 않은 Azure VMware Solution 프라이빗 클라우드가 있으면 이를 삭제할 수 있습니다. Azure VMware Solution 프라이빗 클라우드에는 격리된 네트워크 도메인, 전용 서버 호스트에 프로비저닝된 하나 이상의 vSphere 클러스터 및 여러 가지 가상 머신이 포함되어 있습니다. 프라이빗 클라우드를 삭제하면 모든 가상 머신, 해당 데이터 및 클러스터가 삭제됩니다. 전용 운영 체제 미 설치 호스트는 안전하게 초기화되어 무료 풀로 반환됩니다. 고객에게 프로비저닝된 네트워크 도메인이 삭제됩니다.  
-
-> [!CAUTION]
-> 프라이빗 클라우드 삭제는 되돌릴 수 없는 작업입니다. 프라이빗 클라우드를 삭제하면 실행 중인 모든 워크로드 및 구성 요소가 종료되고 공용 IP 주소를 포함한 모든 프라이빗 클라우드 데이터 및 구성 설정이 삭제되므로 데이터를 복구할 수 없습니다.
-
-### <a name="prerequisites"></a>사전 요구 사항
-
-프라이빗 클라우드가 삭제되면 가상 머신과 해당 데이터를 복구할 수 없습니다. 나중에 가상 머신 데이터가 필요한 경우 관리자는 프라이빗 클라우드를 삭제하기 전에 먼저 모든 데이터를 백업해야 합니다.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드를 삭제하는 단계
-
-1. Azure Portal에서 Azure VMware Solution 페이지에 액세스합니다.
-
-2. 삭제할 프라이빗 클라우드를 선택합니다.
- 
-3. 프라이빗 클라우드의 이름을 입력하고 **예** 를 선택합니다. 몇 시간 후에 삭제 프로세스가 완료됩니다.  
 
 ## <a name="azure-vmware-commands"></a>Azure VMware 명령
 

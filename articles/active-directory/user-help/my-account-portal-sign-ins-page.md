@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834152"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096075"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>내 로그인 페이지에서 최근 로그인 활동 보기 및 검색
 
@@ -25,6 +25,12 @@ ms.locfileid: "94834152"
 - 누군가가 암호를 추측하려고 하고 있는지 여부
 - 공격자가 계정에 성공적으로 로그인했는지 여부 및 해당 위치
 - 공격자가 액세스하려고 시도한 앱
+
+>[!Note]
+> 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-recent-sign-in-activity"></a>최근 로그인 활동 보기
 

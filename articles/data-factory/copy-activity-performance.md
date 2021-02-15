@@ -1,23 +1,18 @@
 ---
 title: 복사 작업 성능 및 확장성 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory에서 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: a6e89883ec0e1e493bad9572876af86f4a0d3853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324446"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387668"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 
@@ -69,7 +64,7 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 �
 | 데이터 크기/ <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
-| **10 GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
+| **10GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
 | **100GB**                  | 4.6 시간    | 2.3 시간   | 0.5 시간   | 0.2 시간  | 0.05 시간 | 0.02 시간 | 0.0 시간   |
 | **1TB**                    | 46.6 시간   | 23.3 시간  | 4.7 시간   | 2.3 시간  | 0.5 시간  | 0.2 시간  | 0.05 시간  |
 | **10TB**                   | 19.4 일  | 9.7 일  | 1.9 일  | 0.9 일 | 0.2 일 | 0.1 일 | 0.02 일 |
@@ -149,7 +144,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 
 ### <a name="data-integration-units"></a>데이터 통합 단위
 
-DIU (데이터 통합 단위)는 Azure Data Factory에서 단일 단위의 기능을 나타내는 측정값입니다. 전원은 CPU, 메모리 및 네트워크 리소스 할당의 조합입니다. DIU는 [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용 됩니다. DIU는 [자체 호스팅 통합 런타임에](concepts-integration-runtime.md#self-hosted-integration-runtime)적용 되지 않습니다. [자세한 내용은 여기를 참조](copy-activity-performance-features.md#data-integration-units)하세요.
+DIU (데이터 통합 단위)는 Azure Data Factory에서 단일 단위의 기능을 나타내는 측정값입니다. 전원은 CPU, 메모리 및 네트워크 리소스 할당의 조합입니다. DIU는 [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용 됩니다. DIU는 [자체 호스팅 통합 런타임에](concepts-integration-runtime.md#self-hosted-integration-runtime)적용 되지 않습니다. [여기를 참조하세요](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>자체 호스팅 통합 런타임 확장성
 
@@ -166,7 +161,7 @@ DIU (데이터 통합 단위)는 Azure Data Factory에서 단일 단위의 기�
 
 ### <a name="parallel-copy"></a>병렬 복사
 
-속성을 설정 `parallelCopies` 하 여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성은 복사 작업 내의 최대 스레드 수로 간주 합니다. 스레드가 병렬로 작동 합니다. 스레드는 원본에서 읽거나 싱크 데이터 저장소에 기록 합니다. [자세히 알아봅니다](copy-activity-performance-features.md#parallel-copy).
+속성을 설정 `parallelCopies` 하 여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성은 복사 작업 내의 최대 스레드 수로 간주 합니다. 스레드가 병렬로 작동 합니다. 스레드는 원본에서 읽거나 싱크 데이터 저장소에 기록 합니다. [자세히 알아보기](copy-activity-performance-features.md#parallel-copy).
 
 ### <a name="staged-copy"></a>준비된 복사
 

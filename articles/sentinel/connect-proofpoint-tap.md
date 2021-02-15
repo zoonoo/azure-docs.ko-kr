@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86018bafaa42eac01e5dccf8da1d290b64e2475c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059908"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092981"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Azure Function을 사용 하 여 Azure 센티널에 Proofpoint on demand 탭 연결
 
@@ -38,7 +38,7 @@ Proofpoint on demand를 탭 하 여 Azure 센티널에 전달 하 여 이벤트�
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **proofpoint on demand 누르기** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기**를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택 합니다.
 
 1. **PROOFPOINT ON DEMAND 탭** 페이지의 지시를 따릅니다.
 
@@ -48,7 +48,7 @@ Proofpoint on demand를 탭 하 여 Azure 센티널에 전달 하 여 이벤트�
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

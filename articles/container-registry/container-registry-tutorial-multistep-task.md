@@ -4,12 +4,12 @@ description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커�
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: c8d1179f1c31642b350ab8757a8d4abf71583bfc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: be5c8c4012267dc7ce6362502c806a9f238732b7
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562891"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821226"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행
 
@@ -78,7 +78,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 az acr task create \
     --registry $ACR_NAME \
     --name example1 \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file taskmulti.yaml \
     --git-access-token $GIT_PAT
 ```
@@ -108,7 +108,7 @@ az acr task create \
   "step": {
     "baseImageDependencies": null,
     "contextAccessToken": null,
-    "contextPath": "https://github.com/gituser/acr-build-helloworld-node.git",
+    "contextPath": "https://github.com/gituser/acr-build-helloworld-node.git#main",
     "taskFilePath": "taskmulti.yaml",
     "type": "FileTask",
     "values": [],
@@ -127,7 +127,7 @@ az acr task create \
         "name": "defaultSourceTriggerName",
         "sourceRepository": {
           "branch": "main",
-          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git",
+          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node.git#main",
           "sourceControlAuthProperties": null,
           "sourceControlType": "Github"
         },
@@ -311,7 +311,7 @@ steps:
 az acr task create \
     --registry $ACR_NAME \
     --name example2 \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file taskmulti-multiregistry.yaml \
     --git-access-token $GIT_PAT \
     --set regDate=mycontainerregistrydate.azurecr.io
