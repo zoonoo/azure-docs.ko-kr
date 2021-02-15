@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932458"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521444"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -41,7 +41,7 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
+Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps) 에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 이러한 도구 중 하나를 설치 해야 합니다. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
@@ -505,7 +505,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 Azure Functions Core Tools는 [Zip](functions-deployment-technologies.md#zip-deploy) 배포 및 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)배포를 통해 함수 앱에 함수 프로젝트 파일을 직접 배포 하는 두 가지 유형의 배포를 지원 합니다. [Azure 구독에서](functions-cli-samples.md#create)코드를 배포할 함수 앱을 이미 만들어야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
 
 >[!IMPORTANT]
->핵심 도구에서 Azure에 게시 하려면 [Azure CLI](/cli/azure/install-azure-cli) 를 로컬로 설치 해야 합니다.  
+>핵심 도구에서 Azure에 게시 하려면 [Azure CLI](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/install-az-ps) 를 로컬로 설치 해야 합니다.  
 
 프로젝트 폴더는 게시 하지 않아야 하는 언어별 파일 및 디렉터리를 포함할 수 있습니다. 제외 된 항목은 루트 프로젝트 폴더의 funcignore 파일에 나열 됩니다.     
 
@@ -520,7 +520,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > Java에서는 Maven를 사용 하 여 로컬 프로젝트를 Azure에 게시 합니다. 다음 명령을 사용 하 여 Azure에 게시 `mvn azure-functions:deploy` 합니다. Azure 리소스는 초기 배포 중에 생성 됩니다.
 
-이 명령은 Azure에서 기존 함수 앱에 게시합니다. 구독에 존재 하지 않는에 게시 하려고 하면 오류가 발생 `<FunctionAppName>` 합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요. 기본적으로이 명령은 [원격 빌드](functions-deployment-technologies.md#remote-build) 를 사용 하 고 [배포 패키지에서 실행](run-functions-from-deployment-package.md)되도록 앱을 배포 합니다. 권장 배포 모드를 사용 하지 않도록 설정 하려면 `--nozip` 옵션을 사용 합니다.
+이 명령은 Azure에서 기존 함수 앱에 게시합니다. 구독에 존재 하지 않는에 게시 하려고 하면 오류가 발생 `<FunctionAppName>` 합니다. Azure CLI 또는 Azure PowerShell를 사용 하 여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 서버를 사용 하지 않는 [실행을 위한 함수 앱 만들기](./scripts/functions-cli-create-serverless.md)를 참조 하세요. 기본적으로이 명령은 [원격 빌드](functions-deployment-technologies.md#remote-build) 를 사용 하 고 [배포 패키지에서 실행](run-functions-from-deployment-package.md)되도록 앱을 배포 합니다. 권장 배포 모드를 사용 하지 않도록 설정 하려면 `--nozip` 옵션을 사용 합니다.
 
 >[!IMPORTANT]
 > Azure Portal에서 함수 앱을 만들 때 기본적으로 함수 런타임의 버전 3.x를 사용 합니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.
@@ -543,7 +543,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들어 `python3-dev libevent-dev`을 참조하십시오. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094912"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388518"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -185,6 +185,14 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 | 기본 지역을 사용할 수 없는 경우에는 보조 지역에 대한 읽기 액세스가 가능함 | 예 | 예 | 예(RA-GRS 사용) | 예(RA-GZRS 사용) |
 
 <sup>1</sup> 기본 지역을 사용할 수 없는 경우 쓰기 가용성을 복원하려면 계정 장애 조치(failover)가 필요합니다. 자세한 내용은 [재해 복구 및 저장소 계정 장애 조치(failover)](storage-disaster-recovery-guidance.md)를 참조하세요.
+
+### <a name="supported-azure-storage-services"></a>지원 되는 Azure Storage 서비스
+
+다음 표에서는 각 Azure Storage 서비스에서 지원 되는 중복성 옵션을 보여 줍니다.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br />Azure managed disks | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일 | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br /> | Blob Storage<br />Queue Storage<br />Table Storage<br />Azure 파일<br /> |
 
 ### <a name="supported-storage-account-types"></a>지원되는 스토리지 계정 형식
 

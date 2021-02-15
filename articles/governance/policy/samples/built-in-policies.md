@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 01/08/2021
+ms.date: 02/09/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: ccd310583f003fd381b9ddd48333644f2241ea88
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 9f2a28c9acf2287c70bedad305ee1c143868c59d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047441"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100100213"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 
@@ -37,6 +37,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 
 [!INCLUDE [azure-policy-reference-policies-app-service](../../../../includes/policy/reference/bycat/policies-app-service.md)]
 
+## <a name="attestation"></a>증명
+
+[!INCLUDE [azure-policy-reference-policies-attestation](../../../../includes/policy/reference/bycat/policies-attestation.md)]
+
 ## <a name="automanage"></a>Automanage
 
 [!INCLUDE [azure-policy-reference-policies-automanage](../../../../includes/policy/reference/bycat/policies-automanage.md)]
@@ -61,9 +65,9 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 
 [!INCLUDE [azure-policy-reference-policies-batch](../../../../includes/policy/reference/bycat/policies-batch.md)]
 
-## <a name="bot-services"></a>Bot Services
+## <a name="bot-service"></a>Bot 서비스
 
-[!INCLUDE [azure-policy-reference-policies-bot-services](../../../../includes/policy/reference/bycat/policies-bot-services.md)]
+[!INCLUDE [azure-policy-reference-policies-bot-service](../../../../includes/policy/reference/bycat/policies-bot-service.md)]
 
 ## <a name="cache"></a>캐시
 
@@ -93,7 +97,11 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 
 [!INCLUDE [azure-policy-reference-policies-data-box](../../../../includes/policy/reference/bycat/policies-data-box.md)]
 
-## <a name="data-lake"></a>데이터 레이크
+## <a name="data-factory"></a>Data Factory
+
+[!INCLUDE [azure-policy-reference-policies-data-factory](../../../../includes/policy/reference/bycat/policies-data-factory.md)]
+
+## <a name="data-lake"></a>Data Lake
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
 
@@ -112,6 +120,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="guest-configuration"></a>게스트 구성
 
 [!INCLUDE [azure-policy-reference-policies-guest-configuration](../../../../includes/policy/reference/bycat/policies-guest-configuration.md)]
+
+## <a name="hdinsight"></a>HDInsight
+
+[!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
 ## <a name="internet-of-things"></a>사물 인터넷
 

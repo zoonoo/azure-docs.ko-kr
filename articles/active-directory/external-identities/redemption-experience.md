@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aef4ff77eb02723bcd95dcc99a55094bd10acd4c
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 08f560f076caf90c9c930cedfd6a7ba9c6c8b37d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355480"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365449"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -25,8 +25,8 @@ ms.locfileid: "97355480"
 게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance** 로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함** 으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
 
    > [!IMPORTANT]
-   > - Google은 **2021 년 1 월 4 일부 터** [사용 중단 웹 보기 로그인을 지원](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail을 사용 하 여 Google 페더레이션 또는 셀프 서비스 등록을 사용 하는 경우 lob ( [기간 업무) 네이티브 응용 프로그램의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
-   > - **2021년 3월 31일부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
+   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+   > - **2021 년 10 월부터** MICROSOFT는 B2B 공동 작업 시나리오에 대 한 관리 되지 않는 Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 ## <a name="redemption-through-the-invitation-email"></a>초대 이메일을 통해 상환
 

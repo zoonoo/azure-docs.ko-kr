@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
-ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: dacc9ecc28ffa482b60d1e48735fe3620b5b7558
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981343"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363069"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Azure Stack Edge Pro R 안전 지침
 
@@ -27,14 +27,14 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
 
 위험 경고 기호에 대 한 다음 신호 단어는 다음과 같습니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)| **위험:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생 하는 위험한 상황을 나타냅니다. <br> **경고:** 피해를 주지 않는 경우에는 유해 또는 심각한 부상이 발생할 수 있는 유해 상황을 나타냅니다. <br> **주의:** 피해를 주지 않는 경우 사소한 또는 보통 부상을 일으킬 수 있는 위험한 상황을 나타냅니다.|
 |
 
 다음 위험 아이콘은 Azure Stack Edge Pro R Edge 장치를 설정 하 고 실행할 때 관찰 됩니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![모든 지침을 먼저 읽을 것](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | 모든 지침을 먼저 읽을 것 |
 | ![참고 아이콘](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **고지:** | 중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다. || ![위험물 기호](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | 위험물 기호 |
@@ -134,6 +134,7 @@ Azure Stack Edge Pro R 장치를 사용 하기 전에이 문서의 모든 안전
 
 * 무정전 전원 공급 장치 (UPS)가 없는 시스템의 경우 모든 AC 전원 코드를 분리 하 여 장비에서 AC 전원을 완전히 제거 합니다.
 * UPS를 사용 하는 시스템의 경우 모든 AC 전원 코드를 분리 하 고 UPS 전원 스위치를 사용 하 여 시스템의 energize를 취소 합니다. UPS에는 위험한 AC 및 DC 전압이 포함 되어 있습니다.
+* 시스템이 UPS를 포함 하는 경우 UPS는 차폐 입력 전원 케이블로 제공 됩니다. 보호 된 입력 전원 케이블을 사용 해야 하며, 코드를 바꾸거나 수정 하지 마십시오.
 
 ![경고 아이콘 ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
  ![ 감전 아이콘 ](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **경고:**
@@ -210,21 +211,22 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![주의 아이콘-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **통지:** &nbsp; Microsoft에서 명시적으로 승인 하지 않은 장비에 대 한 변경 또는 수정은 사용자의 장비 운영에 대 한 사용자의 권한을 무효로 만들 수 있습니다.
 
-캐나다 및 미국:
+#### <a name="canada-and-usa"></a>캐나다 및 미국:
 
-알림:이 장비는 테스트 되었으며, FCC 규칙의 15 부분에 따라 클래스의 디지털 장치에 대 한 제한을 준수 하기 위해 발견 되었습니다. 이러한 제한은 장비가 상용 환경에서 작동할 때 유해한 간섭을 적절하게 차단할 수 있도록 설계되었습니다. 이 장비는 무선 주파수 에너지를 생성 및 사용하고 방출할 수 있으며, 사용 설명서에 따라 설치하고 사용하지 않을 경우 무선 통신에 해로운 간섭을 일으킬 수 있습니다. 상설 지역에서이 장비를 운영 하는 경우 사용자가 자신의 비용에 간섭을 수정 해야 하는 경우 유해한 간섭을 일으킬 수 있습니다.
+> ![알림 아이콘 2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **통지:** &nbsp; 이 장비는 테스트 되었으며, FCC 규칙의 15 부분에 따라 클래스의 디지털 장치에 대 한 제한을 준수 하기 위해 발견 되었습니다. 이러한 제한은 장비가 상용 환경에서 작동할 때 유해한 간섭을 적절하게 차단할 수 있도록 설계되었습니다. 이 장비는 무선 주파수 에너지를 생성 및 사용하고 방출할 수 있으며, 사용 설명서에 따라 설치하고 사용하지 않을 경우 무선 통신에 해로운 간섭을 일으킬 수 있습니다. 상설 지역에서이 장비를 운영 하는 경우 사용자가 자신의 비용에 간섭을 수정 해야 하는 경우 유해한 간섭을 일으킬 수 있습니다.
 
 이 디바이스는 FCC 규칙 파트 15 및 Industry Canada 라이선스 면제 RSS 표준을 따릅니다. 작동 시 다음 두 조건이 적용됩니다. (1) 이 디바이스는 해로운 간섭을 일으키지 않을 것입니다. (2) 이 디바이스는 오작동을 일으킬 수 있는 간섭을 포함하여 모든 간섭을 받습니다.
 
 ![규정 정보 경고 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
 
-SERVICES (A)/NMB-3 (A) Microsoft Corporation, 한 가지 Microsoft 수단, Redmond, WA 98052, USA를 사용할 수 있습니다.
-미국: (800) 426-9400 캐나다: (800) 933-4750
+CAN SERVICES-3 (A)/NMB-3 (A) Microsoft Corporation, One Microsoft 방법, Redmond, WA 98052, 미국 미국: (800) 426-9400 캐나다: (800) 933-4750
 
-유럽 연합: EU 규정 준수 선언의 복사본을 요청 합니다. 
+#### <a name="european-union"></a>유럽 연합:
 
-![경고 아이콘](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+EU 규정 준수 선언의 복사본을 요청 합니다. [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com)에 이메일을 보냅니다.
+
+![경고 아이콘 ](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **경고!**
 
 이 제품은 클래스 A 제품입니다. 국내 환경에서 이 제품은 무선 간섭을 일으킬 수 있으며 이 경우 사용자는 적절한 조치를 취해야 합니다.
 
@@ -237,7 +239,6 @@ SERVICES (A)/NMB-3 (A) Microsoft Corporation, 한 가지 Microsoft 수단, Redmo
 이 제품은 코인 셀을 포함하고 있습니다.
 
 Microsoft 아일랜드 Sandyford Ind Est 더블린 D18 KX32 IRL 전화 번호: + 353 1 295 3826 팩스 번호: + 353 1 706 4110
-
 
 
 ## <a name="next-steps"></a>다음 단계

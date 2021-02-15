@@ -1,19 +1,19 @@
 ---
 title: Synapse RBAC 역할
 description: 이 문서에서는 기본 제공 Synapse RBAC 역할에 대해 설명 합니다.
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 958a954d37ba1f808be4bf1806f1efd32f498a48
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 35f66732fa9cb48b94f80bab203534c9d04b7a7b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007196"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102124"
 ---
 # <a name="synapse-rbac-roles"></a>Synapse RBAC 역할
 
@@ -58,7 +58,7 @@ ms.locfileid: "100007196"
 
 다음 표에서는 기본 제공 역할 및 각 역할에서 지 원하는 작업/사용 권한을 보여 줍니다.
 
-역할|작업
+역할|동작
 --|--
 Synapse 관리자|작업 영역/읽기</br>작업 영역/역할 할당/쓰기, 삭제</br>workspace/managedPrivateEndpoint/write, delete</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/integrationRuntimes/useCompute/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>workspace/sqlScripts/write, delete</br>workspace/데이터 흐름/write, delete</br>작업 영역/파이프라인/쓰기, 삭제</br>작업 영역/트리거/쓰기, 삭제</br>작업 영역/데이터 집합/쓰기, 삭제</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/파이프라인/viewOutputs/작업</br>workspace/Linkedservices.json 및 datasets.json/useSecret/작업</br>작업 영역/자격 증명/기능/작업|
 |Synapse Apache Spark 관리자|작업 영역/읽기</br>작업 영역/bigDataPools/useCompute/작업</br>작업 영역/bigDataPools/viewLogs/작업</br>작업 영역/노트북/viewOutputs/작업</br>작업 영역/아티팩트/읽기</br>작업 영역/노트북/쓰기, 삭제</br>workspace/sparkJobDefinitions/write, delete</br>작업 영역/라이브러리/쓰기, 삭제</br>workspace/Linkedservices.json 및 datasets.json/write, delete</br>작업 영역/자격 증명/쓰기, 삭제|

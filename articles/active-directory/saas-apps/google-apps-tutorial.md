@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/11/2021
 ms.author: jeedes
-ms.openlocfilehash: eeb5f3e2a87dcc56b8e2ef0bf17309e184c3d65b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: a846899ba8f9b9e7c0d2e54744f5e5044ca7a2d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019400"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821933"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -132,8 +132,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
 
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
 1. **기본 SAML 구성** 섹션에서 **Google Cloud Platform** 에 대해 구성하려는 경우 다음 단계를 수행합니다.
@@ -152,8 +152,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
     
     ```http
-    https://www.google.com
-    https://www.google.com/a/<yourdomain.com>
+    https://www.google.com/acs
+    https://www.google.com/a/<yourdomain.com>/acs
     ```
 
     > [!NOTE]
@@ -249,7 +249,7 @@ Google Cloud (G Suite) Connector는 자동 사용자 프로비저닝도 지원�
 
 * Google Cloud(G Suite) Connector 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Google Cloud(G Suite) Connector 타일을 클릭하면 Google Cloud(G Suite) Connector 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Google Cloud(G Suite) Connector 타일을 클릭하면 Google Cloud(G Suite) Connector 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

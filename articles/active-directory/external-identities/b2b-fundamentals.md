@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547766"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365636"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Active Directory B2B 모범 사례
 이 문서에는 Azure Active Directory (Azure AD)에서 B2B (기업 간) 공동 작업을 위한 권장 사항 및 모범 사례가 포함 되어 있습니다.
 
    > [!IMPORTANT]
-   > **2021 년 3 월부터** MICROSOFT는 B2B 공동 작업 시나리오에 대 한 관리 되지 않는 ("바 이럴" 또는 "just-in-time") Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 이때 모든 기존 테 넌 트에 대해 전자 메일 일회용 암호 기능이 설정 되 고 새 테 넌 트에 대해 기본적으로 사용 하도록 설정 됩니다. 게스트 사용자에 게 원활한 대체 인증 방법을 제공 하기 때문에 전자 메일 일회용 암호 기능을 사용 하도록 설정 하 고 있습니다. 그러나이 기능을 사용 하지 않도록 선택 하는 경우이 기능을 사용 하지 않도록 설정 하는 옵션이 있습니다. 자세한 내용은 [일회용 암호 인증 메일](one-time-passcode.md) 을 참조 하세요.
+   > **2021 년 10 월부터** MICROSOFT는 B2B 공동 작업 시나리오에 대 한 관리 되지 않는 ("바 이럴" 또는 "just-in-time") Azure AD 계정 및 테 넌 트를 만들어 초대 상환을 더 이상 지원 하지 않습니다. 이때 모든 기존 테 넌 트에 대해 전자 메일 일회용 암호 기능이 설정 되 고 새 테 넌 트에 대해 기본적으로 사용 하도록 설정 됩니다. 게스트 사용자에 게 원활한 대체 인증 방법을 제공 하기 때문에 전자 메일 일회용 암호 기능을 사용 하도록 설정 하 고 있습니다. 그러나이 기능을 사용 하지 않도록 선택 하는 경우이 기능을 사용 하지 않도록 설정 하는 옵션이 있습니다. 자세한 내용은 [일회용 암호 인증 메일](one-time-passcode.md) 을 참조 하세요.
 
 
 ## <a name="b2b-recommendations"></a>B2B 권장 사항

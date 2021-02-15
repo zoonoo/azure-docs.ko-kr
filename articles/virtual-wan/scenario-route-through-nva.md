@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626663"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519799"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통한 트래픽 라우팅
 
@@ -30,16 +30,16 @@ ms.locfileid: "99626663"
 
 이 시나리오에서는 명명 규칙을 사용 합니다.
 
-* 사용자가 NVA를 배포 하 고 다른 가상 네트워크를 스포크 ( **연결 매트릭스** 의 vnet 2 및 vnet 4)로 연결 하는 가상 네트워크의 경우 "Nva vnet"입니다.
-* "NVA 스포크"는 NVA VNet (아래 **연결 매트릭스** 의 vnet 5, vnet 6, vnet 7 및 vnet 8)에 연결 된 가상 네트워크에 대 한 것입니다.
-* NVA 또는 기타 Vnet 피어 링가 있는 가상 WAN에 연결 된 가상 네트워크에 대 한 "NVA Vnet" (아래 **연결 매트릭스** 의 vnet 1 및 vnet 3).
+* 사용자가 NVA를 배포 하 고 다른 가상 네트워크를 스포크 ( **그림 2** 의 vnet 2 및 vnet 4)로 연결 하는 가상 네트워크는 "Nva vnet"를 참조 하세요.
+* "NVA 스포크"는 NVA VNet에 연결 되어 있습니다 ( **그림 2** 의 vnet 5, vnet 6, vnet 7 및 vnet 8).
+* NVA 또는 기타 Vnet 피어 링와 함께 사용 되는 가상 WAN에 연결 된 가상 네트워크에 대 한 "NVA Vnet" (이 문서 뒷부분의 **그림 2** 에 있는 vnet 1 및 vnet 3).
 * Microsoft에서 관리 하는 가상 WAN 허브의 "허브"로, NVA Vnet가 연결 됩니다. NVA 스포크 Vnet는 NVA Vnet에만 가상 WAN 허브에 연결할 필요가 없습니다.
 
 다음 연결 매트릭스는이 시나리오에서 지원 되는 흐름을 요약 합니다.
 
 **연결 매트릭스**
 
-| From             | 아래와 같이 변경합니다.|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
+| 시작             | 아래와 같이 변경합니다.|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
 |---|---|---|---|---|---|
 | **NVA 스포크**   | &#8594; | NVA VNet을 통해 | 피어링 | NVA VNet을 통해 | NVA VNet을 통해 |
 | **NVA Vnet**    | &#8594; | 피어링 | 직접 | 직접 | 직접 |
@@ -49,7 +49,7 @@ ms.locfileid: "99626663"
 연결 매트릭스의 각 셀은 VNet 또는 분기 (흐름의 "From" 쪽, 테이블의 행 머리글)가 대상 VNet 또는 분기 (흐름의 "To" 쪽, 테이블의 기울임꼴 열 머리글)와 통신 하는 방법을 설명 합니다. "Direct"는 가상 WAN에 의해 기본적으로 연결이 제공 됨을 의미 합니다. "피어 링"은 VNet의 User-Defined 경로에서 연결이 제공 됨을 의미 합니다. "NVA VNet"은 연결에서 NVA VNet에 배포 된 NVA를 트래버스 함을 의미 합니다. 다음을 살펴보세요.
 
 * NVA 스포크는 가상 WAN에서 관리 되지 않습니다. 그 결과, 다른 Vnet 또는 분기와 통신 하는 메커니즘이 사용자에 의해 유지 관리 됩니다. NVA VNet에 연결 하는 것은 VNet 피어 링에서 제공 되며 NVA를 가리키는 기본 경로 (NVA는 다음 홉에서 인터넷에 대 한 연결, 다른 스포크 및 분기)를 포함 해야 합니다.
-* NVA Vnet는 고유한 NVA 스포크를 알 수 있지만 다른 NVA Vnet에 연결 된 NVA 스포크는 인식 하지 못합니다. 예를 들어 표 1에서 VNet 2는 vnet 5와 VNet 6에 대해 알고 있지만 VNet 7 및 VNet 8과 같은 다른 스포크는 인식 하지 못합니다. 정적 경로는 NVA Vnet에 다른 스포크 접두사를 삽입 하는 데 필요 합니다.
+* NVA Vnet는 고유한 NVA 스포크를 알 수 있지만 다른 NVA Vnet에 연결 된 NVA 스포크는 인식 하지 못합니다. 예를 들어이 문서의 아래쪽에 있는 그림 2에서 VNet 2는 vnet 5와 VNet 6에 대해 알고 있지만 VNet 7 및 VNet 8과 같은 다른 스포크는 인식 하지 못합니다. 정적 경로는 NVA Vnet에 다른 스포크 접두사를 삽입 하는 데 필요 합니다.
 * 마찬가지로 NVA 스포크는 가상 WAN 허브에 연결 되지 않으므로 분기 및 NVA Vnet는 NVA 스포크를 알 수 없습니다. 따라서 여기서는 고정 경로만 필요 합니다.
 
 NVA 스포크가 가상 WAN에 의해 관리 되지 않는 것을 고려 하 여 다른 모든 행은 동일한 연결 패턴을 보여 줍니다. 따라서 단일 경로 테이블 (기본 경로)은 다음과 같습니다.

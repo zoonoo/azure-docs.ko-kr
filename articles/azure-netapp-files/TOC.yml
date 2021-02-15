@@ -125,7 +125,7 @@
           href: troubleshoot-capacity-pools.md
         - name: 지역 간 복제 문제 해결
           href: troubleshoot-cross-region-replication.md
-        - name: 이중 프로토콜 볼륨 문제 해결
+        - name: SMB 또는 이중 프로토콜 볼륨 문제 해결
           href: troubleshoot-dual-protocol-volumes.md
         - name: NFSv4.1 Kerberos 볼륨 문제 해결
           href: troubleshoot-nfsv41-kerberos-volumes.md

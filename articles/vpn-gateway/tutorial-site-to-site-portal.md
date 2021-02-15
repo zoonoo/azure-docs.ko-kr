@@ -7,12 +7,12 @@ ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 12/04/2020
-ms.openlocfilehash: d078d4b106136c95d67eb467bc16e22e2bb91c5c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ccb43c3e7efb9289450ad9a71c003f54e5362b66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96747292"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822204"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-in-the-azure-portal"></a>자습서: Azure Portal에서 사이트 간 연결 만들기
 
@@ -153,7 +153,7 @@ Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 �
 
 [!INCLUDE [reset a gateway](../../includes/vpn-gateway-reset-gw-portal-include.md)]
 
-### <a name="additional-configuration-considerations"></a><a name="connectVM"></a>추가 구성 고려 사항
+### <a name="additional-configuration-considerations"></a><a name="additional"></a>추가 구성 고려 사항
 
 S2S 구성은 다양한 방법으로 사용자 지정할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 

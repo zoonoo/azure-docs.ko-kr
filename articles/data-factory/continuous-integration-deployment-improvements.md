@@ -1,22 +1,18 @@
 ---
 title: 지속적인 통합 및 배달에 대 한 자동화 된 게시
 description: 연속 통합 및 배달을 자동으로 게시 하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: maghan
-manager: weetok
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 7b9e07c6bd2cb52858550fe5c34b2660c4d977eb
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b5becd8ddaf74ab2acd059054a095ce9d21c178f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431226"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366843"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>지속적인 통합 및 배달에 대 한 자동화 된 게시
 

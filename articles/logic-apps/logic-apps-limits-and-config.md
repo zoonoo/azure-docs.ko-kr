@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805937"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388535"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -193,19 +193,20 @@ ms.locfileid: "99805937"
 
 ### <a name="integration-service-environment-ise"></a>ISE(통합 서비스 환경)
 
-[프리미엄 ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)의 처리량 제한은 다음과 같습니다.
+* [개발자 ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): 분당 최대 500 실행을 제공 하지만 다음과 같은 고려 사항에 유의 하세요.
 
-| 속성 | 제한 | 메모 |
-|------|-------|-------|
-| 기준 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 분당 ~4000개 작업 실행을 제공하며 이를 월 단위로 환산하면 매월 ~1억 6000만 개의 작업 실행 제공 | |
-| 배율 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 각 배율 단위는 분당 ~2000개 추가 작업 실행을 제공할 수 있으며 이를 월 단위로 환산하면 매월 ~8000만 개 이상의 추가 작업 실행 제공 | |
-| 추가할 수 있는 최대 배율 단위 | 10 | |
-||||
+  * 프로덕션 또는 성능 테스트에 대 한 탐색, 실험, 개발 또는 테스트에만이 SKU를 사용 해야 합니다. 이 SKU에는 SLA (서비스 수준 계약), 강화 기능 또는 중복성을 제공 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다.
 
-정상적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과하는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
+  * 백 엔드 업데이트는 간헐적으로 서비스를 중단할 수 있습니다.
 
-> [!NOTE]
-> [개발자 ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)는 게시된 제한이 없고, 스케일 업 기능이 없고, SLA(서비스 수준 계약)가 없습니다. 이 SKU는 실험, 개발 및 테스트 용도에만 사용하고 프로덕션 또는 성능 테스트에는 사용하지 마세요.
+* [프리미엄 ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): 다음 표에서는이 SKU의 처리량 한도에 대해 설명 하지만 일반적인 처리에서 이러한 제한을 초과 하거나 이러한 제한 보다 클 수 있는 부하 테스트를 실행 합니다. 요구 사항에 대 한 도움이 필요 하면 [Logic Apps 팀에 문의 하세요](mailto://logicappsemail@microsoft.com) .
+
+  | 속성 | 제한 | 메모 |
+  |------|-------|-------|
+  | 기준 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 분당 ~4000개 작업 실행을 제공하며 이를 월 단위로 환산하면 매월 ~1억 6000만 개의 작업 실행 제공 | |
+  | 배율 단위 실행 제한 | 인프라 용량이 80%에 도달하면 시스템 제한 | 각 배율 단위는 분당 ~2000개 추가 작업 실행을 제공할 수 있으며 이를 월 단위로 환산하면 매월 ~8000만 개 이상의 추가 작업 실행 제공 | |
+  | 추가할 수 있는 최대 배율 단위 | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -388,7 +389,7 @@ ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모�
 
 예를 들어 [HTTP 트리거 또는 작업과](../connectors/connectors-native-http.md)같은 기본 제공 트리거와 작업을 통해 전송 또는 수신 하는 미국 서 부 지역에서 논리 앱의 호출을 지원 하려면 방화벽에서 미국 서 부 지역에 있는 *모든* Logic Apps 서비스 인바운드 ip 주소 *및* 아웃 바운드 ip 주소에 대 한 액세스를 허용 해야 합니다.
 
-논리 앱에서 Office 365 Outlook connector 또는 SQL connector와 같은 [관리 되는 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용 하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용 하는 경우에는 논리 앱의 Azure 지역에서 *모든* [관리 커넥터 아웃 바운드 IP 주소](#outbound) 에 대 한 액세스를 허용 해야 합니다. 또한 [Azure에서 온-프레미스 데이터 게이트웨이 리소스](logic-apps-gateway-connection.md)를 통해 온-프레미스 리소스에 액세스 하는 사용자 지정 커넥터를 사용 하는 경우 해당 *관리 되는 커넥터 [아웃 바운드 IP 주소](#outbound)* 에 대 한 액세스를 허용 하도록 게이트웨이 설치를 설정 해야 합니다.
+논리 앱에서 Office 365 Outlook 커넥터 또는 SQL 커넥터와 같은 [관리형 커넥터](../connectors/apis-list.md#managed-api-connectors)를 사용하거나 [사용자 지정 커넥터](/connectors/custom-connectors/)를 사용하는 경우 방화벽은 논리 앱의 Azure 지역에 있는 [관리형 커넥터 아웃바운드 IP 주소](#outbound) *모두* 에 대한 액세스도 허용해야 합니다. 또한 [Azure에서 온-프레미스 데이터 게이트웨이 리소스](logic-apps-gateway-connection.md)를 통해 온-프레미스 리소스에 액세스 하는 사용자 지정 커넥터를 사용 하는 경우 해당 *관리 되는 커넥터 [아웃 바운드 IP 주소](#outbound)* 에 대 한 액세스를 허용 하도록 게이트웨이 설치를 설정 해야 합니다.
 
 게이트웨이에서 통신 설정을 설정 하는 방법에 대 한 자세한 내용은 다음 항목을 참조 하세요.
 

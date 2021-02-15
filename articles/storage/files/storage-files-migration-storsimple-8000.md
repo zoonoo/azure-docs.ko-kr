@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 502776e85eaafa46fb2b5ce45ca3bd937e303566
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631187"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366321"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 8100 및 8600 마이그레이션
 
@@ -33,12 +33,12 @@ StorSimple 8000 시리즈는 12 월 2022에 [수명 끝](https://support.microso
 
 ### <a name="migration-cost-summary"></a>마이그레이션 비용 요약
 
-StorSimple Data Manager 리소스의 데이터 변환 서비스 작업을 통해 StorSimple 볼륨에서 Azure 파일 공유로의 마이그레이션은 무료로 제공 됩니다. 다른 비용은 마이그레이션 도중 및 마이그레이션 후에 발생할 수 있습니다.
+StorSimple Data Manager 리소스의 마이그레이션 작업을 통해 StorSimple 볼륨에서 Azure 파일 공유로의 마이그레이션은 무료로 제공 됩니다. 다른 비용은 마이그레이션 도중 및 마이그레이션 후에 발생할 수 있습니다.
 
 * **네트워크 송신:** StorSimple 파일은 특정 Azure 지역 내의 저장소 계정에 있습니다. Azure 파일 공유를 프로 비전 하는 경우 동일한 Azure 지역에 있는 저장소 계정으로 마이그레이션하는 경우 송신 비용이 발생 하지 않습니다. 이 마이그레이션의 일부로 다른 지역의 저장소 계정으로 파일을 이동할 수 있습니다. 이 경우에는 송신 비용이 적용 됩니다.
 * **Azure 파일 공유 트랜잭션:** 파일이 Azure 파일 공유에 복사 될 때 (마이그레이션의 일부로 또는 외부에서) 파일 및 메타 데이터가 작성 될 때 트랜잭션 비용이 적용 됩니다. 마이그레이션 중에 트랜잭션 최적화 계층에서 Azure 파일 공유를 시작 하는 것이 가장 좋습니다. 마이그레이션이 완료 된 후 원하는 계층으로 전환 합니다. 다음 단계는 적절 한 지점에서이를 호출 합니다.
 * **Azure 파일 공유 계층 변경:** Azure 파일 공유의 계층을 변경 하면 트랜잭션 비용이 청구 됩니다. 대부분의 경우에는 이전 점에서 조언을 따르는 것이 더 효율적입니다.
-* **저장소 비용:** 이 마이그레이션이 Azure 파일 공유에 파일을 복사 하기 시작 하면 Azure Files 저장소가 사용 되 고 청구 됩니다.
+* **저장소 비용:** 이 마이그레이션이 Azure 파일 공유에 파일을 복사 하기 시작 하면 Azure Files 저장소가 사용 되 고 청구 됩니다. 마이그레이션된 백업은 [Azure 파일 공유 스냅숏이](storage-snapshots-files.md)됩니다. 파일 공유 스냅숏은 포함 된 차이점에 대해서만 저장소 용량을 사용 합니다.
 * **StorSimple:** StorSimple 장치 및 저장소 계정 프로 비전을 해제할 기회가 있을 때까지 저장소, 백업 및 어플라이언스에 대 한 StorSimple 비용은 계속 발생 합니다.
 
 ### <a name="direct-share-access-vs-azure-file-sync"></a>직접 공유-액세스 및 Azure 파일 동기화
@@ -49,7 +49,7 @@ Azure 파일 공유는 파일 서비스 배포를 구성 하기 위한 새로운
 
 Azure 파일 동기화는 다음과 같은 두 가지 주요 구성 요소를 기반으로 하는 Microsoft 클라우드 서비스입니다.
 
-* 파일 동기화 및 클라우드 계층화.
+* 파일 동기화 및 클라우드 계층화를 사용 하 여 모든 Windows Server에서 성능 액세스 캐시를 만듭니다.
 * 파일 공유는 SMB 및 파일 REST와 같은 여러 프로토콜을 통해 액세스할 수 있는 Azure의 기본 저장소로 공유 됩니다.
 
 Azure 파일 공유는 특성, 권한, 타임 스탬프 등의 저장 된 파일에 대 한 중요 한 파일 충실도 측면을 유지 합니다. Azure 파일 공유를 사용 하면 응용 프로그램 또는 서비스에서 클라우드에 저장 된 파일 및 폴더를 해석할 필요가 없습니다. Windows 파일 탐색기와 같은 친숙 한 프로토콜 및 클라이언트를 통해 기본적으로 액세스할 수 있습니다. Azure 파일 공유를 사용 하면 범용 파일 서버 데이터 및 응용 프로그램 데이터를 클라우드에 저장할 수 있습니다. Azure 파일 공유의 백업은 기본 제공 되는 기능이 며 Azure Backup 하 여 더욱 향상 시킬 수 있습니다.
@@ -61,14 +61,14 @@ Azure 파일 공유는 특성, 권한, 타임 스탬프 등의 저장 된 파일
 
 ### <a name="storsimple-service-data-encryption-key"></a>StorSimple 서비스 데이터 암호화 키
 
-StorSimple 어플라이언스를 처음 설정 하는 경우 서비스 데이터 암호화 키를 생성 하 고 키를 안전 하 게 저장 하도록 지시 합니다. 이 키는 StorSimple 어플라이언스에서 파일을 저장 하는 연결 된 Azure storage 계정의 모든 데이터를 암호화 하는 데 사용 됩니다.
+StorSimple 어플라이언스를 처음 설정 하는 경우 "서비스 데이터 암호화 키"가 생성 되 고 키를 안전 하 게 저장 하 라는 지침이 표시 됩니다. 이 키는 StorSimple 어플라이언스에서 파일을 저장 하는 연결 된 Azure storage 계정의 모든 데이터를 암호화 하는 데 사용 됩니다.
 
-성공적인 마이그레이션에는 서비스 데이터 암호화 키가 필요 합니다. 이제 인벤토리의 각 어플라이언스에 대해 레코드에서이 키를 검색 하는 것이 좋습니다.
+마이그레이션을 성공적으로 수행 하려면 "서비스 데이터 암호화 키"가 필요 합니다. 이제 인벤토리의 각 어플라이언스에 대 한 레코드에서이 키를 검색 하는 것이 좋습니다.
 
 레코드에서 키를 찾을 수 없는 경우 어플라이언스에서 키를 검색할 수 있습니다. 각 어플라이언스에는 고유한 암호화 키가 있습니다. 키를 검색 하려면:
 
-* Azure Portal를 통해 Microsoft Azure 지원 요청을 파일에 포함 합니다. 요청 내용에는 StorSimple 장치 일련 번호와 "서비스 데이터 암호화 키를 검색 하는 요청"이 있어야 합니다.
-* StorSimple 지원 엔지니어가 화면 공유 모임 요청을 사용자에 게 연락 합니다.
+* Azure Portal를 통해 Microsoft Azure 지원 요청을 파일에 포함 합니다. 요청은 StorSimple 장치 일련 번호와 "서비스 데이터 암호화 키를 검색 하는 요청"을 포함 해야 합니다.
+* StorSimple 지원 엔지니어가 가상 모임에 대 한 요청을 사용자에 게 연락 합니다.
 * 회의가 시작 되기 전에 [직렬 콘솔](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) 또는 [원격 PowerShell 세션](../../storsimple/storsimple-8000-windows-powershell-administration.md#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)을 통해 StorSimple 어플라이언스에 연결 해야 합니다.
 
 > [!CAUTION]
@@ -81,15 +81,21 @@ StorSimple 어플라이언스를 처음 설정 하는 경우 서비스 데이터
 ### <a name="storsimple-volume-backups"></a>StorSimple 볼륨 백업
 
 StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파일 공유에도 공유 스냅숏 이라고 하는이 기능이 있습니다.
+마이그레이션 작업은 라이브 볼륨의 데이터가 아니라 백업만 이동할 수 있습니다. 따라서 가장 최근의 백업은 마이그레이션에 의해 이동 된 백업 목록에 항상 있어야 합니다.
 
-마이그레이션의 일환으로 백업을 이동할 의무가 있는지 결정 합니다.
+마이그레이션 중에 이전 백업을 이동 해야 하는지 여부를 결정 합니다.
+가장 좋은 방법은이 목록을 최대한 작게 유지 하는 것입니다. 따라서 마이그레이션 작업을 더 빠르게 완료할 수 있습니다.
+
+마이그레이션해야 하는 중요 한 백업을 식별 하려면 백업 정책에 대 한 검사 목록을 만듭니다. 예를 들면 다음과 같습니다.
+* 가장 최근의 백업입니다. (참고: 가장 최근의 백업은 항상이 목록에 포함 되어야 합니다.)
+* 12 개월 동안 한 달에 한 번 백업 합니다.
+* 3 년 동안 1 년의 백업입니다. 
+
+나중에 마이그레이션 작업을 만들 때이 목록을 사용 하 여 목록에서 요구 사항을 충족 하기 위해 마이그레이션해야 하는 정확한 StorSimple 볼륨 백업을 식별할 수 있습니다.
 
 > [!CAUTION]
-> StorSimple 볼륨에서 백업을 마이그레이션해야 하는 경우 여기에서 중지 합니다.
->
-> 현재 가장 최근의 볼륨 백업만 마이그레이션할 수 있습니다. 백업 마이그레이션에 대 한 지원은 2020 끝에 도착할 예정입니다. 지금 시작 하는 경우 나중에 백업을 "연결할" 수 없습니다. 이후 버전에서 백업은 azure 파일 공유를 대상으로 하 여 가장 오래 된 azure 파일 공유에 "다시 재생" 해야 합니다.
-
-라이브 데이터만 마이그레이션하고 백업에 대 한 요구 사항이 없는 경우이 가이드에 따라 계속할 수 있습니다. 한 달 또는 두 번의 단기 백업 보존 요구 사항이 있는 경우 지금 마이그레이션을 계속 하 고 해당 기간 후에 StorSimple 리소스의 프로 비전을 해제할 수 있습니다. 이 접근 방식을 사용 하면 Azure 파일 공유 쪽에서 필요한 만큼의 백업 기록을 만들 수 있습니다. 두 시스템을 계속 실행 하는 경우에는 추가 비용이 적용 됩니다 .이 방법을 사용 하면 단기 백업 보존 보다 많은 시간이 필요한 경우에는이 방법을 고려 하지 않는 것이 좋습니다.
+> **50** 를 초과 하는 StorSimple 볼륨 백업은 지원 되지 않습니다.
+> 마이그레이션 작업은 백업을 이동할 수만 있고 라이브 볼륨의 데이터는 이동할 수 없습니다. 따라서 가장 최근의 백업은 라이브 데이터에 가장 가깝습니다. 따라서 항상 마이그레이션에서 이동할 백업 목록의 일부 여야 합니다.
 
 ### <a name="map-your-existing-storsimple-volumes-to-azure-file-shares"></a>Azure 파일 공유에 기존 StorSimple 볼륨 매핑
 
@@ -99,31 +105,26 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 마이그레이션은 각각 적은 수의 Azure 파일 공유를 포함 하는 여러 저장소 계정을 배포 하는 이점을 누릴 수 있습니다.
 
-여러 사용자 또는 응용 프로그램에서 사용 하는 파일 공유가 활발 하 게 활성화 되어 있으면 두 개의 Azure 파일 공유가 저장소 계정의 성능 제한에 도달할 수 있습니다. 이로 인해 모범 사례는 각 저장소 계정으로 마이그레이션하는 것입니다. 각 저장소 계정에는 각각 고유한 개별 파일 공유와 저장소 계정 당 셋 또는 세 개의 공유만 포함 되어 있습니다.
+여러 사용자 또는 응용 프로그램에서 사용 하는 파일 공유가 활발 하 게 활성화 되어 있으면 두 개의 Azure 파일 공유가 저장소 계정의 성능 제한에 도달할 수 있습니다. 이로 인해 모범 사례는 각각 고유한 개별 파일 공유를 포함 하는 여러 저장소 계정으로 마이그레이션하는 것 이며 저장소 계정 당 셋 또는 세 개의 공유를 포함 합니다.
 
 각각 하나의 파일 공유를 사용 하 여 저장소 계정을 배포 하는 것이 가장 좋습니다. 여러 Azure 파일 공유를 동일한 저장소 계정으로 풀링할 수 있습니다. 여기에는 보관 공유가 있습니다.
 
-이러한 고려 사항은 Azure 파일 동기화에 비해 Azure VM 또는 서비스를 통해 [직접 클라우드 액세스](#direct-share-access-vs-azure-file-sync) 에 더 적용 됩니다. 이러한 공유에만 Azure 파일 동기화를 사용 하려는 경우 여러 개의 Azure storage 계정으로 그룹화 하는 것이 좋습니다. 또한 앱을 클라우드로 리프트 앤 시프트 하 여 파일 공유에 직접 액세스 하는 것이 좋습니다. 또는 더 높은 IOPS 및 처리량 번호를 사용 하 여 혜택을 얻을 수 있는 Azure 서비스 사용을 시작할 수 있습니다.
+이러한 고려 사항은 Azure 파일 동기화에 비해 Azure VM 또는 서비스를 통해 [직접 클라우드 액세스](#direct-share-access-vs-azure-file-sync) 에 더 적용 됩니다. 이러한 공유에 대 한 Azure 파일 동기화만 사용 하려는 경우 여러 개의 Azure storage 계정으로 그룹화 하는 것이 좋습니다. 나중에 앱을 클라우드로 리프트 앤 시프트 하 여 파일 공유에 직접 액세스 하는 것이 좋습니다 .이 시나리오에서는 더 높은 IOPS 및 처리량을 얻을 수 있습니다. 또는 더 높은 IOPS 및 처리량을 얻을 수 있는 Azure에서 서비스 사용을 시작할 수도 있습니다.
 
 공유 목록을 만든 경우 각 공유를 상주할 저장소 계정에 매핑합니다.
 
 > [!IMPORTANT]
 > Azure 지역을 결정 하 고 각 저장소 계정 및 Azure 파일 동기화 리소스가 선택한 지역과 일치 하는지 확인 합니다.
+> 지금은 저장소 계정에 대 한 네트워크 및 방화벽 설정을 구성 하지 마세요. 이 시점에서 이러한 구성을 만들면 마이그레이션을 불가능 하 게 됩니다. 마이그레이션이 완료 된 후 이러한 Azure storage 설정을 구성 합니다.
 
 ### <a name="phase-1-summary"></a>1 단계 요약
 
 1 단계의 끝에서:
 
 * StorSimple 장치 및 볼륨에 대 한 유용한 개요를 확인할 수 있습니다.
-* 각 StorSimple 장치에 대 한 서비스 데이터 암호화 키를 검색 했기 때문에 데이터 변환 서비스가 클라우드의 StorSimple 볼륨에 액세스할 준비가 되었습니다.
-* 마이그레이션해야 하는 볼륨에 대 한 계획과 볼륨을 적절 한 수의 Azure 파일 공유 및 저장소 계정에 매핑하는 방법도 있습니다.
-
-> [!CAUTION]
-> StorSimple 볼륨에서 백업을 마이그레이션해야 하는 경우 **여기에서 중지** 합니다.
->
-> 이 마이그레이션 방식은 현재 백업을 마이그레이션할 수 없는 새 데이터 변환 서비스 기능에 의존 합니다. 백업 마이그레이션에 대 한 지원은 2020 끝에 도착할 예정입니다. 현재 라이브 데이터만 마이그레이션할 수 있습니다. 지금 시작 하는 경우 나중에 백업을 "연결할" 수 없습니다. Azure 파일 공유 스냅숏은 사이에 Azure 파일 공유를 사용 하 여 가장 오래 된 데이터부터 라이브 데이터까지 Azure 파일 공유에 "다시 재생" 해야 합니다.
-
-라이브 데이터만 마이그레이션하고 백업에 대 한 요구 사항이 없는 경우이 가이드에 따라 계속할 수 있습니다.
+* 각 StorSimple 장치에 대 한 "서비스 데이터 암호화 키"를 검색 했으므로 Data Manager 서비스에서 클라우드의 StorSimple 볼륨에 액세스할 준비가 되었습니다.
+* 볼륨 및 백업 (가장 최근을 초과 하는 경우)을 마이그레이션해야 하는 계획이 있습니다.
+* 적절 한 수의 Azure 파일 공유 및 저장소 계정에 볼륨을 매핑하는 방법을 알고 있습니다.
 
 ## <a name="phase-2-deploy-azure-storage-and-migration-resources"></a>2 단계: Azure storage 및 마이그레이션 리소스 배포
 
@@ -133,11 +134,14 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 
 여러 Azure storage 계정을 배포 해야 할 수도 있습니다. 각 항목에는이 문서의 이전 섹션에서 완료 한 배포 계획에 따라 적은 수의 Azure 파일 공유가 포함 됩니다. Azure Portal로 이동 하 여 [계획 된 저장소 계정을 배포](../common/storage-account-create.md#create-a-storage-account)합니다. 새 저장소 계정에 대해 다음과 같은 기본 설정을 준수 하는 것이 좋습니다.
 
+> [!IMPORTANT]
+> 이제 저장소 계정에 대 한 네트워크 및 방화벽 설정을 구성 하지 마십시오. 이 시점에서 이러한 구성을 만들면 마이그레이션을 불가능 하 게 됩니다. 마이그레이션이 완료 된 후 이러한 Azure storage 설정을 구성 합니다.
+
 #### <a name="subscription"></a>구독
 
-StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 올바른 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있습니다. 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
+StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 적절 한 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있으며, 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 
-#### <a name="resource-group"></a>리소스 그룹
+#### <a name="resource-group"></a>Resource group
 
 리소스 그룹은 리소스 구성과 관리 관리 권한을 지원 합니다. [Azure에서 리소스 그룹](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)에 대해 자세히 알아보세요.
 
@@ -197,7 +201,7 @@ Azure 파일 공유 또는 표준 저장소에 대해 premium storage (SSD)를 �
 
 * 더 작은 5 TiB 용량 파일 공유에 비해 성능이 크게 증가 합니다 (예: IOPS 10 배).
 * 마이그레이션이 훨씬 더 빨리 완료 됩니다.
-* 파일 공유에 마이그레이션할 데이터를 모두 저장할 수 있는 충분 한 용량이 있는지 확인 합니다.
+* 차등 백업에 필요한 저장소 용량을 포함 하 여 파일 공유에 마이그레이션할 데이터를 모두 저장할 수 있는 용량이 충분 한지 확인 합니다.
 * 향후 성장을 다룹니다.
 
 ### <a name="azure-file-shares"></a>Azure 파일 공유
@@ -232,24 +236,57 @@ Azure 파일 동기화를 사용 하면 자주 액세스 하는 파일의 온-�
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>3 단계: 마이그레이션 작업 만들기 및 실행
 
-이 섹션에서는 마이그레이션 작업을 설정 하는 방법을 설명 하 고, 선택한 대상 Azure 파일 공유에 복사 해야 하는 StorSimple 볼륨의 디렉터리를 신중 하 게 매핑합니다. 시작 하려면 StorSimple Data Manager으로 이동 하 여 메뉴에서 **작업 정의** 를 찾고 **+ 작업 정의** 를 선택 합니다. 대상 저장소 유형은 기본 **Azure 파일 공유** 입니다.
+이 섹션에서는 마이그레이션 작업을 설정 하는 방법을 설명 하 고, 선택한 대상 Azure 파일 공유에 복사 해야 하는 StorSimple 볼륨의 디렉터리를 신중 하 게 매핑합니다. 시작 하려면 StorSimple Data Manager으로 이동 하 여 메뉴에서 **작업 정의** 를 찾고 **+ 작업 정의** 를 선택 합니다. 올바른 대상 저장소 유형은 기본적으로 **Azure 파일 공유** 입니다.
 
 ![StorSimple 8000 시리즈 마이그레이션 작업 유형입니다.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "작업 정의의 스크린샷은 작업 유형을 묻는 새 작업 정의 대화 상자를 열고 파일 공유 또는 blob 컨테이너에 복사를 Azure Portal 합니다.")
 
-> [!IMPORTANT]
-> 마이그레이션 작업을 실행 하기 전에 StorSimple 볼륨의 자동으로 예약 된 백업을 모두 중지 합니다.
-
 :::row:::
     :::column:::
-        ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "데이터 변환 서비스 작업에 대 한 새 작업 생성 양식의 스크린샷")
+        ![StorSimple 8000 시리즈 마이그레이션 작업](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "마이그레이션 작업에 대 한 새 작업 생성 양식의 스크린샷")
     :::column-end:::
     :::column:::
-        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple 장치 관리자 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 장치 관리자 StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다. </br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.
+        **작업 정의 이름**</br>이 이름은 이동 하는 파일 집합을 나타내야 합니다. Azure 파일 공유와 비슷한 이름을 제공 하는 것이 좋습니다. </br></br>**작업이 실행 되는 위치**</br>지역을 선택 하는 경우 StorSimple 저장소 계정과 동일한 지역을 선택 하거나, 사용할 수 없는 경우 해당 지역을 가까운 지역으로 선택 해야 합니다. </br></br><h3>원본</h3>**원본 구독**</br>StorSimple 장치 관리자 리소스를 저장 하는 구독을 선택 합니다. </br></br>**StorSimple 리소스**</br>기기가 등록 된 장치 관리자 StorSimple을 선택 합니다. </br></br>**서비스 데이터 암호화 키**</br>레코드에서 키를 찾을 수 없는 경우 [이 문서의 이전 섹션](#storsimple-service-data-encryption-key) 을 확인 하세요. </br></br>**디바이스**</br>마이그레이션하려는 볼륨을 보유 하는 StorSimple 장치를 선택 합니다. </br></br>**볼륨**</br>원본 볼륨을 선택 합니다. 나중에 전체 볼륨 또는 하위 디렉터리를 대상 Azure 파일 공유로 마이그레이션할 것인지 결정 합니다.</br></br> **볼륨 백업**</br>*볼륨 백업 선택* 을 선택 하 여이 작업의 일부로 이동할 특정 백업을 선택할 수 있습니다. [이 문서의 예정 된 전용 섹션에서는이](#selecting-volume-backups-to-migrate) 프로세스에 대해 자세히 설명 합니다.</br></br><h3>대상</h3>구독, 저장소 계정 및 Azure 파일 공유를이 마이그레이션 작업의 대상으로 선택 합니다.</br></br><h3>디렉터리 매핑</h3>[이 문서의 전용 섹션](#directory-mapping)에서는 관련 된 모든 세부 정보에 대해 설명 합니다.
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> 최신 볼륨 백업은 마이그레이션을 수행 하는 데 사용 됩니다. 볼륨 백업이 하나 이상 존재 하는지 확인 하거나 작업이 실패 합니다. 또한 최신 백업에 대 한 델타를 최대한 작은 라이브 공유로 유지 해야 합니다. 방금 만든 작업을 실행 *하기 전에* 다른 볼륨 백업을 수동으로 트리거하거나 완료 해야 할 수 있습니다.
+### <a name="selecting-volume-backups-to-migrate"></a>마이그레이션할 볼륨 백업 선택
+
+마이그레이션해야 하는 백업 선택에 중요 한 측면이 있습니다.
+
+- 마이그레이션 작업은 라이브 볼륨의 데이터가 아니라 백업만 이동할 수 있습니다. 따라서 가장 최근의 백업은 라이브 데이터에 가장 가깝습니다. 항상 마이그레이션에 의해 이동 된 백업 목록에 있어야 합니다.
+- 최신 백업이 최신 인지 확인 하 여 최대한 작은 라이브 공유에 델타를 유지 합니다. 마이그레이션 작업을 만들기 전에 다른 볼륨 백업을 수동으로 트리거하거나 완료 해야 할 수 있습니다. 라이브 공유에 대 한 작은 델타를 통해 마이그레이션 환경을 향상 시킬 수 있습니다. 이 델타가 0이 될 수 있는 경우 목록에서 최신 백업을 수행한 후에도 StorSimple 볼륨에 대 한 변경 내용이 더 이상 없는 것입니다. 그러면 5 단계가 크게 간소화 되 고 sped가 됩니다.
+- 백업은 **가장 오래 전에** Azure 파일 공유로 다시 재생 되어야 합니다. 이전 백업은 마이그레이션 작업이 실행 된 후 Azure 파일 공유의 백업 목록을 "정렬" 할 수 없습니다. 따라서 작업을 만들기 *전에* 백업 목록이 완료 되었는지 확인 해야 합니다. 
+- 작업을 만든 후에는 작업을 실행 하지 않은 경우에도 작업의이 백업 목록을 수정할 수 없습니다. 
+
+:::row:::
+    :::column:::        
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups.png" alt-text="마이그레이션을 위해 StorSimple 백업이 선택 되는 부분을 자세히 설명 하는 새 작업 만들기 양식의 스크린샷" lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-expanded.png":::
+    :::column-end:::
+    :::column:::
+        마이그레이션 작업에 대 한 StorSimple 볼륨의 백업을 선택 하려면 작업 생성 양식에서 *볼륨 백업 선택* 을 선택 합니다.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png" alt-text="백업을 선택 하는 블레이드의 상단 절반이 사용 가능한 모든 백업을 나열 함을 보여 주는 이미지입니다. 선택한 백업은이 목록에서 회색으로 표시 되 고 블레이드의 하단에 있는 두 번째 목록에 추가 됩니다. 또한 다시 삭제할 수 있습니다." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-annotated.png":::
+    :::column-end:::
+    :::column:::
+        백업 선택 블레이드가 열리면 두 개의 목록으로 구분 됩니다. 첫 번째 목록에는 사용 가능한 모든 백업이 표시 됩니다. 특정 시간 범위에 대 한 필터링을 통해 결과 집합을 확장 하 고 범위를 좁힐 수 있습니다. (다음 섹션 참조) </br></br>선택한 백업은 회색으로 표시 되 고 블레이드의 아래쪽에 있는 두 번째 목록에 추가 됩니다. 두 번째 목록에는 마이그레이션을 위해 선택한 모든 백업이 표시 됩니다. 오류가 발생 한 경우에도 선택한 백업을 다시 제거할 수 있습니다.
+        > [!CAUTION]
+        > 마이그레이션하려는 **모든** 백업을 선택 해야 합니다. 이전 백업은 나중에 추가할 수 없습니다. 작업을 만든 후에는 작업을 수정 하 여 선택 항목을 변경할 수 없습니다.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="백업 선택 블레이드의 시간 범위 선택을 보여 주는 스크린샷" lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
+    :::column-end:::
+    :::column:::
+        기본적으로 가장 최근의 백업을 쉽게 선택할 수 있도록 이전 7 일 이내에 StorSimple 볼륨 백업을 표시 하도록 목록이 필터링 됩니다. 이전 백업의 경우 블레이드 맨 위에 있는 시간 범위 필터를 사용 합니다. 기존 필터에서 선택 하거나 사용자 지정 시간 범위를 설정 하 여이 기간 중에 수행 되는 백업만 필터링 할 수 있습니다.
+    :::column-end:::
+:::row-end:::
+
+> [!CAUTION]
+> 50를 초과 하는 StorSimple 볼륨 백업은 지원 되지 않습니다. 백업 수가 많은 작업이 실패할 수 있습니다.
 
 ### <a name="directory-mapping"></a>디렉터리 매핑
 
@@ -273,7 +310,7 @@ Azure 파일 동기화를 사용 하면 자주 액세스 하는 파일의 온-�
 | **\>**                     | [원본] 및 [대상-매핑] 연산자가 있습니다.     |
 |**\|** 또는 RETURN (새 줄) | 두 폴더 매핑 명령의 구분 기호입니다. </br>또는이 문자를 생략 하 고 **Enter 키** 를 선택 하 여 한 줄에 다음 매핑 식을 가져올 수 있습니다.        |
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 *사용자 데이터* 폴더의 콘텐츠를 대상 파일 공유의 루트로 이동 합니다.
 ``` console
 \User data > \
@@ -310,11 +347,30 @@ Azure 파일 동기화를 사용 하면 자주 액세스 하는 파일의 온-�
 * Windows와 마찬가지로 폴더 이름도 대/소문자를 구분 하지 않지만 대/소문자를 유지 합니다.
 
 > [!NOTE]
-> *\System 볼륨 정보* 폴더의 내용과 StorSimple 볼륨의 *$Recycle* 는 변환 작업을 통해 복사 되지 않습니다.
+> *\System 볼륨 정보* 폴더의 내용과 StorSimple 볼륨의 *$Recycle* 는 마이그레이션 작업을 통해 복사 되지 않습니다.
+
+### <a name="run-a-migration-job"></a>마이그레이션 작업 실행
+
+마이그레이션 작업은 리소스 그룹에 배포한 Data Manager 리소스의 *작업 정의* 아래에 나열 됩니다.
+작업 정의 목록에서 실행 하려는 작업을 선택 합니다.
+
+열리는 작업 블레이드의 아래쪽 목록에서 작업 실행을 볼 수 있습니다. 처음에는이 목록이 비어 있습니다. 블레이드 맨 위에 *작업 실행* 이라는 명령이 있습니다. 이 명령은 작업을 즉시 실행 하지 않으며 **작업 실행** 블레이드를 엽니다.
+
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job.png" alt-text="드롭다운 컨트롤이 열려 있는 작업 실행 블레이드를 표시 하 여 마이그레이션할 선택한 백업을 표시 하는 이미지입니다. 가장 오래 된 백업이 강조 표시 된 후 먼저 선택 해야 합니다." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-run-job-expanded.png":::
+    :::column-end:::
+    :::column:::
+        이 릴리스에서는 각 작업을 여러 번 실행 해야 합니다. </br></br>**마이그레이션하려는 백업 목록에서 가장 오래 된 백업으로 시작 해야 합니다.** (이미지에 강조 표시 됨)</br></br>백업을 선택한 횟수 만큼 점진적으로 최신 백업에 대해 작업을 다시 실행 합니다.
+        </br></br>
+        > [!CAUTION]
+        > 가장 오래 된 백업이 먼저 선택 된 상태에서 마이그레이션 작업을 실행 한 후에 다시 새 백업이 있을 때마다 다시 실행 해야 합니다. 항상 백업 순서를 수동으로 유지 관리 해야 합니다.
+    :::column-end:::
+:::row-end:::
 
 ### <a name="phase-3-summary"></a>3 단계 요약
 
-3 단계를 마치면 StorSimple 볼륨에서 Azure 파일 공유로 데이터 변환 서비스 작업을 실행 하 게 됩니다. 이제 공유에 대 한 Azure 파일 동기화 설정 (공유에 대 한 마이그레이션 작업이 완료 된 후) 또는 정보 근로자와 앱에 대 한 공유 액세스를 Azure 파일 공유로 전송 하는 방법에 집중할 수 있습니다.
+3 단계를 마치면 StorSimple 볼륨에서 Azure 파일 공유로 마이그레이션 작업을 하나 이상 실행 하 게 됩니다. 가장 오래 된 백업부터 마이그레이션해야 하는 최신 백업까지 여러 번 동일한 마이그레이션 작업을 실행 하 게 됩니다. 이제 공유에 대 한 Azure 파일 동기화 설정 (공유의 마이그레이션 작업이 완료 되 면) 또는 정보 근로자와 앱에 대 한 공유 액세스를 Azure 파일 공유로 전송 하는 데 집중할 수 있습니다.
 
 ## <a name="phase-4-access-your-azure-file-shares"></a>4 단계: Azure 파일 공유에 액세스
 
@@ -371,7 +427,7 @@ Azure 파일 동기화의 일부를 배포할 때입니다.
 
 :::row:::
     :::column:::
-        [![Azure 파일 공유를 정보 근로자 및 앱에 직접 안전 하 게 노출 하는 방법에 대 한 단계별 가이드 및 데모-클릭 하 여 재생 합니다.](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/KG0OX0RgytI)
+        [![Azure 파일 공유를 정보 근로자 및 앱에 직접 안전 하 게 노출 하는 방법에 대 한 단계별 가이드 및 데모-클릭 하 여 재생 합니다.](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
     :::column-end:::
     :::column:::
         이 비디오는 5 가지 간단한 단계로 Azure 파일 공유를 정보 근로자 및 앱에 직접 안전 하 게 노출 하는 방법에 대 한 가이드 및 데모입니다.</br>
@@ -391,21 +447,21 @@ Azure 파일 동기화의 일부를 배포할 때입니다.
 
 ### <a name="phase-4-summary"></a>4 단계 요약
 
-이 단계에서는 StorSimple Data Manager에서 여러 데이터 변환 서비스 작업을 만들어 실행 했습니다. 이러한 작업은 파일 및 폴더를 Azure 파일 공유로 마이그레이션 했습니다. 또한 직접 공유 액세스를 위해 네트워크 및 저장소 계정을 Azure 파일 동기화 하거나 준비 했습니다.
+이 단계에서는 StorSimple Data Manager에서 여러 마이그레이션 작업을 만들고 실행 했습니다. 이러한 작업은 파일 및 폴더를 Azure 파일 공유로 마이그레이션 했습니다. 또한 직접 공유 액세스를 위해 네트워크 및 저장소 계정을 Azure 파일 동기화 하거나 준비 했습니다.
 
 ## <a name="phase-5-user-cut-over"></a>5 단계: 사용자 잘림
 
 이 단계는 마이그레이션을 래핑합니다.
 
 * 가동 중지 시간을 계획 하세요.
-* 3 단계에서 데이터 변환 작업이 실행 되는 동안 StorSimple 쪽에서 생성 된 사용자 및 앱에 대 한 변경 내용을 파악 합니다.
+* 3 단계의 마이그레이션 작업을 실행 하는 동안 StorSimple 쪽에서 생성 된 사용자 및 앱에 대 한 변경 내용을 파악 합니다.
 * 사용자가 직접 공유 액세스를 통해 Azure 파일 동기화 또는 Azure 파일 공유를 사용 하 여 새 Windows Server 인스턴스로 장애 조치 (failover) 합니다.
 
 ### <a name="plan-your-downtime"></a>가동 중지 시간 계획
 
 이 마이그레이션 방법에는 사용자 및 앱에 대 한 약간의 가동 중지 시간이 필요 합니다. 목표는 가동 중지 시간을 최소로 유지 하는 것입니다. 다음 사항을 고려할 수 있습니다.
 
-* 데이터 변환 작업을 실행 하는 동안 StorSimple 볼륨을 사용할 수 있도록 유지 합니다.
+* 마이그레이션 작업을 실행 하는 동안 StorSimple 볼륨을 사용할 수 있도록 유지 합니다.
 * 공유에 대 한 데이터 마이그레이션 작업의 실행을 완료 한 후에는 StorSimple 볼륨이 나 공유에서 사용자 액세스 (최소한 쓰기 권한)를 제거 해야 합니다. 최종 RoboCopy는 Azure 파일 공유를 파악 합니다. 그런 다음 사용자를 잘라낼 수 있습니다. RoboCopy를 실행 하는 위치는 Azure 파일 동기화를 사용 하도록 선택 했는지 아니면 직접 공유 액세스를 사용 하도록 선택 했는지에 따라 달라 집니다. RoboCopy의 예정 된 섹션에서는 해당 주제에 대해 설명 합니다.
 * RoboCopy를 성공적으로 완료 한 후에는 Azure 파일 공유를 사용 하 여 사용자에 게 새 위치를 표시 하 고, Azure 파일 동기화를 사용 하 여 Windows Server 인스턴스의 SMB 공유를 제공할 준비가 된 것입니다. 일반적으로 DFS N 배포를 통해 신속 하 고 효율적으로 신속 하 게 해결할 수 있습니다. 기존 공유 주소를 일관 되 게 유지 하 고 마이그레이션된 파일 및 폴더를 포함 하는 새 위치를 다시 가리킵니다.
 
@@ -438,7 +494,7 @@ Windows Server 인스턴스에서 이벤트 뷰어를 사용 하 여 네임 스�
 
 1. 마이그레이션이 진행 되는 동안 StorSimple 쪽에서 사용자 또는 앱이 생성 한 변경 내용을 파악 해야 합니다.
 1. Azure 파일 동기화를 사용 하는 경우: StorSimple 어플라이언스에는 현재 로컬로 저장 된 파일 콘텐츠가 없는 네임 스페이스를 포함 하는 Windows Server 인스턴스와 채워진 캐시가 있습니다. 최종 RoboCopy는 로컬 캐시 된 파일 콘텐츠를 사용 가능 하 게 설정 하 고 Azure 파일 동기화 서버에 맞게 조정 하 여 로컬 Azure 파일 동기화 캐시를 신속 하 게 시작할 수 있습니다.
-1. 일부 파일은 잘못 된 문자로 인해 데이터 변환 작업에 의해 남아 있을 수 있습니다. 이 경우 Azure 파일 동기화 사용 가능한 Windows Server 인스턴스로 복사 합니다. 나중에이를 조정 하 여 동기화 할 수 있습니다. 특정 공유에 대해 Azure 파일 동기화를 사용 하지 않는 경우 StorSimple 볼륨에서 잘못 된 문자가 포함 된 파일의 이름을 바꾸는 것이 좋습니다. 그런 다음 Azure 파일 공유에 대해 직접 RoboCopy를 실행 합니다.
+1. 일부 파일은 잘못 된 문자로 인해 마이그레이션 작업에 의해 남아 있을 수 있습니다. 이 경우 Azure 파일 동기화 사용 가능한 Windows Server 인스턴스로 복사 합니다. 나중에이를 조정 하 여 동기화 할 수 있습니다. 특정 공유에 대해 Azure 파일 동기화를 사용 하지 않는 경우 StorSimple 볼륨에서 잘못 된 문자가 포함 된 파일의 이름을 바꾸는 것이 좋습니다. 그런 다음 Azure 파일 공유에 대해 직접 RoboCopy를 실행 합니다.
 
 > [!WARNING]
 > Windows Server 2019에서는 robocopy의/MIR 함수를 사용 하는 경우 대상 서버에서 Azure 파일 동기화 하 여 계층화 된 파일을 원본에서 다시 복사 하 고 Azure에 다시 업로드 하 게 하는 문제가 발생 합니다. 2019이 아닌 Windows 서버에서 Robocopy를 사용 해야 합니다. Windows Server 2016를 선택 하는 것이 좋습니다. Windows 업데이트를 통해 문제를 해결 해야 하는이 정보를 업데이트 합니다.

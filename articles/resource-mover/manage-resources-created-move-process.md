@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602356"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388484"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>VM 이동에 대해 만든 리소스 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "90602356"
 2. 이동 컬렉션의 VM 및 다른 모든 원본 리소스가 이동/삭제 되었는지 확인 합니다. 이러한 리소스를 사용하는 보류 중인 리소스가 남아 있지 않도록 확인하기 위한 절차입니다.
 2. 이러한 리소스를 삭제 합니다.
 
-    - 이동 컬렉션 이름은 ```movecollection-<sourceregion>-<target-region>```입니다.
+    - 이동 컬렉션 이름은 ```movecollection-<sourceregion>-<target-region>-<metadata-region>```입니다.
     - 캐시 스토리지 계정 이름은 ```resmovecache<guid>```입니다.
     - 자격 증명 모음 이름은 ```ResourceMove-<sourceregion>-<target-region>-GUID```입니다.
 

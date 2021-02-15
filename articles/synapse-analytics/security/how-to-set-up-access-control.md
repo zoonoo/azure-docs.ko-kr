@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102175"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369002"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법 
 
@@ -43,7 +43,7 @@ Synapse 작업 영역을 보호 하려면 다음 항목을 구성 하는 패턴�
 
 이 문서에서는 지침을 단순화하기 위해 표준 이름을 사용합니다. 사용자가 선택한 이름으로 바꿉니다.
 
-|Setting | 표준 이름 | Description |
+|설정 | 표준 이름 | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse 작업 영역** | `workspace1` |  Synapse 작업 영역의 이름입니다. |
 | **ADLSGEN2 계정** | `storage1` | 작업 영역에 사용할 ADLS 계정입니다. |
@@ -132,7 +132,7 @@ SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자에 게 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>6 단계: SQL Active Directory 관리자 역할 할당
 
-워크스테이션 작성자는 작업 영역에 대 한 SQL Active Directory 관리자로 자동으로 설정 됩니다.  이 역할은 단일 사용자 또는 그룹에만 부여할 수 있습니다. 이 단계에서는 작업 영역의 SQL Active Directory 관리자를 보안 그룹에 할당 합니다 `workspace1_SQLAdmins` .  이 역할을 할당 하면 작업 영역의 모든 SQL 풀 및 데이터베이스에 대해 높은 권한의 관리자 권한이이 그룹에 부여 됩니다.   
+작업 영역 작성자는 작업 영역에 대 한 SQL Active Directory 관리자로 자동으로 설정 됩니다.  이 역할은 단일 사용자 또는 그룹에만 부여할 수 있습니다. 이 단계에서는 작업 영역의 SQL Active Directory 관리자를 보안 그룹에 할당 합니다 `workspace1_SQLAdmins` .  이 역할을 할당 하면 작업 영역의 모든 SQL 풀 및 데이터베이스에 대해 높은 권한의 관리자 권한이이 그룹에 부여 됩니다.   
 
 - Azure 포털 열기
 - `workspace1`로 이동

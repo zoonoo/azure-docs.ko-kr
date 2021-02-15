@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8a7bb620b7fcc9c878986d3575e22bb6f0f77bc
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: b1bcba264589d6cbe9b4f671e1e4f2c9b1dbf2c5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724137"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99594251"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>자습서: Azure Remote Rendering 및 모델 스토리지 보안
 
@@ -41,16 +41,16 @@ Azure Remote Rendering은 올바른 구성을 사용하여 Azure Blob Storage의
 
 연결된 BLOB 스토리지를 사용하는 경우 모델을 로드할 때 다음과 같이 약간 다른 방법을 사용하게 됩니다.
 
-```csharp
-var loadModelParams = new LoadModelFromSASParams(modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelFromSASAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelFromSasOptions(modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsync(loadModelParams);
 ```
 
-위의 줄에서는 `FromSAS` 버전의 매개 변수 및 세션 작업을 사용합니다. 이러한 버전을 SAS가 아닌 버전으로 변환해야 합니다.
+위의 줄에서는 `FromSas` 버전의 매개 변수 및 세션 작업을 사용합니다. 이러한 버전을 SAS가 아닌 버전으로 변환해야 합니다.
 
-```csharp
-var loadModelParams = new LoadModelParams(storageAccountPath, blobContainerName, modelPath, modelEntity);
-var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
+```cs
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
 연결된 BLOB 스토리지 계정의 사용자 지정 모델을 로드하도록 **RemoteRenderingCoordinator** 를 수정하겠습니다.
@@ -58,7 +58,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 1. 아직 [방법: 스토리지 계정 연결](../../../how-tos/create-an-account.md#link-storage-accounts)을 완료하지 않았다면 지금 완료하여 Blob Storage 인스턴스에 액세스하기 위한 ARR 인스턴스 권한을 부여합니다.
 1. 현재 **LoadModel** 메서드 바로 아래에서 수정된 다음 **LoadModel** 메서드를 **RemoteRenderingCoordinator** 에 추가합니다.
 
-    ```csharp
+    ```cs
     /// <summary>
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
@@ -68,10 +68,10 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, ProgressHandler progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
-        var modelEntity = ARRSessionService.CurrentActiveSession.Actions.CreateEntity();
+        var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
 
         //Get the game object representation of this entity
         var modelGameObject = modelEntity.GetOrCreateGameObject(UnityCreationMode.DoNotCreateUnityComponents);
@@ -100,11 +100,9 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
     #endif
 
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelParams($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
-        var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsync(loadModelParams);
-        if (progress != null)
-            loadModelAsync.ProgressUpdated += progress;
-        var result = await loadModelAsync.AsTask();
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
+        var result = await loadModelAsync;
         return modelEntity;
     }
     ```
@@ -115,7 +113,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
 1. **LoadTestModel** 바로 뒤에서 다음 메서드를 **RemoteRenderingCoordinator** 에 추가합니다.
 
-    ```csharp
+    ```cs
     private bool loadingLinkedCustomModel = false;
 
     [SerializeField]
@@ -190,7 +188,7 @@ var loadModelAsync = ARRSessionService.CurrentActiveSession.Actions.LoadModelAsy
 
 AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개인 또는 그룹을 확인할 수 있습니다. ARR은 계정 키를 사용하는 대신 [액세스 토큰](../../../../active-directory/develop/access-tokens.md)을 허용하는 기능을 기본적으로 제공합니다. 액세스 토큰은 요청된 특정 리소스의 특정 부분만 잠금 해제하는 시간이 제한된 사용자 관련 키로 생각하시면 됩니다.
 
-**RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **AzureFrontendAccountInfo** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter** 라는 대리자가 있습니다. **ARRCredentialGetter** 에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **AzureFrontendAccountInfo** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
+**RemoteRenderingCoordinator** 스크립트에는 원격 세션 관리를 구성하는 데 사용되는 **SessionConfiguration** 개체를 반환하는 메서드가 포함된 **ARRCredentialGetter** 라는 대리자가 있습니다. **ARRCredentialGetter** 에 다른 메서드를 할당하여 Azure 로그인 흐름을 사용하도록 허용하고, Azure 액세스 토큰을 포함하는 **SessionConfiguration** 개체를 생성할 수 있습니다. 이 액세스 토큰은 로그인하는 사용자에게 적용됩니다.
 
 1. [방법: 인증 구성 - 배포된 애플리케이션에 대한 인증](../../../how-tos/authentication.md#authentication-for-deployed-applications)을 따르세요. 특히, Azure Spatial Anchors 설명서 [Azure AD 사용자 인증](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication)에 나열된 지침을 따릅니다. 여기에는 새 Azure Active Directory 애플리케이션을 등록하고 ARR 인스턴스에 대한 액세스를 구성하는 작업이 포함됩니다.
 1. 새 AAD 애플리케이션을 구성한 후에는 AAD 애플리케이션이 다음 이미지와 비슷한지 확인합니다.
@@ -206,11 +204,11 @@ AAD 인증을 사용하면 보다 제어된 방식으로 ARR을 사용하는 개
     >[!NOTE]
     > *소유자* 역할은 클라이언트 애플리케이션을 통해 세션을 관리하기에 충분하지 않습니다. 세션 관리 기능을 부여하려는 모든 사용자에게 **Remote Rendering 클라이언트** 역할을 제공해야 합니다. 세션을 관리하고 모델을 변환하는 기능을 부여하려는 모든 사용자에게 **Remote Rendering 관리자** 역할을 제공해야 합니다.
 
-Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 연결하는 방법을 수정해야 합니다. 이를 위해 새 **AzureFrontendAccountInfo** 개체를 반환하는 **BaseARRAuthentication** 인스턴스를 구현합니다. 여기서는 Azure 액세스 토큰을 사용하여 계정 정보를 구성합니다.
+Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 연결하는 방법을 수정해야 합니다. 이를 위해 새 **SessionConfiguration** 개체를 반환하는 **BaseARRAuthentication** 인스턴스를 구현합니다. 여기서는 Azure 액세스 토큰을 사용하여 계정 정보를 구성합니다.
 
 1. **AADAuthentication** 이라는 새 스크립트를 만들고 해당 코드를 다음으로 바꿉니다.
 
-    ```csharp
+    ```cs
     // Copyright (c) Microsoft Corporation. All rights reserved.
     // Licensed under the MIT License. See LICENSE in the project root for license information.
 
@@ -278,7 +276,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
             this.gameObject.AddComponent<ExecuteOnUnityThread>();
         }
 
-        public async override Task<AzureFrontendAccountInfo> GetAARCredentials()
+        public async override Task<SessionConfiguration> GetAARCredentials()
         {
             var result = await TryLogin();
             if (result != null)
@@ -287,7 +285,7 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 
                 var AD_Token = result.AccessToken;
 
-                return await Task.FromResult(new AzureFrontendAccountInfo(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+                return await Task.FromResult(new SessionConfiguration(AzureRemoteRenderingAccountAuthenticationDomain, AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
             }
             else
             {
@@ -373,11 +371,11 @@ Azure 쪽의 준비가 완료되었으므로, 이제 코드가 AAR 서비스에 
 
 ARR 관점에서 이 클래스의 가장 중요한 부분은 다음 줄입니다.
 
-```csharp
-return await Task.FromResult(new AzureFrontendAccountInfo(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
+```cs
+return await Task.FromResult(new SessionConfiguration(AccountDomain, AzureRemoteRenderingAccountID, "", AD_Token, ""));
 ```
 
-여기서는 계정 도메인, 계정 ID, 계정 인증 도메인 및 액세스 토큰을 사용하여 새 **AzureFrontendAccountInfo** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
+여기서는 계정 도메인, 계정 ID, 계정 인증 도메인 및 액세스 토큰을 사용하여 새 **SessionConfiguration** 개체를 만듭니다. 이전에 구성된 역할 기반 권한에 따라 사용자에게 권한이 부여되는 한, ARR 서비스에서 원격 렌더링 세션을 쿼리, 생성 및 조인할 때 이 토큰이 사용됩니다.
 
 이렇게 변경한 후, 애플리케이션의 현재 상태와 Azure 리소스에 대한 액세스는 다음과 같습니다.
 
