@@ -11,12 +11,13 @@ ms.reviewer: larryfr
 ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+adobe-target: true
+ms.openlocfilehash: da47967b719b5ce601d8049f54597c207ea732c8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185804"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372037"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 machine learning 모델 배포
 
@@ -314,13 +315,13 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
-| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
+| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | Yes |
+| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | Yes |
 
 > [!TIP]
 > 을 배포 하는 경우 계산 대상의 Docker 이미지가 Azure Container Registry (ACR)에서 빌드되고 로드 됩니다. 기본적으로 Azure Machine Learning는 *기본 서비스 계층을 사용* 하는 ACR을 만듭니다. 작업 영역에 대 한 ACR을 표준 또는 프리미엄 계층으로 변경 하면 이미지를 빌드하고 계산 대상에 배포 하는 데 걸리는 시간이 줄어들 수 있습니다. 자세한 내용은 [Azure Container Registry 서비스 계층](../container-registry/container-registry-skus.md)을 참조하세요.

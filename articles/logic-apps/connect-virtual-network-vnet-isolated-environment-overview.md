@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: 7bb9c8552f673587891fde12e25d4fb899726c22
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 4d83609eea57c2350881360ef757b1a291627c23
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108571"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374731"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -93,20 +93,22 @@ ISE 커넥터가 없거나 가상 네트워크 외부에 있거나 가상 네트
 
 ## <a name="ise-skus"></a>ISE Sku
 
-ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습니다. 이러한 Sku 간의 차이점은 다음과 같습니다.
+ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습니다. 이 SKU 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. 이러한 Sku 간의 차이점은 다음과 같습니다.
 
 * **개발자**
 
-  는 실험, 개발 및 테스트에 사용할 수 있지만 프로덕션 또는 성능 테스트에는 사용할 수 없는 저렴 한 ISE를 제공 합니다. 개발자 SKU에는 고정 월별 가격에 대 한 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터 및 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정이 포함 되어 있습니다. 그러나이 SKU에는 SLA (서비스 수준 계약), 용량을 확장 하는 옵션 또는 재활용 중 중복성을 포함 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다.
+  는 탐색, 실험, 개발 및 테스트에 사용할 수 있지만 프로덕션 또는 성능 테스트에는 사용할 수 없는 저렴 한 ISE를 제공 합니다. 개발자 SKU에는 [고정 월별 가격](https://azure.microsoft.com/pricing/details/logic-apps)에 대 한 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터 및 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정이 포함 되어 있습니다. 
+
+  > [!IMPORTANT]
+  > 이 SKU에는 SLA (서비스 수준 계약), 강화 기능 또는 중복성을 제공 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다. 백 엔드 업데이트는 간헐적으로 서비스를 중단할 수 있습니다.
+
+  용량 및 제한 정보는 [Azure Logic Apps ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)을 참조 하세요. ISEs에 대 한 요금이 청구 되는 방식에 대 한 자세한 내용은 [가격 책정 모델 Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing)를 참조 하세요.
 
 * **Premium**
 
-  는 프로덕션에 사용할 수 있는 ISE를 제공 하 고 SLA 지원, 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터, 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정, 용량을 확장 하는 옵션 및 고정 된 월별 가격을 재활용 하는 동안 중복성을 포함 합니다.
+  프로덕션 및 성능 테스트에 사용할 수 있는 ISE를 제공 합니다. Premium SKU에는 SLA 지원, 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터, 단일 [표준 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정, 수직 확장 기능 및 [고정 된 월간 가격](https://azure.microsoft.com/pricing/details/logic-apps)으로 재활용 하는 중복성이 포함 됩니다.
 
-> [!IMPORTANT]
-> SKU 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다.
-
-가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. ISE의 가격 책정 및 요금 청구 방식은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조하세요.
+  용량 및 제한 정보는 [Azure Logic Apps ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)을 참조 하세요. ISEs에 대 한 요금이 청구 되는 방식에 대 한 자세한 내용은 [가격 책정 모델 Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing)를 참조 하세요.
 
 <a name="endpoint-access"></a>
 

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb8533f4ca714402482c666c520c1d0bd745e8cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363273"
+ms.locfileid: "100518830"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -83,11 +83,11 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 [인증 정책 관리자](#authentication-policy-administrator) 역할에는 각 사용자가 등록 하 고 사용할 수 있는 메서드를 결정 하는 테 넌 트의 인증 방법 정책을 설정할 수 있는 권한이 있습니다.
 
-| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |  
+| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 | 
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예  |예 | 예  |예 | 
-| 인증 정책 관리자 | 예  |예 | 예 | 예 | 예 | 
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 | 
+| 인증 정책 관리자 | 예 |예 | 예 | 예 | 예 | 
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
@@ -107,11 +107,11 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 [인증 관리자](#authentication-administrator) 와 [권한 있는 인증 관리자](#privileged-authentication-administrator) 역할에는 사용자에 대해 등록 된 인증 방법을 관리할 수 있는 권한이 있으며 모든 사용자에 대해 multi-factor authentication을 강제로 다시 등록할 수 있습니다. 
 
-| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |  
+| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 | 
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예  |예 | 예  |예 | 
-| 인증 정책 관리자 | 예  |예 | 예 | 예 | 예 | 
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 | 
+| 인증 정책 관리자 | 예 | 예 | 예 | 예 | 예 | 
 
 > [!IMPORTANT]
 > 이 역할은 현재 레거시 MFA 관리 포털에서 MFA 설정을 관리할 수 없습니다.
@@ -242,7 +242,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 이 관리자는 Azure AD 조직과 외부 ID 공급자 간의 페더레이션을 관리합니다.  이 역할의 사용자는 새 ID 공급자를 추가하고 사용 가능한 모든 설정(예: 인증 경로, 서비스 ID, 할당된 키 컨테이너)을 구성할 수 있습니다.  이 사용자는 Azure AD 조직이 외부 ID 공급자의 인증을 신뢰할 수 있게 해줍니다.  최종 사용자 환경에 미치는 영향은 조직의 유형에 따라 달라집니다.
 
-* 직원 및 파트너를 위한 Azure AD 조직: 페더레이션을 추가하면(예: Gmail을 사용하여) 아직 사용되지 않은 모든 게스트 초대에 즉시 영향을 줍니다. [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](../external-identities/google-federation.md)를 참조하세요.
+* 직원 및 파트너를 위한 Azure AD 조직: 페더레이션의 추가 (예: Gmail)는 아직 회수 되지 않은 모든 게스트 초대에 즉시 영향을 줍니다. [Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가](../external-identities/google-federation.md)를 참조하세요.
 * Azure Active Directory B2C 조직: 페더레이션을 추가해도(예: Facebook 또는 다른 Azure AD 조직을 사용하여) 사용자 흐름(기본 제공 정책이라고도 함)에서 ID 공급자를 옵션으로 추가하기 전에는 최종 사용자 흐름에 즉시 영향을 주지 않습니다. 관련 예제는 [Microsoft 계정을 ID 공급자로 구성](../../active-directory-b2c/identity-provider-microsoft-account.md)을 참조하세요.  사용자 흐름을 변경하려면 "B2C 사용자 흐름 관리자"의 제한된 역할이 필요합니다.
 
 ### <a name="global-administrator"></a>[전역 관리자](#global-administrator-permissions)
@@ -293,7 +293,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="hybrid-identity-administrator"></a>[하이브리드 ID 관리자](#hybrid-identity-administrator-permissions)
 
-이 역할의 사용자는 클라우드 프로 비전을 사용 하 고 페더레이션 설정을 관리할 뿐만 아니라 AD에서 Azure AD로의 프로 비전 구성 설정을 만들고 관리 하 고 배포할 수 있습니다. 또한 사용자는이 역할을 사용 하 여 로그 문제를 해결 하 고 모니터링할 수 있습니다.  
+이 역할의 사용자는 클라우드 프로 비전을 사용 하 고 페더레이션 설정을 관리할 뿐만 아니라 AD에서 Azure AD로의 프로 비전 구성 설정을 만들고 관리 하 고 배포할 수 있습니다. 또한 사용자는이 역할을 사용 하 여 로그 문제를 해결 하 고 모니터링할 수 있습니다.
 
 ### <a name="insights-administrator"></a>[Insights 관리자](#insights-administrator-permissions)
 이 역할의 사용자는 [M365 Insights 응용 프로그램](https://go.microsoft.com/fwlink/?linkid=2129521)의 전체 관리 기능 집합에 액세스할 수 있습니다. 이 역할에는 디렉터리 정보를 읽고, 서비스 상태를 모니터링 하 고, 파일 지원 티켓을 확인 하 고, Insights 관리 설정 측면에 액세스할 수 있는 기능이 있습니다.
@@ -336,10 +336,10 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 **최신 상거래 사용자 역할은 언제 할당 되나요?**
 
-* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](/microsoft-365/commerce/subscriptions/self-service-purchase-faq)을 참조하세요.  
-* **Microsoft 상업적 marketplace에서 구매**  – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
-* **Microsoft의 제안** – 제안은 조직에 Microsoft 제품 및 서비스를 구매할 것을 권유하는 Microsoft의 공식 제안입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 해당 제안서를 완료 하 고 최신 상거래 사용자 역할을 할당 하 여 관리 센터에 액세스 하기 위한 상거래 역할을 모두 할당 받습니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
-* **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.  
+* **Microsoft 365 관리 센터에서 셀프 서비스 구매** – 사용자는 셀프 서비스 구매를 통해 제품을 직접 구매하거나 가입하여 신제품을 사용해 볼 수 있습니다. 이러한 제품은 관리 센터에서 관리됩니다. 셀프 서비스 구매를 수행 하는 사용자에 게는 상거래 시스템의 역할과 최신 상거래 사용자 역할이 할당 되므로 관리 센터에서 해당 구매를 관리할 수 있습니다. 관리자는 [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell)을 통해(Power BI, Power Apps 및 Power Automate에 대한) 셀프 서비스 구매를 차단할 수 있습니다. 자세한 내용은 [셀프 서비스 구매 질문과 대답](/microsoft-365/commerce/subscriptions/self-service-purchase-faq)을 참조하세요.
+* **Microsoft 상업적 marketplace에서 구매** – 사용자가 Microsoft AppSource 또는 Azure Marketplace에서 제품이 나 서비스를 구입 하는 경우에는 전역 관리자 또는 청구 관리자 역할이 없는 경우 최신 상거래 사용자 역할이 할당 됩니다. 경우에 따라 사용자가 제품을 구매하지 못하게 차단될 수도 있습니다. 자세한 내용은 [Microsoft 상업용 마켓플레이스](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)를 참조하세요.
+* **Microsoft의 제안** – 제안은 microsoft 제품 및 서비스를 구매할 수 있는 microsoft의 공식 제품입니다. 제안을 수락 하는 사용자에 게 Azure AD의 전역 관리자 또는 청구 관리자 역할이 없는 경우, 해당 제안서를 완료 하 고 최신 상거래 사용자 역할을 할당 하 여 관리 센터에 액세스 하기 위한 상거래 역할을 모두 할당 받습니다. 이 사람은 관리 센터에 액세스할 때 자신의 상거래 관련 역할에 의해 권한이 부여된 기능만 사용할 수 있습니다.
+* **상거래 관련 역할** - 일부 사용자에게 상거래 관련 역할이 할당됩니다. 사용자가 전역 또는 대금 청구 관리자가 아니면 관리 센터에 액세스할 수 있도록 최신 상거래 사용자 역할을 받게 됩니다.
 
 최신 상거래 사용자 역할이 사용자에 게 할당 되지 않은 경우에는 Microsoft 365 관리 센터에 액세스할 수 없게 됩니다. 직접 또는 조직을 대신해서 제품을 관리하는 사용자는 제품을 관리할 수 없게 됩니다. 여기에는 라이선스 할당, 결제 방법 변경, 청구서 결제 또는 구독 관리에 대한 기타 작업이 포함될 수 있습니다.
 
@@ -389,11 +389,11 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 
 [인증 정책 관리자](#authentication-policy-administrator) 역할에는 각 사용자가 등록 하 고 사용할 수 있는 메서드를 결정 하는 테 넌 트의 인증 방법 정책을 설정할 수 있는 권한이 있습니다.
 
-| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |  
+| 역할 | 사용자의 인증 방법 관리 | 사용자별 MFA 관리 | MFA 설정 관리 | 인증 방법 정책 관리 | 암호 보호 정책 관리 |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | 인증 관리자 | 일부 사용자의 경우 예 (위 참조) | 일부 사용자의 경우 예 (위 참조) | 예 | 예 | 예 | 
-| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예  |예 | 예  |예 | 
-| 인증 정책 관리자 | 예  |예 | 예 | 예 | 예 | 
+| 권한 있는 인증 관리자| 모든 사용자에 대해 예 | 모든 사용자에 대해 예 | 예 | 예 | 예 | 
+| 인증 정책 관리자 | 예 | 예 | 예 | 예 | 예 | 
 
 > [!IMPORTANT]
 > 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
@@ -718,7 +718,7 @@ Identity Experience Framework에서 페더레이션 및 암호화용 비밀을 �
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Azure Active Directory B2C에서 키 세트를 읽고 구성합니다. |
+> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Azure Active Directory B2C에서 키 집합을 읽고 구성 합니다. |
 
 ### <a name="b2c-ief-policy-administrator-permissions"></a>B2C IEF 정책 관리자 권한
 
@@ -727,7 +727,7 @@ Identity Experience Framework에서 보안 프레임워크 정책을 만들고 �
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.aad.b2c/trustFramework/policies/allTasks | Azure Active Directory B2C에서 사용자 지정 정책을 읽고 구성합니다. |
+> | microsoft.aad.b2c/trustFramework/policies/allTasks | Azure Active Directory B2C에서 사용자 지정 정책을 읽고 구성 합니다. |
 
 ### <a name="billing-administrator-permissions"></a>대금 청구 관리자 권한
 
@@ -992,7 +992,7 @@ Azure AD Connect에서만 사용됩니다.
 > | --- | --- |
 > | microsoft.directory/groups/appRoleAssignments/update | Azure Active Directory에서 groups.appRoleAssignments 속성을 업데이트합니다. |
 > | microsoft. 디렉터리/그룹/할당 라이선스 | Azure Active Directory의 그룹에 대 한 라이선스를 관리 합니다. |
-> | microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다.  |
+> | microsoft.directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
 > | microsoft. 디렉터리/그룹/분류/업데이트 | Azure Active Directory 그룹의 분류 속성을 업데이트 합니다. |
 > | microsoft.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
 > | microsoft. directory/groups/groupType/update | Azure Active Directory 그룹의 groupType 속성을 업데이트 합니다. |
@@ -1081,7 +1081,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.aad.b2c/userFlows/allTasks | Azure Active Directory B2C에서 사용자 흐름을 읽고 구성합니다. |
+> | microsoft.aad.b2c/userFlows/allTasks | Azure Active Directory B2C에서 사용자 흐름을 읽고 구성 합니다. |
 
 ### <a name="external-id-user-flow-attribute-administrator-permissions"></a>외부 ID 사용자 흐름 특성 관리자 권한
 
@@ -1090,7 +1090,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.aad.b2c/userAttributes/allTasks | Azure Active Directory B2C에서 사용자 특성을 읽고 구성합니다. |
+> | microsoft.aad.b2c/userAttributes/allTasks | Azure Active Directory B2C에서 사용자 특성을 읽고 구성 합니다. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>외부 ID 공급자 관리자 권한
 
@@ -1099,7 +1099,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.aad.b2c/identityProviders/allTasks | Azure Active Directory B2C에서 ID 공급자를 읽고 구성합니다. |
+> | microsoft.aad.b2c/identityProviders/allTasks | Azure Active Directory B2C에서 id 공급자를 읽고 구성 합니다. |
 
 ### <a name="global-administrator-permissions"></a>전역 관리자 권한
 
@@ -1183,69 +1183,69 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.commerce.billing/allEntities/read    | 청구와 관련된 모든 것을 읽습니다. |
-> | microsoft.directory/administrativeUnits/basic/read    | Azure Active Directory에서 administrativeUnits의 기본 속성을 읽습니다. |
-> | microsoft.directory/administrativeUnits/members/read    | Azure Active Directory에서 administrativeUnits.members 속성을 읽습니다. |
-> | microsoft.directory/applications/basic/read    | Azure Active Directory에서 애플리케이션의 기본 속성을 읽습니다. |
-> | microsoft.directory/applications/owners/read    | Azure Active Directory에서 applications.owners 속성을 읽습니다. |
-> | microsoft.directory/applications/policies/read    | Azure Active Directory에서 applications.policies 속성을 읽습니다. |
+> | microsoft.commerce.billing/allEntities/read | 청구와 관련된 모든 것을 읽습니다. |
+> | microsoft.directory/administrativeUnits/basic/read | Azure Active Directory에서 administrativeUnits의 기본 속성을 읽습니다. |
+> | microsoft.directory/administrativeUnits/members/read | Azure Active Directory에서 administrativeUnits.members 속성을 읽습니다. |
+> | microsoft.directory/applications/basic/read | Azure Active Directory에서 애플리케이션의 기본 속성을 읽습니다. |
+> | microsoft.directory/applications/owners/read | Azure Active Directory에서 applications.owners 속성을 읽습니다. |
+> | microsoft.directory/applications/policies/read | Azure Active Directory에서 applications.policies 속성을 읽습니다. |
 > | microsoft. directory/bitlockerKeys/키/읽기 | Azure Active Directory에서 bitlocker 키 개체 및 속성 (복구 키 포함)을 읽습니다. |
-> | microsoft.directory/contacts/basic/read    | Azure Active Directory에서 연락처의 표준 속성을 읽습니다. |
-> | microsoft.directory/contacts/memberOf/read    | Azure Active Directory에서 contacts.memberOf 속성을 읽습니다. |
-> | microsoft.directory/contracts/basic/read    | Azure Active Directory에서 계약의 기본 속성을 읽습니다. |
-> | microsoft.directory/devices/basic/read    | Azure Active Directory에서 디바이스의 기본 속성을 읽습니다. |
-> | microsoft.directory/devices/memberOf/read    | Azure Active Directory에서 devices.memberOf 속성을 읽습니다. |
-> | microsoft.directory/devices/registeredOwners/read    | Azure Active Directory에서 devices.registeredOwners 속성을 읽습니다. |
-> | microsoft.directory/devices/registeredUsers/read    | Azure Active Directory에서 devices.registeredUsers 속성을 읽습니다. |
-> | microsoft.directory/directoryRoles/basic/read    | Azure Active Directory에서 directoryRoles의 기본 속성을 읽습니다. |
-> | microsoft.directory/directoryRoles/eligibleMembers/read    | Azure Active Directory에서 directoryRoles.eligibleMembers 속성을 읽습니다. |
-> | microsoft.directory/directoryRoles/members/read    | Azure Active Directory에서 directoryRoles.members 속성을 읽습니다. |
-> | microsoft.directory/domains/basic/read    | Azure Active Directory에서 도메인의 기본 속성을 읽습니다. |
+> | microsoft.directory/contacts/basic/read | Azure Active Directory에서 연락처의 표준 속성을 읽습니다. |
+> | microsoft.directory/contacts/memberOf/read | Azure Active Directory에서 contacts.memberOf 속성을 읽습니다. |
+> | microsoft.directory/contracts/basic/read | Azure Active Directory에서 계약의 기본 속성을 읽습니다. |
+> | microsoft.directory/devices/basic/read | Azure Active Directory에서 디바이스의 기본 속성을 읽습니다. |
+> | microsoft.directory/devices/memberOf/read | Azure Active Directory에서 devices.memberOf 속성을 읽습니다. |
+> | microsoft.directory/devices/registeredOwners/read | Azure Active Directory에서 devices.registeredOwners 속성을 읽습니다. |
+> | microsoft.directory/devices/registeredUsers/read | Azure Active Directory에서 devices.registeredUsers 속성을 읽습니다. |
+> | microsoft.directory/directoryRoles/basic/read | Azure Active Directory에서 directoryRoles의 기본 속성을 읽습니다. |
+> | microsoft.directory/directoryRoles/eligibleMembers/read | Azure Active Directory에서 directoryRoles.eligibleMembers 속성을 읽습니다. |
+> | microsoft.directory/directoryRoles/members/read | Azure Active Directory에서 directoryRoles.members 속성을 읽습니다. |
+> | microsoft.directory/domains/basic/read | Azure Active Directory에서 도메인의 기본 속성을 읽습니다. |
 > | microsoft. directory/entitlementManagement/allProperties/read | Azure AD 자격 관리에서 모든 속성을 읽습니다. |
-> | microsoft.directory/groups/appRoleAssignments/read    | Azure Active Directory에서 Groups.AppRoleAssignments 속성을 읽습니다. |
-> | microsoft.directory/groups/basic/read    | Azure Active Directory에서 그룹의 기본 속성을 읽습니다. |
-> | microsoft.directory/groups/hiddenMembers/read    | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
-> | microsoft.directory/groups/memberOf/read    | Azure Active Directory에서 groups.memberOf 속성을 읽습니다. |
-> | microsoft.directory/groups/members/read    | Azure Active Directory에서 groups.members 속성을 읽습니다. |
-> | microsoft.directory/groups/owners/read    | Azure Active Directory에서 groups.owners 속성을 읽습니다. |
-> | microsoft.directory/groups/settings/read    | Azure Active Directory에서 groups.settings 속성을 읽습니다. |
-> | microsoft.directory/groupSettings/basic/read    | Azure Active Directory에서 groupSettings의 기본 속성을 읽습니다. |
-> | microsoft.directory/groupSettingTemplates/basic/read    | Azure Active Directory에서 groupSettingTemplates의 기본 속성을 읽습니다. |
-> | microsoft.directory/oAuth2PermissionGrants/basic/read    | Azure Active Directory에서 oAuth2PermissionGrants의 기본 속성을 읽습니다. |
-> | microsoft.directory/organization/basic/read    | Azure Active Directory에서 조직의 기본 속성을 읽습니다. |
-> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read    | Azure Active Directory에서 organization.trustedCAsForPasswordlessAuth 속성을 읽습니다. |
-> | microsoft.directory/policies/standard/read    | Azure Active Directory에서 표준 정책을 읽습니다. |
+> | microsoft.directory/groups/appRoleAssignments/read | Azure Active Directory에서 Groups.AppRoleAssignments 속성을 읽습니다. |
+> | microsoft.directory/groups/basic/read | Azure Active Directory에서 그룹의 기본 속성을 읽습니다. |
+> | microsoft.directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
+> | microsoft.directory/groups/memberOf/read | Azure Active Directory에서 groups.memberOf 속성을 읽습니다. |
+> | microsoft.directory/groups/members/read | Azure Active Directory에서 groups.members 속성을 읽습니다. |
+> | microsoft.directory/groups/owners/read | Azure Active Directory에서 groups.owners 속성을 읽습니다. |
+> | microsoft.directory/groups/settings/read | Azure Active Directory에서 groups.settings 속성을 읽습니다. |
+> | microsoft.directory/groupSettings/basic/read | Azure Active Directory에서 groupSettings의 기본 속성을 읽습니다. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Azure Active Directory에서 groupSettingTemplates의 기본 속성을 읽습니다. |
+> | microsoft.directory/oAuth2PermissionGrants/basic/read | Azure Active Directory에서 oAuth2PermissionGrants의 기본 속성을 읽습니다. |
+> | microsoft.directory/organization/basic/read | Azure Active Directory에서 조직의 기본 속성을 읽습니다. |
+> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read | Azure Active Directory에서 organization.trustedCAsForPasswordlessAuth 속성을 읽습니다. |
+> | microsoft.directory/policies/standard/read | Azure Active Directory에서 표준 정책을 읽습니다. |
 > | microsoft.directory/provisioningLogs/allProperties/read | 프로 비전 로그의 모든 속성을 읽습니다. |
-> | microsoft.directory/roleAssignments/basic/read    | Azure Active Directory에서 roleAssignments의 기본 속성을 읽습니다. |
-> | microsoft.directory/roleDefinitions/basic/read    | Azure Active Directory에서 roleDefinitions의 기본 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read    | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/appRoleAssignments/read    | Azure Active Directory에서 servicePrincipals.appRoleAssignments 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/basic/read    | Azure Active Directory에서 servicePrincipals의 기본 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/memberOf/read    | Azure Active Directory에서 servicePrincipals.memberOf 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read    | Azure Active Directory에서 servicePrincipals.oAuth2PermissionGrants 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/ownedObjects/read    | Azure Active Directory에서 servicePrincipals.ownedObjects 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/owners/read    | Azure Active Directory에서 servicePrincipals.owners 속성을 읽습니다. |
-> | microsoft.directory/servicePrincipals/policies/read    | Azure Active Directory에서 servicePrincipals.policies 속성을 읽습니다. |
-> | microsoft.directory/signInReports/allProperties/read    | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
-> | microsoft.directory/subscribedSkus/basic/read    | Azure Active Directory에서 subscribedSkus의 기본 속성을 읽습니다. |
-> | microsoft.directory/users/appRoleAssignments/read    | Azure Active Directory에서 users.appRoleAssignments 속성을 읽습니다. |
-> | microsoft.directory/users/basic/read    | Azure Active Directory에서 사용자의 기본 속성을 읽습니다. |
-> | microsoft.directory/users/directReports/read    | Azure Active Directory에서 users.directReports 속성을 읽습니다. |
-> | microsoft.directory/users/manager/read    | Azure Active Directory에서 users.manager 속성을 읽습니다. |
-> | microsoft.directory/users/memberOf/read    | Azure Active Directory에서 users.memberOf 속성을 읽습니다. |
-> | microsoft.directory/users/oAuth2PermissionGrants/basic/read    | Azure Active Directory에서 users.oAuth2PermissionGrants 속성을 읽습니다. |
-> | microsoft.directory/users/ownedDevices/read    | Azure Active Directory에서 users.ownedDevices 속성을 읽습니다. |
-> | microsoft.directory/users/ownedObjects/read    | Azure Active Directory에서 users.ownedObjects 속성을 읽습니다. |
-> | microsoft.directory/users/registeredDevices/read    | Azure Active Directory에서 users.registeredDevices 속성을 읽습니다. |
-> | microsoft.directory/users/strongAuthentication/read    | MFA 자격 증명 정보와 같은 강력한 인증 속성을 읽습니다. |
-> | microsoft.office365.exchange/allEntities/read    | Exchange Online의 모든 것을 읽습니다. |
-> | microsoft.office365.messageCenter/messages/read    | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
-> | microsoft.office365.messageCenter/securityMessages/read    | microsoft.office365.messageCenter에서 securityMessages를 읽습니다. |
+> | microsoft.directory/roleAssignments/basic/read | Azure Active Directory에서 roleAssignments의 기본 속성을 읽습니다. |
+> | microsoft.directory/roleDefinitions/basic/read | Azure Active Directory에서 roleDefinitions의 기본 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Azure Active Directory에서 servicePrincipals.appRoleAssignedTo 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | Azure Active Directory에서 servicePrincipals.appRoleAssignments 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/basic/read | Azure Active Directory에서 servicePrincipals의 기본 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/memberOf/read | Azure Active Directory에서 servicePrincipals.memberOf 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Azure Active Directory에서 servicePrincipals.oAuth2PermissionGrants 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/ownedObjects/read | Azure Active Directory에서 servicePrincipals.ownedObjects 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/owners/read | Azure Active Directory에서 servicePrincipals.owners 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/policies/read | Azure Active Directory에서 servicePrincipals.policies 속성을 읽습니다. |
+> | microsoft.directory/signInReports/allProperties/read | Azure Active Directory에서 signInReports에 대한 모든 속성(권한 있는 속성 포함)을 읽습니다. |
+> | microsoft.directory/subscribedSkus/basic/read | Azure Active Directory에서 subscribedSkus의 기본 속성을 읽습니다. |
+> | microsoft.directory/users/appRoleAssignments/read | Azure Active Directory에서 users.appRoleAssignments 속성을 읽습니다. |
+> | microsoft.directory/users/basic/read | Azure Active Directory에서 사용자의 기본 속성을 읽습니다. |
+> | microsoft.directory/users/directReports/read | Azure Active Directory에서 users.directReports 속성을 읽습니다. |
+> | microsoft.directory/users/manager/read | Azure Active Directory에서 users.manager 속성을 읽습니다. |
+> | microsoft.directory/users/memberOf/read | Azure Active Directory에서 users.memberOf 속성을 읽습니다. |
+> | microsoft.directory/users/oAuth2PermissionGrants/basic/read | Azure Active Directory에서 users.oAuth2PermissionGrants 속성을 읽습니다. |
+> | microsoft.directory/users/ownedDevices/read | Azure Active Directory에서 users.ownedDevices 속성을 읽습니다. |
+> | microsoft.directory/users/ownedObjects/read | Azure Active Directory에서 users.ownedObjects 속성을 읽습니다. |
+> | microsoft.directory/users/registeredDevices/read | Azure Active Directory에서 users.registeredDevices 속성을 읽습니다. |
+> | microsoft.directory/users/strongAuthentication/read | MFA 자격 증명 정보와 같은 강력한 인증 속성을 읽습니다. |
+> | microsoft.office365.exchange/allEntities/read | Exchange Online의 모든 것을 읽습니다. |
+> | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
+> | microsoft.office365.messageCenter/securityMessages/read | microsoft.office365.messageCenter에서 securityMessages를 읽습니다. |
 > | microsoft.office365.network/performance/allProperties/read | Microsoft 365 관리 센터에서 네트워크 성능 페이지를 읽습니다. |
-> | microsoft.office365.protectionCenter/allEntities/read    | Office 365 보호 센터의 모든 측면을 읽습니다. |
-> | microsoft.office365.securityComplianceCenter/allEntities/read    | microsoft.office365.securityComplianceCenter에서 모든 표준 속성을 읽습니다. |
-> | microsoft.office365.usageReports/allEntities/read    | Office 365 사용 보고서를 읽습니다. |
-> | microsoft.office365.webPortal/allEntities/standard/read    | microsoft.office365.webPortal에서 모든 리소스에 대한 표준 속성을 읽습니다. |
+> | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
+> | microsoft.office365.securityComplianceCenter/allEntities/read | microsoft.office365.securityComplianceCenter에서 모든 표준 속성을 읽습니다. |
+> | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+> | microsoft.office365.webPortal/allEntities/standard/read | microsoft.office365.webPortal에서 모든 리소스에 대한 표준 속성을 읽습니다. |
 
 ### <a name="groups-administrator-permissions"></a>그룹 관리자 권한
 
@@ -1313,8 +1313,8 @@ Azure AD 클라우드 프로 비전 및 페더레이션 설정에서 AD를 관�
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 > | microsoft.azure.supportTickets/allEntities/allTasks | 디렉터리 수준 서비스에 대 한 Azure 지원 티켓을 만들고 관리 합니다. |
-> | microsoft.directory/applications/audience/update  | Azure Active Directory에서 applications.audience 속성을 업데이트합니다. |
-> | microsoft.directory/applications/authentication/update | Azure Active Directory에서 applications.authentication 속성을 업데이트합니다.  |
+> | microsoft.directory/applications/audience/update | Azure Active Directory에서 applications.audience 속성을 업데이트합니다. |
+> | microsoft.directory/applications/authentication/update | Azure Active Directory에서 applications.authentication 속성을 업데이트합니다. |
 > | microsoft.directory/applications/basic/update | Azure Active Directory에서 애플리케이션의 기본 속성을 업데이트합니다. |
 > | microsoft.directory/applications/create | Azure Active Directory에서 애플리케이션을 만듭니다. |
 > | microsoft.directory/applications/credentials/update | Azure Active Directory에서 applications.credentials 속성을 업데이트합니다. |
@@ -1491,7 +1491,7 @@ Microsoft Kaizala의 설정을 관리할 수 있습니다.
 > [!div class="mx-tableFixed"]
 > | 동작 | 설명 |
 > | --- | --- |
-> | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다.  |
+> | microsoft.office365.network/performance/allProperties/read | M365 관리 센터의 네트워크 성능 페이지를 읽습니다. |
 > | microsoft.office365.network/locations/allProperties/allTasks | 각 위치의 네트워크 위치 속성을 읽고 구성합니다. |
 
 ### <a name="office-apps-administrator-permissions"></a>Office 앱 관리자 권한
@@ -1896,7 +1896,7 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Microsoft 365 Service Health를 읽고 구성 합니다. |
 > | microsoft.office365.skypeForBusiness/allEntities/allTasks | 비즈니스용 Skype Online의 모든 측면을 관리합니다. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-> | microsoft.office365.usageReports/allEntities/read    | Office 365 사용 보고서를 읽습니다. |
+> | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 > | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="teams-administrator-permissions"></a>팀 관리자 권한
@@ -2144,7 +2144,7 @@ API 이름 | Azure Portal 이름 | 메모
 디바이스 관리 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
 디바이스 사용자 | 사용되지 않음 | [사용되지 않는 역할 설명서](permissions-reference.md#deprecated-roles)
 디렉터리 동기화 계정 | 사용하면 안되므로 표시되지 않습니다. | [디렉터리 동기화 계정 설명서](permissions-reference.md#directory-synchronization-accounts)
-게스트 사용자 | 사용하면 안되므로 표시되지 않습니다.  | 해당 없음
+게스트 사용자 | 사용하면 안되므로 표시되지 않습니다. | 해당 없음
 파트너 계층 1 지원 | 사용하면 안되므로 표시되지 않습니다. | [파트너 계층1 지원 설명서](permissions-reference.md#partner-tier1-support)
 파트너 계층 2 지원 | 사용하면 안되므로 표시되지 않습니다. | [파트너 계층2 지원 설명서](permissions-reference.md#partner-tier2-support)
 제한된 게스트 사용자 | 사용하면 안되므로 표시되지 않습니다. | 해당 없음

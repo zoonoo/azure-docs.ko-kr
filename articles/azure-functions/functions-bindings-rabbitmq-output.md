@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: d9e575d68fe4fef607bdf443ece1ddd04f085533
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1664656f82492e664b7574339893cd688f0a061d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746459"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097316"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 RabbitMQ 출력 바인딩
 
@@ -207,7 +207,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예에서는 5 분 마다 타이머 트리거에 의해 트리거되는 경우 RabbitMQ queue로 메시지를 보내는 Java 함수를 보여 줍니다.
+다음 Java 함수는 `@RabbitMQOutput` [java RabbitMQ 형식의](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) 주석을 사용 하 여 RabbitMQ queue 출력 바인딩에 대 한 구성을 설명 합니다. 함수는 5 분 마다 타이머 트리거를 통해 트리거되는 경우 RabbitMQ 큐에 메시지를 보냅니다.
 
 ```java
 @FunctionName("RabbitMQOutputExample")

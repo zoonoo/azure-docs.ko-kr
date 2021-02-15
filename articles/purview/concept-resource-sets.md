@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539470"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387855"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
 
@@ -84,21 +84,21 @@ Azure 부서의 범위는 다음과 같은 리소스 집합 패턴을 지원 합
 
 Azure 부서의 범위는 자산 그룹을 리소스 집합으로 일치 시킬 때 카탈로그에서 표시 이름으로 사용 하기에 가장 유용한 정보를 추출 하려고 시도 합니다. 기본 명명 규칙의 몇 가지 예는 다음과 같습니다. 
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
-정규화 된 이름: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+정규화 된 이름: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 표시 이름: "spark 출력 이름"
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
-정규화 된 이름: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+정규화 된 이름: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 표시 이름: "my 분할 된 데이터"
 
 ### <a name="example-3"></a>예제 3
 
-정규화 된 이름: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+정규화 된 이름: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 표시 이름: "data"
 

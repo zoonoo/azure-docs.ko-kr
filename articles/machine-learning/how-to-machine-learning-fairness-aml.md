@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222771"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366975"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 
@@ -214,10 +214,15 @@ pip install fairlearn==0.4.6
     1. 왼쪽 창에서 **실험** 을 선택 하 여 Azure Machine Learning에서 실행 한 실험의 목록을 확인 합니다.
     1. 특정 실험을 선택 하 여 해당 실험의 모든 실행을 볼 수 있습니다.
     1. 실행을 선택한 다음, 설명 시각화 대시보드의 **공평** 탭을 선택 합니다.
+    1. [ **공평** ] 탭을 마우스 오른쪽 단추로 클릭 한 후 오른쪽의 메뉴에서 **공평 id** 를 클릭 합니다.
+    1. 중요 평가 페이지에서 관심 있는 중요 한 특성, 성능 메트릭 및 공평 메트릭을 선택 하 여 대시보드를 구성 합니다.
+    1. 한 차트 종류에서 다른 항목으로 전환 하 여 **할당** 및 **서비스 품질** 을 모두 관찰할 수 있습니다.
 
 
-    [![공평 대시보드](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![공평 대시보드 할당](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![서비스의 공평 대시보드 품질](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **모델 창**
     1. 이전 단계를 수행 하 여 원래 모델을 등록 한 경우 왼쪽 창에서 **모델** 을 선택 하 여 볼 수 있습니다.
     1. 모델을 선택 하 고 **공평** 탭을 클릭 하 여 설명 시각화 대시보드를 표시 합니다.

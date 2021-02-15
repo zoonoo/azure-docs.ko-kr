@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: eddee58d70cf621bd6c82d54fe75434f4e596d9e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 682394329205d74859c1af0c0a68a37539da7872
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498169"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821757"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>자습서: AzCopy를 사용하여 클라우드 스토리지로 온-프레미스 데이터 마이그레이션
 
@@ -108,7 +108,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * `<container-name>` 자리 표시자를 앞에서 만든 컨테이너 이름으로 바꿉니다.
 
-`sync` 명령에 대한 자세한 내용은 [파일 동기화](storage-use-azcopy-blobs.md#synchronize-files)를 참조하세요.
+`sync` 명령에 대한 자세한 내용은 [파일 동기화](./storage-use-azcopy-v10.md#transfer-data)를 참조하세요.
 
 ## <a name="create-a-scheduled-task"></a>예약된 작업 만들기
 
@@ -182,7 +182,7 @@ AzCopy에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [AzCopy 시작](storage-use-azcopy-v10.md)
 
-* [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](storage-use-azcopy-blobs.md)
+* [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](./storage-use-azcopy-v10.md#transfer-data)
 
 * [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 

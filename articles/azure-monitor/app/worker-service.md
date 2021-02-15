@@ -4,12 +4,12 @@ description: Azure Monitor Application Insights를 사용 하 여 .NET Core/.NET
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: 155a0963146860431cb44c255e1e1d1aca3ae344
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c1ca594626d4384c9dfb62990ee2017d2094fca4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943872"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371858"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker 서비스 응용 프로그램에 대 한 Application Insights (HTTP가 아닌 응용 프로그램)
 
@@ -21,7 +21,7 @@ ms.locfileid: "98943872"
 
 [작업자 서비스에 대 한 APPLICATION INSIGHTS SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 는 응용 프로그램이 실행 되는 위치와 관계 없이 비 HTTP 응용 프로그램에 가장 적합 합니다. 응용 프로그램이 실행 중이 고 Azure에 네트워크로 연결 되어 있는 경우 원격 분석을 수집할 수 있습니다. Application Insights 모니터링은 .NET Core가 지원 되는 모든 위치에서 지원 됩니다. 이 패키지는 새로 도입 된 [.Net Core 3.0 Worker 서비스](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [Asp.Net Core 2.1/2.2의 백그라운드 작업](/aspnet/core/fundamentals/host/hosted-services), 콘솔 앱 (.net Core/.NET Framework) 등에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
 
@@ -108,9 +108,9 @@ ms.locfileid: "98943872"
 ```json
     {
         "ApplicationInsights":
-            {
+        {
             "InstrumentationKey": "putinstrumentationkeyhere"
-            },
+        },
         "Logging":
         {
             "LogLevel":
@@ -124,7 +124,7 @@ ms.locfileid: "98943872"
 또는 다음 환경 변수 중 하나에서 계측 키를 지정 합니다.
 `APPINSIGHTS_INSTRUMENTATIONKEY` 또는 `ApplicationInsights:InstrumentationKey`
 
-`SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+예: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 디스크나 `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 일반적으로 `APPINSIGHTS_INSTRUMENTATIONKEY` Web Apps에 배포 된 응용 프로그램에 대 한 계측 키를 웹 작업으로 지정 합니다.
@@ -351,7 +351,7 @@ public void ConfigureServices(IServiceCollection services)
 
 에서 일반적으로 사용 되는 설정 `ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true

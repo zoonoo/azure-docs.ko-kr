@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: f6b7000812f1adfe6ff7bd93711c9b8fe4ff9adc
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1a0b1a0400ae3d43817921e8a336421aee35ccd6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378148"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -49,7 +49,8 @@ HDInsight는 Azure 가상 머신 확장 집합으로 점진적으로 마이그�
 
 
 ### <a name="breaking-change-for-net-for-apache-spark-100"></a>Apache Spark 1.0.0의 .NET에 대 한 주요 변경 내용
-HDInsight는 다음 릴리스에서 Apache Spark에 대 한 .NET의 첫 번째 주요 공식 릴리스를 소개 합니다. 다른 기능과 함께 Spark 2.4. x 및 Spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [이 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 하세요. [여기](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
+최신 릴리스를 사용 하는 경우 HDInsight는 [".net for Apache Spark"](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v 1.0.0을 소개 합니다. [다른 기능의](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)호스트와 함께 spark 2.4. x 및 spark 3.0. x에 대 한 데이터 프레임 API 완전성을 제공 합니다. 이 주 버전에 대 한 주요 변경 내용이 있습니다. [Apache Spark 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) 를 참조 하 여 코드와 파이프라인을 업데이트 하는 데 필요한 단계를 이해 하세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v 1.0에 대 한이 .net 가이드](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조 하세요.
+
 
 ## <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
@@ -68,4 +69,3 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](./hdinsight-component-versioning.md)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
-

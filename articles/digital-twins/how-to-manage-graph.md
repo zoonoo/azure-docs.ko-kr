@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601076"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388195"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -116,6 +116,21 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
+## <a name="update-relationships"></a>관계 업데이트
+
+관계는 메서드를 사용 하 여 업데이트 됩니다 `UpdateRelationship` . 
+
+>[!NOTE]
+>이 메서드는 관계의 **속성** 을 업데이트 하는 데 사용할 수 있습니다. 관계의 원본 쌍 또는 대상 쌍을 변경 해야 하는 경우 [관계를 삭제](#delete-relationships) 하 고 새 쌍을 사용 하 여 관계를 [다시 만들어야](#create-relationships) 합니다.
+
+클라이언트 호출에 필요한 매개 변수는 원본 쌍의 ID (관계가 시작 되는 쌍), 업데이트할 관계의 ID, 업데이트할 속성 및 새 값이 포함 된 [JSON 패치](http://jsonpatch.com/) 문서입니다.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+속성을 업데이트 하는 정보를 사용 하 여 JSON 패치 문서를 전달 하는이 메서드에 대 한 호출의 예제는 다음과 같습니다.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
+
 ## <a name="delete-relationships"></a>관계 삭제
 
 첫 번째 매개 변수는 원본 쌍 (관계가 시작 되는 쌍)을 지정 합니다. 다른 매개 변수는 관계 ID입니다. 관계 Id는 쌍의 범위 내 에서만 고유 하므로 쌍 ID와 관계 ID가 모두 필요 합니다.
@@ -137,7 +152,7 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 샘플을 실행 하기 전에 다음을 수행 합니다.
 1. 모델 파일을 다운로드 하 고 프로젝트에 추가한 다음 `<path-to>` 아래 코드의 자리 표시자를 바꿔서 프로그램에서 찾을 위치를 알려 줍니다.
 2. 자리 표시자를 `<your-instance-hostname>` Azure 디지털 Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [Azure Digital Twins SDK for .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대 한 패키지이 고, 두 번째는 azure에 대 한 인증을 돕는 도구를 제공 합니다.
+3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -168,8 +183,8 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 |  모델 ID    | 쌍 ID (고유 해야 함) | 관계 이름  | 대상 쌍 ID  | 쌍 초기화 데이터 |
 | --- | --- | --- | --- | --- |
-| dtmi: 예: 밑면; 1    | Floor1 | contains | Room1 | |
-| dtmi: 예: 밑면; 1    | Floor0 | contains | Room0 | |
+| dtmi: 예: 밑면; 1    | Floor1 | 포함 | Room1 | |
+| dtmi: 예: 밑면; 1    | Floor0 | 포함 | Room0 | |
 | dtmi: 예: Room; 1    | Room1 | | | {"온도": 80} |
 | dtmi: 예: Room; 1    | Room0 | | | {"온도": 70} |
 

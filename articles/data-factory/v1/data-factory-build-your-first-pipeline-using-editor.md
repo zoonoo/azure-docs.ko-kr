@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 360fbc3e1bfe7890f1f3b05899eb95ce7a3a72c2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4e19991de20b130b878a230313d87ca09d31a84e
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496623"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556446"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "96496623"
 > 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [빠른 시작: Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 > [!WARNING]
-> ADF v1 파이프라인 작성 및 배포에 사용되는 Azure Portal의 JSON 편집기는 2019년 7월 31일에 꺼집니다. 2019년 7월 31일 이후에는 [ADF v1 Powershell cmdlet](/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .Net SDK](/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST API](/rest/api/datafactory/)를 사용하여 ADF v1 파이프라인을 계속 작성 및 배포할 수 있습니다.
+> ADF v1 파이프라인 작성 및 배포에 사용되는 Azure Portal의 JSON 편집기는 2019년 7월 31일에 꺼집니다. 2019년 7월 31일 이후에는 [ADF v1 Powershell cmdlet](/powershell/module/az.datafactory/), [ADF v1 .Net SDK](/dotnet/api/microsoft.azure.management.datafactories.models), [ADF v1 REST API](/rest/api/datafactory/)를 사용하여 ADF v1 파이프라인을 계속 작성 및 배포할 수 있습니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 첫 번째 데이터 팩터리를 만드는 방법을 알아봅니다. 다른 도구/SDK를 사용하여 이 자습서를 수행하려면 드롭다운 목록에서 옵션 중 하나를 선택합니다. 
 

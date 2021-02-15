@@ -1,22 +1,18 @@
 ---
 title: Oracle Eloqua에서 데이터 복사 (미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Oracle Eloqua에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: 3ea9d7baf427e70df349c926a0b6b8b72ba82293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bb392b05fb54f22720202b83f1af707e381251
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416863"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372232"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Oracle Eloqua에서 데이터 복사(미리 보기)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,14 +43,14 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 Oracle Eloqua 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **Eloqua**로 설정해야 합니다. | 예 |
+| type | type 속성은 **Eloqua** 로 설정해야 합니다. | Yes |
 | 엔드포인트(endpoint) | Eloqua 서버의 엔드포인트입니다. Eloqua는 엔드포인트를 확인하고 자격 증명을 사용하여 https://login.eloqua.com에 로그인한 다음, `xxx.xxx.eloqua.com` 패턴의 리디렉션된 URL에서 **기준 URL** 부분을 복사하기 위해 여러 데이터 센터를 지원합니다. | 예 |
 | 사용자 이름 | `SiteName\Username` 형식인 Eloqua 계정(예: `Eloqua\Alice`)의 사이트 이름 및 사용자 이름입니다.  | 예 |
 | password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**
@@ -80,9 +76,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Oracle Eloqua 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Oracle Eloqua에서 데이터를 복사하려면 데이터 세트의 type 속성을 **EloquaObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Oracle Eloqua에서 데이터를 복사하려면 데이터 세트의 type 속성을 **EloquaObject** 로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **EloquaObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
@@ -110,11 +106,11 @@ Oracle Eloqua에서 데이터를 복사하려면 데이터 세트의 type 속성
 
 ### <a name="eloqua-as-source"></a>Eloqua를 원본으로
 
-Oracle Eloqua에서 데이터를 복사하려면 복사 작업의 원본 형식을 **EloquaSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+Oracle Eloqua에서 데이터를 복사하려면 복사 작업의 원본 형식을 **EloquaSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **EloquaSource**로 설정해야 합니다. | 예 |
+| type | 복사 작업 원본의 type 속성은 **EloquaSource** 로 설정해야 합니다. | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Accounts"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예:**

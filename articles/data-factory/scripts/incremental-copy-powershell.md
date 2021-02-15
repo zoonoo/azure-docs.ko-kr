@@ -1,21 +1,18 @@
 ---
 title: PowerShell을 사용 하 여 증분 방식으로 데이터 로드
 description: 이 PowerShell 스크립트는 Azure Data Factory를 사용 하 여 Azure SQL Database에서 Azure Blob Storage로 데이터를 증분 복사 하는 방법을 보여 줍니다.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 03/12/2020
-ms.openlocfilehash: 2024fc6c4640f79e5001472f29803c6cef1c07a1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 736403696ec340e547547458cb62e243e6e660b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636615"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389844"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell 스크립트: Azure Data Factory를 사용하여 증분 방식으로 데이터 로드
 

@@ -1,24 +1,19 @@
 ---
 title: Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 description: 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: 0ef6c97f7924c890bb6665100259970372f1cd26
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606949"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393023"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -43,18 +38,18 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 * Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch** 는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션** 에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
-자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 수행하는 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 실행할 단계는 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)를 사용 하 여 **Azure Batch 계정을** 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
-    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`.
+    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
     2. 왼쪽 메뉴에서 **키** 를 클릭하고 **기본 액세스 키** 를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀** 을 클릭하고 풀의 **ID** 를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.
 2. **Azure Batch 풀** 을 만듭니다.
@@ -102,7 +97,7 @@ public IDictionary<string, string> Execute(
 1. **.NET 클래스 라이브러리** 프로젝트를 만듭니다.
    
     <ol type="a">
-     <li>Visual Studio를 시작합니다.</li>
+     <li>Visual Studio를 실행합니다.</li>
      <li><b>File</b>을 클릭하고 <b>New</b>를 가리킨 다음 <b>프로젝트</b>를 클릭합니다.</li>
      <li><b>템플릿</b>을 확장하고 <b>Visual C#</b> 를 선택합니다. 이 연습에서는 C#을 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.</li>
      <li>오른쪽의 프로젝트 형식 목록에서 <b>클래스 라이브러리</b>를 선택합니다. Visual Studio에서 <b>클래스 라이브러리 (.NET Framework)</b> 를 선택 합니다. </li>
@@ -167,7 +162,7 @@ public IDictionary<string, string> Execute(
 
 8. **IDotNetActivity** 인터페이스의 **Execute** 메서드를 **MyDotNetActivity** 클래스에 구현(추가)하고 다음 샘플 코드를 메서드에 복사합니다.
 
-    다음 샘플은 데이터 조각과 연결된 각 Blob의 검색 단어("Microsoft") 발생 횟수를 계산합니다.
+    다음 샘플에서는 데이터 조각과 연결 된 각 blob에서 검색 용어 ("Microsoft")의 발생 횟수를 계산 합니다.
 
     ```csharp
     /// <summary>
@@ -247,7 +242,7 @@ public IDictionary<string, string> Execute(
                                      null);
 
             // Calculate method returns the number of occurrences of
-            // the search term (“Microsoft”) in each blob associated
+            // the search term ("Microsoft") in each blob associated
             // with the data slice. definition of the method is shown in the next step.
 
             output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
@@ -373,7 +368,7 @@ public IDictionary<string, string> Execute(
             "folderPath": "adftutorial/inputfolder/",
     ```
 
-    Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어("Microsoft")는 코드에 하드 코딩됩니다.
+    Calculate 메서드는 입력 파일(폴더에서 BLOB)에서 Microsoft 키워드의 인스턴스 수를 계산합니다. 검색 용어 ("Microsoft")는 코드에 하드 코딩 됩니다.
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**, **솔루션 빌드** 를 차례로 클릭합니다.
 
@@ -434,7 +429,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    3. **데이터 분석** 블레이드에서 **Data Factory** 를 클릭합니다.
 
       ![새 Azure Data Factory 메뉴](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **"CustomActivityFactory" Data Factory 이름은 사용할 수 없습니다.** 라는 오류 메시지가 표시되는 경우 Data Factory 이름을 변경하고(예: **yournameCustomActivityFactory**) 해당 Data Factory를 다시 만듭니다.
+2. **새 Data Factory** 블레이드에서 이름으로 **CustomActivityFactory** 를 입력합니다. Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 "CustomActivityFactory"를 사용할 수 없습니다. 라는** 오류가 표시 되 면 데이터 팩터리의 이름 (예: **yournameCustomActivityFactory**)을 변경한 후 다시 만드십시오.
 
     ![새 Azure Data Factory 블레이드](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. **리소스 그룹 이름** 을 클릭하여 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다.
@@ -568,7 +563,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. 입력 폴더에 세 개의 파일이 있는 경우 각 시간별 조각에 대 한 출력 파일에는 2016-11-16-00.txt, 2016-11-16:01:00:00.txt 등 3 개의 줄이 있습니다.
+    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각이 처리 되 면 사용자 지정 작업은 각 파일을 검색 하 고 검색 용어 ("Microsoft")의 발생 횟수를 사용 하 여 출력 파일에 줄을 생성 합니다. 입력 폴더에 세 개의 파일이 있는 경우 각 시간별 조각에 대 한 출력 파일에는 2016-11-16-00.txt, 2016-11-16:01:00:00.txt 등 3 개의 줄이 있습니다.
 3. **OutputDataset** 을 배포하려면 명령 모음에서 **배포** 를 클릭합니다.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>사용자 지정 작업을 사용하는 파이프라인 만들기 및 실행
@@ -1034,7 +1029,7 @@ namespace DataFactoryAPITestApp
 GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvironment) 샘플은 Visual Studio 내에서 사용자 지정 .NET 작업을 디버깅할 수 있는 도구를 포함하고 있습니다.
 
 ## <a name="sample-custom-activities-on-github"></a>GitHub의 샘플 사용자 지정 작업
-| 예제 | 사용자 지정 작업의 기능 |
+| 샘플 | 사용자 지정 작업의 기능 |
 | --- | --- |
 | [HTTP 데이터 다운로더](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample) |Data Factory의 사용자 지정 C# 작업을 사용하여 HTTP 엔드포인트에서 Azure Blob Storage로 데이터를 다운로드합니다. |
 | [Twitter 감성 분석 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Azure Machine Learning Studio (클래식) 모델을 호출 하 고 감정 분석, 점수 매기기, 예측 등을 수행 합니다. |

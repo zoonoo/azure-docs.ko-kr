@@ -52,7 +52,11 @@
             - name: 스크립팅된 버전
               href: how-to-set-up-instance-scripted.md
         - name: Private Link를 통한 프라이빗 액세스 사용
-          href: how-to-enable-private-link.md
+          items:
+            - name: 포털 버전
+              href: how-to-enable-private-link-portal.md
+            - name: CLI 버전
+              href: how-to-enable-private-link-cli.md
         - name: 앱 인증 코드 쓰기
           href: how-to-authenticate-client.md
         - name: 앱 등록 만들기
@@ -103,12 +107,16 @@
       items:
         - name: 엔드포인트 및 경로 관리
           items:
-            - name: API 및 CLI 버전
-              href: how-to-manage-routes-apis-cli.md
             - name: 포털 버전
               href: how-to-manage-routes-portal.md
+            - name: API 및 CLI 버전
+              href: how-to-manage-routes-apis-cli.md
         - name: 라우팅 이벤트에 관리 ID 사용
-          href: how-to-enable-managed-identities.md
+          items:
+            - name: 포털 버전
+              href: how-to-enable-managed-identities-portal.md
+            - name: CLI 버전
+              href: how-to-enable-managed-identities-cli.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합

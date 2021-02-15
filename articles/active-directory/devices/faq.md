@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165147"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365823"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -299,6 +299,11 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 - Windows 10 Azure AD 등록 장치에 대해 **설정**  >  **계정**  >  **회사 또는 학교 액세스** 로 이동 합니다. 계정을 선택하고 **연결 끊기** 를 선택합니다. 장치 등록은 Windows 10의 사용자 프로필 당입니다.
 - IOS 및 Android의 경우 Microsoft Authenticator 응용 프로그램 **설정**  >  **장치 등록** 을 사용 하 고 **장치 등록 취소** 를 선택할 수 있습니다.
 - MacOS의 경우 Microsoft Intune 회사 포털 응용 프로그램을 사용 하 여 관리에서 장치 등록을 취소 하 고 등록을 제거할 수 있습니다. 
+
+Windows 10 장치의 경우 [Workplace Join (WPJ) 제거 도구](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip) 를 사용 하 여이 프로세스를 자동화할 수 있습니다.
+
+> [!NOTE]
+> 이 도구는 장치에서 모든 SSO 계정을 제거 합니다. 이 작업 후에는 모든 응용 프로그램에 SSO 상태가 손실 되며 장치가 MDM (관리 도구)에서 등록 취소 클라우드에서 등록 되지 않습니다. 다음에 응용 프로그램에서 로그인을 시도할 때 사용자에 게 계정을 다시 추가 하 라는 메시지가 표시 됩니다.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>Q: 회사 Windows 10 장치에 추가 작업 계정 (Azure AD 등록)을 추가 하는 것을 차단 하려면 어떻게 해야 하나요?

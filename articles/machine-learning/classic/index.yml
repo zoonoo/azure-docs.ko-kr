@@ -6,18 +6,18 @@ metadata:
   description: Machine Learning Studio(클래식)는 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 도구입니다.
   services: machine-learning
   ms.service: machine-learning
-  ms.subservice: studio
+  ms.subservice: studio-classic
   ms.topic: landing-page
   ms.collection: collection
   ms.author: peterlu
   author: peterclu
   ms.date: 03/05/2020
-  ms.openlocfilehash: 246196268191d49227f9a46f48bf3c8e1175e33a
-  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+  ms.openlocfilehash: 27be00a986b27f4203e2cbfce568603aa7880802
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/11/2021
-  ms.locfileid: "98071683"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100520343"
 landingContent:
 - title: Studio(클래식) 시작
   linkLists:

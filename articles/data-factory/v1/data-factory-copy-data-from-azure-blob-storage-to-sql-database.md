@@ -1,24 +1,18 @@
 ---
 title: Blob Storage에서 SQL Database로 데이터 복사-Azure
 description: 이 자습서에서는 Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Blob Storage에서 SQL 데이터베이스로 데이터를 복사하는 방법을 보여 줍니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: e4035060-93bf-4e8d-bf35-35e2d15c51e0
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 15bce219b96268124729de2f475e33fc386348a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24cedc6a1e0be66e9a924a50e25257f18b7f96a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021217"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376890"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>자습서: 데이터 팩터리를 사용하여 Blob Storage에서 SQL Database로 데이터 복사
 > [!div class="op_single_selector"]

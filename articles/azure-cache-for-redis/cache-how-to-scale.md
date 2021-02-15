@@ -1,21 +1,20 @@
 ---
-title: Azure Cache for Redis 크기를 조정하는 방법
-description: Azure Portal 및 Azure PowerShell, Azure CLI 등의 도구를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시 크기를 조정 하는 방법에 대해 알아봅니다.
+title: Redis 인스턴스에 대 한 Azure 캐시 크기 조정
+description: Azure Portal 및 Azure PowerShell와 같은 도구를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시 크기를 조정 하는 방법에 대해 알아봅니다 Azure CLI
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: devx-track-csharp
-ms.date: 04/11/2017
-ms.openlocfilehash: 332233873bfbcb2ae77f5a70b4aaa5a6102cecec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 02/08/2021
+ms.openlocfilehash: 2913869067ff138922ebb7ea1483a1132e360d29
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537850"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382398"
 ---
-# <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
-Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
+# <a name="scale-an-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 Azure 캐시 크기 조정
+Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 기본, 표준 또는 프리미엄 캐시의 경우 응용 프로그램 요구 사항을 충족 하기 위해 만든 후 크기 및 계층을 변경할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
 
 ## <a name="when-to-scale"></a>크기를 조정하는 경우
 Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사용하여 캐시의 상태 및 성능을 모니터링하고 캐시 크기를 조정해야 하는 경우를 결정할 수 있습니다. 
@@ -50,7 +49,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
  
 캐시의 크기를 새 가격 책정 계층으로 조정하는 동안에는 **Azure Cache for Redis** 블레이드에 **크기 조정 중** 상태가 표시됩니다.
 
-![확장][redis-cache-scaling]
+![크기 조정][redis-cache-scaling]
 
 크기 조정이 완료되면 상태가 **Scaling(크기 조정 중)** 에서 **실행 중** 으로 변경됩니다.
 
@@ -65,7 +64,7 @@ Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 P
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) `Size` , `Sku` 또는 속성이 수정 될 때 AzRedisCache cmdlet을 사용 하 여 PowerShell을 통해 Redis 인스턴스에 대 한 Azure 캐시의 크기를 조정할 수 있습니다 `ShardCount` . 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
+[](/powershell/module/az.rediscache/set-azrediscache) `Size` , `Sku` 또는 속성이 수정 될 때 AzRedisCache cmdlet을 사용 하 여 PowerShell을 통해 Redis 인스턴스에 대 한 Azure 캐시의 크기를 조정할 수 있습니다 `ShardCount` . 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB

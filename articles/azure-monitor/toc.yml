@@ -426,8 +426,10 @@
             - name: Linux
               displayname: diagnostics extension
               items:
-                - name: 개요
+                - name: 버전 4.0
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                - name: 버전 3.0
+                  href: ../virtual-machines/extensions/diagnostics-linux-v3.md?toc=/azure/azure-monitor/toc.json
                 - name: Telegraf를 사용하여 메트릭 수집
                   href: platform/collect-custom-metrics-linux-telegraf.md
         - name: 문제 해결

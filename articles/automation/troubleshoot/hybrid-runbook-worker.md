@@ -3,14 +3,16 @@ title: Azure Automation Hybrid Runbook Worker 문제 해결
 description: 이 문서에서는 Azure Automation Hybrid Runbook Workers에서 발생하는 문제를 해결하는 방법에 대해 설명합니다.
 services: automation
 ms.subservice: ''
-ms.date: 11/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055334"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388008"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -26,9 +28,7 @@ Hybrid Runbook Worker는 에이전트를 사용하여 Azure Automation 계정과
 
 Runbook 실행에 실패하고 다음 오류 메시지가 표시됩니다.
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 Runbook이 3회 실행을 시도한 직후 일시 중단됩니다. Runbook 완료를 방해할 수 있는 조건이 있습니다. 관련 오류 메시지에 추가 정보가 포함되어 있지 않을 수 있습니다.
 
@@ -56,13 +56,12 @@ Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요�
 
 Hybrid Runbook Worker가 쿼리 결과가 유효하지 않음을 나타내는 이벤트 15011을 수신합니다. 작업자가 [SignalR 서버](/aspnet/core/signalr/introduction)와의 연결을 열려고 하면 다음 오류가 나타납니다.
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>원인
 
@@ -96,14 +95,13 @@ Hybrid Runbook Worker 머신이 30일 넘게 Azure Automation에 ping하지 않�
 
 Hybrid Runbook Worker에서 실행되는 Runbook이 실패하고 다음 오류 메시지가 표시됩니다.
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>원인
 
 이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../automation-security-overview.md#run-as-accounts)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker는 기본적으로 인증서 자산이 로컬에 없습니다. 실행 계정이 제대로 작동하려면 이 자산이 필요합니다.
@@ -118,9 +116,7 @@ Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automat
 
 작업자의 초기 등록 단계가 실패하고 다음 오류(403)가 표시됩니다.
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>원인
 
@@ -139,6 +135,37 @@ Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automat
 Log Analytics 작업 영역과 Automation 계정은 연결된 지역에 있어야 합니다. 지원되는 지역 목록은 [Azure Automation 및 Log Analytics 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요.
 
 컴퓨터의 날짜 또는 표준 시간대를 업데이트해야 할 수도 있습니다. 사용자 지정 시간 범위를 선택하는 경우 범위가 UTC(현지 표준 시간대와 다를 수 있음)인지 확인합니다.
+
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>시나리오: Hybrid Runbook Worker에서 Set-AzStorageBlobContent 실패 
+
+#### <a name="issue"></a>문제
+
+Runbook이 실행 되려고 할 때 실패 `Set-AzStorageBlobContent` 하 고 다음과 같은 오류 메시지가 표시 됩니다.
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>원인
+
+ 이 오류는 UNC 경로를 추가 하는에 대 한 호출의 긴 파일 이름 동작으로 인해 발생 `[System.IO.Path]::GetFullPath()` 합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+문제를 해결 하기 위해 다음 콘텐츠를 사용 하 여 라는 구성 파일을 만들 수 있습니다 `OrchestratorSandbox.exe.config` .
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+이 파일을 실행 파일과 동일한 폴더에 저장 `OrchestratorSandbox.exe` 합니다. 예를 들면 다음과 같습니다.
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> 에이전트를 업그레이드 하는 경우에는이 구성 파일이 삭제 되므로 다시 만들어야 합니다.
 
 ## <a name="linux"></a>Linux
 
@@ -192,7 +219,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 **/var/opt/microsoft/omsconfig/omsconfig.log** 에 `The specified class does not exist..`라는 오류 메시지가 보이면 Linux용 Log Analytics 에이전트를 업데이트해야 합니다. 다음 명령을 실행하여 에이전트를 다시 설치합니다.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
@@ -267,8 +294,7 @@ Hybrid Runbook Worker 머신을 실행 중인데 이 머신에 대한 하트비�
 
 다음 예제 쿼리는 작업 영역의 시스템과 해당 마지막 하트비트를 보여 줍니다.
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -295,9 +321,7 @@ Start-Service -Name HealthService
 
 `Add-HybridRunbookWorker` cmdlet을 사용하여 Hybrid Runbook Worker를 추가하려고 하면 다음과 같은 메시지 표시됩니다.
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>원인
 
@@ -315,15 +339,11 @@ Machine is already registered
 
 Python 스크립트를 사용 하 여 Hybrid Runbook Worker를 추가 하려고 하면 다음과 같은 메시지가 표시 됩니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` .
 
-```error
-Unable to register, an existing worker was found. Please deregister any existing worker and try again.
-```
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
 또한 python 스크립트를 사용 하 여 Hybrid Runbook Worker 등록을 취소 하려고 합니다 `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` .
 
-```error
-Failed to deregister worker. [response_status=404]
-```
+`Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>원인
 
@@ -331,7 +351,7 @@ Failed to deregister worker. [response_status=404]
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면:
+이 문제를 해결하려면 다음을 수행합니다.
 
 1. 에이전트를 제거 `sudo sh onboard_agent.sh --purge` 합니다.
 

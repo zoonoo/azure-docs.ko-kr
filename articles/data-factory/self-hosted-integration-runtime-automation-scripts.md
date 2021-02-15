@@ -1,22 +1,18 @@
 ---
 title: 로컬 PowerShell 스크립트를 사용하여 자체 호스팅 통합 런타임 설치 자동화
 description: 로컬 머신에서 자체 호스팅 통합 런타임의 설치를 자동화합니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
-ms.openlocfilehash: 36414c975e97dbaa7d8747da98c31eeb12fbc206
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8cbe54a23cb1c8b55afd86a18b51c0e392c3f78a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636972"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376210"
 ---
 # <a name="automating-self-hosted-integration-runtime-installation-using-local-powershell-scripts"></a>로컬 PowerShell 스크립트를 사용하여 자체 호스팅 통합 런타임 설치 자동화
 로컬 머신(Resource Manager 템플릿을 사용할 수 있는 Azure VM 제외)에 자체 호스팅 통합 런타임의 설치를 자동화하려면 로컬 PowerShell 스크립트를 사용할 수 있습니다. 이 문서에서는 사용할 수 있는 두 가지 스크립트를 소개합니다.
@@ -34,11 +30,11 @@ ms.locfileid: "92636972"
 > 이러한 스크립트는 자체 호스팅 통합 런타임에서 [설명된 명령줄 유틸리티](./create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell)를 사용하여 만들어집니다. 필요한 경우 이러한 스크립트를 적절하게 사용자 지정하여 자동화 요구 사항을 충족할 수 있습니다.
 > 스크립트는 노드별로 적용해야 하므로 고가용성 설정(2개 이상의 노드)의 경우 모든 노드에서 실행해야 합니다.
 
-* 설치 자동화의 경우 **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** 을 사용하여 새 자체 호스팅 통합 런타임 노드를 설치 및 등록 - 이 스크립트를 사용하여 자체 호스팅 통합 런타임 노드를 설치하고 인증 키로 등록할 수 있습니다. 이 스크립트는 두 개의 인수를 허용하며, **첫 번째** 인수는 로컬 디스크에서 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)의 위치를 지정하고, **두 번째** 인수는 **인증 키** (자체 호스팅 IR 노드 등록용)를 지정합니다.
+* 설치 자동화의 경우 **[InstallGatewayOnLocalMachine.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/InstallGatewayOnLocalMachine.ps1)** 을 사용하여 새 자체 호스팅 통합 런타임 노드를 설치 및 등록 - 이 스크립트를 사용하여 자체 호스팅 통합 런타임 노드를 설치하고 인증 키로 등록할 수 있습니다. 이 스크립트는 두 개의 인수를 허용하며, **첫 번째** 인수는 로컬 디스크에서 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)의 위치를 지정하고, **두 번째** 인수는 **인증 키**(자체 호스팅 IR 노드 등록용)를 지정합니다.
 
 * 수동 업데이트 자동화의 경우 **[script-update-gateway.ps1](https://github.com/nabhishek/SelfHosted-IntegrationRuntime_AutomationScripts/blob/master/script-update-gateway.ps1)** 을 사용하여 자체 호스팅 IR 노드를 특정 버전이나 최신 버전으로 업데이트 - 이 기능은 자동 업데이트를 해제했거나 업데이트를 보다 세밀하게 제어하려는 경우에도 지원됩니다. 이 스크립트를 사용하여 자체 호스팅 통합 런타임 노드를 최신 버전이나 지정된 상위 버전으로 업데이트할 수 있습니다(다운그레이드는 작동하지 않음). 버전 번호를 지정하는 인수를 허용합니다(예: -version 3.13.6942.1). 버전을 지정하지 않으면 항상 자체 호스팅 IR을 [downloads](https://www.microsoft.com/download/details.aspx?id=39717)에 있는 최신 버전으로 업데이트합니다.
     > [!NOTE]
-    > 최신 3개 버전만 지정할 수 있습니다. 기존 노드를 최신 버전으로 업데이트하는 데 사용하는 것이 가장 좋습니다. **여기서는 자체 호스트 IR이 등록되어 있는 것으로 가정합니다** . 
+    > 최신 3개 버전만 지정할 수 있습니다. 기존 노드를 최신 버전으로 업데이트하는 데 사용하는 것이 가장 좋습니다. **여기서는 자체 호스트 IR이 등록되어 있는 것으로 가정합니다**. 
 
 ## <a name="usage-examples"></a>사용 예
 
