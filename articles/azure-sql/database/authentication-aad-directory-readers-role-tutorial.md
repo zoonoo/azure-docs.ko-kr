@@ -9,21 +9,21 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370137"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99821952"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>자습서: Azure AD 그룹에 디렉터리 읽기 권한자 역할 할당 및 역할 할당 관리
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> 이 문서에서 설명하는 그룹에 **디렉터리 읽기 권한자** 역할 할당은 현재 **공개 미리 보기**로 제공됩니다. 
+> 이 문서에서 설명하는 그룹에 **디렉터리 읽기 권한자** 역할 할당은 현재 **공개 미리 보기** 로 제공됩니다. 
 
-이 문서에서는 Azure AD(Azure Active Directory)에서 그룹을 만들고 해당 그룹에 [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 할당하는 방법을 안내합니다. 그룹 소유자는 디렉터리 읽기 권한자 권한을 통해 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)의 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 같은 그룹에 멤버를 추가할 수 있습니다. 이렇게 하면 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)가 테넌트의 Azure SQL 논리 서버 ID마다 디렉터리 읽기 권한자 역할을 직접 할당할 필요가 없습니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 그룹을 만들고 해당 그룹에 [**디렉터리 읽기 권한자**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 할당하는 방법을 안내합니다. 그룹 소유자는 디렉터리 읽기 권한자 권한을 통해 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)의 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 같은 그룹에 멤버를 추가할 수 있습니다. 이렇게 하면 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)가 테넌트의 Azure SQL 논리 서버 ID마다 디렉터리 읽기 권한자 역할을 직접 할당할 필요가 없습니다.
 
 이 자습서에서는 [클라우드 그룹을 사용하여 Azure Active Directory에서 역할 할당 관리](../../active-directory/roles/groups-concept.md)에 도입된 기능을 사용합니다. 
 
@@ -38,24 +38,24 @@ Azure SQL에 대한 Azure AD 그룹에 디렉터리 읽기 권한자 역할을 �
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>새 그룹을 만들고 소유자 및 역할 할당
 
-1. 처음 설치하는 경우 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 권한이 있는 사용자가 필요합니다.
+1. 처음 설치하는 경우 [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) 권한이 있는 사용자가 필요합니다.
 1. 권한 있는 사용자가 [Azure Portal](https://portal.azure.com)에 로그인하도록 합니다.
-1. **Azure Active Directory** 리소스로 이동합니다. **관리**에서 **그룹**으로 이동합니다. **새 그룹**을 선택하여 새 그룹을 만듭니다.
-1. 그룹 유형으로 **보안**을 선택하고, 나머지 필드를 입력합니다. **Azure AD 역할을 그룹에 할당할 수 있음(미리 보기)** 을 **예**로 전환합니다. 그런 다음, Azure AD **디렉터리 읽기 권한자** 역할을 그룹에 할당합니다.
+1. **Azure Active Directory** 리소스로 이동합니다. **관리** 에서 **그룹** 으로 이동합니다. **새 그룹** 을 선택하여 새 그룹을 만듭니다.
+1. 그룹 유형으로 **보안** 을 선택하고, 나머지 필드를 입력합니다. **Azure AD 역할을 그룹에 할당할 수 있음(미리 보기)** 을 **예** 로 전환합니다. 그런 다음, Azure AD **디렉터리 읽기 권한자** 역할을 그룹에 할당합니다.
 1. 만든 그룹에 Azure AD 사용자를 소유자로 할당합니다. Azure AD 관리 역할이 할당되지 않은 일반 AD 사용자도 그룹 소유자가 될 수 있습니다. 소유자는 SQL Database, SQL Managed Instance 또는 Azure Synapse를 관리하는 사용자여야 합니다.
 
    :::image type="content" source="media/authentication-aad-directory-readers-role/new-group.png" alt-text="새-그룹-추가":::
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="checking-the-group-that-was-created"></a>생성된 그룹 확인
 
 > [!NOTE]
-> **그룹 유형**이 **보안**인지 확인합니다. Azure SQL은 *Microsoft 365* 그룹을 지원하지 않습니다.
+> **그룹 유형** 이 **보안** 인지 확인합니다. Azure SQL은 *Microsoft 365* 그룹을 지원하지 않습니다.
 
-그룹이 만들어졌는지 확인하고 관리하려면 Azure Portal에서 **그룹** 창으로 돌아가서 해당 그룹 이름을 검색합니다. 그룹을 선택한 후 **관리** 설정의 **소유자** 및 **구성원** 메뉴에서 소유자 및 구성원을 추가할 수 있습니다. 그룹에 **할당된 역할**을 검토할 수도 있습니다.
+그룹이 만들어졌는지 확인하고 관리하려면 Azure Portal에서 **그룹** 창으로 돌아가서 해당 그룹 이름을 검색합니다. 그룹을 선택한 후 **관리** 설정의 **소유자** 및 **구성원** 메뉴에서 소유자 및 구성원을 추가할 수 있습니다. 그룹에 **할당된 역할** 을 검토할 수도 있습니다.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="새-그룹-추가":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="멤버, 소유자 및 할당된 역할(미리 보기)에 대한 설정 메뉴를 여는 링크가 강조 표시된 그룹 창의 스크린샷.":::
 
 ### <a name="add-azure-sql-managed-identity-to-the-group"></a>그룹에 Azure SQL 관리 ID 추가
 
@@ -68,17 +68,17 @@ Azure SQL에 대한 Azure AD 그룹에 디렉터리 읽기 권한자 역할을 �
 
 1. Azure Portal에서 **SQL 관리형 인스턴스** 리소스 이름을 찾습니다.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="새-그룹-추가":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="SQL 인스턴스 이름 ssomitest 및 서브넷 이름 ManagedInstance가 강조 표시된 SQL 관리형 인스턴스 화면의 스크린샷.":::
 
    SQL Managed Instance를 만드는 동안 인스턴스에 대한 Azure ID가 생성되었습니다. 생성된 ID의 이름은 SQL Managed Instance 이름의 접두사와 동일합니다. 다음 단계에 따라 Azure AD 애플리케이션으로 생성된 SQL Managed Instance ID의 서비스 주체를 찾을 수 있습니다.
 
-    - **Azure Active Directory** 리소스로 이동합니다. **관리** 설정에서 **엔터프라이즈 애플리케이션**을 선택합니다. **개체 ID**는 인스턴스의 ID입니다.
+    - **Azure Active Directory** 리소스로 이동합니다. **관리** 설정에서 **엔터프라이즈 애플리케이션** 을 선택합니다. **개체 ID** 는 인스턴스의 ID입니다.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="새-그룹-추가":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="SQL 관리형 인스턴스의 개체 ID가 강조 표시된 Azure Active Directory 리소스에 대한 엔터프라이즈 애플리케이션 페이지의 스크린샷.":::
 
-1. **Azure Active Directory** 리소스로 이동합니다. **관리**에서 **그룹**으로 이동합니다. 앞에서 만든 그룹을 선택합니다. 그룹의 **관리** 설정에서 **구성원**을 선택합니다. **구성원 추가**를 선택하고, 위에서 찾은 이름을 검색하여 SQL Managed Instance 서비스 주체를 그룹 구성원으로 추가합니다.
+1. **Azure Active Directory** 리소스로 이동합니다. **관리** 에서 **그룹** 으로 이동합니다. 앞에서 만든 그룹을 선택합니다. 그룹의 **관리** 설정에서 **구성원** 을 선택합니다. **구성원 추가** 를 선택하고, 위에서 찾은 이름을 검색하여 SQL Managed Instance 서비스 주체를 그룹 구성원으로 추가합니다.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="새-그룹-추가":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="SQL 관리형 인스턴스를 새 멤버로 추가하는 옵션이 강조 표시된 Azure Active Directory 리소스의 멤버 페이지의 스크린샷.":::
 
 > [!NOTE]
 > Azure 시스템을 통해 서비스 주체 권한을 전파하고 Azure AD Graph API에 대한 액세스를 허용하는 데 몇 분 정도 걸릴 수 있습니다. SQL Managed Instance에 대한 Azure AD 관리자를 프로비저닝하려면 몇 분 정도 기다려야 할 수 있습니다.
@@ -94,7 +94,7 @@ SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리
 ## <a name="directory-readers-role-assignment-using-powershell"></a>PowerShell을 사용하여 디렉터리 읽기 권한자 역할 할당
 
 > [!IMPORTANT]
-> [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)는 다음과 같은 초기 단계를 실행해야 합니다. PowerShell 외에도, Azure AD는 [Azure AD에서 역할 할당 가능 그룹을 만드는](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api) Microsoft Graph API를 제공합니다.
+> [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)는 다음과 같은 초기 단계를 실행해야 합니다. PowerShell 외에도, Azure AD는 [Azure AD에서 역할 할당 가능 그룹을 만드는](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api) Microsoft Graph API를 제공합니다.
 
 1. 다음 명령을 사용하여 Azure AD Preview PowerShell 모듈을 다운로드합니다. 관리자 권한으로 PowerShell을 실행해야 할 수도 있습니다.
 

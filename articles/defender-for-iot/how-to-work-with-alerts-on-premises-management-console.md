@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 관리 콘솔에서 경고에 대 한 작업
+title: 온-프레미스 관리 콘솔의 경고 작업
 description: 온-프레미스 관리 콘솔을 사용 하 여 네트워크에서 최근에 발생 한 위협에 대 한 엔터프라이즈 보기를 가져오고, 센서 사용자가이를 처리 하는 방법을 더 잘 이해할 수 있습니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ebd5a0c14b6f9e3a57e3a7df888b5f9d24f9a2df
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840575"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523620"
 ---
-# <a name="work-with-alerts-on-the-on-premises-management-console"></a>온-프레미스 관리 콘솔에서 경고에 대 한 작업 
+# <a name="work-with-alerts-on-the-on-premises-management-console"></a>온-프레미스 관리 콘솔의 경고 작업 
 
 관리 콘솔의 **경고** 창에서 다음 작업을 수행할 수 있습니다.
 
@@ -119,13 +119,34 @@ Uuid를 사용 하면 온-프레미스 관리 콘솔에 표시 되는 각 경고
 
 ## <a name="manage-alert-events"></a>경고 이벤트 관리
 
-다음과 같이 조직 센서에서 감지한 경고 이벤트를 관리할 수 있습니다.
+온-프레미스 관리 콘솔에서 경고 이벤트를 관리 하는 데 사용할 수 있는 몇 가지 옵션이 있습니다.
 
 - 경고 이벤트를 알아보거나 승인 합니다. 승인 **&** 승인을 선택 하 고 현재 승인 되지 않은 모든 경고 이벤트를 승인할 수 있습니다.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="자세히 알아보려면 & 승인을 선택 합니다.":::
 
 - 경고 이벤트를 음소거 및 음소거 해제 합니다.
+
+경고 이벤트를 학습, 승인 및 음소거 하는 방법에 대 한 자세한 내용은 센서 [관리 경고 이벤트](how-to-manage-the-alert-event.md) 문서를 참조 하세요.
+
+## <a name="export-alert-information"></a>경고 정보 내보내기
+
+경고 정보를 .csv 파일로 내보냅니다. 필터링 된 보기를 기반으로 검색 된 모든 경고 또는 내보내기 정보에 대 한 정보를 내보낼 수 있습니다. 다음 정보를 내보냅니다.
+
+- 원본 주소
+- 대상 주소
+- 경고 제목
+- 경고 심각도
+- 경고 메시지
+- 추가 정보
+- 승인 상태
+- PCAP 가용성
+
+내보내기:
+
+1. 측면 메뉴에서 경고를 선택 합니다.
+1. 내보내기를 선택합니다.
+1. 여러 장치를 포함 하는 각 경고에 대해 별도의 행으로 경고 정보를 내보내려면 확장 된 경고 내보내기를 선택 합니다. 확장 된 경고 내보내기를 선택 하는 경우 .csv 파일은 각 행에 고유한 항목으로 경고의 중복 행을 만듭니다. 이 옵션을 사용 하면 내보낸 경고 이벤트를 보다 쉽게 조사할 수 있습니다.  
 
 ## <a name="create-alert-exclusion-rules"></a>경고 제외 규칙 만들기
 
@@ -225,6 +246,6 @@ API를 사용 하 여 만든 규칙은 **제외 규칙** 창에 RO로 표시 됩
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="제외 규칙 편집 보기의 스크린샷":::
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
 [센서에 대 한 경고 사용](how-to-work-with-alerts-on-your-sensor.md)

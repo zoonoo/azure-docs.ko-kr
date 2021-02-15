@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 3b60ab21bb1e8f5270512d3f1e77aeab2baedc31
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 91dfdcef01a121c8282b8fad2e75f67989b75dc3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968639"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: HubSpot과 Azure Active Directory 통합
 
@@ -212,7 +212,7 @@ HubSpot에서 사용자 계정을 프로비저닝하려면
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 HubSpot에 자동으로 로그인됩니다. 
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 HubSpot 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 HubSpot에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 HubSpot 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 HubSpot에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

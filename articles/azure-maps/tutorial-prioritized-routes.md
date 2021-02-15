@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896704"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821318"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 다양한 이동 모드에 대한 경로 찾기 및 표시
 
@@ -121,7 +121,7 @@ ms.locfileid: "92896704"
 
 2. **MapTruckRoute.html** 파일을 저장하고, 브라우저에서 페이지를 새로 고칩니다. 로스앤젤레스와 같은 도시를 확대하면 현재 교통 데이터와 함께 거리가 표시됩니다.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="맵에서 트래픽 보기":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ ms.locfileid: "92896704"
 
 3. **TruckRoute.html** 을 저장하고, 브라우저를 새로 고칩니다. 이제 지도 중심이 시애틀로 이동됩니다. 물방울 모양 파란색 핀은 시작점을 표시합니다. 둥근 파란색 핀은 도착점을 표시합니다.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="출발 지점과 도착 지점이 포함된 지도 보기":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ ms.locfileid: "92896704"
 이 섹션에서는 사용자의 운송 방식에 따라 Azure Maps Route Service를 사용하여 한 지점에서 다른 지점으로의 방향을 가져오는 방법을 보여 줍니다. 트럭과 자동차의 두 가지 운송 모드를 사용합니다.
 
 >[!TIP]
->Route Service는 거리, 교통 조건 및 사용되는 운송 모드를 기준으로 하여 *최소 시간* , *최단 거리* , *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 이 서비스를 통해 사용자는 과거 교통 조건을 기준으로 하여 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
+>Route Service는 거리, 교통 조건 및 사용되는 운송 모드를 기준으로 하여 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 이 서비스를 통해 사용자는 과거 교통 조건을 기준으로 하여 향후 경로를 계획할 수도 있습니다. 사용자는 지정된 시간 동안 경로 기간의 예측을 확인할 수 있습니다. 자세한 내용은 [경로 방향 API 가져오기](/rest/api/maps/route/getroutedirections)를 참조하세요.
 
 1. `GetMap` 함수에서 컨트롤의 `ready` 이벤트 처리기 내에 다음을 JavaScript 코드에 추가합니다.
 
@@ -277,7 +277,7 @@ ms.locfileid: "92896704"
 
 4. **TruckRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. 이제 지도에 트럭 경로와 자동차 경로가 표시됩니다.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="지도 컨트롤의 기본 지도 렌더링":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Azure Route Service를 통한 지도상의 개인 및 상용 차량 경로":::
 
     트럭 경로는 굵은 파란색 선으로 표시됩니다. 자동차 경로는 가는 자주색 선으로 표시됩니다. 자동차 경로는 I-90을 통해 워싱턴 호수를 가로질러 주거 지역 아래의 터널을 통과합니다. 터널은 주거 지역에 가깝기 때문에 위험한 폐기 화물은 제한됩니다. `USHazmatClass2` 화물 유형이 지정된 트럭 경로는 다른 고속 도로를 사용하도록 안내됩니다.
 
@@ -285,7 +285,9 @@ ms.locfileid: "92896704"
 
 [데이터 기반 스타일 식을 사용](data-driven-style-expressions-web-sdk.md)할 수도 있습니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
 
+정리가 필요한 리소스가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

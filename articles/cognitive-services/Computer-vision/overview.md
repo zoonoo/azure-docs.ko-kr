@@ -15,12 +15,12 @@ ms.custom:
 - cog-serv-seo-aug-2020
 - contperf-fy21q2
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: 62d82388d975f36c422f7eb1e9feff8ce2725d54
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 69edbf558b4bd452c67478bac828bfde26be5a70
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033292"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575943"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -32,7 +32,7 @@ Azure의 Computer Vision 서비스는 관심 있는 시각적 기능을 기반�
 
 ## <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
-Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 최신 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. 두 OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
+Computer Vision에는 [OCR(광학 문자 인식)](concept-recognizing-text.md) 기능이 포함되어 있습니다. 새 Read API를 사용하여 이미지 및 문서에서 인쇄 및 필기 텍스트를 추출할 수 있습니다. 딥 러닝 기반 모델을 사용하고 다양한 표면 및 배경의 텍스트로 작업합니다. 여기에는 비즈니스 문서, 청구서, 영수증, 포스터, 명함, 문자 및 화이트보드가 포함됩니다. OCR API는 [여러 언어](./language-support.md)로 인쇄된 텍스트 추출을 지원합니다. [빠른 시작](./quickstarts-sdk/client-library.md)을 따라 시작하세요.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>디지털 자산 관리를 위한 Computer Vision
 

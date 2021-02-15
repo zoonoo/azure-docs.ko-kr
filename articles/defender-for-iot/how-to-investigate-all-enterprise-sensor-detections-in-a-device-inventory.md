@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: b4d824386a7c14165697f4b93f2e93cf0182a855
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625467"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524028"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>장치 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
 
@@ -31,7 +31,7 @@ ms.locfileid: "98625467"
 | **영역** | 이 장치를 포함 하는 영역입니다. |
 | **어플라이언스** | 이 장치를 보호 하는 IoT 용 Azure Defender 센서입니다. |
 | **이름** | IoT 용 Defender에서이 장치의 이름을 검색 했습니다. |
-| **Type** | 장치 유형 (예: PLC 또는 HMI)입니다. |
+| **유형** | 장치 유형 (예: PLC 또는 HMI)입니다. |
 | **공급업체** | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
 | **운영 체제** | 장치의 OS입니다. |
 | **펌웨어** | 장치의 펌웨어입니다. |
@@ -225,6 +225,6 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 - **업데이트 진행률**: 연결 된 센서를 업그레이드 하는 경우 업그레이드 상태가 표시 됩니다. 업그레이드 하는 동안 온-프레미스 관리 콘솔은 센서에서 장치 정보를 받지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

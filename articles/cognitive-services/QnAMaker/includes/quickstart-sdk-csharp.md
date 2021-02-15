@@ -3,12 +3,12 @@ title: '빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 .NET용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: e75fdbe49910f9d6fe4fe25a7996fccf415fdf35
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 18d8dbc59d1c43961cd665a3ea98d1041516afb7
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947718"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99616548"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -151,7 +151,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --versio
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
 > [!IMPORTANT]
-> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다.
+> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다. 
+
+구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [QnA Maker의 키](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker)를 참조하세요.
 
 - QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT 및 QNA_MAKER_RUNTIME_ENDPOINT라는 환경 변수를 만들어 이러한 값을 저장합니다.
 - QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. 
@@ -163,7 +165,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --versio
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
 
 > [!IMPORTANT]
-> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다.
+> Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스의 키와 엔드포인트를 찾습니다. 리소스의 **키 및 엔드포인트** 페이지의 **리소스 관리** 아래에 있습니다. 
+
+구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [QnA Maker의 키](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker)를 참조하세요.
 
 - QNA_MAKER_SUBSCRIPTION_KEY 및 QNA_MAKER_ENDPOINT라는 환경 변수를 만들어 이러한 값을 저장합니다.
 - QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. 
@@ -172,6 +176,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --versio
 [!code-csharp[Set the resource key and resource name](~/cognitive-services-quickstart-code/dotnet/QnAMaker/Preview-sdk-based-quickstart/Program.cs?name=Resourcevariables)]
 
 ---
+
 
 ## <a name="object-models"></a>개체 모델
 

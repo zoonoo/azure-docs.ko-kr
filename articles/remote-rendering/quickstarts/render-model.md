@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6258365ab00ab538f3f3502682078d29a391578c
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 525872ca3ad2558c327b7b856254319d3db2dc7f
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724937"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99593996"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -74,8 +74,8 @@ Unity Hub를 열고 *ARR\azure-remote-rendering\Unity\Quickstart* 폴더인 샘�
 ![ARR 계정 정보](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
-> **AccountDomain** 을 `<region>.mixedreality.azure.com`으로 설정합니다. 여기서 `<region>`은 [사용 가능한 가까운 지역 중 하나](../reference/regions.md)입니다.
-> Azure Portal에 표시된 대로 **AccountAuthenticationDomain** 을 [계정 도메인](../how-tos/create-an-account.md#retrieve-the-account-information)으로 설정합니다.
+> **RemoteRenderingDomain** 을 `<region>.mixedreality.azure.com`으로 설정합니다. 여기서 `<region>`은 [사용 가능한 가까운 지역 중 하나](../reference/regions.md)입니다.
+> Azure Portal에 표시된 대로 **AccountDomain** 을 [계정 도메인](../how-tos/create-an-account.md#retrieve-the-account-information)으로 설정합니다.
 
 나중에 이 프로젝트를 HoloLens에 배포하고 해당 디바이스에서 Remote Rendering 서비스에 연결할 것입니다. 디바이스에서 자격 증명을 입력할 수 있는 쉬운 방법이 없기 때문에 이 빠른 시작 샘플에서는 **Unity 장면에 자격 증명을 저장** 할 것입니다.
 

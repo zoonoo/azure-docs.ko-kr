@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353613"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99822208"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -36,7 +36,7 @@ ms.locfileid: "96353613"
 * ServiceNow SSO(Single Sign-On)가 설정된 구독
 * ServiceNow의 경우 ServiceNow의 인스턴스 또는 테넌트는 캘거리, 킹스턴, 런던, 마드리드, 뉴욕, 올랜도 및 파리 버전 이상을 지원합니다.
 * ServiceNow Express의 경우 ServiceNow Express의 인스턴스, Helsinki 버전 이상
-* ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다.
+* ServiceNow 테넌트에서 [여러 공급자 Single Sign-On 플러그 인](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0)을 사용하도록 설정해야 합니다.
 * 자동 구성은 ServiceNow에 대한 다중 공급자 플러그 인을 사용하도록 설정합니다.
 * ServiceNow Classic(모바일) 애플리케이션을 설치하려면 적절한 스토어로 이동한 다음, ServiceNow Classic 애플리케이션을 검색합니다. 그리고 다운로드합니다.
 

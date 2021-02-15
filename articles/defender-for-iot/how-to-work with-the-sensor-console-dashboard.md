@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: eb37434213dd756ba5d7137b93a1cd37da5bb9ae
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509082"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523637"
 ---
 # <a name="the-dashboard"></a>대시보드
 
@@ -20,7 +20,7 @@ ms.locfileid: "99509082"
 
 - 서로 다른 심각도 수준의 경고:
 
-- 위험
+- 중요
 
 - 주요함
 
@@ -46,7 +46,7 @@ ms.locfileid: "99509082"
 
 각 상태 상자는이 섹션에 설명 되어 있습니다.
 
-| 상태 상자 및 계기 | 설명 |
+| 상태 상자 및 계기 | Description |
 | -------------- | -------------- |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/critical-alert-status-box-v2.png" alt-text="중요 한 알림"::: | **중요 한 알림** -페이지의 위쪽 가운데에 있는 상자는 중요 한 경고의 수를 나타냅니다. 이 상자를 선택 하면 타임 라인 및 계기 아래의 목록 (있는 경우)에 대 한 경고 설명이 표시 됩니다.                              |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/major-alert-status-box-v2.png" alt-text="주요 경고"::: | **주요 경고** -페이지의 오른쪽 위에 있는 상자에는 주요 경고 수가 표시 됩니다. 이 상자를 선택 하면 타임 라인 및 계기 아래의 목록 (있는 경우)에 대 한 경고 설명이 표시 됩니다.                                     |
@@ -100,6 +100,6 @@ ms.locfileid: "99509082"
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/unauthorized-internet-connectivity-detection-v3.png" alt-text="권한 없는 인터넷 연결이 검색 됨":::
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [센서에 대 한 경고 사용](how-to-work-with-alerts-on-your-sensor.md)

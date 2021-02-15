@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763879"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832626"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>자습서: 비디오 분석용 IoT Edge 인스턴스 만들기(Linux VM)
 
@@ -118,6 +118,14 @@ sudo docker ps
 ```
 
 이 목록에는 **live555** 라는 컨테이너가 포함됩니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+애플리케이션 사용을 마친 후에는 앞에서 만든 모든 리소스를 다음과 같이 제거할 수 있습니다.
+
+1. IoT Central 애플리케이션의 **관리** 섹션에서 **사용자의 애플리케이션** 페이지로 이동합니다. 그런 다음, **삭제** 를 선택합니다.
+1. Azure Portal에서 **lva-rg** 리소스 그룹을 삭제합니다.
+1. 로컬 머신에서 **amp-viewer** Docker 컨테이너를 중지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
