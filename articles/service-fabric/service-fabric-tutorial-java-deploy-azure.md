@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure Service Fabric 클러스터에 Java Se
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: c2e2b2883bfa01d3a36de5d58425449f6f973010
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 48cb7df49fb918ebd30883edc573cc63b6e35e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702160"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821637"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "97702160"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI 설치](/cli/azure/install-azure-cli)
 * [Mac](service-fabric-get-started-mac.md) 또는 [Linux](service-fabric-get-started-linux.md)용 Service Fabric SDK 설치
 * [Python 3 설치](https://wiki.python.org/moin/BeginnersGuide/Download)
 

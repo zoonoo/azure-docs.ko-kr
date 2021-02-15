@@ -5,16 +5,16 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: f839eb04e0c036b5059e35fac16d9c702646cbd7
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435691"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377366"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 just-in-time 액세스를 사용 하도록 설정 및 요청
 
-관리 되는 응용 프로그램의 소비자는 관리 되는 리소스 그룹에 영구적으로 액세스할 수 있는 권한을 꺼려할 수 있습니다. 관리자 응용 프로그램의 게시자는 관리 되는 리소스에 액세스 해야 하는 경우 소비자에 게 정확 하 게 알리는 것이 좋습니다. 소비자에 게 관리 되는 리소스에 대 한 액세스 권한을 부여 하는 것을 더 잘 제어할 수 있도록 Azure Managed Applications JIT (just-in-time) 액세스 라는 기능을 제공 합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+관리 되는 응용 프로그램의 소비자는 관리 되는 리소스 그룹에 영구적으로 액세스할 수 있는 권한을 꺼려할 수 있습니다. 관리 되는 응용 프로그램의 게시자는 관리 되는 리소스에 액세스 해야 하는 경우 소비자에 게 정확 하 게 알려 주는 것이 좋습니다. 소비자에 게 관리 되는 리소스에 대 한 액세스 권한을 부여 하는 것을 더 잘 제어할 수 있도록 Azure Managed Applications JIT (just-in-time) 액세스 라는 기능을 제공 합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 JIT 액세스를 사용하면 문제 해결 또는 유지 관리를 위해 관리형 애플리케이션의 리소스에 대한 높은 액세스 권한을 요청할 수 있습니다. 항상 리소스에 대한 읽기 전용 액세스 권한을 가지지만 특정 기간 동안 더 큰 액세스 권한을 가질 수 있습니다.
 

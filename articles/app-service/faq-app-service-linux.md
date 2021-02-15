@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008557"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094001"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -110,7 +110,7 @@ const io = require('socket.io')(server,{
 
 **사용자 지정 컨테이너를 사용 하 고 있습니다. 플랫폼에서 디렉터리에 SMB 공유를 탑재 하려고 합니다 `/home/` .**
 
-`WEBSITES_ENABLE_APP_SERVICE_STORAGE`설정이 **지정** 되지 않았거나 *true* 로 설정 된 경우 `/home/` 디렉터리는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE`설정이 **지정** 되지 않았거나 *false* 로 설정 된 경우 `/home/` 디렉터리는 확장 인스턴스 간에 **공유 되지** 않으며 기록 된 파일은 다시 시작 될 때 **유지 되지** 않습니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *true* 로 설정 하면 마운트가 사용 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 

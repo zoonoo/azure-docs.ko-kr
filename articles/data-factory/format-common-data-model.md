@@ -3,16 +3,15 @@ title: Common Data Model 형식
 description: Common Data Model metadata system을 사용 하 여 데이터 변환
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: a08457ba041fa39fda367976498a4a89930c56e3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585163"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387702"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Azure Data Factory의 공통 데이터 모델 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +34,7 @@ Azure Data Factory에서 사용자는 매핑 데이터 흐름을 사용 하 여 
 | Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `cdm` | 예 | `cdm` | format |
-| 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | 예 | `'manifest'` 또는 `'model'` | manifestType |
+| 메타 데이터 형식 | 데이터에 대 한 엔터티 참조가 있는 위치입니다. CDM 버전 1.0을 사용 하는 경우 매니페스트를 선택 합니다. 1.0 이전에 CDM 버전을 사용 하는 경우 model.json을 선택 합니다. | Yes | `'manifest'` 또는 `'model'` | manifestType |
 | 루트 위치: 컨테이너 | CDM 폴더의 컨테이너 이름입니다. | 예 | String | fileSystem |
 | 루트 위치: 폴더 경로 | CDM 폴더의 루트 폴더 위치 | 예 | String | folderPath |
 | 매니페스트 파일: 엔터티 경로 | 루트 폴더에 있는 엔터티의 폴더 경로 | 아니요 | String | entityPath |

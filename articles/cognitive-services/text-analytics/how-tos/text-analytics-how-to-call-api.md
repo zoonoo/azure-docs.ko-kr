@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654832"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092131"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -35,6 +35,16 @@ ms.locfileid: "97654832"
 
 3.  Text Analytics 리소스를 만들고 페이지 왼쪽의 "키 및 끝점 블레이드"로 이동 합니다. 나중에 Api를 호출할 때 사용할 키를 복사 합니다. 나중에 헤더에 대 한 값으로이를 추가 `Ocp-Apim-Subscription-Key` 합니다.
 
+## <a name="change-your-pricing-tier"></a>가격 책정 계층 변경 
+
+S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 사용 하도록 업데이트할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com/)에서 Text Analytics 리소스로 이동 합니다.
+2. 왼쪽 탐색 메뉴에서 **가격 책정 계층** 을 선택 합니다. **리소스 관리** 아래에 있습니다. 
+3. 표준 가격 책정 계층을 선택 합니다. 그런 다음 **선택** 을 클릭합니다.
+
+표준 가격 책정 계층을 사용 하 여 새 Text Analytics 리소스를 만들고 새 리소스에 대 한 자격 증명을 사용 하도록 응용 프로그램을 마이그레이션할 수도 있습니다. 
+
 ## <a name="using-the-api-synchronously"></a>동기적으로 API 사용
 
 대기 시간이 짧은 시나리오의 경우 Text Analytics를 동기적으로 호출할 수 있습니다. 동기 API를 사용 하는 경우 각 API (기능)를 개별적으로 호출 해야 합니다. 여러 기능을 호출 해야 하는 경우에는 Text Analytics를 비동기적으로 호출 하는 방법에 대 한 아래 섹션을 참조 하세요. 
@@ -51,10 +61,10 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 | 기능 | 동기 | 비동기 |
 |--|--|--|
-| 언어 검색 | ✔ |  |
+| 언어 감지 | ✔ |  |
 | 정서 분석 | ✔ |  |
 | 의견 마이닝 | ✔ |  |
-| 핵심 문구 추출 | ✔ | ✔* |
+| 핵심 구 추출 | ✔ | ✔* |
 | 명명 된 엔터티 인식 (PII 및 no 포함) | ✔ | ✔* |
 | 상태 (컨테이너)에 대 한 Text Analytics | ✔ |  |
 | 상태에 대 한 Text Analytics (API) |  | ✔  |
@@ -76,7 +86,7 @@ V 3.1-preview. 3부터 텍스트 분석 API는 두 개의 비동기 끝점을 �
 
 API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.
 
-| 요소 | 유효한 값 | 필수 여부 | 사용 |
+| 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../language-support.md)로 작성되어야 합니다. |
@@ -111,9 +121,9 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 * 핵심 구 추출 
 * 명명 된 엔터티 인식 (PII 및 no 포함)
 
-| 요소 | 유효한 값 | 필수 여부 | 사용 |
+| 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
-|`displayName` | String | 옵션 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
+|`displayName` | String | Optional | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
 |`analysisInput` | 아래 필드가 포함 됩니다. `documents` | 필수 | 보내려는 문서에 대 한 정보를 포함 합니다. |
 |`documents` | `id`아래와 필드를 포함 합니다. `text` | 필수 | 전송 중인 각 문서와 문서의 원시 텍스트에 대 한 정보를 포함 합니다. |
 |`id` | String | 필수 | 제공 하는 Id는 출력을 구조화 하는 데 사용 됩니다. |
@@ -122,7 +132,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 |`parameters` | `model-version`아래와 필드를 포함 합니다. `stringIndexType` | 필수 | 이 필드는 사용자가 선택한 위의 기능 작업 내에 포함 되어 있습니다. 여기에는 사용 하려는 모델 버전과 인덱스 형식에 대 한 정보가 포함 됩니다. |
 |`model-version` | String | 필수 | 사용 하려는 모델의 버전을 지정 합니다.  |
 |`stringIndexType` | String | 필수 | 프로그래밍 환경에 맞는 텍스트 디코더를 지정 합니다.  지원 되는 형식은 `textElement_v8` (기본값), `unicodeCodePoint` , `utf16CodeUnit` 입니다. 자세한 내용은 [텍스트 오프셋 문서](../concepts/text-offsets.md#offsets-in-api-version-31-preview) 를 참조 하세요.  |
-|`domain` | String | 옵션 | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
+|`domain` | String | Optional | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
 
 ```json
 {
@@ -167,7 +177,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 상태 호스팅 API에 대 한 Text Analytics에 대 한 API 요청 형식은 해당 컨테이너의 경우와 동일 합니다. 문서는 JSON 개체에서 원시 비구조적 텍스트로 전송 됩니다. XML은 지원되지 않습니다. JSON 스키마는 아래에 설명 된 요소로 구성 됩니다.  상태 공개 미리 보기에 대 한 Text Analytics에 대 한 액세스를 요청 하려면 [Cognitive Services 요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 하세요. 상태 사용에 대 한 Text Analytics 요금은 청구 되지 않습니다. 
 
-| 요소 | 유효한 값 | 필수 여부 | 사용 |
+| 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. |
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 영어 텍스트만 현재 지원 됩니다. |
@@ -207,10 +217,10 @@ Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능�
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
+| 언어 감지 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
 | 정서 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
 | 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
-| 핵심 문구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
+| 핵심 구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | 명명 된 엔터티 인식-일반 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
 | 명명 된 엔터티 인식-PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
 | 명명 된 엔터티 인식-화 | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
@@ -297,7 +307,7 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 
 + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [엔터티 인식](text-analytics-how-to-entity-linking.md#view-results)
-+ [의료 분야 Text Analytics](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
++ [Text Analytics for health](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
 --- 
 

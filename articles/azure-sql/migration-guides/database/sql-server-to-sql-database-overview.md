@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357333"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368050"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>마이그레이션 개요: SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ Always On 장애 조치 (failover) 클러스터 인스턴스와 같은 SQL Serve
 SQL Database에 포함 된 고가용성 아키텍처 외에도 관리 되는 인스턴스의 데이터베이스 복제 및 장애 조치 (failover)를 다른 지역으로 관리할 수 있는 [자동 장애 조치 (failover) 그룹](../../database/auto-failover-group-overview.md) 기능도 있습니다. 
 
 #### <a name="sql-agent-jobs"></a>SQL 에이전트 작업
-SQL 에이전트 작업은 Azure SQL Database에서 직접 지원 되지 않으므로 [Elastic Database 작업 (미리 보기)](../../database/job-automation-overview.md#elastic-database-jobs-preview)에 배포 해야 합니다.
+SQL 에이전트 작업은 Azure SQL Database에서 직접 지원 되지 않으므로 [Elastic Database 작업 (미리 보기)](../../database/job-automation-overview.md)에 배포 해야 합니다.
 
 #### <a name="logins-and-groups"></a>로그인 및 그룹
 오프 라인 모드에서 DMS (Database Migration Service)를 사용 하 여 원본 SQL Server에서 Azure SQL Database로 SQL 로그인을 이동 합니다.  **마이그레이션 마법사** 에서 **선택한 로그인** 블레이드를 사용 하 여 대상 SQL Database 로그인을 마이그레이션합니다. 

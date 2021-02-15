@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581757"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104215"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -75,7 +75,7 @@ Azure 구독 권한을 확인하려면
 
 이제 ID를 만들어 보겠습니다. 문제가 발생하면 [필요한 권한](#permissions-required-for-registering-an-app)을 확인하여 계정이 ID를 만들 수 있는지 확인합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 통해 Azure 계정에 로그인 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>을 통해 Azure 계정에 로그인합니다.
 1. **Azure Active Directory** 를 선택합니다.
 1. **앱 등록** 을 선택합니다.
 1. **새 등록** 을 선택합니다.
@@ -181,7 +181,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 ## <a name="configure-access-policies-on-resources"></a>리소스에 대 한 액세스 정책 구성
 응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) 해야 합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Azure Portal</a>에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책** 을 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책** 을 선택 합니다.
 1. **액세스 정책 추가** 를 선택 하 고 응용 프로그램에 부여 하려는 키, 암호 및 인증서 권한을 선택 합니다.  이전에 만든 서비스 사용자를 선택 합니다.
 1. **추가** 를 선택 하 여 액세스 정책을 추가 하 고 **저장** 을 선택 하 여 변경 내용을 커밋합니다.
     ![액세스 정책 추가](./media/howto-create-service-principal-portal/add-access-policy.png)

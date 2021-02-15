@@ -2,19 +2,19 @@
 title: 양식 인식기 샘플 레이블 지정 도구를 배포 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 감독 학습에 도움이 되도록 양식 인식기 샘플 레이블 지정 도구를 배포할 수 있는 다양 한 방법을 알아봅니다.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 04/14/2020
-ms.author: pafarley
-ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/11/2021
+ms.author: lajanuar
+ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790430"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370045"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "98790430"
 
 ## <a name="deploy-with-azure-container-instances-aci"></a>Azure Container Instances (ACI)를 사용 하 여 배포
 
-시작 하기 전에 샘플 레이블 도구를 ACI (Azure Container Instance)에 배포 하는 방법에는 두 가지가 있습니다. 두 옵션은 ACI를 사용 하 여 샘플 레이블 지정 도구를 실행 하는 데 사용 됩니다. 
+시작 하기 전에 샘플 레이블 도구를 ACI (Azure Container Instance)에 배포 하는 방법에는 두 가지가 있습니다. 두 옵션은 ACI를 사용 하 여 샘플 레이블 지정 도구를 실행 하는 데 사용 됩니다.
 
 * [Azure Portal 사용](#azure-portal)
 * [Azure CLI 사용](#azure-cli)
@@ -42,16 +42,16 @@ ms.locfileid: "98790430"
 Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 수행 합니다. 
 
 1. [Azure Portal](https://portal.azure.com/signin/index/)에 로그인합니다.
-2. **리소스 만들기** 를 선택합니다. 
-3. 그런 다음 **웹 앱** 을 선택 합니다. 
+2. **리소스 만들기** 를 선택합니다.
+3. 그런 다음 **웹 앱** 을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![웹 앱 선택](./media/quickstarts/formre-create-web-app.png)
-   
-4. 먼저 **기본 사항** 탭이 선택 되어 있는지 확인 합니다. 이제 몇 가지 정보를 제공 해야 합니다. 
+   > ![웹 앱 선택](./media/quickstarts/create-web-app.png)
+
+4. 먼저 **기본 사항** 탭이 선택 되어 있는지 확인 합니다. 이제 몇 가지 정보를 제공 해야 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![기본 사항 선택](./media/quickstarts/formre-select-basics.png)
+   > ![기본 사항 선택](./media/quickstarts/select-basics.png)
    * 구독-기존 Azure 구독을 선택 합니다.
    * 리소스 그룹-기존 리소스 그룹을 다시 사용 하거나이 프로젝트에 대 한 새 리소스 그룹을 만들 수 있습니다. 새 리소스 그룹을 만드는 것이 좋습니다.
    * 이름-웹 앱에 이름을 지정 합니다. 
@@ -61,44 +61,46 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    * Linux 요금제-app service에 대 한 가격 책정 계층/계획을 선택 합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![웹 앱 구성](./media/quickstarts/formre-select-docker-linux.png)
+   > ![웹 앱 구성](./media/quickstarts/select-docker.png)
 
-5. 다음으로, **Docker** 탭을 선택 합니다. 
+5. 다음으로, **Docker** 탭을 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![Docker 선택](./media/quickstarts/formre-select-docker.png)
+   > ![Docker 선택](./media/quickstarts/select-docker.png)
 
 6. 이제 Docker 컨테이너를 구성 하겠습니다. 다른 설명이 없는 한 모든 필드는 필수입니다.
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)  
-   * 옵션- **단일 컨테이너** 선택
-   * 이미지 원본- **개인 레지스트리** 선택 
-   * 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
-   * Username (선택 사항)-사용자 이름을 만듭니다. 
-   * 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
-   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-   * 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
-   * 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
+    # <a name="v20"></a>[v2.0](#tab/v2-0)
+
+* 옵션- **단일 컨테이너** 선택
+* 이미지 원본- **개인 레지스트리** 선택 
+* 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
+* Username (선택 사항)-사용자 이름을 만듭니다. 
+* 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
+* 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
+* 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
 
     # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1) 
-   * 옵션- **단일 컨테이너** 선택
-   * 이미지 원본- **개인 레지스트리** 선택 
-   * 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
-   * Username (선택 사항)-사용자 이름을 만듭니다. 
-   * 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
-   * 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
-   * 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
-   * 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
-    
+
+* 옵션- **단일 컨테이너** 선택
+* 이미지 원본- **개인 레지스트리** 선택 
+* 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
+* Username (선택 사항)-사용자 이름을 만듭니다. 
+* 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
+* 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview`
+* 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
+* 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
+
     ---
 
    > [!div class="mx-imgBorder"]
-   > ![Docker 구성](./media/quickstarts/formre-configure-docker.png)
+   > ![Docker 구성](./media/quickstarts/configure-docker.png)
 
-7. 정말 간단하죠. 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
+7. 이제 끝났습니다! 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
 
 > [!NOTE]
-> 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다. 
+> 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다.
 
 > [!IMPORTANT]
 > 웹 앱에 대 한 TLS를 사용 하도록 설정 해야 해당 주소에서 볼 수 있습니다 `https` . 웹 앱에 TLS/SSL을 사용 하도록 설정 하는 것 보다 사이드카 컨테이너를 설정 하려면 [tls 끝점 사용](../../container-instances/container-instances-container-group-ssl.md) 의 지침을 따르세요.
@@ -114,10 +116,10 @@ Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 �
 * 리소스를 만들 위치를 지정 해야 합니다. 을 `<region name>` 웹 앱의 원하는 지역으로 바꿉니다. 
 * 이 명령은 자동으로 EULA에 동의 합니다.
 
-Azure CLI에서이 명령을 실행 하 여 샘플 레이블 지정 도구에 대 한 웹 앱 리소스를 만듭니다. 
+Azure CLI에서이 명령을 실행 하 여 샘플 레이블 지정 도구에 대 한 웹 앱 리소스를 만듭니다.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -131,8 +133,10 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-``` 
-# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)    
+`
+
+# [v2.1 preview](#tab/v2-1) 
+   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 

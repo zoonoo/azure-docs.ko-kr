@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4af00b2e0e5445ecc904f603d813d843a9c54b93
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b160f6641cced1e4ea6af1eac225d92abe26a631
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380273"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Azure 앱 구성에 대 한 Azure 보안 기준
 
@@ -437,7 +437,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 액세스 제한:
 
 - [Azure Active Directory를 사용 하 여 Azure 앱 구성에 대 한 액세스 권한 부여](concept-enable-rbac.md)
 
-- [앱 구성 데이터 암호화](faq.md#does-app-configuration-encrypt-my-data)
+- [앱 구성 데이터 암호화](faq.yml#does-app-configuration-encrypt-my-data)
 
 - [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md) 
 

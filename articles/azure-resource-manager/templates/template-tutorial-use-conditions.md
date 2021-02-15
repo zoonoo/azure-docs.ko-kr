@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bc6dc5b385a39ddb1c4f1663649ea21e5ed14767
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4affc2add2822702c1d5395f81efe01eeedf448b
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97669315"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99822239"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>자습서: ARM 템플릿에서 조건 사용
 
@@ -31,7 +31,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)의 조건에 따라 Azure 리소
 이 자습서에서는 기본적인 조건 사용 시나리오만 다룹니다. 자세한 내용은 다음을 참조하세요.
 
 * [템플릿 파일 구조: 조건](conditional-resource-deployment.md).
-* [조건에 따라 ARM 템플릿에 리소스를 배포합니다](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [조건에 따라 ARM 템플릿에 리소스를 배포합니다](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [템플릿 함수: If](./template-functions-logical.md#if).
 * [ARM 템플릿의 비교 함수](./template-functions-comparison.md)
 

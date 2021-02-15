@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024962"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388586"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 생성 도구를 사용 하 여 합성 향상
 
@@ -125,7 +125,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>오디오 콘텐츠 생성 사용자를 추가/제거 하는 방법
 
-둘 이상의 사용자가 오디오 콘텐츠 생성을 사용 하려는 경우 Azure 계정과 암호를 사용자와 공유 하거나 Azure 구독 및 음성 리소스에 대 한 사용자 액세스 권한을 부여할 수 있습니다. Azure 구독에 사용자를 추가 하는 경우 사용자는 Azure 구독에 있는 모든 리소스에 액세스할 수 있습니다. 하지만 사용자를 음성 리소스에 추가 하는 경우에만 사용자가 음성 리소스에 액세스할 수 있으며,이 Azure 구독에서 다른 리소스에 액세스할 수 없습니다. 음성 리소스에 대 한 액세스 권한이 있는 사용자는 오디오 콘텐츠 생성을 사용할 수 있습니다.
+둘 이상의 사용자가 오디오 콘텐츠 생성을 사용 하려는 경우 Azure 구독 및 음성 리소스에 대 한 사용자 액세스 권한을 부여할 수 있습니다. Azure 구독에 사용자를 추가 하는 경우 사용자는 Azure 구독에 있는 모든 리소스에 액세스할 수 있습니다. 하지만 사용자를 음성 리소스에 추가 하는 경우에만 사용자가 음성 리소스에 액세스할 수 있으며,이 Azure 구독에서 다른 리소스에 액세스할 수 없습니다. 음성 리소스에 대 한 액세스 권한이 있는 사용자는 오디오 콘텐츠 생성을 사용할 수 있습니다.
 
 ### <a name="add-users-to-a-speech-resource"></a>음성 리소스에 사용자 추가
 
@@ -140,14 +140,14 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
     :::image source="media/audio-content-creation/add-role-first.png" alt-text="역할 추가 대화 상자":::
 
-1. 추가한 사용자에 게 초대 전자 메일이 수신 됩니다. 초대 수락 동의 **Accept invitation**  >  **를 클릭 하 여 Azure에 가입** 하면 [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)을 사용할 수 있습니다.
+1. 추가한 사용자에 게 초대 전자 메일이 수신 됩니다. 초대 수락 동의   >  **를 클릭 하 여 Azure에 가입** 하면 [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)을 사용할 수 있습니다.
 
 동일한 음성 리소스에 있는 사용자는 오디오 콘텐츠 생성 스튜디오에서 서로의 작업을 볼 수 있습니다. 개별 사용자가 오디오 콘텐츠를 만들 때 고유한 개인 작업 공간을 갖도록 하려면 각 사용자에 대 한 [새 음성 리소스를 만들고](#step-2---create-a-speech-resource) 각 사용자에 게 음성 리소스에 대 한 고유한 액세스를 제공 하세요. 
 
 ### <a name="remove-users-from-a-speech-resource"></a>음성 리소스에서 사용자 제거
 1. Azure Portal에서 **인지 서비스** 를 검색 하 고, 사용자를 제거할 음성 리소스를 선택 합니다.
 2. **액세스 제어(IAM)** 를 클릭합니다. 이 음성 리소스에 대 한 모든 역할 할당을 보려면 **역할 할당** 탭을 클릭 합니다.
-3. 제거 하려는 사용자를 선택 하 고 확인 **제거** 를 클릭  >  **Ok** 합니다.
+3. 제거 하려는 사용자를 선택 하 고 확인 **제거** 를 클릭  >  합니다.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="제거 단추":::
 
 ### <a name="enable-users-to-grant-access"></a>사용자가 액세스 권한을 부여할 수 있도록 설정

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: aa631f4c505200c2c8abc67d4e22ffbab23e015c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059656"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821528"
 ---
 # <a name="create-and-merge-a-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
@@ -123,7 +123,7 @@ CSR을 만들 때 추가 정보를 추가하려는 경우 **SubjectName** 에서
 
 - 내 CSR을 어떻게 모니터링하거나 관리합니까?
 
-     [인증서 만들기 모니터링 및 관리](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)를 참조하세요.
+     [인증서 만들기 모니터링 및 관리](./create-certificate-scenarios.md)를 참조하세요.
 
 - **오류 유형 '지정된 X.509 인증서 콘텐츠에 있는 최종 엔터티 인증서의 공개 키와 지정된 프라이빗 키의 공개 부분이 일치하지 않습니다. 인증서가 올바른지 확인하세요.'** 가 표시되면 어떻게 됩니까?
 

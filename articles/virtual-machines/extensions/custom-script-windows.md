@@ -2,21 +2,21 @@
 title: Windows용 Azure 사용자 지정 스크립트 확장
 description: 사용자 지정 스크립트 확장을 사용하여 Windows VM 구성 작업 자동화
 services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
+manager: gwallace
+author: amjads1
 ms.service: virtual-machines-windows
 ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
-ms.author: robreed
-ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: amjads
+ms.openlocfilehash: d06be4efae895cfe6903be4451f892660ce689f3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258707"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390133"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -32,6 +32,7 @@ ms.locfileid: "99258707"
 ### <a name="operating-system"></a>운영 체제
 
 Windows용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확장에서 실행됩니다.
+
 ### <a name="windows"></a>Windows
 
 * Windows Server 2008 R2
@@ -67,7 +68,7 @@ CustomScript 확장에는 인증서 유효성 검사를 무시 하는 방법이 
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다.
 * 스크립트를 실행할 시기를 예약하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다.
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
-* 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원하지 않지만, 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구(예: *Curl*)를 사용할 수 있습니다.
+* 사용자 지정 스크립트 확장은 기본적으로 프록시 서버를 지원 하지 않습니다. 그러나 스크립트 내에서 프록시 서버를 지 원하는 파일 전송 도구 (예: *Invoke WebRequest)* 를 사용할 수 있습니다.
 * 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이 상황을 처리할 논리가 있어야 합니다.
 * 사용자 지정 스크립트 확장이 LocalSystem 계정으로 실행됩니다.
 * *Storageaccountname* 및 *storageAccountKey* 속성을 사용 하려는 경우 이러한 속성은 *protectedSettings* 에서 배치 된 해야 합니다.

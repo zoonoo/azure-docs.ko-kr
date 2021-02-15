@@ -1,14 +1,14 @@
 ---
 title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575909"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379236"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
@@ -65,7 +65,6 @@ alertsmanagementresources
 
 ## <a name="next-steps"></a>다음 단계
 
+- GitHub에서 도메인 통합 문서 [별로 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 를 사용해 보세요.
 - 여러 Log Analytics 작업 영역에서 [업데이트 관리 로그를 쿼리하여](../../automation/update-management/query-logs.md) 패치 준수 보고를 추적 하는이 [MVP 제작 샘플 통합 문서](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)를 살펴보세요. 
-- [Azure Monitor](../../azure-monitor/index.yml)에 대해 알아봅니다.
-- [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md)에 대해 알아봅니다.
-- [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
+- 다른 [교차 테 넌 트 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.

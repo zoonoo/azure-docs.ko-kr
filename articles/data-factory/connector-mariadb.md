@@ -1,22 +1,17 @@
 ---
 title: Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MariaDB에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c2c036cc8538fbceb21da7c5166df52b3a04e12e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f515738ad2af6b7779495b55226c10fef9272b13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81414990"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385679"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -83,13 +78,13 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
         "type": "MariaDB",
         "typeProperties": {
             "connectionString": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -104,7 +99,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 MariaDB 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-MariaDB에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MariaDBTable**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
+MariaDB에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MariaDBTable** 로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 
@@ -129,7 +124,7 @@ MariaDB에서 데이터를 복사하려면 데이터 세트의 type 속성을 **
 
 ### <a name="mariadb-as-source"></a>MariaDB를 원본으로
 
-MariaDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MariaDBSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+MariaDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **MariaDBSource** 로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |

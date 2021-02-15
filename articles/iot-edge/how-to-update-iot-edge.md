@@ -9,12 +9,12 @@ ms.date: 01/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a739736182713b35c3a5e9e25742aa39c5d1122
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 0adcbf49ff2128fdbe623121838058c5ed89dce2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633140"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378029"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -35,12 +35,6 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 패키지 관리자를 사
 Linux x64 장치에서 apt-get 또는 적절 한 패키지 관리자를 사용 하 여 보안 데몬을 최신 버전으로 업데이트 합니다.
 
 Microsoft에서 최신 리포지토리 구성을 가져옵니다.
-
-* **Ubuntu Server 16.04**:
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
 
 * **Ubuntu Server 18.04**:
 
@@ -100,7 +94,7 @@ curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Windows의 Linux에 대 한 IoT Edge를 사용 하 여 Windows 장치에서 호스트 되는 Linux 가상 머신에서 실행 IoT Edge. 이 가상 머신은 IoT Edge와 함께 미리 설치 되며, Microsoft 업데이트 구성 요소를 최신 상태로 유지 하기 위해 관리 됩니다. 현재 사용 가능한 업데이트가 없습니다.

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e3d81bfaba572361304224932fadb7da5b1cc3f8
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8ddc94301ae8954fb0a35827ebd21e090c9dfe89
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912890"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821799"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -64,7 +64,7 @@ Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, �
 
 이 자습서의 예제를 완료하려면 기존 가상 머신이 있어야 합니다. 필요한 경우 다음 명령을 사용하여 가상 머신을 만듭니다.
 
-[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 
 [New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 가상 머신을 만듭니다. VM에서 관리자 계정의 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: f43fa06cf93d383efcb0fe746de28ab143280e50
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1d434697802596a0200dc0cb5f1afe5bc67afef5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988030"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379712"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>다른 작성자 및 편집기와 공동 작업
 
@@ -23,6 +23,9 @@ QnA Maker 리소스에 배치 된 azure RBAC (역할 기반 액세스 제어)를
 이 Azure RBAC 기능에는 다음이 포함 됩니다.
 * AAD (Azure Active Directory)는 소유자 및 참가자에 대 한 키 기반 인증과 호환 되는 100%입니다. 고객은 요청에서 키 기반 인증 또는 Azure RBAC 기반 인증을 사용할 수 있습니다.
 * 제어가 기술 자료 수준이 아닌 리소스 수준에 있기 때문에 리소스의 모든 기술 자료에 작성자와 편집기를 빠르게 추가 합니다.
+
+> [!NOTE]
+> 리소스에 대 한 사용자 지정 하위 도메인을 추가 하 고 있는지 확인 합니다. [사용자 지정 하위 도메인](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 은 기본적으로 제공 되어야 하지만 그렇지 않은 경우 추가 하세요.
 
 ## <a name="access-is-provided-by-a-defined-role"></a>정의 된 역할에서 액세스를 제공 합니다.
 

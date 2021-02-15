@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 12/22/2020
+ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393357"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리로 리소스 탐색 및 관리
 
@@ -37,7 +37,6 @@ Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하
 
 
 ## <a name="availability"></a>가용성
-
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
@@ -48,33 +47,36 @@ Security Center는 Azure 리소스의 보안 상태를 정기적으로 분석하
 
 
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>Asset inventory의 핵심 기능은 무엇 인가요?
-
 인벤토리 페이지는 다음 도구를 제공 합니다.
 
-- **요약** -필터를 정의 하기 전에 인벤토리 보기의 맨 위에 있는 값의 중요 한 스트립은 다음과 같이 표시 됩니다.
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Azure Security Center의 자산 인벤토리 페이지의 주요 기능" lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
-    - **Total resources**: Security Center에 연결 된 총 리소스 수입니다.
-    - **비정상 리소스**: 활성 보안 권장 사항이 있는 리소스입니다. [보안 권장 사항에 대해 자세히 알아보세요](security-center-recommendations.md).
-    - **모니터링** 되지 않는 리소스: 에이전트 모니터링 문제를 포함 하는 리소스-Log Analytics 에이전트를 배포 했지만 에이전트가 데이터를 전송 하지 않거나 다른 상태 문제를 포함 하 고 있습니다.
 
-- **필터** -페이지 맨 위의 여러 필터는 대답 하려는 질문에 따라 리소스 목록을 신속 하 게 구체화 하는 방법을 제공 합니다. 예를 들어 *' Production ' 태그가 있는 내 컴퓨터에 Log Analytics 에이전트가 누락 된* 경우 질문에 답변 하려면 다음 클립과 같이 **에이전트 모니터링** 필터를 **태그** 필터와 결합할 수 있습니다.
+### <a name="1---summaries"></a>1-요약
+필터를 정의 하기 전에 인벤토리 보기의 맨 위에 있는 값의 중요 한 스트립은 다음과 같이 표시 됩니다.
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="모니터링 되지 않는 프로덕션 리소스로 필터링":::
+- **Total resources**: Security Center에 연결 된 총 리소스 수입니다.
+- **비정상 리소스**: 활성 보안 권장 사항이 있는 리소스입니다. [보안 권장 사항에 대해 자세히 알아보세요](security-center-recommendations.md).
+- **모니터링** 되지 않는 리소스: 에이전트 모니터링 문제를 포함 하는 리소스-Log Analytics 에이전트를 배포 했지만 에이전트가 데이터를 전송 하지 않거나 다른 상태 문제를 포함 하 고 있습니다.
+- **등록** 되지 않은 구독: Azure Security Center에 아직 연결 되지 않은 선택한 범위의 구독입니다.
 
-    필터를 적용 하는 즉시 요약 값은 쿼리 결과와 관련 하 여 업데이트 됩니다. 
+### <a name="2---filters"></a>2-필터
+페이지 위쪽에 있는 여러 필터는 대답 하려는 질문에 따라 리소스 목록을 신속 하 게 구체화 하는 방법을 제공 합니다. 예를 들어 *' Production ' 태그가 있는 내 컴퓨터에 Log Analytics 에이전트가 누락* 된 경우 질문에 답변 하려면 **에이전트 모니터링** 필터를 **태그** 필터와 결합할 수 있습니다.
 
-- **내보내기 옵션** -인벤토리는 선택한 필터 옵션의 결과를 CSV 파일로 내보낼 수 있는 옵션을 제공 합니다. 또한 쿼리 자체를 Azure 리소스 그래프 탐색기로 내보내 KQL (Kusto Query Language) 쿼리를 추가로 구체화, 저장 또는 수정할 수 있습니다.
+필터를 적용 하는 즉시 요약 값은 쿼리 결과와 관련 하 여 업데이트 됩니다. 
 
-    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="인벤토리에 대 한 내보내기 옵션":::
+### <a name="3---export-and-asset-management-tools"></a>3-내보내기 및 자산 관리 도구
 
-    > [!TIP]
-    > KQL 설명서에서는 몇 가지 샘플 데이터와 함께 데이터베이스에 몇 가지 간단한 쿼리를 제공 하 여 언어에 대 한 "느낌"을 가져옵니다. [이 KQL 자습서에서 자세히 알아보세요](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+**내보내기 옵션** -인벤토리에는 선택한 필터 옵션의 결과를 CSV 파일로 내보내는 옵션이 포함 되어 있습니다. 또한 쿼리 자체를 Azure 리소스 그래프 탐색기로 내보내 KQL (Kusto Query Language) 쿼리를 추가로 구체화, 저장 또는 수정할 수 있습니다.
 
-- **자산 관리 옵션** -인벤토리를 사용 하면 복잡 한 검색 쿼리를 수행할 수 있습니다. 쿼리와 일치 하는 리소스를 찾았으면 인벤토리는 다음과 같은 작업에 대 한 바로 가기를 제공 합니다.
+> [!TIP]
+> KQL 설명서에서는 몇 가지 샘플 데이터와 함께 데이터베이스에 몇 가지 간단한 쿼리를 제공 하 여 언어에 대 한 "느낌"을 가져옵니다. [이 KQL 자습서에서 자세히 알아보세요](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
-    - 필터링 된 리소스에 태그 할당-태그를 지정할 리소스 옆에 있는 확인란을 선택 합니다.
-    - Security Center에 새 서버 등록- **비 Azure 서버 추가** 도구 모음 단추를 사용 합니다.
-    - Azure Logic Apps를 사용 하 여 작업을 자동화 합니다. **트리거 논리 앱** 단추를 사용 하 여 하나 이상의 리소스에서 논리 앱을 실행 합니다. 논리 앱을 미리 준비 하 고 관련 트리거 유형 (HTTP 요청)을 적용 해야 합니다. [논리 앱에 대해 자세히 알아보세요](../logic-apps/logic-apps-overview.md).
+**자산 관리 옵션** -인벤토리를 사용 하면 복잡 한 검색 쿼리를 수행할 수 있습니다. 쿼리와 일치 하는 리소스를 찾았으면 인벤토리는 다음과 같은 작업에 대 한 바로 가기를 제공 합니다.
+
+- 필터링 된 리소스에 태그 할당-태그를 지정할 리소스 옆에 있는 확인란을 선택 합니다.
+- Security Center에 새 서버 등록- **비 Azure 서버 추가** 도구 모음 단추를 사용 합니다.
+- Azure Logic Apps를 사용 하 여 작업을 자동화 합니다. **트리거 논리 앱** 단추를 사용 하 여 하나 이상의 리소스에서 논리 앱을 실행 합니다. 논리 앱을 미리 준비 하 고 관련 트리거 유형 (HTTP 요청)을 적용 해야 합니다. [논리 앱에 대해 자세히 알아보세요](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Asset inventory는 어떻게 작동 하나요?
@@ -94,14 +96,14 @@ KQL ( [Kusto Query Language)](/azure/data-explorer/kusto/query/)를 사용 하 �
 
 1. 필터에서 관련 옵션을 선택 하 여 수행 하려는 특정 쿼리를 만듭니다.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="인벤토리에 대 한 필터링 옵션" lightbox="./media/asset-inventory/inventory-filters.png":::
-
     기본적으로 리소스는 활성 보안 권장 사항의 수를 기준으로 정렬 됩니다.
 
     > [!IMPORTANT]
     > 각 필터의 옵션은 현재 선택한 구독의 리소스 **와** 다른 필터에서 선택한 항목에만 적용 됩니다.
     >
     > 예를 들어 구독을 하나만 선택 하 고 구독에 해결 되지 않은 보안 권장 사항 (비정상 리소스 0 개)이 포함 된 리소스가 없는 경우 **권장** 구성 필터에 옵션이 표시 되지 않습니다. 
+
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Azure Security Center의 자산 인벤토리에 있는 필터 옵션을 사용 하 여 모니터링 되지 않는 프로덕션 리소스에 대 한 리소스 필터링":::
 
 1. 보안 검색에 **포함** 된 필터를 사용 하려면 ID, 보안 검사 또는 CVE name의 사용 가능한 텍스트를 검색 하 여 영향을 받는 리소스를 필터링 합니다.
 

@@ -1,21 +1,17 @@
 ---
 title: Azure Data Factory에서 지원하는 컴퓨팅 환경
 description: '데이터를 변환 하거나 처리 하기 위해 Azure Data Factory 파이프라인 (예: Azure HDInsight)과 함께 사용할 수 있는 계산 환경입니다.'
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: f2a0784b2795b82131880d73a6d9217acc1d72d3
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606218"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368526"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -112,7 +108,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 #### <a name="properties"></a>속성
 
-| 속성                     | Description                              | 필수 |
+| 속성                     | 설명                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 형식 속성은 **HDInsightOnDemand** 로 설정해야 합니다. | 예      |
 | clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | 예      |
@@ -130,8 +126,8 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 | connectVia                   | 이 HDInsight 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. 주문형 HDInsight 연결된 서비스의 경우 Azure 통합 런타임만 지원합니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예       |
 | clusterUserName                   | 클러스터에 액세스하기 위한 사용자 이름입니다. | 예       |
 | clusterPassword                   | 클러스터에 액세스하기 위한 보안 문자열 형식의 암호입니다. | 예       |
-| clusterSshUserName         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 사용자 이름입니다(Linux용). | 예       |
-| clusterSshPassword         | SSH를 통해 클러스터 노드에 원격으로 연결하기 위한 보안 문자열 형식의 암호입니다(Linux용). | 예       |
+| clusterSshUserName         | SSH에 대 한 사용자 이름은 클러스터의 노드에 원격으로 연결 됩니다 (Linux의 경우). | 예       |
+| clusterSshPassword         | SSH에서 클러스터 노드 (Linux의 경우)에 원격으로 연결 하는 보안 문자열 형식의 암호입니다. | 예       |
 | scriptActions | 주문형 클러스터를 만드는 동안 [HDInsight 클러스터 사용자 지정](../hdinsight/hdinsight-hadoop-customize-cluster-linux.md)을 위한 스크립트를 지정합니다. <br />현재 Azure Data Factory의 사용자 인터페이스 제작 도구는 1개의 스크립트 동작만 지정하도록 지원하지만 JSON에서는 이 제한을 무시할 수 있습니다(JSON에서 여러 스크립트 동작 지정). | 예 |
 
 
@@ -160,7 +156,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | Description                              | 필수 |
+| 속성                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -170,7 +166,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
 
-| 속성               | Description                              | 필수 |
+| 속성               | 설명                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 예       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 예       |
@@ -238,7 +234,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 #### <a name="node-sizes"></a>노드 크기
 다음 속성을 사용하여 헤드, 데이터 및 Zookeeper 노드의 크기를 지정할 수 있습니다. 
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 예       |
 | dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 | 예       |
@@ -297,7 +293,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | Description                                                  | 필수 |
+| 속성          | 설명                                                  | 필수 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 형식 속성은 **HDInsight** 로 설정해야 합니다.            | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
@@ -357,7 +353,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 
 ### <a name="properties"></a>속성
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 형식 속성은 **AzureBatch** 로 설정해야 합니다. | 예      |
 | accountName       | Azure Batch 계정의 이름         | 예      |
@@ -393,11 +389,11 @@ Azure Machine Learning Studio (클래식) 연결 된 서비스를 만들어 Mach
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | Description                              | 필수                                 |
+| 속성               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureML** 로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
-| apiKey                 | 게시된 작업 영역 모델의 API입니다.     | 예                                      |
+| apiKey                 | 게시 된 작업 영역 모델의 API입니다.     | 예                                      |
 | updateResourceEndpoint | 학습 된 모델 파일로 예측 웹 서비스를 업데이트 하는 데 사용 되는 Azure Machine Learning Studio (클래식) 웹 서비스 끝점에 대 한 업데이트 리소스 URL입니다. | 예                                       |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
@@ -437,7 +433,7 @@ Azure Machine Learning 연결된 서비스를 만들어 Azure Machine Learning �
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | Description                              | 필수                                 |
+| 속성               | 설명                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureMLService** 로 설정되어야 합니다. | 예                                      |
 | subscriptionId         | Azure 구독 ID입니다.              | 예                                      |
@@ -480,7 +476,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 ### <a name="properties"></a>속성
 
-| 속성             | Description                              | 필수                                 |
+| 속성             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | 형식 속성은 **AzureDataLakeAnalytics** 로 설정해야 합니다. | 예                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
@@ -542,17 +538,17 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 ### <a name="properties"></a>속성
 
-| 속성             | Description                              | 필수                                 |
+| 속성             | 설명                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | 연결된 서비스의 이름입니다.               | 예   |
 | type                 | 형식 속성은 **Azure Databricks**. | 예                                      |
 | 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | 예                                 |
-| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)에서 확인할 수 있습니다.  | 예                                       |
+| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다.  | 예                                       |
 | MSI          | Data Factory의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
 | instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 예  |
-| newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. "1"과 같은 Int32 형식의 문자열에서 numOfWorker는 1을 의미하고, "1:10"은 최소 1~최대 10 범위의 자동 크기 조정을 의미합니다.  | 예                |
+| newClusterNumOfWorker| 이 클러스터에 있어야 하는 작업자 노드의 수입니다. 하나의 클러스터에 총 num_workers + 1개의 Spark 노드에 대해 하나의 Spark 드라이버와 num_workers개의 실행기가 있습니다. 문자열 형식 Int32 (예: "1")는 numOfWorker가 1 또는 "1:10" 임을 의미 합니다. 1에서 min 및 10을 max로 자동 크기 조정을 의미 합니다.  | 예                |
 | newClusterNodeType   | 이 필드는 단일 값을 통해 이 클러스터의 각 Spark 노드에서 사용할 수 있는 리소스를 인코딩합니다. 예를 들어, Spark 노드는 메모리 또는 컴퓨팅 집약적 워크로드에 대해 프로비저닝되고 최적화될 수 있습니다. 이 필드는 새 클러스터에 필요합니다.                | 예               |
 | newClusterSparkConf  | 선택적인 사용자 지정 Spark 구성 키-값 쌍의 집합입니다. 또한 사용자는 각각 spark.driver.extraJavaOptions 및 spark.executor.extraJavaOptions를 통해 드라이버와 실행기에 추가 JVM 옵션 문자열을 전달할 수 있습니다. | 예  |
 | newClusterInitScripts| 새 클러스터에 대한 선택적 사용자 정의 초기화 스크립트의 세트입니다. Init 스크립트에 대한 DBFS 경로를 지정합니다. | 예  |

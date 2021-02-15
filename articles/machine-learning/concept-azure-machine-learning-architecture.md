@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540199"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091672"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -47,28 +47,15 @@ ms.locfileid: "94540199"
 
 작업 영역을 다른 사용자와 공유할 수 있습니다.
 
-### <a name="create-workspace"></a>작업 영역 만들기
-
-다음 다이어그램은 작업 영역 생성 워크플로를 보여줍니다.
-
-* 지원되는 Azure Machine Learning 클라이언트(Azure CLI, Python SDK, Azure Portal) 중 하나에서 Azure AD에 로그인하고 적절한 Azure Resource Manager 토큰을 요청합니다.
-* Azure Resource Manager를 호출하여 작업 영역을 만듭니다. 
-* Azure Resource Manager는 Azure Machine Learning 리소스 공급자에게 연락하여 작업 영역을 프로비저닝합니다.
-* 기존 리소스를 지정 하지 않으면 구독에서 추가 필수 리소스가 생성 됩니다.
-
-필요에 따라 작업 영역 (예: Azure Kubernetes Service 또는 Vm)에 연결 된 다른 계산 대상을 프로 비전 할 수도 있습니다.
-
-[![작업 영역 생성 워크플로](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## <a name="computes"></a>Computes
 
 <a name="compute-targets"></a>[계산 대상은](concept-compute-target.md) 교육 스크립트를 실행 하거나 서비스 배포를 호스트 하는 데 사용 하는 컴퓨터 또는 컴퓨터 집합입니다. 로컬 컴퓨터 또는 원격 계산 리소스를 계산 대상으로 사용할 수 있습니다.  계산 대상을 사용 하면 로컬 컴퓨터에서 교육을 시작한 다음 학습 스크립트를 변경 하지 않고 클라우드로 확장할 수 있습니다.
 
 Azure Machine Learning에는 Machine Learning 작업에 대해 구성 된 두 개의 완전히 관리 되는 클라우드 기반 VM (가상 머신)이 도입 되었습니다.
 
-* <a name="compute-instance"></a>**계산 인스턴스** : 계산 인스턴스는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 VM입니다. 계산 인스턴스는 주로 개발 워크스테이션에 사용 됩니다.  설치 하지 않아도 되는 샘플 노트북 실행을 시작할 수 있습니다. 계산 인스턴스를 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수도 있습니다.
+* <a name="compute-instance"></a>**계산 인스턴스**: 계산 인스턴스는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 VM입니다. 계산 인스턴스는 주로 개발 워크스테이션에 사용 됩니다.  설치 하지 않아도 되는 샘플 노트북 실행을 시작할 수 있습니다. 계산 인스턴스를 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수도 있습니다.
 
-* **계산 클러스터** : 계산 클러스터는 다중 노드 크기 조정 기능이 있는 vm의 클러스터입니다. 계산 클러스터는 대량 작업 및 프로덕션을 위한 계산 대상에 더 적합 합니다.  작업이 제출 되 면 클러스터가 자동으로 확장 됩니다.  를 학습 계산 대상으로 사용 하거나 개발/테스트 배포에 사용 합니다.
+* **계산 클러스터**: 계산 클러스터는 다중 노드 크기 조정 기능이 있는 vm의 클러스터입니다. 계산 클러스터는 대량 작업 및 프로덕션을 위한 계산 대상에 더 적합 합니다.  작업이 제출 되 면 클러스터가 자동으로 확장 됩니다.  를 학습 계산 대상으로 사용 하거나 개발/테스트 배포에 사용 합니다.
 
 계산 대상 학습에 대 한 자세한 내용은 [계산 대상 학습](concept-compute-target.md#train)을 참조 하세요.  배포 계산 대상에 대 한 자세한 내용은 [배포 대상](concept-compute-target.md#deploy)을 참조 하세요.
 
@@ -126,10 +113,6 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 [작업 영역](#workspace)  >  [실험](#experiments)  >  [실행](#runs)  >  **스냅숏**
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
-
-다음 다이어그램은 코드 스냅샷 워크플로를 보여줍니다.
-
-[![코드 스냅샷 워크플로](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>로깅
 
@@ -272,7 +255,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제공 합니다.
 
-* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
    * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
    * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
    * [MLflow로 실험 추적](how-to-use-mlflow.md)

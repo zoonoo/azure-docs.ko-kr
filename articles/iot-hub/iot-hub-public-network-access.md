@@ -6,13 +6,13 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: c82f98df8fb79fa10f2e30b219c1a02bb646e2de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/12/2021
+ms.openlocfilehash: 27552b2c39f2d1e5d9cc1719a9cc2944e088773a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85937565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517130"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>IoT hub에 대 한 공용 네트워크 액세스 관리
 
@@ -24,11 +24,17 @@ ms.locfileid: "85937565"
 2. IoT Hub로 이동
 3. 왼쪽 메뉴에서 **네트워킹** 을 선택 합니다.
 4. "공용 네트워크 액세스 허용"에서 **사용 안 함** 을 선택 합니다.
-5. **저장**을 선택합니다.
+5. **저장** 을 선택합니다.
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="공용 네트워크 액세스를 해제할 Azure Portal를 보여 주는 이미지" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
-공용 네트워크 액세스를 설정 하려면 **사용**을 선택 하 고 **저장**을 선택 합니다.
+공용 네트워크 액세스를 켜려면 **모든 네트워크** 를 선택한 다음 **저장** 을 클릭 합니다.
+
+## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>공용 네트워크 액세스를 사용 하지 않도록 설정한 후 끝점, IP 주소 및 포트를 IoT Hub 합니다.
+
+IoT Hub은 다중 테 넌 트 PaaS (Platform as a Service) 이므로 여러 고객이 동일한 계산, 네트워킹 및 저장소 하드웨어 리소스 풀을 공유 합니다. IoT Hub의 호스트 이름은 인터넷을 통해 공개적으로 라우팅할 수 있는 IP 주소를 사용 하는 공용 끝점에 매핑됩니다. 이 IoT Hub 퍼블릭 엔드포인트는 여러 고객이 공유하며, 광역 네트워크와 온-프레미스 네트워크에 있는 IoT 디바이스가 여기에 액세스할 수 있습니다. 
+
+공용 네트워크 액세스를 사용 하지 않도록 설정 하면 특정 IoT hub 리소스에 적용 되므로 격리가 보장 됩니다. 공용 경로를 사용 하 여 다른 고객 리소스에 대해 서비스를 활성 상태로 유지 하기 위해 해당 공용 끝점은 확인 가능 하 고 IP 주소는 검색 가능 하며 포트는 열린 상태로 유지 됩니다. Microsoft는 여러 계층의 보안을 통합 하 여 테 넌 트 간의 완전 한 격리를 보장 하므로이는 문제가 되지 않습니다. 자세히 알아보려면 [Azure 공용 클라우드에서 격리](../security/fundamentals/isolation-choices.md#tenant-level-isolation)를 참조 하세요.
 
 ## <a name="ip-filter"></a>IP 필터 
 

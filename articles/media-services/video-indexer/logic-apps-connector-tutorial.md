@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c545fa7d58d925dfcb9fa98b301c3bb0a20833e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: f3504ca4a706e92081209f4eaaa86af9f71c52b3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358574"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821475"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
@@ -137,4 +137,4 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [
 > [!div class="nextstepaction"]
 > [Video Indexer API 사용](video-indexer-use-apis.md)
 
-추가 리소스는 [비디오 인덱서](https://docs.microsoft.com/connectors/videoindexer-v2/)에 대한 이 문서를 참조하세요.
+추가 리소스는 [비디오 인덱서](/connectors/videoindexer-v2/)에 대한 이 문서를 참조하세요.

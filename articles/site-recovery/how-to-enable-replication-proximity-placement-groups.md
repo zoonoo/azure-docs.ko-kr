@@ -4,13 +4,13 @@ description: Azure Site Recovery를 사용하여 근접 배치 그룹에서 실�
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745586"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380755"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>근접 배치 그룹에서 실행되는 Azure 가상 머신을 다른 지역에 복제
 
@@ -25,21 +25,72 @@ ms.locfileid: "98745586"
 ## <a name="considerations"></a>고려 사항
 
 - 최선의 노력은 가상 머신을 근접 배치 그룹으로 장애 조치(failover)/장애 복구(failback)하는 것입니다. 그러나 장애 조치(failover)/장애 복구(failback) 중에 근접 배치 내부에서 VM을 시작할 수 없는 경우 장애 조치(failover)/장애 복구(failback)가 계속 발생하고, 가상 머신이 근접 배치 그룹 외부에 생성됩니다.
--  가용성 집합이 근접 배치 그룹에 고정되어 있고 장애 조치(failover)/장애 복구(failback) 중 가용성 집합의 VM에 할당 제약 조건이 있는 경우, 가상 머신은 가용성 집합 및 근접 배치 그룹의 외부에 생성됩니다.
--  비관리 디스크는 근접 배치 그룹에 대한 Site Recovery가 지원되지 않습니다.
+- 가용성 집합이 근접 배치 그룹에 고정되어 있고 장애 조치(failover)/장애 복구(failback) 중 가용성 집합의 VM에 할당 제약 조건이 있는 경우, 가상 머신은 가용성 집합 및 근접 배치 그룹의 외부에 생성됩니다.
+- 비관리 디스크는 근접 배치 그룹에 대한 Site Recovery가 지원되지 않습니다.
 
 > [!NOTE]
 > Azure Site Recovery는 Hyper-v에서 Azure로 시나리오에 대해 managed disks에서 장애 복구 (failback)를 지원 하지 않습니다. 따라서 Azure의 근접 배치 그룹에서 Hyper-v로 장애 복구 (failback)가 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>포털을 통해 근접 배치 그룹의 Vm에 대 한 재해 복구 설정
+
+### <a name="azure-to-azure-via-portal"></a>Azure에서 포털을 통해 Azure
+
+VM 재해 복구 페이지를 통해 또는 미리 만든 자격 증명 모음으로 이동한 다음 Site Recovery 섹션으로 이동한 후 복제를 사용 하도록 설정 하 여 가상 컴퓨터에 대 한 복제를 사용 하도록 선택할 수 있습니다. 두 가지 방법을 통해 PPG 내의 Vm에 대해 Site Recovery를 설정 하는 방법을 살펴보겠습니다.
+
+- IaaS VM DR 블레이드를 통해 복제를 사용 하도록 설정 하는 동안 DR 지역에서 PPG를 선택 하는 방법:
+  1. 가상 머신으로 이동 합니다. 왼쪽 블레이드의 ' 작업 ' 아래에서 ' 재해 복구 '를 선택 합니다.
+  2. ' 기본 사항 ' 탭에서 VM을 복제 하려는 DR 지역을 선택 합니다. ' 고급 설정 '으로 이동
+  3. 여기서 VM의 근접 배치 그룹을 확인 하 고 DR 지역에서 PPG를 선택 하는 옵션을 확인할 수 있습니다. 또한이 기본 옵션을 사용 하도록 선택 하는 경우 새로 만드는 근접 배치 그룹을 사용 하는 옵션을 제공 합니다. Site Recovery 원하는 근접 배치 그룹을 선택 하 고 ' 검토 + 시작 복제 '로 이동한 후 마지막으로 복제를 사용 하도록 설정할 수 있습니다.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="복제를 사용하도록 설정합니다.":::
+
+- 자격 증명 모음 블레이드를 통해 복제를 사용 하도록 설정 하는 동안 DR 지역에서 PPG를 선택 하는 방법:
+  1. Recovery Services 자격 증명 모음으로 이동 하 여 Site Recovery 탭으로 이동 합니다.
+  2. ' + Site Recovery 사용 '을 클릭 한 다음 Azure virtual machines에서 ' 1: 복제 사용 '을 선택 합니다 (Azure VM을 복제 하려는 경우).
+  3. ' 원본 ' 탭에서 필수 필드를 입력 하 고 ' 다음 '을 클릭 합니다.
+  4. ' 가상 컴퓨터 ' 탭에서 복제를 사용 하도록 설정 하려는 Vm 목록을 선택 하 고 ' 다음 '을 클릭 합니다.
+  5. 여기에서 DR 지역에서 PPG를 선택 하는 옵션을 볼 수 있습니다. 이 기본 옵션을 사용 하도록 선택 하는 경우에는 사용자가 만드는 새 PPG를 사용 하는 옵션도 제공 됩니다 Site Recovery. 원하는 PPG를 선택 하 고 복제 사용을 계속 진행할 수 있습니다.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="자격 증명 모음을 통해 복제를 사용 하도록 설정 합니다.":::
+
+VM에 대해 복제를 사용 하도록 설정한 후 DR 지역에서 PPG 선택을 쉽게 업데이트할 수 있습니다.
+
+1. 가상 머신으로 이동 하 고 왼쪽 블레이드의 ' 작업 ' 아래에서 ' 재해 복구 '를 선택 합니다.
+2. ' 계산 및 네트워크 ' 블레이드로 이동 하 고 페이지 맨 위에 있는 ' 편집 '을 클릭 합니다.
+3. 대상 PPG를 비롯 한 여러 대상 설정을 편집 하는 옵션을 볼 수 있습니다. VM을 장애 조치 (failover) 할 PPG를 선택 하 고 ' 저장 '을 클릭 합니다.
+
+### <a name="vmware-to-azure-via-portal"></a>포털을 통해 VMware에서 Azure로
+
+VM에 대 한 복제를 사용 하도록 설정한 후 대상 VM에 대 한 근접 배치 그룹을 설정할 수 있습니다. 요구 사항에 따라 대상 지역에 PPG를 별도로 만들어야 합니다. 이후에 VM에 대해 복제를 사용 하도록 설정한 후 DR 지역에서 PPG 선택을 쉽게 업데이트할 수 있습니다.
+
+1. 자격 증명 모음에서 가상 컴퓨터를 선택 하 고 왼쪽 블레이드의 ' 작업 ' 아래에서 ' 재해 복구 '를 선택 합니다.
+2. ' 계산 및 네트워크 ' 블레이드로 이동 하 고 페이지 맨 위에 있는 ' 편집 '을 클릭 합니다.
+3. 대상 PPG를 비롯 한 여러 대상 설정을 편집 하는 옵션을 볼 수 있습니다. VM을 장애 조치 (failover) 할 PPG를 선택 하 고 ' 저장 '을 클릭 합니다.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="PPG V2A 업데이트":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>포털을 통해 hyper-v에서 Azure로
+
+VM에 대 한 복제를 사용 하도록 설정한 후 대상 VM에 대 한 근접 배치 그룹을 설정할 수 있습니다. 요구 사항에 따라 대상 지역에 PPG를 별도로 만들어야 합니다. 이후에 VM에 대해 복제를 사용 하도록 설정한 후 DR 지역에서 PPG 선택을 쉽게 업데이트할 수 있습니다.
+
+1. 자격 증명 모음에서 가상 컴퓨터를 선택 하 고 왼쪽 블레이드의 ' 작업 ' 아래에서 ' 재해 복구 '를 선택 합니다.
+2. ' 계산 및 네트워크 ' 블레이드로 이동 하 고 페이지 맨 위에 있는 ' 편집 '을 클릭 합니다.
+3. 대상 PPG를 비롯 한 여러 대상 설정을 편집 하는 옵션을 볼 수 있습니다. VM을 장애 조치 (failover) 할 PPG를 선택 하 고 ' 저장 '을 클릭 합니다.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="PPG H2A 업데이트":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>PowerShell을 통해 근접 배치 그룹의 Vm에 대 한 재해 복구 설정
+
+### <a name="prerequisites"></a>사전 요구 사항 
 
 1. Azure PowerShell Az 모듈이 있어야 합니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 2. 최소 Azure PowerShell Az version은 4.1.0 여야 합니다. 현재 버전을 확인 하려면 아래 명령을 사용 합니다.
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>근접 배치 그룹 내 가상 머신에 Site Recovery 설정
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>근접 배치 그룹 내 가상 머신에 Site Recovery 설정
 
 > [!NOTE]
 > 대상 근접 배치 그룹의 고유 ID가 유용한 지 확인 합니다. 새 근접 배치 그룹을 만드는 경우 [여기](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) 에서 명령을 확인 하 고 기존 근접 배치 그룹을 사용 하는 경우 [여기](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups)에서 명령을 사용 합니다.
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. 복제를 사용하지 않도록 설정하려면 [여기](./azure-to-azure-powershell.md#disable-replication)의 단계를 따릅니다.
 
-### <a name="vmware-to-azure"></a>VMware에서 Azure로
+### <a name="vmware-to-azure-via-powershell"></a>PowerShell을 통해 VMware에서 Azure로
 
 1. Azure로 재해 복구를 위해 [온-프레미스 VMware 서버를 준비](./vmware-azure-tutorial-prepare-on-premises.md)해야 합니다.
 2. 계정에 로그인하고 [여기](./vmware-azure-disaster-recovery-powershell.md#log-into-azure)에 지정된 대로 구독을 설정합니다.
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. 테스트 장애 조치(failover)를 [실행](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover)합니다.
 11. [이러한](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) 단계를 사용하여 Azure로 장애 조치(Failover)합니다.
 
-### <a name="hyper-v-to-azure"></a>Hyper-V에서 Azure로
+### <a name="hyper-v-to-azure-via-powershell"></a>PowerShell을 통해 hyper-v에서 Azure로
 
 1. Azure로 재해 복구를 위해 [온-프레미스 Hyper-V 서버를 준비](./hyper-v-prepare-on-premises-tutorial.md)해야 합니다.
 2. Azure에 [로그인](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account)합니다.

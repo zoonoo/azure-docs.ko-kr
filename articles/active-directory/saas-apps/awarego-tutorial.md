@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 6599abd6282d0d1eb7cb81002c34ddd5158dab6b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4682396f68d6ff1af0b2fb6a5b1a8419d6963529
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511062"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821632"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-awarego"></a>자습서: AwareGo와 Azure Active Directory Single Sign-On 통합
 
@@ -139,11 +139,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
 * AwareGo 로그인 페이지로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱으로 이동합니다. 내 앱에서 **AwareGo** 타일을 클릭하면 AwareGo 로그인 페이지로 리디렉션됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)을 참조하세요.
+* Microsoft 내 앱으로 이동합니다. 내 앱에서 **AwareGo** 타일을 클릭하면 AwareGo 로그인 페이지로 리디렉션됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-AwareGo가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스 앱 제어에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
-
-
+AwareGo가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스 앱 제어에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
