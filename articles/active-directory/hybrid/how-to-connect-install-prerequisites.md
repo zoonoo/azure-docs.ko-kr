@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201725"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368968"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -62,7 +62,7 @@ Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니
 
 Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
-#### <a name="installation-prerequisites"></a>설치 필수 구성 요소
+#### <a name="installation-prerequisites"></a>설치 필수 조건
 
 - Azure AD Connect 도메인에 가입 된 Windows Server 2012 이상에 설치 해야 합니다. 
 - Azure AD Connect는 Small Business Server 또는 Windows Server Essentials 2019 이전에 설치할 수 없습니다 (Windows Server Essentials 2019이 지원 됨). 서버는 Windows Server Standard 이상을 사용해야 합니다. 
@@ -73,6 +73,7 @@ Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [
     - TLS/SSL 인증서를 구성 해야 합니다. 자세한 내용은 AD FS 및 [AD FS에서 ssl 인증서 관리](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap)를 [위한 ssl/TLS 프로토콜 및 암호 그룹 관리](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 를 참조 하세요.
     - 이름 확인을 구성 해야 합니다. 
 - 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL은 신뢰할 수 있는 https://secure.aadcdn.microsoftonline-p.com 사이트 목록에 *있어야* 합니다. MFA 챌린지를 묻는 메시지가 표시 되 고 이전에 추가 되지 않은 경우 신뢰할 수 있는 사이트 목록에이 사이트를 추가 하 라는 메시지가 표시 됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
+- 동기화에 Azure AD Connect Health을 사용 하려면 Azure AD Connect Health에 대 한 필수 구성 요소가 충족 되는지 확인 해야 합니다. 자세한 내용은 [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)를 참조 하세요.
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Azure AD Connect 서버 강화 
 IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역을 줄이기 위해 Azure AD Connect 서버를 강화 하는 것이 좋습니다. 이러한 권장 사항을 따르면 조직에 대 한 몇 가지 보안 위험을 완화 하는 데 도움이 됩니다.

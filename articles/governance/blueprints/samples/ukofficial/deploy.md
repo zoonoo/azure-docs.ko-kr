@@ -1,14 +1,14 @@
 ---
 title: 영국 공식 및 영국 NHS 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 영국 공식 및 영국 NHS 청사진 샘플의 배포 단계를 설명합니다.
-ms.date: 11/02/2020
+ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 14e832397c21f183c94720bc71f06530d9caaf14
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420328"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821315"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -33,8 +33,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 샘플의 _기본 사항_ 을 입력합니다.
 
-   - **청사진 이름** : 청사진 샘플 사본의 이름을 지정합니다.
-   - **정의 위치** : 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
+   - **청사진 이름**: 청사진 샘플 사본의 이름을 지정합니다.
+   - **정의 위치**: 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
 
 1. 페이지 위쪽의 _아티팩트_ 탭 또는 페이지 아래쪽의 **다음: 아티팩트** 를 선택합니다.
 
@@ -64,11 +64,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    - 기본 사항
 
-     - **구독** : 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
-     - **할당 이름** : 청사진의 이름에 따라 이 이름이 미리 채워집니다.
+     - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
+     - **할당 이름**: 청사진의 이름에 따라 이 이름이 미리 채워집니다.
        필요에 따라 변경하거나 그대로 둡니다.
-     - **위치** : 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
-     - **청사진 정의 버전** : 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
+     - **위치**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+     - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
 
    - 할당 잠금
 

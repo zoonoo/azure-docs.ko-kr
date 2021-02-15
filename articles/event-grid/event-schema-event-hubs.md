@@ -2,25 +2,25 @@
 title: Azure Event Hubs Event Grid 원본으로
 description: Azure Event Grid를 사용하여 이벤트 허브 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 960aa1fe7184e1d02d28fdc135907119fee8f123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/11/2021
+ms.openlocfilehash: e9bb4b5a27173181c7295e96a1eb0654a1a929e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113686"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363512"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs Event Grid 원본으로
 
-이 문서에서는 이벤트 허브 이벤트에 대한 속성 및 스키마를 제공합니다.이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 이벤트 허브 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
-## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
-
-### <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
+## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCreated** 이벤트 유형을 내보냅니다.
 
-### <a name="example-event"></a>예제 이벤트
+## <a name="example-event"></a>예제 이벤트
+
+# <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 
 이 샘플 이벤트는 캡처 기능에서 파일을 저장할 때 발생하는 이벤트 허브 이벤트의 스키마를 보여 줍니다. 
 
@@ -49,34 +49,83 @@ Event Hubs는 캡처 파일이 생성되면 **Microsoft.EventHub.CaptureFileCrea
 ]
 ```
 
-### <a name="event-properties"></a>이벤트 속성
+# <a name="cloud-event-schema"></a>[클라우드 이벤트 스키마](#tab/cloud-event-schema)
+
+이 샘플 이벤트는 캡처 기능에서 파일을 저장할 때 발생하는 이벤트 허브 이벤트의 스키마를 보여 줍니다. 
+
+```json
+[
+    {
+        "source": "/subscriptions/<guid>/resourcegroups/rgDataMigrationSample/providers/Microsoft.EventHub/namespaces/tfdatamigratens",
+        "subject": "eventhubs/hubdatamigration",
+        "type": "Microsoft.EventHub.CaptureFileCreated",
+        "time": "2017-08-31T19:12:46.0498024Z",
+        "id": "14e87d03-6fbf-4bb2-9a21-92bd1281f247",
+        "data": {
+            "fileUrl": "https://tf0831datamigrate.blob.core.windows.net/windturbinecapture/tfdatamigratens/hubdatamigration/1/2017/08/31/19/11/45.avro",
+            "fileType": "AzureBlockBlob",
+            "partitionId": "1",
+            "sizeInBytes": 249168,
+            "eventCount": 1500,
+            "firstSequenceNumber": 2400,
+            "lastSequenceNumber": 3899,
+            "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
+            "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
+        },
+        "specversion": "1.0"
+    }
+]
+```
+
+
+---
+
+
+## <a name="event-properties"></a>이벤트 속성
+
+# <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
+이벤트에는 다음과 같은 최상위 데이터가 있습니다.
+
+| 속성 | 형식 | Description |
+| -------- | ---- | ----------- |
+| `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
+| `eventType` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| `eventTime` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| `data` | object | 이벤트 허브 이벤트 데이터입니다. |
+| `dataVersion` | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| `metadataVersion` | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+
+# <a name="cloud-event-schema"></a>[클라우드 이벤트 스키마](#tab/cloud-event-schema)
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
-| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
-| subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
-| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| 데이터 | object | 이벤트 허브 이벤트 데이터입니다. |
-| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
+| `type` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| `time` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| `data` | object | 이벤트 허브 이벤트 데이터입니다. |
+| `specversion` | 문자열 | CloudEvents 스키마 사양 버전입니다. |
+
+---
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | 형식 | Description |
 | -------- | ---- | ----------- |
-| fileUrl | 문자열 | 캡처 파일에 대한 경로입니다. |
-| fileType | 문자열 | 캡처 파일의 파일 형식입니다. |
-| partitionId | 문자열 | shard ID입니다. |
-| sizeInBytes | 정수 | 파일 크기입니다. |
-| eventCount | 정수 | 파일에 있는 이벤트의 수입니다. |
-| firstSequenceNumber | 정수 | 큐의 가장 작은 시퀀스 번호입니다. |
-| lastSequenceNumber | 정수 | 큐의 마지막 시퀀스 번호입니다. |
-| firstEnqueueTime | 문자열 | 큐의 처음 시간입니다. |
-| lastEnqueueTime | 문자열 | 큐의 마지막 시간입니다. |
+| `fileUrl` | 문자열 | 캡처 파일에 대한 경로입니다. |
+| `fileType` | 문자열 | 캡처 파일의 파일 형식입니다. |
+| `partitionId` | 문자열 | shard ID입니다. |
+| `sizeInBytes` | 정수 | 파일 크기입니다. |
+| `eventCount` | 정수 | 파일에 있는 이벤트의 수입니다. |
+| `firstSequenceNumber` | 정수 | 큐의 가장 작은 시퀀스 번호입니다. |
+| `lastSequenceNumber` | 정수 | 큐의 마지막 시퀀스 번호입니다. |
+| `firstEnqueueTime` | 문자열 | 큐의 처음 시간입니다. |
+| `lastEnqueueTime` | 문자열 | 큐의 마지막 시간입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 

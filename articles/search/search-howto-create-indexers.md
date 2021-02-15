@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509387"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360961"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 만들기
 
@@ -112,7 +112,7 @@ Postman과 Visual Studio Code (Azure Cognitive Search 용 확장 포함)는 인�
 
 Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능을 구현 합니다. 따라서 모든 Sdk를 사용 하 여 인덱서 관련 개체를 만들 수 있습니다. 이러한 모든 항목은 기술력과를 포함 하 여 인덱서 및 관련 개체를 만드는 메서드를 포함 하는 **Searchindexerclient** 를 제공 합니다.
 
-| Azure SDK | 클라이언트 | 예 |
+| Azure SDK | 클라이언트 | 예제 |
 |-----------|--------|----------|
 | .NET | [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient) | [DotNetHowToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) |
 | Java | [SearchIndexerClient](/java/api/com.azure.search.documents.indexes.searchindexerclient) | [CreateIndexerExample. java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/indexes/CreateIndexerExample.java) |
@@ -142,6 +142,20 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 + [Azure Table Storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>변경 검색 및 인덱서 상태
+
+인덱서는 기본 데이터의 변경 내용을 감지 하 고 각 인덱서 실행에서 새 문서 또는 업데이트 된 문서만 처리할 수 있습니다. 예를 들어 인덱서 상태에서 처리 된 문서를 성공적으로 실행 한 것으로 표시 되 면 `0/0` 인덱서가 기본 데이터 원본에서 새로운 또는 변경 된 행 또는 blob을 찾지 못했음을 의미 합니다.
+
+인덱서가 변경 검색을 지 원하는 방법은 데이터 원본에 따라 다릅니다.
+
++ Azure Blob Storage Azure Table Storage 및 Azure Data Lake Storage Gen2 각 Blob 또는 행 업데이트를 날짜 및 시간으로 스탬프 합니다. 다양 한 인덱서는이 정보를 사용 하 여 인덱스에서 업데이트할 문서를 결정 합니다. 기본 제공 변경 검색은 인덱서가 새로운 문서 및 업데이트 된 문서를 인식할 수 있음을 의미 하며 추가 구성은 필요 하지 않습니다.
+
++ Azure SQL 및 Cosmos DB는 해당 플랫폼에서 변경 검색 기능을 제공 합니다. 데이터 원본 정의에서 변경 내용 검색 정책을 지정할 수 있습니다.
+
+인덱스를 대량으로 로드 하는 경우 인덱서는 내부 "상위 워터 마크"를 통해 처리 된 마지막 문서를 추적 하기도 합니다. 마커는 API에서 노출 되지 않지만 내부적으로 인덱서는 중지 된 위치를 추적 합니다. 예약 된 실행 또는 요청 시 호출을 통해 인덱싱이 재개 되 면 인덱서는 남은 위치를 선택할 수 있도록 상위 워터 마크를 참조 합니다.
+
+전체를 다시 인덱스 하기 위해 상위 워터 마크를 지워야 하는 경우 [인덱서 다시 설정](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)을 사용할 수 있습니다. 선택적 다시 인덱싱을 위해 [기술 다시 설정](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) 또는 [문서 다시 설정](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents)을 사용 합니다. 다시 설정 Api를 통해 내부 상태를 지우고 [증분 보강](search-howto-incremental-index.md)를 사용 하도록 설정한 경우 캐시를 플러시할 수도 있습니다. 각 다시 설정 옵션의 배경 및 비교에 대 한 자세한 내용은 [인덱서, 기술 및 문서 실행 또는 다시 설정](search-howto-run-reset-indexers.md)을 참조 하세요.
 
 ## <a name="know-your-data"></a>데이터 파악
 

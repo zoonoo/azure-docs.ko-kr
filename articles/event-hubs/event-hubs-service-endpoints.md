@@ -2,13 +2,13 @@
 title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015584"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516687"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 
@@ -46,8 +46,8 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 1. **Azure Portal** 에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
 4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택 합니다. **표준** 또는 **전용** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다. 
 
-    > [!NOTE]
-    > 기본적으로 다음 이미지에 표시 된 것 처럼 **선택한 네트워크** 옵션이 선택 됩니다. IP 방화벽 규칙을 지정 하지 않거나이 페이지에서 가상 네트워크를 추가 하는 경우 **공용 인터넷** 을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 
+    > [!WARNING]
+    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않으면 **공용 인터넷** 을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="네트워크 탭-선택한 네트워크 옵션" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -79,28 +79,12 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
+다음 샘플 리소스 관리자 템플릿에서는 기존 Event Hubs 네임 스페이스에 가상 네트워크 규칙을 추가 합니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정 합니다. 
 
-다음과 같은 Resource Manager 템플릿을사용 하면 기존 Event Hubs 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
+ID는 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로입니다. 예를 들어 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` 가상 네트워크의 기본 서브넷에 대해입니다.
 
-템플릿 매개 변수:
+가상 네트워크 또는 방화벽 규칙을 추가할 때의 값을 `defaultAction` 로 설정 `Deny` 합니다.
 
-* `namespaceName`: 네임 스페이스를 Event Hubs 합니다.
-* `vnetRuleName`: 만들 Virtual Network 규칙의 이름입니다.
-* `virtualNetworkingSubnetId`: 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로입니다. 예를 들어 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` 가상 네트워크의 기본 서브넷에 대해입니다.
-
-> [!NOTE]
-> 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
-> Virtual Network 또는 방화벽 규칙을 만들 때 **_"defaultAction"_ 를 변경 해야 합니다.**
-> 
-> 원본
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +186,9 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 ```
 
 템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
+
+> [!IMPORTANT]
+> IP 및 가상 네트워크 규칙이 없는 경우를로 설정 하더라도 모든 트래픽이 네임 스페이스로 흐릅니다 `defaultAction` `deny` .  공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4793cad25e34e2e318dd205ba5f474d4529d13d5
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 75b8230a1027bbf3ff3d73fb35ce65107c2db7e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183900"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821931"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs
 
@@ -254,7 +254,7 @@ Azure AD 사용자가 JIRA 온-프레미스 서버에 로그인할 수 있게 �
 
 * JIRA SAML SSO by Microsoft 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 JIRA SAML SSO by Microsoft 타일을 클릭하면 JIRA SAML SSO by Microsoft 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 JIRA SAML SSO by Microsoft 타일을 클릭하면 JIRA SAML SSO by Microsoft 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,16 +6,16 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370226"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 큐 데이터 액세스
 
@@ -28,6 +28,9 @@ Azure RBAC (역할 기반 액세스 제어)를 통해 Azure AD 보안 주체에 
 Azure Storage 확장은 큐 데이터 작업에 대해 지원 됩니다. 호출할 수 있는 작업은 PowerShell에 로그인 하는 데 사용 되는 Azure AD 보안 주체에 부여 된 권한에 따라 달라 집니다. 큐에 대 한 사용 권한은 Azure RBAC를 통해 할당 됩니다. 예를 들어 **큐 데이터 판독기** 역할이 할당 된 경우 큐에서 데이터를 읽는 스크립팅 명령을 실행할 수 있습니다. **큐 데이터 참가자** 역할이 할당 된 경우 큐 또는 큐에 포함 된 데이터를 읽거나 쓰거나 삭제 하는 스크립팅 명령을 실행할 수 있습니다.
 
 큐의 각 Azure Storage 작업에 필요한 사용 권한에 대 한 자세한 내용은 [OAuth 토큰을 사용 하 여 저장소 작업 호출](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens)을 참조 하세요.
+
+> [!IMPORTANT]
+> Azure Resource Manager **ReadOnly** 잠금을 사용 하 여 저장소 계정이 잠긴 경우 해당 저장소 계정에 대 한 [키 나열](/rest/api/storagerp/storageaccounts/listkeys) 작업이 허용 되지 않습니다. **목록 키** 는 게시 작업 이며, 계정에 대해 **ReadOnly** 잠금이 구성 된 경우 모든 post 작업은 차단 됩니다. 이러한 이유로 계정이 **읽기 전용** 잠금으로 잠겨 있으면 계정 키를 소유 하 고 있지 않은 사용자는 Azure AD 자격 증명을 사용 하 여 큐 데이터에 액세스 해야 합니다. PowerShell에서 `-UseConnectedAccount` 매개 변수를 포함 하 여 AZURE AD 자격 증명을 사용 하 여 **Azurestoragecontext** 개체를 만듭니다.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 PowerShell 명령 호출
 

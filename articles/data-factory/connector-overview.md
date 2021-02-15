@@ -1,20 +1,17 @@
 ---
 title: Azure Data Factory 커넥터 개요
 description: Data Factory에서 지원 되는 커넥터에 대해 알아봅니다.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.reviewer: craigg
-ms.openlocfilehash: 9b346c24b6a363e66e56f6c16b70058df3864c88
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9dff36704fc0e3163da0439d55452fa82cb40e55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945834"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381310"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
 
@@ -55,7 +52,7 @@ Azure Data Factory는 다음과 같은 파일 형식을 지원합니다. 형식 
 ## <a name="next-steps"></a>다음 단계
 
 - [복사 활동](copy-activity-overview.md)
-- [매핑 데이터 흐름](concepts-data-flow-overview.md)
+- [데이터 흐름 매핑](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 - [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md)
 - [활동 삭제](delete-activity.md)

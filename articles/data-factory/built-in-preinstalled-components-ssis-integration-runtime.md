@@ -1,23 +1,18 @@
 ---
 title: Azure-SSIS Integration Runtime의 기본 제공 구성 요소 및 미리 설치된 구성 요소
 description: '모든 기본 제공 및 미리 구성된 구성 요소(예: 클라이언트, 드라이버, 공급자, 연결 관리자, 데이터 원본/대상/변환 및 Azure-SSIS Integration Runtime에 대한 작업)를 나열합니다.'
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 2f152cddf506c160e686e404b9ba199fbc4c4c37
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2f5ad8deb702e312f7dd7275128e8ca8098ab90c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393788"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime의 기본 제공 구성 요소 및 미리 설치된 구성 요소
 

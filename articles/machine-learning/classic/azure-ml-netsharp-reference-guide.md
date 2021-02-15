@@ -3,18 +3,18 @@ title: 'ML Studio (클래식): Net # 사용자 지정 신경망-Azure'
 description: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio (클래식)에서 사용자 지정 신경망 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302793"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519255"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
@@ -57,7 +57,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음 작업을 수행할 수 있습니다.
+Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -266,9 +266,9 @@ hidden P1 [5, 12, 12]
 
 응답 정규화 번들은 **Sharing**, **MapCount**, **Weights** 를 제외하고 모든 나선형 특성을 지원합니다.
 
-+ 커널에 x _와 동일한 map의 뉴런가 포함 된 경우 **_x_*정규화 체계를 _* 동일한 맵 정규화 라고** 합니다. 동일 맵 정규화를 정의하려면 **InputShape** 의 첫 번째 좌표에 값 1이 있어야 합니다.
++ 커널에 ***x** _와 동일한 맵에 뉴런가 포함 된 경우 정규화 체계를 _ * 동일한 맵 정규화 * * 라고 합니다. 동일 맵 정규화를 정의하려면 **InputShape** 의 첫 번째 좌표에 값 1이 있어야 합니다.
 
-+ 커널에 x _와 동일한 공간 위치에 뉴런가 포함 되어 **_x_*있지만 뉴런가 다른 맵에 있는 경우 정규화 체계* 는 맵 정규화에서 _로 호출 됩니다**. 이 응답 정규화 유형은 실제 신경에 있는 유형에서 영향을 받은 측면 억제 형태를 구현하여 여러 맵에서 계산된 신경 출력 가운데 큰 활성화 수준에 대한 경쟁을 조성합니다. 맵 간 정규화를 정의하려면 첫 번째 좌표가 1보다 크고 맵 수보다 큰 정수여야 하고 나머지 좌표는 값이 1이어야 합니다.
++ 커널에 ***x** _와 동일한 공간 위치에 뉴런가 포함 되어 있지만 뉴런가 다른 맵에 있는 경우 정규화 체계는 맵 정규화 * *에서 _ *로 호출 됩니다. 이 응답 정규화 유형은 실제 신경에 있는 유형에서 영향을 받은 측면 억제 형태를 구현하여 여러 맵에서 계산된 신경 출력 가운데 큰 활성화 수준에 대한 경쟁을 조성합니다. 맵 간 정규화를 정의하려면 첫 번째 좌표가 1보다 크고 맵 수보다 큰 정수여야 하고 나머지 좌표는 값이 1이어야 합니다.
 
 응답 정규화 번들은 미리 정의된 함수를 원본 노드 값에 적용하여 대상 노드 값을 결정하므로 학습 가능 상태(가중치 또는 편차)가 없습니다.
 

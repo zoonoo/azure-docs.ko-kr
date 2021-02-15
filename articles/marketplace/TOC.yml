@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: 평점 및 리뷰 대시보드
       href: partner-center-portal/ratings-reviews.md
+    - name: 요금제 청구를 위한 변칙 검색
+      href: anomaly-detection.md
     - name: 분석 일반적인 질문
       href: analytics-faq.md
 - name: 정책 및 용어

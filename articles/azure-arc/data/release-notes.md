@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653574"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391459"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>2021년 1월
+
+### <a name="new-capabilities-and-features"></a>새 기능 및 기능
+
+Azure Data CLI ( `azdata` ) 버전 번호: 20.3.0. 에서 다운로드 [https://aka.ms/azdata](https://aka.ms/azdata) 합니다. `azdata` [AZURE Data CLI 설치 ( `azdata` )](/sql/azdata/install/deploy-install-azdata)에서를 설치할 수 있습니다.
+
+
+추가 업데이트는 다음과 같습니다.
+- 17 개 새로운 언어에 사용할 수 있는 지역화 된 포털
+- Kube 파일에 대 한 사소한 변경 내용
+- Grafana 및 Kibana의 새 버전
+- Azure Data Studio 해결 된 노트북에서 azdata를 사용 하는 경우 Python 환경 문제
+- 이제 PostgreSQL Hyperscale에 pg_audit 확장을 사용할 수 있습니다.
+- PostgreSQL Hyperscale 데이터베이스를 전체 복원 하는 경우 백업 ID가 더 이상 필요 하지 않습니다.
+- 서버 그룹을 구성 하는 각 PostgreSQL 인스턴스에 대해 상태 (상태)가 보고 됩니다.
+
+   이전 릴리스에서는 상태가 서버 그룹 수준에서 집계 되었으며 PostgreSQL 노드 수준에서 항목별로 수집 되지 않았습니다.
+
+- PostgreSQL 배포는 이제 create 명령에 지정 된 볼륨 크기 매개 변수를 인식 합니다.
+- 이제 서버 그룹을 편집할 때 엔진 버전 매개 변수가 적용 됩니다.
+- Pod for Azure Arc enabled PostgreSQL Hyperscale의 명명 규칙이 변경 되었습니다.
+
+    이제 형식으로 되어 `ServergroupName{c, w}-n` 있습니다. 예를 들어 세 개의 노드가 있는 서버 그룹 1 개 및 두 개의 작업자 노드는 다음과 같이 표시 됩니다.
+   - `Postgres01c-0` (코디네이터 노드)
+   - `Postgres01w-0` (작업자 노드)
+   - `Postgres01w-1` (작업자 노드)
 
 ## <a name="december-2020"></a>2020년 12월
 
@@ -41,14 +68,14 @@ Pod for Azure Arc enabled PostgreSQL Hyperscale의 명명 규칙이 변경 되�
 
 #### <a name="new-resource-provider"></a>새 리소스 공급자
 
-이 릴리스에는 이라는 업데이트 된 [리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md) 가 도입 되었습니다 `Microsoft.AzureArcData` . 이 기능을 사용 하려면 먼저이 리소스 공급자를 등록 해야 합니다. 
+이 릴리스에는 `Microsoft.AzureArcData`라는 업데이트된 [리소스 공급자](../../azure-resource-manager/management/azure-services-resource-providers.md)가 도입됩니다. 이 기능을 사용 하려면 먼저이 리소스 공급자를 등록 해야 합니다. 
 
 이 리소스 공급자를 등록 하려면: 
 
 1. Azure Portal에서 **구독** 을 선택 합니다. 
 2. 구독 선택
-3. **설정** 아래에서 **리소스 공급자** 를 선택 합니다. 
-4. 을 검색 `Microsoft.AzureArcData` 하 고 **등록** 을 선택 합니다. 
+3. **설정** 아래에서 **리소스 공급자** 를 선택합니다. 
+4. `Microsoft.AzureArcData`를 검색하고 **등록** 을 선택합니다. 
 
 [Azure 리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)에서 자세한 단계를 검토할 수 있습니다. 이렇게 변경 하면 Azure Portal에 업로드 한 기존 Azure 리소스도 모두 제거 됩니다. 리소스 공급자를 사용 하기 위해 데이터 컨트롤러를 업데이트 하 고 최신 CLI를 사용 해야 합니다 `azdata` .  
 

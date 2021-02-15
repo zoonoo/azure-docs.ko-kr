@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890972"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367059"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 Machine Learning 알고리즘 참고 자료 시트
 
 **Azure Machine Learning Algorithm 참고 자료 시트** 를 사용 하면 예측 분석 모델에 대 한 디자이너에서 적절 한 알고리즘을 선택할 수 있습니다.
 
-Azure Machine Learning에는 ***분류***, ***추천 시스템***, ***클러스터링***, ***변칙 검색***, ***회귀***및 ***텍스트 분석*** 제품군의 많은 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
+Azure Machine Learning에는 ***분류** _, _*_추천 시스템_*_, _*_클러스터링_*_, _*_변칙 검색_*_, _*_회귀_*_ 및 _ *_텍스트 분석_** 제품군의 많은 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
 추가 지침은 [알고리즘을 선택 하는 방법](how-to-select-algorithms.md) 을 참조 하세요.
 
@@ -42,7 +43,7 @@ Azure Machine Learning 디자이너에서 알고리즘에 대 한 자세한 내�
 
 ## <a name="kinds-of-machine-learning"></a>기계 학습의 종류
 
-Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습* 및 *보충 학습*입니다.
+Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습* 및 *보충 학습* 입니다.
 
 ### <a name="supervised-learning"></a>감독 된 학습
 

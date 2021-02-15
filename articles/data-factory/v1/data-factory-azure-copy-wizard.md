@@ -1,24 +1,18 @@
 ---
 title: Data Factory Azure 복사 마법사
 description: Data Factory Azure 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 99c7490c4bf842da119a3a0abd4623c64d720ac8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0f95b0d62bc81a8dddc72239491a05ca78945490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462224"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393380"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 

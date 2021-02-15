@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346710"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832235"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
-
-
 
 이 자습서에서는 솔루션 빌더를 대상으로, Azure IoT Central 매장 내 분석 애플리케이션을 만드는 방법을 보여 줍니다. 샘플 애플리케이션은 소매점용입니다. 이 애플리케이션은 점유 및 환경 조건을 모니터링하고 이에 맞게 조정하려는 일반적인 비즈니스 요구를 위한 솔루션입니다.
 
@@ -276,7 +274,12 @@ Azure IoT Central 애플리케이션에서 센서를 사용하여 조건을 모�
 
     몇 분 이내에 지정된 메일 계정에서 메일을 받기 시작합니다. 애플리케이션은 센서가 습도 수준이 조건 값을 초과했음을 알 때마다 메일을 보냅니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 * Azure IoT Central **매장 내 분석 - 체크 아웃** 템플릿을 사용하여 소매점 애플리케이션 만들기

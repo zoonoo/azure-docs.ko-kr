@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace의 관리되는 서비스 제안
 description: 관리 서비스 제공을 사용 하면 Azure Marketplace에서 고객에 게 리소스 관리 제안을 판매할 수 있습니다.
-ms.date: 07/28/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163325"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375547"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Azure Marketplace의 관리되는 서비스 제안
 
@@ -18,7 +18,7 @@ ms.locfileid: "88163325"
 
 관리 서비스를 통해 Azure Lighthouse에 고객을 온 보 딩 하는 프로세스를 간소화할 수 있습니다. 고객이 Azure Marketplace에서 제품을 구매하는 경우 등록해야 하는 구독 및/또는 리소스 그룹을 지정할 수 있습니다.
 
-그런 다음, 조직의 사용자는 제품을 만들 때 정의한 액세스에 따라 [Azure 위임 된 리소스 관리](azure-delegated-resource-management.md)를 통해 관리 되는 테 넌 트 내에서 해당 리소스에 대해 작업을 수행할 수 있습니다. 이 작업은 액세스 수준을 정의 하는 역할과 함께 고객 리소스에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 사용자, 그룹 및 서비스 주체를 지정 하는 매니페스트를 통해 수행 됩니다. 일련의 개별 사용자 또는 애플리케이션 계정이 아닌 Azure AD 그룹에 권한을 할당하므로 액세스 요구 사항이 변경될 때 개별 사용자를 추가하거나 제거할 수 있습니다.
+그런 다음, 조직의 사용자는 제품을 만들 때 정의한 액세스에 따라 [Azure 위임 된 리소스 관리](azure-delegated-resource-management.md)를 통해 관리 되는 테 넌 트 내에서 해당 리소스에 대해 작업을 수행할 수 있습니다. 이 작업은 액세스 수준을 정의 하는 [역할과](tenants-users-roles.md) 함께 고객 리소스에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 사용자, 그룹 및 서비스 주체를 지정 하는 매니페스트를 통해 수행 됩니다.
 
 ## <a name="public-and-private-offers"></a>퍼블릭 및 프라이빗 제품
 
@@ -34,7 +34,7 @@ ms.locfileid: "88163325"
 적절한 경우 퍼블릭 및 프라이빗 플랜을 모두 동일한 제품에 포함할 수 있습니다.
 
 > [!IMPORTANT]
-> 플랜이 공개로 게시된 후에는 다시 비공개로 변경할 수 없습니다. 제품을 수락하고 리소스를 위임할 수 있는 고객을 제어하려면 비공개 플랜을 사용합니다. 공개 플랜에서는 특정 고객이나 특정 수의 고객으로 가용성을 제한할 수 없습니다(원하면 플랜 판매를 완전히 중단할 수는 있음). 제품을 게시할 때 **역할 정의**가 [관리형 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정된 **권한 부여**를 포함한 경우에만 고객이 제품을 수락한 후 [위임에 대한 액세스 권한을 제거](../how-to/remove-delegation.md)할 수 있습니다. 고객에게 연락하여 [액세스 권한을 제거](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수도 있습니다.
+> 플랜이 공개로 게시된 후에는 다시 비공개로 변경할 수 없습니다. 제품을 수락하고 리소스를 위임할 수 있는 고객을 제어하려면 비공개 플랜을 사용합니다. 공개 플랜에서는 특정 고객이나 특정 수의 고객으로 가용성을 제한할 수 없습니다(원하면 플랜 판매를 완전히 중단할 수는 있음). 제품을 게시할 때 **역할 정의** 가 [관리형 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)로 설정된 **권한 부여** 를 포함한 경우에만 고객이 제품을 수락한 후 [위임에 대한 액세스 권한을 제거](../how-to/remove-delegation.md)할 수 있습니다. 고객에게 연락하여 [액세스 권한을 제거](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수도 있습니다.
 
 ## <a name="publish-managed-service-offers"></a>관리 서비스 제공 게시
 

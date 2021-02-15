@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d2a7b27c7678f604c7f09febac67bf0879e34c3a
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dc0cd57eb32baaeac0850337bbead3a73dec9292
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724190"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821698"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-platform-identity-authentication"></a>자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -174,7 +174,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. Azure Portal의 **SAP Cloud Platform Identity Authentication** 애플리케이션 통합 페이지에서 **연결된 로그온** 을 선택합니다.
 
-    ![연결된 로그온 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
+    ![연결된 로그온 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked-sign-on.png)
 
 5. 구성을 저장합니다.
 
@@ -205,7 +205,7 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 SAP Cloud Platform Identity Authentication에 자동으로 로그인됩니다.
 
-Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 SAP Cloud Platform Identity Authentication 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 SAP Cloud Platform Identity Authentication에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 SAP Cloud Platform Identity Authentication 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 SAP Cloud Platform Identity Authentication에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

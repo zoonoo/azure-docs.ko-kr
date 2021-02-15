@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: c4c98ad377100c35b0c364607bfd3803d07a95a7
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f3d4ec8db89e9bebfdcd594e842a6c19d3d66d54
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015932"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104096"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>방법: MSAL을 사용 하 여 Android에서 앱 간 SSO 사용
 
@@ -81,7 +81,7 @@ Broker 호스팅 앱은 언제 든 지 앱 스토어 (일반적으로 Google Pla
 
 Broker가 장치에 설치 되 면 모든 후속 대화형 토큰 요청 (에 대 한 호출 `acquireToken()` )은 MSAL에 의해 로컬이 아닌 broker에서 처리 됩니다. 이전에 MSAL에서 사용할 수 있는 모든 SSO 상태를 broker에서 사용할 수 없습니다. 따라서 사용자가 다시 인증 하거나 장치에 알려진 기존 계정 목록에서 계정을 선택 해야 합니다.
 
-Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들면 다음과 같습니다.
+Broker를 설치 하는 경우에는 사용자가 다시 로그인 할 필요가 없습니다. 사용자가를 확인 해야 하는 경우에만 `MsalUiRequiredException` 다음 요청이 broker로 이동 합니다. `MsalUiRequiredException` 는 여러 가지 이유로 throw 될 수 있으므로 대화형으로 해결 해야 합니다. 예를 들어 다음과 같습니다.
 
 - 사용자가 계정과 연결 된 암호를 변경 했습니다.
 - 사용자 계정이 더 이상 조건부 액세스 정책을 충족 하지 않습니다.
@@ -119,7 +119,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 *Keytool* 을 사용 하 여 서명 해시를 생성 한 후에는 Azure Portal를 사용 하 여 리디렉션 URI를 생성 합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a> 에 로그인 하 고 **앱 등록** 에서 Android 앱을 선택 합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a> 에 로그인 하 고 **앱 등록** 에서 Android 앱을 선택 합니다.
 1. **인증**  >  **플랫폼 Android 추가를** 선택  >  합니다.
 1. 열리는 **Android 앱 구성** 창에서 앞서 생성 한 **서명 해시** 와 **패키지 이름을** 입력 합니다.
 1. **구성** 단추를 선택 합니다.
@@ -131,7 +131,7 @@ Azure Portal는 리디렉션 URI를 생성 하 고 **Android 구성** 창의 **�
 > [!IMPORTANT]
 > 프로덕션 버전의 앱에 대 한 프로덕션 서명 키를 사용 합니다.
 
-#### <a name="configure-msal-to-use-a-broker"></a>Broker를 사용 하도록 MSAL 구성
+#### <a name="configure-msal-to-use-a-broker"></a>broker를 사용하도록 MSAL 구성
 
 앱에서 broker를 사용 하려면 broker 리디렉션을 구성 했는지를 증명 해야 합니다. 예를 들어, MSAL 구성 파일에 다음 설정을 포함 하 여 broker 사용 리디렉션 URI를 모두 포함 하 고 등록 했음을 표시 합니다.
 

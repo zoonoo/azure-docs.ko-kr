@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988042"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104521"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -147,7 +147,7 @@ QnA Maker를 통해 사용자들이 기술 자료를 공동으로 작업할 수 
 
 ## <a name="active-learning"></a>능동적 학습
 
-[활성 학습](../How-to/use-active-learning.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. QnA Maker 포털에서 질문이 제안 되 면 **[제안을 기준으로 필터링](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** 한 다음 해당 제안 사항을 검토 하 고 수락 하거나 거부할 수 있습니다.
+[활성 학습](../How-to/use-active-learning.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. QnA Maker 포털에서 질문이 제안 되 면 **[제안을 기준으로 필터링](../How-To/improve-knowledge-base.md)** 한 다음 해당 제안 사항을 검토 하 고 수락 하거나 거부할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

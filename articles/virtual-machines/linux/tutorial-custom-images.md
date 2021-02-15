@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 22609465abfa0cbf30165bc9327d786b3244357e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 956e7c18deb597f6347dfd5dfdca99709a7052a0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844781"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821417"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -35,7 +35,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="overview"></a>개요
 
-[공유 이미지 갤러리](shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
+[공유 이미지 갤러리](../shared-image-galleries.md)는 조직 내 사용자 지정 이미지 공유를 간소화합니다. 사용자 지정 이미지는 Marketplace 이미지와 같지만 직접 만듭니다. 애플리케이션 사전 로드, 애플리케이션 구성 및 기타 OS 구성과 같은 부트스트랩 구성에 사용자 지정 이미지를 사용할 수 있습니다. 
 
 Shared Image Gallery를 사용하면 사용자 지정 VM 이미지를 다른 사용자와 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 
 
@@ -90,11 +90,11 @@ az vm get-instance-view -g MyResourceGroup -n MyVm --query id
 
 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./shared-image-galleries.md#image-definitions)를 참조하세요.
+이미지 정의에 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](../shared-image-galleries.md#image-definitions)를 참조하세요.
 
 [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create)를 사용하여 갤러리에서 이미지 정의를 만듭니다. 
 
-다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
+다음 예제에서는 이미지 정의의 이름이 *myImageDefinition* 이며 [특수](../shared-image-galleries.md#generalized-and-specialized-images) Linux OS 이미지에 대한 것입니다. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -180,7 +180,7 @@ Azure RBAC를 사용하여 리소스를 공유하는 방법에 대한 자세한 
 
 ## <a name="azure-image-builder"></a>Azure 이미지 작성기
 
-Azure는 [Azure VM 이미지 작성기](./image-builder-overview.md)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
+Azure는 [Azure VM 이미지 작성기](../image-builder-overview.md)인 Packer를 기반으로 하는 서비스도 제공합니다. 템플릿에서 사용자 지정을 설명하기만 하면 이미지 만들기가 처리됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

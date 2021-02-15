@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b818b8b46b6ac3af98ff5f25ef69335231744cc
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779042"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375989"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.
 
@@ -58,8 +58,10 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 보안 주체에 Azure 역할을 할당 하려면 [az role assign create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용 합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 다음 예에서는 다양 한 범위에서 사용자에 게 역할을 할당 하는 방법을 보여 주지만 동일한 명령을 사용 하 여 보안 주체에 역할을 할당할 수 있습니다.
 
-> [!NOTE]
-> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. Azure Storage에 대 한 Azure 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+> [!IMPORTANT]
+> Azure Storage 계정을 만들면 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당 되지 않습니다. 데이터 액세스에 대 한 Azure RBAC 역할을 명시적으로 할당 해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.
+>
+> 저장소 계정이 Azure Resource Manager 읽기 전용 잠금으로 잠긴 경우, 잠금은 저장소 계정 또는 데이터 컨테이너 (blob 컨테이너 또는 큐)로 범위가 지정 된 Azure RBAC 역할의 할당을 방지 합니다.
 
 ### <a name="container-scope"></a>컨테이너 범위
 
@@ -144,4 +146,4 @@ az role assignment create \
 
 - [Azure PowerShell 모듈을 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)
 - [Azure PowerShell 모듈을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](storage-auth-aad-rbac-powershell.md)
-- [Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.](storage-auth-aad-rbac-portal.md)
+- [Azure Portal을 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당](storage-auth-aad-rbac-portal.md)

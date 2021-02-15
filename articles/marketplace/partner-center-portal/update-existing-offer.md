@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033360"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097259"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>상용 marketplace에서 기존 제품 업데이트
 
@@ -31,6 +31,10 @@ ms.locfileid: "97033360"
     - **게시 되지 않은 변경 내용**: 섹션이 업데이트 되었으며 완료 되었습니다. 필요한 데이터를 모두 제공 했으며 업데이트에 오류가 발생 하지 않았습니다.
     - **불완전**: 수정 해야 하거나 더 많은 정보를 제공 해야 하는 오류가 도입 된 섹션에 대 한 업데이트입니다.
 2. 게시 **를 선택 하** 여 게시를 위해 업데이트 된 제품을 제출 합니다. 그러면 제안에 따라 표준 [유효성 검사 및 게시 단계가](../review-publish-offer.md#validation-and-publishing-steps)진행 됩니다.
+
+## <a name="changing-offer-type"></a>제안 유형 변경
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > 제품 미리 보기를 사용할 수 있게 되 면 검토 하 고 **live live** 를 선택 하 여 원하는 대상 (공용 또는 개인)에 업데이트 된 제품을 게시 해야 합니다.

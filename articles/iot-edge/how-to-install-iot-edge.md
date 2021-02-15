@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
-ms.openlocfilehash: ab783d6cb20f1c2fe31e8556dc57999df20d5637
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: efbae71162bdd0c126287191f7ad35cf903db138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629813"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378080"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux 용 Azure IoT Edge 설치 또는 제거
 
@@ -22,7 +22,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 이 문서에는 Linux 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [등록 된 장치 ID](how-to-register-device.md)
 
@@ -32,7 +32,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 * Linux 장치
 
-  X64, ARM32 또는 ARM64 Linux 장치가 있어야 합니다. Microsoft는 Ubuntu Server 16.04, Ubuntu Server 18.04 및 Raspberry Pi OS Stretch 운영 체제에 대 한 설치 패키지를 제공 합니다.
+  X64, ARM32 또는 ARM64 Linux 장치가 있어야 합니다. Microsoft는 Ubuntu Server 18.04 및 Raspberry Pi OS Stretch 운영 체제에 대 한 설치 패키지를 제공 합니다.
 
   현재 프로덕션 시나리오에 대해 지원 되는 운영 체제에 대 한 최신 정보는 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요.
 
@@ -42,12 +42,6 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 * Microsoft 설치 패키지에 액세스할 수 있도록 장치를 준비 합니다.
 
   디바이스 운영 체제와 일치하는 리포지토리 구성을 설치합니다.
-
-  * **Ubuntu Server 16.04**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-    ```
 
   * **Ubuntu Server 18.04**:
 

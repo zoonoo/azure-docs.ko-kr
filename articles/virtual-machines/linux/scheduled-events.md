@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792806"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104742"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata 서비스: Linux VM의 예약된 이벤트
 
@@ -71,7 +71,7 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 클라우드 서비스 및 클래식 VM의 기본 사례처럼 VM이 가상 네트워크에 생성되지 않은 경우 사용할 IP 주소를 검색하려면 추가 논리가 필요합니다. [호스트 엔드포인트를 검색](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)하는 방법을 알아보려면 이 샘플을 참조하세요.
 
 ### <a name="version-and-region-availability"></a>버전 및 지역 가용성
-예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2019-01-01`입니다.
+예약된 이벤트 서비스의 버전이 지정됩니다. 버전은 필수이며 현재 버전은 `2019-08-01`입니다.
 
 | 버전 | 릴리스 종류 | 영역 | 릴리스 정보 | 
 | - | - | - | - | 
@@ -138,7 +138,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](../manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.
 | NotBefore| 이 시간이 지난 후 이 이벤트가 시작될 수 있습니다. <br><br> 예제: <br><ul><li> 2016년 9월 19일 월요일 18:29:47 GMT  |
-| Description | 이 이벤트에 대 한 설명입니다. <br><br> 예제: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
+| 설명 | 이 이벤트에 대 한 설명입니다. <br><br> 예제: <br><ul><li> 호스트 서버가 유지 관리 중입니다. |
 | EventSource | 이벤트의 개시자입니다. <br><br> 예제: <br><ul><li> `Platform`:이 이벤트는 플랫폼에 의해 시작 됩니다. <li>`User`:이 이벤트는 사용자가 시작 합니다. |
 
 ### <a name="event-scheduling"></a>이벤트 예약

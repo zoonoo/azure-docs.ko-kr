@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/01/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ab15af07c5f63d375d8fdb4fc38e0853e207a0be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: 44a05ed5b4386f2787a1c84dfeb61a5d539c7cb5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91667285"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99821283"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 패싯 탐색 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "91667285"
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
-> * 모델 속성을 _IsFacetable_로 설정
+> * 모델 속성을 _IsFacetable_ 로 설정
 > * 패싯 탐색을 앱에 추가
 
 ## <a name="overview"></a>개요
@@ -43,9 +43,9 @@ ms.locfileid: "91667285"
 
 ## <a name="set-model-properties-as-isfacetable"></a>모델 속성을 IsFacetable로 설정
 
-모델 속성을 패싯 검색에 배치하려면 **IsFacetable**로 태그를 지정해야 합니다.
+모델 속성을 패싯 검색에 배치하려면 **IsFacetable** 로 태그를 지정해야 합니다.
 
-1. **Hotel** 클래스를 검사합니다. 예를 들어 **Category** 및 **Tags**는 **IsFacetable**로 태그가 지정되지만 **HotelName** 및 **Description**은 해당되지 않습니다. 
+1. **Hotel** 클래스를 검사합니다. 예를 들어 **Category** 및 **Tags** 는 **IsFacetable** 로 태그가 지정되지만 **HotelName** 및 **Description** 은 해당되지 않습니다. 
 
     ```cs
     public partial class Hotel
@@ -111,7 +111,7 @@ ms.locfileid: "91667285"
 
 ### <a name="add-the-facet-action-method"></a>패싯 동작 메서드 추가
 
-홈 컨트롤러에는 하나의 새 작업 **Facet**이 필요하며, **RunQueryAsync** 메서드로 업데이트하고 기존 **Index** 및 **Page** 작업으로 업데이트합니다.
+홈 컨트롤러에는 하나의 새 작업 **Facet** 이 필요하며, **RunQueryAsync** 메서드로 업데이트하고 기존 **Index** 및 **Page** 작업으로 업데이트합니다.
 
 <!-- 1. Open the home controller file, and add the **using** statement, to enable the **List&lt;string&gt;** construct.
 
@@ -234,9 +234,9 @@ ms.locfileid: "91667285"
 
 ### <a name="set-up-the-search-filter"></a>검색 필터 설정
 
-예를 들어 사용자가 특정 패싯을 선택할 때 **리조트 및 스파** 범주를 클릭하면 이 범주로 지정된 호텔만 결과에서 반환되어야 합니다. 이러한 방식으로 검색 범위를 좁히려면 _필터_를 설정해야 합니다.
+예를 들어 사용자가 특정 패싯을 선택할 때 **리조트 및 스파** 범주를 클릭하면 이 범주로 지정된 호텔만 결과에서 반환되어야 합니다. 이러한 방식으로 검색 범위를 좁히려면 _필터_ 를 설정해야 합니다.
 
-1. **RunQueryAsync** 메서드를 다음 코드로 바꿉니다. 기본적으로 범주 필터 문자열과 편의 시설 필터 문자열이 필요하며 **SearchOptions**의 **Filter** 매개 변수를 설정합니다.
+1. **RunQueryAsync** 메서드를 다음 코드로 바꿉니다. 기본적으로 범주 필터 문자열과 편의 시설 필터 문자열이 필요하며 **SearchOptions** 의 **Filter** 매개 변수를 설정합니다.
 
     ```cs
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage, string catFilter, string ameFilter)

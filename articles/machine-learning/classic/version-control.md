@@ -3,21 +3,21 @@ title: 'ML Studio (클래식): 응용 프로그램 수명 주기 관리-Azure'
 description: Azure Machine Learning Studio에서 응용 프로그램 수명 주기 관리 모범 사례 적용 (클래식)
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 82d6f1fd250621ec34015970e1339ccfbd134675
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308808"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518405"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio의 애플리케이션 수명 주기 관리 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 조작 가능한 기계 학습 실험을 개발 하기 위한 도구입니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양 한 자산 버전 관리에서 자동화 된 실행 및 배포에 이르는 표준 ALM (응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning Studio (클래식)에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
