@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523858"
+ms.locfileid: "100526513"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
@@ -695,6 +695,6 @@ Active Directory 관리자에 게 문의 하 여 Active Directory 사이트 사�
 | 카메라 | |
 | X 광선 컴퓨터 | |
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참조
 
 [IoT 설치용 Defender 정보](how-to-install-software.md)

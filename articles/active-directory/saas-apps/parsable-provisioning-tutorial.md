@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731435"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526428"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 구문 분석할 구성
 
@@ -32,6 +32,7 @@ ms.locfileid: "98731435"
 > * 구문 분석할 수 있는 사용자 만들기
 > * 더 이상 액세스할 필요가 없는 경우 구문 분석할 수 있는 사용자 제거
 > * Azure AD와 구문 분석할 때 사용자 특성을 동기화 상태로 유지
+> * 구문 분석할 때 그룹 및 그룹 멤버 자격 프로 비전
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -107,17 +108,25 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |userName|String|&check;|
    |displayName|String|
 
-10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+10. **매핑** 섹션에서 **Azure Active Directory 그룹을 구문 분석할 수 있도록 동기화를** 선택 합니다.
 
-11. Azure AD 프로 비전 서비스를 구문 분석할 수 있도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 구문 분석할 수 있는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 구문 분석할 수 있는 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+
+      |attribute|Type|필터링에 지원됨|
+      |---|---|---|
+      |displayName|String|&check;|
+      |members|참조|
+12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+
+13. Azure AD 프로 비전 서비스를 구문 분석할 수 있도록 설정 하려면 **설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-12. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 구문 분석할 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+14. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 구문 분석할 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-13. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+
+* 02/15/2021-그룹 프로 비전이 사용 하도록 설정 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

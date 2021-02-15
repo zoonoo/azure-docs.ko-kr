@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388195"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526786"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
 
@@ -53,7 +53,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
 
-이제 main 메서드에서 함수를 호출 `CreateRelationship()` 하 여 다음과 같이 _contains_ 관계를 만들 수 있습니다. 
+이제 main 메서드에서 사용자 지정 함수를 호출 하 여 다음과 같이 _contains_ 관계를 만들 수 있습니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -86,7 +86,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 쌍 [그래프](c
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-이제이 메서드를 호출 하 여 다음과 같이 쌍의 나가는 관계를 확인할 수 있습니다.
+이제이 사용자 지정 메서드를 호출 하 여 다음과 같이 쌍의 나가는 관계를 확인할 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
@@ -102,17 +102,17 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
 
-이제이 메서드를 호출 하 여 다음과 같이 쌍의 들어오는 관계를 확인할 수 있습니다.
+이제이 사용자 지정 메서드를 호출 하 여 다음과 같이 쌍의 들어오는 관계를 확인할 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
 
 ### <a name="list-all-twin-properties-and-relationships"></a>모든 쌍 속성 및 관계 나열
 
-위의 메서드를 사용 하 여 쌍으로 나가는 및 들어오는 관계를 나열 하 고 쌍의 속성 및 두 형식의 관계를 포함 하 여 전체 쌍 정보를 인쇄 하는 메서드를 만들 수 있습니다. `FetchAndPrintTwinAsync()`이 작업을 수행 하는 방법을 보여 주는 라는 예제 메서드는 다음과 같습니다.
+위의 메서드를 사용 하 여 쌍으로 나가는 및 들어오는 관계를 나열 하 고 쌍의 속성 및 두 형식의 관계를 포함 하 여 전체 쌍 정보를 인쇄 하는 메서드를 만들 수 있습니다. 이 작업을 수행 하는 방법을 보여 주는 예제 사용자 지정 메서드는 다음과 같습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-이제 다음과 같이 main 메서드에서이 함수를 호출할 수 있습니다. 
+이제 다음과 같이 main 메서드에서이 사용자 지정 함수를 호출할 수 있습니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -127,7 +127,7 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
 
-속성을 업데이트 하는 정보를 사용 하 여 JSON 패치 문서를 전달 하는이 메서드에 대 한 호출의 예제는 다음과 같습니다.
+속성을 업데이트 하는 정보를 사용 하 여 JSON 패치 문서를 전달 하는이 사용자 지정 메서드에 대 한 호출의 예제는 다음과 같습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
@@ -137,7 +137,7 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
 
-이제이 메서드를 호출 하 여 다음과 같은 관계를 삭제할 수 있습니다.
+이제이 사용자 지정 메서드를 호출 하 여 다음과 같은 관계를 삭제할 수 있습니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 

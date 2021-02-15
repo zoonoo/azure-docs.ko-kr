@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 64e81e246ec62c8995d0e31629b4f21a2c1096b0
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522549"
+ms.locfileid: "100526292"
 ---
 # <a name="accelerate-alert-workflows"></a>경고 워크플로 가속화
 
@@ -140,7 +140,7 @@ ms.locfileid: "100522549"
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="사용자가 추가한 사용자 지정 규칙의 스크린샷":::
 
-## <a name="next-steps"></a>다음 단계
+### <a name="see-also"></a>참조
 
 [경고에 제공된 정보 보기](how-to-view-information-provided-in-alerts.md)
 

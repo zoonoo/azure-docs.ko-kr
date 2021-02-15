@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 6a1a4d13ee9f9032c739773b678600d52dec82b8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523926"
+ms.locfileid: "100526904"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
 
 경고 이벤트를 관리 하는 데 사용할 수 있는 옵션은 다음과 같습니다.
 
- | 작업 | Description |
+ | 작업 | 설명 |
  |--|--|
  | **Learn** | 검색 된 이벤트에 권한을 부여 합니다. 자세한 내용은 [학습 및 학습 이벤트 정보](#about-learning-and-unlearning-events)를 참조 하세요. |
  | **승인** | 검색 된 이벤트에 대해 한 번 경고를 숨깁니다. 이벤트가 다시 검색 되 면 경고가 다시 트리거됩니다. 자세한 내용은 [승인 및 승인 되지 않은 이벤트 정보](#about-acknowledging-and-unacknowledging-events)를 참조 하세요. |
@@ -126,6 +126,6 @@ ms.locfileid: "100523926"
 1. 내보내기를 선택합니다.
 1. 여러 장치를 포함 하는 각 경고에 대해 별도의 행으로 경고 정보를 내보내려면 확장 된 경고 내보내기를 선택 합니다. 확장 된 경고 내보내기를 선택 하는 경우 .csv 파일은 각 행의 고유한 항목을 사용 하 여 경고 이벤트의 중복 행을 만듭니다. 이 옵션을 사용 하면 내보낸 경고 이벤트를 보다 쉽게 조사할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참조
 
 [모니터링된 트래픽 제어](how-to-control-what-traffic-is-monitored.md)

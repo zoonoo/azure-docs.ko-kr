@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257949"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526666"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
 > [!IMPORTANT]
 > 키 자격 증명 모음에서 즉시 일시 삭제를 사용 하도록 설정 해야 합니다. 일시 삭제를 옵트아웃 하는 기능은 곧 사용 되지 않습니다. 자세한 내용은 [여기](soft-delete-change.md) 를 참조 하세요.
+
+> [!IMPORTANT]
+> 일시 삭제 된 자격 증명 모음은 Key Vault 서비스와 통합 하기 위한 삭제 설정 (예: Azure RBAC 역할 할당, Event Grid 구독, Azure Monitor 진단 설정)을 트리거합니다. 통합 서비스에 대 한 일시 삭제 된 Key Vault 설정 복구를 수행한 후 수동으로 다시 만들어야 합니다. 
 
 Key Vault의 일시 삭제 기능을 사용 하면 삭제 된 자격 증명 모음 및 삭제 된 키 자격 증명 모음 개체 (예: 키, 암호, 인증서)를 복구할 수 있으며 일시 삭제 라고 합니다. 구체적으로 다음 시나리오를 해결 합니다 .이 보호는 다음과 같은 보호 기능을 제공 합니다.
 
@@ -27,7 +30,7 @@ Key Vault의 일시 삭제 기능을 사용 하면 삭제 된 자격 증명 모�
 
 ## <a name="supporting-interfaces"></a>인터페이스 지원
 
-일시 삭제 기능은 [REST API](/rest/api/keyvault/), [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), [.net/c #](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) 인터페이스 및 [ARM 템플릿을](/azure/templates/microsoft.keyvault/2019-09-01/vaults)통해 사용할 수 있습니다.
+일시 삭제 기능은 [REST API](/rest/api/keyvault/), [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), [.net/c #](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) 인터페이스 및 [ARM 템플릿을](/azure/templates/microsoft.keyvault/2019-09-01/vaults)통해 사용할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오
 

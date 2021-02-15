@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: ee1c59c71834ab9d80f1ed66a002e211bdcacbbf
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: f82c7060f703aff6c19f0082454779b8fea1ba76
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796502"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526258"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -26,7 +26,7 @@ Key Vault에 대한 자세한 내용은 [Azure Key Vault 정보](overview.md)를
 
 Key Vault에 대한 액세스는 두 인터페이스, 즉 **관리 평면** 및 **데이터 평면** 을 통해 제어됩니다. 관리 평면에서는 Key Vault 자체를 관리합니다. 이 평면의 작업에는 Key Vault 만들기와 삭제, Key Vault 속성 검색 및 액세스 정책 업데이트가 포함됩니다. 데이터 평면에서는 Key Vault에 저장된 데이터로 작업을 수행합니다. 키, 비밀 및 인증서를 추가, 삭제 및 수정할 수 있습니다.
 
-두 평면 모두 인증에 [Azure Active Directory (AZURE AD)](../../active-directory/fundamentals/active-directory-whatis.md) 를 사용 합니다. 권한 부여의 경우 관리 평면은 azure [rbac (역할 기반 액세스 제어](../../role-based-access-control/overview.md) )를 사용 하 고 데이터 평면은 [Key Vault 데이터 평면 작업 (미리 보기)에 대 한](./rbac-guide.md) [KEY VAULT 액세스 정책](./assign-access-policy-portal.md) 및 Azure rbac를 사용 합니다.
+두 평면 모두 인증에 [Azure Active Directory (AZURE AD)](../../active-directory/fundamentals/active-directory-whatis.md) 를 사용 합니다. 권한 부여의 경우 관리 평면은 azure [rbac (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 사용 하 고 데이터 평면은 [Key Vault 데이터 평면 작업에 대 한](./rbac-guide.md) [KEY VAULT 액세스 정책](./assign-access-policy-portal.md) 및 Azure rbac를 사용 합니다.
 
 두 평면에서 key vault에 액세스하려면 모든 호출자(사용자 또는 애플리케이션)에게 적절한 인증 및 권한이 있어야 합니다. 인증은 호출자의 ID를 설정합니다. 권한은 호출자가 실행할 수 있는 작업을 결정합니다. Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md)와 함께 작동하며, 이는 지정된 **보안 주체** 의 ID를 인증하는 역할을 담당합니다.
 
@@ -111,7 +111,7 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 
 자격 증명 모음 액세스 정책에 대 한 Azure RBAC 권한을 사용 하는 경우의 주요 이점은 중앙 액세스 제어 관리 이며 [PIM (Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md))과의 통합입니다. Privileged Identity Management는 중요한 리소스에 대한 과도한, 불필요한 또는 잘못 사용된 액세스 권한의 위험을 완화할 수 있도록 시간 기반 및 승인 기반 역할 활성화를 제공합니다.
 
-Azure RBAC를 사용 하 여 데이터 평면 Key Vault 하는 방법에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어를 사용 하 여 키, 인증서 및 비밀 Key Vault (미리 보기)](rbac-guide.md) 를 참조 하세요.
+Azure RBAC를 사용 하 여 데이터 평면 Key Vault 하는 방법에 대 한 자세한 내용은 [azure 역할 기반 액세스 제어를 사용 하 여 키, 인증서 및 암호 Key Vault](rbac-guide.md) 를 참조 하세요.
 
 ## <a name="firewalls-and-virtual-networks"></a>방화벽 및 가상 네트워크
 

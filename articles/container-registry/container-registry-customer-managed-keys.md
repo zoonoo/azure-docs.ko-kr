@@ -4,12 +4,12 @@ description: Azure container registry의 미사용 암호화 및에 저장 된 �
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062731"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526445"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -48,7 +48,7 @@ ms.locfileid: "99062731"
 
 자세한 내용은이 문서의 뒷부분에 나오는 키 [버전을 사용 하거나 사용 하지 않고 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 키 [버전 업데이트](#update-key-version)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 Azure CLI 단계를 사용 하려면 버전이 2.2.0 이상 이거나 Azure Cloud Shell Azure CLI 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 [az role assign create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용 하 여 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
+또는 [Key Vault에 대 한 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 [az role assign create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용 하 여 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ ID에서 액세스할 수 있도록 키 자격 증명 모음에 대한 정책을
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="키 자격 증명 모음 액세스 정책 만들기":::
 
-또는 Key Vault (미리 보기) [용 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
+또는 [Key Vault에 대 한 AZURE RBAC](../key-vault/general/rbac-guide.md) 를 사용 하 여 id에 키 자격 증명 모음에 액세스할 수 있는 권한을 할당 합니다. 예를 들어 Key Vault Crypto 서비스 암호화 역할을 id에 할당 합니다.
 
 1. 키 자격 증명 모음으로 이동합니다.
 1. **액세스 제어 (IAM)**  >  **+ 추가**  >  **역할 할당** 추가를 선택 합니다.
 1. **역할 할당 추가** 창에서 다음을 수행 합니다.
-    1. **Key Vault Crypto 서비스 암호화 (미리 보기)** 역할을 선택 합니다. 
+    1. **Key Vault Crypto 서비스 암호화 사용자** 역할을 선택 합니다. 
     1. **사용자 할당 관리 id** 에 대 한 액세스 권한을 할당 합니다.
     1. 사용자 할당 관리 id의 리소스 이름을 선택 하 고 **저장** 을 선택 합니다.
 

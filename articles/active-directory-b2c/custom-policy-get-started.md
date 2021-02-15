@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936372"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526241"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -111,7 +111,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 다음으로, 애플리케이션을 퍼블릭 클라이언트로 처리하도록 지정합니다.
 
 1. 왼쪽 메뉴의 **관리** 아래에서 **인증** 을 선택합니다.
-1. **고급 설정** 에서 **애플리케이션을 퍼블릭 클라이언트로 처리**(**예** 선택)를 사용하도록 설정합니다. 애플리케이션 매니페스트에 **"allowPublicClient": true** 가 설정되었는지 확인합니다. 
+1. **고급 설정** 의 **공용 클라이언트 흐름 허용** 섹션에서 **다음 모바일 및 데스크톱 흐름 사용** 을 **예** 로 설정 합니다. 애플리케이션 매니페스트에 **"allowPublicClient": true** 가 설정되었는지 확인합니다. 
 1. **저장** 을 선택합니다.
 
 이제 앞서 *IdentityExperienceFramework* 등록 시 제공한 API 범위에 권한을 부여합니다.

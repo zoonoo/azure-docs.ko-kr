@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2020
 ms.author: Zhchia
-ms.openlocfilehash: 932a94c348c38902c68a6cf8108d8246cdc434ac
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: b79a63d16229c761b29776667c771e940d8f69d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673380"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100527125"
 ---
 # <a name="tutorial-configure-cybsafe-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 CybSafe 구성
 
@@ -121,6 +121,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |locale|String|
    |timezone|String|
    |userType|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   
 
 10. **매핑** 섹션 아래에서 **CybSafe에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 
@@ -153,6 +157,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 1. [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 2. [진행률 표시줄](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.  
+
+## <a name="change-log"></a>로그 변경
+
+* 02/15/2021-사용자 엔터프라이즈 확장 특성 **부서**, **부서** 및 **조직** 이 (가) 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

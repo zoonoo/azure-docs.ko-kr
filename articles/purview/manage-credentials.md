@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381191"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526700"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure 부서의 범위에서 원본 인증에 대 한 자격 증명
 
@@ -67,7 +67,7 @@ ms.locfileid: "100381191"
 
 4. **비밀 권한** 드롭다운에서 **가져오기** 및 **목록** 사용 권한을 선택 합니다.
 
-5. **보안 주체 선택** 에서 부서의 범위 관리 id를 선택 합니다.
+5. **보안 주체 선택** 에서 부서의 범위 관리 id를 선택 합니다. 부서의 범위 인스턴스 이름 **또는** 관리 id 응용 프로그램 id를 사용 하 여 부서의 범위 MSI를 검색할 수 있습니다. 현재는 복합 id (관리 id 이름 + 응용 프로그램 ID)를 지원 하지 않습니다.
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="액세스 정책 추가":::
 

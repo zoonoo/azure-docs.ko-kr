@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876396"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526972"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -43,12 +43,11 @@ Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 �
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
 | 가격 책정:                        | [서버용 Azure Defender](security-center-pricing.md) 필요                                                                                                                                                                                                                                             |
 | 지원되는 플랫폼:            | Windows를 실행 하는 Azure 컴퓨터<br>Windows를 실행 하는 Azure Arc 컴퓨터|
-| 지원 되는 Windows 버전:  |  • Security Center Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다.<br> •이 통합을 사용 하는 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.|
-| 지원 되지 않는 운영 체제:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
+| 지원 되는 Windows 버전:  |  • Security Center Windows Server 2019, 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다.<br> •이 통합을 사용 하는 서버 끝점 모니터링이 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.<br> • [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.md) (Evd (가상 데스크톱의 경우 이전 Enterprise)<br> •  [WVD (Windows 가상 데스크톱)](../virtual-desktop/overview.md)|
+| 지원 되지 않는 운영 체제:  |  • Windows 10 (EVD 또는 WVD 이외의)<br> • Linux|
 | 필요한 역할 및 권한: | 통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 참가자** 입니다.|
-| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부<br>![No](./media/icons/no-icon.png) 글로벌 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객                                                        |
+| 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부<br>![아니요](./media/icons/no-icon.png) 글로벌 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
-
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Security Center의 끝점 기능을 위한 Microsoft Defender
 
@@ -62,7 +61,7 @@ Microsoft Defender for Endpoint는 다음을 제공 합니다.
 
 Defender for Endpoint를 Security Center와 통합 하 여 다음과 같은 추가 기능을 이용할 수 있습니다.
 
-- **자동 온 보 딩**. Security Center은 Security Center에서 모니터링 하는 모든 Windows server에 대해 Microsoft Defender for Endpoint 센서를 자동으로 사용 하도록 설정 합니다. Windows Server 2019를 실행 하는 경우를 제외 하 고 로컬 스크립트, 그룹 정책 개체 (GPO) 또는 [Microsoft 끝점 Configuration Manager](/mem/configmgr/) (이전 SCCM)을 통해 등록 해야 합니다.
+- **자동 온 보 딩**. Security Center은 Security Center에서 모니터링 하는 모든 Windows server에 대해 Microsoft Defender for Endpoint 센서를 자동으로 사용 하도록 설정 합니다.
 
 - **단일 창** Security Center 콘솔에는 Microsoft Defender에 대 한 끝점 경고가 표시 됩니다. 추가로 조사 하려면 끝점의 고유한 포털 페이지에 대해 Microsoft Defender를 사용 합니다 .이 페이지에는 경고 프로세스 트리 및 인시던트 그래프와 같은 추가 정보가 표시 됩니다. 그리고 이전 기간(최대 6개월 전)의 모든 동작이 표시되는 세부 컴퓨터 타임라인도 확인할 수 있습니다.
 
@@ -95,7 +94,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>끝점 포털에 대 한 Microsoft Defender 액세스
 
-1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. [자세히 알아보기](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. 사용자 계정에 필요한 권한이 있는지 확인 합니다. [자세히 알아봅니다](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 1. 익명 트래픽을 차단 하는 프록시 또는 방화벽이 있는지 확인 합니다. Defender for Endpoint 센서는 시스템 컨텍스트에서 연결 하므로 익명 트래픽이 허용 되어야 합니다. 되어야에 끝점 포털에 대 한 액세스를 보장 하려면 [프록시 서버에서 서비스 url에 대 한 액세스 사용](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server)의 지침을 따르세요.
 

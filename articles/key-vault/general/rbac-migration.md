@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288273"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526955"
 ---
-# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 (미리 보기) 권한 모델로 마이그레이션
+# <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 권한 모델로 마이그레이션
 
 자격 증명 모음 액세스 정책 모델은 키, 암호 및 인증서에 대 한 액세스를 제공 하기 위해 Key Vault 기본 제공 되는 기존 권한 부여 시스템입니다. Key Vault 범위에서 보안 주체 (사용자, 그룹, 서비스 주체, 관리 id)에 대 한 개별 사용 권한을 할당 하 여 액세스를 제어할 수 있습니다. 
 
-Azure RBAC (역할 기반 access control)는 Azure 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 을 기반으로 하는 권한 부여 시스템입니다. Key Vault 키, 암호 및 인증서 액세스 관리에 대 한 Azure RBAC는 현재 공개 미리 보기로 제공 됩니다. Azure RBAC를 사용 하 여 리소스에 대 한 액세스를 제어 합니다. 역할 할당은 보안 주체, 역할 정의 (미리 정의 된 사용 권한 집합) 및 범위 (리소스 그룹 또는 개별 리소스 그룹)의 세 요소로 구성 됩니다. 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
+Azure RBAC (역할 기반 access control)는 Azure 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 을 기반으로 하는 권한 부여 시스템입니다. Azure RBAC를 사용 하 여 리소스에 대 한 액세스를 제어 합니다. 역할 할당은 보안 주체, 역할 정의 (미리 정의 된 사용 권한 집합) 및 범위 (리소스 그룹 또는 개별 리소스 그룹)의 세 요소로 구성 됩니다. 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md)를 참조 하세요.
 
 Azure RBAC로 마이그레이션하기 전에 이점 및 제한 사항을 이해 하는 것이 중요 합니다.
 
@@ -39,13 +39,14 @@ Azure RBAC 단점:
 Azure RBAC에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당할 수 있는 여러 Azure 기본 제공 역할이 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만들면 됩니다.
 
 키, 인증서 및 비밀 액세스 관리에 대 한 기본 제공 역할을 Key Vault 합니다.
-- Key Vault 관리자 (미리 보기)
-- Key Vault 판독기 (미리 보기)
-- Key Vault 인증서 담당자 (미리 보기)
-- Key Vault Crypto 담당자 (미리 보기)
-- Key Vault Crypto 사용자 (미리 보기)
-- Key Vault 비밀 책임자 (미리 보기)
-- Key Vault 비밀 사용자 (미리 보기)
+- Key Vault 관리자
+- Key Vault 판독기
+- Key Vault 인증서 담당자
+- Key Vault Crypto 담당자
+- 암호화 사용자 Key Vault
+- Key Vault Crypto Service 암호화 사용자
+- Key Vault 비밀 책임자
+- 비밀 사용자 Key Vault
 
 기존 기본 제공 역할에 대 한 자세한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
 
@@ -68,26 +69,26 @@ Azure RBAC에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 
 ### <a name="access-policies-templates-to-azure-roles-mapping"></a>Azure 역할 매핑에 액세스 정책 템플릿
 | 액세스 정책 템플릿 | 작업 | Azure 역할 |
 | --- | --- | --- |
-| 키, 암호, 인증서 관리 | 키: 모든 작업 <br>인증서: 모든 작업<br>비밀: 모든 작업 | Key Vault 관리자 (미리 보기) |
-| 키 & 비밀 관리 | 키: 모든 작업 <br>비밀: 모든 작업| Key Vault Crypto 담당자 (미리 보기)<br> Key Vault 비밀 책임자 (미리 보기)|
-| 암호 & 인증서 관리 | 인증서: 모든 작업 <br>비밀: 모든 작업| Key Vault 인증서 담당자 (미리 보기)<br> Key Vault 비밀 책임자 (미리 보기)|
-| 키 관리 | 키: 모든 작업| Key Vault Crypto 담당자 (미리 보기)|
-| 비밀 관리 | 비밀: 모든 작업| Key Vault 비밀 책임자 (미리 보기)|
-| 인증서 관리 | 인증서: 모든 작업 | Key Vault 인증서 담당자 (미리 보기)|
-| SQL Server 커넥터 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto 서비스 암호화 (미리 보기)|
-| Azure Data Lake Storage 또는 Azure Storage | 키: get, list, 래핑 해제 키 | 해당 없음<br> 사용자 지정 역할 필요|
-| Azure Backup | 키: get, list, backup<br> 인증서: get, list, backup | 해당 없음<br> 사용자 지정 역할 필요|
-| Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto 서비스 암호화 (미리 보기)|
-| Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto 서비스 암호화 (미리 보기)|
-| Azure 정보 BYOK | 키: get, 암호 해독, 서명 | 해당 없음<br>사용자 지정 역할 필요|
+| 키, 암호, 인증서 관리 | 키: 모든 작업 <br>인증서: 모든 작업<br>비밀: 모든 작업 | Key Vault 관리자 |
+| 키 & 비밀 관리 | 키: 모든 작업 <br>비밀: 모든 작업| Key Vault Crypto 담당자 <br> Key Vault 비밀 책임자 |
+| 암호 & 인증서 관리 | 인증서: 모든 작업 <br>비밀: 모든 작업| Key Vault 인증서 담당자 <br> Key Vault 비밀 책임자|
+| 키 관리 | 키: 모든 작업| Key Vault Crypto 담당자|
+| 비밀 관리 | 비밀: 모든 작업| Key Vault 비밀 책임자|
+| 인증서 관리 | 인증서: 모든 작업 | Key Vault 인증서 담당자|
+| SQL Server 커넥터 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
+| Azure Data Lake Storage 또는 Azure Storage | 키: get, list, 래핑 해제 키 | N/A<br> 사용자 지정 역할 필요|
+| Azure Backup | 키: get, list, backup<br> 인증서: get, list, backup | N/A<br> 사용자 지정 역할 필요|
+| Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
+| Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
+| Azure 정보 BYOK | 키: get, 암호 해독, 서명 | N/A<br>사용자 지정 역할 필요|
 
 
 ## <a name="assignment-scopes-mapping"></a>할당 범위 매핑  
 
 Key Vault에 대 한 Azure RBAC를 사용 하면 다음 범위에서 역할을 할당할 수 있습니다.
 - 관리 그룹
-- Subscription
-- Resource group
+- 구독
+- 리소스 그룹
 - Key Vault 리소스
 - 개별 키, 암호 및 인증서
 
@@ -102,10 +103,13 @@ Key Vault에 대 한 Azure RBAC를 사용 하면 다음 범위에서 역할을 �
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Azure RBAC 마이그레이션 단계에 대 한 자격 증명 모음 액세스 정책
 Azure RBAC와 자격 증명 모음 액세스 정책 권한 모델 간에는 많은 차이점이 있습니다. 마이그레이션 중 중단이 발생 하지 않도록 하려면 아래 단계를 수행 하는 것이 좋습니다.
  
-1. **역할 식별 및 할당** : 위의 매핑 테이블을 기반으로 기본 제공 역할을 식별 하 고 필요한 경우 사용자 지정 역할을 만듭니다. 범위 매핑 지침에 따라 범위에서 역할을 할당 합니다. 키 자격 증명 모음에 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault에 대 한 액세스 제공 (미리 보기)](rbac-guide.md) 을 참조 하세요.
-1. **역할 할당 유효성 검사** : Azure RBAC의 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다. 역할 할당을 확인 하는 방법에 대 한 지침은 [범위에서 역할 할당 나열](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) 을 참조 하세요.
-1. **주요 자격 증명 모음에 대 한 모니터링 및 경고 구성** : 액세스 거부 예외에 대해 로깅을 설정 하 고 경고를 설정 하는 것이 중요 합니다. 자세한 내용은 [Azure Key Vault 모니터링 및 경고](./alert.md) 를 참조 하세요.
-1. **Key Vault에서 azure 역할 기반 액세스 제어 권한 모델 설정** : azure RBAC 권한 모델을 사용 하도록 설정 하면 기존 액세스 정책이 모두 무효화 됩니다. 오류가 발생 하는 경우에는 그대로 남아 있는 모든 기존 액세스 정책을 사용 하 여 권한 모델을 다시 전환할 수 있습니다.
+1. **역할 식별 및 할당**: 위의 매핑 테이블을 기반으로 기본 제공 역할을 식별 하 고 필요한 경우 사용자 지정 역할을 만듭니다. 범위 매핑 지침에 따라 범위에서 역할을 할당 합니다. 키 자격 증명 모음에 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault에 대 한 액세스 제공](rbac-guide.md) 을 참조 하세요.
+1. **역할 할당 유효성 검사**: Azure RBAC의 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다. 역할 할당을 확인 하는 방법에 대 한 지침은 [범위에서 역할 할당 나열](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) 을 참조 하세요.
+1. **주요 자격 증명 모음에 대 한 모니터링 및 경고 구성**: 액세스 거부 예외에 대해 로깅을 설정 하 고 경고를 설정 하는 것이 중요 합니다. 자세한 내용은 [Azure Key Vault 모니터링 및 경고](./alert.md) 를 참조 하세요.
+1. **Key Vault에서 azure 역할 기반 액세스 제어 권한 모델 설정**: azure RBAC 권한 모델을 사용 하도록 설정 하면 기존 액세스 정책이 모두 무효화 됩니다. 오류가 발생 하는 경우에는 그대로 남아 있는 모든 기존 액세스 정책을 사용 하 여 권한 모델을 다시 전환할 수 있습니다.
+
+> [!NOTE]
+> 권한 모델을 변경 하려면 [소유자](../../role-based-access-control/built-in-roles.md#owner) 및 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할의 일부인 ' Microsoft Authorization/roleassignments/write ' 권한이 있어야 합니다. ' 서비스 관리자 ' 및 ' 공동 관리자 '와 같은 클래식 구독 관리자 역할은 지원 되지 않습니다.
 
 > [!NOTE]
 > Azure RBAC 권한 모델을 사용 하도록 설정 하면 액세스 정책 업데이트를 시도 하는 모든 스크립트가 실패 합니다. Azure RBAC를 사용 하도록 해당 스크립트를 업데이트 하는 것이 중요 합니다.

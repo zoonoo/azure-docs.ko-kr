@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 459bac2ef01e69b9316af7e8374e7416ab51d915
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523909"
+ms.locfileid: "100526867"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>IoT 용 Defender 포털에서 센서 등록 및 관리
 
@@ -123,6 +123,6 @@ IoT 용 Azure Defender에 등록 하 고 센서 활성화 파일을 다운로드
 
 9. **활성화** 를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참조
 
 [센서 활성화 및 설정](how-to-activate-and-set-up-your-sensor.md)
