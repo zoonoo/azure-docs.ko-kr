@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 0d4ccc1a60f9ac3c2183023d3d3772da6a1e307b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f66aef64d68bd5d99d7a27d1382306d9202bd350
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830756"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388059"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Azure Migrate 프로젝트 만들기 및 관리
 
@@ -87,7 +87,7 @@ Azure Migrate 프로젝트가 이미 있고 추가 프로젝트를 만들려는 
 3. 적절 한 구독 및 Azure Migrate 프로젝트를 선택 합니다.
 
 
-### <a name="find-a-legacy-project"></a>레거시 프로젝트 찾기
+### <a name="find-a-classic-azure-migrate-project"></a>클래식 Azure Migrate 프로젝트 찾기
 
 [이전 버전](migrate-services-overview.md#azure-migrate-versions) 의 Azure Migrate에서 프로젝트를 만든 경우 다음과 같이 찾습니다.
 

@@ -3,22 +3,22 @@ title: 'ML Studio (클래식): 사용자 지정 R 모듈 만들기 & 배포-Azur
 description: ML Studio (클래식)에서 사용자 지정 R 모듈을 작성 하 고 배포 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322782"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520479"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 이 항목에서는 사용자 지정 R Studio (클래식)를 작성 하 고 배포 하는 방법에 대해 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
@@ -91,7 +91,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE)
 </Module>
 ```
 
-XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 CustomAddRows.R 파일에 있는 R 코드의 함수 매개 변수 이름(이 예제의 경우 *dataset1* , *dataset2* 및 *swap* )과 정확히 일치해야 합니다. 마찬가지로, **Language** 요소의 **entryPoint** 특성 값은 R 스크립트의 함수 이름(이 예제의 경우 *CustomAddRows* )과 정확히 일치해야 합니다. 
+XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 CustomAddRows.R 파일에 있는 R 코드의 함수 매개 변수 이름(이 예제의 경우 *dataset1*, *dataset2* 및 *swap*)과 정확히 일치해야 합니다. 마찬가지로, **Language** 요소의 **entryPoint** 특성 값은 R 스크립트의 함수 이름(이 예제의 경우 *CustomAddRows*)과 정확히 일치해야 합니다. 
 
 반면, **Output** 요소의 **id** 특성은 R 스크립트의 변수에 해당하지 않습니다. 둘 이상의 출력이 필요한 경우 XML 파일에 선언된 *Output* 요소와 **동일한 순서로** 결과가 배치된 목록이 R 함수에서 반환됩니다.
 
@@ -140,7 +140,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 사용자 지정 모듈의 입력 및 출력 포트는 XML 정의 파일의 **Ports** 섹션의 자식 요소에 지정됩니다. 이러한 요소의 순서에 따라 사용자의 레이아웃(UX)이 결정됩니다. XML 파일의 **Ports** 요소에 나열된 첫 번째 자식 **input** 또는 **output** 은 Machine Learning UX의 맨 왼쪽 입력 포트가 됩니다.
 각 입력 및 출력 포트에는 사용자가 Machine Learning UI에서 포트 위에 마우스 커서를 놓으면 표시되는 텍스트를 지정하는 선택적 **Description** 자식 요소가 있을 수 있습니다.
 
-**포트 규칙** :
+**포트 규칙**:
 
 * **입력 및 출력 포트** 의 최대 개수는 각각 8개입니다.
 
@@ -175,7 +175,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 * **Input** 요소의 **name** 특성 값은 64자 이내여야 합니다.
 * **Description** 요소의 내용은 128자 이내여야 합니다.
 * **Input** 요소의 **type** 특성 값은 *Zip* 또는 *DataTable* 이어야 합니다.
-* **Input** 요소의 **isOptional** 특성 값은 필수가 아니지만(지정하지 않을 경우 기본적으로 *false* ) 지정한 경우 *true* 또는 *false* 여야 합니다.
+* **Input** 요소의 **isOptional** 특성 값은 필수가 아니지만(지정하지 않을 경우 기본적으로 *false*) 지정한 경우 *true* 또는 *false* 여야 합니다.
 
 ### <a name="output-elements"></a>Output 요소
 **표준 출력 포트:** 출력 포트는 R 함수의 반환 값에 매핑되어 후속 모듈에 사용됩니다. *DataTable* 은 현재 지원되는 유일한 표준 출력 포트 형식입니다. ( *학습자* 및 *변환* 에 대 한 지원이 곧 제공 될 예정입니다.) *DataTable* 출력은 다음과 같이 정의 됩니다.
@@ -188,7 +188,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 사용자 지정 R 모듈의 출력은 **id** 특성 값이 R 스크립트의 항목에 해당할 필요는 없지만 고유해야 합니다. 단일 모듈 출력의 경우 R 함수의 반환 값은 *data.frame* 이어야 합니다. 지원되는 데이터 형식의 개체를 두 개 이상 출력하려면 XML 정의 파일에 해당 출력 포트를 지정하고 개체를 목록으로 반환해야 합니다. 출력 개체는 반환되는 목록에서 개체가 배치된 순서를 나타내도록 왼쪽으로 오른쪽으로 출력 포트에 할당됩니다.
 
-예를 들어 **사용자 지정 행 추가** 모듈을 새로 조인된 *dataset* 과 함께 원래 두 데이터 세트 *dataset1* 및 *dataset2* 를 출력(왼쪽부터 순서대로 *dataset* , *dataset1* , *dataset2* )하도록 수정하려면 CustomAddRows.xml 파일에서 다음과 같이 출력 포트를 정의합니다.
+예를 들어 **사용자 지정 행 추가** 모듈을 새로 조인된 *dataset* 과 함께 원래 두 데이터 세트 *dataset1* 및 *dataset2* 를 출력(왼쪽부터 순서대로 *dataset*, *dataset1*, *dataset2*)하도록 수정하려면 CustomAddRows.xml 파일에서 다음과 같이 출력 포트를 정의합니다.
 
 ```xml
 <Ports> 
@@ -253,7 +253,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>
 ```
 
-* *선택적 속성* : **min** , **max** , **default** 및 **isOptional**
+* *선택적 속성*: **min**, **max**, **default** 및 **isOptional**
 
 **double** – 실수(Double) 형식 매개 변수입니다.
 
@@ -264,7 +264,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>
 ```
 
-* *선택적 속성* : **min** , **max** , **default** 및 **isOptional**
+* *선택적 속성*: **min**, **max**, **default** 및 **isOptional**
 
 **bool** – UX에서 확인란으로 표시되는 부울 매개 변수입니다.
 
@@ -275,9 +275,9 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>
 ```
 
-* *선택적 속성* : **default** - 설정하지 않은 경우 false
+* *선택적 속성*: **default** - 설정하지 않은 경우 false
 
-**string** : 표준 문자열입니다.
+**string**: 표준 문자열입니다.
 
 ```xml
 <Arg id="stringValue1" name="My string Param" type="string">
@@ -286,9 +286,9 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>    
 ```
 
-* *선택적 속성* : **default** 및 **isOptional**
+* *선택적 속성*: **default** 및 **isOptional**
 
-**ColumnPicker** : 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. **속성** 요소는 열이 선택 된 포트의 ID를 지정 하는 데 사용 됩니다. 여기서 대상 포트 유형은 *DataTable* 이어야 합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
+**ColumnPicker**: 열 선택 매개 변수입니다. 이 형식은 UX에서 열 선택기로 렌더링됩니다. **속성** 요소는 열이 선택 된 포트의 ID를 지정 하는 데 사용 됩니다. 여기서 대상 포트 유형은 *DataTable* 이어야 합니다. 열 선택의 결과는 선택한 열 이름이 포함된 문자열 목록으로 R 함수에 전달됩니다. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,8 +297,8 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>
 ```
 
-* *필수 속성* : **portId** - *DATATABLE* 형식이 있는 Input 요소의 ID와 일치 합니다.
-* *선택적 속성* :
+* *필수 속성*: **portId** - *DATATABLE* 형식이 있는 Input 요소의 ID와 일치 합니다.
+* *선택적 속성*:
   
   * **allowedTypes** - 선택할 수 있는 열 형식을 필터링합니다. 유효한 값은 다음과 같습니다. 
     
@@ -308,11 +308,11 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * String
     * 레이블
     * 기능
-    * 점수
+    * 점수 매기기
     * 모두
   * **default** -열 선택의 유효한 기본 선택 항목은 다음과 같습니다. 
     
-    * None
+    * 없음
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -334,7 +334,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * AllScore
     * 모두
 
-**DropDown** : 사용자가 지정한 열거형(드롭다운) 목록입니다. 드롭다운 항목은 **Item** 요소를 사용하여 **Properties** 요소 내에 지정됩니다. 각 **Item** 에 대한 **id** 는 고유하고 유효한 R 변수여야 합니다. **Item** 의 **name** 값은 표시되는 텍스트와 R 함수에 전달되는 값으로 사용됩니다.
+**DropDown**: 사용자가 지정한 열거형(드롭다운) 목록입니다. 드롭다운 항목은 **Item** 요소를 사용하여 **Properties** 요소 내에 지정됩니다. 각 **Item** 에 대한 **id** 는 고유하고 유효한 R 변수여야 합니다. **Item** 의 **name** 값은 표시되는 텍스트와 R 함수에 전달되는 값으로 사용됩니다.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">
@@ -347,7 +347,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
 </Arg>    
 ```
 
-* *선택적 속성* :
+* *선택적 속성*:
   * **기본값** -기본 속성의 값은 **항목** 요소 중 하나의 ID 값과 일치 해야 합니다.
 
 ### <a name="auxiliary-files"></a>보조 파일

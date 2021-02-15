@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742933"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380307"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -109,7 +109,7 @@ ADFS 보안 보고서 읽기 | 보안 Reader | 기여자, 소유자
 
 작업 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-도메인 관리 | 전역 관리자 | 
+도메인 관리 | 도메인 이름 관리자 | 
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](../fundamentals/users-default-permissions.md))
 
 ## <a name="domain-services"></a>Domain Services
@@ -153,7 +153,7 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 작업 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
-카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
+카탈로그에 SharePoint Online 사이트 추가 | 글로벌 관리자
 
 
 ## <a name="groups"></a>그룹
@@ -196,7 +196,7 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 라이선스 할당 | 라이선스 관리자 | 사용자 관리자
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](../fundamentals/users-default-permissions.md))
 라이선스 해지 | 라이선스 관리자 | 사용자 관리자
-구독 체험 또는 구입 | 대금 청구 관리자 | 
+구독 체험 또는 구입 | 청구 관리자 | 
 
 
 ## <a name="monitoring---audit-logs"></a>모니터링 - 감사 로그
@@ -216,9 +216,9 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 작업 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 선택한 사용자가 생성한 모든 기존 앱 암호 삭제 | 전역 관리자 | 
-MFA 사용 | 전역 관리자 | 
-MFA 사용 | 전역 관리자 | 
-MFA 서비스 설정 관리 | 전역 관리자 | 
+MFA 사용 | 인증 관리자 (PowerShell을 통해) | 권한 있는 인증 관리자 (PowerShell을 통해)
+MFA 사용 | 인증 관리자 (PowerShell을 통해) | 권한 있는 인증 관리자 (PowerShell을 통해) 
+MFA 서비스 설정 관리 | 인증 정책 관리자 | 
 연락처 메서드를 다시 제공하도록 선택된 사용자 요구 | 인증 관리자 | 
 모든 저장된 디바이스에서 다단계 인증 복원  | 인증 관리자 | 
 
@@ -226,15 +226,15 @@ MFA 서비스 설정 관리 | 전역 관리자 |
 
 작업 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-사용자 차단/차단 해제 | 전역 관리자 | 
-계정 잠금 구성 | 전역 관리자 | 
-캐시 규칙 구성 | 전역 관리자 | 
-사기 행위 경고 구성 | 전역 관리자
-알림 구성 | 전역 관리자 | 
-일회성 바이패스 구성 | 전역 관리자 | 
-전화 통화 설정 구성 | 전역 관리자 | 
-공급자 구성 | 전역 관리자 | 
-서버 설정 구성 | 전역 관리자 | 
+사용자 차단/차단 해제 | 인증 정책 관리자 | 
+계정 잠금 구성 | 인증 정책 관리자 | 
+캐시 규칙 구성 | 인증 정책 관리자 | 
+사기 행위 경고 구성 | 인증 정책 관리자
+알림 구성 | 인증 정책 관리자 | 
+일회성 바이패스 구성 | 인증 정책 관리자 | 
+전화 통화 설정 구성 | 인증 정책 관리자 | 
+공급자 구성 | 인증 정책 관리자 | 
+서버 설정 구성 | 인증 정책 관리자 | 
 활동 보고서 읽기 | 전역 독자 | 
 모든 구성 읽기 | 전역 독자 | 
 서버 상태 읽기 | 전역 독자 |  

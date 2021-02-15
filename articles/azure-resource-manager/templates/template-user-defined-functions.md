@@ -2,13 +2,13 @@
 title: 템플릿의 사용자 정의 함수
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용자 정의 함수를 정의 하 고 사용 하는 방법에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934682"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379627"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>ARM 템플릿의 사용자 정의 함수
 
@@ -44,7 +44,7 @@ ms.locfileid: "97934682"
 
 ## <a name="use-the-function"></a>함수 사용
 
-다음 예에서는 사용자 정의 함수를 포함 하는 템플릿을 보여 줍니다. 이 함수는 해당 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 가져옵니다. 템플릿에는 `storageNamePrefix` 함수에 매개 변수로 전달 하는 라는 매개 변수가 있습니다.
+다음 예에서는 사용자 정의 함수를 포함 하 여 저장소 계정에 대 한 고유한 이름을 가져오는 템플릿을 보여 줍니다. 템플릿에는 `storageNamePrefix` 함수에 매개 변수로 전달 되는 라는 매개 변수가 있습니다.
 
 ```json
 {
@@ -92,6 +92,12 @@ ms.locfileid: "97934682"
  ]
 }
 ```
+
+배포 하는 동안 `storageNamePrefix` 매개 변수는 함수에 전달 됩니다.
+
+* 템플릿은 이라는 매개 변수를 정의 `storageNamePrefix` 합니다.
+* 함수는 `namePrefix` 함수에 정의 된 매개 변수만 사용할 수 있기 때문에를 사용 합니다. 자세한 내용은 [제한 사항](#limitations)을 참조 하세요.
+* 템플릿의 `resources` 섹션에서 요소는 함수를 `name` 사용 하 고 값을 함수에 전달 `storageNamePrefix` `namePrefix` 합니다.
 
 ## <a name="limitations"></a>제한 사항
 

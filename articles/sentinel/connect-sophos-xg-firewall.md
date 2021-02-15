@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: b48773272e050b47af73b197d6f1c8156318fd71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8b6247a735bceaf98029740bf9d4f7e233069d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87099343"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097571"
 ---
 # <a name="connect-your-sophos-xg-firewall-to-azure-sentinel"></a>Sophos XG 방화벽을 Azure 센티널에 연결
 
@@ -38,7 +38,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Sophos xg 방화벽** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기**를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택 합니다.
 
 1. **Sophos XG 방화벽** 페이지의 지침을 따릅니다.
 
@@ -48,7 +48,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 Syslog 메시지를 전달 
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
 
-로그가 Log Analytics 표시 되기 시작할 때까지 20 분 정도 걸릴 수 있습니다.
+로그가 Log Analytics 나타날 때까지 최대 20 분이 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102107"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384455"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Synapse에서 일반적인 작업을 수행 하는 데 필요한 역할 이해
 
@@ -87,7 +87,7 @@ Apache Spark 풀 만들기|작업 영역의 Azure 소유자 또는 참가자|
 Apache Spark 풀에서 실행 중인 모든 노트북 또는 Spark 작업 취소|Apache Spark 풀에서 계산 연산자를 Synapse 합니다.|bigDataPools/useCompute
 노트북 또는 작업 정의 만들기|Synapse 사용자 또는 </br>작업 영역의 Azure 소유자, 참가자 또는 읽기 권한자</br> *변경 내용을 실행, 게시 또는 커밋하려면 추가 사용 권한이 필요 합니다.*|읽기</br></br></br></br></br> 
 저장 된 출력 검토를 포함 하 여 게시 된 노트북 또는 작업 정의를 나열 하 고 엽니다.|작업 영역에서 Synapse 아티팩트 사용자, Synapse 아티팩트 게시자, Synapse 기여자|아티팩트/읽기
-노트북을 실행 하 고 해당 출력을 검토 합니다.|선택한 Apache Spark 풀에서 Synapse Apache Spark Administrator, Synapse Compute 연산자|bigDataPools/useCompute 
+노트북을 실행 하 고 해당 출력을 검토 하거나 Spark 작업을 제출 합니다.|선택한 Apache Spark 풀에서 Synapse Apache Spark Administrator, Synapse Compute 연산자|bigDataPools/useCompute 
 노트북 또는 작업 정의 (출력 포함)를 서비스에 게시 하거나 삭제 합니다.|작업 영역의 아티팩트 게시자 Synapse Apache Spark 관리자|노트북/쓰기, 삭제
 Git 리포지토리에 대 한 노트북 또는 작업 정의 변경 내용 커밋|Git 권한|없음
 파이프라인, 통합 런타임, 데이터 흐름, 데이터 집합 & 트리거|

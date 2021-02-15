@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683343"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388076"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
@@ -29,6 +29,7 @@ Azure Machine Learning 작업 영역을 신뢰할 수 있는 방식으로 구성
 
  * ACR에 대 한 관리 사용자 액세스를 사용 하도록 설정 하지 않고도 Azure Machine Learning 작업 영역에 대 한 ACR을 구성 하 고 사용 합니다.
  * 작업 영역 외부의 개인 ACR에 액세스 하 여 학습 또는 유추를 위한 기본 이미지를 끌어옵니다.
+ * 연결 된 리소스에 액세스 하기 위해 사용자 할당 관리 id를 사용 하 여 작업 영역을 만듭니다.
 
 > [!IMPORTANT]
 > 관리 id를 사용 하 여 Azure Machine Learning 있는 리소스에 대 한 액세스를 제어 하는 기능은 현재 미리 보기로 제공 됩니다. 미리 보기 기능은 지원 또는 서비스 수준 계약의 보증 없이 "있는 그대로" 제공 됩니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
@@ -102,7 +103,7 @@ az ml workspace create -w <workspace name> \
 
 ### <a name="create-compute-with-managed-identity-to-access-docker-images-for-training"></a>관리 id를 사용 하 여 계산을 만들어 교육용 Docker 이미지 액세스
 
-작업 영역 ACR에 액세스 하려면 시스템 할당 관리 id를 사용 하도록 설정 하 여 machine learning 계산 클러스터를 만듭니다. 계산을 만들 때 또는 Azure CLI를 사용 하 여 Azure Portal 또는 스튜디오에서 id를 사용 하도록 설정할 수 있습니다.
+작업 영역 ACR에 액세스 하려면 시스템 할당 관리 id를 사용 하도록 설정 하 여 machine learning 계산 클러스터를 만듭니다. 계산을 만들 때 Azure Portal 또는 스튜디오에서 id를 사용 하도록 설정 하거나 아래를 사용 하 여 Azure CLI 수 있습니다. 자세한 내용은 [계산 클러스터에서 관리 되는 id 사용](how-to-create-attach-compute-cluster.md#managed-identity)을 참조 하세요.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -171,7 +172,7 @@ env.python.user_managed_dependencies = True
 
 ### <a name="build-azure-machine-learning-managed-environment-into-base-image-from-private-acr-for-training-or-inference"></a>학습 또는 유추를 위해 개인 ACR의 기본 이미지에 Azure Machine Learning 관리 되는 환경 빌드
 
-이 시나리오에서 Azure Machine Learning 서비스는 개인 ACR에서 제공 하는 기본 이미지 위에 학습 또는 유추 환경을 구축 합니다. 이미지 빌드 작업은 ACR 작업을 사용 하 여 작업 영역 ACR에서 발생 하기 때문에 액세스를 허용 하기 위해 추가 단계를 수행 해야 합니다.
+이 시나리오에서 Azure Machine Learning 서비스는 개인 ACR에서 제공 하는 기본 이미지 위에 학습 또는 유추 환경을 구축 합니다. 이미지 빌드 작업은 ACR 작업을 사용 하 여 작업 영역 ACR에서 발생 하기 때문에 액세스를 허용 하려면 추가 단계를 수행 해야 합니다.
 
 1. __사용자 할당 관리 id__ 를 만들고 __개인 ACR__ 에 대 한 id acrpull 액세스 권한을 부여 합니다.  
 1. 이전 단계에서 __사용자 할당 관리 id__ 에 대 한 관리 id 운영자 역할을 작업 영역 __시스템 할당 관리__ id에 부여 합니다. 이 역할을 통해 작업 영역에서 관리 되는 환경을 빌드하기 위한 ACR 작업에 사용자 할당 관리 id를 할당할 수 있습니다. 
@@ -228,6 +229,41 @@ env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 
 > [!NOTE]
 > 사용자 고유의 AKS 클러스터를 가져오는 경우 클러스터에서 관리 되는 id 대신 서비스 주체를 사용 하도록 설정 해야 합니다.
+
+## <a name="create-workspace-with-user-assigned-managed-identity"></a>사용자 할당 관리 id를 사용 하 여 작업 영역 만들기
+
+작업 영역을 만들 때 ACR, KeyVault, Storage 및 App Insights와 같은 연결 된 리소스에 액세스 하는 데 사용 되는 사용자 할당 관리 id를 지정할 수 있습니다.
+
+먼저 [사용자 할당 관리 id를 만들고](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli])관리 ID의 ARM 리소스 ID를 기록해 둡니다.
+
+그런 다음 Azure CLI 또는 Python SDK를 사용 하 여 작업 영역을 만듭니다. CLI를 사용 하는 경우 매개 변수를 사용 하 여 ID를 지정 합니다 `--primary-user-assigned-identity` . SDK를 사용 하는 경우를 사용 `primary_user_assigned_identity` 합니다. 다음은 Azure CLI 및 Python을 사용 하 여 이러한 매개 변수를 사용 하는 새 작업 영역을 만드는 예입니다.
+
+__Azure CLI__
+
+```azurecli-interactive
+az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
+```
+
+__Python__
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.create(name="workspace name", 
+    subscription_id="subscription id", 
+    resource_group="resource group name",
+    primary_user_assigned_identity="managed identity ARM ID")
+```
+
+[ARM 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) 사용 하 여 사용자 할당 관리 id가 있는 작업 영역을 만들 수도 있습니다.
+
+> [!IMPORTANT]
+> 연결 된 리소스를 가져오는 경우 Azure Machine Learning 서비스를 만드는 대신 해당 리소스에 대 한 관리 되는 id 역할을 부여 해야 합니다. [역할 할당 ARM 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) 사용 하 여 할당을 만듭니다.
+
+(암호화를 위해 고객이 관리 하는 키) []를 사용 하는 작업 영역의 경우 https://docs.microsoft.com/azure/machine-learning/concept-data-encryption 사용자 할당 관리 id를 전달 하 여 저장소에서 Key Vault로 인증할 수 있습니다. __사용자 할당-cmk-encryption__ (CLI) 또는 __user_assigned_identity_for_cmk_encryption__ (SDK) 인수를 사용 하 여 관리 되는 id를 전달 합니다. 이 관리 id는 작업 영역 기본 사용자 할당 관리 id와 동일 하거나 다를 수 있습니다.
+
+기존 작업 영역이 있는 경우 ```az ml workspace update``` CLI 명령 또는 PYTHON SDK 메서드를 사용 하 여 시스템 할당에서 사용자 할당 관리 id로 업데이트할 수 있습니다 ```Workspace.update``` .
+
 
 ## <a name="next-steps"></a>다음 단계
 

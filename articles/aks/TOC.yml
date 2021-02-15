@@ -338,7 +338,7 @@
         - name: MySQL을 사용하여 앱 빌드
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Open Liberty 또는 WebSphere Liberty 앱 배포
+        - name: Open Liberty 또는 WebSphere Liberty로 앱 빌드
           href: howto-deploy-java-liberty-app.md
         - name: Azure API Management 사용
           href: ../api-management/api-management-kubernetes.md

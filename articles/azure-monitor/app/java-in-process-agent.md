@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 811827c1053349d4fa80a25e5cf362331e5d87bc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745703"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383180"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java 코드 없는 응용 프로그램 모니터링 Azure Monitor Application Insights
 
@@ -121,7 +121,7 @@ Application Insights 리소스에서 연결 문자열을 찾을 수 있습니다
 
 ### <a name="logs"></a>로그
 
-* java.
+* java.util.logging
 * Log4j (MDC 속성 포함)
 * SLF4J/Logback (MDC 속성 포함)
 
@@ -143,12 +143,12 @@ Application Insights Java 3.0은 이러한 Api를 통해 전송 되는 원격 �
 
 |                     | 마이크로미터 | Log4j, logback, 7 월 | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **사용자 지정 이벤트**   |            |                     |  예    |
+| **사용자 지정 이벤트**   |            |                     |  Yes    |
 | **사용자 지정 메트릭**  |  예       |                     |  yes    |
-| **종속성**    |            |                     |  예    |
+| **종속성**    |            |                     |  Yes    |
 | **예외**      |            |  예                |  예    |
-| **페이지 보기**      |            |                     |  예    |
-| **요청**        |            |                     |  예    |
+| **페이지 보기**      |            |                     |  Yes    |
+| **요청**        |            |                     |  Yes    |
 | **추적**          |            |  예                |  예    |
 
 현재 Application Insights 3.0를 사용 하 여 SDK를 릴리스할 계획은 아닙니다.
@@ -230,6 +230,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);

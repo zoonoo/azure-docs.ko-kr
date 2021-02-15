@@ -3,21 +3,21 @@ title: 'ML Studio (클래식): PowerShell 모듈-Azure'
 description: PowerShell을 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역, 실험, 웹 서비스 등을 만들고 관리할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: f66363ec8b64dea1a076f81f4fc89bafe5ca4151
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 684299d61ba6e9e27e16a162c9f226a7ea3b5f58
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322324"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518014"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 용 PowerShell 모듈 (클래식)
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 PowerShell 모듈을 사용 하 여 작업 영역, 데이터 집합 및 웹 서비스와 같은 사용자의 Studio (클래식) 리소스 및 자산을 프로그래밍 방식으로 관리할 수 있습니다.
@@ -53,7 +53,7 @@ PowerShell 클래식은 Az 또는 AzureRM와 함께 설치 하 여 "새" 및 "�
 ## <a name="powershell-support-table"></a><a name="support-table"></a> PowerShell 지원 표
 
 
-| Task | **Az** |  **PowerShell 클래식** |
+| 작업 | **Az** |  **PowerShell 클래식** |
 | --- | --- | --- |
 | 작업 영역 만들기/삭제 | [리소스 관리자 템플릿](./deploy-with-resource-manager-template.md) |  |
 | 작업 영역 약정 계획 관리 | [New-AzMlCommitmentPlan](/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |

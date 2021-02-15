@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346370"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831691"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>자습서: Azure IoT Central에서 데이터 내보내기 및 Power BI에서 인사이트 시각화
 
@@ -504,6 +504,4 @@ IoT Central 애플리케이션이 완료되면 애플리케이션에 로그인�
 이 세 가지 자습서에서는 **스토어 내 분석 - 체크 아웃** IoT Central 애플리케이션 템플릿을 사용하는 엔드투엔드 솔루션을 보여 주었습니다. 디바이스를 애플리케이션에 연결하고, IoT Central을 사용하여 디바이스를 모니터링하고, Power BI를 사용하여 디바이스 원격 분석에서 인사이트를 볼 수 있는 대시보드를 빌드했습니다. 추천되는 다음 단계는 다른 IoT Central 애플리케이션 템플릿 중 하나를 살펴보는 것입니다.
 
 > [!div class="nextstepaction"]
-> * [IoT Central을 사용하여 에너지 산업 솔루션 빌드](../energy/overview-iot-central-energy.md)
-> * [IoT Central을 사용하여 정부 기관 솔루션 빌드](../government/overview-iot-central-government.md)
-> * [IoT Central을 사용하여 의료 산업 솔루션 빌드](../healthcare/overview-iot-central-healthcare.md)
+> [IoT Central을 사용하여 에너지 산업 솔루션 빌드](../energy/overview-iot-central-energy.md)

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 133a7d9b3fa04797648fa253825505d29e37ca98
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e59d4ecd238879eddb9d842245395d58aff28385
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576416"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519425"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -37,8 +37,8 @@ ms.locfileid: "99576416"
 - App Service
 - Azure Kubernetes 서비스
 - Azure Function
-- 네트워킹 리소스 (예: 네트워크 보안 그룹, Virtual Network, Application Gateway 등)
-- 데이터 서비스: 예: Storage, SQL, Redis Cache, Cosmos DB 등
+- 네트워킹 리소스: 네트워크 보안 그룹, Virtual Network, Application Gateway 등
+- Data services: Storage, SQL, Redis Cache, Cosmos DB 등
 
 ## <a name="data-sources"></a>데이터 원본
 
@@ -60,106 +60,33 @@ IP 구성 규칙, TLS 설정, 확장 버전 등의 설정은 Azure 리소스 그
 
 ### <a name="dependency-changes"></a>종속성 변경
 
-리소스 종속성을 변경 하면 리소스에서 문제가 발생할 수도 있습니다. 예를 들어 웹 앱이 Redis cache를 호출 하는 경우 Redis cache SKU는 웹 앱 성능에 영향을 줄 수 있습니다. 또 다른 예는 가상 컴퓨터의 네트워크 보안 그룹에서 포트 22를 닫은 경우 연결 오류가 발생 하는 것입니다. 
+리소스 종속성을 변경 하면 리소스에서 문제가 발생할 수도 있습니다. 예를 들어 웹 앱이 Redis cache를 호출 하는 경우 Redis cache SKU는 웹 앱 성능에 영향을 줄 수 있습니다. 또 다른 예는 가상 컴퓨터의 네트워크 보안 그룹에서 포트 22를 닫은 경우 연결 오류가 발생 하는 것입니다.
 
 #### <a name="web-app-diagnose-and-solve-problems-navigator-preview"></a>웹 앱 진단 및 문제 해결 탐색기 (미리 보기)
+
 종속성의 변경 내용을 감지 하기 위해 변경 분석은 웹 앱의 DNS 레코드를 확인 합니다. 이러한 방식으로 문제를 일으킬 수 있는 모든 응용 프로그램 구성 요소의 변경 내용을 식별 합니다.
 현재 **웹 앱 진단 및 문제 해결에서 지원 되는 종속성은 다음과 같습니다. 탐색기 (미리 보기)**:
+
 - Web Apps
 - Azure Storage
 - Azure SQL
 
 #### <a name="related-resources"></a>관련 참고 자료
-응용 프로그램 변경 분석은 관련 된 리소스를 검색 합니다. 일반적인 예는 가상 머신과 관련 된 네트워크 보안 그룹, Virtual Network, Application Gateway 및 Load Balancer입니다. 네트워크 리소스는 일반적으로 해당 리소스를 사용 하는 리소스와 동일한 리소스 그룹에 자동으로 프로 비전 되므로 리소스 그룹별 변경 내용에 대 한 필터링을 통해 가상 컴퓨터 및 관련 네트워킹 리소스에 대 한 모든 변경 내용이 표시 됩니다.
+
+응용 프로그램 변경 분석은 관련 된 리소스를 검색 합니다. 일반적인 예는 가상 머신과 관련 된 네트워크 보안 그룹, Virtual Network, Application Gateway 및 Load Balancer입니다.
+네트워크 리소스는 일반적으로 해당 리소스를 사용 하는 리소스와 동일한 리소스 그룹에 자동으로 프로 비전 되므로 리소스 그룹별 변경 내용에 대 한 필터링을 통해 가상 컴퓨터 및 관련 네트워킹 리소스에 대 한 모든 변경 내용이 표시 됩니다.
 
 ![네트워킹 변경의 스크린샷](./media/change-analysis/network-changes.png)
 
 ## <a name="application-change-analysis-service-enablement"></a>응용 프로그램 변경 분석 서비스 지원
 
 응용 프로그램 변경 분석 서비스는 위에서 언급 한 데이터 원본의 변경 데이터를 계산 하 고 집계 합니다. 사용자가 모든 리소스 변경 사항을 쉽게 탐색 하 고 문제 해결 또는 모니터링 컨텍스트와 관련 된 변경 내용을 식별할 수 있도록 분석 집합을 제공 합니다.
-"Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱 진단 및 문제 해결 도구를 입력 하거나 변경 분석 독립 실행형 탭을 표시할 때이 리소스 공급자가 자동으로 등록 됩니다. 웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
+"Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱 진단 및 문제 해결 도구를 입력 하거나 변경 분석 독립 실행형 탭을 표시할 때이 리소스 공급자가 자동으로 등록 됩니다.
+웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 [문제 진단 및 해결 도구 섹션에서 변경 분석](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) 을 참조 하세요.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>비용
+
 응용 프로그램 변경 분석은 무료 서비스입니다. 구독에 대 한 청구 비용은 사용 하도록 설정 되지 않습니다. 또한 서비스는 Azure 리소스 속성 변경 내용 검색에 대 한 성능 영향을 주지 않습니다. 웹 앱 게스트 파일 변경 내용에 대 한 변경 분석을 사용 하도록 설정 하는 경우 (또는 문제 진단 및 해결 도구를 사용 하는 경우), 웹 앱의 성능에 영향을 주지 않으며 요금 청구 비용이 없습니다.
-
-## <a name="visualizations-for-application-change-analysis"></a>응용 프로그램 변경 분석에 대 한 시각화
-
-### <a name="standalone-ui"></a>독립 실행형 UI
-
-Azure Monitor에는 응용 프로그램 종속성 및 리소스에 대 한 정보를 포함 하는 모든 변경 내용을 볼 수 있는 독립 실행형 창이 있습니다.
-
-Azure Portal의 검색 창에서 변경 분석을 검색 하 여 환경을 시작 합니다.
-
-![Azure Portal에서 변경 분석 검색의 스크린샷](./media/change-analysis/search-change-analysis.png)
-
-지난 24 시간의 변경 내용과 함께 선택한 구독의 모든 리소스가 표시 됩니다. 페이지 로드 성능을 최적화 하기 위해 서비스는 한 번에 10 개의 리소스를 표시 합니다. 다음 페이지를 클릭 하 여 더 많은 리소스를 봅니다. 이 제한을 제거 하기 위해 노력 하 고 있습니다.
-
-![Azure Portal의 변경 분석 블레이드 스크린샷](./media/change-analysis/change-analysis-standalone-blade.png)
-
-리소스를 클릭 하 여 모든 변경 내용을 확인 합니다. 필요한 경우 변경 내용으로 드릴 다운 하 여 json 형식 변경 정보 및 정보를 확인 합니다.
-
-![변경 세부 정보 스크린샷](./media/change-analysis/change-details.png)
-
-피드백은 블레이드 또는 전자 메일의 사용자 의견 보내기 단추를 사용 changeanalysisteam@microsoft.com 합니다.
-
-![변경 분석 블레이드의 피드백 단추 스크린샷](./media/change-analysis/change-analysis-feedback.png)
-
-#### <a name="multiple-subscription-support"></a>여러 구독 지원
-UI는 여러 구독을 선택 하 여 리소스 변경 내용을 볼 수 있도록 지원 합니다. 구독 필터를 사용 합니다.
-
-![여러 구독 선택을 지 원하는 구독 필터 스크린샷](./media/change-analysis/multiple-subscriptions-support.png)
-
-### <a name="web-app-diagnose-and-solve-problems"></a>웹 앱 문제 진단 및 해결
-
-Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결** 환경에도 기본적으로 제공 됩니다. App Service 응용 프로그램의 **개요** 페이지에서이 환경에 액세스 합니다.
-
-!["개요" 단추의 스크린샷 및 "문제 진단 및 해결" 단추](./media/change-analysis/change-analysis.png)
-
-### <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>문제 진단 및 해결 도구의 응용 프로그램 변경 분석
-
-응용 프로그램 변경 분석은 웹 앱 진단 및 문제 해결 도구의 독립 실행형 탐지기입니다. 또한 **응용 프로그램 충돌** 및 **웹 앱 다운 감지기** 집계 됩니다. 진단 및 문제 해결 도구를 입력 하면 **Microsoft. ChangeAnalysis** 리소스 공급자가 자동으로 등록 됩니다. 웹 앱 게스트 변경 내용 추적을 사용 하도록 설정 하려면 다음 지침을 따르세요.
-
-1. **가용성 및 성능을** 선택 합니다.
-
-    !["가용성 및 성능" 문제 해결 옵션의 스크린샷](./media/change-analysis/availability-and-performance.png)
-
-2. **응용 프로그램 변경 내용** 을 선택 합니다. **응용 프로그램 작동 중단** 에서도이 기능을 사용할 수 있습니다.
-
-   !["응용 프로그램 작동 중단" 단추의 스크린샷](./media/change-analysis/application-changes.png)
-
-3. 이 링크를 통해 응용 프로그램 변경 Aalysis UI 범위가 웹 앱으로 이어집니다. 웹 앱에서 게스트 변경 내용 추적을 사용 하도록 설정 하지 않은 경우 배너를 따라 파일 및 앱 설정 변경 내용을 가져옵니다.
-
-   !["응용 프로그램 작동 중단" 옵션 스크린샷](./media/change-analysis/enable-changeanalysis.png)
-
-4. **변경 분석** 을 설정 하 고 **저장** 을 선택 합니다. 도구는 App Service 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
-
-    !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
-
-5. 변경 데이터는 **웹 앱 다운** 및 **응용 프로그램 크래시** 감지기 에서도 사용할 수 있습니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
-
-     ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
-
-
-
-### <a name="virtual-machine-diagnose-and-solve-problems"></a>가상 컴퓨터 진단 및 문제 해결
-
-가상 컴퓨터에 대 한 문제 진단 및 해결 도구로 이동 합니다.  **문제 해결 도구** 로 이동 하 여 페이지를 탐색 하 고 **최근 변경 내용 분석** 을 선택 하 여 가상 컴퓨터에 대 한 변경 내용을 확인 합니다.
-
-![VM의 스크린샷 진단 및 문제 해결](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![문제 해결 도구의 analyzer 변경](./media/change-analysis/analyze-recent-changes.png)
-
-### <a name="activity-log-change-history"></a>활동 로그 변경 기록
-활동 로그의 [변경 기록 보기](../platform/activity-log.md#view-change-history) 기능은 응용 프로그램 변경 분석 서비스 백 엔드를 호출 하 여 작업과 연결 된 변경 내용을 가져옵니다. [Azure 리소스 그래프](../../governance/resource-graph/overview.md) 를 직접 호출 하는 데 사용 되는 **변경** 내용 이지만, 백 엔드가 교체 되어 응용 프로그램 변경 분석을 호출 하는 경우, 반환 되는 변경 내용에는 [azure 리소스 그래프](../../governance/resource-graph/overview.md)의 리소스 수준 변경, [Azure Resource Manager](../../azure-resource-manager/management/overview.md)의 리소스 속성 및 App Services 웹 앱과 같은 PaaS 서비스에서 게스트 변경 내용이 포함 됩니다. 응용 프로그램 변경 분석 서비스에서 사용자 구독의 변경 내용을 검색할 수 있도록 하려면 리소스 공급자를 등록 해야 합니다. **변경 기록** 탭을 처음으로 입력 하면 도구에서 자동으로 **Microsoft. changeanalysis** 리소스 공급자를 등록 하기 시작 합니다. 등록 후 **Azure 리소스 그래프** 의 변경 내용이 즉시 제공 되며 지난 14 일이 포함 됩니다. 구독을 등록 한 후 4 시간 이내에 다른 원본의 변경 내용을 사용할 수 있습니다.
-
-![활동 로그 변경 기록 통합](./media/change-analysis/activity-log-change-history.png)
-
-### <a name="vm-insights-integration"></a>VM Insights 통합
-[VM Insights](../insights/vminsights-overview.md) 를 사용 하도록 설정 된 사용자는 CPU 또는 메모리와 같은 메트릭 차트에서 스파이크를 발생 시킬 수 있는 가상 머신에서 변경 된 내용을 확인 하 고 그 원인을 궁금해 할 수 있습니다. 변경 데이터는 VM Insights 쪽 탐색 모음에 통합 되어 있습니다. 사용자는 VM에서 변경 된 내용이 있는지 확인 하 고 **변경 내용 조사** 를 클릭 하 여 응용 프로그램 변경 분석 독립 실행형 UI에서 변경 정보를 볼 수 있습니다.
-
-[![VM insights 통합](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
-
-
 
 ## <a name="enable-change-analysis-at-scale"></a>규모에 맞게 변경 분석 설정
 
@@ -195,57 +122,9 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>문제 해결
-
-### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Microsoft를 등록 하는 데 문제가 있습니다. 변경 기록 탭에서 분석 리소스 공급자 변경
-응용 프로그램 변경 분석과 통합 한 후 변경 기록을 처음 볼 때 리소스 공급자를 자동으로 등록 하는 것을 볼 수 있습니다. **ChangeAnalysis**. 드문 경우 지만 다음과 같은 이유로 실패할 수 있습니다.
-
-- **Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이** 없습니다. 이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
-
-    PowerShell을 통해 리소스 공급자를 등록 합니다. 
-    ```PowerShell
-    # Register resource provider
-    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-    ```
-
-- **Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다**. 이 메시지는 UI가 리소스 공급자를 등록 하 라는 요청을 보낸 후 즉시 실패 한 것을 의미 하며, 권한 문제와는 관련이 없습니다. 일시적인 인터넷 연결 문제일 가능성이 있습니다. 페이지를 새로 고치고 인터넷 연결을 확인 하세요. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@microsoft.com
-
-- **이 작업이 예상 보다 오래 걸리고** 있습니다. 이 메시지는 등록이 2 분 이상 걸리는 것을 의미 합니다. 이것은 비정상 이지만 반드시 문제가 발생 한 것은 아닙니다. 구독으로 이동할 수 있습니다. **|** **Microsoft. changeanalysis** 리소스 공급자 등록 상태를 확인 하는 리소스 공급자입니다. UI를 사용 하 여 등록을 취소 하 고 다시 등록 하거나 새로 고쳐 도움이 되는지 확인할 수 있습니다. 문제가 계속 되 면 지원 담당자에 게 문의 하세요 changeanalysishelp@microsoft.com .
-    ![너무 오래 걸리는 RP 등록 문제 해결](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
-
-![문제 해결 도구가 선택 된 가상 컴퓨터에 대 한 문제 진단 및 해결 도구의 스크린샷](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
-
-![가상 컴퓨터에 대 한 최근 변경 내용 분석 문제 해결 도구에 대 한 타일의 스크린샷](./media/change-analysis/analyze-recent-changes.png)
-
-### <a name="azure-lighthouse-subscription-is-not-supported"></a>Azure Lighthouse 구독은 지원 되지 않습니다.
-
-- Azure lighthouse 구독 메시지를 사용 하 여 **Microsoft ChangeAnalysis 리소스 공급자를 쿼리하지 못했습니다** . *변경 내용은 구독의 홈 테 넌 트에서만 제공* 됩니다. 현재는 홈 테 넌 트에 없는 사용자를 위해 Azure Lighthouse 구독을 통해 변경 분석 리소스 공급자를 등록 하는 제한 사항이 있습니다. 이 제한은 가까운 장래에 해결 될 예정입니다. 이 문제가 차단 문제인 경우 서비스 주체를 만들고 액세스를 허용 하도록 역할을 명시적으로 할당 하는 해결 방법이 있습니다.  자세한 내용은에 문의 하세요 changeanalysishelp@microsoft.com .
-
-### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>변경 내용을 가져오는 동안 오류가 발생 했습니다. 변경 내용을 보려면이 페이지를 새로 고치거 나 나중에 다시 방문해 주세요.
-
-변경 내용을 로드할 수 없는 경우 응용 프로그램 변경 분석 서비스에서 제공 하는 일반 오류 메시지입니다. 몇 가지 알려진 원인은 다음과 같습니다.
-- 클라이언트 장치에서 인터넷 연결 오류가 발생 했습니다.
-- 몇 분 후에 페이지 새로 고침을 일시적으로 사용할 수 없게 되는 변경 분석 서비스는 일반적으로이 문제를 해결 합니다. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@micorosoft.com
-
-### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>일부 변경 내용을 볼 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의
-
-현재 사용자에 게 변경 내용을 볼 수 있는 권한이 없다는 것을 설명 하는 일반 무단 오류 메시지입니다. Azure 리소스 그래프 및 Azure Resource Manager에서 반환 된 인프라 변경 내용을 보려면 리소스에 대해 최소한의 판독기 액세스가 필요 합니다. 웹 앱 게스트 파일 변경 및 구성 변경의 경우 참가자 역할이 최소한 필요 합니다.
-
-### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Microsoft. ChangeAnalysis 리소스 공급자를 등록 하지 못했습니다.
-이 메시지는 UI가 리소스 공급자를 등록 하 라는 요청을 보낸 후 즉시 실패 한 것을 의미 하며, 권한 문제와는 관련이 없습니다. 일시적인 인터넷 연결 문제일 가능성이 있습니다. 페이지를 새로 고치고 인터넷 연결을 확인 하세요. 오류가 계속 발생 하면 다음으로 문의 하세요. changeanalysishelp@microsoft.com
- 
-### <a name="you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider-contact-your-azure-subscription-administrator"></a>Microsoft. ChangeAnalysis 리소스 공급자를 등록할 수 있는 권한이 없습니다. Azure 구독 관리자에 게 문의 하세요.
-이 오류 메시지는 현재 구독의 역할에 **Microsoft. 지원/등록/동작** 범위가 연결 되어 있지 않음을 의미 합니다. 이는 구독의 소유자가 아니고 동료를 통해 공유 액세스 권한을 받은 경우에 발생할 수 있습니다. 즉, 리소스 그룹에 대 한 액세스를 봅니다. 이 문제를 해결 하려면 구독의 소유자에 게 문의 하 여 **Microsoft. ChangeAnalysis** 리소스 공급자를 등록 합니다. 이 작업은 구독을 통해 Azure Portal에서 수행할 수 있습니다. **| 리소스 공급자** 를 검색 하 고 ```Microsoft.ChangeAnalysis``` UI를 검색 하 고 등록 하거나 Azure PowerShell 또는 Azure CLI를 통해 등록 합니다.
-
-PowerShell을 통해 리소스 공급자를 등록 합니다. 
-
-```PowerShell
-# Register resource provider
-Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
-```
-
 ## <a name="next-steps"></a>다음 단계
 
+- [변경 분석의 시각화](change-analysis-visualizations.md) 에 대 한 자세한 정보
+- [변경 분석의 문제를 해결](change-analysis-troubleshoot.md) 하는 방법 알아보기
 - [Azure 앱 Services 앱](azure-web-apps.md)에 대 한 Application Insights를 사용 하도록 설정 합니다.
 - [AZURE VM 및 azure 가상 머신 확장 집합 IIS에서 호스팅되는 앱](azure-vm-vmss-apps.md)에 대 한 Application Insights를 사용 하도록 설정 합니다.
-- Power Change 분석에 도움이 되는 [Azure 리소스 그래프](../../governance/resource-graph/overview.md)에 대해 자세히 알아보세요.

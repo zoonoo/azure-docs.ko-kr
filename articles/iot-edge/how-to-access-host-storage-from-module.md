@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c24fd42f866cd15f84688318050bc07d5ad235e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447835"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384659"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>모듈에 디바이스의 로컬 스토리지에 대한 액세스 권한 부여
 
@@ -36,7 +36,7 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 "systemModules": {
     "edgeAgent": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
@@ -52,7 +52,7 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
     },
     "edgeHub": {
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
             "createOptions": {
                 "HostConfig": {
                     "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
@@ -72,7 +72,7 @@ Azure storage 서비스 또는 장치의 컨테이너 저장소에서 데이터�
 
 `<HostStoragePath>`및를 `<ModuleStoragePath>` 호스트 및 모듈 저장소 경로로 바꾸고, 두 값이 모두 절대 경로 여야 합니다.
 
-예를 들어 Linux 시스템에서는 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 호스트 시스템의 **/etc/iotedge/storage** 디렉터리가 컨테이너의 **/iotedge/storage/** 디렉터리에 매핑되는지를 의미 합니다. Windows 시스템에서 또 다른 예로,는 `"Binds":["C:\\temp:C:\\contemp"]` 호스트 시스템의 **c: \\ temp** 디렉터리가 컨테이너의 **c: \\ ** \ 디렉터리에 매핑되어 있음을 의미 합니다.
+예를 들어 Linux 시스템에서는 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 호스트 시스템의 **/etc/iotedge/storage** 디렉터리가 컨테이너의 **/iotedge/storage/** 디렉터리에 매핑되는지를 의미 합니다. Windows 시스템에서 또 다른 예로,는 `"Binds":["C:\\temp:C:\\contemp"]` 호스트 시스템의 **c: \\ temp** 디렉터리가 컨테이너의 **c: \\** \ 디렉터리에 매핑되어 있음을 의미 합니다.
 
 또한 Linux 장치에서 모듈의 사용자 프로필에 호스트 시스템 디렉터리에 대 한 읽기, 쓰기 및 실행 권한이 있어야 합니다. IoT Edge 허브가 장치의 로컬 저장소에 메시지를 저장 하도록 설정 하는 이전 예제로 돌아가면 UID 1000 사용자 프로필에 대 한 사용 권한을 부여 해야 합니다. IoT Edge 에이전트는 루트로 작동 하므로 추가 권한이 필요 하지 않습니다. 를 사용 하 여 `chown` 디렉터리 소유자를 변경한 다음 권한을 변경 하는 등 Linux 시스템에서 디렉터리 권한을 관리 하는 방법에는 여러 가지가 있습니다 `chmod` .
 
@@ -85,7 +85,7 @@ sudo chmod 700 <HostStoragePath>
 
 ## <a name="encrypted-data-in-module-storage"></a>모듈 저장소의 암호화 된 데이터
 
-모듈이 데이터를 암호화 하기 위해 IoT Edge 디먼의 작업 API를 호출 하는 경우 암호화 키는 모듈 ID 및 모듈의 생성 ID를 사용 하 여 파생 됩니다. 생성 ID는 배포에서 모듈이 제거 된 다음 동일한 모듈 ID의 다른 모듈이 나중에 동일한 장치에 배포 되는 경우 비밀을 보호 하는 데 사용 됩니다. Azure CLI 명령 [az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show)를 사용 하 여 모듈의 생성 id를 볼 수 있습니다.
+모듈이 데이터를 암호화 하기 위해 IoT Edge 디먼의 작업 API를 호출 하는 경우 암호화 키는 모듈 ID 및 모듈의 생성 ID를 사용 하 여 파생 됩니다. 생성 ID는 배포에서 모듈이 제거 된 다음 동일한 모듈 ID의 다른 모듈이 나중에 동일한 장치에 배포 되는 경우 비밀을 보호 하는 데 사용 됩니다. Azure CLI 명령 [az iot hub module-identity show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show)를 사용 하 여 모듈의 생성 ID를 볼 수 있습니다.
 
 세대에서 모듈 간에 파일을 공유 하려는 경우에는 암호를 포함 하지 않아야 하며 암호를 해독 하지 못합니다.
 

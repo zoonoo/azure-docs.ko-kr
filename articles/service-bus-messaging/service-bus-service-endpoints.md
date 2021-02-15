@@ -2,14 +2,14 @@
 title: Azure Service Bus에 대 한 가상 네트워크 서비스 끝점 구성
 description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427652"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516144"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
 Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
@@ -57,7 +57,8 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
     > [!NOTE]
     > **프리미엄** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다.  
     
-    기본적으로 **선택한 네트워크** 옵션이 선택 되어 있습니다. 이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않으면 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용).
+    >[!WARNING]
+    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지-기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -88,26 +89,11 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
-다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
+다음 샘플 리소스 관리자 템플릿에서는 기존 Service Bus 네임 스페이스에 가상 네트워크 규칙을 추가 합니다. 네트워크 규칙의 경우 가상 네트워크에 있는 서브넷의 ID를 지정 합니다. 
 
-템플릿 매개 변수:
+ID는 가상 네트워크 서브넷의 정규화 된 리소스 관리자 경로입니다. 예를 들어 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` 가상 네트워크의 기본 서브넷에 대해입니다.
 
-* **namespaceName** : Service Bus 네임스페이스입니다.
-* **virtualNetworkingSubnetId** : 가상 네트워크 서브넷에 대해 정규화된 Resource Manager 경로입니다(예: 가상 네트워크 기본 서브넷의 경우 `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default`).
-
-> [!NOTE]
-> 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
-> Virtual Network 또는 방화벽 규칙을 만들 때 **_"defaultAction"_ 를 변경 해야 합니다.**
-> 
-> 원본
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+가상 네트워크 또는 방화벽 규칙을 추가할 때의 값을 `defaultAction` 로 설정 `Deny` 합니다.
 
 템플릿:
 
@@ -211,6 +197,9 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 ```
 
 템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
+
+> [!IMPORTANT]
+> IP 및 가상 네트워크 규칙이 없는 경우를로 설정 하더라도 모든 트래픽이 네임 스페이스로 흐릅니다 `defaultAction` `deny` .  공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용). 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

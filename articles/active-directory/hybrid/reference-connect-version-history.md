@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376363"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -45,17 +45,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
 >[!IMPORTANT]
-> 2020년 11월 1일부터 사용 중단 프로세스를 구현하기 시작하여, 릴리스된지 18개월이 넘은 Azure AD Connect 버전이 더 이상 사용되지 않게 됩니다. 이번에는 버전 1.3.20.0(2019년 4월 24일에 릴리스됨) 및 이전 버전의 모든 Azure AD Connect 릴리스를 사용 중단하는 것으로 시작하여 새 버전이 출시될 때마다 이전 Azure AD Connect 버전의 사용 중단을 평가할 예정입니다.
+> 2024 년 4 월 1 일부 터 년 5 월 1 2018 일 이전에 릴리스된 Azure AD Connect 버전을 사용 중지 합니다. 
 >
 > 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행하고 있는지 확인해야 합니다. 
 >
->사용되지 않는 Azure AD Connect 버전을 실행하면 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구와 서비스 개선 사항이 포함되지 않을 수 있으며, 지원이 필요한 경우 귀사에 필요한 수준의 서비스를 제공하지 못할 수 있습니다.
+>Azure AD Connect 사용 중지 된 버전을 실행 하는 경우 최신 보안 수정, 성능 향상, 문제 해결 및 진단 도구 및 서비스가 향상 되지 않을 수 있으며, 지원이 필요한 경우 조직에서 요구 하는 서비스 수준을 제공 하지 못할 수 있습니다.
 >
->Azure AD Connect에서 동기화를 사용하도록 설정하면 이전 버전을 실행하는 경우 예정된 사용 중단에 대해 경고하는 상태 알림을 자동으로 받게 됩니다.
+
 >
 >Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](./how-to-upgrade-previous-version.md)를 참조하세요.
 >
->사용 되지 않는 버전에 대 한 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md) 을 참조 하세요.
+>사용 중지 된 버전에 대 한 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md) 을 참조 하세요.
 
 ## <a name="15450"></a>1.5.45.0
 

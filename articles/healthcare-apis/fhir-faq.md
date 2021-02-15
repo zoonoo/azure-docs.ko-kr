@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d83bc653ae8c3ff5a9553de568bc6f2355f18760
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746716"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104623"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -115,6 +115,9 @@ FHIR 용 Azure API에서 [컴파트먼트 검색](https://www.hl7.org/fhir/compa
 ### <a name="how-does-export-work"></a>$export 작동 방법
 
 $export은 FHIR 사양 ()의 일부 https://hl7.org/fhir/uv/bulkdata/export/index.html 입니다. FHIR 서비스가 관리 되는 id 및 저장소 계정으로 구성 되 고 관리 id에 해당 저장소 계정에 대 한 액세스 권한이 있는 경우 FHIR API에서 $export를 간단히 호출할 수 있으며 모든 FHIR 리소스는 저장소 계정으로 내보내집니다. 자세한 내용은 [$export에서 문서](./export-data.md)를 참조 하세요.
+
+### <a name="is-de-identified-export-available-at-patient-and-group-level-as-well"></a>환자 및 그룹 수준에서 확인 되지 않은 내보내기를 사용할 수 있나요?
+익명화 export는 현재 전체 시스템 내보내기 (/$export) 에서만 지원 되며 환자 내보내기 (/Patient/$export)에 대해서는 지원 되지 않습니다. 환자 수준 에서도 사용할 수 있도록 노력 하 고 있습니다.
 
 ## <a name="using-azure-api-for-fhir"></a>FHIR 용 Azure API 사용
 

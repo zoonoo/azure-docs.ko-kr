@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 21b9d73da0df5ada626500a706a19d1025de1dcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186000"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391969"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure storage로 데이터 보관
 이 문서에서는 [Azure Logic Apps](../../logic-apps/index.yml) 를 사용 하 여 Azure Monitor의 Log Analytics 작업 영역에서 데이터를 쿼리하고 Azure Storage로 보내는 방법에 대해 설명 합니다. 감사 및 규정 준수 시나리오에 대 한 Azure Monitor 로그 데이터를 내보내야 하거나 다른 서비스에서이 데이터를 검색할 수 있도록 하려면이 프로세스를 사용 합니다.  
@@ -39,7 +39,7 @@ SecurityEvent
 
 일정에 따라 데이터를 내보낼 때는 쿼리에 ingestion_time () 함수를 사용 하 여 지연 도착 데이터가 누락 되지 않도록 합니다. 네트워크 또는 플랫폼 문제로 인해 데이터가 지연 되는 경우 수집 시간을 사용 하면 다음 논리 앱 실행에 포함 될 수 있습니다. 예는 [Azure Monitor 로그 추가 작업](#add-azure-monitor-logs-action) 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 다음은이 절차를 완료 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - Log Analytics 작업 영역. 논리 앱을 만드는 사용자에 게는 작업 영역에 대 한 읽기 이상의 권한이 있어야 합니다. 
@@ -69,7 +69,7 @@ Azure Portal **Logic Apps** 로 이동 하 고 **추가** 를 클릭 합니다. 
 **검토 + 만들기** 및 **만들기** 를 차례로 클릭 합니다. 배포가 완료 되 면 **리소스로 이동** 을 클릭 하 여 **Logic Apps 디자이너** 를 엽니다.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>논리 앱에 대 한 트리거 만들기
-**일반적인 트리거로 시작** 에서 **되풀이** 를 선택 합니다. 이렇게 하면 일정 한 간격으로 자동으로 실행 되는 논리 앱이 만들어집니다. 작업의 **빈도** 상자에서 **시간** 을 선택 하 고 **간격** 상자에 **1** 을 입력 하 여 하루에 한 번 워크플로를 실행 합니다.
+**일반적인 트리거로 시작** 에서 **되풀이** 를 선택 합니다. 이렇게 하면 일정 한 간격으로 자동으로 실행 되는 논리 앱이 만들어집니다. 작업의 **빈도** 상자에서 **일** 을 선택 하 고 **간격** 상자에 **1** 을 입력 하 여 하루에 한 번 워크플로를 실행 합니다.
 
 ![되풀이 작업](media/logs-export-logicapp/recurrence-action.png)
 

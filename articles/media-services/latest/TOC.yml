@@ -13,6 +13,8 @@
   items:
     - name: 환경 설정
       items:
+        - name: 테넌트 ID 찾기
+          href: how-to-set-azure-tenant.md
         - name: Azure 구독 찾기
           href: how-to-set-azure-subscription.md
         - name: Media Services 계정 만들기
@@ -70,6 +72,8 @@
           displayName: 'AAD, Active Directory'
     - name: REST (영문)
       items:
+        - name: 신뢰할 수 있는 스토리지 사용
+          href: tutorial-trusted-storage-rest.md
         - name: 원격 파일 REST 인코딩 및 스트리밍
           href: stream-files-tutorial-with-rest.md
         - name: REST API를 사용하는 고객 관리형 키
@@ -305,6 +309,12 @@
           displayName: 'migration, samples'
 - name: 방법 가이드
   items:
+    - name: 테넌트 및 구독 찾기
+      items:
+        - name: 테넌트 ID 찾기
+          href: how-to-set-azure-tenant.md
+        - name: 구독 ID 찾기
+          href: how-to-set-azure-subscription.md
     - name: 자산 만들기 및 미디어 업로드
       items:
         - name: 자산 만들기

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 62fe1b3391eb4cb2d409a92b936fd3f1ae56d992
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331824"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518422"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Azure Database for PostgreSQL 버전 관리 정책
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL는 다음 데이터베이스 버전을 지원 합�
 | PostgreSQL 11 | X | X |
 | PostgreSQL 10 | X |  |
 | PostgreSQL 9.6 | X |  |
-| PostgreSQL 9.5 | X |  |
+| *PostgreSQL 9.5 (사용 중지 됨)* | X |  |
 
 ## <a name="major-version-support"></a>주 버전 지원
 PostgreSQL의 각 주 버전은 [PostgreSQL 커뮤니티 버전 관리 정책](https://www.postgresql.org/support/versioning/)에서 제공 하는 것과 같이 PostgreSQL 커뮤니티에서 버전을 사용할 수 없을 때까지 Azure에서 버전을 지원 하기 시작 하는 날짜의 Azure Database for PostgreSQL에 의해 지원 됩니다.
@@ -41,7 +41,7 @@ PostgreSQL의 각 주 버전은 [PostgreSQL 커뮤니티 버전 관리 정책](h
 
 | 버전 | What's New | Azure 지원 시작 날짜 | 사용 중지 날짜|
 | ----- | ----- | ------ | ----- |
-| PostgreSQL 9.5| [기능](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 2018년 4월 18일    | 2021 년 2 월 11 일
+| [PostgreSQL 9.5 (사용 중지 됨)](https://www.postgresql.org/about/news/postgresql-132-126-1111-1016-9621-and-9525-released-2165/)| [기능](https://www.postgresql.org/docs/9.5/release-9-5.html)  | 2018년 4월 18일   | 2021 년 2 월 11 일
 | [PostgreSQL 9.6](https://www.postgresql.org/about/news/postgresql-96-released-1703/) | [기능](https://wiki.postgresql.org/wiki/NewIn96) | 2018년 4월 18일  | 2021 년 11 월 11 일
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [기능](https://wiki.postgresql.org/wiki/New_in_postgres_10) | 2018년 6월 4일  | 2022 년 11 월 10 일
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [기능](https://www.postgresql.org/docs/11/release-11.html) | 2019년 7월 24일  | 2023 년 11 월 9 일
@@ -49,7 +49,7 @@ PostgreSQL의 각 주 버전은 [PostgreSQL 커뮤니티 버전 관리 정책](h
 
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>사용 중지 된 PostgreSQL 엔진 버전은 Azure Database for PostgreSQL에서 지원 되지 않습니다.
 
-각 PostgreSQL 데이터베이스 버전에 대 한 사용 중지 날짜 이후에는 사용 중지 된 버전을 계속 실행 하는 경우 다음 제한 사항을 확인 하세요.
+Azure Database for PostgreSQL에서 사용 중지 된 버전을 계속 실행할 수 있습니다. 그러나 각 PostgreSQL 데이터베이스 버전에 대 한 사용 중지 날짜 후에는 다음 제한 사항에 유의 하세요.
 - 커뮤니티는 추가 버그 수정 또는 보안 Azure Database for PostgreSQL 수정 사항을 릴리스할 수 없으므로 버그 또는 보안 문제에 대 한 사용 중지 된 데이터베이스 엔진을 패치 하거나 사용 중지 된 데이터베이스 엔진과 관련 하 여 보안 조치를 취합니다. 따라서 보안 취약성이 나 기타 문제가 발생할 수 있습니다. 그러나 Azure는 호스트, OS, 컨테이너 및 기타 서비스 관련 구성 요소에 대해 정기적으로 유지 관리 및 패치를 계속 수행 합니다.
 - PostgreSQL 데이터베이스와 관련 하 여 발생할 수 있는 지원 문제가 있는 경우 사용자에 게 지원을 제공 하지 못할 수 있습니다. 이러한 경우에는 지원을 제공 하기 위해 데이터베이스를 업그레이드 해야 합니다.
 - 사용 중지 된 버전에 대해서는 새 데이터베이스 서버를 만들 수 없습니다. 그러나 지정 시간 복구를 수행 하 고 기존 서버에 대 한 읽기 복제본을 만들 수 있습니다.

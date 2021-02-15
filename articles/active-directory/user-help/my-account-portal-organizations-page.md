@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 09/10/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ef2e79f8c8e7964d04db0dd1a3f9988599fcb130
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370341"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094120"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>내 계정 포털에서 액세스할 수 있는 조직 관리
 
@@ -30,21 +30,26 @@ ms.locfileid: "92370341"
 - **기타 조직.** 기타 조직은 이전에 회사 또는 학교 계정을 사용하여 로그인한 임의의 그룹입니다. 언제든지 이러한 조직 중 어느 곳도 나갈 수 있습니다.
 
 >[!Important]
->이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../enterprise-users/index.yml)를 참조하세요.
+>이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 개인 Microsoft 계정를 사용 하 여 로그인 하는 동안 오류가 표시 되는 경우 다음 Url 중 하나를 사용 하 여 관리자에 게 서 조직의 도메인 이름 (예: contoso.com) 또는 조직의 **테 넌 트 ID** 를 사용 하 여 로그인 할 수 있습니다.
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../enterprise-users/index.yml)를 참조하세요.
 
 ## <a name="view-your-organizations"></a>조직 보기
 
-1. 회사 또는 학교 계정에 로그인한 다음, **내 계정**(https://myaccount.microsoft.com/) 페이지로 이동합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, **내 계정**(https://myaccount.microsoft.com/) 페이지로 이동합니다. 
 
-2. 왼쪽 탐색 창에서 **조직**을 선택하거나 **조직** 블록에서 **조직 관리** 링크를 선택합니다.
+1. 왼쪽 탐색 창에서 **조직** 을 선택하거나 **조직** 블록에서 **조직 관리** 링크를 선택합니다.
 
     ![강조 표시된 조직 링크를 보여주는 내 계정 페이지](media/my-account-portal/my-account-portal-organizations.png)
 
-3. **홈 조직**에 대한 정보를 검토합니다.
+1. **홈 조직** 에 대한 정보를 검토합니다.
 
     ![조직 페이지](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. 액세스 권한이 있는 모든 조직을 인식할 수 있도록 다른 조직을 검토 합니다.
+1. 액세스 권한이 있는 모든 조직을 인식할 수 있도록 다른 조직을 검토 합니다.
 
 ## <a name="leave-an-organization"></a>조직 나가기
 
@@ -53,7 +58,7 @@ ms.locfileid: "92370341"
 >[!Important]
 >실수로 조직에서 나가면 실행 취소할 수 없습니다. 해당 조직의 관리자가 다시 초대할 때까지 기다려야 합니다.
 
-- 나가려는 조직 옆에 있는 **조직 나가기**를 선택한 다음, **나가기**를 선택하여 나가는 것을 확인합니다.
+- 나가려는 조직 옆에 있는 **조직 나가기** 를 선택한 다음, **나가기** 를 선택하여 나가는 것을 확인합니다.
 
     ![강조 표시된 조직 나가기 링크가 있는 조직 페이지](media/my-account-portal/my-account-portal-organizations-leave.png)
 
@@ -67,6 +72,6 @@ ms.locfileid: "92370341"
 
 - [로그인 활동](my-account-portal-sign-ins-page.md)을 봅니다.
 
-- 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 봅니다.
+- 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인합니다.
 
 - [내 계정 포털 설정](my-account-portal-settings.md) 변경

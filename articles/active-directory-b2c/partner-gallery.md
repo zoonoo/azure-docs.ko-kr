@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5012e90aae316897454ffc7933efc88d83afdf6e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893385"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361770"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -74,6 +74,7 @@ Microsoft는 보안을 위해 다음 Isv와 협력 합니다.
 | ISV 파트너 | 설명 및 통합 연습 |
 |:-------------------------|:--------------|
 | ![Arkose lab 로고의 스크린샷](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) 는 조직이 봇 공격, 계정 인수 공격 및 사기성 계정 입구를 방지 하는 데 도움이 되는 사기 행위 방지 솔루션 공급자입니다. |
+| ![Microsoft Dynamics 365 로고의 스크린샷](./media/partner-gallery/microsoft-dynamics365-logo.png) | [Microsoft Dynamics 365 사기 행위](./partner-dynamics-365-fraud-protection.md) 는 조직에서 장치 지문 인식을을 통해 사기성 계정 입구를 보호 하는 데 도움이 되는 솔루션입니다. |
 | ![Ping 로고의 스크린샷](./media/partner-gallery/ping-logo.png) | [Ping id](./partner-ping-identity.md) 는 여러 클라우드에서 온-프레미스 레거시 응용 프로그램에 대 한 보안 하이브리드 액세스를 가능 하 게 합니다. |
 | ![층 로고의 스크린샷](./media/partner-gallery/strata-logo.png) | [층](./partner-strata.md) 은 일관 된 액세스 정책을 적용 하 고 id를 동기화 된 상태로 유지 하 고 레거시 id 시스템에서 Azure AD B2C 제공 하는 표준 기반 인증 및 액세스 제어로 응용 프로그램을 간단 하 게 전환할 수 있도록 하 여 온-프레미스 응용 프로그램에 대 한 보안 하이브리드 액세스를 제공 합니다. |
 | ![Zscaler 로고의 스크린샷](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) 는 VPN의 비용, 부담이 나 보안 위험 없이 개인 응용 프로그램 및 자산에 대 한 정책 기반 보안 액세스를 제공 합니다. |

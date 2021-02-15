@@ -1,22 +1,17 @@
 ---
 title: 온-프레미스 SQL Server Integration Services (SSIS) 작업을 Azure Data Factory로 마이그레이션
 description: 이 문서에서는 SQL Server Management Studio를 사용 하 여 SSIS (SQL Server Integration Services) 작업을 Azure Data Factory 파이프라인/활동/트리거로 마이그레이션하는 방법에 대해 설명 합니다.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 1072f915c5d8483676874422703820dc75719256
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555749"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379593"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용 하 여 ADF로 SQL Server 에이전트 작업 마이그레이션
 
@@ -31,7 +26,7 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
     > 파일 시스템의 패키지 위치만 지원 됩니다.
 - 해당 하는 작업 단계를 사용 하 여 해당 하는 작업을 아래와 같은 해당 ADF 리소스로 마이그레이션합니다.
 
-|SQL 에이전트 작업 개체  |ADF 리소스  |메모|
+|SQL 에이전트 작업 개체  |ADF 리소스  |참고|
 |---------|---------|---------|
 |SQL 에이전트 작업|pipeline     |*에 대해 \<job name> 생성* 되는 파이프라인의 이름입니다. <br> <br> 기본 제공 에이전트 작업은 적용 되지 않습니다. <li> SSIS 서버 유지 관리 작업 <li> syspolicy_purge_history <li> collection_set_ * <li> mdw_purge_data_ * <li> sysutility_ *|
 |SSIS 작업 단계|SSIS 패키지 실행 작업|<li> 활동의 이름은 \<step name> 입니다. <li> 작업 단계에서 사용 되는 프록시 계정이이 작업의 Windows 인증으로 마이그레이션됩니다. <li> 작업 단계에서 정의한 *32 비트 런타임 사용* 을 제외한 *실행 옵션* 은 마이그레이션에서 무시 됩니다. <li> 작업 단계에서 정의 된 *확인* 은 마이그레이션하는 동안 무시 됩니다.|
