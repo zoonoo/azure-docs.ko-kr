@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: 전역 사용자 액세스 제어 정의
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: 모니터링된 트래픽 제어
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: 개별 센서 관리
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: 클라우드에서 센서 관리
           href: how-to-manage-sensors-on-the-cloud.md
         - name: 온-프레미스 관리 콘솔 관리
@@ -153,10 +153,13 @@
           items:
             - name: 디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: 디바이스 인벤토리에서 센서 감지 조사
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: 센서 디바이스 맵 작업
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: 센서가 감지한 경고 작업
           items:
             - name: 센서의 경고 사용
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: 경고에 제공된 정보 보기
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: 경고 이벤트 관리
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: 경고 인시던트 응답 가속화
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: '전역, 지역 및 로컬 위협에 대한 인사이트 확보'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: 온-프레미스 관리 콘솔의 경고 작업
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: 보고서 만들기
           items:
             - name: 위험 평가 보고서 만들기
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: 공격 벡터 보고서 만들기
               href: how-to-create-attack-vector-reports.md
             - name: 데이터 마이닝 보고서 만들기
               href: how-to-create-data-mining-queries.md
             - name: 추세 및 통계 보고서 만들기
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: 디바이스 정보 보강
           items:
             - name: 디바이스 알림 작업
