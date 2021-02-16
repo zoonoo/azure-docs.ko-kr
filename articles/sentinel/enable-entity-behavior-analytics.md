@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784731"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530725"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
 
 > [!IMPORTANT]
 >
-> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_* _ Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
+> - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,13 +33,16 @@ ms.locfileid: "98784731"
 
 - 사용자는 게스트 사용자가 아닌 조직의 Azure Active Directory 구성원 이어야 합니다.
 
-- 사용자에 게는 Azure AD에서 _ *전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
+- 사용자에 게 Azure AD의 **전역 관리자** 또는 **보안 관리자** 역할을 할당 해야 합니다.
 
 - 사용자에 게 다음 **azure 역할** 중 하나 이상을 할당 해야 합니다 ([azure RBAC에 대 한 자세한](roles.md)정보).
     - 작업 영역 또는 리소스 그룹 수준에서 **Azure 센티널 기여자**
     - 리소스 그룹 또는 구독 수준에서 **참가자를 Log Analytics** 합니다.
 
 - 작업 영역에 Azure 리소스 잠금이 적용 되지 않아야 합니다. [Azure 리소스 잠금에 대해 자세히 알아보세요](../azure-resource-manager/management/lock-resources.md).
+
+> [!NOTE]
+> UEBA 기능을 Azure 센티널에 추가 하는 데 특별 한 라이선스가 필요 하지 않지만 **추가 요금이 부과** 될 수 있습니다.
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>사용자 및 엔터티 동작 분석을 사용 하도록 설정 하는 방법
 

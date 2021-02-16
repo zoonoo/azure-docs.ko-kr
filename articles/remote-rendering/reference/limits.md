@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 68c0c04feba2779598a500c84b2ba4a9086b104d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f62a07ef7109c669c6abc90d4e1b4a2ee83ece23
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593954"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530249"
 ---
 # <a name="limitations"></a>제한 사항
 
@@ -36,7 +36,7 @@ ms.locfileid: "99593954"
 
 ### <a name="overall-number-of-polygons"></a>전체 다각형 수
 
-모든 로드된 모델의 허용 가능한 다각형 수는 [세션 관리 REST API](../how-tos/session-rest-api.md#create-a-session)에 전달된 VM의 크기에 따라 다릅니다.
+모든 로드된 모델의 허용 가능한 다각형 수는 [세션 관리 REST API](../how-tos/session-rest-api.md)에 전달된 VM의 크기에 따라 다릅니다.
 
 | 서버 크기 | 최대 다각형 수 |
 |:--------|:------------------|

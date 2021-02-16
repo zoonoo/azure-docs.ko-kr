@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783804"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530232"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
 
@@ -84,7 +84,7 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 * **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다. 단일 오디오 파일에서 16 개의 스피커를 검색할 수 있습니다.
 * **화자 통계**: 화자 음성 비율에 대한 통계를 제공합니다.
 * **텍스트 콘텐츠 조정**: 오디오 전사에서 명시적 텍스트를 검색합니다.
-* **오디오 효과**: 박수, 음성 및 묵음과 같은 오디오 효과를 식별합니다.
+* **오디오 효과** (공개 미리 보기): 콘텐츠의 음성이 아닌 세그먼트에서 다음과 같은 오디오 효과를 검색 합니다. Gunshot, 투명 균열, 경보, Siren, 폭발, Dog 짖, 흥미, 웃음,,, 반응, 응원, 박수) 및 무음. 참고: 전체 이벤트 집합은 업로드 사전 설정에서 ' 고급 오디오 분석 '을 선택 하는 경우에만 사용할 수 있으며, 그렇지 않은 경우에는 ' 침묵 ' 및 '가 중 '의 반응만 사용할 수 있습니다.
 * **감정 감지**: 음성(말하는 내용) 및 음성 어조(말하는 방식)를 기반으로 하는 감정을 식별합니다. 감정은 joy(기쁨), sadness(슬픔), anger(분노) 또는 fear(두려움)일 수 있습니다.
 * **번역**: 오디오 전사의 번역을 54개 언어로 만듭니다.
 

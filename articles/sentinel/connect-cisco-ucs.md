@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: caa83b9149f39f69d0cbf44a2d6cb01fdaf29721
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 15e31b8dc5ac6db5861e3ea0fb5390ddf0a8c945
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567918"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530674"
 ---
 # <a name="connect-your-cisco-unified-computing-system-ucs-to-azure-sentinel"></a>Cisco 통합 컴퓨팅 시스템 (UCS)을 Azure 센티널에 연결
 
@@ -53,7 +53,7 @@ Syslog 에이전트를 통해 Azure 센티널 작업 영역에 Syslog 메시지�
 
     1. 수집할 로그 구성
 
-        - 작업 영역 고급 설정 구성에서 시설 및 심각도를 선택 합니다.
+        - 작업 영역 에이전트 구성에서 시설 및 심각도를 선택 합니다.
 
     1. Cisco UCS 구성 및 연결
 

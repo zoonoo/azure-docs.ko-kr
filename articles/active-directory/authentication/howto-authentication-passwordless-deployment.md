@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743618"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530351"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -61,7 +61,7 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -82,7 +82,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 사용자는 Azure AD Multi-Factor Authentication 등록 흐름의 일부로 암호 없는 메서드를 등록 합니다. 일부 시나리오에서는 휴대폰 또는 보안 키를 사용할 수 없는 경우 다른 등록 된 방법과 함께 사용자 이름 및 암호를 사용 하는 multi-factor authentication을 대체 방법으로 사용할 수 있습니다.
 
-### <a name="licensing"></a>라이선스 
+### <a name="licensing"></a>라이선싱 
 일부 필수 구성 요소에는 프리미엄 구독이 필요할 수도 있지만 암호 없는 인증에 대 한 추가 비용은 없습니다. 자세한 기능 및 라이선스 정보는 [Azure Active Directory 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)에 있습니다. 
 
 ## <a name="develop-a-plan"></a>계획 개발
@@ -150,7 +150,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 -    지원 되는 브라우저에서 웹 앱 Azure Active Directory
 -    Azure Active Directory Windows 10 장치에 연결 됨
 -    하이브리드 Azure Active Directory Windows 10 장치에 연결 됨 (미리 보기)
-     -    클라우드 기반 및 온-프레미스 리소스 모두에 대 한 액세스를 제공 합니다. 온-프레미스 리소스에 액세스 하는 방법에 대 한 자세한 내용은 [FIDOP2 키를 사용 하 여 온-프레미스 리소스에 SSO](./howto-authentication-passwordless-security-key-on-premises.md) 를 참조 하세요.
+     -    클라우드 기반 및 온-프레미스 리소스 모두에 대 한 액세스를 제공 합니다. 온-프레미스 리소스에 액세스 하는 방법에 대 한 자세한 내용은 [FIDO2 키를 사용 하 여 온-프레미스 리소스에 SSO](./howto-authentication-passwordless-security-key-on-premises.md) 를 참조 하세요.
 
 **호환 되는 FIDO2 보안 키** 를 사용 하도록 설정 해야 합니다. Microsoft [는 FIDO2 키 공급 업체와의 주요 파트너 관계를](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)발표 했습니다.
 

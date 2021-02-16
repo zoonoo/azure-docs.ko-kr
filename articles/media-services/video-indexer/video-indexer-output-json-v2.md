@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831569"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530742"
 ---
 # <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검사
 
@@ -93,7 +93,7 @@ ms.locfileid: "94831569"
 
 이 섹션에서는 인사이트의 요약을 보여 줍니다.
 
-|attribute | Description|
+|attribute | 설명|
 |---|---|
 |name|비디오의 이름입니다. 예: Azure Monitor|
 |id|비디오의 ID입니다. 예: 63c6d532ff|
@@ -104,7 +104,7 @@ ms.locfileid: "94831569"
 |얼굴/animatedCharacters|0개 이상의 얼굴이 포함될 수 있습니다. 자세한 내용은 [얼굴/animatedCharacters](#facesanimatedcharacters)를 참조 하세요.|
 |키워드|0개 이상의 키워드가 포함될 수 있습니다. 자세한 내용은 [keywords](#keywords)를 참조하세요.|
 |감정|0개 이상의 감정이 포함될 수 있습니다. 자세한 내용은 [sentiments](#sentiments)를 참조하세요.|
-|audioEffects| 0개 이상의 오디오 효과가 포함될 수 있습니다. 자세한 내용은 [audioEffects](#audioeffects)를 참조하세요.|
+|audioEffects| 0개 이상의 오디오 효과가 포함될 수 있습니다. 자세한 내용은 [audioEffects](#audioeffects-public-preview)를 참조하세요.|
 |레이블| 0개 이상의 레이블이 포함될 수 있습니다. 자세한 내용은 [labels](#labels)를 참조하세요.|
 |brands| 0개 이상의 브랜드가 포함될 수 있습니다. 자세한 내용은 [brands](#brands)를 참조하세요.|
 |통계 | 자세한 내용은 [statistics](#statistics)를 참조하세요.|
@@ -181,7 +181,7 @@ ms.locfileid: "94831569"
 |레이블|[레이블](#labels) 정보입니다.|
 |샷|[샷을](#shots) 파악 합니다.|
 |brands|[브랜드](#brands) 통찰력.|
-|audioEffects|[오디오 효과](#audioeffects) 통찰력입니다.|
+|audioEffects|[오디오 효과](#audioeffects-public-preview) 통찰력입니다.|
 |감정|[정서](#sentiments) 통찰력입니다.|
 |visualContentModeration|[Visualcontentmoderation](#visualcontentmoderation) 정보입니다.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) 통찰력입니다.|
@@ -189,7 +189,7 @@ ms.locfileid: "94831569"
 |topics|[항목](#topics) 에 대해 자세히 설명 합니다.|
 |있어야|[강연자](#speakers) 통찰력입니다.|
 
-예제:
+예:
 
 ```json
 {
@@ -222,13 +222,13 @@ id|블록의 ID입니다.|
 |이름|Description|
 |---|---|
 |id|줄 ID입니다.|
-|텍스트|자체 대본입니다.|
+|text|자체 대본입니다.|
 |신뢰도|성적 증명서의 정확도입니다.|
 |speakerId|스피커의 ID입니다.|
 |language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예제:
+예:
 
 ```json
 "transcript":[
@@ -269,7 +269,7 @@ id|블록의 ID입니다.|
 |이름|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
-|텍스트|OCR 텍스트입니다.|
+|text|OCR 텍스트입니다.|
 |신뢰도|인식 신뢰도입니다.|
 |language|OCR 언어입니다.|
 |인스턴스|이 OCR이 표시된 시간 범위 목록(동일한 OCR이 여러 번 나타날 수 있음)입니다.|
@@ -304,7 +304,7 @@ id|블록의 ID입니다.|
 |이름|Description|
 |---|---|
 |id|키워드 ID입니다.|
-|텍스트|키워드 텍스트입니다.|
+|text|키워드 텍스트입니다.|
 |신뢰도|키워드의 인식 신뢰도입니다.|
 |language|키워드 언어(번역된 경우)입니다.|
 |인스턴스|키워드가 표시되는 시간 범위 목록(키워드가 여러 번 나타날 수 있음)입니다.|
@@ -590,26 +590,28 @@ id|블록의 ID입니다.|
 |SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 가장 긴 단독 발언 내에 화자의 침묵이 있으면 포함됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.| 
 |SpeakerTalkToListenRatio|화자의 단독 발언에 소요된 시간(그 사이 침묵 제외)을 비디오의 총 시간으로 나눈 값을 기반으로 계산됩니다. 시간은 소수점 이하 세 자리에서 반올림됩니다.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="audioeffects-public-preview"></a>오디오 효과 (공개 미리 보기)
 
-|이름|Description|
+|이름|Description
 |---|---|
-|id|오디오 효과 ID입니다.|
-|형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
-|인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다.|
+|id|오디오 효과 ID|
+|형식|오디오 효과 유형입니다.|
+|인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다. 인스턴스마다 신뢰도 필드가 있습니다.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]

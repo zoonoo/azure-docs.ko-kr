@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600502"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530436"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -86,7 +86,7 @@ ms.locfileid: "98600502"
 
 이 호출은와 같은 강력한 형식의 개체 형식으로 쌍으로 된 데이터를 반환 `BasicDigitalTwin` 합니다. `BasicDigitalTwin` 는 SDK에 포함 된 serialization 도우미 클래스로,이 클래스는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은이를 사용 하 여 쌍 세부 정보를 보는 방법에 대 한 예입니다.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 메서드를 사용 하 여 쌍을 검색할 때 한 번 이상 설정 된 속성만 반환 됩니다 `GetDigitalTwin()` .
 
@@ -130,7 +130,7 @@ ms.locfileid: "98600502"
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성은 다음과 같습니다.
 * 이 Azure Digital Twins 인스턴스의 디지털 쌍 ID `$dtId` 입니다.
 * `$etag`-웹 서버에서 할당 한 표준 HTTP 필드입니다.
-* 섹션의 기타 속성 `$metadata` 이러한 위협은 다음과 같습니다.
+* 섹션의 기타 속성 `$metadata` 여기에는 다음이 포함됩니다.
     - 디지털 쌍 모델의 DTMI입니다.
     - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.
     - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타 데이터. 
@@ -182,7 +182,7 @@ SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument
 
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
-다음 예제를 참조하세요.
+다음 예제를 살펴보겠습니다.
 1. *Foo_old* 모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량* 을 정의 합니다.
 2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도* 를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 
@@ -208,9 +208,9 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리 되도록 
 
 메서드를 사용 하 여 쌍을 삭제할 수 있습니다 `DeleteDigitalTwin()` . 그러나 더 이상 관계가 없는 경우에만 쌍을 삭제할 수 있습니다. 따라서 쌍의 들어오고 나가는 관계를 먼저 삭제 합니다.
 
-다음은 쌍 및 해당 관계를 삭제 하는 코드의 예입니다.
+다음은 쌍 및 해당 관계를 삭제 하는 코드의 예입니다. `DeleteDigitalTwin`SDK 호출은 더 광범위 한 예제 컨텍스트에서 어디에 속하는지 명확 하 게 강조 표시 됩니다.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>모든 디지털 쌍 삭제
 
@@ -227,7 +227,7 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리 되도록 
 샘플을 실행 하기 전에 다음을 수행 합니다.
 1. 모델 파일을 다운로드 하 고 프로젝트에 배치한 다음 `<path-to>` 아래 코드의 자리 표시자를 바꿔서 프로그램에서 찾을 위치를 알려 줍니다.
 2. 자리 표시자를 `<your-instance-hostname>` Azure 디지털 Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [Azure Digital Twins SDK for .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대 한 패키지이 고, 두 번째는 azure에 대 한 인증을 돕는 도구를 제공 합니다.
+3. Azure Digital Twins를 사용 하는 데 필요한 두 개의 종속성을 프로젝트에 추가 합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

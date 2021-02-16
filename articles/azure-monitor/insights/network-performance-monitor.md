@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 2856366fc8383f7aaec9d96c29acb7621ea801ae
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832915"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530612"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -124,7 +124,7 @@ Linux 컴퓨터의 경우 사용할 포트 번호를 수동으로 변경 해야 
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](./solutions.md)에 설명 된 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3. 메시지 솔루션을 사용 하 여 **네트워크 성능 모니터** 타일을 선택 하 고 *추가 구성이 필요* 합니다.
 
