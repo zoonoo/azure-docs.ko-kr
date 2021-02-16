@@ -96,6 +96,6 @@
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
-      href: custom-vision-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: 릴리스 정보
       href: release-notes.md

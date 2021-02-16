@@ -413,7 +413,7 @@
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: 암호화
-      href: luis-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: 가상 네트워크 구성
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
