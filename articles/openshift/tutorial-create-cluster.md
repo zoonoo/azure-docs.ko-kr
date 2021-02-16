@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675715"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99822017"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -88,11 +88,11 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 * OpenShift 콘솔은 기본 제공 도메인 `https://console-openshift-console.apps.<random>.<location>.aroapp.io` 대신 `https://console-openshift-console.apps.example.com`과 같은 URL에서 사용할 수 있습니다.
 
-* 기본적으로 OpenShift는 사용자 지정 도메인 `*.apps.example.com`에서 만든 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 사용하도록 선택하면 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html)를 구성해야 합니다.
+* 기본적으로 OpenShift는 사용자 지정 도메인 `*.apps.example.com`에서 만든 모든 경로에 자체 서명된 인증서를 사용합니다.  클러스터에 연결한 후 사용자 지정 DNS를 사용하도록 선택하면 OpenShift 설명서에 따라 [수신 컨트롤러의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) 및 [API 서버의 사용자 지정 CA](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html)를 구성해야 합니다.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>두 개의 빈 서브넷이 있는 가상 네트워크 만들기
 
-다음으로, 두 개의 빈 서브넷이 있는 가상 네트워크를 만들겠습니다.
+다음으로, 두 개의 빈 서브넷이 있는 가상 네트워크를 만들겠습니다. 요구 사항을 충족하는 기존 가상 네트워크가 있는 경우 이 단계를 건너뛸 수 있습니다.
 
 1. **`az` 명령을 실행하는 셸 환경에서 다음 변수를 설정합니다.**
 
@@ -131,7 +131,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 2. **가상 네트워크를 만듭니다.**
 
-   OpenShift 4를 실행하는 Azure Red Hat OpenShift 클러스터에는 마스터 및 작업자 노드에 사용할 두 개의 빈 서브넷이 있는 가상 네트워크가 필요합니다.
+   OpenShift 4를 실행하는 Azure Red Hat OpenShift 클러스터에는 마스터 및 작업자 노드에 사용할 두 개의 빈 서브넷이 있는 가상 네트워크가 필요합니다. 이를 위해 새 가상 네트워크를 만들거나 기존 가상 네트워크를 사용할 수 있습니다.
 
    이전에 만든 동일한 리소스 그룹에 새 가상 네트워크를 만듭니다.
 

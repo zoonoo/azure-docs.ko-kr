@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: c81b53b68c689f4b890d2ff628f38b734aea63dc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: f34034394d2492dba64214c612a239b92f4b9c46
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499886"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625721"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 [Service Fabric Mesh](service-fabric-mesh-overview.md)를 통해 가상 머신을 프로비전 할 필요 없이 Azure에서 마이크로 서비스 애플리케이션을 쉽게 만들고 관리할 수 있습니다. 이 빠른 시작에서는 Azure에 Hello World 애플리케이션을 만들고 인터넷에 노출합니다. 이 작업은 단일 명령으로 완료됩니다. 몇 분 안에 브라우저에 이 보기가 표시됩니다.
 

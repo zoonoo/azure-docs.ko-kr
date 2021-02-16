@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central을 사용하여 정부 기관 솔루션 빌드
+title: Azure IoT Central 정부 솔루션이란?
 description: Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 솔루션을 빌드하는 방법을 알아봅니다.
 author: miriambrus
 ms.author: miriamb
@@ -7,14 +7,14 @@ ms.date: 12/11/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 72b0e3c3cee0ed9131fe6ee1f50cee10ec03a7b7
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a903622f698107f7f1a593946f083fca1573d53e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590820"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834343"
 ---
-# <a name="building-government-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 정부 기관 솔루션 빌드
+# <a name="what-are-the-iot-central-government-solutions"></a>IoT Central 정부 솔루션이란?
 
 Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 솔루션 빌드를 시작합니다. **용수 품질 모니터링**, **용수 사용량 모니터링**, **커넥티드 폐기물 관리** 부터 시작할 수 있습니다.
 
@@ -71,8 +71,6 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
 
 ## <a name="next-steps"></a>다음 단계
 
-* IoT Central의 정부 기관 애플리케이션 템플릿을 사용하여 무료로 [앱 만들기](https://apps.azureiotcentral.com/build/government)
 * [용수 품질 모니터링 개념](./concepts-waterqualitymonitoring-architecture.md)에 대해 자세히 알아보기
 * [용수 사용량 모니터링 개념](./concepts-waterconsumptionmonitoring-architecture.md)에 대해 자세히 알아보기
 * [커넥티드 폐기물 관리 개념](./concepts-connectedwastemanagement-architecture.md)에 대해 자세히 알아보기  
-* [IoT Central 개요](../core/overview-iot-central.md)를 참조하여 IoT Central에 대해 자세히 알아보기

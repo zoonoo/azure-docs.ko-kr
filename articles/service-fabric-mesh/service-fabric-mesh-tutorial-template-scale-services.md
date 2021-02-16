@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 02dc5d43a23c572d441da2bbb7386885bf66ece7
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747871"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821841"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 2부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 애플리케이션의 서비스 인스턴스 수를 수동으로 조정하는 방법을 알아봅니다. 조정이 완료되면 3개 인스턴스를 실행하는 프런트 엔드 서비스와 2개 인스턴스를 실행하는 데이터 서비스가 생깁니다.
 
@@ -44,7 +49,7 @@ ms.locfileid: "92747871"
 
 Service Fabric Mesh에 애플리케이션을 배포하여 얻을 수 있는 주요 이점 중 하나는 서비스를 쉽게 확장 또는 축소하는 기능입니다. 이 기능을 사용하여 서비스에서 다양한 크기의 부하를 처리하거나 가용성을 향상할 수 있습니다.
 
-이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 두 개의 서비스가 있습니다. WebFrontEnd 및 ToDoService 각 서비스는 처음에 복제본 1개로 배포되었습니다.  WebFrontEnd 서비스에 대해 실행 중인 복제본 수를 보려면 다음을 실행합니다.
+이 자습서에서는 [이전에 배포되어](service-fabric-mesh-tutorial-template-deploy-app.md) 현재 실행 중인 할 일 목록 샘플을 예제로 사용합니다. 애플리케이션에 WebFrontEnd 및 ToDoService라는 두 가지 서비스가 있습니다. 각 서비스는 처음에 복제본 1개로 배포되었습니다.  WebFrontEnd 서비스에 대해 실행 중인 복제본 수를 보려면 다음을 실행합니다.
 
 ```azurecli
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp --query "replicaCount"

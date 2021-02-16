@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: d5dbb7b71e2d67ed5b3f624c93c3c143d6c98e5d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 6da1d285440daa5d1d5a230905a77057728d4ae6
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618538"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99821352"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -213,6 +213,12 @@ Thumbprint                                Subject
 
 도메인 이름이 올바르지 않거나, 인증서의 암호화 알고리즘이 *TripleDES-SHA1* 이 아니거나, 인증서가 곧 만료되거나 이미 만료된 경우 몇 가지 일반적인 오류가 발생합니다. 유효한 매개 변수를 사용하여 인증서를 다시 만든 다음, 이 업데이트된 인증서를 사용하여 보안 LDAP를 사용하도록 설정할 수 있습니다.
 
+## <a name="change-an-expiring-certificate"></a>만료되는 인증서 변경
+
+1. [보안 LDAP용 인증서를 생성](#create-a-certificate-for-secure-ldap)하는 단계에 따라 대체 보안 LDAP 인증서를 만듭니다.
+1. Azure AD DS에 대체 인증서를 적용하려면 Azure Portal의 Azure AD DS 왼쪽 메뉴에서 **보안 LDAP** 를 선택한 다음, **인증서 변경** 을 선택합니다.
+1. 보안 LDAP를 사용하여 연결하는 모든 클라이언트에 인증서를 배포합니다. 
+
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>인터넷을 통한 보안 LDAP 액세스 잠금
 
 관리되는 도메인에 대한 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정하면 보안 위협이 만들어집니다. 관리되는 도메인은 636 TCP 포트의 인터넷에서 연결할 수 있습니다. 관리되는 도메인에 대한 액세스를 사용자 환경의 알려진 특정 IP 주소로 제한하는 것이 좋습니다. Azure 네트워크 보안 그룹 규칙을 사용하여 보안 LDAP에 대한 액세스를 제한할 수 있습니다.
@@ -232,9 +238,9 @@ Thumbprint                                Subject
     | 대상                       | 모두          |
     | 대상 포트 범위           | 636          |
     | 프로토콜                          | TCP          |
-    | 작업                            | Allow        |
+    | 작업                            | 허용        |
     | 우선 순위                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | 속성                              | AllowLDAPS   |
 
 1. 준비가 되면 **추가** 를 선택하여 규칙을 저장하고 적용합니다.
 

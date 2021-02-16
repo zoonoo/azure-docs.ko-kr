@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 621c5e7b0061ccd76fd0109552107915b943511f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 06d6352f018238318c3bb4625ae86a2974f14569
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653338"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820166"
 ---
 # <a name="what-is-azure-resource-mover"></a>Azure Resource Mover란?
 
@@ -29,8 +29,6 @@ ms.locfileid: "89653338"
 - **배포 요구 사항에 대응**: 오류로 배포된 리소스를 이동하거나 용량 요구 사항에 따라 이동합니다.
 - **서비스 해제에 대응**: 지역이 서비스 해제되어서 리소스를 이동합니다.
 
-> [!IMPORTANT]
-> Azure Resource Mover는 현재 공개 미리 보기로 제공됩니다.
 
 ## <a name="why-use-resource-mover"></a>Resource Mover를 사용하는 이유
 
@@ -62,6 +60,7 @@ Resource Mover 허브의 지역 간에 또는 리소스 그룹 내에서 리소�
 현재 Resource Mover를 사용하면 지역 간에 다음 리소스를 이동할 수 있습니다.
 
 - Azure VM 및 연결된 디스크
+- 암호화된 Azure VM 및 관련 디스크. 여기에는 Azure 디스크 암호화가 활성화된 VM과 기본 서버 쪽 암호화를 사용하는 Azure VM(플랫폼 관리형 키 및 고객 관리형 키 모두 포함)이 포함됩니다.
 - NIC
 - 가용성 집합 
 - Azure 가상 네트워크 

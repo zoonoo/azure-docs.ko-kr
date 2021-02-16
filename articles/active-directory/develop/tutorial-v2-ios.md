@@ -13,12 +13,12 @@ ms.date: 09/18/2020
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c9e4997ad08f2dd1d96dd442f80ad4203abf6261
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e273b1c41a9c418bf0121e87e73ec59e65f2242e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015889"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102957"
 ---
 # <a name="tutorial-sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>자습서: iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -71,7 +71,7 @@ ms.locfileid: "98015889"
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -155,7 +155,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-위에서 수정해야 하는 값은 [애플리케이션 ID](./developer-glossary.md#application-id-client-id)`kClientID`에 할당된 값뿐입니다. 이 값은 이 자습서의 시작 부분에서 애플리케이션을 Azure Portal에 등록하는 단계에서 저장한 MSAL 구성 데이터의 일부입니다.
+위에서 수정한 값은 `kClientID`[애플리케이션 ID](./developer-glossary.md#application-id-client-id)로 할당된 값뿐입니다. 이 값은 이 자습서의 시작 부분에서 애플리케이션을 Azure Portal에 등록하는 단계에서 저장한 MSAL 구성 데이터의 일부입니다.
 
 ## <a name="configure-xcode-project-settings"></a>Xcode 프로젝트 설정 구성
 

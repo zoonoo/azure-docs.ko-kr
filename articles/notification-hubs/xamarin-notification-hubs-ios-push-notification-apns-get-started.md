@@ -12,16 +12,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
-ms.date: 07/07/2020
+ms.date: 01/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 7b53767aea9df2da8dbf89e26fff03c792918016
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: ff1e5edad05ebd7157f71ad2e099ea88905be4f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893682"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221139"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 푸시 알림 보내기
 
@@ -61,21 +61,21 @@ ms.locfileid: "91893682"
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-1. Visual Studio에서 새 iOS 프로젝트를 만들고, **단일 뷰 앱** 템플릿을 선택하고, **다음**을 클릭합니다.
+1. Visual Studio에서 새 iOS 프로젝트를 만들고, **단일 뷰 앱** 템플릿을 선택하고, **다음** 을 클릭합니다.
 
      ![Visual Studio - 애플리케이션 유형 선택][31]
 
-2. 앱 이름 및 조직 식별자를 입력한 후, **다음**을 클릭한 다음, **만들기**를 클릭합니다.
+2. 앱 이름 및 조직 식별자를 입력한 후, **다음** 을 클릭한 다음, **만들기** 를 클릭합니다.
 
-3. 솔루션 보기에서 *Into.plist*를 두 번 클릭하고, **ID** 아래에서 번들 식별자가 프로비전 프로필을 만들 때 사용한 식별자와 일치하는지 확인합니다. **서명** 아래에서 **팀**에 대해 개발자 계정이 선택되고, "자동으로 서명 관리"가 선택되고, 서명 인증서 및 프로비전 프로필이 자동으로 선택되어 있는지 확인합니다.
+3. 솔루션 보기에서 *Into.plist* 를 두 번 클릭하고, **ID** 아래에서 번들 식별자가 프로비전 프로필을 만들 때 사용한 식별자와 일치하는지 확인합니다. **서명** 아래에서 **팀** 에 대해 개발자 계정이 선택되고, "자동으로 서명 관리"가 선택되고, 서명 인증서 및 프로비전 프로필이 자동으로 선택되어 있는지 확인합니다.
 
     ![Visual Studio - iOS 앱 구성][32]
 
-4. 솔루션 보기에서 `Entitlements.plist`를 두 번 클릭하고 **푸시 알림 사용**이 선택되어 있는지 확인합니다.
+4. 솔루션 보기에서 `Entitlements.plist`를 두 번 클릭하고 **푸시 알림 사용** 이 선택되어 있는지 확인합니다.
 
     ![Visual Studio-iOS 자격 구성][33]
 
-5. Azure Messaging 패키지를 추가합니다. [솔루션] 보기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 차례로 선택합니다. **Xamarin.Azure.NotificationHubs.iOS**를 검색하고 프로젝트에 이 패키지를 추가합니다.
+5. Azure Messaging 패키지를 추가합니다. [솔루션] 보기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가** 를 차례로 선택합니다. **Xamarin.Azure.NotificationHubs.iOS** 를 검색하고 프로젝트에 이 패키지를 추가합니다.
 
 6. 클래스에 새 파일을 추가하고, 이름을 `Constants.cs`로 지정하고, 다음 변수를 추가하고, 문자열 리터럴 자리 표시자를 `hubname` 및 앞에서 언급한 `DefaultListenSharedAccessSignature`로 바꿉니다.
 
@@ -88,14 +88,20 @@ ms.locfileid: "91893682"
 7. `AppDelegate.cs`에서 다음 using 문을 추가합니다.
 
     ```csharp
-    using WindowsAzure.Messaging;
+    using WindowsAzure.Messaging.NotificationHubs;
     using UserNotifications
     ```
 
-8. `SBNotificationHub`의 인스턴스를 선언합니다.
+8. `AppDelegate.cs`에서 `MSNotificationHubDelegate` 구현을 만듭니다.
 
     ```csharp
-    private SBNotificationHub Hub { get; set; }
+    public class AzureNotificationHubListener : MSNotificationHubDelegate
+    {
+        public override void DidReceivePushNotification(MSNotificationHub notificationHub, MSNotificationHubMessage message)
+        {
+
+        }
+    }
     ```
 
 9. `AppDelegate.cs`에서 다음 코드와 일치하도록 `FinishedLaunching()`을 업데이트합니다.
@@ -103,105 +109,32 @@ ms.locfileid: "91893682"
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
     {
-        if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
-        {
-            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
-                                                                    (granted, error) => InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications));
-        }
-        else if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
-        {
-            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
-                    UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
-                    new NSSet());
-
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
-            UIApplication.SharedApplication.RegisterForRemoteNotifications();
-        }
-        else
-        {
-            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
-        }
+        // Set the Message listener
+        MSNotificationHub.SetDelegate(new AzureNotificationHubListener());
+        
+        // Start the SDK
+        MSNotificationHub.Start(ListenConnectionString, NotificationHubName);
 
         return true;
     }
     ```
 
-10. `AppDelegate.cs`에서 `RegisteredForRemoteNotifications()` 메서드를 재정의합니다.
+10. `AppDelegate.cs`에서 `AzureNotificationHubListener` 클래스에 대한 `DidReceivePushNotification` 메서드를 구현합니다.
 
     ```csharp
-    public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
+    public override void DidReceivePushNotification(MSNotificationHub notificationHub, MSNotificationHubMessage message)
     {
-        Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
+        // This sample assumes { aps: { alert: { title: "Hello", body: "World" } } }
+        var alertTitle = message.Title ?? "Notification";
+        var alertBody = message.Body;
 
-        Hub.UnregisterAll (deviceToken, (error) => {
-            if (error != null)
-            {
-                System.Diagnostics.Debug.WriteLine("Error calling Unregister: {0}", error.ToString());
-                return;
-            }
-
-            NSSet tags = null; // create tags if you want
-            Hub.RegisterNative(deviceToken, tags, (errorCallback) => {
-                if (errorCallback != null)
-                    System.Diagnostics.Debug.WriteLine("RegisterNative error: " + errorCallback.ToString());
-            });
-        });
+        var myAlert = UIAlertController.Create(alertTitle, alertBody, UIAlertControllerStyle.Alert);
+        myAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(myAlert, true, null);
     }
     ```
 
-11. `AppDelegate.cs`에서 `ReceivedRemoteNotification()` 메서드를 재정의합니다.
-
-    ```csharp
-    public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
-    {
-        ProcessNotification(userInfo, false);
-    }
-    ```
-
-12. `AppDelegate.cs`에서 `ProcessNotification()` 메서드를 만듭니다.
-
-    ```csharp
-    void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
-    {
-        // Check to see if the dictionary has the aps key.  This is the notification payload you would have sent
-        if (null != options && options.ContainsKey(new NSString("aps")))
-        {
-            //Get the aps dictionary
-            NSDictionary aps = options.ObjectForKey(new NSString("aps")) as NSDictionary;
-
-            string alert = string.Empty;
-
-            //Extract the alert text
-            // NOTE: If you're using the simple alert by just specifying
-            // "  aps:{alert:"alert msg here"}  ", this will work fine.
-            // But if you're using a complex alert with Localization keys, etc.,
-            // your "alert" object from the aps dictionary will be another NSDictionary.
-            // Basically the JSON gets dumped right into a NSDictionary,
-            // so keep that in mind.
-            if (aps.ContainsKey(new NSString("alert")))
-                alert = (aps [new NSString("alert")] as NSString).ToString();
-
-            //If this came from the ReceivedRemoteNotification while the app was running,
-            // we of course need to manually process things like the sound, badge, and alert.
-            if (!fromFinishedLaunching)
-            {
-                //Manually show an alert
-                if (!string.IsNullOrEmpty(alert))
-                {
-                    var myAlert = UIAlertController.Create("Notification", alert, UIAlertControllerStyle.Alert);
-                    myAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
-                    UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(myAlert, true, null);
-                }
-            }
-        }
-    }
-    ```
-
-    > [!NOTE]
-    > `FailedToRegisterForRemoteNotifications()`를 재정의하도록 선택하여 네트워크 연결이 없는 경우와 같은 상황을 처리할 수 있습니다. 이는 사용자가 애플리케이션을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
-
-13. 디바이스에서 앱을 실행합니다.
+11. 디바이스에서 앱을 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 03f2ec7aef1faadcb72d6c7a5a058c7d06596539
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723969"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -31,8 +31,8 @@ Citrix ShareFile을 Azure AD와 통합하면 다음과 같은 이점이 제공�
 
 Citrix ShareFile과의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* Citrix ShareFile Single Sign-On이 설정된 구독
+* Azure AD 구독 Azure AD 환경이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
+* Citrix ShareFile Single Sign-On이 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -126,7 +126,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Citrix ShareFile SSO 구성
@@ -165,7 +165,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     
     f. **로그아웃 URL** 텍스트 상자에, Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
 
-5. Citrix ShareFile 관리 포털에서 **저장** 을 클릭합니다.
+    g. **선택적 설정** 에서 **SP 시작 인증 컨텍스트** 를 **사용자 이름 및 암호** 및 **정확함** 으로 선택합니다.
+
+5. **저장** 을 클릭합니다.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Citrix ShareFile 테스트 사용자 만들기
 
@@ -198,7 +200,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Citrix ShareFile 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Citrix ShareFile 타일을 클릭하면 Citrix ShareFile 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

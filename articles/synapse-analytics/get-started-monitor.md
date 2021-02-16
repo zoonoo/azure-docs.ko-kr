@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 10/15/2020
-ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.date: 12/31/2020
+ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444398"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209817"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Synapse 작업 영역 모니터링
 
@@ -36,15 +36,15 @@ Synapse Studio를 열고 **모니터** 허브로 이동합니다. 여기에서 �
 
 ## <a name="apache-spark-activities"></a>Apache Spark 작업
 
-1. **통합 > 작업 > Apache Spark 애플리케이션** 으로 이동합니다. 이제 실행 중이거나 작업 영역에서 실행되는 모든 Spark 애플리케이션을 볼 수 있습니다.
+1. **작업 > Apache Spark 애플리케이션** 으로 이동합니다. 이제 실행 중이거나 작업 영역에서 실행되는 모든 Spark 애플리케이션을 볼 수 있습니다.
 1. 더 이상 실행되지 않는 애플리케이션을 찾고 해당 **애플리케이션 이름** 를 클릭합니다. 이제 spark 애플리케이션의 세부 정보를 볼 수 있습니다.
 1. Apache Spark에 대해 잘 알고 있는 경우 **Spark 기록 서버** 를 클릭하여 표준 Apache Spark 기록 서버 UI를 찾을 수 있습니다.
 
 ## <a name="sql-activities"></a>SQL 작업
 
-1. **통합 > 작업 > SQL 요청** 으로 이동합니다.
+1. **작업 > SQL 요청** 으로 이동합니다.
 1. 이 보기에서는 SQL 요청을 볼 수 있습니다.
-1. 모니터링하려는 **풀** 을 선택합니다. 이제 실행 중이거나 해당 풀의 작업 영역에서 실행되는 모든 SQL 요청을 볼 수 있습니다.
+1. **풀** 필터에서 모니터링할 **풀** 을 선택합니다. 이제 실행 중이거나 해당 풀의 작업 영역에서 실행되는 모든 SQL 요청을 볼 수 있습니다.
 1. 특정 SQL 요청을 찾아 해당 항목을 마우스로 가리킵니다. 가리키면 SQL 스크립트 아이콘이 표시됩니다.
 1. SQL 스크립트 아이콘을 클릭하여 SQL 요청의 전체 텍스트를 확인합니다.
 

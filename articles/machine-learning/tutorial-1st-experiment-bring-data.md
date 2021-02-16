@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072159"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821563"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -99,6 +99,20 @@ tutorial
 ```
 
 이전 자습서에서 `train.py`를 로컬로 실행하지 않은 경우 `data/` 디렉터리가 없습니다. 이 경우 `train.py` 스크립트에서 `download=True`를 사용하여 `torchvision.datasets.CIFAR10` 메서드를 로컬로 실행합니다.
+
+또한 로컬에서 실행하려면 자습서 환경을 종료하고 새 conda 환경을 활성화해야 합니다.
+
+```bash
+conda deactivate                # If you are still using the tutorial environment, exit it
+```
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+```
+
+```bash
+conda activate pytorch-aml-env          # activate new conda environment
+```
 
 수정된 학습 스크립트를 로컬로 실행하려면 다음을 호출합니다.
 

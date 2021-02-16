@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1282c27378e6a088a600a3ab3105f3f548984d03
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 7d297d96ba764c812a3d4db6d9383122c73cfe31
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063147"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103144"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -57,8 +57,7 @@ ms.locfileid: "98063147"
 
 MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 SSO(Single Sign-On)를 제공하고, 계정을 관리합니다.
 
-> [!NOTE]
-> 이 자습서에서는 Android용 MSAL을 사용하는 간단한 예를 보여줍니다. 편의상 단일 계정 모드만 사용합니다. 더 복잡한 시나리오를 탐색하려면 GitHub에서 완료된 [작업 코드 샘플](https://github.com/Azure-Samples/ms-identity-android-java/)을 참조하세요.
+이 자습서에서는 Android용 MSAL을 사용하는 간단한 예를 보여줍니다. 편의상 단일 계정 모드만 사용합니다. 더 복잡한 시나리오를 탐색하려면 GitHub에서 완료된 [작업 코드 샘플](https://github.com/Azure-Samples/ms-identity-android-java/)을 참조하세요.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 아직 Android 애플리케이션이 없는 경우 다음 단계에 따라 새 프로젝트를 설정합니다.
@@ -75,7 +74,7 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 
 ### <a name="register-your-application"></a>애플리케이션 등록
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -85,8 +84,8 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 1. 프로젝트의 패키지 이름을 입력합니다. 코드를 다운로드한 경우 이 값은 `com.azuresamples.msalandroidapp`입니다.
 1. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성** 을 선택합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
 
-   > [!Note]
-   > KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다. 자세한 내용은 [키 생성에 대한 Android 설명서](https://developer.android.com/studio/publish/app-signing#generate-key)를 참조하세요.
+
+     KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다. 자세한 내용은 [키 생성에 대한 Android 설명서](https://developer.android.com/studio/publish/app-signing#generate-key)를 참조하세요.
 
 1. KeyTool에서 생성된 **서명 해시** 를 입력합니다.
 1. **구성** 을 선택하고 **Android 구성** 페이지에 나타나는 **MSAL 구성** 을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  
@@ -122,8 +121,7 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
     }
    ```
 
-   >[!NOTE]
-   >이 자습서에서는 단일 계정 모드에서 앱을 구성하는 방법만 보여줍니다. [단일 계정 모드와 다중 계정 모드](./single-multi-account.md) 및 [앱 구성](./msal-configuration.md)에 대한 자세한 내용은 설명서를 참조하세요.
+     이 자습서에서는 단일 계정 모드에서 앱을 구성하는 방법만 보여줍니다. [단일 계정 모드와 다중 계정 모드](./single-multi-account.md) 및 [앱 구성](./msal-configuration.md)에 대한 자세한 내용은 설명서를 참조하세요.
 
 4. **app** > **src** > **main** > **AndroidManifest.xml** 에서 아래의 `BrowserTabActivity` 작업을 애플리케이션 본문에 추가합니다. 이 항목은 다음과 같이 Microsoft에서 인증을 완료한 후 애플리케이션을 콜백할 수 있게 해줍니다.
 
@@ -144,8 +142,11 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 
     `android:host=` 값을 Azure Portal에서 등록한 패키지 이름으로 바꿉니다.
     `android:path=` 값을 Azure Portal에서 등록한 키 해시로 바꿉니다. 서명 해시는 URL로 인코딩되면 **안 됩니다**. 서명 해시의 시작 부분에 선행 `/`가 있는지 확인합니다.
-    >[!NOTE]
-    >`android:host` 값을 대체할 "패키지 이름"은 "com.azuresamples.msalandroidapp" 형식이고, `android:path` 값을 대체할 "서명 해시"는 "/1wIqXSqBj7w+h11ZifsnqwgyKrY=" 형식입니다. 앱 등록의 인증 블레이드에서도 이러한 값을 찾을 수 있습니다. 리디렉션 URI는 "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D" 형식입니다. 서명 해시가 이 값의 끝 부분에 URL로 인코딩되었지만, 서명 해시가 `android:path` 값에서 URL로 인코딩되면 **안 됩니다**.
+    
+    `android:host` 값을 대체할 "패키지 이름"은 "com.azuresamples.msalandroidapp"과 유사해야 합니다.
+    `android:path` 값을 대체할 "서명 해시"는 "/1wIqXSqBj7w+h11ZifsnqwgyKrY="와 유사해야 합니다.
+    
+    앱 등록의 인증 블레이드에서 이러한 값을 찾을 수도 있습니다. 리디렉션 URI는 "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D" 형식입니다. 서명 해시가 이 값의 끝 부분에 URL로 인코딩되었지만, 서명 해시가 `android:path` 값에서 URL로 인코딩되면 **안 됩니다**.
 
 ## <a name="use-msal"></a>MSAL 사용
 

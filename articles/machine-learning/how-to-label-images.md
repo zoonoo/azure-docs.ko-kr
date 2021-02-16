@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060370"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99821239"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
@@ -63,11 +63,7 @@ Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단
 
 현재 데이터에 대한 태그가 제출되면 Azure에서 페이지를 작업 큐의 새 이미지 세트로 새로 고칩니다.
 
-### <a name="assisted-machine-learning-preview"></a>지원 기계 학습(미리 보기) 
-
-> [!IMPORTANT]
-> 지원 기계 학습은 현재 공개 미리 보기로 제공됩니다.
-> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+### <a name="assisted-machine-learning"></a>지원 기계 학습
 
 기계 학습 알고리즘이 트리거될 수 있습니다. 프로젝트에서 이러한 알고리즘을 사용하는 경우 다음이 표시될 수 있습니다.
 
@@ -75,7 +71,14 @@ Azure는 페이지의 모든 이미지에 태그를 지정한 후 **전송** 단
 
 * 나중에 프로젝트 이름 옆에 **미리 레이블이 지정된 작업** 이 표시될 수 있습니다.  그러면 이미지는 기계 학습 분류 모델에서 제공하는 제안된 레이블로 표시됩니다. 어떤 기계 학습 모델도 100% 정확성을 가지고 있지는 않습니다. 모델을 신뢰할 수 있는 이미지만 사용하지만 이러한 이미지는 여전히 잘못된 레이블이 지정될 수 있습니다.  이러한 레이블이 표시되면 페이지를 전송하기 전에 잘못된 레이블을 수정합니다.  
 
-* 개체 검색 모델의 경우 경계 상자와 레이블이 이미 있는 것을 볼 수 있습니다.  페이지를 제출하기 전에 잘못된 내용을 수정합니다.
+* 개체 식별 모델의 경우 경계 상자와 레이블이 이미 있는 것을 볼 수 있습니다.  페이지를 제출하기 전에 잘못된 내용을 수정합니다.
+
+* 조각화 모델의 경우 다각형과 레이블이 이미 있는 것을 볼 수 있습니다.  페이지를 제출하기 전에 잘못된 내용을 수정합니다. 
+
+    > [!IMPORTANT]
+    > (미리 보기)와 함께 나열된 기능은 공개 미리 보기로 제공됩니다.   
+    > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
 
 특히 레이블 지정 프로젝트의 초기에 기계 학습 모델은 이미지의 작은 하위 세트에 레이블을 지정할 정도로만 정확할 수 있습니다. 이러한 이미지가 레이블 지정되면 레이블 지정 프로젝트가 수동 레이블 지정으로 반환되어 다음 라운드 모델 학습에 대한 추가 데이터를 수집합니다. 시간이 지남에 따라 모델은 더 높은 비율의 이미지에 대해 더 확실하게 되므로 나중에 프로젝트에서 더 많은 사전 레이블 작업을 진행합니다.
 

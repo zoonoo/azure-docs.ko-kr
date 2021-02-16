@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895974"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979881"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "97895974"
 > * Microsoft ID 플랫폼을 사용하여 [인증 및 권한 부여](authentication-vs-authorization.md)에 Azure AD(Azure Active Directory)를 사용하도록 구성된 새 Blazor WebAssembly 앱 만들기
 > * 보호된 웹 API(여기서는 [Microsoft Graph](/graph/overview))에서 데이터 검색
 
-이 자습서에서는 .NET Core 3.1을 사용합니다. .NET 문서에는 ASP.NET Core 5.0을 사용하여 [Blazor WebAssembly 앱을 보호하는 방법](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api)에 대한 지침이 포함되어 있습니다. 
+이 자습서에서는 .NET Core 3.1을 사용합니다. .NET 문서에는 ASP.NET Core 5.0을 사용하여 [Blazor WebAssembly 앱을 보호하는 방법](/aspnet/core/blazor/security/webassembly/graph-api)에 대한 지침이 포함되어 있습니다. 
 
 [Blazor Server에 대한 자습서](tutorial-blazor-server.md)도 있습니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "97895974"
 - **지원되는 계정 유형** 의 경우 **이 조직 디렉터리 계정의 계정만** 을 선택합니다.
 - **리디렉션 URI** 드롭다운 세트를 **웹** 으로 두고 `https://localhost:5001/authentication/login-callback`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
 
-등록되었으면 **인증** > **암시적 부여** 에서 **액세스 토큰** 및 **ID 토큰** 에 대한 확인란을 선택한 다음, **저장** 단추를 선택합니다.
+등록된 후 **관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **액세스 토큰** 및 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>.NET Core CLI를 사용하여 앱 만들기
 
@@ -80,7 +80,7 @@ Microsoft ID 플랫폼을 사용하여 Azure AD에 로그인을 사용하도록 
 
 [Microsoft Graph](/graph/overview)에는 사용자에게 Microsoft 365 데이터에 대한 액세스를 제공하는 API가 포함되어 있으며, Microsoft ID 플랫폼에서 발급된 토큰을 지원하여 예제로 사용하기에 좋은 보호된 API를 제공합니다. 이 섹션에서는 Microsoft Graph를 호출하고 애플리케이션의 "데이터 가져오기" 페이지에 사용자의 이메일을 표시하는 코드를 추가합니다.
 
-이 섹션은 명명된 클라이언트를 사용하여 보호된 API를 호출하는 일반적인 방법을 사용하여 작성되었습니다. 호출하려는 다른 보호된 API에도 동일한 메서드를 사용할 수 있습니다. 그러나 애플리케이션에서 Microsoft Graph를 호출하려는 경우에는 Graph SDK를 사용하여 상용구를 줄일 수 있습니다. .NET 문서에는 [Graph SDK를 사용하는 방법](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0)에 대한 지침이 포함되어 있습니다.
+이 섹션은 명명된 클라이언트를 사용하여 보호된 API를 호출하는 일반적인 방법을 사용하여 작성되었습니다. 호출하려는 다른 보호된 API에도 동일한 메서드를 사용할 수 있습니다. 그러나 애플리케이션에서 Microsoft Graph를 호출하려는 경우에는 Graph SDK를 사용하여 상용구를 줄일 수 있습니다. .NET 문서에는 [Graph SDK를 사용하는 방법](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true)에 대한 지침이 포함되어 있습니다.
 
 시작하기 전에 필요한 권한을 변경하고 현재 토큰은 작동하지 않으므로 앱에서 로그아웃합니다. 아직 로그아웃하지 않은 경우 다음 코드를 업데이트하기 전에 앱을 다시 실행하고 **로그아웃** 을 선택합니다.
 
@@ -102,7 +102,7 @@ Microsoft ID 플랫폼을 사용하여 Azure AD에 로그인을 사용하도록 
 
 그 후 다음 단계에서 지정한 대로 코드를 수정합니다. 이렇게 변경하면 Microsoft Graph API로 전송된 나가는 요청에 [액세스 토큰](access-tokens.md)이 추가됩니다. 이 패턴은 [ASP.NET Core Blazor WebAssembly 추가 보안 시나리오](/aspnet/core/blazor/security/webassembly/additional-scenarios)에서 자세히 다룹니다.
 
-먼저 다음 코드를 사용하여 *GraphAuthorizationMessageHandler.cs* 라는 새 파일을 만듭니다. 이 처리기는 Microsoft Graph API로 전송되는 나가는 요청에 `User.Read` 및 `Mail.Read` 범위에 대한 액세스 토큰을 추가하는 데 사용됩니다.
+먼저 다음 코드를 사용하여 *GraphAPIAuthorizationMessageHandler.cs* 라는 새 파일을 만듭니다. 이 처리기는 Microsoft Graph API로 전송되는 나가는 요청에 `User.Read` 및 `Mail.Read` 범위에 대한 액세스 토큰을 추가하는 데 사용됩니다.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

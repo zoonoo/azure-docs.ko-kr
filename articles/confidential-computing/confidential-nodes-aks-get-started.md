@@ -4,14 +4,14 @@ description: 기밀 노드가 있는 AKS 클러스터를 만들고, Azure CLI를
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 2/5/2020
 ms.author: amgowda
-ms.openlocfilehash: 92b4cd58b496602b479a24bab81a1d9322e732b0
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b6fe8f4fe34799a71d59b7487d96217b4ac6a429
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760642"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833206"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli-preview"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드(DCsv2)가 있는 AKS(Azure Kubernetes Service) 클러스터 배포(미리 보기)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### <a name="azure-confidential-computing-feature-registration-on-azure-optional-but-recommended"></a>Azure에 Azure 기밀 컴퓨팅 기능 등록(선택 사항이지만 권장됨)
-Azure 구독에 AKS-ConfidentialComputinAddon 등록 이 기능은 [여기](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon)에 자세히 설명된 것처럼 두 개의 디먼 세트를 추가합니다.
+Azure 구독에 AKS-ConfidentialComputingAddon을 등록하는 중입니다. 이 기능은 [여기](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon)에 자세히 설명된 것처럼 두 개의 디먼 세트를 추가합니다.
 1. SGX 디바이스 드라이버 플러그 인
 2. SGX 증명 견적 도우미
 
@@ -85,7 +85,7 @@ az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.
 상태가 등록됨으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. 'az feature list' 명령을 사용하여 등록 상태를 확인할 수 있습니다. 이 기능 등록은 구독당 한 번만 수행됩니다. 이전에 등록한 경우 위의 단계를 건너뛸 수 있습니다.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 상태가 등록됨으로 표시되면 'az provider register' 명령을 사용하여 Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
 
@@ -143,12 +143,12 @@ kube-system     sgx-quote-helper-xxxx      1/1     Running
 먼저 Azure 구독에 기능을 추가하겠습니다.
 
 ```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
 ```
 상태가 등록됨으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. 'az feature list' 명령을 사용하여 등록 상태를 확인할 수 있습니다. 이 기능 등록은 구독당 한 번만 수행됩니다. 이전에 등록한 경우 위의 단계를 건너뛸 수 있습니다.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 상태가 등록됨으로 표시되면 'az provider register' 명령을 사용하여 Microsoft.ContainerService 리소스 공급자의 등록을 새로 고칩니다.
 

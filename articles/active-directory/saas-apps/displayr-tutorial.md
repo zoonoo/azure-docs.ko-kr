@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 13edc0280f1a6f7e962e8e4593d8a17990dd9e6f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454748"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99822342"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>자습서: Displayr과 Azure Active Directory 통합
 
@@ -78,6 +78,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **로그인 URL** 텍스트 상자에서 `https://<YOURDOMAIN>.displayr.com` 패턴을 사용하여 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `<YOURDOMAIN>.displayr.com` 패턴을 사용하는 URL을 입력합니다.
+    
+    다. **회신 URL** 텍스트 상자에서 `https://app.displayr.com/Login/ProcessSamlResponse`를 입력합니다.
+    
+    d. **저장** 을 클릭합니다.
 
     >[!NOTE]
     >이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Displayr 클라이언트 지원 팀](mailto:support@displayr.com)에 문의하세요. Azure Portal의 기본 SAML 구성 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -88,25 +92,23 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Displayr 애플리케이션에는 특정 형식의 SAML 어설션이 필요하며, 이를 위해서는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
 
-    !["편집" 아이콘이 강조 표시된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
+   !["편집" 아이콘이 강조 표시된 "사용자 특성" 섹션을 보여주는 스크린샷.](common/edit-attribute.png)
 
 1. 위에서 언급한 특성 외에도, Displayr 애플리케이션에는 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **그룹 클레임(미리 보기)** 대화 상자의 **사용자 특성 및 클레임** 섹션에서 다음 단계를 수행합니다.
 
-    a. **클레임에서 반환되는 그룹** 옆에 있는 **펜** 을 클릭합니다.
+   a. **그룹 클레임 추가** 를 클릭합니다.
 
-    !["클레임에서 반환된 그룹" 옆에 "펜" 아이콘이 선택된 "사용자 특성 및 클레임" 섹션을 보여주는 스크린샷.](./media/displayr-tutorial/config04.png)
+      ![설정이 선택된 "그룹 클레임(미리 보기)" 창을 보여주는 스크린샷.](./media/displayr-tutorial/config05.png)
 
-    ![설정이 선택된 "그룹 클레임(미리 보기)" 창을 보여주는 스크린샷.](./media/displayr-tutorial/config05.png)
+   b. 라디오 단추 목록에서 **모든 그룹** 을 선택합니다.
 
-    b. 라디오 단추 목록에서 **모든 그룹** 을 선택합니다.
+   다. **그룹 ID** 의 **원본 특성** 을 선택합니다.
 
-    다. **그룹 ID** 의 **원본 특성** 을 선택합니다.
+   d. **그룹 클레임 이름 사용자 지정** 을 선택합니다.
 
-    d. **그룹 클레임 이름 사용자 지정** 을 선택합니다.
+   e. **그룹을 역할 클레임으로 내보내기** 를 선택합니다.
 
-    e. **그룹을 역할 클레임으로 내보내기** 를 선택합니다.
-
-    f. **저장** 을 클릭합니다.
+   f. **저장** 을 클릭합니다.
 
 1. **Displayr 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -154,11 +156,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -200,7 +202,7 @@ Azure AD 사용자가 Displayr에 로그인할 수 있으려면 해당 사용자
 
     ![Displayr 구성](./media/displayr-tutorial/config06.png)
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Brittasimon** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **Brittasimon**)을 입력합니다.
 
     b. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: `Brittasimon@contoso.com`)을 입력합니다.
 

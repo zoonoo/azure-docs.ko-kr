@@ -3,14 +3,14 @@ title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 AKS 클러스터를 만들고 kubectl을 사용하여 Kubernetes 마스터 노드에 연결합니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0e034ebede39a3fd9046ced9716323d0c7d874df
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684073"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250641"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -21,7 +21,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 > * Kubernetes CLI(kubectl) 설치
 > * AKS 클러스터에 연결하도록 kubectl 구성
 
-추가 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -35,7 +35,7 @@ AKS 클러스터는 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)�
 
 [az aks create][] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster* 라는 클러스터를 만듭니다. 이 리소스 그룹은 *eastus* 지역의 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. 다음 예제에서는 지역을 지정하지 않으므로 AKS 클러스터도 *eastus* 지역에서 생성됩니다. AKS에 대한 리소스 제한 및 지역 가용성에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성][quotas-skus-regions]을 참조하세요.
 
-AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 주체가 지정되어 있지 않기 때문에 자동으로 생성됩니다. 여기에서 이 서비스 주체는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한을 부여][container-registry-integration]했습니다. 관리를 용이하게 하기 위해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 주체가 지정되어 있지 않기 때문에 자동으로 생성됩니다. 여기에서 이 서비스 주체는 이전 자습서에서 만든 ACR(Azure Container Registry) 인스턴스에서 [이미지를 끌어올 수 있는 권한을 부여][container-registry-integration]했습니다. 명령을 성공적으로 실행하려면 Azure 구독에 대한 **소유자** 또는 **Azure 계정 관리자** 역할이 있어야 합니다.
 
 ```azurecli
 az aks create \
@@ -46,7 +46,7 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-ACR에서 이미지를 가져오도록 서비스 주체를 수동으로 구성할 수도 있습니다. 자세한 내용은 [서비스 주체를 사용하여 ACR 인증](../container-registry/container-registry-auth-service-principal.md) 또는 [끌어오기 비밀을 사용하여 Kubernetes에서 인증](../container-registry/container-registry-auth-kubernetes.md)을 참조하세요.
+**소유자** 또는 **Azure 계정 관리자** 역할이 필요하지 않도록 하기 위해 ACR에서 이미지를 가져오도록 서비스 주체를 수동으로 구성할 수도 있습니다. 자세한 내용은 [서비스 주체를 사용하여 ACR 인증](../container-registry/container-registry-auth-service-principal.md) 또는 [끌어오기 비밀을 사용하여 Kubernetes에서 인증](../container-registry/container-registry-auth-kubernetes.md)을 참조하세요. 또는 관리를 용이하게 하기 위해 서비스 주체 대신 [관리 ID](use-managed-identity.md)를 사용할 수 있습니다.
 
 몇 분 후에 배포가 완료되고 JSON 형식의 AKS 배포 관련 정보가 반환됩니다.
 
@@ -76,8 +76,9 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
+aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
 ```
 
 ## <a name="next-steps"></a>다음 단계

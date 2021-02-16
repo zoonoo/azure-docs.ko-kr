@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505991"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249519"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 
@@ -107,7 +107,8 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 1. Data Factory 포털에서 **관리** 로 이동하고, **새로 만들기** 를 선택하여 새 Azure Integration Runtime을 만듭니다.
 
    ![새 Azure Integration Runtime 만들기를 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. **Azure** Integration Runtime을 만들려면 이 항목을 선택합니다.
+1. **통합 런타임 설정** 페이지에서 필요한 기능을 기반으로 만들 통합 런타임을 선택합니다. 이 자습서에서는 **Azure, 자체 호스팅** 을 선택한 다음, **계속** 을 클릭합니다. 
+1. **Azure** 를 선택한 다음, **계속** 을 클릭하여 Azure 통합 런타임을 만듭니다.
 
    ![새 Azure Integration Runtime을 보여주는 스크린샷](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. **가상 네트워크 구성(미리 보기)** 에서 **사용** 을 선택합니다.
@@ -136,7 +137,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 ### <a name="configure-a-source"></a>원본 구성
 
 >[!TIP]
->이 자습서에서는 **계정 키** 를 원본 데이터 저장소의 인증 형식으로 사용합니다. 필요한 경우 지원되는 다른 인증 방법(예: **SAS URI** , **서비스 주체** 및 **Managed Identity** )을 선택할 수도 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
+>이 자습서에서는 **계정 키** 를 원본 데이터 저장소의 인증 형식으로 사용합니다. 필요한 경우 지원되는 다른 인증 방법(예: **SAS URI**, **서비스 주체** 및 **Managed Identity**)을 선택할 수도 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환](./connector-azure-blob-storage.md#linked-service-properties)의 해당 섹션을 참조하세요.
 >
 >데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 내용과 그림은 [Azure Key Vault에 자격 증명 저장](./store-credentials-in-key-vault.md)을 참조하세요.
 
@@ -215,7 +216,7 @@ CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
 ### <a name="configure-a-sink"></a>싱크 구성
 >[!TIP]
->이 자습서에서는 **SQL 인증** 을 싱크 데이터 저장소의 인증 형식으로 사용합니다. 필요한 경우 지원되는 다른 인증 방법(예: **서비스 주체** 및 **Managed Identity** )을 선택할 수도 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure SQL Database에서 데이터 복사 및 변환](./connector-azure-sql-database.md#linked-service-properties)의 해당 섹션을 참조하세요.
+>이 자습서에서는 **SQL 인증** 을 싱크 데이터 저장소의 인증 형식으로 사용합니다. 필요한 경우 지원되는 다른 인증 방법(예: **서비스 주체** 및 **Managed Identity**)을 선택할 수도 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure SQL Database에서 데이터 복사 및 변환](./connector-azure-sql-database.md#linked-service-properties)의 해당 섹션을 참조하세요.
 >
 >데이터 저장소에 대한 비밀을 안전하게 저장하려면 Azure Key Vault를 사용하는 것도 좋습니다. 자세한 내용과 그림은 [Azure Key Vault에 자격 증명 저장](./store-credentials-in-key-vault.md)을 참조하세요.
 

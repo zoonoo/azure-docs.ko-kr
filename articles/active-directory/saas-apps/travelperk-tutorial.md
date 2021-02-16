@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: jeedes
-ms.openlocfilehash: 23a741e96807acdb7b162b65597c651a2a6c3235
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: eefc47e1308dc5b59d8b57d7481a5250a7d2af93
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92509253"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99822520"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-travelperk"></a>자습서: TravelPerk와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "92509253"
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* TravelPerk SSO(Single Sign-On)가 설정된 구독.
+* 프리미엄 구독이 있는 TravelPerk 계정.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -85,9 +85,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **회신 URL** 텍스트 상자에서 `https://<COMPANY>.travelperk.com/accounts/saml2/callback/<APPLICATION_ID>/?acs` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [TravelPerk 클라이언트 지원 팀](mailto:trex@travelperk.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. TravelPerk 계정 내에서 값을 찾을 수 있습니다. **회사 설정** > **통합** > **Single Sign-On** 으로 이동합니다. 도움이 필요하면 [TravelPerk 도움말 센터](https://support.travelperk.com/hc/en-us/articles/360052450271-How-can-I-setup-SSO-for-Azure-SAML-)를 방문하세요.
 
-1. TravelPerk 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **emailaddress** 가 **user.mail** 과 매핑되는 기본 특성 목록을 보여줍니다. TravelPerk 애플리케이션에서는 **emailaddress** 가 **user.userprincipalname** 과 매핑되므로 **편집** 아이콘을 클릭하고 특성 매핑을 변경하여 특성 매핑을 편집해야 합니다.
+1. TravelPerk 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. 기본 매핑에서 **emailaddress** 는 **user.mail** 로 매핑됩니다. 그러나 TravelPerk 애플리케이션은 **emailaddress** 가 **user.userprincipalname** 으로 매핑될 것으로 예상합니다. TravelPerk의 경우 특성 매핑을 편집해야 합니다. **편집** 아이콘을 클릭한 다음, 특성 매핑을 변경합니다. 특성을 편집하려면 특성을 클릭하여 편집 모드를 엽니다.
 
     ![이미지](common/default-attributes.png)
 
@@ -102,7 +102,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  

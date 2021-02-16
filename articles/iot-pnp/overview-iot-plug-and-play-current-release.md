@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7b6669ca55dc9b94dc5d702e54b42011120b8812
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421654"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831878"
 ---
 # <a name="what-is-in-the-current-iot-plug-and-play-release"></a>현재 IoT 플러그 앤 플레이 릴리스에는 무엇이 있나요?
 
@@ -77,3 +77,7 @@ IoT 플러그 앤 플레이는 모든 지역에서 IoT Hub로 지원됩니다. I
 - [IoT 플러그 앤 플레이에 대한 디바이스 준비 및 인증(2020년 8월 26일에 게시됨)](https://azure.microsoft.com/blog/prepare-and-certify-your-devices-for-iot-plug-and-play/)
 - [현재 미리 보기로 제공되는 IoT 플러그 앤 플레이(2019년 8월 22일에 게시됨)](https://azure.microsoft.com/blog/iot-plug-and-play-is-now-available-in-preview/)
 - [Azure IoT Central 및 IoT 플러그 앤 플레이를 사용하여 빌드(2019년 5월 7일에 게시됨)](https://azure.microsoft.com/blog/build-with-azure-iot-central-and-iot-plug-and-play/)
+
+## <a name="next-steps"></a>다음 단계
+
+제안된 다음 단계는 [IoT 플러그 앤 플레이란?](overview-iot-plug-and-play.md)을 검토하는 것입니다.

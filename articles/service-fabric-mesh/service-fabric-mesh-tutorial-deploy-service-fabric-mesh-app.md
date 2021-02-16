@@ -5,15 +5,20 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter , devx-track-azurecli
-ms.openlocfilehash: 51e5fd29d16c3f927dc9b89d9c7145a16f4fd49f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devcenter
+ms.openlocfilehash: be1e477bf3f11d487b8a6705535c09ff6e2b9c3e
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748236"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99822538"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 애플리케이션 배포
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 3부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 웹 애플리케이션을 게시하는 방법을 보여 줍니다.
 
@@ -33,7 +38,7 @@ ms.locfileid: "92748236"
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -65,7 +70,7 @@ Azure 계정과 구독을 선택합니다. **위치** 를 선택합니다. 이 �
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 애플리케이션 게시** 대화 상자로 돌아가서 **Azure Container Registry** 에서 **\<Create New Container Registry...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름** 에 대해 고유한 이름을 사용합니다. **위치** 를 지정합니다(이 자습서에서는 **미국 동부** 사용). 이전 단계에서 만든 **리소스 그룹** (예: **sfmeshTutorial1RG** )을 드롭다운에서 선택합니다. **SKU** 를 **기본** 으로 설정한 후 **만들기** 를 눌러 프라이빗 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
+**Service Fabric 애플리케이션 게시** 대화 상자로 돌아가서 **Azure Container Registry** 에서 **\<Create New Container Registry...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름** 에 대해 고유한 이름을 사용합니다. **위치** 를 지정합니다(이 자습서에서는 **미국 동부** 사용). 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU** 를 **기본** 으로 설정한 후 **만들기** 를 눌러 프라이빗 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio Service Fabric Mesh 새 컨테이너 레지스트리 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

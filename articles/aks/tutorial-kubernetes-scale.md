@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 크기 조정
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Kubernetes에서 노드 및 Pod 크기를 조정하고 수평 방향 Pod 자동 크기 조정을 구현하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825684"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251372"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정
 
@@ -21,7 +21,7 @@ ms.locfileid: "97825684"
 > * 애플리케이션을 실행하는 Kubernetes Pod의 크기를 수동으로 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-추가 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
+후속 자습서에서 Azure Vote 애플리케이션은 새 버전으로 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 다음 예제 출력은 프런트 엔드 Pod 1개와 백 엔드 Pod 1개를 보여줍니다.
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-[kubectl get pods][kubectl-get] 명령을 다시 실행하여 AKS가 추가 Pod를 만드는지 확인합니다. 약 1분이 지나면 클러스터에서 추가 Pod를 사용할 수 있습니다.
+[kubectl get pods][kubectl-get]를 다시 실행하여 AKS가 추가 Pod를 성공적으로 생성하는지 확인합니다. 약 1분이 지나면 클러스터에서 Pod를 사용할 수 있습니다.
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 `kubectl apply`를 사용하여 `azure-vote-hpa.yaml` 매니페스트 파일에 정의된 자동 크기 조정기를 적용합니다.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 클러스터가 성공적으로 크기 조정되면 출력은 다음 예제와 비슷합니다.
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

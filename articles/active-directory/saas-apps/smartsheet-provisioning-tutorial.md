@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181445"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103569"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Smartsheet 구성
 
@@ -137,22 +137,20 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Smartsheet로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Smartsheet의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|Type|
-   |---|---|
+   |attribute|Type|필터링에 지원됨|
+   |---|---|---|
+   |userName|String|&check;|
    |활성|부울|
    |title|String|
-   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "fax"].value|String|
+   |emails[type eq "work"].value|String|
    |externalId|String|
-   |roles[primary eq "True"].display|String|
-   |roles[primary eq "True"].type|String|
-   |roles[primary eq "True"].value|String|
    |역할|String|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
@@ -188,6 +186,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="change-log"></a>로그 변경
 
 * 2020/06/16 - 사용자에 대한 엔터프라이즈 확장 특성인 "비용 센터", "사업부", "관리자" 및 "부서"에 대한 지원이 추가되었습니다.
+* 2021/02/10 - 사용자를 위한 핵심 특성 "emails[type eq "work"]"에 대한 지원이 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

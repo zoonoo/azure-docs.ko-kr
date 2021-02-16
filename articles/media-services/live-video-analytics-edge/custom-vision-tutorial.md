@@ -4,12 +4,12 @@ description: Azure Custom Vision을 사용하여 장난감 트럭을 검색할 �
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060522"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99821432"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
 
@@ -51,7 +51,6 @@ ms.locfileid: "98060522"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ ms.locfileid: "98060522"
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> 이 Custom Vision 모듈은 **Intel x86 및 amd64** 아키텍처만 지원합니다. 계속하기 전에 에지 디바이스의 아키텍처를 확인하세요.
+
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
 
 이 자습서에서는 [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv) 파일을 사용하여 라이브 스트림을 시뮬레이션합니다. [VLC media player](https://www.videolan.org/vlc/)와 같은 애플리케이션을 통해 비디오를 검사할 수 있습니다. **Ctrl+N** 을 선택한 다음, [장난감 자동차 유추 비디오](https://lvamedia.blob.core.windows.net/public/t2.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 비디오를 시청할 때 36초 마커에서 장난감 트럭이 비디오에 나타납니다. 사용자 지정 모델은 이 특정 장난감 트럭을 검색하도록 학습되었습니다. 
@@ -81,6 +84,9 @@ HTTP 확장 노드는 프록시 역할을 수행합니다.  `samplingOptions` �
 Custom Vision은 그 이름처럼 클라우드에서 사용자 지정 개체 탐지기 또는 분류자를 빌드하는 데 사용할 수 있습니다. 그리고 컨테이너를 통해 클라우드 또는 에지에 배포할 수 있는 Custom Vision 모델을 빌드하기 위한 간단하고 사용하기 쉬운 직관적인 인터페이스를 제공합니다.
 
 장난감 트럭 탐지기를 빌드하려면 [빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드](../../cognitive-services/custom-vision-service/get-started-build-detector.md)의 단계를 수행합니다.
+
+> [!IMPORTANT]
+> 이 Custom Vision 모듈은 **Intel x86 및 amd64** 아키텍처만 지원합니다. 계속하기 전에 에지 디바이스의 아키텍처를 확인하세요.
 
 추가 참고 사항:
  

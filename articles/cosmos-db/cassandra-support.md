@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 771cf97a5c938fb987c66555c92c23f42b302a10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134231"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576484"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -43,7 +43,7 @@ Azure Cosmos DB Cassandra API에서 지원하는 Cassandra 드라이버의 버�
 
 Azure Cosmos DB Cassandra API는 다음 CQL 데이터 형식을 지원합니다.
 
-|명령  |지원됨 |
+|유형  |지원됨 |
 |---------|---------|
 | ascii  | 예 |
 | bigint  | 예 |
@@ -82,13 +82,14 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 |명령  |지원됨 |
 |---------|---------|
 | Token * | 예 |
-| ttl | 예 |
-| writetime | 예 |
+| ttl *** | 예 |
+| writetime *** | 예 |
 | 캐스트 ** | Yes |
 
 > [!NOTE] 
 > \* Cassandra API는 토큰을 프로젝션/선택기로 지원하며 where 절의 왼쪽에는 token(pk)만 허용합니다. 예를 들어 `WHERE token(pk) > 1024`는 지원되지만 `WHERE token(pk) > token(100)`은 지원되지 **않습니다**.  
-> \*\* `cast()` 함수는 Cassandra API에서 중첩할 수 없습니다. 예를 들어 `SELECT cast(count as double) FROM myTable`는 지원되지만 `SELECT avg(cast(count as double)) FROM myTable`은 지원되지 **않습니다**.
+> \*\* `cast()` 함수는 Cassandra API에서 중첩할 수 없습니다. 예를 들어 `SELECT cast(count as double) FROM myTable`는 지원되지만 `SELECT avg(cast(count as double)) FROM myTable`은 지원되지 **않습니다**.    
+> \*\*\* `USING` 옵션으로 지정된 사용자 지정 타임스탬프 및 TTL은 셀이 아닌 행 수준에서 적용됩니다.
 
 
 
@@ -159,7 +160,6 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | CREATE ROLE | 예 |
 | CREATE USER(네이티브 Apache Cassandra에서는 사용되지 않음) | 예 |
 | Delete | 예 |
-| DELETE(IF CONDITION이 있는 경량 트랜잭션)| 예 |
 | DISTINCT | 예 |
 | DROP AGGREGATE | 예 |
 | .DROP FUNCTION | 예 |
@@ -173,17 +173,25 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | DROP USER(네이티브 Apache Cassandra에서는 사용되지 않음) | 예 |
 | GRANT | 예 |
 | INSERT | 예 |
-| INSERT(IF CONDITION이 있는 경량 트랜잭션)| 예 |
 | LIST PERMISSIONS | 예 |
 | LIST ROLES | 예 |
 | LIST USERS(네이티브 Apache Cassandra에서는 사용되지 않음) | 예 |
 | REVOKE | 예 |
 | SELECT | 예 |
-| SELECT(IF CONDITION이 있는 경량 트랜잭션)| 예 |
 | UPDATE | 예 |
-| UPDATE(IF CONDITION이 있는 경량 트랜잭션)| 예 |
 | TRUNCATE | 예 |
 | USE | 예 |
+
+## <a name="lightweight-transactions-lwt"></a>경량 트랜잭션(LWT)
+
+| 구성 요소  |지원됨 |
+|---------|---------|
+| 존재하는 경우 삭제 | 예 |
+| 삭제 조건 | 아니요 |
+| 없는 경우 삽입 | 예 |
+| 존재하는 경우 업데이트 | 예 |
+| 없는 경우 업데이트 | Yes |
+| 업데이트 조건 | 아니요 |
 
 ## <a name="cql-shell-commands"></a>CQL Shell 명령
 
@@ -202,7 +210,7 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | 페이징 | Yes |
 | 직렬 일관성 * | 해당 없음 |
 | 표시 | Yes |
-| 원본 | Yes |
+| 원본 | 예 |
 | 추적 | 해당 없음(Cassandra API는 Azure Cosmos DB에 의해 지원됨 - 문제 해결을 위해 [진단 로깅](cosmosdb-monitor-resource-logs.md) 사용) |
 
 > [!NOTE] 

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 12e6aa85f7d8c2c4aebe80efc92f771917e6a1d5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f8664886203e32baadda5cdf993fbaf7b2a62ed7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746015"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99821843"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플
 이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](../platform/log-analytics-agent.md) 및 [진단 확장](../platform/diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "96746015"
 
 ## <a name="create-association-with-azure-vm"></a>Azure VM을 사용하여 연결 만들기
 
-다음 샘플에서는 Windows Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다. Azure 가상 머신과 데이터 수집 규칙 간에 연결이 생성됩니다.
+다음 샘플에서는 Azure 가상 머신과 데이터 수집 규칙 간에 연결을 만듭니다.
 
 ### <a name="template-file"></a>템플릿 파일
 
@@ -80,9 +80,9 @@ ms.locfileid: "96746015"
 }
 ```
 
-## <a name="create-association-ith-azure-arc"></a>Azure Arc를 사용하여 연결 만들기
+## <a name="create-association-with-azure-arc"></a>Azure Arc를 사용하여 연결 만들기
 
-다음 샘플에서는 Windows Azure 가상 머신에 Azure Monitor 에이전트를 설치합니다. Azure Arc 지원 서버 머신과 데이터 수집 규칙 간에 연결이 생성됩니다.
+다음 샘플에서는 Azure Arc 사용 서버와 데이터 수집 규칙 간에 연결을 만듭니다.
 
 ### <a name="template-file"></a>템플릿 파일
 

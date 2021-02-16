@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 77ed71d74e75abfdf7f84aee9b116f1d9d2ccc9d
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: f42db48e0fa0e85d919d6894e5476b7ef5380698
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985861"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99821646"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -124,7 +124,7 @@ Azure AD 관리자를 설정하려면,
     ![Active Directory 선택](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > 이 작업을 수행하려면 "회사 관리자" 또는 "글로벌 관리자"여야 합니다.
+    > 이 작업을 수행하려면 “전역 관리자”여야 합니다.
 
 1. **관리자 추가** 페이지에서 AD 사용자 또는 그룹을 검색하여 선택한 다음, **선택** 을 선택합니다. Active Directory의 모든 멤버와 그룹이 나열되며, 회색으로 표시된 항목은 Azure AD 관리자로 지원되지 않습니다. [Azure AD 기능 및 제한 사항](authentication-aad-overview.md#azure-ad-features-and-limitations)을 참조하세요.
 

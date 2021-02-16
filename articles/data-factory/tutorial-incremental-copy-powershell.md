@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 테이블 증분 복사
-description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터를 증분 복사하는 Azure 데이터 팩터리 파이프라인을 만듭니다.'
+description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터를 증분 복사하는 Azure Data Factory 파이프라인을 만듭니다.'
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 65a2d06acc3461d881ad6f100f3720b217ef7634
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510212"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222822"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>PowerShell을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-이 자습서에서는 Azure SQL Database의 테이블에서 Azure Blob 스토리지로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
+이 자습서에서는 Azure Data Factory를 사용하여 Azure SQL Database의 테이블에서 Azure Blob 스토리지로 델타 데이터를 로드하는 파이프라인을 만듭니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 

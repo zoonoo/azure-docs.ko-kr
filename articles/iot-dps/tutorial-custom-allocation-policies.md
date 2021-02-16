@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966669"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99822444"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>자습서: DPS(Device Provisioning Service)에서 사용자 지정 할당 정책 사용
 
@@ -347,7 +347,7 @@ contoso-heatpump-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. `main()` 함수에서 `Prov_Device_Register_Device()`에 대한 호출을 찾습니다. 해당 호출 직전에 [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload)를 사용하는 다음 코드 줄을 추가하여 프로비저닝 중에 사용자 지정 JSON 페이로드를 전달합니다. 사용자 지정 할당 함수에 더 많은 정보를 제공하는 데 사용할 수 있습니다. 등록 ID를 검사하는 대신 디바이스 유형을 전달하는 데에도 사용할 수 있습니다.
+6. `main()` 함수에서 `Prov_Device_Register_Device()`에 대한 호출을 찾습니다. 해당 호출 직전에 [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload)를 사용하는 다음 코드 줄을 추가하여 프로비저닝 중에 사용자 지정 JSON 페이로드를 전달합니다. 사용자 지정 할당 함수에 더 많은 정보를 제공하는 데 사용할 수 있습니다. 등록 ID를 검사하는 대신 디바이스 유형을 전달하는 데에도 사용할 수 있습니다. DPS를 사용하여 사용자 지정 데이터 페이로드를 보내고 받는 방법에 대한 자세한 내용은 [디바이스와 DPS 간에 페이로드를 전송하는 방법](how-to-send-additional-data.md)을 참조하세요.
 
     ```c
     // An example custom payload

@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b45e1fbaf912cc045ba51a79db434baecbabdf43
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608268"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096347"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -309,17 +309,20 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 - 구성된 사용자 지정 도메인에 A 레코드 또는 CNAME 레코드가 없습니다.
 - 브라우저 클라이언트가 도메인의 이전 IP 주소를 캐시했습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 `ipconfig /flushdns`로 지웁니다.
 
-<a name="virtualdir" aria-hidden="true"></a>
-
 ## <a name="migrate-an-active-domain"></a>활성 도메인 마이그레이션
 
 라이브 사이트 및 해당 DNS 도메인 이름을 가동 중지 시간 없이 App Service로 마이그레이션하려면 [활성 DNS 이름을 Azure App Service로 마이그레이션](manage-custom-dns-migrate-domain.md)을 참조하세요.
+
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="redirect-to-a-custom-directory"></a>사용자 지정 디렉터리로 리디렉션
 
 App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. 그러나 특정 웹 프레임워크는 루트 디렉터리에서 시작하지 않습니다. 예를 들어 [Laravel](https://laravel.com/)은 `public` 하위 디렉터리에서 시작합니다. `contoso.com` DNS 예제를 계속하려면 그러한 앱은 `http://contoso.com/public`에서 액세스할 수도 있지만, 대신 `http://contoso.com`을 `public` 디렉터리로 전달할 수 있습니다. 이 단계는 DNS 확인을 포함하지는 않으나, 가상 디렉터리를 사용자 지정합니다.
 
-가상 디렉터리를 사용자 지정하려면 웹앱 페이지의 왼쪽 창에서 **애플리케이션 설정** 을 선택합니다.
+Windows 앱용 가상 디렉터리를 사용자 지정하려면 웹앱 페이지의 왼쪽 창에서 **애플리케이션 설정** 을 선택합니다. 
+
+> [!NOTE]
+> Linux 앱에는 이 페이지가 없습니다. Linux 앱의 사이트 루트를 변경하려면 언어별 구성 가이드(예: [PHP](configure-language-php.md?pivots=platform-linux#change-site-root))를 참조하세요.
 
 페이지의 하단에서 기본적으로 루트 가상 디렉터리`/`는 앱 코드의 루트 디렉터리인 `site\wwwroot`를 가리킵니다. 예를 들어 대신 `site\wwwroot\public`을 가리키도록 변경하고 변경 내용을 저장합니다.
 

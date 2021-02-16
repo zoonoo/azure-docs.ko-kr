@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 22ff95fe5261a839927aa6ad8123ba370710f178
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb552c5a336c3c55652936b87a668b54cfdeb41e
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323093"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99821548"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM의 SAP HANA 데이터베이스 관리
 
@@ -29,10 +29,10 @@ Azure CLI는 명령줄 또는 스크립트를 통해 Azure 리소스를 만들�
 
 [CLI를 사용하여 Azure에서 SAP HANA 데이터베이스 백업](tutorial-sap-hana-backup-cli.md)을 사용하여 SAP HANA 데이터베이스를 백업한 분들은 다음 리소스를 사용 중입니다.
 
-* *saphanaResourceGroup*이라는 이름의 리소스 그룹
-* *saphanaVault*라는 이름의 자격 증명 모음
-* *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM*이라는 이름의 보호된 컨테이너
-* *saphanadatabase;hxe;hxe*이라는 이름의 백업된 데이터베이스/항목
+* *saphanaResourceGroup* 이라는 이름의 리소스 그룹
+* *saphanaVault* 라는 이름의 자격 증명 모음
+* *VMAppContainer;Compute;saphanaResourceGroup;saphanaVM* 이라는 이름의 보호된 컨테이너
+* *saphanadatabase;hxe;hxe* 이라는 이름의 백업된 데이터베이스/항목
 * *westus2* Azure 지역의 리소스
 
 Azure CLI를 사용하면 Azure Backup을 통해 백업되어 Azure VM에서 실행되고 있는 SAP HANA 데이터베이스를 간편하게 관리할 수 있습니다. 이 자습서에서는 각 관리 작업을 자세히 설명합니다.
@@ -60,7 +60,7 @@ F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hx
 
 ## <a name="change-policy"></a>정책 변경
 
-SAP HANA 백업 구성을 기반으로 하는 정책을 변경하려면 [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) cmdlet을 사용합니다. 이 cmdlet의 name 매개 변수는 우리가 정책을 변경하려는 백업 항목을 참조합니다. 이 자습서에서는 SAP HANA 데이터베이스 *saphanadatabase;hxe;hxe*의 정책을 새 정책 *newsaphanaPolicy*로 바꿀 것입니다. 새 정책은 [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet을 사용하여 만들 수 있습니다.
+SAP HANA 백업 구성을 기반으로 하는 정책을 변경하려면 [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) cmdlet을 사용합니다. 이 cmdlet의 name 매개 변수는 우리가 정책을 변경하려는 백업 항목을 참조합니다. 이 자습서에서는 SAP HANA 데이터베이스 *saphanadatabase;hxe;hxe* 의 정책을 새 정책 *newsaphanaPolicy* 로 바꿀 것입니다. 새 정책은 [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet을 사용하여 만들 수 있습니다.
 
 ```azurecli-interactive
 az backup item set policy --resource-group saphanaResourceGroup \
@@ -76,6 +76,224 @@ az backup item set policy --resource-group saphanaResourceGroup \
 Name                                  Resource Group
 ------------------------------------- --------------
 cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
+```
+
+## <a name="create-incremental-backup-policy"></a>증분 백업 정책 만들기
+
+증분 백업 정책을 만들려면 다음 매개 변수를 사용하여 [az backup policy create](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_create) 명령을 실행합니다.
+
+* **--backup-management-type** – Azure 워크로드
+* **--workload-type** - SAPHana
+* **--name** – 정책 이름
+* **--policy** - 일정 및 보존에 대한 적절한 세부 정보가 포함된 JSON 파일
+* **--resource-group** - 자격 증명 모음의 리소스 그룹
+* **--vault-name** – 자격 증명 모음의 이름
+
+예제:
+
+```azurecli
+az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
+```
+
+샘플 JSON(sappolicy.json) 출력:
+
+```json
+  "eTag": null,
+  "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
+  "location": null,
+  "name": "sappolicy",
+  "properties": {
+    "backupManagementType": "AzureWorkload",
+    "makePolicyConsistent": null,
+    "protectedItemsCount": 0,
+    "settings": {
+      "isCompression": false,
+      "issqlcompression": false,
+      "timeZone": "UTC"
+    },
+    "subProtectionPolicy": [
+      {
+        "policyType": "Full",
+        "retentionPolicy": {
+          "dailySchedule": null,
+          "monthlySchedule": {
+            "retentionDuration": {
+              "count": 60,
+              "durationType": "Months"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "retentionPolicyType": "LongTermRetentionPolicy",
+          "weeklySchedule": {
+            "daysOfTheWeek": [
+              "Sunday"
+            ],
+            "retentionDuration": {
+              "count": 104,
+              "durationType": "Weeks"
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          },
+          "yearlySchedule": {
+            "monthsOfYear": [
+              "January"
+            ],
+            "retentionDuration": {
+              "count": 10,
+              "durationType": "Years"
+            },
+            "retentionScheduleDaily": null,
+            "retentionScheduleFormatType": "Weekly",
+            "retentionScheduleWeekly": {
+              "daysOfTheWeek": [
+                "Sunday"
+              ],
+              "weeksOfTheMonth": [
+                "First"
+              ]
+            },
+            "retentionTimes": [
+              "2021-01-19T00:30:00+00:00"
+            ]
+          }
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Sunday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2021-01-19T00:30:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Incremental",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 30,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "schedulePolicyType": "SimpleSchedulePolicy",
+          "scheduleRunDays": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "scheduleRunFrequency": "Weekly",
+          "scheduleRunTimes": [
+            "2017-03-07T02:00:00+00:00"
+          ],
+          "scheduleWeeklyFrequency": 0
+        }
+      },
+      {
+        "policyType": "Log",
+        "retentionPolicy": {
+          "retentionDuration": {
+            "count": 15,
+            "durationType": "Days"
+          },
+          "retentionPolicyType": "SimpleRetentionPolicy"
+        },
+        "schedulePolicy": {
+          "scheduleFrequencyInMins": 120,
+          "schedulePolicyType": "LogSchedulePolicy"
+        }
+      }
+    ],
+    "workLoadType": "SAPHanaDatabase"
+  },
+  "resourceGroup": "azurefiles",
+  "tags": null,
+  "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
+} 
+```
+
+정책의 다음 섹션을 수정하여 증분 백업에 대해 원하는 백업 빈도 및 보존 기간을 지정할 수 있습니다.
+
+다음은 그 예입니다.
+
+```json
+{
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 30,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
+```
+
+예제:
+
+토요일에만 증분 백업을 사용하도록 설정하고 60일 동안 보존하려면 정책을 다음과 같이 변경합니다.
+
+* **retentionDuration** 카운트를 60일로 업데이트
+* 토요일만 **ScheduleRunDays** 로 지정
+
+```json
+ {
+  "policyType": "Incremental",
+  "retentionPolicy": {
+    "retentionDuration": {
+      "count": 60,
+      "durationType": "Days"
+    },
+    "retentionPolicyType": "SimpleRetentionPolicy"
+  },
+  "schedulePolicy": {
+    "schedulePolicyType": "SimpleSchedulePolicy",
+    "scheduleRunDays": [
+      "Saturday"
+    ],
+    "scheduleRunFrequency": "Weekly",
+    "scheduleRunTimes": [
+      "2017-03-07T02:00:00+00:00"
+    ],
+    "scheduleWeeklyFrequency": 0
+  }
+}
 ```
 
 ## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>SAP HANA 인스턴스에 추가된 새 데이터베이스 보호

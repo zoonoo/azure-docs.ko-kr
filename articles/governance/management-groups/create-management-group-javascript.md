@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: JavaScript를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 JavaScript를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 11/18/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: c1b800f150cebacf8d17785feb1bded5189f1574
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886603"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099152"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>빠른 시작: JavaScript를 사용하여 관리 그룹 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "94886603"
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-- 시작하기 전에, [Node.js](https://nodejs.org/) 12 이상 버전이 설치되어 있는지 확인합니다.
+- 시작하기 전에 [Node.js](https://nodejs.org/) 12 이상 버전이 설치되어 있는지 확인합니다.
 
 - 테넌트의 모든 Azure AD 사용자는 [계층 구조 보호](./how-to/protect-resource-hierarchy.md#setting---require-authorization)가 활성화되지 않은 경우 해당 사용자에게 할당된 관리 그룹 쓰기 권한 없이 관리 그룹을 만들 수 있습니다. 이 새 관리 그룹은 루트 관리 그룹 또는 [기본 관리 그룹](./how-to/protect-resource-hierarchy.md#setting---default-management-group)의 자식이 되며 작성자에게 "소유자" 역할 할당이 부여됩니다. 관리 그룹 서비스는 이 기능을 허용하므로 루트 수준에서 역할 할당이 필요하지 않습니다. 루트 관리 그룹이 생성될 때 사용자는 액세스할 수 있는 권한이 없습니다. 관리 그룹 사용을 시작하기 위해 Azure AD 전역 관리자를 찾는 장애물을 방지하기 위해 루트 수준에서 초기 관리 그룹을 만들 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "94886603"
 
 ## <a name="application-setup"></a>애플리케이션 설정
 
-JavaScript에서 Azure Resource Graph를 쿼리하도록 설정하려면 환경을 설정해야 합니다. 이 설정은 [Windows 10의 bash](/windows/wsl/install-win10)를 비롯하여 JavaScript를 사용할 수 있는 모든 위치에서 작동합니다.
+관리 그룹을 관리할 수 있도록 JavaScript를 활성화하려면 환경을 설정해야 합니다. 이 설정은 [Windows 10의 bash](/windows/wsl/install-win10)를 비롯하여 JavaScript를 사용할 수 있는 모든 위치에서 작동합니다.
 
 1. 다음 명령을 실행하여 새 Node.js 프로젝트를 설정합니다.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: c4c7d021c7c3a5a32d537a50fa45449fdee7e817
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 105353598a2af60c407bacf02b4527b2de84e450
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979932"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99821339"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>자습서: Angular 단일 페이지 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -271,7 +271,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용해야 하는 경우가 가끔 있습니다. 다음은 그 예입니다.
+사용자가 Microsoft ID 플랫폼과 상호 작용해야 하는 경우가 있습니다. 다음은 그 예입니다.
 
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
@@ -279,7 +279,7 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 대부분의 애플리케이션에 권장되는 패턴은 먼저 `acquireTokenSilent`를 호출하고 예외를 catch한 다음, `acquireTokenPopup`(또는 `acquireTokenRedirect`)을 호출하여 대화형 요청을 시작하는 것입니다.
 
-`acquireTokenPopup`을 호출하면 팝업 로그인 창이 나타납니다. 또는 `acquireTokenRedirect`가 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션합니다. 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 완료해야 합니다.
+`acquireTokenPopup`을 호출하면 팝업 로그인 창이 나타납니다. 또는 `acquireTokenRedirect`가 사용자를 Microsoft ID 플랫폼으로 리디렉션합니다. 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 완료해야 합니다.
 
 ```javascript
   const requestObj = {

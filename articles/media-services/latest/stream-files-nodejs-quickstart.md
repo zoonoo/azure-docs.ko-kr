@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용한 비디오 파일 스트림 - Node.js | Microsoft Docs
+title: Azure Media Services를 사용하여 비디오 파일 스트리밍 - Node.js
 description: 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 38207ac47d2e58c689f1933a6ade6d5c86cd44ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711db5135345fd9b69da9aaea5bc4dbb929d27c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268675"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99822200"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Node.js
 
@@ -54,18 +54,18 @@ ms.locfileid: "91268675"
 
 샘플은 다음 작업을 수행합니다.
 
-1. **변환**을 만듭니다(먼저 지정된 변환이 있는지 확인합니다). 
-2. 인코딩 **작업**의 출력으로 사용되는 출력 **자산**을 만듭니다.
-3. HTTPS URL을 기반으로 하는 **작업**의 입력을 만듭니다.
-4. 앞서 만든 입력 및 출력을 사용하여 인코딩 **작업**을 제출합니다.
+1. **변환** 을 만듭니다(먼저 지정된 변환이 있는지 확인합니다). 
+2. 인코딩 **작업** 의 출력으로 사용되는 출력 **자산** 을 만듭니다.
+3. HTTPS URL을 기반으로 하는 **작업** 의 입력을 만듭니다.
+4. 앞서 만든 입력 및 출력을 사용하여 인코딩 **작업** 을 제출합니다.
 5. 작업의 상태를 확인합니다.
-6. **스트리밍 로케이터**를 만듭니다.
+6. **스트리밍 로케이터** 를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
 ## <a name="run-the-sample-app"></a>샘플 앱 실행
 
 1. 앱에서 인코딩된 파일이 다운로드됩니다. 출력 파일을 배치할 폴더를 만들고 [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L39) 파일에서 **outputFolder** 변수의 값을 업데이트합니다.
-1. **명령 프롬프트**를 열고 샘플 디렉터리로 이동하여 다음 명령을 실행합니다.
+1. **명령 프롬프트** 를 열고 샘플 디렉터리로 이동하여 다음 명령을 실행합니다.
 
     ```
     npm install 
@@ -87,7 +87,7 @@ ms.locfileid: "91268675"
 2. 애플리케이션을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
  
      URL을 HLS, Dash 또는 부드러운 스트리밍 형식으로 붙여넣을 수 있으며, Azure Media Player는 디바이스에서 재생하기 위한 적절한 스트리밍 프로토콜로 자동으로 전환합니다.
-3. **플레이어 업데이트**를 누릅니다.
+3. **플레이어 업데이트** 를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
 

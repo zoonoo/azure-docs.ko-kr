@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
 ms.custom: mvc
-ms.openlocfilehash: beab87618b97da4e61b0525c0c5a6bdd134fb7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ce290f8ed5e8ad919a253d426d3278233caa3f
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86169445"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99822194"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 
@@ -40,7 +40,7 @@ ms.locfileid: "86169445"
 | [스토리지 계정에 앱 연결](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| App Service 앱 및 스토리지 계정을 만든 다음, 앱 설정에 스토리지 연결 문자열을 추가합니다. |
 | [Azure Cache for Redis에 앱 연결](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱 및 Azure Cache for Redis를 만든 다음, Redis 연결 세부 정보를 앱 설정에 추가합니다.) |
 | [Cosmos DB에 앱 연결](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱 및 Cosmos DB를 만든 다음, 앱 설정에 Cosmos DB 연결 세부 정보를 추가합니다. |
-|**백업 및 복원 앱**||
+|**앱 백업 및 복원**||
 | [앱 백업](./scripts/cli-backup-onetime.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 이에 대한 일회성 백업을 만듭니다. |
 | [앱에 대한 예약된 백업 만들기](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | App Service 앱을 만들고 이에 대한 예약된 백업을 만듭니다. |
 | [백업으로 앱 복원](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | 백업에서 App Service 앱을 복원합니다. |

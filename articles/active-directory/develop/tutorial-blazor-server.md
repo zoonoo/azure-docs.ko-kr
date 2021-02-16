@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: d499a0e7d3ca7933632b52d5edbd8094a29dbcaa
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 5a631d9ae7a7d1792e3c4e4a2cbf8281e1168283
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979898"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99822137"
 ---
 # <a name="tutorial-create-a-blazor-server-app-that-uses-the-microsoft-identity-platform-for-authentication"></a>자습서: 인증을 위해 Microsoft ID 플랫폼을 사용하는 Blazor Server 앱 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "94979898"
 - **지원되는 계정 유형** 의 경우 **이 조직 디렉터리 계정의 계정만** 을 선택합니다.
 - **리디렉션 URI** 드롭다운 세트를 **웹** 으로 두고 `https://localhost:5001/signin-oidc`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
 
-**인증** > **암시적 부여** 에서 **액세스 토큰** 및 **ID 토큰** 에 대한 확인란을 선택한 다음, **저장** 단추를 선택합니다.
+**관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **액세스 토큰** 및 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 
 마지막으로 앱이 보호된 API(이 경우 Microsoft Graph)를 호출하기 때문에 해당 API를 호출하는 액세스 토큰을 요청할 때 해당 ID를 확인하기 위해 클라이언트 암호가 필요합니다.
 
@@ -71,7 +71,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-i
 이제 편집기에서 새 Blazor 앱으로 이동하고 클라이언트 암호를 *appsettings.json* 파일에 추가하여 “secret-from-app-registration” 텍스트를 바꿉니다.
 
 ```json
-"ClientSecret": "xkAlNiG70000000_UI~d.OS4Dl.-Cy-1m3",
+"ClientSecret": "secret-from-app-registration",
 ```
 
 ## <a name="test-the-app"></a>앱 테스트

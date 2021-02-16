@@ -10,15 +10,15 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: a93ac3b5d988be33c0f27726a75b1006f990d1da
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886104"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820010"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
-
+ 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services를 시작합니다. Communication Services 리소스는 Azure Portal 또는 .NET 관리 클라이언트 라이브러리를 통해 프로비저닝될 수 있습니다. 관리 클라이언트 라이브러리를 사용하면 리소스를 만들고, 구성, 업데이트 및 삭제하고 Azure의 배포 및 관리 서비스인 [Azure Resource Manager](../../azure-resource-manager/management/overview.md)와 상호 연결할 수 있습니다. 클라이언트 라이브러리에서 사용할 수 있는 모든 기능은 Azure Portal에서 사용할 수 있습니다. 
@@ -28,6 +28,10 @@ ms.locfileid: "94886104"
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
+::: zone-end
+
+::: zone pivot="platform-azcli"
+[!INCLUDE [Azure CLI](./includes/create-resource-azcli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
@@ -41,6 +45,14 @@ ms.locfileid: "94886104"
 Communication Services 리소스로 이동한 후 탐색 메뉴에서 **키** 를 선택하고 Communication Services 클라이언트 라이브러리의 사용에 대한 **연결 문자열** 또는 **엔드포인트** 값을 복사합니다. 기본 키와 보조 키에 대한 액세스 권한이 있는지 확인합니다. 이는 타사 또는 스테이징 환경에 Communication Services 리소스에 대한 임시 액세스를 제공하려는 시나리오에서 유용할 수 있습니다.
 
 :::image type="content" source="./media/key.png" alt-text="Communication Services 키 페이지의 스크린샷.":::
+
+Azure CLI를 사용하여 주요 정보에 액세스할 수도 있습니다.
+
+```azurecli
+az communication list --resource-group "<resourceGroup>"    
+
+az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
+```
 
 ## <a name="store-your-connection-string"></a>연결 문자열 저장
 

@@ -7,21 +7,19 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: fbafed60019005fe2d81c96fb9557e3c307669ac
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233766"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834038"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
 
 ## <a name="update-january-2021"></a>업데이트(2021년 1월)
--  이제 Azure Portal을 통해 사용 가능한 Azure Migrate 서버 마이그레이션(에이전트 없는 복제)을 사용하여 플랫폼 관리 및 CMK(고객 관리형 키)에서 이중 암호화를 사용하여 암호화된 디스크로 VMware VM을 Azure 가상 머신으로 마이그레이션할 수 있습니다.
-- 이제 Azure Portal을 통해 사용 가능한 Azure Migrate 서버 마이그레이션(에이전트 기반 복제)을 사용하여 CMK(고객 관리형 키)에서 SSE(서버 쪽 암호화), 플랫폼 관리 및 고객 관리형 키를 사용하여 이중 암호화된 디스크로 VMware VM을 Azure 가상 머신으로 마이그레이션할 수 있습니다.
-- 이제 Azure Portal을 통해 사용 가능한 Azure Migrate 서버 마이그레이션(에이전트 기반 복제)을 사용하여 CMK(고객 관리형 키)에서 SSE(서버 쪽 암호화), 플랫폼 관리 및 고객 관리형 키를 사용하여 이중 암호화된 디스크로 AWS 및 GCP와 같은 다른 클라우드에서 물리적 서버 및 VM을 Azure 가상 머신으로 마이그레이션할 수 있습니다.
+-  Azure Migrate: 이제 서버 마이그레이션 도구를 사용하면 CMK(고객 관리형 키)를 통해 서버 쪽 암호화로 암호화된 디스크를 사용하여 VMware 가상 머신, 물리적 서버 및 가상 머신을 다른 클라우드에서 Azure 가상 머신으로 마이그레이션할 수 있습니다.
 
 ## <a name="update-december-2020"></a>업데이트(2020년 12월)
 - 이제 Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하여 Azure로 마이그레이션하는 동안 VMware VM에 Azure VM 에이전트를 자동으로 설치합니다.

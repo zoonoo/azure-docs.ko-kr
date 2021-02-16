@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: a0266e62af55f6d775ca1b1ae5ee31d5f10d4249
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a216e39ca32b16de405c7924d08da52c6eae4c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459988"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821471"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>자습서: Azure Active Directory와 Sage Intacct 통합
 
@@ -26,9 +26,7 @@ ms.locfileid: "92459988"
 * 사용자가 자신의 Azure AD 계정으로 Sage Intacct에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -40,13 +38,12 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * Sage Intacct는 **IDP** 시작 SSO를 지원합니다.
-* Sage Intacct가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sage-intacct-from-the-gallery"></a>갤러리에서 Sage Intacct 추가
 
 Sage Intacct의 Azure AD 통합을 구성하려면 갤러리의 Sage Intacct를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -57,7 +54,7 @@ Sage Intacct의 Azure AD 통합을 구성하려면 갤러리의 Sage Intacct를 
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Sage Intacct에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Sage Intacct의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Sage Intacct에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Sage Intacct에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
@@ -70,9 +67,9 @@ Sage Intacct에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Sage Intacct** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Sage Intacct** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -117,7 +114,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -132,15 +129,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Sage Intacct** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-sage-intacct-sso"></a>Sage Intacct SSO 구성
@@ -191,7 +182,7 @@ Azure AD 사용자가 Sage Intacct에 로그인할 수 있도록 설정하려면
 
     ![스크린샷은 이 단계에서 정보를 입력할 수 있는 사용자 정보 섹션을 보여줍니다.](./media/intacct-tutorial/ic790043.png "사용자 정보")
 
-    a. **사용자 정보** 섹션으로 프로비전하려는 Azure AD 계정의 **사용자 ID** , **성** , **이름** , **전자 메일 주소** , **직함** 및 **전화 번호** 를 입력합니다.
+    a. **사용자 정보** 섹션으로 프로비전하려는 Azure AD 계정의 **사용자 ID**, **성**, **이름**, **전자 메일 주소**, **직함** 및 **전화 번호** 를 입력합니다.
 
     > [!NOTE]
     > 위 스크린샷의 **사용자 ID** 와 Azure Portal의 **사용자 특성** 섹션에 있는 **이름** 특성과 매핑되는 **원본 특성** 값이 동일해야 합니다.
@@ -211,16 +202,13 @@ Azure AD 사용자가 Sage Intacct에 로그인할 수 있도록 설정하려면
 
 ## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Sage Intacct 타일을 클릭하면 SSO를 설정한 Sage Intacct에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Sage Intacct에 자동으로 로그인됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Sage Intacct 타일을 클릭하면 SSO를 설정한 Sage Intacct에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+Sage Intacct가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

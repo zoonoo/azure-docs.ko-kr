@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub의 수동 장애 조치 | Microsoft Docs
-description: IoT 허브의 수동 장애 조치(failover)를 다른 지역으로 수행하고 작동하는지 확인한 다음, 원래 지역으로 돌아가서 다시 확인하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure IoT Hub의 수동 장애 조치(failover) | Microsoft Docs
+description: 자습서 - IoT 허브의 수동 장애 조치(failover)를 다른 지역으로 수행하고 작동하는지 확인한 다음, 원래 지역으로 돌아가서 다시 확인하는 방법에 대해 알아봅니다.
 author: robinsh
 manager: timlt
 ms.service: iot-hub
@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6bc972f5c26c78ffff81f5bab8c2812cf2cb11
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013948"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821564"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
@@ -43,7 +43,7 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **+ 리소스 만들기**를 클릭하고, **사물 인터넷**을 선택한 다음, **IoT Hub**를 선택합니다.
+2. **+ 리소스 만들기** 를 클릭하고, **사물 인터넷** 을 선택한 다음, **IoT Hub** 를 선택합니다.
 
    ![IoT Hub를 만드는 방법을 보여주는 스크린샷](./media/tutorial-manual-failover/create-hub-01.png)
 
@@ -51,7 +51,7 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 
     **구독**: 사용할 Azure 구독을 선택합니다.
 
-    **리소스 그룹**: **새로 만들기**를 클릭하고, 리소스 그룹 이름에 **ManlFailRG**를 지정합니다.
+    **리소스 그룹**: **새로 만들기** 를 클릭하고, 리소스 그룹 이름에 **ManlFailRG** 를 지정합니다.
 
     **지역**: 가까운 지역을 선택합니다. 이 자습서에서는 `West US 2`를 사용합니다. Azure 지역 쌍을 이루는 지역 간에서만 장애 조치를 수행할 수 있습니다. 미국 서부 2를 사용하는 지역 쌍을 이루는 지역은 WestCentralUS입니다.
     
@@ -59,9 +59,9 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 
    ![IoT Hub를 만드는 기본 사항 창을 보여주는 스크린샷](./media/tutorial-manual-failover/create-hub-02-basics.png)
 
-   **검토 + 만들기**를 클릭합니다. (크기 및 규모에 대해 기본값을 사용합니다.) 
+   **검토 + 만들기** 를 클릭합니다. (크기 및 규모에 대해 기본값을 사용합니다.) 
 
-4. 요약을 검토한 다음, **만들기**를 클릭하여 IoT Hub를 만듭니다. 
+4. 요약을 검토한 다음, **만들기** 를 클릭하여 IoT Hub를 만듭니다. 
 
    ![IoT Hub를 만드는 마지막 단계를 보여주는 스크린샷](./media/tutorial-manual-failover/create-hub-03-create.png)
 
@@ -69,17 +69,17 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 
 IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 복구가 발생합니다.
 
-1. **리소스 그룹**을 클릭한 다음, 리소스 그룹 **ManlFailRG**를 선택합니다. 리소스 목록에서 허브를 클릭합니다. 
+1. **리소스 그룹** 을 클릭한 다음, 리소스 그룹 **ManlFailRG** 를 선택합니다. 리소스 목록에서 허브를 클릭합니다. 
 
-1. IoT Hub 창의 **설정**에서 **장애 조치(Failover)** 를 클릭합니다.
+1. IoT Hub 창의 **설정** 에서 **장애 조치(Failover)** 를 클릭합니다.
 
    ![IoT Hub 속성 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치**가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
+1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치** 가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
 
    ![수동 장애 조치 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-1. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작**을 클릭합니다. 
+1. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작** 을 클릭합니다. 
 
 1. 확인 창에서 장애 조치할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 조치(failover)를 시작하려면 **장애 조치(failover)** 를 클릭합니다.
 
@@ -112,9 +112,9 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
 1. 장애 복구를 수행하려면 Iot Hub에 대한 Iot Hub 창으로 돌아갑니다.
 
-2. IoT Hub 창의 **설정**에서 **장애 조치(Failover)** 를 클릭합니다. 
+2. IoT Hub 창의 **설정** 에서 **장애 조치(Failover)** 를 클릭합니다. 
 
-3. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작**을 클릭합니다. 
+3. 수동 장애 조치(failover) 창의 맨 위에서 **장애 조치(failover) 시작** 을 클릭합니다. 
 
 4. 확인 창에서 장애 복구(failback)할 항목이 있는지 확인하려는 IoT Hub의 이름을 입력합니다. 그런 다음, 장애 복구를 시작하려면 확인을 클릭합니다. 
 
@@ -126,11 +126,11 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
 이 자습서에서 만든 리소스를 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우에 IoT Hub 및 리소스 그룹 자체가 제거됩니다. 
 
-1. **리소스 그룹**을 클릭합니다. 
+1. **리소스 그룹** 을 클릭합니다. 
 
-2. 리소스 그룹 **ManlFailRG**를 찾고 선택합니다. 클릭하여 엽니다. 
+2. 리소스 그룹 **ManlFailRG** 를 찾고 선택합니다. 클릭하여 엽니다. 
 
-3. **리소스 그룹 삭제**를 클릭합니다. 메시지가 표시되면 리소스 그룹의 이름을 입력하고 **삭제**를 클릭하여 확인합니다. 
+3. **리소스 그룹 삭제** 를 클릭합니다. 메시지가 표시되면 리소스 그룹의 이름을 입력하고 **삭제** 를 클릭하여 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

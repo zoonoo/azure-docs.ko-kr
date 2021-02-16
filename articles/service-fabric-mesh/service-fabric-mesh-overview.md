@@ -5,14 +5,19 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 10/1/2018
 ms.topic: overview
-ms.openlocfilehash: 32e855ef1580dd065ee681e635994064a9038f77
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 64880a9ac3d6d48ce6d39d0b3a7a3aff6587f328
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840271"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626980"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh란?
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 비디오에서는 Service Fabric Mesh에 대한 개요를 빠르게 제공합니다.
 > [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]

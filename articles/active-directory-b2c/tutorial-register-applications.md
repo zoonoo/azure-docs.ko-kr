@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953052"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821222"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     리디렉션 URI에는 다음 제한 사항이 적용됩니다.
 
-    * `localhost`를 사용하지 않는 경우 회신 URL은 `https` 스키마로 시작해야 합니다.
+    * `localhost`를 사용하지 않는 이상, 회신 URL은 `https` 스키마로 시작해야 합니다.
     * 회신 URL은 대/소문자를 구분합니다. 해당 사례는 실행 중인 애플리케이션의 URL 경로에 대한 대/소문자와 일치해야 합니다. 예를 들어 애플리케이션의 경로 `.../abc/response-oidc`의 일부로 포함하는 경우 회신 URL에 `.../ABC/response-oidc`를 지정하지 마세요. 웹 브라우저는 경로를 대/소문자 구분하여 처리하므로 `.../abc/response-oidc`와 연결된 쿠키는 대/소문자가 일치하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외될 수 있습니다.
 
 1. **만들기** 를 선택하여 애플리케이션 등록을 완료합니다.
@@ -98,6 +98,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **저장** 을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
 
 * * *
+
+## <a name="enable-id-token-implicit-grant"></a>ID 토큰 암시적 허용 사용
+
+암시적 허용의 정의 특성은 ID 및 액세스 토큰과 같은 토큰이 Azure AD B2C에서 애플리케이션으로 직접 반환된다는 것입니다. 권한 부여 엔드포인트에서 직접 ID 토큰을 요청하는 ASP.NET Core 웹앱 및 [https://jwt.ms](https://jwt.ms)와 같은 웹앱의 경우 앱 등록에서 암시적 허용 흐름을 사용하도록 설정합니다.
+
+1. 왼쪽 메뉴의 **관리** 아래에서 **인증** 을 선택합니다.
+1. 암시적 허용에서 **액세스 토큰** 및 **ID 토큰** 확인란을 둘 다 선택합니다.
+1. **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

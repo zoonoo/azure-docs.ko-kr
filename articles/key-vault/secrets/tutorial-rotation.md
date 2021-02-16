@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 61e1e729ab0aeac1f7b8e5ee6787da38c5fef108
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 526c3d2d85a3f2877f82b3b764f395c51f7c05c0
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020148"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99822540"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -45,7 +45,7 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmain%2FARM-Templates%2FInitial-Setup%2Fazuredeploy.json)
 
-1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 **akvrotation** 로 지정합니다.
+1. **리소스 그룹** 에서 **새로 만들기** 를 선택합니다. 그룹 이름을 지정합니다. 이 자습서에서는 **akvrotation** 을 사용합니다.
 1. **Sql 관리자 로그인** 에서 Sql 관리자 로그인 이름을 입력합니다. 
 1. **검토 + 만들기** 를 선택합니다.
 1. **만들기**
@@ -213,7 +213,7 @@ az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "S
 
 비밀이 순환되었는지 확인하려면 **Key Vault** > **비밀** 로 이동합니다.
 
-:::image type="content" source="../media/rotate-8.png" alt-text="비밀로 이동":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Key Vault > 비밀에 액세스하는 방법을 보여주는 스크린샷.":::
 
 **sqlPassword** 비밀을 열고, 원래 버전과 순환된 버전을 확인합니다.
 

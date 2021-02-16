@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/27/2020
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 531b22122ff19eb3653400cd7e5d06e2162e0365
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 7ee22121fd023f3942eed64bd605bf87b961d893
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045141"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99821895"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -40,7 +40,7 @@ ms.locfileid: "98045141"
 
 * Tableau Server는 **SP** 시작 SSO를 지원합니다.
 
-## <a name="adding-tableau-server-from-the-gallery"></a>갤러리에서 Tableau Server 추가
+## <a name="add-tableau-server-from-the-gallery"></a>갤러리에서 Tableau Server 추가
 
 Tableau Server의 Azure AD 통합을 구성하려면 갤러리의 Tableau Server를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -83,7 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **회신 URL** 텍스트 상자에서 `https://azure.<domain name>.link/wg/saml/SSO/index.html` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 위의 값은 실제 값이 아닙니다. 이 자습서에서 나중에 설명하겠지만, 이 값을 Tableau Server 구성 페이지의 실제 URL과 식별자로 업데이트합니다.
+    > 위의 값은 실제 값이 아닙니다. 이 자습서의 뒷부분에서 설명하는 Tableau Server 구성 페이지에서 실제 로그온, 식별자 및 회신 URL로 값을 업데이트합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -123,11 +123,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. **구성** 탭에서 **사용자 ID 및 액세스** 를 선택한 다음, **인증** 방법 탭을 선택합니다.
 
-    ![스크린샷은 사용자 ID 및 액세스에서 선택한 인증을 보여줍니다.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![스크린샷은 사용자 ID 및 액세스에서 선택한 인증을 보여줍니다.](./media/tableauserver-tutorial/auth.png)
 
 3. **구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 설명된 값을 입력할 수 있는 구성 페이지를 보여줍니다.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![스크린샷은 설명된 값을 입력할 수 있는 구성 페이지를 보여줍니다.](./media/tableauserver-tutorial/config.png)
 
     a. **인증 방법** 은 SAML을 선택합니다.
 
@@ -143,7 +143,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     g. IdP가 사용자 이름, 표시 이름, 이메일 주소를 확보하는 데 사용하는 특성의 이름을 입력합니다.
 
-    h. 페이지 맨 아래에 있는 **저장**
+    h. **저장** 을 클릭합니다.
 
     > [!NOTE]
     > 고객은 확장명이 .crt인 PEM으로 인코딩된 x509 인증서 파일 및 확장명이 .key인 RSA 또는 DSA 프라이빗 키 파일을 인증서 키 파일로 업로드해야 합니다. 인증서 파일 및 인증서 키 파일에 대한 자세한 내용은 [이](https://help.tableau.com/current/server/en-us/saml_requ.htm) 문서를 참조하세요. Tableau Server에서 SAML을 구성하는 데 도움이 필요한 경우 [Server Wide SAML 구성](https://help.tableau.com/current/server/en-us/config_saml.htm) 문서를 참조하세요.
@@ -167,7 +167,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Tableau Server 타일을 클릭하면 Tableau Server 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-Tableau Server를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-aad)
+Tableau Server를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c8401a81a36d86b871df9fc428c393007b97c400
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.date: 01/12/2021
+ms.custom: mvc
+ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833914"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250658"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -64,7 +64,7 @@ docker-compose up --build -d
 
 업데이트된 컨테이너 이미지에 변경 내용이 적용되었는지 확인하고, 로컬 웹 브라우저를 `http://localhost:8080`으로 엽니다.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="로컬 웹 브라우저 및 로컬 호스트를 사용하여 연 업데이트된 컨테이너 이미지 Azure 투표 앱의 예를 보여주는 스크린샷.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="로컬 웹 브라우저에서 로컬로 열려 실행되는 업데이트된 컨테이너 이미지 Azure Voting App의 예를 보여주는 스크린샷":::
 
 *config_file.cfg* 파일에 제공된 업데이트된 값은 실행 중인 애플리케이션에 표시됩니다.
 
@@ -143,9 +143,9 @@ azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 kubectl get service azure-vote-front
 ```
 
-로컬 웹 브라우저를 서비스의 IP 주소로 엽니다.
+이제 서비스의 IP 주소로 웹 브라우저를 엽니다.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저에서 열린 업데이트된 애플리케이션 Azure 투표 앱의 예를 보여주는 스크린샷.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="로컬 웹 브라우저에서 열린 AKS 클러스터에서 실행되는 업데이트된 컨테이너 이미지 Azure Voting App의 예를 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

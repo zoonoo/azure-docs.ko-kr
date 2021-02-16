@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b6e83f8c4ba00f64bd924ce7b404cd3acfcecd14
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 0a4421ed548e6066338977260ed062e6ab14893f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754201"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103705"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 Angular SPA에 로그인하고 액세스 토큰을 가져옵니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "98754201"
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1(Express): 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션의 이름을 입력합니다.
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 > 1. **등록** 을 선택합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "98754201"
 >
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "98754201"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하도록 하려면 `redirectUri`를 `http://localhost:4200/`으로 추가해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 `http://localhost:4200/`의 **리디렉션 URI** 를 추가합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >

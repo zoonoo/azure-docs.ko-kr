@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500274"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831210"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>자습서: IoT 플러그 앤 플레이 모듈 연결(C#)
 
@@ -20,7 +20,12 @@ ms.locfileid: "95500274"
 
 디바이스가 IoT 허브에 연결할 때 해당 모델 ID를 게시하고 모델 ID로 식별되는 DTDL(Digital Twins Definition Language) 모델에 설명된 속성 및 메서드를 구현하는 경우 IoT 플러그 앤 플레이 디바이스입니다. 디바이스에서 DTDL 및 모델 ID를 사용하는 방법에 대해 자세히 알아보려면 [IoT 플러그 앤 플레이 개발자 가이드](./concepts-developer-guide-device.md)를 참조하세요. 모듈은 모델 ID와 DTDL 모델을 같은 방식으로 사용합니다.
 
-IoT 플러그 앤 플레이 모듈을 구현하는 방법을 설명하기 위해 이 자습서에서는 자동 온도 조절기 C# 디바이스 샘플을 제네릭 모듈로 변환하는 방법을 보여 줍니다.
+IoT 플러그 앤 플레이 모듈을 구현하는 방법을 보여주기 위해 이 자습서에서는 다음을 수행하는 방법을 보여줍니다.
+
+> [!div class="checklist"]
+> * 모듈이 있는 디바이스를 IoT 허브에 추가합니다.
+> * 온도 조절기 C# 디바이스 샘플을 제네릭 모듈로 변환합니다.
+> * 서비스 SDK를 사용하여 모듈과 상호 작용합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -232,6 +237,10 @@ Azure IoT 탐색기 도구를 사용하여 다음을 확인할 수 있습니다.
 * IoT Edge 디바이스의 원격 분석.
 * IoT 플러그 앤 플레이 알림을 트리거하는 IoT Edge 모듈 쌍 속성 업데이트.
 * IoT 플러그 앤 플레이 명령에 대응하는 IoT Edge 모듈.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

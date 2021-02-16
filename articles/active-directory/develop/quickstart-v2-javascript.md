@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 60eed96e20ffcebc3ddefccffa2761017e28e0d2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225717"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103620"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -37,7 +37,7 @@ ms.locfileid: "99225717"
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1(Express): 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션의 이름을 입력합니다.
 > 1. **지원되는 계정 유형** 아래에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** 을 선택합니다.
 > 1. **등록** 을 선택합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "99225717"
 >
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "99225717"
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 샘플 코드에는 `http://localhost:3000/`의 **리디렉션 URI** 가 필요하고 **암시적 권한 부여** 를 사용하도록 설정해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 `http://localhost:3000/`의 **리디렉션 URI** 를 추가하고 **암시적 허용** 을 사용하도록 설정합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >
@@ -267,7 +267,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용해야 하는 경우도 있습니다. 예를 들면 다음과 같습니다.
+상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용하는 경우도 있습니다. 예를 들면 다음과 같습니다.
 * 암호가 만료되었으므로 사용자가 자격 증명을 다시 입력해야 할 수도 있습니다.
 * 애플리케이션이 사용자 동의가 필요한 추가 리소스 범위에 대한 액세스를 요청하고 있습니다.
 * 2단계 인증이 필요합니다.

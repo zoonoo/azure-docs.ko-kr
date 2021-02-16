@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463270"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832184"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>자습서: 스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기
 
-
-
 이 자습서에서는 IoT Central **스마트 재고 관리** 애플리케이션 템플릿을 배포하여 시작하는 방법을 보여 줍니다. 템플릿을 배포하는 방법, 기본적으로 제공되는 항목 및 다음에 수행할 수 있는 작업을 알아봅니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다. 
-* 스마트 재고 관리 애플리케이션 만들기 
-* 애플리케이션 살펴보기 
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> 스마트 재고 관리 애플리케이션 만들기 애플리케이션 살펴보기 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -110,8 +109,8 @@ ms.locfileid: "96463270"
 > ![작업을 완료했을 때 애플리케이션을 삭제하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 스마트 재고 관리에 대한 자세한 정보 
+
+스마트 재고 관리에 대해 자세히 알아보세요.
+
 > [!div class="nextstepaction"]
 > [스마트 재고 관리 개념](./architecture-smart-inventory-management.md)
-* 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

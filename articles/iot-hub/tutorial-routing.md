@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
-description: Azure CLI 및 Azure Portal을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+title: 자습서 - Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+description: 자습서 - Azure CLI 및 Azure Portal을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7a10aac82286616273f7283bc3fba74f2c58f35
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500592"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821670"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI 및 Azure Portal을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "87500592"
 
 아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 이 스크립트는 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다.
 
-몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다.
+몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue* 라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다.
 
 > [!TIP]
 > 디버깅 팁: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 Cloud Shell 세션이 `bash`를 실행 중이고 백슬래시 뒤에 공백이 없는지 확인하세요.
@@ -132,45 +132,45 @@ az servicebus queue create --name $sbQueueName \
 
 ### <a name="route-to-a-storage-account"></a>스토리지 계정으로 라우팅
 
-이제 스토리지 계정에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 라우팅이 설정되면 **수준** 속성이 **스토리지**로 설정된 메시지가 스토리지 계정에 자동으로 작성됩니다. 
+이제 스토리지 계정에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 라우팅이 설정되면 **수준** 속성이 **스토리지** 로 설정된 메시지가 스토리지 계정에 자동으로 작성됩니다. 
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 선택한 다음, 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 선택한 다음, 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources** 를 사용합니다.
 
-2. 리소스 목록에서 IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다.
+2. 리소스 목록에서 IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub** 를 사용합니다.
 
-3. **메시지 라우팅**을 선택합니다. **메시지 라우팅** 창에서 +**추가**를 선택합니다. **경로 추가** 창에서 다음 그림에 표시된 대로 엔드포인트 필드 옆에 있는 +**추가**를 클릭하여 지원되는 엔드포인트를 표시합니다.
+3. **메시지 라우팅** 을 선택합니다. **메시지 라우팅** 창에서 +**추가** 를 선택합니다. **경로 추가** 창에서 다음 그림에 표시된 대로 엔드포인트 필드 옆에 있는 +**엔드포인트 추가** 를 클릭하여 지원되는 엔드포인트를 표시합니다.
 
-   ![경로에 대한 엔드포인트 추가 시작](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![경로에 대한 엔드포인트 추가 시작](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. **Blob Storage**를 선택합니다. **스토리지 엔드포인트 추가** 창이 보입니다.
+4. **스토리지** 를 선택합니다. **스토리지 엔드포인트 추가** 창이 보입니다.
 
-   ![엔드포인트 추가](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![엔드포인트 추가](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
-5. 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **ContosoStorageEndpoint**를 사용합니다.
+5. 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **ContosoStorageEndpoint** 를 사용합니다.
 
-6. **컨테이너 선택**을 선택합니다. 이렇게 하면 스토리지 계정 목록으로 이동합니다. 준비 단계에서 설정한 계정을 선택합니다. 이 자습서에서는 **contosostorage**를 사용합니다. 해당 스토리지 계정의 컨테이너 목록을 보여줍니다. 준비 단계에서 설정한 컨테이너를 **선택**합니다. 이 자습서에서는 **contosoresults**를 사용합니다. **스토리지 엔드포인트 추가** 창으로 돌아가서 선택한 사항을 확인합니다.
+6. **컨테이너 선택** 을 선택합니다. 이렇게 하면 스토리지 계정 목록으로 이동합니다. 준비 단계에서 설정한 계정을 선택합니다. 이 자습서에서는 **contosostorage** 를 사용합니다. 해당 스토리지 계정의 컨테이너 목록을 보여줍니다. 준비 단계에서 설정한 컨테이너를 **선택** 합니다. 이 자습서에서는 **contosoresults** 를 사용합니다. **스토리지 엔드포인트 추가** 창으로 돌아가서 선택한 사항을 확인합니다.
 
 7. 인코딩을 AVRO 또는 JSON으로 설정합니다. 이 자습서의 목적을 위해, 나머지 필드에는 기본값을 사용합니다. 선택한 지역에 JSON 인코딩이 지원되지 않으면, 이 필드가 회색으로 표시됩니다.
 
    > [!NOTE]
-   > **Blob 파일 이름 형식**을 사용하여 Blob 이름 형식을 설정할 수 있습니다. 기본값은 `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`입니다. 형식에 {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} 및 {mm}이 포함되어야 하며, 순서는 관계 없습니다.
+   > **Blob 파일 이름 형식** 을 사용하여 Blob 이름 형식을 설정할 수 있습니다. 기본값은 `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`입니다. 형식에 {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} 및 {mm}이 포함되어야 하며, 순서는 관계 없습니다.
    >
    > 예를 들어 기본 Blob 파일 이름 형식을 사용하고 허브 이름이 ContosoTestHub, 날짜/시간이 2018년 10월 30일 오전 10시 56분인 경우 Blob 이름은 `ContosoTestHub/0/2018/10/30/10/56`과 비슷합니다.
    > 
    > Blob은 Avro 형식으로 기록됩니다.
    >
 
-8. **만들기**를 선택하여 스토리지 엔드포인트를 만들고 경로에 추가합니다. **경로 추가** 창으로 돌아갑니다.
+8. **만들기** 를 선택하여 스토리지 엔드포인트를 만들고 경로에 추가합니다. **경로 추가** 창으로 돌아갑니다.
 
 9. 이제 나머지 라우팅 쿼리 정보를 입력합니다. 이 쿼리는 엔드포인트로 추가한 스토리지 컨테이너에 메시지를 보내기 위한 조건을 지정합니다. 화면에 나온 필드를 채웁니다.
 
-   **Name**: 라우팅 쿼리에 대한 이름을 입력합니다. 이 자습서에서는 **ContosoStorageRoute**를 사용합니다.
+   **Name**: 라우팅 쿼리에 대한 이름을 입력합니다. 이 자습서에서는 **ContosoStorageRoute** 를 사용합니다.
 
    **엔드포인트**: 여기에는 방금 설정한 엔드포인트가 표시됩니다.
 
-   **데이터 원본**: 드롭다운 목록에서 **디바이스 원격 분석 메시지**를 선택합니다.
+   **데이터 원본**: 드롭다운 목록에서 **디바이스 원격 분석 메시지** 를 선택합니다.
 
    **경로 사용**: 이 필드는 `enabled`로 설정되어야 합니다.
    
@@ -178,43 +178,43 @@ az servicebus queue create --name $sbQueueName \
 
    ![스토리지 계정에 대한 라우팅 쿼리 만들기](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
-   **저장**을 선택합니다. 작업이 완료되면 스토리지에 대한 새 라우팅 쿼리를 볼 수 있는 메시지 라우팅 창으로 돌아갑니다. 경로 창을 닫아 리소스 그룹 페이지로 돌아갑니다.
+   **저장** 을 선택합니다. 작업이 완료되면 스토리지에 대한 새 라우팅 쿼리를 볼 수 있는 메시지 라우팅 창으로 돌아갑니다. 경로 창을 닫아 리소스 그룹 페이지로 돌아갑니다.
 
 ### <a name="route-to-a-service-bus-queue"></a>Service Bus 큐에 라우팅
 
-이제 Service Bus 큐에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 경로가 설정되면 **수준** 속성이 **중요**로 설정된 메시지가 Service Bus 큐에 작성되며, 이를 통해 Logic App이 트리거된 다음, 정보가 포함된 이메일이 전송됩니다.
+이제 Service Bus 큐에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 경로가 설정되면 **수준** 속성이 **중요** 로 설정된 메시지가 Service Bus 큐에 작성되며, 이를 통해 Logic App이 트리거된 다음, 정보가 포함된 이메일이 전송됩니다.
 
-1. 리소스 그룹 페이지에서 IoT 허브를 선택한 다음, **메시지 라우팅**을 선택합니다.
+1. 리소스 그룹 페이지에서 IoT 허브를 선택한 다음, **메시지 라우팅** 을 선택합니다.
 
-2. **메시지 라우팅** 창에서 +**추가**를 선택합니다.
+2. **메시지 라우팅** 창에서 +**추가** 를 선택합니다.
 
-3. **경로 추가** 창에서 엔드포인트 필드 옆에 있는 +**추가**를 선택합니다. **Service Bus 큐**를 선택합니다. **Service Bus 엔드포인트 추가** 창이 표시됩니다.
+3. **경로 추가** 창에서 엔드포인트 필드 옆에 있는 +**추가** 를 선택합니다. **Service Bus 큐** 를 선택합니다. **Service Bus 엔드포인트 추가** 창이 표시됩니다.
 
    ![Service Bus 엔드포인트 추가](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. 다음 필드를 입력합니다.
 
-   **엔드포인트 이름**: 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **ContosoSBQueueEndpoint**를 사용합니다.
+   **엔드포인트 이름**: 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **ContosoSBQueueEndpoint** 를 사용합니다.
    
-   **Service Bus 네임스페이스**: 드롭다운 목록을 사용하여 준비 단계에서 설정한 Service Bus 네임스페이스를 선택합니다. 이 자습서에서는 **ContosoSBNamespace**를 사용합니다.
+   **Service Bus 네임스페이스**: 드롭다운 목록을 사용하여 준비 단계에서 설정한 Service Bus 네임스페이스를 선택합니다. 이 자습서에서는 **ContosoSBNamespace** 를 사용합니다.
 
-   **Service Bus 큐**: 드롭다운 목록을 사용하여 Service Bus 큐를 선택합니다. 이 자습서에서는 **contososbqueue**를 사용합니다.
+   **Service Bus 큐**: 드롭다운 목록을 사용하여 Service Bus 큐를 선택합니다. 이 자습서에서는 **contososbqueue** 를 사용합니다.
 
-5. **만들기**를 선택하여 Service Bus 큐 엔드포인트를 추가합니다. **경로 추가** 창으로 돌아갑니다.
+5. **만들기** 를 선택하여 Service Bus 큐 엔드포인트를 추가합니다. **경로 추가** 창으로 돌아갑니다.
 
 6. 이제 나머지 라우팅 쿼리 정보를 입력합니다. 이 쿼리는 엔드포인트로 추가한 Service Bus 큐에 메시지를 보내기 위한 조건을 지정합니다. 화면에 나온 필드를 채웁니다. 
 
-   **Name**: 라우팅 쿼리에 대한 이름을 입력합니다. 이 자습서에서는 **ContosoSBQueueRoute**를 사용합니다. 
+   **Name**: 라우팅 쿼리에 대한 이름을 입력합니다. 이 자습서에서는 **ContosoSBQueueRoute** 를 사용합니다. 
 
    **엔드포인트**: 여기에는 방금 설정한 엔드포인트가 표시됩니다.
 
-   **데이터 원본**: 드롭다운 목록에서 **디바이스 원격 분석 메시지**를 선택합니다.
+   **데이터 원본**: 드롭다운 목록에서 **디바이스 원격 분석 메시지** 를 선택합니다.
 
    **라우팅 쿼리**: 쿼리 문자열로 `level="critical"`을 입력합니다. 
 
    ![Service Bus 큐에 대한 라우팅 쿼리를 만듭니다.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
-7. **저장**을 선택합니다. 경로 창으로 돌아가면 여기에 표시된 대로 새 경로를 모두 확인할 수 있습니다.
+7. **저장** 을 선택합니다. 경로 창으로 돌아가면 여기에 표시된 대로 새 경로를 모두 확인할 수 있습니다.
 
    ![방금 설정한 경로](./media/tutorial-routing/message-routing-show-both-routes.png)
 

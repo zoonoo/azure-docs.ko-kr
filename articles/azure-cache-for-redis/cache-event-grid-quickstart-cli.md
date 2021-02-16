@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: Azure CLI를 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅'
-description: Azure Event Grid를 사용하여 Azure Cache for Redis 이벤트를 구독하고, 이벤트를 Webhook에 보내고, 웹 애플리케이션에서 이벤트를 처리합니다.
+description: Azure Event Grid를 사용하여 Azure Cache for Redis 이벤트를 구독하고, 이벤트를 트리거하고, 결과를 봅니다.
 author: curib
 ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 55c4c6bb5352d70c9bc688b28c3e0ab6eccd34fd
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 7f33ca0043400962054fabb1aadb1da612fe5426
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056500"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806429"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: a95f1befcdc9b59293eb97330ba7ceae3034a74b
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: d9b5af45ab9a1003cc25e8b1ea2059b83bc715c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516774"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833306"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 만들기 및 연습 
 
@@ -102,8 +102,7 @@ Adatum은 스마트 미터를 모니터링 및 관리하는 가상의 에너지 
 
 ## <a name="next-steps"></a>다음 단계
 
-스마트 미터 앱 아키텍처에 대한 자세한 내용은 다음을 참조하세요. 
+스마트 미터 앱 아키텍처에 대해 알아보려면 다음을 참조하세요.
+
 > [!div class="nextstepaction"]
-> [개념 문서](./concept-iot-central-smart-meter-app.md)
-* [스마트 미터 앱](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)을 참조하여 무료로 스마트 미터 애플리케이션 템플릿을 만들어보세요.
-* [IoT Central 개요](../index.yml)를 참조하여 IoT Central에 대해 자세히 알아보세요.
+> [스마트 미터 애플리케이션 아키텍처](./concept-iot-central-smart-meter-app.md)

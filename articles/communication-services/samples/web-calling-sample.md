@@ -9,42 +9,34 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a00f319c55665695879aac3c8ba711ce13fd5d4e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763041"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592792"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
+
+웹 통화 샘플은 Communication Services 웹 통화 클라이언트 라이브러리에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다. 
+
+이 샘플은 개발자를 위해 작성되었으며 Communication Services를 매우 쉽게 시작할 수 있습니다. 사용자 인터페이스는 여러 섹션으로 구분되며, 각 섹션에는 코드를 브라우저에서 사용자 고유의 Communication Services 애플리케이션으로 직접 복사할 수 있는 "코드 표시" 단추가 있습니다.
+
+## <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [이 샘플은 Github에서 사용할 수 있습니다](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-Azure Communication Services **웹 통화 샘플** 은 Communication Services 통화 클라이언트 라이브러리를 사용하여 JavaScript에서 통화 환경을 만드는 방법을 보여 줍니다.
-
-이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
-
-## <a name="overview"></a>개요
-
-웹 통화 샘플은 Communication Services 웹 통화 클라이언트 라이브러리에서 제공하는 다양한 기능에 대한 단계별 연습으로 사용되는 웹 애플리케이션입니다. 
-
-이 샘플은 개발자를 위해 작성되었으며 Communication Services를 매우 쉽게 시작할 수 있습니다. 사용자 인터페이스는 여러 섹션으로 구분되며, 각 섹션에는 코드를 브라우저에서 사용자 고유의 Communication Services 애플리케이션으로 직접 복사할 수 있는 "코드 표시" 단추가 있습니다.
-
-컴퓨터에서 [웹 통화 샘플](https://github.com/Azure-Samples/communication-services-web-calling-tutorial)을 실행하는 경우 다음 방문 페이지가 표시됩니다.
+/Project/readme.md를 따라 프로젝트를 설정하고 머신에서 로컬로 실행합니다.
+[웹 통화 샘플](https://github.com/Azure-Samples/communication-services-web-calling-tutorial)이 머신에서 실행되면 다음 방문 페이지가 표시됩니다.
 
 :::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="웹 통화 자습서 1" lightbox="./media/web-calling-tutorial-page-1.png":::
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="웹 통화 자습서 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-
 ## <a name="user-provisioning-and-sdk-initialization"></a>사용자 프로비저닝 및 SDK 초기화 
-
-데모 사용을 시작하려면 [Communication Services 리소스](../quickstarts/create-communication-resource.md)의 연결 문자열을 `config.json`에 입력합니다. 이는 통화 SDK를 초기화할 수 있도록 [사용자 액세스 토큰](../concepts/authentication.md)을 프로비저닝하는 데 사용됩니다.
-
-사용자 고유의 개인 식별자를 사용자 ID 입력에 입력합니다. 여기에 아무것도 제공되지 않으면 임의의 사용자 ID가 생성됩니다. 
 
 백 엔드 토큰 프로비저닝 서비스에서 프로비저닝한 토큰을 사용하여 SDK를 초기화하려면 "사용자 프로비저닝 및 SDK 초기화"를 클릭합니다. 이 백 엔드 서비스는 `/project/webpack.config.js`에 있습니다.
 

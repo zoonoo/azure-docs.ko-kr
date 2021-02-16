@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/03/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1c15b693ecbcb4557fb5ec9ceca8436316f33747
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 07340cb66fe9ef2f22e1f3e9b201e46dd07254bb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522107"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99822343"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-qualtrics"></a>자습서: SAP Qualtrics와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -25,8 +25,6 @@ ms.locfileid: "92522107"
 * SAP Qualtrics에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 해당 Azure AD 계정으로 SAP Qualtrics에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
-
-Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -41,13 +39,12 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 
 * SAP Qualtrics에서 **SP** 및 **IDP** 시작 SSO를 지원합니다.
 * SAP Qualtrics에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
-* SAP Qualtrics를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
 
 ## <a name="add-sap-qualtrics-from-the-gallery"></a>갤러리에서 SAP Qualtrics 추가
 
 SAP Qualtrics의 Azure AD 통합을 구성하려면 갤러리의 SAP Qualtrics를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -71,11 +68,11 @@ SAP Qualtrics에서 Azure AD SSO를 구성하고 테스트하려면 다음 구�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **SAP Qualtrics** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **SAP Qualtrics** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾습니다. **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 선택하여 설정을 편집합니다.
 
-   ![연필 아이콘이 강조 표시된 SAML로 Single Sign-On 설정 페이지의 스크린샷](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **SAML로 Single Sign-On 설정** 페이지에서 다음 필드 값을 입력합니다.
     
@@ -102,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 아이콘을 선택하여 **앱 페더레이션 메타데이터 URL** 을 복사하고 컴퓨터에 저장합니다.
 
-    ![복사 아이콘이 강조 표시된 SAML 서명 인증서의 스크린샷](common/copy-metadataurl.png)
+    ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -123,13 +120,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **SAP Qualtrics** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹이 강조 표시된 관리 섹션의 스크린샷](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가가 강조 표시된 사용자 및 그룹 페이지의 스크린샷](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택합니다. 화면 하단에서 **선택** 을 누릅니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택합니다. 화면 하단에서 **선택** 을 누릅니다.
 1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
@@ -144,20 +135,20 @@ SAP Qualtrics는 기본적으로 사용하도록 설정되는 Just-In-Time 사�
 
 ## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 SAP Qualtrics 타일을 선택하면 SSO를 설정한 SAP Qualtrics에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱에 로그인하여 시작](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 SAP Qualtrics 로그온 URL로 리디렉션됩니다.  
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
+* SAP Qualtrics 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 SAP Qualtrics에 자동으로 로그인됩니다.
 
-- [Azure AD로 SAP Qualtrics 사용해 보기](https://aad.portal.azure.com/)
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 SAP Qualtrics 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 SAP Qualtrics에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>다음 단계
 
-- [고급 표시 유형 및 컨트롤을 사용하여 SAP Qualtrics 보호](/cloud-app-security/proxy-intro-aad)
+SAP Qualtrics를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. 자세한 내용은 [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)를 참조하세요.

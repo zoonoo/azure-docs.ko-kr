@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121365"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234259"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -37,6 +37,8 @@ ms.locfileid: "98121365"
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 * 이 자습서를 시작하기 전에 [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)를 설치해야 합니다.
+
+이 자습서에서는 Linux 노드에서 Azure Kubernetes Service를 실행한다고 가정합니다.
 
 ## <a name="use-managed-identities"></a>관리 ID 사용
 
@@ -77,6 +79,8 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
     ![principalId 및 clientId 값이 강조 표시된 Azure CLI의 스크린샷](../media/kubernetes-key-vault-2.png) ![subscriptionId 및 nodeResourceGroup 값이 강조 표시된 Azure CLI의 스크린샷](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Helm 및 비밀 저장소 CSI 드라이버 설치
+> [!NOTE]
+> 아래 설치는 Linux의 AKS에서만 작동합니다. Secrets Store CSI 드라이버 설치에 대한 자세한 내용은 [Secrets Store CSI 드라이버용 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure)를 참조하세요. 
 
 비밀 저장소 CSI 드라이버를 설치하려면 먼저 [Helm](https://helm.sh/docs/intro/install/)을 설치해야 합니다.
 

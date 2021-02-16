@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: ab30124918ac47ba6296f05388ad94b50febde5d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180900"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99821648"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>자습서: GitHub AE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -71,7 +71,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **GitHub AE** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -87,6 +87,28 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 가져오려면 [GitHub AE 클라이언트 지원 팀](mailto:support@github.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+
+
+1. GitHub AE 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/default-attributes.png)
+
+1. **사용자 특성 및 클레임** 을 편집합니다.
+
+1. **새 클레임 추가** 를 클릭하고 텍스트 상자에 **관리자** 이름을 입력합니다.
+
+1. **클레임 조건** 을 확장하고 **사용자 유형** 에서 **멤버** 를 선택합니다.
+
+1. **그룹 선택** 을 클릭하고 이 클레임을 포함할 **그룹** 을 검색합니다. 여기에서 멤버는 GHAE의 관리자여야 합니다.
+
+1. **원본** 에 대한 **특성** 을 선택하고 **값** 에 **true** 를 입력합니다. 
+
+10. **저장** 을 클릭합니다.
+
+    ![클레임 관리](./media/github-ae-tutorial/administrator.png)
+
+    > [!NOTE]
+    > 클레임을 추가하는 방법에 대한 지침을 확인하려면 [링크](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)를 클릭하세요.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

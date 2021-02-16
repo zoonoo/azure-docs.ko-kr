@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: REST API를 사용하여 관리 그룹 만들기'
 description: 이 빠른 시작에서는 REST API를 사용하여 리소스를 리소스 계층 구조로 구성하는 관리 그룹을 만듭니다.
-ms.date: 08/31/2020
+ms.date: 02/05/2021
 ms.topic: quickstart
-ms.openlocfilehash: b19fddf8215a1b133254c2a31bbea568a315f721
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237142"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592503"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>빠른 시작: REST API를 사용하여 관리 그룹 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "89237142"
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-- 아직 설치하지 않은 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. Azure Resource Manager 기반 REST API에 HTTP 요청을 전송하는 도구입니다. 또는 REST 설명서나 PowerShell의 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 또는 [Postman](https://www.postman.com)과 같은 도구에서 "사용해보기" 기능을 사용할 수 있습니다.
+- 아직 설치하지 않은 경우 [ARMClient](https://github.com/projectkudu/ARMClient)를 설치합니다. Azure Resource Manager 기반 REST API에 HTTP 요청을 전송하는 도구입니다. 대신 REST 설명서나 PowerShell의 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 또는 [Postman](https://www.postman.com)과 같은 도구에서 "사용해보기" 기능을 사용할 수 있습니다.
 
 - 테넌트의 모든 Azure AD 사용자는 [계층 구조 보호](./how-to/protect-resource-hierarchy.md#setting---require-authorization)가 활성화되지 않은 경우 해당 사용자에게 할당된 관리 그룹 쓰기 권한 없이 관리 그룹을 만들 수 있습니다. 이 새 관리 그룹은 루트 관리 그룹 또는 [기본 관리 그룹](./how-to/protect-resource-hierarchy.md#setting---default-management-group)의 자식이 되며 작성자에게 "소유자" 역할 할당이 부여됩니다. 관리 그룹 서비스는 이 기능을 허용하므로 루트 수준에서 역할 할당이 필요하지 않습니다. 루트 관리 그룹이 생성될 때 사용자는 액세스할 수 있는 권한이 없습니다. 관리 그룹 사용을 시작하기 위해 Azure AD 전역 관리자를 찾는 장애물을 방지하기 위해 루트 수준에서 초기 관리 그룹을 만들 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "89237142"
 
 ### <a name="create-in-rest-api"></a>REST API에서 만들기
 
-REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/resources/managementgroups/createorupdate) 엔드포인트를 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **groupId**는 _Contoso_입니다.
+REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/resources/managementgroups/createorupdate) 엔드포인트를 사용하여 새 관리 그룹을 만듭니다. 이 예제에서 관리 그룹 **groupId** 는 _Contoso_ 입니다.
 
 - REST API URI
 
@@ -38,9 +38,9 @@ REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/res
 
 - 요청 본문 없음
 
-**groupId**는 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
+**groupId** 는 생성되는 고유 식별자입니다. 이 ID는 다른 명령에서 이 그룹을 참조하는 데 사용되며 나중에 변경할 수 없습니다.
 
-관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 요청 본문에 **properties.displayName** 속성을 추가합니다. 예를 들어, **groupId**가 _Contoso_이고 표시 이름이 _Contoso Group_인 관리 그룹을 만들려면 다음 엔드포인트와 요청 본문을 사용합니다.
+관리 그룹이 Azure Portal 내에서 다른 이름을 표시하도록 하려면 요청 본문에 **properties.displayName** 속성을 추가합니다. 예를 들어, **groupId** 가 _Contoso_ 이고 표시 이름이 _Contoso Group_ 인 관리 그룹을 만들려면 다음 엔드포인트와 요청 본문을 사용합니다.
 
 - REST API URI
 

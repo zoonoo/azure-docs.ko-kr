@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-csharp
-ms.openlocfilehash: fa15432072f6478100a378fdbdb697556fdf1dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bdb3c09aead812e1c16f4d0d17aae58e141809
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842549"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99822229"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 1부입니다. Visual Studio를 사용하여 ASP.NET 웹 프런트 엔드 및 ASP.NET Core 웹 API 백 엔드 서비스가 있는 Azure Service Fabric Mesh 앱을 만드는 방법에 대해 알아봅니다. 그런 다음, 로컬 개발 클러스터에서 앱을 디버그합니다. 앱을 Azure에 게시한 후 구성 및 코드를 변경하고 앱을 업그레이드합니다. 마지막으로 사용되지 않는 Azure 리소스를 정리하여 사용하지 않는 항목에 대한 비용이 청구되지 않도록 합니다.
 
@@ -57,7 +62,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 **이름** 상자에서 `todolistapp`을 입력하고, **위치** 상자에서 폴더 경로를 프로젝트에 대한 파일을 저장하려는 위치로 설정합니다.
 
-**솔루션 디렉터리 만들기**가 선택되어 있는지 확인하고 **확인**을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
+**솔루션 디렉터리 만들기** 가 선택되어 있는지 확인하고 **확인** 을 클릭하여 Service Fabric Mesh 프로젝트를 만듭니다.
 
 ![Service Fabric Mesh 프로젝트를 만드는 방법을 보여주는 스크린샷.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
@@ -65,13 +70,13 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ### <a name="create-the-web-front-end-service"></a>웹 프런트 엔드 서비스 만들기
 
-**새 Service Fabric 서비스** 대화 상자에서 **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS**가 **Windows**로 설정되어 있는지 확인합니다.
+**새 Service Fabric 서비스** 대화 상자에서 **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS** 가 **Windows** 로 설정되어 있는지 확인합니다.
 
-**서비스 이름**을 **WebFrontEnd**로 설정합니다. **확인**을 눌러 ASP.NET Core 서비스를 만듭니다.
+**서비스 이름** 을 **WebFrontEnd** 로 설정합니다. **확인** 을 눌러 ASP.NET Core 서비스를 만듭니다.
 
 ![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
-그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.
+그러면, 새 ASP.NET Core 웹 애플리케이션 대화 상자가 표시됩니다. **웹 애플리케이션** 을 선택하고 **확인** 을 클릭합니다.
 
 ![웹 애플리케이션 템플릿을 강조 표시하는 스크린샷.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
@@ -79,13 +84,13 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ## <a name="create-the-to-do-items-model"></a>할 일 항목 모델 만들기
 
-간단히 하기 위해 할 일 항목은 메모리의 목록에 저장됩니다. 할 일 항목에 대한 클래스 라이브러리와 이러한 항목을 보관할 목록을 만듭니다. 현재 **todolistapp** 솔루션이 로드되어 있는 Visual Studio에서 **파일** > **추가** > **새 프로젝트**를 차례로 선택합니다.
+간단히 하기 위해 할 일 항목은 메모리의 목록에 저장됩니다. 할 일 항목에 대한 클래스 라이브러리와 이러한 항목을 보관할 목록을 만듭니다. 현재 **todolistapp** 솔루션이 로드되어 있는 Visual Studio에서 **파일** > **추가** > **새 프로젝트** 를 차례로 선택합니다.
 
 **새 프로젝트 추가** 대화 상자 위쪽의 **검색** 상자에서 `C# .net core class`를 입력합니다. **클래스 라이브러리(.NET Core)** 템플릿을 선택합니다.
 
-**이름** 상자에서 `Model`을 입력합니다. **확인**을 클릭하여 클래스 라이브러리를 만듭니다.
+**이름** 상자에서 `Model`을 입력합니다. **확인** 을 클릭하여 클래스 라이브러리를 만듭니다.
 
-[솔루션 탐색기]의 **모델** 아래에서 **Class1.cs**를 마우스 오른쪽 단추로 클릭하고 **이름 바꾸기**를 선택합니다. **ToDoItem.cs** 클래스의 이름을 바꿉니다. 모든 참조의 이름을 바꿀 것인지 묻는 메시지가 표시되면 **예**를 클릭합니다.
+[솔루션 탐색기]의 **모델** 아래에서 **Class1.cs** 를 마우스 오른쪽 단추로 클릭하고 **이름 바꾸기** 를 선택합니다. **ToDoItem.cs** 클래스의 이름을 바꿉니다. 모든 참조의 이름을 바꿀 것인지 묻는 메시지가 표시되면 **예** 를 클릭합니다.
 
 비어 있는 `class ToDoItem`의 내용을 다음으로 바꿉니다.
 
@@ -117,9 +122,9 @@ public class ToDoItem
 
 이 클래스는 할 일 항목을 나타냅니다.
 
-Visual Studio에서 **모델** 클래스 라이브러리를 마우스 오른쪽 단추로 클릭하고, 할 일 항목을 보관할 목록을 만들기 위해 **추가** > **클래스...** 를 차례로 선택합니다. **새 항목 추가** 대화 상자가 표시됩니다. **이름**을 `ToDoList.cs`로 설정하고 **추가**를 클릭합니다.
+Visual Studio에서 **모델** 클래스 라이브러리를 마우스 오른쪽 단추로 클릭하고, 할 일 항목을 보관할 목록을 만들기 위해 **추가** > **클래스...** 를 차례로 선택합니다. **새 항목 추가** 대화 상자가 표시됩니다. **이름** 을 `ToDoList.cs`로 설정하고 **추가** 를 클릭합니다.
 
-**ToDoList.cs**에서 비어 있는 `class ToDoList`를 다음으로 바꿉니다.
+**ToDoList.cs** 에서 비어 있는 `class ToDoList`를 다음으로 바꿉니다.
 
 ```csharp
 public class ToDoList
@@ -175,28 +180,28 @@ public class ToDoList
 
 ## <a name="create-the-back-end-service"></a>백 엔드 서비스 만들기
 
-Visual Studio **솔루션 탐색기** 창에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Service Fabric 서비스...** 를 차례로 클릭합니다.
+Visual Studio **솔루션 탐색기** 창에서 **todolistapp** 을 마우스 오른쪽 단추로 클릭하고, **추가** > **새 Service Fabric 서비스...** 를 차례로 클릭합니다.
 
-**새 Service Fabric 서비스** 대화 상자가 표시됩니다. **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS**가 **Windows**로 설정되어 있는지 확인합니다. **서비스 이름**을 **ToDoService**로 설정합니다. **확인**을 클릭하여 ASP.NET Core 서비스를 만듭니다.
+**새 Service Fabric 서비스** 대화 상자가 표시됩니다. **ASP.NET Core** 프로젝트 형식을 선택하고, **컨테이너 OS** 가 **Windows** 로 설정되어 있는지 확인합니다. **서비스 이름** 을 **ToDoService** 로 설정합니다. **확인** 을 클릭하여 ASP.NET Core 서비스를 만듭니다.
 
-그러면 **새 ASP.NET Core 웹 애플리케이션** 대화 상자가 표시됩니다. 이 대화 상자에서 **API**, **확인**을 차례로 선택하면 서비스 프로젝트가 솔루션에 추가됩니다.
+그러면 **새 ASP.NET Core 웹 애플리케이션** 대화 상자가 표시됩니다. 이 대화 상자에서 **API**, **확인** 을 차례로 선택하면 서비스 프로젝트가 솔루션에 추가됩니다.
 
 ![Visual Studio의 새 ASP.NET Core 애플리케이션](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-webapi.png)
 
-백 엔드 서비스는 UI를 제공하지 않으므로 서비스가 시작되면 브라우저 시작을 해제합니다. **솔루션 탐색기**에서 **ToDoService**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 표시되는 속성 창에서 왼쪽에 있는 **디버그** 탭을 선택하고 **브라우저 시작**의 선택을 취소합니다. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
+백 엔드 서비스는 UI를 제공하지 않으므로 서비스가 시작되면 브라우저 시작을 해제합니다. **솔루션 탐색기** 에서 **ToDoService** 를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 표시되는 속성 창에서 왼쪽에 있는 **디버그** 탭을 선택하고 **브라우저 시작** 의 선택을 취소합니다. **Ctrl+S** 를 눌러 변경 내용을 저장합니다.
 
-이 서비스는 할 일 정보를 유지 관리하므로 Model 클래스 라이브러리에 대한 참조를 추가합니다. [솔루션 탐색기]에서 **ToDoService**를 마우스 오른쪽 단추로 클릭한 다음, **추가** > **참조...** 를 차례로 선택합니다. **참조 관리자** 대화 상자가 표시됩니다.
+이 서비스는 할 일 정보를 유지 관리하므로 Model 클래스 라이브러리에 대한 참조를 추가합니다. [솔루션 탐색기]에서 **ToDoService** 를 마우스 오른쪽 단추로 클릭한 다음, **추가** > **참조...** 를 차례로 선택합니다. **참조 관리자** 대화 상자가 표시됩니다.
 
-**참조 관리자**에서 **모델**에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+**참조 관리자** 에서 **모델** 에 대한 확인란을 선택하고 **확인** 을 클릭합니다.
 
 ### <a name="add-a-data-context"></a>데이터 컨텍스트 추가
 
 다음으로, 데이터 모델의 데이터 처리를 조정하는 데이터 컨텍스트를 만듭니다.
 
-데이터 컨텍스트 클래스를 추가하려면 [솔루션 탐색기]에서 **ToDoService**를 마우스 오른쪽 단추로 클릭한 다음, **추가** > **클래스**를 차례로 클릭합니다.
-표시되는 **새 항목 추가** 대화 상자에서 **클래스**가 선택되어 있는지 확인하고, **이름**을 `DataContext.cs`로 설정하고, **추가**를 클릭합니다.
+데이터 컨텍스트 클래스를 추가하려면 [솔루션 탐색기]에서 **ToDoService** 를 마우스 오른쪽 단추로 클릭한 다음, **추가** > **클래스** 를 차례로 클릭합니다.
+표시되는 **새 항목 추가** 대화 상자에서 **클래스** 가 선택되어 있는지 확인하고, **이름** 을 `DataContext.cs`로 설정하고, **추가** 를 클릭합니다.
 
-**DataContext.cs**에서 비어 있는 `class DataContext`의 내용을 다음으로 바꿉니다.
+**DataContext.cs** 에서 비어 있는 `class DataContext`의 내용을 다음으로 바꿉니다.
 
 ```csharp
 public static class DataContext
@@ -217,9 +222,9 @@ public static class DataContext
 
 ### <a name="add-a-controller"></a>컨트롤러 추가
 
-**ToDoService** 프로젝트를 만들 때 HTTP 요청을 처리하고 HTTP 응답을 만드는 기본 컨트롤러가 템플릿에서 제공되었습니다. **솔루션 탐색기**의 **ToDoService** 아래에서 **컨트롤러** 폴더를 열어 **ValuesController.cs** 파일을 확인합니다. 
+**ToDoService** 프로젝트를 만들 때 HTTP 요청을 처리하고 HTTP 응답을 만드는 기본 컨트롤러가 템플릿에서 제공되었습니다. **솔루션 탐색기** 의 **ToDoService** 아래에서 **컨트롤러** 폴더를 열어 **ValuesController.cs** 파일을 확인합니다. 
 
-**ValuesController.cs**를 마우스 오른쪽 단추로 클릭한 다음, **이름 바꾸기**를 클릭합니다. 파일의 이름을 `ToDoController.cs`로 변경합니다. 모든 참조의 이름을 바꾸라는 메시지가 표시되면 **예**를 클릭합니다.
+**ValuesController.cs** 를 마우스 오른쪽 단추로 클릭한 다음, **이름 바꾸기** 를 클릭합니다. 파일의 이름을 `ToDoController.cs`로 변경합니다. 모든 참조의 이름을 바꾸라는 메시지가 표시되면 **예** 를 클릭합니다.
 
 **ToDoController.cs** 파일을 열고 `class ToDoController`의 내용을 다음으로 바꿉니다.
 
@@ -268,11 +273,11 @@ public class ToDoController : Controller
 백 엔드 서비스가 구현된 상태에서 제공하는 할 일 항목을 표시할 웹 사이트를 코딩합니다. 다음에 나오는 단계는 **WebFrontEnd** 프로젝트 내에서 수행됩니다.
 
 할 일 항목을 표시하는 웹 페이지에는 **ToDoItem** 클래스 및 목록에 대한 액세스가 필요합니다.
-**솔루션 탐색기**에서 **WebFrontEnd**를 마우스 오른쪽 단추로 클릭하고 **추가** > **참조...** 를 차례로 선택하여 모델 프로젝트에 대한 참조를 추가합니다. **참조 관리자** 대화 상자가 표시됩니다.
+**솔루션 탐색기** 에서 **WebFrontEnd** 를 마우스 오른쪽 단추로 클릭하고 **추가** > **참조...** 를 차례로 선택하여 모델 프로젝트에 대한 참조를 추가합니다. **참조 관리자** 대화 상자가 표시됩니다.
 
-**참조 관리자**에서 **모델**에 대한 확인란, **확인**을 차례로 클릭합니다.
+**참조 관리자** 에서 **모델** 에 대한 확인란, **확인** 을 차례로 클릭합니다.
 
-**솔루션 탐색기**에서 **WebFrontEnd** > **페이지** > **Index.cshtml**로 차례로 이동하여 Index.cshtml 페이지를 엽니다. **Index.cshtml**이 열립니다.
+**솔루션 탐색기** 에서 **WebFrontEnd** > **페이지** > **Index.cshtml** 로 차례로 이동하여 Index.cshtml 페이지를 엽니다. **Index.cshtml** 이 열립니다.
 
 파일 전체의 내용을 할 일 항목이 표시될 간단한 테이블을 정의하는 다음 HTML로 바꿉니다.
 
@@ -304,9 +309,9 @@ public class ToDoController : Controller
 </div>
 ```
 
-**솔루션 탐색기**에 있는 **Index.cshtml** 파일의 드롭다운 아이콘을 클릭한 다음, **Index.cshtml.cs**를 엽니다.
+**솔루션 탐색기** 에 있는 **Index.cshtml** 파일의 드롭다운 아이콘을 클릭한 다음, **Index.cshtml.cs** 를 엽니다.
 
-**Index.cshtml.cs**의 맨 위쪽에 `using System.Net.Http;`를 추가합니다.
+**Index.cshtml.cs** 의 맨 위쪽에 `using System.Net.Http;`를 추가합니다.
 
 `public class IndexModel`의 내용을 다음으로 바꿉니다.
 
@@ -346,10 +351,10 @@ URL은 서비스 이름과 포트로 구성됩니다. 이 모든 정보는 **ToD
 
 > [!IMPORTANT]
 > 다음 단계에서는 YAML 파일을 수정합니다.
-> service.yaml 파일에서 탭이 아닌 공백은 변수 들여쓰기에 사용해야 합니다. 그렇지 않으면 컴파일되지 않습니다. 환경 변수를 만들 때 Visual Studio에서 탭을 삽입할 수 있습니다. 모든 탭을 공백으로 바꾸세요. **빌드** 디버그 출력에 오류가 표시되더라도 앱은 계속 실행되지만 탭을 공백으로 변환하고 다시 빌드할 때까지는 실행되지 않습니다. service.yaml 파일에 탭이 없는지 확인하려면 Visual Studio 편집기에서 **편집**  > **고급**  > **공백 보기**를 차례로 사용하여 공백이 표시되도록 할 수 있습니다.
+> service.yaml 파일에서 탭이 아닌 공백은 변수 들여쓰기에 사용해야 합니다. 그렇지 않으면 컴파일되지 않습니다. 환경 변수를 만들 때 Visual Studio에서 탭을 삽입할 수 있습니다. 모든 탭을 공백으로 바꾸세요. **빌드** 디버그 출력에 오류가 표시되더라도 앱은 계속 실행되지만 탭을 공백으로 변환하고 다시 빌드할 때까지는 실행되지 않습니다. service.yaml 파일에 탭이 없는지 확인하려면 Visual Studio 편집기에서 **편집**  > **고급**  > **공백 보기** 를 차례로 사용하여 공백이 표시되도록 할 수 있습니다.
 > service.yaml 파일은 영어 로캘을 사용하여 처리됩니다. 소수 구분 기호를 사용해야 하는 경우 예를 들어, 쉼표가 아닌 마침표를 사용합니다.
 
-**솔루션 탐색기**에서 **ToDoService** 프로젝트로 이동하고 **서비스 리소스** > **service.yaml**을 차례로 엽니다.
+**솔루션 탐색기** 에서 **ToDoService** 프로젝트로 이동하고 **서비스 리소스** > **service.yaml** 을 차례로 엽니다.
 
 ![그림 1 - ToDoService service.yaml 파일](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-port.png)
 
@@ -359,7 +364,7 @@ URL은 서비스 이름과 포트로 구성됩니다. 이 모든 정보는 **ToD
 
 다음으로, 서비스 이름과 포트 번호를 나타내는 환경 변수가 백 엔드 서비스를 호출할 수 있도록 WebFrontEnd 프로젝트에 정의해야 합니다.
 
-**솔루션 탐색기**에서 **WebFrontEnd** > **서비스 리소스** > **service.yaml**로 차례로 이동하여 백 엔드 서비스 주소를 지정하는 변수를 정의합니다.
+**솔루션 탐색기** 에서 **WebFrontEnd** > **서비스 리소스** > **service.yaml** 로 차례로 이동하여 백 엔드 서비스 주소를 지정하는 변수를 정의합니다.
 
 service.yaml 파일에서 `environmentVariables:` 아래에 다음 변수를 추가합니다(`environmentVariables:`의 주석을 제거하려면 먼저 `#`을 제거해야 함). 간격이 중요하므로 추가한 변수를 `environmentVariables:` 아래의 다른 변수와 정렬합니다. ApiHostPort 값이 ToDoService의 service.yaml 파일에서 이전에 보았던 ToDoServiceListener의 포트 값과 일치하는 것이 매우 중요합니다.
 

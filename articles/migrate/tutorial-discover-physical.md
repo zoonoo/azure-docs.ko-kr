@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 639b810cbb99496f84b76fc96124145a019fb625
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705543"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541345"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>자습서: 서버 평가를 사용하여 물리적 서버 검색
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **요구 사항** | **세부 정보**
 --- | ---
-**어플라이언스** | Azure Migrate 어플라이언스를 실행할 머신이 필요합니다. 머신에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다. _(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
+**어플라이언스** | Azure Migrate 어플라이언스를 실행할 머신이 필요합니다. 머신에는 다음이 있어야 합니다.<br/><br/> - Windows Server 2016이 설치되었습니다.<br/> _(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_<br/><br/> - 16GB RAM, 8개의 vCPU, 약 80GB의 디스크 스토리지<br/><br/> - 직접 또는 프록시를 통해 인터넷에 액세스할 수 있는 고정 또는 동적 IP 주소.
 **Windows 서버** | 어플라이언스가 구성 및 성능 메타데이터를 가져올 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용합니다.
 **Linux 서버** | 포트 22(TCP)에서 인바운드 연결을 허용합니다.
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 프로젝트를 만들고 Azure Migrate 어플라이언스를 등록하려면 다음이 포함된 계정이 필요합니다.
 - Azure 구독에 대한 기여자 또는 소유자 권한.
-- Azure Active Directory 앱을 등록할 수 있는 권한.
+- AAD(Azure Active Directory) 앱을 등록할 수 있는 권한.
 
 Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다. 구독 소유자가 아닌 경우 다음과 같이 소유자와 협력하여 권한을 할당합니다.
 
@@ -67,19 +67,20 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![계정에 역할을 할당하는 역할 할당 추가 페이지를 엽니다.](./media/tutorial-discover-physical/assign-role.png)
 
-7. 포털에서 사용자를 검색하고 **서비스** 에서 **사용자** 를 선택합니다.
-8. **사용자 설정** 에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예** 로 설정됨).
+1. 어플라이언스를 등록하려면 Azure 계정에 **AAD 앱을 등록할 수 있는 권한** 이 필요합니다.
+1. Azure Portal에서 **Azure Active Directory** > **사용자** > **사용자 설정** 으로 이동합니다.
+1. **사용자 설정** 에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예** 로 설정됨).
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인합니다.](./media/tutorial-discover-physical/register-apps.png)
 
-9. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. '앱 등록' 설정이 '아니요'로 설정된 경우 테넌트/전역 관리자에게 필요한 권한을 할당하도록 요청합니다. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>물리적 서버 준비
 
 어플라이언스가 물리적 서버에 액세스하는 데 사용할 수 있는 계정을 설정합니다.
 
-- Windows 서버의 경우 도메인에 가입된 머신에는 도메인 계정을 사용하고 도메인에 가입되지 않은 머신에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
-- Linux 서버의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용하여 필요한 기능이 있는 비루트 계정을 설정할 수 있습니다.
+- **Windows 서버** 의 경우 도메인에 가입된 머신에는 도메인 계정을 사용하고 도메인에 가입되지 않은 머신에는 로컬 계정을 사용합니다. 사용자 계정은 다음 그룹에 추가되어야 합니다. 원격 관리 사용자, 성능 모니터 사용자 및 성능 로그 사용자.
+- **Linux 서버** 의 경우, 검색하려는 Linux 서버의 루트 계정이 필요합니다. 또는 다음 명령을 사용하여 필요한 기능이 있는 비루트 계정을 설정할 수 있습니다.
 
 **명령** | **용도**
 --- | --- |
@@ -102,35 +103,36 @@ chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음�
    ![프로젝트 이름 및 지역 상자](./media/tutorial-discover-physical/new-project.png)
 
 7. **만들기** 를 선택합니다.
-8. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다.
-
-**Azure Migrate : 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
+8. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. **Azure Migrate : 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
 
 ![기본적으로 추가된 서버 평가 도구를 보여주는 페이지](./media/tutorial-discover-physical/added-tool.png)
 
+> [!NOTE]
+> 프로젝트를 이미 만든 경우에는 동일한 프로젝트를 사용하여 추가 어플라이언스를 등록하여 더 많은 서버를 검색하고 평가할 수 있습니다. [자세한 정보](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>어플라이언스 설정
 
-어플라이언스를 설정하려면 다음을 수행합니다.
-- 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
-- Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
-- 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
-- PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
-- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
+Azure Migrate 어플라이언스는 서버 검색을 수행하고, 서버 구성 및 성능 메타데이터를 Azure Migrate로 보냅니다. Azure Migrate 프로젝트에서 다운로드할 수 있는 PowerShell 스크립트를 실행하여 어플라이언스를 설정할 수 있습니다.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
+어플라이언스를 설정하려면 다음을 수행합니다.
+1. 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
+2. Azure Portal에서 Azure Migrate 설치 프로그램 스크립트가 포함된 압축 파일을 다운로드합니다.
+3. 압축 파일의 콘텐츠를 추출합니다. 관리자 권한으로 PowerShell 콘솔을 시작합니다.
+4. PowerShell 스크립트를 실행하여 어플라이언스 웹 애플리케이션을 시작합니다.
+5. 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
+
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Azure Migrate 프로젝트 키 생성
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 선택합니다.
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **물리적 또는 기타(AWS, GCP, Xen 등)** 를 선택합니다.
 3. **1: Azure Migrate 프로젝트 키 생성** 에서 물리적 또는 가상 서버 검색용으로 설정할 Azure Migrate 어플라이언스의 이름을 제공합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 [컴퓨터 검색] 페이지를 닫지 마세요.
 1. Azure 리소스가 성공적으로 만들어지면 **Azure Migrate 프로젝트 키** 가 생성됩니다.
-1. 이 키는 구성 단계에서 어플라이언스 등록을 완료하는 데 필요하므로 복사해 둡니다.
+1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
 
-### <a name="download-the-installer-script"></a>설치 프로그램 스크립트 다운로드
+### <a name="2-download-the-installer-script"></a>2. 설치 프로그램 스크립트 다운로드
 
 **2: Azure Migrate 어플라이언스 다운로드** 에서 **다운로드** 를 클릭합니다.
-
 
 ### <a name="verify-security"></a>보안 확인
 
@@ -155,7 +157,7 @@ chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음�
         물리적(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 설치 프로그램 스크립트는 다음을 수행합니다.
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
@@ -184,13 +186,11 @@ chmod a+r /sys/class/dmi/id/product_uuid | BIOS GUID를 수집하려면 다음�
 
 문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그에 액세스할 수 있습니다.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
 어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
-### <a name="configure-the-appliance"></a>어플라이언스 구성
+### <a name="4-configure-the-appliance"></a>4. 어플라이언스 구성
 
 어플라이언스를 처음으로 설정합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용한 비디오 파일 스트림 - .NET | Microsoft Docs
+title: Azure Media Services를 사용하여 비디오 파일 스트리밍 - .NET
 description: 이 자습서의 단계에 따라 .NET을 사용하여 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩하고, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268692"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821476"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - .NET
 
@@ -53,12 +53,12 @@ ms.locfileid: "91268692"
 
 샘플은 다음 작업을 수행합니다.
 
-1. **변환**을 만듭니다(먼저 지정된 변환이 있는지 확인합니다). 
-2. 인코딩 **작업**의 출력으로 사용되는 출력 **자산**을 만듭니다.
-3. HTTPS URL을 기반으로 하는 **작업**의 입력을 만듭니다.
-4. 앞서 만든 입력 및 출력을 사용하여 인코딩 **작업**을 제출합니다.
+1. **변환** 을 만듭니다(먼저 지정된 변환이 있는지 확인합니다). 
+2. 인코딩 **작업** 의 출력으로 사용되는 출력 **자산** 을 만듭니다.
+3. HTTPS URL을 기반으로 하는 **작업** 의 입력을 만듭니다.
+4. 앞서 만든 입력 및 출력을 사용하여 인코딩 **작업** 을 제출합니다.
 5. 작업의 상태를 확인합니다.
-6. **스트리밍 로케이터**를 만듭니다.
+6. **스트리밍 로케이터** 를 만듭니다.
 7. 스트리밍 URL을 빌드합니다.
 
 샘플의 각 기능이 무엇을 하는지에 관한 설명은 코드를 검토하고 [이 소스 파일 ](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 주석을 확인합니다.
@@ -85,7 +85,7 @@ ms.locfileid: "91268692"
 2. 애플리케이션을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
  
      URL을 HLS, Dash 또는 부드러운 스트리밍 형식으로 붙여넣을 수 있으며, Azure Media Player는 디바이스에서 재생하기 위한 적절한 스트리밍 프로토콜로 자동으로 전환합니다.
-3. **플레이어 업데이트**를 누릅니다.
+3. **플레이어 업데이트** 를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
 

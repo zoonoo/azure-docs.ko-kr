@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/30/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: e07ec17a4e14f0099d82bd444f2ee8d37abe9908
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 3413c1a3f27b48c60ae730ad230c653928702faa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435011"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99821539"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-user"></a>자습서: 보안 앱에서 사용자로 Microsoft Graph에 액세스
 
@@ -85,7 +85,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 
 ### <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
 
-.NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) 및 [Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph) NuGet 패키지를 설치합니다.
+.NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) 및 [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 설치합니다.
 
 # <a name="command-line"></a>[명령줄](#tab/command-line)
 
@@ -94,7 +94,7 @@ Azure App Service에서 실행되는 웹앱에서 Microsoft Graph에 액세스�
 설치 명령을 실행합니다.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 
 dotnet add package Microsoft.Identity.Web
 ```
@@ -105,7 +105,7 @@ Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패�
 
 설치 명령을 실행합니다.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```

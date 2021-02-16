@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 준비
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Docker Compose를 사용하여 AKS에 배포할 수 있는 다중 컨테이너 앱을 준비하고 빌드하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 15bf29c676c4ca41fc2d005f3500a89ed6b9c380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 349bf90ea0b344d5232c885358814f39fba4c19f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576339"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251960"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 애플리케이션 준비
 
@@ -23,9 +23,9 @@ ms.locfileid: "91576339"
 
 완료되면 다음 애플리케이션이 로컬 개발 환경에서 실행됩니다.
 
-![Azure의 Kubernetes 클러스터 이미지](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="로컬 웹 브라우저에서 로컬로 열린 Azure Voting App 실행 컨테이너 이미지를 보여주는 스크린샷" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
-추가 자습서에서는 컨테이너 이미지를 Azure Container Registry에 업로드한 다음, AKS 클러스터에 배포합니다.
+이후 자습서에서는 컨테이너 이미지가 Azure Container Registry에 업로드된 다음, AKS 클러스터에 배포됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -33,11 +33,12 @@ ms.locfileid: "91576339"
 
 이 자습서를 완료하려면 Linux 컨테이너를 실행하는 로컬 Docker 개발 환경이 필요합니다. Docker는 [Mac][docker-for-mac], [Windows][docker-for-windows] 또는 [Linux][docker-for-linux] 시스템에서 Docker를 구성하는 패키지를 제공합니다.
 
-Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
+> [!NOTE]
+> Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필요한 Docker 구성 요소가 포함되어 있지 않습니다. 따라서 전체 Docker 개발 환경을 사용하는 것이 좋습니다.
 
 ## <a name="get-application-code"></a>애플리케이션 코드 가져오기
 
-이 자습서에서 사용되는 애플리케이션 예제는 기본 투표 앱입니다. 애플리케이션은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성됩니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.
+이 자습서에서 사용되는 [샘플 애플리케이션][sample-application]은 프런트 엔드 웹 구성 요소 및 백 엔드 Redis 인스턴스로 구성된 기본 투표 앱입니다. 웹 구성 요소는 사용자 지정 컨테이너 이미지에 패키지됩니다. Redis 인스턴스는 Docker 허브에서 수정되지 않은 이미지를 사용합니다.
 
 [git][]을 사용하여 애플리케이션 예제를 개발 환경에 복제합니다.
 
@@ -51,7 +52,35 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-해당 디렉터리에는 애플리케이션 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다.
+해당 디렉터리에는 애플리케이션 소스 코드, 미리 만든 Docker Compose 파일 및 Kubernetes 매니페스트 파일이 있습니다. 이러한 파일은 자습서 집합 전체에서 사용됩니다. 디렉터리의 내용과 구조는 다음과 같습니다.
+
+```output
+azure-voting-app-redis
+│   azure-vote-all-in-one-redis.yaml
+│   docker-compose.yaml
+│   LICENSE
+│   README.md
+│
+├───azure-vote
+│   │   app_init.supervisord.conf
+│   │   Dockerfile
+│   │   Dockerfile-for-app-service
+│   │   sshd_config
+│   │
+│   └───azure-vote
+│       │   config_file.cfg
+│       │   main.py
+│       │
+│       ├───static
+│       │       default.css
+│       │
+│       └───templates
+│               index.html
+│
+└───jenkins-tutorial
+        config-jenkins.sh
+        deploy-jenkins-vm.sh
+```
 
 ## <a name="create-container-images"></a>컨테이너 이미지 만들기
 
@@ -88,11 +117,11 @@ d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoi
 
 실행 중인 애플리케이션을 보려면 로컬 웹 브라우저에 `http://localhost:8080`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
 
-![Azure의 Kubernetes 클러스터 이미지](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote-local.png" alt-text="로컬 웹 브라우저에서 로컬로 열린 Azure Voting App 실행 컨테이너 이미지를 보여주는 스크린샷" lightbox="./media/container-service-kubernetes-tutorials/azure-vote-local.png":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-애플리케이션 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지는 삭제하지 마세요. 다음 자습서에서 *azure-vote-front* 이미지가 Azure Container Registry 인스턴스에 업로드됩니다.
+애플리케이션 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. ***컨테이너 이미지를 삭제하지 마세요.** _ - 다음 자습서에서 azure-vote-front* 이미지가 Azure Container Registry 인스턴스에 업로드됩니다.
 
 [docker-compose down][docker-compose-down] 명령을 사용하여 컨테이너 인스턴스 및 리소스를 중지하고 제거합니다.
 
@@ -100,7 +129,7 @@ d10e5244f237        mcr.microsoft.com/azuredocs/azure-vote-front:v1   "/entrypoi
 docker-compose down
 ```
 
-로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-vote-front*가 포함된 Docker 이미지가 생깁니다.
+로컬 애플리케이션이 제거되면 그 다음 자습서에서 사용할 Azure Vote 애플리케이션 *azure-vote-front* 가 포함된 Docker 이미지가 생깁니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -126,6 +155,7 @@ docker-compose down
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
 [git]: https://git-scm.com/downloads
+[sample-application]: https://github.com/Azure-Samples/azure-voting-app-redis
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

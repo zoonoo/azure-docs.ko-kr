@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 611d2163e242d7851398821344c3ed595df364cb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 59364a0a2c1d1e411f41dc35dee812c8e920b72d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460271"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209205"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -40,21 +40,21 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Blob 스토리지 살펴보기
 
 1. **지식 센터** 로 이동하여 **샘플 즉시 사용** 을 클릭합니다.
-1. **SQL을 사용하여 데이터 쿼리** 를 선택합니다. 
-1. **샘플 즉시 사용** 을 클릭합니다.
-1. 새 SQL 스크립트가 만들어집니다.
+1. **SQL을 사용하여 데이터 쿼리** 를 선택합니다.
+1. **샘플 사용** 을 클릭합니다.
+1. 새 샘플 SQL 스크립트가 열립니다.
 1. 첫 번째 쿼리(28~32번 줄)로 스크롤하여 쿼리 텍스트를 선택합니다.
-1. 실행을 클릭합니다. 선택한 텍스트가 실행됩니다.
+1. 실행을 클릭합니다. 선택한 코드만 실행됩니다.
 
 ## <a name="loading-more-nyc-taxi-data"></a>더 많은 NYC Taxi 데이터 로드
-1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다. 
+1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다.
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.
-1. **New York Taxicab 데이터 세트 로드** 를 선택합니다.
-1. **입력** 아래에서 **기존 풀 선택**, **SQLDB1** 을 차례로 선택합니다.
+1. 데이터 수집 샘플 **New York Taxicab 로드** 를 선택하고 **계속** 을 클릭합니다.
+1. **SQL 풀** 아래에서 **기존 풀 선택** 을 선택하고, **SQLPOOL1** 을 선택하고, 이전에 만든 **SQLPOOL1** 데이터베이스를 선택합니다.
 1. **스크립트 열기** 를 클릭합니다.
-1. 새 SQL 스크립트가 표시됩니다.
+1. 새 샘플 SQL 스크립트가 열립니다.
 1. **실행** 을 클릭합니다.
-1. 그러면 모든 NYC Taxi 데이터에 대해 여러 테이블이 만들어지고, T-SQL COPY 명령을 사용하여 로드됩니다.
+1. 그러면 모든 NYC Taxi 데이터에 대해 여러 테이블이 만들어지고, T-SQL COPY 명령을 사용하여 로드됩니다. 이전 빠른 시작 단계에서 이러한 테이블을 만든 경우 존재하지 않는 테이블에 대해 CREATE 및 COPY에 대한 코드만 선택하고 실행합니다.
 
     > [!NOTE] 
     > 전용 SQL 풀(이전의 SQL DW)과 함께 SQL 스크립트용 샘플 갤러리를 사용하는 경우 기존 전용 SQL 풀(이전의 SQL DW)만 사용할 수 있습니다.

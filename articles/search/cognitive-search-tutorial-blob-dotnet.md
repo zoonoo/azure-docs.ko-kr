@@ -7,14 +7,14 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787961"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "99821522"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Blob에서 AI 생성 검색 가능 콘텐츠
 
@@ -23,8 +23,8 @@ Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우
 이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
-> * 개발 환경 설정.
-> * OCR, 언어 감지, 엔터티 및 핵심 문구 인식을 사용하여 Blob을 초과하는 파이프라인을 정의합니다.
+> * 개발 환경 설정
+> * OCR, 언어 감지, 엔터티 및 핵심 문구 인식을 사용하는 파이프라인을 정의합니다.
 > * 파이프라인을 실행하여 변환을 호출하고, 검색 인덱스를 만들고 로드합니다.
 > * 전체 텍스트 검색과 풍부한 쿼리 구문을 사용하여 결과를 검색합니다.
 
@@ -32,9 +32,11 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 C# 및 **Azure.Search.Documents** 클라이언트 라이브러리를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다.
+이 자습서에서는 C# 및 [**Azure.Search.Documents** 클라이언트 라이브러리](/dotnet/api/overview/azure/search.documents-readme)를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다.
 
-기술 세트에서는 Cognitive Services API 기반의 기본 제공 기술을 사용합니다. 파이프라인의 단계에는 이미지에 대한 OCR(광학 문자 인식), 텍스트의 언어 감지, 핵심 문구 추출 및 엔터티 인식(조직)이 포함됩니다. 새 정보는 쿼리, 패싯 및 필터에 활용할 수 있는 새 필드에 저장됩니다.
+인덱서는 데이터 원본 개체에 지정된 Blob 컨테이너에 연결하고 인덱싱된 모든 콘텐츠를 기존 검색 인덱스로 보냅니다.
+
+기술 세트는 인덱서에 연결됩니다. Microsoft의 기본 제공 기술을 사용하여 정보를 찾고 추출합니다. 파이프라인의 단계에는 이미지에 대한 OCR(광학 문자 인식), 텍스트의 언어 감지, 핵심 문구 추출 및 엔터티 인식(조직)이 포함됩니다. 파이프라인에서 생성하는 새 정보는 인덱스의 새 필드에 저장됩니다. 인덱스가 채워지면 쿼리, 패싯 및 필터의 필드를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -72,13 +74,13 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
-   * **리소스 그룹** . 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
+   * **리소스 그룹**. 기존 서비스를 선택하거나 새 서비스를 만들지만 동일한 그룹을 모든 서비스에 사용하여 전체적으로 관리할 수 있습니다.
 
-   * **스토리지 계정 이름** . 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus* )을 사용합니다. 
+   * **스토리지 계정 이름**. 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus*)을 사용합니다. 
 
    * **위치** - 가능하면 Azure Cognitive Search 및 Cognitive Services에 사용되는 것과 동일한 위치를 선택합니다. 단일 위치에는 대역폭 요금이 부과되지 않습니다.
 
-   * **계정 종류** . 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
+   * **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
 1. **검토 + 만들기** 를 클릭하여 서비스를 만듭니다.
 
@@ -94,7 +96,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
-   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다( *blobstoragewestus* 를 예로 사용했음). 
+   1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstoragewestus* 를 예로 사용했음). 
 
    1. 왼쪽 탐색 창에서 **액세스 키** 를 선택하고, 연결 문자열 중 하나를 복사합니다. 
 

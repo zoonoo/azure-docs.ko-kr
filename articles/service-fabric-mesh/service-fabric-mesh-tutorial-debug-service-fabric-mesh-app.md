@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 56cc8b4010dc17cf2b723a72898034de8d6a7175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3dc16481340c0266cd398d0970e2147648e17f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843297"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99822160"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 애플리케이션 디버그
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 2부로, 로컬 개발 클러스터에서 Azure Service Fabric Mesh 앱을 빌드 및 디버그하는 방법을 보여 줍니다.
 
@@ -53,7 +58,7 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 ## <a name="build-and-debug-on-your-local-cluster"></a>로컬 클러스터에서 빌드 및 디버그
 
-Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되고 로컬 클러스터에 배포됩니다. 이 프로세스는 시간이 걸릴 수 있습니다. Visual Studio **출력** 창에서 진행률을 모니터링하려면 출력 창 **다음 출력 보기:** 드롭다운을 **Service Fabric 도구**로 설정합니다.
+Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되고 로컬 클러스터에 배포됩니다. 이 프로세스는 시간이 걸릴 수 있습니다. Visual Studio **출력** 창에서 진행률을 모니터링하려면 출력 창 **다음 출력 보기:** 드롭다운을 **Service Fabric 도구** 로 설정합니다.
 
 **F5** 키를 눌러 서비스를 로컬로 컴파일하고 실행합니다. 프로젝트를 실행하고 로컬로 디버깅하는 경우 Visual Studio는 다음을 수행합니다.
 
@@ -72,23 +77,23 @@ Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되�
 현재 `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` 호출이 서비스 연결에 실패하는 문제가 있습니다. 호스트 IP 주소가 변경될 때마다 이 문제가 발생할 수 있습니다. 해결 방법:
 
 1. 로컬 클러스터에서 앱을 제거합니다(Visual Studio에서는 **빌드** > **솔루션 정리**).
-2. Service Fabric 로컬 클러스터 관리자에서 **로컬 클러스터 중지**, **로컬 클러스터 시작**을 차례로 선택합니다.
+2. Service Fabric 로컬 클러스터 관리자에서 **로컬 클러스터 중지**, **로컬 클러스터 시작** 을 차례로 선택합니다.
 3. 앱 다시 배포(Visual Studio에서는 **F5**).
 
-**Service Fabric 로컬 클러스터가 실행되지 않습니다.** 라는 오류가 표시되면 Service Fabric LCM(Local Custer Manager)가 실행되고 있는지 확인하고 작업 표시줄에서 LCM 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 시작**을 클릭합니다. 작업이 시작되면 Visual Studio로 돌아가서 **F5** 키를 누릅니다.
+**Service Fabric 로컬 클러스터가 실행되지 않습니다.** 라는 오류가 표시되면 Service Fabric LCM(Local Custer Manager)가 실행되고 있는지 확인하고 작업 표시줄에서 LCM 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 시작** 을 클릭합니다. 작업이 시작되면 Visual Studio로 돌아가서 **F5** 키를 누릅니다.
 
-앱이 시작될 때 **404** 오류가 발생하는 경우 **service.yaml**의 환경 변수가 올바르지 않은 것이 원인일 수 있습니다. `ApiHostPort` 및 `ToDoServiceName`이 [환경 변수 만들기](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
+앱이 시작될 때 **404** 오류가 발생하는 경우 **service.yaml** 의 환경 변수가 올바르지 않은 것이 원인일 수 있습니다. `ApiHostPort` 및 `ToDoServiceName`이 [환경 변수 만들기](./service-fabric-mesh-tutorial-create-dotnetcore.md#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
 
-**service.yaml**에서 빌드 오류가 발생하면 탭이 아닌 공백을 사용하여 줄을 들여써야 합니다. 또한 이제 영어 로캘을 사용하여 앱을 빌드해야 합니다.
+**service.yaml** 에서 빌드 오류가 발생하면 탭이 아닌 공백을 사용하여 줄을 들여써야 합니다. 또한 이제 영어 로캘을 사용하여 앱을 빌드해야 합니다.
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 
 Visual Studio에서 Service Fabric Mesh 애플리케이션을 디버깅할 때 로컬 Service Fabric 개발 클러스터를 사용합니다. 백 엔드 서비스에서 할 일 항목을 검색하는 방법을 보려면 OnGet() 메서드를 디버그합니다.
-1. **WebFrontEnd** 프로젝트에서 **페이지** > **Index.cshtml** > **Index.cshtml.cs**를 열고 **OnGet** 메서드(줄 17)에서 중단점을 설정합니다.
-2. **ToDoService** 프로젝트에서 **TodoController.cs**를 열고 **Get** 메서드(줄 15)에서 중단점을 설정합니다.
+1. **WebFrontEnd** 프로젝트에서 **페이지** > **Index.cshtml** > **Index.cshtml.cs** 를 열고 **OnGet** 메서드(줄 17)에서 중단점을 설정합니다.
+2. **ToDoService** 프로젝트에서 **TodoController.cs** 를 열고 **Get** 메서드(줄 15)에서 중단점을 설정합니다.
 3. 브라우저로 돌아가서 페이지를 새로 고칩니다. 웹 프런트 엔드 `OnGet()` 메서드에서 중단점에 도달합니다. `backendUrl` 변수를 검사하여 **service.yaml** 파일에서 정의한 환경 변수를 백 엔드 서비스에 연결하는 데 사용된 URL로 결합하는 방법을 보여줄 수 있습니다.
 4. `client.GetAsync(backendUrl).GetAwaiter().GetResult())` 호출(F10)을 넘어서면 컨트롤러의 `Get()` 중단점에 도달합니다. 이 메서드에서는 메모리 내 목록에서 할 일 항목 목록을 검색하는 방법을 볼 수 있습니다.
-5. 작업이 완료되면 **shift+F5**를 눌러 Visual Studio에서 프로젝트 디버깅을 중지합니다.
+5. 작업이 완료되면 **shift+F5** 를 눌러 Visual Studio에서 프로젝트 디버깅을 중지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

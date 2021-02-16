@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 허브를 사용하여 메트릭 및 로그 설정 및 사용
-description: Azure IoT 허브를 사용하여 메트릭 및 로그를 설정하고 사용하는 방법을 알아봅니다. 이렇게 하면 허브에서 발생할 수 있는 문제를 진단하는 데 도움이 되는 분석 데이터를 제공합니다.
+title: 자습서 - Azure IoT 허브를 사용하여 메트릭 및 로그 설정 및 사용
+description: 자습서 - Azure IoT 허브를 사용하여 메트릭 및 로그를 설정하고 사용하는 방법을 알아봅니다. 이렇게 하면 허브에서 발생할 수 있는 문제를 진단하는 데 도움이 되는 분석 데이터를 제공합니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436490"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821390"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>자습서: IoT 허브를 사용하여 메트릭 및 진단 로그 설정 및 사용
 

@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 04c3497e41aba301d5cf16cd6cc723409d1f4175
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 734fad7d3f4fb7a2a816d9ad10fb6b15e2faf9e2
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754069"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820411"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Python 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
 이 빠른 시작에서는 Python 애플리케이션이 앱의 ID를 사용하여 액세스 토큰을 가져와 Microsoft Graph API를 호출하고 디렉터리에 [사용자 목록](/graph/api/user-list)을 표시하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플에서는 사용자의 ID 대신 애플리케이션 ID를 사용하여 무인 작업 또는 Windows 서비스를 실행할 수 있는 방법을 보여줍니다. 
 
 > [!div renderon="docs"]
-> ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-python-daemon/python-console-daemon.svg)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -42,7 +42,7 @@ ms.locfileid: "98754069"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -52,7 +52,7 @@ ms.locfileid: "98754069"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -65,17 +65,17 @@ ms.locfileid: "98754069"
 > 1. **사용자** 노드 아래에서 **User.Read.All** 을 선택한 다음, **권한 추가** 를 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
+> ### <a name="download-and-configure-the-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작에 대한 코드 샘플을 작동시키려면 클라이언트 비밀을 만들고, Graph API의 **User.Read.All** 애플리케이션 권한에 추가해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 클라이언트 암호를 만들고 Graph API의 **User.Read.All** 애플리케이션 권한을 추가합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-netcore-daemon/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
-#### <a name="step-2-download-your-python-project"></a>2단계: Python 프로젝트 다운로드
+#### <a name="step-2-download-the-python-project"></a>2단계: Python 프로젝트 다운로드
 
 > [!div renderon="docs"]
 > [Python 디먼 프로젝트 다운로드](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
@@ -89,10 +89,10 @@ ms.locfileid: "98754069"
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-python-project"></a>3단계: Python 프로젝트 구성
+> #### <a name="step-3-configure-the-python-project"></a>3단계: Python 프로젝트 구성
 >
 > 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
-> 1. 하위 폴더 **1-Call-MsGraph-WithSecret"** 으로 이동합니다.
+> 1. 하위 폴더 **1-Call-MsGraph-WithSecret** 으로 이동합니다.
 > 1. **parameters.json** 을 편집하고 `authority`, `client_id` 및 `secret` 필드의 값을 다음 코드 조각으로 바꿉니다.
 >
 >    ```json
@@ -119,16 +119,16 @@ ms.locfileid: "98754069"
 ##### <a name="global-tenant-administrator"></a>글로벌 테넌트 관리자
 
 > [!div renderon="docs"]
-> 글로벌 테넌트 관리자인 경우 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 사용 권한** 페이지로 이동하고 **{테넌트 이름}에 대한 관리자 동의 부여**(여기서 {테넌트 이름}은 디렉터리의 이름)를 선택합니다.
+> 글로벌 테넌트 관리자인 경우 Azure Portal의 **앱 등록** 에서 **API 사용 권한** 페이지로 이동하고 **{테넌트 이름}에 대한 관리자 동의 부여**(여기서 {테넌트 이름}은 디렉터리의 이름)를 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> 글로벌 관리자인 경우 **API 사용 권한** 페이지로 이동하고 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여** 를 선택합니다.
+> 전역 관리자인 경우 **API 사용 권한** 페이지로 이동하여 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여** 를 선택합니다.
 > > [!div id="apipermissionspage"]
 > > [API 사용 권한 페이지로 이동]()
 
 ##### <a name="standard-user"></a>표준 사용자
 
-테넌트의 표준 사용자인 경우 글로벌 관리자에게 애플리케이션에 대한 관리자 동의 부여를 요청해야 합니다. 이렇게 하려면 관리자에게 다음 URL을 제공합니다.
+테넌트의 표준 사용자인 경우 전역 관리자에게 애플리케이션에 대한 관리자 동의를 부여하도록 요청합니다. 이렇게 하려면 관리자에게 다음 URL을 제공합니다.
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -213,7 +213,7 @@ if not result:
 
 > |위치:| Description |
 > |---------|---------|
-> | `config["scope"]` | 요청된 범위를 포함합니다. 비밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 노출** 섹션 아래에 정의됩니다. |
+> | `config["scope"]` | 요청된 범위를 포함합니다. 기밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 **앱 등록** 에서 **API 노출** 섹션 아래에 정의됩니다.|
 
 자세한 내용은 [`AcquireTokenForClient`에 대한 참조 설명서](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)를 참조하세요.
 

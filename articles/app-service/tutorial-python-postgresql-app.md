@@ -3,7 +3,7 @@ title: '자습서: Postgres를 사용하는 Python Django 앱 배포'
 description: PostgreSQL 데이터베이스를 사용하는 Python 웹앱을 만들어 Azure에 배포합니다. 이 자습서에서는 Django 프레임워크를 사용하고 Linux의 Azure App Service에서 앱을 호스팅합니다.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/04/2021
+ms.date: 02/02/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6112247a99c519aad8aadf7946c7707480b3b491
+ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898592"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99821906"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "97898592"
 
 1. 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 1. <a href="https://www.python.org/downloads/" target="_blank">Python 3.6 이상</a>을 설치합니다.
-1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
+1. <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 이상을 설치합니다. 이를 통해 셸에서 명령을 실행하여 Azure 리소스를 프로비저닝하고 구성할 수 있습니다.
 
 터미널 창을 열고 Python 버전이 3.6 이상인지 확인합니다.
 
@@ -63,11 +63,13 @@ py -3 --version
 
 ---
 
-Azure CLI 버전이 2.0.80 이상인지 확인합니다.
+Azure CLI 버전이 2.18.0 이상인지 확인합니다.
 
 ```azurecli
 az --version
 ```
+
+업그레이드해야 하는 경우 `az upgrade` 명령(버전 2.11 이상 필요)을 시도하거나 <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI 설치</a>를 참조하세요.
 
 그런 다음, CLI를 통해 Azure에 로그인합니다.
 
@@ -229,7 +231,7 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 
     `<app-name>`을 이전에 `az webapp up` 명령에서 사용한 이름으로 바꿉니다.
 
-    macOS 및 Linux에서는 [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) 명령을 사용하여 SSH 세션에 연결할 수 있습니다.
+    [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) 명령을 사용하여 SSH 세션에 연결할 수 있습니다. Windows에서 이 명령을 사용하려면 Azure CLI 2.18.0 이상이 필요합니다.
 
     SSH 세션에 연결할 수 없으면 앱 자체를 시작하지 못한 것입니다. 자세한 내용은 [진단 로그를 확인](#6-stream-diagnostic-logs)하세요. 예를 들어 이전 섹션에서 필요한 앱 설정을 만들지 않은 경우 로그에 `KeyError: 'DBNAME'`이 표시됩니다.
 
@@ -239,8 +241,11 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
     # Change to the app folder
     cd $APP_PATH
     
-    # Activate the venv (requirements.txt is installed automatically)
+    # Activate the venv
     source /antenv/bin/activate
+
+    # Install requirements
+    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -398,6 +403,7 @@ az webapp up
 ```
 cd $APP_PATH
 source /antenv/bin/activate
+pip install -r requirements.txt
 python manage.py migrate
 ```
 

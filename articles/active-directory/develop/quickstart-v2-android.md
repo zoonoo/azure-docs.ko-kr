@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 6d05c4ba6af860616e5afdfba2378ad9b17fcc77
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 49c69a79b4841f13623c9e6ab3daea72dd7fde26
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938262"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99583657"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -35,7 +35,7 @@ Microsoft ID 플랫폼에서 애플리케이션에 토큰을 제공할 수 있�
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
->  이 빠른 시작의 샘플 코드에는 Auth broker와 호환되는 리디렉션 URI가 필요합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 인증 broker와 호환되는 **리디렉션 URI** 를 추가합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
 >

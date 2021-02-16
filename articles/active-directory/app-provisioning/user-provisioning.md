@@ -8,19 +8,21 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
-ms.openlocfilehash: cb2c168786ee4cb14f93544d4cd9632b86ba5156
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.reviewer: arvinh
+ms.openlocfilehash: f899c4d67321482dab62729632fe031bb23f71ea
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255528"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830671"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Azure AD에서 자동화된 SaaS 앱 사용자 프로비저닝이란?
 
 Azure AD(Azure Active Directory)에서 **앱 프로비저닝** 이라는 용어는 사용자가 액세스해야 하는 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
+
+Azure AD에서 앱 관리 및 SSO(Single Sign-On)를 시작하는 중이신가요? [빠른 시작 시리즈](../manage-apps/view-applications-portal.md)를 확인하세요.
 
 SCIM에 대해 자세히 알아보고 기술 커뮤니티 대화에 참여하려면 [SCIM 기술 커뮤니티를 통한 프로비저닝](https://aka.ms/scimoverview)을 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 및 Azure CLI를 사용하여 비디오 파일 스트리밍
+title: Azure Media Services CLI를 사용하여 비디오 파일 스트리밍
 description: 이 자습서의 단계에 따라 Azure CLI를 사용하여 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩하고, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c78205d7e2b41628de9e8b92c9fa5506e82158cb
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268777"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821234"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - Azure CLI
 
@@ -85,7 +85,7 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 
 ## <a name="start-the-streaming-endpoint"></a>스트리밍 엔드포인트 시작
 
-다음 Azure CLI 명령은 기본 **스트리밍 엔드포인트**를 시작합니다.
+다음 Azure CLI 명령은 기본 **스트리밍 엔드포인트** 를 시작합니다.
 
 ```azurecli-interactive
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -160,7 +160,7 @@ az ams transform create --name testEncodingTransform --preset AdaptiveStreaming 
 
 ## <a name="create-an-output-asset"></a>출력 자산 만들기
 
-인코딩 작업의 출력으로 사용할 출력 **자산**을 만듭니다.
+인코딩 작업의 출력으로 사용할 출력 **자산** 을 만듭니다.
 
 ```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -237,7 +237,7 @@ az ams job start --name testJob001 --transform-name testEncodingTransform --base
 
 ### <a name="check-status"></a>상태 확인
 
-5분 후에 작업 상태를 확인합니다. "마침"이어야 합니다. 완료되지 않으면 몇 분 후에 다시 확인합니다. 완료되었으면 다음 단계로 이동한 후 **스트리밍 로케이터**를 만듭니다.
+5분 후에 작업 상태를 확인합니다. "마침"이어야 합니다. 완료되지 않으면 몇 분 후에 다시 확인합니다. 완료되었으면 다음 단계로 이동한 후 **스트리밍 로케이터** 를 만듭니다.
 
 ```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
@@ -337,7 +337,7 @@ az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)으로 이동합니다.
 2. **URL** 상자에 이전 섹션에서 작성한 URL을 붙여넣습니다. HLS, Dash 또는 Smooth 형식에서 URL을 붙여넣을 수 있습니다. Azure Media Player는 디바이스에서 재생할 때 적절한 스트리밍 프로토콜을 자동으로 사용합니다.
-3. **플레이어 업데이트**를 선택합니다.
+3. **플레이어 업데이트** 를 선택합니다.
 
 >[!NOTE]
 >Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다.

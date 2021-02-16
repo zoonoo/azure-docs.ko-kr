@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4aa2fd08491616c1202cc19fb1a6b9bc8e89853c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d449343fd00ff958470a71ecb3a37d585d7ff8ed
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826063"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821562"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>자습서: 애플리케이션 및 리소스 제거
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 4부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 실행 중인 애플리케이션을 제거하는 방법을 알아보겠습니다. 
 
@@ -26,7 +31,7 @@ ms.locfileid: "97826063"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행되는 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
 > * [Service Fabric Mesh에서 실행 중인 애플리케이션 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * 애플리케이션 제거
 

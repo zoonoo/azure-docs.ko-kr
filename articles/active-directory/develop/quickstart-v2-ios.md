@@ -13,12 +13,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: ef2ab6511d80f7f1f836805055e7cc7f48a488e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d2c5af6aeccfbae0851513ff575bde3c39e3ca5f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754291"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103790"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -46,7 +46,7 @@ ms.locfileid: "98754291"
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 앱을 등록하려면
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -55,7 +55,7 @@ ms.locfileid: "98754291"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.    
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "98754291"
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 인증 broker와 호환되는 리디렉션 URI를 추가해야 합니다.
+> 이 빠른 시작에 대한 코드 샘플이 작동하려면 인증 broker와 호환되는 **리디렉션 URI** 를 추가합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -118,7 +118,7 @@ ms.locfileid: "98754291"
 >     ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
 > 1. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
-> 1. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 **_번들 ID_* _로 바꿉니다.
+> 1. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -180,7 +180,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 > |위치: | Description |
 > |---------|---------|
-> | `clientId` | _portal.azure.com*에 등록된 애플리케이션의 애플리케이션 ID |
+> | `clientId` | *portal.azure.com* 에 등록된 애플리케이션의 애플리케이션 ID |
 > | `authority` | Microsoft ID 플랫폼. 대부분의 경우 이는 `https://login.microsoftonline.com/common`과 같습니다. |
 > | `redirectUri` | 애플리케이션의 리디렉션 URI입니다. 'nil'을 전달하여 기본값을 사용하거나 사용자 지정 리디렉션 URI를 사용할 수 있습니다. |
 
@@ -214,7 +214,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
     }
  ```
 
-마지막으로, 앱에는 `CFBundleURLTypes`와 함께 **Info.plist** 에 `LSApplicationQueriesSchemes` 항목이 있어야 합니다. 샘플에는 이 항목이 포함되어 있습니다.
+마지막으로 앱의 ***Info.plist*** 에 `CFBundleURLTypes`와 함께 `LSApplicationQueriesSchemes` 항목이 있어야 합니다. 샘플에는 이 항목이 포함되어 있습니다.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -232,7 +232,7 @@ MSAL에는 토큰 가져오기에 사용되는 두 가지 메서드인 `acquireT
 
 상황에 따라 사용자가 Microsoft ID 플랫폼과 상호 작용해야 합니다. 이러한 경우 최종 사용자는 해당 계정을 선택하거나, 해당 자격 증명을 입력하거나, 앱의 권한에 동의해야 할 수 있습니다. 예를 들면 다음과 같습니다.
 
-_ 사용자가 애플리케이션에 처음으로 로그인한 경우
+* 처음으로 사용자가 애플리케이션에 로그인한 경우
 * 사용자가 자신의 암호를 다시 설정하는 경우 해당 자격 증명을 입력해야 합니다.
 * 애플리케이션에서 처음으로 리소스에 대한 액세스를 요청하는 경우
 * MFA 또는 기타 조건부 액세스 정책이 필요한 경우

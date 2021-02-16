@@ -4,14 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 190e2144e92ffd77c098b4bf9205de03e55af7df
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 398f11c6e55cb62e0b29c148494cf3d590200b9d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511293"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834173"
 ---
 이 자습서에서는 구성 요소를 사용하여 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 허브로 전송된 정보를 확인하는 방법을 보여 줍니다. 샘플 애플리케이션은 C로 작성되었으며 C용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
+
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * 샘플 코드를 다운로드합니다.
+> * 샘플 코드를 빌드합니다.
+> * 샘플 디바이스 애플리케이션을 실행하고 IoT 허브에 연결되는지 확인합니다.
+> * 소스 코드를 검토합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -282,5 +290,3 @@ iothubResult = IoTHubDeviceClient_LL_SendEventAsync(deviceClientLL, messageHandl
 ```
 
 `main` 함수는 마지막으로 다른 구성 요소를 삭제하고 허브에 대한 연결을 닫습니다.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

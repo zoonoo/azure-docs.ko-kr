@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
-ms.openlocfilehash: 7c88aea6aff942cdcf5cbc022df8f07cfe0d4cce
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 01/25/2021
+ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701282"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "99822065"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용하여 Azure Storage에서 JSON Blob 인덱싱
 
@@ -98,13 +98,13 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
 
-:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="HTTP 엔드포인트 및 액세스 키 가져오기" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="HTTP 엔드포인트 및 액세스 키 가져오기" border="false":::
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="2---set-up-postman"></a>2 - Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Azure Cognitive Search REST API 살펴보기](search-get-started-rest.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [REST API를 사용하여 검색 인덱스 만들기](search-get-started-rest.md)를 참조하세요.
 
 이 자습서의 모든 호출에 대한 요청 메서드는 **POST** 와 **GET** 입니다. 검색 서비스에 대해 API 호출을 세 번 수행하여 데이터 원본, 인덱스 및 인덱서를 만듭니다. 데이터 원본은 스토리지 계정 및 JSON 데이터에 대한 포인터를 포함합니다. 검색 서비스는 데이터를 로드할 때 연결합니다.
 
@@ -158,7 +158,7 @@ URI는 api-version을 지정해야 하며, 각 호출은 **201 생성됨** 을 �
     ```
 
 ## <a name="4---create-an-index"></a>4 - 인덱스 만들기
-    
+
 두 번째 호출은 [인덱스 API 만들기](/rest/api/searchservice/create-index)이며 검색 가능한 모든 데이터를 저장하는 Azure Cognitive Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
 1. 이 호출의 엔드포인트를 `https://[service name].search.windows.net/indexes?api-version=2020-06-30`으로 설정합니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.

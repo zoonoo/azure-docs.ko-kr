@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a71e854f03bee75b757e0a0aa02e7aa2c24469b
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747856"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821314"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행되는 Service Fabric 애플리케이션 업그레이드
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 3부입니다. 할당된 CPU 리소스를 늘려서 [Service Fabric Mesh에 이전에 배포한](service-fabric-mesh-tutorial-template-deploy-app.md) Service Fabric 애플리케이션을 업그레이드하는 방법을 알아봅니다.  이 과정을 완료하면 웹 프런트 엔드 서비스가 늘어난 CPU 리소스로 실행됩니다.
 
@@ -26,7 +31,7 @@ ms.locfileid: "92747856"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
-> * [Service Fabric Mesh에서 실행되는 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
+> * [Service Fabric Mesh에서 실행 중인 애플리케이션 크기 조정](service-fabric-mesh-tutorial-template-scale-services.md)
 > * Service Fabric Mesh에서 실행되는 애플리케이션 업그레이드
 > * [애플리케이션 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 

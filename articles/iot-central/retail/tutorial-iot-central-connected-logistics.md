@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 398441123d5ad309d9c2d506a75b80b58a6d56d0
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 7c6c50b6fd8200726aa11f120d9748cc1b40aa22
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346217"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831623"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>자습서: 커넥티드 물류 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -130,8 +130,8 @@ ms.locfileid: "97346217"
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="템플릿 정리":::
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 정보 
+
+ 추가 정보:
+
 > [!div class="nextstepaction"]
 > [연결된 물류 개념](./architecture-connected-logistics.md)
-* 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central.md)에 대해 자세히 알아보기

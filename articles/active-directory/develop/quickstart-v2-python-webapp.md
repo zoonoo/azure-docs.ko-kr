@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 3c3eaddf1767a3fa4a2ba73ae7a27f1f7df13990
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: fb38140f09fc7c1eb2c40fc02e8c113cbc6f94a0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178207"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103518"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "98178207"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -50,7 +50,7 @@ ms.locfileid: "98178207"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 > 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `python-webapp`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "98178207"
 > 1. 키 설명(예: 앱 비밀)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
 > 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
 > 1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다.
->1.  **Microsoft API** 탭이 선택되어 있는지 확인합니다.
+> 1. **Microsoft API** 탭이 선택되어 있는지 확인합니다.
 > 1. *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph** 를 선택합니다.
 > 1. **위임된 권한** 섹션에서 적절한 권한이 선택되었는지 확인합니다. **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
 > 1. **사용 권한 추가** 단추를 선택합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "98178207"
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 >
-> 빠른 시작용 코드 샘플이 작동하려면 다음을 수행해야 합니다.
+> 이 빠른 시작의 코드 샘플이 작동하려면 다음을 수행합니다.
 >
 > 1. 회신 URL을 `http://localhost:5000/getAToken`으로 입력합니다.
 > 1. 클라이언트 비밀을 만듭니다.

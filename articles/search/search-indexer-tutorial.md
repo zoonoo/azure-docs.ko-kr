@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e2ca5f42120661b887d07e697596f41cb7a7fce4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697172"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "99821809"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure SQL 데이터 인덱싱
 
@@ -107,14 +107,14 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 1. 솔루션 탐색기에서 **appsettings.json** 을 열고 연결 정보를 제공합니다.
 
-1. `searchServiceName`의 경우 전체 URL이 "https://my-demo-service.search.windows.net"이면 제공할 서비스 이름은 "my-demo-service"입니다.
+1. `SearchServiceEndPoint`의 경우 서비스 개요 페이지의 전체 URL이 "https://my-demo-service.search.windows.net"이면 제공할 값은 해당 URL입니다.
 
 1. `AzureSqlConnectionString`의 경우, 문자열 형식은 다음과 유사합니다. `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
-      "SearchServiceName": "<placeholder-Azure-Search-service-name>",
-      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-Azure-Search>",
+      "SearchServiceEndPoint": "<placeholder-search-url>",
+      "SearchServiceAdminApiKey": "<placeholder-admin-key-for-search-service>",
       "AzureSqlConnectionString": "<placeholder-ADO.NET-connection-string",
     }
     ```
@@ -130,11 +130,12 @@ API 호출에는 서비스 URL과 액세스 키가 필요합니다. 검색 서�
 
 ### <a name="in-hotelcs"></a>hotel.cs에서
 
-인덱스 스키마는 다음과 같은 HotelName의 필드 정의에 표시된 대로 필드가 전체 텍스트 검색 가능, 필터링 가능, 정렬 가능한지 등 허용되는 작업을 지정하는 속성을 비롯한 필드 컬렉션을 정의합니다. 
+인덱스 스키마는 다음과 같은 HotelName의 필드 정의에 표시된 대로 필드가 전체 텍스트 검색 가능, 필터링 가능, 정렬 가능한지 등 허용되는 작업을 지정하는 속성을 비롯한 필드 컬렉션을 정의합니다. [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield)는 정의에 따라 전체 텍스트 검색이 가능합니다. 다른 특성은 명시적으로 할당됩니다.
 
 ```csharp
 . . . 
-[IsSearchable, IsFilterable, IsSortable]
+[SearchableField(IsFilterable = true, IsSortable = true)]
+[JsonPropertyName("hotelName")]
 public string HotelName { get; set; }
 . . .
 ```
@@ -143,59 +144,73 @@ public string HotelName { get; set; }
 
 ### <a name="in-programcs"></a>Program.cs에서
 
-기본 프로그램에는 클라이언트, 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
+기본 프로그램에는 [인덱서 클라이언트](/dotnet/api/azure.search.documents.indexes.models.searchindexer), 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
 
-데이터 원본 개체는 Azure SQL의 기본 제공 [변경 내용 검색 기능](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [부분 또는 증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL Database 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted** 라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
+데이터 원본 개체는 Azure SQL의 기본 제공 [변경 내용 검색 기능](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [부분 또는 증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL Database 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 원본 데모 호텔 데이터베이스에는 **IsDeleted** 라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
 
-  ```csharp
-  Console.WriteLine("Creating data source...");
+```csharp
+Console.WriteLine("Creating data source...");
 
-  DataSource dataSource = DataSource.AzureSql(
-      name: "azure-sql",
-      sqlConnectionString: configuration["AzureSQLConnectionString"],
-      tableOrViewName: "hotels",
-      deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-          softDeleteColumnName: "IsDeleted",
-          softDeleteMarkerValue: "true"));
-  dataSource.DataChangeDetectionPolicy = new SqlIntegratedChangeTrackingPolicy();
+var dataSource =
+      new SearchIndexerDataSourceConnection(
+         "hotels-sql-ds",
+         SearchIndexerDataSourceType.AzureSql,
+         configuration["AzureSQLConnectionString"],
+         new SearchIndexerDataContainer("hotels"));
 
-  searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
-  ```
+indexerClient.CreateOrUpdateDataSourceConnection(dataSource);
+```
 
-인덱서 개체는 플랫폼의 제약을 받지 않으므로 원본에 관계없이 구성, 일정 예약 및 호출이 동일합니다. 이 예제 인덱서는 인덱서 기록을 지우는 초기화 옵션인 일정을 포함하고 있으며, 즉시 인덱서를 만들고 실행하는 메서드를 호출합니다.
+인덱서 개체는 플랫폼의 제약을 받지 않으므로 원본에 관계없이 구성, 일정 예약 및 호출이 동일합니다. 이 예제 인덱서는 인덱서 기록을 지우는 초기화 옵션인 일정을 포함하고 있으며, 즉시 인덱서를 만들고 실행하는 메서드를 호출합니다. 인덱서를 만들거나 업데이트하려면 [CreateOrUpdateIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.createorupdateindexerasync)를 사용합니다.
 
-  ```csharp
-  Console.WriteLine("Creating Azure SQL indexer...");
-  Indexer indexer = new Indexer(
-      name: "azure-sql-indexer",
-      dataSourceName: dataSource.Name,
-      targetIndexName: index.Name,
-      schedule: new IndexingSchedule(TimeSpan.FromDays(1)));
-  // Indexers contain metadata about how much they have already indexed
-  // If we already ran the sample, the indexer will remember that it already
-  // indexed the sample data and not run again
-  // To avoid this, reset the indexer if it exists
-  exists = await searchService.Indexers.ExistsAsync(indexer.Name);
-  if (exists)
-  {
-      await searchService.Indexers.ResetAsync(indexer.Name);
-  }
+```csharp
+Console.WriteLine("Creating Azure SQL indexer...");
 
-  await searchService.Indexers.CreateOrUpdateAsync(indexer);
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+      StartTime = DateTimeOffset.Now
+};
 
-  // We created the indexer with a schedule, but we also
-  // want to run it immediately
-  Console.WriteLine("Running Azure SQL indexer...");
+var parameters = new IndexingParameters()
+{
+      BatchSize = 100,
+      MaxFailedItems = 0,
+      MaxFailedItemsPerBatch = 0
+};
 
-  try
-  {
-      await searchService.Indexers.RunAsync(indexer.Name);
-  }
-  catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
-  {
+// Indexer declarations require a data source and search index.
+// Common optional properties include a schedule, parameters, and field mappings
+// The field mappings below are redundant due to how the Hotel class is defined, but 
+// we included them anyway to show the syntax 
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+      Description = "Data indexer",
+      Schedule = schedule,
+      Parameters = parameters,
+      FieldMappings =
+      {
+         new FieldMapping("_id") {TargetFieldName = "HotelId"},
+         new FieldMapping("Amenities") {TargetFieldName = "Tags"}
+      }
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
+```
+
+인덱서 실행은 일반적으로 예약되어 있지만 개발 중에 [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync)를 사용하여 인덱서를 즉시 실행할 수 있습니다.
+
+```csharp
+Console.WriteLine("Running Azure SQL indexer...");
+
+try
+{
+      await indexerClient.RunIndexerAsync(indexer.Name);
+}
+catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
+{
       Console.WriteLine("Failed to run indexer: {0}", e.Response.Content);
-  }
-  ```
+}
+```
 
 ## <a name="4---build-the-solution"></a>4 - 솔루션 빌드
 
@@ -205,9 +220,9 @@ F5 키를 눌러 솔루션을 빌드하고 실행합니다. 디버그 모드로 
 
 코드는 Visual Studio에서 로컬로 실행되어 Azure의 검색 서비스에 연결됩니다. 그러면 Azure SQL Database에 연결되어 데이터 세트를 검색합니다. 이러한 많은 작업을 수행하는 경우 몇 가지 잠재적인 실패 지점이 있습니다. 오류가 발생하면 먼저 다음 조건을 확인하세요.
 
-+ 제공한 검색 서비스 연결 정보가 이 자습서에서 해당 서비스 이름으로 제한됩니다. 전체 URL을 입력한 경우 인덱스 생성 시 연결 오류와 함께 작업이 중지됩니다.
++ 제공하는 검색 서비스 연결 정보는 전체 URL입니다. 서비스 이름만 입력하면 인덱스 생성 시 연결 오류와 함께 작업이 중지됩니다.
 
-+ **appsettings.json** 에 있는 데이터베이스 연결 정보입니다. 해당 항목은 포털에서 가져온 ADO.NET 연결 문자열이며 데이터베이스에 유효한 사용자 이름 및 암호를 포함하도록 수정되어야 합니다. 사용자 계정에는 데이터를 검색할 수 있는 권한이 있어야 합니다. 로컬 클라이언트 IP 주소에 액세스할 수 있어야 합니다.
++ **appsettings.json** 에 있는 데이터베이스 연결 정보입니다. 해당 항목은 포털에서 가져온 ADO.NET 연결 문자열이며 데이터베이스에 유효한 사용자 이름 및 암호를 포함하도록 수정되어야 합니다. 사용자 계정에는 데이터를 검색할 수 있는 권한이 있어야 합니다. 로컬 클라이언트 IP 주소는 방화벽을 통해 인바운드 액세스가 허용되어야 합니다.
 
 + 리소스 제한 무료 계층에는 3개의 인덱스, 인덱서 및 데이터 원본이 제한되어 있습니다. 최대 제한 시 서비스는 새 개체를 만들 수 없습니다.
 

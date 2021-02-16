@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b239cf6d253c1c2d2e36d213e92e0b218add3f8c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885991"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625267"
 ---
 # <a name="chat-client-library-overview"></a>채팅 클라이언트 라이브러리 개요
 
@@ -53,6 +53,17 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 | 모니터링        | 전송된 메시지의 용어 면에서 사용량 모니터링                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | 앱에서 생성한 API 요청의 품질 및 상태를 모니터링하고 포털을 통해 경고를 구성                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |추가 기능 | [Cognitive Services API](../../../cognitive-services/index.yml)를 채팅 클라이언트 라이브러리와 함께 사용하여 *클라이언트에서 들어오는 메시지의 언어 번역 및 감정 분석, 멤버가 말하는 동안 메시지를 작성하는 음성 텍스트 변환 대화* 와 같은 인텔리전트 기능을 사용하도록 설정합니다.                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>OS 및 브라우저별 JavaScript 채팅 클라이언트 라이브러리 지원
+
+다음 표에서는 현재 사용할 수 있는 지원되는 브라우저 및 버전의 세트를 나타냅니다.
+
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+| **채팅 클라이언트 라이브러리** | Firefox *, Chrome*, 새 Edge | Firefox *, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+
+
+*이전 두 릴리스 외에도 최신 버전이 지원됩니다.<br/>
 
 ## <a name="next-steps"></a>다음 단계
 

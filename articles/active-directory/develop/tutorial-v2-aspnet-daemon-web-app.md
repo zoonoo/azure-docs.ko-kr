@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015949"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103025"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>자습서: Microsoft ID 플랫폼을 사용하는 다중 테넌트 디먼 빌드
 
@@ -45,11 +45,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 샘플의 "daemon" 구성 요소는 `SyncController.cs` API 컨트롤러입니다. 컨트롤러가 호출되면 Microsoft Graph에서 고객의 Azure AD(Azure Active Directory) 테넌트에 있는 사용자 목록을 가져옵니다. `SyncController.cs`는 웹 애플리케이션의 AJAX 호출을 통해 트리거되며, [.NET용 MSAL(Microsoft 인증 라이브러리)](msal-overview.md)을 사용하여 Microsoft Graph에 대한 액세스 토큰을 획득합니다.
 
-이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 회사 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한* 을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
+이 앱은 Microsoft 비즈니스 고객을 위한 다중 테넌트 앱이므로 고객이 애플리케이션을 회사 데이터에 "가입"하거나 "연결"할 수 있는 방법을 제공해야 합니다. 연결 흐름 중에 전역 관리자는 먼저 로그인한 사용자가 없어도 비대화형 방식으로 회사 데이터에 액세스할 수 있도록 *애플리케이션 권한* 을 앱에 직접 부여합니다. 이 샘플의 논리 대부분에서는 ID 플랫폼의 [관리자 동의](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) 엔드포인트를 사용하여 이 연결 흐름을 수행하는 방법을 보여 줍니다.
 
 ![다이어그램은 Azure에 연결되는 세 개의 로컬 항목이 있는 UserSync 앱을 보여줍니다. Start dot Auth는 대화형으로 토큰을 획득하여 Azure AD에 연결하고, AccountController는 Azure AD에 연결하기 위한 관리자 동의를 가져오고, SyncController는 사용자를 읽어 Microsoft Graph에 연결합니다.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-이 샘플에 사용되는 개념에 대한 자세한 내용은 [ID 플랫폼 엔드포인트의 클라이언트 자격 증명 프로토콜 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하세요.
+이 샘플에 사용되는 개념에 대한 자세한 내용은 [ID 플랫폼의 클라이언트 자격 증명 프로토콜 설명서](v2-oauth2-client-creds-grant-flow.md)를 참조하세요.
 
 ## <a name="clone-or-download-this-repository"></a>리포지토리 복제 또는 다운로드
 
@@ -93,7 +93,7 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 ### <a name="choose-the-azure-ad-tenant"></a>Azure AD 테넌트 선택
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 
 
@@ -109,8 +109,8 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 1. **등록** 을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **로그아웃 URL** 을 `https://localhost:44316/Account/EndSession`으로 설정합니다.
-1. **암시적 허용** 섹션에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
+1. **프런트 채널 로그 아웃 URL** 을 `https://localhost:44316/Account/EndSession`으로 설정합니다.
+1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **액세스 토큰** 및 **ID 토큰** 을 선택합니다. 이 샘플에서는 사용자를 로그인하고 API를 호출하는 [암시적 허용 흐름](v2-oauth2-implicit-grant-flow.md)을 사용하도록 설정해야 합니다.
 1. **저장** 을 선택합니다.
 1. **관리** 에서 **인증서 및 암호** 를 선택합니다.
 1. **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 선택합니다. 
@@ -203,7 +203,7 @@ Visual Studio에서 솔루션을 열어 프로젝트를 구성합니다.
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Azure 웹 사이트에 dotnet-web-daemon-v2 만들기 및 게시
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 왼쪽 위 구석에서 **리소스 만들기** 를 선택합니다.
 1. **웹** > **웹앱** 을 차례로 선택한 다음, 웹 사이트 이름을 지정합니다. 예를 들어 이름을 **dotnet-web-daemon-v2-contoso.azurewebsites.net** 으로 지정합니다.
 1. **구독**, **리소스 그룹** 및 **앱 서비스 계획 및 위치** 에 대한 정보를 선택합니다. **OS** 는 **Windows** 이고 **게시** 는 **코드** 입니다.
@@ -224,10 +224,10 @@ Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트�
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>dotnet-web-daemon-v2에 대한 Azure AD 테넌트 애플리케이션 등록 업데이트
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>로 돌아갑니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>로 이동합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 서비스, **앱 등록** 을 차례로 선택합니다.
 1. **dotnet-web-daemon-v2** 애플리케이션을 선택합니다.
-1. 애플리케이션에 대한 **인증** 페이지에서 **로그아웃 URL** 필드를 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다.
+1. 애플리케이션에 대한 **인증** 페이지에서 **프론트 채널 로그아웃 URL** 필드를 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`를 사용합니다.
 1. **브랜딩** 메뉴에서 **홈 페이지 URL** 을 서비스 주소로 업데이트합니다. 예를 들면 `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`를 사용합니다.
 1. 구성을 저장합니다.
 1. 동일한 URL을 **인증** > **리디렉션 URI** 메뉴의 값 목록에 추가합니다. 여러 개의 리디렉션 URL이 있는 경우 각 리디렉션 URL에 대해 앱 서비스의 URI를 사용하는 새 항목이 있는지 확인합니다.
@@ -237,9 +237,9 @@ Visual Studio에서 프로젝트를 게시하고, 브라우저를 프로젝트�
 
 ## <a name="get-help"></a>도움말 보기
 
-[Stack Overflow](http://stackoverflow.com/questions/tagged/msal)를 사용하여 커뮤니티에서 지원을 받을 수 있습니다.
-먼저 Stack Overflow에 질문하고, 기존 문제를 검색하여 이전에 누군가가 질문했는지 확인합니다.
-질문 또는 의견에 "adal," "msal" 및 "dotnet" 태그가 지정되어 있는지 확인합니다.
+[Microsoft Q&A](https://docs.microsoft.com/answers/products/)를 사용하여 커뮤니티에서 지원을 받을 수 있습니다.
+먼저 [Microsoft Q&A](https://docs.microsoft.com/answers/products/)에 질문하고, 기존 문제를 검색하여 이전에 누군가가 질문했는지 확인합니다.
+질문 또는 의견에 "azure-ad-adal-deprecation," "azure-ad-msal," 및 "dotnet-standard" 태그가 지정되어 있는지 확인합니다.
 
 샘플에 버그가 있으면 해당 문제를 [GitHub 문제](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues)에 제기하세요.
 

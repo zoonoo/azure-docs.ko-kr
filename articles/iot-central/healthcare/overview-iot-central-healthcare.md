@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central을 사용하여 의료 산업 솔루션 빌드 | Microsoft Docs
+title: Azure IoT Central 의료 산업 솔루션이란? | Microsoft Docs
 description: Azure IoT Central 애플리케이션 템플릿을 사용하여 의료 산업 솔루션을 빌드하는 방법을 알아봅니다.
 author: philmea
 ms.author: philmea
@@ -8,16 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a72195f0fcacce2c994e8770157b05b65d70ee
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77021492"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833153"
 ---
-# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 의료 산업 솔루션 빌드 
-
-
+# <a name="what-are-the-iot-central-healthcare-solutions"></a>IoT Central 의료 산업 솔루션이란?
 
 애플리케이션 템플릿을 사용하여 Azure IoT Central로 의료 산업 솔루션을 빌드하는 방법을 알아봅니다.
 

@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 477856bd5772cdc0a9ec00d81adf9c50847afdd0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3a7e75641f6bb84b490231fcd06e04c3cbad06d3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631952"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99822377"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 Azure Cosmos 계정에 연결
 
@@ -218,19 +218,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 왼쪽 탐색 창에서 **리소스 그룹** 을 선택합니다.
 
-2. **myResourceGroup** 을 선택합니다.
+1. **myResourceGroup** 을 선택합니다.
 
-3. **myVM** 을 선택합니다.
+1. **myVM** 을 선택합니다.
 
-4. **myVM** 에 대한 개요 페이지에서 **연결** 을 선택한 다음, **Bastion** 을 선택합니다.
+1. **myVM** 에 대한 개요 페이지에서 **연결** 을 선택한 다음, **Bastion** 을 선택합니다.
 
-5. 파란색 **Bastion 사용** 단추를 선택합니다.
+1. 파란색 **Bastion 사용** 단추를 선택합니다.
 
-6. 가상 머신 만들기에서 입력한 사용자 이름과 암호를 입력합니다.
+1. 가상 머신 만들기에서 입력한 사용자 이름과 암호를 입력합니다.
 
-7. 연결한 후 서버에서 Windows PowerShell을 엽니다.
+1. 연결한 후 서버에서 Windows PowerShell을 엽니다.
 
-8. `nslookup <cosmosdb-account-name>.documents.azure.com`를 입력합니다. **\<cosmosdb-account-name>** 를 이전 단계에서 만든 Cosmos DB 계정의 이름으로 바꿉니다. 
+1. `nslookup <cosmosdb-account-name>.documents.azure.com`을 입력하고 이름 확인의 유효성을 검사합니다. **\<cosmosdb-account-name>** 를 이전 단계에서 만든 Cosmos DB 계정의 이름으로 바꿉니다. 
 
     ```powershell
     Server:  UnKnown
@@ -241,28 +241,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Address:  10.1.0.5
     Aliases:  mycosmosdb8675.documents.azure.com
     ```
-
     Cosmos DB 계정 이름에 대해 **10.1.0.5** 의 개인 IP 주소가 반환됩니다.  이 주소는 이전에 만든 가상 네트워크의 서브넷에 있습니다.
+    
+1. 포털에서 Azure Cosmos DB 기본 연결 문자열을 가져옵니다. 유효한 연결 문자열은 다음 형식입니다.
+   
+   SQL API 계정의 경우: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` Azure Cosmos DB API for MongoDB의 경우: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
-9. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 설치합니다.
+1. 가상 머신에 [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 설치합니다.
 
-10. **Microsoft Azure Storage Explorer** 가 설치된 후 **마침** 을 선택합니다.  확인란을 선택된 상태로 두고 애플리케이션을 엽니다.
+1. **Microsoft Azure Storage Explorer** 가 설치된 후 **마침** 을 선택합니다.  확인란을 선택된 상태로 두고 애플리케이션을 엽니다.
 
-11. **Azure Storage에 연결** 화면에서 **취소** 를 선택합니다.
+1. **Azure Storage에 연결** 화면에서 **취소** 를 선택합니다.
 
-12. Storage Explorer에서 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 선택하고 **Cosmos DB에 연결** 을 선택합니다.
+1. Storage Explorer에서 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 선택하고 **Cosmos DB에 연결** 을 선택합니다.
 
-13. **API 선택** 아래에서 **SQL**(기본값)을 그대로 둡니다.
+1. **API 선택** 아래에서 **SQL**(기본값)을 그대로 둡니다.
 
-14. 이전 단계에서 복사한 Cosmos DB 계정의 연결 문자열을 **연결 문자열** 아래의 상자에 붙여넣습니다.
+1. 이전 단계에서 복사한 Cosmos DB 계정의 연결 문자열을 **연결 문자열** 아래의 상자에 붙여넣습니다.
 
-15. **다음** 을 선택합니다.
+1. **다음** 을 선택합니다.
 
-16. **연결 요약** 에서 설정이 올바른지 확인합니다.  
+1. **연결 요약** 에서 설정이 올바른지 확인합니다.  
 
-17. **연결** 을 선택합니다.
+1. **연결** 을 선택합니다.
 
-18. **myVM** 에 대한 연결을 닫습니다.
+1. **myVM** 에 대한 연결을 닫습니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

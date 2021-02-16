@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure Sentinel에서 온보딩'
-description: 이 빠른 시작에서는 먼저 Sentinel을 활성화한 다음, 데이터 원본을 연결하여 Azure Sentinel을 온보딩하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 먼저 Azure Sentinel을 활성화한 다음, 데이터 원본을 연결하여 온보딩하는 방법을 알아봅니다.
 services: sentinel
 author: yelevin
 ms.author: yelevin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 107806b6372360e501fe9cc0a21d25cff5cc35f9
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95248648"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807770"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -41,7 +41,7 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 ### <a name="geographical-availability-and-data-residency"></a>지리적 가용성 및 데이터 상주
 
-- Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 때때로 새 Log Analytics 지역은 Sentinel 서비스를 등록하는 데 시간이 걸릴 수 있습니다. 
+- Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 경우에 따라 새 Log Analytics 지역은 Azure Sentinel 서비스를 등록하는 데 시간이 걸릴 수 있습니다. 
 
 - 인시던트, 책갈피 및 분석 규칙과 같이 Azure Sentinel에 의해 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Azure Sentinel 생성 데이터는 작업 영역이 있는 지리에 따라 다음 표에 나열된 지리에 저장됩니다.
 

@@ -4,16 +4,24 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 49b18b83c778a990398c4443d508743566ecfb20
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511308"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834157"
 ---
 이 자습서에서는 여러 구성 요소 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure CLI를 사용하여 전송되는 원격 분석을 확인하는 방법을 보여줍니다. 샘플 애플리케이션은 Java로 작성되었으며 Java용 Azure IoT 디바이스 SDK에 포함되어 있습니다. Azure CLI를 사용하면 솔루션 빌더가 디바이스 코드를 보지 않고도 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
 이 자습서에서는 구성 요소를 사용하여 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT 허브에 연결하고, Azure IoT 탐색기 도구를 사용하여 허브로 전송된 정보를 확인하는 방법을 보여 줍니다. 샘플 애플리케이션은 Java로 작성되었으며 Java용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 빌더는 디바이스 코드를 볼 필요 없이 Azure IoT 탐색기 도구를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
+
+이 자습서에서는 다음을 수행합니다.
+
+> [!div class="checklist"]
+> * 샘플 코드를 다운로드합니다.
+> * 샘플 코드를 빌드합니다.
+> * 샘플 디바이스 애플리케이션을 실행하고 IoT 허브에 연결되는지 확인합니다.
+> * 소스 코드를 검토합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -135,5 +143,3 @@ Azure IoT 탐색기 도구를 사용하여 두 가지 자동 온도 조절기 �
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Azure IoT 탐색기의 여러 구성 요소 디바이스":::
 
 Azure IoT 탐색기 도구를 사용하여 두 가지 자동 온도 조절기 구성 요소 중 하나 또는 기본 구성 요소에서 명령을 호출할 수도 있습니다.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad0010a1885c1e9bac8fa2341771cedc12115adc
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 11c1d76b5784587f234455f81595778897569eb1
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464620"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99822471"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>자습서: Azure Stack Edge Pro R에 대한 네트워크 구성
 
@@ -72,6 +72,7 @@ Azure Stack Edge Pro R 디바이스를 구성하고 설정하기 전에 다음 �
    * 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. IP 주소, 서브넷, 게이트웨이 및 DNS가 자동으로 할당됩니다.
    * DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
    * 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
+   * NIC(네트워크 인터페이스 카드) 팀 구성 또는 링크 집계는 Azure Stack Edge에서 지원되지 않습니다.
    * 모든 포트에 대한 일련 번호는 노드 일련 번호에 해당합니다.
     <!--* On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
     디바이스 네트워크를 구성하면 아래와 같이 페이지가 업데이트됩니다.

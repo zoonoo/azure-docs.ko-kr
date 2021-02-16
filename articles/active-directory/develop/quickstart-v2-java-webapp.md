@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 91aa6c96c714bff26ea7e0df5b2b6971c68edec0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: a7337175241834cef862b4af07c7bcf7c8b845d0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178571"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103773"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "98178571"
 >
 > ### <a name="option-1-register-and-automatically-configure-your-app-and-then-download-the-code-sample"></a>옵션 1: 앱을 등록하고 자동으로 구성한 다음, 코드 샘플을 다운로드합니다.
 >
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력한 다음, **등록** 을 선택합니다.
 > 1. 포털의 빠른 시작 환경에 있는 지침에 따라 자동으로 구성된 애플리케이션 코드를 다운로드합니다.
 >
@@ -48,7 +48,7 @@ ms.locfileid: "98178571"
 >
 > 애플리케이션을 등록하고 앱의 등록 정보를 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 > 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 > 1. **Azure Active Directory** 를 검색하고 선택합니다.
 > 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
@@ -68,7 +68,7 @@ ms.locfileid: "98178571"
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 >
-> 이 빠른 시작의 코드 샘플을 사용하려면 다음을 수행해야 합니다.
+> 이 빠른 시작의 코드 샘플을 사용하려면 다음을 수행합니다.
 >
 > 1. 회신 URL `https://localhost:8443/msal4jsample/secure/aad` 및 `https://localhost:8443/msal4jsample/graph/me`를 추가합니다.
 > 1. 클라이언트 암호를 만듭니다.
@@ -161,7 +161,7 @@ IDE에서 웹 애플리케이션을 실행하려면 실행을 선택한 다음, 
 
 ##### <a name="running-the-project-from-tomcat"></a>Tomcat에서 프로젝트 실행
 
-웹 샘플을 Tomcat에 배포하려면 소스 코드에서 몇 가지 부분을 변경해야 합니다.
+웹 샘플을 Tomcat에 배포하려면 소스 코드를 몇 가지 변경합니다.
 
 1. *ms-identity-java-webapp/pom.xml* 을 엽니다.
     - `<name>msal-web-sample</name>`에서 `<packaging>war</packaging>`을 추가합니다.

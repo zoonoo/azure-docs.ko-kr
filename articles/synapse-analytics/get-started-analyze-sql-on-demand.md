@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 4ca9ababbeb7843f1a014a4bd51a5e24a74acbae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 12/31/2020
+ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322933"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209409"
 ---
 # <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 데이터 분석
 
@@ -23,10 +23,11 @@ ms.locfileid: "93322933"
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Blob 스토리지에서 NYC Taxi 데이터 분석
 
-1. **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage > 샘플 데이터 세트 > nyc_tlc_yellow** 를 마우스 오른쪽 단추로 클릭하고 **상위 100개 행 선택** 을 선택합니다.
+1. **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage > 샘플 데이터 세트 > nyc_tlc_yellow**, **새 SQL 스크립트** 를 마우스 오른쪽 단추로 클릭하고 **상위 100개 행 선택** 을 선택합니다.
 1. 그러면 다음 코드에서 새 SQL 스크립트가 생성됩니다.
 
     ```
+    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -42,7 +43,7 @@ ms.locfileid: "93322933"
 Spark 데이터베이스의 테이블은 자동으로 표시되며, 서버리스 SQL 풀에서 이를 쿼리할 수 있습니다.
 
 1. Synapse Studio에서 **개발** 허브로 이동하여 새 SQL 스크립트를 만듭니다.
-1. **연결 대상** 을 **서버리스 SQL 풀** 로 설정합니다.
+1. **연결 대상** 을 **기본 제공** 서버리스 SQL 풀로 설정합니다.
 1. 다음 텍스트를 스크립트에 붙여넣고, 해당 스크립트를 실행합니다.
 
     ```sql

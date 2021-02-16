@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346200"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831300"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
-
-
 
 이 자습서에서는 IoT Central **디지털 배포 센터** 애플리케이션 템플릿을 배포하여 시작하는 방법을 보여 줍니다. 템플릿을 배포하는 방법, 기본적으로 제공되는 항목 및 다음에 수행할 수 있는 작업을 알아봅니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
-* 디지털 배포 센터 애플리케이션 만들기 
-* 애플리케이션 살펴보기 
+
+> [!div class="checklist"]
+> 디지털 배포 센터 애플리케이션 만들기 애플리케이션 살펴보기 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * 이 앱을 배포하는 데 필요한 특정 필수 구성 요소가 없습니다.
@@ -110,8 +109,8 @@ ms.locfileid: "97346200"
 > ![작업을 완료했을 때 애플리케이션을 삭제하는 방법을 보여주는 스크린샷](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 디지털 유통 센터 솔루션 아키텍처에 대한 자세한 정보 
+
+디지털 유통 센터 솔루션 아키텍처에 대해 자세히 알아봅니다.
+
 > [!div class="nextstepaction"]
 > [디지털 유통 센터 개념](./architecture-digital-distribution-center.md)
-* 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

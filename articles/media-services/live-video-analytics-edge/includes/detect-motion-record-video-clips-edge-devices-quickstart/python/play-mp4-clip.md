@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: f4a1cc432a50a555fe6e050ca318b4cfaf1092d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682361"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531216"
 ---
-MP4 파일은 OUTPUT_VIDEO_FOLDER_ON_DEVICE를 사용하여 *.env* 파일에서 구성한 에지 디바이스의 디렉터리에 기록됩니다. 기본값을 사용한 경우 결과는 */var/media/* 폴더에 있어야 합니다.
+MP4 파일은 VIDEO_OUTPUT_FOLDER_ON_DEVICE 키를 사용하여 *.env* 파일에서 구성한 에지 디바이스의 디렉터리에 기록됩니다. 기본값을 사용한 경우 결과는 */var/media/* 폴더에 있어야 합니다.
 
 MP4 클립을 재생하는 방법은 다음과 같습니다.
 
@@ -16,7 +16,7 @@ MP4 클립을 재생하는 방법은 다음과 같습니다.
     
     ![VM](../../../media/quickstarts/virtual-machine.png)
 1. [Azure 리소스 설정](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources) 과정에서 생성된 자격 증명을 사용하여 로그인합니다. 
-1. 명령 프롬프트에서 관련 디렉터리로 이동합니다. 기본 위치는 */var/media*입니다. 이 디렉터리에 MP4 파일이 있습니다.
+1. 명령 프롬프트에서 관련 디렉터리로 이동합니다. 기본 위치는 */var/media* 입니다. 이 디렉터리에 MP4 파일이 있습니다.
 
     ![출력](../../../media/quickstarts/samples-output.png) 
 

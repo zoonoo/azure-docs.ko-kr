@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/21/2020
-ms.openlocfilehash: c9b7d796612981f0e8194be84b0ed141721f644d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/31/2020
+ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862380"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209188"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -30,11 +30,12 @@ ms.locfileid: "96862380"
 1. [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 **Synapse** 를 검색합니다.
 1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics** 를 선택합니다.
 1. **추가** 를 선택하여 작업 영역을 만듭니다.
-1. **기본 사항** 에서 원하는 **구독**, **리소스 그룹**, **지역** 을 입력한 다음, 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
-1. **Data Lake Storage Gen 2** 로 이동합니다. 
-1. **새로 만들기** 를 클릭하고 이름을 **contosolake** 로 지정합니다.
-1. **파일 시스템** 을 클릭하고 **사용자** 의 이름을 지정합니다. 이렇게 하면 **users** 라는 컨테이너가 생성됩니다.
+1. **기본 사항** 탭의 프로젝트 세부 정보에서 원하는 **구독**, **리소스 그룹**, **지역** 을 입력한 다음, 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
+1. **Data Lake Storage Gen 2를 선택** 하여 **구독 위치** 에 대한 단추를 클릭합니다.
+1. **계정 이름** 별로 **새로 만들기** 를 클릭하고 새 스토리지 계정의 이름을 **contosolake** 로 지정하고, 이 이름은 고유해야 합니다.
+1. **파일 시스템 이름** 별로 **새로 만들기** 를 클릭하고 **사용자** 이름을 지정합니다. 이렇게 하면 **users** 라는 스토리지 컨테이너가 생성됩니다.
 1. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
+1. "Data Lake Storage Gen2 계정에 Storage Blob 데이터 기여자 역할 할당" 상자를 선택합니다. 
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 작업 영역이 준비됩니다.
 
 > [!NOTE]
@@ -45,8 +46,14 @@ ms.locfileid: "96862380"
 
 Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Synapse Studio를 열 수 있습니다.
 
-* [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 엽니다. **개요** 섹션의 위쪽에서 **Synapse Studio 열기** 를 선택합니다.
+* [Azure Portal](https://portal.azure.com)에서 Synapse 작업 영역을 열고, Synapse 작업 영역의 **개요** 섹션에 있는 Synapse Studio 열기 상자에서 **열기** 를 선택합니다.
 * `https://web.azuresynapse.net`(으)로 이동하여 작업 영역에 로그인합니다.
+
+
+## <a name="the-built-in-serverless-sql-pool"></a>기본 제공 서버리스 SQL 풀
+
+모든 작업 영역에는 **기본 제공** 이라는 미리 빌드된 서버리스 SQL 풀이 제공됩니다. 이 풀은 삭제할 수 없습니다. 서버리스 SQL 풀을 사용하면 전용 SQL 풀로 용량을 예약하지 않고도 SQL을 사용할 수 있습니다. 전용 SQL 풀과 달리 서버리스 SQL 풀에 대한 요금 청구는 풀에 할당된 용량 수가 아니라 쿼리를 실행하는 데 검사된 데이터의 양을 기준으로 합니다.
+
 
 ## <a name="create-a-dedicated-sql-pool"></a>전용 SQL 풀 만들기
 
@@ -61,6 +68,7 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 > [!NOTE] 
 > 작업 영역에서 새 전용 SQL 풀(이전의 SQL DW)을 만들 때 전용 SQL 풀 프로비저닝 페이지가 열립니다. 프로비저닝은 논리 SQL 서버에서 수행됩니다.
 
+
 ## <a name="create-a-serverless-apache-spark-pool"></a>서버리스 Apache Spark 풀 만들기
 
 1. Synapse Studio의 왼쪽 창에서 **관리** > **Apache Spark 풀** 을 차례로 선택합니다.
@@ -72,9 +80,6 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 Spark 풀은 사용할 Spark 리소스의 수를 Azure Synapse에 알려줍니다. 사용하는 리소스에 대해서만 비용을 지불합니다. 풀 사용을 적극적으로 중지하면 리소스가 자동으로 시간 제한되고 재활용됩니다.
 
-## <a name="the-built-in-serverless-sql-pool"></a>기본 제공 서버리스 SQL 풀
-
-모든 작업 영역에는 **기본 제공** 이라는 미리 빌드된 서버리스 SQL 풀이 제공됩니다. 이 풀은 삭제할 수 없습니다. 서버리스 SQL 풀을 사용하면 전용 SQL 풀로 용량을 예약하지 않고도 SQL을 사용할 수 있습니다. 전용 SQL 풀과 달리 서버리스 SQL 풀에 대한 요금 청구는 풀에 할당된 용량 수가 아니라 쿼리를 실행하는 데 검사된 데이터의 양을 기준으로 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 54ac7b27ada62a969dd40428fd9a753bb5a99530
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 589e881eb48daf7da9cd2a934b14acfcc76dc5f9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499835"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821605"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>자습서: 템플릿을 사용하여 Service Fabric Mesh에 애플리케이션 배포
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 1부입니다. 여기서는 템플릿을 사용하여 Azure Service Fabric Mesh 애플리케이션을 배포하는 방법을 알아봅니다.  애플리케이션은 ASP.NET 웹 프런트 엔드 서비스와 ASP.NET Core Web API 백 엔드 서비스(Docker Hub에서 제공됨)로 구성되어 있습니다.  Docker Hub에서 두 컨테이너 이미지를 끌어온 다음 프라이빗 레지스트리로 푸시합니다. 그런 다음, 애플리케이션용 Azure RM 템플릿을 만들고 컨테이너 레지스트리에서 Service Fabric Mesh로 애플리케이션을 배포합니다. 이 작업을 완료하면 Service Fabric Mesh에서 실행되는 간단한 할 일 목록 애플리케이션이 완성됩니다.
 

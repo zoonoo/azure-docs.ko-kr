@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 가상 네트워크에 Azure Spring Cloud 배포
+title: 가상 네트워크에 Azure Spring Cloud 배포
 description: Azure Spring Cloud를 Azure 가상 네트워크에 배포합니다(VNet 삽입).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587726"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821474"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>자습서: 가상 네트워크에 Azure Spring Cloud 배포
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
@@ -25,6 +25,9 @@ ms.locfileid: "97587726"
 * 회사 네트워크의 인터넷에서 Azure Spring Cloud 앱 및 서비스 런타임 격리
 * Azure Spring Cloud에서 온-프레미스 데이터 센터의 시스템 또는 다른 가상 네트워크의 Azure 서비스와 상호 작용
 * Azure Spring Cloud에 대한 인바운드 및 아웃바운드 네트워크 통신을 제어하는 고객의 역량 강화
+
+> [!Note]
+> 새 Azure Spring Cloud 서비스 인스턴스를 만드는 경우에만 Azure 가상 네트워크를 선택할 수 있습니다. Azure Spring Cloud를 만든 후에는 다른 가상 네트워크를 사용하도록 변경할 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -77,6 +80,7 @@ Azure Spring Cloud 인스턴스를 호스팅하는 가상 네트워크가 이미
 1. **검토 + 만들기** 를 선택합니다. 나머지 항목은 기본값으로 두고, **만들기** 를 선택합니다.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>가상 네트워크에 서비스 권한 부여
+Azure Spring Cloud에는 추가 배포 및 유지 관리를 위해 가상 네트워크에서 전용 및 동적 서비스 주체를 부여하려면 가상 네트워크에 대한 **소유자** 권한이 있어야 합니다.
 
 이전에 만든 **azure-spring-cloud-vnet** 가상 네트워크를 선택합니다.
 
@@ -160,9 +164,9 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
    > [!Important]
    > 리소스 그룹은 Azure Spring Cloud 서비스에서 완전히 관리됩니다. 내부에 있는 리소스를 수동으로 삭제하거나 수정하지 *마세요*.
 
-## <a name="limitations"></a>제한 사항
+## <a name="using-smaller-subnet-ranges"></a>더 작은 서브넷 범위 사용
 
-서브넷 범위가 작으면 IP 주소가 저장되지만 Azure Spring Cloud 인스턴스에서 보유할 수 있는 최대 앱 인스턴스 수가 제한됩니다.
+이 표에서는 더 작은 서브넷 범위를 사용하여 Azure Spring Cloud가 지원하는 최대 앱 인스턴스 수를 보여줍니다.
 
 | 앱 서브넷 CIDR | 총 IP 수 | 사용 가능한 IP 수 | 최대 앱 인스턴스 수                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

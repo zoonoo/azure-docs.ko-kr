@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub를 통해 디바이스 펌웨어 업데이트 | Microsoft Docs
-description: IoT 허브에 연결된 백 엔드 애플리케이션에서 트리거할 수 있는 디바이스 펌웨어 업데이트 프로세스를 구현하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure IoT Hub를 통해 디바이스 펌웨어 업데이트 | Microsoft Docs
+description: 자습서 - IoT 허브에 연결된 백 엔드 애플리케이션에서 트리거할 수 있는 디바이스 펌웨어 업데이트 프로세스를 구현하는 방법에 대해 알아봅니다.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 3fc257ff192ccb1bb05b233c6ac802696ece0054
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572340"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99822036"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -72,11 +72,11 @@ az extension add --name azure-iot
 # Create a resource group
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create a free-tier IoT Hub. You can have only one free IoT Hub per subscription. Free tier hubs can have only 2 partitions.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname --policy-name service -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -90,10 +90,10 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Add a device type tag
-az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"devicetype":"chiller"}'
+az iot hub device-twin update --device-id MyFirmwareUpdateDevice --hub-name $hubname --set tags='{"device type":"chiller"}'
 
 # Retrieve the device connection string, you need this later
-az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyFirmwareUpdateDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -102,7 +102,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
-백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-automatic-device-management.md#create-a-configuration)을 만들어서 냉각기의 **devicetype** 으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
+백 엔드 애플리케이션에서 [자동 디바이스 관리 구성](iot-hub-automatic-device-management.md#create-a-configuration)을 만들어서 냉각기의 **디바이스 유형** 으로 태그로 지정된 모든 디바이스에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 백 엔드 애플리케이션의 구성을 만듭니다.
 * 완료할 작업을 모니터링합니다.

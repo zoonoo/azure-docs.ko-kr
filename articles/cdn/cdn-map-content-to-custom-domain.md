@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331232"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99821959"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>자습서: 엔드포인트에 사용자 지정 도메인 추가
 
@@ -163,6 +163,10 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 사용자 지정 도메인을 등록한 후에 CDN 엔드포인트에 추가할 수 있습니다. 
 
+
+---
+# <a name="azure-portal"></a>[**Azure portal**](#tab/azure-portal)
+
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 사용자 지정 도메인에 매핑하려는 엔드포인트를 포함하는 CDN 프로필로 이동합니다.
     
 2. **CDN 프로필** 페이지에서 사용자 지정 도메인과 연결할 CDN 엔드포인트를 선택합니다.
@@ -189,7 +193,43 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
     - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
     - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다.   
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
+1. Azure PowerShell에 로그인합니다.
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain)을 사용하여 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 
+
+    * **myendpoint8675.azureedge.net** 을 엔드포인트 url로 바꿉니다.
+    * **myendpoint8675** 를 CDN 엔드포인트 이름으로 바꿉니다.
+    * **www.contoso.com** 을 사용자 지정 도메인 이름으로 바꿉니다.
+    * **myCDN** 을 CDN 프로필 이름으로 바꿉니다.
+    * **myResourceGroupCDN** 을 리소스 그룹 이름으로 바꿉니다.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+Azure에서 입력한 사용자 지정 도메인 이름에 대한 CNAME 레코드가 있는지 확인합니다. CNAME이 올바르면 사용자 지정 도메인의 유효성이 검사됩니다. 
+
+   새 사용자 지정 도메인 설정이 모든 CDN 에지 노드에 전파되려면 다소 시간이 걸릴 수 있습니다. 
+
+- **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
+- **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
+- **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>사용자 지정 도메인 확인
 
 사용자 지정 도메인 등록을 완료한 후에는 사용자 지정 도메인이 CDN 엔드포인트를 참조하는지 확인합니다.
@@ -200,6 +240,9 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
+---
+# <a name="azure-portal"></a>[**Azure portal**](#tab/azure-portal-cleanup)
+
 더 이상 사용자 지정 도메인과 엔드포인트를 연결하지 않으려면 다음 단계를 수행하여 사용자 지정 도메인을 제거합니다.
  
 1. CDN 프로필에서 제거하려는 사용자 지정 도메인을 포함하는 엔드포인트를 선택합니다.
@@ -208,6 +251,29 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
    사용자 지정 도메인은 엔드포인트에서 분리됩니다.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+더 이상 사용자 지정 도메인과 엔드포인트를 연결하지 않으려면 다음 단계를 수행하여 사용자 지정 도메인을 제거합니다.
+
+1. [Remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain)을 사용하여 엔드포인트에서 사용자 지정 도메인을 제거합니다.
+
+    * **myendpoint8675** 를 CDN 엔드포인트 이름으로 바꿉니다.
+    * **www.contoso.com** 을 사용자 지정 도메인 이름으로 바꿉니다.
+    * **myCDN** 을 CDN 프로필 이름으로 바꿉니다.
+    * **myResourceGroupCDN** 을 리소스 그룹 이름으로 바꿉니다.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업 방법을 알아보았습니다.

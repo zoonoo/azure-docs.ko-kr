@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 963a84c55a5433a204f387d1936eb7ceee60d913
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912668"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "99821629"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -127,7 +127,7 @@ $frontendNic = New-AzNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true)을 사용하여 VM의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다. 다음과 같은 추가 단계에서 이러한 자격 증명을 사용하여 VM에 연결합니다.
+[Get-Credential](/powershell/module/microsoft.powershell.security/get-credential)을 사용하여 VM의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다. 다음과 같은 추가 단계에서 이러한 자격 증명을 사용하여 VM에 연결합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -280,7 +280,4 @@ New-AzVM `
 > * 네트워크 트래픽 보안
 > * 백엔드 VM 만들기
 
-다음 자습서로 이동하여 Azure Backup을 사용하는 가상 머신의 데이터 보안 모니터링에 대해 알아보세요.
-
-> [!div class="nextstepaction"]
-> [Azure에서 Windows 가상 머신 백업](./tutorial-backup-vms.md)
+VM 디스크를 보호하는 방법에 대한 자세한 내용은 [디스크의 백업 및 재해 복구](backup-and-disaster-recovery-for-azure-iaas-disks.md)를 참조하세요.

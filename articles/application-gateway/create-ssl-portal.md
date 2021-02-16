@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 01/28/2021
 ms.author: victorh
-ms.openlocfilehash: 96b33c619ecfde8d1a470069f7fab4d840536b46
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: c976ea236ae1d37cc0a543b10a9de55609035632
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397657"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821820"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 TLS 종료로 애플리케이션 게이트웨이 구성
 
@@ -77,8 +77,8 @@ Export-PfxCertificate `
 
 1. **기본 사항** 탭에서 다음 애플리케이션 게이트웨이 설정에 대한 값을 입력합니다.
 
-   - **리소스 그룹** : 리소스 그룹으로 **myResourceGroupAG** 를 선택합니다. 이 리소스 그룹이 없으면 **새로 만들기** 를 선택하여 새로 만듭니다.
-   - **애플리케이션 게이트웨이 이름** : 애플리케이션 게이트웨이의 이름으로 *myAppGateway* 를 입력합니다.
+   - **리소스 그룹**: 리소스 그룹으로 **myResourceGroupAG** 를 선택합니다. 이 리소스 그룹이 없으면 **새로 만들기** 를 선택하여 새로 만듭니다.
+   - **애플리케이션 게이트웨이 이름**: 애플리케이션 게이트웨이의 이름으로 *myAppGateway* 를 입력합니다.
 
         ![새 애플리케이션 게이트웨이 만들기: 기본 사항](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
@@ -86,13 +86,13 @@ Export-PfxCertificate `
 
     **가상 네트워크 구성** 에서 **새로 만들기** 를 선택하여 새 가상 네트워크를 만듭니다. **가상 네트워크 만들기** 창이 열리면 다음 값을 입력하여 가상 네트워크 및 두 개의 서브넷을 만듭니다.
 
-    - **Name** : 가상 네트워크의 이름으로 *myVNet* 을 입력합니다.
+    - **Name**: 가상 네트워크의 이름으로 *myVNet* 을 입력합니다.
 
-    - **서브넷 이름** (Application Gateway 서브넷): **서브넷** 표에 *Default* 라는 서브넷이 표시됩니다. 이 서브넷의 이름을 *myAGSubnet* 으로 변경합니다.<br>애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
+    - **서브넷 이름**(Application Gateway 서브넷): **서브넷** 표에 *Default* 라는 서브넷이 표시됩니다. 이 서브넷의 이름을 *myAGSubnet* 으로 변경합니다.<br>애플리케이션 게이트웨이 서브넷은 애플리케이션 게이트웨이만 포함할 수 있습니다. 다른 리소스는 허용되지 않습니다.
 
-    - **서브넷 이름** (백 엔드 서버 서브넷): **서브넷** 표의 두 번째 행에 있는 **서브넷 이름** 열에 *myBackendSubnet* 을 입력합니다.
+    - **서브넷 이름**(백 엔드 서버 서브넷): **서브넷** 표의 두 번째 행에 있는 **서브넷 이름** 열에 *myBackendSubnet* 을 입력합니다.
 
-    - **주소 범위** (백 엔드 서버 서브넷): **서브넷** 표의 두 번째 행에 *myAGSubnet* 의 주소 범위와 겹치지 않는 주소 범위를 입력합니다. 예를 들어 *myAGSubnet* 의 주소 범위가 10.0.0.0/24인 경우 *myBackendSubnet* 의 주소 범위로 *10.0.1.0/24* 를 입력합니다.
+    - **주소 범위**(백 엔드 서버 서브넷): **서브넷** 표의 두 번째 행에 *myAGSubnet* 의 주소 범위와 겹치지 않는 주소 범위를 입력합니다. 예를 들어 *myAGSubnet* 의 주소 범위가 10.0.0.0/24인 경우 *myBackendSubnet* 의 주소 범위로 *10.0.1.0/24* 를 입력합니다.
 
     **확인** 을 선택하여 **가상 네트워크 만들기** 창을 닫고 가상 네트워크 설정을 저장합니다.
 
@@ -106,7 +106,7 @@ Export-PfxCertificate `
    > [!NOTE]
    > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 프라이빗 프런트 엔드 IP 구성은 현재 v2 SKU에서 사용할 수 없습니다.
 
-2. **퍼블릭 IP 주소** 에 대해 **새로 만들기** 를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 후 **확인** 을 선택합니다. 
+2. **공용 IP 주소** 에 대해 **새로 추가** 를 선택하고 공용 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 다음, **확인** 을 선택합니다. 
 
    ![새 애플리케이션 게이트웨이 만들기: 프런트 엔드](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -116,12 +116,12 @@ Export-PfxCertificate `
 
 백 엔드 풀은 요청을 처리하는 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이가 있는 빈 백 엔드 풀을 만든 다음, 백 엔드 대상을 백 엔드 풀에 추가합니다.
 
-1. **백 엔드** 탭에서 **+백 엔드 풀 추가** 를 선택합니다.
+1. **백 엔드** 탭에서 **백 엔드 풀 추가** 를 선택합니다.
 
 2. 열리는 **백 엔드 풀 추가** 창에서 다음 값을 입력하여 빈 백 엔드 풀을 만듭니다.
 
-    - **Name** : 백 엔드 풀의 이름으로 *myBackendPool* 을 입력합니다.
-    - **대상 없이 백 엔드 풀 추가** : 대상이 없는 백 엔드 풀을 만들려면 **예** 를 선택합니다. 애플리케이션 게이트웨이를 만든 후에 백 엔드 대상을 추가합니다.
+    - **Name**: 백 엔드 풀의 이름으로 *myBackendPool* 을 입력합니다.
+    - **대상 없이 백 엔드 풀 추가**: 대상이 없는 백 엔드 풀을 만들려면 **예** 를 선택합니다. 애플리케이션 게이트웨이를 만든 후에 백 엔드 대상을 추가합니다.
 
 3. **백 엔드 풀 추가** 창에서 **추가** 를 선택하여 백 엔드 풀 구성을 저장하고 **백 엔드** 탭으로 돌아갑니다.
 
@@ -133,22 +133,23 @@ Export-PfxCertificate `
 
 **구성** 탭에서 라우팅 규칙을 사용하여 만든 프런트 엔드 및 백 엔드 풀을 연결합니다.
 
-1. **라우팅 규칙** 열에서 **규칙 추가** 를 선택합니다.
+1. **라우팅 규칙** 열에서 **라우팅 규칙 추가** 를 선택합니다.
 
 2. 열리는 **라우팅 규칙 추가** 창에서 **규칙 이름** 으로 *myRoutingRule* 을 입력합니다.
 
 3. 라우팅 규칙에는 수신기가 필요합니다. **라우팅 규칙 추가** 창 내의 **수신기** 탭에서 수신기에 대해 다음 값을 입력합니다.
 
-    - **수신기 이름** : 수신기 이름으로 *myListener* 를 입력합니다.
-    - **프런트 엔드 IP** : **퍼블릭** 을 선택하여 프런트 엔드에 대해 만든 퍼블릭 IP를 선택합니다.
-    - **프로토콜** : **HTTPS** 를 선택합니다.
-    - **포트** : 포트에 443을 입력합니다.
+    - **수신기 이름**: 수신기 이름으로 *myListener* 를 입력합니다.
+    - **프런트 엔드 IP**: **퍼블릭** 을 선택하여 프런트 엔드에 대해 만든 퍼블릭 IP를 선택합니다.
+    - **프로토콜**: **HTTPS** 를 선택합니다.
+    - **포트**: 포트에 443을 입력합니다.
 
-   **HTTPS 인증서** 에서 다음을 수행합니다.
+   **HTTPS 설정** 에서 다음을 수행합니다.
 
+   - **인증서 선택** - **인증서 업로드** 를 선택합니다.
    - **PFX 인증서 파일** - 앞에서 만든 c:\appgwcert.pfx 파일을 찾아 선택합니다.
    - **인증서 이름** - 인증서 이름으로 *mycert1* 을 입력합니다.
-   - **암호** - 암호를 입력합니다.
+   - **암호** - 인증서를 만드는 데 사용한 암호를 입력합니다.
   
         **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
 
@@ -156,7 +157,7 @@ Export-PfxCertificate `
 
 4. **백 엔드 대상** 탭에서 **백 엔드 대상** 으로 **myBackendPool** 을 선택합니다.
 
-5. **Http 설정** 에서 **새로 만들기** 를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름** 으로 *myHTTPSetting* 을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가** 를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
+5. **HTTP 설정** 의 경우 **새로 추가** 를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름** 으로 *myHTTPSetting* 을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가** 를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다. 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="새 애플리케이션 게이트웨이 만들기: HTTP 설정":::
 
@@ -189,16 +190,16 @@ Export-PfxCertificate `
 
 1. **기본 사항** 탭에서 다음 가상 머신 설정의 값을 입력합니다.
 
-    - **리소스 그룹** : 리소스 그룹 이름으로 **myResourceGroupAG** 를 선택합니다.
-    - **가상 머신 이름** : 가상 머신의 이름으로 *myVM* 을 입력합니다.
-    - **사용자 이름** : 관리자 사용자 이름으로 *azureuser* 를 입력합니다.
-    - **암호** : 관리자 계정의 암호를 입력합니다.
+    - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG** 를 선택합니다.
+    - **가상 머신 이름**: 가상 머신의 이름으로 *myVM* 을 입력합니다.
+    - **사용자 이름**: 관리자 사용자 이름의 이름을 입력합니다.
+    - **암호**: 관리자 계정의 암호를 입력합니다.
 1. 나머지는 기본값으로 두고 **다음: 디스크** 를 선택합니다.  
 2. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹** 을 선택합니다.
 3. **네트워킹** 탭에서 **가상 네트워크** 로 **myVNet** 이 선택되었고 **서브넷** 이 **myBackendSubnet** 으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리** 를 선택합니다.
 
    Application Gateway는 가상 네트워크 외부의 인스턴스와 통신할 수 있지만, IP가 연결되어야 합니다.
-1. **관리** 탭에서 **부트 진단** 을 **해제** 합니다. 나머지는 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
+1. **관리** 탭에서 **부트 진단** 을 **사용 안 함** 으로 설정합니다. 나머지는 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
 2. **검토 + 만들기** 탭에서 설정을 검토하고, 유효성 검사 오류를 수정하고, **만들기** 를 선택합니다.
 3. 배포가 완료될 때까지 기다렸다가 계속 진행합니다.
 
@@ -210,7 +211,7 @@ Export-PfxCertificate `
 
     ![사용자 지정 확장 설치](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
+2. 환경의 위치 설정을 변경한 후, 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
    ```azurepowershell-interactive
           Set-AzVMExtension `
@@ -221,7 +222,7 @@ Export-PfxCertificate `
             -ExtensionType CustomScriptExtension `
             -TypeHandlerVersion 1.4 `
             -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-            -Location EastUS
+            -Location <location>
    ```
 
 3. 앞에서 완료한 단계를 사용하여 두 번째 가상 머신을 만들고 IIS를 설치합니다. 가상 머신 이름에 *myVM2* 를 사용하고, **VMName** 설정에 **Set-AzVMExtension** cmdlet을 사용합니다.
@@ -234,9 +235,11 @@ Export-PfxCertificate `
 
 3. **myBackendPool** 을 선택합니다.
 
-4. **대상** 아래의 드롭다운 메뉴에서 **가상 머신** 을 선택합니다.
+4. **대상 유형** 아래의 드롭다운 목록에서 **가상 머신** 을 선택합니다.
 
-5. **가상 머신** 및 **네트워크 인터페이스** 아래의 드롭다운 목록에서 가상 머신 **myVM** 및 **myVM2** , 그리고 가상 머신과 연결된 네트워크 인터페이스를 선택합니다.
+5. **대상** 아래에 있는 드롭다운 목록에서 **myVM** 아래의 네트워크 인터페이스를 선택합니다.
+
+6. **myVM2** 에 대한 네트워크 인터페이스를 추가하려면 반복합니다.
 
     ![백 엔드 서버 추가](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
@@ -252,7 +255,7 @@ Export-PfxCertificate `
 
 2. 브라우저의 주소 표시줄에 *https://\<your application gateway ip address\>* 를 입력합니다.
 
-   자체 서명된 인증서를 사용하는 경우 보안 경고를 수락하려면 **세부 정보** (또는 Chrome의 **Advanced** )를 선택하고, 다음 웹 페이지로 이동합니다.
+   자체 서명된 인증서를 사용하는 경우 보안 경고를 수락하려면 **세부 정보**(또는 Chrome의 **Advanced**)를 선택하고, 다음 웹 페이지로 이동합니다.
 
     ![보안 경고](./media/create-ssl-portal/application-gateway-secure.png)
 

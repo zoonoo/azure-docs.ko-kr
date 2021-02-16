@@ -3,7 +3,7 @@ title: 자습서 - 액세스 패키지 만들기 - Azure AD 권한 관리
 description: Azure Active Directory 권한 관리에서 첫 번째 액세스 패키지를 만드는 방법에 대한 단계별 자습서입니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631291"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99822260"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>자습서: Azure AD 권한 관리에서 첫 번째 액세스 패키지 만들기
 
@@ -119,7 +119,7 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
     ![새 액세스 패키지 - 리소스 역할 탭](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!IMPORTANT]
-    >액세스 패키지에 추가되는 역할 할당 가능 그룹은 **역할에 할당 가능** 한 하위 유형을 사용하여 표시됩니다. Azure AD 역할에 할당 가능 그룹에 대한 자세한 내용은 Azure Active Directory의 [역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)를 참조하세요. 추가하려는 역할 할당 가능 그룹이 표시되지 않거나 추가할 수 없는 경우 이 작업을 수행하는 데 필요한 Azure AD 역할 및 권한 부여 관리 역할이 있는지 확인합니다. 필요한 역할을 가진 사용자에게 카탈로그에 리소스를 추가하도록 요청해야 할 수 있습니다. 자세한 내용은 [카탈로그에 리소스를 추가하는 데 필요한 역할](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)를 참조하세요.
+    >액세스 패키지에 추가되는 역할 할당 가능 그룹은 **역할에 할당 가능** 한 하위 유형을 사용하여 표시됩니다. Azure AD 역할에 할당 가능 그룹에 대한 자세한 내용은 Azure Active Directory의 [역할 할당 가능 그룹 만들기](../roles/groups-create-eligible.md)를 참조하세요. 액세스 패키지 카탈로그에 역할 할당 가능 그룹이 있는 경우 전역 관리자, 카탈로그의 사용자 관리자 및 카탈로그 소유자를 비롯하여 권한 관리에서 관리할 수 있는 관리자는 카탈로그의 액세스 패키지를 제어하여 해당 그룹에 추가할 수 있는 사용자를 선택할 수 있습니다. 추가하려는 역할 할당 가능 그룹이 표시되지 않거나 추가할 수 없는 경우 이 작업을 수행하는 데 필요한 Azure AD 역할 및 권한 부여 관리 역할이 있는지 확인합니다. 필요한 역할을 가진 사용자에게 카탈로그에 리소스를 추가하도록 요청해야 할 수 있습니다. 자세한 내용은 [카탈로그에 리소스를 추가하는 데 필요한 역할](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)를 참조하세요.
 
     >[!NOTE]
     > [동적 그룹](../enterprise-users/groups-create-rule.md)을 사용하면 소유자 외에 다른 역할은 사용할 수 없습니다. 이것은 의도적인 것입니다.

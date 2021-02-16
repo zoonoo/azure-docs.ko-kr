@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012124"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102566"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
 
@@ -42,7 +42,7 @@ ms.locfileid: "98012124"
 
 클라이언트 앱과 웹 API를 모두 등록하고 범위를 만들어 API를 공개한 후에는 다음 단계를 수행하여 API에 대한 클라이언트의 권한을 구성할 수 있습니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
 1. **Azure Active Directory** > **앱 등록** 을 차례로 선택한 다음, 클라이언트 애플리케이션(웹 API가 *아님*)을 선택합니다.
 1. **API 사용 권한** > **사용 권한 추가** > **내 API** 를 선택합니다.
@@ -71,7 +71,7 @@ Microsoft Graph API에 대한 *User.Read* 권한도 확인할 수 있습니다. 
 
 클라이언트 애플리케이션에서 로그인한 사용자를 대신하여 작업(예: 이메일 읽기 또는 프로필 수정)을 수행할 수 있도록 Microsoft Graph에 대한 위임된 권한을 구성합니다. 기본적으로 로그인할 때 클라이언트 앱의 사용자에게 구성한 위임된 권한에 동의하라는 메시지가 표시됩니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
 1. **Azure Active Directory** > **앱 등록** 을 차례로 선택한 다음, 클라이언트 애플리케이션을 선택합니다.
 1. **API 권한** > **권한 추가** > **Microsoft Graph** 를 차례로 선택합니다.
@@ -96,7 +96,7 @@ Microsoft Graph API에 대한 *User.Read* 권한도 확인할 수 있습니다. 
 
 예를 들어 다음 단계에서는 권한을 Microsoft Graph의 *Files.Read.All* 권한에 부여합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
 1. **Azure Active Directory** > **앱 등록** 을 차례로 선택한 다음, 클라이언트 애플리케이션을 선택합니다.
 1. **API 권한** > **권한 추가** > **Microsoft Graph** > **애플리케이션 권한** 을 차례로 선택합니다.

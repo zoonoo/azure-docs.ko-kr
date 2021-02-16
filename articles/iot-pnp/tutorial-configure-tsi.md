@@ -1,24 +1,29 @@
 ---
-title: Azure Time Series Insights를 사용하여 Azure IoT 플러그 앤 플레이 디바이스 원격 분석 데이터 저장 및 분석
-description: Time Series Insights 환경을 설정하고 IoT 허브를 연결하여 IoT 플러그 앤 플레이 디바이스에서 원격 분석 데이터를 살펴보고 분석합니다.
+title: 자습서 - Azure Time Series Insights를 사용하여 Azure IoT 플러그 앤 플레이 디바이스 원격 분석 저장 및 분석
+description: 자습서 - Time Series Insights 환경을 설정하고 IoT 허브를 연결하여 IoT 플러그 앤 플레이 디바이스에서 원격 분석을 살펴보고 분석합니다.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 08ae21c2cd0859b7c361756a4f0380d3ab322a28
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905091"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834360"
 ---
-# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>미리 보기 자습서: Time Series Insights Gen2 환경 만들기 및 구성
+# <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>자습서: Time Series Insights Gen2 환경 만들기 및 구성
 
 이 자습서에서는 IoT 플러그 앤 플레이 솔루션과 통합하기 위해 [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) 환경을 만들고 구성하는 방법을 알아봅니다. Time Series Insights를 사용하여 IoT(사물 인터넷) 규모에서 시계열 데이터를 수집, 처리, 저장, 쿼리 및 시각화합니다.
 
-먼저 Time Series Insights 환경을 프로비저닝하고 IoT 허브를 스트리밍 이벤트 원본으로 연결합니다. 그런 다음, 모델 동기화를 통해 [시계열 모델](../time-series-insights/concepts-model-overview.md)을 작성합니다. 온도 조절기 및 자동 온도 조절기 디바이스에 사용한 [DTDL(디지털 트윈 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 샘플 모델 파일을 사용합니다.
+이 자습서에서는 다음을 수행했습니다.
+
+> [!div class="checklist"]
+> * Time Series Insights 환경을 프로비저닝하고 IoT 허브를 스트리밍 이벤트 원본으로 연결합니다.
+> * 모델 동기화를 통해 [시계열 모델](../time-series-insights/concepts-model-overview.md)을 작성합니다.
+> * 온도 조절기 및 자동 온도 조절기 디바이스에 사용한 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 샘플 모델 파일을 사용합니다.
 
 > [!NOTE]
 > Time Series Insights와 IoT 플러그 앤 플레이 간의 이러한 통합은 미리 보기에 있습니다. DTDL 디바이스 모델이 Time Series Insights 시계열 모델에 매핑되는 방식은 변경될 수 있습니다. 
@@ -222,10 +227,11 @@ Time Series Insights 탐색기에서 왼쪽에 있는 모델 아이콘을 선택
 
 ![thermostat2에 대한 인스턴스 유형을 변경하는 방법을 보여 주는 스크린샷](./media/tutorial-configure-tsi/charting-values.png)
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>다음 단계
 
-* 간격 크기 조정 및 y축 컨트롤을 포함한 다양한 차트 옵션에 대한 자세한 내용은 [Azure Time Series Insights 탐색기](../time-series-insights/concepts-ux-panels.md)를 참조하세요.
-
-* 환경의 시계열 모델에 대한 자세한 개요는 [Azure Time Series Insights Gen2의 시계열 모델](../time-series-insights/concepts-model-overview.md)을 참조하세요.
-
-* 쿼리 API 및 시계열 식 구문에 대한 자세한 내용은 [Azure Time Series Insights Gen2 쿼리 API](/rest/api/time-series-insights/reference-query-apis)를 참조하세요.
+> [!div class="nextstepaction"]
+> 간격 크기 조정 및 y축 컨트롤을 포함한 다양한 차트 옵션에 대한 자세한 내용은 [Azure Time Series Insights 탐색기](../time-series-insights/concepts-ux-panels.md)를 참조하세요.

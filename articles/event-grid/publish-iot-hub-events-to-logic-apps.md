@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 3772988e9bf4f733323adae6c0527c8b811c4d04
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566353"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821732"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>자습서: Event Grid 및 Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기
 
@@ -242,4 +242,7 @@ Azure CLI를 사용하여 디바이스 연결을 신속하게 시뮬레이션하
 * [디바이스 연결 및 연결 해제 이벤트를 정렬하는 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)에 대해 알아봅니다.
 * [Event Grid](overview.md)를 사용하여 다른 무엇을 할 수 있는지에 대해 알아봅니다.
 
-지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](/connectors/)를 참조하세요.
+지원되는 Logic App 커넥터의 전체 목록은 
+
+> [!div class="nextstepaction"]
+> [커넥터 개요](/connectors/)를 참조하세요.

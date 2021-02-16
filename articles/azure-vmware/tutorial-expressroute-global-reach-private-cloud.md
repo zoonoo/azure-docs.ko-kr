@@ -2,13 +2,13 @@
 title: 자습서 - 온-프레미스 환경을 프라이빗 클라우드로 피어링
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 1/5/2021
-ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/27/2021
+ms.openlocfilehash: e7b1e349f67fe63f63183c0ff6d1522498c65f8c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913161"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "99821287"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>자습서: 온-프레미스 환경을 프라이빗 클라우드로 피어링
 
@@ -33,7 +33,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 - ExpressRoute 회로가 Azure VNet(가상 네트워크)에서 ExpressRoute 게이트웨이를 통해 피어링된 Azure VMware Solution 프라이빗 클라우드에 대해 설정된 연결 - 피어링 프로시저의 관점에서 보자면 _회로 2_ 입니다.  
 - 온-프레미스 환경을 Azure에 연결하는 데 사용되는 별도의 정상 작동하는 ExpressRoute 회로 - 피어링 프로시저의 관점에서 보자면 _회로 1_ 입니다.
 - ExpressRoute Global Reach 피어링에 대한 /29 겹치지 않는 [네트워크 주소 블록](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings)
-- ExpressRoute 공급자의 서비스를 포함한 모든 라우터가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 4바이트 공용 ASN을 사용하여 경로를 알립니다.
+- ExpressRoute 공급자의 서비스를 포함한 모든 게이트웨이가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 경고를 알리는 데 4바이트 공용 ASN을 사용합니다.
 
 > [!TIP]
 > 이러한 필수 구성 요소와 관련하여 온-프레미스 ExpressRoute 회로는 _회로 1_ 이고, 프라이빗 클라우드 ExpressRoute 회로는 다른 구독에 있으며 _회로 2_ 라는 레이블이 지정됩니다. 

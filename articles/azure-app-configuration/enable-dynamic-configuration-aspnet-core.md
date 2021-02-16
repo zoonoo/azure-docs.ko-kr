@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1fd495083f5f9be367dd0f125883b181e3bed27b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930554"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979932"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -68,28 +68,27 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 1. *Program.cs* 를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+   #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-
-                config.AddAzureAppConfiguration(options =>
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .ConfigureRefresh(refresh =>
-                                {
-                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
-                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
-                                });
-                });
-            })
-            .UseStartup<Startup>();
-    ```
-
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                               .ConfigureRefresh(refresh =>
+                                    {
+                                        refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                               .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                    });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```   
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -111,6 +110,27 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
                 })
             .UseStartup<Startup>());
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:Sentinel", refreshAll: true)
+                                           .SetCacheExpiration(new TimeSpan(0, 5, 0));
+                                });
+                });
+            })
+            .UseStartup<Startup>();
+    ```
     ---
 
     `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 Sentinel 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다.
@@ -122,7 +142,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
     새로 고침 작업을 실제로 트리거하려면 변경이 발생할 때 애플리케이션에서 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 구성해야 합니다. 이후 단계에서 이를 수행하는 방법을 살펴볼 수 있습니다.
 
-2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
+2. 새 `Settings` 클래스를 정의하고 구현하는 Controllers 디렉터리에 *Settings.cs* 파일을 추가합니다. 네임스페이스를 프로젝트의 이름으로 바꿉니다. 
 
     ```csharp
     namespace TestAppConfig
@@ -139,16 +159,16 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 3. *Startup.cs* 를 열고 `ConfigureServices` 메서드에서 `IServiceCollection.Configure<T>`를 사용하여 구성 데이터를 `Settings` 클래스에 바인딩합니다.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
     }
     ```
-
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -156,32 +176,61 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
         services.AddControllersWithViews();
+        services.AddAzureAppConfiguration();
+    }
+    ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddAzureAppConfiguration();
     }
     ```
     ---
     > [!Tip]
-    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
+    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
 4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
 
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
     ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UseAzureAppConfiguration();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
-        services.Configure<CookiePolicyOptions>(options =>
-        {
-            options.CheckConsentNeeded = context => true;
-            options.MinimumSameSitePolicy = SameSiteMode.None;
-        });
+            // Add the following line:
+            app.UseAzureAppConfiguration();
 
-        app.UseMvc();
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
-
     #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
@@ -217,6 +266,22 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
             });
     }
     ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+
+        services.Configure<CookiePolicyOptions>(options =>
+        {
+            options.CheckConsentNeeded = context => true;
+            options.MinimumSameSitePolicy = SameSiteMode.None;
+        });
+
+        app.UseMvc();
+    }
+    ```
     ---
     
     미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청에 대해 새로 고침 작업이 트리거되고 클라이언트 라이브러리에서 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료되면 새로 고쳐집니다.
@@ -234,32 +299,9 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 2. 종속성 주입을 통해 `Settings`를 받도록 `HomeController` 클래스를 업데이트하고 해당 값을 사용합니다.
 
-    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+ #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
-    ```csharp
-    public class HomeController : Controller
-    {
-        private readonly Settings _settings;
-        public HomeController(IOptionsSnapshot<Settings> settings)
-        {
-            _settings = settings.Value;
-        }
-
-        public IActionResult Index()
-        {
-            ViewData["BackgroundColor"] = _settings.BackgroundColor;
-            ViewData["FontSize"] = _settings.FontSize;
-            ViewData["FontColor"] = _settings.FontColor;
-            ViewData["Message"] = _settings.Message;
-
-            return View();
-        }
-    }
-    ```
-
-    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-    ```csharp
+```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -283,8 +325,57 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
         // ...
     }
-    ```
-    ---
+```
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+```
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+
+```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        public HomeController(IOptionsSnapshot<Settings> settings)
+        {
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+    }
+```
+---
 
 
 
@@ -340,7 +431,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     | TestApp:Settings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용을 반영하려면 두 번 이상 새로 고쳐야 할 수 있습니다.
+1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용을 반영하려면 두 번 이상 새로 고치거나 자동 새로 고침 빈도를 5분 미만으로 변경해야 할 수 있습니다. 
 
     ![로컬로 업데이트된 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft ID 플랫폼의 코드 샘플
-description: 시나리오별로 구성된 사용 가능한 Microsoft ID 플랫폼(v2.0 엔드포인트) 코드 샘플의 인덱스를 제공합니다.
+description: 시나리오별로 구성된 사용 가능한 Microsoft ID 플랫폼 코드 샘플의 인덱스를 제공합니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064524"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99822195"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -26,9 +26,9 @@ Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 - 웹 애플리케이션 및 web API에 인증 및 권한 부여 추가.
 - 보호되는 web API에 액세스하려면 액세스 토큰 요구.
 
-이 문서에서는 Microsoft ID 플랫폼 엔드포인트에 대해 간략하게 설명하고 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움이 됩니다.
+이 문서에서는 Microsoft ID 플랫폼에 대해 간략하게 설명하고 샘플 링크를 제공합니다. 이 샘플은 애플리케이션에 사용할 수 있는 코드 조각과 함께 작업 수행 방법을 보여줍니다. 코드 샘플 페이지에서 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 안에 있는 주석은 중요한 섹션을 이해하는 데 도움이 됩니다.
 
-각 샘플 형식에 대한 기본 시나리오를 이해하려면 [Microsoft ID 플랫폼 엔드포인트에 대한 앱 형식](v2-app-types.md)을 참조하세요.
+각 샘플 형식에 대한 기본 시나리오를 이해하려면 [Microsoft ID 플랫폼에 대한 앱 형식](v2-app-types.md)을 참조하세요.
 
 GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
@@ -121,7 +121,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="web-apis"></a>Web API
 
-다음 샘플에서는 Microsoft ID 플랫폼 엔드포인트를 사용하여 Web API를 보호하는 방법 및 Web API에서 다운스트림 API를 호출하는 방법을 보여 줍니다.
+다음 샘플에서는 Microsoft ID 플랫폼을 사용하여 웹 API를 보호하는 방법과 웹 API에서 다운스트림 API를 호출하는 방법을 보여줍니다.
 
 | 플랫폼 | 샘플 |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="azure-functions-as-web-apis"></a>Web API로의 Azure Functions
 
-다음 샘플에서는 Microsoft ID 플랫폼 엔드포인트를 사용하여 Web API를 노출하고 HttpTrigger를 사용하여 Azure 함수를 보호하는 방법 및 Web API에서 다운스트림 API를 호출하는 방법을 보여 줍니다.
+다음 샘플에서는 Microsoft ID 플랫폼을 사용하여 웹 API를 노출하고 HttpTrigger를 사용하여 Azure 함수를 보호하는 방법 및 웹 API에서 다운스트림 API를 호출하는 방법을 보여줍니다.
 
 | 플랫폼 | 샘플 |
 | -------- | ------------------- |

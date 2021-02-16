@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 640098e118db87214d7364132a5119e35cb94c0a
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 07a4c06b840d41455beea9be4ed0343b4946ddb3
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778719"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99821501"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-with-gpu"></a>자습서: Azure Stack Edge Pro device with GPU의 네트워크 구성
 
@@ -56,8 +56,6 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
     
     ![로컬 웹 UI "네트워크 설정" 페이지](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2a.png)
 
-
-   
 3. 네트워크 설정을 변경하려면 포트를 선택하고 표시된 오른쪽 창에서 IP 주소, 서브넷, 게이트웨이, 기본 DNS 및 보조 DNS를 수정합니다. 
 
     - 포트 1을 선택하면 정적으로 미리 구성된 것을 볼 수 있습니다. 
@@ -74,6 +72,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
    * DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
    * 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
    * 25Gbps 인터페이스에서 RDMA(원격 직접 액세스 메모리) 모드를 iWarp 또는 RoCE(RDMA over Converged Ethernet)로 설정할 수 있습니다. 대기 시간이 짧고 확장성이 중요하지 않은 경우에는 RoCE를 사용합니다. 대기 시간이 중요한 요구 사항이면서, 사용 편의성 및 확장성이 높은 우선 순위인 경우에는 iWARP가 가장 적합합니다.
+   * NIC(네트워크 인터페이스 카드) 팀 구성 또는 링크 집계는 Azure Stack Edge에서 지원되지 않습니다. 
    * 모든 포트에 대한 일련 번호는 노드 일련 번호에 해당합니다.
 
     디바이스 네트워크를 구성하면 아래와 같이 페이지가 업데이트됩니다.
@@ -81,12 +80,11 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
     ![로컬 웹 UI "네트워크 설정" 페이지 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
-     >[!NOTE]
-     >
-     > * 디바이스에 연결할 다른 IP 주소가 없으면 네트워크 인터페이스의 로컬 IP 주소를 고정에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 활성화될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성** 에서 모든 어댑터의 IP를 볼 수 있습니다.
+     > [!NOTE]
+     > 디바이스에 연결할 다른 IP 주소가 없으면 네트워크 인터페이스의 로컬 IP 주소를 고정에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 활성화될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성** 에서 모든 어댑터의 IP를 볼 수 있습니다.
 
 
-    네트워크 설정을 구성하고 적용했으면 다음: 컴퓨팅을 선택하여 컴퓨팅 네트워크를 구성합니다.
+    네트워크 설정을 구성하고 적용한 후 **다음: 컴퓨팅** 을 선택하여 컴퓨팅 네트워크를 구성합니다.
 
 ## <a name="enable-compute-network"></a>컴퓨팅 네트워크 사용
 
@@ -132,7 +130,8 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 
 > [!IMPORTANT]
 > * Azure Stack Edge Pro 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. NTLM은 지원되지 않습니다.
->* PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다. 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다. 일반적으로 투명 프록시는 Azure Stack Edge Pro에서 잘 작동합니다. 투명하지 않은 웹 프록시는 지원되지 않습니다.
+> * PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다. 
+> * 투명 프록시는 Azure Stack Edge Pro에서 잘 작동합니다. 프록시 서버에 설치된 자체 인증서를 통해 모든 트래픽을 가로채고 읽는 불투명 프록시의 경우 프록시 인증서의 공개 키를 Azure Stack Edge Pro 디바이스에 서명 체인으로 업로드합니다. 그런 다음, Azure Stack Edge 디바이스에서 프록시 서버 설정을 구성할 수 있습니다. 자세한 내용은 [자체 인증서를 가져와 로컬 UI를 통해 업로드](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)를 참조하세요.  
 
 <!--1. Go to the **Get started** page in the local web UI of your device.
 2. On the **Network** tile, configure your web proxy server settings. Although web proxy configuration is optional, if you use a web proxy, you can configure it on this page only.

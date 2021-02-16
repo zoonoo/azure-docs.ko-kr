@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 8953f9ca174414c55e6e06774167d3951d0bbd41
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4afffb558b9cbf53a762b1b2bb1ce544e554feaf
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090241"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103892"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하여 등록된 애플리케이션을 제거하는 방법
 
@@ -39,9 +39,10 @@ Microsoft ID 플랫폼에 애플리케이션을 등록한 Enterprise 개발자 �
 
 애플리케이션을 삭제하려면 애플리케이션의 소유자 목록에 있거나 관리 권한이 있어야 합니다.
 
-1. 회사 또는 학교 계정이나 개인 Microsoft 계정을 사용하여 <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
-1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택한 다음, **앱 등록** 을 선택합니다. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 페이지가 나타납니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 앱이 등록된 테넌트를 선택합니다.
+1. **Azure Active Directory** 검색하고 선택합니다. 
+1. **관리** 에서 **앱 등록** 을 선택하고 구성하려는 애플리케이션을 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 페이지가 나타납니다.
 1. **개요** 페이지에서 **삭제** 를 선택합니다.
 1. **예** 를 선택하여 앱 삭제를 확인합니다.
 

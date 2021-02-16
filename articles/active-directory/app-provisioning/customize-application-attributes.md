@@ -10,18 +10,18 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830705"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091111"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
 Microsoft Azure AD는 Salesforce, G Suite 등과 같은 타사 SaaS 애플리케이션에 대한 사용자 프로비저닝을 지원합니다. 타사 SaaS 애플리케이션에 대해 사용자 프로비저닝을 사용하도록 설정하면 Azure Portal은 특성 매핑을 통해 해당 특성 값을 제어합니다.
 
-시작하기 전에 앱 관리 및 **SSO(Single Sign-On)** 개념을 숙지하고 다음 링크를 확인하세요.
+시작하기 전에 앱 관리 및 **SSO(Single Sign-On)** 개념에 대해 잘 알고 있어야 합니다. 다음 링크를 확인하세요.
 - [Azure AD의 앱 관리에 대한 빠른 시작 시리즈](../manage-apps/view-applications-portal.md)
 - [SSO(Single Sign-On)란?](../manage-apps/what-is-single-sign-on.md)
 

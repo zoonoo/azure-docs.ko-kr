@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a88c837c986db346bcb4fbb1b15ceab6a304347d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559967"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99821780"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>자습서: Azure Purview(미리 보기)를 사용하여 데이터 스캔
 
@@ -32,7 +32,7 @@ ms.locfileid: "97559967"
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 계정을 만듭니다.
 * [Azure Purview 계정](create-catalog-portal.md).
-* 데이터 자산을 배포할 [시작 키트](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip)
+* 데이터 자산을 배포할 [시작 키트](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip)
 
 > [!NOTE]
 > 시작 키트는 Windows에만 사용할 수 있습니다.
@@ -91,7 +91,9 @@ PowerShell 스크립트를 실행하여 카탈로그를 부트스트랩하려면
    1. **개요** 섹션을 선택하고 **구독 ID** 의 GUID를 저장합니다.
 
    > [!NOTE]
-   > Azure Purview 계정을 만든 구독과 동일한 구독을 사용하고 있는지 확인합니다. 이 구독은 허용 목록에 배치된 구독과 동일합니다.
+   > - Azure Purview 계정을 만든 구독과 동일한 구독을 사용하고 있는지 확인합니다. 이 구독은 허용 목록에 배치된 구독과 동일합니다.
+   > - 시작 키트를 실행한 후 Azure Purview에서 계보가 누락되는 경우가 있습니다. 이는 시작 키트에서 만든 Data Factory에는 Purview의 권한이 없기 때문입니다. [**이 문서 링크**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)를 선택하여 Data Factory가 올바르게 구성되고 Purview에서 적절한 역할이 할당되었는지 확인합니다.
+
 
 * CatalogName: [Azure Purview 계정 만들기](create-catalog-portal.md)에서 만든 Azure Purview 계정의 이름입니다.
 
@@ -189,6 +191,8 @@ Azure Purview 계정을 직접 만든 경우 자동으로 액세스 권한이 �
 1. Azure Data Lake Storage Gen2에도 이전 단계를 반복합니다.
 
 ### <a name="scan-your-data-sources"></a>데이터 원본 스캔
+
+1. [Azure Portal](https://portal.azure.com)에서 Azure Purview 리소스로 이동하여 *Purview Studio 열기* 를 선택합니다. Purview Studio 홈 페이지로 자동으로 이동합니다.
 
 1. 카탈로그 웹 페이지에서 **원본** 을 선택하고 **등록** 을 선택합니다. 그런 다음, **Azure Blob Storage** 를 선택하고 **계속** 을 선택합니다.
 

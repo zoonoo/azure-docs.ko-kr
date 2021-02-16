@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d9db845bfa4a7c0c117220b8932b370eb230f6dc
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178350"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102991"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>자습서: Windows 데스크톱 앱에서 Microsoft Graph API 호출
 
@@ -47,7 +47,7 @@ ms.locfileid: "98178350"
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>보호되는 웹 API에 액세스하기 위한 토큰 획득 처리
 
-사용자가 인증된 후에 샘플 애플리케이션은 개발자를 위한 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 웹 API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
+사용자가 인증된 후에 샘플 애플리케이션은 Microsoft ID 플랫폼으로 보호되는 Microsoft Graph API 또는 웹 API를 쿼리하는 데 사용할 수 있는 토큰을 수신합니다.
 
 Microsoft Graph와 같은 API에는 특정 리소스에 대한 액세스를 허용하는 토큰이 필요합니다. 예를 들어 사용자 프로필을 읽고, 사용자 일정에 액세스하고, 메일을 보내는 데 토큰이 필요합니다. 애플리케이션에서는 MSAL을 사용하여 액세스 토큰을 요청하고 API 범위를 지정하여 이러한 리소스에 액세스할 수 있습니다. 그런 다음 이 액세스 토큰은 보호되는 리소스에 대한 모든 호출에 사용될 수 있도록 HTTP 인증 헤더에 추가됩니다.
 
@@ -97,14 +97,14 @@ MSAL은 사용자를 대신해 액세스 토큰 캐싱 및 새로 고침을 관�
 ### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
 
 다음을 수행하여 애플리케이션을 신속하게 등록할 수 있습니다.
-1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.
+1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
 
 애플리케이션을 등록하고 애플리케이션 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.

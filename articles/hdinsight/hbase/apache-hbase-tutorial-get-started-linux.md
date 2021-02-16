@@ -1,19 +1,16 @@
 ---
 title: 자습서 - Azure HDInsight에서 Apache HBase 사용
 description: 이 Apache HBase 자습서에 따라 HDInsight에서 hadoop 사용을 시작합니다. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 01/22/2021
+ms.openlocfilehash: 05e40dd38fc7111521b600908cda38084249e4de
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533498"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821345"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -344,9 +341,15 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
    - tasks
    - 소프트웨어 특성
 
+## <a name="cluster-recreation"></a>클러스터 재작성
+
+HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다. 그러나 불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다. 
+
+HBase 명령 `disable 'Contacts'`를 사용할 수 있습니다. 
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-불일치를 방지하기 위해 클러스터를 삭제하기 전에 HBase 테이블을 사용하지 않도록 설정하는 것이 좋습니다. HBase 명령 `disable 'Contacts'`를 사용할 수 있습니다. 이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 생성된 HBase 클러스터를 삭제합니다.
+이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 생성된 HBase 클러스터를 삭제합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 맨 위에 있는 **검색** 상자에 **HDInsight** 를 입력합니다.

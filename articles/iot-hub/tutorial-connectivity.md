@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub에 대한 디바이스 연결 확인
-description: IoT Hub 도구를 사용하여 개발 중인 IoT 허브에 대한 디바이스 연결 문제를 해결합니다.
+title: 자습서 - Azure IoT Hub에 대한 디바이스 연결 확인
+description: 자습서 - IoT Hub 도구를 사용하여 개발 중인 IoT 허브에 대한 디바이스 연결 문제를 해결합니다.
 services: iot-hub
 author: wesmc7777
 manager: philmea
@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 1eead9bb93fe8b753ace518cde18b240ab1a3cd4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 253ec23a421415c11e4b47670dca870ebc463256
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572680"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99822142"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -66,15 +66,15 @@ node --version
 
 포털에 로그인하고 IoT 허브로 이동합니다. 그런 다음, **IoT 디바이스** 도구로 이동합니다.
 
-![IoT 디바이스 도구](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT 디바이스 도구":::
 
-새 디바이스를 등록하려면 **+ 추가** 를 클릭하고, **디바이스 ID** 를 **MyTestDevice** 로 설정하고, **저장** 을 클릭합니다.
+새 디바이스를 등록하려면 **+ 새로 만들기** 를 클릭하여 **디바이스 ID** 를 **MyTestDevice** 로 설정하고 **저장** 을 클릭합니다.
 
-![새 디바이스 추가](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="새 디바이스 추가":::
 
-**MyTestDevice** 에 대한 연결 문자열을 검색하려면 디바이스 목록에서 해당 문자열을 클릭한 다음, **연결 문자열 - 기본 키** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키* 가 포함되어 있습니다.
+**MyTestDevice** 에 대한 연결 문자열을 검색하려면 디바이스 목록에서 해당 문자열을 클릭한 다음, **기본 연결 문자열** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키* 가 포함되어 있습니다.
 
-![디바이스 연결 문자열 검색](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="디바이스 연결 문자열 검색}":::
 
 원격 분석을 IoT 허브로 보내는 **MyTestDevice** 를 시뮬레이션하려면, 앞에서 다운로드한 Node.js 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
@@ -176,7 +176,7 @@ node SimulatedDevice-2.js "{Your SAS token}"
 먼저 다음 명령을 사용하여 시뮬레이션된 디바이스에 대한 현재 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 메시지를 보내는 시뮬레이션된 디바이스를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
@@ -218,7 +218,7 @@ az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMetho
 
 ![시뮬레이션된 디바이스에서 직접 메서드 호출 받기](media/tutorial-connectivity/receive-method-call.png)
 
-시뮬레이션된 디바이스에서 직접 메서드 호출을 받으면 승인을 허브로 다시 보냅니다.
+시뮬레이션된 디바이스에서 직접 메서드 호출을 성공적으로 받으면 승인을 허브로 다시 보냅니다.
 
 ![직접 메서드 승인 받기](media/tutorial-connectivity/method-acknowledgement.png)
 

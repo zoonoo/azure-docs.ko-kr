@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 72c7f1dd6652a51a960c80829a697b97fd74f8de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c806e5d1d9c9242b6ba57496327c672d7fed0654
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500030"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821858"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -32,7 +32,7 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 > * 네트워크 트래픽 보안
 > * 백엔드 VM 만들기
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요**를 선택합니다.
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 [Azure Cloud Shell](../../cloud-shell/overview.md) 내의 CLI를 사용합니다. Cloud Shell을 열려면 코드 블록 상단에서 **사용해 보세요** 를 선택합니다.
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
@@ -45,20 +45,20 @@ Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인�
 ![두 서브넷을 사용하는 가상 네트워크](./media/tutorial-virtual-network/networktutorial.png)
 
 - *myVNet* - VM이 다른 VM 및 인터넷과 통신할 때 사용하는 가상 네트워크.
-- *myFrontendSubnet* - 프런트 엔드 리소스에서 사용되는 *myVNet*의 서브넷.
-- *myPublicIPAddress* - 인터넷에서 *myFrontendVM*을 액세스할 때 사용되는 공용 IP 주소.
-- *myFrontentNic* - *myFrontendVM*이 *myBackendVM*과 통신할 때 사용하는 네트워크 인터페이스.
+- *myFrontendSubnet* - 프런트 엔드 리소스에서 사용되는 *myVNet* 의 서브넷.
+- *myPublicIPAddress* - 인터넷에서 *myFrontendVM* 을 액세스할 때 사용되는 공용 IP 주소.
+- *myFrontentNic* - *myFrontendVM* 이 *myBackendVM* 과 통신할 때 사용하는 네트워크 인터페이스.
 - *myFrontendVM* - 인터넷과 *myBackendVM* 사이에 통신할 때 사용되는 VM.
-- *myBackendNSG* - *myFrontendVM*과 *myBackendVM* 사이의 통신을 제어하는 네트워크 보안 그룹.
-- *myBackendSubnet* - *myBackendNSG*에 연동되어 백엔드 리소스에 의해 사용되는 서브넷.
-- *myBackendNic* - *myBackendVM*이 *myFrontendVM*과 통신할 때 사용하는 네트워크 인터페이스.
-- *myBackendVM* - 포트 22와 3306을 사용하여 *myFrontendVM*과 통신하는 VM.
+- *myBackendNSG* - *myFrontendVM* 과 *myBackendVM* 사이의 통신을 제어하는 네트워크 보안 그룹.
+- *myBackendSubnet* - *myBackendNSG* 에 연동되어 백엔드 리소스에 의해 사용되는 서브넷.
+- *myBackendNic* - *myBackendVM* 이 *myFrontendVM* 과 통신할 때 사용하는 네트워크 인터페이스.
+- *myBackendVM* - 포트 22와 3306을 사용하여 *myFrontendVM* 과 통신하는 VM.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
 
 이 자습서에서는 두 개의 서브넷이 있는 단일 가상 네트워크를 만듭니다. 서브넷 하나는 웹 애플리케이션을 호스트하기 위한 프런트 엔드 서브넷이고 다른 하나는 데이터베이스 서버를 호스트하기 위한 백 엔드 서브넷입니다.
 
-가상 네트워크를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 eastus 위치에 *myRGNetwork*라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들려면 먼저 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 eastus 위치에 *myRGNetwork* 라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myRGNetwork --location eastus
@@ -66,7 +66,7 @@ az group create --name myRGNetwork --location eastus
 
 ### <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet) 명령을 사용하여 가상 네트워크를 만듭니다. 이 예제에서 네트워크의 이름은 *mvVNet*이며, 주소 접두사는 *10.0.0.0/16*으로 지정됩니다. *myFrontendSubnet*이라는 이름과 *10.0.1.0/24* 접두사를 갖는 서브넷도 만들어집니다. 이 자습서의 뒷부분에서 프런트 엔드 VM이 이 서브넷에 연결됩니다. 
+[az network vnet create](/cli/azure/network/vnet) 명령을 사용하여 가상 네트워크를 만듭니다. 이 예제에서 네트워크의 이름은 *mvVNet* 이며, 주소 접두사는 *10.0.0.0/16* 으로 지정됩니다. *myFrontendSubnet* 이라는 이름과 *10.0.1.0/24* 접두사를 갖는 서브넷도 만들어집니다. 이 자습서의 뒷부분에서 프런트 엔드 VM이 이 서브넷에 연결됩니다. 
 
 ```azurecli-interactive 
 az network vnet create \
@@ -79,7 +79,7 @@ az network vnet create \
 
 ### <a name="create-subnet"></a>서브넷 만들기
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet) 명령을 사용하여 가상 네트워크에 새 서브넷을 추가합니다. 이 예제에서 서브넷의 이름은 *myBackendSubnet*이며, 주소 접두사는 *10.0.2.0/24*로 지정됩니다. 이 서브넷은 모든 백 엔드 서비스에서 사용됩니다.
+[az network vnet subnet create](/cli/azure/network/vnet/subnet) 명령을 사용하여 가상 네트워크에 새 서브넷을 추가합니다. 이 예제에서 서브넷의 이름은 *myBackendSubnet* 이며, 주소 접두사는 *10.0.2.0/24* 로 지정됩니다. 이 서브넷은 모든 백 엔드 서비스에서 사용됩니다.
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -113,7 +113,7 @@ IP 주소 할당 방법은 [az network public-ip update](/cli/azure/network/publ
 az vm deallocate --resource-group myRGNetwork --name myFrontendVM
 ```
 
-[az network public-ip update](/cli/azure/network/public-ip) 명령을 사용하여 할당 방법을 업데이트합니다. 이 경우 `--allocation-method`는 *static*으로 설정됩니다.
+[az network public-ip update](/cli/azure/network/public-ip) 명령을 사용하여 할당 방법을 업데이트합니다. 이 경우 `--allocation-method`는 *static* 으로 설정됩니다.
 
 ```azurecli-interactive 
 az network public-ip update --resource-group myRGNetwork --name myPublicIPAddress --allocation-method static
@@ -131,7 +131,7 @@ az vm start --resource-group myRGNetwork --name myFrontendVM --no-wait
 
 ## <a name="create-a-front-end-vm"></a>프런트 엔드 VM 만들기
 
-[az vm create](/cli/azure/vm) 명령을 사용하여 *myPublicIPAddress*를 사용하여 *myFrontendVM*이라는 VM을 만듭니다.
+[az vm create](/cli/azure/vm) 명령을 사용하여 *myPublicIPAddress* 를 사용하여 *myFrontendVM* 이라는 VM을 만듭니다.
 
 ```azurecli-interactive 
 az vm create \
@@ -163,7 +163,7 @@ NSG의 기본 규칙은 다음과 같습니다.
 
 ### <a name="create-network-security-groups"></a>네트워크 보안 그룹 만들기
 
-네트워크 보안 그룹은 [az vm create](/cli/azure/vm) 명령을 사용하여 VM과 동시에 만들 수 있습니다. 이렇게 하면 NSG가 VM 네트워크 인터페이스와 연결되고, 모든 원본에서 포트 *22*의 트래픽을 허용하도록 NSG 규칙이 자동으로 만들어집니다. 이 자습서의 앞부분에서 프런트 엔드 NSG는 프런트 엔드 VM과 함께 자동으로 만들어졌습니다. 22 포트에 대한 NSG 규칙도 자동으로 만들어졌습니다. 
+네트워크 보안 그룹은 [az vm create](/cli/azure/vm) 명령을 사용하여 VM과 동시에 만들 수 있습니다. 이렇게 하면 NSG가 VM 네트워크 인터페이스와 연결되고, 모든 원본에서 포트 *22* 의 트래픽을 허용하도록 NSG 규칙이 자동으로 만들어집니다. 이 자습서의 앞부분에서 프런트 엔드 NSG는 프런트 엔드 VM과 함께 자동으로 만들어졌습니다. 22 포트에 대한 NSG 규칙도 자동으로 만들어졌습니다. 
 
 경우에 따라 기본 SSH 규칙을 만들지 않아야 하거나 NSG를 서브넷에 연결해야 하는 경우와 같이 NSG를 미리 만드는 것이 도움이 될 수 있습니다. 
 
@@ -175,7 +175,7 @@ az network nsg create --resource-group myRGNetwork --name myBackendNSG
 
 NSG는 네트워크 인터페이스 대신 서브넷에 연결됩니다. 이 구성에서 해당 서브넷에 연결되는 모든 VM에서는 NSG 규칙을 상속합니다.
 
-*myBackendSubnet*이라는 기존 서브넷을 새 NSG로 업데이트합니다.
+*myBackendSubnet* 이라는 기존 서브넷을 새 NSG로 업데이트합니다.
 
 ```azurecli-interactive 
 az network vnet subnet update \
@@ -216,7 +216,7 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG -
 
 네트워크 보안 그룹 규칙은 VM 간에도 적용할 수 있습니다. 이 예제에서 프런트 엔드 VM은 *22* 및 *3306* 포트에서 백 엔드 VM과 통신해야 합니다. 이 구성을 사용하면 프런트 엔드 VM에서 SSH 연결을 허용하고, 프런트 엔드 VM의 애플리케이션에서 백 엔드 MySQL 데이터베이스와 통신할 수 있습니다. 프런트 엔드 가상 머신과 백 엔드 가상 머신 간의 다른 모든 트래픽은 차단되어야 합니다.
 
-[az network nsg rule create](/cli/azure/network/nsg/rule) 명령을 사용하여 22 포트에 대한 규칙을 만듭니다. `--source-address-prefix` 인수에서 *10.0.1.0/24*라는 값을 지정하고 있음에 유의하세요. 이 구성은 프런트 엔드 서브넷에서 NSG를 통해서만 트래픽이 전송되도록 합니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule) 명령을 사용하여 22 포트에 대한 규칙을 만듭니다. `--source-address-prefix` 인수에서 *10.0.1.0/24* 라는 값을 지정하고 있음에 유의하세요. 이 구성은 프런트 엔드 서브넷에서 NSG를 통해서만 트래픽이 전송되도록 합니다.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -250,7 +250,7 @@ az network nsg rule create \
   --destination-port-range "3306"
 ```
 
-마지막으로, NSG에는 동일한 VNet에 있는 VM 간에 모든 트래픽을 허용하는 기본 규칙이 있으므로 백 엔드 NSG에서 모든 트래픽을 차단하는 규칙을 만들 수 있습니다. `--priority`에는 *300*이라는 값이 지정되며, 이 값은 해당 NSG와 MySQL 규칙 모두에 비해 더 낮습니다. 이 구성은 SSH 및 MySQL 트래픽이 여전히 NSG를 통해 허용되도록 합니다.
+마지막으로, NSG에는 동일한 VNet에 있는 VM 간에 모든 트래픽을 허용하는 기본 규칙이 있으므로 백 엔드 NSG에서 모든 트래픽을 차단하는 규칙을 만들 수 있습니다. `--priority`에는 *300* 이라는 값이 지정되며, 이 값은 해당 NSG와 MySQL 규칙 모두에 비해 더 낮습니다. 이 구성은 SSH 및 MySQL 트래픽이 여전히 NSG를 통해 허용되도록 합니다.
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -269,7 +269,7 @@ az network nsg rule create \
 
 ## <a name="create-back-end-vm"></a>백 엔드 VM 만들기
 
-이제 *myBackendSubnet*에 연결된 가상 머신을 만듭니다. `--nsg` 인수에는 빈 큰따옴표로 묶은 값이 있어야 합니다. VM과 함께 NSG를 만들 필요가 없습니다. VM은 미리 만든 백 엔드 NSG로 보호되는 백 엔드 서브넷에 연결됩니다. 이 NSG는 VM에 적용됩니다. 또한 `--public-ip-address` 인수에도 빈 큰따옴표로 묶은 값이 있어야 합니다. 이 구성은 공용 IP 주소 없이 VM을 만듭니다. 
+이제 *myBackendSubnet* 에 연결된 가상 머신을 만듭니다. `--nsg` 인수에는 빈 큰따옴표로 묶은 값이 있어야 합니다. VM과 함께 NSG를 만들 필요가 없습니다. VM은 미리 만든 백 엔드 NSG로 보호되는 백 엔드 서브넷에 연결됩니다. 이 NSG는 VM에 적용됩니다. 또한 `--public-ip-address` 인수에도 빈 큰따옴표로 묶은 값이 있어야 합니다. 이 구성은 공용 IP 주소 없이 VM을 만듭니다. 
 
 ```azurecli-interactive 
 az vm create \
@@ -300,7 +300,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > * 네트워크 트래픽 보안
 > * 백 엔드 VM 만들기
 
-Azure 백업을 사용하여 가상 머신의 데이터 보안에 대해 알아 보려면 다음 자습서로 진행합니다. 
-
-> [!div class="nextstepaction"]
-> [Azure에서 Linux 가상 머신 백업](./tutorial-backup-vms.md)
+VM 디스크를 보호하는 방법에 대한 자세한 내용은 [디스크의 백업 및 재해 복구](backup-and-disaster-recovery-for-azure-iaas-disks.md)를 참조하세요.

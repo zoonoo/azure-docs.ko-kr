@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 915aca5f7400496aacb3c3cf248120dff39d747c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465030"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99822159"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R에 대한 네트워크 구성
 
@@ -126,6 +126,7 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
    - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. IP 주소, 서브넷, 게이트웨이 및 DNS가 자동으로 할당됩니다.
    - DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
    - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
+   - NIC(네트워크 인터페이스 카드) 팀 구성 또는 링크 집계는 Azure Stack Edge에서 지원되지 않습니다.
    - 모든 포트에 대한 일련 번호는 노드 일련 번호에 해당합니다. K 시리즈 디바이스의 경우 하나의 일련 번호만 표시됩니다.
 
      >[!NOTE] 

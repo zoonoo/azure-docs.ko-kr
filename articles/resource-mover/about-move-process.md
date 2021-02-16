@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522951"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980561"
 ---
 # <a name="about-the-move-process"></a>이동 프로세스 정보
 
@@ -46,7 +46,7 @@ ms.locfileid: "95522951"
 **4단계: 이동 시작** | 이동 프로세스를 시작합니다. 이동 방법은 리소스 유형에 따라 다릅니다.<br/><br/> - **상태 비저장**: 일반적으로 상태 비저장 리소스의 경우 이동 프로세스는 가져온 템플릿을 대상 지역에 배포합니다. 템플릿은 원본 리소스 설정 및 대상 설정에 대한 수동 편집을 기반으로 합니다.<br/><br/> - **상태 저장**: 상태 저장 리소스의 경우 이동 프로세스에는 대상 지역에서 리소스를 만들거나 복사본을 사용하도록 설정하는 작업이 포함될 수 있습니다.<br/><br/>  상태 저장 리소스의 경우에만 이동을 시작하면 원본 리소스의 가동 중지 시간이 발생할 수 있습니다. 예를 들면, VM 및 SQL입니다. | 이동을 시작하면 상태가 *Initiate move in progress*(이동 시작 진행 중)로 전환됩니다.<br/><br/> 이동 시작에 성공하면 리소스 상태가 문제없이 *Commit move pending*(이동 커밋 보류 중)으로 이동합니다. <br/><br/> 이동 프로세스가 실패하면 상태가 *Initiate move failed*(이동 시작 실패함)로 이동합니다.
 **5단계 옵션 1: 이동 무시** | 초기 이동 후 전체 이동을 진행할지 여부를 결정할 수 있습니다. 진행하지 않으려면 이동을 취소할 수 있으며, Resource Mover는 대상에 만든 리소스를 삭제합니다. 상태 저장 리소스에 대한 복제 프로세스는 무시 프로세스 후에 계속됩니다. 이 옵션은 테스트에 유용합니다. | 리소스를 무시하면 상태가 *Discard in progress*(무시 진행 중)로 이동합니다.<br/><br/> 무시에 성공하면 상태가 문제 없이 *Initiate move pending*(이동 시작 보류 중)으로 이동합니다.<br/><br/> 무시에 실패하면 상태가 *Discard move failed*(이동 무시 실패함)로 이동합니다. 
 **5단계 옵션 2: 이동 커밋** | 초기 이동 후 전체 이동을 진행하려면 대상 지역에서 리소스를 확인하고 준비가 되면 이동을 커밋합니다.<br/><br/> 상태 저장 리소스의 경우에만 커밋하면 VM 또는 SQL과 같은 원본 리소스에 액세스할 수 없게 될 수 있습니다. | 이동을 커밋하면 리소스 상태가 *Commit move in progress**(이동 커밋 진행 중)으로 이동합니다.<br/><br/> 커밋에 성공하면 리소스 상태에 문제없이 *Commit move completed*(이동 커밋 완료됨)가 표시됩니다.<br/><br/> 커밋에 실패하면 상태가 *Commit move failed*(이동 커밋 실패함)로 이동합니다.
-**6단계: 원본 삭제** | 이동을 커밋하고 대상 지역에서 리소스를 확인한 후 원본 리소스를 삭제할 수 있습니다. | 이동을 커밋한 후에는 리소스 상태가 *Delete source pending*(원본 삭제 보류 중)으로 이동합니다.
+**6단계: 원본 삭제** | 이동을 커밋하고 대상 지역에서 리소스를 확인한 후 원본 리소스를 삭제할 수 있습니다. | 커밋한 후에는 리소스 상태가 *원본 삭제 보류 중* 으로 이동합니다. 그런 다음, 원본 리소스를 선택하고 삭제할 수 있습니다.<br/><br/> - *원본 삭제 보류 중* 상태의 리소스만 삭제할 수 있습니다. | Resource Mover 포털에서 리소스 그룹 또는 SQL Server 삭제는 지원되지 않습니다. 이러한 리소스는 리소스 속성 페이지에서만 삭제할 수 있습니다.
 
 
 ## <a name="move-region-states"></a>지역 이동 상태

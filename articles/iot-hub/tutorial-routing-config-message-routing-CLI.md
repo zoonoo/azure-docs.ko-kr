@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
-description: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅을 구성합니다. 메시지의 속성에 따라 스토리지 계정 또는 Service Bus 큐로 라우팅합니다.
+title: 자습서 - Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+description: 자습서 - Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅을 구성합니다. 메시지의 속성에 따라 스토리지 계정 또는 Service Bus 큐로 라우팅합니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 239d8f2bcc1422a1098fb8f6cb3fba6706d671f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c3ff7582ed408776c0ae6904e4bacddd89e40b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500200"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "99821848"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI를 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "87500200"
 
 이 자습서의 두 번째 부분에서는 Visual Studio 애플리케이션을 다운로드하고 실행하여 IoT Hub에 메시지를 보냅니다. 이 다운로드에는 Azure Resource Manager 템플릿과 매개 변수 파일은 물론 Azure CLI와 PowerShell 스크립트가 포함된 폴더가 있습니다.
 
-완성된 스크립트를 보려면 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Azure CLI 스크립트는 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/의 **iothub_routing_cli.azcli**에 있습니다.
+완성된 스크립트를 보려면 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드합니다. master.zip 파일의 압축을 풉니다. Azure CLI 스크립트는 /iot-hub/Tutorials/Routing/SimulatedDevice/resources/의 **iothub_routing_cli.azcli** 에 있습니다.
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Azure CLI를 사용하여 리소스 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "87500200"
 > 디버깅 팁: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 Cloud Shell 세션이 `bash`를 실행 중이고 백슬래시 뒤에 공백이 없는지 확인하세요.
 > 
 
-몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다. 
+몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue* 라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다. 
 
 > [!IMPORTANT]
 > 초기 스크립트에 설정된 변수는 라우팅 스크립트에도 사용되기 때문에 모든 스크립트를 동일한 Cloud Shell 세션에서 실행합니다. 새 세션을 열어서 라우팅을 설정하기 위한 스크립트를 실행하면, 여러 변수가 누락된 값이 됩니다.
@@ -147,7 +147,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-라우팅 엔드포인트를 만들려면 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create)를 사용합니다. 엔드포인트에 대한 메시지 경로를 만들려면 [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create)를 사용합니다.
+라우팅 엔드포인트를 만들려면 [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create&preserve-view=true)를 사용합니다. 엔드포인트에 대한 메시지 경로를 만들려면 [az iot hub route create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create&preserve-view=true)를 사용합니다.
 
 ### <a name="route-to-a-storage-account"></a>스토리지 계정으로 라우팅
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861908"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99822019"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>자습서: 서버 평가를 사용하여 Hyper-V VM 검색
 
@@ -42,16 +42,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **요구 사항** | **세부 정보**
 --- | ---
 **Hyper-V 호스트** | VM이 있는 Hyper-V 호스트는 독립 실행형이거나 클러스터에 있을 수 있습니다.<br/><br/> 호스트에서 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2가 실행되고 있어야 합니다.<br/><br/> 어플라이언스가 CIM(Common Information Model) 세션을 사용하여 VM 메타데이터 및 성능 데이터를 가져오기 위해 연결할 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용하는지 확인합니다.
-**어플라이언스 배포** | Hyper-V 호스트에는 어플라이언스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - Windows Server 2016<br/><br/> \- RAM 16GB<br/><br/> - 8개의 vCPU<br/><br/> - 약 80GB의 디스크 스토리지.<br/><br/> - 외부 가상 스위치.<br/><br/> - 직접 또는 프록시를 통해 VM에 대한 인터넷 액세스.
+**어플라이언스 배포** | Hyper-V 호스트에는 어플라이언스에 VM을 할당하는 리소스가 필요합니다.<br/><br/> - 16GB RAM, 8개 vCPU 및 약 80GB 디스크 스토리지.<br/><br/> - 외부 가상 스위치 및 어플라이언스 VM의 인터넷 액세스(직접 또는 프록시를 통해).
 **VM** | VM은 모든 Windows 또는 Linux 운영 체제를 실행할 수 있습니다. 
-
-시작하기 전에 어플라이언스가 검색 중에 수집하는 [데이터를 검토](migrate-appliance.md#collected-data---hyper-v)할 수 있습니다.
 
 ## <a name="prepare-an-azure-user-account"></a>Azure 사용자 계정 준비
 
 Azure Migrate 프로젝트를 만들고 Azure Migrate 어플라이언스를 등록하려면 다음이 포함된 계정이 필요합니다.
 - Azure 구독에 대한 기여자 또는 소유자 권한.
-- Azure Active Directory 앱을 등록할 수 있는 권한.
+- AAD(Azure Active Directory) 앱을 등록할 수 있는 권한.
 
 Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다. 구독 소유자가 아닌 경우 다음과 같이 소유자와 협력하여 권한을 할당합니다.
 
@@ -71,20 +69,51 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![계정에 역할을 할당하는 역할 할당 추가 페이지를 엽니다.](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. 포털에서 사용자를 검색하고 **서비스** 에서 **사용자** 를 선택합니다.
-8. **사용자 설정** 에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예** 로 설정됨).
+1. 어플라이언스를 등록하려면 Azure 계정에 **AAD 앱을 등록할 수 있는 권한** 이 필요합니다.
+1. Azure Portal에서 **Azure Active Directory** > **사용자** > **사용자 설정** 으로 이동합니다.
+1. **사용자 설정** 에서 Azure AD 사용자가 애플리케이션을 등록할 수 있는지 확인합니다(기본적으로 **예** 로 설정됨).
 
     ![사용자 설정에서 사용자가 Active Directory 앱을 등록할 수 있는지 확인합니다.](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+9. '앱 등록' 설정이 '아니요'로 설정된 경우 테넌트/전역 관리자에게 필요한 권한을 할당하도록 요청합니다. 또는 테넌트/전역 관리자가 **애플리케이션 개발자** 역할을 계정에 할당하여 AAD 앱 등록을 허용할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Hyper-V 호스트 준비
 
-Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합니다. 어플라이언스는 이 계정을 검색에 사용합니다.
+수동으로 또는 스크립트를 사용하여 Hyper-V 호스트를 준비할 수 있습니다. 준비 단계는 테이블에 요약되어 있습니다. 스크립트는 이러한 내용을 자동으로 준비합니다.
 
-- 옵션 1: Hyper-V 호스트 머신에 대한 관리자 액세스 권한이 있는 계정을 설정합니다.
-- 옵션 2: 로컬 관리자 계정 또는 도메인 관리자 계정을 준비하고 다음 그룹에 계정을 추가합니다. 원격 관리 사용자, Hyper-V 관리자 및 성능 모니터 사용자.
+**Step** | **스크립트** | **수동**
+--- | --- | ---
+호스트 요구 사항 확인 | 호스트에서 지원되는 버전의 Hyper-V 및 Hyper-V 역할을 실행하는지 확인합니다.<br/><br/>WinRM 서비스를 사용하도록 설정하고, 호스트에서 5985(HTTP) 및 5986(HTTPS) 포트를 엽니다(메타데이터 수집에 필요함). | 호스트에서 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2가 실행되고 있어야 합니다.<br/><br/> 어플라이언스가 CIM(Common Information Model) 세션을 사용하여 VM 메타데이터 및 성능 데이터를 가져오기 위해 연결할 수 있도록 WinRM 포트 5985(HTTP)에서 인바운드 연결을 허용하는지 확인합니다.<br/><br/> 이 스크립트는 현재 영어가 아닌 로캘을 사용하는 호스트에서 지원되지 않습니다.  
+PowerShell 버전 확인 | 지원되는 PowerShell 버전에서 스크립트를 실행 중인지 확인합니다. | Hyper-V 호스트에서 PowerShell 버전 4.0 이상을 실행하고 있는지 확인합니다.
+계정 만들기 | Hyper-V 호스트에 대한 올바른 권한이 있는지 확인합니다.<br/><br/> 올바른 권한이 있는 로컬 사용자 계정을 만들 수 있습니다. | 옵션 1: Hyper-V 호스트 머신에 대한 관리자 액세스 권한이 있는 계정을 설정합니다.<br/><br/> 옵션 2: 로컬 관리자 계정 또는 도메인 관리자 계정을 준비하고 다음 그룹에 계정을 추가합니다. 원격 관리 사용자, Hyper-V 관리자 및 성능 모니터 사용자.
+PowerShell 원격 사용 | Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 호스트에서 PowerShell 원격을 사용하도록 설정합니다. | 설정하려면 각 호스트에서 관리자 권한으로 PowerShell 콘솔을 열고 ``` powershell Enable-PSRemoting -force ``` 명령을 실행합니다.
+Hyper-V 통합 서비스 설정 | 호스트에서 관리하는 모든 VM에 Hyper-V Integration Services를 사용하도록 설정되어 있는지 확인합니다. | 각 VM에서 [Hyper-V 통합 서비스를 사용하도록 설정](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)합니다.<br/><br/> Windows Server 2003을 실행하는 경우 [다음 지침을 따릅니다](prepare-windows-server-2003-migration.md).
+VM 디스크가 원격 SMB 공유에 있는 경우 자격 증명을 위임합니다. | 자격 증명 위임 | ```powershell Enable-WSManCredSSP -Role Server -Force ``` 명령을 실행하여 CredSSP가 SMB 공유의 디스크가 있는 Hyper-V VM을 실행하는 호스트에서 자격 증명을 위임할 수 있도록 합니다.<br/><br/> 이 명령은 모든 Hyper-V 호스트에서 원격으로 실행할 수 있습니다.<br/><br/> 새 호스트 노드를 클러스터에 추가하면 검색을 위해 자동으로 추가되지만, CredSSP를 사용하도록 수동으로 설정해야 합니다.<br/><br/> 어플라이언스가 설정되면 [어플라이언스에서 CredSSP를 사용하도록 설정](#delegate-credentials-for-smb-vhds)하여 해당 설정을 완료합니다. 
 
+### <a name="run-the-script"></a>스크립트 실행
+
+1. [Microsoft 다운로드 센터](https://aka.ms/migrate/script/hyperv)에서 스크립트를 다운로드합니다. 이 스크립트는 Microsoft에서 암호화 방식으로 서명합니다.
+2. MD5 또는 SHA256 해시 파일을 사용하여 스크립트 무결성의 유효성을 검사합니다. 해시태그 값은 아래와 같습니다. 다음 명령을 실행하여 스크립트에 대한 해시를 생성합니다.
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    사용 예제:
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. 스크립트 무결성의 유효성이 검사되면 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+해시 값은 다음과 같습니다.
+
+**해시** |  **값**
+--- | ---
+MD5 | 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>프로젝트 설정
 
@@ -99,26 +128,28 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
    ![프로젝트 이름 및 지역 상자](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. **만들기** 를 선택합니다.
-8. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다.
-
-**Azure Migrate : 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
+8. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. **Azure Migrate: 서버 평가** 도구는 기본적으로 새 프로젝트에 추가됩니다.
 
 ![기본적으로 추가된 서버 평가 도구를 보여주는 페이지](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> 프로젝트를 이미 만든 경우에는 동일한 프로젝트를 사용하여 추가 어플라이언스를 등록하여 더 많은 VM을 검색하고 평가할 수 있습니다. [자세한 정보](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>어플라이언스 설정
 
+Azure Migrate: 서버 평가는 간단한 Azure Migrate 어플라이언스를 사용합니다. 이 어플라이언스는 VM 검색을 수행하고, VM 구성 및 성능 메타데이터를 Azure Migrate에 보냅니다. Azure Migrate 프로젝트에서 다운로드할 수 있는 VHD 파일을 배포하여 어플라이언스를 설정할 수 있습니다.
+
+> [!NOTE]
+> 어떤 이유로 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우 기존 Windows Server 2016 서버에서 PowerShell 스크립트를 사용하여 설정할 수 있습니다. [자세히 알아보기](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+
 이 자습서에서는 다음과 같이 Hyper-V VM에 어플라이언스를 설정합니다.
 
-- 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
-- Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
-- 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
-- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
-> [!NOTE]
-> 어떤 이유로 템플릿을 사용하여 어플라이언스를 설정할 수 없는 경우 PowerShell 스크립트를 사용하여 설정할 수 있습니다. [자세히 알아보기](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+1. 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
+1. Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
+1. 어플라이언스를 만들고, Azure Migrate 서버 평가에 연결할 수 있는지 확인합니다.
+1. 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. Azure Migrate 프로젝트 키 생성
 
 1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가** 에서 **검색** 을 선택합니다.
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용** 을 선택합니다.
@@ -127,10 +158,9 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
 1. Azure 리소스가 성공적으로 만들어지면 **Azure Migrate 프로젝트 키** 가 생성됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
 
-### <a name="download-the-vhd"></a>VHD 다운로드
+### <a name="2-download-the-vhd"></a>2. VHD 다운로드
 
-**2: Azure Migrate 어플라이언스 다운로드** 에서 .VHD 파일을 선택하고, **다운로드** 를 클릭합니다. 
-
+**2: Azure Migrate 어플라이언스 다운로드** 에서 .VHD 파일을 선택하고, **다운로드** 를 클릭합니다.
 
 ### <a name="verify-security"></a>보안 확인
 
@@ -156,7 +186,7 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
         --- | --- | ---
         Hyper-V(85.8MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
+### <a name="3-create-the-appliance-vm"></a>3. 어플라이언스 VM 만들기
 
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
@@ -177,7 +207,7 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
 
 어플라이언스 VM에서 [퍼블릭](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure URL에 연결할 수 있는지 확인합니다.
 
-### <a name="configure-the-appliance"></a>어플라이언스 구성
+### <a name="4-configure-the-appliance"></a>4. 어플라이언스 구성
 
 어플라이언스를 처음으로 설정합니다.
 
@@ -214,8 +244,6 @@ Hyper-V 호스트에서 관리자 액세스 권한이 있는 계정을 설정합
 1. 성공적으로 로그인한 후 어플라이언스 구성 관리자를 사용하여 이전 탭으로 돌아갑니다.
 4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 권한이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 

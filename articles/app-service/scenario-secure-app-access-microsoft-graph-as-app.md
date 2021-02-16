@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: 3d6e9d1d66425655f0db5751a28746b6a6a31c86
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 06837ab0f4685787f8d2615e81d0405fdb8ec711
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631786"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99822135"
 ---
 # <a name="tutorial-access-microsoft-graph-from-a-secured-app-as-the-app"></a>자습서: 보안 앱에서 앱으로 Microsoft Graph에 액세스
 
@@ -125,9 +125,9 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 
 이 코드를 샘플 애플리케이션의 일부로 보려면 [GitHub의 샘플](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity)을 참조하세요.
 
-### <a name="install-the-microsoftgraph-client-library-package"></a>Microsoft.Graph 클라이언트 라이브러리 패키지 설치
+### <a name="install-the-microsoftidentitywebmicrosoftgraph-client-library-package"></a>Microsoft.Identity.Web.MicrosoftGraph 클라이언트 라이브러리 패키지 설치
 
-.NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Graph.NuGet 패키지](https://www.nuget.org/packages/Microsoft.Graph)를 설치합니다.
+.NET Core 명령줄 인터페이스 또는 Visual Studio의 패키지 관리자 콘솔을 사용하여 프로젝트에 [Microsoft.Identity.Web.MicrosoftGraph NuGet 패키지](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph)를 설치합니다.
 
 # <a name="command-line"></a>[명령줄](#tab/command-line)
 
@@ -136,7 +136,7 @@ az rest --method post --uri $uri --body $body --headers "Content-Type=applicatio
 설치 명령을 실행합니다.
 
 ```dotnetcli
-dotnet add package Microsoft.Graph
+dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 # <a name="package-manager"></a>[패키지 관리자](#tab/package-manager)
@@ -145,7 +145,7 @@ Visual Studio에서 프로젝트/솔루션을 열고, **도구** > **NuGet 패�
 
 설치 명령을 실행합니다.
 ```powershell
-Install-Package Microsoft.Graph
+Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
 ---

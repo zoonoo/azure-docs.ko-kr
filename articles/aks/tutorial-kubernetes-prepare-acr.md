@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 컨테이너 레지스트리 만들기
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry 인스턴스를 만들고 애플리케이션 예제 컨테이너 이미지를 업로드합니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/31/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f6ec14cea20192aef7d3010201e6613c5d03a9e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747071"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99822272"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
@@ -22,7 +22,7 @@ ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 �
 > * ACR에 이미지 업로드
 > * 레지스트리의 이미지 보기
 
-추가 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지로 애플리케이션을 배포합니다.
+후속 자습서에서 이 ACR 인스턴스는 AKS의 Kubernetes 클러스터와 통합되고, 이미지에서 애플리케이션이 배포됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -60,12 +60,12 @@ az acr login --name <acrName>
 
 현재 로컬 이미지 목록을 보려면 [docker images][docker-images] 명령을 사용합니다.
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
-위의 명령 출력에는 현재 로컬 이미지 목록이 표시됩니다.
+위 명령의 출력에는 현재 로컬 이미지 목록이 표시됩니다.
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -88,8 +88,8 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 태그가 적용되었는지 확인하려면 [docker images][docker-images] 명령을 다시 사용합니다.
 
-```azurecli
-$ docker images
+```console
+docker images
 ```
 
 ACR 인스턴스 주소와 버전 번호가 이미지의 태그로 지정되었습니다.
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 다음 예제 출력은 레지스트리에서 사용 가능한 *azure-vote-front* 이미지를 나열합니다.
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 다음 예제 출력은 이전 단계에서 태그를 지정한 *v1* 이미지를 보여줍니다.
 
-```
+```output
 Result
 --------
 v1

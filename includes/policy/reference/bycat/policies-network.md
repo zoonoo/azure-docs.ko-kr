@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 82fad0c74fc675bb0e41f35e44460f6276886f03
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
-ms.translationtype: MT
+ms.openlocfilehash: d8478d63c21f58afdbd25a015cabbe1d5f0f2c27
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556256"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092436"
 ---
 |이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -37,6 +37,6 @@ ms.locfileid: "99556256"
 |[가상 머신은 승인된 가상 네트워크에 연결되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |이 정책은 승인되지 않은 가상 네트워크에 연결된 모든 가상 머신을 감사합니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 |[가상 네트워크는 지정된 가상 네트워크 게이트웨이를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1776c76-f58c-4245-a8d0-2b207198dc8b) |이 정책은 기본 경로가 지정된 가상 네트워크 게이트웨이를 가리키지 않는 경우 모든 가상 네트워크를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetwork_ApprovedVirtualNetworkGateway_AuditIfNotExists.json) |
 |[Application Gateway에 WAF(웹 애플리케이션 방화벽)를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |들어오는 트래픽의 추가 검사를 위해 공용 웹 애플리케이션 앞에 Azure WAF(웹 애플리케이션 방화벽)를 배포합니다. WAF(웹 애플리케이션 방화벽)는 SQL 삽입, 교차 사이트 스크립팅, 로컬 및 원격 파일 실행과 같은 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 사용자 지정 규칙을 통해 국가, IP 주소 범위 및 기타 http 매개 변수별로 웹 애플리케이션에 대한 액세스를 제한할 수도 있습니다. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
-|[Azure Front 도어 서비스 서비스에 대해 WAF (웹 응용 프로그램 방화벽)를 사용 하도록 설정 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |들어오는 트래픽의 추가 검사를 위해 공용 웹 애플리케이션 앞에 Azure WAF(웹 애플리케이션 방화벽)를 배포합니다. WAF(웹 애플리케이션 방화벽)는 SQL 삽입, 교차 사이트 스크립팅, 로컬 및 원격 파일 실행과 같은 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 사용자 지정 규칙을 통해 국가, IP 주소 범위 및 기타 http 매개 변수별로 웹 애플리케이션에 대한 액세스를 제한할 수도 있습니다. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
+|[Azure Front Door Service 서비스에 WAF(Web Application Firewall)를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |들어오는 트래픽의 추가 검사를 위해 공용 웹 애플리케이션 앞에 Azure WAF(웹 애플리케이션 방화벽)를 배포합니다. WAF(웹 애플리케이션 방화벽)는 SQL 삽입, 교차 사이트 스크립팅, 로컬 및 원격 파일 실행과 같은 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호합니다. 사용자 지정 규칙을 통해 국가, IP 주소 범위 및 기타 http 매개 변수별로 웹 애플리케이션에 대한 액세스를 제한할 수도 있습니다. |감사, 거부, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
 |[WAF(웹 애플리케이션 방화벽)는 Application Gateway에 지정된 모드를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12430be1-6cc8-4527-a9a8-e3d38f250096) |Application Gateway에 대한 모든 웹 애플리케이션 방화벽 정책에서 '검색' 또는 '방지' 모드를 사용해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayMode_Audit.json) |
 |[WAF(웹 애플리케이션 방화벽)는 Azure Front Door Service에 지정된 모드를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F425bea59-a659-4cbb-8d31-34499bd030b8) |Azure Front Door Service에 대한 모든 웹 애플리케이션 방화벽 정책에서 '검색' 또는 '방지' 모드를 사용해야 합니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Mode_Audit.json) |

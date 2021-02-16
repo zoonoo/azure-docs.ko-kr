@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/28/2021
 ms.author: jeedes
-ms.openlocfilehash: a3b1db5c0587156e0b966a36627f0d754725d901
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: d0c8364cc85cfce900021272d17456527919122b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729493"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99821536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeclock-365-saml"></a>자습서: Timeclock 365 SAML과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -70,7 +70,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Timeclock 365 SAML** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -109,7 +109,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-timeclock-365-saml-sso"></a>Timeclock 365 SAML SSO 구성
 
-1. 브라우저에서 새 탭을 열고, 관리자 권한으로 Timeclock 365 SAML 회사 사이트에 로그인합니다.
+1. Timeclock 365 SAML 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Timeclock 365 SAML 설정** 을 클릭하면 Timeclock 365 SAML 애플리케이션으로 이동됩니다. 여기에서 관리자 자격 증명을 입력하여 Timeclock 365 SAML에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-4단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Timeclock 365 SAML을 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 Timeclock 365 SAML 회사 사이트에 로그인합니다.
 
 1. 아래에 나와 있는 단계를 수행합니다.
 
@@ -143,11 +151,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Timeclock 365 SAML 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Timeclock 365 SAML 타일을 클릭하면 Timeclock 365 SAML 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Timeclock 365 SAML 타일을 클릭하면 Timeclock 365 SAML 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Timeclock 365 SAML이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Timeclock 365 SAML이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

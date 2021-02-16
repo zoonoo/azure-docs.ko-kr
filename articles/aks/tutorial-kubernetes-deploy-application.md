@@ -3,14 +3,14 @@ title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 8114aa0b6c2483d543376727a44d14041ed02b37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576492"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250182"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
@@ -21,7 +21,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 > * Kubernetes에서 애플리케이션 실행
 > * 애플리케이션 테스트
 
-추가 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
+후속 자습서에서 이 애플리케이션은 확장되고 업데이트됩니다.
 
 이 빠른 시작에서는 Kubernetes 기본 개념을 이해하고 있다고 가정합니다. 자세한 내용은 [AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념][kubernetes-concepts]을 참조하세요.
 
@@ -43,13 +43,13 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-첫 번째 자습서에서 복제된 git 리포지토리의 샘플 매니페스트 파일은 로그인 서버 이름으로 *microsoft*를 사용합니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인한 다음, `vi`와 같은 텍스트 편집기를 사용하여 매니페스트 파일을 엽니다.
+첫 번째 자습서에서 복제된 git 리포지토리의 샘플 매니페스트 파일은 로그인 서버 이름으로 *microsoft* 를 사용합니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인한 다음, `vi`와 같은 텍스트 편집기를 사용하여 매니페스트 파일을 엽니다.
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-*microsoft*를 해당 ACR 로그인 서버 이름으로 바꿉니다. 이미지 이름은 매니페스트 파일의 51번 줄에 있습니다. 다음 예제는 기본 이미지 이름을 보여줍니다.
+*microsoft* 를 해당 ACR 로그인 서버 이름으로 바꿉니다. 이미지 이름은 매니페스트 파일의 60번 줄에 있습니다. 다음 예제는 기본 이미지 이름을 보여줍니다.
 
 ```yaml
 containers:
@@ -77,7 +77,7 @@ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 다음 예제 출력에서는 AKS 클러스터에서 성공적으로 만들어진 리소스를 보여줍니다.
 
-```
+```console
 $ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 deployment "azure-vote-back" created
@@ -96,21 +96,21 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP*가 *보류 중*으로 표시됩니다.
+처음에는 *azure-vote-front* 서비스에 대한 *EXTERNAL-IP* 가 *보류 중* 으로 표시됩니다.
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-*EXTERNAL-IP* 주소가 *보류 중*에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
+*EXTERNAL-IP* 주소가 *보류 중* 에서 실제 공용 IP 주소로 변경되면 `CTRL-C`를 사용하여 `kubectl` 조사식 프로세스를 중지합니다. 다음 예제 출력은 서비스에 할당된 유효한 공용 IP 주소를 보여줍니다.
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 애플리케이션이 실제로 작동하는 모습을 보려면 웹 브라우저를 서비스의 외부 IP 주소로 엽니다.
 
-![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
+:::image type="content" source="./media/container-service-kubernetes-tutorials/azure-vote.png" alt-text="로컬 웹 브라우저에서 열린 AKS 클러스터에서 실행되는 컨테이너 이미지 Azure Voting App을 보여주는 스크린샷" lightbox="./media/container-service-kubernetes-tutorials/azure-vote.png":::
 
 애플리케이션이 로드되지 않는 경우 이미지 레지스트의 권한 부여 문제가 원인일 수 있습니다. 컨테이너 상태를 보려면 `kubectl get pods` 명령을 사용합니다. 컨테이너 이미지를 끌어올 수 없는 경우 [Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증](cluster-container-registry-integration.md)을 참조하세요.
 

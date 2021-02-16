@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 경고 만들기'
+title: 사용자 지정 경고 만들기
 description: Azure Defender for IoT 보안 서비스에 대한 사용자 지정 디바이스 경고를 이해하고, 만들고, 할당합니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90946245"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809049"
 ---
-# <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
+# <a name="create-custom-alerts"></a>사용자 지정 경고 만들기
 
 사용자 지정 보안 그룹 및 경고를 사용하면 엔드투엔드 보안 정보와 범주별 디바이스 지식을 최대한 활용하여 IoT 솔루션 전체의 보안을 강화할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "90946245"
 
 이러한 그룹은 특정 하드웨어가 있는 디바이스, 특정 위치에 배포된 디바이스 또는 특정 요구 사항에 적합한 다른 그룹을 나타낼 수 있습니다.
 
-보안 그룹은 **SecurityGroup**이라는 디바이스 쌍 태그 속성으로 정의됩니다. IoT Hub의 각 IoT 솔루션에는 기본적으로 **default**라는 하나의 보안 그룹이 있습니다. 디바이스의 보안 그룹을 변경하려면 **SecurityGroup** 속성의 값을 변경합니다.
+보안 그룹은 **SecurityGroup** 이라는 디바이스 쌍 태그 속성으로 정의됩니다. IoT Hub의 각 IoT 솔루션에는 기본적으로 **default** 라는 하나의 보안 그룹이 있습니다. 디바이스의 보안 그룹을 변경하려면 **SecurityGroup** 속성의 값을 변경합니다.
 
 다음은 그 예입니다.
 
@@ -65,13 +65,19 @@ ms.locfileid: "90946245"
 
 ## <a name="customize-an-alert"></a>경고 사용자 지정
 
-1. IoT Hub를 열고 **보안** 메뉴에서 **설정**을 선택합니다. 
-1. **사용자 지정 경고**를 클릭합니다.
+1. IoT Hub를 열고 **보안** 메뉴에서 **설정** 을 선택합니다.
+
+1. **사용자 지정 경고** 를 선택합니다.
+
 1. 사용자 지정을 적용하려는 보안 그룹을 선택합니다.
-1. **사용자 지정 경고 추가**를 클릭합니다.
+
+1. **사용자 지정 경고 추가** 를 선택합니다.
+
 1. 드롭다운 목록에서 사용자 지정 경고를 선택합니다.
-1. 필요한 속성을 편집하고 **확인**을 클릭합니다.
-1. **저장**을 클릭해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
+
+1. 필요한 속성을 편집하고 **확인** 을 선택합니다.
+
+1. **저장** 을 선택해야 합니다. 새 경고를 저장하지 않으면 나중에 IoT Hub를 닫을 때 해당 경고가 삭제됩니다.
 
 ## <a name="alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 경고
 

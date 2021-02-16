@@ -6,16 +6,16 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 07b0dd38b616525728c264bd315c5cb8ddcaa79a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093522"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99822263"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>ARO(Azure Red Hat OpenShift)에 대한 네트워크 개념
 
-이 가이드에서는 OpenShift 4 클러스터의 Azure Red Hat OpenShift 네트워킹 개요와 함께 다이어그램 및 중요한 엔드포인트 목록을 다룹니다. 핵심 OpenShift 네트워킹 개념에 대한 자세한 내용은 [Azure Red Hat OpenShift 4 네트워킹 설명서](https://docs.openshift.com/aro/4/networking/understanding-networking.html)를 참조하세요.
+이 가이드에서는 OpenShift 4 클러스터의 Azure Red Hat OpenShift 네트워킹 개요와 함께 다이어그램 및 중요한 엔드포인트 목록을 다룹니다. 핵심 OpenShift 네트워킹 개념에 대한 자세한 내용은 [Azure Red Hat OpenShift 4 네트워킹 설명서](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html)를 참조하세요.
 
 ![Azure Red Hat OpenShift 4 네트워킹 다이어그램](./media/concepts-networking/aro4-networking-diagram.png)
 
@@ -64,19 +64,22 @@ OpenShift 4에서 Azure Red Hat을 배포하는 경우 전체 클러스터가 �
 
 ## <a name="networking-basics-in-openshift"></a>OpenShift의 네트워킹 기본 사항
 
-OpenShift [SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html)(소프트웨어 정의 네트워킹)은 CNI(Container Network Interface) 사양 기반의 OpenFlow 구현인 [OVS](https://www.openvswitch.org/)(Open vSwitch)를 사용하여 오버레이 네트워크를 구성하는 데 사용됩니다. SDN은 여러 플러그 인을 지원하며, 네트워크 정책은 OpenShift 4의 Azure Red Hat에서 사용되는 플러그 인입니다. 모든 네트워크 통신이 SDN에 의해 관리되므로, 가상 네트워크에서 Pod 간 통신을 수행하기 위한 추가 경로가 필요 없습니다.
+OpenShift [SDN](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/about-openshift-sdn.html)(소프트웨어 정의 네트워킹)은 CNI(Container Network Interface) 사양 기반의 OpenFlow 구현인 [OVS](https://www.openvswitch.org/)(Open vSwitch)를 사용하여 오버레이 네트워크를 구성하는 데 사용됩니다. SDN은 여러 플러그 인을 지원하며, 네트워크 정책은 OpenShift 4의 Azure Red Hat에서 사용되는 플러그 인입니다. 모든 네트워크 통신이 SDN에 의해 관리되므로, 가상 네트워크에서 Pod 간 통신을 수행하기 위한 추가 경로가 필요 없습니다.
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대한 네트워킹
 
-다음은 Azure Red Hat OpenShift와 관련된 네트워킹 기능입니다.
+다음은 Azure Red Hat OpenShift와 관련된 네트워킹 기능입니다.  
 * 사용자는 ARO 클러스터를 만들 때 기존 가상 네트워크에 ARO 클러스터를 만들거나 가상 네트워크를 만들 수 있습니다.
 * Pod 및 서비스 네트워크 CIDR을 구성할 수 있습니다.
 * 노드와 마스터는 다른 서브넷에 있습니다.
 * 노드 및 마스터 가상 네트워크 서브넷은 최소 /27이어야 합니다.
-* Pod CIDR의 최소 크기는 /18입니다(Pod 네트워크는 라우팅할 수 없는 IP이며, OpenShift SDN 내에서만 사용됨).
+* 기본 Pod CIDR은 10.128.0.0/14입니다.
+* 기본 서비스 CIDR은 172.30.0.0/16입니다.
+* Pod 및 Service Network CIDR은 네트워크에서 사용 중인 다른 IP 주소와 겹치지 않아야 하며 클러스터의 가상 네트워크 IP 주소 범위 내에 있어서는 안 됩니다.
+* Pod CIDR은 크기가 최소 /18이어야 합니다. (Pod 네트워크는 라우팅할 수 없는 IP이며, OpenShift SDN 내에서만 사용됩니다.)
 * 각 노드에는 Pod에 대한 /23 서브넷(512개 IP)이 할당됩니다. 이 값은 변경할 수 없습니다.
 * Pod를 여러 네트워크에 연결할 수 없습니다.
-* 송신 고정 IP를 구성할 수 없습니다. (이것은 OpenShift 기능입니다. 자세한 내용은 [송신 IP 구성](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)을 참조하세요).
+* 송신 고정 IP를 구성할 수 없습니다. (이것은 OpenShift 기능입니다. 자세한 내용은 [송신 IP 구성](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)을 참조하세요).
 
 ## <a name="network-settings"></a>네트워크 설정
 
@@ -95,7 +98,7 @@ OpenShift [SDN](https://docs.openshift.com/container-platform/4.5/networking/ope
 공개적으로 표시되는 API 서버를 사용하는 경우에는 네트워크 보안 그룹을 만들어 NIC에 할당할 수 없습니다.
 
 ## <a name="domain-forwarding"></a>도메인 전달
-Azure Red Hat OpenShift는 CoreDNS를 사용하므로 도메인 전달이 구성될 수 있습니다. 자체 DNS를 가상 네트워크에 가져올 수 없습니다. 자세한 내용은 [DNS 전달 사용](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator)에 대한 설명서를 참조하세요.
+Azure Red Hat OpenShift는 CoreDNS를 사용하므로 도메인 전달이 구성될 수 있습니다. 자체 DNS를 가상 네트워크에 가져올 수 없습니다. 자세한 내용은 [DNS 전달 사용](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator)에 대한 설명서를 참조하세요.
 
 ## <a name="whats-new-in-openshift-45"></a>OpenShift 4.5의 새로운 기능
 

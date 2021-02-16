@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064422"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102651"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>자습서: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -59,8 +59,8 @@ ms.locfileid: "98064422"
 
 이 가이드에서는 Microsoft Graph API를 쿼리하는 단추와 로그아웃하는 단추를 표시하는 애플리케이션을 만듭니다. 또한 호출 결과가 포함된 텍스트 상자도 표시합니다.
 
-> [!NOTE]
-> 이 샘플의 Visual Studio 프로젝트를 만드는 대신 다운로드하고 싶나요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, [애플리케이션 등록](#register-your-application "애플리케이션 등록 단계") 단계로 건너뛰어 코드 샘플을 구성한 후에 실행하세요.
+> [!Tip]
+> 이 자습서에서 빌드한 프로젝트의 완성된 버전을 보려면 [GitHub에서 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하면 됩니다.
 
 ### <a name="create-your-application"></a>애플리케이션 만들기
 
@@ -292,8 +292,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 ```
 
-> [!NOTE]
-> MSAL.NET은 비동기 메서드를 사용하여 토큰을 획득하거나 계정을 조작합니다. UI 스레드에서 UI 작업을 지원해야 합니다. 이는 `Dispatcher.RunAsync` 호출 및 `ConfigureAwait(false)`를 호출하기 위한 예방 조치에 대한 이유입니다.
+MSAL.NET은 비동기 메서드를 사용하여 토큰을 획득하거나 계정을 조작합니다. 따라서 UI 스레드에서 UI 작업을 지원합니다. 이는 `Dispatcher.RunAsync` 호출 및 `ConfigureAwait(false)`를 호출하기 위한 예방 조치에 대한 이유입니다.
 
 #### <a name="more-information-about-signing-out"></a>로그 아웃에 대한 자세한 정보<a name="more-information-on-sign-out"></a>
 
@@ -344,9 +343,9 @@ private async Task DisplayMessageAsync(string message)
 
 ## <a name="register-your-application"></a>애플리케이션 등록
 
-이제 애플리케이션을 등록해야 합니다.
+이제 애플리케이션을 등록합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -357,8 +356,8 @@ private async Task DisplayMessageAsync(string message)
 
 애플리케이션에 대한 인증을 구성합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal <span class="docon docon-navigate-external x-hidden-focus"></span></a>로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
-1. **리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>로 돌아가 **관리** 에서 **인증** > **플랫폼 추가** 를 선택한 다음, **모바일 및 데스크톱 애플리케이션** 을 선택합니다.
+1. **리디렉션 URI** 섹션에서 `https://login.microsoftonline.com/common/oauth2/nativeclient`를 입력합니다.
 1. **구성** 을 선택합니다.
 
 애플리케이션에 대한 API 권한을 구성합니다.
@@ -477,8 +476,7 @@ Microsoft Graph API는 `user.read` 범위가 있어야만 사용자 프로필을
 
 애플리케이션의 컨텍스트에서 사용자 일정에 액세스하려면 애플리케이션 등록 정보에 `Calendars.Read` 위임 권한을 추가합니다. 그런 다음, `Calendars.Read` 범위를 `acquireTokenSilent` 호출에 추가합니다.
 
-> [!NOTE]
-> 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
+범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 

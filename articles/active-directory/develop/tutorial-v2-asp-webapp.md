@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
-ms.translationtype: MT
+ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226307"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103127"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>자습서: Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
 이 자습서에서는 OWIN(Open Web Interface for .NET) 미들웨어 및 Microsoft ID 플랫폼을 사용하여 사용자를 로그인하는 ASP.NET MVC 웹앱을 빌드합니다.
 
-이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft id 플랫폼과 통합 된 회사 또는 조직의 회사 및 학교 계정은 앱에 로그인 할 수 있습니다.
+이 가이드를 완료하면 애플리케이션이 outlook.com 및 live.com의 좋아요에서 개인 계정의 로그인을 허용할 수 있습니다. 또한 Microsoft ID 플랫폼과 통합된 회사 또는 조직의 회사 및 학교 계정에서 앱에 로그인할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -361,7 +361,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 
 애플리케이션을 빠르게 등록하려면 다음 단계를 수행합니다.
 
-1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록<span class="docon docon-navigate-external x-hidden-focus"></span></a> 빠른 시작 환경으로 이동합니다.  
+1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.  
 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 1. 지침에 따라 한 번의 클릭으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 
@@ -375,7 +375,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
    1. Visual Studio에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **속성**, **웹** 탭을 차례로 선택합니다. **서버** 섹션에서 **프로젝트 URL** 설정을 **SSL URL** 로 변경합니다.
    1. SSL URL을 복사합니다. 다음 단계에 나오는 등록 포털의 리디렉션 URI 목록에서 이 URL을 리디렉션 URI 목록에 추가합니다.<br/><br/>![프로젝트 속성](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>에 로그인합니다.
+1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -383,7 +383,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
 1. 1단계에서 Visual Studio로부터 복사한 SSL URL(예: `https://localhost:44368/`)을 **리디렉션 URI** 에서 추가합니다.
 1. **등록** 을 선택합니다.
 1. **관리** 에서 **인증** 을 선택합니다.
-1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택한 다음 **저장** 을 선택 합니다.
+1. **암시적 허용 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 1. 루트 폴더에 있는 web.config 파일의 `configuration\appSettings` 섹션에 다음을 추가합니다.
 
     ```xml
@@ -407,12 +407,12 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 ![Microsoft 계정으로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
-Microsoft id 플랫폼과 통합 되는 응용 프로그램은 사용자와 관리자에 게 데이터에 액세스할 수 있는 방법을 제어 하는 권한 부여 모델을 따릅니다. 사용자가 Microsoft id 플랫폼을 사용 하 여이 응용 프로그램에 액세스 하면 응용 프로그램에서 요청한 사용 권한에 동의 하 라는 메시지가 표시 됩니다 ("기본 프로필 보기" 및 "액세스 권한을 부여한 데이터에 대 한 액세스 유지"). 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
+Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 사용자가 이 애플리케이션에 액세스하기 위해 Microsoft ID 플랫폼을 사용하여 인증하면 애플리케이션에서 요청한 권한("기본 프로필 보기" 및 "사용자가 액세스 권한을 부여한 데이터에 대한 액세스 유지")에 동의하라는 메시지가 표시됩니다. 이러한 권한에 동의한 사용자는 애플리케이션 결과를 계속 진행할 수 있습니다. 그러나 다음 중 하나가 발생하면 사용자에게 **관리자 동의 필요** 페이지가 대신 표시될 수 있습니다.
 
 - 애플리케이션 개발자가 **관리자 동의** 가 필요한 추가 권한을 추가합니다.
 - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정** 에 구성되어 있습니다.
 
-자세한 내용은 [Microsoft id 플랫폼에서 사용 권한 및 동의](./v2-permissions-and-consent.md)를 참조 하세요.
+자세한 내용은 [Microsoft ID 플랫폼의 권한 및 동의](./v2-permissions-and-consent.md)를 참조하세요.
 
 ### <a name="view-application-results"></a>애플리케이션 결과 보기
 

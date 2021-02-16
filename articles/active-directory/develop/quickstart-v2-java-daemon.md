@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: nacanuma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 9c6571793d2317097574d0afdc7137b3a3d5ad6d
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 196b80a704b8a270a4cbb7d3505d5f9be1e23479
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064512"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820326"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Java 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
 이 빠른 시작에서는 Java 애플리케이션이 앱의 ID를 사용하여 액세스 토큰을 가져와 Microsoft Graph API를 호출하고 디렉터리에 [사용자 목록](/graph/api/user-list)을 표시하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 코드 샘플에서는 사용자의 ID 대신 애플리케이션 ID를 사용하여 무인 작업 또는 Windows 서비스를 실행할 수 있는 방법을 보여줍니다. 
 
 > [!div renderon="docs"]
-> ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-java-daemon/java-console-daemon.svg)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -42,7 +42,7 @@ ms.locfileid: "99064512"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. 새 [Azure Portal - 앱 등록](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaDaemonQuickstartPage/sourceType/docs) 창으로 이동합니다.
+> 1. <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaDaemonQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -52,22 +52,22 @@ ms.locfileid: "99064512"
 > #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
-> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-> 1. 개발자용 Microsoft ID 플랫폼 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지로 이동합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-> 1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `Daemon-console`)을 입력한 다음, **등록** 을 선택하여 애플리케이션을 만듭니다.
-> 1. 등록되면 **인증서 및 비밀** 메뉴를 선택합니다.
-> 1. **클라이언트 비밀** 아래에서 **+ 새 클라이언트 비밀** 을 선택합니다. 이름을 지정하고 **추가** 를 선택합니다. 비밀을 안전한 위치에 복사합니다. 코드에서 사용하기 위해 필요합니다.
-> 1. 이제 **API 사용 권한** 메뉴를 선택하고, **+ 권한 추가** 단추를 선택하고, **Microsoft Graph** 를 선택합니다.
+> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
+> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+> 1. **Azure Active Directory** 를 검색하고 선택합니다.
+> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `Daemon-console`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+> 1. **등록** 을 선택합니다.
+> 1. **관리** 에서 **인증서 및 비밀** 을 선택합니다.
+> 1. **클라이언트 암호** 에서 **새 클라이언트 암호** 를 선택하고 이름을 입력한 다음, **추가** 를 선택합니다. 이후 단계에서 사용할 수 있도록 안전한 위치에 비밀 값을 기록합니다.
+> 1. **관리** 에서 **API 권한** > **권한 추가** 를 선택합니다. **Microsoft Graph** 를 선택합니다.
 > 1. **애플리케이션 권한** 을 선택합니다.
 > 1. **사용자** 노드 아래에서 **User.Read.All** 을 선택한 다음, **권한 추가** 를 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
+> ### <a name="download-and-configure-the-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 > 이 빠른 시작에 대한 코드 샘플을 작동시키려면 클라이언트 비밀을 만들고, Graph API의 **User.Read.All** 애플리케이션 권한에 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
@@ -75,7 +75,7 @@ ms.locfileid: "99064512"
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-netcore-daemon/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
-#### <a name="step-2-download-your-java-project"></a>2단계: Java 프로젝트 다운로드
+#### <a name="step-2-download-the-java-project"></a>2단계: Java 프로젝트 다운로드
 
 > [!div renderon="docs"]
 > [Java 디먼 프로젝트 다운로드](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
@@ -89,11 +89,11 @@ ms.locfileid: "99064512"
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-java-project"></a>3단계: Java 프로젝트 구성
+> #### <a name="step-3-configure-the-java-project"></a>3단계: Java 프로젝트 구성
 >
-> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
+> 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: *C:\Azure-Samples*)로 추출합니다.
 > 1. **msal-client-credential-secret** 하위 폴더로 이동합니다.
-> 1. **src\main\resources\application.properties** 를 편집하고 `AUTHORITY`, `CLIENT_ID` 및 `SECRET` 필드의 값을 다음 코드 조각으로 바꿉니다.
+> 1. *src\main\resources\application.properties* 를 편집하고 `AUTHORITY`, `CLIENT_ID` 및 `SECRET` 필드의 값을 다음 코드 조각으로 바꿉니다.
 >
 >    ```
 >    AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
@@ -119,10 +119,10 @@ ms.locfileid: "99064512"
 ##### <a name="global-tenant-administrator"></a>글로벌 테넌트 관리자
 
 > [!div renderon="docs"]
-> 글로벌 테넌트 관리자인 경우 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 사용 권한** 페이지로 이동하고 **{테넌트 이름}에 대한 관리자 동의 부여**(여기서 {테넌트 이름}은 디렉터리의 이름)를 선택합니다.
+> 글로벌 테넌트 관리자인 경우 Azure Portal의 **앱 등록** 에서 **API 사용 권한** 페이지로 이동하고 **{테넌트 이름}에 대한 관리자 동의 부여**(여기서 {테넌트 이름}은 디렉터리의 이름)를 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> 글로벌 관리자인 경우 **API 사용 권한** 페이지로 이동하고 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여** 를 선택합니다.
+> 전역 관리자인 경우 **API 사용 권한** 페이지로 이동하여 **Enter_the_Tenant_Name_Here에 대한 관리자 동의 부여** 를 선택합니다.
 > > [!div id="apipermissionspage"]
 > > [API 사용 권한 페이지로 이동]()
 
@@ -251,7 +251,7 @@ IAuthenticationResult result;
 
 > |위치:| Description |
 > |---------|---------|
-> | `SCOPE` | 요청된 범위를 포함합니다. 비밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 애플리케이션 등록(미리 보기)에서 **API 노출** 섹션 아래에 정의됩니다. |
+> | `SCOPE` | 요청된 범위를 포함합니다. 기밀 클라이언트의 경우 요청되는 범위가 Azure Portal에서 설정된 앱 개체에서 정적으로 정의된 것임을 나타내기 위해 `{Application ID URI}/.default`와 유사한 양식을 사용해야 합니다(Microsoft Graph의 경우 `{Application ID URI}`는 `https://graph.microsoft.com`을 가리킴). 사용자 지정 웹 API의 경우 `{Application ID URI}`는 Azure Portal의 **앱 등록** 에서 **API 노출** 섹션 아래에 정의됩니다.|
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

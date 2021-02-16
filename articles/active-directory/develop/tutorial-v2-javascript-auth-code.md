@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064405"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99822250"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 JavaScript SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 
@@ -28,7 +28,7 @@ ms.locfileid: "98064405"
 > * PKCE를 사용하여 OAuth 2.0 권한 부여 코드 흐름 수행
 > * 회사 및 학교 계정과 개인 Microsoft 계정에 로그인
 > * 액세스 토큰 획득
-> * Microsoft ID 플랫폼 엔드포인트에서 가져온 액세스 토큰이 필요한 Microsoft Graph 또는 사용자 고유의 API 호출
+> * Microsoft ID 플랫폼에서 가져온 액세스 토큰이 필요한 Microsoft Graph 또는 사용자 고유의 API 호출
 
 MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원하여 MSAL.js 1.0에서 향상되었습니다. MSAL.js 2.0은 암시적 흐름을 **지원하지 않습니다**.
 
@@ -41,7 +41,7 @@ MSAL.js 2.0은 암시적 권한 부여 흐름 대신 브라우저의 권한 부�
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="단일 페이지 애플리케이션의 권한 부여 코드 흐름을 보여 주는 다이어그램":::
 
-이 자습서에서 만든 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼 엔드포인트로부터 보안 토큰을 획득하여 Microsoft Graph API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인한 후에 액세스 토큰이 요청되고 권한 부여 헤더의 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 JavaScript용 Microsoft 인증 라이브러리(MSAL.js)에서 처리됩니다.
+이 자습서에서 만든 애플리케이션을 사용하면 JavaScript SPA에서 Microsoft ID 플랫폼으로부터 보안 토큰을 획득하여 Microsoft Graph API를 쿼리할 수 있습니다. 이 시나리오에서는 사용자가 로그인한 후에 액세스 토큰이 요청되고 권한 부여 헤더의 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 JavaScript용 Microsoft 인증 라이브러리(MSAL.js)에서 처리됩니다.
 
 이 자습서에서는 다음 라이브러리를 사용합니다.
 
@@ -558,13 +558,13 @@ ID 토큰에는 사용자에 대한 기본 정보(예: 표시 이름)가 포함�
 
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-처음 로그인한 후에 보호된 리소스에 액세스해야 할 때마다(즉, 토큰을 요청하기 위해) 사용자에게 재인증하도록 요청하지 않아야 합니다. 이러한 재인증 요청을 방지하려면 `acquireTokenSilent`를 호출합니다. 그러나 사용자가 Microsoft ID 플랫폼 엔드포인트와 상호 작용하도록 강제로 적용해야 하는 경우도 있습니다. 다음은 그 예입니다.
+처음 로그인한 후에 보호된 리소스에 액세스해야 할 때마다(즉, 토큰을 요청하기 위해) 사용자에게 재인증하도록 요청하지 않아야 합니다. 이러한 재인증 요청을 방지하려면 `acquireTokenSilent`를 호출합니다. 그러나 사용자가 Microsoft ID 플랫폼과 상호 작용하도록 강제로 적용해야 하는 경우도 있습니다. 다음은 그 예입니다.
 
 - 암호가 만료되어 사용자가 해당 자격 증명을 다시 입력해야 합니다.
 - 애플리케이션에서 리소스에 액세스하도록 요청하고 있으며 사용자의 동의가 필요합니다.
 - 2단계 인증이 필요합니다.
 
-`acquireTokenPopup`을 호출하면 팝업 창이 열리거나 `acquireTokenRedirect`에서 사용자를 Microsoft ID 플랫폼 엔드포인트로 리디렉션합니다. 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 수행하여 상호 작용해야 합니다.
+`acquireTokenPopup`을 호출하면 팝업 창이 열리거나 `acquireTokenRedirect`에서 사용자를 Microsoft ID 플랫폼으로 리디렉션합니다. 이 창에서 사용자는 자격 증명을 확인하거나, 필요한 리소스에 동의하거나, 2단계 인증을 수행하여 상호 작용해야 합니다.
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
@@ -618,7 +618,7 @@ function callMSGraph(endpoint, token, callback) {
 
 ### <a name="sign-in-to-the-application"></a>애플리케이션에 로그인합니다.
 
-브라우저에서 *index.html* 파일이 로드되면 **로그인** 을 선택합니다. Microsoft ID 플랫폼 엔드포인트로 로그인하라는 메시지가 표시됩니다.
+브라우저에서 *index.html* 파일이 로드되면 **로그인** 을 선택합니다. Microsoft ID 플랫폼으로 로그인하라는 메시지가 표시됩니다.
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="로그인 대화 상자가 표시된 웹 브라우저":::
 

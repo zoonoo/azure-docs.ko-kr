@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 06f738ea88093ea8de45efebea983fd7fa13216e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387822"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "99821347"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>자습서: REST API 사용
 
@@ -92,7 +92,7 @@ REST API 클라이언트가 카탈로그에 액세스하려면 카탈로그에�
 
 1. **다음에 대한 액세스 할당** 은 기본값(**사용자, 그룹 또는 서비스 주체**)으로 둡니다.
 
-1. 할당하려는 사용자, Azure Active Directory 그룹 또는 서비스 주체의 이름을 **선택** 에 입력한 다음, 결과 창에서 해당 이름을 클릭합니다.
+1. **선택** 에 할당하려는 이전에 생성된 서비스 주체의 이름을 입력한 다음, 결과 창에서 해당 이름을 클릭합니다.
 
 1. 설정 메뉴에서 **저장**
 
@@ -142,7 +142,7 @@ Azure Purview에서 제공하는 고급 검색/제안 API에 대한 자세한 �
 
 
 
-1. [Node.js를 설치](https://github.com/Azure/autorest/blob/master/docs/installing-autorest.md)합니다.
+1. [Node.js를 설치](https://github.com/Azure/autorest/blob/v2/docs/installing-autorest.md)합니다.
 1. PowerShell을 열고 다음 명령을 실행합니다.
 
    ```powershell
@@ -173,7 +173,7 @@ Azure Purview에서 제공하는 고급 검색/제안 API에 대한 자세한 �
 1. 버전이 2.3.21 이상인지 확인한 다음, **설치** 를 선택합니다.
 1. 애플리케이션을 빌드 및 실행합니다.
 
-샘플 코드는 카탈로그에 있는 typedefs 수를 반환하고 역할 할당을 처리하는 방법을 보여줍니다. 자세한 내용은 샘플 코드의 `DoRoleAssignmentOperations()`를 참조하세요. 프로젝트에 대한 자세한 내용은 [프로젝트 설정](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md)을 참조하세요.
+샘플 코드는 카탈로그에 있는 typedefs 수를 반환하고 역할 할당을 처리하는 방법을 보여줍니다. 자세한 내용은 샘플 코드의 `DoRoleAssignmentOperations()`를 참조하세요. 프로젝트에 대한 자세한 내용은 [프로젝트 설정](https://github.com/Azure/autorest/blob/v2/docs/client/proj-setup.md)을 참조하세요.
 
 ### <a name="sample-code-for-the-console-application"></a>콘솔 애플리케이션의 샘플 코드
 

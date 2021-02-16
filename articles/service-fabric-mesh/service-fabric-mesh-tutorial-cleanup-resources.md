@@ -6,14 +6,19 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d594001340f76c6dde9f3e00de2d76ee4e5104b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d78e1e27d70b147bb52dff13675e63b79335d62
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843331"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99822472"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
+
+> [!IMPORTANT]
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
+> 
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 자습서는 시리즈의 5부이며 요금이 부과되지 않도록 앱 및 리소스를 삭제하는 방법을 보여줍니다.
 
@@ -39,7 +44,7 @@ ms.locfileid: "91843331"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing 에서 확인할 수 있습니다.
+이 자습서의 마지막 부분입니다. 만든 리소스를 더 이상 사용하지 않는 경우 리소스 요금이 부과되지 않도록 리소스를 삭제하세요. Mesh는 초당 요금이 부과되는 서버리스 서비스이기 때문에 리소스를 삭제하는 것이 특히 중요합니다. Mesh 가격 책정에 대한 자세한 내용은 https://aka.ms/sfmeshpricing에서 확인할 수 있습니다.
 
 Azure의 편리한 점 중 하나는 특정 리소스 그룹에 연결된 리소스를 만들 때 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 모든 리소스가 삭제된다는 것입니다. 따라서 리소스를 하나씩 삭제할 필요가 없습니다.
 

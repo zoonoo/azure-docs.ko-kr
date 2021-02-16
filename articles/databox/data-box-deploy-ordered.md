@@ -2,24 +2,24 @@
 title: Azure Data Box 주문 자습서 | Microsoft 설명서
 description: 이 자습서에서는 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 솔루션인 Azure Data Box와 Azure Data Box를 정렬하는 방법에 대해 알아봅니다.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 26e8f08d4b901a9ea57da826d9441d23508c4a4c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186161"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "99822068"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
 Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 솔루션입니다. 데이터를 Microsoft에서 제공하는 80TB(사용 가능한 용량) 스토리지 디바이스에 전송한 다음, 디바이스를 다시 배송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다.
 
-이 자습서에서는 Azure Data Box를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.
+이 자습서에서는 Azure Data Box를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.  
 
 > [!div class="checklist"]
 >
@@ -231,7 +231,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |원본 국가/지역    |    현재 데이터가 있는 국가/지역을 선택합니다.         |
     |대상 Azure 지역     |     데이터를 전송하려는 Azure 지역을 선택합니다. <br> 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.            |
 
-    [![Azure Data Box 가져오기 주문 시작](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [ ![Azure Data Box 가져오기 주문 시작](media/data-box-deploy-ordered/select-data-box-import-04-b.png) ](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. **Data Box** 를 선택합니다. 단일 주문의 최대 사용 가능한 용량은 80TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
@@ -245,7 +245,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |Resource group    | 이전에 선택한 리소스 그룹입니다. |
     |주문 이름 가져오기 | 주문을 추적하는 데 친숙한 이름을 입력합니다. <br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.    |
 
-    ![Data Box 가져오기 주문 마법사, 기본 사항 화면, 올바른 정보 입력](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Data Box 가져오기 주문 마법사, 기본 사항 화면, 올바른 정보 입력](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. **데이터 대상** 화면에서 **데이터 대상**(스토리지 계정 또는 관리 디스크)을 선택합니다.
 
@@ -254,6 +254,10 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     ![Data Box 가져오기 주문 마법사, 데이터 대상 화면(스토리지 계정이 선택됨)](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
     지정된 Azure 지역에 따라 필터링된 기존 스토리지 계정 목록에서 하나 이상의 스토리지 계정을 선택합니다. Data Box는 최대 10개의 스토리지 계정과 연결할 수 있습니다. 새 **범용 v1**, **범용 v2** 또는 **Blob Storage 계정** 도 만들 수 있습니다.
+
+   > [!NOTE]
+   > - Azure Premium FileStorage 계정을 선택하면 스토리지 계정 공유의 프로비저닝된 할당량이 파일 공유에 복사되는 데이터의 크기에 따라 증가합니다. 예를 들어 어떤 이유로 Data Box에서 데이터를 복사할 수 없는 경우 할당량이 증가된 후에는 다시 조정되지 않습니다.
+   > - 이 할당량은 요금 청구에 사용됩니다. 데이터가 데이터 센터에 업로드된 후에는 요구 사항에 맞게 할당량을 조정해야 합니다. 자세한 내용은 [요금 청구 이해](../../articles/storage/files/understanding-billing.md)를 참조하세요.
 
     가상 네트워크를 사용하는 스토리지 계정은 지원됩니다. Data Box 서비스에서 보안 스토리지 계정을 사용하려면 스토리지 계정 네트워크 방화벽 설정 내에서 신뢰할 수 있는 서비스를 사용하도록 설정합니다. 자세한 내용은 [Azure Data Box를 신뢰할 수 있는 서비스로 추가](../storage/common/storage-network-security.md#exceptions)하는 방법을 참조하세요.
 
@@ -334,9 +338,9 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 14. 이 리소스에 대한 액세스를 관리하는 데 사용할 사용자 ID를 선택합니다. **사용자 ID 선택** 을 선택합니다. 오른쪽 패널에서 사용할 구독 및 관리 ID를 선택합니다. 그런 다음, **선택** 을 선택합니다.
 
-    사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](/azure/active-directory/managed-identities-azure-resources/overview)을 참조하세요.  
+    사용자가 할당한 관리 ID는 여러 리소스를 관리하는 데 사용할 수 있는 독립 실행형 Azure 리소스입니다. 자세한 내용은 [관리 ID 유형](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.  
 
-    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)의 지침을 따릅니다.
+    새 관리 ID를 만들어야 하는 경우 [Azure Portal을 사용하여 사용자가 할당한 관리 ID에 역할 만들기, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)의 지침을 따릅니다.
     
     ![사용자 ID 선택](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 
@@ -419,7 +423,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
    |sku| 주문하는 특정 Data Box 디바이스입니다. 유효한 값은 다음과 같습니다. "DataBox", "DataBoxDisk" 및 "DataBoxHeavy"| "DataBox" |
    |email-list| 주문과 연결된 이메일 주소입니다.| "gusp@contoso.com" |
    |street-address1| 주문한 제품이 배송되는 주소입니다. | "15700 NE 39th St" |
-   |street-address2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "Bld 123" |
+   |street-address2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "빌딩 123" |
    |city| 디바이스가 배송될 도시입니다. | "Redmond" |
    |state-or-province| 디바이스가 배송될 시/도입니다.| "WA" |
    |country| 디바이스가 배송될 국가입니다. | "미국" |
@@ -538,7 +542,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
     |DataBoxType [필수]| 주문하는 특정 Data Box 디바이스입니다. 유효한 값은 다음과 같습니다. "DataBox", "DataBoxDisk" 및 "DataBoxHeavy"| "DataBox" |
     |EmailId [필수]| 주문과 연결된 이메일 주소입니다.| "gusp@contoso.com" |
     |StreetAddress1 [필수]| 주문한 제품이 배송되는 주소입니다. | "15700 NE 39th St" |
-    |StreetAddress2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "Bld 123" |
+    |StreetAddress2| 아파트 번호 또는 건물 번호와 같은 보조 주소 정보입니다. | "빌딩 123" |
     |StreetAddress3| 3차 주소 정보입니다. | |
     |City [필수]| 디바이스가 배송될 도시입니다. | "Redmond" |
     |StateOrProvinceCode [필수]| 디바이스가 배송될 시/도입니다.| "WA" |
@@ -601,7 +605,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 ### <a name="track-a-single-order"></a>단일 주문 추적
 
-단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true)를 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
+단일 기존 Azure Data Box 주문에 대한 추적 정보를 가져오려면 [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true)를 실행합니다. 이 명령은 이름, 리소스 그룹, 추적 정보, 구독 ID, 연락처 정보, 배송 유형, 디바이스 sku 등의 주문 정보를 표시합니다.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Windows PowerShell을 사용하여 Azure에 로그인하는 방법에 대한 자
 
 ### <a name="list-all-orders"></a>모든 주문 나열
 
-여러 디바이스를 주문한 경우 [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true)를 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
+여러 디바이스를 주문한 경우 [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true)를 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
 뿐만 아니라 이 명령은 각 주문의 타임스탬프를 표시합니다.
 
 ```azurecli
@@ -718,7 +722,7 @@ az databox job list --resource-group <resource-group>
 
 ### <a name="list-all-orders"></a>모든 주문 나열
 
-여러 디바이스를 주문한 경우 [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob)을 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
+여러 디바이스를 주문한 경우 [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob)을 실행하여 모든 Azure Data Box 주문을 볼 수 있습니다. 이 명령은 특정 리소스 그룹에 속한 모든 주문을 나열합니다. 또한 주문 이름, 배송 상태, Azure 지역, 배달 유형, 주문 상태가 출력에 표시됩니다. 취소된 주문도 목록에 포함됩니다.
 뿐만 아니라 이 명령은 각 주문의 타임스탬프를 표시합니다.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="cancel-an-order"></a>주문 취소
 
-Azure Data Box 주문을 취소하려면 [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) 명령을 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
+Azure Data Box 주문을 취소하려면 [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true)를 실행합니다. 주문을 취소하는 이유를 지정해야 합니다.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Azure Data Box 주문을 취소하려면 [az databox job cancel](/cli/azure/ext/
 
 ### <a name="delete-an-order"></a>주문 삭제
 
-Azure Data Box 주문을 취소한 경우 [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true)를 실행하여 주문을 삭제할 수 있습니다.
+Azure Data Box 주문을 취소한 경우 [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true)를 실행하여 주문을 삭제할 수 있습니다.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>주문 삭제
 
-Azure Data Box 주문을 취소한 경우 [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob)을 실행하여 주문을 삭제할 수 있습니다.
+Azure Data Box 주문을 취소한 경우 [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob)을 실행하여 주문을 삭제할 수 있습니다.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

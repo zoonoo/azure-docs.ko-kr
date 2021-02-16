@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 0c43e085725ceb5db718c9b4c9c9d83787964d63
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813533"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99821359"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>자습서: Meraki Dashboard와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -97,13 +97,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
-    > Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)를 참조하세요.
+    > Azure AD에서 역할을 구성하는 방법을 이해하려면 [여기](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)를 참조하세요.
 
 1. **SAML 서명 인증서** 섹션에서 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
     ![SAML 서명 인증서 편집](common/edit-certificate.png)
 
-1. **SAML 서명 인증서** 섹션에서 **지문 값** 을 복사하여 컴퓨터에 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **지문 값** 을 복사하여 컴퓨터에 저장합니다. Meraki 대시보드에서 이 값을 이해하기 위해서는 콜론을 포함하도록 변환해야 합니다. 예를 들어 Azure의 지문이 `C2569F50A4AAEDBB8E`인 경우 나중에 Meraki 대시보드에서 사용하려면 `C2:56:9F:50:A4:AA:ED:BB:8E`로 변경해야 합니다.
 
     ![지문 값 복사](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Meraki Dashboard SAML IdP 추가](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Azure Portal에서 복사한 **지문** 값을 **X.590 cert SHA1 fingerprint(X.590 인증서 SHA1 지문)** 텍스트 상자에 붙여넣습니다. 그런 다음 **Save** 를 클릭합니다. 저장되면 Consumer URL(소비자 URL)이 표시됩니다. Consumer URL 값을 복사하고, Azure Portal에 있는 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+1. 이전 섹션의 9단계에서 설명한 대로 Azure Portal에서 복사하고 지정된 형식으로 변환된 **지문** 값을 **X.590 cert SHA1 지문** 텍스트 상자에 붙여넣습니다. 그런 다음 **Save** 를 클릭합니다. 저장되면 Consumer URL(소비자 URL)이 표시됩니다. Consumer URL 값을 복사하고, Azure Portal에 있는 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
     ![Meraki Dashboard 구성](./media/meraki-dashboard-tutorial/configure-4.png)
 
@@ -191,7 +191,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 * Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Meraki Dashboard에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Meraki Dashboard 타일을 클릭하면 SSO를 설정한 Meraki Dashboard에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Meraki Dashboard 타일을 클릭하면 SSO를 설정한 Meraki Dashboard에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

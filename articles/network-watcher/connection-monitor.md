@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896365"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834088"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
 > [!NOTE]
 > 이 자습서에서는 연결 모니터(클래식)를 다룹니다. 향상된 연결 모니터링을 경험하려면 새롭고 향상된 [연결 모니터](connection-monitor-overview.md)를 사용해 보세요.
+
+> [!IMPORTANT]
+> 2021년 7월 1일부터 연결 모니터(클래식)에 새 연결 모니터를 추가할 수 없지만, 2021년 7월 1일 이전에 만든 기존 연결 모니터는 계속 사용할 수 있습니다. 현재 워크로드에 대한 서비스 중단을 최소화하려면 2024년 2월 29일 이전에 연결 모니터(클래식)에서 [Azure Network Watcher의 새 연결 모니터로 마이그레이션](migrate-to-connection-monitor-from-connection-monitor-classic.md)합니다.
 
 VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공은 조직에 대해 중요할 수 있습니다. 경우에 따라 통신을 중단할 수 있는 구성 변경 내용이 도입됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

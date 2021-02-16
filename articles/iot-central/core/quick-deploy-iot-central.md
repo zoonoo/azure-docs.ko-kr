@@ -3,21 +3,24 @@ title: 빠른 시작 - Azure IoT Central 애플리케이션 만들기 | Microsof
 description: 빠른 시작 - 새 Azure IoT Central 애플리케이션을 만듭니다. 무료 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 애플리케이션 만들기
 author: viv-liu
 ms.author: viviali
-ms.date: 11/23/2020
+ms.date: 12/28/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: a2d48a6f4e451e2a9b4140618c7c590293cb5ef5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: c5e357824652077acab299e0e27678f528f23b9a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548531"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833901"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
 이 빠른 시작에서는 Azure IoT Central 애플리케이션을 만드는 방법을 보여줍니다.
+
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
@@ -41,15 +44,14 @@ ms.locfileid: "96548531"
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png" alt-text="Azure IoT Central 청구 정보":::
 
-    > [!NOTE]
+    > [!Tip]
     > 이전 페이지에서 **사용자 지정 앱** 을 선택한 경우 **애플리케이션 템플릿** 드롭다운이 표시됩니다. 조직에서 제공하는 다른 템플릿이 드롭다운에 표시될 수 있습니다.
-
-    >[!IMPORTANT]
-    >이전에 레거시 애플리케이션 템플릿에서 사용할 수 있었던 모든 기능을 이제는 최신 **사용자 지정 애플리케이션** 템플릿(V3)에서 사용할 수 있으므로, **사용자 지정 애플리케이션(레거시)** 템플릿(V2)이 사용 중지되었습니다.
 
 1. 7일 무료 평가판 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 이 애플리케이션을 만들도록 선택합니다.
 
     - *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5개의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.
+        > [!NOTE]
+        > *무료* 요금제를 사용하여 만든 애플리케이션에는 Azure 구독이 필요하지 않으므로 Azure Portal의 Azure 구독에 나열되지 않습니다. IoT Central 포털에서만 무료 앱을 보고 관리할 수 있습니다.          
     - *표준* 플랜을 사용하여 만든 애플리케이션은 디바이스별로 청구되며, 처음 두 디바이스가 무료로 사용 가능한 상태에서 **표준 0**, **표준 1** 또는 **표준 2** 가격 책정 플랜을 선택할 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 무료 및 표준 가격 책정 플랜에 대해 자세히 알아보세요. 표준 요금제를 사용하여 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *위치* 를 선택해야 합니다.
         - *디렉터리* 는 애플리케이션을 만드는 Azure Active Directory입니다. Azure Active Directory에는 사용자 ID, 자격 증명 및 기타 조직 정보가 포함됩니다. Azure Active Directory가 없는 경우 Azure 구독을 만들면 자동으로 하나가 생성됩니다.
         - *Azure 구독* 을 사용하여 Azure 서비스 인스턴스를 만들 수 있습니다. IoT Central은 구독에서 리소스를 프로비저닝합니다. Azure 구독이 아직 없는 경우 [Azure 가입 페이지](https://aka.ms/createazuresubscription)에서 무료로 만들 수 있습니다. Azure 구독을 만든 후 다시 **새 애플리케이션** 페이지로 돌아갑니다. 이제 **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
@@ -58,6 +60,10 @@ ms.locfileid: "96548531"
 1. 사용 약관을 검토하고, 페이지 맨 아래에서 **만들기** 를 선택합니다. 몇 분 후에 IoT Central 애플리케이션을 사용할 준비가 됩니다.
 
     :::image type="content" source="media/quick-deploy-iot-central/iotcentral-application.png" alt-text="Azure IoT Central 애플리케이션":::
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
