@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace에 관리 서비스 제품 게시
 description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 제품을 게시 하는 방법에 대해 알아봅니다.
-ms.date: 02/10/2021
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 9abac28d982e5b33bc4952f73336810abcb44e45
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372063"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555796"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
 
@@ -26,13 +26,13 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 |**고려 사항**  |**관리 서비스 제안**  |**ARM 템플릿**  |
 |---------|---------|---------|
-|[파트너 센터 계정](../../marketplace/partner-center-portal/create-account.md) 필요   |예         |예        |
-|[실버 또는 골드 클라우드 플랫폼 역량 수준](/partner-center/learn-about-competencies) 또는 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 가 필요 합니다.      |예         |예         |
-|Azure Marketplace를 통해 신규 고객에 게 제공     |예     |예       |
-|특정 고객에 게 제품을 제한할 수 있습니다.     |예 (CSP (클라우드 솔루션 공급자) 프로그램의 대리점을 통해 설정 된 구독과 함께 사용할 수 없는 개인 제공만 해당)         |Yes         |
-|Azure Portal에서 고객 동의가 필요 합니다.     |예     |예   |
-|Automation을 사용 하 여 여러 구독, 리소스 그룹 또는 고객을 등록할 수 있습니다. |예     |예    |
-|새로운 기본 제공 역할 및 Azure Lighthouse 기능에 즉시 액세스     |항상 그렇지 않음 (약간의 지연 후 일반적으로 사용 가능)         |Yes         |
+|[파트너 센터 계정](../../marketplace/partner-center-portal/create-account.md) 필요   |예         |아니요        |
+|[실버 또는 골드 클라우드 플랫폼 역량 수준](/partner-center/learn-about-competencies) 또는 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 가 필요 합니다.      |예         |아니요         |
+|Azure Marketplace를 통해 신규 고객에 게 제공     |예     |아니요       |
+|특정 고객에 게 제품을 제한할 수 있습니다.     |예 (CSP (클라우드 솔루션 공급자) 프로그램의 대리점을 통해 설정 된 구독과 함께 사용할 수 없는 개인 제공만 해당)         |예         |
+|Azure Portal에서 고객 동의가 필요 합니다.     |예     |아니요   |
+|Automation을 사용 하 여 여러 구독, 리소스 그룹 또는 고객을 등록할 수 있습니다. |아니요     |예    |
+|새로운 기본 제공 역할 및 Azure Lighthouse 기능에 즉시 액세스     |항상 그렇지 않음 (약간의 지연 후 일반적으로 사용 가능)         |예         |
 
 ## <a name="create-your-offer"></a>제품 만들기
 
@@ -56,7 +56,7 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 고객이 제품을 추가한 후에는 [하나 이상의 특정 구독 또는 리소스 그룹을 위임할](view-manage-service-providers.md#delegate-resources)수 있습니다. 그러면 Azure Lighthouse에 등록 됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
 
 > [!IMPORTANT]
-> 위임은 등록 중인 구독에 대 한 [소유자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#owner) 을 가진 고객 테 넌 트의 비 게스트 계정 (또는 등록 되는 리소스 그룹을 포함 하는)에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> `Microsoft.Authorization/roleAssignments/write`등록 되는 구독 (또는 등록 되는 리소스 그룹을 포함 하는)에 대 한 권한이 있는 역할이 있는 고객 테 [](../../role-based-access-control/built-in-roles.md#owner)넌 트의 비 게스트 계정에 의해 위임이 수행 되어야 합니다. 구독을 위임할 수 있는 사용자를 찾기 위해 고객 테 넌 트의 사용자는 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [소유자 역할의 모든 사용자를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)수 있습니다.
 
 고객이 구독 또는 구독 내에서 하나 이상의 리소스 그룹을 위임한 후에는 해당 구독에 대해 **Microsoft ManagedServices** 리소스 공급자가 등록 되 고 테 넌 트의 사용자는 제품의 권한 부여에 따라 위임 된 리소스에 액세스할 수 있습니다.
 

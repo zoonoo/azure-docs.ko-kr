@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530921"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535198"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Key Vault 인증 기본 사항
 
@@ -120,7 +120,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 보안 주체에 �
 Key Vault에 대 한 Azure RBAC에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 * Key Vault에 대 한 Azure RBAC [링크](./secure-your-key-vault.md#management-plane-and-azure-rbac)
-* Key Vault 역할 (미리 보기) [링크](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) 에 대 한 Azure RBAC
+* Key Vault 역할에 대 한 Azure RBAC [링크](../../role-based-access-control/built-in-roles.md#key-vault-administrator)
 
 ## <a name="configure-key-vault-firewall"></a>Key Vault 방화벽 구성
 

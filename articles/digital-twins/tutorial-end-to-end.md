@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575808"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545941"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -124,8 +124,6 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 ### <a name="assign-permissions-to-the-function-app"></a>함수 앱에 사용 권한 할당
 
 함수 앱이 Azure Digital Twins에 액세스할 수 있게 다음 단계에서는 앱 설정을 구성하고, 앱에 시스템 관리형 Azure AD ID를 할당하고, 이 ID를 Azure Digital Twins 인스턴스의 *Azure Digital Twins 데이터 소유자* 역할에 부여합니다. 이 역할은 인스턴스에서 여러 데이터 평면 활동을 수행하려는 모든 사용자 또는 함수에 필요합니다. 보안 및 역할 할당에 대해 [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)에서 자세히 알아보세요.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Digital Twins 인스턴스를 참조하는 데 사용할 애플리케이션 설정을 지정합니다. 리소스의 세부 정보를 자리 표시자에 입력합니다(Azure Digital Twins 인스턴스 URL은 *https://* 로 시작하는 호스트 이름임).
 

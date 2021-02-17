@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372026"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546060"
 ---
 # <a name="machine-learning-features"></a>기계 학습 기능
 
@@ -29,7 +29,7 @@ ms.locfileid: "91372026"
 
 ## <a name="find-features-in-your-example-utterances"></a>예제 길이 발언의 기능 찾기
 
-LUIS는 언어 기반 응용 프로그램 이므로 텍스트 기반 기능입니다. 구분 하려는 특성을 나타내는 텍스트를 선택 합니다. LUIS의 경우 가장 작은 단위는 *토큰*입니다. 영어의 경우 토큰은 공백이 나 문장 부호가 없는 연속적인 문자 및 숫자 범위입니다.
+LUIS는 언어 기반 응용 프로그램 이므로 텍스트 기반 기능입니다. 구분 하려는 특성을 나타내는 텍스트를 선택 합니다. LUIS의 경우 가장 작은 단위는 *토큰* 입니다. 영어의 경우 토큰은 공백이 나 문장 부호가 없는 연속적인 문자 및 숫자 범위입니다.
 
 공백과 문장 부호가 토큰이 아니므로 기능으로 사용할 수 있는 텍스트 단서에 집중 합니다. 단어의 변형 (예:)을 포함 해야 합니다.
 
@@ -104,7 +104,7 @@ LUIS는 구 목록을 사용 하 여 컨텍스트와 일반화가와 유사 하�
 
 해당 엔터티의 검색은 의도에 중요 한 경우 엔터티를 기능으로 추가 합니다.
 
-예를 들어 **Bookflight**와 같이 비행을 예약 하기 위한 의도가 고 엔터티가 티켓 정보 (예: 좌석, 원본 및 대상 수) 인 경우 티켓 정보 엔터티를 찾는 것이 **bookflight** 의도의 예측에 상당한 가중치를 추가 해야 합니다.
+예를 들어 **Bookflight** 와 같이 비행을 예약 하기 위한 의도가 고 엔터티가 티켓 정보 (예: 좌석, 원본 및 대상 수) 인 경우 티켓 정보 엔터티를 찾는 것이 **bookflight** 의도의 예측에 상당한 가중치를 추가 해야 합니다.
 
 ### <a name="when-to-use-an-entity-as-a-feature-to-another-entity"></a>엔터티를 다른 엔터티의 기능으로 사용 하는 경우
 
@@ -160,11 +160,9 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 ### <a name="required-feature-using-prebuilt-entities"></a>미리 작성 한 엔터티를 사용 하는 필수 기능
 
-도시, 시/도 및 국가/지역은 일반적으로 닫힌 목록 집합입니다. 즉, 시간이 지남에 따라 크게 변경 되지 않습니다. 이러한 엔터티에는 관련 권장 기능이 있을 수 있으며 이러한 기능은 필수로 표시 될 수 있습니다. 즉, 필요한 기능이 있는 엔터티를 찾을 수 없는 경우 전체 배송 주소가 반환 되지 않습니다.
+도시, 시/도 및 국가/지역과 같은 미리 작성 된 엔터티는 일반적으로 닫힌 목록 집합으로, 시간이 지남에 따라 크게 변경 되지 않습니다. 이러한 엔터티에는 관련 권장 기능이 있을 수 있으며 이러한 기능은 필수로 표시 될 수 있습니다. 그러나 플래그는 `isRequired` 할당 된 엔터티와만 관련 되며 계층에는 영향을 주지 않습니다. 미리 작성 된 하위 엔터티 기능을 찾을 수 없는 경우이는 부모 엔터티의 검색 및 반환에 영향을 주지 않습니다.
 
-구/군/시, 시/도 및 국가/지역이 utterance에 있는 경우에는 어떻게 되나요?은 어에는 LUIS가 예상치 못한 것입니다. LUIS의 낮은 신뢰도 점수 때문에 엔터티를 해결 하는 데 도움이 되는 post 처리를 제공 하려는 경우 필요에 따라 기능을 표시 하지 마세요.
-
-배송 주소에 대 한 필수 기능의 또 다른 예는 주소를 [미리](luis-reference-prebuilt-entities.md) 작성 된 필수 숫자로 지정 하는 것입니다. 이를 통해 사용자는 "1 개의 microsoft 방법" 또는 "한 가지 Microsoft 방법"을 입력할 수 있습니다. 두 항목 모두에 대 한 숫자 "1"을 확인 합니다.
+필요한 기능의 예로는 주소를 검색 하는 것이 좋습니다. 요구 사항에 대 한 주소를 설정 하는 것을 고려할 수 있습니다. 이를 통해 사용자는 "1 개의 microsoft 방법" 또는 "한 가지 Microsoft 방법"을 입력할 수 있으며 두 항목 모두 숫자 하위 엔터티에 대 한 숫자 "1"로 확인 됩니다. 자세한 내용은 [미리 ](luis-reference-prebuilt-entities.md) 작성 된 엔터티 문서를 참조 하세요.
 
 ### <a name="required-feature-using-list-entities"></a>목록 엔터티를 사용 하는 필수 기능
 
@@ -176,7 +174,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 |--|--|
 |미국|미국<br>U. S .A<br>US<br>미국<br>0|
 
-채팅 봇과 같은 클라이언트 응용 프로그램은 추가 작업에 도움을 요청할 수 있습니다. 이를 통해 고객은 국가/지역 선택이 제한 되어 *필요한*지를 이해할 수 있습니다.
+채팅 봇과 같은 클라이언트 응용 프로그램은 추가 작업에 도움을 요청할 수 있습니다. 이를 통해 고객은 국가/지역 선택이 제한 되어 *필요한* 지를 이해할 수 있습니다.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>정규식 엔터티를 사용 하는 필수 기능
 
@@ -201,15 +199,15 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 ### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>예: 여행 앱에 대 한 티켓 예약 엔터티 기능  
 
-기본적인 예로 비행 예약 _의도_ 및 티켓 예약 _엔터티_를 사용 하 여 비행을 예약 하는 앱을 생각해 보세요. 티켓 예약 엔터티는 예약 시스템에서 비행기 티켓을 책으로 보낼 정보를 캡처합니다. 
+기본적인 예로 비행 예약 _의도_ 및 티켓 예약 _엔터티_ 를 사용 하 여 비행을 예약 하는 앱을 생각해 보세요. 티켓 예약 엔터티는 예약 시스템에서 비행기 티켓을 책으로 보낼 정보를 캡처합니다. 
 
 티켓에 대 한 machine learning 엔터티는 원본 및 대상을 캡처하기 위한 두 개의 하위 엔터티를 포함 합니다. 최상위 엔터티가 아닌 각 하위 엔터티에 기능을 추가 해야 합니다.
 
 :::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Ticketbooking entity 스키마":::
 
-티켓 예약 엔터티는 _원본_ 및 _대상을_포함 하는 하위 엔터티를 포함 하는 기계 학습 엔터티입니다. 이러한 하위 엔터티는 모두 지리적 위치를 표시 합니다. 위치를 추출 하 고 _원본과_ _대상을_구분 하는 데 도움이 되도록 각 하위 엔터티에는 기능이 있어야 합니다.
+티켓 예약 엔터티는 _원본_ 및 _대상을_ 포함 하는 하위 엔터티를 포함 하는 기계 학습 엔터티입니다. 이러한 하위 엔터티는 모두 지리적 위치를 표시 합니다. 위치를 추출 하 고 _원본과_ _대상을_ 구분 하는 데 도움이 되도록 각 하위 엔터티에는 기능이 있어야 합니다.
 
-|유형|원본 하위 엔터티 |대상 하위 엔터티|
+|Type|원본 하위 엔터티 |대상 하위 엔터티|
 |--|--|--|
 |기능으로 서의 모델|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) 미리 작성 한 엔터티|
 |구문 목록|**원본 단어**: `start at` , `begin from` , `leave`|**대상 단어**: `to` , `arrive` , `land at` , `go` , `going` , `stay` , `heading`|
@@ -226,7 +224,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 티켓 예약 예제에서는 `TicketBooking` 엔터티 및 텍스트의 하위 엔터티를 사용 하 여 길이 발언 예제에 레이블을 사용 합니다.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Ticketbooking entity 스키마":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="예제 발화의 레이블 지정":::
 
 ### <a name="example-pizza-ordering-app"></a>예: 피자 주문 앱
 
@@ -234,20 +232,20 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 
 이 예제의 기계 학습 엔터티는 중첩 된 하위 엔터티, 구 목록, 미리 작성 된 엔터티 및 사용자 지정 엔터티를 사용 하 여 더 복잡 합니다.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Ticketbooking entity 스키마":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="피자 주문 엔터티 스키마":::
 
 이 예제에서는 하위 엔터티 수준 및 하위 엔터티 수준의 자식에 있는 기능을 사용 합니다. 엔터티 디자인의 중요 한 부분인 기능으로 서 어떤 수준으로 구성 된 구 목록 또는 모델이 어떤 수준 입니까?
 
 하위 엔터티에는 엔터티를 검색 하는 데 도움이 되는 기능으로 많은 문구 목록이 포함 될 수 있지만 각 하위 엔터티에는 하나의 모델만 있습니다. 이 [피자 앱](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)에서 이러한 모델은 주로 나열 됩니다.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ticketbooking entity 스키마":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="레이블이 지정 된 예제 길이 발언를 사용 하 여 피자 주문 의도":::
 
 올바른 레이블이 지정 된 예 길이 발언는 엔터티가 중첩 되는 방식을 표시 하는 방법으로 표시 됩니다. 
 
 
 ## <a name="best-practices"></a>최선의 구현 방법
 
-[모범 사례](luis-concept-best-practices.md)를 알아봅니다.
+모범 [사례](luis-concept-best-practices.md)를 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

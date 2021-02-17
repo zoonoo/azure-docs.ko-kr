@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 8e5dcb6c9dfa08efc0889fcab779d6cb333d2330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6817601659c841ca98031f4e3e1590743bbed171
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88507538"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530538"
 ---
 # <a name="sample-models"></a>샘플 모델
 
@@ -18,7 +18,7 @@ ms.locfileid: "88507538"
 
 ## <a name="built-in-sample-model"></a>기본 제공 샘플 모델
 
-URL **builtin://Engine**을 사용하여 항상 로드할 수 있는 기본 제공 샘플 모델을 제공합니다.
+URL **builtin://Engine** 을 사용하여 항상 로드할 수 있는 기본 제공 샘플 모델을 제공합니다.
 
 ![샘플 모델](./media/sample-model.png "샘플 모델")
 
@@ -26,7 +26,7 @@ URL **builtin://Engine**을 사용하여 항상 로드할 수 있는 기본 제�
 
 | 속성 | 값 |
 |-----------|:-----------|
-| [필요한 서버 크기](../how-tos/session-rest-api.md#create-a-session) | 표준 |
+| [필요한 서버 크기](../reference/vm-sizes.md) | 표준 |
 | 삼각형 수 | 1870만 |
 | 이동 가능한 파트 수 | 2073 |
 | 재료 수 | 94 |

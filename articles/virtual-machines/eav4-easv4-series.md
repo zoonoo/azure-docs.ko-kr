@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: fc370de11ca429d760ac0440d2bd6ec81044b263
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e6a4098d0b3da30448f5dd23a709b13ffebae032
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390150"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554901"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4 및 Easv4 시리즈
 
@@ -26,7 +26,7 @@ Eav4 시리즈 및 Easv4 시리즈는 최대 256MB L3 캐시가 포함 된 다�
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 
@@ -52,7 +52,7 @@ Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 빈도를 달성할 수 �
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 

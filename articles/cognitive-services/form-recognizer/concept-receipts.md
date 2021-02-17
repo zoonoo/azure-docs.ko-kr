@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585044"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546009"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
 
@@ -38,19 +38,19 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-|Name| Type | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | string | 판매 확인 유형 | 항목별 |  |
-| MerchantName | string | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
+| ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
+| MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | 나열 된 전화 판매 수 | 987-654-3210 | + 19876543210 |
-| MerchantAddress | string | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
+| MerchantAddress | 문자열 | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
 | TransactionDate | date | 영수증이 발급 된 날짜 | June 06, 2019 | 2019-06-26  |
 | TransactionTime | time | 수신이 발행 된 시간 | 오후 4:49 | 16:49:00  |
 | 합계 | 숫자 | 전체 트랜잭션 수신 총 트랜잭션 | $14.34 | 14.34 |
 | 소계 | 숫자 | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
 | 세금 | 숫자 | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
 | 팁 | 숫자 | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
-| Items | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
+| 항목 | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
 | 이름 | string | 항목 이름 | Surface Pro 6 | |
 | 수량 | 숫자 | 각 항목의 수량 | 1 | |
 | 가격 | 숫자 | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
@@ -115,7 +115,12 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
-성공적인 JSON 응답의 다음 예를 참조 하세요. "readResults" 노드에는 인식 된 모든 텍스트가 포함 됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. "DocumentResults" 노드에는 모델에서 검색 한 명함의 특정 값이 포함 되어 있습니다. 여기에서 이름, 성, 회사 이름 등의 유용한 키/값 쌍을 찾을 수 있습니다.
+
+수신 분석 수신 결과 가져오기 작업에 대 한 응답은 모든 정보가 추출 된 수신 확인을 구조화 된 방식으로 표현한 것입니다.  [샘플 수신 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) 및 해당 구조화 된 출력 [샘플 수신 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)은 여기를 참조 하세요.
+
+성공적인 JSON 응답의 다음 예를 참조 하세요.
+* `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. 
+* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기에서 이름, 성, 회사 이름 등의 유용한 키/값 쌍을 찾을 수 있습니다.
 
 ```json
 { 

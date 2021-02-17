@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: c6b3bd61386cbde0e8de63055eee9218e372dfcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874086"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547845"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거
 
@@ -163,7 +163,7 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 파일 *의function.js* 에 설명 된 구성의 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 *__init__ py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다.
+다음 예제에서는 파일 *의function.js* 에 설명 된 구성의 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 *py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -311,7 +311,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식의 몇 가지 예는 다음과 같습니다.
 
-| 예            | 트리거될 때                     |
+| 예제            | 트리거될 때                     |
 |--------------------|------------------------------------|
 | `0 */5 * * * *`    | 5분마다 한 번            |
 | `0 0 * * * *`      | 1시간이 시작할 때마다 한 번      |
@@ -336,9 +336,9 @@ CRON 식에 있는 숫자는 시간 범위가 아닌 시간 및 날짜를 가리
 
 CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격을 지정합니다. 함수가 지정된 간격보다 오랫동안 실행한 후에 완료되면 타이머는 즉시 함수를 다시 호출합니다.
 
-`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 다음은 몇 가지 예입니다.
+`hh`이 24 미만인 경우 문자열로 표현되는 `TimeSpan` 형식은 `hh:mm:ss`입니다. 처음 두 자리가 24 이상인 경우 형식은 `dd:hh:mm`입니다. 몇 가지 예제는 다음과 같습니다.
 
-| 예      | 트리거될 때 |
+| 예제      | 트리거될 때 |
 |--------------|----------------|
 | "01:00:00"   | 매시간     |
 | "00:01:00"   | 매분   |
@@ -347,7 +347,7 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 ## <a name="scale-out"></a>확장
 
-함수 앱이 여러 인스턴스로 확장하는 경우 모든 인스턴스에서 타이머 트리거 함수의 단일 인스턴스만을 실행합니다.
+함수 앱이 여러 인스턴스로 확장하는 경우 모든 인스턴스에서 타이머 트리거 함수의 단일 인스턴스만을 실행합니다. 처리 중인 호출이 아직 실행 되 고 있는 경우에는 다시 트리거되지 않습니다.
 
 ## <a name="function-apps-sharing-storage"></a>스토리지를 공유하는 함수 앱
 

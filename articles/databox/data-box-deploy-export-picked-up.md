@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680834"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99822452"
 ---
 # <a name="tutorial-return-azure-data-box"></a>자습서: Azure Data Box 반환
 
@@ -172,9 +172,27 @@ ms.locfileid: "97680834"
 
 문제가 발생하면 제목 헤더에 작업 이름과 발생한 문제를 제공하는 Data Box Operations 아시아 [adbo@microsoft.com](mailto:adbo@microsoft.com)으로 이메일을 보냅니다.
 
+## <a name="united-arab-emirates"></a>[아랍에미리트연합국](#tab/in-uae)
+
+1. 반품 배송을 위해 디바이스를 배송하는 데 사용된 원래 상자를 보관하세요.
+2. 디바이스로의 데이터 복사가 완료되고 **배송 준비** 단계가 성공적으로 완료되었는지 확인합니다.
+3. 디바이스 로컬 웹 UI의 **배송 준비** 페이지에서 참조 번호를 확인합니다.
+4. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
+6. 반품 배송을 위해 디바이스를 원래 상자에 포장합니다.
+7. [Azure Data Box 운영 담당자](mailto:adbops@microsoft.com)에게 이메일을 보내 데이터 센터에 다시 도착할 때 패키지를 식별하는 데 사용할 ID를 얻습니다.
+8. 명확하게 표시되도록 이 ID를 반송 주소 옆에 인쇄되는 배송 레이블에 기록합니다.  
+9. [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **픽업 예약** 으로 차례로 이동하여 온라인으로 픽업을 예약합니다.
+   - 디바이스 로컬 웹 UI의 **배송 준비** 페이지에 있는 참조 번호를 화물 운송장 번호 필드에 입력합니다.
+   - 예약은 주 6일(금요일 및 공휴일 제외) 오전 9시부터 오후 2시까지 허용됩니다.
+   - 픽업은 고객 종료 시간 최소 90분 전에 요청해야 합니다.
+10. DHL 예약 도구와 관련하여 문제가 발생하는 경우 다음 방법 중 하나를 사용하여 DHL에 문의할 수 있습니다.
+    - 전화(04-2924545)를 겁니다.
+    - 문제에 대한 세부 정보가 포함된 이메일을 [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com)에 보내고, 화물 운송장 번호를 '제목:' 줄에 입력합니다.
+    - DHL 고객 지원에 전화(600 567567)를 겁니다.
+
 ## <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
 
-일본, 싱가포르, 대한민국, 인도, 남아프리카 또는 서유럽에서 Data Box를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
+일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 서유럽 또는 오스트레일리아에서 Data Box를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
 
 1. 이 단계가 성공적으로 완료된 후 Data Box 로컬 웹 UI의 배송 준비 페이지에 표시된 인증 코드를 적어둡니다.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
@@ -209,5 +227,3 @@ ms.locfileid: "97680834"
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 통해 Data Box 관리](./data-box-portal-admin.md)
-
-

@@ -1,6 +1,6 @@
 ---
-title: 템플릿을 사용 하 여 Azure 스폿 Vm 배포
-description: 템플릿을 사용 하 여 비용을 절감 하는 별색 Vm을 배포 하는 방법을 알아봅니다.
+title: 템플릿을 사용 하 여 Azure Azure 스팟 Virtual Machines 배포
+description: 템플릿을 사용 하 여 비용을 절감 하기 위해 Azure 스폿 Virtual Machines를 배포 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 44134e73f2e654d7bfdb9119942a5c3982859c7a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557747"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 스폿 Vm 배포
+# <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure 스팟 Virtual Machines 배포
 
-[스폿 vm](../spot-vms.md) 을 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스폿 Vm을 제거 합니다. 따라서 지점 Vm은 일괄 처리 작업, 개발/테스트 환경, 대규모 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
+[Azure 지점 Virtual Machines](../spot-vms.md) 를 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 경우 언제 든 지 azure 인프라가 azure point Virtual Machines를 제거 합니다. 따라서 Azure 스팟 Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 큰 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
 
-지점 Vm의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요.
+Azure 스폿 Virtual Machines의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요.
 
-VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션이 있습니다. 지점 VM의 최대 가격은 미국 달러 (USD)로 설정 하 여 최대 5 개의 소수 자릿수를 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1` 가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 사용 가능한 용량과 할당량을 초과 하는 경우 더 작은 표준 VM의 현재 가격 또는 가격입니다. 최대 가격을 설정 하는 방법에 대 한 자세한 내용은 [지점 vm-가격 책정](../spot-vms.md#pricing)을 참조 하세요.
+VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션이 있습니다. Azure 스폿 가상 머신의 최대 가격은 미국 달러 (USD)로 설정 하 여 최대 5 개의 소수 자릿수를 사용할 수 있습니다. 예를 들어 값은 `0.98765` 시간당 $0.98765 USD의 최대 가격이 됩니다. 최대 가격을로 설정 하는 경우 `-1` 가격에 따라 VM이 제거 되지 않습니다. VM의 가격은 Azure 스폿 Virtual Machines의 현재 가격 또는 사용 가능한 용량 및 할당량을 초과 하는 표준 VM에 대 한 가격입니다. 최대 가격을 설정 하는 방법에 대 한 자세한 내용은 [Azure 스폿 Virtual Machines-가격 책정](../spot-vms.md#pricing)을 참조 하세요.
 
 
 ## <a name="use-a-template"></a>템플릿 사용
 
-별색 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. 템플릿의에 `priority` , `evictionPolicy` 및 속성을 추가 합니다 `billingProfile` .
+Azure 스팟 가상 머신 템플릿 배포의 경우 이상을 사용 `"apiVersion": "2019-03-01"` 합니다. 템플릿의에 `priority` , `evictionPolicy` 및 속성을 추가 합니다 `billingProfile` .
 
 ```json
 "priority": "Spot",
@@ -36,7 +36,7 @@ VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션
 }
 ```
 
-다음은 별색 VM에 대 한 추가 된 속성을 포함 하는 샘플 템플릿입니다. 리소스 이름을 사용자 고유의로 바꾸고 `<password>` VM의 로컬 관리자 계정에 대 한 암호로 바꿉니다.
+Azure 스폿 가상 머신에 대해 추가 된 속성을 포함 하는 샘플 템플릿은 다음과 같습니다. 리소스 이름을 사용자 고유의로 바꾸고 `<password>` VM의 로컬 관리자 계정에 대 한 암호로 바꿉니다.
 
 ```json
 {
@@ -175,7 +175,7 @@ VM에 대해 시간당 요금을 지불할 최대 가격을 설정 하는 옵션
 
 ## <a name="simulate-an-eviction"></a>제거 시뮬레이션
 
-응용 프로그램이 갑자기 제거 되는 것을 얼마나 잘 repond 테스트 하기 위해 지점 VM의 [제거를 시뮬레이션할](/rest/api/compute/virtualmachines/simulateeviction) 수 있습니다. 
+Azure 스폿 가상 머신의 [제거를 시뮬레이션](/rest/api/compute/virtualmachines/simulateeviction) 하 여 응용 프로그램이 갑자기 제거 되는 것을 얼마나 잘 repond 테스트할 수 있습니다. 
 
 다음을 사용자의 정보로 바꿉니다. 
 
@@ -190,8 +190,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure PowerShell](../windows/spot-powershell.md) 또는 [Azure CLI](spot-cli.md)를 사용 하 여 스폿 VM을 만들 수도 있습니다.
+[Azure PowerShell](../windows/spot-powershell.md) 또는 [Azure CLI](spot-cli.md)를 사용 하 여 Azure 스팟 가상 머신을 만들 수도 있습니다.
 
-[Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 현재 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 파악 하세요. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
+Azure 스팟 가상 머신 가격 책정에 대 한 자세한 내용은 [azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 현재 가격 정보를 쿼리 하세요. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
 오류가 발생 하는 경우 [오류 코드](../error-codes-spot.md)를 참조 하세요.

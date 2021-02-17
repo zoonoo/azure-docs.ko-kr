@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944084"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555819"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -79,7 +79,7 @@ ms.locfileid: "98944084"
 
 버전 1.1.1이 하를 사용 하는 경우 중단을 방지 하려면 [최신 버전의 Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) 로 업데이트 하세요.
 
-### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
+### <a name="azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트
 
 버전 3.20.0를 사용 하는 경우 중단을 방지 하려면 [최신 버전의 Azure Toolkit for IntelliJ 플러그 인](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) 으로 업데이트 합니다.
 
@@ -182,7 +182,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [Azure Portal-역할 할당 추가를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)설명서를 참조 하세요.
+또는 Azure Portal를 사용 하 여 사용자에 게 HDInsight 클러스터 운영자 역할 할당을 추가할 수 있습니다. [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)설명서를 참조 하세요.
 
 ## <a name="faq"></a>FAQ
 

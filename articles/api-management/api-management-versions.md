@@ -6,15 +6,15 @@ documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097999"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547199"
 ---
 # <a name="versions-in-azure-api-management"></a>Azure API Management의 버전
 
@@ -64,9 +64,13 @@ ms.locfileid: "87097999"
 
 ## <a name="how-versions-are-represented"></a>버전 표현 방법
 
-Azure API Management는 단일 논리적 API에 대 한 버전 집합을 나타내는 *버전 집합*이라는 리소스를 유지 관리 합니다. Azure Portal 사용 하 여 버전을 관리할 때 버전 집합이 표시 되지 않지만 PowerShell, 리소스 관리자 템플릿 또는 Azure Resource Manager API를 사용 하 여 API Management 서비스와 상호 작용 하는 경우 버전 집합을 직접 보고 관리할 수 있습니다. 버전 집합에는 버전이 지정 된 API의 표시 이름과 지정 된 버전에 대 한 요청을 전달 하 [는 데 사용 되는 버전 관리 체계가](#versioning-schemes) 포함 됩니다.
+Azure API Management는 단일 논리적 API에 대 한 버전 집합을 나타내는 *버전 집합* 이라는 리소스를 유지 관리 합니다. 버전 집합에는 버전이 지정 된 API의 표시 이름과 지정 된 버전에 대 한 요청을 전달 하 [는 데 사용 되는 버전 관리 체계가](#versioning-schemes) 포함 됩니다.
 
-각 버전의 API는 자체 API 리소스로 유지 관리 되며, 그러면 버전 집합과 연결 됩니다. 버전 집합에는 API의 버전 간에 상당한 변경이 발생할 수 있다는 사실을 반영 하는 매우 다양 한 작업 또는 정책을 포함 하는 Api가 포함 될 수 있습니다.
+각 버전의 API는 자체 API 리소스로 유지 관리 되며, 그러면 버전 집합과 연결 됩니다. 버전 집합에는 다른 작업 또는 정책을 포함 하는 Api가 포함 될 수 있습니다. 집합의 버전 간에 상당한 변경 작업을 수행할 수 있습니다.
+
+Azure Portal는 버전 집합을 만듭니다. Azure Portal에 설정 된 버전의 이름과 설명을 수정할 수 있습니다.
+
+[Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [리소스 관리자 템플릿](/azure/templates/microsoft.apimanagement/service/apiversionsets)또는 [Azure Resource Manager API](/rest/api/apimanagement/2020-06-01-preview/apiversionset)를 사용 하 여 버전 집합을 직접 보고 관리할 수 있습니다.
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>버전이 없는 API를 버전이 지정 된 API로 마이그레이션
 

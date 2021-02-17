@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362859"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548644"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R에 대 한 보안 및 데이터 보호
 
@@ -77,7 +77,7 @@ Azure Stack Edge 서비스는 Azure에서 호스트 되는 관리 서비스입�
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>인증서를 통해 장치에 대 한 신뢰 설정
 
-Azure Stack Edge 견고한 장치를 사용 하면 고유한 인증서를 가져와 모든 공용 끝점에 사용할 수 있습니다. 자세한 내용은 [인증서 업로드](azure-stack-edge-j-series-manage-certificates.md#upload-certificates)로 이동 하세요. 장치에 설치할 수 있는 모든 인증서 목록을 보려면 [장치에서 인증서 관리](azure-stack-edge-j-series-manage-certificates.md)로 이동 합니다.
+Azure Stack Edge 견고한 장치를 사용 하면 고유한 인증서를 가져와 모든 공용 끝점에 사용할 수 있습니다. 자세한 내용은 [인증서 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates)로 이동 하세요. 장치에 설치할 수 있는 모든 인증서 목록을 보려면 [장치에서 인증서 관리](azure-stack-edge-gpu-manage-certificates.md)로 이동 합니다.
 
 - 장치에서 계산을 구성 하면 IoT 장치와 IoT Edge 장치가 생성 됩니다. 이러한 디바이스에는 대칭 액세스 키가 자동으로 할당됩니다. 보안 모범 사례에 따라 이러한 키는 IoT Hub 서비스를 통해 정기적으로 순환됩니다.
 

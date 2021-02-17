@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368715"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519136"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
 
@@ -187,7 +187,7 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 - **SendTweetsToEventHub** - Twitter에서 트윗을 가져와서 Event Hubs로 스트리밍하는 데 사용하는 생산자 노트북입니다.
 - **AnalyzeTweetsFromEventHub** - Event Hubs에서 트윗을 읽고 변칙 검색을 실행하는 데 사용하는 소비자 Notebook입니다.
 
-1. Azure Databricks 작업 영역의 왼쪽 창에서 **작업 영역** 을 선택합니다. **작업 영역** 드롭다운에서 **만들기** , **Notebook** 을 차례로 선택합니다.
+1. Azure Databricks 작업 영역의 왼쪽 창에서 **작업 영역** 을 선택합니다. **작업 영역** 드롭다운에서 **만들기**, **Notebook** 을 차례로 선택합니다.
 
     ![Databricks에서 Notebook 만들기](../media/tutorials/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
@@ -586,7 +586,7 @@ groupTime                       average
 
 그런 다음, 집계된 출력 결과를 델타로 가져옵니다. 변칙 검색에는 더 긴 기록 창이 필요하므로 검색하려는 지점에 대한 기록 데이터를 유지하기 위해 델타를 사용합니다.
 "[Placeholder: table name]"을 만드는 정규화된 델타 테이블 이름(예: "tweets")으로 바꿉니다. "[Placeholder: folder name for checkpoints]"를 이 코드를 실행할 때마다 고유한 문자열 값(예: "etl-from-eventhub-20190605")으로 바꿉니다.
-Azure Databricks의 Delta Lake에 대한 자세한 내용은 [Delta Lake 가이드](https://docs.azuredatabricks.net/delta/index.html)를 참조하세요.
+Azure Databricks의 Delta Lake에 대한 자세한 내용은 [Delta Lake 가이드](/databricks/delta/)를 참조하세요.
 
 
 ```scala
