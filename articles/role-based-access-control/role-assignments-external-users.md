@@ -1,35 +1,35 @@
 ---
-title: Azure Portal를 사용 하 여 외부 사용자에 대 한 Azure 역할 할당 추가 또는 제거-Azure RBAC
+title: Azure Portal를 사용 하 여 외부 게스트 사용자에 게 Azure 역할 할당-Azure RBAC
 description: Azure Portal 및 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 조직 외부 사용자를 위해 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
-editor: ''
-ms.assetid: ''
+manager: daveba
 ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a18fc3e4851c2daf03c662cf40cef58cc7d9e77a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98117710"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556288"
 ---
-# <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거
+# <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 게 Azure 역할 할당
 
 Azure [RBAC (역할 기반 액세스 제어)](overview.md) 를 사용 하면 사용자 환경의 특정 리소스에 액세스 해야 하지만 전체 인프라 또는 청구 관련 범위에 대 한 액세스를 필요로 하는 외부 협력자, 공급 업체 또는 프리랜서에서 작업 하는 중소기업 및 중소기업에 대해 더 나은 보안 관리가 가능 합니다. [AZURE ACTIVE DIRECTORY B2B](../active-directory/external-identities/what-is-b2b.md) 의 기능을 사용 하 여 외부 게스트 사용자와 공동 작업을 수행할 수 있으며, Azure RBAC를 사용 하 여 사용자 환경에서 게스트 사용자에 게 필요한 권한만 부여할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
+Azure 역할을 할당 하거나 역할 할당을 제거 하려면 다음이 있어야 합니다.
+
+- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
+
 
 ## <a name="when-would-you-invite-guest-users"></a>언제 게스트 사용자를 초대 하나요?
 
@@ -65,9 +65,9 @@ Azure Active Directory 페이지를 사용 하 여 디렉터리에 게스트 사
 
 초대 프로세스에 대 한 자세한 내용은 [B2B 공동 작업 초대 상환 Azure Active Directory](../active-directory/external-identities/redemption-experience.md)를 참조 하세요.
 
-## <a name="add-a-role-assignment-for-a-guest-user"></a>게스트 사용자에 대 한 역할 할당 추가
+## <a name="assign-a-role-to-a-guest-user"></a>게스트 사용자에 게 역할 할당
 
-Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다. 게스트 사용자에 대 한 역할 할당을 추가 하려면 멤버 사용자, 그룹, 서비스 주체 또는 관리 id와 [동일한 단계](role-assignments-portal.md#add-a-role-assignment) 를 수행 합니다. 다른 범위에서 게스트 사용자에 대 한 역할 할당을 추가 하려면 다음 단계를 따르세요.
+Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다. 게스트 사용자에 게 역할을 할당 하려면 멤버 사용자, 그룹, 서비스 주체 또는 관리 id와 [동일한 단계](role-assignments-portal.md) 를 수행 합니다. 다음 단계를 수행 하 여 다른 범위에서 게스트 사용자에 게 역할을 할당 합니다.
 
 1. Azure Portal에서 **모든 서비스** 를 클릭합니다.
 
@@ -101,9 +101,9 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
     ![가상 컴퓨터 참가자에 대 한 역할 할당](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-## <a name="add-a-role-assignment-for-a-guest-user-not-yet-in-your-directory"></a>디렉터리에 아직 없는 게스트 사용자에 대 한 역할 할당 추가
+## <a name="assign-a-role-to-a-guest-user-not-yet-in-your-directory"></a>디렉터리에 아직 없는 게스트 사용자에 게 역할 할당
 
-게스트 사용자에 대 한 역할 할당을 추가 하려면 멤버 사용자, 그룹, 서비스 주체 또는 관리 id와 [동일한 단계](role-assignments-portal.md#add-a-role-assignment) 를 수행 합니다.
+게스트 사용자에 게 역할을 할당 하려면 멤버 사용자, 그룹, 서비스 주체 또는 관리 id와 [동일한 단계](role-assignments-portal.md) 를 수행 합니다.
 
 게스트 사용자가 디렉터리에 아직 없는 경우 역할 할당 추가 창에서 직접 사용자를 초대할 수 있습니다.
 
@@ -187,7 +187,7 @@ Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다
 
 ### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>게스트 사용자가 역할을 할당 하는 사용자, 그룹 또는 서비스 사용자를 찾을 수 없습니다.
 
-게스트 사용자에게는 제한된 디렉터리 권한이 있습니다. 게스트 사용자가 범위에서 [소유자](built-in-roles.md#owner) 인 경우에도 다른 사용자에 게 액세스 권한을 부여 하는 역할 할당을 추가 하려고 하면 사용자, 그룹 또는 서비스 사용자의 목록을 검색할 수 없습니다.
+게스트 사용자에게는 제한된 디렉터리 권한이 있습니다. 게스트 사용자가 범위에서 [소유자](built-in-roles.md#owner) 인 경우에도 다른 사용자에 게 액세스 권한을 부여 하기 위해 역할을 할당 하려고 하면 사용자, 그룹 또는 서비스 사용자의 목록을 검색할 수 없습니다.
 
 ![게스트 사용자가 보안 주체를 검색 하 여 역할을 할당할 수 없음](./media/role-assignments-external-users/directory-no-browse.png)
 

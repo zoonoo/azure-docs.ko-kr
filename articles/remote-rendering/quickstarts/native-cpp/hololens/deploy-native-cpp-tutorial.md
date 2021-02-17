@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594030"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530589"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>빠른 시작: HoloLens에 네이티브 C++ 샘플 배포
 
@@ -81,7 +81,7 @@ Visual Studio 2019를 사용하여 *NativeCpp/HoloLens* 하위 디렉터리에 �
 구체적으로 다음 값을 변경합니다.
 * 계정 데이터를 사용할 `init.AccountId`, `init.AccountKey` 및 `init.AccountDomain`. [계정 정보 검색](../../../how-tos/create-an-account.md#retrieve-the-account-information) 방법에 대한 단락을 참조하세요.
 * `westus2` 이외에 지역에 대한 `init.RemoteRenderingDomain` 문자열의 지역 부분을 수정하여 원격 렌더링 세션을 만들 위치를 지정합니다(예: `"westeurope.mixedreality.azure.com"`).
-* 또한 기존 세션 ID로 `m_sessionOverride`를 변경할 수 있습니다. 이 샘플 외부에서 세션을 만들 수 있습니다. 예를 들어 [PowerShell 스크립트](../../../samples/powershell-example-scripts.md#script-renderingsessionps1)를 사용하거나 [세션 REST API](../../../how-tos/session-rest-api.md#create-a-session)를 직접 사용할 수 있습니다.
+* 또한 기존 세션 ID로 `m_sessionOverride`를 변경할 수 있습니다. 이 샘플 외부에서 세션을 만들 수 있습니다. 예를 들어 [PowerShell 스크립트](../../../samples/powershell-example-scripts.md#script-renderingsessionps1)를 사용하거나 [세션 REST API](../../../how-tos/session-rest-api.md)를 직접 사용할 수 있습니다.
 샘플을 여러 번 실행해야 하는 경우 샘플 외부에서 세션을 만드는 것이 좋습니다. 세션이 전달되지 않은 경우 이 샘플은 시작될 때마다 새 세션을 만듭니다. 이 세션은 몇 분 정도 걸릴 수 있습니다.
 
 이제 애플리케이션을 컴파일할 수 있습니다.

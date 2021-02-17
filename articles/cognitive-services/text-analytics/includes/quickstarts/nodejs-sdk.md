@@ -10,12 +10,12 @@ ms.date: 01/20/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: adfe6282d4a7d2cc35b4f5c71ecb67e6cda641a8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2a5bc5b6f9e2cb9a3f6895847dd8f03bc2540e18
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090738"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515044"
 ---
 <a name="HOLTop"></a>
 
@@ -881,7 +881,7 @@ analyze_example(textAnalyticsClient);
         - Entity Paul Allen of type Person
 ```
 
-Analyze(분석) 작업을 사용하여 PII 및 핵심 문구 추출을 검색할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/javascript/beginAnalyze.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src/beginAnalyze.ts) Analyze(분석) 샘플을 참조하세요.
+Analyze(분석) 작업을 사용하여 PII 및 핵심 문구 추출을 검색할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/typescript/src) Analyze(분석) 샘플을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

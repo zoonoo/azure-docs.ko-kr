@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652877"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548729"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Java에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
@@ -76,7 +76,7 @@ Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. �
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Java 응용 프로그램 만들기
 1. Twilio JAR을 다운로드하여 Java 빌드 경로 및 WAR 배포 어셈블리에 추가합니다. 에서 [https://github.com/twilio/twilio-java][twilio_java] GitHub 소스를 다운로드 하 고 사용자 고유의 jar를 만들거나 미리 작성 된 jar (종속성 유무 또는 제외)을 다운로드할 수 있습니다.
-2. JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 [https://api.twilio.com][twilio_api_service] Twilio api를 사용할 때 호출 되는 서비스에 대 한 CA (인증 기관) 인증서입니다. JDK의 **cacerts** keystore에 올바른 CA 인증서가 포함되어 있는지 확인하는 방법에 대한 자세한 내용은 [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]를 참조하세요.
+2. JDK의 **cacerts** keystore에 MD5 지문이 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4인 Equifax Secure Certificate Authority 인증서가 포함되어 있는지 확인합니다(일련 번호는 35:DE:F4:CF이고 SHA1 지문은 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A임). 이는 [https://api.twilio.com][twilio_api_service] Twilio api를 사용할 때 호출 되는 서비스에 대 한 CA (인증 기관) 인증서입니다.
 
 Java용 Twilio 클라이언트 라이브러리 사용에 대한 자세한 지침은 [Azure의 Java 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_java]을 참조하세요.
 
@@ -217,7 +217,6 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message

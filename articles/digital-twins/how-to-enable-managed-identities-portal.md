@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d54ecdac739bbc5a072426f5bf73f71ab394159
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417676"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545917"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Azure 디지털 쌍 이벤트 라우팅 (미리 보기)에 대 한 관리 id 사용: Azure Portal
 
@@ -102,8 +102,9 @@ Id에 역할을 할당 하려면 먼저 [Azure Portal](https://portal.azure.com)
 
 1. 다음 **역할 할당 추가** 페이지에서 값을 입력 합니다.
     * **역할**: 드롭다운 메뉴에서 원하는 역할을 선택 합니다.
-    * **액세스 권한 할당**: **사용자, 그룹 또는 서비스 주체** 선택
-    * **Select**: 여기에서 역할에 할당 되는 Azure Digital twins 인스턴스의 관리 id를 선택 합니다. 관리 id의 이름은 인스턴스의 이름과 일치 하므로 Azure Digital Twins 인스턴스의 이름을 검색 합니다. 결과를 선택 하면 인스턴스의 id가 **선택한 구성원** 섹션에 표시 됩니다.
+    * 다음에 대 한 **액세스 할당**: **시스템 할당 관리 Id** 에서 **Digital twins** 를 선택 합니다.
+    * **구독**: 구독을 선택합니다. 그러면 선택한 구독 내에서 모든 Azure Digital Twins 관리 id가 표시 됩니다.
+    * **Select**: 여기에서 역할에 할당 되는 Azure Digital twins 인스턴스의 관리 id를 선택 합니다. 관리 id의 이름은 인스턴스의 이름과 일치 하므로 Azure Digital Twins 인스턴스의 이름을 선택 합니다. 이를 선택 하면 인스턴스의 id가 창 아래쪽의 **선택한 구성원** 섹션에 표시 됩니다.
 
     :::row:::
         :::column:::

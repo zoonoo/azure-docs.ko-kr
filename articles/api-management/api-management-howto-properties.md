@@ -6,14 +6,14 @@ documentationcenter: ''
 author: vladvino
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 344500d5635f591b34a45130c7dd6b63659ad84d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491018"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545822"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명 된 값 사용
 
@@ -86,6 +86,8 @@ ms.locfileid: "99491018"
 
 ### <a name="add-a-plain-or-secret-value"></a>일반 또는 비밀 값 추가
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 1. [Azure Portal](https://portal.azure.com)에서 API Management 인스턴스로 이동합니다.
 1. **Api** 에서 **명명 된 값**  >  **+ 추가** 를 선택 합니다.
 1. **이름** 식별자를 입력 하 고 정책에서 속성을 참조 하는 데 사용 되는 **표시 이름을** 입력 합니다.
@@ -96,15 +98,59 @@ ms.locfileid: "99491018"
 
 명명 된 값을 만든 후에는 이름을 선택 하 여 해당 값을 편집할 수 있습니다. 표시 이름을 변경 하면 해당 명명 된 값을 참조 하는 모든 정책이 새 표시 이름을 사용 하도록 자동으로 업데이트 됩니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI 사용을 시작 하려면:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+명명 된 값을 추가 하려면 [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) 명령을 사용 합니다.
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+명명 된 값을 만든 후에는 [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update) 명령을 사용 하 여 업데이트할 수 있습니다. 모든 명명 된 값을 보려면 [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list) 명령을 실행 합니다.
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+이 예제에 대해 만든 명명 된 값의 세부 정보를 보려면 [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show) 명령을 실행 합니다.
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+이 예는 비밀 값입니다. 이전 명령은 값을 반환 하지 않습니다. 값을 확인 하려면 [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret) 명령을 실행 합니다.
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+명명 된 값을 삭제 하려면 [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete) 명령을 사용 합니다.
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
+
 ## <a name="use-a-named-value"></a>명명 된 값 사용
 
 이 섹션의 예에서는 다음 표에 표시 된 명명 된 값을 사용 합니다.
 
-| 속성               | 값                      | 비밀 | 
+| Name               | 값                      | 비밀 | 
 |--------------------|----------------------------|--------|---------|
-| ContosoHeader      | `TrackingId`                 | False  | 
+| ContosoHeader      | `TrackingId`                 | 거짓  | 
 | ContosoHeaderValue | ••••••••••••••••••••••     | True   | 
-| ExpressionProperty | `@(DateTime.Now.ToString())` | False  | 
+| ExpressionProperty | `@(DateTime.Now.ToString())` | 거짓  | 
 
 정책에 명명 된 값을 사용 하려면 `{{ContosoHeader}}` 다음 예제에 표시 된 것 처럼와 같이 이중 중괄호 쌍 안에 표시 이름을 추가 합니다.
 

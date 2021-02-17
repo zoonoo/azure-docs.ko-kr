@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365228"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547237"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -65,7 +65,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 | 사용량 추세를 수집하고, 가용성 결과와 트랜잭션의 상관 관계를 사용하도록 설정합니다. | 예 |예 |
 | 호스트 프로세스에서 처리되지 않은 예외를 수집합니다. | 예 |예 |
 | 샘플링을 사용하는 경우 부하 상태에서 APM 메트릭 정확도가 향상됩니다. | 예 |예 |
-| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |Yes |
+| 요청/종속성 경계 간에 마이크로 서비스를 상호 연결합니다. | 아니요 (단일 인스턴스 APM 기능만 해당) |예 |
 
 3. 이전에 applicationinsights.config 파일을 통해 제어할 수 있는 샘플과 같은 설정을 구성 하려면 이제 해당 접두사를 사용 하 여 응용 프로그램 설정을 통해 동일한 설정과 상호 작용할 수 있습니다. 
 
@@ -76,7 +76,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> 지원 되는 ASP.NET Core 버전은 ASP.NET Core 2.1, 3.1 및 5.0입니다. 버전 2.0, 2.2 및 3.0은 사용 중지 되어 더 이상 지원 되지 않습니다. 자동 계측 기능을 사용 하려면 [지원 되](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) 는 .net Core 버전으로 업그레이드 하세요.
+> 지원 되는 ASP.NET Core 버전은 ASP.NET Core 2.1 및 3.1입니다. 버전 2.0, 2.2 및 3.0은 사용 중지 되어 더 이상 지원 되지 않습니다. 자동 계측 기능을 사용 하려면 [지원 되](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) 는 .net Core 버전으로 업그레이드 하세요.
 
 ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에서 전체 프레임 워크를 대상으로 지정 하는 기능은 현재 에이전트/확장 기반 모니터링에서 **지원 되지 않습니다** . 코드를 통한[수동 계측](./asp-net-core.md) 은 모든 이전 시나리오에서 작동 합니다.
 
@@ -95,7 +95,7 @@ ASP.NET Core, 자체 포함 된 배포 및 Linux 기반 응용 프로그램에�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 App Service 웹 앱 내의 **설정** 에서  >  **Application Insights**  >  **사용** 을 선택 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기로 제공 됩니다.
 
@@ -142,7 +142,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
    * 설정을 **저장** 하고 앱을 **다시 시작** 합니다.
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](./javascript.md)해야 합니다.
 

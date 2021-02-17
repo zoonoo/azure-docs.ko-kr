@@ -2,13 +2,13 @@
 title: Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이션
 description: 풀 구성을 최신 및 권장 구성으로 업데이트 하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731502"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546043"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Cloud Services에서 Virtual Machines 배치 풀 구성 마이그레이션
 
@@ -36,6 +36,19 @@ ms.locfileid: "98731502"
    > Virtual Machines 및 Virtual Machine Scale Sets와 마찬가지로 각 노드에 사용 되는 OS 관리 디스크는 비용을 발생 시킵니다 .이는 Vm 비용에 추가 됩니다. 노드 로컬 SSD에서 OS 디스크를 만들 때 ' cloudServiceConfiguration ' 노드에 대 한 OS 디스크 비용은 없습니다.
 
 - 풀 및 노드 시작 및 삭제 시간은 ' cloudServiceConfiguration ' 풀과 ' virtualMachineConfiguration ' 풀 사이에서 약간 다를 수 있습니다.
+
+## <a name="azure-data-factory-custom-activity-pools"></a>사용자 지정 활동 풀 Azure Data Factory
+
+Azure Batch 풀은 Data Factory 사용자 지정 작업을 실행 하는 데 사용할 수 있습니다. 사용자 지정 작업을 실행 하는 데 사용 되는 모든 ' cloudServiceConfiguration ' 풀을 삭제 하 고 새 ' virtualMachineConfiguration ' 풀이 생성 되어야 합니다.
+
+- 실행이 중단 되지 않도록 삭제/다시 만들기 전에 파이프라인을 일시 중지 해야 합니다.
+- 연결 된 서비스 구성 변경을 방지 하기 위해 동일한 풀 id를 사용할 수 있습니다.
+- 새 풀을 만든 경우 파이프라인을 다시 시작 합니다.
+
+Azure Batch 사용 하 여 Data Factory 사용자 지정 작업을 실행 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
+
+- [Azure Batch 연결된 서비스](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Data Factory 파이프라인의 사용자 지정 작업](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>다음 단계
 

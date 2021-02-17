@@ -22,7 +22,7 @@
           href: character-counts.md
     - name: 방법 가이드
       items:
-        - name: Translator에 등록
+        - name: Translator 리소스 만들기
           href: ./translator-how-to-signup.md
         - name: V3 텍스트 API로 마이그레이션
           href: migrate-to-v3.md

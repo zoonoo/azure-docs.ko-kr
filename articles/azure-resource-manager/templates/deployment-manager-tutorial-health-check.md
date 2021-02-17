@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d246a493ff9ee9e20868da32d633d51939e66c
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86058030"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99821253"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "86058030"
 [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md) 자습서에 사용된 롤아웃 템플릿에서는 대기 단계를 사용했습니다. 이 자습서에서는 대기 단계를 상태 확인 단계로 바꿉니다.
 
 > [!IMPORTANT]
-> 구독이 새 Azure 기능을 테스트하기 위한 카나리아로 표시된 경우 Azure Deployment Manager를 사용하여 카나리아 지역에 배포하는 것만 가능합니다. 
+> 구독이 새 Azure 기능을 테스트하기 위한 카나리아로 표시된 경우 Azure Deployment Manager를 사용하여 카나리아 지역에 배포하는 것만 가능합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -35,26 +35,23 @@ ms.locfileid: "86058030"
 
 추가 리소스:
 
-* [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/).
+* [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/)
 * [Azure Deployment Manager 샘플](https://github.com/Azure-Samples/adm-quickstart).
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
+* 동작합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 * [Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)을 완료합니다.
 
 ## <a name="install-the-artifacts"></a>아티팩트 설치
 
-[템플릿 및 아티팩트](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)를 다운로드하여 로컬로 압축을 풉니다(아직 수행되지 않은 경우). 그런 다음, [아티팩트 준비](./deployment-manager-tutorial.md#prepare-the-artifacts)에 있는 PowerShell 스크립트를 실행합니다. 이 스크립트는 리소스 그룹을 만들고, 스토리지 컨테이너를 만들고, Blob 컨테이너를 만들고, 다운로드한 파일을 업로드한 다음, SAS 토큰을 만듭니다.
+필수 자습서에 사용된 샘플을 아직 다운로드하지 않은 경우 [템플릿 및 아티팩트](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip)를 다운로드하여 로컬로 압축을 풀 수 있습니다. 그런 다음, 필수 구성 요소 자습서의 섹션 [아티팩트 준비](./deployment-manager-tutorial.md#prepare-the-artifacts)에서 PowerShell 스크립트를 실행합니다. 이 스크립트는 리소스 그룹을 만들고, 스토리지 컨테이너를 만들고, Blob 컨테이너를 만들고, 다운로드한 파일을 업로드한 다음, SAS 토큰을 만듭니다.
 
-SAS 토큰을 사용하여 URL의 복사본을 만듭니다. 이 URL은 두 매개 변수 파일(토폴로지 매개 변수 파일 및 롤아웃 매개 변수 파일)의 필드를 채우는 데 필요합니다.
-
-CreateADMServiceTopology.Parameters.json을 열고 **projectName** 및 **artifactSourceSASLocation**의 값을 업데이트합니다.
-
-CreateADMRollout.Parameters.json을 열고 **projectName** 및 **artifactSourceSASLocation**의 값을 업데이트합니다.
+* SAS 토큰을 사용하여 URL의 복사본을 만듭니다. 이 URL은 두 매개 변수 파일(토폴로지 매개 변수 파일 및 롤아웃 매개 변수 파일)의 필드를 채우는 데 필요합니다.
+* _CreateADMServiceTopology.Parameters.json_ 을 열고 `projectName` 및 `artifactSourceSASLocation`의 값을 업데이트합니다.
+* _CreateADMRollout.Parameters.json_ 을 열고 `projectName` 및 `artifactSourceSASLocation`의 값을 업데이트합니다.
 
 ## <a name="create-a-health-check-service-simulator"></a>상태 확인 서비스 시뮬레이터 만들기
 
@@ -65,29 +62,29 @@ CreateADMRollout.Parameters.json을 열고 **projectName** 및 **artifactSourceS
 * [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json)에 있는 Resource Manager 템플릿. Azure Function을 만들기 위해 이 템플릿을 배포합니다.
 * Azure Function 소스 코드의 [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip) zip 파일. 이 zip 파일은 Resource Manager 템플릿에 의해 호출됩니다.
 
-Azure 함수를 배포하려면 **사용해보기**를 선택하여 Azure Cloud Shell을 열고, 다음 스크립트를 셸 창에 붙여넣습니다.  코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+Azure 함수를 배포하려면 **사용해보기** 를 선택하여 Azure Cloud Shell을 연 다음, 다음 스크립트를 셸 창에 붙여넣습니다. 코드를 붙여넣으려면 셸 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
 Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. 리소스 그룹을 엽니다.  기본 이름은 **rg**가 추가된 프로젝트 이름입니다.
-1. 리소스 그룹에서 앱 서비스를 선택합니다.  앱 서비스의 기본 이름은 **webapp**이 추가된 프로젝트 이름입니다.
-1. **함수**를 확장한 다음, **HttpTrigger1**을 선택합니다.
+1. 리소스 그룹을 엽니다. 기본 이름은 **rg** 가 추가된 프로젝트 이름입니다.
+1. 리소스 그룹에서 앱 서비스를 선택합니다. 앱 서비스의 기본 이름은 **webapp** 이 추가된 프로젝트 이름입니다.
+1. **함수** 를 확장한 다음, **HttpTrigger1** 을 선택합니다.
 
     ![Azure Deployment Manager 상태 확인 Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
 
-1. **&lt;/> Get function URL**을 선택합니다.
-1. **복사**를 선택하여 URL을 클립보드에 복사합니다.  URL은 다음과 비슷합니다.
+1. **&lt;/> Get function URL** 을 선택합니다.
+1. **복사** 를 선택하여 URL을 클립보드에 복사합니다. URL은 다음과 비슷합니다.
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-    URL의 `{healthStatus}`를 상태 코드로 바꿉니다. 이 자습서에서는 **비정상**을 사용하여 비정상 시나리오를 테스트하고, **정상** 또는 **경고**를 사용하여 정상 시나리오를 테스트합니다. 비정상 상태인 URL과 정상 상태인 URL을 하나씩 만듭니다. 예:
+    URL의 `{healthStatus}`를 상태 코드로 바꿉니다. 이 자습서에서는 *비정상* 을 사용하여 비정상 시나리오를 테스트하고, *정상* 또는 *경고* 를 사용하여 정상 시나리오를 테스트합니다. *비정상* 상태인 URL과 *정상* 상태인 URL을 하나씩 만듭니다. 다음은 그 예입니다.
 
     ```url
     https://myhc0417webapp.azurewebsites.net/api/healthStatus/unhealthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
@@ -96,9 +93,9 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
     이 자습서를 완료하려면 두 URL이 모두 필요합니다.
 
-1. 상태 모니터링 시뮬레이터를 테스트하려면 마지막 단계에서 만든 URL을 엽니다.  비정상 상태의 결과는 다음과 비슷합니다.
+1. 상태 모니터링 시뮬레이터를 테스트하려면 이전 단계에서 만든 URL을 엽니다. 비정상 상태의 결과는 다음과 비슷합니다.
 
-    ```
+    ```Output
     Status: unhealthy
     ```
 
@@ -106,7 +103,7 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
 
 이 섹션의 목적은 롤아웃 템플릿에 상태 확인 단계를 포함하는 방법을 보여주는 것입니다.
 
-1. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 만든 **CreateADMRollout.json**을 엽니다. 이 JSON 파일은 다운로드한 파일에 포함되어 있습니다.  [필수 조건](#prerequisites)을 참조하세요.
+1. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 만든 _CreateADMRollout.json_ 을 엽니다. 이 JSON 파일은 다운로드한 파일에 포함되어 있습니다.  [필수 조건](#prerequisites)을 참조하세요.
 1. 다음 두 매개 변수를 추가합니다.
 
     ```json
@@ -173,9 +170,9 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
     },
     ```
 
-    정의에 따라 상태가 *정상*이거나 *경고*이면 롤아웃이 진행됩니다.
+    정의에 따라 상태가 *정상* 이거나 *경고* 이면 롤아웃이 진행됩니다.
 
-1. 새로 정의한 상태 확인 단계를 포함하도록 롤아웃 정의의 **dependsON**을 업데이트합니다.
+1. 새로 정의한 상태 확인 단계를 포함하도록 롤아웃 정의의 `dependsOn`을 업데이트합니다.
 
     ```json
     "dependsOn": [
@@ -184,7 +181,7 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
     ],
     ```
 
-1. 상태 확인 단계를 포함하도록 **stepGroups**를 업데이트합니다. **healthCheckStep**은 **stepGroup2**의 **postDeploymentSteps**에서 호출됩니다. **stepGroup3** 및 **stepGroup4**는 상태가 *정상* 또는 *경고*인 경우에만 배포됩니다.
+1. 상태 확인 단계를 포함하도록 `stepGroups`를 업데이트합니다. `healthCheckStep`은 `stepGroup2`의 `postDeploymentSteps`에서 호출됩니다. `stepGroup3` 및 `stepGroup4`는 상태가 *정상* 또는 *경고* 인 경우에만 배포됩니다.
 
     ```json
     "stepGroups": [
@@ -222,15 +219,15 @@ Azure 함수를 확인하고 테스트하려면 다음을 수행합니다.
     ]
     ```
 
-    **stepGroup3** 섹션의 변경 전과 변경 후를 비교해보면 이제 이 섹션에서는 **stepGroup2**를 사용합니다.  이는 **stepGroup3** 및 후속 단계 그룹에서 상태 모니터링 결과를 사용할 때 필요합니다.
+    `stepGroup3` 섹션의 변경 전과 변경 후를 비교해보면 이제 이 섹션에서는 `stepGroup2`를 사용합니다. 이는 `stepGroup3` 및 후속 단계 그룹에서 상태 모니터링 결과를 사용할 때 필요합니다.
 
-    다음은 수정된 영역과 상태 확인 단계를 사용하는 방법을 보여주는 스크린샷입니다.
+    다음은 수정된 영역과 상태 확인 단계를 사용하는 방법을 보여 주는 스크린샷입니다.
 
     ![Azure Deployment Manager 상태 확인 템플릿](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-rollout-template.png)
 
 ## <a name="deploy-the-topology"></a>토폴로지 배포
 
-다음 PowerShell 스크립트를 실행하여 토폴로지를 배포합니다. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 **CreateADMServiceTopology.json** 및 **CreateADMServiceTopology.Parameters.json**이 필요합니다.
+다음 PowerShell 스크립트를 실행하여 토폴로지를 배포합니다. [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 _CreateADMServiceTopology.json_ 및 _CreateADMServiceTopology.Parameters.json_ 이 필요합니다.
 
 ```azurepowershell
 # Create the service topology
@@ -244,11 +241,11 @@ Azure Portal을 사용하여 서비스 토폴로지와 밑줄 표시된 리소�
 
 ![Azure Deployment Manager 자습서 - 배포된 서비스 토폴로지 리소스](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
-리소스를 보려면 **숨겨진 형식 표시**를 선택해야 합니다.
+리소스를 보려면 **숨겨진 형식 표시** 를 선택해야 합니다.
 
 ## <a name="deploy-the-rollout-with-the-unhealthy-status"></a>상태가 비정상인 롤아웃 배포
 
-[상태 확인 서비스 시뮬레이터 만들기](#create-a-health-check-service-simulator)에서 만든 비정상 상태 URL을 사용합니다. 수정된 **CreateADMServiceTopology.json** 및 [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 **CreateADMServiceTopology.Parameters.json**이 필요합니다.
+[상태 확인 서비스 시뮬레이터 만들기](#create-a-health-check-service-simulator)에서 만든 비정상 상태 URL을 사용합니다. 수정된 _CreateADMServiceTopology.json_ 및 [Resource Manager 템플릿에서 Azure Deployment Manager 사용](./deployment-manager-tutorial.md)에서 사용한 것과 동일한 _CreateADMServiceTopology.Parameters.json_ 이 필요합니다.
 
 ```azurepowershell-interactive
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -283,7 +280,7 @@ Get-AzDeploymentManagerRollout `
 
 다음 샘플 출력은 비정상 상태로 인해 실패한 배포를 보여줍니다.
 
-```output
+```Output
 Service: myhc0417ServiceWUSrg
     TargetLocation: WestUS
     TargetSubscriptionId: <Subscription ID>
@@ -344,28 +341,28 @@ Tags                    :
 
 ## <a name="deploy-the-rollout-with-the-healthy-status"></a>상태가 정상인 롤아웃 배포
 
-이 섹션을 반복하여 정상 상태 URL로 롤아웃을 다시 배포합니다.  롤아웃이 완료되면 미국 동부에 대해 생성된 추가 리소스 그룹 하나가 보일 것입니다.
+이 섹션을 반복하여 정상 상태 URL로 롤아웃을 다시 배포합니다. 롤아웃이 완료되면 미국 동부에 대해 생성된 추가 리소스 그룹이 하나 더 보일 것입니다.
 
 ## <a name="verify-the-deployment"></a>배포 확인
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-2. 롤아웃 배포에서 만든 새 리소스 그룹 아래에 새로 만들어진 웹 애플리케이션으로 이동합니다.
-3. 웹 브라우저에서 웹 애플리케이션을 엽니다. index.html 파일에서 위치와 버전을 확인합니다.
+1. 롤아웃 배포에서 만든 새 리소스 그룹 아래에서 새 웹 애플리케이션으로 이동합니다.
+1. 웹 브라우저에서 웹 애플리케이션을 엽니다. _index.html_ 파일에서 위치와 버전을 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
-2. **이름으로 필터링** 필드를 사용하여 범위를 이 자습서에서 만든 리소스 그룹으로 좁힙니다. 다음과 같이 3-4개가 있습니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택합니다.
+1. **이름으로 필터링** 필드를 사용하여 범위를 이 자습서에서 만든 리소스 그룹으로 좁힙니다.
 
     * **&lt;projectName>rg**: Deployment Manager 리소스가 포함되어 있습니다.
     * **&lt;projectName>ServiceWUSrg**: ServiceWUS에서 정의한 리소스가 포함되어 있습니다.
     * **&lt;projectName>ServiceEUSrg**: ServiceEUS에서 정의한 리소스가 포함되어 있습니다.
     * 사용자 정의 관리 ID에 대한 리소스 그룹
-3. 해당 리소스 그룹 이름을 선택합니다.
-4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.
-5. 마지막 두 단계를 반복하여 이 자습서에서 만든 다른 리소스 그룹을 삭제합니다.
+1. 해당 리소스 그룹 이름을 선택합니다.
+1. 위쪽 메뉴에서 **리소스 그룹 삭제** 를 선택합니다.
+1. 마지막 두 단계를 반복하여 이 자습서에서 만든 다른 리소스 그룹을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

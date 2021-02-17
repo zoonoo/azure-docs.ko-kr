@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 118b869cb97a7dd3ce65566a994a27d2a65a7402
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184937"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545686"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -30,8 +30,6 @@ ms.locfileid: "98184937"
 ## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설치 후 역할 할당이 누락 되었습니다.
 
 **문제 설명:** 일부 사용자에 게 [*는 방법: 인스턴스 및 인증 (스크립팅된) 설정*](how-to-set-up-instance-scripted.md)의 역할 할당 부분과 관련 된 문제가 발생할 수 있습니다. 이 스크립트는 실패를 나타내지는 않지만 *Azure Digital Twins 데이터 소유자* 역할은 사용자에 게 할당 되지 않으며,이 문제는 다른 리소스를 다른 리소스를 만들 수 있는 기능에 영향을 줍니다.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 | 이는 영향을 미칩니까? | 원인 | 해결 방법 |
 | --- | --- | --- |
