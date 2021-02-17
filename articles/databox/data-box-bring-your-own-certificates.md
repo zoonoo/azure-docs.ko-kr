@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 12/11/2020
 ms.author: alkohli
-ms.openlocfilehash: deb52c8716f97874beae4accbf6f34f72e20ca04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1836ed57305fd7e168961eb81670b56d4ce296cd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516460"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545176"
 ---
 # <a name="use-your-own-certificates-with-data-box-and-data-box-heavy-devices"></a>Data Box 및 Data Box Heavy 장치에서 사용자 고유의 인증서 사용
 
@@ -44,13 +44,13 @@ Data Box 또는 Data Box Heavy 장치에서는 두 가지 유형의 끝점 인�
 - 장치 이름 또는 DNS 도메인 이름이 변경 되 면 인증서를 변경 해야 합니다.
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-  |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+  |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
   |---------|---------|---------|---------|
   |로컬 UI| `<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`| `mydevice1.microsoftdatabox.com` |
   |Blob 스토리지|`*.blob.<DeviceName>.<DNSdomain>`|`*.blob.< DeviceName>.<DNSdomain>`|`*.blob.mydevice1.microsoftdatabox.com` |
   |다중 SAN 단일 인증서|`<DeviceName>.<DNSdomain>`|`<DeviceName>.<DNSdomain>`<br>`*.blob.<DeviceName>.<DNSdomain>`|`mydevice1.microsoftdatabox.com` |
 
-자세한 내용은 [인증서 요구 사항](../../articles/databox-online/azure-stack-edge-j-series-certificate-requirements.md)을 참조 하세요.
+자세한 내용은 [인증서 요구 사항](../../articles/databox-online/azure-stack-edge-gpu-certificate-requirements.md)을 참조 하세요.
 
 ## <a name="add-certificates-to-device"></a>장치에 인증서 추가
 

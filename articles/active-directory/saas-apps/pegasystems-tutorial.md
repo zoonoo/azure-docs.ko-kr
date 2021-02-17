@@ -9,35 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 4fb117b7f7b9a0c7a6a67e2714380a01cd53a4e0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4cd767736d6349199f4c82b00cb0b35db36cdb44
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515647"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99822382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>자습서: Pega Systems와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Pega Systems를 통합하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Pega Systems를 통합하는 방법에 대해 알아봅니다. Azure AD와 Pega Systems를 통합하면 다음을 수행할 수 있습니다.
 
-이 통합은 다음과 같은 이점을 제공합니다.
-
-* Azure AD를 사용하여 Pega Systems에 액세스할 수 있는 사용자를 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 Pega Systems에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
-
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+* Pega Systems에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 Pega Systems에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Pega Systems와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)에 가입할 수 있습니다.
-* Pega Systems Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Pega Systems SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -47,55 +41,37 @@ Pega Systems와 Azure AD의 통합을 구성하려면 다음 항목이 필요합
 
 ## <a name="add-pega-systems-from-the-gallery"></a>갤러리에서 Pega Systems 추가
 
-Pega Systems가 Azure AD에 통합되도록 설정하려면 갤러리의 Pega Systems를 관리형 SaaS 앱 목록에 추가해야 합니다.
+Pega Systems와 Azure AD의 통합을 구성하려면 갤러리에서 Pega Systems를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **Pega Systems** 를 입력합니다.
+1. 결과 패널에서 **Pega Systems** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-    ![Azure Active Directory 선택](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-pega-systems"></a>Pega Systems에 대한 Azure AD SSO 구성 및 테스트
 
-2. **Enterprise 애플리케이션** > **모든 애플리케이션** 으로 이동합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Pega Systems에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Pega Systems의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+Pega Systems에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
-3. 애플리케이션을 추가하려면 창의 위쪽에서 **새 애플리케이션** 을 선택합니다.
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Pega Systems SSO 구성](#configure-pega-systems-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Pega Systems 테스트 사용자 만들기](#create-pega-systems-test-user)** - Azure AD의 B.Simon 사용자에 연결된 Pega Systems 사용자를 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-    ![새 애플리케이션 선택](common/add-new-app.png)
+### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-4. 검색 상자에서 **Pega Systems** 를 입력합니다. 검색 결과에서 **Pega Systems** 를 선택한 다음, **추가** 를 선택합니다.
+Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-     ![검색 결과](common/search-new-app.png)
+1. Azure Portal의 **Pega Systems** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
-
-이 섹션에서는 Britta Simon이라는 테스트 사용자를 사용하여 Pega Systems에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On을 사용하도록 설정하려면 Azure AD 사용자와 Pega Systems의 해당 사용자 간에 연결 관계를 설정해야 합니다.
-
-Pega Systems에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 완료해야 합니다.
-
-1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD Single Sign-On을 구성](#configure-azure-ad-single-sign-on)** 합니다.
-2. 애플리케이션 쪽에서 **[Pega Systems Single Sign-On 구성](#configure-pega-systems-single-sign-on)** 합니다.
-3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. 사용자의 Azure AD 표현과 연결된 **[Pega Systems 테스트 사용자를 만듭니다](#create-a-pega-systems-test-user)** .
-6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
-
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
-
-Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com/)의 **Pega Systems** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
-
-    ![Single Sign-On 선택](common/select-sso.png)
-
-2. **Single Sign-On 선택 방법** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
-
-    ![Single Sign-On 방법 선택](common/select-saml-option.png)
-
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 선택하여 **기본 SAML 구성** 대화 상자를 엽니다.
-
-    ![편집 아이콘](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. IdP 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 대화 상자에서 다음 단계를 수행합니다.
 
@@ -166,27 +142,45 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-    1. **로그인 URL**
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-    1. **Azure AD 식별자**
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-    1. **로그아웃 URL**
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기** 를 클릭합니다.
 
-### <a name="configure-pega-systems-single-sign-on"></a>Pega Systems Single Sign-On 구성
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Pega Systems에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **Pega Systems** 를 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+### <a name="configure-pega-systems-sso"></a>Pega Systems SSO 구성
 
 1. **Pega Systems** 쪽에서 Single Sign-On을 구성하려면 다른 브라우저 창에서 관리자 계정을 사용하여 Pega 포털을 엽니다.
 
 2. **만들기** > **SysAdmin** > **인증 서비스** 를 차례로 선택합니다.
 
-    ![인증 서비스 선택](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
+    ![인증 서비스 선택](./media/pegasystems-tutorial/admin.png)
     
 3. **인증 서비스 만들기** 화면에서 다음 단계를 수행합니다.
 
-    ![인증 서비스 만들기 화면](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![인증 서비스 만들기 화면](./media/pegasystems-tutorial/admin1.png)
 
     1. **형식** 목록에서 **SAML 2.0** 을 선택합니다.
 
-    1. **이름** 상자에서 이름(예: **Azure AD SSO** )을 입력합니다.
+    1. **이름** 상자에서 이름(예: **Azure AD SSO**)을 입력합니다.
 
     1. **간단한 설명** 상자에서 설명을 입력합니다.  
 
@@ -194,15 +188,15 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     
 4. **ID 공급자(IdP) 정보** 섹션에서 **IdP 메타데이터 가져오기** 를 선택하고, Azure Portal에서 다운로드한 메타데이터 파일을 찾습니다. **제출** 을 클릭하여 메타데이터를 로드합니다.
 
-    ![ID 공급자(IdP) 정보 섹션](./media/pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+    ![ID 공급자(IdP) 정보 섹션](./media/pegasystems-tutorial/admin2.png)
     
     가져오기에서 IdP 데이터가 다음과 같이 채워집니다.
 
-    ![가져온 IdP 데이터](./media/pegasystems-tutorial/tutorial_pegasystems_admin3.png)
+    ![가져온 IdP 데이터](./media/pegasystems-tutorial/idp.png)
     
 6. **SP(서비스 공급자) 설정** 섹션에서 다음 단계를 수행합니다.
 
-    ![서비스 공급자 설정](./media/pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![서비스 공급자 설정](./media/pegasystems-tutorial/sp.png)
 
     1. **엔터티 ID** 값을 복사하고, Azure Portal의 **기본 SAML 구성** 에 있는 **식별자** 텍스트 상자에 붙여넣습니다.
 
@@ -212,70 +206,26 @@ Pega Systems에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 7. **저장** 을 선택합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
-
-이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
-
-    ![모든 사용자 선택](common/users.png)
-
-2. 다음과 같이 화면의 위쪽에서 **새 사용자** 를 선택합니다.
-
-    ![새 사용자 선택](common/new-user.png)
-
-3. **사용자** 대화 상자에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](common/user-properties.png)
-
-    a. **이름** 상자에 **BrittaSimon** 을 입력합니다.
-  
-    b. **사용자 이름** 상자에 **brittasimon@\<yourcompanydomain>.\<extension>** 를 입력합니다. (예: BrittaSimon@contoso.com)
-
-    다. **암호 표시** 를 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기** 를 선택합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Pega Systems에 대한 액세스 권한을 부여합니다.
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Pega Systems** 를 차례로 선택합니다.
-
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
-
-2. 애플리케이션 목록에서 **Pega Systems** 를 선택합니다.
-
-    ![애플리케이션 목록](common/all-applications.png)
-
-3. 다음과 같이 왼쪽 창에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 및 그룹 선택](common/users-groups-blade.png)
-
-4. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 선택](common/add-assign-user.png)
-
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-
-6. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서, 목록에 있는 사용자에게 적절한 역할을 선택합니다. 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
-
-7. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
-
-### <a name="create-a-pega-systems-test-user"></a>Pega Systems 테스트 사용자 만들기
+### <a name="create-pega-systems-test-user"></a>Pega Systems 테스트 사용자 만들기
 
 다음으로, Pega Systems에서 Britta Simon이라는 사용자를 만들어야 합니다. [Pega Systems 지원 팀](https://www.pega.com/contact-us)과 협력하여 사용자를 만듭니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트
+### <a name="test-sso"></a>SSO 테스트
 
-이제 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트해야 합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 Pega Systems 타일을 선택하면 SSO를 설정한 Pega Systems 인스턴스에 자동으로 로그인됩니다. 자세한 내용은 [내 앱 포털에서 앱 액세스 및 사용](../user-help/my-apps-portal-end-user-access.md)을 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Pega Systems 로그온 URL로 리디렉션됩니다.  
 
-- [SaaS 애플리케이션과 Azure Active Directory 통합을 위한 자습서](./tutorial-list.md)
+* Pega Systems 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Pega Systems에 자동으로 로그인됩니다. 
+
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Pega Systems 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위한 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Pega Systems에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+Pega Systems가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

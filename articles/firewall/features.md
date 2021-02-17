@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9f89d84fc7033645b2b094e9f40a1d85b076623b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788233"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544836"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
 
@@ -22,24 +22,25 @@ ms.locfileid: "98788233"
 
 Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 
-- [기본 제공 되는 고가용성](#built-in-high-availability)
-- [가용성 영역](#availability-zones)
-- [무제한 클라우드 확장성](#unrestricted-cloud-scalability)
-- [애플리케이션 FQDN 필터링 규칙](#application-fqdn-filtering-rules)
-- [네트워크 트래픽 필터링 규칙](#network-traffic-filtering-rules)
-- [FQDN 태그](#fqdn-tags)
-- [서비스 태그](#service-tags)
-- [위협 인텔리전스](#threat-intelligence)
-- [아웃바운드 SNAT 지원](#outbound-snat-support)
-- [인바운드 DNAT 지원](#inbound-dnat-support)
-- [여러 공용 IP 주소](#multiple-public-ip-addresses)
-- [Azure Monitor 로깅](#azure-monitor-logging)
-- [강제 터널링](#forced-tunneling)
-- [인증](#certifications)
+- 기본 제공되는 고가용성
+- 가용성 영역
+- 무제한 클라우드 확장성
+- 애플리케이션 FQDN 필터링 규칙
+- 네트워크 트래픽 필터링 규칙
+- FQDN 태그
+- 서비스 태그
+- 위협 인텔리전스
+- 아웃바운드 SNAT 지원
+- 인바운드 DNAT 지원
+- 여러 공용 IP 주소
+- Azure Monitor 로깅
+- 강제 터널링
+- 웹 범주 (미리 보기)
+- 인증
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성
 
-고가용성이 내장되어 있어서 부하 분산 장치가 추가로 필요하지 않으며 아무것도 구성할 필요가 없습니다.
+고가용성이 기본적으로 제공 되므로 추가 부하 분산 장치가 필요 하지 않으며 구성 해야 할 항목이 없습니다.
 
 ## <a name="availability-zones"></a>가용성 영역
 
@@ -47,7 +48,7 @@ Azure Firewall은 가용성을 높이기 위해 여러 가용 영역에 걸쳐 �
 
 서비스 표준 99.95% SLA를 사용하여 근접성을 이유로 특정 영역에 Azure Firewall을 연결할 수도 있습니다.
 
-가용성 영역에 배포되는 방화벽에 대한 추가 비용은 없습니다. 단, 가용 영역과 관련된 인바운드 및 아웃바운드 데이터 전송에는 추가 비용이 있습니다. 자세한 내용은 [대역폭 가격 세부 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요.
+가용성 영역에 배포되는 방화벽에 대한 추가 비용은 없습니다. 그러나 가용성 영역와 연결 된 인바운드 및 아웃 바운드 데이터 전송에 대 한 추가 비용이 있습니다. 자세한 내용은 [대역폭 가격 세부 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요.
 
 Azure Firewall 가용성 영역은 가용 영역을 지원하는 지역에서 사용할 수 있습니다. 자세한 내용은 [Azure에서 가용성 영역을 지원하는 지역](../availability-zones/az-region.md)을 참조하세요.
 
@@ -97,7 +98,7 @@ Azure Firewall은 변화하는 트래픽 흐름을 수용하기 위해 필요한
 따라서 다음과 같은 시나리오가 가능합니다.
 
 - **DNAT** - 여러 표준 포트 인스턴스를 백 엔드 서버로 변환할 수 있습니다. 예를 들어 공용 IP 주소가 2개인 경우 두 IP 주소 모두에 대해 TCP 포트 3389(RDP)를 변환할 수 있습니다.
-- **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다. [공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 사용하여 이 구성을 단순화하세요.
+- **Snat** -아웃 바운드 snat 연결에 대 한 더 많은 포트를 사용할 수 있으므로 snat 포트 고갈 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다. [공용 IP 주소 접두사](../virtual-network/public-ip-address-prefix.md)를 사용하여 이 구성을 단순화하세요.
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor 로깅
 
@@ -110,6 +111,24 @@ Azure 방화벽 통합 문서는 Azure 방화벽 데이터 분석을 위한 유�
 ## <a name="forced-tunneling"></a>강제 터널링
 
 모든 인터넷 바인딩된 트래픽을 인터넷으로 직접 이동하는 대신 지정된 다음 홉으로 라우팅하도록 Azure Firewall을 구성할 수 있습니다. 예를 들어 온-프레미스 에지 방화벽이나 기타 NVA(네트워크 가상 어플라이언스)를 통해 네트워크 트래픽을 인터넷에 전달하기 전에 처리할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
+
+## <a name="web-categories-preview"></a>웹 범주 (미리 보기)
+
+관리자는 웹 범주를 사용 하 여 도박 websites, 소셜 미디어 웹 사이트 등의 웹 사이트 범주에 대 한 사용자 액세스를 허용 하거나 거부할 수 있습니다. 웹 범주는 Azure 방화벽 표준에 포함 되어 있지만 Azure 방화벽 프리미엄 미리 보기에서 보다 구체적으로 조정 됩니다. FQDN을 기반으로 하는 범주와 일치 하는 표준 SKU의 웹 범주 기능과 달리 Premium SKU는 HTTP 및 HTTPS 트래픽의 전체 URL에 따라 범주와 일치 합니다. Azure 방화벽 프리미엄 미리 보기에 대 한 자세한 내용은 [Azure 방화벽 프리미엄 미리 보기 기능](premium-features.md)을 참조 하세요.
+
+예를 들어 Azure 방화벽이에 대 한 HTTPS 요청을 가로채는 경우 `www.google.com/news` 다음 분류가 필요 합니다. 
+
+- 방화벽 표준 – FQDN 부분만 검사 하므로 `www.google.com` *검색 엔진* 으로 분류 됩니다. 
+
+- 방화벽 프리미엄 – 전체 URL이 검사 되므로 `www.google.com/news` *뉴스* 로 분류 됩니다.
+
+범주는 **책임**, **고대역폭**, **비즈니스 사용**, **생산성 손실**, **일반 서핑** 및 **범주화** 되지 않음의 심각도를 기준으로 구성 됩니다.
+
+### <a name="category-exceptions"></a>범주 예외
+
+웹 범주 규칙에 대 한 예외를 만들 수 있습니다. 규칙 컬렉션 그룹 내에서 우선 순위가 높은 별도의 허용 또는 거부 규칙 컬렉션을 만듭니다. 예를 들어 우선 순위 100를 사용 하는 규칙 컬렉션을 구성할 수 있습니다 `www.linkedin.com` . 규칙 컬렉션은 우선 순위 200를 사용 하 여 **소셜 네트워킹** 을 거부 합니다. 이렇게 하면 미리 정의 된 **소셜 네트워킹** 웹 범주에 대 한 예외가 생성 됩니다.
+
+
 
 ## <a name="certifications"></a>인증서
 

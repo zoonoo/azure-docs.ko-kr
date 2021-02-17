@@ -1,22 +1,22 @@
 ---
-title: 사용자 지정 모델
+title: DTDL 모델
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins가 사용자 환경에서 엔터티를 설명 하는 데 사용자 정의 모델을 사용 하는 방식을 이해 합니다.
+description: Azure Digital Twins가 사용자 환경에서 엔터티를 설명 하는 데 사용자 지정 모델을 사용 하는 방법을 이해 합니다.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131392"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558144"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Understand twin models in Azure Digital Twins(Azure Digital Twins의 트윈 모델 이해)
 
-Azure Digital Twins의 주요 특징은 고유한 어휘를 정의 하 고 자체 정의 된 비즈니스 조건에서 쌍 그래프를 작성 하는 기능입니다. 이 기능은 사용자 정의 **모델** 을 통해 제공 됩니다. 모델을 전 세계 설명의 명사로 간주할 수 있습니다. 
+Azure Digital Twins의 주요 특징은 고유한 어휘를 정의 하 고 자체 정의 된 비즈니스 조건에서 쌍 그래프를 작성 하는 기능입니다. 이 기능은 사용자 제공 **모델** 을 통해 제공 됩니다. 모델을 전 세계 설명의 명사로 간주할 수 있습니다. 
 
 모델은 개체 지향 프로그래밍 언어의 **클래스** 와 비슷하며 실제 작업 환경에서 하나의 특정 개념에 대 한 데이터 셰이프를 정의 합니다. 모델에는 이름 (예: *Room* 또는 *TemperatureSensor*)이 있고 속성, 원격 분석/이벤트, 환경에서이 유형의 엔터티를 설명 하는 명령 등의 요소가 포함 되어 있습니다. 나중에 이러한 모델을 사용 하 여이 유형 설명을 충족 하는 특정 엔터티를 나타내는 [**digital 쌍**](concepts-twins-graph.md) 를 만듭니다.
 
@@ -24,7 +24,7 @@ Azure Digital Twins 모델은 JSON-LD 기반의 **DTDL (디지털 쌍 정의 언
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>모델에 대 한 DTDL (디지털 쌍 정의 언어)
 
-Azure Digital Twins의 모델은 DTDL (디지털 Twins 정의 언어)를 사용 하 여 정의 됩니다. DTDL은 JSON을 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure 디지털 쌍에만 국한 되는 것이 아니라 [iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)와 같은 다른 iot 서비스에서 장치 데이터를 표시 하는 데도 사용 됩니다. 
+Azure Digital Twins의 모델은 DTDL(Digital Twins Definition language)을 사용하여 정의됩니다. DTDL은 JSON-LD를 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure 디지털 쌍에만 국한 되는 것이 아니라 [iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)와 같은 다른 iot 서비스에서 장치 데이터를 표시 하는 데도 사용 됩니다. 
 
 Azure Digital Twins는 **Dtdl _버전 2_** 를 사용 합니다. 이 DTDL 버전에 대 한 자세한 내용은 GitHub의 사양 설명서 [*(dtdl)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)를 참조 하세요. 이제 Azure Digital Twins에서 DTDL _버전 1_ 을 사용 하는 것은 더 이상 사용 되지 않습니다.
 
@@ -35,7 +35,7 @@ Azure Digital Twins는 **Dtdl _버전 2_** 를 사용 합니다. 이 DTDL 버전
 
 ## <a name="elements-of-a-model"></a>모델 요소
 
-모델 정의 내에서 최상위 코드 항목은 **인터페이스** 입니다. 이는 전체 모델을 캡슐화 하 고 모델의 나머지는 인터페이스 내에서 정의 됩니다. 
+모델 정의 내에서 최상위 코드 항목은 **인터페이스** 입니다. 이 형식은 전체 모델을 캡슐화하며 나머지 모델은 인터페이스 내에서 정의됩니다. 
 
 DTDL 모델 인터페이스에는 다음의 각 필드를 0 개, 1 개 또는 여러 개 포함할 수 있습니다.
 * **속성** -속성은 엔터티의 상태를 나타내는 데이터 필드입니다 (예: 많은 개체 지향 프로그래밍 언어의 속성). 속성은 백업 저장소를 포함 하며 언제 든 지 읽을 수 있습니다.
@@ -92,7 +92,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface* 입니다. |
@@ -136,23 +136,31 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>업계 표준 모델과 통합
+## <a name="tools-for-models"></a>모델에 대 한 도구 
 
-업계 표준을 기반으로 하는 모델을 사용 하거나 RDF 또는 OWL와 같은 표준 ontology 표현을 사용 하면 Azure Digital Twins 모델을 디자인할 때 다양 한 시작 지점을 제공 합니다. 산업 모델을 사용 하면 표준화 및 정보 공유에도 도움이 됩니다.
+모델 및 온톨로지 더 쉽게 처리할 수 있는 몇 가지 샘플이 있습니다. 이러한 리포지토리는 [DTDL (Digital Twins 정의 언어) 도구](https://github.com/Azure/opendigitaltwins-tools)에 있습니다.
 
-Azure Digital Twins에서 사용 하려면 모델이 JSON-LD 기반 [**디지털 Twins 정의 언어 (DTDL)**](concepts-models.md)로 표시 되어야 합니다. 따라서 업계 표준 모델을 사용 하려면 먼저이를 DTDL로 변환 하 여 Azure Digital Twins에서 사용할 수 있도록 해야 합니다. 그런 다음 DTDL 모델은 Azure Digital Twins 내에서 모델에 대 한 진위의 원본으로 사용 됩니다.
+이 섹션에서는 현재 샘플 집합에 대해 자세히 설명 합니다.
 
-사용자의 상황에 따라 다음과 같은 두 가지 주요 경로를 사용 하 여 DTDL과 함께 산업 표준 모델을 통합할 수 있습니다.
-* 모델을 아직 만들지 않은 경우 업계와 관련 된 언어를 포함 하는 **기존 스타터 DTDL 온톨로지** 을 기반으로 모델을 디자인할 수 있습니다.
-* 산업 표준을 기반으로 하는 기존 모델이 이미 있는 경우 Azure Digital Twins로 가져오려면 **DTDL로 변환** 해야 합니다.
+### <a name="model-uploader"></a>모델 업 로더 
 
-이러한 두 프로세스에 대 한 자세한 내용은 [*방법: 업계 표준 모델 통합*](how-to-integrate-models.md)을 참조 하세요.
+_**Azure Digital Twins에 모델 업로드**_
+
+모델 만들기, 확장 또는 선택이 완료 되 면 솔루션에서 사용할 수 있도록 Azure Digital Twins 인스턴스에 업로드할 수 있습니다. 이 작업은 [*방법: DTDL 모델 관리*](how-to-manage-model.md#upload-models)에 설명 된 대로 [Azure Digital twins api](how-to-use-apis-sdks.md)를 사용 하 여 수행 됩니다.
+
+그러나 업로드할 모델이 많이 있거나 개별 업로드를 복잡 하 게 하는 상호 종속성이 많은 경우이 샘플을 사용 하 여 여러 모델을 한 번에 업로드할 수 있습니다. [**Azure Digital Twins 모델 업 로더**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) 샘플에서 제공 하는 지침에 따라이 프로젝트를 구성 하 고 사용 하 여 사용자 고유의 인스턴스에 모델을 업로드 합니다.
+
+### <a name="model-visualizer"></a>모델 시각화 도우미 
+
+_**모델 시각화**_
+
+Azure Digital Twins 인스턴스에 모델을 업로드 한 후에는 [**ADT 모델 시각화 도우미**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용 하 여 상속 및 모델 관계를 포함 하 여 Azure Digital twins 인스턴스에서 모델을 볼 수 있습니다. 이 샘플은 현재 초안 상태입니다. 디지털 쌍 개발 커뮤니티를 확장 하 고 샘플에 참여 하는 것이 좋습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-DigitalTwinModels Api를 사용 하 여 모델을 관리 하는 방법을 참조 하세요.
-* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
+* 업계 표준 온톨로지을 기반으로 모델을 만드는 방법에 대해 알아봅니다. [ *개념: ontology 란?*](concepts-ontologies.md)
 
-또는 모델을 기반으로 디지털 쌍을 만드는 방법에 대해 알아봅니다.
-* [*개념: 디지털 쌍 및 쌍 그래프*](concepts-twins-graph.md)
+* API 작업을 사용 하 여 모델 관리에 대해 자세히 알아보기: [ *방법: dtdl 모델 관리*](how-to-manage-model.md)
+
+* 모델을 사용 하 여 digital 쌍를 만드는 방법에 대해 알아봅니다. [ *개념: 디지털 쌍 및 쌍 그래프*](concepts-twins-graph.md)
 

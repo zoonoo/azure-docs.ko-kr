@@ -2,19 +2,19 @@
 title: Azure 통신 서비스에 인증
 titleSuffix: An Azure Communication Services concept document
 description: 응용 프로그램 또는 서비스가 통신 서비스에 인증할 수 있는 다양 한 방법에 대해 알아봅니다.
-author: matthewrobertson
+author: GrantMeStrength
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: jken
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 4d6e02852dcd2d30a764417a4b5e0e012a1d2ab5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e20c822c2e792c67ed655080385a3c90794d53fd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571099"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545142"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure 통신 서비스에 인증
 
@@ -48,7 +48,7 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 
 ### <a name="sign-an-http-request"></a>HTTP 요청 서명
 
-클라이언트 라이브러리를 사용 하 여 Azure Communication Services REST Api에 대 한 HTTP 요청을 수행 하지 않는 경우 각 HTTP 요청에 대해 프로그래밍 방식으로 HMACs를 만들어야 합니다. 다음 단계에서는 인증 헤더를 생성 하는 방법을 설명 합니다.
+클라이언트 라이브러리를 사용 하 여 Azure Communication Services REST Api에 대 한 HTTP 요청을 수행 하지 않는 경우 각 HTTP 요청에 대해 프로그래밍 방식으로 HMACs를 만들어야 합니다. 다음 단계에서는 인증 헤더를 생성하는 방법을 설명합니다.
 
 1. 헤더 또는 표준 HTTP 헤더에서 요청에 대 한 UTC (협정 세계시) 타임 스탬프를 지정 `x-ms-date` `Date` 합니다. 서비스는 재생 공격을 포함 하 여 특정 보안 공격 으로부터 보호 하기 위해이의 유효성을 검사 합니다.
 1. SHA256 알고리즘을 사용 하 여 HTTP 요청 본문을 해시 한 다음 헤더를 통해 요청과 함께 전달 합니다 `x-ms-content-sha256` .
@@ -72,11 +72,11 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 
 사용자 액세스 토큰을 통해 클라이언트 응용 프로그램에서 Azure Communication Services에 대해 직접 인증할 수 있습니다. 이를 위해서는 응용 프로그램 사용자를 인증 하 고 관리 클라이언트 라이브러리를 사용 하 여 사용자 액세스 토큰을 발급 하는 신뢰할 수 있는 서비스를 설정 해야 합니다. 아키텍처 고려 사항에 대해 자세히 알아보려면 [클라이언트 및 서버 아키텍처](./client-and-server-architecture.md) 개념 설명서를 참조 하세요.
 
-클래스에는 `CommunicationUserCredential` 클라이언트 라이브러리에 사용자 액세스 토큰 자격 증명을 제공 하 고 수명 주기를 관리 하는 논리가 포함 되어 있습니다.
+클래스에는 `CommunicationTokenCredential` 클라이언트 라이브러리에 사용자 액세스 토큰 자격 증명을 제공 하 고 수명 주기를 관리 하는 논리가 포함 되어 있습니다.
 
 ### <a name="initialize-the-client-libraries"></a>클라이언트 라이브러리 초기화
 
-사용자 액세스 토큰 인증이 필요한 Azure Communication Services 클라이언트 라이브러리를 초기화 하려면 먼저 클래스의 인스턴스 `CommunicationUserCredential` 를 만든 다음이를 사용 하 여 API 클라이언트를 초기화 합니다.
+사용자 액세스 토큰 인증이 필요한 Azure Communication Services 클라이언트 라이브러리를 초기화 하려면 먼저 클래스의 인스턴스 `CommunicationTokenCredential` 를 만든 다음이를 사용 하 여 API 클라이언트를 초기화 합니다.
 
 다음 코드 조각은 사용자 액세스 토큰을 사용 하 여 채팅 클라이언트 라이브러리를 초기화 하는 방법을 보여 줍니다.
 
@@ -86,8 +86,8 @@ Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signatur
 // user access tokens should be created by a trusted service using the Administration client library
 var token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-var userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+var userCredential = new CommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -99,8 +99,8 @@ var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 const token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance with the AzureCommunicationUserCredential class
-const userCredential = new AzureCommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
+const userCredential = new AzureCommunicationTokenCredential(token);
 
 // initialize the chat client library with the credential
 let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
@@ -112,8 +112,8 @@ let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
 // user access tokens should be created by a trusted service using the Administration client library
 let token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-let userCredential = try CommunicationUserCredential(token: token)
+// create a CommunicationTokenCredential instance
+let userCredential = try CommunicationTokenCredential(token: token)
 
 // initialize the chat client library with the credential
 let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
@@ -125,8 +125,8 @@ let chatClient = try CommunicationChatClient(credential: userCredential, endpoin
 // user access tokens should be created by a trusted service using the Administration client library
 String token = "<valid-user-access-token>";
 
-// create a CommunicationUserCredential instance
-CommunicationUserCredential userCredential = new CommunicationUserCredential(token);
+// create a CommunicationTokenCredential instance
+CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
 
 // Initialize the chat client
 final ChatClientBuilder builder = new ChatClientBuilder();
@@ -140,12 +140,12 @@ ChatClient chatClient = builder.buildClient();
 
 ### <a name="refreshing-user-access-tokens"></a>사용자 액세스 토큰 새로 고침
 
-사용자 액세스 토큰은 사용자에 게 서비스 중단이 발생 하지 않도록 하기 위해 다시 발급 해야 하는 수명이 짧은 자격 증명입니다. `CommunicationUserCredential`생성자는 사용자 액세스 토큰이 만료 되기 전에 업데이트할 수 있도록 하는 새로 고침 콜백 함수를 허용 합니다. 이 콜백을 사용 하 여 신뢰할 수 있는 서비스에서 새 사용자 액세스 토큰을 가져와야 합니다.
+사용자 액세스 토큰은 사용자에 게 서비스 중단이 발생 하지 않도록 하기 위해 다시 발급 해야 하는 수명이 짧은 자격 증명입니다. `CommunicationTokenCredential`생성자는 사용자 액세스 토큰이 만료 되기 전에 업데이트할 수 있도록 하는 새로 고침 콜백 함수를 허용 합니다. 이 콜백을 사용 하 여 신뢰할 수 있는 서비스에서 새 사용자 액세스 토큰을 가져와야 합니다.
 
 #### <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
-var userCredential = new CommunicationUserCredential(
+var userCredential = new CommunicationTokenCredential(
     initialToken: token,
     refreshProactively: true,
     tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
@@ -155,7 +155,7 @@ var userCredential = new CommunicationUserCredential(
 #### <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const userCredential = new AzureCommunicationUserCredential({
+const userCredential = new AzureCommunicationTokenCredential({
   tokenRefresher: async () => fetchNewTokenForCurrentUser(),
   refreshProactively: true,
   initialToken: token
@@ -165,7 +165,7 @@ const userCredential = new AzureCommunicationUserCredential({
 #### <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
- let userCredential = try CommunicationUserCredential(initialToken: token, refreshProactively: true) { |completionHandler|
+ let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
    let updatedToken = fetchTokenForCurrentUser()
    completionHandler(updatedToken, nil)
  }
@@ -181,7 +181,7 @@ TokenRefresher tokenRefresher = new TokenRefresher() {
     }
 }
 
-CommunicationUserCredential credential = new CommunicationUserCredential(tokenRefresher, token, true);
+CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
 ```
 ---
 

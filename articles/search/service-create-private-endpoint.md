@@ -3,17 +3,17 @@ title: 보안 연결을 위한 개인 끝점 만들기
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 서비스에 대 한 보안 연결을 위해 가상 네트워크에서 개인 끝점을 설정 합니다.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779943"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545533"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 보안 연결을 위한 개인 끝점 만들기
 
@@ -21,8 +21,10 @@ ms.locfileid: "96779943"
 
 개인 끝점은 [Azure 개인 링크](../private-link/private-link-overview.md)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/private-link/)를 참조 하세요.
 
-> [!Important]
-> Azure Portal 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/)을 사용 하 여 Azure Cognitive Search에 대 한 개인 끝점 지원을 구성할 수 있습니다. 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만 인덱스, 인덱서 및 기술 정의와 같은 서비스의 다양 한 구성 요소 및 인덱스에 대 한 포털 액세스는 보안상의 이유로 제한 됩니다. 포털 대신 [VS Code 확장](https://aka.ms/vscode-search) 을 사용 하 여 서비스의 다양 한 구성 요소와 상호 작용할 수 있습니다.
+이 문서에 설명 된 대로 Azure Portal에서 개인 끝점을 만들 수 있습니다. 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)또는 [Azure CLI](/cli/azure/search)를 사용할 수 있습니다.
+
+> [!NOTE]
+> 서비스 끝점이 개인 인 경우 일부 포털 기능이 사용 하지 않도록 설정 됩니다. 서비스 수준 정보를 보고 관리할 수 있지만, 인덱스, 인덱서 및 기술 정보는 보안상의 이유로 숨겨집니다. 포털 대신 [VS Code 확장](https://aka.ms/vscode-search) 을 사용 하 여 서비스의 다양 한 구성 요소와 상호 작용할 수 있습니다.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>보안 액세스에 개인 끝점을 사용 하는 이유
 
@@ -44,9 +46,9 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 구독 | 구독 선택|
+    | Subscription | 구독 선택|
     | Resource group | **새로 만들기** 를 선택 하 고 *myresourcegroup* 을 입력 한 다음 **확인** 을 선택 합니다. |
-    | 이름 | *MyVirtualNetwork* 입력 |
+    | Name | *MyVirtualNetwork* 입력 |
     | 지역 | 원하는 지역 선택 |
     |||
 
@@ -218,9 +220,9 @@ Azure Cognitive Search에 대 한 [개인 끝점](../private-link/private-endpoi
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, 검색 서비스 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 포함 된 모든 리소스를 삭제 합니다.
-1.  *myResourceGroup*   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서  *myresourcegroup* 을 선택   합니다. 
+1.  **   포털 맨 위에 있는 **검색** 상자에 myresourcegroup을 입력 하 고 검색 결과에서  *myresourcegroup* 을 선택   합니다. 
 1. **리소스 그룹 삭제** 를 선택합니다. 
-1.  *myResourceGroup*   **리소스 그룹 이름 입력** 에 myresourcegroup을 입력 하 고 **삭제** 를 선택 합니다.
+1.  **   **리소스 그룹 이름 입력** 에 myresourcegroup을 입력 하 고 **삭제** 를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 가상 네트워크에서 VM을 만들고 개인 끝점을 사용 하 여 검색 서비스를 만들었습니다. 인터넷에서 VM에 연결 하 고 개인 링크를 사용 하 여 검색 서비스에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](../private-link/private-endpoint-overview.md)을 참조 하세요.
