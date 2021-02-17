@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618878"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574139"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -40,7 +40,7 @@ Azure AD DS 보안 감사에 대 한 대상 리소스로 Azure Storage, Azure Ev
 |:---|:---|
 |Azure Storage| 이 대상은 보관 목적으로 보안 감사 이벤트를 저장 해야 하는 경우에 사용 해야 합니다. 다른 대상은 보관 목적으로 사용할 수 있지만 이러한 대상은 보관의 기본 요구를 벗어난 기능을 제공 합니다. <br /><br />Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 먼저 [Azure Storage 계정을 만듭니다](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| 이 대상은 데이터 분석 소프트웨어 또는 SIEM (보안 정보 & 이벤트 관리) 소프트웨어와 같은 추가 소프트웨어를 사용 하 여 보안 감사 이벤트를 공유 해야 하는 경우에 사용 해야 합니다.<br /><br />Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [Azure Portal를 사용 하 여 이벤트 허브를 만듭니다](../event-hubs/event-hubs-create.md) .|
-|Azure Log Analytics 작업 영역| 이 대상은 Azure Portal에서 직접 보안 감사를 분석 하 고 검토 해야 하는 경우에 주로 사용 해야 합니다.<br /><br />Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [Azure Portal에 Log Analytics 작업 영역을 만듭니다.](../azure-monitor/learn/quick-create-workspace.md)|
+|Azure Log Analytics 작업 영역| 이 대상은 Azure Portal에서 직접 보안 감사를 분석 하 고 검토 해야 하는 경우에 주로 사용 해야 합니다.<br /><br />Azure AD DS 보안 감사 이벤트를 사용 하도록 설정 하기 전에 [Azure Portal에 Log Analytics 작업 영역을 만듭니다.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Azure Portal를 사용 하 여 보안 감사 이벤트 사용
 
@@ -100,7 +100,7 @@ Azure PowerShell를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용
         > [!IMPORTANT]
         > 이벤트 허브 자체가 아니라 event hubs 네임 스페이스에 대 한 권한 부여 규칙을 설정 했는지 확인 합니다.
 
-    * **Azure 로그 분석 작업 영역**  -  [Azure PowerShell를 사용 하 여 Log Analytics 작업 영역을 만듭니다](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Azure 로그 분석 작업 영역**  -  [Azure PowerShell를 사용 하 여 Log Analytics 작업 영역을 만듭니다](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. [AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet을 사용 하 여 Azure AD DS 관리 되는 도메인에 대 한 리소스 ID를 가져옵니다. $Aadds 라는 변수를 만듭니다 *.* 값을 보유할 ResourceId:
 
@@ -141,9 +141,9 @@ Azure PowerShell를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용
 로그 분석 작업 영역을 사용 하면 Azure Monitor 및 Kusto 쿼리 언어를 사용 하 여 보안 감사 이벤트를 보고 분석할 수 있습니다. 이 쿼리 언어는 읽기 쉬운 구문으로 전원 분석 기능을 boasts 하는 읽기 전용 사용을 위해 설계 되었습니다. Kusto 쿼리 언어를 시작 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 * [Azure Monitor 설명서](../azure-monitor/index.yml)
-* [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)
-* [Log Analytics 데이터 대시보드 만들기 및 공유](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)
+* [Log Analytics 데이터 대시보드 만들기 및 공유](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 다음 샘플 쿼리를 사용 하 여 Azure AD DS에서 보안 감사 이벤트 분석을 시작할 수 있습니다.
 
@@ -237,10 +237,10 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 |:---|:---|
 |계정 로그온 보안|4767, 4774, 4775, 4776, 4777|
 |계정 관리 보안|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|세부 정보 추적 보안|None|
+|세부 정보 추적 보안|없음|
 |DS 액세스 보안|5136, 5137, 5138, 5139, 5141|
 |Logon-Logoff 보안|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|개체 액세스 보안|None|
+|개체 액세스 보안|없음|
 |정책 변경 보안|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |권한 사용 보안|4985|
 |시스템 보안|4612, 4621|

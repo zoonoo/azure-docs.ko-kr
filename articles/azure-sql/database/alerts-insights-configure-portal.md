@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 86ac0f64a6a797b1bc702597ed30e6417f2efe14
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c7f72a9b140c68320e221a4cfb20cbf107a5f531
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500974"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572274"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse 분석에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -42,9 +42,9 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
 
-* [Azure Portal](../../azure-monitor/platform/alerts-classic-portal.md)
-* [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [CLI (명령줄 인터페이스)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure Portal](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [PowerShell](../../azure-monitor/alerts/alerts-classic-portal.md)
+* [CLI (명령줄 인터페이스)](../../azure-monitor/alerts/alerts-classic-portal.md)
 * [Azure Monitor REST API](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure 포털에서 메트릭에 대한 경고 규칙 만들기
@@ -73,4 +73,4 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [경고에서의 webhook 구성](../../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
+* [경고에서의 webhook 구성](../../azure-monitor/alerts/alerts-webhooks.md)에 대해 자세히 알아봅니다.

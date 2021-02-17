@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 5b9e7938f404a37672fe8d13725b1e64d665bf18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542085"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576271"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -25,8 +25,8 @@ ms.locfileid: "94542085"
 * 웹후크 호출
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
@@ -36,7 +36,7 @@ ms.locfileid: "94542085"
 
    :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
-3. **메트릭 경고 추가** (+ 아이콘)를 선택합니다.
+3. **메트릭 경고 추가**(+ 아이콘)를 선택합니다.
 
 4. 아래와 같이 **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "94542085"
    
    :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="메트릭 선택":::
 
-7. **조건** (예: "보다 큼"), **임계값** (예: 85%), **시간 집계** , 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간** (예: "지난 30 분") 및 **Frequency**.
+7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분") 및 **Frequency**.
    
    완료되면 **완료** 를 선택합니다.
 
@@ -85,5 +85,5 @@ ms.locfileid: "94542085"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/platform/data-platform.md) 의 개요를 살펴봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/alerts/alerts-webhooks.md)에 대해 자세히 알아봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/data-platform.md) 의 개요를 살펴봅니다.

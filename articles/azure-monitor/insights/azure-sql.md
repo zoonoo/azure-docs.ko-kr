@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397082"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577468"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -33,11 +33,11 @@ Azure SQL 분석은 모든 Azure SQL database에 대 한 진단 원격 분석 �
 
 | 연결된 소스 | 지원됨 | Description |
 | --- | --- | --- |
-| [진단 설정](../platform/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그에 전송 됩니다. |
-| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../platform/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
+| [진단 설정](../essentials/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그에 전송 됩니다. |
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../agents/agent-windows.md) | 아니요 | 직접 Windows 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 Azure SQL 분석에서 사용 되지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | 아니요 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 Azure SQL 분석에서 사용 되지 않습니다. |
 
 ## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
 
@@ -170,13 +170,13 @@ Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기
 
 ## <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
 
-Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를 위한 [Log Analytics 언어](../log-query/get-started-queries.md)를 기반으로 합니다. [사용 가능한 메트릭 및 로그](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available)에서 사용자 지정 쿼리를 위해 데이터베이스 리소스에서 수집된 사용 가능 데이터에 대한 설명을 확인하세요.
+Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를 위한 [Log Analytics 언어](../logs/get-started-queries.md)를 기반으로 합니다. [사용 가능한 메트릭 및 로그](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available)에서 사용자 지정 쿼리를 위해 데이터베이스 리소스에서 수집된 사용 가능 데이터에 대한 설명을 확인하세요.
 
 Azure SQL 분석의 자동화 된 경고는 조건이 충족 될 때 경고를 트리거하는 Log Analytics 쿼리를 작성 하는 것을 기반으로 합니다. Azure SQL 분석에서 경고를 설정할 수 있는 Log Analytics 쿼리의 몇 가지 예제를 찾습니다.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Azure SQL Database에 대한 경고 만들기
 
-Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../platform/alerts-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 쿼리](../log-query/log-query-overview.md)입니다.
+Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../alerts/alerts-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 쿼리](../logs/log-query-overview.md)입니다.
 
 #### <a name="high-cpu"></a>높은 CPU
 
@@ -297,7 +297,7 @@ Azure SQL 분석 무료로 사용할 수 있지만 매달 할당 된 데이터 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Monitor의 [로그 쿼리](../log-query/log-query-overview.md) 를 사용 하 여 자세한 Azure SQL 데이터를 볼 수 있습니다.
-- Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../learn/tutorial-logs-dashboards.md).
-- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../platform/alerts-overview.md).
+- Azure Monitor의 [로그 쿼리](../logs/log-query-overview.md) 를 사용 하 여 자세한 Azure SQL 데이터를 볼 수 있습니다.
+- Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](../visualize/tutorial-logs-dashboards.md).
+- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../alerts/alerts-overview.md).
 

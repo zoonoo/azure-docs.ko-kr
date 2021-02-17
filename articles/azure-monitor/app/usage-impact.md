@@ -6,16 +6,16 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678382"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583516"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
-Impact는 로드 시간 및 기타 속성이 앱의 여러 부분에서 전환율에 미치는 영향을 분석합니다. 정확도를 높이기 위해 **페이지 보기** , **사용자 지정 이벤트** 또는 **요청** 의 **모든 차원** 이 여러 **페이지 보기** 또는 **사용자 지정 이벤트** 에 미치는 영향을 탐색합니다. 
+Impact는 로드 시간 및 기타 속성이 앱의 여러 부분에서 전환율에 미치는 영향을 분석합니다. 정확도를 높이기 위해 **페이지 보기**, **사용자 지정 이벤트** 또는 **요청** 의 **모든 차원** 이 여러 **페이지 보기** 또는 **사용자 지정 이벤트** 에 미치는 영향을 탐색합니다. 
 
 ![Impact 도구](./media/usage-impact/0001-impact.png)
 
@@ -65,9 +65,9 @@ Impact는 표준 및 사용자 지정 속성/측정을 모두 지원합니다. �
 
 Impact Analysis의 기본적인 작동 원리는 다음과 같습니다.
 
-_A_ = 첫 번째 드롭다운 목록에서 선택하는 기본 페이지 보기/사용자 지정 이벤트/요청. ( **페이지 보기의 경우** ).
+_A_ = 첫 번째 드롭다운 목록에서 선택하는 기본 페이지 보기/사용자 지정 이벤트/요청. (**페이지 보기의 경우**).
 
-_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트( **이 다음의 사용량에 미치는 영향을 분석합니다.** ).
+_B_ = 선택하는 보조 페이지 보기/사용자 지정 이벤트(**이 다음의 사용량에 미치는 영향을 분석합니다.** ).
 
 Impact는 선택한 시간 범위에서 사용자의 모든 세션의 예제를 살펴봅니다. 각 세션에서, _A_ 의 발생을 찾습니다.
 
@@ -85,6 +85,6 @@ Impact의 궁극적인 계산 방법은 분석 기준이 메트릭인지 아니�
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../platform/workbooks-overview.md)
+    - [통합 문서](../visualize/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
 

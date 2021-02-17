@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256884"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574185"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>프로 비전이 Azure Monitor 로그와 통합 되는 방식 이해
 
@@ -24,7 +24,7 @@ ms.locfileid: "99256884"
 
 ## <a name="enabling-provisioning-logs"></a>프로 비전 로그 사용
 
-Azure 모니터링 및 Log Analytics에 대해 이미 잘 알고 있어야 합니다. 그렇지 않은 경우 계속 해 서 자세히 알아보고 응용 프로그램 프로 비전 로그에 대해 자세히 알아보세요. Azure 모니터링에 대해 자세히 알아보려면 [Azure Monitor 개요](../../azure-monitor/overview.md)를 참조 하세요. Azure Monitor 로그 및 Log Analytics에 대해 자세히 알아보려면 Azure Monitor의 [로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+Azure 모니터링 및 Log Analytics에 대해 이미 잘 알고 있어야 합니다. 그렇지 않은 경우 계속 해 서 자세히 알아보고 응용 프로그램 프로 비전 로그에 대해 자세히 알아보세요. Azure 모니터링에 대해 자세히 알아보려면 [Azure Monitor 개요](../../azure-monitor/overview.md)를 참조 하세요. Azure Monitor 로그 및 Log Analytics에 대해 자세히 알아보려면 Azure Monitor의 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 Azure 모니터링을 구성한 후에는 응용 프로그램 프로 비전에 대해 로그를 사용 하도록 설정할 수 있습니다. 옵션은 **진단 설정** 페이지에 있습니다.
 
@@ -47,7 +47,7 @@ Azure 모니터링을 구성한 후에는 응용 프로그램 프로 비전에 �
 
 ## <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
-Azure Monitor 통합 문서는 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 또한 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있도록 제공 합니다. 자세히 알아보려면 [Azure Monitor 통합 문서 개요](../../azure-monitor/platform/workbooks-overview.md)를 참조 하세요.
+Azure Monitor 통합 문서는 데이터 분석을 위한 유연한 캔버스를 제공 합니다. 또한 Azure Portal 내에서 풍부한 시각적 보고서를 만들 수 있도록 제공 합니다. 자세히 알아보려면 [Azure Monitor 통합 문서 개요](../../azure-monitor/visualize/workbooks-overview.md)를 참조 하세요.
 
 응용 프로그램 프로 비전은 미리 작성 된 통합 문서 집합과 함께 제공 됩니다. 이러한 항목은 통합 문서 페이지에서 찾을 수 있습니다. 데이터를 보려면 모든 필터 (timeRange, jobID, appName)가 채워져 있는지 확인 해야 합니다. 앱을 프로 비전 했는지 확인 해야 합니다. 그렇지 않으면 로그에 데이터가 없을 수도 있습니다.
 
@@ -57,7 +57,7 @@ Azure Monitor 통합 문서는 데이터 분석을 위한 유연한 캔버스를
 
 ## <a name="custom-queries"></a>사용자 지정 쿼리
 
-사용자 지정 쿼리를 만들고 Azure 대시보드에 데이터를 표시할 수 있습니다. 방법을 알아보려면 [Log Analytics 데이터의 대시보드 만들기 및 공유](../../azure-monitor/log-query/get-started-queries.md)를 참조 하세요. 또한 [Azure Monitor에서 로그 쿼리의 개요](../../azure-monitor/log-query/log-query-overview.md)를 확인 해야 합니다.
+사용자 지정 쿼리를 만들고 Azure 대시보드에 데이터를 표시할 수 있습니다. 방법을 알아보려면 [Log Analytics 데이터의 대시보드 만들기 및 공유](../../azure-monitor/logs/get-started-queries.md)를 참조 하세요. 또한 [Azure Monitor에서 로그 쿼리의 개요](../../azure-monitor/logs/log-query-overview.md)를 확인 해야 합니다.
 
 응용 프로그램 프로 비전을 시작 하는 몇 가지 샘플은 다음과 같습니다.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 Azure Monitor를 사용 하면 프로 비전 관련 주요 이벤트에 대 한 알림을 받을 수 있도록 사용자 지정 경고를 구성할 수 있습니다. 예를 들어 오류 급증에 대 한 경고를 받을 수 있습니다. 또는이 사용 하지 않도록 설정 되거나 삭제 될 수도 있습니다. 경고를 발생 시킬 수 있는 또 다른 예는 어떤 것이 잘못 되었음을 나타내는 프로 비전이 없다는 것입니다.
 
-경고에 대해 자세히 알아보려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../../azure-monitor/learn/tutorial-response.md)을 참조 하세요.
+경고에 대해 자세히 알아보려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../../azure-monitor/alerts/tutorial-response.md)을 참조 하세요.
 
 오류가 급증 하는 경우 경고 합니다. JobID를 응용 프로그램에 대 한 jobID로 바꿉니다.
 
@@ -118,7 +118,7 @@ Azure Monitor를 사용 하면 프로 비전 관련 주요 이벤트에 대 한 
 ## <a name="next-steps"></a>다음 단계
 
 - [Log analytics](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Azure Monitor 로그에서 쿼리 시작](../../azure-monitor/log-query/get-started-queries.md)
-- [Azure Portal에서 경고 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md)
+- [Azure Monitor 로그에서 쿼리 시작](../../azure-monitor/logs/get-started-queries.md)
+- [Azure Portal에서 경고 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md)
 - [Azure Active Directory용 로그 분석 보기 설치 및 사용](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [프로 비전 로그 API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

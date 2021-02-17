@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183722"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575990"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Azure Automation에서 사용 하는 Azure 지역에 대 한 DNS 레코드
 
@@ -21,7 +21,7 @@ ms.locfileid: "96183722"
 * Webhook
 
 >[!NOTE]
->Linux Hybrid Runbook Worker 등록은 버전이 1.6.10.2 이상인 경우에만 새 레코드와 함께 실패 합니다. 컴퓨터에서 업데이트 된 버전의 작업자 역할을 수신 하 고 이러한 새 레코드를 사용 하려면 최신 버전의 [Linux 용 Log Analytics 에이전트로](../../azure-monitor/platform/agent-linux.md) 업그레이드 해야 합니다. 기존 컴퓨터는 문제 없이 계속 작동 합니다.  
+>Linux Hybrid Runbook Worker 등록은 버전이 1.6.10.2 이상인 경우에만 새 레코드와 함께 실패 합니다. 컴퓨터에서 업데이트 된 버전의 작업자 역할을 수신 하 고 이러한 새 레코드를 사용 하려면 최신 버전의 [Linux 용 Log Analytics 에이전트로](../../azure-monitor/agents/agent-linux.md) 업그레이드 해야 합니다. 기존 컴퓨터는 문제 없이 계속 작동 합니다.  
 
 ## <a name="dns-records-per-region"></a>지역별 DNS 레코드
 

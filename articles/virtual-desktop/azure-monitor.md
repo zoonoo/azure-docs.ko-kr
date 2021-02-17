@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0be6decf28fcbb2edacd5019f567d26403b1f31
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9da1071686dafa003a5a49d0864b77644493344
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594465"
 ---
 # <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Windows 가상 데스크톱에 대 한 Azure Monitor를 사용 하 여 배포 모니터링 (미리 보기)
 
@@ -98,7 +98,7 @@ Windows 가상 데스크톱 환경에서 모든 개체에 대 한 진단을 사�
 
 ## <a name="configure-log-analytics"></a>Log Analytics 구성
 
-Windows 가상 데스크톱에 대 한 Azure Monitor 사용을 시작 하려면 모니터링 하려는 환경에서 데이터를 수집 하 고 통합 문서에 제공할 Log Analytics 작업 영역이 하나 이상 필요 합니다. 이미 설정 되어 있는 경우에는 [성능 카운터 설정](#set-up-performance-counters)으로 건너뜁니다. Windows 가상 데스크톱 환경을 포함 하는 Azure 구독에 대 한 새 Log Analytics 작업 영역을 설정 하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요.
+Windows 가상 데스크톱에 대 한 Azure Monitor 사용을 시작 하려면 모니터링 하려는 환경에서 데이터를 수집 하 고 통합 문서에 제공할 Log Analytics 작업 영역이 하나 이상 필요 합니다. 이미 설정 되어 있는 경우에는 [성능 카운터 설정](#set-up-performance-counters)으로 건너뜁니다. Windows 가상 데스크톱 환경을 포함 하는 Azure 구독에 대 한 새 Log Analytics 작업 영역을 설정 하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요.
 
 >[!NOTE]
 >Log Analytics에 대 한 표준 데이터 저장소 요금이 적용 됩니다. 시작 하려면 종 량 제 모델을 선택 하 고 배포 크기를 조정 하 고 더 많은 데이터를 가져오는 것이 좋습니다. 자세히 알아보려면 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
@@ -107,7 +107,7 @@ Windows 가상 데스크톱에 대 한 Azure Monitor 사용을 시작 하려면 
 
 Log Analytics 작업 영역의 해당 샘플 간격에서 컬렉션에 대 한 특정 성능 카운터를 사용 하도록 설정 해야 합니다. 이러한 성능 카운터는 Windows 가상 데스크톱을 모니터링 하는 데 필요한 유일한 카운터입니다. 다른 모든 항목을 사용 하지 않도록 설정 하 여 비용을 절감할 수 있습니다.
 
-성능 카운터를 이미 사용 하도록 설정한 상태에서 해당 카운터를 제거 하려면 성능 카운터 [구성](../azure-monitor/platform/data-sources-performance-counters.md) 의 지침에 따라 성능 카운터를 다시 구성 합니다. 문서에서 카운터를 추가 하는 방법을 설명 하는 동안 동일한 위치에서 카운터를 제거할 수도 있습니다.
+성능 카운터를 이미 사용 하도록 설정한 상태에서 해당 카운터를 제거 하려면 성능 카운터 [구성](../azure-monitor/agents/data-sources-performance-counters.md) 의 지침에 따라 성능 카운터를 다시 구성 합니다. 문서에서 카운터를 추가 하는 방법을 설명 하는 동안 동일한 위치에서 카운터를 제거할 수도 있습니다.
 
 성능 카운터를 아직 설정 하지 않은 경우 Windows 가상 데스크톱에 대 한 Azure Monitor에 대해 구성 하는 방법은 다음과 같습니다.
 
@@ -128,7 +128,7 @@ Log Analytics 작업 영역의 해당 샘플 간격에서 컬렉션에 대 한 �
 >[!NOTE]
 >입력 지연 성능 카운터는 Windows 10 RS5 이상 또는 Windows Server 2019 이상 에서만 호환 됩니다.
 
-컬렉션에 대해 아직 사용 하도록 설정 되지 않은 성능 카운터를 수동으로 추가 하는 방법에 대 한 자세한 내용은 [성능 카운터 구성](../azure-monitor/platform/data-sources-performance-counters.md)을 참조 하세요.
+컬렉션에 대해 아직 사용 하도록 설정 되지 않은 성능 카운터를 수동으로 추가 하는 방법에 대 한 자세한 내용은 [성능 카운터 구성](../azure-monitor/agents/data-sources-performance-counters.md)을 참조 하세요.
 
 ### <a name="set-up-windows-events"></a>Windows 이벤트 설정
 
@@ -171,7 +171,7 @@ Log Analytics 에이전트를 설치 하려면 다음을 수행 합니다.
 
 ## <a name="optional-configure-alerts"></a>선택 사항: 경고 구성
 
-선택한 구독 내에서 심각한 Azure Monitor 경고가 발생 하는 경우 사용자에 게 알리도록 Windows 가상 데스크톱에 대 한 Azure Monitor를 구성할 수 있습니다. 이렇게 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/learn/tutorial-response.md)의 지침을 따르세요.
+선택한 구독 내에서 심각한 Azure Monitor 경고가 발생 하는 경우 사용자에 게 알리도록 Windows 가상 데스크톱에 대 한 Azure Monitor를 구성할 수 있습니다. 이렇게 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)의 지침을 따르세요.
 
 ## <a name="diagnostic-and-usage-data"></a>진단 및 사용량 현황 데이터
 

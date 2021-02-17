@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584628"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -20,7 +20,7 @@ ms.locfileid: "92168144"
 
 Azure Functions에서 진단 및 모니터링을 수행하려면 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하는 것이 좋습니다. 지속성 함수에도 동일하게 적용됩니다. 함수 앱에서 Application Insights를 활용하는 방법에 대한 개요는 [Azure Functions 모니터링](../functions-monitoring.md)을 참조하세요.
 
-또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 추적 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/log-query/log-query-overview.md) 도구를 사용 하 여 검색 하 고 쿼리할 수 있습니다.
+또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트* 를 내보냅니다. 이러한 추적 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/logs/log-query-overview.md) 도구를 사용 하 여 검색 하 고 쿼리할 수 있습니다.
 
 ### <a name="tracking-data"></a>추적 데이터
 
@@ -30,7 +30,7 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
 * **appName**: 함수 앱의 이름입니다. 이 필드는 동일한 Application Insights 인스턴스를 공유 하는 여러 함수 앱이 있는 경우에 유용 합니다.
 * **slotName**: 현재 함수 앱이 실행 중인 [배포 슬롯](../functions-deployment-slots.md)입니다. 이 필드는 배포 슬롯을 사용 하 여 오케스트레이션 버전을 사용 하는 경우에 유용 합니다.
 * **functionName**: 오케스트레이터 또는 작업 함수의 이름입니다.
-* **functionType**: **Orchestrator** 또는 **Activity**와 같은 함수 유형입니다.
+* **functionType**: **Orchestrator** 또는 **Activity** 와 같은 함수 유형입니다.
 * **instanceId**: 오케스트레이션 인스턴스의 고유 ID입니다.
 * **state**: 인스턴스의 수명 주기 실행 상태입니다. 유효한 값은 다음과 같습니다.
   * **예약됨**: 함수 실행이 예약되었지만 아직 실행되지 않았습니다.
@@ -454,7 +454,7 @@ GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 로컬에서 실행하는지 여부와 관계 없이 동일한 지원이 지속성 함수에 전달됩니다. 그러나 디버그할 때 고려해야 할 몇 가지 동작이 있습니다.
 
 * **재생**: 오 케 스트레이 터 함수는 새 입력을 받을 때 정기적으로 [재생](durable-functions-orchestrations.md#reliability) 됩니다. 이 동작은 오 케 스트레이 터 함수의 단일 *논리적* 실행으로 인해 특히 함수 코드의 초기에 설정 된 경우 동일한 중단점에 여러 번 도달할 수 있음을 의미 합니다.
-* 대기 **: 오**케 스트레이 터 `await` 함수에서이 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 합니다. 특정가 처음으로 발생 한 경우에는 `await` 연결 된 작업이 다시 시작 *되지* 않습니다. 작업이 다시 시작 되지 않기 때문에 (Visual Studio에서 F10) 대기 *를 단계별로 실행할* 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
+* 대기 **: 오** 케 스트레이 터 `await` 함수에서이 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 합니다. 특정가 처음으로 발생 한 경우에는 `await` 연결 된 작업이 다시 시작 *되지* 않습니다. 작업이 다시 시작 되지 않기 때문에 (Visual Studio에서 F10) 대기 *를 단계별로 실행할* 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
 * **메시징 시간 제한**: Durable Functions는 내부적으로 큐 메시지를 사용 하 여 orchestrator, activity 및 entity 함수의 실행을 구동 합니다. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
 * **중지 및 시작**: 지 속성 함수의 메시지는 디버그 세션 간에 유지 됩니다. 지 속성 함수를 실행 하는 동안 디버깅을 중지 하 고 로컬 호스트 프로세스를 종료 하면 이후 디버그 세션에서 해당 함수가 자동으로 다시 실행 될 수 있습니다. 이 동작은 예상과는 혼동 될 수 있습니다. 이 동작을 방지 하는 한 가지 방법은 디버그 세션 간의 [내부 저장소 큐](durable-functions-perf-and-scale.md#internal-queue-triggers) 에서 모든 메시지를 지우는 것입니다.
 

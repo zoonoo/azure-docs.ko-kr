@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323522"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583358"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights의 사용자, 세션 및 이벤트 분석
 
@@ -41,15 +41,15 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
 * 사용한 사람: 사용자 지정 이벤트 및 페이지 보기를 선택합니다.
 * 기간: 시간 범위를 선택합니다.
 * 기준: 기간 또는 기타 속성(예: 브라우저 또는 도시) 중에서 데이터를 버킷팅하는 방법을 선택합니다.
-* 분할 기준: 데이터를 분할하거나 분리하는 기준 속성을 선택합니다. 
-* 필터 추가: 속성(예: 브라우저 또는 도시)을 기준으로 특정 사용자, 세션 또는 이벤트로 쿼리를 제한합니다. 
- 
-## <a name="saving-and-sharing-reports"></a>보고서 저장 및 공유 
+* 분할 기준: 데이터를 분할하거나 분리하는 기준 속성을 선택합니다. 
+* 필터 추가: 속성(예: 브라우저 또는 도시)을 기준으로 특정 사용자, 세션 또는 이벤트로 쿼리를 제한합니다. 
+ 
+## <a name="saving-and-sharing-reports"></a>보고서 저장 및 공유 
 사용자 보고서를 내 보고서 섹션에서 사용자 본인만 볼 수 있게 저장하거나, 공유 보고서 섹션에서 이 Application Insights 리소스에 액세스할 수 있는 모든 사용자와 공유할 수 있습니다.
 
-사용자, 세션 또는 이벤트 보고서에 대한 링크를 공유하려면 도구 모음에서 **공유**를 클릭한 다음, 링크를 복사합니다.
+사용자, 세션 또는 이벤트 보고서에 대한 링크를 공유하려면 도구 모음에서 **공유** 를 클릭한 다음, 링크를 복사합니다.
 
-사용자, 세션 또는 이벤트 보고서의 데이터 사본을 공유하려면 도구 모음에서 **공유**를 클릭한 다음, **Word 아이콘**을 클릭하여 해당 데이터가 포함된 Word 문서를 만듭니다. 또는 메인 차트 위의 **Word 아이콘**을 클릭합니다.
+사용자, 세션 또는 이벤트 보고서의 데이터 사본을 공유하려면 도구 모음에서 **공유** 를 클릭한 다음, **Word 아이콘** 을 클릭하여 해당 데이터가 포함된 Word 문서를 만듭니다. 또는 메인 차트 위의 **Word 아이콘** 을 클릭합니다.
 
 ## <a name="meet-your-users"></a>사용자 충족
 
@@ -62,6 +62,6 @@ Application Insights 포털에 사용자, 세션 또는 이벤트 블레이드�
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../platform/workbooks-overview.md)
+    - [통합 문서](../visualize/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
 

@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 75c0058f2d4878016281656935cbd82f79b859fd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 96a076ef144af1d32e9ef3ec2903557b8edff006
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120005"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586709"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
 
@@ -24,7 +24,7 @@ Azure Synapse Analytics는 Azure Portal 내에 다양한 모니터링 환경을 
 
 ## <a name="resource-utilization"></a>리소스 사용률
 
-Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/platform/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics)를 통해 나타납니다.
+Synapse SQL용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](../../azure-monitor/data-platform.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json#metrics)를 통해 나타납니다.
 
 | 메트릭 이름             | Description                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
@@ -57,7 +57,7 @@ Synapse SQL에 적용되는 DMV 목록을 보려면 [이 설명서](../sql/refer
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅 
 
-메트릭과 로그는 모두 Azure Monitor, 특히 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 구성 요소로 내보낼 수 있으며, [로그 쿼리](../../azure-monitor/log-query/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. Synapse SQL의 로그 대기 시간은 약 10-15분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 설명서를 참조하세요.
+메트릭과 로그는 모두 Azure Monitor, 특히 [Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 구성 요소로 내보낼 수 있으며, [로그 쿼리](../../azure-monitor/logs/log-analytics-tutorial.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. Synapse SQL의 로그 대기 시간은 약 10-15분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 설명서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

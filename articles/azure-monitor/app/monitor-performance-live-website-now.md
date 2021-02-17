@@ -4,12 +4,12 @@ description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186306"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576437"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -41,13 +41,13 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
 | **& 예외 요청** |예 |예 |
-| **[자세한 예외](./asp-net-exceptions.md)** | |Yes |
+| **[자세한 예외](./asp-net-exceptions.md)** | |예 |
 | **[종속성 진단](./asp-net-dependencies.md)** |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | **[시스템 성능 카운터](./performance-counters.md)** |예 |예 |
-| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |예 |
-| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |예 |
-| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |예 |
-| **코드를 다시 빌드해야 함** |예 | 예 |
+| **[사용자 지정 원격 분석에 대 한 API][api]** |예 |아니요 |
+| **[추적 로그 통합](./asp-net-trace-logs.md)** |예 |아니요 |
+| **[사용자 데이터 & 페이지 보기](./javascript.md)** |예 |아니요 |
+| **코드를 다시 빌드해야 함** |예 | 아니요 |
 
 
 
@@ -93,7 +93,7 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 
 - applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
 
-- 데이터가 누락 된 것으로 의심 되 면 [분석](../log-query/log-analytics-tutorial.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
+- 데이터가 누락 된 것으로 의심 되 면 [분석](../logs/log-analytics-tutorial.md) 에서 쿼리를 실행 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수 있습니다.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
 
 원격 분석 보기:
 
-* [메트릭을 탐색하여](../platform/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
+* [메트릭을 탐색하여](../essentials/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
 * [이벤트 및 로그를 검색하여][diagnostic] 문제를 진단합니다.
-* [분석](../log-query/log-query-overview.md)을 통해 고급 쿼리를 수행합니다.
+* [분석](../logs/log-query-overview.md)을 통해 고급 쿼리를 수행합니다.
 
 원격 분석 더 추가:
 

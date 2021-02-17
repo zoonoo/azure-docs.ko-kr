@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 089d5d70d8ad8060455e5c1bee45e0bee4a12fae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054926"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575844"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Automation 계정에서 업데이트 관리 사용
 
@@ -24,7 +24,8 @@ ms.locfileid: "99054926"
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](../automation-security-overview.md)
-* [Azure 가상 머신](../../virtual-machines/windows/quick-create-portal.md)또는 Arc 사용 서버에 등록 된 VM 또는 서버. 비 Azure Vm 또는 서버에는 Windows 또는 Linux 용 [Log Analytics 에이전트가](../../azure-monitor/platform/log-analytics-agent.md) 설치 되어 있고에서 사용 하도록 설정 된 Automation 업데이트 관리 계정에 연결 된 작업 영역에 보고 해야 합니다. 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결 하 여 Windows 또는 linux 용 Log Analytics 에이전트를 설치한 다음 Azure Policy를 사용 하 여 [ *Linux* 또는 *Windows* Azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 를 할당 하는 것이 좋습니다. 또는 VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
+* [Azure 가상 머신](../../virtual-machines/windows/quick-create-portal.md)또는 Arc 사용 서버에 등록 된 VM 또는 서버. 비 Azure Vm 또는 서버에는 Windows 또는 Linux 용 [Log Analytics 에이전트가](../../azure-monitor/agents/log-analytics-agent.md) 설치 되어 있고에서 사용 하도록 설정 된 Automation 업데이트 관리 계정에 연결 된 작업 영역에 보고 해야 합니다. 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결 하 여 Windows 또는 linux 용 Log Analytics 에이전트를 설치한 다음 Azure Policy를 사용 하 여 [ *Linux* 또는 *Windows* Azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포](../../governance/policy/samples/built-in-policies.md#monitoring) 를 할당 하는 것이 좋습니다. 또는 VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
+
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -54,7 +55,7 @@ Azure Arc 사용 서버에 등록 된 서버를 포함 하 여 Azure 외부에�
 
 1. Automation 계정의 **업데이트 관리** 아래에서 **업데이트 관리** 를 선택합니다.
 
-2. **비 Azure 컴퓨터 추가** 를 선택 합니다. 이 작업을 수행 하면 컴퓨터가 업데이트 관리에 대 한 보고를 시작할 수 있도록 [Windows 용 Log Analytics 에이전트를 설치 하 고 구성 하는 지침이](../../azure-monitor/platform/log-analytics-agent.md) 포함 된 새 브라우저 창이 열립니다. 현재 Operations Manager에서 관리 하는 컴퓨터를 사용 하도록 설정 하는 경우 새 에이전트가 필요 하지 않습니다. 작업 영역 정보는 에이전트 구성에 추가 됩니다.
+2. **비 Azure 컴퓨터 추가** 를 선택 합니다. 이 작업을 수행 하면 컴퓨터가 업데이트 관리에 대 한 보고를 시작할 수 있도록 [Windows 용 Log Analytics 에이전트를 설치 하 고 구성 하는 지침이](../../azure-monitor/agents/log-analytics-agent.md) 포함 된 새 브라우저 창이 열립니다. 현재 Operations Manager에서 관리 하는 컴퓨터를 사용 하도록 설정 하는 경우 새 에이전트가 필요 하지 않습니다. 작업 영역 정보는 에이전트 구성에 추가 됩니다.
 
 ## <a name="enable-machines-in-the-workspace"></a>작업 영역에서 컴퓨터 사용
 

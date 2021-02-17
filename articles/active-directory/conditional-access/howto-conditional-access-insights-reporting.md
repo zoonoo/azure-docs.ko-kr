@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049420"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574181"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>조건부 액세스 인사이트 및 보고
 
@@ -43,15 +43,15 @@ ms.locfileid: "89049420"
 
 Azure AD 로그를 Azure Monitor 로그에 통합하지 않은 경우 다음 단계를 수행해야 통합 문서가 로드됩니다.  
 
-1. [Azure Monitor에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Azure Monitor에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Azure Monitor 로그에 Azure AD 로그 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="how-it-works"></a>작동 방법 
 
 인사이트 및 보고 통합 문서에 액세스하려면 다음을 수행합니다.  
 
-1. **Azure Portal**에 로그인합니다.
-1. **Azure Active Directory** > **보안** > **조건부 액세스** > **인사이트 및 보고**로 이동합니다.
+1. **Azure Portal** 에 로그인합니다.
+1. **Azure Active Directory** > **보안** > **조건부 액세스** > **인사이트 및 보고** 로 이동합니다.
 
 ### <a name="get-started-select-parameters"></a>시작: 매개 변수 선택 
 
@@ -105,10 +105,10 @@ Azure AD 로그를 Azure Monitor 로그에 통합하지 않은 경우 다음 단
 보고서 전용 모드에서 조건부 액세스 정책을 구성 하려면:
 
 1. 조건부 액세스 관리자, 보안 관리자 또는 전역 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. 기존 정책을 선택 하거나 새 정책을 만듭니다.
 1. **정책 사용** 에서 **보고서 전용** 모드로 전환을 설정 합니다.
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 > [!TIP]
 > 기존 정책의 **정책 상태 사용** 을 **On** 에서 **보고서 전용** 으로 편집 하면 기존 정책 적용만 사용 하지 않도록 설정 됩니다. 
@@ -119,9 +119,9 @@ Azure AD 로그를 Azure Monitor 로그에 통합하지 않은 경우 다음 단
 
 통합 문서에 액세스 하려면 적절 한 Azure AD 권한 뿐만 아니라 작업 영역 권한 Log Analytics 필요 합니다. 샘플 log analytics 쿼리를 실행 하 여 적절 한 작업 영역 권한이 있는지 테스트 하려면 다음을 수행 합니다.
 
-1. **Azure Portal**에 로그인합니다.
-1. **Azure Active Directory**  >  **로그**로 이동 합니다.
-1. `SigninLogs`쿼리 상자에를 입력 하 고 **실행**을 선택 합니다.
+1. **Azure Portal** 에 로그인합니다.
+1. **Azure Active Directory**  >  **로그** 로 이동 합니다.
+1. `SigninLogs`쿼리 상자에를 입력 하 고 **실행** 을 선택 합니다.
 1. 쿼리에서 결과가 반환 되지 않으면 작업 영역이 올바르게 구성 되지 않았을 수 있습니다. 
 
 ![실패 한 쿼리 문제 해결](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
@@ -146,11 +146,11 @@ Azure AD 로그인 로그를 Log Analytics 작업 영역으로 스트리밍하�
 
 ### <a name="can-i-save-my-parameter-selections"></a>매개 변수 선택 사항을 저장할 수 있나요?  
 
-**Azure Active Directory** > **통합 문서** > **조건부 액세스 인사이트 및 보고**로 이동하여 통합 문서 맨 위에 매개 변수 선택 사항을 저장할 수 있습니다. 여기에서 통합 문서를 편집하고 **내 보고서** 또는 **공유 보고서**에 매개 변수 선택 사항을 포함하여 작업 영역의 복사본을 저장할 수 있는 통합 문서 템플릿을 찾을 수 있습니다. 
+**Azure Active Directory** > **통합 문서** > **조건부 액세스 인사이트 및 보고** 로 이동하여 통합 문서 맨 위에 매개 변수 선택 사항을 저장할 수 있습니다. 여기에서 통합 문서를 편집하고 **내 보고서** 또는 **공유 보고서** 에 매개 변수 선택 사항을 포함하여 작업 영역의 복사본을 저장할 수 있는 통합 문서 템플릿을 찾을 수 있습니다. 
 
 ### <a name="can-i-edit-and-customize-the-workbook-with-additional-queries"></a>추가 쿼리를 사용하여 통합 문서를 편집하고 사용자 지정할 수 있나요? 
 
-**Azure Active Directory** > **통합 문서** > **조건부 액세스 인사이트 및 보고**로 이동하여 통합 문서를 편집하고 사용자 지정할 수 있습니다. 여기에서 통합 문서를 편집하고 **내 보고서** 또는 **공유 보고서**에 매개 변수 선택 사항을 포함하여 작업 영역의 복사본을 저장할 수 있는 통합 문서 템플릿을 찾을 수 있습니다. 쿼리 편집을 시작하려면 통합 문서의 맨 위에서 **편집**을 클릭하세요.  
+**Azure Active Directory** > **통합 문서** > **조건부 액세스 인사이트 및 보고** 로 이동하여 통합 문서를 편집하고 사용자 지정할 수 있습니다. 여기에서 통합 문서를 편집하고 **내 보고서** 또는 **공유 보고서** 에 매개 변수 선택 사항을 포함하여 작업 영역의 복사본을 저장할 수 있는 통합 문서 템플릿을 찾을 수 있습니다. 쿼리 편집을 시작하려면 통합 문서의 맨 위에서 **편집** 을 클릭하세요.  
  
 ## <a name="next-steps"></a>다음 단계
 

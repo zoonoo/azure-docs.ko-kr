@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648075"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590789"
 ---
 # <a name="manage-your-cache"></a>캐시 관리
 
@@ -117,7 +117,7 @@ $ az hpc-cache start --name doc-cache0629
 
 [Az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) 를 사용 하 여 캐시에서 변경 된 모든 데이터를 저장소 대상에 쓰도록 합니다.
 
-예:
+예제:
 
 ```azurecli
 $ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
@@ -229,7 +229,7 @@ Microsoft 서비스 및 지원에서 요청 하는 경우이 컨트롤을 사용
 
 Azure CLI 명령 [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) 를 사용 하 여 캐시를 영구적으로 제거 합니다.
 
-예:
+예제:
 ```azurecli
 $ az hpc-cache delete --name doc-cache0629
  - Running ..
@@ -253,7 +253,7 @@ $
 
 ![샘플 캐시에 대해 위에서 언급 한 통계를 보여 주는 세 개의 선 그래프 스크린샷](media/hpc-cache-overview-stats.png)
 
-이러한 차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함 됩니다. 추가 도구 및 경고는 포털 사이드바의 **모니터링** 제목 아래에 있는 페이지에서 사용할 수 있습니다. [Azure 모니터링 설명서](../azure-monitor/insights/monitor-azure-resource.md#monitoring-in-the-azure-portal)의 포털 섹션에서 자세히 알아보세요.
+이러한 차트는 Azure의 기본 제공 모니터링 및 분석 도구에 포함 됩니다. 추가 도구 및 경고는 포털 사이드바의 **모니터링** 제목 아래에 있는 페이지에서 사용할 수 있습니다. [Azure 모니터링 설명서](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal)의 포털 섹션에서 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

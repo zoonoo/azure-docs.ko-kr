@@ -4,12 +4,12 @@ description: Azure 애플리케이션 정보를 사용 하 여 IP 주소 및 지
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521920"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584070"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -30,7 +30,7 @@ ms.locfileid: "100521920"
 
 기본값은 IP 주소를 수집 하지 않는 것입니다. 여전히이 동작을 재정의할 수 있는 유연성을 제공 합니다. 그러나 수집이 규정 준수 요구 사항 또는 지역 규정을 위반 하지 않는지 확인 하는 것이 좋습니다. 
 
-Application Insights에서 개인 데이터를 처리 하는 방법에 대 한 자세한 내용은 [개인 데이터에 대 한 지침](../platform/personal-data-mgmt.md)을 참조 하세요.
+Application Insights에서 개인 데이터를 처리 하는 방법에 대 한 자세한 내용은 [개인 데이터에 대 한 지침](../logs/personal-data-mgmt.md)을 참조 하세요.
 
 ## <a name="storing-ip-address-data"></a>IP 주소 데이터 저장
 
@@ -245,6 +245,6 @@ Localhost에서 테스트 하는 경우의 값 `customDimensions_client-ip` 이 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Application Insights의 [개인 데이터 수집](../platform/personal-data-mgmt.md) 에 대해 자세히 알아보세요.
+* Application Insights의 [개인 데이터 수집](../logs/personal-data-mgmt.md) 에 대해 자세히 알아보세요.
 
 * Application Insights에서 [IP 주소 수집이](https://apmtips.com/posts/2016-07-05-client-ip-address/) 작동 하는 방식에 대해 자세히 알아보세요. (이 문서에서는 엔지니어 중 한 명에 의해 작성 된 이전 외부 블로그 게시물을 설명 합니다. IP 주소는으로 기록 되는 현재 기본 동작을 이전의 `0.0.0.0` 기본 제공의 메커니즘에는 더 높은 수준으로 이동 `ClientIpHeaderTelemetryInitializer` 합니다.

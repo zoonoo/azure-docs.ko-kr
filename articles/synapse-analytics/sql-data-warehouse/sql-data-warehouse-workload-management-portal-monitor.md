@@ -11,17 +11,17 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 04a3fa79a6940a5b7a4bb98d08aa8be48a442903
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: eb7dcb9a384360d698c49a97f649bf75588d94f7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728603"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574227"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – 워크로드 관리 포털 모니터링
 
 이 문서에서는 [작업 그룹](sql-data-warehouse-workload-isolation.md#workload-groups) 리소스 사용률 및 쿼리 작업을 모니터링하는 방법에 대해 설명합니다.
-Azure Metric Explorer를 구성하는 방법에 대한 자세한 내용은 [Azure Metric Explorer 시작](../../azure-monitor/platform/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 문서를 참조하세요.  시스템 리소스 사용량을 모니터링하는 방법에 대한 자세한 내용은 Azure Synapse Analytics 모니터링 설명서의 [리소스 사용률](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) 섹션을 참조하세요.
+Azure Metric Explorer를 구성하는 방법에 대한 자세한 내용은 [Azure Metric Explorer 시작](../../azure-monitor/essentials/metrics-getting-started.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 문서를 참조하세요.  시스템 리소스 사용량을 모니터링하는 방법에 대한 자세한 내용은 Azure Synapse Analytics 모니터링 설명서의 [리소스 사용률](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) 섹션을 참조하세요.
 워크로드 관리를 모니터링하기 위해 제공되는 두 가지 범주의 작업 그룹 메트릭(리소스 할당 및 쿼리 작업)이 있습니다.  이러한 메트릭은 작업 그룹별로 분할 및 필터링할 수 있습니다.  메트릭은 시스템 정의(리소스 클래스 작업 그룹)인지 또는 사용자 정의(사용자가 [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 구문을 사용하여 만듦)인지에 따라 분할하고 필터링할 수 있습니다.
 
 ## <a name="workload-management-metric-definitions"></a>워크로드 관리 메트릭 정의

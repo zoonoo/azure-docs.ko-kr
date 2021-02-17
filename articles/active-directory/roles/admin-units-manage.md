@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 44faaa6f05a325c2c64040938a1c9d0eb3e864e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574159"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
     !["Graph explorer에 대 한 관리자 동의 부여" 링크를 보여 주는 스크린샷](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Azure AD PowerShell의 미리 보기 버전을 사용 합니다.
+1. [AZURE AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/)을 사용 합니다.
 
 ## <a name="add-an-administrative-unit"></a>관리 단위 추가
 
@@ -58,7 +58,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 관리 단위를 추가할 수 
 
 ### <a name="use-powershell"></a>PowerShell 사용
 
-다음 명령을 실행 하기 전에 Azure AD PowerShell (미리 보기)을 설치 합니다.
+다음 명령을 실행 하기 전에 [AZURE AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) 을 설치 합니다.
 
 ```powershell
 Connect-AzureAD

@@ -3,12 +3,12 @@ title: PagerDuty를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 PagerDuty 인스턴스로 가져옵니다.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ae5141f33ebf4ec6e32029625af3a199a04d67b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091541"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594535"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>웹 후크를 사용 하 여 PagerDuty로 Azure 서비스 상태 경고 보내기
 
@@ -21,9 +21,9 @@ ms.locfileid: "87091541"
 
     ![PagerDuty에서 "서비스" 섹션](./media/webhook-alerts/pagerduty-services-section.png)
 
-1.  **새 서비스 추가**를 선택하거나 설정한 기존 서비스를 엽니다.
+1.  **새 서비스 추가** 를 선택하거나 설정한 기존 서비스를 엽니다.
 
-1.  **통합 설정**에서 다음을 선택합니다.
+1.  **통합 설정** 에서 다음을 선택합니다.
 
     a. **통합 형식**: Microsoft Azure
 
@@ -31,9 +31,9 @@ ms.locfileid: "87091541"
 
     ![PagerDuty에서 "통합 설정"](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-1.  다른 필수 필드를 작성하고 **추가**를 선택합니다.
+1.  다른 필수 필드를 작성하고 **추가** 를 선택합니다.
 
-1.  이 새 통합을 열고 **통합 URL**을 복사 및 저장합니다.
+1.  이 새 통합을 열고 **통합 URL** 을 복사 및 저장합니다.
 
     ![PagerDuty에서 "통합 URL"](./media/webhook-alerts/pagerduty-integration-url.png)
 
@@ -45,16 +45,16 @@ ms.locfileid: "87091541"
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
+    b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL** 입니다.
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-1. 경고 만들기가 완료되면 **저장**을 선택합니다.
+1. 경고 만들기가 완료되면 **저장** 을 선택합니다.
 
 ### <a name="for-an-existing-action-group"></a>기존 작업 그룹의 경우:
-1. [Azure Portal](https://portal.azure.com/)에서 **모니터**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **모니터** 를 선택 합니다.
 
-1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
+1. **설정** 섹션에서 **작업 그룹** 을 선택합니다.
 
 1. 편집하려는 작업 그룹을 찾아 선택합니다.
 
@@ -62,14 +62,14 @@ ms.locfileid: "87091541"
 
     a. **작업 유형:** *웹후크*
 
-    b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL**입니다.
+    b. **세부 정보:** 이전에 저장한 PagerDuty **통합 URL** 입니다.
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
+1. 작업 그룹 업데이트가 완료되면 **저장** 을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/platform/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/alerts/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "87091541"
 1. [PagerDuty](https://www.pagerduty.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [기존 문제 관리 시스템에 대 한 webhook 알림을 구성](service-health-alert-webhook-guide.md)하는 방법을 알아봅니다.
-- [활동 로그 경고 webhook 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토 합니다. 
+- [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
+- [활동 로그 경고 웹후크 스키마](../azure-monitor/alerts/activity-log-alerts-webhook.md)를 검토하세요. 
 - [서비스 상태 알림](./service-notifications.md)에 대해 자세히 알아보세요.
-- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+- [작업 그룹](../azure-monitor/alerts/action-groups.md)에 대해 자세히 알아보세요.

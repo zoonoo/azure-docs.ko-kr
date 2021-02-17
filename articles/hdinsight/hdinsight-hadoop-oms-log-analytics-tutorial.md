@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945628"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590819"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링
 
 Azure Monitor Logs를 사용하여 HDInsight에서 Hadoop 클러스터 작업을 모니터링하는 방법을 알아봅니다. HDInsight 모니터링 솔루션을 추가하는 방법도 알아봅니다.
 
-[Azure Monitor Logs](../azure-monitor/log-query/log-query-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하는 Azure Monitor 서비스입니다. 모니터링은 가용성과 성능을 유지하기 위한 것입니다. 이 서비스는 클라우드, 온-프레미스 환경 및 다른 모니터링 도구의 리소스에서 생성된 데이터를 수집합니다. 데이터는 여러 원본을 망라하는 분석을 제공하는 데 사용됩니다.
+[Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md)는 클라우드 및 온-프레미스 환경을 모니터링하는 Azure Monitor 서비스입니다. 모니터링은 가용성과 성능을 유지하기 위한 것입니다. 이 서비스는 클라우드, 온-프레미스 환경 및 다른 모니터링 도구의 리소스에서 생성된 데이터를 수집합니다. 데이터는 여러 원본을 망라하는 분석을 제공하는 데 사용됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Log Analytics 작업 영역. 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Azure Monitor Logs 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
+* Log Analytics 작업 영역. 이 작업 영역은 자체의 데이터 리포지토리, 데이터 원본 및 솔루션을 포함한 고유한 Azure Monitor Logs 환경으로 생각할 수 있습니다. 지침은 [Log Analytics 작업 영역 만들기](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace)를 참조하세요.
 
 * Azure HDInsight 클러스터를 만듭니다. Azure Monitor Logs는 현재 다음 HDInsight 클러스터 유형에서 사용할 수 있습니다.
 
@@ -144,7 +144,7 @@ HDInsight는 Azure Monitor Logs에 추가할 수 있는 클러스터 특정 관�
 
 ## <a name="configuring-performance-counters"></a>성능 카운터 구성
 
-Azure Monitor는 클러스터의 노드에 대한 성능 메트릭의 수집 및 분석을 지원합니다. 자세한 내용은 [Azure Monitor의 Linux 성능 데이터 원본](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters)을 참조하세요.
+Azure Monitor는 클러스터의 노드에 대한 성능 메트릭의 수집 및 분석을 지원합니다. 자세한 내용은 [Azure Monitor의 Linux 성능 데이터 원본](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters)을 참조하세요.
 
 ## <a name="cluster-auditing"></a>클러스터 감사
 

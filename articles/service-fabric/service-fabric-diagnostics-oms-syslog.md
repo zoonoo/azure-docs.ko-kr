@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570213"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
 
@@ -87,7 +87,7 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Azure Monitor 로그 통합
-Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 다음 [지침](../azure-monitor/learn/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
+Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 이러한 [지침]을 사용 하 여 Azure Marketplace를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다. (.. /azure-monitor/logs/quick-create-workspace.md) 또한이 데이터를 수집 하 고 작업 영역에 전송 하려면 클러스터에 Log Analytics 에이전트를 추가 해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
 
 1. `Advanced Settings` 블레이드로 이동합니다.
 
@@ -113,6 +113,6 @@ Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
-* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)
-* [Syslog와 로그 통합을 Azure Monitor](../azure-monitor/platform/data-sources-syslog.md)하는 방법에 대 한 참조입니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
+* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/visualize/view-designer.md)
+* [Syslog와 로그 통합을 Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)하는 방법에 대 한 참조입니다.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069f70d27bd7e721be2bf82f6ef64ce9c531ab8e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318099"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577557"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
@@ -46,9 +46,9 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 평가되는 도메인의 구성원인 도메인 컨트롤러에 대해 상태 검사를 수행하려면 해당 도메인에 있는 각 도메인 컨트롤러에 에이전트가 필요하며 다음 지원되는 방법 중 하나를 사용하여 Azure Monitor에 연결해야 합니다.
 
-1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [Windows용 Log Analytics 에이전트](../platform/agent-windows.md)를 설치합니다.
+1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [Windows용 Log Analytics 에이전트](../agents/agent-windows.md)를 설치합니다.
 2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Azure Monitor 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Azure Monitor와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음, 관리 서버에서 Azure Monitor로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -78,7 +78,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
 가중치는 3개의 주요 요인을 기반으로 하는 집계 값입니다.
 
-* 식별된 문제로 인해 문제가 발생될 수 있는 *확률*입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
+* 식별된 문제로 인해 문제가 발생될 수 있는 *확률* 입니다. 확률이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 문제가 발생된 경우 조직에 대한 문제의 *영향* 입니다. 영향이 높을수록 권장 사항에 대한 전체 점수가 커집니다.
 * 권장 구성을 구현하는 데 필요한 *노력* 입니다. 노력이 높을수록 권장 사항에 대한 전체 점수가 작아집니다.
 
@@ -118,7 +118,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
     ![상태 검사 권장 사항 이미지](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 
-4. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
+4. **권장 조치** 에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체** 로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 
@@ -154,7 +154,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
 
-다음 예약된 상태 검사가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 대시보드에 *무시됨*으로 표시됩니다.
+다음 예약된 상태 검사가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 대시보드에 *무시됨* 으로 표시됩니다.
 
 1. 다음 로그 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
@@ -215,5 +215,5 @@ ADAssessmentRecommendation
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 로그 쿼리](../log-query/log-query-overview.md)를 사용하여 상세 AD 상태 검사 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+[Azure Monitor 로그 쿼리](../logs/log-query-overview.md)를 사용하여 상세 AD 상태 검사 데이터 및 권장 사항의 분석 방법을 알아봅니다.
 

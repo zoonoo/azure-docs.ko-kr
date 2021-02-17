@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 3093d20fbe0a1ded68e34e816b7fc865a237ad92
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576316"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -183,9 +183,9 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
-* [진단 로그 Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)
-* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/platform-logs-overview.md)
+* [Azure Monitor 메트릭](../../azure-monitor/data-platform.md)
+* [진단 로그 Azure Monitor](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

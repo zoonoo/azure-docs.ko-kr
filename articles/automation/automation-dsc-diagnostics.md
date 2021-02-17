@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34bbf34d53c44dcef7b8e128a93ee64201423c3e
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0afe349473bcddcbf1ac35136f2991ffe82670c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897040"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576061"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합
 
@@ -36,7 +36,7 @@ Automation State Configuration 보고서를 Azure Monitor 로그로 보내려면
 
 - [Azure PowerShell](/powershell/azure/)의 2016년 11월(v2.3.0) 이후 릴리스
 - Azure Automation 계정. 자세한 내용은 [Azure Automation에 대한 소개](automation-intro.md)를 참조하세요.
-- Automation & Control 서비스를 제공하는 Log Analytics 작업 영역 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조하세요.
+- Automation & Control 서비스를 제공하는 Log Analytics 작업 영역 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조하세요.
 - 적어도 하나 이상의 Azure Automation 상태 구성 노드 자세한 내용은 [Azure Automation State Configuration을 통해 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
 - [xDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) 모듈, 버전 2.7.0.0 이상 설치 단계는 [Azure Automation Desired State Configuration 문제 해결](./troubleshoot/desired-state-configuration.md)을 참조하세요.
 
@@ -91,7 +91,7 @@ Automation 계정 리소스로 범위가 지정된 쿼리 영역으로 로그 �
 * `DscResourceStatusData`를 필터링하여 해당 리소스에 적용된 노드 구성에서 호출된 각 DSC 리소스에 대한 작업을 반환합니다. 
 * `DscResourceStatusData`를 필터링하여 실패한 모든 DSC 리소스에 대한 오류 정보를 반환합니다.
 
-데이터를 찾기 위한 로그 쿼리를 구성하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+데이터를 찾기 위한 로그 쿼리를 구성하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>상태 구성 준수 확인이 실패할 경우 이메일 보내기
 
@@ -105,7 +105,7 @@ Automation 계정 리소스로 범위가 지정된 쿼리 영역으로 로그 �
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. `DscNodeStatusData` 레코드 검색의 `Resource` 필드에서 Automation 계정 이름을 파생합니다.
 1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙** 을 클릭합니다. 
 
-경고 구성 옵션에 자세한 내용은 [경고 규칙 만들기](../azure-monitor/platform/alerts-metric.md)를 참조하세요.
+경고 구성 옵션에 자세한 내용은 [경고 규칙 만들기](../azure-monitor/alerts/alerts-metric.md)를 참조하세요.
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>모든 노드에서 실패한 DSC 리소스 찾기
 
@@ -199,5 +199,5 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - 지속적인 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
-- Azure Monitor 로그를 사용하여 여러 검색 쿼리를 작성하고 Automation State Configuration 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
-- Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
+- Azure Monitor 로그를 사용하여 여러 검색 쿼리를 작성하고 Automation State Configuration 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../azure-monitor/logs/log-query-overview.md)을 참조하세요.
+- Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.

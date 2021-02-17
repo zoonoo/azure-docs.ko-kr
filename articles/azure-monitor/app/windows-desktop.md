@@ -4,16 +4,16 @@ description: Application Insights를 사용하여 Windows 데스크톱 앱의 �
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1aa1e8a9e7ccbbc90a961ebf47224f59f8a9e9fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15331494b40021f10c162fba75abf6fe88d2d419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827864"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583317"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
-온-프레미스 호스팅된 애플리케이션은 Azure 및 다른 클라우드에서 Application Insights를 충분히 활용할 수 있습니다. 유일한 제한은 Application Insights 서비스와 [통신을 허용](./ip-addresses.md)해야 한다는 것입니다. UWP(유니버설 Windows 플랫폼) 애플리케이션 모니터링에는 [Visual Studio App Center](../learn/mobile-center-quickstart.md)가 좋습니다.
+온-프레미스 호스팅된 애플리케이션은 Azure 및 다른 클라우드에서 Application Insights를 충분히 활용할 수 있습니다. 유일한 제한은 Application Insights 서비스와 [통신을 허용](./ip-addresses.md)해야 한다는 것입니다. UWP(유니버설 Windows 플랫폼) 애플리케이션 모니터링에는 [Visual Studio App Center](../app/mobile-center-quickstart.md)가 좋습니다.
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>클래식 Windows 애플리케이션에서 Application Insights에 원격 분석을 전송하려면
 1. [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](./create-new-resource.md). 
@@ -27,7 +27,7 @@ ms.locfileid: "91827864"
    
     `<InstrumentationKey>`*사용자의 키*`</InstrumentationKey>` 
    
-    ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사**로 설정되도록 합니다.
+    ApplicationInsights.config를 사용하는 경우 솔루션 탐색기에서 해당 속성이 **빌드 작업 = 콘텐츠, 출력 디렉터리로 복사 = 복사** 로 설정되도록 합니다.
 5. [API를 사용](./api-custom-events-metrics.md) 하여 원격 분석을 전송합니다.
 6. 앱을 실행 하 고 Azure Portal에서 만든 리소스의 원격 분석을 확인 합니다.
 
@@ -177,6 +177,6 @@ namespace WindowsFormsApp2
 ## <a name="next-steps"></a>다음 단계
 * [대시보드 만들기](./overview-dashboard.md)
 * [진단 검색](./diagnostic-search.md)
-* [메트릭 탐색](../platform/metrics-charts.md)
-* [분석 쿼리 작성](../log-query/log-query-overview.md)
+* [메트릭 탐색](../essentials/metrics-charts.md)
+* [분석 쿼리 작성](../logs/log-query-overview.md)
 

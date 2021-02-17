@@ -3,12 +3,12 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 0888b6743a10c9934ab85a6f2b3b637b857f643a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233851"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583399"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -38,7 +38,7 @@ ms.locfileid: "98233851"
 
     웹 사이트 모니터링을 위한 고급 구성에 대해 자세히 알아보려면 [JavaScript SDK 참조 문서](./javascript.md)를 확인하세요.
 
-3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../learn/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
+3. **모바일 앱 코드:** App Center SDK를 사용하여 앱에서 이벤트를 수집한 다음, 분석을 위해 [이 가이드에 따라](../app/mobile-center-quickstart.md) 이러한 이벤트의 복사본을 Application Insights로 보냅니다.
 
 4. **원격 분석 가져오기:** 몇 분 동안 디버그 모드에서 프로젝트를 실행한 다음, Application Insights의 개요 블레이드에서 결과를 찾습니다.
 
@@ -179,6 +179,6 @@ Global.asax.cs 같은 웹앱 이니셜라이저에서 다음이 적용됩니다.
    - [깔때기](usage-funnels.md)
    - [보존](usage-retention.md)
    - [사용자 흐름](usage-flows.md)
-   - [통합 문서](../platform/workbooks-overview.md)
+   - [통합 문서](../visualize/workbooks-overview.md)
    - [사용자 컨텍스트 추가](usage-send-user-context.md)
 

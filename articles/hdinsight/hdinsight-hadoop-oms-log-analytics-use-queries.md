@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945611"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576342"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 쿼리하여 HDInsight 클러스터 모니터링
 
@@ -21,7 +21,7 @@ Azure Monitor 로그를 사용 하 여 Azure HDInsight 클러스터를 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Monitor 로그를 사용 하도록 HDInsight 클러스터를 구성 하 고 작업 영역에 HDInsight 클러스터 관련 Azure Monitor 로그 모니터링 솔루션을 추가 해야 합니다. 지침은 [HDInsight 클러스터에서 Azure Monitor 로그 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조 하세요.
 
@@ -52,7 +52,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
     | where Type == "Heartbeat"
     ```
 
-1. 왼쪽 메뉴에서 제공 되는 옵션을 사용 하 여 더 자세히 알아볼 수 있습니다. 예를 들면 다음과 같습니다.
+1. 왼쪽 메뉴에서 제공 되는 옵션을 사용 하 여 더 자세히 알아볼 수 있습니다. 다음은 그 예입니다. 
 
     - 특정 노드에서 로그를 보려면 다음을 수행 합니다.
 
@@ -122,9 +122,9 @@ search in (metrics_resourcemanager_queue_root_default_CL) *
 
     ![HDInsight Azure Monitor 로그 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)를 참조하세요.
+자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-metric.md)를 참조하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
-* [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)
-* [Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)
+* [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)
+* [Azure Monitor에서 뷰 디자이너를 사용 하 여 사용자 지정 보기 만들기](../azure-monitor/visualize/view-designer.md)

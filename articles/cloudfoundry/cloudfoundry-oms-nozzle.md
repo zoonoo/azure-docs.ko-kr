@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021591"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571065"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -28,7 +28,7 @@ Log Analytics 노즐 (노즐)은 [Cloud Foundry loggregator](https://docs.cloudf
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 단계는 Nozzle 배포를 위한 필수 구성 요소입니다.
 
@@ -100,7 +100,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -124,7 +124,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -155,7 +155,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
 ```
 cf push
 ```
@@ -183,7 +183,7 @@ Log Analytics 작업 영역을 수동으로 만든 경우 다음 단계에 따�
 
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
-OMS 포털에서 **뷰 디자이너** 가져오기 찾아보기로 이동 하 여  >  **Import**  >  **Browse** omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview* 를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
+OMS 포털에서 **뷰 디자이너** 가져오기 찾아보기로 이동 하 여  >    >  omsview 파일 중 하나를 선택 합니다. 예를 들어 *Cloud Foundry.omsview* 를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
 **뷰 디자이너** 를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
@@ -191,9 +191,9 @@ OMS 포털에서 **뷰 디자이너** 가져오기 찾아보기로 이동 하 �
 
 ### <a name="2-create-alert-rules"></a>2. 경고 규칙 만들기
 
-[경고를 작성](../azure-monitor/platform/alerts-overview.md)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
+[경고를 작성](../azure-monitor/alerts/alerts-overview.md)하고 필요에 따라 쿼리와 임계값을 사용자 지정할 수 있습니다. 권장되는 경고는 다음과 같습니다.
 
-| 검색 쿼리                                                                  | 경고 생성 조건 | Description                                                                       |
+| 검색 쿼리                                                                  | 경고 생성 조건 | 설명                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | 결과 수 < 1   | **bbs.Domain.cf-apps** 는 cf-apps 도메인이 최신 상태인지 여부를 나타냅니다. 즉 Cloud Controller로부터의 CF App 요청이 실행을 위해 bbs.LRPsDesired(Diego에 적합한 AI)로 동기화되는지 여부를 나타냅니다. 수신되는 데이터가 없으면 지정한 기간에 cf-apps 도메인이 최신 상태가 아닌 것입니다. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | 결과 수 > 0   | Diego 셀의 경우 값이 0이면 정상 상태이고 1이면 비정상 상태입니다. 지정한 기간에 비정상 Diego 셀이 여러 개 검색되면 경고를 설정합니다. |

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389708"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584632"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Redis에 대 한 Azure 캐시 모니터링
 
@@ -52,13 +52,13 @@ Azure Monitor를 사용하여 Redis 메트릭을 보고 사용자 지정 차트�
 
 ![Contoso55의 왼쪽 탐색 창에서 메트릭은 모니터링 중에 옵션 이며 강조 표시 됩니다. 메트릭에는 메트릭 목록이 있습니다. 캐시 적중 수 및 캐시 누락이 선택 되었습니다.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
+Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>캐시 메트릭 내보내기
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [스토리지 계정을 지정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/essentials/data-platform-metrics.md)되었다가 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [스토리지 계정을 지정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
 
 캐시 메트릭에 대한 스토리지 계정을 구성하려면
 
@@ -74,10 +74,10 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 ![Redis 진단](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values)수 있습니다.
+>캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values)수 있습니다.
 >
 
-메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
+메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
 
 > [!NOTE]
 > 스토리지 계정을 변경하는 경우 이전에 구성된 스토리지 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.  
@@ -129,7 +129,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 
 ![모니터링](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-경고 구성 및 사용에 대한 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-classic-portal.md)를 참조하세요.
+경고 구성 및 사용에 대한 자세한 내용은 [경고 개요](../azure-monitor/alerts/alerts-classic-portal.md)를 참조하세요.
 
 ## <a name="activity-logs"></a>활동 로그
 활동 로그는 Azure Cache for Redis 인스턴스에서 수행된 작업에 대한 정보를 제공합니다. 이전에는 이러한 로그를 "감사 로그" 또는 "작업 로그"라고도 했습니다. 활동 로그를 통해 Azure Cache for Redis 인스턴스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 "무엇을, 누가, 언제"를 판단할 수 있습니다. 
@@ -140,4 +140,4 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 
 캐시에 대한 활동 로그를 보려면 **리소스 메뉴** 에서 **활동 로그** 를 클릭합니다.
 
-활동 로그에 대한 자세한 내용은 [Azure 활동 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
+활동 로그에 대한 자세한 내용은 [Azure 활동 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요.

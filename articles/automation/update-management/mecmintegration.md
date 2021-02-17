@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5bfa4bf8a9d20cc1a7baf1b5432e68501d65a509
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a848c7c15bf786ba26b8a1fdb1dab41b9aa20b8d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575767"
 ---
 # <a name="integrate-update-management-with-microsoft-endpoint-configuration-manager"></a>Microsoft 끝점과 업데이트 관리 통합 Configuration Manager
 
@@ -21,11 +21,11 @@ Microsoft Endpoint Configuration Manager에서 소프트웨어 업데이트 배�
 >[!NOTE]
 >업데이트 관리는 Windows Server 2008 r 2의 업데이트 평가 및 패치를 지원 하지만이 운영 체제를 실행 하는 Configuration Manager Microsoft 끝점에서 관리 하는 클라이언트는 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Automation 계정에 추가된 [Azure Automation 업데이트 관리](overview.md)가 있어야 합니다.
 * 현재 Microsoft 끝점 Configuration Manager 환경에서 관리 하는 Windows server도 업데이트 관리 사용 하도록 설정 된 Log Analytics 작업 영역에 보고 해야 합니다.
-* 이 기능은 Microsoft 끝점 Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Microsoft 끝점 Configuration Manager 중앙 관리 사이트 또는 독립 실행형 기본 사이트를 Azure Monitor 로그 및 가져오기와 통합 하려면 [Azure Monitor 로그에 Configuration Manager 연결](../../azure-monitor/platform/collect-sccm.md)을 검토 합니다.  
+* 이 기능은 Microsoft 끝점 Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Microsoft 끝점 Configuration Manager 중앙 관리 사이트 또는 독립 실행형 기본 사이트를 Azure Monitor 로그 및 가져오기와 통합 하려면 [Azure Monitor 로그에 Configuration Manager 연결](../../azure-monitor/logs/collect-sccm.md)을 검토 합니다.  
 * Windows 에이전트는 WSUS (Windows Server Update Services) 서버와 통신 하도록 구성 되거나 Microsoft 끝점 Configuration Manager에서 보안 업데이트를 수신 하지 않는 경우 Microsoft 업데이트에 액세스할 수 있어야 합니다.
 
 기존 Microsoft 끝점 Configuration Manager 환경을 사용 하 여 Azure IaaS에서 호스트 되는 클라이언트를 관리 하는 방법은 주로 Azure 데이터 센터와 인프라 간의 연결에 따라 달라 집니다. 이 연결은 Microsoft 끝점 Configuration Manager 인프라에 적용 해야 하는 모든 디자인 변경 내용과 필요한 변경 내용을 지원 하기 위한 관련 비용에 영향을 줍니다. 계속하기 전에 평가해야 하는 계획 고려 사항에 대해 알아보려면 [Azure에서 Configuration Manager - 질문과 대답](/configmgr/core/understand/configuration-manager-on-azure#networking)을 검토하세요.
@@ -36,7 +36,7 @@ Microsoft 끝점 Configuration Manager에서 업데이트 배포를 계속 관�
 
 1. [소프트웨어 업데이트 배포](/configmgr/sum/deploy-use/deploy-software-updates)에 설명 된 프로세스를 사용 하 여 Microsoft Endpoint Configuration Manager 계층 구조의 최상위 사이트에서 소프트웨어 업데이트 배포를 만듭니다. 표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 업데이트 관리에서 관리됩니다.
 
-2. Azure Automation에서 **업데이트 관리**를 선택합니다. [업데이트 배포 만들기](deploy-updates.md#schedule-an-update-deployment) 에 설명 된 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹** 을 선택 하 여 적절 한 Microsoft 엔드포인트 Configuration Manager 컬렉션을 선택 합니다. 다음 중요 사항을 주의하세요.
+2. Azure Automation에서 **업데이트 관리** 를 선택합니다. [업데이트 배포 만들기](deploy-updates.md#schedule-an-update-deployment) 에 설명 된 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹** 을 선택 하 여 적절 한 Microsoft 엔드포인트 Configuration Manager 컬렉션을 선택 합니다. 다음 중요 사항을 주의하세요.
 
     a. 선택 된 Microsoft 끝점 Configuration Manager 장치 컬렉션에 유지 관리 기간이 정의 된 경우 컬렉션의 멤버는 예약 된 배포에 정의 된 **기간** 설정 대신이를 인식 합니다.
 

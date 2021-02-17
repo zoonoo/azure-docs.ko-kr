@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 66b10efb6ca93bc6b4dd67d700daaf1f9049de68
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ac9c8efbe29bf1420a94d486b650758cc22bec2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183433"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575764"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
@@ -42,18 +42,18 @@ ms.locfileid: "96183433"
 
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
-메트릭 또는 사용자 데이터를 Azure에 업로드 하기 전에 Azure 구독에 리소스 공급자가 등록 되어 있는지 확인 해야 `Microsoft.AzureData` 합니다.
+메트릭 또는 사용자 데이터를 Azure에 업로드 하기 전에 Azure 구독에 리소스 공급자가 등록 되어 있는지 확인 해야 `Microsoft.AzureArcData` 합니다.
 
 리소스 공급자를 확인 하려면 다음 명령을 실행 합니다.
 
 ```azurecli
-az provider show -n Microsoft.AzureData -o table
+az provider show -n Microsoft.AzureArcData -o table
 ```
 
 리소스 공급자가 현재 구독에 등록 되어 있지 않으면 등록할 수 있습니다. 등록 하려면 다음 명령을 실행 합니다.  이 명령을 완료하는 데 1~2분 정도 걸릴 수 있습니다.
 
 ```azurecli
-az provider register -n Microsoft.AzureData --wait
+az provider register -n Microsoft.AzureArcData --wait
 ```
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
@@ -193,7 +193,7 @@ Azure Arc 활성화 된 데이터 서비스에 대 한 만들기, 읽기, 업데
 
 미리 보기 중에이 프로세스는 밤에 발생 합니다. 일반적인 지침은 하루에 한 번만 사용을 업로드 하는 것입니다. 사용 정보를 동일한 24 시간 내에 여러 번 내보내고 업로드 하면 리소스 인벤토리가 Azure Portal 업데이트 되지만 리소스 사용량은 업데이트 되지 않습니다.
 
-메트릭 업로드의 경우 Azure monitor는 최근 30 분의 데이터만 수락 합니다 ([자세한 정보](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드 하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드 하 여 Azure Portal에서 전체 데이터 집합을 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 2:00 PM으로 내보내고 2:50 PM에 업로드 명령을 실행 한 경우 Azure Monitor는 최근 30 분 동안의 데이터만 허용 하므로 포털에 데이터가 표시 되지 않을 수 있습니다. 
+메트릭 업로드의 경우 Azure monitor는 최근 30 분의 데이터만 수락 합니다 ([자세한 정보](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드 하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드 하 여 Azure Portal에서 전체 데이터 집합을 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 2:00 PM으로 내보내고 2:50 PM에 업로드 명령을 실행 한 경우 Azure Monitor는 최근 30 분 동안의 데이터만 허용 하므로 포털에 데이터가 표시 되지 않을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

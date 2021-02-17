@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b7e40eb936a6151f0f31c34c5a8030153a87f08c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571106"
 ---
-# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성
+# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv4.1 Kerberos 암호화 구성
 
 Azure NetApp Files는 256 암호화를 사용 하는 Kerberos 모드 (krb5.conf, krb5i 및 krb5p)에서 NFS 클라이언트 암호화를 지원 합니다. 이 문서에서는 Kerberos 암호화와 함께 NFSv 4.1 볼륨을 사용 하는 데 필요한 구성을 설명 합니다.
 
@@ -57,7 +57,7 @@ NFSv 4.1 클라이언트 암호화에는 다음 요구 사항이 적용 됩니�
 
 ## <a name="configure-the-azure-portal"></a>Azure Portal 구성 
 
-1.  [Active Directory 연결 만들기](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)의 지침을 따릅니다.  
+1.  [Active Directory 연결 만들기](create-active-directory-connections.md)의 지침을 따릅니다.  
 
     Kerberos를 사용 하려면 Active Directory에서 하나 이상의 컴퓨터 계정을 만들어야 합니다. 제공 하는 계정 정보는 SMB *및* Nfsv 4.1 Kerberos 볼륨 모두에 대 한 계정을 만드는 데 사용 됩니다. 이 컴퓨터는 볼륨을 만드는 동안 자동으로 생성 됩니다.
 
@@ -89,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    예를 들면 다음과 같습니다. 
+    다음은 그 예입니다.  
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -175,5 +175,5 @@ Krb5p의 성능 영향:
 * [NFSv 4.1 Kerberos 볼륨 문제 해결](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Azure NetApp Files에 대 한 Faq](azure-netapp-files-faqs.md)
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
-* [Active Directory 연결 만들기](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Active Directory 연결 만들기](create-active-directory-connections.md)
 * [Azure NetApp Files에 대한 NFS 클라이언트 구성](configure-nfs-clients.md) 

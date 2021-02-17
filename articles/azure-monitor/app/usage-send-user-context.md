@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 021c76bcd03bbe35eabec5611fe0cc1e2c7c4427
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327908"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583336"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -22,7 +22,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 - [사용자, 세션, 이벤트](./usage-segmentation.md)
 - [깔때기](./usage-funnels.md)
 - [보존](./usage-retention.md) 코호트
-- [통합 문서](../platform/workbooks-overview.md)
+- [통합 문서](../visualize/workbooks-overview.md)
 
 시간이 지남에 따른 사용자 동작을 추적하기 위해 Application Insights에는 각 사용자 또는 세션에 대한 ID가 필요합니다. 모든 사용자 지정 이벤트 또는 페이지 보기에 다음 ID를 포함합니다.
 
@@ -134,5 +134,5 @@ namespace MvcWebRole.Telemetry
     - [사용자, 세션 및 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [보존](usage-retention.md)
-    - [통합 문서](../platform/workbooks-overview.md)
+    - [통합 문서](../visualize/workbooks-overview.md)
 

@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a5e280fb562bf9bb36d0d729e5f494bd23776ec7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702273"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570137"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Azure Vm에 대 한 예약 된 이벤트 모니터링
 
@@ -25,7 +25,7 @@ ms.locfileid: "98702273"
 
 Scheduled Events는 [Azure Instance Metadata Service](instance-metadata-service.md)의 일부로 제공되며 모든 Azure 가상 머신에서 사용할 수 있습니다. 고객은 가상 머신의 엔드포인트를 쿼리하여 예약된 유지 관리 알림을 찾고, 상태 저장 및 순환에서 가상 머신 제외 등의 완화 작업을 수행하기 위한 자동화를 작성할 수 있습니다. Azure 유지 관리 이벤트의 감사 로그를 유지할 수 있도록 Scheduled Events를 기록하는 자동화를 작성하는 것이 좋습니다. 
 
-이 문서에서는 Log Analytics에 유지 관리 Scheduled Events를 캡처하는 방법을 안내합니다. 그런 다음, 팀에 메일을 보내고 가상 머신에 영향을 준 모든 이벤트의 기록 보기를 가져오는 등의 몇 가지 기본적인 알림 작업을 트리거합니다. 이벤트 집계 및 자동화를 위해 [Log Analytics](../../azure-monitor/learn/quick-create-workspace.md)를 사용하지만 다른 모니터링 솔루션을 사용하여 이러한 로그를 수집하고 자동화를 트리거할 수도 있습니다.
+이 문서에서는 Log Analytics에 유지 관리 Scheduled Events를 캡처하는 방법을 안내합니다. 그런 다음, 팀에 메일을 보내고 가상 머신에 영향을 준 모든 이벤트의 기록 보기를 가져오는 등의 몇 가지 기본적인 알림 작업을 트리거합니다. 이벤트 집계 및 자동화를 위해 [Log Analytics](../../azure-monitor/logs/quick-create-workspace.md)를 사용하지만 다른 모니터링 솔루션을 사용하여 이러한 로그를 수집하고 자동화를 트리거할 수도 있습니다.
 
 ![이벤트 수명 주기를 보여 주는 다이어그램](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Scheduled Events는 [Azure Instance Metadata Service](instance-metadata-service.
 
 자습서가 끝난 후에 그룹 리소스 그룹을 삭제하지 마세요.
 
-또한 가용성 집합의 VM에서 정보를 집계하는 데 사용할 [Log Analytics 작업 영역을 만들어야](../../azure-monitor/learn/quick-create-workspace.md) 합니다.
+또한 가용성 집합의 VM에서 정보를 집계하는 데 사용할 [Log Analytics 작업 영역을 만들어야](../../azure-monitor/logs/quick-create-workspace.md) 합니다.
 
 ## <a name="set-up-the-environment"></a>환경 설정
 
@@ -132,7 +132,7 @@ New-AzVm `
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Azure Monitor를 사용하여 경고 규칙 만들기 
 
 
-이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/log-query/log-analytics-tutorial.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
+이벤트가 Log Analytics에 푸시되면 다음 [쿼리](../../azure-monitor/logs/log-analytics-tutorial.md)를 실행하여 일정 이벤트를 찾을 수 있습니다.
 
 1. 페이지 위쪽에서 **로그** 를 선택하고 텍스트 상자에 다음을 붙여 넣습니다.
 

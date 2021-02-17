@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380409"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576393"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "100380409"
 > 모니터링 및 관리 애플리케이션은 데이터 파이프라인 모니터링 및 관리와 문제 해결에 대한 더 나은 지원을 제공합니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
 > [!IMPORTANT]
-> Azure Data Factory 버전 1은 이제 새로운 [Azure Monitor 경고 인프라](../../azure-monitor/platform/alerts-metric.md)를 사용합니다. 이전의 경고 인프라는 사용되지 않습니다. 따라서 버전 1 데이터 팩터리용으로 구성된 기존의 경고는 더 이상 작동하지 않습니다. v1 데이터 팩터리에 대한 기존의 경고는 자동으로 마이그레이션되지 않습니다. 새 경고 인프라에서 이러한 경고를 다시 만들어야 합니다. Azure Portal에 로그인하고 **모니터** 를 선택하여 버전 1 데이터 팩터리의 메트릭(예: 실패한 실행 또는 성공한 실행)에 대한 새 경고를 만듭니다.
+> Azure Data Factory 버전 1은 이제 새로운 [Azure Monitor 경고 인프라](../../azure-monitor/alerts/alerts-metric.md)를 사용합니다. 이전의 경고 인프라는 사용되지 않습니다. 따라서 버전 1 데이터 팩터리용으로 구성된 기존의 경고는 더 이상 작동하지 않습니다. v1 데이터 팩터리에 대한 기존의 경고는 자동으로 마이그레이션되지 않습니다. 새 경고 인프라에서 이러한 경고를 다시 만들어야 합니다. Azure Portal에 로그인하고 **모니터** 를 선택하여 버전 1 데이터 팩터리의 메트릭(예: 실패한 실행 또는 성공한 실행)에 대한 새 경고를 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>재시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -174,7 +174,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -185,7 +185,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -218,7 +218,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -232,7 +232,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들면 다음과 같습니다.
+    다음은 그 예입니다. 
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

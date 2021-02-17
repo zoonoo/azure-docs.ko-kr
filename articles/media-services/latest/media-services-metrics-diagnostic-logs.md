@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cd8c6ca67a1e475279cba8ccc3f4cb8cc7412d66
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954989"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590768"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Media Services 메트릭 및 진단 로그 모니터링
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) 를 사용 하면 앱의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 메트릭 및 로그 중 하나에 해당합니다. Media Services 진단 로그를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 경고 및 알림을 만들 수 있습니다. [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)를 사용 하 여 메트릭 데이터를 시각화 하 고 분석할 수 있습니다. [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송 하 고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 스트림 하거나, [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내거나, 타사 서비스를 사용할 수 있습니다.
+[Azure Monitor](../../azure-monitor/overview.md) 를 사용 하면 앱의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 메트릭 및 로그 중 하나에 해당합니다. Media Services 진단 로그를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 경고 및 알림을 만들 수 있습니다. [메트릭 탐색기](../../azure-monitor/essentials/metrics-getting-started.md)를 사용 하 여 메트릭 데이터를 시각화 하 고 분석할 수 있습니다. [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송 하 고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 스트림 하거나, [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내거나, 타사 서비스를 사용할 수 있습니다.
 
-자세한 개요는 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+자세한 개요는 [Azure Monitor 메트릭](../../azure-monitor/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 이 항목에서는 지원 되는 [Media Services 메트릭과](#media-services-metrics) [진단 로그 Media Services](#media-services-diagnostic-logs)에 대해 설명 합니다.
 
 ## <a name="media-services-metrics"></a>Media Services 메트릭
 
-메트릭은 값이 변경되었는지 여부와 상관 없이 정기적으로 수집됩니다. 메트릭은 자주 샘플링할 수 있고 경고는 비교적 간단한 논리를 사용하여 신속하게 발생시킬 수 있기 때문에, 메트릭은 경고에 유용합니다. 메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조 하세요.
+메트릭은 값이 변경되었는지 여부와 상관 없이 정기적으로 수집됩니다. 메트릭은 자주 샘플링할 수 있고 경고는 비교적 간단한 논리를 사용하여 신속하게 발생시킬 수 있기 때문에, 메트릭은 경고에 유용합니다. 메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-metric.md)를 참조 하세요.
 
 Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 합니다.
 
@@ -43,7 +43,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|표시 이름|Description|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
@@ -61,7 +61,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 Media Services [스트리밍 끝점](/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|표시 이름|Description|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
@@ -89,7 +89,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 ## <a name="media-services-diagnostic-logs"></a>진단 로그 Media Services
 
-진단 로그는 Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
+진단 로그는 Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/essentials/platform-logs-overview.md)을 참조 하세요.
 
 Media Services는 다음 진단 로그를 지원 합니다.
 
@@ -97,7 +97,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|Name|Description|
+|속성|설명|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](media-services-diagnostic-logs-schema.md)를 참조 하세요.|
 
@@ -116,7 +116,7 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/platform-logs-overview.md)
-* [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)
+* [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-metric.md)
 * [Media Services 메트릭을 모니터링 하는 방법](media-services-metrics-howto.md)
 * [Media Service 진단 로그를 모니터링 하는 방법](media-services-diagnostic-logs-howto.md)

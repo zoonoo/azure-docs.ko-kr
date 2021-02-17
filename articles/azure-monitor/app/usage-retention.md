@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7f6155d3230d234e1163ee12cd7685817331b93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323539"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583389"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
@@ -27,7 +27,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
 
 1. 도구 모음을 사용하면 사용자가 새 재방문 주기 보고서를 만들고, 기존 재방문 주기 보고서를 열고, 현재 재방문 주기 보고서 저장하거나 저장된 보고서로 만들어진 변경 내용을 되돌리고, 보고서에서 데이터 새로 고치고, 이메일 또는 직접 링크를 통해 보고서를 공유하고 설명서 페이지에 액세스할 수 있습니다. 
 2. 기본적으로 재방문 주기는 기간에 따라 작업을 한 후 다시 방문하고 다른 작업을 한 모든 사용자를 보여 줍니다. 다른 이벤트의 조합을 선택하여 특정 사용자 작업에 대한 범위를 좁힐 수 있습니다.
-3. 속성에 대해 하나 이상의 필터를 추가합니다. 예를 들어 특정 국가 또는 하위 지역에 있는 사용자에 집중할 수 있습니다. 필터를 설정한 후에 **업데이트**를 클릭합니다. 
+3. 속성에 대해 하나 이상의 필터를 추가합니다. 예를 들어 특정 국가 또는 하위 지역에 있는 사용자에 집중할 수 있습니다. 필터를 설정한 후에 **업데이트** 를 클릭합니다. 
 4. 전체 재방문 주기 차트는 선택한 기간에 걸친 사용자 재방문 주기의 요약을 보여 줍니다. 
 5. 표는 #2의 쿼리 작성기에 따라 재방문한 사용자 수를 보여 줍니다. 각 행은 표시된 기간에 이벤트를 실행한 사용자의 코호트를 표시합니다. 행의 각 셀은 이후 기간에 1번 이상 돌아온 해당 코호트 수를 표시합니다. 일부 사용자는 둘 이상의 기간에 돌아올 수 있습니다. 
 6. insights 카드는 상위 5개 시작 이벤트 및 상위 5개 반환되는 이벤트를 표시하여 사용자가 자신의 재방문 주기 보고서를 더 잘 이해할 수 있도록 합니다. 
@@ -63,6 +63,6 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
     - [사용자, 세션, 이벤트](usage-segmentation.md)
     - [깔때기](usage-funnels.md)
     - [사용자 흐름](usage-flows.md)
-    - [통합 문서](../platform/workbooks-overview.md)
+    - [통합 문서](../visualize/workbooks-overview.md)
     - [사용자 컨텍스트 추가](usage-send-user-context.md)
 

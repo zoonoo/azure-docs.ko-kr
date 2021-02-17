@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f319f912520a69a0c68f89a3d4178f63cc45ca1f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356551"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575681"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
 
@@ -126,7 +126,7 @@ Azure arc 사용 설정 SQL 관리 되는 인스턴스 및 Azure Arc 사용 Post
    >[!NOTE]
    >첫 번째 업로드에 대해 Azure Arc 사용 데이터 인스턴스를 만든 후 30 분 이상 기다립니다.
    >
-   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세히 알아봅니다](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting).
+   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세히 알아보기](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 내보내기 중에 "메트릭 가져오기 실패"를 나타내는 오류가 표시 되는 경우 `true` 다음 명령을 실행 하 여 데이터 수집이로 설정 되었는지 확인 합니다.
@@ -199,7 +199,7 @@ Azure Arc 활성화 된 데이터 서비스에 대 한 만들기, 읽기, 업데
 
 미리 보기 중에이 프로세스는 밤에 발생 합니다. 일반적인 지침은 하루에 한 번만 사용을 업로드 하는 것입니다. 사용 정보를 동일한 24 시간 내에 여러 번 내보내고 업로드 하면 리소스 인벤토리가 Azure Portal 업데이트 되지만 리소스 사용량은 업데이트 되지 않습니다.
 
-메트릭 업로드의 경우 Azure monitor는 최근 30 분의 데이터만 수락 합니다 ([자세한 정보](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드 하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드 하 여 Azure Portal에서 전체 데이터 집합을 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 2:00 PM으로 내보내고 2:50 PM에 업로드 명령을 실행 한 경우 Azure Monitor는 최근 30 분 동안의 데이터만 허용 하므로 포털에 데이터가 표시 되지 않을 수 있습니다. 
+메트릭 업로드의 경우 Azure monitor는 최근 30 분의 데이터만 수락 합니다 ([자세한 정보](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). 메트릭을 업로드 하기 위한 지침은 내보내기 파일을 만든 후 즉시 메트릭을 업로드 하 여 Azure Portal에서 전체 데이터 집합을 볼 수 있도록 하는 것입니다. 예를 들어, 메트릭을 2:00 PM으로 내보내고 2:50 PM에 업로드 명령을 실행 한 경우 Azure Monitor는 최근 30 분 동안의 데이터만 허용 하므로 포털에 데이터가 표시 되지 않을 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632464"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575887"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -59,7 +59,7 @@ ms.locfileid: "98632464"
     > [!NOTE]
     > Azure VM 또는 Arc 사용 서버를 선택한 경우에는이 옵션을 사용할 수 없습니다. 예약 된 배포에 대 한 컴퓨터의 대상이 자동으로 지정 됩니다.
 
-6. **업데이트할 머신** 영역에서 저장된 검색, 가져온 그룹을 선택하거나 드롭다운 메뉴에서 **머신** 을 선택하고 개별 머신을 선택합니다. 이 옵션을 사용하여 각 머신의 Log Analytics 에이전트 준비 상태를 확인할 수 있습니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. 예약 된 업데이트 배포에서 최대 1000 대의 컴퓨터를 포함할 수 있습니다.
+6. **업데이트할 머신** 영역에서 저장된 검색, 가져온 그룹을 선택하거나 드롭다운 메뉴에서 **머신** 을 선택하고 개별 머신을 선택합니다. 이 옵션을 사용하여 각 머신의 Log Analytics 에이전트 준비 상태를 확인할 수 있습니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/logs/computer-groups.md)을 참조하세요. 예약 된 업데이트 배포에서 최대 1000 대의 컴퓨터를 포함할 수 있습니다.
 
     > [!NOTE]
     > Azure VM 또는 Arc 사용 서버를 선택한 경우에는이 옵션을 사용할 수 없습니다. 예약 된 배포에 대 한 컴퓨터의 대상이 자동으로 지정 됩니다.

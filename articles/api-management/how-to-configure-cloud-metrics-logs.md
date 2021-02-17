@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254534"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574054"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 클라우드 메트릭 및 로그 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "86254534"
 
 자체 호스팅 게이트웨이에서는 현재 클라우드로 [진단 로그](./api-management-howto-use-azure-monitor.md#activity-logs) 를 보내지 않습니다. 그러나 자체 호스팅 게이트웨이가 배포 되는 위치에서 [로그를 로컬로 구성 하 고 유지할](how-to-configure-local-metrics-logs.md) 수 있습니다. 
 
-게이트웨이가 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포 되는 경우 컨테이너에서 로그를 수집 하 고 Log Analytics에서 볼 수 있도록 [컨테이너에 대해 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 를 사용 하도록 설정할 수 있습니다. 
+게이트웨이가 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포 되는 경우 컨테이너에서 로그를 수집 하 고 Log Analytics에서 볼 수 있도록 [컨테이너에 대해 Azure Monitor](../azure-monitor/containers/container-insights-overview.md) 를 사용 하도록 설정할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

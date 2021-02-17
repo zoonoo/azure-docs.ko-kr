@@ -4,12 +4,12 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET/.NET
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9af36f3c81ee52b41a8eed875c1a286b95bf838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1ae0937c25a68798acd87fe8b2a0a54aa765b35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803646"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579535"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
@@ -88,14 +88,14 @@ Application Insights는 `EventCounters` `EventCounterCollectionModule` 새로 �
 
 ## <a name="event-counters-in-metric-explorer"></a>메트릭 탐색기의 이벤트 카운터
 
-[메트릭 탐색기](../platform/metrics-charts.md)에서 EventCounter 메트릭을 보려면 Application Insights 리소스를 선택하고 로그 기반 메트릭을 메트릭 네임스페이스로 선택합니다. 그러면 EventCounter 메트릭이 사용자 지정 범주에 표시됩니다.
+[메트릭 탐색기](../essentials/metrics-charts.md)에서 EventCounter 메트릭을 보려면 Application Insights 리소스를 선택하고 로그 기반 메트릭을 메트릭 네임스페이스로 선택합니다. 그러면 EventCounter 메트릭이 사용자 지정 범주에 표시됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![Application Insights 메트릭 탐색기에 보고 된 이벤트 카운터](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Analytics의 이벤트 카운터
 
-[Analytics](../log-query/log-query-overview.md)에서 **customMetrics** 테이블의 이벤트 카운터 보고서를 검색하고 표시할 수도 있습니다.
+[Analytics](../logs/log-query-overview.md)에서 **customMetrics** 테이블의 이벤트 카운터 보고서를 검색하고 표시할 수도 있습니다.
 
 예를 들어 다음 쿼리를 실행하여 수집된 카운터 및 쿼리에 사용할 수 있는 카운터를 확인합니다.
 
@@ -118,10 +118,10 @@ customMetrics
 > [!div class="mx-imgBorder"]
 > ![Application Insights에서 단일 카운터의 채팅](./media/event-counters/analytics-completeditems-counters.png)
 
-다른 원격 분석과 마찬가지로 **customMetrics**에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 위의 쿼리는 인스턴스당 카운터 값을 표시하며 다른 서버 인스턴스의 성능을 비교하는 데 사용할 수 있습니다.
+다른 원격 분석과 마찬가지로 **customMetrics** 에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 위의 쿼리는 인스턴스당 카운터 값을 표시하며 다른 서버 인스턴스의 성능을 비교하는 데 사용할 수 있습니다.
 
 ## <a name="alerts"></a>경고
-다른 메트릭과 마찬가지로 이벤트 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
+다른 메트릭과 마찬가지로 이벤트 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../alerts/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

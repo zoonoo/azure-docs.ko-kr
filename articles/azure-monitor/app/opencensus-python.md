@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323268"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584036"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -33,7 +33,7 @@ python -m pip install opencensus-ext-azure
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure` 명령은 Python 설치에 대해 `PATH` 환경 변수를 설정했다고 가정합니다. 이 변수를 구성하지 않은 경우 Python 실행 파일이 위치하는 전체 디렉터리 경로를 제공해야 합니다. 결과로 나온 명령은 다음과 같습니다. `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
-SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 다른 유형의 원격 분석을 보냅니다. 추적, 메트릭 및 로그입니다. 이러한 원격 분석 유형에 대한 자세한 내용은 [데이터 플랫폼 개요](../platform/data-platform.md)를 참조하세요. 다음 지침을 사용하여 세 가지 내보내기를 통해 이러한 원격 분석 유형을 전송합니다.
+SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 다른 유형의 원격 분석을 보냅니다. 추적, 메트릭 및 로그입니다. 이러한 원격 분석 유형에 대한 자세한 내용은 [데이터 플랫폼 개요](../data-platform.md)를 참조하세요. 다음 지침을 사용하여 세 가지 내보내기를 통해 이러한 원격 분석 유형을 전송합니다.
 
 ## <a name="telemetry-type-mappings"></a>원격 분석 유형 매핑
 
@@ -261,7 +261,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
     if __name__ == "__main__":
         main()
     ```
-1. 코드를 반복적으로 실행 하면 **Enter 키**를 선택 하 라는 메시지가 표시 됩니다. **Enter 키** 를 선택한 횟수를 추적 하는 메트릭이 생성 됩니다. 각 항목을 사용 하면 값이 증가 하 고 메트릭 정보가 콘솔에 표시 됩니다. 이 정보에는 메트릭이 업데이트된 현재 값 및 현재 타임스탬프가 포함됩니다.
+1. 코드를 반복적으로 실행 하면 **Enter 키** 를 선택 하 라는 메시지가 표시 됩니다. **Enter 키** 를 선택한 횟수를 추적 하는 메트릭이 생성 됩니다. 각 항목을 사용 하면 값이 증가 하 고 메트릭 정보가 콘솔에 표시 됩니다. 이 정보에는 메트릭이 업데이트된 현재 값 및 현재 타임스탬프가 포함됩니다.
 
     ```output
     Press enter.
@@ -438,7 +438,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 각 내보내기는 생성자를 통해 전달 되는 구성에 대해 동일한 인수를 수락 합니다. 여기에서 각 항목에 대 한 세부 정보를 볼 수 있습니다.
 
 - `connection_string`: Azure Monitor 리소스에 연결 하는 데 사용 되는 연결 문자열입니다. 우선 순위를 사용 `instrumentation_key` 합니다.
-- `enable_standard_metrics`:에 사용 `AzureMetricsExporter` 됩니다. 자동으로 Azure Monitor 하기 위해 [성능 카운터](../platform/app-insights-metrics.md#performance-counters) 메트릭을 보내도록 내보내기를 신호로 보냅니다. 기본값은 `True`입니다.
+- `enable_standard_metrics`:에 사용 `AzureMetricsExporter` 됩니다. 자동으로 Azure Monitor 하기 위해 [성능 카운터](../essentials/app-insights-metrics.md#performance-counters) 메트릭을 보내도록 내보내기를 신호로 보냅니다. 기본값은 `True`입니다.
 - `export_interval`: 내보내는 빈도 (초)를 지정 하는 데 사용 됩니다.
 - `instrumentation_key`: Azure Monitor 리소스에 연결 하는 데 사용 되는 계측 키입니다.
 - `logging_sampling_rate`:에 사용 `AzureLogHandler` 됩니다. 로그를 내보내기 위한 샘플링 주기 [0, 1.0]을 제공 합니다. 기본값은 1.0입니다.
@@ -458,7 +458,7 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 - Azure Monitor 메트릭 내보내기로 전송된 원격 분석의 경우 전송된 메트릭은 `customMetrics`에 표시됩니다.
 - Azure Monitor 로그 내보내기를 사용하여 전송되는 원격 분석의 경우 로그는 `traces`에 표시됩니다. 예외는 `exceptions`에 표시됩니다.
 
-쿼리 및 로그를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그](../platform/data-platform-logs.md)를 참조하세요.
+쿼리 및 로그를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그](../logs/data-platform-logs.md)를 참조하세요.
 
 ## <a name="learn-more-about-opencensus-for-python"></a>Python용 OpenCensus에 대해 자세히 알아보기
 
@@ -473,11 +473,11 @@ Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방�
 * [들어오는 요청 추적](./opencensus-python-dependency.md)
 * [진행 중인 요청 추적](./opencensus-python-request.md)
 * [애플리케이션 맵](./app-map.md)
-* [엔드투엔드 성능 모니터링](../learn/tutorial-performance.md)
+* [엔드투엔드 성능 모니터링](../app/tutorial-performance.md)
 
 ### <a name="alerts"></a>경고
 
 * [가용성 테스트](./monitor-web-app-availability.md): 테스트를 만들어 사이트가 웹에 표시되는지 확인합니다.
 * [스마트 진단](./proactive-diagnostics.md): 이 테스트는 자동으로 실행되므로 아무것도 설정할 필요가 없습니다. 앱이 실패한 요청으로 비정상적인 속도를 보일 경우 알려줍니다.
-* [메트릭 경고](../platform/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
+* [메트릭 경고](../alerts/alerts-log.md): 메트릭이 임계값을 초과할 경우 경고 메시지를 표시하도록 설정합니다. 앱에 코딩하는 사용자 지정 메트릭에 이러한 경고를 설정할 수 있습니다.
 

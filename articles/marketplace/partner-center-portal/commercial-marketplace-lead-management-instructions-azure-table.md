@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347866"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586845"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -203,3 +203,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 >제품에 대한 잠재 고객을 받으려면 먼저 제품의 나머지 부분에 대해 구성을 끝낸 후에 게시해야 합니다.
 
 잠재 고객이 생성되면 Microsoft에서 Azure 테이블로 잠재 고객을 보냅니다. 흐름을 구성할 경우 지정한 메일 주소로 메일도 발송됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [리드 관리 FAQ 및 문제 해결](../lead-management-faq.md)

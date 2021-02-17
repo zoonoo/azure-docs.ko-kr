@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618164"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574209"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용 하 Azure Active Directory Domain Services의 보안 감사 이벤트 검토
 
@@ -46,7 +46,7 @@ Azure AD DS에는 다음과 같은 두 개의 통합 문서 템플릿이 포함 
 * 보안 개요 보고서
 * 계정 활동 보고서
 
-통합 문서를 편집 하 고 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor 통합 문서 개요](../azure-monitor/platform/workbooks-overview.md)를 참조 하세요.
+통합 문서를 편집 하 고 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor 통합 문서 개요](../azure-monitor/visualize/workbooks-overview.md)를 참조 하세요.
 
 ## <a name="use-the-security-overview-report-workbook"></a>보안 개요 보고서 통합 문서 사용
 

@@ -6,22 +6,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183977"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572260"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
 
 이 자습서에서는 Azure SignalR Service에 대 한 리소스 로그, 설정 방법 및 문제 해결 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 리소스 로그를 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
-* [Azure storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) -Azure 리소스에서 생성 된 원시 로그를 분석할 수 있는 유연한 로그 검색 및 분석 도구입니다.
+* [Azure storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) -Azure 리소스에서 생성 된 원시 로그를 분석할 수 있는 유연한 로그 검색 및 분석 도구입니다.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Azure SignalR 서비스에 대 한 리소스 로그 설정
 
@@ -50,7 +50,7 @@ Azure SignalR 서비스에 대 한 리소스 로그를 볼 수 있습니다. 이
 
 새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 ### <a name="resource-logs-categories"></a>리소스 로그 범주
 
@@ -66,9 +66,9 @@ Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
 보관 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-**형식**
+**Format**
 
-Name | Description
+속성 | 설명
 ------- | -------
 time | 로그 이벤트 시간
 수준 | 로그 이벤트 수준
@@ -81,7 +81,7 @@ properties | 이 로그 이벤트와 관련 된 자세한 속성입니다. 자�
 
 **속성 테이블**
 
-Name | Description
+속성 | Description
 ------- | -------
 type | 로그 이벤트의 유형입니다. 현재 Azure SignalR 서비스에 대 한 연결 정보를 제공 합니다. 형식만 `ConnectivityLogs` 사용할 수 있습니다.
 collection | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -122,13 +122,13 @@ message | 로그 이벤트의 세부 메시지
 
     ![Log Analytics 메뉴 항목](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. `SignalRServiceDiagnosticLogs`리소스 로그를 쿼리 하는 시간 범위를 입력 하 고 선택 합니다. 고급 쿼리는 [에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 을 참조 하세요 Azure Monitor
+2. `SignalRServiceDiagnosticLogs`리소스 로그를 쿼리 하는 시간 범위를 입력 하 고 선택 합니다. 고급 쿼리는 [에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md) 을 참조 하세요 Azure Monitor
 
     ![Log Analytics 쿼리 로그](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
 보관 로그 열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-Name | Description
+속성 | Description
 ------- | ------- 
 TimeGenerated | 로그 이벤트 시간
 컬렉션 | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -162,7 +162,7 @@ Azure SignalR 서비스에 대 한 문제를 해결 하기 위해 서버/클라�
 
 중단 이유는 다음 표에 나와 있습니다.
 
-이유 | Description
+이유 | 설명
 ------- | ------- 
 연결 수가 제한에 도달 합니다. | 연결 수는 현재 가격 책정 계층의 제한에 도달 합니다. 서비스 단위 확장 고려
 응용 프로그램 서버에서 연결을 닫았습니다. | 앱 서버는 abortion를 트리거합니다. 예상 된 abortion 간주 될 수 있습니다.

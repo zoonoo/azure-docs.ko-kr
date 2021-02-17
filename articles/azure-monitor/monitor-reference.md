@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 08d30fb72398c4b43422eb21f132d5fddd5502b7
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 153b153399bd430b4688d4790a3dd5785c545012
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853149"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579388"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -26,12 +26,12 @@ ms.locfileid: "96853149"
 | 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 애플리케이션을 모니터링하는 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. |
-| [컨테이너용 Azure Monitor](insights/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
+| [컨테이너용 Azure Monitor](containers/container-insights-overview.md) | AKS(Azure Kubernetes Service)에 호스트된 Azure Container Instances 또는 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링합니다. |
 | [Cosmos DB용 Azure Monitor](insights/cosmosdb-insights-overview.md) | 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. |
 | [네트워크용 Azure Monitor(미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대한 상태 및 메트릭의 포괄적인 보기를 제공합니다. 고급 검색 기능은 리소스 종속성을 식별하는 데 유용하여 웹 사이트 이름을 검색하기만 하면 웹 사이트를 호스트하는 리소스를 식별하는 등의 시나리오를 사용할 수 있습니다. |
 [리소스 그룹용 Azure Monitor(미리 보기)](insights/resource-group-insights.md) |  리소스 그룹의 상태 및 성능과 관련된 컨텍스트를 전체적으로 제공하면서 개별 리소스에 발생하는 문제를 심사하고 진단할 수 있습니다. |
 | [Storage용 Azure Monitor](insights/storage-insights-overview.md) | Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. |
-| [VM용 Azure Monitor](insights/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
+| [VM용 Azure Monitor](vm/vminsights-overview.md) | Azure VM(Virtual Machines) 및 가상 머신 확장 집합을 대규모로 모니터링합니다. 또한 Windows 및 Linux VM의 성능과 상태를 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. |
 | [Key Vault용 Azure Monitor(미리 보기)](./insights/key-vault-insights-overview.md) | Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다. |
 | [Azure Cache for Redis용 Azure Monitor(미리 보기)](insights/redis-cache-insights-overview.md) |  전반적인 성능, 실패, 용량 및 운영 상태에 대한 통합된 대화형 보기를 제공합니다. |
 
@@ -43,8 +43,8 @@ ms.locfileid: "96853149"
 | 해결 방법 | Description |
 |:---|:---|
 | [에이전트 상태](insights/solution-agenthealth.md) | Log Analytics 에이전트의 상태와 구성을 분석합니다. |
-| [경고 관리](platform/alert-management-solution.md) | System Center Operations Manager, Nagios 또는 Zabbix에서 수집된 경고를 분석합니다. |
-| [서비스 맵](insights/service-map.md) | Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. |
+| [경고 관리](insights/alert-management-solution.md) | System Center Operations Manager, Nagios 또는 Zabbix에서 수집된 경고를 분석합니다. |
+| [서비스 맵](vm/service-map.md) | Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. |
 
 
 
@@ -119,7 +119,7 @@ ms.locfileid: "96853149"
 |IoT Central | 예 | 예 | 예 |  |
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
-|AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
+|AKS(Azure Kubernetes Service) | 예 | 예 | [예](containers/container-insights-overview.md)  |  |
 |Load Balancer | 예 | 아니요 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
@@ -163,8 +163,8 @@ ms.locfileid: "96853149"
 |TINA | 예 | 아니요 | 예 |  |
 |Traffic Manager | 예 | 예 | 예 |  |
 |유니버설 인쇄 | 예 | 아니요 | 예 |  |
-|Virtual Machine Scale Sets | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
-|Virtual Machines | 예 | 예 | [예](insights/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
+|Virtual Machine Scale Sets | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
+|Virtual Machines | 예 | 예 | [예](vm/vminsights-overview.md) | 게스트 운영 체제 및 워크플로를 모니터링하는 데 에이전트가 필요합니다. |
 |Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
 |Virtual Network - NSG 흐름 로그 | 예 | 예 | 예 |  |
 |VPN Gateway | 예 | 예 | 예 |  |
@@ -173,15 +173,15 @@ ms.locfileid: "96853149"
 ## <a name="virtual-machine-agents"></a>가상 머신 에이전트
 다음 표에는 가상 컴퓨터의 게스트 운영 체제에서 데이터를 수집 하 고 모니터에 데이터를 보낼 수 있는 에이전트가 나열 되어 있습니다. 각 에이전트는 서로 다른 데이터를 수집 하 여 Azure Monitor의 메트릭 또는 로그에 보낼 수 있습니다. 
 
-각 에이전트가 수집할 수 있는 데이터에 대 한 자세한 내용은 [Azure Monitor 에이전트 개요](platform/agents-overview.md) 를 참조 하세요.
+각 에이전트가 수집할 수 있는 데이터에 대 한 자세한 내용은 [Azure Monitor 에이전트 개요](agents/agents-overview.md) 를 참조 하세요.
 
 | 에이전트 |  메트릭 | 로그 |
 |:---|:---|:---|:---|
-| [Azure Monitor 에이전트(미리 보기)](platform/azure-monitor-agent-overview.md) | 예 | 예 |
-| [Log Analytics 에이전트](platform/log-analytics-agent.md) | 아니요 | 예|
-| [진단 확장](platform/diagnostics-extension-overview.md) | 예 | 아니요 |
-| [Telegraf 에이전트](platform/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
-| [종속성 에이전트](insights/vminsights-enable-overview.md) | 아니요 | 예 |
+| [Azure Monitor 에이전트(미리 보기)](agents/azure-monitor-agent-overview.md) | 예 | 예 |
+| [Log Analytics 에이전트](agents/log-analytics-agent.md) | 아니요 | 예|
+| [진단 확장](agents/diagnostics-extension-overview.md) | 예 | 아니요 |
+| [Telegraf 에이전트](essentials/collect-custom-metrics-linux-telegraf.md) | 예 | 아니요 |
+| [종속성 에이전트](vm/vminsights-enable-overview.md) | 아니요 | 예 |
 
 
 ## <a name="product-integrations"></a>제품 통합
@@ -198,9 +198,9 @@ ms.locfileid: "96853149"
 | [Office 365](insights/solution-office-365.md) | Office 365 환경을 모니터링합니다. Azure Sentinel을 통해 향상된 온보딩이 제공되는 업데이트된 버전입니다. |
 | [SQL Analytics](insights/azure-sql.md) | 여러 구독에서 규모에 상관 없이 Azure SQL Database 및 SQL 관리 되는 인스턴스의 성능을 모니터링 합니다. |
 | [Surface Hub](insights/surface-hubs.md) | Surface Hub 디바이스의 상태와 사용 현황을 추적합니다. |
-| [System Center Operations Manager](/system-center/scom) | Operations Manager 에이전트에서 관리 그룹을 Azure Monitor에 연결하여 데이터를 수집합니다. [Azure Monitor에 Operations Manager 연결](platform/om-agents.md)을 참조하세요.<br> [Operations Manager 평가](insights/scom-assessment.md) 솔루션을 사용하여 System Center Operations Manager 관리 그룹의 위험 및 상태를 평가합니다. |
+| [System Center Operations Manager](/system-center/scom) | Operations Manager 에이전트에서 관리 그룹을 Azure Monitor에 연결하여 데이터를 수집합니다. [Azure Monitor에 Operations Manager 연결](agents/om-agents.md)을 참조하세요.<br> [Operations Manager 평가](insights/scom-assessment.md) 솔루션을 사용하여 System Center Operations Manager 관리 그룹의 위험 및 상태를 평가합니다. |
 | [Microsoft Teams 대화방](/microsoftteams/room-systems/azure-monitor-deploy) | Microsoft Teams 대화방 디바이스의 통합된 엔드투엔드 관리입니다. |
-| [Visual Studio App Center](/appcenter/) | 애플리케이션을 빌드, 테스트 및 배포한 다음, 상태 및 사용 현황을 모니터링합니다. [App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작](learn/mobile-center-quickstart.md)을 참조하세요. |
+| [Visual Studio App Center](/appcenter/) | 애플리케이션을 빌드, 테스트 및 배포한 다음, 상태 및 사용 현황을 모니터링합니다. [App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작](app/mobile-center-quickstart.md)을 참조하세요. |
 | Windows | [Windows 업데이트 준수](/windows/deployment/update/update-compliance-get-started) - Windows 데스크톱 업그레이드를 평가합니다.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Configuration Manager와 통합되어 Windows 클라이언트의 업데이트 준비 사항에 대해 충분한 정보를 파악한 후 결정하도록 인사이트와 인텔리전스를 제공합니다. |
 
 
@@ -212,10 +212,10 @@ ms.locfileid: "96853149"
 |:---|:---|
 | [Active Directory 상태 확인](insights/ad-assessment.md) | Active Directory 환경의 위험 및 상태를 평가합니다. |
 | [Active Directory 복제 상태](insights/ad-replication-status.md) | Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다. |
-| [활동 로그 분석](platform/activity-log.md#activity-log-analytics-monitoring-solution) | Azure 로그 항목을 봅니다. |
+| [활동 로그 분석](essentials/activity-log.md#activity-log-analytics-monitoring-solution) | Azure 로그 항목을 봅니다. |
 | [DNS 분석(미리 보기)](insights/dns-analytics.md) | DNS 서버에서 Windows DNS 분석 및 감사 로그와 기타 관련 데이터를 수집, 분석 및 상관 관계를 파악합니다. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | 여러 배포에서 Cloud Foundry 시스템 상태와 성능 메트릭을 수집, 확인 및 분석합니다. |
-| [컨테이너](insights/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리합니다. |
+| [컨테이너](containers/containers.md) | Docker 및 Windows 컨테이너 호스트를 보고 관리합니다. |
 | [주문형 평가](/services-hub/health/getting_started_with_on_demand_assessments) | 온-프레미스, 하이브리드 및 클라우드 Microsoft 기술 환경의 가용성, 보안 및 성능을 평가하고 최적화합니다. |
 | [SQL 상태 검사](insights/sql-assessment.md) | SQL Server 환경의 위험 및 상태를 평가합니다.  |
 | [실시간 데이터](insights/wire-data.md) | Log Analytics 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. |
@@ -224,7 +224,7 @@ ms.locfileid: "96853149"
 
 | 해결 방법 | Description |
 |:---|:---|
-| [ITSM](platform/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
+| [ITSM](alerts/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
 
 
 ## <a name="resources-outside-of-azure"></a>Azure 외부의 리소스
@@ -233,15 +233,15 @@ Azure Monitor는 다음 표에 나열된 방법을 사용하여 Azure 외부의 
 | 리소스 | 방법 |
 |:---|:---|
 | 애플리케이션 | Application Insights를 사용하여 Azure 외부의 웹 애플리케이션을 모니터링합니다. [Application Insights란?](./app/app-insights-overview.md)을 참조하세요. |
-| 가상 머신 | 에이전트를 사용 하 여 다른 클라우드 환경 또는 온-프레미스에 있는 가상 머신의 게스트 운영 체제에서 데이터를 수집 합니다. [Azure Monitor 에이전트 개요를](platform/agents-overview.md)참조 하세요. |
-| REST API 클라이언트 | 별도의 API를 사용하여 REST API 클라이언트의 Azure Monitor 로그 및 메트릭에 데이터를 쓸 수 있습니다. 로그의 경우 [HTTP 데이터 수집기 API를 사용하여 로그 데이터를 Azure Monitor로 보내기](platform/data-collector-api.md)를, 메트릭의 경우 [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](platform/metrics-store-custom-rest-api.md)를 참조하세요. |
+| 가상 머신 | 에이전트를 사용 하 여 다른 클라우드 환경 또는 온-프레미스에 있는 가상 머신의 게스트 운영 체제에서 데이터를 수집 합니다. [Azure Monitor 에이전트 개요를](agents/agents-overview.md)참조 하세요. |
+| REST API 클라이언트 | 별도의 API를 사용하여 REST API 클라이언트의 Azure Monitor 로그 및 메트릭에 데이터를 쓸 수 있습니다. 로그의 경우 [HTTP 데이터 수집기 API를 사용하여 로그 데이터를 Azure Monitor로 보내기](logs/data-collector-api.md)를, 메트릭의 경우 [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](essentials/metrics-store-custom-rest-api.md)를 참조하세요. |
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인사이트 및 솔루션에서 수집한 로그 및 메트릭을 저장하는 Azure Monitor 데이터 플랫폼](platform/data-platform.md)에 대해 자세히 알아봅니다.
-- [Azure 리소스 모니터링에 대한 자습서](learn/tutorial-resource-logs.md)를 완료합니다.
-- [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](learn/tutorial-resource-logs.md)를 완료합니다.
-- [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](learn/tutorial-metrics-explorer.md)를 완료합니다.
+- [인사이트 및 솔루션에서 수집한 로그 및 메트릭을 저장하는 Azure Monitor 데이터 플랫폼](/data-platform.md)에 대해 자세히 알아봅니다.
+- [Azure 리소스 모니터링에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
+- [Azure Monitor 로그의 데이터를 분석하기 위한 로그 쿼리 작성에 대한 자습서](essentials/tutorial-resource-logs.md)를 완료합니다.
+- [Azure Monitor 메트릭에서 데이터를 분석하기 위한 메트릭 차트 만들기 자습서](essentials/tutorial-metrics-explorer.md)를 완료합니다.
 

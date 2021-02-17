@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681390"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574299"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics 작업 영역에서 Azure Monitor 사용
 
@@ -28,7 +28,7 @@ Azure Monitor는 대부분의 Azure 서비스에 대 한 기본 수준의 인프
 
 모니터를 사용 하 여 Azure 워크 로드의 성능 및 상태를 파악할 수 있습니다. 가장 중요 한 유형의 모니터 데이터는 메트릭 (성능 카운터 라고도 함)입니다. 메트릭은 대부분의 Azure 리소스에서 내보내집니다. 모니터는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 하 고 사용 하는 여러 가지 방법을 제공 합니다.
 
-이러한 메트릭에 액세스 하려면 [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md)의 지침을 완료 합니다.
+이러한 메트릭에 액세스 하려면 [Azure Monitor data platform](../../azure-monitor/data-platform.md)의 지침을 완료 합니다.
 
 ### <a name="workspace-level-metrics"></a>작업 영역 수준 메트릭
 
@@ -103,7 +103,7 @@ Azure Portal에 로그인 하 고   >  **경고** 모니터링을 선택 하 여
 
 Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름 | 로그 범주 이름                 | Description |
+| Log Analytics 테이블 이름 | 로그 범주 이름                 | 설명 |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | 게이트웨이 Apirequests             | Azure Synapse gateway API 요청. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Azure Synapse SRBAC (역할 기반 액세스 제어) 작업 |
@@ -112,7 +112,7 @@ Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습
 
 다음은 전용 SQL 풀에서 내보낸 로그입니다.
 
-| Log Analytics 테이블 이름        | 로그 범주 이름             | Description |
+| Log Analytics 테이블 이름        | 로그 범주 이름             | 설명 |
 |----------------------|--------------------------------------|-------------|
 | SynapseSqlPoolExecRequests  | ExecRequests | Azure Synapse 전용 SQL 풀의 SQL 요청/쿼리에 대 한 정보입니다.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Azure Synapse 전용 SQL 풀에서 DMS 단계를 완료 하는 작업자에 대 한 정보입니다.
@@ -131,7 +131,7 @@ Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습
 
 Apache Spark 풀이 내보내는 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름               | 로그 범주 이름              | Description                 |
+| Log Analytics 테이블 이름               | 로그 범주 이름              | 설명                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | 종료 된 Apache Spark 응용 프로그램에 대 한 정보 |
 
@@ -171,7 +171,7 @@ Azure Monitor 진단 설정을 사용 하 여 분석을 위해 진단 로그를 
 1. 설정에 이름을 지정 하 고 **Log Analytics 보내기** 를 선택한 다음 **Log Analytics 작업 영역** 에서 작업 영역을 선택 합니다.
 
     > [!NOTE]
-    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
+    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
 
 1. **저장** 을 선택합니다.
 
