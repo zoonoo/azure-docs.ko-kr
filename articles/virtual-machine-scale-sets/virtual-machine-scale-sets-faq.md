@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016712"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587948"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -64,22 +64,22 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예. 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 자동 크기 조정에 대한 모범 사례는 무엇인가요?
 
-자동 크기 조정에 대한 모범 사례는 [가상 머신 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
+자동 크기 조정에 대한 모범 사례는 [가상 머신 자동 크기 조정에 대한 모범 사례](../azure-monitor/autoscale/autoscale-best-practices.md)를 참조하세요.
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 어디에서 찾을 수 있나요?
 
-호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
+호스트 기반 메트릭을 사용하는 자동 크기 조정에 대한 메트릭 이름은 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예가 있나요?
 
-예. Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)을 참조하세요.
+예. Azure Service Bus 토픽과 큐 길이를 기준으로 하는 자동 크기 조정의 예는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md)을 참조하세요.
 
 Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 
@@ -104,9 +104,9 @@ Service Bus 큐를 모니터링하려면 다음 JSON을 수행합니다.
 
 VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는 게스트 OS 기반 메트릭을 사용할 수 있습니다.
 
-지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)을 참조하세요.
+지원되는 메트릭 목록에 대해서는 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md)을 참조하세요.
 
-가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)을 참조하세요.
+가상 머신 확장 집합의 전체 샘플을 보려면 [가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 고급 자동 크기 조정 구성](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md)을 참조하세요.
 
 샘플에서는 호스트 수준의 CPU 메트릭 및 메시지 개수 메트릭을 사용합니다.
 
@@ -114,13 +114,13 @@ VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에 대해 경고 규칙을 설정하려면 어떻게 해야 하나요?
 
-PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭에 대해 경고를 만들 수 있습니다. 자세한 내용은 [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) 및 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/samples/cli-samples.md#work-with-alerts)을 참조하세요.
+PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭에 대해 경고를 만들 수 있습니다. 자세한 내용은 [Azure Monitor PowerShell 빠른 시작 샘플](../azure-monitor/powershell-samples.md#create-metric-alerts) 및 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](../azure-monitor/cli-samples.md#work-with-alerts)을 참조하세요.
 
 가상 머신 확장 집합의 TargetResourceId는 다음과 같습니다.
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms)을 참조하세요.
+경고를 설정할 메트릭으로 어떤 VM 성능 카운터도 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md) 문서의 [Resource Manager 기반 Windows VM에 대한 게스트 OS 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) 및 [Linux VM에 대한 게스트 OS 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-linux-vms)을 참조하세요.
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
@@ -224,10 +224,10 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 }
 ```
 
-linuxConfiguration 요소 이름 | 필수 | Type | Description
+linuxConfiguration 요소 이름 | 필수 | Type | 설명
 --- | --- | --- | ---
-ssh | No | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
-경로 | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
+ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.

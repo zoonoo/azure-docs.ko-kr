@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c1c247d8fb248c5e6d548dd04af1c3d08a4e76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86219966"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588329"
 ---
 # <a name="notification-hubs-templates"></a>Notification Hubs 템플릿
 
@@ -108,7 +108,6 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 알림 허브로 전송되는 메시지에는 다음과 같은 속성이 모두 포함되어 있습니다.
 
-```html
 <table border="1">
 
 <tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
@@ -117,7 +116,6 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
-```
 
 이 패턴을 사용하면 백 엔드는 앱 사용자에 대한 특정 개인 설정 옵션을 저장할 필요 없이 단일 메시지만 보냅니다. 다음 그림은 이 시나리오를 보여 줍니다.
 
@@ -145,7 +143,7 @@ Windows 스토어 클라이언트 앱에 대한 해당 템플릿은 다음과 �
 
 위의 모든 형태가 식이 될 수 있습니다.
 
-연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예: `{$(prop) + ‘ - ’ + $(prop2)}`
+연결을 사용할 경우 전체 식을 `{}`로 묶어야 합니다. 예들 들어 `{$(prop) + ‘ - ’ + $(prop2)}`입니다.
 
 예를 들어 다음 템플릿은 올바른 XML 템플릿이 아닙니다.
 

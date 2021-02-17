@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488047"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596300"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL에서 데이터베이스 활동에 대 한 감사 
 > pgAudit는 Azure Database for PostgreSQL 미리 보기 상태입니다.
 > 확장은 범용 및 메모리 액세스에 최적화 된 서버 에서만 사용 하도록 설정할 수 있습니다.
 
-계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 ## <a name="usage-considerations"></a>용도 고려 사항
 기본적으로 pgAudit 로그 문은 Postgres의 표준 로깅 기능을 사용하여 일반 로그 문과 함께 내보내집니다. Azure Database for PostgreSQL에서 이러한 .log 파일은 Azure Portal 또는 CLI를 통해 다운로드할 수 있습니다. 파일 컬렉션에 대 한 최대 저장소는 1gb이 고 각 파일은 최대 7 일 동안 사용할 수 있습니다 (기본값은 3 일). 이 서비스는 단기 저장소 옵션입니다.
@@ -42,9 +42,9 @@ PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를
 [Azure Portal](https://portal.azure.com)사용:
 
    1. Azure Database for PostgreSQL 서버를 선택합니다.
-   2. 사이드바에서 **서버 매개 변수**를 선택 합니다.
+   2. 사이드바에서 **서버 매개 변수** 를 선택 합니다.
    3. `shared_preload_libraries` 매개 변수를 검색합니다.
-   4. **Pgaudit**를 선택 합니다.
+   4. **Pgaudit** 를 선택 합니다.
    5. 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
    6. 클라이언트 (예: psql)를 사용 하 여 서버에 연결 하 고 pgAudit 확장을 사용 하도록 설정 합니다.
@@ -88,9 +88,9 @@ t=%m u=%u db=%d pid=[%p]:
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
 .Log 파일을 사용 하는 경우 PostgreSQL 오류 로그와 동일한 파일에 감사 로그가 포함 됩니다. 로그 파일은 Azure [portal](howto-configure-server-logs-in-portal.md) 또는 [CLI](howto-configure-server-logs-using-cli.md)에서 다운로드할 수 있습니다. 
 
-Azure 리소스 로깅을 사용 하는 경우 로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
+Azure 리소스 로깅을 사용 하는 경우 로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
 
-Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
 
 이 쿼리를 사용 하 여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 

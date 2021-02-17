@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 8c25e54143f0a0815a523bb923b7a7442de2a3d2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007740"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587859"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -30,7 +30,7 @@ Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다
 
 업데이트 관리에서 관리 하는 컴퓨터는 다음을 사용 하 여 평가를 수행 하 고 업데이트를 배포 합니다.
 
-* Windows 또는 Linux 용 [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)
+* Windows 또는 Linux 용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)
 * Linux용 PowerShell DSC(필요한 상태 구성)
 * Automation Hybrid Runbook Worker (컴퓨터에서 업데이트 관리를 사용 하도록 설정할 때 자동으로 설치 됨)
 * Windows 컴퓨터용 WSUS (Microsoft 업데이트 또는 [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) )
@@ -53,7 +53,7 @@ Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다
 
 예약 배포를 만들어서 업데이트가 필요한 머신에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. 선택 사항으로 분류된 업데이트는 Windows 머신의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다.
 
-예약 배포는 머신을 명시적으로 지정하거나 특정 머신 집합의 로그 검색을 기반으로 하는(또는 지정된 기준에 따라 Azure VM을 동적으로 선택하는 [Azure 쿼리](query-logs.md)를 기반으로 하는) [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 선택하여 해당 업데이트를 받을 대상 머신을 정의합니다. 이 그룹은 업데이트 관리를 사용하도록 설정하기 위해 구성을 수신할 머신의 대상을 제어하는 데 사용되는 [범위 구성](../../azure-monitor/insights/solution-targeting.md)과는 다릅니다. 이 그룹은 업데이트 준수를 수행 및 보고하는 것을 방지하며, 승인된 필요한 업데이트를 설치합니다.
+예약 배포는 머신을 명시적으로 지정하거나 특정 머신 집합의 로그 검색을 기반으로 하는(또는 지정된 기준에 따라 Azure VM을 동적으로 선택하는 [Azure 쿼리](query-logs.md)를 기반으로 하는) [컴퓨터 그룹](../../azure-monitor/logs/computer-groups.md)을 선택하여 해당 업데이트를 받을 대상 머신을 정의합니다. 이 그룹은 업데이트 관리를 사용하도록 설정하기 위해 구성을 수신할 머신의 대상을 제어하는 데 사용되는 [범위 구성](../../azure-monitor/insights/solution-targeting.md)과는 다릅니다. 이 그룹은 업데이트 준수를 수행 및 보고하는 것을 방지하며, 승인된 필요한 업데이트를 설치합니다.
 
 배포를 정의할 때는 승인할 일정을 지정하고 업데이트가 설치될 수 있는 기간을 설정합니다. 이 기간을 유지 관리 기간이라고 합니다. 유지 관리 기간 중 20분은 재부팅이 필요하며 사용자가 적절한 재부팅 옵션을 선택했다고 가정한 상태로 재부팅을 위해 예약됩니다. 패치에 예상보다 시간이 오래 걸리고 유지 관리 기간이 20분 미만이라면 재부팅이 이루어지지 않습니다.
 
@@ -82,7 +82,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 LTS (x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
 
 > [!NOTE]
-> Azure Virtual Machine Scale Sets는 업데이트 관리를 통해 관리할 수 있습니다. 업데이트 관리는 기본 이미지가 아닌 인스턴스 자체에 대해 작동합니다. 모든 VM 인스턴스가 한 번에 업데이트되지 않도록 업데이트를 증분 방식으로 예약해야 합니다. [변경 내용 추적 및 인벤토리에 비 Azure 머신 추가](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory)의 단계에 따라 가상 머신 확장 집합의 노드를 추가할 수 있습니다.
+> 업데이트 관리는 Azure 가상 머신 확장 집합의 모든 인스턴스에서 업데이트 관리를 안전 하 게 자동화 하는 기능을 지원 하지 않습니다. [자동 os 이미지 업그레이드](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) 는 확장 집합에서 os 이미지 업그레이드를 관리 하는 데 권장 되는 방법입니다.
 
 ### <a name="unsupported-operating-systems"></a>지원되지 않는 운영 체제
 
@@ -107,7 +107,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 
 Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft 업데이트에 대한 액세스 권한을 가지고 있어야 합니다. 하이브리드 컴퓨터의 경우 먼저 컴퓨터를 [Azure arc 사용 서버](../../azure-arc/servers/overview.md)에 연결 하 여 windows 용 Log Analytics 에이전트를 설치한 다음 Azure Policy를 사용 하 여 [windows azure arc 컴퓨터 기본 제공 정책에 Log Analytics 에이전트 배포를](../../governance/policy/samples/built-in-policies.md#monitoring) 할당 하는 것이 좋습니다. 또는 VM용 Azure Monitor를 사용 하 여 컴퓨터를 모니터링 하려는 경우에는 대신 [VM용 Azure Monitor](../../governance/policy/samples/built-in-initiatives.md#monitoring) 이니셔티브 사용을 사용 합니다.
 
-업데이트 관리를 Microsoft Endpoint Configuration Manager와 함께 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 To learn more about integration scenarios, see [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. Configuration Manager 환경에서 사이트에 의해 관리되는 Windows 서버에는 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md)가 필요합니다.
+업데이트 관리를 Microsoft Endpoint Configuration Manager와 함께 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 To learn more about integration scenarios, see [Windows Endpoint Configuration Manager와 업데이트 관리 통합](mecmintegration.md)을 참조하세요. Configuration Manager 환경에서 사이트에 의해 관리되는 Windows 서버에는 [Windows용 Log Analytics 에이전트](../../azure-monitor/agents/agent-windows.md)가 필요합니다.
 
 기본적으로 Azure Marketplace에서 배포 된 Windows Vm은 Windows 업데이트 서비스에서 자동 업데이트를 받도록 설정 됩니다. 이 동작은 작업 영역에 Windows VM을 추가해도 달라지지 않습니다. 업데이트 관리를 사용하여 업데이트를 적극적으로 관리하지 않는 경우 기본 동작(업데이트 자동 적용)이 적용됩니다.
 
@@ -147,7 +147,7 @@ Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux 
 
 ### <a name="management-packs"></a>관리 팩
 
-Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면](../../azure-monitor/platform/om-agents.md) 다음 관리 팩이 Operations Manager에 설치됩니다. 관리 팩은 직접 연결된 Windows 머신의 업데이트 관리에 대해서도 설치됩니다. 이러한 관리 팩을 구성하거나 관리할 필요가 없습니다.
+Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면](../../azure-monitor/agents/om-agents.md) 다음 관리 팩이 Operations Manager에 설치됩니다. 관리 팩은 직접 연결된 Windows 머신의 업데이트 관리에 대해서도 설치됩니다. 이러한 관리 팩을 구성하거나 관리할 필요가 없습니다.
 
 * Microsoft System Center Advisor 업데이트 평가 인텔리전스 팩(Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration(Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -156,7 +156,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 > [!NOTE]
 > 로그 데이터를 수집하도록 관리 그룹에 에이전트가 구성된 Log Analytics 작업 영역에 연결된 Operations Manager 1807 또는 2019 관리 그룹이 있는 경우, **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** 규칙에서 `IsAutoRegistrationEnabled` 매개 변수를 재정의하여 True로 설정해야 합니다.
 
-관리 팩의 업데이트에 대한 자세한 내용은 [Azure Monitor 로그에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
+관리 팩의 업데이트에 대한 자세한 내용은 [Azure Monitor 로그에 Operations Manager 연결](../../azure-monitor/agents/om-agents.md)을 참조하세요.
 
 > [!NOTE]
 > 업데이트 관리가 Log Analytics 에이전트를 사용하여 머신을 완전히 관리할 수 있으려면 Windows용 Log Analytics 에이전트 또는 Linux용 Log Analytics 에이전트로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](/system-center/scom/deploy-upgrade-agents)을 참조하세요. Operations Manager를 사용하는 환경에서는 System Center Operations Manager 2012 R2 UR 14 이상을 실행해야 합니다.
@@ -181,7 +181,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 * 각 Linux 머신 - 업데이트 관리가 한 시간에 한 번씩 검사를 수행합니다.
 
-업데이트 관리를 사용하는 머신에서 Azure Monitor 로그가 평균적으로 사용하는 데이터는 대략적으로 월 25MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석 하는 방법에 대 한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)를 참조 하세요.
+업데이트 관리를 사용하는 머신에서 Azure Monitor 로그가 평균적으로 사용하는 데이터는 대략적으로 월 25MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석 하는 방법에 대 한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조 하세요.
 
 ## <a name="network-planning"></a><a name="ports"></a>네트워크 계획
 
@@ -193,7 +193,7 @@ Red Hat Linux 머신의 경우 [RHUI 콘텐츠 배달 서버의 IP](../../virtua
 
 Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid Runbook Worker의 업데이트 관리 주소](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker)를 참조하세요.
 
-IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것을 허용 하지 않는 경우 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md) 를 설정한 다음 게이트웨이를 통해 연결 하 여 Azure Automation 및 Azure Monitor 하도록 컴퓨터를 구성할 수 있습니다.
+IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결 하는 것을 허용 하지 않는 경우 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 설정한 다음 게이트웨이를 통해 연결 하 여 Azure Automation 및 Azure Monitor 하도록 컴퓨터를 구성할 수 있습니다.
 
 ## <a name="update-classifications"></a>업데이트 분류
 

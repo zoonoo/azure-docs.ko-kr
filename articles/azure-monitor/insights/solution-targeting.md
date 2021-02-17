@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 5cecf24f4ba086feba5ab87b5752fd665c540dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498681"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587228"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Azure Monitor의 모니터링 솔루션 대상 지정(미리 보기)
-모니터링 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 자동 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
+모니터링 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 자동 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정** 을 사용하는 방법을 설명합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -23,23 +23,23 @@ ms.locfileid: "86498681"
 
 
 ### <a name="1-create-a-computer-group"></a>1. 컴퓨터 그룹 만들기
-Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들어 범위에 포함하려는 컴퓨터를 지정합니다.  컴퓨터 그룹은 로그 쿼리를 기준으로 하거나 Active Directory 또는 WSUS 그룹 등의 다른 원본에서 가져올 수 있습니다. [아래에 설명된](#solutions-and-agents-that-cant-be-targeted) 것처럼 Azure Monitor에 직접 연결된 컴퓨터만 범위에 포함됩니다.
+Azure Monitor에서 [컴퓨터 그룹](../logs/computer-groups.md)을 만들어 범위에 포함하려는 컴퓨터를 지정합니다.  컴퓨터 그룹은 로그 쿼리를 기준으로 하거나 Active Directory 또는 WSUS 그룹 등의 다른 원본에서 가져올 수 있습니다. [아래에 설명된](#solutions-and-agents-that-cant-be-targeted) 것처럼 Azure Monitor에 직접 연결된 컴퓨터만 범위에 포함됩니다.
 
 작업 영역에서 컴퓨터 그룹을 만든 후에는 하나 이상의 솔루션에 적용될 수 있는 범위 구성에 포함합니다.
  
  
 ### <a name="2-create-a-scope-configuration"></a>2. 범위 구성 만들기
- **범위 구성**은 하나 이상의 컴퓨터 그룹을 포함하고 하나 이상의 솔루션에 적용될 수 있습니다. 
+ **범위 구성** 은 하나 이상의 컴퓨터 그룹을 포함하고 하나 이상의 솔루션에 적용될 수 있습니다. 
  
  다음 프로세스를 사용하여 범위 구성을 만듭니다.  
 
- 1. Azure Portal에서 **Log Analytics 작업 영역**으로 이동한 후 작업 영역을 선택합니다.
- 2. **작업 영역 데이터 원본** 아래에 있는 작업 영역에 대한 속성에서 **범위 구성**을 선택합니다.
- 3. **추가**를 클릭하여 새 범위 구성을 만듭니다.
- 4. 범위 구성의 **이름**을 입력합니다.
- 5. **컴퓨터 그룹 선택**을 클릭합니다.
- 6. 만든 컴퓨터 그룹과 필요에 따라 구성에 추가할 다른 그룹을 선택합니다.  **선택**을 클릭합니다.  
- 6. **확인**을 클릭하여 범위 구성을 만듭니다. 
+ 1. Azure Portal에서 **Log Analytics 작업 영역** 으로 이동한 후 작업 영역을 선택합니다.
+ 2. **작업 영역 데이터 원본** 아래에 있는 작업 영역에 대한 속성에서 **범위 구성** 을 선택합니다.
+ 3. **추가** 를 클릭하여 새 범위 구성을 만듭니다.
+ 4. 범위 구성의 **이름** 을 입력합니다.
+ 5. **컴퓨터 그룹 선택** 을 클릭합니다.
+ 6. 만든 컴퓨터 그룹과 필요에 따라 구성에 추가할 다른 그룹을 선택합니다.  **선택** 을 클릭합니다.  
+ 6. **확인** 을 클릭하여 범위 구성을 만듭니다. 
 
 
 ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. 범위 구성을 솔루션에 적용 합니다.
@@ -47,13 +47,13 @@ Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들
 
 다음 프로세스를 사용하여 범위 구성을 적용합니다.  
 
- 1. Azure Portal에서 **Log Analytics 작업 영역**으로 이동한 후 작업 영역을 선택합니다.
- 2. 작업 영역에 대한 속성에서 **솔루션**을 선택합니다.
+ 1. Azure Portal에서 **Log Analytics 작업 영역** 으로 이동한 후 작업 영역을 선택합니다.
+ 2. 작업 영역에 대한 속성에서 **솔루션** 을 선택합니다.
  3. 범위를 지정하려는 솔루션을 클릭합니다.
- 4. **작업 영역 데이터 원본** 아래에 있는 솔루션에 대한 속성에서 **솔루션 범위 지정**을 선택합니다.  이 옵션을 사용할 수 없으면 [이 솔루션을 대상으로 지정할 수 없습니다](#solutions-and-agents-that-cant-be-targeted).
- 5. **범위 구성 추가**를 클릭합니다.  이 솔루션에 구성이 이미 적용되어 있으면 이 옵션을 사용할 수 없습니다.  다른 구성을 추가하기 전에 기존 구성을 제거해야 합니다.
+ 4. **작업 영역 데이터 원본** 아래에 있는 솔루션에 대한 속성에서 **솔루션 범위 지정** 을 선택합니다.  이 옵션을 사용할 수 없으면 [이 솔루션을 대상으로 지정할 수 없습니다](#solutions-and-agents-that-cant-be-targeted).
+ 5. **범위 구성 추가** 를 클릭합니다.  이 솔루션에 구성이 이미 적용되어 있으면 이 옵션을 사용할 수 없습니다.  다른 구성을 추가하기 전에 기존 구성을 제거해야 합니다.
  6. 만든 범위 구성을 클릭합니다.
- 7. 구성의 **상태**가 **성공**인지 확인합니다.  상태 오류가 나타나면 구성 오른쪽에 있는 줄임표를 클릭한 다음 **범위 구성 편집**을 선택하여 변경합니다.
+ 7. 구성의 **상태** 가 **성공** 인지 확인합니다.  상태 오류가 나타나면 구성 오른쪽에 있는 줄임표를 클릭한 다음 **범위 구성 편집** 을 선택하여 변경합니다.
 
 ## <a name="solutions-and-agents-that-cant-be-targeted"></a>대상으로 지정할 수 없는 솔루션 및 에이전트
 다음은 솔루션 대상 지정에 사용할 수 없는 에이전트 및 솔루션에 대한 조건입니다.
@@ -69,4 +69,4 @@ Azure Monitor에서 [컴퓨터 그룹](../platform/computer-groups.md)을 만들
 
 ## <a name="next-steps"></a>다음 단계
 - [작업 영역에 Azure Log Analytics 모니터링 솔루션 추가](solutions.md)에서 사용자 환경에 설치할 수 있는 솔루션을 비롯한 모니터링 솔루션에 대해 자세히 알아보세요.
-- [Azure Monitor 로그 쿼리의 컴퓨터 그룹](../platform/computer-groups.md)에서 컴퓨터 그룹 생성에 대해 자세히 알아보세요.
+- [Azure Monitor 로그 쿼리의 컴퓨터 그룹](../logs/computer-groups.md)에서 컴퓨터 그룹 생성에 대해 자세히 알아보세요.

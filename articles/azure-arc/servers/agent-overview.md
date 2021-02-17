@@ -3,12 +3,12 @@ title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
 ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558506"
+ms.locfileid: "100580877"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -35,7 +35,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
 
 ## <a name="instance-metadata"></a>인스턴스 메타데이터
 
-연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Arc 사용 서버를 등록 한 후에 수집 됩니다. 특히 다음에 대한 내용을 설명합니다.
+연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Arc 사용 서버를 등록 한 후에 수집 됩니다. 구체적으로는 다음과 같습니다.
 
 * 운영 체제 이름, 유형 및 버전
 * 컴퓨터 이름
@@ -110,7 +110,7 @@ Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 �
 Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 안전하게 Azure Arc로 아웃바운드 통신을 수행합니다. 컴퓨터가 인터넷을 통해 통신 하기 위해 방화벽 또는 프록시 서버를 통해 연결 하는 경우 다음을 검토 하 여 네트워크 구성 요구 사항을 파악 합니다.
 
 > [!NOTE]
-> Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
+> Arc 사용 서버는 연결 된 컴퓨터 에이전트에 대 한 프록시로 [Log Analytics 게이트웨이](../../azure-monitor/agents/gateway.md) 를 사용 하는 것을 지원 하지 않습니다.
 >
 
 방화벽 또는 프록시 서버가 아웃바운드 연결을 제한하는 경우 아래에 나열된 URL이 차단되지 않았는지 확인합니다. 에이전트에서 서비스와 통신 하는 데 필요한 IP 범위 또는 도메인 이름만 허용 하는 경우 다음 서비스 태그와 Url에 대 한 액세스를 허용 해야 합니다.
@@ -200,7 +200,7 @@ Windows 용 연결 된 컴퓨터 에이전트를 설치한 후 다음과 같은 
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |Description |
+    |폴더 |설명 |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|

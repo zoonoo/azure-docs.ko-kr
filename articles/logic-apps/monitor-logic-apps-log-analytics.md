@@ -6,24 +6,24 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d72e3ffc8698d9f3a2df170bd87f2969475ca9ed
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580682"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집
 
-런타임 중에 논리 앱에 대 한 보다 다양 한 디버깅 정보를 얻기 위해 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 를 설정 하 고 사용 하 여 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 런타임 데이터 및 이벤트에 대 한 정보를 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)에 기록 하 고 저장할 수 있습니다. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하면 클라우드 및 온-프레미스 환경을 모니터링 하 여 가용성과 성능을 더 쉽게 유지할 수 있습니다. Azure Monitor 로그를 사용 하 여이 정보를 수집 하 고 검토 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 를 만들 수 있습니다. 또한 Azure Storage 및 Azure Event Hubs와 같은 [다른 azure 서비스에서이 진단 데이터를 사용할](#extend-data)수 있습니다.
+런타임 중에 논리 앱에 대 한 보다 다양 한 디버깅 정보를 얻기 위해 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md) 를 설정 하 고 사용 하 여 트리거 이벤트, 실행 이벤트 및 작업 이벤트와 같은 런타임 데이터 및 이벤트에 대 한 정보를 [Log Analytics 작업 영역](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)에 기록 하 고 저장할 수 있습니다. [Azure Monitor](../azure-monitor/overview.md) 를 사용 하면 클라우드 및 온-프레미스 환경을 모니터링 하 여 가용성과 성능을 더 쉽게 유지할 수 있습니다. Azure Monitor 로그를 사용 하 여이 정보를 수집 하 고 검토 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/logs/log-query-overview.md) 를 만들 수 있습니다. 또한 Azure Storage 및 Azure Event Hubs와 같은 [다른 azure 서비스에서이 진단 데이터를 사용할](#extend-data)수 있습니다.
 
 논리 앱에 대 한 로깅을 설정 하려면 [논리 앱을 만들 때 Log Analytics를 사용 하도록](#logging-for-new-logic-apps)설정 하거나 기존 논리 앱에 대 한 Log Analytics 작업 영역에 [Logic Apps 관리 솔루션을 설치할](#install-management-solution) 수 있습니다. 이 솔루션은 논리 앱 실행에 대 한 집계 된 정보를 제공 하며 상태, 실행 시간, 다시 전송 상태 및 상관 관계 Id와 같은 특정 세부 정보를 포함 합니다. 그런 다음이 정보에 대 한 로깅을 사용 하도록 설정 하 고 쿼리를 만들려면 [Azure Monitor 로그를 설정](#set-up-resource-logs)합니다.
 
 이 문서에서는 새 논리 앱과 기존 논리 앱에 대 한 Log Analytics를 사용 하도록 설정 하는 방법, Logic Apps 관리 솔루션을 설치 및 설정 하는 방법, Azure Monitor 로그에 대 한 쿼리를 설정 하 고 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작 하기 전에 [Log Analytics 작업 영역이](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)필요 합니다. 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)에 대해 알아봅니다.
+시작 하기 전에 [Log Analytics 작업 영역이](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)필요 합니다. 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/logs/quick-create-workspace.md)에 대해 알아봅니다.
 
 <a name="logging-for-new-logic-apps"></a>
 
@@ -33,7 +33,7 @@ ms.locfileid: "91333956"
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 만들기 위한 정보를 제공 하는 창에서 다음 단계를 수행 합니다.
 
-   1. **Log Analytics**에서 **켜기**를 선택 합니다.
+   1. **Log Analytics** 에서 **켜기** 를 선택 합니다.
 
    1. **Log Analytics 작업 영역** 목록에서 논리 앱 실행의 데이터를 전송 하려는 작업 영역을 선택 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "91333956"
 
       이 단계를 마치면 Azure에서 Log Analytics 작업 영역에 연결된 논리 앱이 만들어집니다. 또한이 단계에서는 Logic Apps 관리 솔루션을 작업 영역에 자동으로 설치 합니다.
 
-1. 완료되면 **만들기**를 선택합니다.
+1. 완료되면 **만들기** 를 선택합니다.
 
 1. 논리 앱을 실행 한 후 논리 앱 실행을 보려면 [다음 단계를 계속 진행](#view-logic-app-runs)합니다.
 
@@ -51,27 +51,27 @@ ms.locfileid: "91333956"
 
 논리 앱을 만들 때 Log Analytics를 설정한 경우이 단계를 건너뜁니다. Log Analytics 작업 영역에 Logic Apps 관리 솔루션이 이미 설치 되어 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)의 검색 상자에를 입력 하 `log analytics workspaces` 고 **Log Analytics 작업 영역**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 검색 상자에를 입력 하 `log analytics workspaces` 고 **Log Analytics 작업 영역** 을 선택 합니다.
 
    !["Log Analytics 작업 영역"을 선택 합니다.](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
-1. **Log Analytics 작업 영역**에서 작업 영역을 선택 합니다.
+1. **Log Analytics 작업 영역** 에서 작업 영역을 선택 합니다.
 
    ![Log Analytics 작업 영역 선택](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. **개요** 창의 **Get started with Log Analytics**  >  **모니터링 솔루션 구성**Log Analytics 아래에서 **솔루션 보기**를 선택 합니다.
+1. **개요** 창의   >  **모니터링 솔루션 구성** Log Analytics 아래에서 **솔루션 보기** 를 선택 합니다.
 
    ![개요 창에서 "솔루션 보기"를 선택 합니다.](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
-1. **개요**에서 **추가**를 선택 합니다.
+1. **개요** 에서 **추가** 를 선택 합니다.
 
    ![개요 창에서 새 솔루션 추가](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
-1. **Marketplace** 가 열리면 검색 상자에를 입력 하 `logic apps management` 고 **Logic Apps 관리**를 선택 합니다.
+1. **Marketplace** 가 열리면 검색 상자에를 입력 하 `logic apps management` 고 **Logic Apps 관리** 를 선택 합니다.
 
    ![Marketplace에서 "Logic Apps 관리"를 선택 합니다.](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
-1. 솔루션 설명 창에서 **만들기**를 선택 합니다.
+1. 솔루션 설명 창에서 **만들기** 를 선택 합니다.
 
    !["만들기"를 선택 하 여 "Logic Apps 관리" 솔루션을 추가 합니다.](./media/monitor-logic-apps-log-analytics/create-logic-apps-management-solution.png)
 
@@ -87,14 +87,14 @@ ms.locfileid: "91333956"
 
 ## <a name="set-up-azure-monitor-logs"></a>Azure Monitor 로그 설정
 
-런타임 이벤트 및 데이터에 대 한 정보를 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)에 저장 하는 경우이 정보를 찾고 검토 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 를 만들 수 있습니다.
+런타임 이벤트 및 데이터에 대 한 정보를 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md)에 저장 하는 경우이 정보를 찾고 검토 하는 데 도움이 되는 [로그 쿼리](../azure-monitor/logs/log-query-overview.md) 를 만들 수 있습니다.
 
 > [!NOTE]
 > 진단 설정을 사용 하도록 설정 하면 Log Analytics, event hubs 또는 storage 계정과 같은 지정 된 대상의 로그에 대해 최대 30 분 동안 진단 데이터가 전달 되지 않을 수 있습니다. 이 지연 시간은이 기간의 진단 데이터가 사용자가 검토할 수 없음을 의미 합니다. 완료 된 이벤트 및 [추적 된 속성](#extend-data) 은 Log Analytics 작업 영역에서 10-15 분 동안 표시 되지 않을 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱을 찾고 선택합니다.
 
-1. 논리 앱 메뉴의 **모니터링**아래에서 **진단 설정**  >  **진단 설정 추가**를 선택 합니다.
+1. 논리 앱 메뉴의 **모니터링** 아래에서 **진단 설정**  >  **진단 설정 추가** 를 선택 합니다.
 
    !["모니터링"에서 "진단 설정" > "진단 설정 추가"를 선택 합니다.](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
@@ -102,19 +102,19 @@ ms.locfileid: "91333956"
 
    1. 설정의 이름을 지정 합니다.
 
-   1. **Log Analytics에 보내기**를 선택합니다.
+   1. **Log Analytics에 보내기** 를 선택합니다.
 
-   1. **구독**의 경우 Log Analytics 작업 영역에 연결 된 Azure 구독을 선택 합니다.
+   1. **구독** 의 경우 Log Analytics 작업 영역에 연결 된 Azure 구독을 선택 합니다.
 
-   1. **Log Analytics 작업 영역**에서 사용 하려는 작업 영역을 선택 합니다.
+   1. **Log Analytics 작업 영역** 에서 사용 하려는 작업 영역을 선택 합니다.
 
-   1. **로그**에서 기록 하려는 이벤트 범주를 지정 하는 **WorkflowRuntime** 범주를 선택 합니다.
+   1. **로그** 에서 기록 하려는 이벤트 범주를 지정 하는 **WorkflowRuntime** 범주를 선택 합니다.
 
-   1. 모든 메트릭을 선택 하려면 **메트릭**에서 **allmetrics**을 선택 합니다.
+   1. 모든 메트릭을 선택 하려면 **메트릭** 에서 **allmetrics** 을 선택 합니다.
 
-   1. 완료되면 **저장**을 선택합니다.
+   1. 완료되면 **저장** 을 선택합니다.
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다. 
 
    ![로깅에 대한 Log Analytics 작업 영역 및 데이터 선택](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -126,7 +126,7 @@ ms.locfileid: "91333956"
 
 1. [Azure Portal](https://portal.azure.com)에서 Log Analytics 작업 영역을 찾아 엽니다.
 
-1. 작업 영역의 메뉴에서 **작업 영역 요약**  >  **Logic Apps 관리**를 선택 합니다.
+1. 작업 영역의 메뉴에서 **작업 영역 요약**  >  **Logic Apps 관리** 를 선택 합니다.
 
    ![논리 앱 실행 상태 및 수](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
@@ -178,10 +178,10 @@ ms.locfileid: "91333956"
 
 Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 Azure 서비스와 함께 사용 하는 방법을 확장할 수 있습니다. 예를 들면 다음과 같습니다.
 
-* [스토리지 계정에 Azure 리소스 로그 보관](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-* [Azure 플랫폼 로그를 Azure Event Hubs로 스트림](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+* [스토리지 계정에 Azure 리소스 로그 보관](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+* [Azure 플랫폼 로그를 Azure Event Hubs로 스트림](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/platform/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/visualize/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 다음은 그 예입니다. 
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -194,7 +194,7 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor 진단 이벤트
 
-각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 모니터링, 추적 및 로깅을 프로그래밍 방식으로 설정 하려면 [Azure Logic Apps에 대 한 REST API](/rest/api/logic) 및 [Azure Monitor에 대 한 REST API](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)이 정보를 사용할 수 있습니다. 또한 `clientTrackingId` `trackedProperties` 에 표시 되는 및 속성을 사용할 수 있습니다. 
+각 진단 이벤트는 논리 앱 및 해당 이벤트(예: 상태, 시작 시간, 종료 시간 등)에 대한 세부 정보를 포함합니다. 모니터링, 추적 및 로깅을 프로그래밍 방식으로 설정 하려면 [Azure Logic Apps에 대 한 REST API](/rest/api/logic) 및 [Azure Monitor에 대 한 REST API](../azure-monitor/essentials/metrics-supported.md#microsoftlogicworkflows)이 정보를 사용할 수 있습니다. 또한 `clientTrackingId` `trackedProperties` 에 표시 되는 및 속성을 사용할 수 있습니다. 
 
 * `clientTrackingId`: 제공되지 않은 경우 Azure는 자동으로 이 ID를 생성하고 논리 앱에서 호출되는 중첩된 모든 워크플로를 포함하여 논리 앱 실행 간의 이벤트를 상호 연결합니다. 트리거 `x-ms-client-tracking-id` 요청에서 사용자 지정 id 값으로 헤더를 전달 하 여 트리거에서이 id를 수동으로 지정할 수 있습니다. 요청 트리거, HTTP 트리거 또는 웹후크 트리거를 사용할 수 있습니다.
 

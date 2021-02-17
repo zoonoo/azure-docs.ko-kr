@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ead666cecbc3208fe103aa740578ca36339c3e30
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804974"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588265"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 Azure 보안 기준
 
@@ -60,7 +60,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 또한 Azure Monitor를 통해 로그를 수집 하 여 Hyperscale (Citus)으로 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)을 사용하도록 설정하고 데이터를 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Hyperscale의 메트릭 (Citus)](./concepts-hyperscale-monitoring.md)
 
@@ -80,7 +80,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 - [Hyperscale의 메트릭 (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -92,9 +92,9 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 **지침**: Azure Monitor 내에서 Citus (hyperscale) 로그를 저장 하는 데 사용 되는 Log Analytics 작업 영역에 대해 조직의 규정 준수 규정에 따라 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -106,9 +106,9 @@ Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 �
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -122,7 +122,7 @@ Log Analytics 작업 영역을 Azure Sentinel에 등록하여 SOAR(보안 오케
 
 - [Hyperscale의 메트릭 (Citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Azure Database for PostgreSQL 하루에 한 번 Citus ()는 데이터 파일과 
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Citus (hyperscale)의 프로덕션 인스턴스 및 기타 중요 하거나 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

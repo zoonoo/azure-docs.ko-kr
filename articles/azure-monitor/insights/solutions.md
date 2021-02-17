@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f9ced3dfeccdbac5f0eb220cf0e104679f263aac
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d2e898c6401ff9959298e5e435d68b4c4a452c4c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186867"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587286"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -29,7 +29,7 @@ Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영�
 
 [![솔루션 선택한 솔루션과 솔루션 창에 표시 되는 솔루션을 포함 하는 Azure Portal 메뉴가 표시 됩니다.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
-모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함 된 모든 로그 쿼리는 [쿼리 탐색기](../log-query/log-analytics-tutorial.md)의 **솔루션 쿼리** 아래에 나열 됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용 하 여 임시 분석을 수행할 때 이러한 쿼리를 사용할 수 있습니다.
+모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함 된 모든 로그 쿼리는 [쿼리 탐색기](../logs/log-analytics-tutorial.md)의 **솔루션 쿼리** 아래에 나열 됩니다. [로그 쿼리](../logs/log-query-overview.md)를 사용 하 여 임시 분석을 수행할 때 이러한 쿼리를 사용할 수 있습니다.
 
 ## <a name="list-installed-monitoring-solutions"></a>설치된 모니터링 솔루션 나열
 
@@ -83,7 +83,7 @@ Get-AzMonitorLogAnalyticsSolution -ResourceGroupName MyResourceGroup
 
 ### <a name="portal"></a>[포털](#tab/portal)
 
-Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.
+Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다. 솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다.
 
 1. [구독의 솔루션 목록](#list-installed-monitoring-solutions)에서 **추가** 를 클릭합니다.
 1. 솔루션을 찾아보거나 검색합니다. [이 검색 링크](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions)에서 솔루션을 찾아볼 수도 있습니다.
@@ -141,7 +141,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Azure CLI를 사용 하 여 솔루션 설치
 
-솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다.  Azure CLI를 사용 하 여 [az monitor log-analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 참조 명령을 사용 하 여 작업 영역을 관리 합니다.  [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다.  Azure CLI를 사용 하 여 [az monitor log-analytics 작업 영역](/cli/azure/monitor/log-analytics/workspace) 참조 명령을 사용 하 여 작업 영역을 관리 합니다.  [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
 
 [Az monitor log-analytics solution create](/cli/azure/ext/log-analytics-solution/monitor/log-analytics/solution) 를 사용 하 여 모니터링 솔루션을 설치 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
 
@@ -171,7 +171,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 ### <a name="prepare-your-environment"></a>환경 준비
 
-1. Azure Powershell 설치
+1. Azure PowerShell 설치
 
    Azure PowerShell 참조 명령을 실행 하기 전에 [Azure PowerShell을 설치](/powershell/azure/install-az-ps) 해야 합니다. 원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다. Azure Cloud Shell은 브라우저를 통해 사용할 수 있는 대화형 셸 환경입니다. 다음 방법 중 하나를 사용하여 Cloud Shell을 시작합니다.
 
@@ -196,7 +196,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 ### <a name="install-a-solution-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 솔루션 설치
 
-솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../platform/manage-access.md)을 선택해야 합니다. Azure PowerShell를 사용 하 여 [MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 모듈에서 cmdlet을 사용 하 여 작업 영역을 관리 합니다. [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
+솔루션을 설치할 때 솔루션이 설치되고 데이터가 수집될 [Log Analytics 작업 영역](../logs/manage-access.md)을 선택해야 합니다. Azure PowerShell를 사용 하 여 [MonitoringSolutions](/powershell/module/az.monitoringsolutions) PowerShell 모듈에서 cmdlet을 사용 하 여 작업 영역을 관리 합니다. [Log Analytics 작업 영역 및 Automation 계정](#log-analytics-workspace-and-automation-account)에 설명된 프로세스에 따라 작업 영역 및 계정에 연결합니다.
 
 [AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/new-azmonitorloganalyticssolution) cmdlet을 사용 하 여 모니터링 솔루션을 설치 합니다. 대괄호 안의 매개 변수는 선택 사항입니다.
 
@@ -219,7 +219,7 @@ New-AzMonitorLogAnalyticsSolution -Type Containers -ResourceGroupName MyResource
 
 ## <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
 
-모든 모니터링 솔루션에는 수집된 데이터를 저장하고 로그 검색 및 보기를 호스트할 [Log Analytics 작업 영역](../platform/manage-access.md)이 필요합니다. 일부 솔루션은 Runbook 및 관련 리소스를 포함할 [Automation 계정](../../automation/automation-security-overview.md)도 필요합니다. 작업 영역 및 계정은 다음 요구 사항을 충족해야 합니다.
+모든 모니터링 솔루션에는 수집된 데이터를 저장하고 로그 검색 및 보기를 호스트할 [Log Analytics 작업 영역](../logs/manage-access.md)이 필요합니다. 일부 솔루션은 Runbook 및 관련 리소스를 포함할 [Automation 계정](../../automation/automation-security-overview.md)도 필요합니다. 작업 영역 및 계정은 다음 요구 사항을 충족해야 합니다.
 
 * 각 솔루션 설치 시 하나의 Log Analytics 작업 영역과 하나의 Automation 계정만 사용할 수 있습니다. 솔루션을 여러 작업 영역에 개별적으로 설치할 수 있습니다.
 * 솔루션에서 Automation 계정을 요구하는 경우 Log Analytics 작업 영역과 Automation 계정이 서로 연결되어야 합니다. Log Analytics 작업 영역은 하나의 Automation 계정에만 연결되고, Automation 계정은 하나의 Log Analytics 작업 영역에만 연결될 수 있습니다.
@@ -264,5 +264,5 @@ Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName MyResourceGroup -Name W
 ## <a name="next-steps"></a>다음 단계
 
 * [Microsoft에서 모니터링 솔루션 목록](../monitor-reference.md)을 가져옵니다.
-* 모니터링 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-query/log-query-overview.md) 방법을 알아봅니다.
+* 모니터링 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../logs/log-query-overview.md) 방법을 알아봅니다.
 * [Azure Monitor에 대 한 모든 Azure CLI 명령을](/cli/azure/azure-cli-reference-for-monitor)참조 하세요.

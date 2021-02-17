@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5e2ecf8dff432f2a0ce6b3356ce3eca7a8127932
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373150"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586859"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 Data Factory 모니터링 및 경고
 
@@ -76,7 +76,7 @@ Data Factory은 파이프라인 실행 데이터를 45 일간만 저장 합니�
    ![설정의 이름을로 설정 하 고 log analytics 작업 영역을 선택 합니다.](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
+    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Log Analytics 알려진 제한 사항](../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)을 참조 하세요.
 
 1. **저장** 을 선택합니다.
 
@@ -151,7 +151,7 @@ Azure Data Factory 버전 2에서 내보내는 메트릭은 다음과 같습니�
 | SSISPackageExecutionFailed           | SSIS 패키지 실행 메트릭이 실패 했습니다.    | 개수    | 합계                | 1 분 기간 내에 실패 한 총 SSIS 패키지 실행 수입니다. |
 | SSISPackageExecutionSucceeded        | SSIS 패키지 실행 메트릭 성공 | 개수    | 합계                | 1 분 기간 내에 성공한 총 SSIS 패키지 실행 수입니다. |
 
-메트릭에 액세스 하려면 [Azure Monitor data platform](../azure-monitor/platform/data-platform.md)의 지침을 완료 합니다.
+메트릭에 액세스 하려면 [Azure Monitor data platform](../azure-monitor/data-platform.md)의 지침을 완료 합니다.
 
 > [!NOTE]
 > 완료, 트리거된 활동 및 파이프라인 실행의 이벤트만 내보내집니다. 진행 중이 고 디버그 실행은 내보내지지 **않습니다** . 반면, **모든** SSIS 패키지 실행의 이벤트는 호출 메서드에 관계 없이 완료 되 고 진행 중인 이벤트를 포함 하 여 내보내집니다. 예를 들어 ADF 파이프라인에서 SSIS 패키지 실행 작업의 트리거된 실행 또는 디버그 실행으로, SSMS의 T-sql, SQL Server 에이전트 또는 기타 지정 된 도구를 사용 하 여 SSDT (Azure 사용 SQL Server Data Tools)에서 패키지 실행을 호출할 수 있습니다.
@@ -265,7 +265,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 |
+| 속성 | 유형 | 설명 |
 | --- | --- | --- |
 | **storageAccountId** |String | 진단 로그를 보낼 저장소 계정의 리소스 ID입니다. |
 | **serviceBusRuleId** |String | 진단 로그 스트리밍을 위해 Event Hubs 생성 하려는 service bus 네임 스페이스의 service bus 규칙 ID입니다. 규칙 ID의 형식은 `{service bus resource ID}/authorizationrules/{key name}` 입니다.|
@@ -438,7 +438,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -484,7 +484,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -527,7 +527,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 }
 ```
 
-| 속성 | 형식 | 설명 | 예 |
+| 속성 | 유형 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | **수준** |String | 진단 로그의 수준입니다. 활동 실행 로그에 대해 속성 값을 4로 설정 합니다. | `4` |
 | **correlationId** |String | 특정 요청을 추적 하기 위한 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
@@ -564,7 +564,7 @@ SSIS IR 시작/중지/유지 관리 작업의 로그 특성은 다음과 같습�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                   | 예                        |
+| 속성                   | 유형   | 설명                                                   | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | SSIS IR 작업의 이름                            | `Start/Stop/Maintenance` |
@@ -604,7 +604,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                          | 예                        |
+| 속성                   | 유형   | 설명                                                          | 예제                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
@@ -654,7 +654,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 이벤트 메시지�
 }
 ```
 
-| 속성                   | 형식   | 설명                                                        | 예                        |
+| 속성                   | 유형   | 설명                                                        | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
@@ -703,7 +703,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 실행 가능한 통
 }
 ```
 
-| 속성                   | 형식   | 설명                                                      | 예                        |
+| 속성                   | 유형   | 설명                                                      | 예제                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
@@ -748,7 +748,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                   | 형식   | 설명                                                         | 예                        |
+| 속성                   | 유형   | 설명                                                         | 예제                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**          | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
@@ -796,7 +796,7 @@ Ssis IR에서 SSIS 패키지 실행에 의해 생성 되는 데이터 흐름 구
 }
 ```
 
-| 속성                     | 형식   | 설명                                                        | 예                        |
+| 속성                     | 유형   | 설명                                                        | 예제                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | 이벤트 시간 (UTC 형식): `YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
 | **operationName**            | String | 이는로 설정 됩니다. `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
@@ -825,7 +825,7 @@ Log Analytics는 다음과 같은 예외를 제외 하 고 모니터에서 스�
 * "Level" 열이 없습니다.
 * 동적 "속성" 열은 다음과 같은 동적 JSON blob 유형으로 유지 됩니다.
 
-    | Azure Monitor 열 | Log Analytics 열 | 형식 |
+    | Azure Monitor 열 | Log Analytics 열 | 유형 |
     | --- | --- | --- |
     | $. 속성. UserProperties | UserProperties | 동적 |
     | $. 속성. 달 | 주석 | 동적 |
@@ -848,7 +848,7 @@ SSIS 워크 로드를 리프트 & 이동 하려면 다음을 지 원하는 [ADF�
 
 프로 비전 된 후에는 [Azure PowerShell를 사용 하거나 ADF 포털의 **모니터** 허브에서 SSIS IR 작동 상태를 확인할](./monitor-integration-runtime.md#azure-ssis-integration-runtime)수 있습니다. 프로젝트 배포 모델을 사용 하면 SSIS 패키지 실행 로그가 SSISDB 내부 테이블 또는 뷰에 저장 되므로 SSMS와 같은 지정 된 도구를 사용 하 여 쿼리, 분석 및 시각적으로 표시할 수 있습니다. 패키지 배포 모델을 사용 하면 SSIS 패키지 실행 로그를 파일 시스템에 저장 하거나 다른 지정 된 도구를 사용 하 여 구문 분석 하 고 처리 해야 하는 CSV 파일로 Azure Files 저장할 수 있습니다.
 
-이제 [Azure Monitor](../azure-monitor/platform/data-platform.md) 통합을 사용 하 여 ssis IR 작업 및 AZURE PORTAL의 ssis 패키지 실행에서 생성 된 모든 메트릭과 로그를 쿼리, 분석 및 시각적으로 표시할 수 있습니다. 또한 경고를 발생 시킬 수도 있습니다.
+이제 [Azure Monitor](../azure-monitor/data-platform.md) 통합을 사용 하 여 ssis IR 작업 및 AZURE PORTAL의 ssis 패키지 실행에서 생성 된 모든 메트릭과 로그를 쿼리, 분석 및 시각적으로 표시할 수 있습니다. 또한 경고를 발생 시킬 수도 있습니다.
 
 ### <a name="configure-diagnostic-settings-and-workspace-for-ssis-operations"></a>SSIS 작업을 위한 진단 설정 및 작업 영역 구성
 
@@ -856,9 +856,9 @@ SSIS IR 작업 및 SSIS 패키지 실행에서 생성 된 모든 메트릭과 �
 
 ### <a name="ssis-operational-metrics"></a>SSIS 작업 메트릭
 
-Ssis 운영 [메트릭은](../azure-monitor/platform/data-platform-metrics.md) ssis IR 시작 및 중지 작업의 상태와 특정 시점에서 ssis 패키지 실행의 상태를 설명 하는 숫자 값 및 성능 카운터입니다. [Azure Monitor의 ADF 메트릭에](#data-factory-metrics)속합니다.
+Ssis 운영 [메트릭은](../azure-monitor/essentials/data-platform-metrics.md) ssis IR 시작 및 중지 작업의 상태와 특정 시점에서 ssis 패키지 실행의 상태를 설명 하는 숫자 값 및 성능 카운터입니다. [Azure Monitor의 ADF 메트릭에](#data-factory-metrics)속합니다.
 
-Azure Monitor에서 ADF에 대 한 진단 설정 및 작업 영역을 구성 하는 경우 _Allmetrics_ 확인란을 선택 하면 azure 메트릭 탐색기, [azure 대시보드의 프레젠테이션](../azure-monitor/learn/tutorial-app-dashboards.md)및 [거의 실시간 경고](../azure-monitor/platform/alerts-metric.md)를 [사용 하 여 대화형 분석](../azure-monitor/platform/metrics-getting-started.md)에 사용할 수 있는 SSIS 작업 메트릭을 만듭니다.
+Azure Monitor에서 ADF에 대 한 진단 설정 및 작업 영역을 구성 하는 경우 _Allmetrics_ 확인란을 선택 하면 azure 메트릭 탐색기, [azure 대시보드의 프레젠테이션](../azure-monitor/app/tutorial-app-dashboards.md)및 [거의 실시간 경고](../azure-monitor/alerts/alerts-metric.md)를 [사용 하 여 대화형 분석](../azure-monitor/essentials/metrics-getting-started.md)에 사용할 수 있는 SSIS 작업 메트릭을 만듭니다.
 
 ![설정의 이름을로 설정 하 고 log analytics 작업 영역을 선택 합니다.](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
@@ -874,9 +874,9 @@ Azure Portal에서 SSIS 작업 메트릭에 대 한 경고를 발생 시키려�
 
 ### <a name="ssis-operational-logs"></a>SSIS 작업 로그
 
-SSIS 작업 [로그](../azure-monitor/platform/data-platform-logs.md) 는 식별 된 문제에 대 한 충분 한 컨텍스트를 제공 하는 ssis IR 작업 및 ssis 패키지 실행에 의해 생성 되는 이벤트 이며 근본 원인 분석에 유용 합니다. 
+SSIS 작업 [로그](../azure-monitor/logs/data-platform-logs.md) 는 식별 된 문제에 대 한 충분 한 컨텍스트를 제공 하는 ssis IR 작업 및 ssis 패키지 실행에 의해 생성 되는 이벤트 이며 근본 원인 분석에 유용 합니다. 
 
-Azure Monitor에서 ADF에 대 한 진단 설정 및 작업 영역을 구성 하는 경우 관련 SSIS 작업 로그를 선택 하 여 Azure 데이터 탐색기을 기반으로 하는 Log Analytics으로 보낼 수 있습니다. 여기에서 풍부한 쿼리 언어, [Azure 대시보드의 프레젠테이션](../azure-monitor/learn/tutorial-app-dashboards.md)및 [거의 실시간 경고](../azure-monitor/platform/alerts-log.md)를 [사용 하 여 분석](../azure-monitor/log-query/log-query-overview.md)을 수행할 수 있습니다.
+Azure Monitor에서 ADF에 대 한 진단 설정 및 작업 영역을 구성 하는 경우 관련 SSIS 작업 로그를 선택 하 여 Azure 데이터 탐색기을 기반으로 하는 Log Analytics으로 보낼 수 있습니다. 여기에서 풍부한 쿼리 언어, [Azure 대시보드의 프레젠테이션](../azure-monitor/app/tutorial-app-dashboards.md)및 [거의 실시간 경고](../azure-monitor/alerts/alerts-log.md)를 [사용 하 여 분석](../azure-monitor/logs/log-query-overview.md)을 수행할 수 있습니다.
 
 ![설정의 이름을로 설정 하 고 log analytics 작업 영역을 선택 합니다.](media/data-factory-monitor-oms/monitor-oms-image2.png)
 

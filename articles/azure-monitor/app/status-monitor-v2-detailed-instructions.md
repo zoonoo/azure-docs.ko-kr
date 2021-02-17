@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318983"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587367"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -158,9 +158,9 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>최신 nupkg 파일 수동으로 다운로드
 
-1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor로 이동합니다.
+1. [https://editor.swagger.io](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) 로 이동합니다.
 2. **버전 기록** 테이블에서 파일의 최신 버전을 선택 합니다.
-3. **설치 옵션**아래에서 **수동 다운로드**를 선택 합니다.
+3. **설치 옵션** 아래에서 **수동 다운로드** 를 선택 합니다.
 
 ### <a name="option-1-install-into-a-powershell-modules-directory"></a>옵션 1: PowerShell 모듈 디렉터리에 설치
 Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 PowerShell 모듈을 PowerShell 디렉터리에 설치 합니다.
@@ -231,9 +231,9 @@ Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 �
 
  원격 분석 보기:
 
-- [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
+- [메트릭을 탐색](../essentials/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
 - [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석을 사용](../log-query/log-query-overview.md) 합니다.
+- 고급 쿼리를 위해 [분석을 사용](../logs/log-query-overview.md) 합니다.
 - [대시보드를 만듭니다](./overview-dashboard.md).
 
  원격 분석 더 추가:

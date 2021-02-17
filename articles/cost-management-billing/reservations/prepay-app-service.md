@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 89e0c62b580c0c354fc7277e61b452005a86e3d9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577416"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374544"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Azure App Service 예약 인스턴스를 사용하여 비용 절감
 
@@ -37,24 +37,12 @@ Azure App Service Premium v3 예약 인스턴스에 커밋하면 비용을 절�
 - API를 사용하여 공유 범위 및 단일 구독 범위 모두에 대한 구매 권장 사항을 모두 가져올 수 있습니다. 자세한 내용은 [기업 고객을 위한 예약 인스턴스 구매 권장 사항](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)을 참조하세요.
 - EA(기업계약) 및 MCA(Microsoft 고객 계약) 고객의 경우 공유 및 단일 구독 범위에 대한 구매 권장 사항은 [Azure Consumption Insights Power BI 콘텐츠 팩](/power-bi/service-connect-to-azure-consumption-insights)에서 사용할 수 있습니다.
 
-#### <a name="instance-size-flexibility-setting"></a>인스턴스 크기 유연성 설정
-
-인스턴스 크기 유연성 설정은 예약 인스턴스 할인을 받는 서비스를 결정합니다.
-
-설정이 설정되어 있는지 여부와 관계없이 예약 할인은 일치하는 Premium v3 예약 인스턴스 사용량에 자동으로 적용됩니다.
-
 ### <a name="analyze-your-usage-information"></a>사용량 정보 분석
 
 사용량 정보를 분석하여 구매해야 하는 예약을 결정합니다. 사용량 데이터는 사용량 파일 및 API에서 사용할 수 있습니다. 모두 사용하여 구매할 예약을 결정합니다. 매일 사용량이 많은 Premium v3 인스턴스를 확인하여 구매할 예약 수량을 결정합니다.
 
 사용량 파일에는 청구 기간 및 일별 사용량을 기준으로 요금이 표시됩니다. 사용량 파일을 다운로드하는 방법에 대한 자세한 내용은 [Azure 사용량 및 요금 보기 및 다운로드](../understand/download-azure-daily-usage.md)를 참조하세요. 그런 다음, 사용량 파일 정보를 사용하여 [구매할 예약을 결정](determine-reservation-purchase.md)할 수 있습니다.
 
-### <a name="purchase-restriction-considerations"></a>구매 제한 고려 사항
-
-다음 Premium v3 인스턴스에는 예약 할인이 적용되지 않습니다.
-
-- **미리 보기 또는 프로모션 인스턴스** - 미리 보기에 있거나 프로모션 미터를 사용하는 모든 Premium v3 예약 인스턴스 시리즈 또는 크기입니다.
-- **클라우드** - 예약은 독일 또는 중국 지역에서 구매하는 데 사용할 수 없습니다.
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Premium v3 예약 인스턴스 구매
 
@@ -79,7 +67,6 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 | 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다. </li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li></ul> |
 | 지역 | 예약이 적용되는 Azure 지역입니다. |
 | Premium v3 예약 인스턴스 크기 | Premium v3 예약 인스턴스의 크기입니다. |
-| 다음에 맞게 최적화 | Premium v3 예약 인스턴스 크기 유연성이 기본적으로 선택됩니다. 동일한 [Premium v3 예약 인스턴스 크기 그룹](../../virtual-machines/reserved-vm-instance-size-flexibility.md)의 다른 Premium v3 예약 인스턴스에 예약 할인을 적용하려면 **고급 설정** 을 클릭하여 인스턴스 크기 유연성 값을 변경합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 필요할 때 Premium v3 예약 인스턴스를 시작할 수 있는 기능에 추가 신뢰도를 제공합니다. 용량 우선 순위는 예약 범위가 단일 구독일 때에 사용할 수 있습니다. |
 | 용어 | 1년 또는 3년입니다. HBv2 Premium v3 예약 인스턴스에만 사용할 수 있는 5년 기간도 있습니다. |
 | 수량 | 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 Premium v3 예약 인스턴스의 수입니다. 예를 들어 미국 동부에서 10개의 Standard\_D2 Premium v3 예약 인스턴스를 실행하는 경우 실행 중인 모든 Premium v3 예약 인스턴스에 대한 혜택을 극대화하려면 수량을 10으로 지정합니다. |
 

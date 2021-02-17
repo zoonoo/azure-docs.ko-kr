@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693735"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580466"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -81,12 +81,12 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 가용성과 성능에 변경 사항이 있는 경우 서비스에서 사용자에게 전자 메일을 보냅니다. 따라서 Application Insight는 기밀성, 무결성 및 가용성 보안 3요소를 한 조로 묶어 가용성을 높이는 데 도움이 되므로 중요한 보안 도구가 됩니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/platform/platform-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/platform/platform-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
+[Azure Monitor](/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](../../azure-monitor/essentials/platform-logs-overview.md))와 개별 Azure 리소스([진단 로그](../../azure-monitor/essentials/platform-logs-overview.md)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 [Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics/) – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라 (예: AWS)에 대 한 IT 관리 솔루션을 제공 합니다. Azure Monitor의 데이터를 Azure Monitor 로그로 직접 라우팅할 수 있으므로 전체 환경에 대 한 메트릭과 로그를 한 곳에서 볼 수 있습니다.
 
-도구를 사용 하면 유연한 쿼리 방식으로 많은 양의 보안 관련 항목을 빠르게 검색할 수 있으므로 Azure Monitor 로그는 법적 및 기타 보안 분석에서 유용한 도구 일 수 있습니다. 또한 온-프레미스 [방화벽 및 프록시 로그를 Azure로 내보내고 Azure Monitor 로그를 사용 하 여 분석할 수 있습니다.](../../azure-monitor/platform/agent-windows.md)
+도구를 사용 하면 유연한 쿼리 방식으로 많은 양의 보안 관련 항목을 빠르게 검색할 수 있으므로 Azure Monitor 로그는 법적 및 기타 보안 분석에서 유용한 도구 일 수 있습니다. 또한 온-프레미스 [방화벽 및 프록시 로그를 Azure로 내보내고 Azure Monitor 로그를 사용 하 여 분석할 수 있습니다.](../../azure-monitor/agents/agent-windows.md)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](../../advisor/index.yml)는 Azure 배포를 최적화하는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 [전체 Azure 비용을 줄일](../../advisor/advisor-cost-recommendations.md)수 있는 기회를 찾는 동안 리소스의 [성능](../../advisor/advisor-performance-recommendations.md), [보안](../../advisor/advisor-security-recommendations.md)및 [고가용성](../../advisor/advisor-high-availability-recommendations.md) 을 향상 시키는 데 도움이 되는 솔루션을 권장 합니다. Azure Advisor는 보안 권장 사항을 제공하므로 Azure에 배포하는 솔루션의 전반적인 보안 상태를 크게 향상시킬 수 있습니다. 이러한 권장 사항은 [Azure Security Center](../../security-center/security-center-introduction.md)에서 수행한 보안 분석에서 가져온 것입니다.

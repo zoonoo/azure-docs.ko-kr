@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785823"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596801"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 대 한 Azure Monitor 로그
 
@@ -63,7 +63,7 @@ ms.locfileid: "98785823"
      5. **이벤트 허브 정책 이름 선택** 드롭다운 목록에서 이름을 선택 합니다.
      6. **확인** 을 선택합니다.
 
-   * **Log Analytics으로 보냅니다**. 이 프로세스에 대 한 log analytics 작업 영역을 만들고 구성 해야 합니다. Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요.
+   * **Log Analytics으로 보냅니다**. 이 프로세스에 대 한 log analytics 작업 영역을 만들고 구성 해야 합니다. Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요.
      1. **Log Analytics에 보내기** 확인란을 선택합니다.
      2. **구독** 드롭다운 목록에서 Log Analytics 작업 영역이 인 구독을 선택 합니다.
      3. **Log Analytics 작업 영역** 드롭다운 목록에서 작업 영역을 선택 합니다.
@@ -100,10 +100,10 @@ Azure Monitor 내보내기 기능을 사용 하 여 Load Balancer 메트릭을 �
 > C #에서 상수 및 변수에 대 한 값을 변경 하는 방법 및 Visual Studio에 대해 잘 알고 있는 경우 GitHub에서 제공 되는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter) 를 사용할 수 있습니다.
 
 ## <a name="stream-to-an-event-hub"></a>이벤트 허브로 스트림
-진단 정보를 이벤트 허브로 스트리밍하는 경우 Azure Monitor 통합을 사용 하 여 파트너 SIEM 도구의 중앙 집중식 로그 분석에 사용할 수 있습니다. 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)을 참조 하세요.
+진단 정보를 이벤트 허브로 스트리밍하는 경우 Azure Monitor 통합을 사용 하 여 파트너 SIEM 도구의 중앙 집중식 로그 분석에 사용할 수 있습니다. 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)을 참조 하세요.
 
 ## <a name="send-to-log-analytics"></a>Log Analytics에 보내기
-Azure의 리소스에 대 한 진단 정보를 Log Analytics 작업 영역에 직접 보낼 수 있습니다. 이 작업 영역에서 문제 해결 및 분석을 위한 정보에 대해 복잡 한 쿼리를 실행할 수 있습니다. 자세한 내용은 [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)을 참조 하세요.
+Azure의 리소스에 대 한 진단 정보를 Log Analytics 작업 영역에 직접 보낼 수 있습니다. 이 작업 영역에서 문제 해결 및 분석을 위한 정보에 대해 복잡 한 쿼리를 실행할 수 있습니다. 자세한 내용은 [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 Azure Load Balancer에 대 한 메트릭-로그 내보내기 기능에는 다음과 같은 제한 사항이 있습니다.

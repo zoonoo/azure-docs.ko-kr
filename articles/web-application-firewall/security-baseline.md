@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581244"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 azure 보안 기준
 
@@ -111,9 +111,9 @@ Azure PowerShell 또는 Azure CLI을 선택 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 AZURE Waf (웹 응용 프로그램 방화벽) 배포와 관련 된 네트워크 설정 및 리소스에 대 한 변경 내용을 검색 합니다. 중요 네트워크 설정 또는 리소스가 변경 될 때 트리거되는 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -153,9 +153,9 @@ Azure 센티널에는 azure WAF의 보안 이벤트에 대 한 개요를 제공 
 
 - [로깅 개요](ag/ag-overview.md#logging)
 
-- [Azure Monitor 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)
+- [Azure Monitor 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)
 
-- [Azure Platform 로그 개요](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure Platform 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -192,9 +192,9 @@ Azure 센티널에는 WAF의 보안 이벤트에 대 한 개요를 제공 하는
 
 **지침**: Azure 활동 로그 진단 설정 및 AZURE waf의 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행하여 용어를 검색하고, 추세를 파악하며, 패턴을 분석하고, 수집된 데이터를 기반으로 하여 다양한 인사이트를 제공합니다. WAF 메트릭을 기반으로 비정상적인 활동에 대 한 경고를 만듭니다. 예를 들어, ' X '를 초과 하는 요청 수가 차단 된 경우 ' Y '를 실행 합니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Azure 내에서 경고를 만드는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

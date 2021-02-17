@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: fe57174f1b090cbaa2196930f5ddd252074f1978
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0dda015d820d81fdd13eced384f97362e2ee3339
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526452"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587560"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
 
@@ -67,7 +67,7 @@ Windows에서 App Service의 Java 응용 프로그램 모니터링에 대 한 �
 #### <a name="python"></a>Python
 SDK를 사용 하 여 [Python 앱 모니터링](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python) 
 
-## <a name="azure-functions"></a>Azure 기능
+## <a name="azure-functions"></a>Azure Functions
 
 기본적으로 Azure Functions에 대 한 기본 모니터링을 사용 하 여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집 합니다. Java 응용 프로그램의 경우 분산 추적을 통해 다양 한 모니터링을 사용 하도록 설정 하 고 종단 간 트랜잭션 세부 정보를 얻을 수 있습니다. Java 용이 기능은 공개 미리 보기 상태 이며 [Azure Portal에서 사용 하도록 설정할](./monitor-functions.md)수 있습니다.
 
@@ -89,5 +89,5 @@ Azure Vm 및 가상 머신 확장 집합에 대 한 자동 계측은 [.net](./az
 
 * [Application Insights 개요](./app-insights-overview.md)
 * [애플리케이션 맵](./app-map.md)
-* [엔드투엔드 성능 모니터링](../learn/tutorial-performance.md)
+* [엔드투엔드 성능 모니터링](../app/tutorial-performance.md)
 

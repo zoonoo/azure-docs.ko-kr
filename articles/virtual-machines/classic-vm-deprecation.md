@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499308"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587922"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>2023 년 3 월 1 일 Azure Resource Manager IaaS 리소스 마이그레이션 
 
-2014에서는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)의 IaaS (infrastructure as a service)를 시작 했습니다. 이후 기능이 향상 되었습니다. Azure Resource Manager 이제 전체 IaaS 기능 및 기타 고급 기능을 제공 하기 때문에 2020 년 2 월 28 일에 [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM)를 통해 iaas vm (가상 머신)을 관리 하지 않습니다. 이 기능은 2023 년 3 월 1 일부 터 완전히 사용 중지 됩니다. 
+2014에서는 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)의 IaaS (infrastructure as a service)를 시작 했습니다. 이후 기능이 향상 되었습니다. Azure Resource Manager 이제 전체 IaaS 기능 및 기타 고급 기능을 제공 하기 때문에 2020 년 2 월 28 일에 [Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM)를 통해 iaas vm (가상 머신)을 관리 하지 않습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다. 
 
 현재 IaaS Vm의 약 90%가 Azure Resource Manager를 사용 하 고 있습니다. ASM을 통해 IaaS 리소스를 사용 하는 경우 지금 마이그레이션 계획을 시작 합니다. [Azure Resource Manager](../azure-resource-manager/management/index.yml)를 활용 하려면 2023 년 3 월 1 일부 터이를 완료 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "96499308"
 - 2023 년 3 월 1 일부 터 Azure Resource Manager로 마이그레이션되지 않은 구독은 나머지 Vm (클래식)을 삭제 하기 위한 타임 라인에 대 한 정보가 표시 됩니다.  
 
 이 사용 중지 *는 다음과* 같은 Azure 서비스 및 기능에 영향을 주지 않습니다. 
-- Azure Cloud Services 
+- [Azure Cloud Services (클래식)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
 - Vm에서 사용 *하지 않는* 저장소 계정 (클래식) 
 - Vm에서 사용 *하지 않는* 가상 네트워크 (클래식) 
 - 기타 클래식 리소스
@@ -49,9 +49,9 @@ ms.locfileid: "96499308"
 
 1. [플랫폼 지원 마이그레이션 도구](./migration-classic-resource-manager-overview.md) 를 사용 하 여 기존 vm을 세 단계로 마이그레이션하는 것이 좋습니다 (유효성 검사, 준비, 커밋). 이 도구는 최소 가동 중지 시간 없이 Vm을 마이그레이션하도록 설계 되었습니다. 
 
-   1. 첫 번째 단계인 validate는 기존 배포에 영향을 주지 않으며 마이그레이션에 대해 지원 되지 않는 모든 시나리오 목록을 제공 합니다. 
-   1. [해결 방법 목록을](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) 통해 배포를 수정 하 고 마이그레이션 준비를 할 수 있습니다. 
-   1. 이상적으로 모든 유효성 검사 오류를 수정한 후 준비 및 커밋 단계 중에 문제가 발생 하지 않도록 해야 합니다. 커밋이 성공적으로 완료 되 면 배포는 Azure Resource Manager로 실시간 마이그레이션된 후 Azure Resource Manager에서 노출 하는 새 Api를 통해 관리할 수 있습니다. 
+   - 첫 번째 단계인 validate는 기존 배포에 영향을 주지 않으며 마이그레이션에 대해 지원 되지 않는 모든 시나리오 목록을 제공 합니다. 
+   - [해결 방법 목록을](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) 통해 배포를 수정 하 고 마이그레이션 준비를 할 수 있습니다. 
+   - 이상적으로 모든 유효성 검사 오류를 수정한 후 준비 및 커밋 단계 중에 문제가 발생 하지 않도록 해야 합니다. 커밋이 성공적으로 완료 되 면 배포는 Azure Resource Manager로 실시간 마이그레이션된 후 Azure Resource Manager에서 노출 하는 새 Api를 통해 관리할 수 있습니다. 
 
    마이그레이션 도구가 마이그레이션에 적합 하지 않은 경우 마이그레이션에 대 한 [다른 계산 제품](/azure/architecture/guide/technology-choices/compute-decision-tree) 을 탐색할 수 있습니다. 많은 Azure 계산 제품이 있으므로 서로 다르기 때문에 플랫폼 지원 마이그레이션 경로를 제공할 수 없습니다.  
 
@@ -65,6 +65,6 @@ ms.locfileid: "96499308"
 
 - [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): 마이그레이션 중에 기술 지원을 위한 전용 지원 팀입니다.
 
-- [Microsoft Fast track](https://www.microsoft.com/fasttrack): fast track은이 마이그레이션의 & 실행 계획을 수립할 수 있는 적격 고객을 지원할 수 있습니다. [직접 추천](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0).  
+- [Microsoft Fast track](https://www.microsoft.com/fasttrack): fast track은이 마이그레이션의 & 실행 계획을 수립할 수 있는 적격 고객을 지원할 수 있습니다. DC 마이그레이션 프로그램을 위한 [추천](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) .  
 
 - 회사/조직이 Microsoft와 제휴 하거나 Microsoft 담당자 (예: CSAs (cloud solution 설계자) 또는 TAMs (기술 계정 관리자))와 함께 작동 하는 경우 마이그레이션에 대 한 추가 리소스에 대해 작업 해 보세요.
