@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b72bc5ab22d096420471d097f615e6fdbc14b3e7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c78bcfe316f543cd6408c24a9ed140b60daad22d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558084"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
 
@@ -26,7 +26,7 @@ Dav4 시리즈 및 Dasv4 시리즈는 전체 스레드 구성에서 AMD의 2.35 
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 
@@ -51,7 +51,7 @@ Dav4 시리즈 크기는 3.35 GHz의 승격 된 최대 빈도를 달성할 수 �
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 

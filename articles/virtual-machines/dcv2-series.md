@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095859"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557904"
 ---
 # <a name="dcsv2-series"></a>DCsv2 시리즈
 
@@ -21,15 +21,15 @@ DCsv2 시리즈는 퍼블릭 클라우드에서 처리되는 동안 데이터 �
 
 사용 사례로는 기밀 단체 데이터 공유, 사기 감지, 자금 세탁 방지, 블록체인, 비밀 사용 분석, 인텔리전스 분석 및 기밀 기계 학습이 있습니다.
 
-[Premium Storage](premium-storage-performance.md): 지원 됨 *<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-[VM 생성 지원](generation-2.md): 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[Premium Storage](premium-storage-performance.md): 지원 되는 *<br> 
+ [Premium Storage 캐싱](premium-storage-performance.md): 지원 되는 <br> 
+ [실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않는 <br> 
+ [메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않는 <br> 
+ [VM 생성 지원](generation-2.md): 2 세대 <br> 
+ [가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (* 최소 4 개 vcpu * 필요) <br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 
-*Standard_DC8_v2 제외
+*Standard_DC8_v2 제외 <br>
 
 | 크기             | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(MBps) | EPC 메모리(MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

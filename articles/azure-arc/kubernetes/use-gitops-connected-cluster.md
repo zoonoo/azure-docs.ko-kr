@@ -2,52 +2,32 @@
 title: Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc enabled Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: 072bfc8c243eb9b69e06366961019b88b67e0941
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392241"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560163"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
+# <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster에서 GitOps를 사용 하 여 구성 배포 (미리 보기)
 
-Kubernetes와 관련해 서 GitOps는 Git 리포지토리에서 Kubernetes 클러스터 구성 (배포, 네임 스페이스 등)의 desired 상태를 선언 하는 방법입니다. 이 선언은 다음에 연산자를 사용 하 여 이러한 클러스터 구성의 폴링 및 끌어오기 기반 배포를 수행 합니다. 
-
-이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에서 GitOps 워크플로를 설정 하는 방법을 설명 합니다.
-
-클러스터와 Git 리포지토리 간의 연결은 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` Azure Resource Manager 확장 리소스로 생성 됩니다. `sourceControlConfiguration` 리소스 속성은 Kubernetes 리소스가 Git에서 클러스터로 이동하는 위치와 방법을 나타냅니다. 데이터는 `sourceControlConfiguration` 데이터의 기밀성을 보장 하기 위해 암호화 된 상태로 Azure Cosmos DB 데이터베이스에 저장 됩니다.
-
-`config-agent`클러스터에서 실행 되는는 다음을 담당 합니다.
-* `sourceControlConfiguration`Azure Arc Enabled Kubernetes 리소스에서 새로운 또는 업데이트 된 확장 리소스를 추적 합니다.
-* Flux 연산자를 배포 하 여 각에 대 한 Git 리포지토리를 시청 `sourceControlConfiguration` 합니다.
-* 모든 업데이트 적용 `sourceControlConfiguration` . 
-
-`sourceControlConfiguration`다중 테 넌 트를 얻기 위해 동일한 Azure Arc 사용 Kubernetes 클러스터에서 여러 리소스를 만들 수 있습니다. 각 네임 스페이스 내에서 서로 다른 범위를 만들어 배포를 제한 `sourceControlConfiguration` `namespace` 합니다.
-
-Git 리포지토리에는 다음이 포함 될 수 있습니다.
-* 네임 스페이스, ConfigMaps, 배포, DaemonSets 등을 비롯 한 모든 유효한 Kubernetes 리소스를 설명 하는 YAML 형식 매니페스트 
-* 응용 프로그램 배포를 위한 투구 차트 
-
-일반적인 시나리오 집합에는 일반적인 Azure 역할 및 바인딩, 모니터링 또는 로깅 에이전트 또는 클러스터 전체 서비스와 같은 조직의 기준 구성 정의를 포함 합니다.
-
-동일한 패턴을 사용 하 여 더 큰 클러스터 컬렉션을 관리할 수 있습니다 .이는 다른 유형의 환경에서 배포 될 수 있습니다. 예를 들어 한 번에 여러 Kubernetes 클러스터에 적용 되는 조직의 기준 구성을 정의 하는 리포지토리가 하나 있습니다. [Azure Policy](use-azure-policy.md) 는 `sourceControlConfiguration` 범위 (구독 또는 리소스 그룹) 내에서 모든 Azure Arc 사용 Kubernetes 리소스에 대 한 특정 매개 변수 집합을 사용 하 여 만들기를 자동화할 수 있습니다.
-
-범위를 사용 하 여 구성 집합을 적용 하는 방법을 알아보려면 다음 단계를 수행 `cluster-admin` 합니다.
+이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에 구성을 적용 하는 방법을 보여 줍니다. 이와 동일한 개념에 대 한 개념적인 개요는 [여기](./conceptual-configurations.md)에서 찾을 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-기존 Azure Arc enabled Kubernetes 연결 된 클러스터가 있는지 확인 합니다. 연결 된 클러스터가 필요한 경우 [연결 a Azure Arc Enabled Kubernetes cluster 빠른](./connect-cluster.md)시작을 참조 하세요.
+* 기존 Azure Arc enabled Kubernetes 연결 된 클러스터가 있는지 확인 합니다. 연결 된 클러스터가 필요한 경우 [연결 a Azure Arc Enabled Kubernetes cluster 빠른](./connect-cluster.md)시작을 참조 하세요.
+
+* [Kubernetes 용 Arc를 사용 하 여 구성 및 GitOps 문서](./conceptual-configurations.md) 를 검토 하 여이 기능의 이점과 아키텍처를 이해 합니다.
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
 이 문서에 사용 된 [예제 리포지토리](https://github.com/Azure/arc-k8s-demo) 는 몇 가지 네임 스페이스를 프로 비전 하 고, 일반적인 워크 로드를 배포 하 고, 몇 가지 팀 특정 구성을 제공 하고자 하는 클러스터 연산자의 가상 사용자를 중심으로 구성 됩니다. 이 리포지토리를 사용하면 클러스터에 다음 리소스가 만들어집니다.
-
 
 * **네임 스페이스:** `cluster-config` , `team-a` , `team-b`
 * **배포:**`cluster-config/azure-vote`
@@ -113,7 +93,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>SSH 및 Flux에서 만든 키로 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 참고
+| 매개 변수 | 형식 | 메모
 | ------------- | ------------- | ------------- |
 | `--repository-url` | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@`
 
@@ -122,7 +102,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>SSH 및 사용자 제공 키가 포함 된 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 참고 |
+| 매개 변수 | 형식 | 메모 |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@` |
 | `--ssh-private-key` | [PEM 형식의](https://aka.ms/PEMformat) base64 인코딩 키 | 키 직접 제공 |
@@ -133,7 +113,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>SSH 및 사용자가 제공한 알려진 호스트에서 개인 Git 호스트 사용
 
-| 매개 변수 | 형식 | 참고 |
+| 매개 변수 | 형식 | 메모 |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@` |
 | `--ssh-known-hosts` | base64 인코딩 | 알려진 호스트 콘텐츠 직접 제공 |
@@ -144,7 +124,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-https"></a>HTTPS를 사용 하 여 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 참고 |
+| 매개 변수 | 형식 | 메모 |
 | ------------- | ------------- | ------------- |
 | `--repository-url` | https://server/repo[. git] | 기본 인증을 사용 하는 HTTPS |
 | `--https-user` | 원시 또는 b a s e 64로 인코딩된 | HTTPS 사용자 이름 |
@@ -159,7 +139,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 다음과 같은 선택적 매개 변수를 사용 하 여 구성을 사용자 지정 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------- | ------------- |
 | `--enable-helm-operator`| 투구 차트 배포에 대 한 지원을 사용 하도록 전환 합니다. |
 | `--helm-operator-params` | 투구 연산자 (설정 된 경우)에 대 한 차트 값입니다. 예들 들어 `--set helm.versions=v3`입니다. |
@@ -169,7 +149,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ##### <a name="options-supported-in----operator-params"></a>에서 지원 되는 옵션  `--operator-params` :
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 | ------------- | ------------- |
 | `--git-branch`  | Kubernetes 매니페스트에 사용할 Git 리포지토리의 분기입니다. 기본값은 'master'입니다. 최신 리포지토리에는 이라는 루트 분기가 있습니다 `main` .이 경우를 설정 해야 `--git-branch=main` 합니다. |
 | `--git-path`  | Kubernetes 매니페스트를 찾는 Flux에 대한 Git 리포지토리 내의 상대 경로입니다. |
@@ -249,7 +229,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 프로비전 프로세스가 진행되는 동안 `sourceControlConfiguration`이 몇 가지 상태 변경을 거칩니다. 위의 `az k8sconfiguration show ...` 명령을 사용하여 진행률을 모니터링합니다.
 
-| 단계 변경 | 설명 |
+| 단계 변경 | Description |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | 초기 및 진행 중인 상태를 나타냅니다. |
 | `complianceStatus` -> `Installed`  | `config-agent` 에서 클러스터를 성공적으로 구성 하 고 오류 없이 배포할 수 있습니다 `flux` . |

@@ -3,12 +3,12 @@ title: 청사진 운영자를 위한 환경 설정
 description: Azure 기본 제공 역할 청사진에 사용 하도록 Azure 환경을 구성 하는 방법을 알아봅니다.
 ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558725"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>청사진 운영자를 위한 환경 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "99591604"
 
 1. 바람직하지 [보안 그룹 만들기 및 멤버 추가](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. 계정 또는 보안 그룹에 **청사진 연산자** 의 [역할 할당을 추가](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 합니다.
+1. 계정 또는 보안 그룹에 **청사진 운영자** 의 [Azure 역할 할당](../../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="user-assign-managed-identity"></a>사용자 할당 관리 id
 
@@ -32,7 +32,7 @@ ms.locfileid: "99591604"
 
 1. 사용자 할당 관리 id에 계획 된 범위에 대 한 청사진 정의에 필요한 역할 또는 사용 권한을 부여 합니다.
 
-1. **관리 Id 운영자** 의 [역할 할당을](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 계정 또는 보안 그룹에 추가 합니다. 역할 할당의 범위를 새 사용자 할당 관리 id로 지정 합니다.
+1. **관리 Id 운영자** 의 [Azure 역할](../../../role-based-access-control/role-assignments-portal.md) 을 계정 또는 보안 그룹에 할당 합니다. 역할 할당의 범위를 새 사용자 할당 관리 id로 지정 합니다.
 
 1. **청사진 연산자** 는 새로운 사용자 할당 관리 id를 사용 하는 [청사진을 할당](../create-blueprint-portal.md#assign-a-blueprint) 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 모델 관리
+title: DTDL 모델 관리
 titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 내에서 모델을 만들고, 편집 하 고, 삭제 하는 방법을 참조 하세요.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: be8f4ba8552521d25992d7c3a405dc2628fbbb85
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560823"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -61,7 +61,7 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 

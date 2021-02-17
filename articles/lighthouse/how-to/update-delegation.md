@@ -1,14 +1,14 @@
 ---
 title: 위임 업데이트
 description: 이전에 Azure Lighthouse에 등록 한 고객에 대 한 위임을 업데이트 하는 방법에 대해 알아봅니다.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791342"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555761"
 ---
 # <a name="update-a-delegation"></a>위임 업데이트
 
@@ -48,7 +48,7 @@ ms.locfileid: "98791342"
 위임에 대 한 액세스를 제거 하는 작업은 원래 위임에서 [관리 되는 서비스 등록 할당 삭제 역할이](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 부여 된 관리 테 넌 트의 모든 사용자가 수행할 수 있습니다. 관리 테 넌 트에이 역할이 있는 사용자가 없는 경우 고객에 게 [Azure Portal 제품에 대 한 액세스 권한을 제거](view-manage-service-providers.md#add-or-remove-service-provider-offers)하도록 요청할 수 있습니다.
 
 > [!TIP]
-> 위의 단계를 수행 하 여 이전 위임을 제거 하 고 여전히 새 ARM 템플릿을 배포할 수 없는 경우 [등록 정의를 완전히 제거](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition)해야 할 수 있습니다. 고객 테 넌 트에서 소유자 역할을 하는 모든 사용자가이 작업을 수행할 수 있습니다.  
+> 위의 단계를 수행 하 여 이전 위임을 제거 하 고 여전히 새 ARM 템플릿을 배포할 수 없는 경우 [등록 정의를 완전히 제거](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition)해야 할 수 있습니다. 이 작업은 `Microsoft.Authorization/roleAssignments/write` 고객 테 넌 트에서 [소유자](../../role-based-access-control/built-in-roles.md#owner)와 같은 권한이 있는 역할을 가진 모든 사용자가 수행할 수 있습니다.  
 
 ## <a name="deploy-the-arm-template"></a>ARM 템플릿 배포
 

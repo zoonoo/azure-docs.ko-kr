@@ -4,15 +4,15 @@ description: App Service Environment에서 앱을 만들고, 게시 하 고, 크
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826003"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548457"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -161,7 +161,7 @@ ILB ASE를 사용 하 여 게시 끝점은 ILB를 통해서만 사용할 수 있
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요**  >  **필수** 및 **속성**)에서 볼 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
@@ -209,7 +209,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference** 설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
 
-- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값은 기본값입니다.
+- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값이 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 처음 절반에서 업그레이드 됩니다.
 - **후기**: ASE는 App Service 업그레이드의 후반부에서 업그레이드 됩니다.
 

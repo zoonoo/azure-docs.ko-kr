@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 2b8577af2c8a6296ae6f4f090e8ff233e51ee6fb
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 64107c3f667dd7e59fcf6d191e83457029b3a277
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583928"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546349"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
@@ -59,7 +59,7 @@ ADAL.NET은 *리소스* 에 대한 토큰을 획득하지만, MSAL.NET은 *범�
 
 - ADAL.NET은 인증 기관을 통해 STS(보안 토큰 서비스) 또는 권한 부여 서버에 대한 연결을 나타내는 표현으로 [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD)를 사용합니다. 반면 MSAL.NET은 [클라이언트 애플리케이션](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications)을 중심으로 설계되었습니다. 제공하는 두 개의 개별 클래스는 `PublicClientApplication` 및 `ConfidentialClientApplication`입니다.
 
-- 토큰 획득: ADAL.NET 및 MSAL.NET에는 동일한 인증 호출이 `AcquireTokenAsync` 있지만 (  `AcquireTokenSilentAsync` ADAL.NET 및 `AcquireTokenInteractive` `AcquireTokenSilent` MSAL.NET의 경우) 다른 매개 변수가 필요 합니다. 한 가지 차이점은 MSAL.NET의 경우 AcquireTokenXX 호출마다 애플리케이션의 `ClientID`를 더 이상 전달할 필요가 없다는 것입니다. 실제로 `ClientID`는 `IPublicClientApplication` 또는 `IConfidentialClientApplication`을 빌드할 때 한 번만 설정됩니다.
+- 토큰 획득: ADAL.NET 및 MSAL.NET에는 동일한 인증 호출이 `AcquireTokenAsync` 있지만 ( `AcquireTokenSilentAsync` ADAL.NET 및 `AcquireTokenInteractive` `AcquireTokenSilent` MSAL.NET의 경우) 다른 매개 변수가 필요 합니다. 한 가지 차이점은 MSAL.NET의 경우 AcquireTokenXX 호출마다 애플리케이션의 `ClientID`를 더 이상 전달할 필요가 없다는 것입니다. 실제로 `ClientID`는 `IPublicClientApplication` 또는 `IConfidentialClientApplication`을 빌드할 때 한 번만 설정됩니다.
 
 ### <a name="iaccount-not-iuser"></a>IUser가 아닌 IAccount
 
@@ -170,7 +170,7 @@ V1.0 토큰을 수락 하는 응용 프로그램에 대 한 토큰을 획득 하
 예를 들어 사용자 이름에 액세스 하려면 다음을 사용 하 여 앱 ID URI를 `ResourceId` 사용 합니다.
 
 ```csharp
-var scopes = new [] {  ResourceId+"/user_impersonation"};
+var scopes = new [] { ResourceId+"/user_impersonation" };
 ```
 
 Microsoft Graph API를 사용 하 여 MSAL.NET Azure Active Directory를 읽고 쓰려면 https://graph.microsoft.com/) 다음 코드 조각과 같은 범위 목록을 만듭니다.
@@ -205,7 +205,7 @@ Azure AD에서 사용하는 논리는 다음과 같습니다.
 
 ```csharp
 ResourceId = "someAppIDURI";
-var scopes = new [] {  ResourceId+"/.default"};
+var scopes = new [] { ResourceId+"/.default" };
 ```
 
 ### <a name="scopes-to-request-in-the-case-of-client-credential-flow--daemon-app"></a>클라이언트 자격 증명 흐름/디먼 앱의 경우 요청하는 범위

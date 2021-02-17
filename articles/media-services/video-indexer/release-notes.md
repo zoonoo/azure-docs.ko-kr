@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427664"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560514"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -67,7 +67,7 @@ Azure AD, Microsoft, Google 등의 공급자 중 하나를 사용 하 여 등록
 > [!NOTE]
 > LinkedIn 및 Facebook에 연결 된 Video Indexer 계정은 2021 년 3 월 1 일 이후에는 액세스할 수 없습니다. 
 > 
-> 사용자가 소유 하 고 있는 Azure AD, Microsoft 또는 Google 전자 메일을 Video Indexer 계정에 [초대](invite-users.md) 하 여 여전히 액세스할 수 있도록 해야 합니다.<br/>
+> 사용자가 소유 하 고 있는 Azure AD, Microsoft 또는 Google 전자 메일을 Video Indexer 계정에 [초대](invite-users.md) 하 여 여전히 액세스할 수 있도록 해야 합니다. [초대](invite-users.md)의 설명에 따라 지원 되는 공급자의 추가 소유자를 추가할 수 있습니다. <br/>
 > 또는 유료 계정을 만들고 데이터를 마이그레이션할 수 있습니다.
 
 ## <a name="august-2020"></a>2020년 8월

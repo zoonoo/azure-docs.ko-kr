@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 390b025ec039d5b04cead3f6bb22fedd0e987673
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: e9e7451e411ed9160eace0a60c65b5b74bf8f750
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537782"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559466"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -94,6 +94,8 @@ ms.locfileid: "99537782"
 * [Azure NetApp Files – 클라우드 동기화를 사용 하 여 백업 오프 로드 SAP HANA](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Azure NetApp Files를 사용 하 여 SAP HANA 시스템 복사본 속도 향상](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [클라우드 볼륨 ONTAP 및 Azure NetApp Files: SAP HANA 시스템 마이그레이션을 손쉽게 수행할 수 있습니다.](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
+* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-1 부-Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
+* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-2 부-Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware 솔루션
 
@@ -146,6 +148,7 @@ ms.locfileid: "99537782"
 
 * [Azure Kubernetes Service와 Azure NetApp Files 통합](../aks/azure-netapp-files.md)
 * [Azure NetApp Files를 사용 하는 Azure의이 세계 Kubernetes 성능](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
+* [Azure NetApp Files + Trident = Kubernetes에 대 한 동적 및 영구 저장소](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident-컨테이너에 대 한 저장소 Orchestrator](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 * [AKS (Azure Kubernetes Service)의 Magento 전자 상거래 플랫폼](/azure/architecture/example-scenario/magento/magento-azure)
 

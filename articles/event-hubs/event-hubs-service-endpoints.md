@@ -3,16 +3,16 @@ title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft 
 description: 이 문서에서는 가상 네트워크에 Microsoft EventHub 서비스 끝점을 추가 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556532"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 
-[VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Event Hubs를 통합하면 양쪽 엔드에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다.
+[VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Event Hubs를 통합하면 양쪽 엔드에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다. 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 **기본** 계층에서는 지원 되지 않습니다.
 
 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩하기 위해 구성 된 경우 해당 Event Hubs 네임 스페이스는 더 이상 가상 네트워크에서 권한이 있는 모든 서브넷의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
@@ -21,8 +21,8 @@ ms.locfileid: "100516687"
 >[!WARNING]
 > 허용 되는 가상 네트워크에서 작동 하는 서비스에서 들어오는 요청을 제외 하 고 Event Hubs 네임 스페이스에 대해 가상 네트워크를 사용 하도록 설정 하면 기본적으로 들어오는 요청이 차단 됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 단, 가상 네트워크를 사용 하는 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Event Hubs에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
 
-> [!NOTE]
-> 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 **기본** 계층에서는 지원 되지 않습니다.
+> [!IMPORTANT]
+> 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 
@@ -58,6 +58,9 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 2. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가** _를 선택 합니다. 새 VNet을 만들려면 _ *+ 새 가상 네트워크 만들기**를 선택 합니다. 
 
     ![기존 가상 네트워크 추가](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
 3. 가상 네트워크 목록에서 가상 네트워크를 선택 하 고 **서브넷** 을 선택 합니다. 목록에 가상 네트워크를 추가 하기 전에 서비스 끝점을 사용 하도록 설정 해야 합니다. 서비스 끝점이 사용 되도록 설정 되지 않은 경우 포털에서 사용 하도록 설정 하 라는 메시지를 표시 합니다.
    
    ![서브넷 선택](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
