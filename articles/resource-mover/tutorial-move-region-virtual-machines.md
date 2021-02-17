@@ -5,22 +5,20 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520444"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979745"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>자습서: 지역 간에 Azure VM 이동
 
 이 문서에서는 [Azure Resource Mover](overview.md)를 사용하여 Azure VM 및 관련 네트워크/스토리지 리소스를 다른 Azure 지역으로 이동하는 방법을 알아봅니다.
-
-> [!NOTE]
-> Azure Resource Mover는 현재 공개 미리 보기로 제공됩니다.
+.
 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -40,26 +38,21 @@ ms.locfileid: "95520444"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다. 그런 다음 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-
--  이동하려는 리소스가 포함된 구독에 대한 *소유자* 액세스 권한이 있는지 확인합니다.
-    - Azure 구독에서 특정 원본 및 대상 쌍에 대한 리소스를 처음 추가하는 경우 Resource Mover를 통해 구독에서 신뢰할 수 있는 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(이전에는 MSI(관리되는 서비스 ID)라고 함)를 만듭니다.
-    - ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 리소스를 추가하는 데 사용하는 계정에 구독의 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
-- 구독의 할당량이 대상 지역에서 이동하려는 리소스를 만들기에 충분해야 합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청하세요.
-- 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인하세요. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하면 도움이 됩니다.
+**요구 사항** | **설명**
+--- | ---
+**구독 권한** | 이동하려는 리소스가 포함된 구독에 대한 *소유자* 액세스 권한이 있는지 확인합니다.<br/><br/> **소유자 액세스가 필요한 이유는 무엇인가요?** Azure 구독에서 특정 원본 및 대상 쌍에 대한 리소스를 처음 추가하는 경우 Resource Mover를 통해 구독에서 신뢰할 수 있는 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(이전에는 MSI(관리되는 서비스 ID)라고 함)를 만듭니다. ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 리소스를 추가하는 데 사용하는 계정에 구독의 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
+**VM 지원** |  이동하려는 VM이 지원되는지 확인합니다.<br/><br/> - 지원되는 Windows VM을 [확인](support-matrix-move-region-azure-vm.md#windows-vm-support)합니다.<br/><br/> - 지원되는 Linux VM 및 커널 버전을 [확인](support-matrix-move-region-azure-vm.md#linux-vm-support)합니다.<br/><br/> - 지원되는 [컴퓨팅](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [스토리지](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) 및 [네트워킹](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) 설정을 확인합니다.
+**대상 구독** | 대상 지역의 구독 할당량이 대상 지역에서 이동하려는 리소스를 만들기에 충분해야 합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청하세요.
+**대상 지역 요금** | 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인하세요. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하면 도움이 됩니다.
     
 
-## <a name="check-vm-requirements"></a>VM 요구 사항 확인
+## <a name="prepare-vms"></a>VM 준비
 
-1. 이동하려는 VM이 지원되는지 확인합니다.
-
-    - 지원되는 Windows VM을 [확인](support-matrix-move-region-azure-vm.md#windows-vm-support)합니다.
-    - 지원되는 Linux VM 및 커널 버전을 [확인](support-matrix-move-region-azure-vm.md#linux-vm-support)합니다.
-    - 지원되는 [컴퓨팅](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [스토리지](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) 및 [네트워킹](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) 설정을 확인합니다.
-2. 이동하려는 VM이 켜져 있는지 확인합니다.
-3. VM에 신뢰할 수 있는 최신 루트 인증서와 업데이트된 CRL(인증서 해지 목록)이 있는지 확인합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+1. VM이 요구 사항을 충족하는지 확인한 후에는 이동하려는 VM이 켜져 있는지 확인합니다. 대상 지역에서 사용하려는 모든 VM 디스크를 VM에서 연결하고 초기화해야 합니다.
+1. VM에 신뢰할 수 있는 최신 루트 인증서와 업데이트된 CRL(인증서 해지 목록)이 있는지 확인합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
     - Windows VM에서 최신 Windows 업데이트를 설치합니다.
     - Linux VM에서 배포자 지침에 따라 머신에 최신 인증서와 CRL을 준비합니다. 
-4. 다음과 같이 VM에서 아웃바운드 연결을 허용합니다.
+1. 다음과 같이 VM에서 아웃바운드 연결을 허용합니다.
     - [URL](support-matrix-move-region-azure-vm.md#url-access) 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
     - NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 [서비스 태그 규칙](support-matrix-move-region-azure-vm.md#nsg-rules)을 만듭니다.
 
@@ -85,12 +78,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     ![원본 및 대상 지역을 선택하는 페이지](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. **이동할 리소스** 에서 **리소스 선택** 을 클릭합니다.
-7. **리소스 선택** 에서 VM을 선택합니다. [이동을 지원하는 리소스](#check-vm-requirements)만 추가할 수 있습니다. **완료** 를 클릭합니다.
+7. **리소스 선택** 에서 VM을 선택합니다. [이동을 지원하는 리소스](#prepare-vms)만 추가할 수 있습니다. **완료** 를 클릭합니다.
 
     ![이동할 VM을 선택하는 페이지](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  **이동할 리소스** 에서 **다음** 을 클릭합니다.
-9. **검토 + 추가** 에서 원본 및 대상 설정을 확인합니다. 
+9. **검토** 에서 원본 및 대상 설정을 확인합니다. 
 
     ![설정을 검토하고 이동을 계속하는 페이지](./media/tutorial-move-region-virtual-machines/review.png)
 10. **계속** 을 클릭하여 리소스 추가를 시작합니다.
@@ -99,25 +92,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!NOTE]
 > - 추가된 리소스는 *준비 보류 중* 상태입니다.
+> - VM에 대한 원본 그룹이 자동으로 추가됩니다.
 > - 이동 컬렉션에서 리소스를 제거하려는 경우 이동 프로세스의 위치에 따라 제거 방법이 달라집니다. [자세히 알아보기](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>종속성 오류 해결
 
 1. 리소스의 **문제** 열에 *종속성 유효성 검사* 메시지가 표시되는 경우 **종속성 유효성 검사** 단추를 클릭합니다. 유효성 검사 프로세스가 시작됩니다.
 2. 종속성이 발견되면 **종속성 추가** 를 클릭합니다. 
-3. **종속성 추가** 에서 종속 리소스 > **종속성 추가** 를 차례로 선택합니다. 알림에서 진행률을 모니터링합니다.
+3. **종속성 추가** 에서 기본 **모든 종속성 표시** 옵션을 그대로 둡니다.
+
+    - 모든 종속성 표시는 리소스에 대한 모든 직접 및 간접 종속성을 반복합니다. 예를 들어 VM의 경우 NIC, 가상 네트워크, NSG(네트워크 보안 그룹) 등을 표시합니다.
+    - 첫 번째 수준 종속성 표시는 직접 종속성만 표시합니다. 예를 들어 VM의 경우 NIC는 표시되지만 가상 네트워크는 표시되지 않습니다.
+
+
+4. **종속성 추가** 에서 추가할 종속 리소스를 선택합니다. 알림에서 진행률을 모니터링합니다.
 
     ![종속성 추가](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. 필요한 경우 종속성을 추가하고 종속성의 유효성을 다시 검사합니다. 
+4. 종속성 유효성 검사를 다시 수행합니다. 
     ![종속성을 추가하는 페이지](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. **지역 간** 페이지에서 리소스가 이제 문제 없이 *준비 보류 중* 상태인지 확인합니다.
 
-    ![준비 보류 중 상태인 리소스를 보여주는 페이지](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> 이동을 시작하기 전에 대상 설정을 편집하려면 리소스의 **대상 구성** 열에서 링크를 선택하고 설정을 편집합니다. 대상 VM 설정을 편집할 때 대상 VM이 원본 VM보다 작으면 안 됩니다.  
 
 ## <a name="move-the-source-resource-group"></a>원본 리소스 그룹 이동 
 
@@ -158,9 +153,17 @@ VM을 준비하고 이동하려면 대상 지역에 VM 리소스 그룹이 있�
 
 ## <a name="prepare-resources-to-move"></a>이동할 리소스 준비
 
+원본 리소스 그룹을 이동했으므로 *준비 보류 중* 상태인 다른 리소스를 이동하도록 준비할 수 있습니다.
+
+1. **지역 간** 에서 리소스가 이제 문제 없이 *준비 보류 중* 상태인지 확인합니다. 그렇지 않은 경우 다시 유효성을 검사하고 해결되지 않은 문제를 해결합니다.
+
+    ![준비 보류 중 상태인 리소스를 보여주는 페이지](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. 이동을 시작하기 전에 대상 설정을 편집하려면 리소스의 **대상 구성** 열에서 링크를 선택하고 설정을 편집합니다. 대상 VM 설정을 편집할 때 대상 VM이 원본 VM보다 작으면 안 됩니다.  
+
 원본 리소스 그룹을 이동했으므로 다른 리소스를 이동하도록 준비할 수 있습니다.
 
-1. **지역 간** 에서 준비하려는 리소스를 선택합니다. 
+3. 준비할 리소스를 선택합니다. 
 
     ![준비하려는 다른 리소스를 선택하는 페이지](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -238,12 +241,16 @@ VM을 준비하고 이동하려면 대상 지역에 VM 리소스 그룹이 있�
 - Mobility Service는 VM에서 자동으로 제거되지 않습니다. 수동으로 제거하거나, 서버를 다시 이동할 생각이면 그대로 두세요.
 - 이동 후 Azure RBAC(Azure 역할 기반 액세스 제어) 규칙을 수정합니다.
 
+
 ## <a name="delete-source-resources-after-commit"></a>커밋 후 원본 리소스 삭제
 
 이동 후 필요에 따라 원본 지역에서 리소스를 삭제할 수 있습니다. 
 
+> [!NOTE]
+> 키 자격 증명 모음 및 SQL Server 서버와 같은 몇 가지 리소스는 포털에서 삭제할 수 없으며 리소스 속성 페이지에서 삭제해야 합니다.
+
 1. **지역 간** 에서 삭제하려는 각 원본 리소스의 이름을 클릭합니다.
-2. 각 리소스의 속성 페이지에서 **삭제** 를 선택합니다.
+2. **리소스 삭제** 를 선택합니다.
 
 ## <a name="delete-additional-resources-created-for-move"></a>이동을 위해 만든 추가 리소스 삭제
 

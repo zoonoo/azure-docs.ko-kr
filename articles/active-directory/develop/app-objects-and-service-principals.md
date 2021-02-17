@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355769"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557844"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -27,9 +27,9 @@ ms.locfileid: "97355769"
 ## <a name="application-registration"></a>애플리케이션 등록
 Id 및 액세스 관리 기능을 Azure AD에 위임 하기 위해 응용 프로그램을 Azure AD [테 넌 트](developer-glossary.md#tenant)에 등록 해야 합니다. Azure AD에 응용 프로그램을 등록 하면 Azure AD와 통합 될 수 있도록 응용 프로그램에 대 한 id 구성이 생성 됩니다. [Azure Portal][AZURE-Portal]에 앱을 등록 하는 경우이는 단일 테 넌 트 (테 넌 트 에서만 액세스할 수 있음) 또는 다중 테 넌 트 (다른 테 넌 트에서 액세스할 수 있음) 인지 여부를 선택 하 고 필요에 따라 액세스 토큰이 전송 되는 리디렉션 URI를 설정할 수 있습니다.
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="응용 프로그램 등록 창 Azure Portal의 스크린샷":::
+앱을 등록 하는 방법에 대 한 단계별 지침은 [앱 등록 빠른](quickstart-register-app.md)시작을 참조 하세요.
 
-앱 등록을 완료 하면 홈 테 넌 트 또는 디렉터리 내에 상주 하는 앱의 전역적으로 고유한 인스턴스 (응용 프로그램 개체)가 있습니다.  앱에 대 한 전역적으로 고유한 ID (앱 또는 클라이언트 ID)도 있습니다.  그런 다음 포털에서 비밀 또는 인증서 및 범위를 추가 하 여 앱이 작동 하도록 하 고 로그인 대화 상자에서 앱의 브랜딩을 사용자 지정할 수 있습니다.
+앱 등록을 완료 하면 홈 테 넌 트 또는 디렉터리 내에 상주 하는 앱의 전역적으로 고유한 인스턴스 ( [응용 프로그램 개체](#application-object))가 있습니다.  앱에 대 한 전역적으로 고유한 ID (앱 또는 클라이언트 ID)도 있습니다.  그런 다음 포털에서 비밀 또는 인증서 및 범위를 추가 하 여 앱이 작동 하도록 하 고 로그인 대화 상자에서 앱의 브랜딩을 사용자 지정할 수 있습니다.
 
 포털에서 응용 프로그램을 등록 하는 경우 응용 프로그램 개체 및 서비스 주체 개체는 홈 테 넌 트에 자동으로 만들어집니다.  Microsoft Graph Api를 사용 하 여 응용 프로그램을 등록/만들 경우에는 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다.
 
@@ -82,7 +82,7 @@ Microsoft Graph [serviceprincipal 엔터티][MS-Graph-Sp-Entity] 는 서비스 �
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|-------------|
 | 1    | 애플리케이션의 홈 테넌트에서 애플리케이션 및 서비스 주체 개체를 만드는 과정입니다. |
 | 2    | Contoso 관리자와 Fabrikam 관리자가 전적으로 동의한 경우 서비스 주체 개체가 회사의 Azure AD 테넌트에 생성되고 관리자가 부여한 사용 권한이 할당됩니다. 또한 사용자가 개별 사용에 대한 동의를 할 수 있게 HR 앱이 구성/설계될 수 있습니다. |
