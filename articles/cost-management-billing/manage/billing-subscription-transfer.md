@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601548"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979436"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -80,7 +80,7 @@ Azure 구독의 청구 소유권을 수락한 경우 다음 단계를 검토하�
 전송 요청을 취소하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **구독** 으로 이동하여 전송 요청을 보낸 구독을 선택하고 **청구 소유권 전송** 을 선택합니다.
+1. **구독** 으로 이동하여 > 전송 요청을 보낸 구독을 선택하고 **청구 소유권 전송** 을 선택합니다.
 1. 페이지 맨 아래에서 **전송 요청 취소** 를 선택합니다.
 
 :::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="전송 요청 취소 옵션이 있는 청구 소유권 전송 창을 보여주는 예" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
@@ -88,6 +88,20 @@ Azure 구독의 청구 소유권을 수락한 경우 다음 단계를 검토하�
 ## <a name="troubleshooting"></a>문제 해결
 
 구독을 양도하는 데 문제가 있는 경우 다음 문제 해결 정보를 참고하세요.
+
+### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Azure 구독 청구의 원소유자가 조직을 떠났습니다.
+
+Azure 계정 및 Azure 구독을 만든 청구의 원소유자가 조직을 떠났습니다. 이러한 상황이 발생하면 해당 사용자 ID는 조직의 Azure Active Directory에 더 이상 남아 있지 않습니다. 그러면 Azure 구독에는 청구 소유자가 없게 됩니다. 이 상황에서는 청구서 보기 및 지불을 비롯하여 계정에 대한 청구 작업을 수행할 사용자가 없습니다. 구독이 기한 초과 상태로 전환될 수도 있습니다. 결국 지불하지 못해 구독을 사용하지 못할 수 있습니다. 결과적으로 구독이 삭제될 수 있으며 구독에서 실행되는 모든 서비스에 영향을 미칠 수 있습니다.
+
+구독에 더 이상 유효한 청구 소유자가 없는 경우 Azure는 다른 청구 소유자, 서비스 관리자, 공동 관리자 및 구독 소유자에게 상황을 알리는 이메일을 보내 구독의 청구 소유권을 수락할 수 있는 링크를 제공합니다. 사용자 중 한 명이 청구 소유권을 수락하는 링크를 선택할 수 있습니다. 청구 역할에 대한 자세한 내용은 [청구 역할](understand-mca-roles.md) 및 [클래식 역할 및 Azure RBAC 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md)을 참조하세요.
+
+이메일의 예제는 다음과 같습니다.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-email.png" alt-text="청구 소유권을 수락하기 위한 예제 이메일을 보여 주는 스크린샷" lightbox="./media/billing-subscription-transfer/orphaned-subscription-email.png" :::
+
+또한 Azure는 Azure Portal의 구독 세부 정보 창에 있는 배너를 청구 소유자, 서비스 관리자, 공동 관리자 및 구독 소유자에게 표시합니다. 배너의 링크를 선택하여 청구 소유권을 수락합니다.
+
+:::image type="content" source="./media/billing-subscription-transfer/orphaned-subscription-example.png" alt-text="유효한 청구 소유자가 없는 구독의 예제를 보여 주는 스크린샷" lightbox="./media/billing-subscription-transfer/orphaned-subscription-example.png" :::
 
 ### <a name="the-transfer-subscription-option-is-unavailable"></a>"구독 양도" 옵션을 사용할 수 없음
 

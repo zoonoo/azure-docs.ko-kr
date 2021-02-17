@@ -4,16 +4,16 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524311"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559978"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ WHERE c.description = "Malabar spinach, cooked"
 | 위쪽/아래쪽                         | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
 | GetCurrentDateTime/Getcurrentdatetime/Getcurrentdatetime | 쿼리 실행 전 현재 시간을 계산 하 고 절에서 해당 문자열 값을 사용 `WHERE` 합니다. |
 | 수학 함수(비집계) | 쿼리에서 값을 자주 계산해야 하는 경우 JSON 문서에 속성으로 값을 저장하는 것이 좋습니다. |
+
+이러한 시스템 함수는 집계를 사용 하는 쿼리에 사용 되는 경우를 제외 하 고 인덱스를 사용할 수 있습니다.
+
+| **시스템 함수**                     | **최적화 아이디어**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| 공간 시스템 함수                        | 쿼리 결과를 실시간 구체화 뷰에 저장 합니다. |
 
 절에서 사용 되는 경우 `SELECT` 비효율적인 시스템 함수는 쿼리에서 인덱스를 사용 하는 방법에 영향을 주지 않습니다.
 

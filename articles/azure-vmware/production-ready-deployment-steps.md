@@ -3,12 +3,12 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 2cc4d40fd8088a632e0c24e3c4b770ebdc9de2e8
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912736"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99822423"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -93,28 +93,36 @@ L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성
 - 온-프레미스에서 네트워크를 확장하려는 경우 해당 네트워크에서 온-프레미스 VMware 환경의 [vDS(vSphere 분산 스위치)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html)에 연결해야 합니다.  
 - [vSphere 표준 스위치](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)에서 라이브로 확장하려는 네트워크인 경우 확장할 수 없습니다.
 
-## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure VMware Solution을 연결하기 위한 Azure Virtual Network
+## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Azure VMware Solution에 가상 네트워크 연결
 
-Azure VMware Solution 프라이빗 클라우드에 액세스하려면 Azure VMware Solution과 함께 제공되는 ExpressRoute 회로를 Azure Virtual Network에 연결해야 합니다.  배포 중에 새 가상 네트워크를 정의하거나 기존 가상 네트워크를 선택할 수 있습니다.
+이 단계에서는 ExpressRoute 가상 네트워크 게이트웨이를 식별하고 Azure VMware Solution ExpressRoute 회로를 연결하는 데 사용되는 Azure Virtual Network를 지원합니다.  ExpressRoute 회로를 사용하면 Azure VMware Solution 프라이빗 클라우드와 다른 Azure 서비스, Azure 리소스 및 온-프레미스 환경을 편리하게 연결할 수 있습니다.
 
-Azure VMware Solution의 ExpressRoute 회로는 이 단계에서 정의하는 Azure Virtual Network의 ExpressRoute 게이트웨이에 연결합니다.  
-
->[!IMPORTANT]
->가상 네트워크당 4개의 ExpressRoute 회로 제한을 초과하지 않는 한 기존 ExpressRoute 게이트웨이를 사용하여 Azure VMware Solution에 연결할 수 있습니다.  그러나 ExpressRoute를 통해 온-프레미스에서 Azure VMware Solution에 액세스하려면 ExpressRoute 게이트웨이가 연결된 회로 간에 전이적 라우팅을 제공하지 않으므로 ExpressRoute Global Reach가 있어야 합니다.  
-
-ExpressRoute 회로를 Azure VMware Solution에서 기존 ExpressRoute 게이트웨이로 연결하려는 경우 배포 후에 이 작업을 수행할 수 있습니다.  
-
-이제 요약하여, Azure VMware Solution을 기존 ExpressRoute 게이트웨이에 연결하려고 하나요?  
-
-* **예** = 배포 중에 사용되지 않는 가상 네트워크를 확인합니다.
-* **아니요** = 배포 중에 기존 가상 네트워크를 확인하거나 새 가상 네트워크를 만듭니다.
-
-어느 방법이든 이 단계에서 수행하려는 작업을 문서화합니다.
-
->[!NOTE]
->이 가상 네트워크는 온-프레미스 환경 및 Azure VMware Solution에서 표시되므로 이 가상 네트워크와 서브넷에서 사용하는 IP 세그먼트가 겹치지 않도록 해야 합니다.
+*기존* 또는 *새로운* ExpressRoute 가상 네트워크 게이트웨이를 사용할 수 있습니다.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="확인 - Azure VMware Solution을 연결하기 위한 Azure Virtual Network" border="false":::
+
+### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>기존 ExpressRoute 가상 네트워크 게이트웨이 사용
+
+*기존* ExpressRoute 가상 네트워크 게이트웨이 사용하는 경우 프라이빗 클라우드를 배포한 후 Azure VMware Solution ExpressRoute 회로가 설정됩니다. 이 경우 **Virtual Network** 필드를 비워 둡니다.  
+
+사용할 ExpressRoute 가상 네트워크 게이트웨이를 적어 두고 다음 단계를 계속 진행합니다.
+
+### <a name="create-a-new-expressroute-virtual-network-gateway"></a>새로운 ExpressRoute 가상 네트워크 게이트웨이 만들기
+
+*새로운* ExpressRoute 가상 네트워크 게이트웨이를 만드는 경우 기존 Azure Virtual Network를 사용하거나 새로 만들 수 있습니다.  
+
+- 기존 Azure Virtual Network의 경우:
+   1. 가상 네트워크에 기존 ExpressRoute 가상 네트워크 게이트웨이가 없는지 확인합니다. 
+   1. **Virtual Network** 목록에서 기존 Azure Virtual Network를 선택합니다.
+
+- 새로운 Azure Virtual Network의 경우 사전에 또는 배포 중에 만들 수 있습니다. **Virtual Network** 목록에서 **새로 만들기** 링크를 선택합니다.
+
+아래 그림에는 **Virtual Network** 필드가 강조 표시된 **프라이빗 클라우드 만들기** 배포 화면이 나와 있습니다.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Virtual Network 필드가 강조 표시된 Azure VMware Solution 배포 화면의 스크린샷":::
+
+>[!NOTE]
+>앞으로 사용하거나 만들 가상 네트워크는 온-프레미스 환경 및 Azure VMware Solution에서 표시되므로 이 가상 네트워크와 서브넷에서 사용하는 IP 세그먼트가 겹치지 않도록 해야 합니다.
 
 ## <a name="vmware-hcx-network-segments"></a>VMware HCX 네트워크 세그먼트
 

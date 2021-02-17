@@ -4,12 +4,12 @@ description: 이 문서에서는 가상 네트워크에 ServiceBus 서비스 끝
 ms.topic: article
 ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559573"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
 Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 머신과 같은 워크 로드에서 메시지 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
@@ -18,15 +18,16 @@ Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 �
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Service Bus 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다.
 
->[!WARNING]
-> Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다. 단, 네트워크 서비스 끝점을 사용 하도록 설정한 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Service Bus에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
->
-> 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure App Service
-> - Azure 기능
+Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다. 단, 네트워크 서비스 끝점을 사용 하도록 설정한 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Service Bus에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
+
+다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
+- Azure App Service
+- Azure 기능
+
+Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다. Service Bus에서 VNet 서비스 끝점을 사용 하는 경우 표준 및 프리미엄 계층 Service Bus 네임 스페이스를 혼합 하는 응용 프로그램에서 이러한 끝점을 사용 하도록 설정 하면 안 됩니다. 표준 계층은 Vnet를 지원 하지 않습니다. 끝점은 프리미엄 계층 네임 스페이스로만 제한 됩니다.
 
 > [!IMPORTANT]
-> Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다. Service Bus에서 VNet 서비스 끝점을 사용 하는 경우 표준 및 프리미엄 계층 Service Bus 네임 스페이스를 혼합 하는 응용 프로그램에서 이러한 끝점을 사용 하도록 설정 하면 안 됩니다. 표준 계층은 Vnet를 지원 하지 않습니다. 끝점은 프리미엄 계층 네임 스페이스로만 제한 됩니다.
+> 가상 네트워크의 지정 된 IP 주소 또는 서브넷 에서만 트래픽을 허용 하는 네임 스페이스에 대 한 IP 규칙 또는 가상 네트워크 규칙을 하나 이상 지정 합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 
@@ -57,9 +58,6 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
     > [!NOTE]
     > **프리미엄** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다.  
     
-    >[!WARNING]
-    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
-
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지-기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
     **모든 네트워크** 옵션을 선택 하는 경우 Service Bus 네임 스페이스는 모든 IP 주소의 연결을 허용 합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
@@ -69,6 +67,9 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 1. 페이지의 **Virtual Network** 섹션에서 **+ 기존 가상 네트워크 추가** 를 선택 합니다. 
 
     ![기존 가상 네트워크 추가](./media/service-endpoints/add-vnet-menu.png)
+
+    >[!WARNING]
+    > **선택한 네트워크** 옵션을 선택 하 고이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않는 경우 액세스 키를 사용 하 여 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다.
 3. 가상 네트워크 목록에서 가상 네트워크를 선택 하 고 **서브넷** 을 선택 합니다. 목록에 가상 네트워크를 추가 하기 전에 서비스 끝점을 사용 하도록 설정 해야 합니다. 서비스 끝점이 사용 되도록 설정 되지 않은 경우 포털에서 사용 하도록 설정 하 라는 메시지를 표시 합니다.
    
    ![서브넷 선택](./media/service-endpoints/select-subnet.png)

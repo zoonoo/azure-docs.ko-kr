@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558129"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -63,7 +63,7 @@ Azure 데이터 공유에 데이터 집합을 추가 하려면 원본 Azure 데�
 1. *선택* 아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
 1. *저장* 을 클릭합니다.
 
-역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)를 참조 하세요. REST Api를 사용 하 여 데이터를 공유 하는 경우 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)를 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
+역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요. REST Api를 사용 하 여 데이터를 공유 하는 경우 [REST API를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-rest.md)을 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
 
 Sql 기반 원본의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자에 게 *db_datareader* 권한이 있어야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database의 공유 또는 Azure Synapse Analytics](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
 
@@ -83,7 +83,7 @@ Sql 기반 원본의 경우 Azure Active Directory 인증을 사용 하 여 SQL 
 1. *선택* 아래에서 Azure 데이터 공유 리소스의 이름을 입력 합니다.
 1. *저장* 을 클릭합니다.
 
-역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment)를 참조 하세요. REST Api를 사용 하 여 데이터를 수신 하는 경우 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)를 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
+역할 할당에 대해 자세히 알아보려면 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요. REST Api를 사용 하 여 데이터를 수신 하는 경우 [REST API를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-rest.md)을 참조 하 여 API를 사용 하 여 역할 할당을 만들 수 있습니다. 
 
 Sql 기반 대상의 경우 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 하는 동안 Azure 데이터 공유 리소스와 동일한 이름을 가진 SQL Database의 외부 공급자에서 SQL 사용자를 만들어야 합니다. 이 사용자는 *db_datareader, db_datawriter db_ddladmin* 권한을 부여 받아야 합니다. SQL 기반 공유의 다른 필수 구성 요소와 함께 샘플 스크립트는 [Azure SQL Database의 공유 또는 Azure Synapse Analytics](how-to-share-from-sql.md) 자습서에서 찾을 수 있습니다. 
 
@@ -107,4 +107,4 @@ Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure - [역할 정의 이해](../role-based-access-control/role-definitions.md)에서 역할에 대해 자세히 알아봅니다.
+- Azure의 역할에 대해 자세히 알아보기- [azure 역할 정의 이해](../role-based-access-control/role-definitions.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure 스폿 Vm 사용
-description: Azure 스폿 Vm을 사용 하 여 비용을 절감 하는 방법을 알아봅니다.
+title: Azure 스팟 Virtual Machines 사용
+description: Azure 스팟 Virtual Machines를 사용 하 여 비용을 절감 하는 방법을 알아봅니다.
 author: JagVeerappan
 ms.author: jagaveer
 ms.service: virtual-machines
@@ -8,23 +8,23 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 460529ab6e3227a998ac04c4819171274307ff9e
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375462"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557827"
 ---
-# <a name="use-spot-vms-in-azure"></a>Azure에서 스폿 Vm 사용
+# <a name="use-azure-spot-virtual-machines"></a>Azure 스팟 Virtual Machines 사용 
 
-스폿 Vm을 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 스폿 Vm을 제거 합니다. 따라서 지점 Vm은 일괄 처리 작업, 개발/테스트 환경, 대규모 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
+Azure 지점 Virtual Machines를 사용 하면 비용을 크게 절약할 수 있는 사용 되지 않는 용량을 활용할 수 있습니다. Azure에서 용량을 다시 필요로 하는 경우 언제 든 지 azure 인프라가 azure point Virtual Machines를 제거 합니다. 따라서 Azure 스팟 Virtual Machines는 일괄 처리 작업, 개발/테스트 환경, 큰 계산 워크 로드 등의 중단을 처리할 수 있는 워크 로드에 적합 합니다.
 
-사용 가능한 용량의 크기는 크기, 지역, 시간 등에 따라 달라질 수 있습니다. Azure는 별색 Vm을 배포할 때 사용 가능한 용량이 있는 경우 Vm을 할당 하지만 이러한 Vm에 대 한 SLA는 없습니다. 지점 VM은 고가용성 보장을 제공 하지 않습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 30 초 통지로 스폿 Vm을 제거 합니다. 
+사용 가능한 용량의 크기는 크기, 지역, 시간 등에 따라 달라질 수 있습니다. Azure 지점 Virtual Machines를 배포할 때 Azure는 사용 가능한 용량이 있는 경우 Vm을 할당 하지만 이러한 Vm에 대 한 SLA는 없습니다. Azure 스팟 가상 머신은 고가용성 보장을 제공 하지 않습니다. Azure에서 용량을 다시 필요로 하는 모든 시점에서 Azure 인프라는 30 초 통지를 통해 Azure point Virtual Machines를 제거 합니다. 
 
 
 ## <a name="eviction-policy"></a>제거 정책
 
-Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수 있습니다. 스폿 VM을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
+Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수 있습니다. Azure 스폿 가상 머신을 만들 때 제거 정책을 *할당* 취소 (기본값) 또는 *삭제* 로 설정할 수 있습니다. 
 
 *할당* 취소 정책은 VM을 중지 된 할당 취소 상태로 전환 하 여 나중에 다시 배포할 수 있도록 합니다. 그러나 할당이 성공하리라는 보장은 없습니다. 할당 취소 된 Vm은 할당량에 따라 계산 되며 기본 디스크에 대 한 저장소 비용이 청구 됩니다. 
 
@@ -47,11 +47,11 @@ Vm은 사용자가 설정한 최대 가격 또는 용량에 따라 제거할 수
 
 ## <a name="limitations"></a>제한 사항
 
-다음 VM 크기는 별색 Vm에 대해 지원 되지 않습니다.
+Azure 지점 Virtual Machines에 대해 지원 되지 않는 VM 크기는 다음과 같습니다.
  - B 시리즈
  - 모든 크기의 프로 모션 버전 (예: Dv2, NV, NC, H 프로 모션 크기)
 
-Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 배포할 수 있습니다.
+Azure 스팟 Virtual Machines는 중국 21Vianet Microsoft Azure를 제외 하 고 모든 지역에 배포할 수 있습니다.
 
 <a name="channel"></a>
 
@@ -65,7 +65,7 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 ## <a name="pricing"></a>가격 책정
 
-지점 Vm의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요. 
+Azure 스폿 Virtual Machines의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요. 
 
 [Azure 소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices) 를 사용 하 여 가격 정보를 쿼리하여 스폿 가격 책정에 대 한 정보를 쿼리할 수도 있습니다. 및에는 `meterName` `skuName` 둘 다 포함 됩니다 `Spot` .
 
@@ -87,24 +87,24 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 
 ##  <a name="frequently-asked-questions"></a>질문과 대답
 
-**Q:** 만든 후에는 스폿 VM이 일반 표준 VM과 동일 합니까?
+**Q:** 일단 만들어지면 Azure 스폿 가상 머신은 일반 표준 VM과 동일 하나요?
 
-**A:** 예. 단, 지점 Vm에 대 한 SLA는 없으며 언제 든 지 제거할 수 있습니다.
+**A:** 예. 단, Azure 스폿 Virtual Machines에 대 한 SLA는 없으며 언제 든 지 제거할 수 있습니다.
 
 
 **Q:** 제거 되었지만 여전히 용량이 필요한 경우 수행할 작업
 
-**A:** 용량을 당장 사용 해야 하는 경우에는 스폿 Vm 대신 표준 Vm을 사용 하는 것이 좋습니다.
+**A:** 용량이 필요한 경우 Azure 지점 Virtual Machines 대신 표준 Vm을 사용 하는 것이 좋습니다.
 
 
-**Q:** 별색 Vm의 할당량은 어떻게 관리 되나요?
+**Q:** Azure 지점 Virtual Machines에 대해 할당량을 관리 하는 방법
 
-**A:** 지점 Vm에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
+**A:** Azure 지점 Virtual Machines에는 별도의 할당량 풀이 있습니다. 지점 할당량은 Vm과 확장 집합 인스턴스 간에 공유 됩니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
 
 
-**Q:** 추가 할당량을 요청할 수 있나요?
+**Q:** Azure 지점 Virtual Machines에 대 한 추가 할당량을 요청할 수 있나요?
 
-**A:** 예, [표준 할당량 요청 프로세스](../azure-portal/supportability/per-vm-quota-requests.md)를 통해 지점 vm에 대 한 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
+**A:** 예, [표준 할당량 요청 프로세스](../azure-portal/supportability/per-vm-quota-requests.md)를 통해 Azure 지점 Virtual Machines의 할당량을 늘리기 위해 요청을 제출할 수 있습니다.
 
 
 **Q:** 어디에서 질문을 게시할 수 있나요?
@@ -117,8 +117,8 @@ Microsoft Azure 중국 21Vianet을 제외 하 고 모든 지역에 지점 Vm을 
 **A:** 최대 가격을 변경 하려면 먼저 VM의 할당을 취소 해야 합니다. 그런 다음, VM에 대 한 **구성** 섹션에서 포털의 최대 가격을 변경할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-[CLI](./linux/spot-cli.md), [포털](spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 스폿 vm을 배포 합니다.
+[CLI](./linux/spot-cli.md), [포털](spot-portal.md), [ARM 템플릿](./linux/spot-template.md)또는 [PowerShell](./windows/spot-powershell.md) 을 사용 하 여 Azure 스폿 Virtual Machines를 배포 합니다.
 
-또한 [별색 VM 인스턴스를 사용 하 여 확장 집합](../virtual-machine-scale-sets/use-spot.md)을 배포할 수 있습니다.
+[Azure 스폿 가상 머신 인스턴스를 사용 하 여 확장 집합](../virtual-machine-scale-sets/use-spot.md)을 배포할 수도 있습니다.
 
 오류가 발생 하는 경우 [오류 코드](./error-codes-spot.md)를 참조 하세요.

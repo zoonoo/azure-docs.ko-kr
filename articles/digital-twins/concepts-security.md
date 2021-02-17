@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934544"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547165"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -53,11 +53,6 @@ Azure는 Azure Digital Twins [데이터 평면 api](how-to-use-apis-sdks.md#over
 | --- | --- | --- |
 | Azure Digital Twins 데이터 소유자 | Azure Digital Twins 리소스에 대 한 모든 권한을 제공 합니다. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Azure Digital Twins 데이터 판독기 | Azure Digital Twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
-
->[!NOTE]
-> 이러한 역할은 최근에 미리 보기의 이전 이름에서 이름이 변경 되었습니다.
-> * *Azure Digital Twins 데이터 소유자* 는 이전에 *Azure Digital Twins 소유자(미리 보기)* 였습니다.
-> * *Azure Digital Twins 데이터 판독기* 는 이전에 *Azure 디지털 쌍 판독기 (미리 보기)* 였습니다.
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
 * Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)

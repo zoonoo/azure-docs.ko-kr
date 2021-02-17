@@ -2,13 +2,13 @@
 title: Azure의 BareMetal 인스턴스 단위
 description: Azure Portal를 통해 BareMetal 인스턴스 단위를 식별 하 고 상호 작용 하는 방법을 알아봅니다.
 ms.topic: how-to
-ms.date: 1/4/2021
-ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/17/2021
+ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733266"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548168"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Azure Portal을 통해 BareMetal 인스턴스 관리
  
@@ -17,25 +17,9 @@ ms.locfileid: "98733266"
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 BareMetal 인스턴스에 대 한 Azure 리소스 공급자는 현재 공개 미리 보기로 제공 되는 Azure Portal의 인스턴스를 표시 합니다. 기본적으로 BareMetal 인스턴스 배포에 사용 하는 Azure 구독은 *BareMetalInfrastructure* 리소스 공급자를 등록 합니다. 배포 된 BareMetal 인스턴스 단위가 표시 되지 않는 경우 구독에 리소스 공급자를 등록 해야 합니다. 
 
-BareMetal Instance 리소스 공급자를 등록 하는 방법에는 두 가지가 있습니다.
- 
-* [Azure CLI](#azure-cli)
- 
-* [Azure Portal](#azure-portal)
- 
-### <a name="azure-cli"></a>Azure CLI
- 
-Azure CLI를 통해 BareMetal 인스턴스 배포에 사용 하는 Azure 구독에 로그인 합니다. 다음을 사용 하 여 BareMetalInfrastructure 리소스 공급자를 등록할 수 있습니다.
+Azure Portal 또는 Azure CLI를 사용 하 여 BareMetal Instance 리소스 공급자를 등록할 수 있습니다.
 
-```azurecli-interactive
-az provider register --namespace Microsoft.BareMetalInfrastructure
-```
- 
-자세한 내용은 [Azure 리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)문서를 참조 하세요.
- 
-### <a name="azure-portal"></a>Azure 포털
- 
-Azure Portal를 통해 BareMetalInfrastructure 리소스 공급자를 등록할 수 있습니다.
+### <a name="portal"></a>[포털](#tab/azure-portal)
  
 Azure Portal에서 구독을 나열 하 고 BareMetal 인스턴스 단위를 배포 하는 데 사용 되는 구독을 두 번 클릭 해야 합니다.
  
@@ -53,12 +37,32 @@ Azure Portal에서 구독을 나열 하 고 BareMetal 인스턴스 단위를 배
 >리소스 공급자가 등록되지 않은 경우 **등록** 을 선택합니다.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="등록 된 BareMetal 인스턴스 단위를 보여 주는 스크린샷":::
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI 사용을 시작 하려면:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure CLI를 통해 BareMetal 인스턴스 배포에 사용 하는 Azure 구독에 로그인 합니다. `BareMetalInfrastructure` [Az provider register](/cli/azure/provider#az_provider_register) 명령을 사용 하 여 리소스 공급자를 등록 합니다.
+
+```azurecli
+az provider register --namespace Microsoft.BareMetalInfrastructure
+```
+
+[Az provider list](/cli/azure/provider#az_provider_list) 명령을 사용 하 여 사용 가능한 모든 공급자를 볼 수 있습니다.
+
+---
+
+리소스 공급자에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
+
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Azure Portal BareMetal Instance unit
  
 BareMetal 인스턴스 배포 요청을 제출 하는 경우 BareMetal 인스턴스에 연결 하는 Azure 구독을 지정 합니다. BareMetal 인스턴스 단위에 대해 작동 하는 응용 프로그램 계층을 배포 하는 데 사용 하는 것과 동일한 구독을 사용 합니다.
  
 BareMetal 인스턴스를 배포 하는 동안 배포 요청에서 사용한 Azure 구독에서 새 [azure 리소스 그룹이](../../../azure-resource-manager/management/manage-resources-portal.md) 생성 됩니다. 이 새 리소스 그룹에는 특정 구독에 배포한 모든 BareMetal 인스턴스 단위가 나열 됩니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. BareMetal 구독의 Azure Portal에서 **리소스 그룹** 을 선택 합니다.
  
@@ -75,10 +79,27 @@ BareMetal 인스턴스를 배포 하는 동안 배포 요청에서 사용한 Azu
    
    >[!NOTE]
    >동일한 Azure 구독에서 여러 BareMetal Instance 테 넌 트를 배포한 경우 여러 Azure 리소스 그룹이 표시 됩니다.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+모든 BareMetal 인스턴스를 보려면 리소스 그룹에 대해 [az baremetalinstance list](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_list) 명령을 실행 합니다.
+
+```azurecli
+az baremetalinstance list --resource-group DSM05A-T550 –output table
+```
+
+> [!TIP]
+> `--output` 매개 변수는 모든 명령에 사용할 수 있는 글로벌 매개 변수입니다. **table** 값은 출력을 친숙한 형식으로 표시합니다. 자세한 내용은 [Azure CLI 명령의 출력 형식](/cli/azure/format-output-azure-cli)을 참조하세요.
+
+---
+
 ## <a name="view-the-attributes-of-a-single-instance"></a>단일 인스턴스의 특성 보기
- 
-단일 단위의 세부 정보를 볼 수 있습니다. BareMetal 인스턴스 목록에서 보려는 단일 인스턴스를 선택 합니다.
+
+단일 단위의 세부 정보를 볼 수 있습니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+BareMetal 인스턴스 목록에서 보려는 단일 인스턴스를 선택 합니다.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png" alt-text="단일 인스턴스의 BareMetal Instance unit 특성을 보여 주는 스크린샷" lightbox="media/baremetal-infrastructure-portal/view-attributes-single-baremetal-instance.png":::
  
@@ -101,6 +122,18 @@ BareMetal 인스턴스를 배포 하는 동안 배포 요청에서 사용한 Azu
  
 >[!TIP]
 >수정 버전 4.x와 동일한 Azure 데이터 센터에서 응용 프로그램 계층을 찾으려면 [최적의 네트워크 대기 시간에 대 한 azure 근접 배치 그룹](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md)을 참조 하세요.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+BareMetal 인스턴스에 대 한 세부 정보를 보려면 [az baremetalinstance show](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_show) 명령을 실행 합니다.
+
+```azurecli
+az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
+```
+
+인스턴스 이름을 잘 모르는 경우 `az baremetalinstance list` 위에 설명 된 명령을 실행 합니다.
+
+---
  
 ## <a name="check-activities-of-a-single-instance"></a>단일 인스턴스의 활동 확인
  
@@ -113,11 +146,31 @@ Azure의 단위 메타 데이터에 대 한 변경 내용도 활동 로그에 �
 인스턴스에 [태그](../../../azure-resource-manager/management/tag-resources.md) 를 추가 하거나 삭제 하는 경우 기록 되는 다른 작업이 있습니다.
  
 ## <a name="add-and-delete-an-azure-tag-to-an-instance"></a>Azure 태그를 인스턴스에 추가 하 고 삭제 합니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
  
 BareMetal 인스턴스 단위에 Azure 태그를 추가 하거나 삭제할 수 있습니다. 태그를 할당 하는 방법은 Vm에 태그를 할당 하는 것과 다릅니다. Vm의 경우와 마찬가지로 태그가 Azure 메타 데이터에 존재 하 고 BareMetal 인스턴스의 경우 Vm에 대 한 태그와 동일한 제한이 적용 됩니다.
  
 태그 삭제는 Vm과 동일한 방식으로 작동 합니다. 태그를 적용 하 고 삭제 하는 작업은 BareMetal 인스턴스 단위의 활동 로그에 나열 됩니다.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+BareMetal 인스턴스에 태그를 할당 하는 작업은 가상 컴퓨터의 경우와 동일 하 게 작동 합니다. 태그는 Azure 메타 데이터에 존재 하 고 BareMetal 인스턴스의 경우 Vm에 대 한 태그와 동일한 제한 사항이 있습니다.
+
+BareMetal 인스턴스 단위에 태그를 추가 하려면 [az baremetalinstance update](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_update) 명령을 실행 합니다.
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --set tags.Dept=Finance tags.Status=Normal
+```
+
+동일한 명령을 사용 하 여 태그를 제거 합니다.
+
+```azurecli
+az baremetalinstance update --resource-group DSM05a-T550 --instance-name orcllabdsm01 --remove tags.Dept
+```
+
+---
+
 ## <a name="check-properties-of-an-instance"></a>인스턴스의 속성 확인
  
 인스턴스를 획득할 때 속성 섹션으로 이동 하 여 인스턴스에 대해 수집 된 데이터를 볼 수 있습니다. 수집 된 데이터에는 Azure 연결, 저장소 백 엔드, Express 경로 회로 ID, 고유 리소스 ID 및 구독 ID가 포함 됩니다. 이 정보는 지원 요청에 사용 하거나 저장소 스냅숏 구성을 설정할 때 사용 합니다.
@@ -127,15 +180,29 @@ BareMetal 인스턴스 단위에 Azure 태그를 추가 하거나 삭제할 수 
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-properties.png" alt-text="BareMetal Instance 속성 설정을 보여 주는 스크린샷" lightbox="media/baremetal-infrastructure-portal/baremetal-instance-properties.png":::
  
 ## <a name="restart-a-unit-through-the-azure-portal"></a>Azure Portal를 통해 단위 다시 시작
- 
-OS가 다시 시작을 완료 하지 못하는 여러 가지 상황이 있으며,이 경우 BareMetal 인스턴스 단위를 다시 시작 해야 합니다. Azure Portal에서 직접 단위의 전원을 다시 시작할 수 있습니다.
+
+OS가 다시 시작을 완료 하지 못하는 여러 가지 상황이 있으며,이 경우 BareMetal 인스턴스 단위를 다시 시작 해야 합니다.
+
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
+Azure Portal에서 직접 단위의 전원을 다시 시작할 수 있습니다.
  
 **다시 시작** 을 선택 하 고 **예** 를 선택 하 여 단위 다시 시작을 확인 합니다.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-instance-restart.png" alt-text="BareMetal 인스턴스 단위를 다시 시작 하는 방법을 보여 주는 스크린샷":::
  
 BareMetal 인스턴스 단위를 다시 시작 하면 지연이 발생 합니다. 이 지연 시간 동안 전원 상태 **는 시작부터** **시작** 까지 이동 합니다. 즉, OS가 완전히 시작 되었습니다. 결과적으로, 다시 시작한 후 상태가 **시작 됨** 으로 전환 되는 즉시 단위에 로그인 할 수 없습니다.
- 
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+BareMetal 인스턴스 단위를 다시 시작 하려면 [az baremetalinstance restart](/cli/azure/ext/baremetal-infrastructure/baremetalinstance#ext_baremetal_infrastructure_az_baremetalinstance_restart) 명령을 사용 합니다.
+
+```azurecli
+az baremetalinstance restart --resource-group DSM05a-T550 --instance-name orcllabdsm01
+```
+
+---
+
 >[!IMPORTANT]
 >BareMetal 인스턴스 단위의 메모리 양에 따라 다시 시작 하 고 하드웨어 및 운영 체제를 다시 부팅 하는 데 최대 1 시간이 걸릴 수 있습니다.
  

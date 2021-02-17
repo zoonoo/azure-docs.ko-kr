@@ -1,27 +1,33 @@
 ---
-title: 자습서 - 온-프레미스 앱 추가 - Azure AD의 애플리케이션 프록시
+title: 자습서 - 온-프레미스 앱 추가 - Azure Active Directory의 애플리케이션 프록시
 description: Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 이 자습서에서는 애플리케이션 프록시에서 사용할 환경을 준비하는 방법을 설명합니다. 그런 다음, Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가합니다.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587556"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095174"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
-Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 이 자습서에서는 애플리케이션 프록시에서 사용할 환경을 준비합니다. 환경이 준비되면 Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가합니다.
+Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 애플리케이션 프록시에 대한 자세한 내용은 [앱 프록시란?](what-is-application-proxy.md)을 참조하세요. 이 자습서에서는 애플리케이션 프록시에서 사용할 환경을 준비합니다. 환경이 준비되면 Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가합니다. 
+
+:::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="애플리케이션 프록시 개요 다이어그램" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+시작하기 전에 앱 관리 및 **SSO(Single Sign-On)** 개념에 대해 잘 알고 있어야 합니다. 다음 링크를 확인하세요.
+- [Azure AD의 앱 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
+- [SSO(Single Sign-On)란?](what-is-single-sign-on.md)
 
 커넥터는 애플리케이션 프록시의 핵심 부분입니다. 커넥터에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
@@ -54,7 +60,8 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 > ```
 > Windows Registry Editor Version 5.00
 > 
-> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 Value: 0
+> [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp]
+> "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
 > 다음 명령을 사용하여 PowerShell을 통해 키를 설정할 수 있습니다.
@@ -95,7 +102,7 @@ TLS 1.2를 사용하도록 설정하려면:
 1. 서버를 다시 시작합니다.
 
 > [!Note]
-> Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다. 자세한 내용은 [Azure TLS 인증서 변경](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)을 참조하세요.
+> Microsoft는 다른 루트 CA(인증 기관)의 TLS 인증서를 사용하도록 Azure 서비스를 업데이트하 고 있습니다. 이렇게 변경하는 이유는 현재 CA 인증서가 CA/브라우저 포럼 기준 요구 사항 중 하나를 준수하지 않기 때문입니다. 자세한 내용은 [Azure TLS 인증서 변경](../../security/fundamentals/tls-certificate-changes.md)을 참조하세요.
 
 ## <a name="prepare-your-on-premises-environment"></a>온-프레미스 환경 준비
 
@@ -126,7 +133,11 @@ TLS 1.2를 사용하도록 설정하려면:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 | ctldl.windowsupdate.com | 80/HTTP |커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
-방화벽 또는 프록시에서 DNS 허용 목록을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽 또는 프록시에서 도메인 접미사에 따라 액세스 규칙을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+
+### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Azure AD 애플리케이션 프록시 엔드포인트에 대한 DNS 이름 확인
+
+Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레코드는 A 레코드를 가리키는 연결된 CNAME 레코드입니다. 이렇게 하면 내결함성 및 유연성이 보장됩니다. Azure AD 애플리케이션 프록시 커넥터에서 항상 도메인 접미사 _*.msappproxy.net_ 또는 _*.servicebus.windows.net_ 을 사용하여 호스트 이름에 액세스하도록 보장됩니다. 그러나 이름 확인 중에 CNAME 레코드에는 호스트 이름 및 접미사가 다른 DNS 레코드가 포함될 수 있습니다.  이로 인해 디바이스(설정 - 커넥터 서버, 방화벽, 아웃바운드 프록시에 따라)에서 체인의 모든 레코드를 확인하고 확인된 IP 주소에 대한 연결을 허용할 수 있는지 확인해야 합니다. 체인의 DNS 레코드는 수시로 변경될 수 있으므로 목록 DNS 레코드를 제공할 수 없습니다.
 
 ## <a name="install-and-register-a-connector"></a>커넥터 설치 및 등록
 

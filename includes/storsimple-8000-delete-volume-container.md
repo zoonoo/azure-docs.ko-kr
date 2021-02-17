@@ -5,15 +5,15 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 06/08/2018
+ms.date: 02/09/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 386a39d76bf47da45f07054124886e174104849e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102828"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545416"
 ---
 볼륨 컨테이너를 삭제하려면
  - 볼륨 컨테이너에서 볼륨을 삭제해야 합니다. 볼륨 컨테이너가 볼륨에 연결된 경우 해당 볼륨을 먼저 오프라인으로 전환합니다. [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)단계를 따릅니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 
@@ -22,20 +22,19 @@ ms.locfileid: "87102828"
 볼륨 컨테이너에 연결된 볼륨, 백업 정책 및 클라우드 스냅샷이 있는 경우 삭제할 수 있습니다. 볼륨 컨테이너를 삭제하려면 다음 절차를 수행합니다.
 
 #### <a name="to-delete-a-volume-container"></a>볼륨 컨테이너를 삭제하려면
-1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스**를 클릭합니다. 디바이스를 선택하여 클릭하고 **설정 &gt; 관리 &gt; 볼륨 컨테이너**로 이동합니다.
 
-    ![볼륨 컨테이너 블레이드](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+1. StorSimple 디바이스 관리자 서비스로 이동하고 **디바이스** 를 클릭합니다. 디바이스를 선택하여 클릭하고 **설정 &gt; 관리 &gt; 볼륨 컨테이너** 로 이동합니다.
 
-2. 테이블 형식의 볼륨 컨테이너 목록에서 삭제하려는 볼륨 컨테이너를 선택하고 **...** 를 마우스 오른쪽 단추로 클릭한 후 **삭제**를 선택합니다.
+    ![볼륨 컨테이너 블레이드](./media/storsimple-8000-delete-volume-container/create-volume-container.png)
 
-    ![볼륨 컨테이너 삭제](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
+2. 테이블 형식의 볼륨 컨테이너 목록에서 삭제하려는 볼륨 컨테이너를 선택하고 **...** 를 마우스 오른쪽 단추로 클릭한 후 **삭제** 를 선택합니다.
 
-3. 볼륨 컨테이너에 연결된 볼륨, 백업 정책 및 클라우드 스냅샷이 있는 경우 삭제할 수 있습니다. 확인 대화 상자가 나타나면 볼륨 컨테이너를 삭제한 결과를 설명하는 확인란을 검토 및 선택합니다. **삭제**를 클릭하면 볼륨 컨테이너가 삭제됩니다.
+    ![볼륨 컨테이너 삭제](./media/storsimple-8000-delete-volume-container/delete-volume-container-01.png)
 
-    ![삭제 확인](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
+3. 볼륨 컨테이너에 연결된 볼륨, 백업 정책 및 클라우드 스냅샷이 있는 경우 삭제할 수 있습니다. 확인 대화 상자가 나타나면 볼륨 컨테이너를 삭제한 결과를 설명하는 확인란을 검토 및 선택합니다. **삭제** 를 클릭하면 볼륨 컨테이너가 삭제됩니다.
+
+    ![삭제 확인](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)
 
 삭제된 볼륨 컨테이너를 반영하도록 볼륨 컨테이너 목록이 업데이트됩니다.
 
-![볼륨 컨테이너 페이지의 스크린샷 볼륨 컨테이너의 테이블 형식 목록에 삭제 된 컨테이너가 더 이상 포함 되지 않습니다.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
-
-
+![볼륨 컨테이너 페이지의 스크린샷 볼륨 컨테이너의 테이블 형식 목록에 삭제 된 컨테이너가 더 이상 포함 되지 않습니다.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)

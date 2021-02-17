@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
-ms.openlocfilehash: b15238a4308fe055f914d1a684b79b38a2c64870
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556830"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Azure 구독의 관리자로 사용자 할당
 
@@ -89,6 +89,6 @@ ms.locfileid: "98122252"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure Portal을 사용하여 Azure 역할 할당을 나열](role-assignments-list-portal.md)합니다.
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
