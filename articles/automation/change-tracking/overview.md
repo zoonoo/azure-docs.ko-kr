@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896632"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572613"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>변경 내용 추적 및 인벤토리 개요
 
@@ -34,9 +34,9 @@ ms.locfileid: "98896632"
 
 변경 내용 추적 및 인벤토리에 포함 된 모든 기능을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 계속 하기 전에 [Automation 가격](https://azure.microsoft.com/pricing/details/automation/) 책정 및 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 검토 하세요.
 
-변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달 하 고 수집 된 데이터는 Log Analytics 작업 영역에 저장 됩니다. FIM (파일 무결성 모니터링) 기능은 **서버에 대 한 Azure Defender** 를 사용 하도록 설정한 경우에만 사용할 수 있습니다. 자세히 알아보려면 Azure Security Center [가격 책정](../../security-center/security-center-pricing.md) 을 참조 하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장 하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드 합니다. 연결 된 Log Analytics 작업 영역을 모니터링 하 여 정확한 사용량을 추적 하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석 하는 방법에 대 한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)를 참조 하세요.
+변경 내용 추적 및 인벤토리는 데이터를 Azure Monitor 로그에 전달 하 고 수집 된 데이터는 Log Analytics 작업 영역에 저장 됩니다. FIM (파일 무결성 모니터링) 기능은 **서버에 대 한 Azure Defender** 를 사용 하도록 설정한 경우에만 사용할 수 있습니다. 자세히 알아보려면 Azure Security Center [가격 책정](../../security-center/security-center-pricing.md) 을 참조 하세요. FIM은 변경 내용 추적 및 인벤토리의 데이터를 저장 하기 위해 만든 것과 동일한 Log Analytics 작업 영역에 데이터를 업로드 합니다. 연결 된 Log Analytics 작업 영역을 모니터링 하 여 정확한 사용량을 추적 하는 것이 좋습니다. Azure Monitor 로그 데이터 사용량을 분석 하는 방법에 대 한 자세한 내용은 [사용량 및 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조 하세요.
 
-Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 를 사용 하 여 모니터링 되는 서버에서 설치 된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼의 변경 내용에 대 한 데이터를 수집 합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신 된 데이터에 논리를 적용 하 고 기록 하 여 분석에 사용할 수 있도록 합니다.
+Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md) 를 사용 하 여 모니터링 되는 서버에서 설치 된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼의 변경 내용에 대 한 데이터를 수집 합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신 된 데이터에 논리를 적용 하 고 기록 하 여 분석에 사용할 수 있도록 합니다.
 
 > [!NOTE]
 > 변경 내용 추적 및 인벤토리를 사용 하려면 Log Analytics 작업 영역을 Automation 계정에 연결 해야 합니다. 지원되는 지역 목록은 [Azure 작업 영역 매핑](../how-to/region-mappings.md)을 참조하세요. 지역 매핑은 Automation 계정과 별도의 지역에 있는 VM을 관리하는 기능에 영향을 주지 않습니다.
@@ -48,7 +48,7 @@ Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전�
 - Windows 레지스트리 추적을 위한 재귀
 - 네트워크 파일 시스템
 - 다른 설치 방법
-- *Windows에 저장 된 *_.exe_* 파일
+- *Windows에 저장 된 **.exe** 파일
 - **최대 파일 크기** 열과 값은 현재 구현에서 사용되지 않습니다.
 - 30 분 컬렉션 주기에서 2500 개 이상의 파일을 수집 하려고 하면 변경 내용 추적 및 재고 성능이 저하 될 수 있습니다.
 - 네트워크 트래픽이 높으면 변경 레코드를 표시 하는 데 최대 6 시간이 걸릴 수 있습니다.
@@ -58,7 +58,7 @@ Log Analytics 작업 영역에 연결 된 컴퓨터는 [Log Analytics 에이전�
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. 현재 Log Analytics 에이전트에서 지 원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원 되는 운영 체제](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) 를 참조 하세요.
+변경 내용 추적 및 인벤토리는 Log Analytics 에이전트 요구 사항을 충족하는 모든 운영 체제에서 지원됩니다. 현재 Log Analytics 에이전트에서 지 원하는 Windows 및 Linux 운영 체제 버전 목록은 [지원 되는 운영 체제](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) 를 참조 하세요.
 
 TLS 1.2에 대 한 클라이언트 요구 사항을 이해 하려면 [Azure Automation에 대 한 tls 1.2 적용](../automation-managing-data.md#tls-12-enforcement-for-azure-automation)을 참조 하세요.
 
@@ -159,7 +159,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용을 추적하기 위해 �
 |Services|250|
 |디먼|250|
 
-변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs)을 참조하세요.
+변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 환경에 따라 월별 약 40MB입니다. Log Analytics 작업 영역의 사용량 및 예상 비용 기능을 사용 하면 사용 현황 차트에서 변경 내용 추적 및 인벤토리에 따라 데이터 수집을 볼 수 있습니다. 이 데이터 뷰를 사용 하 여 데이터 사용량을 평가 하 고 청구에 미치는 영향을 결정 합니다. [사용량 파악 및 비용 추정](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs)을 참조하세요.
 
 ### <a name="microsoft-service-data"></a>Microsoft 서비스 데이터
 

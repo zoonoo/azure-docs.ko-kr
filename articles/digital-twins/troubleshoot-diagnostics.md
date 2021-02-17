@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588600"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Azure Digital Twins 문제 해결: 진단 로깅
 
@@ -35,8 +35,8 @@ Azure Digital Twins는 서비스 인스턴스에 대 한 로그를 수집 하 �
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가할 단추를 보여 주는 스크린샷" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. 뒤에 나오는 페이지에서 다음 값을 입력 합니다.
-     * **진단 설정 이름** : 진단 설정에 이름을 지정 합니다.
-     * **범주 세부 정보** : 모니터링할 작업을 선택 하 고 확인란을 선택 하 여 해당 작업에 대 한 진단을 사용 하도록 설정 합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
+     * **진단 설정 이름**: 진단 설정에 이름을 지정 합니다.
+     * **범주 세부 정보**: 모니터링할 작업을 선택 하 고 확인란을 선택 하 여 해당 작업에 대 한 진단을 사용 하도록 설정 합니다. 진단 설정이 보고할 수 있는 작업은 같습니다.
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -44,7 +44,7 @@ Azure Digital Twins는 서비스 인스턴스에 대 한 로그를 수집 하 �
         - AllMetrics
         
         이러한 범주 및 해당 범주에 포함 된 정보에 대 한 자세한 내용은 아래 [*로그 범주*](#log-categories) 섹션을 참조 하세요.
-     * **대상 세부 정보** : 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
+     * **대상 세부 정보**: 로그를 보낼 위치를 선택 합니다. 다음 세 가지 옵션을 조합해서 선택할 수 있습니다.
         - Log Analytics에 보내기
         - 스토리지 계정에 보관
         - 이벤트 허브로 스트림
@@ -57,13 +57,13 @@ Azure Digital Twins는 서비스 인스턴스에 대 한 로그를 수집 하 �
 
 새 설정은 약 10분 후에 적용됩니다. 그 후에는 해당 인스턴스에 대 한 **진단 설정** 페이지에서 로그가 구성 된 대상에 다시 표시 됩니다. 
 
-진단 설정 및 설정 옵션에 대 한 자세한 내용은 [*진단 설정 만들기를 방문 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보낼*](../azure-monitor/platform/diagnostic-settings.md)수 있습니다.
+진단 설정 및 설정 옵션에 대 한 자세한 내용은 [*진단 설정 만들기를 방문 하 여 플랫폼 로그 및 메트릭을 다른 대상으로 보낼*](../azure-monitor/essentials/diagnostic-settings.md)수 있습니다.
 
 ## <a name="log-categories"></a>로그 범주
 
 Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내용은 다음과 같습니다.
 
-| 로그 범주 | Description |
+| 로그 범주 | 설명 |
 | --- | --- |
 | ADTModelsOperation | 모델과 관련 된 모든 API 호출을 기록 합니다. |
 | ADTQueryOperation | 쿼리와 관련 된 모든 API 호출을 기록 합니다. |
@@ -84,7 +84,7 @@ Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내�
 >[!NOTE]
 > 각 로그 범주에는 여러 개의 작업/REST API 호출이 포함 됩니다. 아래 표에서 각 로그 범주는 다음 로그 범주가 나열 될 때까지 그 아래의 모든 작업/REST API 호출에 매핑됩니다. 
 
-| 로그 범주 | 작업(Operation) | REST API 호출 및 기타 이벤트 |
+| 로그 범주 | 작업 | REST API 호출 및 기타 이벤트 |
 | --- | --- | --- |
 | ADTModelsOperation | DigitalTwins/모델/쓰기 | 디지털 쌍 모델 업데이트 API |
 |  | DigitalTwins/모델/읽기 | ID 및 List Api를 통해 가져오는 디지털 쌍 모델 |
@@ -124,7 +124,7 @@ Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내�
 | `ResultDescription` | String | 이벤트에 대 한 추가 정보 |
 | `DurationMs` | String | 이벤트를 수행 하는 데 걸린 시간 (밀리초) |
 | `CallerIpAddress` | String | 이벤트에 대 한 마스킹된 원본 IP 주소입니다. |
-| `CorrelationId` | GUID | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
+| `CorrelationId` | Guid | 고객이 이벤트에 대해 고유한 식별자를 제공 했습니다. |
 | `Level` | String | 이벤트의 로깅 심각도입니다. |
 | `Location` | String | 이벤트가 발생 한 지역입니다. |
 | `RequestUri` | URI | 이벤트 중에 사용 된 끝점입니다. |
@@ -255,10 +255,10 @@ Azure Digital Twins가 수집 하는 로그의 범주에 대 한 자세한 내�
     - *쿼리* 탭에는 편집기에 로드할 수 있는 예제 쿼리가 포함 되어 있습니다.
     - *필터* 탭에서는 쿼리가 반환 하는 데이터의 필터링 된 뷰를 사용자 지정할 수 있습니다.
 
-로그 쿼리와 이러한 쿼리를 작성 하는 방법에 대 한 자세한 내용은 Azure Monitor의 [*로그 쿼리 개요*](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+로그 쿼리와 이러한 쿼리를 작성 하는 방법에 대 한 자세한 내용은 Azure Monitor의 [*로그 쿼리 개요*](../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 진단을 구성 하는 방법에 대 한 자세한 내용은 [*Azure 리소스에서 로그 데이터 수집 및 사용*](../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
+* 진단을 구성 하는 방법에 대 한 자세한 내용은 [*Azure 리소스에서 로그 데이터 수집 및 사용*](../azure-monitor/essentials/platform-logs-overview.md)을 참조 하세요.
 * Azure Digital Twins 메트릭에 대 한 자세한 내용은 [*문제 해결: Azure Monitor 사용 하 여 메트릭 보기*](troubleshoot-metrics.md)를 참조 하세요.
 * 메트릭에 대 한 경고를 사용 하도록 설정 하는 방법을 보려면 [*문제 해결: 경고 설정*](troubleshoot-alerts.md)을 참조 하세요.

@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: c419411b0956cdc42055f0e97a47fc8e4ddb38c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589727"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -30,12 +30,12 @@ ms.locfileid: "93027162"
 
 ## <a name="pre-aggregated-metrics"></a>사전 집계 메트릭
 
-로그 기반 2018 메트릭 외에도 Application Insights 팀은 시계열에 최적화 된 특수 리포지토리에 저장 된 메트릭의 공개 미리 보기를 제공 합니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 컴퓨팅 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](../platform/alerts-metric-near-real-time.md)응답성이 더 우수한 [대시보드](./overview-dashboard.md) 등, 새로운 시나리오가 가능해집니다.
+로그 기반 2018 메트릭 외에도 Application Insights 팀은 시계열에 최적화 된 특수 리포지토리에 저장 된 메트릭의 공개 미리 보기를 제공 합니다. 이 새 메트릭은 이제 속성이 많은 개별 이벤트로 유지되지 않습니다. 그 대신 사전 집계 시계열로 저장되며 키 차원만 있습니다. 이 때문에 쿼리 시간에서는 새 메트릭이 우수합니다. 데이터 검색이 훨씬 빨라지고 컴퓨팅 능력이 적게 필요하기 때문입니다. 결과적으로 [메트릭 차원에 대한 거의 실시간 경고, ](../alerts/alerts-metric-near-real-time.md)응답성이 더 우수한 [대시보드](./overview-dashboard.md) 등, 새로운 시나리오가 가능해집니다.
 
 > [!IMPORTANT]
 > Application Insights에는 로그 기반과 사전 집계 메트릭이 함께 있습니다. 두 가지를 구분 하기 위해 Application Insights UX에서는 미리 집계 된 메트릭을 "표준 메트릭 (미리 보기)" 이라고 하지만 이벤트의 기존 메트릭은 "로그 기반 메트릭"으로 이름이 변경 되었습니다.
 
-최신 Sdk (.NET 용[Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)는 수집 중에 사전 집계 메트릭을 수집 합니다. 이는  [기본적으로 전송 되는 표준 메트릭에](../platform/metrics-supported.md#microsoftinsightscomponents) 적용 되므로 정확성이 샘플링 또는 필터링의 영향을 받지 않습니다. 또한 [Getmetric](./api-custom-events-metrics.md#getmetric) 을 사용 하 여 전송 되는 사용자 지정 메트릭에도 적용 되어 데이터 수집 및 저렴 한 비용을 절감 합니다.
+최신 Sdk (.NET 용[Application Insights 2.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.7.2) SDK 이상)는 수집 중에 사전 집계 메트릭을 수집 합니다. 이는  [기본적으로 전송 되는 표준 메트릭에](../essentials/metrics-supported.md#microsoftinsightscomponents) 적용 되므로 정확성이 샘플링 또는 필터링의 영향을 받지 않습니다. 또한 [Getmetric](./api-custom-events-metrics.md#getmetric) 을 사용 하 여 전송 되는 사용자 지정 메트릭에도 적용 되어 데이터 수집 및 저렴 한 비용을 절감 합니다.
 
 사전 집계를 구현 하지 않는 Sdk의 경우 (즉, 이전 버전의 Application Insights Sdk 또는 브라우저 계측의 경우) Application Insights 백 엔드에서 Application Insights 이벤트 컬렉션 끝점에서 받은 이벤트를 집계 하 여 새 메트릭을 채웁니다. 즉, 네트워크를 통해 전송 되는 데이터의 양이 줄어드는 것은 아니지만 미리 집계 된 메트릭을 사용할 수 있으며 수집 하는 동안 메트릭을 사전 집계 하지 않는 Sdk를 사용 하 여 거의 실시간 차원 경고를 지원 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "93027162"
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>차트 만들기 및 로그 기반 및 표준 사전 집계 메트릭 탐색
 
-[Azure Monitor 메트릭 탐색기](../platform/metrics-getting-started.md) 를 사용 하 여 미리 집계 된 메트릭과 로그 기반 메트릭에 대 한 차트를 플롯 하 고 차트를 사용 하 여 대시보드를 작성 합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
+[Azure Monitor 메트릭 탐색기](../essentials/metrics-getting-started.md) 를 사용 하 여 미리 집계 된 메트릭과 로그 기반 메트릭에 대 한 차트를 플롯 하 고 차트를 사용 하 여 대시보드를 작성 합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
 
 ![메트릭 네임스페이스](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
@@ -93,5 +93,5 @@ ms.locfileid: "93027162"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [거의 실시간 메트릭](../platform/alerts-metric-near-real-time.md)
+* [거의 실시간 메트릭](../alerts/alerts-metric-near-real-time.md)
 * [GetMetric 및 TrackValue](./api-custom-events-metrics.md#getmetric)

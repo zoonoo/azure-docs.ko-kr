@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5335882c11ee6a1a7352ef3dc9822cfa88eda196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832966"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573507"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 
@@ -131,4 +131,5 @@ ms.locfileid: "99832966"
 ![노드 속성이 선택된 토폴로지 맵](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../logs/log-query-overview.md)을 수행합니다.
+

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518807"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596323"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용한 Azure Database for MySQL 데이터 암호화
 
@@ -118,7 +118,7 @@ Key Vault에 대한 충분한 액세스 권한을 가진 사용자가 다음과 
 * [Azure Resource Health](../service-health/resource-health-overview.md): 고객 키에 대한 액세스 권한이 손실된 액세스 불가능 데이터베이스는 데이터베이스에 대한 첫 번째 연결이 거부된 후 "액세스할 수 없음"으로 표시됩니다.
 * [활동 로그](../service-health/alerts-activity-log-service-notifications-portal.md): 고객 관리형 Key Vault의 고객 키에 대한 액세스가 실패하면 항목이 활동 로그에 추가됩니다. 이러한 이벤트에 대한 경고를 생성하면 최대한 신속하게 액세스를 복구할 수 있습니다.
 
-* [작업 그룹](../azure-monitor/platform/action-groups.md): 기본 설정에 따라 알림과 경고를 보낼 작업 그룹을 정의합니다.
+* [작업 그룹](../azure-monitor/alerts/action-groups.md): 기본 설정에 따라 알림과 경고를 보낼 작업 그룹을 정의합니다.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Key Vault에서 고객 관리형 키를 사용하여 복원 및 복제
 

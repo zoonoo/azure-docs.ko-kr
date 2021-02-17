@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d14ae86d41caec3c1bd897c2c81bee748dcc312c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6ead00a0979d81ef11ac81fb13a1abe31317691d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050887"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571314"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan"></a>가상 WAN에 대 한 Azure Monitor 정보
 
@@ -87,5 +87,5 @@ Azure 가상 WAN에 대 한 [Azure Monitor 정보](../azure-monitor/insights/net
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
+* 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조 하세요.
 * 모든 가상 WAN 메트릭에 대 한 전체 설명은 [가상 wan 로그 및 메트릭](logs-metrics.md)을 참조 하세요.

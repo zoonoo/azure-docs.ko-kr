@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 97bcf0bedb3ed175f8fdb5d4dc361c069ae0327d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: c0b773a728fed456a34d0db3a00b353147432012
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805212"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589259"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
 
@@ -175,9 +175,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 azure Cognitive Services 컨테이너와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -199,7 +199,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 제어 평면 수준에서 Azure Cognitive Services 컨테이너에 대해 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -211,7 +211,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 또한 Azure Cognitive Services는 수집 하 여 분석, 경고 및 보고를 위해 사용할 수 있는 진단 이벤트를 보냅니다. Azure Portal를 통해 Cognitive Services 컨테이너에 대 한 진단 설정을 구성할 수 있습니다. 하나 이상의 진단 이벤트를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [Azure Cognitive Services에 대 한 진단 설정 사용](./diagnostic-logging.md)
 
@@ -231,7 +231,7 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -241,9 +241,9 @@ Cognitive Services에 대 한 가상 네트워크 및 서비스 끝점 지원은
 
 **지침**: Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. 이러한 로그는 문제를 식별 하 고 디버깅 하는 데 사용 되는 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure Cognitive Services에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-* [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
+* [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -257,7 +257,7 @@ Cognitive Services 컨테이너에 대 한 진단 설정을 구성 하 고 Log A
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
+* [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -570,7 +570,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 **지침**: azure 활동 로그에서 Azure Monitor를 사용 하 여 azure Cognitive Services의 프로덕션 인스턴스 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

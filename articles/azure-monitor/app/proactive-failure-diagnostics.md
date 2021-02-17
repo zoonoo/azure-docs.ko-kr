@@ -4,12 +4,12 @@ description: 웹앱에 요청 실패율의 비정상적인 변경 내용에 대�
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 978b63d74e6be4104ff53eef66e9633c78b90eb8
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0f4de3aaba4acf86df37048134089326196e87ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510637"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587536"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](./app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 경고합니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청의 일반적인 응답 코드는 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 애플리케이션 데이터의 특성에 대한 분석이 경고 정보에 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "97510637"
 * Application Insights에서 데이터에 대한 관련 검색 직접 링크
 
 ## <a name="benefits-of-smart-detection"></a>스마트 감지의 이점
-일반 [메트릭 경고](../platform/alerts-log.md) 는 문제일 수 있음을 알려 줍니다. 하지만 스마트 감지는 진단 작업을 시작하여, 그렇지 않은 경우 사용자가 직접 수행해야 할 상당한 양의 분석을 수행합니다. 깔끔하게 정리된 결과를 얻고 문제의 원인을 신속하게 파악할 수 있습니다.
+일반 [메트릭 경고](../alerts/alerts-log.md) 는 문제일 수 있음을 알려 줍니다. 하지만 스마트 감지는 진단 작업을 시작하여, 그렇지 않은 경우 사용자가 직접 수행해야 할 상당한 양의 분석을 수행합니다. 깔끔하게 정리된 결과를 얻고 문제의 원인을 신속하게 파악할 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방법
 스마트 감지는 앱, 특히 실패 속도에서 받은 데이터를 모니터링합니다. 이 규칙은 `Successful request` 속성이 false인 요청 수와 `Successful call` 속이 false인 종속성 호출 수를 계산합니다. 요청의 경우 기본적으로 `Successful request == (resultCode < 400)`입니다(사용자 지정 코드를 [필터](./api-filtering-sampling.md#filtering)에 작성하거나 사용자 고유 [TrackRequest](./api-custom-events-metrics.md#trackrequest) 호출을 생성하지 않는 한). 
@@ -48,7 +48,7 @@ ms.locfileid: "97510637"
 
 다르게 구성하지 않으면 결과 분석은 경고로 전송됩니다.
 
-[수동으로 설정하는 경고](../platform/alerts-log.md)와 같이, 발생한 경고의 상태를 검사하여 문제가 해결되었는지 확인할 수 있습니다. Application Insights 리소스의 경고 페이지에서 경고 규칙을 구성합니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
+[수동으로 설정하는 경고](../alerts/alerts-log.md)와 같이, 발생한 경고의 상태를 검사하여 문제가 해결되었는지 확인할 수 있습니다. Application Insights 리소스의 경고 페이지에서 경고 규칙을 구성합니다. 하지만 다른 경고와 달리 스마트 감지를 설정하거나 구성할 필요가 없습니다. 원하는 경우 해당 대상 전자 메일 주소를 사용하지 않거나 변경할 수 있습니다.
 
 ### <a name="alert-logic-details"></a>경고 논리 세부 정보
 
@@ -64,11 +64,11 @@ ms.locfileid: "97510637"
 
 포털에서 또는 Azure Resource Manager를 사용하여 스마트 검색 경고 규칙을 사용하지 않도록 설정할 수 있습니다([템플릿 예제 참조](./proactive-arm-config.md)).
 
-이 경고 규칙은 메일 및 webhook 작업을 포함하고 경고가 발생하면 추가 작업을 트리거하기 위해 확장할 수 있는 "Application Insights 스마트 검색"이라고 하는 연결된 [작업 그룹](../platform/action-groups.md)을 사용하여 생성됩니다.
+이 경고 규칙은 메일 및 webhook 작업을 포함하고 경고가 발생하면 추가 작업을 트리거하기 위해 확장할 수 있는 "Application Insights 스마트 검색"이라고 하는 연결된 [작업 그룹](../alerts/action-groups.md)을 사용하여 생성됩니다.
 
 > [!NOTE]
 > 이 경고 규칙에서 전송된 메일 알림은 이제 기본적으로 구독의 Monitoring Reader 및 Monitoring Contributor 역할과 연결된 사용자에게 전송됩니다. 이에 대한 자세한 정보는 [여기](./proactive-email-notification.md)에서 확인할 수 있습니다.
-> 이 경고 규칙에서 보낸 알림은 [일반 경고 스키마](../platform/alerts-common-schema.md)를 따릅니다.
+> 이 경고 규칙에서 보낸 알림은 [일반 경고 스키마](../alerts/alerts-common-schema.md)를 따릅니다.
 >
 
 경고 페이지를 엽니다. 오류 이상 경고 규칙은 수동으로 설정된 경고와 함께 포함되며 현재 경고 상태인지 여부를 볼 수 있습니다.
@@ -410,7 +410,7 @@ Application Insights 리소스 페이지에서 **경고** 를 클릭하여 가�
 ## <a name="whats-the-difference-"></a>차이점은 무엇입니까...
 실패에 대한 스마트 검색은 Application Insights의 다른 유사하지만 고유한 기능을 보완합니다.
 
-* [메트릭 경고](../platform/alerts-log.md) 는 사용자가 설정 하 고 CPU 선점, 요청 속도, 페이지 로드 시간 등과 같은 광범위 한 메트릭을 모니터링할 수 있습니다. 예를 들어 더 많은 리소스를 추가해야 하는 경우 경고하는 데 사용할 수 있습니다. 반면, 실패에 대한 스마트 감지는 중요한 메트릭의 작은 범위를 다루며(현재 실패한 요청 속도만 해당) 웹앱의 실패한 요청 속도가 웹앱의 일반적인 동작에 비해 증가하면 거의 실시간으로 알리도록 디자인되었습니다. 메트릭 경고와 달리 스마트 검색은 동작의 응답 변경에 대한 임계값을 자동으로 설정하고 업데이트합니다. 또한 스마트 검색은 진단 작업을 시작하여 문제 해결 시간을 절약합니다.
+* [메트릭 경고](../alerts/alerts-log.md) 는 사용자가 설정 하 고 CPU 선점, 요청 속도, 페이지 로드 시간 등과 같은 광범위 한 메트릭을 모니터링할 수 있습니다. 예를 들어 더 많은 리소스를 추가해야 하는 경우 경고하는 데 사용할 수 있습니다. 반면, 실패에 대한 스마트 감지는 중요한 메트릭의 작은 범위를 다루며(현재 실패한 요청 속도만 해당) 웹앱의 실패한 요청 속도가 웹앱의 일반적인 동작에 비해 증가하면 거의 실시간으로 알리도록 디자인되었습니다. 메트릭 경고와 달리 스마트 검색은 동작의 응답 변경에 대한 임계값을 자동으로 설정하고 업데이트합니다. 또한 스마트 검색은 진단 작업을 시작하여 문제 해결 시간을 절약합니다.
 
 * [성능 이상에 대한 스마트 감지](proactive-performance-diagnostics.md)는 컴퓨터 인텔리전스를 사용하여 메트릭에서 특수한 패턴을 검색하고 사용자에 의한 구성은 필요하지 않습니다. 하지만 실패에 대한 스마트 감지와 달리 성능 이상에 대한 스마트 감지의 목적은 예를 들어 특정 형식의 브라우저에 있는 특정 페이지에서 잘못 제공될 수 있는 사용 현황 다기관의 세그먼트를 찾는 것입니다. 분석은 매일 수행되고 결과가 있으면 경고보다 긴급하지 않을 수 있습니다. 이와 반대로 실패에 대한 스마트 감지 분석은 들어오는 애플리케이션 데이터에서 지속적으로 수행되고 서버 실패율이 예상보다 높은 경우 몇 분 내에 알립니다.
 
@@ -441,16 +441,16 @@ Application Insights 리소스 페이지에서 **경고** 를 클릭하여 가�
 
 *경고의 일부가 알려진 문제이고 수신하고 싶지 않습니다.*
 
-* [경고 작업 규칙](../platform/alerts-action-rules.md) 비표시 기능을 사용할 수 있습니다.
+* [경고 작업 규칙](../alerts/alerts-action-rules.md) 비표시 기능을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 데이터를 검사할 수 있습니다.
 
-* [메트릭 탐색기](../platform/metrics-charts.md)
+* [메트릭 탐색기](../essentials/metrics-charts.md)
 * [검색 탐색기](./diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](../log-query/log-analytics-tutorial.md)
+* [분석 - 강력한 쿼리 언어](../logs/log-analytics-tutorial.md)
 
 스마트 검색은 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
+* [수동으로 구성된 메트릭 경고](../alerts/alerts-log.md)
 * [가용성 웹 테스트](./monitor-web-app-availability.md)

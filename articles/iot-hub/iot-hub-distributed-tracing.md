@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adcbf4efc4dfaa7701c18440531327949640cb53
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452385"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581990"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -35,7 +35,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
@@ -260,7 +260,7 @@ IoT Hub에서 기록된 모든 추적을 보려면 진단 설정에서 선택한
 
 ### <a name="query-using-log-analytics"></a>Log Analytics를 사용한 쿼리
 
-[리소스 로그를 사용 하 여 Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 설정한 경우 범주에서 로그를 검색 하 여 쿼리 합니다 `DistributedTracing` . 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
+[리소스 로그를 사용 하 여 Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)를 설정한 경우 범주에서 로그를 검색 하 여 쿼리 합니다 `DistributedTracing` . 예를 들어 이 쿼리는 기록된 모든 추적을 보여 줍니다.
 
 ```Kusto
 // All distributed traces 
@@ -293,7 +293,7 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 ## <a name="understand-azure-iot-distributed-tracing"></a>Azure IoT 분산 추적 이해
 
-### <a name="context"></a>컨텍스트
+### <a name="context"></a>Context
 
 고유한 [참조 아키텍처](/azure/architecture/reference-architectures/iot)(영문만 지원)를 포함하는 많은 IoT 솔루션은 일반적으로 [마이크로 서비스 아키텍처](/azure/architecture/microservices/)의 변형을 따릅니다. IoT 솔루션이 좀 더 복잡해지면서 결과적으로 수십 개가 넘는 마이크로 서비스를 사용하게 됩니다. 이러한 마이크로 서비스는 Azure에서 제공된 것일 수도 있고 그렇지 않을 수도 있습니다. IoT 메시지가 삭제되거나 느려지는 지점을 찾아내는 일은 어려울 수 있습니다. 예를 들어, 5개의 다른 Azure 서비스와 1,500개의 활성 디바이스를 사용하는 IoT 솔루션이 있을 수 있습니다. 각 디바이스는 초당 10개의 디바이스-클라우드 메시지(초당 총 15,000개 메시지)를 보내지만, 웹앱에는 초당 10,000개의 메시지가 표시되는 것으로 확인되었습니다. 문제가 무엇인가요? 원인은 어떻게 찾을 수 있을까요?
 

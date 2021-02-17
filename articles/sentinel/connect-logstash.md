@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 63b9d74fbbb1a79dd4f3d3e7c5fb094a372282e0
-ms.sourcegitcommit: 5e2f5efba1957ba40bd951c3dcad42f4a00734ff
+ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96299635"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578914"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Logstash를 사용 하 여 데이터 원본을 Azure 센티널에 연결
 
@@ -49,7 +49,7 @@ Logstash 태 시 엔진은 다음과 같은 세 가지 구성 요소로 구성 �
 Logstash 태 시에 대 한 Azure 센티널 출력 플러그 인은 Log Analytics HTTP 데이터 수집기 REST API를 사용 하 여 JSON 형식 데이터를 Log Analytics 작업 영역에 보냅니다. 데이터는 사용자 지정 로그로 수집 됩니다.
 
 - [Log Analytics REST API](/rest/api/loganalytics/create-request)에 대해 자세히 알아보세요.
-- [사용자 지정 로그](../azure-monitor/platform/data-sources-custom-logs.md)에 대해 자세히 알아보세요.
+- [사용자 지정 로그](../azure-monitor/agents/data-sources-custom-logs.md)에 대해 자세히 알아보세요.
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Logstash 태 시에 Azure 센티널 출력 플러그 인 배포
 
@@ -57,7 +57,7 @@ Logstash 태 시에 대 한 Azure 센티널 출력 플러그 인은 Log Analytic
 
 Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용할 수 있습니다.
 
-- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 **_[microsoft logstash 태 시-출력-azure-logstash](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)_* _ 플러그 인을 설치 합니다.
+- Logstash [플러그 인 작업](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) 문서의 지침에 따라 ***[microsoft logstash 태 시-출력-azure-logstash](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-logstash-output-azure-loganalytics)*** 플러그 인을 설치 합니다.
    
 - Logstash 태 시 시스템에서 인터넷에 액세스할 수 없는 경우 Logstash [오프 라인 플러그 인 관리](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) 문서의 지침에 따라 오프 라인 플러그 인 팩을 준비 하 고 사용 합니다. 이렇게 하려면 인터넷에 액세스할 수 있는 다른 Logstash 태 시 시스템을 구축 해야 합니다.
 
@@ -67,7 +67,7 @@ Azure 센티널 출력 플러그 인은 Logstash 태 시 컬렉션에서 사용�
 
 | 필드 이름 | 데이터 형식 | Description |
 |----------------|---------------|-----------------|
-| `workspace_id` | 문자열 | 작업 영역 ID GUID를 입력 합니다. _ |
+| `workspace_id` | 문자열 | 작업 영역 ID GUID를 입력 합니다. * |
 | `workspace_key` | 문자열 | 작업 영역 기본 키 GUID를 입력 합니다. * |
 | `custom_log_table_name` | 문자열 | 로그를 수집 테이블의 이름을 설정 합니다. 출력 플러그 인 당 하나의 테이블 이름만 구성할 수 있습니다. 로그 테이블은 Azure 센티널의 **로그**, **사용자 지정 로그** 범주의 **테이블** 에서 접미사로 표시 됩니다 `_CL` . |
 | `endpoint` | 문자열 | 선택적 필드입니다. 기본적으로 Log Analytics 끝점입니다. 이 필드를 사용 하 여 대체 끝점을 설정 합니다. |

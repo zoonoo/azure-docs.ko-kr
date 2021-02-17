@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c192f881dd4a8544b9c833eece56fb3765cd07f8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789907"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582027"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -34,7 +34,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 확인할 수 있습니다.
 
-자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -43,7 +43,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 로그를 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -54,7 +54,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 
 자세한 내용은 다음 문서를 참조하세요. 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
 
 **Azure Security Center 모니터링:** 예로
@@ -62,9 +62,9 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 **책임:** Customer
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
-**_지침:_* Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
+***지침:** Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-자세한 내용은 [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 문서를 참조 하세요.
+자세한 내용은 [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 문서를 참조 하세요.
 
 **Azure Security Center 모니터링:** 해당 없음
 
@@ -75,8 +75,8 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/diagnostic-settings.md)
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링:** 해당 없음
 
@@ -85,7 +85,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 **지침:** Azure Log Analytics 작업 영역을 사용 하 여 Azure DevTest Labs와 관련 된 보안 로그 및 이벤트의 비정상적인 활동을 모니터링 하 고 경고 합니다.
 
-자세한 내용은 [log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md) 문서를 참조 하세요.
+자세한 내용은 [log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md) 문서를 참조 하세요.
 
 **Azure Security Center 모니터링:** 현재 사용할 수 없음
 
@@ -109,8 +109,8 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 **지침:** Azure DevTest Labs는 고객이 소유 하 고 관리 하는 Azure Compute 컴퓨터를 만듭니다. 지원 되는 모든 Azure Windows Vm의 Microsoft Monitoring Agent를 사용 하 여 프로세스 만들기 이벤트와 필드를 로깅합니다 `CommandLine` . 지원 되는 Azure Linux Vm의 경우 노드 단위로 콘솔 로깅을 수동으로 구성 하 고 Syslog를 사용 하 여 데이터를 저장할 수 있습니다. 또한 Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 Azure Vm에서 로그를 검토 하 고 기록 되는 데이터에 대해 쿼리를 실행 합니다.
 
 - [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
-- [Azure Monitor에서 사용자 지정 쿼리를 실행 하는 방법](../azure-monitor/log-query/get-started-queries.md)
-- [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/platform/data-sources-syslog.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 실행 하는 방법](../azure-monitor/logs/get-started-queries.md)
+- [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/agents/data-sources-syslog.md)
 
 **Azure Security Center 모니터링:** 예로
 
@@ -175,9 +175,9 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 - [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-**Azure Security Center 모니터링:** _ 예
+**Azure Security Center 모니터링:*** 예
 
-_ *책임:** 고객
+**책임:** Customer
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
@@ -353,7 +353,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: 중요한 Azure 리소스에 대한 변경 내용 로그 및 경고
 **지침:** DevTest Labs 인스턴스 및 기타 중요 하거나 관련 된 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만들려면 Azure 활동 로그와 함께 Azure Monitor를 사용 합니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 - [DevTest Labs 활동 로그 이벤트에 대 한 경고를 만드는 방법](create-alerts.md)
 
 **Azure Security Center 모니터링:** 해당 없음
@@ -387,7 +387,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 **책임:** Customer
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: 자동화된 타사 소프트웨어 패치 관리 솔루션 배포
-**_지침:_* _ 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
+***지침:*** 랩 관리자는 [DevTest Labs 아티팩트](add-artifact-vm.md) 를 사용 하 여 보안 패치와 기타 업데이트를 포함 하는 랩 사용자 지정 이미지에 대 한 업데이트를 자동화할 수 있습니다. 
 
 모든 원하는 구성을 사용 하 여 정기적으로 이미지를 자동으로 빌드 및 배포 하는 [DevTest Labs 이미지 팩터리에](image-factory-create.md)대해 자세히 알아보세요. 
 
@@ -396,7 +396,7 @@ Microsoft는 Azure DevTest Labs을 지 원하는 기본 리소스에서 취약�
 - [Azure의 업데이트 관리 솔루션](../automation/update-management/overview.md)
 - [Vm에 대 한 업데이트 및 패치 관리](../automation/update-management/overview.md)
 
-_ *Azure Security Center 모니터링:** 해당 사항 없음
+**Azure Security Center 모니터링:** 해당 없음
 
 **책임:** Customer
 

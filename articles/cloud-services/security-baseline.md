@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e6a42a39e55e379865332fce8a9aed8dfe78f57b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 28be34e9323697759b2492d86b968f8e3d47a28e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572055"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대 한 azure 보안 기준
 
@@ -80,7 +80,7 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 **지침**: Azure 클라우드는 DDoS (분산 된 서비스 거부) 공격에 대해 플랫폼 서비스를 보호 하기 위해 다중 계층 네트워크 보안을 구현 합니다. Azure DDoS Protection는 Azure 클라우드의 연속 모니터링 프로세스의 일부 이며 침투 테스트를 통해 지속적으로 향상 됩니다. 이 DDoS Protection는 외부의 공격 뿐만 아니라 다른 Azure 테 넌 트의 공격에도 견딜 수 있도록 설계 되었습니다. 
 
-Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차단 하거나 거부 하는 몇 가지 방법이 있습니다. 해당 경고는 다음과 같습니다. 
+Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차단 하거나 거부 하는 몇 가지 방법이 있습니다. 이러한 항목은 다음과 같습니다. 
 
 -  특정 IP 주소를 선택적으로 차단 하는 시작 작업 만들기
 -  IIS web.config 파일을 수정 하 여 Azure 웹 역할에 지정 된 IP 주소 집합에 대 한 액세스 제한
@@ -175,9 +175,9 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 활동 로그를 Azure 외부에서 전달 하거나 보관을 위해 Azure Storage Event Hubs Azure Monitor으로 전송 하는 진단 설정을 만듭니다. Azure Cloud Services의 중요 한 리소스가 변경 될 때 알림 경고에 대 한 Azure Monitor를 구성 합니다. 
 
-- [Azure 활동 로그](../azure-monitor/platform/activity-log.md)
+- [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Traffic Manager 모니터링](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -233,7 +233,7 @@ Azure Cloud Services는 가용성, 성능, 실패 및 사용에 대 한 Applicat
 
 - [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?preserve-view=true#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [변경 기록 보기](../azure-monitor/platform/activity-log.md#view-change-history)
+- [변경 기록 보기](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
@@ -465,9 +465,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 또한 Azure Cloud Services 앱의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 Application Insights. 이는 Application Insights Sdk의 결합 된 데이터를 Azure Cloud Services의 Azure 진단 데이터와 함께 사용 합니다.
 
-- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-classic-portal.md)
+- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [메트릭 경고 개요](../azure-monitor/platform/alerts-metric-overview.md) 
+- [메트릭 경고 개요](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 

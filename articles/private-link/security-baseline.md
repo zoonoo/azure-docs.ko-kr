@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196625"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595753"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azure 개인 링크에 대 한 azure 보안 기준
 
@@ -28,9 +28,9 @@ ms.locfileid: "98196625"
 
 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -50,7 +50,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [개인 링크에 대 한 로깅 및 모니터링](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 **지침**: 작업을 시작한 사람, 작업 상태, 작업 상태 및 기타 유용한 감사 정보 등 개인 링크 리소스에 대해 수행 되는 로그 작업을 Azure Monitor 활동 로그를 사용 하도록 설정 합니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [개인 링크에 대 한 로깅 및 모니터링](private-link-overview.md#logging-and-monitoring)
 
@@ -80,7 +80,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 **지침**: 개인 링크와 관련 된 로그의 경우 Azure Monitor 내의 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기/보관 로그 저장소에 Azure Storage 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics 작업 영역 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -114,7 +114,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -192,7 +192,7 @@ Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 
 
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../azure-monitor/platform/action-groups.md)
+- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -318,7 +318,7 @@ PowerShell cmd "AzRoleDefinition" 또는 "az role definition list"를 호출 하
 
 - [네트워크 보안 그룹에 대한 진단 로깅](private-link-overview.md#logging-and-monitoring)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

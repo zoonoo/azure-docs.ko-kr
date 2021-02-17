@@ -11,21 +11,16 @@ ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 3f319c35631f8c85cab4613df0f1c14f98356caa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a47ece762f2df3fa18cf2b79d338c28d4069c4ad
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563350"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633496"
 ---
-# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
-
-> [!TIP]
-> 이 페이지의 정보는 보안 경고 페이지 맨 위에 있는 배너에서 제공 되는 새로운 (미리 보기) 경고 환경을 나타냅니다. 
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="새 미리 보기 경고 환경에 대 한 링크가 포함 된 배너":::
+# <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
 이 항목에서는 Security Center의 경고를 확인 하 고 처리 하 고 리소스를 보호 하는 방법을 보여 줍니다.
 

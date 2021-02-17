@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2a5c31270f18c2e6149d93fa522818704b9747d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090573"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588611"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 Azure 보안 기준
 
@@ -415,9 +415,9 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 관리 되는 응용 프로그램�
 
 **참고**: 자동으로 사용할 수 있는 활동 로그에는 읽기 작업 (GET)을 제외 하 고 관리 되는 응용 프로그램 리소스에 대 한 모든 쓰기 작업 (PUT, POST, DELETE)이 포함 됩니다. 활동 로그를 사용 하 여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -432,7 +432,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
@@ -445,7 +445,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 **지침**: 관리 되는 응용 프로그램 리소스에 의해 생성 된 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다. 장기 및 보관 저장소에 대 한 Azure Storage, Data Lake 또는 Log Analytics 작업 영역 계정을 사용 합니다.
 
-- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/platform/manage-cost-storage.md)
+- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/logs/manage-cost-storage.md)
 
 - [Azure Storage 계정에 리소스 로그 저장](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 

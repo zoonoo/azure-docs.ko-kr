@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534979"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595947"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 느린 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -25,11 +25,11 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서�
 
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time** : 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
-- **log_slow_admin_statements** : ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
-- **log_queries_not_using_indexes** : 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
-- **log_throttle_queries_not_using_indexes** :이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
-- **log_output** : "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
+- **long_query_time**: 쿼리가 기록되는 long_query_time(초)보다 쿼리가 오래 걸릴 경우 기본값은 10초입니다.
+- **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
+- **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
+- **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
+- **log_output**: "File" 이면 저속 쿼리 로그가 로컬 서버 저장소에 기록 되 고 진단 로그를 Azure Monitor 수 있습니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
 
 > [!IMPORTANT]
 > 테이블이 인덱싱되지 않은 경우 `log_queries_not_using_indexes` 및 `log_throttle_queries_not_using_indexes` 매개 변수를 ON으로 설정 하면 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 MySQL 성능에 영향을 줄 수 있습니다.<br><br>
@@ -53,7 +53,7 @@ Azure Monitor 진단 로그를 사용 하면 느리게 쿼리 로그를 Azure Mo
 > 위의 로그 보존은 Azure Monitor 진단 로그를 사용 하 여 파이프 된 로그에는 적용 되지 않습니다. 내보내는 데이터 싱크에 대 한 보존 기간을 변경할 수 있습니다 (예: Azure Storage).
 
 ## <a name="diagnostic-logs"></a>진단 로그
-Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버에서 느리게 쿼리 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage를 Azure Monitor 하도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/platform/platform-logs-overview.md)의 방법 섹션을 참조하세요.
+Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버에서 느리게 쿼리 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage를 Azure Monitor 하도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../azure-monitor/essentials/platform-logs-overview.md)의 방법 섹션을 참조하세요.
 
 아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 

@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 75927534bf62fa4733bb552906ffa7e3a6e76286
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb6680bba44872821a2f0d094d31d0ad994f8a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935612"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589581"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
@@ -38,7 +38,7 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
 
 1. Azure 진단 확장을 구성 하 여 프로파일러를 사용 하도록 설정 합니다.
 
-    a. 애플리케이션 역할에 대한 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
+    a. 애플리케이션 역할에 대한 [Azure Diagnostics](../agents/diagnostics-extension-overview.md) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
 
       ![진단 구성 파일의 위치](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

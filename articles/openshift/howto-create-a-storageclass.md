@@ -1,19 +1,19 @@
 ---
 title: Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 description: Azure Red Hat OpenShift에서 Azure Files StorageClass를 만드는 방법에 대해 알아봅니다.
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 10/16/2020
 author: grantomation
 ms.author: b-grodel
 keywords: aro, openshift, az aro, red hat, cli, azure 파일
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 201ec3293943f53179bcabde45259d15ce6208a6
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: daaf6d3042b3b8d050173a87d94f0ff6a4ccb2c7
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901286"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633260"
 ---
 # <a name="create-an-azure-files-storageclass-on-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4에서 Azure Files StorageClass 만들기
 

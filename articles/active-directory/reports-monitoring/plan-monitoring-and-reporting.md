@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362402"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577754"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -47,23 +47,23 @@ Azure AD 모니터링을 사용 하면 로그를 다음으로 라우팅할 수 �
 * Splunk, Sumologic 또는 QRadar과 같은 기존 SIEM 도구와 통합할 수 있는 Azure 이벤트 허브.
 
 > [!NOTE]
-최근 Log Analytics 대신 Azure Monitor 로그 라는 용어를 사용 하기 시작 했습니다. 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 계속 수집 및 분석됩니다. [Azure Monitor에서 로그](../../azure-monitor/platform/data-platform.md)의 역할을 보다 잘 반영하기 위해 용어를 업데이트하고 있습니다. 자세한 내용은 [Azure Monitor 용어 변경](../../azure-monitor/terminology.md)을 참조하세요.
+최근 Log Analytics 대신 Azure Monitor 로그 라는 용어를 사용 하기 시작 했습니다. 로그 데이터는 여전히 Log Analytics 작업 영역에 저장되며 동일한 Log Analytics 서비스에 의해 계속 수집 및 분석됩니다. [Azure Monitor에서 로그](../../azure-monitor/data-platform.md)의 역할을 보다 잘 반영하기 위해 용어를 업데이트하고 있습니다. 자세한 내용은 [Azure Monitor 용어 변경](../../azure-monitor/terminology.md)을 참조하세요.
 
 [보고서 보존 정책에 대해 자세히 알아보세요](./reference-reports-data-retention.md).
 
-### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 라이선스 및 필수 조건
+### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 라이선스 및 필수 구성 요소
 
-Azure AD 로그인 로그에 액세스 하려면 Azure AD premium 라이선스가 필요 합니다.
+Azure AD 로그인 로그에 액세스하려면 Azure AD 프리미엄 라이선스가 필요합니다.
 
-자세한 기능 및 라이선스 정보는 [Azure Active Directory 가격 책정 가이드를 참조](https://azure.microsoft.com/pricing/details/active-directory/)하세요.
+[Azure Active Directory 가격 책정 가이드](https://azure.microsoft.com/pricing/details/active-directory/)의 자세한 기능 및 라이선스 정보를 참조하세요.
 
-Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전역 관리자 또는 보안 관리자 인 사용자가 필요 합니다.
+Azure AD 모니터링 및 보고를 배포하려면 Azure AD 테넌트의 전역 관리자 또는 보안 관리자인 사용자가 필요합니다.
 
-로그 데이터의 최종 대상에 따라 다음 중 하나가 필요 합니다.
+로그 데이터의 최종 대상에 따라 다음 중 하나가 필요합니다.
 
 * ListKeys 권한이 있는 Azure Storage 계정. Blob Storage 계정이 아닌 일반 스토리지 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요.
 
-* 타사 SIEM 솔루션과 통합할 Azure Event Hubs 네임 스페이스입니다.
+* 타사 SIEM 솔루션과 통합할 Azure Event Hubs 네임스페이스.
 
 * Azure Monitor 로그에 로그를 보내는 Azure Log Analytics 작업 영역
 
@@ -97,14 +97,14 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 적용할 수 없음
+* 해당 없음
 
 |영역 |설명 |
 |-|-|
 |보존| **30 일 넘게 로그 보존** 법률 또는 비즈니스 요구 사항으로 인해 Azure AD의 감사 로그 및 로그인 로그를 30 일 보다 길게 저장 해야 합니다. |
-|분석| **로그를 검색할 수 있어야**합니다. 저장 된 로그는 분석 도구를 사용 하 여 검색할 수 있어야 합니다. |
-| Operational Insights| **다양 한 팀에 대 한 정보**입니다. 응용 프로그램 사용, 로그인 오류, 셀프 서비스 사용, 추세 등의 작업 정보를 얻기 위해 다른 사용자에 게 액세스 권한을 부여 해야 합니다. |
-| 보안 정보| **다양 한 팀에 대 한 정보**입니다. 응용 프로그램 사용, 로그인 오류, 셀프 서비스 사용, 추세 등의 작업 정보를 얻기 위해 다른 사용자에 게 액세스 권한을 부여 해야 합니다. |
+|분석| **로그를 검색할 수 있어야** 합니다. 저장 된 로그는 분석 도구를 사용 하 여 검색할 수 있어야 합니다. |
+| Operational Insights| **다양 한 팀에 대 한 정보** 입니다. 응용 프로그램 사용, 로그인 오류, 셀프 서비스 사용, 추세 등의 작업 정보를 얻기 위해 다른 사용자에 게 액세스 권한을 부여 해야 합니다. |
+| 보안 인사이트| **다양 한 팀에 대 한 정보** 입니다. 응용 프로그램 사용, 로그인 오류, 셀프 서비스 사용, 추세 등의 작업 정보를 얻기 위해 다른 사용자에 게 액세스 권한을 부여 해야 합니다. |
 | SIEM 시스템의 통합      | **Siem 통합**. Azure AD 로그인 로그 및 감사 로그를 기존 SIEM 시스템에 통합 하 고 스트리밍할 필요가 있습니다. |
 
 ### <a name="choose-a-monitoring-solution-architecture"></a>모니터링 솔루션 아키텍처 선택
@@ -121,7 +121,7 @@ Azure AD 모니터링을 사용 하 여 Azure AD 활동 로그를 비즈니스 �
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Azure Monitor 로그에 로그 보내기
 
-[Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md) 는 서로 다른 원본의 모니터링 데이터를 통합 합니다. 또한 응용 프로그램의 작업 및 리소스 사용에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내서 수집 된 데이터를 신속 하 게 검색, 모니터링 및 경고할 수 있습니다. 데이터를 직접 보내려는 기존 SIEM 솔루션이 없고 쿼리 및 분석을 수행 하려는 경우이 방법을 사용 합니다. 데이터가 Azure Monitor 로그에 있으면 이벤트 허브로 전송 하 고 원하는 경우 SIEM에 전송할 수 있습니다.
+[Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md) 는 서로 다른 원본의 모니터링 데이터를 통합 합니다. 또한 응용 프로그램의 작업 및 리소스 사용에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내서 수집 된 데이터를 신속 하 게 검색, 모니터링 및 경고할 수 있습니다. 데이터를 직접 보내려는 기존 SIEM 솔루션이 없고 쿼리 및 분석을 수행 하려는 경우이 방법을 사용 합니다. 데이터가 Azure Monitor 로그에 있으면 이벤트 허브로 전송 하 고 원하는 경우 SIEM에 전송할 수 있습니다.
 
 [데이터를 Azure Monitor 로그에 보내는 방법](./howto-integrate-activity-logs-with-log-analytics.md)에 대해 알아보세요.
 
@@ -153,7 +153,7 @@ Azure AD 역할을 사용 하면 사용자의 역할에 따라 Azure AD 보고�
 
 [AZURE AD 관리 역할](../roles/permissions-reference.md)에 대해 자세히 알아보세요.
 
-*계정 손상의 위험을 줄이려면 항상 최소 권한 개념을 적용*합니다. [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 구현 하 여 조직의 보안을 강화 하는 것이 좋습니다.
+*계정 손상의 위험을 줄이려면 항상 최소 권한 개념을 적용* 합니다. [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 구현 하 여 조직의 보안을 강화 하는 것이 좋습니다.
 
 ##  
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578932"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -395,7 +395,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 
 네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 NSG에 대해 획득한 정보를 기록하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
 
-* [활동 로그](../../azure-monitor/platform/platform-logs-overview.md). 이러한 로그를 사용하여 Azure 구독에 제출된 모든 작업을 확인할 수 있습니다. 이러한 로그는 기본적으로 사용하도록 설정되며 Azure Portal 내에서 사용할 수 있습니다. 이전에는 이러한 로그를 감사 로그 또는 작업 로그라고 했습니다.
+* [활동 로그](../../azure-monitor/essentials/platform-logs-overview.md). 이러한 로그를 사용하여 Azure 구독에 제출된 모든 작업을 확인할 수 있습니다. 이러한 로그는 기본적으로 사용하도록 설정되며 Azure Portal 내에서 사용할 수 있습니다. 이전에는 이러한 로그를 감사 로그 또는 작업 로그라고 했습니다.
 * 이벤트 로그. 이러한 로그는 적용된 NSG 규칙에 대한 정보를 제공합니다.
 * 카운터 로그. 이러한 로그는 각 NSG 규칙이 트래픽을 허용하거나 거부하는 데 적용된 횟수를 알려 줍니다.
 

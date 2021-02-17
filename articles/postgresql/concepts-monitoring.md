@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7ccd01f8c351ac2a7326a3b893bd78d14599db50
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487928"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588312"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
-Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1 분 주기로 내보내지고 최대 [93 일의 기록이](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)있습니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
+Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1 분 주기로 내보내지고 최대 [93 일의 기록이](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics)있습니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습니다.
@@ -42,10 +42,10 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |pg_replica_log_delay_in_seconds|복제본 지연 시간|초|마지막으로 재생 된 트랜잭션 이후 경과 된 시간입니다. 이 메트릭은 복제본 서버에만 사용할 수 있습니다.|
 
 ## <a name="server-logs"></a>서버 로그
-서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 리소스 로그는 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정으로 보낼 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
+서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 리소스 로그는 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md), Event Hubs 및 저장소 계정으로 보낼 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
-[쿼리 저장소](concepts-query-store.md) 쿼리 런타임 통계 및 대기 이벤트를 포함 하 여 시간에 따른 쿼리 성능을 추적 합니다. 이 기능은 query_store 스키마 아래의 **azure_sys**라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
+[쿼리 저장소](concepts-query-store.md) 쿼리 런타임 통계 및 대기 이벤트를 포함 하 여 시간에 따른 쿼리 성능을 추적 합니다. 이 기능은 query_store 스키마 아래의 **azure_sys** 라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 스토리지은 다양한 구성 노브를 통해 제어할 수 있습니다.
 
 ## <a name="query-performance-insight"></a>쿼리
 [Query Performance Insight](concepts-query-performance-insight.md)는 쿼리 저장소와 함께 작동하여 Azure Portal에서 액세스할 수 있는 시각화를 제공합니다. 이러한 차트를 사용하면 성능에 영향을 주는 주요 쿼리를 식별할 수 있습니다. Query Performance Insight은 Azure Database for PostgreSQL 서버 포털 페이지의 **지원 + 문제 해결** 섹션에서 액세스할 수 있습니다.
@@ -61,6 +61,6 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.
-- Azure Portal, REST API 또는 CLI를 사용 하 여 메트릭을 액세스 하 고 내보내는 방법에 대 한 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/platform/data-platform.md) 를 참조 하세요.
+- Azure Portal, REST API 또는 CLI를 사용 하 여 메트릭을 액세스 하 고 내보내는 방법에 대 한 자세한 내용은 [Azure 메트릭 개요](../azure-monitor/data-platform.md) 를 참조 하세요.
 - [서버 모니터링에 대한 모범 사례](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/)는 블로그를 참조하세요.
 - Azure Database for PostgreSQL 단일 서버에서 [계획 된 유지 관리 알림에](./concepts-planned-maintenance-notification.md) 대해 자세히 알아보세요.

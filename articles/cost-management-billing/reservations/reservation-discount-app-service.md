@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577410"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369733"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Azure App Service Premium v3 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법
 
@@ -40,10 +40,6 @@ Azure 예약 할인은 시간 단위로 실행 중인 Premium v3 인스턴스에
 4.  시간 4의 경우 인스턴스 1은 0.5시간 동안 실행되고 인스턴스 2는 1시간 동안 실행됩니다. 인스턴스 1은 예약에 완전히 포함되고 인스턴스 2 중 0.5시간도 포함됩니다. 나머지 0.5시간에 대한 종량제 요금이 청구됩니다.
 
 청구 사용량 보고서에서 Azure 예약 적용 결과를 이해하고 확인하려면 [예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
-
-### <a name="discount-can-apply-to-different-sizes"></a>할인은 다른 크기에 적용될 수 있습니다.
-
-Reserved Premium v3 인스턴스를 구매하고 **인스턴스 크기 유연성에 최적화** 를 선택하면 할인 범위는 사용자가 선택하는 Premium v3 인스턴스 크기에 적용됩니다. 동일한 시리즈 인스턴스 크기 유연성 그룹에 있는 다른 인스턴스 크기에도 적용할 수 있습니다.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>격리 스탬프에 예약 할인이 적용되는 방법
 

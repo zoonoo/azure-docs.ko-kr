@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8221e814b4555a75d596cec3ab00aa3b63e41a14
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: caff705a03f7c4645eedc9423f6a9f9649c1167e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197407"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571278"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>VPN Gateway에 대 한 Azure 보안 기준
 
@@ -78,9 +78,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 가상 네트워크 리소스에 대 한 변경 내용을 검색 합니다. VPN 게이트웨이와 관련 된 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -100,7 +100,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -112,9 +112,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: 감사, 보안 및 진단 로그에 대 한 액세스를 위해 VPN Gateway 리소스에 대 한 진단 설정을 사용 하도록 설정 합니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -124,7 +124,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다. 
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -140,9 +140,9 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -158,7 +158,7 @@ VPN Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -382,7 +382,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [VPN Gateway에서 진단 로그 이벤트에 대 한 경고 설정](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

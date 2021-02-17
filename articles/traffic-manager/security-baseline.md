@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 13515f2428b1fc95c31b04c984dd77dd316a4315
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bc121b3f5aadad1e68315acac5daade5337b701b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202201"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580359"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Azure Traffic Manager에 대 한 azure 보안 기준
 
@@ -32,7 +32,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -48,9 +48,9 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Traffic Manager의 메트릭 및 경고](traffic-manager-metrics-alerts.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -60,7 +60,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -76,9 +76,9 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -96,7 +96,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -288,7 +288,7 @@ Azure Traffic Manager에는 사용자에 게 할당할 수 있는 "Traffic Manag
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 azure Traffic Manager 및 기타 중요 하거나 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 지속 가능한 소프트�
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 700723041855fdae4f994480d180292fdfd12e15
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e179b49879b78b2bab738407984c0f50d161114b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346897"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572687"
 ---
 # <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 지속 가능한 소프트웨어 엔지니어링 원칙
 
@@ -61,7 +61,7 @@ AKS 클러스터의 참조 공간을 줄이려면 클러스터의 리소스를 �
 * [가용성 영역][availability-zones]
 
 [availability-zones]: availability-zones.md
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [azure-traffic-manager]: ../traffic-manager/traffic-manager-overview.md
 [proiximity-placement-groups]: reduce-latency-ppg.md
 [regions]: faq.md#which-azure-regions-currently-provide-aks

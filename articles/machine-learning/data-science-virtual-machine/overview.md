@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Azure Data Science Virtual Machine 개요 - 데이터 과학을 수행하기 위해 미리 설치 및 구성된 도구와 라이브러리가 있는 Azure 클라우드 플랫폼에서 가상 머신을 쉽게 사용할 수 있습니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bd2333d89e4d1789b3464606b49f624609ef67d5
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322496"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518762"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux 및 Windows용 Azure Data Science Virtual Machine이란?
 

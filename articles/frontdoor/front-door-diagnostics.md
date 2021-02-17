@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483800"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575246"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
@@ -59,7 +59,7 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>진단 로그
 진단 로그는 감사 및 문제 해결에 중요 한 작업 및 오류에 대 한 다양 한 정보를 제공 합니다. 진단 로그는 활동 로그와 다릅니다.
 
-활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 진단 로그는 리소스에서 수행한 작업에 대 한 통찰력을 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+활동 로그는 Azure 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 진단 로그는 리소스에서 수행한 작업에 대 한 통찰력을 제공 합니다. 자세한 내용은 [Azure Monitor 진단 로그](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="진단 로그":::
 
@@ -121,8 +121,8 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 | 시나리오 | 로그 항목 수 | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | True | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | True | 리 |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 참 | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | 참 | 리 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 누락 (부모 캐시 POP에서 캐시 적중) | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. 적중 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 누락을 캐시 하지만 부모 캐시 POP에서 부분 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 PARTIAL_HIT, 부모 캐시의 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. 적중 |
