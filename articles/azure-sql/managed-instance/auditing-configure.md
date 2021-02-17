@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575460"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "94505668"
 
 다음 섹션에서는 관리되는 인스턴스에 대한 감사 구성을 설명합니다.
 
-1. [Azure 포털](https://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 감사 로그가 저장되는 Azure Storage **컨테이너** 를 만듭니다.
 
    1. 감사 로그를 저장할 Azure storage 계정으로 이동 합니다.
@@ -79,11 +79,11 @@ ms.locfileid: "94505668"
 
         - 다음과 같이 SAS를 구성합니다.
 
-          - **허용된 서비스** : Blob
+          - **허용된 서비스**: Blob
 
-          - **시작 날짜** : 표준 시간대 관련 문제를 방지 하려면 어제 날짜를 사용 합니다.
+          - **시작 날짜**: 표준 시간대 관련 문제를 방지 하려면 어제 날짜를 사용 합니다.
 
-          - **종료 날짜** :이 SAS 토큰이 만료 되는 날짜를 선택 합니다.
+          - **종료 날짜**:이 SAS 토큰이 만료 되는 날짜를 선택 합니다.
 
             > [!NOTE]
             > 감사 오류를 방지하려면 만료 시 토큰을 갱신합니다.
@@ -223,7 +223,7 @@ Event Hubs에서 감사 로그 데이터를 사용 하려면 이벤트를 사용
 
 감사 로그가 Azure Monitor 로그에 기록 되는 경우 감사 데이터에 대 한 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 사용할 수 있습니다. 시작 지점으로 Log Analytics 작업 영역으로 이동 합니다. **일반** 섹션에서 **로그** 를 클릭 하 고 다음과 같은 간단한 쿼리를 입력 하 여 `search "SQLSecurityAuditEvents"` 감사 로그를 확인 합니다.  
 
-Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

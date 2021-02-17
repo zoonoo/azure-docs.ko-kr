@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573071"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Azure 보안 벤치 마크에 대 한 Azure Policy 보안 기준
 
@@ -31,9 +31,9 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **지침**: Azure Policy에서는 자동으로 사용 하도록 설정 된 활동 로그를 사용 하 여 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 합니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Azure의 로깅 및 다른 로그 유형 이해](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Azure의 로깅 및 다른 로그 유형 이해](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
@@ -89,7 +89,7 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **지침**: Azure Policy에서 변경이 발생 하는 경우에 대 한 경고를 만들려면 활동 로그와 Azure Monitor를 사용 합니다.
 
-* [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음

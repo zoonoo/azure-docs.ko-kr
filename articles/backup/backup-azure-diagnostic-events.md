@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: 이 문서에서는 Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2130f06e17dd2b5cf8461d4e58342ee41c14f96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002888"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575418"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 
@@ -37,7 +37,7 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Log Analytics에서 진단 설정 사용
 
-이제 Azure Backup를 사용 하 여 백업에 대 한 전용 Log Analytics 테이블로 자격 증명 모음 진단 데이터를 보낼 수 있습니다. 이러한 테이블을 [리소스 관련 테이블](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)이라고 합니다.
+이제 Azure Backup를 사용 하 여 백업에 대 한 전용 Log Analytics 테이블로 자격 증명 모음 진단 데이터를 보낼 수 있습니다. 이러한 테이블을 [리소스 관련 테이블](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)이라고 합니다.
 
 자격 증명 모음 진단 데이터를 Log Analytics 전송 하려면 다음을 수행 합니다.
 

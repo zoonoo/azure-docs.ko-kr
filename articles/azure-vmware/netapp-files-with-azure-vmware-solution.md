@@ -3,12 +3,12 @@ title: Azure VMware 솔루션으로 Azure NetApp Files
 description: Azure VMware 솔루션 Vm과 Azure NetApp Files를 사용 하 여 온-프레미스 서버, Azure VMware 솔루션 Vm 및 클라우드 인프라에서 데이터를 마이그레이션하고 동기화 합니다.
 ms.topic: how-to
 ms.date: 02/10/2021
-ms.openlocfilehash: db7d8eb05e5bd70f6a2397b3017924093218e78e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2f2e8fdeb777e7e4b2b4e89c1bb36b51c3083257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371569"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575430"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware 솔루션으로 Azure NetApp Files
 
@@ -21,7 +21,7 @@ ms.locfileid: "100371569"
 ### <a name="features"></a>기능
 Azure NetApp Files 사용 되는 서비스입니다.
 
-- **Active Directory 연결**: Azure NetApp Files는 [Active Directory Domain Services 및 Azure Active Directory Domain Services](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#decide-which-domain-services-to-use)를 지원 합니다.
+- **Active Directory 연결**: Azure NetApp Files는 [Active Directory Domain Services 및 Azure Active Directory Domain Services](../azure-netapp-files/create-active-directory-connections.md#decide-which-domain-services-to-use)를 지원 합니다.
 
 - **프로토콜 공유**: AZURE NETAPP FILES은 SMB (서버 메시지 블록) 및 NFS (네트워크 파일 시스템) 프로토콜을 지원 합니다. 이 지원 이란 볼륨을 Linux 클라이언트에 탑재할 수 있으며 Windows 클라이언트에서 매핑될 수 있음을 의미 합니다.
 

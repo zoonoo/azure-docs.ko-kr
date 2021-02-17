@@ -4,12 +4,12 @@ description: Azure Container Instances에 대 한 이미지 및 암호를 보호
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cbceeea24501bc9815cb07e1b0a054914ba8e964
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148672"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579268"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
 
@@ -115,9 +115,9 @@ Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 �
 
 모든 IT 환경에서와 마찬가지로, 컨테이너 에코 시스템에 대 한 활동 및 사용자 액세스를 일관 되 게 모니터링 하 여 의심 스러운 활동 또는 악의적인 활동을 신속 하 게 식별 해야 합니다. Azure는 다음을 비롯 한 컨테이너 모니터링 솔루션을 제공 합니다.
 
-* [컨테이너 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 는 AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
+* [컨테이너 Azure Monitor](../azure-monitor/containers/container-insights-overview.md) 는 AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
 
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예를 들면 다음과 같습니다.
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/containers/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 다음은 그 예입니다. 
 
   * 컨테이너에 사용 되는 명령을 보여 주는 자세한 감사 정보를 표시 합니다. 
   * Docker 또는 Windows 호스트를 원격으로 보지 않고도 중앙화 된 로그를 보고 검색 하 여 컨테이너 문제를 해결 합니다.  
@@ -139,7 +139,7 @@ Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 �
 Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지를 포함 하 여 컨테이너 에코 시스템에 대 한 관리 액세스의 정확한 감사 내역을 유지 관리 합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후에 법정 증거로 사용 됩니다. Azure 솔루션은 다음과 같습니다.
 
 * 클러스터 환경의 보안 구성을 모니터링 하 고 보안 권장 사항을 생성 하는 [Azure Security Center와 Azure Kubernetes Service 통합](../security-center/defender-for-kubernetes-introduction.md)
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md)
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/containers/containers.md)
 * [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md) 에 대 한 리소스 로그
 
 ## <a name="next-steps"></a>다음 단계

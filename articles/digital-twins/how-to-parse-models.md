@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 44cee2b47ae8f96e2852dfdb5aefe73a7af67ed6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 155566a125485fda326f9f5e02d4aead0ffe30e3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731337"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560755"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용 하 여 모델 구문 분석 및 유효성 검사
 
@@ -87,4 +87,4 @@ DTDLValidator -i
 ## <a name="next-steps"></a>다음 단계
 
 모델 작성을 완료 한 후에는 DigitalTwinsModels Api를 사용 하 여 모델을 업로드 하는 방법 (및 다른 관리 작업을 수행 하는 방법)을 참조 하세요.
-* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
+* [*방법: DTDL 모델 관리*](how-to-manage-model.md)

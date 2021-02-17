@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632676"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579339"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 
 
@@ -29,7 +29,7 @@ Azure NetApp Files의 [볼륨의 지역 간 복제 기능 사용](cross-region-r
 
 * 지역 간 복제 기능은 현재 공개 미리 보기로 제공 됩니다. [Azure NetApp Files 지역 간 복제 waitlist 제출 페이지](https://aka.ms/anfcrrpreviewsignup)를 통해 기능에 액세스 하기 위한 waitlist 요청을 제출 해야 합니다. 지역 간 복제 기능을 사용 하기 전에 Azure NetApp Files 팀의 공식 확인 전자 메일을 기다리십시오.
 * Azure NetApp Files 복제는 특정 고정 영역 쌍 에서만 사용할 수 있습니다. [지원 되는 지역 쌍](cross-region-replication-introduction.md#supported-region-pairs)을 참조 하세요. 
-* SMB 볼륨은 NFS 볼륨과 함께 지원 됩니다. SMB 볼륨을 복제 하려면 원본 및 대상 NetApp 계정에 Active Directory 연결이 필요 합니다. 대상 AD 연결에는 DNS 서버에 대 한 액세스 권한이 있어야 합니다. 그렇지 않으면 대상 지역의 위임 된 서브넷에서 연결할 수 있는 도메인 컨트롤러가 추가 됩니다. 자세한 내용은 [Active Directory 연결에 대 한 요구 사항](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)을 참조 하세요. 
+* SMB 볼륨은 NFS 볼륨과 함께 지원 됩니다. SMB 볼륨을 복제 하려면 원본 및 대상 NetApp 계정에 Active Directory 연결이 필요 합니다. 대상 AD 연결에는 DNS 서버에 대 한 액세스 권한이 있어야 합니다. 그렇지 않으면 대상 지역의 위임 된 서브넷에서 연결할 수 있는 도메인 컨트롤러가 추가 됩니다. 자세한 내용은 [Active Directory 연결에 대 한 요구 사항](create-active-directory-connections.md#requirements-for-active-directory-connections)을 참조 하세요. 
 * 대상 계정은 원본 볼륨 영역에서 다른 지역에 있어야 합니다. 다른 지역에서 기존 NetApp 계정을 선택할 수도 있습니다.  
 * 대상 [지역으로 장애](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) 조치 (failover) 할 때까지 복제 대상 볼륨은 읽기 및 쓰기를 위해 대상 볼륨을 사용 하도록 설정할 때까지 읽기 전용입니다. 
 * Azure NetApp Files 복제는 현재 여러 구독을 지원 하지 않습니다. 모든 복제는 단일 구독에서 수행 해야 합니다.

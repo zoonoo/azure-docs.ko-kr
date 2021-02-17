@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9db0df9370197190c11b740f1fd1af3fb69f19c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247618"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581419"
 ---
 # <a name="monitoring-the-cluster"></a>클러스터 모니터링
 
@@ -44,7 +44,7 @@ Windows에서 Service Fabric 이벤트는 작동 채널과 데이터 및 메시�
 * 지원 로그  
 지원을 제공할 때만 사용되는 Service Fabric에서 생성된 시스템 로그
 
-이러한 다양한 채널에서 권장되는 대부분의 플랫폼 수준 로깅을 처리합니다. 플랫폼 수준 로깅을 개선하려면 상태 모델을 더 잘 파악하는 데 투자하고 사용자 지정 상태 보고서를 추가해 보고, 사용자 지정 **성능 카운터**를 추가하여 서비스와 애플리케이션이 클러스터에 미치는 영향을 실시간으로 파악하는 기능을 빌드하세요.
+이러한 다양한 채널에서 권장되는 대부분의 플랫폼 수준 로깅을 처리합니다. 플랫폼 수준 로깅을 개선하려면 상태 모델을 더 잘 파악하는 데 투자하고 사용자 지정 상태 보고서를 추가해 보고, 사용자 지정 **성능 카운터** 를 추가하여 서비스와 애플리케이션이 클러스터에 미치는 영향을 실시간으로 파악하는 기능을 빌드하세요.
 
 이러한 로그를 활용하려면 Azure Portal에서 클러스터를 만드는 동안 "진단"을 사용하도록 설정하는 것이 좋습니다. 진단을 켜면 클러스터가 배포될 때 Microsoft Azure Diagnostics에서는 작동, Reliable Services 및 Reliable Actors 채널을 인식하고 [Azure Diagnostics를 사용하여 이벤트 집계](service-fabric-diagnostics-event-aggregation-wad.md)에 추가로 설명된 대로 데이터를 저장할 수 있습니다.
 
@@ -70,7 +70,7 @@ Service Fabric에는 다음과 같은 문서에서 자세히 설명하는 자체
 
 ## <a name="service-fabric-support-logs"></a>Service Fabric 지원 로그
 
-Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 스토리지 계정에 저장됩니다. 스토리지 계정에 고정된 이름은 없지만, 계정에는 *fabric*으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
+Azure Service Fabric 클러스터에 대한 도움을 받기 위해 Microsoft 지원에 문의해야 하는 경우 지원 로그가 거의 항상 필요합니다. 클러스터가 Azure에서 호스팅되는 경우 클러스터를 만드는 과정의 일부로 이러한 로그를 자동으로 구성하여 수집합니다. 로그는 클러스터의 리소스 그룹에 있는 전용 스토리지 계정에 저장됩니다. 스토리지 계정에 고정된 이름은 없지만, 계정에는 *fabric* 으로 시작하는 이름의 Blob 컨테이너와 테이블이 표시됩니다. 독립 실행형 클러스터의 로그 수집 설정에 대한 자세한 내용은 [독립 실행형 Azure Service Fabric 클러스터 만들기 및 관리](service-fabric-cluster-creation-for-windows-server.md) 및 [독립 실행형 Windows 클러스터에 대한 구성 설정](service-fabric-cluster-manifest.md)을 참조하세요. 독립 실행형 Service Fabric 인스턴스의 경우 로그는 로컬 파일 공유로 보내야 합니다. 지원을 받으려면 이러한 로그가 **필요하지만** Microsoft 고객 지원 팀 외부의 사람이 사용할 수 있는 것은 아닙니다.
 
 ## <a name="measuring-performance"></a>성능 측정
 
@@ -81,7 +81,7 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 클러스터에 대한 성능 데이터 수집을 설정하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * **에이전트 사용**  
-이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor에 대 한 자세한 내용은 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 Azure Monitor 로그를 제공 하 고 [Log Analytics](../azure-monitor/platform/agent-windows.md) 에이전트에 대 한 자세한 내용은 클러스터 vm 및 배포 된 컨테이너에 대 한 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나를 참조 하세요.
+이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. Azure Monitor에 대 한 자세한 내용은 Service Fabric의 [Azure Monitor 로그 통합](service-fabric-diagnostics-event-analysis-oms.md) 에 Azure Monitor 로그를 제공 하 고 [Log Analytics](../azure-monitor/agents/agent-windows.md) 에이전트에 대 한 자세한 내용은 클러스터 vm 및 배포 된 컨테이너에 대 한 성능 데이터를 선택할 수 있는 모니터링 에이전트 중 하나를 참조 하세요.
 
 * **Azure Table Storage대한 성능 카운터**  
 성능 메트릭은 이벤트와 동일한 테이블 스토리지에 보낼 수도 있습니다. 이렇게 하려면 Azure Diagnostics 구성을 변경하여 클러스터의 VM에서 적절한 성능 카운터를 선택하고, 컨테이너를 배포할 경우 Docker 통계를 선택해야 합니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562619"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581401"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -34,11 +34,11 @@ Windows 가상 데스크톱 배포에서 담당 하는 보안 요구 사항은 �
 |앱 보안|예|
 |세션 호스트 OS|예|
 |배포 구성|예|
-|네트워크 컨트롤|예|
-|가상화 제어 평면|예|
-|물리적 호스트|예|
-|실제 네트워크|예|
-|물리적 데이터 센터|예|
+|네트워크 제어|예|
+|가상화 제어 평면|아니요|
+|물리적 호스트|아니요|
+|실제 네트워크|아니요|
+|물리적 데이터 센터|아니요|
 
 고객이 책임을 지지 않는 보안 요구는 Microsoft에서 처리 합니다.
 
@@ -80,10 +80,10 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 감사 로그 수집을 사용 하도록 설정 하면 Windows 가상 데스크톱과 관련 된 사용자 및 관리자 활동을 볼 수 있습니다. 키 감사 로그의 몇 가지 예는 다음과 같습니다.
 
--   [Azure 활동 로그](../azure-monitor/platform/activity-log.md)
+-   [Azure 동작 로그](../azure-monitor/essentials/activity-log.md)
 -   [활동 로그 Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [세션 호스트](../azure-monitor/platform/agent-windows.md)
+-   [세션 호스트](../azure-monitor/agents/agent-windows.md)
 -   [Windows 가상 데스크톱 진단 로그](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault 로그](../key-vault/general/logging.md)
 

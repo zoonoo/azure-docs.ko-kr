@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6f82114874c9e85e44df6684d0b0cf624903a50f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258560"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582515"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -210,9 +210,9 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 **지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure API Management 배포와 연결된 네트워크 리소스의 변경 내용을 검색합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -238,7 +238,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)에 사용하도록 설정하고 온보딩합니다.
 
-* [진단 설정을 구성하는 방법](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
+* [진단 설정을 구성하는 방법](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -258,7 +258,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 데이터 평면 감사 로깅의 경우 진단 로그는 감사 및 문제 해결에 중요한 작업 및 오류에 대한 다양한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -278,9 +278,9 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-* [로그를 Azure Storage 계정에 보관하는 방법](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [로그를 Azure Storage 계정에 보관하는 방법](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -294,9 +294,9 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 * [Azure API Management에 대한 로그를 모니터링 및 검토하는 방법](./api-management-howto-use-azure-monitor.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
-* [Log Analytics 작업 영역 이해](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Log Analytics 작업 영역 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Azure Application Insights와 통합하는 방법](./api-management-howto-app-insights.md)
 
@@ -314,7 +314,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -669,7 +669,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: Azure Monitor에서 Azure 활동 로그를 사용하여 프로덕션 Azure Functions 앱 및 기타 중요하거나 관련된 리소스가 변경되는 경우에 대한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure API Management에서 Azure Monitor 및 Azure 활동 로그를 사용하는 방법](./api-management-howto-use-azure-monitor.md)
 

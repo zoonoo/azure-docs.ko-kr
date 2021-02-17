@@ -3,12 +3,12 @@ title: 리소스 로그 수집 & 분석
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579331"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 
@@ -27,7 +27,7 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
-* [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md)
 * [Azure CLI](/cli/azure/install-azure-cli)(또는 [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Log Analytics 자격 증명 가져오기
@@ -37,7 +37,7 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 로그 분석 작업 영역 ID 및 기본 키를 가져오려면:
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **설정**아래에서 **에이전트 관리** 를 선택 합니다.
+1. **설정** 아래에서 **에이전트 관리** 를 선택 합니다.
 1. 다음을 기록해 둡니다.
    * **작업 영역 ID**
    * **기본 키**
@@ -63,7 +63,7 @@ az container create \
 
 ### <a name="deploy-with-yaml"></a>YAML을 사용하여 배포
 
-YAML을 사용하여 컨테이너 그룹을 배포하려는 경우 이 메서드를 사용합니다. 다음 YAML은 단일 컨테이너로 컨테이너 그룹을 만듭니다. 새 파일에 YAML을 복사한 다음, `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꿉니다. 파일을 **deploy-aci.yaml**로 저장합니다.
+YAML을 사용하여 컨테이너 그룹을 배포하려는 경우 이 메서드를 사용합니다. 다음 YAML은 단일 컨테이너로 컨테이너 그룹을 만듭니다. 새 파일에 YAML을 복사한 다음, `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꿉니다. 파일을 **deploy-aci.yaml** 로 저장합니다.
 
 ```yaml
 apiVersion: 2019-12-01
@@ -105,7 +105,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 `ContainerInstanceLog_CL` 테이블에서 컨테이너 그룹의 로그를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **일반**에서 **로그** 를 선택 합니다.  
+1. **일반** 에서 **로그** 를 선택 합니다.  
 1. 다음 쿼리 입력: `ContainerInstanceLog_CL | limit 50`
 1. **실행** 선택
 
@@ -118,7 +118,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 Azure Portal에서 컨테이너 인스턴스에 대한 이벤트를 볼 수도 있습니다. 이벤트에는 인스턴스가 생성된 시간 및 인스턴스가 시작된 시간이 포함됩니다. `ContainerEvent_CL` 테이블에서 이벤트 데이터를 보려면 다음을 수행합니다.
 
 1. Azure Portal에서 Log Analytics 작업 영역으로 이동
-1. **일반**에서 **로그** 를 선택 합니다.  
+1. **일반** 에서 **로그** 를 선택 합니다.  
 1. 다음 쿼리 입력: `ContainerEvent_CL | limit 50`
 1. **실행** 선택
 
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Azure Monitor 로그에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Monitor 로그의 로그 검색 이해](../azure-monitor/log-query/log-query-overview.md)
-* [Azure Monitor의 통합 경고](../azure-monitor/platform/alerts-overview.md)
+* [Azure Monitor 로그의 로그 검색 이해](../azure-monitor/logs/log-query-overview.md)
+* [Azure Monitor의 통합 경고](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>컨테이너 CPU 및 메모리 모니터링

@@ -2,23 +2,23 @@
 title: Azure Arc 사용 Kubernetes 클러스터 연결 (미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Azure arc를 사용 하 여 Azure Arc 사용 Kubernetes 클러스터 연결
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e68eccf998592aa7d1ebfea51e4ca66d577b3c7f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5e2058c5128075de4c37eb9768b204532cd09ffa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390558"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558549"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Azure Arc 사용 Kubernetes 클러스터 연결 (미리 보기)
 
-이 문서에서는 Azure의 AKS-engine, Azure Stack 허브의 AKS 엔진, GKE, EKS 및 VMware vSphere 클러스터를 Azure Arc에 연결 하는 것과 같은 모든 CNCF (Cloud Native Kubernetes Foundation) 인증 된 클러스터를 연결 하는 과정을 설명 합니다.
+이 문서에서는 기존 Kubernetes 클러스터를 Azure Arc에 연결 하는 연습을 제공 합니다. 이와 동일한 개념에 대 한 개념적인 개요는 [여기](./conceptual-agent-architecture.md)에서 찾을 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -29,9 +29,9 @@ ms.locfileid: "100390558"
   * [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) 또는 [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)용 Docker를 사용 하 여 Kubernetes 클러스터를 만듭니다.
 * Arc 사용 Kubernetes 에이전트를 배포 하기 위해 클러스터의 클러스터 및 클러스터 관리자 역할에 액세스할 kubeconfig 파일입니다.
 * `az login` 및 `az connectedk8s connect` 명령에 사용되는 사용자 또는 서비스 주체에는 'Microsoft.Kubernetes/connectedclusters' 리소스 종류에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다. "Kubernetes Cluster-Azure Arc 온 보 딩" 역할에는 이러한 권한이 있으며 사용자 또는 서비스 주체의 역할 할당에 사용할 수 있습니다.
-* Connectedk8s 확장을 사용 하 여 클러스터를 등록 하기 위한 투구 3 이 요구 사항을 충족 하기 위해 [최신 버전의 투구 3을 설치](https://helm.sh/docs/intro/install) 합니다.
+* 확장을 사용 하 여 클러스터를 등록 하기 위한 투구 3 `connectedk8s` 이 요구 사항을 충족 하기 위해 [최신 버전의 투구 3을 설치](https://helm.sh/docs/intro/install) 합니다.
 * Azure Arc enabled Kubernetes CLI 확장을 설치 하기 위한 2.15 + 버전을 Azure CLI 합니다. [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) 하거나 최신 버전으로 업데이트 합니다.
-* Arc enabled Kubernetes CLI 확장을 설치 합니다.
+* Azure Arc enabled Kubernetes CLI 확장을 설치 합니다.
   
   * Kubernetes 클러스터를 Azure에 연결하는 데 도움이 되는 `connectedk8s` 확장을 설치합니다.
   
@@ -72,7 +72,7 @@ Azure Arc 에이전트는 다음 프로토콜/포트/아웃 바운드 Url이 작
 | `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요 합니다.                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  시스템 할당 관리 id 인증서를 가져오는 데 필요 합니다.                                                                  |
 
-## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc가 지원되는 Kubernetes의 두 공급자 등록
+## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes의 두 공급자를 등록 합니다.
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
@@ -134,20 +134,28 @@ Helm release deployment succeeded
     "serverAppId": "",
     "tenantId": ""
   },
-  "agentPublicKeyCertificate": "...",
-  "agentVersion": "0.1.0",
-  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1",
+  "agentPublicKeyCertificate": "xxxxxxxxxxxxxxxxxxx",
+  "agentVersion": null,
+  "connectivityStatus": "Connecting",
+  "distribution": "gke",
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1",
   "identity": {
-    "principalId": null,
-    "tenantId": null,
-    "type": "None"
+    "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "type": "SystemAssigned"
   },
-  "kubernetesVersion": "v1.15.0",
+  "infrastructure": "gcp",
+  "kubernetesVersion": null,
+  "lastConnectivityTime": null,
   "location": "eastus",
+  "managedIdentityCertificateExpirationTime": null,
   "name": "AzureArcTest1",
+  "offering": null,
+  "provisioningState": "Succeeded",
   "resourceGroup": "AzureArcTest",
   "tags": {},
-  "totalNodeCount": 1,
+  "totalCoreCount": null,
+  "totalNodeCount": null,
   "type": "Microsoft.Kubernetes/connectedClusters"
 }
 ```
@@ -175,7 +183,7 @@ AzureArcTest1  eastus      AzureArcTest
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>아웃 바운드 프록시 서버를 사용 하 여 연결
 
-클러스터가 아웃 바운드 프록시 서버 뒤에 있는 경우 Azure CLI 하 고 Arc enabled Kubernetes 에이전트는 아웃 바운드 프록시 서버를 통해 해당 요청을 라우팅해야 합니다.
+클러스터가 아웃 바운드 프록시 서버 뒤에 있는 경우 Azure CLI 하 고 Azure Arc 사용 Kubernetes 에이전트는 아웃 바운드 프록시 서버를 통해 해당 요청을 라우팅해야 합니다.
 
 1. `connectedk8s`컴퓨터에 설치 된 확장의 버전을 확인 합니다.
 
@@ -212,9 +220,9 @@ AzureArcTest1  eastus      AzureArcTest
 > [!NOTE]
 > * 에서를 지정 하는 것 `excludedCIDR` `--proxy-skip-range` 은 에이전트에 대해 클러스터 간 통신이 끊어지지 않았는지 확인 하는 데 중요 합니다.
 > * `--proxy-http`대부분의 `--proxy-https` `--proxy-skip-range` 아웃 바운드 프록시 환경에는, 및가 필요 하지만 `--proxy-cert` 는 프록시의 신뢰할 수 있는 인증서를 에이전트 pod의 신뢰할 수 있는 인증서 저장소에 삽입 해야 하는 경우에만 필요 합니다.
-> * 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되며 sourceControlConfiguration에 사용 되는 flux pod는 적용 되지 않습니다. Arc enabled Kubernetes 팀은이 기능에서 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
+> * 위의 프록시 사양은 현재 Arc 에이전트에만 적용 되며 sourceControlConfiguration에 사용 되는 flux pod는 적용 되지 않습니다. Azure Arc enabled Kubernetes 팀은이 기능에 대해 적극적으로 작업 중 이며 곧 사용할 수 있게 될 예정입니다.
 
-## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes용 Azure Arc 에이전트
+## <a name="azure-arc-agents-for-kubernetes"></a>Kubernetes 용 Azure Arc 에이전트
 
 Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 소수의 연산자를 배포합니다. 다음을 사용 하 여 이러한 배포 및 pod를 볼 수 있습니다.
 
@@ -244,17 +252,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Azure Arc가 지원되는 Kubernetes는 `azure-arc` 네임스페이스에 배포된 클러스터에서 실행되는 소수의 에이전트(운영자)로 구성됩니다.
-
-| 에이전트 (운영자)                                                                                               | 설명                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `deployment.apps/config-agent`                                                                                 | 클러스터에 적용 된 원본 제어 구성 리소스에 대해 연결 된 클러스터를 감시 하 고 호환성 상태를 업데이트 합니다.                                                        |
-| `deployment.apps/controller-manager` | Azure Arc 구성 요소 간의 상호 작용을 오케스트레이션 하는 연산자의 연산자입니다.                                      |
-| `deployment.apps/metrics-agent`                                                                            | 다른 Arc 에이전트의 성능 메트릭을 수집 합니다.                                                                                    |
-| `deployment.apps/cluster-metadata-operator`                                                                            | 클러스터 버전, 노드 수, Azure Arc 에이전트 버전 등의 클러스터 메타 데이터를 수집 합니다.                                                                  |
-| `deployment.apps/resource-sync-agent`                                                                            |  위에서 언급 한 클러스터 메타 데이터를 Azure에 동기화 합니다.                                                                  |
-| `deployment.apps/clusteridentityoperator`                                                                            |  Azure Arc enabled Kubernetes는 현재 시스템 할당 id를 지원 합니다. `clusteridentityoperator` Azure와의 통신을 위해 다른 에이전트에서 사용 하는 MSI (관리 서비스 id) 인증서를 유지 관리 합니다.                                                                  |
-| `deployment.apps/flux-logs-agent`                                                                            |  원본 제어 구성의 일부로 배포 된 flux 연산자에서 로그를 수집 합니다.                                                                  |
+모든 pod이 상태 인지 확인 `Running` 합니다.
 
 ## <a name="delete-a-connected-cluster"></a>연결된 클러스터 삭제
 

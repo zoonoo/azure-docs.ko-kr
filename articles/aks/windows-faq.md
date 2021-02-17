@@ -5,12 +5,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 �
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013970"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574736"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>AKS의 Windows Server 노드 풀에 대 한 질문과 대답
 
@@ -42,7 +42,7 @@ Azure 디스크와 Azure Files은 지원 되는 볼륨 유형입니다. 이러�
 
 AKS 클러스터의 마스터 노드 (제어 평면)는 AKS 서비스에서 호스트 되므로 마스터 구성 요소를 호스트 하는 노드의 운영 체제에 노출 되지 않습니다. 모든 AKS 클러스터는 Linux 기반 기본 첫 번째 노드 풀로 생성 됩니다. 이 노드 풀에는 클러스터가 작동 하는 데 필요한 시스템 서비스가 포함 됩니다. 클러스터의 안정성 및 클러스터 작업을 수행 하는 기능을 보장 하기 위해 첫 번째 노드 풀에서 두 개 이상의 노드를 실행 하는 것이 좋습니다. AKS 클러스터 자체를 삭제 하지 않는 한 첫 번째 Linux 기반 노드 풀을 삭제할 수 없습니다.
 
-## <a name="how-do-i-patch-my-windows-nodes"></a>Windows 노드의 패치를 어떻게 할까요? 하 시겠습니까?
+## <a name="how-do-i-patch-my-windows-nodes"></a>Windows 노드를 어떻게 패치하나요?
 
 Windows 노드에 대 한 최신 패치를 얻으려면 [노드 풀을 업그레이드][nodepool-upgrade] 하거나 [노드 이미지를 업그레이드할][upgrade-node-image]수 있습니다. AKS의 노드에서 Windows 업데이트를 사용할 수 없습니다. AKS는 패치를 사용할 수 있게 되는 즉시 새 노드 풀 이미지를 해제 하 고, 패치 및 핫픽스에 대 한 최신 상태를 유지 하기 위해 노드 풀을 업그레이드 하는 것은 사용자의 책임입니다. Kubernetes 버전이 사용 되는 경우에도 마찬가지입니다. [AKS 릴리스 정보][aks-release-notes] 는 새 버전을 사용할 수 있는 시기를 표시 합니다. 전체 Windows Server 노드 풀을 업그레이드 하는 방법에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요. 노드 이미지 업데이트에만 관심이 있는 경우 [AKS node image 업그레이드][upgrade-node-image]를 참조 하세요.
 
@@ -189,7 +189,7 @@ AKS에서 Windows Server 컨테이너를 시작 하려면 [AKS에서 Windows ser
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md

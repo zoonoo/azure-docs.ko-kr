@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 58e31cfa42faabbfab217a451e14d33f2cf45863
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674136"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554813"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -20,7 +20,7 @@ Express.js, Node.js 또는 JavaScript developer로 Azure Functions를 처음 접
 
 | 시작 | 개념| 단계별 학습 |
 | -- | -- | -- | 
-| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./create-first-function-vs-code-node.md)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./create-first-function-cli-node.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[ Visual Studio Code를 사용 하Node.js 함수](./create-first-function-vs-code-node.md)</li><li>[ 터미널/명령 프롬프트를 사용 하Node.js 함수](./create-first-function-cli-node.md)</li><li>[ Azure Portal를 사용 하Node.js 함수](functions-create-function-app-portal.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[TypeScript 함수](#typescript)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> | <ul><li>[서버리스 애플리케이션 만들기](/learn/paths/create-serverless-applications/)</li><li>[서버를 사용 하지 않는 Api에 Node.js 및 Express Api 리팩터링](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>JavaScript 함수 기본 사항
 
@@ -507,7 +507,7 @@ HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응�
 
 | Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2(런타임에 의해 잠김) | N/A |
+| 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
 | 2.x  | `~8`<br/>`~10` 바람직하지<br/>`~12` | `node|8`<br/>`node|10` 바람직하지  |
 | 3.x | `~10`<br/>`~12` 바람직하지<br/>`~14`(미리 보기)  | `node|10`<br/>`node|12` 바람직하지<br/>`node|14`(미리 보기) |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: bc75ee64174957ad6486146b4da6f8a66a2120e5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632049"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570549"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 
@@ -56,7 +56,7 @@ Azure 센티널에서 Windows 보안 이벤트를 수집 하려면:
 
 1. 커넥터 페이지의 **전제 조건** 섹션에 설명 된 대로 적절 한 사용 권한이 있는지 확인 합니다.
 
-1. 보안 이벤트를 Azure 센티널로 스트리밍할 컴퓨터에 [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) (MICROSOFT MONITORING AGENT 또는 MMA 라고도 함)를 다운로드 하 여 설치 합니다.
+1. 보안 이벤트를 Azure 센티널로 스트리밍할 컴퓨터에 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md) (MICROSOFT MONITORING AGENT 또는 MMA 라고도 함)를 다운로드 하 여 설치 합니다.
 
     Azure Virtual Machines:
     
@@ -73,9 +73,9 @@ Azure 센티널에서 Windows 보안 이벤트를 수집 하려면:
     >
     > 인터넷에 연결 되지 않은 Windows 시스템에서 계속 해 서 Azure 센티널로 이벤트를 스트리밍할 수 있도록 하려면 오른쪽 아래의 링크를 사용 하 여 별도의 컴퓨터에 **OMS 게이트웨이** 를 다운로드 하 여 설치 합니다.  이벤트를 수집 하려는 각 Windows 시스템에는 Log Analytics 에이전트를 설치 해야 합니다.
     >
-    > 이 시나리오에 대 한 자세한 내용은 [ **Log Analytics gateway** 설명서](../azure-monitor/platform/gateway.md)를 참조 하세요.
+    > 이 시나리오에 대 한 자세한 내용은 [ **Log Analytics gateway** 설명서](../azure-monitor/agents/gateway.md)를 참조 하세요.
 
-    추가 설치 옵션 및 추가 정보는 [ **Log Analytics 에이전트** 설명서](../azure-monitor/platform/agent-windows.md)를 참조 하세요.
+    추가 설치 옵션 및 추가 정보는 [ **Log Analytics 에이전트** 설명서](../azure-monitor/agents/agent-windows.md)를 참조 하세요.
 
 1. 스트리밍할 이벤트 집합 ([모두, 공통 또는 최소](#event-sets))을 선택 합니다.
 

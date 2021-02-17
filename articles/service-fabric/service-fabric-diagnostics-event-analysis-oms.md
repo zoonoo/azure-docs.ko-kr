@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329562"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581547"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화
  Azure Monitor 로그는 클라우드에서 호스팅되는 애플리케이션 및 서비스에서 원격 분석 데이터를 수집 및 분석하고, 가용성과 성능을 최대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Azure Monitor 로그에서 쿼리를 실행 하 여 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하는 방법을 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.
@@ -34,7 +34,7 @@ Azure Monitor 로그가 데이터를 받은 후 Azure는 여러 가지 시나리
 
 [Azure Portal](https://portal.azure.com)에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동 합니다.
 
-리소스 **ServiceFabric \<nameOfOMSWorkspace\> **를 선택 합니다.
+리소스 **ServiceFabric \<nameOfOMSWorkspace\>** 를 선택 합니다.
 
 `Summary`에는 Service Fabric용 타일을 포함하여 활성화된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
 
@@ -55,11 +55,11 @@ Azure Monitor 로그가 데이터를 받은 후 Azure는 여러 가지 시나리
 
 ## <a name="view-service-fabric-events-including-actions-on-nodes"></a>노드에 대한 작업을 포함한 Service Fabric 이벤트 보기
 
-Service Fabric 분석 페이지에서 **Service Fabric 이벤트**에 대한 그래프를 클릭합니다.
+Service Fabric 분석 페이지에서 **Service Fabric 이벤트** 에 대한 그래프를 클릭합니다.
 
 ![Service Fabric 솔루션 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-**목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable**에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
+**목록** 을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 로그는 Azure Storage 계정의 **WADServiceFabricSystemEventsTable** 에서 제공되며, 마찬가지로 다음에 표시되는 Reliable Services 및 Reliable Actors 이벤트는 해당 테이블에서 제공됩니다.
     
 ![쿼리 조작 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -74,11 +74,11 @@ ServiceFabricOperationalEvent
 
 ## <a name="view-service-fabric-reliable-service-and-actor-events"></a>Service Fabric Reliable Service 및 Actor 이벤트 보기
 
-Service Fabric 분석 페이지에서 **Reliable Services**에 대한 그래프를 클릭합니다.
+Service Fabric 분석 페이지에서 **Reliable Services** 에 대한 그래프를 클릭합니다.
 
 ![Service Fabric 솔루션 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-**목록**을 클릭하여 목록에서 이벤트를 봅니다. 여기에서 Reliable Services의 이벤트를 볼 수 있습니다. 일반적으로 배포 및 업그레이드에서 발생하는 서비스 RunAsync가 언제 시작되고 완료되는지에 대한 다양한 이벤트를 볼 수 있습니다. 
+**목록** 을 클릭하여 목록에서 이벤트를 봅니다. 여기에서 Reliable Services의 이벤트를 볼 수 있습니다. 일반적으로 배포 및 업그레이드에서 발생하는 서비스 RunAsync가 언제 시작되고 완료되는지에 대한 다양한 이벤트를 볼 수 있습니다. 
 
 ![쿼리 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
@@ -103,7 +103,7 @@ Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 �
 ## <a name="next-steps"></a>다음 단계
 
 * 인프라 모니터링, 즉 성능 카운터를 사용하려면 [Log Analytics 에이전트 추가](service-fabric-diagnostics-oms-agent.md)를 참조하세요. 에이전트는 성능 카운터를 수집하여 기존 작업 영역에 추가합니다.
-* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그에 데이터를 전송 하는 데 사용할 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 자세한 내용은 [인터넷에 연결 되지 않은 컴퓨터를 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor 로그에 연결](../azure-monitor/platform/gateway.md)하는 방법을 참조 하세요.
-* 감지 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md)를 구성합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
+* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그에 데이터를 전송 하는 데 사용할 수 있는 게이트웨이 (HTTP 전달 프록시)를 제공 합니다. 자세한 내용은 [인터넷에 연결 되지 않은 컴퓨터를 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor 로그에 연결](../azure-monitor/agents/gateway.md)하는 방법을 참조 하세요.
+* 감지 및 진단에 도움이 되는 [자동 경고](../azure-monitor/alerts/alerts-overview.md)를 구성합니다.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
 * Azure Monitor 로그 및 제공 되는 내용에 대 한 자세한 개요를 확인 하 고 [Azure Monitor 로그 란?](../azure-monitor/overview.md)을 참조 하세요.

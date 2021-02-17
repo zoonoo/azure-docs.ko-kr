@@ -3,12 +3,12 @@ title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3f452e6810fa6809b5ba1b83b664f8b38d82a895
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ca3d73a6c5b88f7531c3d76eb3bd348fdfe8fa39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004248"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573018"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -38,7 +38,7 @@ ms.locfileid: "96004248"
 
 Azure Lighthouse는 데이터 또는 리소스를 물리적으로 이동 하는 대신 관리 테 넌 트와 관리 되는 테 넌 트 간의 논리적 링크만 제공 합니다. 또한 액세스는 항상 관리 테넌트에서 관리형 테넌트로의 한 방향으로만 진행됩니다.  관리 테넌트의 사용자와 그룹은 관리형 테넌트 리소스에 대한 관리 작업을 수행할 때 다단계 인증을 계속 사용해야 합니다.
 
-내부 또는 외부 거버넌스 및 규정 준수 가드 레일을 사용하는 엔터프라이즈는 투명성 요구 사항을 충족하기 위해 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)를 사용할 수 있습니다. 엔터프라이즈 테 넌 트가 관리 및 관리 되는 테 넌 트 관계를 설정 하면 각 테 넌 트의 사용자가 기록 된 작업을 보고 테 넌 트의 사용자가 수행한 작업을 볼 수 있습니다.
+내부 또는 외부 거버넌스 및 규정 준수 가드 레일을 사용하는 엔터프라이즈는 투명성 요구 사항을 충족하기 위해 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 사용할 수 있습니다. 엔터프라이즈 테 넌 트가 관리 및 관리 되는 테 넌 트 관계를 설정 하면 각 테 넌 트의 사용자가 기록 된 작업을 보고 테 넌 트의 사용자가 수행한 작업을 볼 수 있습니다.
 
 ## <a name="onboarding-considerations"></a>온 보 딩 고려 사항
 

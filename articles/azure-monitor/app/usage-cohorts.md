@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f8edeb452f01af88f0305cd0a3e3a2332ec09e4e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2c35356951560b11a605334aba4c26dbc38086de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583551"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -131,7 +131,7 @@ _특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용�
 
 ## <a name="learn-more"></a>자세한 정보
 
-* [Analytics 쿼리 언어](../log-query/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
+* [Analytics 쿼리 언어](../logs/log-analytics-tutorial.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 * [사용자, 세션, 이벤트](usage-segmentation.md)
 * [사용자 흐름](usage-flows.md)
 * [사용 현황 개요](usage-overview.md)
