@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 7034d1b5f06fcbcead79d85df10042eee3581b0b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369359"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544819"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -118,7 +118,7 @@ ms.locfileid: "100369359"
 |[AWS 계정 연결](quickstart-onboard-aws.md)(1)|-|-|
 |[GCP 계정 연결](quickstart-onboard-gcp.md)(1)|-|-|
 |[연속 내보내기](continuous-export.md)|✔|✔(2)|
-|[워크플로 자동화](workflow-automation.md)|✔(2)|✔|
+|[워크플로 자동화](workflow-automation.md)|✔|✔|
 |[권장 사항 제외 규칙](exempt-resource.md)|-|-|
 |[경고 비표시 규칙](alerts-suppression-rules.md)|✔|✔|
 |[보안 경고에 대한 이메일 알림](security-center-provide-security-contact-details.md)|✔|✔|
@@ -130,8 +130,8 @@ ms.locfileid: "100369359"
 |[Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|✔(2)|
-|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔(2)|✔|
-|[Kubernetes 워크로드 보호](kubernetes-workload-protections.md)|-|-|
+|[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Kubernetes 워크로드 보호](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) **서버용 Azure Defender** 필요

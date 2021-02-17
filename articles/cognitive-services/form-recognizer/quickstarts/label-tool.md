@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584722"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364797"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -228,7 +228,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 필요에 따라 각 태그의 예상 데이터 형식을 설정할 수 있습니다. 태그 오른쪽에 있는 바로 가기 메뉴를 열고 메뉴에서 형식을 선택합니다. 이 기능을 사용하면 검색 알고리즘에서 텍스트 검색 정확도를 향상시키는 특정 가정을 수행할 수 있습니다. 또한 검색된 값이 최종 JSON 출력에서 표준화된 형식으로 반환되도록 합니다. 값 형식 정보는 레이블 파일과 동일한 경로에 있는 *fields.json* 파일에 저장됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![샘플 레이블 도구를 사용한 값 형식 선택](../media/whats-new/formre-value-type.png)
+> ![샘플 레이블 도구를 사용한 값 형식 선택](../media/whats-new/value-type.png)
 
 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
 * `string`

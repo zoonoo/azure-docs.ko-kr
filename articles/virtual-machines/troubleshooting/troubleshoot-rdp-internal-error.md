@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5c8bd335832a950385f88f13dc31eb7f6159f831
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978529"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548134"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
@@ -42,7 +42,7 @@ RDP (원격 데스크톱 프로토콜)를 사용 하 여 Azure VM에 연결할 �
 - TLS 프로토콜이 사용되지 않도록 설정되어 있습니다.
 - 인증서가 손상되었거나 만료되었습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 문제를 해결 하려면 다음 섹션의 단계를 완료 합니다. 시작 하기 전에 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 백업으로 사용 합니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -119,10 +119,10 @@ VM의 OS 디스크를 복구 VM에 연결 하 여 직렬 콘솔을 사용 하거
 
 2. 이 방법으로 인증서를 갱신할 수 없으면 RDP 자체 서명된 인증서를 원격으로 갱신합니다.
 
-    1. 작동하는 VM이 문제가 있는 VM에 연결되어 있으면 **실행** 상자에서 **mmc**를 입력하여 Microsoft Management Console을 엽니다.
-    2. **파일** 메뉴에서 **스냅인 추가/제거**를 선택하고 **인증서**를 선택한 후 **추가**를 선택합니다.
-    3. **컴퓨터 계정**을 선택하고 **다른 컴퓨터**를 선택한 후 문제가 있는 VM의 IP 주소를 추가합니다.
-    4. **원격 데스크톱\인증서** 폴더로 이동하고 인증서를 마우스 오른쪽 단추로 클릭한 후 **삭제**를 선택합니다.
+    1. 작동하는 VM이 문제가 있는 VM에 연결되어 있으면 **실행** 상자에서 **mmc** 를 입력하여 Microsoft Management Console을 엽니다.
+    2. **파일** 메뉴에서 **스냅인 추가/제거** 를 선택하고 **인증서** 를 선택한 후 **추가** 를 선택합니다.
+    3. **컴퓨터 계정** 을 선택하고 **다른 컴퓨터** 를 선택한 후 문제가 있는 VM의 IP 주소를 추가합니다.
+    4. **원격 데스크톱\인증서** 폴더로 이동하고 인증서를 마우스 오른쪽 단추로 클릭한 후 **삭제** 를 선택합니다.
     5. 직렬 콘솔의 PowerShell 인스턴스에서 원격 데스크톱 구성 서비스를 다시 시작합니다.
 
         ```powershell
@@ -134,7 +134,7 @@ VM의 OS 디스크를 복구 VM에 연결 하 여 직렬 콘솔을 사용 하거
 3. MachineKeys 폴더에 대한 권한을 다시 설정합니다.
 
     ```powershell
-    remove-module psreadline icacls
+    remove-module psreadline 
 
     md c:\temp
 
@@ -190,7 +190,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
 
 1. [OS 디스크를 복구 VM에 연결](./troubleshoot-recovery-disks-portal-windows.md)합니다.
-2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+2. OS 디스크가 복구 VM에 연결되면 디스크 관리 콘솔에서 디스크의 플래그가 **온라인** 으로 지정되어 있는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
 3. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
 #### <a name="enable-dump-log-and-serial-console"></a>덤프 로그 및 직렬 콘솔을 사용하도록 설정
@@ -266,7 +266,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server" /v Enabled /t REG_DWO
     ```
 
-3. 키가 없거나 해당 값이 **0**이면 다음 스크립트를 실행하여 프로토콜을 사용하도록 설정합니다.
+3. 키가 없거나 해당 값이 **0** 이면 다음 스크립트를 실행하여 프로토콜을 사용하도록 설정합니다.
 
     ```console
     REM Enable TLS 1.0, TLS 1.1 and TLS 1.2

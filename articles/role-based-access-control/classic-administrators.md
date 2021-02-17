@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344011"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557542"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -44,7 +44,7 @@ Azure 역할 기반 액세스 제어 (Azure RBAC)를 사용 하 여 Azure 리소
 
     ![클래식 관리자를 여는 스크린샷](./media/classic-administrators/classic-administrators.png)
 
-1. **Add**  >  **공동 관리자** 추가 추가를 클릭 하 여 공동 관리자 추가 창을 엽니다.
+1.   >  **공동 관리자** 추가 추가를 클릭 하 여 공동 관리자 추가 창을 엽니다.
 
     공동 관리자 추가 옵션을 사용할 수 없는 경우 권한이 없는 것입니다.
 
@@ -71,7 +71,7 @@ Co-Administrator 역할이 할당 된 게스트 사용자에 게는 Co-Administr
 
 사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다.
 
-게스트 사용자가 이러한 작업을 수행할 수 있어야 하는 경우 가능한 해결 방법은 게스트 사용자에 게 필요한 특정 Azure AD 역할을 할당 하는 것입니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/roles/permissions-reference.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/roles/permissions-reference.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 게스트 사용자에 게 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 외부 게스트 사용자에 대 한 Azure 역할 할당 추가 또는 제거](role-assignments-external-users.md)를 참조 하세요.
+게스트 사용자가 이러한 작업을 수행할 수 있어야 하는 경우 가능한 해결 방법은 게스트 사용자에 게 필요한 특정 Azure AD 역할을 할당 하는 것입니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/roles/permissions-reference.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/roles/permissions-reference.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 게스트 사용자에 게 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 외부 게스트 사용자에 게 Azure 역할 할당](role-assignments-external-users.md)을 참조 하세요.
 
 [Azure 기본 제공 역할](../role-based-access-control/built-in-roles.md) 은 [azure AD 역할과](../active-directory/roles/permissions-reference.md)다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
@@ -125,8 +125,8 @@ Azure 구독 당 서비스 관리자는 하나만 있을 수 있습니다. 서�
 
 | 계정 관리자 계정 | 다른 Microsoft 계정로 서비스 관리자를 변경할 수 있나요? | 동일한 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? | 다른 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? |
 | --- | --- | --- | --- |
-| Microsoft 계정 | 예 | 예 | 예 |
-| Azure AD 계정 | 예 | 예 | 예 |
+| Microsoft 계정 | 예 | 아니요 | 아니요 |
+| Azure AD 계정 | 예 | 예 | 아니요 |
 
 계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어는 abby@contoso.com 서비스 관리자를로 변경할 수 bob@contoso.com 있지만 john@notcontoso.com john@notcontoso.com contoso.com 디렉터리에가 없는 경우에는로 서비스 관리자를 변경할 수 없습니다.
 
@@ -151,5 +151,5 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 ## <a name="next-steps"></a>다음 단계
 
 * [여러 역할의 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
+* [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
 * [Azure 구독 관리자 추가 또는 변경](../cost-management-billing/manage/add-change-subscription-administrator.md)

@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e808f6f56041e6cdc577164140910af8d6c42731
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 9372da349d0ea9169bb59570b7e6dd0e597d1cdf
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004401"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558229"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +35,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는를 사용 하 여 다각형 내에서 모든 패밀리 문서를 찾는 방법을 보여 줍니다 `ST_WITHIN` .  
   
@@ -56,7 +56,7 @@ WHERE ST_WITHIN(f.location, {
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [지리 공간적 인덱스](index-policy.md#spatial-indexes)를 활용 합니다.
+이 시스템 함수는 집계가 있는 쿼리를 제외 하 고 [지리 공간적 인덱스](index-policy.md#spatial-indexes) 를 활용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

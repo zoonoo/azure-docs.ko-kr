@@ -3,17 +3,17 @@ title: Azure Cognitive Search 서비스에 대 한 IP 방화벽 구성
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 서비스에 대 한 액세스를 제한 하도록 IP 제어 정책을 구성 합니다.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 98a516e76d5e4f5c225873b934949759d7fcba8d
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: de34c2921c7829cb6d7e7354a1ebcff44271efd3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535334"
+ms.locfileid: "100545550"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 IP 방화벽 구성
 

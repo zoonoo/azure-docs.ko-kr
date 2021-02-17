@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185889"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555895"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Azure 구독을 다른 Azure AD 디렉터리에 전송
 
@@ -88,7 +88,7 @@ ms.locfileid: "98185889"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
@@ -307,9 +307,9 @@ ms.locfileid: "98185889"
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>역할 할당 만들기
+### <a name="assign-roles"></a>역할 할당
 
-- [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자, 그룹 및 서비스 사용자에 대 한 역할 할당을 만듭니다. 자세한 내용은 [AZURE RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거](role-assignments-cli.md)를 참조 하세요.
+- [Az role assign create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자, 그룹 및 서비스 사용자에 게 역할을 할당 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당](role-assignments-cli.md)을 참조 하세요.
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -319,13 +319,13 @@ ms.locfileid: "98185889"
 
 1. 시스템 할당 관리 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
-    | Azure 서비스 | 자세한 정보 | 
+    | Azure 서비스 | 추가 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | 가상 머신 확장 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | 기타 서비스 | [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 시스템 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
+1. [Az role assign create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 시스템 할당 관리 id에 역할을 할당 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -335,13 +335,13 @@ ms.locfileid: "98185889"
 
 1. 사용자 할당 관리 id를 삭제 하 고, 다시 만들고, 연결 합니다.
 
-    | Azure 서비스 | 자세한 정보 | 
+    | Azure 서비스 | 추가 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | 가상 머신 확장 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | 기타 서비스 | [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Azure CLI를 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. [Az role 할당 create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자 할당 관리 id에 대 한 역할 할당을 만듭니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
+1. [Az role assign create](/cli/azure/role/assignment#az_role_assignment_create) 를 사용 하 여 사용자 할당 관리 id에 역할을 할당 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 리소스에 관리 id 액세스 할당](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)을 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>

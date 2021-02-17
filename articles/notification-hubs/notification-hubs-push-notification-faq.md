@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491429"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546451"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -34,16 +34,16 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 최신 가격 책정 정보는 [Notification Hubs 가격 책정] 페이지에서 찾을 수 있습니다. Notification Hubs는 네임스페이스 수준에서 대금이 청구됩니다. (네임스페이스에 대한 정의는 “Notification Hubs의 리소스 구조는 무엇입니까?” 참조) Notification Hubs는 세 가지 계층을 제공합니다.
 
-* **체험** : 이 계층은 푸시 기능을 탐색하기 적절한 시작점입니다. 프로덕션 앱에는 권장되지 않습니다. 네임스페이스마다 매달 500개의 디바이스와 백만 개의 푸시를 Service Level Agreement(서비스 수준 약정) 보장 없이 받게 됩니다.
-* **기본** : 이 계층(또는 표준 계층)은 더 작은 프로덕션 앱에 권장됩니다. 네임스페이스마다 매달 200,000개의 디바이스와 천만 개의 푸시를 기본으로 받게 됩니다.
-* **표준** : 이 계층은 중간 및 대형 프로덕션 앱에 권장됩니다. 네임스페이스마다 매달 천만 개의 디바이스와 천만 개의 푸시를 기본으로 받게 됩니다. 풍부한 원격 분석 데이터(제공된 푸시 상태에 대한 추가 데이터)를 포함합니다.
+* **체험**: 이 계층은 푸시 기능을 탐색하기 적절한 시작점입니다. 프로덕션 앱에는 권장되지 않습니다. 네임스페이스마다 매달 500개의 디바이스와 백만 개의 푸시를 Service Level Agreement(서비스 수준 약정) 보장 없이 받게 됩니다.
+* **기본**: 이 계층(또는 표준 계층)은 더 작은 프로덕션 앱에 권장됩니다. 네임스페이스마다 매달 200,000개의 디바이스와 천만 개의 푸시를 기본으로 받게 됩니다.
+* **표준**: 이 계층은 중간 및 대형 프로덕션 앱에 권장됩니다. 네임스페이스마다 매달 천만 개의 디바이스와 천만 개의 푸시를 기본으로 받게 됩니다. 풍부한 원격 분석 데이터(제공된 푸시 상태에 대한 추가 데이터)를 포함합니다.
 
 표준 계층 기능:
 
-* **다양한 원격 분석** : 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
-* **다중 테 넌 트** : 네임 스페이스 수준에서 플랫폼 알림 시스템 자격 증명으로 작업할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
-* **예약된 푸시** : 알림이 언제든지 전송되도록 예약할 수 있습니다.
-* **대량 작업** : [등록 내보내기/] 가져오기 문서에 설명 된 대로 등록 내보내기/가져오기 기능을 사용 하도록 설정 합니다.
+* **다양한 원격 분석**: 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
+* **다중 테 넌 트**: 네임 스페이스 수준에서 플랫폼 알림 시스템 자격 증명으로 작업할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
+* **대량 작업**: [등록 내보내기/] 가져오기 문서에 설명 된 대로 등록 내보내기/가져오기 기능을 사용 하도록 설정 합니다.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
 
@@ -102,6 +102,10 @@ PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 대�
 ### <a name="is-there-any-latency-guarantee"></a>대기 시간 보장이 있나요?
 
 푸시 알림은 외부 플랫폼별 PNS를 통해 배달되는 특성이 있으므로 대기 시간이 보장되지 않습니다. 일반적으로 대부분의 푸시 알림은 보통 몇 분 이내에 배달됩니다.
+
+### <a name="where-does-azure-notification-hubs-store-data"></a>Azure Notification Hubs 데이터를 저장 하는 위치
+
+Azure Notification Hubs는 고객이 선택한 지역에 고객 등록 데이터를 저장 합니다. Notification Hubs는 메타 데이터 재해 복구 범위 (Notification Hubs 이름, 연결 문자열 및 기타 중요 한 정보)를 제공 합니다. 브라질 남부 및 동남 아시아를 제외한 모든 지역에서 메타 데이터 백업은 다른 지역 (일반적으로 Azure 쌍을 이루는 지역)에서 호스팅됩니다. 브라질 남부 및 동남 아시아 지역의 경우 이러한 지역에 대 한 데이터 상주 요구 사항을 수용 하기 위해 백업이 동일한 지역에 저장 됩니다.
 
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>네임스페이스와 알림 허브를 사용하는 솔루션을 디자인할 때 고려해야 하는 사항은 무엇인가요?
 
@@ -188,7 +192,7 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
-프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
+프로그래밍 방식으로 메트릭에 액세스할 수도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)

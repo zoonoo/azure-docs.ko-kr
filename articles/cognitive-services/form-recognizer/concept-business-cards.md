@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585095"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546026"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
 
@@ -31,11 +31,11 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ### <a name="fields-extracted"></a>추출 된 필드:
 
-|Name| Type | 설명 | 텍스트 | 
+|Name| Type | Description | 텍스트 | 
 |:-----|:----|:----|:----|
 | ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
-| FirstName | string | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
-| LastName | string | 연락처의 마지막 (패밀리) 이름 |     "Doe" | 
+| FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
+| LastName | 문자열 | 연락처의 마지막 (패밀리) 이름 |     "Doe" | 
 | CompanyNames | 문자열 배열 | 비즈니스 카드에서 추출 된 회사 이름 | ["Contoso"] | 
 | Departments | 문자열 배열 | 부서 또는 연락처 조직 | ["R&D"] | 
 | JobTitles | 문자열 배열 | 연락처의 나열 된 작업 제목 | ["소프트웨어 엔지니어"] | 
@@ -76,7 +76,11 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
-성공적인 JSON 응답의 다음 예를 참조 하세요. "readResults" 노드에는 인식 된 모든 텍스트가 포함 됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. "DocumentResults" 노드에는 모델에서 검색 한 명함의 특정 값이 포함 되어 있습니다. 여기에서 이름, 성, 회사 이름 등의 유용한 연락처 정보를 찾을 수 있습니다.
+비즈니스 카드 분석 가져오기 작업에 대 한 응답은 압축 된 모든 정보를 포함 하는 명함을 구조화 된 방식으로 표현한 것입니다.  [샘플 비즈니스 카드 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) 및 해당 구조화 된 출력 [샘플 비즈니스 카드 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)은 여기를 참조 하세요.
+
+성공적인 JSON 응답의 다음 예를 참조 하세요.
+* `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. 
+* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기에서 이름, 성, 회사 이름 등의 유용한 연락처 정보를 찾을 수 있습니다.
 
 ```json
 {
