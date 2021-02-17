@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e2bf4e451ebc3c9ebba2c01dae6703fc79aa606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324134"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559591"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
 
@@ -19,7 +19,7 @@ ms.locfileid: "87324134"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-현재 스마트 검색 메일 알림은 기본적으로 ‘Subscription Owner’, ‘Subscription Contributor’ 및 ‘Subscription Reader’ 역할에 전송됩니다.______ 모니터링에 적극적으로 참여하지 않는 사용자가 이러한 역할에 포함되는 경우가 많으며, 이로 인해 많은 사용자가 불필요하게 알림을 수신하게 됩니다. 이 환경을 개선하기 위해 메일 알림이 기본적으로 [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할로만 이동하도록 변경됩니다.
+현재 스마트 검색 메일 알림은 기본적으로 ‘Subscription Owner’, ‘Subscription Contributor’ 및 ‘Subscription Reader’ 역할에 전송됩니다. 모니터링에 적극적으로 참여하지 않는 사용자가 이러한 역할에 포함되는 경우가 많으며, 이로 인해 많은 사용자가 불필요하게 알림을 수신하게 됩니다. 이 환경을 개선하기 위해 메일 알림이 기본적으로 [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) 및 [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할로만 이동하도록 변경됩니다.
 
 ## <a name="scope-of-this-change"></a>이 변경의 범위
 
@@ -33,10 +33,10 @@ ms.locfileid: "87324134"
 
 스마트 검색의 전자 메일 알림이 관련 사용자에 게 전송 되도록 하려면 해당 사용자가 구독의 [모니터링 독자](../../role-based-access-control/built-in-roles.md#monitoring-reader) 또는 [모니터링 참가자](../../role-based-access-control/built-in-roles.md#monitoring-contributor) 역할에 할당 되어야 합니다.
 
-Azure Portal을 통해 Monitoring Reader 또는 Monitoring Contributor 역할에 사용자를 할당하려면 [역할 할당 추가](../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) 문서에 설명된 단계를 수행합니다. 사용자가 할당되는 역할로 ‘Monitoring Reader’ 또는 ‘Monitoring Contributor’를 선택해야 합니다.____
+Azure Portal를 통해 모니터링 판독기 또는 모니터링 참여자 역할에 사용자를 할당 하려면 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 문서에 설명 된 단계를 수행 합니다. 사용자가 할당되는 역할로 ‘Monitoring Reader’ 또는 ‘Monitoring Contributor’를 선택해야 합니다.
 
 > [!NOTE]
-> 규칙 설정의 ‘추가 메일 수신자’ 옵션을 사용하여 구성된 스마트 검색 알림의 특정 수신자는 이 변경의 영향을 받지 않습니다.__ 해당 수신자는 메일 알림을 계속 수신합니다.
+> 규칙 설정의 ‘추가 메일 수신자’ 옵션을 사용하여 구성된 스마트 검색 알림의 특정 수신자는 이 변경의 영향을 받지 않습니다. 해당 수신자는 메일 알림을 계속 수신합니다.
 
 이 변경에 대한 질문이나 우려 사항이 있으면 [Microsoft에 문의](mailto:smart-alert-feedback@microsoft.com)하시기 바랍니다.
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: gelecaro
-ms.openlocfilehash: f674edd15b86f49d60450a53f5df5852b32f95a4
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: cf765145cafa2eb06d77ea2e153e45c296281b71
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906439"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551961"
 ---
 이 가이드에서는 Linux용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -23,6 +23,7 @@ Linux; [지원되는 Linux 배포 및 대상 아키텍처](~/articles/cognitive-
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
+* Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
 * gcc
 * [Go 이진(1.13 이상)](https://golang.org/dl/)
 

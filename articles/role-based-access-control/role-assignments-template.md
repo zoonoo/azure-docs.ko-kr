@@ -1,25 +1,29 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가 - Azure RBAC
+title: Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당-Azure RBAC
 description: Azure Resource Manager 템플릿 및 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자, 그룹, 서비스 주체 또는 관리 ID에 Azure 리소스 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 023aa086cdafc3ab1459c2f748b2181575c14191
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675339"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556017"
 ---
-# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가
+# <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Azure PowerShell 또는 Azure CLI를 사용하는 것 외에도 RBAC 및 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/template-syntax.md)을 사용하여 역할을 할당할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 템플릿을 사용하여 역할을 할당하는 방법을 설명합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="get-object-ids"></a>개체 ID 가져오기
 
@@ -73,13 +77,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>역할 할당 추가
+## <a name="assign-an-azure-role"></a>Azure 역할 할당
 
-Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가합니다.
+Azure RBAC에서 액세스 권한을 부여 하려면 역할을 할당 합니다.
 
 ### <a name="resource-group-scope-without-parameters"></a>리소스 그룹 범위 (매개 변수 없음)
 
-다음 템플릿에서는 역할 할당을 추가하는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정됩니다. 다음 템플릿은 다음을 보여줍니다.
+다음 템플릿에서는 역할을 할당 하는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정됩니다. 다음 템플릿은 다음을 보여줍니다.
 
 -  리소스 그룹 범위에서 사용자, 그룹 또는 애플리케이션에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하는 방법
 
@@ -206,7 +210,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### <a name="resource-scope"></a>리소스 범위
 
-리소스 수준에서 역할 할당을 추가 해야 하는 경우 `scope` 역할 할당의 속성을 리소스 이름으로 설정 합니다.
+리소스 수준에서 역할을 할당 해야 하는 경우 `scope` 역할 할당의 속성을 리소스 이름으로 설정 합니다.
 
 다음 템플릿은 다음을 보여줍니다.
 
@@ -369,15 +373,6 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 다음에서는 템플릿을 배포한 후 새 관리 ID 서비스 주체에 기여자 역할을 할당하는 예를 보여 줍니다.
 
 ![새 관리 ID 서비스 주체에 대한 역할 할당](./media/role-assignments-template/role-assignment-template-msi.png)
-
-## <a name="remove-a-role-assignment"></a>역할 할당 제거
-
-Azure RBAC에서 Azure 리소스에 대한 액세스를 제거하려면 역할 할당을 제거합니다. 템플릿을 사용하여 역할 할당을 제거하는 방법은 없습니다. 역할 할당을 제거하려면 다음 등의 다른 도구를 사용해야 합니다.
-
-- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
-- [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>다음 단계
 

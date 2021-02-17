@@ -4,13 +4,13 @@ description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터의 컨
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561694"
 ---
-# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터 모니터링 사용
+# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터의 모니터링 사용
 
 컨테이너에 대 한 Azure Monitor는 AKS (Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 azure Arc에서 사용 하도록 설정 된 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
 
@@ -83,7 +83,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-    **SubscriptionId**의 값을 복사 합니다.
+    **SubscriptionId** 의 값을 복사 합니다.
 
 2. 다음 명령을 사용 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
 
@@ -97,7 +97,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID**로 복사 합니다.
+    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
 
 ## <a name="enable-monitoring-using-powershell"></a>PowerShell을 사용 하 여 모니터링 사용
 
@@ -119,7 +119,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
     $kubeContext = "<kubeContext name of your k8s cluster>"
     ```
 
-4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `$logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region> *의 형식과 유사 합니다.
+4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `$logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region>* 의 형식과 유사 합니다.
 
     ```powershell
     $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
@@ -154,7 +154,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-예:
+예를 들면 다음과 같습니다.
 
 ```powershell
 .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
@@ -184,7 +184,7 @@ $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
     export kubeContext="<kubeContext name of your k8s cluster>"
     ```
 
-4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region> *의 형식과 유사 합니다.
+4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region>* 의 형식과 유사 합니다.
 
     ```bash
     export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
@@ -239,7 +239,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-예:
+예를 들면 다음과 같습니다.
 
 ```bash
 bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
@@ -264,11 +264,11 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 
 예: `http://user01:password@proxy01.contoso.com:3128`
 
-프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
+프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
 
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예:
+프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

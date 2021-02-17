@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180033"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558906"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -57,7 +57,6 @@ ms.locfileid: "98180033"
 슬롯을 선택 하 고 다음에 대 한 게시 설정을 구성 합니다.
 
 * 정서 분석
-* [맞춤법 수정](luis-tutorial-bing-spellcheck.md)
 * 음성 초기화
 
 게시 한 후에는 **관리** 섹션의 **게시 설정** 페이지에서 이러한 설정을 검토할 수 있습니다. 모든 게시를 사용 하 여 설정을 변경할 수 있습니다. 게시를 취소 하면 게시 중에 적용 한 변경 내용도 취소 됩니다.
@@ -79,37 +78,6 @@ Text Analytics 키를 제공할 필요는 없으며, 이 서비스에 대한 비
 감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다. `positive`, `neutral` 및 `negative`의 감정 레이블은 지원되는 문화를 따릅니다. 현재 영어만 감정 레이블을 지원합니다.
 
 감정 분석에서 JSON 엔드포인트의 응답에 대한 자세한 내용은 [감정 분석](luis-reference-prebuilt-sentiment.md)을 참조하세요.
-
-## <a name="spelling-correction"></a>맞춤법 교정
-
-이제 V3 예측 API는 Bing Spellcheck API를 지원 합니다. 요청 헤더에 Bing 검색 리소스에 대 한 키를 포함 하 여 응용 프로그램에 맞춤법 검사를 추가할 수 있습니다. 기존 Bing 리소스를 이미 소유 하 고 있는 경우이 리소스를 사용 하거나 새 Bing 리소스를 [만들어](https://portal.azure.com/#create/Microsoft.BingSearch) 이 기능을 사용할 수 있습니다. 
-
-|헤더 키|헤더 값|
-|--|--|
-|`mkt-bing-spell-check-key`|키 및 리소스의 **끝점** 블레이드에서 찾은 키|
-
-철자가 잘못 된 쿼리에 대 한 예측 출력 예제:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-LUIS 사용자 utterance 예측 이전에 맞춤법을 수정 했습니다. 응답에서 맞춤법을 포함 하 여 원래 utterance의 변경 내용을 볼 수 있습니다.
 
 ## <a name="speech-priming"></a>음성 초기화
 

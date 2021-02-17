@@ -7,20 +7,19 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.date: 02/16/2021
+ms.openlocfilehash: 98a516e76d5e4f5c225873b934949759d7fcba8d
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573248"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535334"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 IP 방화벽 구성
 
 Azure Cognitive Search는 인바운드 방화벽 지원에 대 한 IP 규칙을 지원 합니다. 이 모델은 검색 서비스에 대 한 추가 보안 계층을 제공 합니다 .이는 Azure 가상 네트워크 보안 그룹에서 찾을 수 있는 IP 규칙과 비슷합니다. 이러한 IP 규칙을 사용 하 여 승인 된 컴퓨터 및/또는 클라우드 서비스 에서만 액세스할 수 있도록 검색 서비스를 구성할 수 있습니다. 이러한 승인 된 컴퓨터 및 서비스 집합에서 검색 서비스에 저장 된 데이터에 액세스 하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공 해야 합니다.
 
-> [!Important]
-> Azure Portal 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/)을 사용 하 여 Azure Cognitive Search 서비스의 IP 규칙을 구성할 수 있습니다.
+이 문서에 설명 된 대로 Azure Portal에서 IP 규칙을 설정할 수 있습니다. 또는 [관리 REST API 버전 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)또는 [Azure CLI](/cli/azure/search)를 사용할 수 있습니다.
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Azure Portal를 사용 하 여 IP 방화벽 구성
 

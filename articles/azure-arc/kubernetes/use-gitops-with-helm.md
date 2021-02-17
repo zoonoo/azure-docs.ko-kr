@@ -2,18 +2,18 @@
 title: Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Azure Arc 사용 클러스터 구성 (미리 보기)에 대 한 투구와 함께 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 883eb9c152bdc8a7c0e60e999cf9decf47fb80ec
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2dfb516487d1064f29b4018cc8b322e8db44e53a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558522"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포 (미리 보기)
 
@@ -64,7 +64,7 @@ spec:
 
 Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 
-| 필드 | 설명 |
+| 필드 | Description |
 | ------------- | ------------- | 
 | `metadata.name` | 필수 필드입니다. Kubernetes 명명 규칙을 따라야 합니다. |
 | `metadata.namespace` | 선택적 필드입니다. 릴리스가 생성 되는 위치를 결정 합니다. |
@@ -81,7 +81,7 @@ Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 의 Azure CLI 확장을 사용 하 여 `k8sconfiguration` 연결 된 클러스터를 예제 Git 리포지토리에 연결 합니다. 이 구성에 이름을 지정 `azure-arc-sample` 하 고 네임 스페이스에 Flux 연산자를 배포 `arc-k8s-demo` 합니다.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='0.6.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>구성 매개 변수
@@ -112,7 +112,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "enableHelmOperator": "True",
   "helmOperatorProperties": {
     "chartValues": "--set helm.versions=v3",
-    "chartVersion": "0.6.0"
+    "chartVersion": "1.2.0"
   },
   "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-arc-sample",
   "name": "azure-arc-sample",

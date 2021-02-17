@@ -4,11 +4,11 @@ description: 이 문서에서는 Kubernetes Azure Monitor 클러스터를 구성
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905590"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561639"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 구성
 

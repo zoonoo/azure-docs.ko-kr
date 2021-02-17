@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805197"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546927"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -149,7 +149,7 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
 
 ### <a name="optional-install-certificates"></a>필드 인증서 설치
 
-*Http* 를 사용 하 여 Storage 탐색기를 통해 연결 하는 경우이 단계를 건너뜁니다. *Https* 를 사용 하는 경우 Storage 탐색기에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요. 
+*Http* 를 사용 하 여 Storage 탐색기를 통해 연결 하는 경우이 단계를 건너뜁니다. *Https* 를 사용 하는 경우 Storage 탐색기에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요. 
 
 ### <a name="create-and-upload-a-vhd"></a>VHD 만들기 및 업로드
 
@@ -290,7 +290,7 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
 > [!NOTE]
 > 인증 오류가 발생 하는 경우 템플릿을 배포할 때이 세션의 Azure 자격 증명이 만료 되었을 수 있습니다. 명령을 다시 실행 `login-AzureRM` 하 여 Azure Stack Edge Pro 장치에서 Azure Resource Manager에 다시 연결 합니다.
 
-1. 다음 명령 실행: 
+1. 다음 명령을 실행합니다. 
     
     ```powershell
     $templateFile = "Path to CreateImage.json"
@@ -388,7 +388,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
 1. 사용자 이름, 암호 및 지원 되는 VM 크기를 입력 합니다.
 1. Compute에 대해 네트워크 인터페이스를 사용 하도록 설정 하면 가상 스위치와 가상 네트워크가 해당 네트워크 인터페이스에 자동으로 만들어집니다. 기존 가상 네트워크를 쿼리하여 Vnet 이름, 서브넷 이름 및 Vnet 리소스 그룹 이름을 가져올 수 있습니다.
 
-    다음 명령 실행:
+    다음 명령을 실행합니다.
 
     ```powershell
     Get-AzureRmVirtualNetwork
@@ -494,7 +494,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
 
 VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기존 VNet에서 네트워크 인터페이스를 만들고 배포 된 이미지에서 VM을 만듭니다.
 
-1. 다음 명령 실행: 
+1. 다음 명령을 실행합니다. 
     
     ```powershell
     Command:
@@ -565,7 +565,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
     --     ----            -------------   -----         -----------     --------             -------
     ```
 
-7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령 실행:
+7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령을 실행합니다.
 
     `Get-AzureRmVm`
 

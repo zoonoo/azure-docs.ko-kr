@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790192"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557523"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>REST API를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
 > [!IMPORTANT]
-> 에 관리 그룹을 추가 하 `AssignableScopes` 는 것은 현재 미리 보기 상태입니다.
+> `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -44,7 +44,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | 설명 |
+    > | 필터 | Description |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -61,7 +61,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -71,7 +71,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | 설명 |
+    > | 필터 | Description |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -88,7 +88,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -98,7 +98,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할의 표시 이름으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | 설명 |
+    > | 필터 | Description |
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예: `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
@@ -117,7 +117,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -171,7 +171,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -183,7 +183,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 1. `assignableScopes`이 구독 또는 리소스 그룹인 경우 *{subscriptionId}* 또는 *{resourceGroup}* 인스턴스를 식별자로 바꾸십시오.
 
-1. `assignableScopes`이 관리 그룹인 경우 *{groupId}* 인스턴스를 관리 그룹 식별자로 바꿉니다. 에 관리 그룹을 추가 하 `assignableScopes` 는 것은 현재 미리 보기 상태입니다.
+1. `assignableScopes`이 관리 그룹인 경우 *{groupId}* 인스턴스를 관리 그룹 식별자로 바꿉니다. `assignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 
 1. `actions` 속성에서 역할에서 수행할 수 있는 작업을 추가합니다.
 
@@ -240,7 +240,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -330,7 +330,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. URI 내에서 *{scope}* 를 삭제하려는 사용자 지정 역할에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
@@ -341,5 +341,5 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 사용자 지정 역할](custom-roles.md)
-- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [REST API를 사용 하 여 Azure 역할 할당](role-assignments-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)

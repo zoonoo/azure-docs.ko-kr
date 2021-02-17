@@ -3,17 +3,17 @@ title: 로컬 Git 리포지토리에서 배포
 description: Azure App Service에 로컬 Git 배포를 사용하는 방법에 대해 알아봅니다. 로컬 컴퓨터의 코드를 배포 하는 가장 간단한 방법 중 하나입니다.
 ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 26fd8bc73fad3ea313641fc4b1e0f454ee2c0813
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560458"
 ---
-# <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대 한 로컬 Git 배포
+# <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 로컬 Git 배포
 
 이 방법 가이드에서는 로컬 컴퓨터의 Git 리포지토리에서 [Azure App Service](overview.md) 에 앱을 배포 하는 방법을 보여 줍니다.
 
@@ -24,122 +24,112 @@ ms.locfileid: "97347781"
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
 - [Git를 설치](https://www.git-scm.com/downloads)합니다.
-  
+
 - 배포 하려는 코드가 포함 된 로컬 Git 리포지토리가 있습니다. 샘플 리포지토리를 다운로드 하려면 로컬 터미널 창에서 다음 명령을 실행 합니다.
   
   ```bash
   git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
   ```
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## <a name="deploy-with-kudu-build-server"></a>Kudu build 서버를 사용 하 여 배포
+## <a name="configure-a-deployment-user"></a>배포 사용자 구성
 
-Kudu App Service 빌드 서버를 사용 하 여 앱에 대 한 로컬 Git 배포를 사용 하도록 설정 하는 가장 쉬운 방법은 Azure Cloud Shell를 사용 하는 것입니다. 
+[Azure App Service에 대 한 배포 자격 증명 구성을](deploy-configure-credentials.md)참조 하세요. 사용자 범위 자격 증명이 나 응용 프로그램 범위 자격 증명 중 하나를 사용할 수 있습니다.
 
-### <a name="configure-a-deployment-user"></a>배포 사용자 구성
+## <a name="create-a-git-enabled-app"></a>Git 사용 앱 만들기
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+App Service 앱이 이미 있고이 앱에 대 한 로컬 Git 배포를 구성 하려는 경우 대신 [기존 앱 구성](#configure-an-existing-app) 을 참조 하세요.
 
-### <a name="get-the-deployment-url"></a>배포 URL 가져오기
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-기존 앱에 대 한 로컬 Git 배포를 사용 하도록 URL을 가져오려면 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) Cloud Shell에서를 실행 합니다. \<app-name>및를 \<group-name> 앱 및 해당 Azure 리소스 그룹의 이름으로 바꿉니다.
+[`az webapp create`](/cli/azure/webapp#az_webapp_create)옵션과 함께를 실행 `--deployment-local-git` 합니다. 예를 들면 다음과 같습니다.
+
+```azurecli-interactive
+az webapp create --resource-group <group-name> --plan <plan-name> --name <app-name> --runtime "<runtime-flag>" --deployment-local-git
+```
+
+출력에는와 같은 URL이 포함 되어 있습니다 `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . 다음 단계에서이 URL을 사용 하 여 앱을 배포 합니다.
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Git 리포지토리의 루트에서 [AzWebApp](/powershell/module/az.websites/new-azwebapp) 를 실행 합니다. 예를 들면 다음과 같습니다.
+
+```azurepowershell-interactive
+New-AzWebApp -Name <app-name>
+```
+
+Git 리포지토리의 디렉터리에서이 cmdlet을 실행 하면 이름이 인 사용자를 위해 App Service 앱에 대 한 Git 원격이 자동으로 만들어집니다 `azure` .
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+포털에서 먼저 앱을 만든 다음, 해당 앱에 대 한 배포를 구성 해야 합니다. [기존 앱 구성](#configure-an-existing-app)을 참조 하세요.
+
+-----
+
+## <a name="configure-an-existing-app"></a>기존 앱 구성
+
+앱을 아직 만들지 않은 경우 대신 [Git 사용 앱 만들기](#create-a-git-enabled-app) 를 참조 하세요.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+
+[`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-local-git) 를 실행합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
-> [!NOTE]
-> Linux app service 계획을 사용 하는 경우 다음 매개 변수를 추가 해야 합니다.--runtime python | 3.7
 
+출력에는와 같은 URL이 포함 되어 있습니다 `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . 다음 단계에서이 URL을 사용 하 여 앱을 배포 합니다.
 
-또는 새 Git 사용 앱을 만들려면 매개 변수를 사용 하 여 Cloud Shell에서를 실행 합니다 [`az webapp create`](/cli/azure/webapp#az-webapp-create) `--deployment-local-git` . \<app-name>, \<group-name> 및를 \<plan-name> 새 Git 앱, 해당 Azure 리소스 그룹 및 해당 Azure App Service 계획의 이름으로 바꿉니다.
+> [!TIP]
+> 이 URL은 사용자 범위 배포 사용자 이름을 포함 합니다. 원하는 경우 [응용 프로그램 범위 자격 증명](deploy-configure-credentials.md#appscope) 을 대신 사용할 수 있습니다. 
 
-```azurecli-interactive
-az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+`scmType` [AzResource](/powershell/module/az.resources/set-azresource) cmdlet을 실행 하 여 앱의를 설정 합니다.
+
+```powershell-interactive
+$PropertiesObject = @{
+    scmType = "LocalGit";
+}
+
+Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name> `
+-ResourceType Microsoft.Web/sites/config -ResourceName <app-name>/web `
+-ApiVersion 2015-08-01 -Force
 ```
 
-두 명령은 모두와 같은 URL을 반환 `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` 합니다. 다음 단계에서이 URL을 사용 하 여 앱을 배포 합니다.
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-이 계정 수준 URL을 사용 하는 대신 앱 수준 자격 증명을 사용 하 여 로컬 Git을 사용 하도록 설정할 수도 있습니다. Azure App Service는 모든 앱에 대해 이러한 자격 증명을 자동으로 생성 합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 앱의 관리 페이지로 이동 합니다.
 
-Cloud Shell에서 다음 명령을 실행 하 여 앱 자격 증명을 가져옵니다. \<app-name>및를 \<group-name> 앱 이름 및 Azure 리소스 그룹 이름으로 바꿉니다.
+1. 왼쪽 메뉴에서 **배포 센터**  >  **설정** 을 선택 합니다. **원본** 에서 **로컬 Git** 를 선택 하 고 **저장** 을 클릭 합니다.
 
-```azurecli-interactive
-az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
-```
+    ![Azure Portal에서 App Service에 대 한 로컬 Git 배포를 사용 하도록 설정 하는 방법을 보여 줍니다.](./media/deploy-local-git/enable-portal.png)
 
-다음 단계에서을 반환 하는 URL을 사용 하 여 앱을 배포 합니다.
+1. 로컬 Git 섹션에서 나중에에 대 한 **Git Clone Uri** 를 복사 합니다. 이 Uri는 자격 증명을 포함 하지 않습니다.
 
-### <a name="deploy-the-web-app"></a>웹앱 배포
+-----
 
-1. 로컬 Git 리포지토리로 로컬 터미널 창을 열고 Azure 원격을 추가 합니다. 다음 명령에서을 \<url> 이전 단계에서 가져온 배포 사용자 특정 url 또는 앱 특정 url로 바꿉니다.
+## <a name="deploy-the-web-app"></a>웹앱 배포
+
+1. 로컬 터미널 창에서 Git 리포지토리의 루트로 디렉터리를 변경 하 고 앱에서 가져온 URL을 사용 하 여 Git 원격을 추가 합니다. 선택한 방법에서 URL을 제공 하지 않으면 `https://<app-name>.scm.azurewebsites.net/<app-name>.git` 에서 앱 이름으로를 사용 `<app-name>` 합니다.
    
    ```bash
    git remote add azure <url>
    ```
+
+    > [!NOTE]
+    > AzWebApp를 [사용 하 여 PowerShell에서 Git 사용 앱을 만든](#create-a-git-enabled-app)경우 원격이 이미 만들어집니다.
    
 1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure master` . 
    
-1. **Git 자격 증명 관리자** 창에서 Azure 로그인 암호가 아닌 [배포 사용자 암호](#configure-a-deployment-user)를 입력 합니다.
+1. **Git 자격 증명 관리자** 창에서 Azure 로그인 자격 증명이 아닌 [사용자 범위 또는 응용 프로그램 범위 자격 증명](#configure-a-deployment-user)을 입력 합니다.
+
+    Git 원격 URL에 사용자 이름 및 암호가 이미 포함 된 경우에는 메시지가 표시 되지 않습니다. 
    
 1. 출력을 검토합니다. ASP.NET에 대 한 MSBuild, Node.js 및 Python에 대 한 런타임 관련 자동화가 표시 될 수 있습니다 `npm install` `pip install` . 
    
 1. Azure Portal에서 앱으로 이동 하 여 콘텐츠가 배포 되었는지 확인 합니다.
-
-## <a name="deploy-with-azure-pipelines-builds"></a>Azure Pipelines 빌드를 사용 하 여 배포
-
-계정에 필요한 권한이 있는 경우 앱에 대 한 로컬 Git 배포를 사용 하도록 Azure Pipelines (미리 보기)를 설정할 수 있습니다. 
-
-- Azure 계정에는 Azure Active Directory에 대 한 쓰기 권한이 있어야 하 고 서비스를 만들 수 있습니다. 
-  
-- Azure 계정에는 Azure 구독에 **소유자** 역할이 있어야 합니다.
-
-- 사용 하려는 Azure DevOps 프로젝트의 관리자 여야 합니다.
-
-Azure Pipelines (미리 보기)를 사용 하 여 앱에 대 한 로컬 Git 배포를 사용 하도록 설정 하려면
-
-1. [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 하 고 선택 합니다. 
-
-1. Azure App Service 앱을 선택 하 고 왼쪽 메뉴에서 **Deployment Center** 를 선택 합니다.
-   
-1. **Deployment Center** 페이지에서 **로컬 Git** 를 선택한 다음 **계속** 을 선택 합니다. 
-   
-   ![로컬 Git을 선택 하 고 계속을 선택 합니다.](media/app-service-deploy-local-git/portal-enable.png)
-   
-1. **빌드 공급자** 페이지에서 **Azure Pipelines (미리 보기)** 를 선택 하 고 **계속** 을 선택 합니다. 
-   
-   ![Azure Pipelines (미리 보기)를 선택 하 고 계속을 선택 합니다.](media/app-service-deploy-local-git/pipeline-builds.png)
-
-1. **구성** 페이지에서 새 Azure devops 조직을 구성 하거나 기존 조직을 지정 하 고 **계속** 을 선택 합니다.
-   
-   > [!NOTE]
-   > 기존 Azure DevOps 조직이 나열 되지 않은 경우 Azure 구독에 연결 해야 할 수 있습니다. 자세한 내용은 [CD 릴리스 파이프라인 정의](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps#cd)를 참조 하세요.
-   
-1. App Service 계획 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시 될 수 있습니다. [배포 슬롯을 사용 하도록](deploy-staging-slots.md)설정할지 여부를 선택 하 고 **계속** 을 선택 합니다.
-   
-1. **요약** 페이지에서 설정을 검토 한 다음 **마침** 을 선택 합니다.
-   
-1. Azure 파이프라인이 준비 되 면 다음 단계에서 사용할 수 있도록 **배포 센터** 페이지에서 GIT 리포지토리 URL을 복사 합니다. 
-   
-   ![Git 리포지토리 URL 복사](media/app-service-deploy-local-git/vsts-repo-ready.png)
-
-1. 로컬 터미널 창에서 로컬 Git 리포지토리에 Azure 원격을 추가 합니다. 명령에서을 \<url> 이전 단계에서 가져온 Git 리포지토리의 URL로 바꿉니다.
-   
-   ```bash
-   git remote add azure <url>
-   ```
-   
-1. 를 사용 하 여 Azure 원격에 푸시합니다 `git push azure master` . 
-   
-1. **Git 자격 증명 관리자** 페이지에서 visualstudio.com username을 사용 하 여 로그인 합니다. 다른 인증 방법은 [Azure DevOps Services 인증 개요](/vsts/git/auth-overview?view=vsts)를 참조 하세요.
-   
-1. 배포가 완료 되 면에서 빌드 진행률을 확인 하 `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` 고에서 배포 진행률을 확인 합니다 `https://<azure_devops_account>.visualstudio.com/<project_name>/_release` .
-   
-1. Azure Portal에서 앱으로 이동 하 여 콘텐츠가 배포 되었는지 확인 합니다.
-
-[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="troubleshoot-deployment"></a>배포 문제 해결
 
@@ -149,14 +139,14 @@ Git를 사용 하 여 Azure에서 App Service 앱에 게시 하는 경우 다음
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|앱이 실행 되 고 있지 않습니다.|Azure Portal에서 앱을 시작합니다. 웹 앱이 중지 되 면 Git 배포를 사용할 수 없습니다.|
 |`Couldn't resolve host 'hostname'`|' Azure ' 원격에 대 한 주소 정보가 잘못 되었습니다.|`git remote -v` 명령을 사용하여 모든 원격을 관련 URL과 함께 나열합니다. 'azure' 원격의 URL이 올바른지 확인합니다. 필요한 경우 제거하고 올바른 URL을 사용하여 이 원격을 다시 만드세요.|
-|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
-|`src refspec [branchname] does not match any.`|' Azure ' 원격에서 main 이외의 분기로 푸시 하려고 했습니다.|`git push`마스터 분기를 지정 하 여를 다시 실행 `git push azure master` 합니다.|
-|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예를 들어 `git config --global http.postBuffer 524288000`을 참조하십시오.|
+|`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'main'.`|중에 분기를 지정 하지 `git push` 않았거나에서 값을 설정 하지 않았습니다 `push.default` `.gitconfig` .|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
+|`src refspec [branchname] does not match any.`|' Azure ' 원격에서 main 이외의 분기로 푸시 하려고 했습니다.|`git push`주 분기를 지정 하 여를 다시 실행 `git push azure main` 합니다.|
+|`RPC failed; result=22, HTTP code = 5xx.`|이 오류는 HTTPS를 통해 큰 git 리포지토리를 푸시하려고 시도하는 경우 발생할 수 있습니다.|로컬 컴퓨터에서 git 구성을 변경 하 여 `postBuffer` 더 크게 만듭니다. 예: `git config --global http.postBuffer 524288000`|
 |`Error - Changes committed to remote repository but your web app not updated.`|추가 필수 모듈을 지정 하는 파일 _에package.js_ 를 사용 하 여 Node.js 앱을 배포 했습니다.|오류 `npm ERR!` 에 대 한 추가 컨텍스트를 위해이 오류 이전의 오류 메시지를 검토 합니다. 이 오류의 알려진 원인과 해당 메시지는 다음과 같습니다 `npm ERR!` .<br /><br />**파일의 package.js형식이 잘못** 되었습니다. `npm ERR! Couldn't read dependencies.`<br /><br />**네이티브 모듈에는 Windows 용 이진 배포가** 없습니다.<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />또는 <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-- [프로젝트 Kudu 설명서](https://github.com/projectkudu/kudu/wiki)
+- [App Service 빌드 서버 (Project Kudu 설명서)](https://github.com/projectkudu/kudu/wiki)
 - [Azure App Service 연속 배포](deploy-continuous-deployment.md)
 - [샘플: 웹 앱 만들기 및 로컬 Git 리포지토리의 코드 배포 (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [샘플: 웹 앱 만들기 및 로컬 Git 리포지토리의 코드 배포 (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

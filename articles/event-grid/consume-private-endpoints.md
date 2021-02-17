@@ -3,12 +3,12 @@ title: 개인 링크 서비스를 사용 하 여 이벤트 제공
 description: 이 문서에서는 개인 링크 서비스를 사용 하 여 이벤트를 배달할 수 없다는 제한을 해결 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: ad6f500830383f60e0350a297d2650bfbeae2f6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417588"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548620"
 ---
 # <a name="deliver-events-using-private-link-service"></a>개인 링크 서비스를 사용 하 여 이벤트 제공
 현재 [개인 끝점](../private-link/private-endpoint-overview.md)을 사용 하 여 이벤트를 전달할 수 없습니다. 즉, 전달 된 이벤트 트래픽이 개인 IP 공간을 떠나지 않아야 하는 엄격한 네트워크 격리 요구 사항이 있는 경우에는 지원 되지 않습니다. 
@@ -19,7 +19,7 @@ ms.locfileid: "100417588"
 그런 다음 Azure Functions에 구성 된 개인 링크나 가상 네트워크에 배포 된 웹 후크를 사용 하 여 이벤트를 끌어올 수 있습니다. 샘플: Azure Functions를 [사용 하 여 전용 끝점에 연결](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)을 참조 하세요.
 
 
-:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="개인 링크 서비스를 통해 제공":::
+:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="개인 링크 서비스를 통해 제공":::
 
 
 이 구성에서 트래픽은 공용 IP/인터넷을 통해 Event Grid에서 Event Hubs, Service Bus 또는 Azure Storage로 이동 하지만 채널을 암호화 하 고 Event Grid의 관리 되는 id를 사용할 수 있습니다. 개인 링크를 통해 Event Hubs, Service Bus 또는 Azure Storage를 사용 하도록 가상 네트워크에 배포 된 Azure Functions 또는 webhook를 구성 하는 경우 해당 트래픽 섹션은 Azure 내에서 분명히 됩니다.

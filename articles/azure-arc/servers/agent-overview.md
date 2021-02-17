@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626311"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558506"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -32,6 +32,30 @@ Azure 연결 된 컴퓨터 에이전트 패키지에는 여러 개의 논리적 
     * 할당은 14 일 후에 삭제 되며 14 일 기간 후에는 컴퓨터에 재할당 되지 않습니다.
 
 * 확장 에이전트는 설치, 제거 및 업그레이드를 포함 하 여 VM 확장을 관리 합니다. 확장은 Azure에서 다운로드 되 고 Windows의 `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` 폴더 및 Linux에 복사 됩니다 `/opt/GC_Ext/downloads` . Windows에서는 확장이 다음 경로에 설치 되 `%SystemDrive%\Packages\Plugins\<extension>` 고 Linux에서 확장이에 설치 됩니다 `/var/lib/waagent/<extension>` .
+
+## <a name="instance-metadata"></a>인스턴스 메타데이터
+
+연결 된 컴퓨터에 대 한 메타 데이터 정보는 연결 된 컴퓨터 에이전트가 Arc 사용 서버를 등록 한 후에 수집 됩니다. 특히 다음에 대한 내용을 설명합니다.
+
+* 운영 체제 이름, 유형 및 버전
+* 컴퓨터 이름
+* 컴퓨터 FQDN(정규화된 도메인 이름)
+* Connected Machine 에이전트 버전
+* Active Directory 및 DNS FQDN (정규화 된 도메인 이름)
+* UUID (BIOS ID)
+* 연결 된 컴퓨터 에이전트 하트 비트
+* Connected Machine 에이전트 버전
+* 관리 id에 대 한 공개 키
+* 정책 준수 상태 및 세부 정보 (Azure Policy 게스트 구성 정책을 사용 하는 경우)
+
+다음 메타 데이터 정보는 Azure에서 에이전트에 의해 요청 됩니다.
+
+* 리소스 위치 (지역)
+* 가상 머신 ID
+* 태그
+* Azure Active Directory 관리 id 인증서
+* 게스트 구성 정책 할당
+* 확장 요청-설치, 업데이트 및 삭제
 
 ## <a name="download-agents"></a>에이전트 다운로드
 
@@ -102,7 +126,7 @@ URL:
 
 | 에이전트 리소스 | Description |
 |---------|---------|
-|`management.azure.com`|Azure 리소스 관리자|
+|`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
@@ -176,7 +200,7 @@ Windows 용 연결 된 컴퓨터 에이전트를 설치한 후 다음과 같은 
 
 * 설치 중에 생성되는 설치 폴더는 다음과 같습니다.
 
-    |폴더 |설명 |
+    |폴더 |Description |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |에이전트 지원 파일이 포함되어 있는 기본 설치 경로입니다.|
     |%ProgramData%\AzureConnectedMachineAgent |에이전트 구성 파일이 포함되어 있습니다.|

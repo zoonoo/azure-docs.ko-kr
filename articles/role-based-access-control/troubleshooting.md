@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184266"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555882"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Azure 역할 할당 문제
 
-- 추가 역할 할당 추가 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 **Add** 있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 **액세스 제어 (IAM)** 의 Azure Portal에서 역할 할당을 추가할 수 없는 경우  >  **Add role assignment** 역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
+- 추가 역할 할당 **추가** 옵션을 사용할 수 없거나 "개체 id가 있는 클라이언트에 작업을 수행할 수 있는 권한이 없습니다." 라는 권한 오류가 발생 하 여 Azure Portal **액세스 제어 (IAM)** 에서 역할을 할당할 수 없는 경우  >   역할을 `Microsoft.Authorization/roleAssignments/write` 할당 하려는 범위에서 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 와 같은 권한이 있는 역할이 할당 된 사용자로 현재 로그인 했는지 확인 합니다.
 - 서비스 주체를 사용 하 여 역할을 할당 하는 경우 "작업을 완료 하는 데 필요한 권한이 없습니다." 오류가 발생할 수 있습니다. 예를 들어 소유자 역할이 할당 되 고 Azure CLI를 사용 하 여 서비스 주체로 다음 역할 할당을 만들려고 하는 서비스 사용자가 있다고 가정해 보겠습니다.
 
     ```azurecli
@@ -63,7 +63,7 @@ $ras.Count
 
     이 오류를 해결 하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 디렉터리의 데이터를 읽을 수 있도록 서비스 사용자에 게 [디렉터리 판독기](../active-directory/roles/permissions-reference.md#directory-readers) 역할을 할당 하는 것입니다.
 
-    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope)를 참조 하세요.
+    이 오류를 해결 하는 두 번째 방법은 대신 매개 변수를 사용 하 여 역할 할당을 만드는 것입니다 `--assignee-object-id` `--assignee` . 을 사용 하 여 `--assignee-object-id` AZURE AD 조회를 건너뛸 Azure CLI. 역할을 할당 하려는 사용자, 그룹 또는 응용 프로그램의 개체 ID를 가져와야 합니다. 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope)을 참조 하세요.
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -151,7 +151,7 @@ CanDelegate        : False
 }
 ```
 
-보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-a-role-assignment) 를 참조 하세요.
+보안 주체가 삭제 된 위치에서 이러한 역할 할당을 유지 하는 것은 문제가 되지 않습니다. 원하는 경우 다른 역할 할당과 비슷한 단계를 사용 하 여 이러한 역할 할당을 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당 제거](role-assignments-remove.md)를 참조 하세요.
 
 PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 됩니다. 다음 출력은 오류 메시지의 예를 보여 줍니다.
 
@@ -174,7 +174,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## <a name="role-assignment-changes-are-not-being-detected"></a>역할 할당 변경이 검색 되지 않습니다.
 
-Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 데이터를 캐시합니다. 역할 할당을 추가 하거나 제거 하는 경우 변경 내용이 적용 되는 데 최대 30 분이 걸릴 수 있습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 로그아웃 및 로그인하여 역할 할당 변경 내용을 강제로 새로 고칠 수 있습니다. REST API 호출을 사용하여 역할 할당을 변경하는 경우 액세스 토큰을 새로 고쳐 강제로 새로 고칠 수 있습니다.
+Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 데이터를 캐시합니다. 역할을 할당 하거나 역할 할당을 제거 하는 경우 변경 내용이 적용 되는 데 최대 30 분이 걸릴 수 있습니다. Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하는 경우 로그아웃 및 로그인하여 역할 할당 변경 내용을 강제로 새로 고칠 수 있습니다. REST API 호출을 사용하여 역할 할당을 변경하는 경우 액세스 토큰을 새로 고쳐 강제로 새로 고칠 수 있습니다.
 
 관리 그룹 범위에서 역할 할당을 추가 하거나 제거 하는 경우 역할에가 있으면 `DataActions` 데이터 평면에 대 한 액세스를 몇 시간 동안 업데이트 하지 못할 수 있습니다. 이는 관리 그룹 범위 및 데이터 평면에만 적용 됩니다.
 
@@ -249,5 +249,5 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 ## <a name="next-steps"></a>다음 단계
 
 - [게스트 사용자에 대 한 문제 해결](role-assignments-external-users.md#troubleshoot)
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure RBAC 변경 내용에 대 한 활동 로그 보기](change-history-report.md)

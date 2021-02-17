@@ -4,14 +4,14 @@ description: Azure Monitor를 사용 하 여 로그 경고 규칙을 만들고, 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 9f50a08930ba2556c27c79a90261497dc00dcca3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029001"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548338"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -55,7 +55,7 @@ ms.locfileid: "98029001"
 
 1. 로그 경고는 다음과 같은 두 가지 유형의 [**측정값**](alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** -쿼리에서 반환 된 레코드 수입니다.
-    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들면 다음과 같습니다.
+    1. **메트릭 측정**  -  선택 된 식 및 [bin ()](/azure/kusto/query/binfunction) 선택 항목 별로 그룹화 된 요약을 사용 하 여 계산 된 *집계 값* 입니다. 예를 들어 다음과 같습니다.
 
     ```Kusto
     // Reported errors

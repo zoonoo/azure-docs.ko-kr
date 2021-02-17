@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388518"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556446"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -200,7 +200,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| 범용 v2<br /> 범용 v1<br /> 블록 Blob Storage<br /> Blob Storage<br /> File Storage | 범용 v2<br /> 블록 Blob Storage<br /> File Storage | 범용 v2<br /> 범용 v1<br /> Blob Storage | 범용 v2 |
+| 범용 v2<br /> 범용 v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | 범용 v2<br /> BlockBlobStorage<br /> FileStorage | 범용 v2<br /> 범용 v1<br /> BlobStorage | 범용 v2 |
 
 모든 저장소 계정의 모든 데이터는 저장소 계정에 대한 중복성 옵션에 따라 복사됩니다. 블록 Blob, 추가 Blob, 페이지 Blob, 큐, 테이블 및 파일을 포함하는 개체가 복사됩니다. 보관 계층을 포함하여 모든 계층의 데이터가 복사됩니다. Blob 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 액세스 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 

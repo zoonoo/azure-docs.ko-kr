@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 537a301ef2c3ba1bb5ed34d92c8784655c79d97f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9d2c245cdc8b1aba644171089ed95bad2ab730a4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097475"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558597"
 ---
 # <a name="ev3-and-esv3-series"></a>Ev3 및 Esv3 시리즈
 
@@ -32,11 +32,11 @@ Ev3 시리즈 VM의 기능 Intel® Hyper-Threading 기술입니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
 <br>
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
 | Standard_E2_v3  | 2  | 16  | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_E4_v3  | 4  | 32  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -64,11 +64,11 @@ Esv3 시리즈 VM의 기능 Intel® Hyper-Threading 기술입니다.
 [실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
+[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
 <br>
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup>| 최대 Nic/예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 버스트 캐시 및 임시 저장소 처리량: IOPS/MBps<sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  버스트 캐시 되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup>| 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v3                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |

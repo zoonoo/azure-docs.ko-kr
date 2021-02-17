@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805792"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546808"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
@@ -36,7 +36,7 @@ Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm �
 
 | # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 목적 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -57,7 +57,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
 
@@ -93,38 +93,38 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
 테스트 및 개발용 으로만 사용 되는 경우 Windows PowerShell을 사용 하 여 로컬 시스템에서 인증서를 만들 수 있습니다. 클라이언트에 대 한 인증서를 만드는 동안 다음 지침을 따르세요.
 
-1. 먼저 서명 체인에 대 한 루트 인증서를 만들어야 합니다. 자세한 내용은 [서명 체인 인증서를 만드는](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate)단계를 참조 하세요.
+1. 먼저 서명 체인에 대 한 루트 인증서를 만들어야 합니다. 자세한 내용은 [서명 체인 인증서를 만드는](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate)단계를 참조 하세요.
 
-2. 그런 다음 blob에 대 한 끝점 인증서를 만들고 Azure Resource Manager 수 있습니다. 로컬 웹 UI의 **장치** 페이지에서 이러한 끝점을 가져올 수 있습니다. [끝점 인증서를 만드는](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates)단계를 참조 하세요.
+2. 그런 다음 blob에 대 한 끝점 인증서를 만들고 Azure Resource Manager 수 있습니다. 로컬 웹 UI의 **장치** 페이지에서 이러한 끝점을 가져올 수 있습니다. [끝점 인증서를 만드는](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates)단계를 참조 하세요.
 
 3. 이러한 모든 인증서의 경우 주체 이름 및 주체 대체 이름이 다음 지침을 준수 하는지 확인 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-인증서에 대 한 자세한 내용은 [인증서를 관리](azure-stack-edge-j-series-manage-certificates.md)하는 방법을 참조 하세요.
+인증서에 대 한 자세한 내용은 [인증서를 관리](azure-stack-edge-gpu-manage-certificates.md)하는 방법을 참조 하세요.
 
 ### <a name="upload-certificates-on-the-device"></a>장치에서 인증서 업로드
 
 이전 단계에서 만든 인증서는 클라이언트의 개인 저장소에 저장 됩니다. 이러한 인증서는 클라이언트에서 적절 한 형식 파일로 내보내야 합니다. 그러면 장치에 업로드할 수 있습니다.
 
-1. 루트 인증서는 *.cer* 파일 확장명을 가진 DER 형식 파일로 내보내야 합니다. 자세한 단계는 인증서를 [.cer 형식 파일로 내보내기](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format)를 참조 하세요.
+1. 루트 인증서는 *.cer* 파일 확장명을 가진 DER 형식 파일로 내보내야 합니다. 자세한 단계는 인증서를 [.cer 형식 파일로 내보내기](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format)를 참조 하세요.
 
-2. 끝점 인증서는 개인 키를 사용 하 여 *.pfx* 파일로 내보내야 합니다. 자세한 단계는 [개인 키를 사용 하 여 인증서를 .pfx 파일로 내보내기](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)를 참조 하세요.
+2. 끝점 인증서는 개인 키를 사용 하 여 *.pfx* 파일로 내보내야 합니다. 자세한 단계는 [개인 키를 사용 하 여 인증서를 .pfx 파일로 내보내기](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)를 참조 하세요.
 
-3. 그런 다음 로컬 웹 UI의 **인증서** 페이지에서 **+ 인증서 추가** 옵션을 사용 하 여 장치에서 루트 및 끝점 인증서를 업로드 합니다. 인증서를 업로드 하려면 [인증서 업로드](azure-stack-edge-j-series-manage-certificates.md#upload-certificates)의 단계를 따릅니다.
+3. 그런 다음 로컬 웹 UI의 **인증서** 페이지에서 **+ 인증서 추가** 옵션을 사용 하 여 장치에서 루트 및 끝점 인증서를 업로드 합니다. 인증서를 업로드 하려면 [인증서 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates)의 단계를 따릅니다.
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Azure PowerShell를 실행 하는 클라이언트에서 인증서 가져오기
 
 Azure Resource Manager Api를 호출 하는 Windows 클라이언트는 장치와의 트러스트를 설정 해야 합니다. 이를 위해 이전 단계에서 만든 인증서를 Windows 클라이언트에서 적절 한 인증서 저장소로 가져와야 합니다.
 
-1. 이제 *.cer* 확장명을 사용 하 여 DER 형식으로 내보낸 루트 인증서를 클라이언트 시스템의 신뢰할 수 있는 루트 인증 기관에서 가져와야 합니다. 자세한 단계는 [신뢰할 수 있는 루트 인증 기관 저장소로 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format) 를 참조 하세요.
+1. 이제 *.cer* 확장명을 사용 하 여 DER 형식으로 내보낸 루트 인증서를 클라이언트 시스템의 신뢰할 수 있는 루트 인증 기관에서 가져와야 합니다. 자세한 단계는 [신뢰할 수 있는 루트 인증 기관 저장소로 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format) 를 참조 하세요.
 
-2. *.Pfx* 로 내보낸 끝점 인증서를 *.cer* 파일로 내보내야 합니다. 이 *.cer* 은 시스템의 **개인** 인증서 저장소에서 가져옵니다. 자세한 단계는 [개인 저장소로 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)를 참조 하세요.
+2. *.Pfx* 로 내보낸 끝점 인증서를 *.cer* 파일로 내보내야 합니다. 이 *.cer* 은 시스템의 **개인** 인증서 저장소에서 가져옵니다. 자세한 단계는 [개인 저장소로 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)를 참조 하세요.
 
 ## <a name="step-3-install-powershell-on-the-client"></a>3 단계: 클라이언트에 PowerShell 설치 
 

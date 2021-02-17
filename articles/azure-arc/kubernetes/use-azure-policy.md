@@ -2,18 +2,18 @@
 title: Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/10/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: ce9ba75e200a02654cac4c50303cc90fd0c1a5fd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b80e50cb4823632f054de3b7f9da71392f8578d7
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560179"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 

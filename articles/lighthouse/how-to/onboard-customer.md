@@ -1,14 +1,14 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4487dd82b30e14f9db2001dc10f7437a53e745f3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372147"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556112"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -205,7 +205,7 @@ az role definition list --name "<roleName>" | grep name
 매개 변수 파일을 업데이트 한 후 고객 테 넌 트의 사용자는 테 넌 트 내에 Azure Resource Manager 템플릿을 배포 해야 합니다. 등록 하려는 각 구독 (또는 등록 하려는 리소스 그룹을 포함 하는 각 구독)에 대해 별도의 배포가 필요 합니다.
 
 > [!IMPORTANT]
-> 이 배포는 등록 중인 구독에 대 한 [소유자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#owner) 을 가진 고객 테 넌 트의 비 게스트 계정 (또는 등록 되는 리소스 그룹을 포함 하는)에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
+> 이 배포는 `Microsoft.Authorization/roleAssignments/write` 등록 되는 구독 (또는 등록 되는 리소스 그룹을 포함 하는)에 대 한 권한이 있는 역할이 있는 [](../../role-based-access-control/built-in-roles.md#owner)고객 테 넌 트의 비 게스트 계정에 의해 수행 되어야 합니다. 구독을 위임할 수 있는 사용자를 찾기 위해 고객 테 넌 트의 사용자는 Azure Portal에서 구독을 선택 하 고, **액세스 제어 (IAM)** 를 열고 [소유자 역할의 모든 사용자를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription)수 있습니다. 
 >
 > [CSP(클라우드 솔루션 공급자) 프로그램](../concepts/cloud-solution-provider.md)를 통해 구독을 만든 경우 서비스 공급자 테넌트에서 [관리 에이전트](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) 역할이 있는 모든 사용자가 배포를 수행할 수 있습니다.
 

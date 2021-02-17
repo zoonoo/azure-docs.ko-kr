@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391578"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534681"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -73,6 +73,16 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 Premium Storage | 지원되지 않음 | 표준 스토리지 계정은 캐시 스토리지에 사용되며 비용을 최적화하는 데 도움이 됩니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](../storage/common/storage-network-security.md#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
 
+아래 표에는 단일 저장소 계정으로 복제할 수 있는 디스크 수에 대 한 제한이 나와 있습니다.
+
+**저장소 계정 유형**    |    **변동 = 디스크당 4 MBps**    |    **변동 = 디스크당 8 MBps**
+---    |    ---    |    ---
+V1 저장소 계정    |    300 디스크    |    150 디스크
+V2 저장소 계정    |    750 디스크    |    375 디스크
+
+디스크의 평균 변동이 늘어나면 저장소 계정이 지원할 수 있는 디스크 수가 줄어듭니다. 위의 표는 프로 비전 해야 하는 저장소 계정 수에 대 한 결정을 내리는 데 필요한 가이드로 사용할 수 있습니다.
+
+위의 제한은 Azure에서 Azure로, 영역에 대 한 영역 DR 시나리오에만 해당 됩니다. 
 
 ## <a name="replicated-machine-operating-systems"></a>복제된 컴퓨터 운영 체제
 
@@ -126,19 +136,19 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 --- | --- | --- |
 14.04 LTS | [9.36](https://support.microsoft.com/help/4578241/), [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 3.13.0-24-generic에서 3.13.0-170-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-148-generic<br/>4.15.0-1023-azure에서 4.15.0-1045-azure |
 |||
-16.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.4.0-21-generic to 4.4.0-197-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-128-제네릭<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1102-azure </br> 4.15.0-4.4.0-generic, 9.40 핫 픽스 패치 * *|
+16.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.4.0-21-generic to 4.4.0-197-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-128-제네릭<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1102-azure </br> 4.15.0-generic, 4.4.0-generic, 4.15.0-1106-azure, 4.15.0-133-generic, 4.4.0-201-generic ~ 9.40 핫 픽스 패치 * *|
 16.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-generic to 4.4.0-194-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-123-제네릭<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1098-azure </br> 4.4.0-197-generic, 4.15.0-, 4.15.0-128-generic, 4.15.0-1100-azure, 4.15.0-1102-azure-9.39 핫 픽스 패치 * *|
 16.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-4.4.0-190-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-118-제네릭<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1096-azure </br> 4.4.0, 4.15.0-generic, 4.15.0-122-generic, 4.15.0-1098-azure-9.38 핫 픽스 패치 * *|
 16.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generic to 4.4.0-189-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic to 4.15.0-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1093-azure </br> 4.4.0, 4.15.0-117-generic, 4.15.0-4.15.0-1095-4.15.0-azure-9.37 핫 픽스 패치 * *|
 16.04 LTS | [9.36](https://support.microsoft.com/help/4578241/)| 4.4.0-21-generic to 4.4.0-187-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-제네릭-4.15.0-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1092-azure |
 |||
-18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-4.15.0-129-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-63-generic </br> 5.3.0-19-5.3.0-generic </br> 5.4.0-37-5.4.0-59-제네릭</br> 4.15.0-1009-4.15.0-1103-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure-5.4.0 </br> 4.15.0-1104-azure, 4.15.0, 4.15.0-generic, 5.4.0-1036-5.4.0-5.4.0--60-generic,-62-generic ~ 9.40 핫 픽스 패치 * *|
+18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-4.15.0-129-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-63-generic </br> 5.3.0-19-5.3.0-generic </br> 5.4.0-37-5.4.0-59-제네릭</br> 4.15.0-1009-4.15.0-1103-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure-5.4.0 </br> 4.15.0-1104-azure, 4.15.0, 4.15.0-generic, 5.4.0-1036-5.4.0-5.4.0-4.15.0-1106-4.15.0-134-4.15.0-5.4.0-1039-5.4.0-5.4.0--------azure,-64-generic, 9.40|
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-4.15.0-123-제네릭 </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-63-generic </br> 5.3.0-19-5.3.0-generic </br> 5.4.0-37-generic to 5.4.0-53-generic</br> 4.15.0-1009-4.15.0-1099-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure에서 5.4.0로 </br> 4.15.0-generic, 5.4.0, 5.4.0,, 5.4.0-azure,-56-generic, 4.15.0-4.15.0-4.15.0-5.4.0-4.15.0-1102-5.4.0--------------azure-9.39 핫 픽스 패치 * *|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-4.15.0-118-제네릭 </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-61-generic </br> 5.3.0-19-5.3.0--generic </br> 5.4.0-37-5.4.0-48-제네릭</br> 4.15.0-1009-4.15.0-1096-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-azure-5.4.0 </br> 4.15.0-generic, 4.15.0-generic, 5.0.0-62-generic, 5.3.0-5.4.0-5.4.0-51-generic, 4.15.0-52-generic, 1099-5.4.0-azure,--azure-9.38 핫 픽스 패치 * *|
 18.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-4.15.0-일반 </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-60-generic </br> 5.3.0-19-5.3.0-66-generic </br> 5.4.0-37-5.4.0-일반</br> 4.15.0-1009-4.15.0-1093-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure-5.3.0 </br> 5.4.0-1020-5.4.0-1023-azure</br> 4.15.0-117-generic, 4.15.0-5.0.0,-generic, 5.3.0-5.4.0-5.4.0-47-4.15.0-1095-4.15.0-1096-5.4.0 9.37-5.4.0--------azure,-|
 18.04 LTS | [9.36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-generic to 4.15.0-112-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-5.0.0-58-generic </br> 5.3.0-19-5.3.0-65-generic </br> 5.4.0-37-5.4.0-42-제네릭</br> 4.15.0-1009-4.15.0-1092-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0로 </br> 5.4.0-1020-azure에서 5.4.0로 </br> 5.0.0-60-generic & 5.3.0-9.36-핫 픽스 패치 * *|
 |||
-20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-5.4.0-59 </br> -일반 5.4.0-azure-5.4.0-azure </br> 5.8.0-29-5.8.0-34-generic </br> 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-generic, 5.8.0-36-generic, 5.8.0-38-generic에서 9.40 핫 픽스 패치 * *|
+20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-5.4.0-59 </br> -일반 5.4.0-azure-5.4.0-azure </br> 5.8.0-29-5.8.0-34-generic </br> 5.4.0-1036-azure, 5.4.0-60-generic, 5.4.0-generic, 5.8.0-36-generic, 5.8.0-38-generic, 5.4.0-1039-azure, 5.4.0-64-generic, 5.4.0-65-generic, 5.8.0-40-generic, 5.8.0-41-제네릭-9.40 핫 픽스 패치 * *|
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-5.4.0-53 </br> -generic 5.4.0-5.4.0-1031-azure </br> 5.4.0-5.8.0-generic,-5.4.0, 5.4.0-azure,-56-generic, 5.8.0-31-generic, 5.8.0-33-generic, 5.4.0-5.4.0-generic,--azure-9.39 핫 픽스 패치 * *
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-5.4.0-53 </br> -generic 5.4.0-5.4.0-1031-azure </br> 5.4.0-5.8.0-generic,-5.4.0, 5.4.0-azure,-56-generic, 5.8.0-31-generic, 5.8.0-33-generic, 5.4.0-5.4.0-generic,--azure-9.39 핫 픽스 패치 * *
 20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-5.4.0-48 </br> -5.4.0-5.4.0-azure </br> 5.4.0-51-generic, 5.4.0-generic, 5.8.0-23-generic, 5.8.0-25-generic, 5.4.0-1031-azure-9.38 핫 픽스 패치 * *
