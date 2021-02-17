@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590378"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -46,7 +46,7 @@ ms.locfileid: "100391078"
 
 이러한 두 가지 방법에 대해서는 아래에서 설명 합니다.
 
-### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계: SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계. SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
 
 - **AZURE vm에서 SQL Server** -SQL 컴퓨터가 azure vm에서 호스트 되는 경우 [Log Analytics 에이전트 <a name="auto-provision-mma"></a> 의 자동 프로 비전을 사용 하도록 설정할](security-center-enable-data-collection.md#auto-provision-mma)수 있습니다. 또는 [Azure Stack vm](quickstart-onboard-machines.md#onboard-your-azure-stack-vms)을 등록 하는 수동 절차를 따를 수 있습니다.
 - **Azure arc에서 SQL Server** -SQL Server [azure arc](../azure-arc/index.yml) 사용 서버를 통해 관리 되는 경우 Security Center 권장 사항을 사용 하 여 Log Analytics 에이전트를 배포할 수 있습니다. "Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다. 또는 [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명 된 설치 방법을 따를 수 있습니다.
@@ -55,7 +55,7 @@ ms.locfileid: "100391078"
     
     - **Azure Arc 배포** -모든 Windows 컴퓨터를 Security Center에 연결할 수 있습니다. 그러나 Azure Arc는 *모든* azure 환경에서 심층 통합을 제공 합니다. Azure Arc를 설정 하는 경우 포털에서 **SQL Server – Azure arc** 페이지가 표시 되 고 해당 페이지의 전용 **보안** 탭에 보안 경고가 표시 됩니다. 따라서 첫 번째 및 권장 옵션은 [호스트에서 Azure arc를 설정](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) 하 고 위의 **azure arc에서 SQL Server** 에 대 한 지침을 따르는 것입니다.
         
-    - **Azure arc를 사용 하지 않고 windows 컴퓨터 연결** -azure arc를 사용 하지 않고 windows 컴퓨터에서 실행 되는 SQL Server 연결 하도록 선택 하는 경우 [Azure Monitor에 windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md)의 지침을 따르세요.
+    - **Azure arc를 사용 하지 않고 windows 컴퓨터 연결** -azure arc를 사용 하지 않고 windows 컴퓨터에서 실행 되는 SQL Server 연결 하도록 선택 하는 경우 [Azure Monitor에 windows 컴퓨터 연결](../azure-monitor/agents/agent-windows.md)의 지침을 따르세요.
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>2단계. Security Center의 가격 책정 및 설정 페이지에서 선택적 계획을 사용 하도록 설정 합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "100391078"
     선택한 작업 영역에 연결 된 모든 SQL server에서 계획을 사용할 수 있습니다. SQL Server 인스턴스를 처음 다시 시작한 후 보호가 완전히 활성화 됩니다.
 
     >[!TIP] 
-    > 새 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)의 지침을 따르세요.
+    > 새 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)의 지침을 따르세요.
 
 
 1. 필요에 따라 보안 경고에 대 한 전자 메일 알림을 구성 합니다. 

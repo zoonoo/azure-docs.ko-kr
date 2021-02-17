@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492385"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588748"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,11 +106,11 @@ ms.locfileid: "99492385"
 
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>사용자 작업 및 내부 프로세스의 리소스 사용량
 
-각 데이터베이스의 사용자 작업에의 한 CPU 및 메모리 소비는 및 열에 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰에 보고 됩니다 `avg_cpu_percent` `avg_memory_usage_percent` . 탄력적 풀의 경우 풀 수준 리소스 소비가 [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고 됩니다. 또한 사용자 작업 CPU 소비는 `cpu_percent` 풀 수준에서 [단일 데이터베이스](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) 및 [탄력적 풀](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) 에 대 한 Azure Monitor 메트릭을 통해 보고 됩니다.
+각 데이터베이스의 사용자 작업에의 한 CPU 및 메모리 소비는 및 열에 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰에 보고 됩니다 `avg_cpu_percent` `avg_memory_usage_percent` . 탄력적 풀의 경우 풀 수준 리소스 소비가 [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) 보기에 보고 됩니다. 또한 사용자 작업 CPU 소비는 `cpu_percent` 풀 수준에서 [단일 데이터베이스](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) 및 [탄력적 풀](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) 에 대 한 Azure Monitor 메트릭을 통해 보고 됩니다.
 
 Azure SQL Database은 고가용성 및 재해 복구, 데이터베이스 백업 및 복원, 모니터링, 쿼리 저장소, 자동 조정 등의 핵심 서비스 기능을 구현 하기 위해 계산 리소스가 필요 합니다. 시스템은 [리소스 거 버 넌 스](#resource-governance) 메커니즘을 사용 하 여 이러한 내부 프로세스에 대 한 전체 리소스의 특정 부분을 따로 설정 하 여 나머지 리소스를 사용자 작업에 사용할 수 있도록 합니다. 내부 프로세스에서 계산 리소스를 사용 하지 않는 경우 시스템에서 사용자 작업에 사용할 수 있도록 합니다.
 
-사용자 작업 및 내부 프로세스의 총 CPU 및 메모리 사용은 및 열에서 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰에 보고 됩니다 `avg_instance_cpu_percent` `avg_instance_memory_percent` . 이 데이터는 `sqlserver_process_core_percent` `sqlserver_process_memory_percent` [단일 데이터베이스](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) 에 대 한 및 Azure Monitor 메트릭과 풀 수준에서 [탄력적 풀](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) 을 통해서도 보고 됩니다.
+사용자 작업 및 내부 프로세스의 총 CPU 및 메모리 사용은 및 열에서 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 및 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 뷰에 보고 됩니다 `avg_instance_cpu_percent` `avg_instance_memory_percent` . 이 데이터는 `sqlserver_process_core_percent` `sqlserver_process_memory_percent` [단일 데이터베이스](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) 에 대 한 및 Azure Monitor 메트릭과 풀 수준에서 [탄력적 풀](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) 을 통해서도 보고 됩니다.
 
 사용자 작업 및 내부 프로세스에의 한 최근 리소스 사용에 대 한 자세한 분석은 [sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) 및 [sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) 보기에서 보고 됩니다. 이러한 보기에서 참조 되는 리소스 풀 및 작업 그룹에 대 한 자세한 내용은 [리소스 관리](#resource-governance)를 참조 하세요. 이러한 뷰는 연결 된 리소스 풀 및 작업 그룹의 특정 내부 프로세스 및 사용자 작업에의 한 리소스 사용률을 보고 합니다.
 

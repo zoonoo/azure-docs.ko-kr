@@ -3,12 +3,12 @@ title: Azure Portal에서 Azure에 하이브리드 머신 연결
 description: 이 문서에서는 Azure Portal에서 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 97962f7fd9816e398f017555d7043cf65db00ed8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398031"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584950"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
@@ -26,27 +26,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
-1. **서버-Azure Arc** 페이지에서 왼쪽 위에 있는 **추가** 를 선택 합니다.
+1. **서버 - Azure Arc** 페이지에서 왼쪽 위에 있는 **추가** 를 선택합니다.
 
-1. **방법 선택** 페이지에서 **대화형 스크립트를 사용 하 여 서버 추가** 타일을 선택한 다음 **스크립트 생성** 을 선택 합니다.
+1. **메서드 선택** 페이지에서 **대화형 스크립트를 사용하여 서버 추가** 타일을 선택한 다음, **스크립트 생성** 을 선택합니다.
 
 1. **스크립트 생성** 페이지에서 머신을 Azure 내에서 관리하려는 구독 및 리소스 그룹을 선택합니다. 머신 메타데이터를 저장할 Azure 위치를 선택합니다. 이 위치는 리소스 그룹의 위치와 같을 수도 있고 다를 수도 있습니다.
 
-1. **필수 구성 요소** 페이지에서 정보를 검토 한 후 **다음: 리소스 정보** 를 선택 합니다.
+1. **필수 구성 요소** 페이지에서 정보를 검토한 후, **다음: 리소스 세부 정보** 를 선택합니다.
 
-1. **리소스 정보** 페이지에서 다음을 제공 합니다.
+1. **리소스 세부 정보** 페이지에서 다음을 제공합니다.
 
-    1. **리소스 그룹** 드롭다운 목록에서 컴퓨터가 관리 되는 리소스 그룹을 선택 합니다.
-    1. **지역** 드롭다운 목록에서 서버 메타 데이터를 저장할 Azure 지역을 선택 합니다.
-    1. **운영** 체제 드롭다운 목록에서 스크립트가 실행 되도록 구성 된 운영 체제를 선택 합니다.
-    1. 컴퓨터에서 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 프록시 서버 IP 주소 또는 컴퓨터에서 프록시 서버와 통신 하는 데 사용할 이름 및 포트 번호를 지정 합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
+    1. **리소스 그룹** 드롭다운 목록에서 머신을 관리할 리소스 그룹을 선택합니다.
+    1. **지역** 드롭다운 목록에서 서버 메타데이터를 저장할 Azure 지역을 선택합니다.
+    1. **운영 체제** 드롭다운 목록에서 스크립트가 실행되도록 구성할 운영 체제를 선택합니다.
+    1. 머신이 인터넷에 연결하기 위해 프록시 서버를 통해 통신하는 경우 프록시 IP 주소 또는 머신에서 프록시 서버와 통신하는 데 사용할 이름과 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
     1. 완료되면 **다음: 태그** 를 선택합니다.
 
-1. **태그** 페이지에서 제안 된 기본 **물리적 위치 태그** 를 검토 하 고 값을 입력 하거나 표준을 지원할 **사용자 지정 태그** 를 하나 이상 지정 합니다.
+1. **태그** 페이지에서 제안된 기본 **실제 위치 태그** 를 검토하고 값을 입력하거나 표준을 지원하는 **사용자 지정 태그** 를 하나 이상 지정합니다.
 
-1. **다음: 스크립트 다운로드 및 실행을** 선택 합니다.
+1. 완료되면 **다음: 스크립트 다운로드 및 실행** 을 선택합니다.
 
-1. **스크립트 다운로드 및 실행** 페이지에서 요약 정보를 검토 하 고 **다운로드** 를 선택 합니다. 그래도 변경해야 하는 경우 **이전** 을 선택합니다.
+1. **스크립트 다운로드 및 실행** 페이지에서 요약 정보를 검토한 다음, **다운로드** 를 선택합니다. 그래도 변경해야 하는 경우 **이전** 을 선택합니다.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Windows에서 에이전트 설치 및 유효성 검사
 
@@ -166,6 +166,6 @@ bash ~/Install_linux_azcmagent.sh
 
 * 문제 해결 정보는 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
+* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).
 
-* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

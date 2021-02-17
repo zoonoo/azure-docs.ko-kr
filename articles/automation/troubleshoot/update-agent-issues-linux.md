@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da7c0ea670b4c4201930ce5d0f01e7bd9d9835e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896260"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581040"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
 
@@ -62,7 +62,7 @@ Azure 컴퓨터의 경우 포털의 **업데이트 에이전트 준비** 열에�
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
 
-이 검사를 통해 Linux용 Log Analytics 에이전트가 설치되어 있는지 확인합니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux)를 참조하세요.
+이 검사를 통해 Linux용 Log Analytics 에이전트가 설치되어 있는지 확인합니다. 이 에이전트를 설치하는 방법에 대한 지침은 [Linux용 에이전트 설치](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux)를 참조하세요.
 
 ### <a name="log-analytics-agent-status"></a>Log Analytics 에이전트 상태
 

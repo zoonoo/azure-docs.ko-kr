@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1f013f22b482c1e1d093f106bd786be870103f3d
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008505"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590450"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -71,7 +71,7 @@ Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전
 
 클러스터에서 컨테이너용 Azure Monitor 에이전트를 이미 실행하고 있는 경우 Log Analytics 에이전트도 설치할 수 있으며 두 에이전트가 문제없이 서로 간에 함께 작업할 수 있습니다.
 
-[컨테이너 에이전트용 Azure Monitor에 대해 자세히 알아보세요](../azure-monitor/insights/container-insights-manage-agent.md).
+[컨테이너 에이전트용 Azure Monitor에 대해 자세히 알아보세요](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>다음 단계

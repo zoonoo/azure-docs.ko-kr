@@ -3,12 +3,12 @@ title: 새 Azure Monitor Application Insights 작업 영역 기반 리소스 만
 description: 새 Azure Monitor Application Insights 작업 영역 기반 리소스를 사용하도록 설정하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 23994190df89b47d9c7e90ed62a724545389b1fe
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3ec0b25a24af13b29a3568165009f8a6d66e0218
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063369"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578337"
 ---
 # <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
@@ -23,10 +23,10 @@ ms.locfileid: "99063369"
 
 작업 영역 기반 Application Insights를 사용 하면 다음과 같은 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
 
-* [CMK (고객 관리 키](../platform/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
-* [Azure Private Link](../platform/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
+* [CMK (고객 관리 키](../logs/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
+* [Azure Private Link](../logs/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
 * [Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)](./profiler-bring-your-own-storage.md) 를 사용 하면 Application Insights Profiler 및 스냅숏 디버거와 연결 된 모든 데이터에 대 한 전체 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽 하 게 제어할 수 있습니다. 
-* [용량 예약 계층](../platform/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
+* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
 * Log Analytics 스트리밍 수집을 통한 더 빠른 데이터 수집
 
 ## <a name="create-workspace-based-resource"></a>작업 영역 기반 리소스 만들기
@@ -36,7 +36,7 @@ ms.locfileid: "99063369"
 > [!div class="mx-imgBorder"]
 > ![작업 영역 기반 Application Insights 리소스](./media/create-workspace-resource/create-workspace-based.png)
 
-기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../learn/quick-create-workspace.md).
+기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../logs/quick-create-workspace.md).
 
 **작업 영역 기반 리소스는 현재 모든 상용 지역 및 Azure Government에서 사용할 수 있습니다.**
 
@@ -212,5 +212,5 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 탐색](../platform/metrics-charts.md)
-* [분석 쿼리 작성](../log-query/log-query-overview.md)
+* [메트릭 탐색](../essentials/metrics-charts.md)
+* [분석 쿼리 작성](../logs/log-query-overview.md)

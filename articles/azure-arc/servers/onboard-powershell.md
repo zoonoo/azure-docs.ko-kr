@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure에 하이브리드 컴퓨터 연결
 description: 이 문서에서는 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다. 이 작업은 PowerShell을 사용하여 수행할 수 있습니다.
 ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0218235179e1a8a883360d0061e685c04079cbf4
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95492944"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584947"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>PowerShell을 사용 하 여 Azure에 하이브리드 컴퓨터 연결
 
@@ -103,6 +103,6 @@ Azure Arc 사용 서버에 등록 하도록 에이전트를 설치 하 고 구�
 
 * 필요한 경우 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)를 참조 하세요.
 
-* [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법을 알아봅니다. VM [게스트 구성을](../../governance/policy/concepts/guest-configuration.md)사용 하 여 컴퓨터가 예상 Log Analytics 작업 영역에 보고 하는지 확인 하 고 [vm에서 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)를 사용 하 여 모니터링을 사용 하도록 설정할 수 있습니다.
+* [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 컴퓨터를 관리 하는 방법을 알아봅니다. VM [게스트 구성을](../../governance/policy/concepts/guest-configuration.md)사용 하 여 컴퓨터가 예상 Log Analytics 작업 영역에 보고 하는지 확인 하 고 [vm에서 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md)를 사용 하 여 모니터링을 사용 하도록 설정할 수 있습니다.
 
-* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나 Azure Automation runbook 또는 업데이트 관리와 같은 기능을 사용 하 여 관리 하려는 경우에 필요 합니다. 또한이 에이전트는 [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하는 데 필요 합니다.
+* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나 Azure Automation runbook 또는 업데이트 관리와 같은 기능을 사용 하 여 관리 하려는 경우에 필요 합니다. 또한이 에이전트는 [Azure Security Center](../../security-center/security-center-introduction.md)같은 다른 Azure 서비스를 사용 하는 데 필요 합니다.

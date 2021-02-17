@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 28ec6659430cfdbc81533f05863ccb0ddc560e32
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d8c5eb385baff4aac450c470fb6103e2fb315f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508035"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590419"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Azure Defender for SQL 소개
 
@@ -43,8 +43,8 @@ SQL용 Azure Defender에는 Azure Security Center의 [데이터 보안 패키지
 - **머신의 SQL 서버용 Azure Defender** 는 하이브리드 환경을 완벽하게 지원하고 Azure, 기타 클라우드 환경 및 온-프레미스 머신에서 호스팅되는 SQL 서버(지원되는 모든 버전)를 보호하도록 Azure 네이티브 SQL Server에 대한 보호를 확장합니다.
     - [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - 온-프레미스 SQL Server:
-        - [Azure Arc 지원 SQL Server(미리 보기)](/sql/sql-server/azure-arc/overview)
-        - [Azure Arc를 사용하지 않는 Windows 머신에서 실행되는 SQL Server](../azure-monitor/platform/agent-windows.md)
+        - [Azure Arc 지원 SQL Server(미리 보기)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [Azure Arc를 사용하지 않는 Windows 머신에서 실행되는 SQL Server](../azure-monitor/agents/agent-windows.md)
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>Azure Defender for SQL의 이점은?

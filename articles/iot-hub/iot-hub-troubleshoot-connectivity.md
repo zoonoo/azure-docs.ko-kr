@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446412"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579258"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub와의 연결 끊김 모니터링, 진단 및 문제 해결
 
@@ -82,7 +82,7 @@ IoT Hub에서 내보낸 플랫폼 메트릭에 따라 경고를 설정할 수 �
 
 메트릭 경고 규칙을 사용 하 여 장치 연결 끊기에 대 한 모니터링을 확장할 수 있습니다. 즉, 많은 수의 장치가 예기치 않게 연결 해제 된 경우입니다. 이러한 상황이 감지 되 면 문제 해결에 도움이 되는 로그를 확인할 수 있습니다. 장치 단위를 모니터링 하 고 중요 한 장치에 대 한 연결을 해제 하려면 그러나 Event Grid를 사용 해야 합니다. 또한 Event Grid는 Azure 메트릭 보다 실시간 환경을 제공 합니다.
 
-IoT Hub 경고에 대해 자세히 알아보려면 [모니터 IoT Hub의 경고](monitor-iot-hub.md#alerts)를 참조 하세요. IoT Hub에서 경고를 만드는 연습에 대해서는 [메트릭 및 로그 사용 자습서](tutorial-use-metrics-and-diags.md)를 참조 하세요. 경고에 대 한 자세한 개요는 Azure Monitor 설명서의 [Microsoft Azure 경고 개요](../azure-monitor/platform/alerts-overview.md) 를 참조 하세요.
+IoT Hub 경고에 대해 자세히 알아보려면 [모니터 IoT Hub의 경고](monitor-iot-hub.md#alerts)를 참조 하세요. IoT Hub에서 경고를 만드는 연습에 대해서는 [메트릭 및 로그 사용 자습서](tutorial-use-metrics-and-diags.md)를 참조 하세요. 경고에 대 한 자세한 개요는 Azure Monitor 설명서의 [Microsoft Azure 경고 개요](../azure-monitor/alerts/alerts-overview.md) 를 참조 하세요.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Azure Monitor: 로그를 사용 하 여 연결 오류 해결
 

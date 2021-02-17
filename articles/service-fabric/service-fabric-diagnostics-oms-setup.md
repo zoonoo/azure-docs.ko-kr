@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258656"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570348"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대 한 Azure Monitor 로그 설정
 
@@ -26,19 +26,19 @@ Azure Monitor 로그는 클러스터 수준 이벤트를 모니터링하는 데 
 
 ## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Azure Marketplace를 사용하여 Log Analytics 작업 영역 배포
 
-클러스터를 배포한 후에 Log Analytics 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동하고 **Service Fabric 분석**을 찾습니다. 이것은 Service Fabric 관련 데이터가 있는 Service Fabric 배포를 위한 사용자 지정 솔루션입니다. 이 프로세스에서 솔루션(정보를 보기 위한 대시보드)과 작업 영역(기본 클러스터 데이터의 집계)을 모두 만듭니다.
+클러스터를 배포한 후에 Log Analytics 작업 영역을 추가하려면 포털에서 Azure Marketplace로 이동하고 **Service Fabric 분석** 을 찾습니다. 이것은 Service Fabric 관련 데이터가 있는 Service Fabric 배포를 위한 사용자 지정 솔루션입니다. 이 프로세스에서 솔루션(정보를 보기 위한 대시보드)과 작업 영역(기본 클러스터 데이터의 집계)을 모두 만듭니다.
 
-1. 왼쪽 탐색 메뉴에서 **새로 만들기**를 선택합니다. 
+1. 왼쪽 탐색 메뉴에서 **새로 만들기** 를 선택합니다. 
 
-2. **Service Fabric 분석**을 검색합니다. 표시되는 리소스를 선택합니다.
+2. **Service Fabric 분석** 을 검색합니다. 표시되는 리소스를 선택합니다.
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
     ![Marketplace에서 Service Fabric 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. Service Fabric 분석 만들기 창에서 **OMS 작업 영역** 필드에 대해 **작업 영역 선택**을 선택한 다음, **새 작업 영역 만들기**를 선택합니다. 필수 정보를 입력합니다. 단, Service Fabric 클러스터와 작업 영역에 대한 구독이 동일해야 합니다. 입력의 유효성이 검사되면 작업 영역이 배포되기 시작합니다. 배포에 몇 분밖에 걸리지 않습니다.
+4. Service Fabric 분석 만들기 창에서 **OMS 작업 영역** 필드에 대해 **작업 영역 선택** 을 선택한 다음, **새 작업 영역 만들기** 를 선택합니다. 필수 정보를 입력합니다. 단, Service Fabric 클러스터와 작업 영역에 대한 구독이 동일해야 합니다. 입력의 유효성이 검사되면 작업 영역이 배포되기 시작합니다. 배포에 몇 분밖에 걸리지 않습니다.
 
-5. 완료되면 Service Fabric 분석 만들기 창의 맨 아래에서 **만들기**를 다시 선택합니다. **OMS 작업 영역** 아래에 새 작업 영역이 표시되는지 확인합니다. 이 작업은 방금 만든 작업 영역에 솔루션을 추가합니다.
+5. 완료되면 Service Fabric 분석 만들기 창의 맨 아래에서 **만들기** 를 다시 선택합니다. **OMS 작업 영역** 아래에 새 작업 영역이 표시되는지 확인합니다. 이 작업은 방금 만든 작업 영역에 솔루션을 추가합니다.
 
 Windows를 사용 하는 경우 다음 단계를 계속 진행 하 여 클러스터 이벤트가 저장 된 저장소 계정에 Azure Monitor 로그를 연결 합니다. 
 
@@ -47,19 +47,19 @@ Windows를 사용 하는 경우 다음 단계를 계속 진행 하 여 클러스
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 
-1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric \<nameOfWorkspace\> ** 를 선택 하 고 개요 페이지로 이동 합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 Log Analytics 작업 영역에 액세스할 수 있습니다.
+1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric \<nameOfWorkspace\>** 를 선택 하 고 개요 페이지로 이동 합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 Log Analytics 작업 영역에 액세스할 수 있습니다.
 
-2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본**에서 **스토리지 계정 로그**를 선택합니다.
+2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본** 에서 **스토리지 계정 로그** 를 선택합니다.
 
-3. **스토리지 계정 로그** 페이지에서 맨 위의 **추가**를 선택하여 작업 영역에 클러스터 로그를 추가합니다.
+3. **스토리지 계정 로그** 페이지에서 맨 위의 **추가** 를 선택하여 작업 영역에 클러스터 로그를 추가합니다.
 
-4. **스토리지 계정**을 선택하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정은 **sfdg \<resourceGroupName\> **입니다. **applicationDiagnosticsStorageAccountName**에 사용된 값을 확인하여 클러스터를 배포하는 데 사용된 Azure Resource Manager 템플릿으로 이 이름을 확인할 수도 있습니다. 이름이 표시되지 않는 경우 아래로 스크롤하여 **추가 로드**를 선택합니다. 스토리지 계정 이름을 선택합니다.
+4. **스토리지 계정** 을 선택하여 클러스터에서 만든 적절한 계정을 추가합니다. 기본 이름을 사용한 경우 저장소 계정은 **sfdg \<resourceGroupName\>** 입니다. **applicationDiagnosticsStorageAccountName** 에 사용된 값을 확인하여 클러스터를 배포하는 데 사용된 Azure Resource Manager 템플릿으로 이 이름을 확인할 수도 있습니다. 이름이 표시되지 않는 경우 아래로 스크롤하여 **추가 로드** 를 선택합니다. 스토리지 계정 이름을 선택합니다.
 
-5. 데이터 형식을 지정합니다. **Service Fabric 이벤트**로 설정합니다.
+5. 데이터 형식을 지정합니다. **Service Fabric 이벤트** 로 설정합니다.
 
-6. 원본이 **WADServiceFabric\*EventTable**로 자동으로 설정되었는지 확인합니다.
+6. 원본이 **WADServiceFabric\*EventTable** 로 자동으로 설정되었는지 확인합니다.
 
-7. **확인**을 선택하여 작업 영역을 클러스터 로그에 연결합니다.
+7. **확인** 을 선택하여 작업 영역을 클러스터 로그에 연결합니다.
 
     ![Azure Monitor 로그에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 완료 되 면 이전 섹션의 단계에 따라 Azure Monitor 로그를 적절 한 저장소 계정에 연결 합니다.
 
-PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세히 알아보려면 [PowerShell을 사용 하 여 Azure Monitor 로그 관리](../azure-monitor/platform/powershell-workspace-configuration.md)를 참조 하세요.
+PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세히 알아보려면 [PowerShell을 사용 하 여 Azure Monitor 로그 관리](../azure-monitor/logs/powershell-workspace-configuration.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
-* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/platform/view-designer.md)
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
+* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/visualize/view-designer.md)

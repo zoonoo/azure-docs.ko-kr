@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: chrande
-ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349421"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574656"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -71,7 +71,7 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)로 보낼 수 있습니다.  
+[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)로 보낼 수 있습니다.  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>파티션 키 선택
 분할(Sharding이라고도 함)은 데이터를 마이그레이션하기 전에 고려해야 할 주요 요소입니다. Azure Cosmos DB는 완전 관리형 분할을 사용하여 스토리지 및 처리량 요구 사항에 맞게 데이터베이스의 용량을 늘립니다. 이 기능에는 라우팅 서버의 호스팅 또는 구성이 필요 없습니다.   

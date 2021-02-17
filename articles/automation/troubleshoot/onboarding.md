@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: d7803976ad76f0b4c9da5c9c3a78932adbcee106
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581029"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 
@@ -82,7 +82,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>원인
 
-가격 책정 계층이 구독의 청구 모델과 일치하지 않는 경우 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Monitor의 모니터링 사용량 및 예상 비용](../../azure-monitor/platform/usage-estimated-costs.md)을 참조하세요.
+가격 책정 계층이 구독의 청구 모델과 일치하지 않는 경우 이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Monitor의 모니터링 사용량 및 예상 비용](../../azure-monitor//usage-estimated-costs.md)을 참조하세요.
 
 #### <a name="resolution"></a>해결 방법
 

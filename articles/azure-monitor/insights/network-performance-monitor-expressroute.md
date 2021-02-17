@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 477512c0b1de8548e2aa1e2971a5d831e84d2139
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833085"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578374"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -112,7 +112,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 알림 코드를 확인하고 **LogAnalytics** 를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | Description |
+| 알림 코드(로그) | 설명 |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |
@@ -143,4 +143,5 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
  
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../logs/log-query-overview.md)을 수행합니다.
+

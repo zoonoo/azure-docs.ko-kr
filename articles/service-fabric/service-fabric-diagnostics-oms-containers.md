@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: c1d118fa1fb65663f37e33f739bf4a72a14e1c52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6539815875b87a0d0f525d7e89464fa7d2505746
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570193"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 컨테이너 모니터링
  
@@ -46,7 +46,7 @@ ms.locfileid: "95998223"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor Logs 컨테이너 솔루션](../azure-monitor/insights/containers.md)에 대해 자세히 알아보세요.
+* [Azure Monitor Logs 컨테이너 솔루션](../azure-monitor/containers/containers.md)에 대해 자세히 알아보세요.
 * Service Fabric - [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에서 컨테이너 오케스트레이션에 대해 자세히 알아보세요.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
-* 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/platform/alerts-overview.md) 규칙을 설정 하도록 Azure Monitor 로그 구성
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
+* 검색 및 진단에 도움이 되는 [자동 경고](../azure-monitor/alerts/alerts-overview.md) 규칙을 설정 하도록 Azure Monitor 로그 구성

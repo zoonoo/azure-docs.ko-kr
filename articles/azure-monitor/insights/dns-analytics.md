@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: 7bdea9239faa4ec66fffa236bea40afd5e628e62
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: c3934af1af040b8b45175bacde43237802ab82cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607146"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582406"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -35,20 +35,20 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../platform/agent-windows.md) | Yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | Yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure Storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](../agents/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../agents/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
 솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 정보를 사용하여 솔루션을 구성합니다.
 
-- 모니터링할 각 DNS 서버에 [Windows](../platform/agent-windows.md) 또는 [Operations Manager](../platform/om-agents.md) 에이전트가 있어야 합니다.
+- 모니터링할 각 DNS 서버에 [Windows](../agents/agent-windows.md) 또는 [Operations Manager](../agents/om-agents.md) 에이전트가 있어야 합니다.
 - [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Log Analytics 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](solutions.md)에서 설명한 과정을 사용할 수도 있습니다.
 
 솔루션은 추가 구성이 필요 없이 데이터 수집을 시작합니다. 그러나 다음 구성을 사용하여 데이터 수집을 사용자 지정할 수 있습니다.
@@ -76,7 +76,7 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경
 - Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 분석 구성(Microsoft.IntelligencePack.Dns.Configuration)
 
-솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
+솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../agents/om-agents.md)을 참조하세요.
 
 ## <a name="use-the-dns-analytics-solution"></a>DNS 분석 솔루션 사용
 
@@ -167,7 +167,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
     b. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration** 을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
 
-    c. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange** 를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
+    다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange** 를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
 
 1. **검색 쿼리 상자** 에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
 
@@ -185,4 +185,4 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-[로그를 쿼리](../log-query/log-query-overview.md)하여 자세한 DNS 로그 레코드를 볼 수 있습니다.
+[로그를 쿼리](../logs/log-query-overview.md)하여 자세한 DNS 로그 레코드를 볼 수 있습니다.

@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버 VM 확장 문제 해결
 description: 이 문서에서는 Azure Arc 사용 서버에서 발생 하는 Azure VM 확장 문제를 해결 하 고 문제를 해결 하는 방법을 설명 합니다.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ffd7db5ff7da3d7f60762117f80d7b9b5af6f646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e5c8ec00a894c6a54c64494edd8f259faf2dc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584670"
 ---
 # <a name="troubleshoot-arc-enabled-servers-vm-extension-issues"></a>Arc 사용 서버 VM 확장 문제 해결
 
@@ -36,9 +36,9 @@ ms.locfileid: "91347459"
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-- Log Analytics 에이전트 버전 1.13.9 (해당 확장 버전은 1.13.15)이 (가) Azure Arc 사용 서버의 리소스 ID로 업로드 된 데이터를 올바르게 표시 하지 않습니다. 로그가 서비스로 전송 되기는 하지만, **로그** 또는 **정보**를 선택한 후 선택한 사용 가능한 서버에서 데이터를 보려고 하면 데이터가 반환 되지 않습니다. Azure Monitor 로그 또는 작업 영역으로 범위가 지정 된 VM용 Azure Monitor에서 쿼리를 실행 하 여 해당 데이터를 볼 수 있습니다.
+- Log Analytics 에이전트 버전 1.13.9 (해당 확장 버전은 1.13.15)이 (가) Azure Arc 사용 서버의 리소스 ID로 업로드 된 데이터를 올바르게 표시 하지 않습니다. 로그가 서비스로 전송 되기는 하지만, **로그** 또는 **정보** 를 선택한 후 선택한 사용 가능한 서버에서 데이터를 보려고 하면 데이터가 반환 되지 않습니다. Azure Monitor 로그 또는 작업 영역으로 범위가 지정 된 VM용 Azure Monitor에서 쿼리를 실행 하 여 해당 데이터를 볼 수 있습니다.
 
-- 일부 배포판은 Linux 용 Log Analytics agent에서 현재 지원 되지 않습니다. 에이전트를 설치 하려면 Python 2를 포함 하 여 추가 종속성을 설치 해야 합니다. [여기](../../azure-monitor/platform/agents-overview.md#supported-operating-systems)에서 지원 매트릭스 및 필수 구성 요소를 검토 합니다.
+- 일부 배포판은 Linux 용 Log Analytics agent에서 현재 지원 되지 않습니다. 에이전트를 설치 하려면 Python 2를 포함 하 여 추가 종속성을 설치 해야 합니다. [여기](../../azure-monitor/agents/agents-overview.md#supported-operating-systems)에서 지원 매트릭스 및 필수 구성 요소를 검토 합니다.
 
 - 상태 메시지의 오류 코드 52는 종속성이 누락 되었음을 나타냅니다. 누락 된 종속성에 대 한 자세한 내용은 출력 및 로그를 확인 하십시오.
 
@@ -52,4 +52,4 @@ ms.locfileid: "91347459"
 
 - 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
 
-- Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+- Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

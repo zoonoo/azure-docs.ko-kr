@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932126"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574604"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -165,7 +165,7 @@ Azure Firewall은 일부 다른 스토리지 시스템에 로그를 보낼 수 �
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Azure Firewall을 Azure Monitor 로그와 통합하면 애플리케이션을 처음 작동할 때 유용합니다. 특히 모든 애플리케이션 종속성을 인식하지는 못할 경우에 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
+Azure Firewall을 Azure Monitor 로그와 통합하면 애플리케이션을 처음 작동할 때 유용합니다. 특히 모든 애플리케이션 종속성을 인식하지는 못할 경우에 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](../azure-monitor/logs/log-query-overview.md)을 참조하세요.
 
 Azure Firewall 및 요청 증가의 크기 제한에 대한 자세한 내용은 [이](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) 문서 또는 [FAQ](../firewall/firewall-faq.yml)를 참조하세요.
 

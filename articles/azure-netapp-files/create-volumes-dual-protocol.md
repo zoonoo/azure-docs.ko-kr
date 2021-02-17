@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 725f15d72694534da1fd924b3b6ffe223722fd3d
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104470"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574629"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -35,7 +35,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로�
 
 ## <a name="considerations"></a>고려 사항
 
-* [Active Directory 연결에 대 한 요구 사항을](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
+* [Active Directory 연결에 대 한 요구 사항을](create-active-directory-connections.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
 * NFS 클라이언트가 최신 상태이며 운영 체제에 대한 최신 업데이트를 실행 중인지 확인합니다.
 * Ad (Active Directory) LDAP 서버가 AD에서 실행 중인지 확인 합니다. AD 컴퓨터에서 [Active Directory LDS(Lightweight Directory Services) (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) 역할을 설치 하 고 구성 하 여이 작업을 수행할 수 있습니다.

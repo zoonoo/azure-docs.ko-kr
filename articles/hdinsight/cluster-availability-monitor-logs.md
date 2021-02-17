@@ -4,12 +4,12 @@ description: Azure Monitor 로그를 사용 하 여 클러스터 상태 및 가�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946947"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571900"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>HDInsight에서 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -19,7 +19,7 @@ HDInsight 클러스터에는 쿼리 가능한 메트릭 및 로그 뿐만 아니
 
 Azure Monitor 로그를 사용 하면 HDInsight 클러스터와 같은 여러 리소스에 의해 생성 된 데이터를 한 곳에서 수집 하 고 집계 하 여 통합 모니터링 환경을 구현할 수 있습니다.
 
-필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침 [에 따라 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 수행할 수 있습니다.
+필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침 [에 따라 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 수행할 수 있습니다.
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>HDInsight Azure Monitor 로그 통합 사용
 
@@ -37,7 +37,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 로그는 다음과 같은 다양 한 샘플 쿼리를 나열 합니다.
 
-| 쿼리 이름                      | Description                                                               |
+| 쿼리 이름                      | 설명                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | 현재 사용 가능한 컴퓨터    | 매 시간 마다 로그를 전송 하는 컴퓨터 수를 차트로 표시 합니다.                     |
 | 하트 비트 나열                 | 지난 1 시간 동안 모든 컴퓨터 하트 비트 나열                           |
@@ -81,7 +81,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 **평가 기준** 섹션에서 사용할 수 없는 노드를 확인 하려는 빈도에 따라 **기간** 및 **빈도** 를 설정 합니다.
 
-이 경고의 목적을 위해 **Period = Frequency** 를 확인 하는 것이 좋습니다. 기간, 빈도 및 기타 경고 매개 변수에 대 한 자세한 내용은 [여기](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition)에서 찾을 수 있습니다.
+이 경고의 목적을 위해 **Period = Frequency** 를 확인 하는 것이 좋습니다. 기간, 빈도 및 기타 경고 매개 변수에 대 한 자세한 내용은 [여기](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition)에서 찾을 수 있습니다.
 
 신호 논리 구성이 완료 되 면 **완료** 를 선택 합니다.
 
@@ -94,7 +94,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 그러면 **작업 그룹 추가** 가 열립니다. **작업 그룹 이름**, **약식 이름**, **구독** 및 **리소스 그룹을 선택 합니다.** **작업 섹션에서** 작업 **이름을** 선택 하 고 **전자 메일/SMS/푸시/음성** 을 **작업 유형으로 선택 합니다.**
 
 > [!NOTE]
-> Azure Function, LogicApp, Webhook, ITSM 및 Automation Runbook과 같은 전자 메일/a p i/푸시/음성 외에 경고에서 트리거할 수 있는 다른 작업은 여러 가지가 있습니다. [더 알아보세요.](../azure-monitor/platform/action-groups.md#action-specific-information)
+> Azure Function, LogicApp, Webhook, ITSM 및 Automation Runbook과 같은 전자 메일/a p i/푸시/음성 외에 경고에서 트리거할 수 있는 다른 작업은 여러 가지가 있습니다. [더 알아보세요.](../azure-monitor/alerts/action-groups.md#action-specific-information)
 
 그러면 **이메일/SMS/푸시/음성이** 열립니다. 받는 사람에 대 한 **이름을** 선택 하 고 **전자 메일** 상자 **를 선택 하** 고 경고를 보낼 전자 메일 주소를 입력 합니다. **이메일/SMS/푸시/음성** 에서 **확인** 을 선택한 다음 **작업 그룹 추가** 에서 작업 그룹 구성을 완료 합니다.
 

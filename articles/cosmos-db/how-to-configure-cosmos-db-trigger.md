@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: f753010eb994c9f3c286ad6eca6392ca7b643075
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 30328db465e0d9bf8c1ce67d92e48c688c51e043
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574625"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대 한 Azure Functions 트리거를 사용 하 여 로깅 및 연결을 구성 하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +44,7 @@ Cosmos DB용 Azure Functions 트리거를 사용할 때 로깅을 설정하려�
 
 ### <a name="query-the-logs"></a>로그 쿼리
 
-다음 쿼리를 실행하여 [Azure Application Insights의 Analytics](../azure-monitor/log-query/log-query-overview.md)에 있는 Cosmos DB용 Azure Functions 트리거에서 생성된 로그를 쿼리합니다.
+다음 쿼리를 실행하여 [Azure Application Insights의 Analytics](../azure-monitor/logs/log-query-overview.md)에 있는 Cosmos DB용 Azure Functions 트리거에서 생성된 로그를 쿼리합니다.
 
 ```sql
 traces

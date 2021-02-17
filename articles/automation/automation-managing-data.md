@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 40405607e7f7198f190f621121022537ac3b3171
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046042"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581117"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -28,7 +28,7 @@ Azure Automation 전송 중인 데이터의 보안을 보장 하려면 TLS (전�
 
 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 자동으로 검색하고 활용할 수 있도록 플랫폼 수준 보안 기능을 중단할 수 있으므로 반드시 필요하지 않다면 에이전트가 TLS 1.2만을 사용하도록 명시적으로 설정하지 않는 것이 좋습니다.
 
-Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log Analytics 에이전트에 대 한 TLS 1.2 지원에 대 한 자세한 내용은 [Log Analytics 에이전트 개요-TLS 1.2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol)를 참조 하세요.
+Hybrid Runbook Worker 역할에 대 한 종속성 인 Windows 및 Linux 용 Log Analytics 에이전트에 대 한 TLS 1.2 지원에 대 한 자세한 내용은 [Log Analytics 에이전트 개요-TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol)를 참조 하세요.
 
 ### <a name="platform-specific-guidance"></a>플랫폼별 지침
 

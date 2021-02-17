@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734177"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582349"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Azure 데이터 탐색기 Azure Monitor (미리 보기)
 
@@ -162,4 +162,4 @@ Azure 데이터 탐색기 클러스터가 포함 된 구독만 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
+[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../visualize/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.

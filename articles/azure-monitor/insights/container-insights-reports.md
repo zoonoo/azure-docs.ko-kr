@@ -3,15 +3,15 @@ title: 컨테이너에 대 한 Azure Monitor의 보고서
 description: Azure Monitor 컨테이너에 대해 수집 된 데이터를 분석 하는 데 사용할 수 있는 보고서에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907535"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582312"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 보고서
-컨테이너에 대 한 Azure Monitor의 보고서에는 기본 [Azure 통합 문서가](../platform/workbooks-overview.md)권장 됩니다. 이 문서에서는 사용할 수 있는 다양 한 보고서와 이러한 보고서에 액세스 하는 방법을 설명 합니다.
+컨테이너에 대 한 Azure Monitor의 보고서에는 기본 [Azure 통합 문서가](../visualize/workbooks-overview.md)권장 됩니다. 이 문서에서는 사용할 수 있는 다양 한 보고서와 이러한 보고서에 액세스 하는 방법을 설명 합니다.
 
 ## <a name="viewing-reports"></a>보고서 보기
 Azure Portal **Azure Monitor** 메뉴에서 **컨테이너** 를 선택 합니다. **모니터링** 섹션에서 **Insights** 를 선택 하 고 특정 클러스터를 선택한 다음 **보고서 (미리 보기)** 페이지를 선택 합니다. 
@@ -19,7 +19,7 @@ Azure Portal **Azure Monitor** 메뉴에서 **컨테이너** 를 선택 합니�
 [![보고서 페이지](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>사용자 지정 통합 문서 만들기
-이러한 통합 문서 중 하나를 기반으로 사용자 지정 통합 문서를 만들려면 **통합 문서 보기** 드롭다운을 선택 하 고 드롭다운 아래에 있는 **AKS 갤러리로 이동** 합니다. 통합 문서 및 통합 문서 템플릿 사용에 대 한 자세한 내용은 [Azure Monitor 통합 문서](../platform/workbooks-overview.md) 를 참조 하세요.
+이러한 통합 문서 중 하나를 기반으로 사용자 지정 통합 문서를 만들려면 **통합 문서 보기** 드롭다운을 선택 하 고 드롭다운 아래에 있는 **AKS 갤러리로 이동** 합니다. 통합 문서 및 통합 문서 템플릿 사용에 대 한 자세한 내용은 [Azure Monitor 통합 문서](../visualize/workbooks-overview.md) 를 참조 하세요.
 
 [![AKS 갤러리](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Azure Portal **Azure Monitor** 메뉴에서 **컨테이너** 를 선택 합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Monitor의 통합 문서에 대 한 자세한 내용은 [Azure Monitor 통합 문서](../platform/workbooks-overview.md) 를 참조 하세요.
+- Azure Monitor의 통합 문서에 대 한 자세한 내용은 [Azure Monitor 통합 문서](../visualize/workbooks-overview.md) 를 참조 하세요.

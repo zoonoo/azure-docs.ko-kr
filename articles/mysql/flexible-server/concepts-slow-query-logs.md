@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: dde9575a70ea80ad262bc01bb9d5d0015c803427
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d311ea3158e1f9d53c51fe239103039849597d11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543020"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579186"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느리게 쿼리 로그 (미리 보기)
 
@@ -27,10 +27,10 @@ MySQL 저속 쿼리 로그에 대 한 자세한 내용은 MySQL 엔진 설명서
 
 느리게 쿼리 로깅 동작을 제어 하기 위해 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
-- **long_query_time** : `long_query_time` 완료 하는 데 (초) 보다 오래 걸리면 쿼리를 기록 합니다. 기본값은 10초입니다.
-- **log_slow_admin_statements** : 관리 문이 있는지 확인 합니다 (예: `ALTER_TABLE`, `ANALYZE_TABLE` )가 기록 됩니다.
-- **log_queries_not_using_indexes** : 인덱스를 사용 하지 않는 쿼리를 로깅할지 여부를 결정 합니다.
-- **log_throttle_queries_not_using_indexes** : 저속 쿼리 로그에 쓸 수 있는 인덱싱되지 않은 쿼리 수를 제한 합니다. 이 매개 변수 `log_queries_not_using_indexes` 는가 *ON* 으로 설정 된 경우에 적용 됩니다.
+- **long_query_time**: `long_query_time` 완료 하는 데 (초) 보다 오래 걸리면 쿼리를 기록 합니다. 기본값은 10초입니다.
+- **log_slow_admin_statements**: 관리 문이 있는지 확인 합니다 (예: `ALTER_TABLE`, `ANALYZE_TABLE` )가 기록 됩니다.
+- **log_queries_not_using_indexes**: 인덱스를 사용 하지 않는 쿼리를 로깅할지 여부를 결정 합니다.
+- **log_throttle_queries_not_using_indexes**: 저속 쿼리 로그에 쓸 수 있는 인덱싱되지 않은 쿼리 수를 제한 합니다. 이 매개 변수 `log_queries_not_using_indexes` 는가 *ON* 으로 설정 된 경우에 적용 됩니다.
 
 > [!IMPORTANT]
 > 테이블이 인덱싱되지 않은 경우 `log_queries_not_using_indexes` 및 `log_throttle_queries_not_using_indexes` 매개 변수를 **ON** 으로 설정 하면 이러한 인덱싱되지 않은 테이블에 대해 실행 되는 모든 쿼리가 저속 쿼리 로그에 기록 되기 때문에 MySQL 성능에 영향을 줄 수 있습니다.
@@ -39,7 +39,7 @@ MySQL 저속 쿼리 로그에 대 한 자세한 내용은 MySQL 엔진 설명서
 
 ## <a name="access-slow-query-logs"></a>저속 쿼리 로그 액세스
 
-저속 쿼리 로그는 Azure Monitor 진단 설정에 통합 됩니다. MySQL 유연한 서버에서 느리게 쿼리 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [저속 쿼리 로그 포털 문서](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics)를 참조 하세요.
+저속 쿼리 로그는 Azure Monitor 진단 설정에 통합 됩니다. MySQL 유연한 서버에서 느리게 쿼리 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [저속 쿼리 로그 포털 문서](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics)를 참조 하세요.
 
 다음 표에서는 저속 쿼리 로그의 출력을 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 

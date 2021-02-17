@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: yelevin
-ms.openlocfilehash: ca483d993290e4d66ba257d4cb5de7fc3c952405
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b88185a09e69b1c7bd6c6c58b8e22190b4a2e394
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660834"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576766"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Azure 센티널로 위협 구하기
 
@@ -66,7 +66,7 @@ Azure 센티널 구하기를 사용 하면 다음과 같은 기능을 활용할 
 
 ## <a name="query-language"></a>쿼리 언어 
 
-Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. 쿼리 언어 및 지원 되는 연산자에 대 한 자세한 내용은 [쿼리 언어 참조](../azure-monitor/log-query/get-started-queries.md)를 참조 하세요.
+Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. 쿼리 언어 및 지원 되는 연산자에 대 한 자세한 내용은 [쿼리 언어 참조](../azure-monitor/logs/get-started-queries.md)를 참조 하세요.
 
 ## <a name="public-hunting-query-github-repository"></a>공용 구하기 쿼리 GitHub 리포지토리
 

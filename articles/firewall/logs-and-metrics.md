@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: 637ef56ca79dd333a587d38ed6a685664c7566ca
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 8922e6e0d5137a3a900e0f57f685d449c08b3f47
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547046"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596966"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
@@ -187,4 +187,4 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 - Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](./firewall-diagnostics.md)을 참조하세요.
 
-- Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
+- Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조 하세요.

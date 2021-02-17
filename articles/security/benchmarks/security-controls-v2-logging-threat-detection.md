@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c5a855ffe06a17d8ec1bfe249dbe7bc41d1166af
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369075"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576814"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>보안 제어 V2: 로깅 및 위협 검색
 
@@ -133,7 +133,7 @@ Azure Security Center은 과도 한 인증 시도 횟수와 같은 의심 스러
 
 Azure Security Center 및 Azure Policy를 사용 하 여 Azure 리소스에 대 한 리소스 로그 및 로그 데이터 수집을 사용 하도록 설정 하 여 감사, 보안 및 리소스 로그에 액세스할 수 있습니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다. 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Azure Security Center 데이터 수집 이해](../../security-center/security-center-enable-data-collection.md)
 
@@ -163,7 +163,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
@@ -187,7 +187,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다. 장기 및 보관 저장소에 대 한 Azure Storage, Data Lake 또는 Log Analytics 작업 영역 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 

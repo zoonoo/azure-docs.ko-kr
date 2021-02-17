@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197577"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576720"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Site Recovery에 대 한 Azure 보안 기준
 
@@ -66,9 +66,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 Site Recovery 서비스와 관련 된 네트워크 리소스 구성에 대 한 변경 내용을 모니터링 합니다. Azure Monitor에서 경고를 만들어 중요 한 Site Recovery 네트워크 리소스가 변경 될 때 사용자에 게 알립니다.
 
-- [Azure 활동 로그 이벤트 보기 및 검색](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트 보기 및 검색](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -86,7 +86,7 @@ Azure 활동 로그 데이터를 사용 하 여 Azure 리소스에 대해 수행
 
 Azure Monitor에서 Site Recovery 로그를 수집 하 여 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기 또는 보관 저장소에 저장소 계정을 사용 합니다. 또한 Azure 센티널 또는 타사 SIEM (보안 인시던트 및 이벤트 관리) 솔루션에 대해 및 온보드 데이터를 사용할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Monitor 로그를 사용하여 Site Recovery 모니터링](monitor-log-analytics.md)
 
@@ -104,7 +104,7 @@ Azure 활동 로그 데이터를 사용 하 여 Azure 리소스에 대해 수행
 
 Azure Monitor를 사용 하 여 Site Recovery 로그를 수집 하 여 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. Azure 센티널 또는 타사 SIEM (보안 인시던트 및 이벤트 관리) 솔루션에 및 온-보드 데이터를 사용 하도록 설정 합니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Monitor 로그를 사용하여 Site Recovery 모니터링](monitor-log-analytics.md)
 
@@ -118,7 +118,7 @@ Azure Monitor를 사용 하 여 Site Recovery 로그를 수집 하 여 생성 �
 
 **지침**: 조직의 규정 준수 규정에 따라 Azure Monitor을 사용 하 여 Azure Recovery Services 자격 증명 모음과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다. 
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -132,9 +132,9 @@ Log Analytics 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식�
 
 - [Site Recovery 모니터링](site-recovery-monitor-and-troubleshoot.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -150,7 +150,7 @@ Log Analytics 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -413,7 +413,7 @@ Site Recovery는 데이터에 대 한 미사용 데이터 암호화를 지원 �
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: 중요한 Azure 리소스에 대한 변경 내용 기록 및 경고
 
 **지침**: 중요 한 리소스를 변경 하는 경우 경고를 만들려면 Azure 활동 로그와 Azure Monitor를 사용 합니다. 이러한 리소스에는 Recovery Services 자격 증명 모음, Site Recovery 서비스 리소스 및 관련 리소스의 프로덕션 인스턴스가 포함 될 수 있습니다.
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

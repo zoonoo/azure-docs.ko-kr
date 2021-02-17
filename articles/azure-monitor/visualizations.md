@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589408"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -19,7 +19,7 @@ ms.locfileid: "98881234"
 차트 및 그래프와 같은 시각화는 모니터링 데이터를 분석하여 문제에 대해 드릴다운하고 패턴을 식별하는 데 도움이 될 수 있습니다. 사용하는 도구에 따라 조직 내부 및 외부의 다른 사용자와 시각화를 공유하는 옵션이 제공될 수도 있습니다.
 
 ## <a name="workbooks"></a>통합 문서
-[통합 문서](./platform/workbooks-overview.md)는 팀 내 데이터, 조사, 협업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
+[통합 문서](./visualize/workbooks-overview.md)는 팀 내 데이터, 조사, 협업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
 
 ![다이어그램은 페이지 보기, 사용 및 페이지에 소요 된 시간에 대 한 분석을 비롯 하 여 통합 문서에서 여러 페이지의 스크린샷을 보여 줍니다.](media/visualizations/workbook.png)
 
@@ -46,9 +46,9 @@ ms.locfileid: "98881234"
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 시각화는 [메트릭 탐색기](platform/metrics-charts.md), [Log Analytics](log-query/log-analytics-overview.md)및 [Application Insights](app/app-insights-overview.md)를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
+- Azure에 긴밀하게 통합됩니다. 시각화는 [메트릭 탐색기](essentials/metrics-charts.md), [Log Analytics](logs/log-analytics-overview.md)및 [Application Insights](app/app-insights-overview.md)를 비롯 한 여러 Azure 페이지에서 대시보드에 고정 될 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
-- [Application Insights](app/app-insights-overview.md)에서 [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), [맵](app/app-map.md) 및 가용성의 출력을 포함 하 여 여러 소스의 데이터를 결합 합니다.
+- [Application Insights](app/app-insights-overview.md)에서 [메트릭 탐색기](essentials/metrics-charts.md), [로그 쿼리](logs/log-query-overview.md), [맵](app/app-map.md) 및 가용성의 출력을 포함 하 여 여러 소스의 데이터를 결합 합니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)와 통합 됩니다.
 - 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 지정된 시각화에서 "새로 고침" 아이콘을 클릭하거나 전체 대시보드를 새로 고쳐 요청 시 수동 새로 고침 옵션을 사용하면 로그가 매시간 새로 고침됩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
@@ -66,7 +66,7 @@ ms.locfileid: "98881234"
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)는 장기적인 KPI 추세를 분석하는 보고서뿐만 아니라 비즈니스 중심 대시보드와 보고서를 만드는 데 특히 유용합니다. [로그 쿼리 결과를](platform/powerbi.md) Power BI 데이터 세트로 가져오면 여러 원본의 데이터를 결합하고 웹 및 모바일 디바이스에서 보고서를 공유하는 등 해당 기능을 활용할 수 있습니다.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)는 장기적인 KPI 추세를 분석하는 보고서뿐만 아니라 비즈니스 중심 대시보드와 보고서를 만드는 데 특히 유용합니다. [로그 쿼리 결과를](visualize/powerbi.md) Power BI 데이터 세트로 가져오면 여러 원본의 데이터를 결합하고 웹 및 모바일 디바이스에서 보고서를 공유하는 등 해당 기능을 활용할 수 있습니다.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "98881234"
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/)는 뛰어난 운영 대시보드를 제공하는 개방형 플랫폼입니다. 운영 인시던트를 감지하고, 격리하고, 심사하는 데 특히 유용합니다. Azure 구독에 [Grafana Azure Monitor 데이터 원본 플러그 인](platform/grafana-plugin.md)을 추가하여 Azure 메트릭 데이터가 시각화되도록 할 수 있습니다.
+[Grafana](https://grafana.com/)는 뛰어난 운영 대시보드를 제공하는 개방형 플랫폼입니다. 운영 인시던트를 감지하고, 격리하고, 심사하는 데 특히 유용합니다. Azure 구독에 [Grafana Azure Monitor 데이터 원본 플러그 인](visualize/grafana-plugin.md)을 추가하여 Azure 메트릭 데이터가 시각화되도록 할 수 있습니다.
 
 ![Grafana 시각화를 보여 주는 스크린샷](media/visualizations/grafana.png)
 
@@ -115,9 +115,9 @@ ms.locfileid: "98881234"
 ## <a name="azure-monitor-views"></a>Azure Monitor 뷰
 
 > [!IMPORTANT]
-> 뷰는 점점 사용하지 않고 있습니다. 뷰를 통합 문서로 변환하는 방법에 대한 지침은 [Azure Monitor 뷰 디자이너를 통합 문서로 전환 가이드](platform/view-designer-conversion-overview.md)를 참조하세요.
+> 뷰는 점점 사용하지 않고 있습니다. 뷰를 통합 문서로 변환하는 방법에 대한 지침은 [Azure Monitor 뷰 디자이너를 통합 문서로 전환 가이드](visualize/view-designer-conversion-overview.md)를 참조하세요.
 
-[Azure Monitor의 뷰](platform/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
+[Azure Monitor의 뷰](visualize/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
 
 
 ![스크린샷 선택할 때 열리는 컨테이너 모니터링 솔루션 타일 및 자세한 Azure Monitor 보기가 표시 됩니다.](media/visualizations/view.png)
@@ -126,7 +126,7 @@ ms.locfileid: "98881234"
 - 로그 데이터를 다양하게 시각화할 수 있습니다.
 - 뷰를 내보내고 가져오는 방법을 통해 다른 리소스 그룹 및 구독으로 전송합니다.
 - 작업 영역 및 모니터링 솔루션을 사용하여 Azure Monitor 관리 모델로 통합합니다.
-- 사용자 지정 매개 변수에 대해 [필터링](platform/view-designer-filters.md)할 수 있습니다.
+- 사용자 지정 매개 변수에 대해 [필터링](visualize/view-designer-filters.md)할 수 있습니다.
 - 대화형이며, 여러 수준의 드릴인(다른 뷰로 드릴하는 뷰)을 지원합니다.
 
 ### <a name="limitations"></a>제한 사항
@@ -138,11 +138,11 @@ ms.locfileid: "98881234"
 - 쿼리 응답 크기는 8MB, 쿼리 실행 시간은 110초로 제한됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Monitor에서 수집하는 데이터](platform/data-platform.md)에 대해 알아봅니다.
+- [Azure Monitor에서 수집하는 데이터](/data-platform.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
-- [메트릭 탐색기](platform/metrics-getting-started.md) 에 대해 알아보기
-- [Workbooks](./platform/workbooks-overview.md)에 대해 알아봅니다.
-- [Power BI로 로그 데이터 가져오기](./platform/powerbi.md)에 대해 알아봅니다.
-- [Grafana Azure Monitor 데이터 원본 플러그 인](./platform/grafana-plugin.md)에 대해 알아봅니다.
-- [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
+- [메트릭 탐색기](essentials/metrics-getting-started.md) 에 대해 알아보기
+- [Workbooks](./visualize/workbooks-overview.md)에 대해 알아봅니다.
+- [Power BI로 로그 데이터 가져오기](./visualize/powerbi.md)에 대해 알아봅니다.
+- [Grafana Azure Monitor 데이터 원본 플러그 인](./visualize/grafana-plugin.md)에 대해 알아봅니다.
+- [Azure Monitor의 뷰](visualize/view-designer.md)에 대해 알아봅니다.
 

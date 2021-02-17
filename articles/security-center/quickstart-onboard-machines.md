@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 8d0d4726763e36bd889c2f564d116d454b2f62b9
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: cc44c7121cfc03b78ff820f6c50a88f646d599e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579003"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -121,7 +121,7 @@ Windows 컴퓨터를 추가하려면 **에이전트 관리** 페이지의 정보
 
 완료되면 **제어판** 에 **Microsoft Monitoring Agent** 가 나타납니다. 구성을 검토하고 에이전트에 연결되었는지 확인할 수 있습니다.
 
-에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard)을 참조하세요.
+에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard)을 참조하세요.
 
 ::: zone-end
 

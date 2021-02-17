@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895461"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582202"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 변환기 버전 3은 최신 JSON 기반 웹 API를 제공 합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
 
@@ -122,7 +122,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ### <a name="authenticating-with-an-access-token"></a>액세스 토큰을 사용 하 여 인증
 또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
-| 리소스 유형     | 인증 서비스 URL                                |
+| 리소스 종류     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
 | 전역          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 | 지역 또는 다중 서비스 | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
@@ -230,7 +230,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 | 503000| 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 
 ## <a name="metrics"></a>메트릭 
-메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](../../../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
+메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](../../../azure-monitor/essentials/data-platform-metrics.md)을 참조 하세요.
 
 ![번역기 메트릭](../media/translatormetrics.png)
 

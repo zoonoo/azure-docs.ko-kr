@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 41b058cf41aa1a8fb1def68851457385c8187823
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 91aed191e3bb165d6690759426a596df39f8c10f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209885"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582294"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Key Vault에 대 한 Azure Monitor를 사용 하 여 주요 자격 증명 모음 서비스 모니터링
 Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다.
@@ -169,4 +169,4 @@ Key Vault Azure Monitor에서 식별 하는 주요 자격 증명 모음 관련 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../platform/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.
+[Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../visualize/workbooks-overview.md)를 검토하여 통합 문서에서 지원하도록 디자인된 시나리오, 새 보고서를 작성하고 기존 보고서를 사용자 지정하는 방법 등을 알아보세요.

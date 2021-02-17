@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530035"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579223"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용 하 여 특정 iOS 장치에 푸시 알림 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "86530035"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 앱에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그* 를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -47,11 +47,11 @@ ms.locfileid: "86530035"
 
 첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 디바이스에 저장됩니다. 앱을 시작하면 디바이스 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
-1. **MainStoryboard_iPhone.storyboard**의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
+1. **MainStoryboard_iPhone.storyboard** 의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 
    * "Breaking News" 텍스트가 포함된 레이블
    * "World", "Politics", "Business", "Technology", "Science", "Sports" 범주 텍스트가 포함된 레이블
-   * 범주당 하나씩인 6개의 스위치는 각 스위치 **상태**를 기본적으로 **Off(꺼짐)** 가 되도록 설정합니다.
+   * 범주당 하나씩인 6개의 스위치는 각 스위치 **상태** 를 기본적으로 **Off(꺼짐)** 가 되도록 설정합니다.
    * "Subscribe" 단추
 
      스토리보드는 다음과 같이 표시됩니다.
@@ -73,7 +73,7 @@ ms.locfileid: "86530035"
     - (IBAction)subscribe:(id)sender;
     ```
 
-4. `Notifications`라는 새 **Cocoa Touch 클래스**를 만듭니다. 다음 코드를 Notifications.h 파일의 인터페이스 섹션에 복사합니다.
+4. `Notifications`라는 새 **Cocoa Touch 클래스** 를 만듭니다. 다음 코드를 Notifications.h 파일의 인터페이스 섹션에 복사합니다.
 
     ```objc
     @property NSData* deviceToken;
@@ -125,8 +125,6 @@ ms.locfileid: "86530035"
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 
@@ -145,7 +143,7 @@ ms.locfileid: "86530035"
     ```
 
 8. `AppDelegate.m`의 `didFinishLaunchingWithOptions` 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
-    `HUBNAME` 및 `HUBLISTENACCESS`(`hubinfo.h`에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+    `HUBNAME` 및 `HUBLISTENACCESS`(`hubinfo.h`에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature* 의 연결 문자열로 바꿉니다.
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -193,7 +191,7 @@ ms.locfileid: "86530035"
      }
     ```
 
-    이 메서드는 단일 **UIAlert**를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
+    이 메서드는 단일 **UIAlert** 를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
 
 11. `ViewController.m`에서 `AppDelegate.h`에 대한 `import` 문을 추가하고 XCode 생성 `subscribe` 메서드에 다음 코드를 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
 
@@ -341,7 +339,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
     ![iOS의 예제 알림][1]
 
-    **구독**을 선택하면 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
+    **구독** 을 선택하면 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
 
 2. 속보로 보낼 메시지를 입력하고 **알림 보내기** 단추를 누릅니다. 또는 .NET 콘솔 앱을 실행하여 알림을 생성합니다.
 

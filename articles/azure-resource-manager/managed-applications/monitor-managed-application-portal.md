@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02062edd1a940bcc6588ab53457e0af91fedd9a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75651749"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578280"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>관리되는 애플리케이션의 배포된 인스턴스 모니터링
 
@@ -22,7 +22,7 @@ ms.locfileid: "75651749"
 
    ![관리되는 애플리케이션 선택](./media/monitor-managed-application-portal/select-managed-application.png)
 
-1. **Resource Health**를 선택합니다.
+1. **Resource Health** 를 선택합니다.
 
    ![Resource Health 선택](./media/monitor-managed-application-portal/select-resource-health.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "75651749"
 
 ## <a name="view-alerts"></a>경고 보기
 
-1. **경고**를 선택합니다.
+1. **경고** 를 선택합니다.
 
    ![경고 선택](./media/monitor-managed-application-portal/select-alerts.png)
 
@@ -40,11 +40,11 @@ ms.locfileid: "75651749"
 
    ![경고 보기](./media/monitor-managed-application-portal/view-alerts.png)
 
-1. 경고 규칙을 추가하려면 **+ 새 경고 규칙**을 선택합니다.
+1. 경고 규칙을 추가하려면 **+ 새 경고 규칙** 을 선택합니다.
 
    ![경고 만들기](./media/monitor-managed-application-portal/create-new-alert.png)
 
-관리되는 애플리케이션 인스턴스 또는 관리되는 애플리케이션의 리소스에 대해 경고를 만들 수 있습니다. 경고 만들기에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/platform/alerts-overview.md)를 참조하세요.
+관리되는 애플리케이션 인스턴스 또는 관리되는 애플리케이션의 리소스에 대해 경고를 만들 수 있습니다. 경고 만들기에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

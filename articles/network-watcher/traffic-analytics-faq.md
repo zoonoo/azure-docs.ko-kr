@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579242"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -126,7 +126,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 [새 로그 검색으로 로그 업그레이드 Azure Monitor](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 [새 로그 검색으로 로그 업그레이드 Azure Monitor](../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
@@ -262,7 +262,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 트래픽 분석에서 Log Analytics에 받습니다를 사용할 수 있습니다. 
 - 여기에 [설명 된 스키마](traffic-analytics-schema.md) 를 사용 하 여 쿼리 작성 
 - "새 경고 규칙"을 클릭 하 여 경고를 만듭니다.
-- 경고를 만들려면 [로그 경고 설명서](../azure-monitor/platform/alerts-log.md) 를 참조 하세요.
+- 경고를 만들려면 [로그 경고 설명서](../azure-monitor/alerts/alerts-log.md) 를 참조 하세요.
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>가장 많은 온-프레미스 트래픽을 수신 하는 Vm을 확인할 어떻게 할까요? 있나요?
 
@@ -403,4 +403,4 @@ destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_
 - 이러한 노드를 선택할 때 `Shift+Left arrow` 키를 눌러 해당 연결을 모두 하나씩 방문할 수 있습니다. 포커스가 해당 연결의 **정보 도구 상자** 로 이동합니다. 언제든지 `Shift+Right arrow`를 다시 눌러 포커스를 다시 노드로 이동할 수 있습니다.
 
 ## <a name="are-classic-nsgs-supported"></a>클래식 NSGs가 지원 되나요?
-아니요, 트래픽 분석는 클래식 NSG를 지원 하지 않습니다. 클래식 리소스가 [사용 되지 않으므로](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation)클래식에서 Azure Resource Manager IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법을](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview)이해 하려면이 문서를 참조 하세요.
+아니요, 트래픽 분석는 클래식 NSG를 지원 하지 않습니다. 클래식 리소스가 [사용 되지 않으므로](../virtual-machines/classic-vm-deprecation.md)클래식에서 Azure Resource Manager IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법을](../virtual-machines/migration-classic-resource-manager-overview.md)이해 하려면이 문서를 참조 하세요.

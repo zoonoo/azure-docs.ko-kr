@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388008"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580988"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
 
@@ -128,7 +128,7 @@ Hybrid Runbook Worker가 Azure VM이면 [관리 ID로 Runbook 인증](../automat
 #### <a name="resolution"></a>해결 방법
 
 ##### <a name="mistyped-workspace-id-or-key"></a>잘못 입력한 작업 영역 ID 또는 키
-에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/platform/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/platform/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
+에이전트의 작업 영역 ID 또는 작업 영역 키를 잘못 입력했는지 확인하려면 Windows 에이전트의 경우 [작업 영역 추가 또는 제거 – Windows 에이전트](../../azure-monitor/agents/agent-manage.md#windows-agent), Linux 에이전트의 경우 [작업 영역 추가 또는 제거 – Linux 에이전트](../../azure-monitor/agents/agent-manage.md#linux-agent)를 참조하세요. Azure Portal에서 주의 깊게 전체 문자열을 선택하고 복사하여 붙여 넣어야 합니다.
 
 ##### <a name="configuration-not-downloaded"></a>구성이 다운로드되지 않음
 
@@ -169,7 +169,7 @@ Runbook이 실행 되려고 할 때 실패 `Set-AzStorageBlobContent` 하 고 �
 
 ## <a name="linux"></a>Linux
 
-Linux Hybrid Runbook Worker는 [Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)를 사용하여 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고합니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
+Linux Hybrid Runbook Worker는 [Linux용 Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 사용하여 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고합니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>시나리오: Linux Hybrid Runbook Worker가 Runbook에 서명할 때 암호를 묻는 메시지를 받음
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-Windows Hybrid Runbook Worker는 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)를 사용하여 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고합니다. 작업자 등록이 실패하면 이 섹션에 가능한 이유가 포함됩니다.
+Windows Hybrid Runbook Worker는 [Windows용 Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 사용하여 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고합니다. 작업자 등록이 실패하면 이 섹션에 가능한 이유가 포함됩니다.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>시나리오: Windows용 Log Analytics 에이전트가 실행되고 있지 않음
 
@@ -253,7 +253,7 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="resolution"></a>해결 방법
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트 관련 문제 해결에 대한 추가 도움말은 [Log Analytics Windows 에이전트 관련 문제 해결](../../azure-monitor/platform/agent-windows-troubleshoot.md)을 참조하세요.
+로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. **Application and Services Logs\Microsoft-SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 경고나 오류가 있는지 확인할 수 있습니다. 이러한 로그에는 Azure Automation 역할을 활성화하는 데 영향을 주는 연결이나 기타 문제 유형 또는 정상적인 작업 하에 발생한 문제가 표시됩니다. Log Analytics 에이전트 관련 문제 해결에 대한 추가 도움말은 [Log Analytics Windows 에이전트 관련 문제 해결](../../azure-monitor/agents/agent-windows-troubleshoot.md)을 참조하세요.
 
 Hybrid Worker는 클라우드에서 실행되는 Runbook 작업이 출력과 메시지를 보내는 것과 동일한 방식으로 Azure Automation에 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)를 보냅니다. Runbook을 활성화하듯이 세부 정보 표시 및 진행률 스트림을 활성화할 수 있습니다.
 
@@ -351,7 +351,7 @@ Python 스크립트를 사용 하 여 Hybrid Runbook Worker를 추가 하려고 
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 다음을 수행합니다.
+이 문제를 해결하려면:
 
 1. 에이전트를 제거 `sudo sh onboard_agent.sh --purge` 합니다.
 

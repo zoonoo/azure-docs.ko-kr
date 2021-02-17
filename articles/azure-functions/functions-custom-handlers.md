@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936994"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578527"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions 사용자 지정 처리기
 
@@ -122,9 +122,6 @@ ms.locfileid: "97936994"
 }
 ```
 
-> [!NOTE]
-> `Custom` Linux Premium 또는 App Service 계획에서 유효한 런타임으로 인식 되지 않을 수 있습니다. 배포 대상인 경우를 `FUNCTIONS_WORKER_RUNTIME` 빈 문자열로 설정 합니다.
-
 ### <a name="function-metadata"></a>함수 메타 데이터
 
 사용자 지정 처리기와 함께 사용 하는 경우 내용 *에 대 한function.js* 다른 모든 컨텍스트에서 함수를 정의 하는 방법과 다르지 않습니다. 유일한 요구 사항은 파일 *의function.js* 가 함수 이름과 일치 하도록 이름이 지정 된 폴더에 있어야 한다는 것입니다.
@@ -191,7 +188,7 @@ ms.locfileid: "97936994"
 
 | <nobr>페이로드 키</nobr>   | 데이터 형식 | 설명                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
+| `Outputs`     | object    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
 | `Logs`        | array     | 메시지는 함수 호출 로그에 표시 됩니다.<br /><br />Azure에서 실행 하는 경우 메시지가 Application Insights 표시 됩니다. |
 | `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` .  |
 
@@ -216,7 +213,7 @@ ms.locfileid: "97936994"
 }
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 사용자 지정 처리기는 HTTP 이벤트 수신을 지 원하는 모든 언어로 구현할 수 있습니다. 다음 예제에서는 Go 프로그래밍 언어를 사용 하 여 사용자 지정 처리기를 구현 하는 방법을 보여 줍니다.
 

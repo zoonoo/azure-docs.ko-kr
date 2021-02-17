@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: d4fbc566cb82eb3b728b37aa1f1cc20ff92f4fca
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9516210021ce48f069ae3b3b4e02503527e0db24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896243"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580898"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Windows 업데이트 에이전트 문제 해결
 
@@ -87,7 +87,7 @@ WMF 검사는 시스템에 필요한 버전의 WMF(Windows Management Framework)
 
 이 검사는 Windows용 Log Analytics 에이전트(`healthservice`)가 머신에서 실행되고 있는지 확인합니다. 서비스 문제를 해결하는 방법에 대한 자세한 내용은 [Windows용 Log Analytics 에이전트가 실행되고 있지 않음](hybrid-runbook-worker.md#mma-not-running)을 참조하세요.
 
-Windows용 Log Analytics 에이전트를 다시 설치하려면 [Windows용 에이전트 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)를 참조하세요.
+Windows용 Log Analytics 에이전트를 다시 설치하려면 [Windows용 에이전트 설치](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows)를 참조하세요.
 
 ### <a name="monitoring-agent-service-events"></a>에이전트 서비스 이벤트 모니터링
 
