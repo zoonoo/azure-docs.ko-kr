@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498611"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571601"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -66,7 +66,7 @@ ms.locfileid: "96498611"
 
 
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조 하세요.
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>애플리케이션에서 높은 CPU 사용 또는 높은 메모리 사용 경험
 
@@ -88,7 +88,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 
 모든 인스턴스가 실행 되 고 있는 경우 Azure Log Analytics로 이동 하 여 응용 프로그램 로그를 쿼리하고 코드 논리를 검토 합니다. 이를 통해 확장 분할에 영향을 줄 수 있는지 여부를 확인할 수 있습니다. 자세한 내용은 [진단 설정을 사용 하 여 로그 및 메트릭 분석](diagnostic-services.md)을 참조 하세요.
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Azure 스프링 클라우드에 스프링 응용 프로그램을 배포 하기 위한 검사 목록
 
@@ -163,7 +163,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 JAR/원본 �
 
 Azure Log Analytics에서 _서비스 레지스트리_ 클라이언트 로그를 확인할 수도 있습니다. 자세한 내용은 [진단 설정을 사용 하 여 로그 및 메트릭 분석](diagnostic-services.md) 을 참조 하세요.
 
-Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
+Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조 하세요. [Kusto 쿼리 언어](/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>내 애플리케이션의 환경 변수를 검사하려고 합니다.
 
@@ -223,7 +223,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 </dependency>
 ```
 
-응용 프로그램 로그를 저장소 계정에 보관할 수는 있지만 Azure Log Analytics로 보내지 않은 경우 [작업 영역을 올바르게 설정](../azure-monitor/learn/quick-create-workspace.md)했는지 확인 합니다. Azure Log Analytics의 무료 계층을 사용 하는 경우 [무료 계층은 SLA (서비스 수준 계약)를 제공 하지](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/)않습니다.
+응용 프로그램 로그를 저장소 계정에 보관할 수는 있지만 Azure Log Analytics로 보내지 않은 경우 [작업 영역을 올바르게 설정](../azure-monitor/logs/quick-create-workspace.md)했는지 확인 합니다. Azure Log Analytics의 무료 계층을 사용 하는 경우 [무료 계층은 SLA (서비스 수준 계약)를 제공 하지](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/)않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

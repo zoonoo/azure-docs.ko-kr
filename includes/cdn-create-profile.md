@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 9a003b5c42a6ef4c699a3768d15ae08f86d56e52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165912"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367296"
 ---
 ## <a name="create-a-new-cdn-profile"></a>새 CDN 프로필 만들기
 
@@ -31,7 +31,7 @@ CDN 프로필은 CDN 엔드포인트에 대한 컨테이너이며 가격 책정 
    
     | 설정  | 값 |
     | -------- | ----- |
-    | **이름** | 프로필 이름에 *cdn-profile-123* 을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 이미 사용 중인 경우 다른 이름을 입력합니다. |
+    | **이름** | 프로필 이름에 *cdn-profile-123* 을 입력합니다. |
     | **구독** | 드롭다운 목록에서 Azure 구독을 선택합니다. |
     | **리소스 그룹** | **새로 만들기** 를 선택하고 리소스 그룹 이름에 *CDNQuickstart-rg* 를 입력하거나, 이미 그룹이 있는 경우 **기존 그룹 사용** 을 선택하고 *CDNQuickstart-rg* 를 선택합니다. | 
     | **리소스 그룹 위치** | 드롭다운 목록에서 가까운 위치를 선택합니다. |

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2883a2ddba9a322c09a318aa9f232de5f4704b4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595151"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>기본 제공 메트릭을 사용 하 여 유연한 서버 Azure Database for MySQL 모니터링
 
@@ -24,9 +24,9 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor를 통해 서버 모�
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 
-유연한 서버는 다양 한 메트릭을 제공 하 여 워크 로드의 성능을 이해 하 고이 데이터를 기반으로 하 여 서버 및 응용 프로그램에 미치는 영향을 이해할 수 있습니다. Azure Database for MySQL 예를 들어 유연한 서버에서 **호스트 CPU 백분율** , **활성 연결** , **IO 백분율** 및 **호스트 메모리 비율** 을 모니터링 하 여 성능에 영향을 줄 수 있는 경우를 식별할 수 있습니다. 여기에서 작업을 최적화 하거나, 계산 계층을 변경 하 여 수직으로 확장 하거나, 읽기 복제본을 사용 하 여 수평으로 크기를 조정 해야 할 수 있습니다.
+유연한 서버는 다양 한 메트릭을 제공 하 여 워크 로드의 성능을 이해 하 고이 데이터를 기반으로 하 여 서버 및 응용 프로그램에 미치는 영향을 이해할 수 있습니다. Azure Database for MySQL 예를 들어 유연한 서버에서 **호스트 CPU 백분율**, **활성 연결**, **IO 백분율** 및 **호스트 메모리 비율** 을 모니터링 하 여 성능에 영향을 줄 수 있는 경우를 식별할 수 있습니다. 여기에서 작업을 최적화 하거나, 계산 계층을 변경 하 여 수직으로 확장 하거나, 읽기 복제본을 사용 하 여 수평으로 크기를 조정 해야 할 수 있습니다.
 
-모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [경고를 설정 하는 방법](./how-to-alert-on-metric.md)을 참조 하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../../azure-monitor/platform/data-platform.md)를 참조하세요.
+모든 Azure 메트릭의 빈도는 1분이고 각 메트릭은 30일의 기록을 제공합니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [경고를 설정 하는 방법](./how-to-alert-on-metric.md)을 참조 하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../../azure-monitor/data-platform.md)를 참조하세요.
 
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.

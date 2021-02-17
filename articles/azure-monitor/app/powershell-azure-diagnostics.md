@@ -3,16 +3,16 @@ title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Micr
 description: Application Insights에 데이터를 파이프 하는 Azure 진단 구성을 자동화 합니다.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 0fd69b90ce6329041f96b8e3173f1f17270f68ee
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c7c385888d7322b212cdd62497c9bbbabb970d65
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699732"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583836"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
 
-[Microsoft Azure](https://azure.com)는 [Azure Application Insights](./app-insights-overview.md)에 [Azure Diagnostics를 보내도록 구성](../platform/diagnostics-extension-to-application-insights.md)할 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
+[Microsoft Azure](https://azure.com)는 [Azure Application Insights](./app-insights-overview.md)에 [Azure Diagnostics를 보내도록 구성](../agents/diagnostics-extension-to-application-insights.md)할 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 
 ## <a name="azure-template"></a>Azure 템플릿
 웹앱이 Azure에 있고 Azure Resource Manager 템플릿을 사용하여 리소스를 만드는 경우 리소스 노드에 이를 추가하여 Application Insights를 구성할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "94699732"
 * `myWebAppName` - 웹앱의 ID
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>클라우드 서비스 배포의 일부로 진단 확장을 사용하도록 설정
-`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다.
+`New-AzureDeployment` cmdlet에는 `ExtensionConfiguration` 매개 변수가 있으며, 진단 구성의 배열을 사용합니다. 이것은 `New-AzureServiceDiagnosticsExtensionConfig` cmdlet을 사용하여 만들 수 있습니다. 다음은 그 예입니다. 
 
 ```azurepowershell
 $service_package = "CloudService.cspkg"
@@ -123,8 +123,8 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 * [Application Insights로 Azure Cloud Services 앱 모니터링](./cloudservices.md)
-* [Application Insights에 Azure Diagnostics 보내기](../platform/diagnostics-extension-to-application-insights.md)
+* [Application Insights에 Azure Diagnostics 보내기](../agents/diagnostics-extension-to-application-insights.md)
 
 

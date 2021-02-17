@@ -11,21 +11,21 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219233"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573005"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
-Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그인 및 [감사](view-audit-logs.md) 로그를 다른 모니터링 솔루션으로 라우팅합니다. 장기 사용을 위해 로그를 유지 하거나 타사 SIEM (보안 정보 및 이벤트 관리) 도구와 통합 하 여 사용자 환경에 대 한 통찰력을 얻을 수 있습니다.
+Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그인 및 [감사](view-audit-logs.md) 로그를 다른 모니터링 솔루션으로 라우팅합니다. 로그를 장기간 사용할 수 있도록 보존할 수도 있고, 타사 SIEM(보안 정보 및 이벤트 관리) 도구와 통합하여 환경에 대한 인사이트를 얻을 수도 있습니다.
 
 다음과 같이 로그 이벤트를 라우팅할 수 있습니다.
 
 * Azure [저장소 계정](../storage/blobs/storage-blobs-introduction.md).
-* 데이터를 분석 하 고, 대시보드를 만들고, 특정 이벤트에 대해 경고 하는 [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) 입니다.
+* 데이터를 분석 하 고, 대시보드를 만들고, 특정 이벤트에 대해 경고 하는 [Log Analytics 작업 영역](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) 입니다.
 * Azure [이벤트 허브](../event-hubs/event-hubs-about.md) (및 Splunk 및 Sumo 논리 인스턴스와 통합)
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
@@ -38,7 +38,7 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 
 ## <a name="deployment-overview"></a>배포 개요
 
-Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/reports-monitoring/overview-monitoring.md)을 활용 합니다. Azure AD B2C 테 넌 트 내의 Azure Active Directory에서 *진단 설정을* 사용 하도록 설정 하려면 [azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) 를 사용 하 여 [리소스를 위임](../lighthouse/concepts/azure-delegated-resource-management.md)합니다 .이를 통해 Azure AD B2C ( **서비스 공급자**)가 azure AD ( **고객**) 리소스를 관리할 수 있습니다. 이 문서의 단계를 완료 하면 **Azure AD B2C** 포털에서 [Log Analytics 작업 영역](../azure-monitor/learn/quick-create-workspace.md) 을 포함 하는 *azure-b2c-monitor* 리소스 그룹에 액세스할 수 있습니다. 또한 Azure AD B2C에서 Log Analytics 작업 영역으로 로그를 전송할 수 있습니다.
+Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/reports-monitoring/overview-monitoring.md)을 활용 합니다. Azure AD B2C 테 넌 트 내의 Azure Active Directory에서 *진단 설정을* 사용 하도록 설정 하려면 [azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) 를 사용 하 여 [리소스를 위임](../lighthouse/concepts/azure-delegated-resource-management.md)합니다 .이를 통해 Azure AD B2C ( **서비스 공급자**)가 azure AD ( **고객**) 리소스를 관리할 수 있습니다. 이 문서의 단계를 완료 하면 **Azure AD B2C** 포털에서 [Log Analytics 작업 영역](../azure-monitor/logs/quick-create-workspace.md) 을 포함 하는 *azure-b2c-monitor* 리소스 그룹에 액세스할 수 있습니다. 또한 Azure AD B2C에서 Log Analytics 작업 영역으로 로그를 전송할 수 있습니다.
 
 이 배포 중에는 Azure 구독이 포함 된 테 넌 트 내에서 Log Analytics 작업 영역 인스턴스를 구성 하도록 Azure AD B2C 디렉터리의 사용자 또는 그룹에 권한을 부여 합니다. 권한 부여를 만들려면 구독이 포함 된 Azure AD 테 넌 트에 [Azure Resource Manager](../azure-resource-manager/index.yml) 템플릿을 배포 합니다.
 
@@ -62,7 +62,7 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 **Azure AD 테 넌 트가** 포함 된 디렉터리를 선택 합니다.
-1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md). 이 예제에서는 *AzureAdB2C* 이라는 리소스 그룹에서 이름이 *b2c* 인 Log Analytics 작업 영역을 사용 합니다.
+1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/logs/quick-create-workspace.md). 이 예제에서는 *AzureAdB2C* 이라는 리소스 그룹에서 이름이 *b2c* 인 Log Analytics 작업 영역을 사용 합니다.
 
 ## <a name="3-delegate-resource-management"></a>3. 리소스 관리 위임
 
@@ -144,9 +144,9 @@ Azure AD B2C는 [Azure Active Directory 모니터링](../active-directory/report
 
 진단 설정은 리소스에 대 한 로그 및 메트릭을 보내야 하는 위치를 정의 합니다. 가능한 대상은 다음과 같습니다.
 
-- [Azure Storage 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
-- [Event hubs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 솔루션
-- [Log Analytics 작업 영역](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+- [Azure Storage 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
+- [Event hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 솔루션
+- [Log Analytics 작업 영역](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 이 예제에서는 Log Analytics 작업 영역을 사용 하 여 대시보드를 만듭니다.
 
@@ -171,7 +171,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 1. **저장** 을 선택합니다.
 
 > [!NOTE]
-> [Log Analytics 작업 영역에 표시](../azure-monitor/platform/data-ingestion-time.md)되도록 이벤트를 내보낸 후 최대 15 분이 걸릴 수 있습니다. 또한 데이터의 부실에 영향을 줄 수 있는 [Active Directory 보고 대기 시간](../active-directory/reports-monitoring/reference-reports-latencies.md)에 대해 자세히 알아보고 보고에서 중요 한 역할을 수행 합니다.
+> [Log Analytics 작업 영역에 표시](../azure-monitor/logs/data-ingestion-time.md)되도록 이벤트를 내보낸 후 최대 15 분이 걸릴 수 있습니다. 또한 데이터의 부실에 영향을 줄 수 있는 [Active Directory 보고 대기 시간](../active-directory/reports-monitoring/reference-reports-latencies.md)에 대해 자세히 알아보고 보고에서 중요 한 역할을 수행 합니다.
 
 "Azure AD B2C 디렉터리에 대 한 Azure Monitor를 사용 하기 위해 진단 설정을 설정 하려면" 위임 된 리소스 관리를 설정 해야 합니다. "라는 오류 메시지가 표시 되 면 [보안 그룹](#32-select-a-security-group) 의 구성원 인 사용자로 로그인 하 여 [구독을 선택](#4-select-your-subscription)해야 합니다.
 
@@ -181,7 +181,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 
 ### <a name="61-create-a-query"></a>6.1 쿼리 만들기
 
-로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 강력한 쿼리 언어를 사용 하면 여러 테이블의 데이터를 조인 하 고, 큰 데이터 집합을 집계 하 고, 최소한의 코드로 복잡 한 작업을 수행할 수 있습니다. 실제로 모든 질문에 대 한 답변 및 분석은 지원 데이터가 수집 되는 동안 수행 되며, 올바른 쿼리를 구성 하는 방법을 이해할 수 있습니다. 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요.
+로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 강력한 쿼리 언어를 사용 하면 여러 테이블의 데이터를 조인 하 고, 큰 데이터 집합을 집계 하 고, 최소한의 코드로 복잡 한 작업을 수행할 수 있습니다. 실제로 모든 질문에 대 한 답변 및 분석은 지원 데이터가 수집 되는 동안 수행 되며, 올바른 쿼리를 구성 하는 방법을 이해할 수 있습니다. 자세한 내용은 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조 하세요.
 
 1. **Log Analytics 작업 영역** 에서 **로그** 를 선택 합니다.
 1. 쿼리 편집기에서 다음 [Kusto 쿼리 언어](/azure/data-explorer/kusto/query/) 쿼리를 붙여넣습니다. 이 쿼리는 지난 x 일 동안 작업 별로 정책 사용을 보여 줍니다. 기본 기간은 90 일 (90d)으로 설정 됩니다. 쿼리는 토큰/코드가 정책에 의해 발급 되는 작업에만 초점을 맞추고 있습니다.
@@ -228,7 +228,7 @@ AuditLogs
 
 ### <a name="62-create-a-workbook"></a>6.2 통합 문서 만들기
 
-통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭하여 통합된 대화형 환경으로 결합할 수 있습니다. 자세한 내용은 [Azure Monitor 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 참조 하세요.
+통합 문서는 Azure Portal 내에서 데이터를 분석하고 풍부한 시각적 보고서를 생성할 수 있는 유연한 캔버스를 제공합니다. 이를 통해 Azure에서 여러 데이터 원본을 탭하여 통합된 대화형 환경으로 결합할 수 있습니다. 자세한 내용은 [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 참조 하세요.
 
 JSON 갤러리 템플릿을 사용 하 여 새 통합 문서를 만들려면 아래 지침을 따르세요. 이 통합 문서는 Azure AD B2C 테 넌 트에 대 한 **사용자 정보** 및 **인증** 대시보드를 제공 합니다.
 
@@ -259,10 +259,10 @@ JSON 갤러리 템플릿을 사용 하 여 새 통합 문서를 만들려면 아
 
 ## <a name="create-alerts"></a>경고 만들기
 
-경고는 Azure Monitor에서 경고 규칙에 의해 생성되고 정기적으로 저장된 쿼리 또는 사용자 지정 로그 검색을 자동으로 실행할 수 있습니다. 특정 성능 메트릭을 기반으로 알림을 만들거나 특정 이벤트가 생성되거나 이벤트가 없거나 특정 기간 내에 여러 이벤트가 만들어질 때 알림을 만들 수 있습니다. 예를 들어, 평균 로그인 수가 특정 임계값을 초과 하는 경우 경고를 사용 하 여 사용자에 게 알릴 수 있습니다. 자세한 내용은 [경고 만들기](../azure-monitor/learn/tutorial-response.md)를 참조하세요.
+경고는 Azure Monitor에서 경고 규칙에 의해 생성되고 정기적으로 저장된 쿼리 또는 사용자 지정 로그 검색을 자동으로 실행할 수 있습니다. 특정 성능 메트릭을 기반으로 알림을 만들거나 특정 이벤트가 생성되거나 이벤트가 없거나 특정 기간 내에 여러 이벤트가 만들어질 때 알림을 만들 수 있습니다. 예를 들어, 평균 로그인 수가 특정 임계값을 초과 하는 경우 경고를 사용 하 여 사용자에 게 알릴 수 있습니다. 자세한 내용은 [경고 만들기](../azure-monitor/alerts/tutorial-response.md)를 참조하세요.
 
 
-다음 지침에 따라 새 Azure 경고를 만들 수 있습니다. 그러면 **전체 요청** 에 대 한 25% 삭제가 이전 기간과 비교 될 때마다 [전자 메일 알림을](../azure-monitor/platform/action-groups.md#configure-notifications) 보냅니다. 경고는 5 분 마다 실행 되며 최근 24 시간 이내에 삭제를 찾습니다. 이 경고는 Kusto 쿼리 언어를 사용 하 여 생성 됩니다.
+다음 지침에 따라 새 Azure 경고를 만들 수 있습니다. 그러면 **전체 요청** 에 대 한 25% 삭제가 이전 기간과 비교 될 때마다 [전자 메일 알림을](../azure-monitor/alerts/action-groups.md#configure-notifications) 보냅니다. 경고는 5 분 마다 실행 되며 최근 24 시간 이내에 삭제를 찾습니다. 이 경고는 Kusto 쿼리 언어를 사용 하 여 생성 됩니다.
 
 
 1. **Log Analytics 작업 영역** 에서 **로그** 를 선택 합니다. 
@@ -296,7 +296,7 @@ JSON 갤러리 템플릿을 사용 하 여 새 통합 문서를 만들려면 아
 
 ### <a name="configure-action-groups"></a>작업 그룹 구성
 
-Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 음성 통화, SMS, 전자 메일 보내기 등을 포함할 수 있습니다. 또는 다양 한 유형의 자동화 된 작업을 트리거합니다. [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md) 지침을 따릅니다.
+Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 음성 통화, SMS, 전자 메일 보내기 등을 포함할 수 있습니다. 또는 다양 한 유형의 자동화 된 작업을 트리거합니다. [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md) 지침을 따릅니다.
 
 경고 알림 전자 메일의 예는 다음과 같습니다. 
 
@@ -306,7 +306,7 @@ Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고�
 
 여러 Azure AD B2C 테 넌 트 로그를 동일한 Log Analytics 작업 영역 (또는 Azure storage 계정 또는 이벤트 허브)에 등록 하려면 다른 **Msp 제공 이름** 값을 사용 하 여 별도의 배포를 수행 해야 합니다. Log Analytics 작업 영역이 [만들기 또는 리소스 그룹 선택](#1-create-or-choose-resource-group)에서 구성한 것과 동일한 리소스 그룹에 있는지 확인 합니다.
 
-여러 Log Analytics 작업 영역에서 작업 하는 경우 [교차 작업 영역 쿼리](../azure-monitor/log-query/cross-workspace-query.md) 를 사용 하 여 여러 작업 영역에서 작동 하는 쿼리를 만듭니다. 예를 들어 다음 쿼리는 동일한 범주 (예: 인증)를 기반으로 서로 다른 테 넌 트의 두 감사 로그를 조인 합니다.
+여러 Log Analytics 작업 영역에서 작업 하는 경우 [교차 작업 영역 쿼리](../azure-monitor/logs/cross-workspace-query.md) 를 사용 하 여 여러 작업 영역에서 작동 하는 쿼리를 만듭니다. 예를 들어 다음 쿼리는 동일한 범주 (예: 인증)를 기반으로 서로 다른 테 넌 트의 두 감사 로그를 조인 합니다.
 
 ```kusto
 workspace("AD-B2C-TENANT1").AuditLogs
@@ -316,12 +316,12 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## <a name="change-the-data-retention-period"></a>데이터 보존 기간 변경
 
-Azure Monitor 로그는 엔터프라이즈의 모든 원본에서 하루에 대량의 데이터를 수집, 인덱싱 및 저장 하거나 Azure에 배포 하는 기능을 확장 하 고 지원 하도록 설계 되었습니다. 기본적으로 로그는 30 일 동안 유지 되지만 보존 기간은 최대 2 년까지 늘릴 수 있습니다. [Azure Monitor 로그를 사용 하 여 사용량 및 비용을 관리](../azure-monitor/platform/manage-cost-storage.md)하는 방법을 알아봅니다. 가격 책정 계층을 선택한 후에 [는 데이터 보존 기간을 변경할](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)수 있습니다.
+Azure Monitor 로그는 엔터프라이즈의 모든 원본에서 하루에 대량의 데이터를 수집, 인덱싱 및 저장 하거나 Azure에 배포 하는 기능을 확장 하 고 지원 하도록 설계 되었습니다. 기본적으로 로그는 30 일 동안 유지 되지만 보존 기간은 최대 2 년까지 늘릴 수 있습니다. [Azure Monitor 로그를 사용 하 여 사용량 및 비용을 관리](../azure-monitor/logs/manage-cost-storage.md)하는 방법을 알아봅니다. 가격 책정 계층을 선택한 후에 [는 데이터 보존 기간을 변경할](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure AD B2C [Siem 갤러리](https://aka.ms/b2csiem)에서 더 많은 샘플을 찾습니다. 
 
-* Azure Monitor에서 진단 설정을 추가 하 고 구성 하는 방법에 대 한 자세한 내용은 [자습서: Azure 리소스에서 리소스 로그 수집 및 분석](../azure-monitor/insights/monitor-azure-resource.md)을 참조 하세요.
+* Azure Monitor에서 진단 설정을 추가 하 고 구성 하는 방법에 대 한 자세한 내용은 [자습서: Azure 리소스에서 리소스 로그 수집 및 분석](../azure-monitor/essentials/monitor-azure-resource.md)을 참조 하세요.
 
 * Azure AD 로그를 이벤트 허브로 스트리밍하는 방법에 대 한 자세한 내용은 [자습서: azure 이벤트 허브에 로그 Azure Active Directory](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)스트리밍을 참조 하세요.

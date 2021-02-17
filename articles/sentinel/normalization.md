@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390813"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570450"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Azure 센티널의 정규화
 
@@ -147,7 +147,7 @@ Azure 센티널에서 아직 지원 되지 않는 다른 종류의 구문 분석
 
 JSON, XML 및 CSV는 쿼리 시 구문 분석에 특히 유용 합니다. Azure 센티널에는 json, XML 및 CSV에 대 한 기본 제공 구문 분석 함수 뿐만 아니라 JSON 구문 분석 도구도 있습니다.  자세한 내용은 [Azure 센티널에서 JSON 필드 사용](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (블로그)을 참조 하세요. 
 
-Log Analytics의 [저장 된 쿼리](../azure-monitor/log-query/example-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
+Log Analytics의 [저장 된 쿼리](../azure-monitor/logs/example-queries.md) (쿼리 시간 파서 구현)에 대해 자세히 알아보세요.
 
 
 ## <a name="next-steps"></a>다음 단계

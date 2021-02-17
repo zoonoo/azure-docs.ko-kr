@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.openlocfilehash: 731a1fdf9520efc43c954cba79602ed84f983b3d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 041b930a0c2fa82727216b4ca0c8367387d0d801
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367261"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -71,7 +71,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 > - 지리적 중복
 > - 다중 지역 쓰기
    
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="Azure Cosmos DB에 대한 새 계정 페이지":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="Azure Cosmos DB에 대한 새 계정 페이지":::
 
 1. **검토 + 만들기** 를 선택합니다. **네트워크** 및 **태그** 섹션은 건너뛰어도 됩니다.
 

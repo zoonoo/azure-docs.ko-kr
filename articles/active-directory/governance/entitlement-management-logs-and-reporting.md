@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746646"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577869"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Azure Monitor에서 Azure AD 권한 관리에 대한 로그 및 보고 보관
 
@@ -59,7 +59,7 @@ Azure AD 감사 로그를 보관하려면 Azure 구독에 Azure Monitor가 포�
 
 ## <a name="view-events-for-an-access-package"></a>액세스 패키지에 대한 이벤트 보기  
 
-액세스 패키지에 대한 이벤트를 보려면 기본 Azure Monitor 작업 영역에 대한 액세스 권한(정보는 [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) 참조)과 다음 역할 중 하나를 보유하고 있어야 합니다. 
+액세스 패키지에 대한 이벤트를 보려면 기본 Azure Monitor 작업 영역에 대한 액세스 권한(정보는 [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) 참조)과 다음 역할 중 하나를 보유하고 있어야 합니다. 
 
 - 전역 관리자  
 - 보안 관리자  
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>다음 단계:
-- [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기](../../azure-monitor/visualize/workbooks-overview.md)

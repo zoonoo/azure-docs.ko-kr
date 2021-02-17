@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 52a43874060748479beebc994bf0a9b663cde9dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 021c85037ea105ff7d8ff642e3a9f28ed3ebe991
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020182"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594112"
 ---
 # <a name="create-an-app-service-environment"></a>App Service Environment 만들기
 
@@ -33,7 +33,7 @@ ASE를 만든 후에는 변경할 수 없습니다.
 
 - 위치
 - 구독
-- 리소스 그룹
+- Resource group
 - 사용 되는 Azure Virtual Network (VNet)
 - 사용 되는 서브넷
 - 서브넷 크기
@@ -86,4 +86,4 @@ ASE는 일반적으로 다중 테 넌 트 하이퍼바이저에서 프로 비전
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

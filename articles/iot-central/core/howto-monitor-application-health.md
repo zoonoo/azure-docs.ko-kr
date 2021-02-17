@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: d0e59f73dd9b62b528c3d86d315b613312df7773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577049"
 ---
 # <a name="monitor-the-overall-health-of-an-iot-central-application"></a>IoT Central 응용 프로그램의 전반적인 상태를 모니터링 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "100515872"
 
 이 문서에서는 IoT Central에서 제공 하는 메트릭 집합을 사용 하 여 IoT Central 응용 프로그램에 연결 된 장치의 상태와 실행 중인 데이터 내보내기의 상태를 평가 하는 방법에 대해 알아봅니다.
 
-메트릭은 IoT Central 응용 프로그램에 대해 기본적으로 사용 하도록 설정 되며 [Azure Portal](https://portal.azure.com/)에서 액세스할 수 있습니다. [Azure Monitor 데이터 플랫폼은 이러한 메트릭을 노출](../../azure-monitor/platform/data-platform-metrics.md) 하 고 여러 가지 방법을 제공 하 여 상호 작용할 수 있습니다. 예를 들어 Azure Portal, REST API 또는 PowerShell 또는 Azure CLI의 쿼리에서 차트를 사용할 수 있습니다.
+메트릭은 IoT Central 응용 프로그램에 대해 기본적으로 사용 하도록 설정 되며 [Azure Portal](https://portal.azure.com/)에서 액세스할 수 있습니다. [Azure Monitor 데이터 플랫폼은 이러한 메트릭을 노출](../../azure-monitor/essentials/data-platform-metrics.md) 하 고 여러 가지 방법을 제공 하 여 상호 작용할 수 있습니다. 예를 들어 Azure Portal, REST API 또는 PowerShell 또는 Azure CLI의 쿼리에서 차트를 사용할 수 있습니다.
 
 ### <a name="trial-applications"></a>평가판 응용 프로그램
 
@@ -46,7 +46,7 @@ Azure Portal의 메트릭에 대 한 액세스는 [Azure 역할 기반 액세스
 
 ## <a name="iot-central-metrics"></a>IoT Central 메트릭
 
-현재 IoT Central 사용할 수 있는 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftiotcentraliotapps)을 참조 하세요.
+현재 IoT Central 사용할 수 있는 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps)을 참조 하세요.
 
 ### <a name="metrics-and-invoices"></a>메트릭 및 송장
 

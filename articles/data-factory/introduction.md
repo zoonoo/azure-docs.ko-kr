@@ -1,20 +1,17 @@
 ---
 title: Azure Data Factory 소개
 description: 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 00ae812536e73f432b9bddb93fc1b4a958b379f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fef4bbc0c0e77c1e152b8c2c44254e091b0e5a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97812871"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392547"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 

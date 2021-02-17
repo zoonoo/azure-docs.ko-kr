@@ -3,12 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 134089f4df8f80147182835ca8746322c1de7e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319255"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584163"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -16,20 +16,20 @@ ms.locfileid: "87319255"
 [가용성 웹 테스트](./monitor-web-app-availability.md)를 설정합니다.
 
 ### <a name="email-if-my-site-is-overloaded"></a>내 사이트가 과부하되면 전자 메일로 알림
-[서버 응답 시간](../platform/alerts-log.md) 에서 **경고**를 설정합니다. 1-2초 임계값이 적용됩니다.
+[서버 응답 시간](../alerts/alerts-log.md) 에서 **경고** 를 설정합니다. 1-2초 임계값이 적용됩니다.
 
 ![서버 응답 시간에 대 한 경고를 설정 하는 방법을 보여 주는 스크린샷](./media/how-do-i/030-server.png)
 
-응용 프로그램이 오류 코드를 반환하여 부하의 흔적을 표시할 수도 있습니다. **실패한 요청**에 대한 경고를 설정합니다.
+응용 프로그램이 오류 코드를 반환하여 부하의 흔적을 표시할 수도 있습니다. **실패한 요청** 에 대한 경고를 설정합니다.
 
-**서버 예외**에 대한 경고를 설정하기 위해 데이터를 확인하는 데 [일부 추가 설치](./asp-net-exceptions.md) 를 수행해야 할 수 있습니다.
+**서버 예외** 에 대한 경고를 설정하기 위해 데이터를 확인하는 데 [일부 추가 설치](./asp-net-exceptions.md) 를 수행해야 할 수 있습니다.
 
 ### <a name="email-on-exceptions"></a>예외에 대해 메일 보내기
 1. [예외 모니터링 설정](./asp-net-exceptions.md)
-2. [경고 설정](../platform/alerts-log.md)
+2. [경고 설정](../alerts/alerts-log.md)
 
 ### <a name="email-on-an-event-in-my-app"></a>내 응용 프로그램에서 이벤트 발생 시 전자 메일로 알림
-특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../platform/alerts-log.md)경고를 보낼 수 있습니다.
+특정 이벤트가 발생할 때 전자 메일을 받으려 한다고 가정해 보겠습니다. Application Insights는 이 기능을 직접 제공하지 않지만 [메트릭이 임계값에 도달했을 때](../alerts/alerts-log.md)경고를 보낼 수 있습니다.
 
 경고는 사용자 지정 이벤트는 아니지만 [사용자 지정 메트릭](./api-custom-events-metrics.md#trackmetric)에서 설정할 수 있습니다. 이벤트 발생 시 메트릭 향상을 위한 몇 가지 코드를 작성합니다.
 
@@ -51,7 +51,7 @@ telemetry.TrackEvent("status", null, measurements);
 telemetry.TrackMetric("Alarm", 0.5);
 ```
 
-[메트릭 탐색기](../platform/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
+[메트릭 탐색기](../essentials/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
 
 ![경보를 표시 하기 위해 메트릭 탐색기에서 차트를 만드는 방법을 보여 주는 스크린샷](./media/how-do-i/010-alarm.png)
 
@@ -71,11 +71,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 * "경고" 및 "정상"에서 모두 전자 메일을 보내므로 원샷 이벤트를 2상태 조건으로 간주할 수 있습니다. 예를 들어, "작업 완료" 이벤트 대신, 작업 시작과 종료 시 전자 메일을 받는 "작업 진행 중"  조건을 적용합니다.
 
 ### <a name="set-up-alerts-automatically"></a>자동 경고 설정
-[PowerShell을 사용하여 새 경고 만들기](../platform/alerts-log.md)
+[PowerShell을 사용하여 새 경고 만들기](../alerts/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>PowerShell을 사용하여 Application Insights 관리
 * [새 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically)
-* [새 경고 만들기](../platform/alerts-log.md)
+* [새 경고 만들기](../alerts/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
@@ -88,7 +88,7 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 ## <a name="visualize-data"></a>데이터 시각화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
-* [메트릭 탐색기](../platform/metrics-charts.md)에서 차트를 사용자 지정 하 고 즐겨찾기로 저장 합니다. Azure 대시보드에 고정합니다.
+* [메트릭 탐색기](../essentials/metrics-charts.md)에서 차트를 사용자 지정 하 고 즐겨찾기로 저장 합니다. Azure 대시보드에 고정합니다.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](./export-power-bi.md).
@@ -165,6 +165,6 @@ ASP.NET Core 애플리케이션의 경우 [ASP.NET Core 종속성 주입](/aspne
 * **Unix 서버** - [collectd 설치](./java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면
-* 먼저 [새 차트를 추가하고](../platform/metrics-charts.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
+* 먼저 [새 차트를 추가하고](../essentials/metrics-charts.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.
 * 없으면 [성능 카운터 모듈에서 수집한 집합에 카운터를 추가합니다](./performance-counters.md).
 

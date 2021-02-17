@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e4b5372a2b6e9b833f3a0213d69649b75ae2589b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742151"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578183"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 Azure 진단 사용 (클래식)
 
@@ -189,13 +189,13 @@ Visual Studio **서버 탐색기** 에서 wadexample 스토리지 계정으로 �
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>구성 파일 스키마
-진단 구성 파일에서는 진단 에이전트가 시작될 때 진단 구성 설정을 초기화하는 데 사용되는 값을 정의합니다. 유효한 값 및 예제는 [최신 스키마 참조](../azure-monitor/platform/diagnostics-extension-versions.md)를 참조하세요.
+진단 구성 파일에서는 진단 에이전트가 시작될 때 진단 구성 설정을 초기화하는 데 사용되는 값을 정의합니다. 유효한 값 및 예제는 [최신 스키마 참조](../azure-monitor/agents/diagnostics-extension-versions.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
-문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure Diagnostics 문제 해결](../azure-monitor/platform/diagnostics-extension-troubleshooting.md)을 참조하세요.
+문제가 있는 경우 일반적인 문제에 대한 도움말인 [Azure Diagnostics 문제 해결](../azure-monitor/agents/diagnostics-extension-troubleshooting.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../azure-monitor/platform/diagnostics-extension-overview.md).
+수집한 데이터를 변경하거나 문제를 해결하거나 일반적인 진단에 대해 자세히 알아보려면 [관련된 Azure Virtual Machine 진단 문서 목록을 참조하세요](../azure-monitor/agents/diagnostics-extension-overview.md).
 
 [EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 

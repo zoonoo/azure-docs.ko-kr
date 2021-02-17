@@ -1,24 +1,20 @@
 ---
 title: '빠른 시작: Python을 사용하여 Azure Data Factory 만들기'
 description: 데이터 팩터리를 사용하여 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 883b7df1d4dfd1b405f2952aa675db5948ab3ca3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: f92a09e78d65f3723b9dfa83574f603dc113ebeb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372368"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 

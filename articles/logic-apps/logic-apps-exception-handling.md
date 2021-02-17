@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920751"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577950"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -27,7 +27,7 @@ ms.locfileid: "96920751"
 
 재시도 정책 유형은 다음과 같습니다.
 
-| Type | Description |
+| 유형 | Description |
 |------|-------------|
 | **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. |
 | **기하급수적 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. |
@@ -69,7 +69,7 @@ ms.locfileid: "96920751"
 
 *필수*
 
-| 값 | Type | Description |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*다시 시도 정책-유형*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) |
 | <*다시 시도 간격*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "96920751"
 
 *선택 사항*
 
-| 값 | Type | Description |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*최소 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
 | <*최대 간격*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) |
@@ -255,7 +255,7 @@ ms.locfileid: "96920751"
 
 기본적으로 범위의 모든 작업이 성공 하면 범위 상태가로 표시 됩니다 `Succeeded` . 범위에 있는 최종 동작이 `Failed` 또는 이면 `Aborted` 범위 상태가로 표시 됩니다 `Failed` .
 
-범위에서 예외를 catch 하 `Failed` 고 해당 오류를 처리 하는 작업을 실행 하려면 `runAfter` 해당 범위에 대해 속성을 사용할 수 있습니다 `Failed` . 이렇게 하면 범위의 작업이 *any* 실패 하 고 `runAfter` 해당 범위에 대 한 속성을 사용 하는 경우 오류를 catch 하는 단일 작업을 만들 수 있습니다.
+범위에서 예외를 catch 하 `Failed` 고 해당 오류를 처리 하는 작업을 실행 하려면 `runAfter` 해당 범위에 대해 속성을 사용할 수 있습니다 `Failed` . 이렇게 하면 범위의 작업이  실패 하 고 `runAfter` 해당 범위에 대 한 속성을 사용 하는 경우 오류를 catch 하는 단일 작업을 만들 수 있습니다.
 
 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요.
 
@@ -362,7 +362,7 @@ ms.locfileid: "96920751"
 
 ## <a name="set-up-azure-monitor-logs"></a>Azure Monitor 로그 설정
 
-이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. [Azure Monitor](../azure-monitor/overview.md) 은 모든 실행 및 작업 상태를 포함 하 여 모든 워크플로 이벤트를 [Log Analytics 작업 영역](../azure-monitor/platform/data-platform-logs.md), [azure storage 계정](../storage/blobs/storage-blobs-overview.md)또는 [azure Event Hubs](../event-hubs/event-hubs-about.md)에 전송 하는 간단한 방법을 제공 합니다.
+이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. [Azure Monitor](../azure-monitor/overview.md) 은 모든 실행 및 작업 상태를 포함 하 여 모든 워크플로 이벤트를 [Log Analytics 작업 영역](../azure-monitor/logs/data-platform-logs.md), [azure storage 계정](../storage/blobs/storage-blobs-overview.md)또는 [azure Event Hubs](../event-hubs/event-hubs-about.md)에 전송 하는 간단한 방법을 제공 합니다.
 
 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모든 모니터링 도구에 게시할 수 있습니다. 한 가지 잠재적 옵션은 Event Hubs를 통해 모든 이벤트를 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그의 모든 잘못된 부분, 평균 또는 오류를 기반으로 라이브 쿼리를 작성할 수 있습니다. Stream Analytics를 사용하여 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 다른 데이터 원본에 정보를 보낼 수 있습니다.
 

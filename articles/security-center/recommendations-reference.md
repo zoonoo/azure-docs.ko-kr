@@ -4,15 +4,15 @@ description: 이 문서에는 리소스를 강화하고 보호하는 데 도움�
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/09/2021
+ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 9120f9fed706bd5c2b6dc1273006b995b000cec6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574480"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 

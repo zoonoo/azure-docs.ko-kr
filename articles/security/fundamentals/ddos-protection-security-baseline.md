@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575062"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준에 대 한 Azure 보안 기준
 
@@ -26,7 +26,7 @@ ms.locfileid: "98873963"
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 제어 평면 수준에서 Azure DDoS Protection 계획에 대해 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Azure DDoS Protection 인스턴스에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -40,7 +40,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 - [DDoS 진단 로깅 보기 및 구성](../../ddos-protection/diagnostic-logging.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -50,7 +50,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DDoS Protection 요금제와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -62,9 +62,9 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 보관을 �
 
 - [DDoS Protection 표준 서비스에 대 한 원격 분석, 로그 및 공격 분석에 액세스 하는 방법에 대 한 정보](../../ddos-protection/telemetry.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../../azure-monitor/platform/activity-log.md)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -80,7 +80,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-log.md)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -276,7 +276,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 Azure DDoS Protection 계획 및 기타 중요 하거나 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

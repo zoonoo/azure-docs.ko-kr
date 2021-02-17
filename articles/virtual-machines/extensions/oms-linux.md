@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: f75ad90a562a39f940e1006a2e4d9123eff2b47c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 202cdc341ce31c2347552e6fbc430c679ef28d7f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202184"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580095"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -37,7 +37,7 @@ Azure Monitor Logs는 클라우드와 온-프레미스 자산에서 모니터링
 
 ### <a name="operating-system"></a>운영 체제
 
-지원 되는 Linux 배포에 대 한 자세한 내용은 [Azure Monitor 에이전트 개요](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) 문서를 참조 하세요.
+지원 되는 Linux 배포에 대 한 자세한 내용은 [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) 문서를 참조 하세요.
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
 다음 표에서는 각 릴리스에서 Log Analytics VM 확장의 각 버전과 Log Analytics 에이전트 번들에 대한 매핑을 제공합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
@@ -76,7 +76,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey** 는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 이 확장은 대상 Log Analytics 작업 영역에서 작업 영역 ID와 작업 영역 키가 필요하며, 이러한 값은 Azure Portal의 [Log Analytics 작업 영역에서 확인할 수 있습니다.](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey** 는 대/소문자를 구분합니다.
 
 ```json
 {
@@ -107,7 +107,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -221,7 +221,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 53 | 구성 매개 변수가 누락 되거나 잘못 되어이 확장에 실패 했습니다. | 발생 한 문제에 대 한 자세한 내용은 출력 및 로그를 확인 하세요. 또한 작업 영역 ID가 올바른지 확인 하 고 컴퓨터가 인터넷에 연결 되어 있는지 확인 합니다. |
 | 55 | Azure Monitor 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공 되었는지 확인 합니다. 또한 작업 영역 ID가 올바른지 확인 하 고, 말아 및 tar 유틸리티가 설치 되어 있는지 확인 합니다. |
 
-추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/platform/vmext-troubleshoot.md)에서 확인할 수 있습니다.
+추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/visualize/vmext-troubleshoot.md)에서 확인할 수 있습니다.
 
 ### <a name="support"></a>지원
 

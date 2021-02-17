@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832932"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573403"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -136,4 +136,5 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 | MS 팀 | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../log-query/log-query-overview.md)을 수행합니다.
+자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](../logs/log-query-overview.md)을 수행합니다.
+

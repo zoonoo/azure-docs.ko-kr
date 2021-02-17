@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234004"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574791"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -292,7 +292,7 @@ App Service에 설치된 Microsoft .NET 버전을 찾는 가장 빠른 방법은
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>자동 크기 조정이 예상대로 작동하지 않는 이유는 무엇인가요?
 
-Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축소 또는 확장하지 않는 경우, “플래핑”으로 인한 무한 반복을 피하기 위해 의도적으로 크기 조정이 되지 않을 수 있습니다. 이 문제는 일반적으로 확장 및 축소 임계값 사이에 적절한 여유가 없는 경우 발생합니다. "플래핑"을 방지하는 방법을 알아보고 다른 자동 크기 조정 모범 사례를 읽으려면 [자동 크기 조정 모범 사례](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices)를 참조하세요.
+Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축소 또는 확장하지 않는 경우, “플래핑”으로 인한 무한 반복을 피하기 위해 의도적으로 크기 조정이 되지 않을 수 있습니다. 이 문제는 일반적으로 확장 및 축소 임계값 사이에 적절한 여유가 없는 경우 발생합니다. "플래핑"을 방지하는 방법을 알아보고 다른 자동 크기 조정 모범 사례를 읽으려면 [자동 크기 조정 모범 사례](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices)를 참조하세요.
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>때때로 자동 크기 조정이 부분적으로만 크기를 조정하는 이유는 무엇인가요?
 

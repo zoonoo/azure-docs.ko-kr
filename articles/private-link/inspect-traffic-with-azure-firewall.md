@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879176"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575121"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
 
@@ -106,12 +106,12 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 * Azure 구독
 * Log Analytics 작업 영역.  
 
-구독에 작업 영역이 없는 경우 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 를 참조 하세요.
+구독에 작업 영역이 없는 경우 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md) 를 참조 하세요.
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -177,7 +177,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 지역 | **(US) 남부 중부 US** 를 선택 합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다** 를 그대로 둡니다. |
     | 이미지 | **Ubuntu Server 18.04 LTS-Gen1** 을 선택 합니다. |
-    | Size | **Standard_B2s** 를 선택 합니다. |
+    | 크기 | **Standard_B2s** 를 선택 합니다. |
     | **관리자 계정** |  |
     | 인증 유형 | **암호** 를 선택합니다. |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
@@ -366,7 +366,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Subscription | 구독을 선택합니다.    |
     | 가상 네트워크 | **Myvmvnet** 을 선택 합니다. |
     | 원격 가상 네트워크에서 myAzFwVNet로의 피어 링 이름    |    **Myvmvnet-myAzFwVNet을** 입력 합니다.    |
-    | **구성** | |
+    | **Configuration** | |
     | **가상 네트워크 액세스 설정 구성** | |
     | MyAzFwVNet에서 원격 가상 네트워크에 대 한 가상 네트워크 액세스 허용 | 기본값인 **사용** 을 그대로 둡니다.    |
     | 원격 가상 네트워크에서 myAzFwVNet에 대 한 가상 네트워크 액세스 허용    | 기본값인 **사용** 을 그대로 둡니다.    |
@@ -392,7 +392,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Subscription | 구독을 선택합니다.    |
     | 가상 네트워크 | **MyPEVNet** 를 선택 합니다. |
     | 원격 가상 네트워크에서 myAzFwVNet로의 피어 링 이름    |    **MyPEVNet-myAzFwVNet를** 입력 합니다.    |
-    | **구성** | |
+    | **Configuration** | |
     | **가상 네트워크 액세스 설정 구성** | |
     | MyAzFwVNet에서 원격 가상 네트워크에 대 한 가상 네트워크 액세스 허용 | 기본값인 **사용** 을 그대로 둡니다.    |
     | 원격 가상 네트워크에서 myAzFwVNet에 대 한 가상 네트워크 액세스 허용    | 기본값인 **사용** 을 그대로 둡니다.    |
@@ -456,17 +456,17 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **SQLPrivateEndpoint** 를 입력 합니다. |
-    | 우선순위 | **100** 을 입력합니다. |
+    | 속성 | **SQLPrivateEndpoint** 를 입력 합니다. |
+    | 우선 순위 | **100** 을 입력합니다. |
     | 작업 | **허용** 을 입력 합니다. |
     | **규칙.** |  |
     | **FQDN 태그** | |
-    | Name  | 비워 둡니다.  |
+    | 속성  | 비워 둡니다.  |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다.    |
     | 원본 | 비워 둡니다. |
     | FQDN 태그 | 기본값 0을 **선택** 된 상태로 둡니다. |
     | **대상 Fqdn** | |
-    | Name | **SQLPrivateEndpoint** 를 입력 합니다.    |
+    | 속성 | **SQLPrivateEndpoint** 를 입력 합니다.    |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다. |
     | 원본 | **10.1.0.0/16** 을 입력 합니다. |
     | 프로토콜: 포트 | **Mssql: 1433** 을 입력 합니다. |
@@ -498,7 +498,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Resource group | **myResourceGroup** 을 선택합니다.  |
     | **인스턴스 세부 정보** |  |
     | 지역 | **남부 중부 US** 를 선택 합니다. |
-    | Name | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
+    | 속성 | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
     | 게이트웨이 경로 전파 | **아니오** 를 선택합니다. |
 
 5. **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.

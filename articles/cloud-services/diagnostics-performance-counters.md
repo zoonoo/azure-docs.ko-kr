@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: fa5dd61c0764be45cdba68b73a4f55745ee5e55a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98739839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585508"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 대 한 성능 카운터 수집
 
@@ -124,7 +124,7 @@ Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카�
 
 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. Visual Studio에서이 파일 (역할 별로 정의 됨)을 열고 **DiagnosticsConfiguration**  >  **publicconfig**  >  **diagnostics.wadcfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** 요소를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
-`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)를 참조하세요.
+`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element)를 참조하세요.
 
 `sampleRate` 특성으로 정의된 기간은 XML 기간 데이터 형식을 사용하여 성능 카운터가 폴링되는 빈도를 나타냅니다. 아래 예제에서는 속도가 `PT3M`(`[P]eriod[T]ime[3][M]inutes`: 3분마다)으로 설정됩니다.
 
@@ -289,9 +289,9 @@ counterServiceUsed.Increment();
 </DiagnosticsConfiguration>
 ```
 
-## <a name="more-information"></a>자세한 정보
+## <a name="more-information"></a>추가 정보
 
 - [Azure Cloud Services에 대 한 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
 - [카운터 경로 지정](/windows/win32/perfctrs/specifying-a-counter-path)
-- [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
+- [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element)

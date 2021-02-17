@@ -4,18 +4,18 @@ description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
 ms.date: 11/12/2020
 ms.topic: overview
-ms.openlocfilehash: 8368f89b8e471698ede3e9e8eb691e69f494b6e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183399"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584795"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
 Azure Arc 지원 서버를 사용하면 회사 네트워크 또는 다른 클라우드 공급자의 Azure 외부에 호스팅되는 Windows 및 Linux 머신을 네이티브 Azure 가상 머신을 관리하는 방법과 일치하도록 관리할 수 있습니다. 하이브리드 머신은 Azure에 연결되면 연결된 머신이 되어 Azure에서 리소스로 취급됩니다. 연결된 각 머신에는 리소스 ID가 있고 리소스 그룹에 포함되며, Azure Policy 및 태그 적용과 같은 표준 Azure 구성의 이점을 활용할 수 있습니다. 고객의 온-프레미스 인프라를 관리하는 서비스 공급자는 현재 네이티브 Azure 리소스를 관리하는 방법과 마찬가지로 Azure Arc와 함께 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md)를 사용하여 여러 고객 환경의 하이브리드 머신을 관리할 수 있습니다.
 
-Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공하려면 Azure에 연결하려는 각 머신에 Azure Connected Machine 에이전트를 설치해야 합니다. 이 에이전트는 다른 기능을 제공하지 않으며, Azure [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)를 대체하지 않습니다. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공하려면 Azure에 연결하려는 각 머신에 Azure Connected Machine 에이전트를 설치해야 합니다. 이 에이전트는 다른 기능을 제공하지 않으며, Azure [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 대체하지 않습니다. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -25,7 +25,7 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 - Azure Automation [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md)를 사용하여 모니터링되는 서버에 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 보고합니다.
 
-- 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 [VM용 Azure Monitor](../../azure-monitor/insights/vminsights-overview.md)를 통해 애플리케이션에서 통신하는 다른 리소스의 프로세스 및 종속성을 모니터링합니다.
+- 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 [VM용 Azure Monitor](../../azure-monitor/vm/vminsights-overview.md)를 통해 애플리케이션에서 통신하는 다른 리소스의 프로세스 및 종속성을 모니터링합니다.
 
 - 비 Azure Windows 또는 Linux 머신에 대해 지원되는 [Azure VM 확장](manage-vm-extensions.md)을 사용하여 Azure Automation [상태 구성](../../automation/automation-dsc-overview.md) 및 Azure Monitor Log Analytics 작업 영역과 같은 다른 Azure 서비스와의 배포를 간소화합니다. 여기에는 사용자 지정 스크립트 확장을 사용하여 배포 후 구성 또는 소프트웨어 설치를 수행하는 작업이 포함됩니다.
 
@@ -36,7 +36,7 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 - 위협 탐지를 위한 비 Azure 서버를 포함하고 [Azure Security Center](../../security-center/security-center-introduction.md)를 사용하여 잠재적인 보안 위협을 사전에 모니터링합니다.
 
-하이브리드 머신에서 Log Analytics 작업 영역에 수집되어 저정된 로그 데이터에는 이제 리소스 ID와 같은 머신 관련 속성이 포함되어 있습니다. [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) 로그 액세스를 지원하는 데 사용할 수 있습니다.
+하이브리드 머신에서 Log Analytics 작업 영역에 수집되어 저정된 로그 데이터에는 이제 리소스 ID와 같은 머신 관련 속성이 포함되어 있습니다. [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) 로그 액세스를 지원하는 데 사용할 수 있습니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

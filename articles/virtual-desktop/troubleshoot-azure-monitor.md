@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367676"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571360"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor 문제 해결
 
@@ -26,9 +26,9 @@ ms.locfileid: "100367676"
 
 - 진단을 수동으로 사용 하도록 설정 하거나 Log Analytics 작업 영역에 액세스 하려면 [Windows 가상 데스크톱 진단을 Log Analytics에 보내기](diagnostics-log-analytics.md)를 참조 하십시오.
 - 호스트에 Log Analytics 확장을 수동으로 설치 하려면 [Windows 용 가상 컴퓨터 확장 Log Analytics](../virtual-machines/extensions/oms-windows.md)을 참조 하세요.
-- 새 Log Analytics 작업 영역을 설정 하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요.
-- 성능 카운터를 추가 하거나 제거 하려면 [성능 카운터 구성](../azure-monitor/platform/data-sources-performance-counters.md)을 참조 하세요.
-- Log Analytics 작업 영역에 대 한 이벤트를 구성 하려면 [Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집](../azure-monitor/platform/data-sources-windows-events.md)을 참조 하세요.
+- 새 Log Analytics 작업 영역을 설정 하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요.
+- 성능 카운터를 추가 하거나 제거 하려면 [성능 카운터 구성](../azure-monitor/agents/data-sources-performance-counters.md)을 참조 하세요.
+- Log Analytics 작업 영역에 대 한 이벤트를 구성 하려면 [Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집](../azure-monitor/agents/data-sources-windows-events.md)을 참조 하세요.
 
 ## <a name="my-data-isnt-displaying-properly"></a>데이터가 제대로 표시 되지 않습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "100367676"
 
 - Azure Monitor 포털에 데이터를 보낼 수 있도록 서버 방화벽에서 나가는 포트를 열어야 할 수 있습니다. [나가는 포트](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)를 참조 하세요. 
 
-- 최근 활동의 데이터가 표시 되지 않나요? 15 분 동안 기다렸다가 피드를 새로 고칠 수 있습니다. Azure Monitor는 로그 데이터를 채우는 데 15 분의 대기 시간이 있습니다. 자세히 알아보려면 [Azure Monitor의 로그 데이터 수집 시간](../azure-monitor/platform/data-ingestion-time.md)을 참조 하세요.
+- 최근 활동의 데이터가 표시 되지 않나요? 15 분 동안 기다렸다가 피드를 새로 고칠 수 있습니다. Azure Monitor는 로그 데이터를 채우는 데 15 분의 대기 시간이 있습니다. 자세히 알아보려면 [Azure Monitor의 로그 데이터 수집 시간](../azure-monitor/logs/data-ingestion-time.md)을 참조 하세요.
 
 정보가 누락 되지 않았지만 데이터가 여전히 제대로 표시 되지 않는 경우 쿼리 또는 데이터 원본에 문제가 있을 수 있습니다. 알려진 문제 및 제한 사항을 검토 합니다. 
 
@@ -52,7 +52,7 @@ ms.locfileid: "100367676"
 
 Windows 가상 데스크톱에 대 한 Azure Monitor Azure Monitor 통합 문서를 사용 합니다. 통합 문서를 사용 하면 Windows 가상 데스크톱 통합 문서 템플릿의 복사본을 저장 하 고 사용자 지정을 직접 만들 수 있습니다.
 
-기본적으로 사용자 지정 통합 문서 템플릿은 제품 그룹의 업데이트를 자동으로 도입 하지 않습니다. 자세한 내용은 [통합 문서 기반 정보](../azure-monitor/insights/troubleshoot-workbooks.md) 및 통합 문서 [개요](../azure-monitor/platform/workbooks-overview.md)문제 해결을 참조 하세요.
+기본적으로 사용자 지정 통합 문서 템플릿은 제품 그룹의 업데이트를 자동으로 도입 하지 않습니다. 자세한 내용은 [통합 문서 기반 정보](../azure-monitor/insights/troubleshoot-workbooks.md) 및 통합 문서 [개요](../azure-monitor/visualize/workbooks-overview.md)문제 해결을 참조 하세요.
 
 ## <a name="i-cant-interpret-the-data"></a>데이터를 해석할 수 없습니다.
 

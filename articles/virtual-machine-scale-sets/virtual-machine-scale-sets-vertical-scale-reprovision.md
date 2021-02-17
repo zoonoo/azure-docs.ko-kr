@@ -9,18 +9,18 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b172f1f7137b53e98384d92c9c709694eaf0b7e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029283"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594490"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용하여 수직으로 규모 조정
 
 이 문서에서는 다시 프로비저닝을 사용하거나 사용하지 않고 Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)를 수직으로 확장하는 방법을 설명합니다. 
 
-일명 *강화* 및 *규모 축소*라고도 하는 수직 규모 조정이란 워크로드에 따라 가상 머신(VM) 규모를 늘리거나 줄이는 것을 의미합니다. 이 동작을 VM 수가 워크로드에 따라 변경되는 일명 *스케일 아웃* 및 *규모 감축*이라고도 하는 [수평 규모 조정](virtual-machine-scale-sets-autoscale-overview.md)과 비교해 보십시오.
+일명 *강화* 및 *규모 축소* 라고도 하는 수직 규모 조정이란 워크로드에 따라 가상 머신(VM) 규모를 늘리거나 줄이는 것을 의미합니다. 이 동작을 VM 수가 워크로드에 따라 변경되는 일명 *스케일 아웃* 및 *규모 감축* 이라고도 하는 [수평 규모 조정](virtual-machine-scale-sets-autoscale-overview.md)과 비교해 보십시오.
 
 다시 프로비저닝이란 기존 VM을 제거하고 새 VM으로 바꾸는 것을 의미합니다. 가상 머신 확장 집합에서 VM의 규모를 늘리거나 줄이는 경우 기존 VM을 규모 변경하고 데이터를 보존하기를 원하는 경우도 있고 새 규모의 새 VM을 배포해야 하는 경우도 있습니다. 이 문서에서는 두 경우를 모두 설명합니다.
 
@@ -118,7 +118,7 @@ Runbook을 가져온 후에는 가상 머신 확장 집합에서 경고를 통�
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>가상 머신 확장 집합에 경고 추가
 
-다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/platform/autoscale-common-metrics.md).
+다음은 가상 머신 확장 집합에 경고를 추가하는 방법을 보여 주는 PowerShell 스크립트입니다. 다음 문서를 참조하여 경고를 시작할 메트릭의 이름을 가져옵니다. [Azure Monitor 자동 크기 조정 공용 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 경고를 만드는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Monitor PowerShell 샘플](../azure-monitor/samples/powershell-samples.md)
-* [Azure Monitor 플랫폼 간 CLI 샘플](../azure-monitor/samples/cli-samples.md)
+* [Azure Monitor PowerShell 샘플](../azure-monitor/powershell-samples.md)
+* [Azure Monitor 플랫폼 간 CLI 샘플](../azure-monitor/cli-samples.md)
 
 ## <a name="summary"></a>요약
 

@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660456"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593620"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 분석 자동 수집 플러그 인을 클릭 합니다.
 
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>구성
 
-| 속성                  | Type                               | 기본값 | Description                                                                                                                              |
+| 속성                  | Type                               | 기본값 | 설명                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | 자동 캡처 구성.                                                                                                         |
 | 콜백(callback)              | [IValueCallback](#ivaluecallback)  | null    | 콜백 구성.                                                                                                                 |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| 속성                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   Description                                                                                |
+| 속성                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   설명                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그가 지정 되지 않은 경우 또는 사용자가 customDataPrefix를 제공 하지 않는 경우 contentName에 대 한 표준 HTML 특성을 수집 합니다. |
 | customDataPrefix          | 문자열  | `data-`   | `data-*`| 제공 된 접두사로 태그가 지정 된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어,는 `data-*-id` `data-<yourcustomattribute>` HTML 태그에서 사용할 수 있습니다.   |
@@ -115,7 +115,7 @@ appInsights.loadAppInsights();
 
 BehaviorValidator 함수는 코드의 태그가 지정 된 동작이 미리 정의 된 목록에 맞는지 자동으로 확인 합니다. 이렇게 하면 태그가 지정 된 동작이 기업의 설정 분류와 일치 하 게 됩니다. 대부분의 Azure Monitor 고객은이 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 노출 되는 세 가지 behaviorValidator 콜백 함수가 있습니다. 그러나 노출 된 함수에서 요구 사항을 해결 하지 못하면 사용자가 자신의 콜백 함수를 사용할 수 있습니다. 사용자 고유의 동작 데이터 구조를 가져오기 위해 플러그 인은 데이터 태그에서 동작을 추출 하는 동안이 유효성 검사기 함수를 사용 합니다.
 
-| 속성                   | Description                                                                        |
+| 속성                   | 설명                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
 | BehaviorValueValidator | 동작 데이터 구조가 문자열 배열인 경우이 콜백 함수를 사용 합니다.|
 | BehaviorMapValidator   | 동작 데이터 구조가 사전 인 경우이 콜백 함수를 사용 합니다.       |
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - 클릭 분석 자동 수집 플러그 인에 대 한 [GitHub 리포지토리](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) 및 [NPM 패키지](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) 를 확인 합니다.
 - 사용 [환경에서 이벤트 분석](usage-segmentation.md) 을 사용 하 여 상위 클릭 및 사용 가능한 차원과 조각화를 분석 합니다.
-- [Log Analytics](../log-query/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에서 customdimensions 특성의 내용 필드 아래에서 데이터 클릭을 찾습니다. 추가 지침은 [샘플 앱](https://go.microsoft.com/fwlink/?linkid=2152871) 을 참조 하세요.
-- [통합 문서](../platform/workbooks-overview.md) 를 빌드하여 클릭 데이터의 사용자 지정 시각화를 만듭니다.
+- [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에서 customdimensions 특성의 내용 필드 아래에서 데이터 클릭을 찾습니다. 추가 지침은 [샘플 앱](https://go.microsoft.com/fwlink/?linkid=2152871) 을 참조 하세요.
+- [통합 문서](../visualize/workbooks-overview.md) 를 빌드하여 클릭 데이터의 사용자 지정 시각화를 만듭니다.

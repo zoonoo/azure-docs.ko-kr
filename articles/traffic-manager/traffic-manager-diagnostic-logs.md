@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184545"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577888"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 리소스 로깅 사용
 
@@ -64,7 +64,7 @@ Azure Traffic Manager 리소스 로그는 Traffic Manager 프로필 리소스의
 
 ## <a name="traffic-manager-log-schema"></a>Traffic Manager 로그 스키마
 
-Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다. 최상위 리소스 로그 스키마의 경우 [Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주](../azure-monitor/platform/resource-logs-schema.md)를 참조 하세요.
+Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 최상위 스키마를 공유 하며 각 서비스는 고유한 이벤트의 고유한 속성을 내보낼 수 있는 유연성을 제공 합니다. 최상위 리소스 로그 스키마의 경우 [Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주](../azure-monitor/essentials/resource-logs-schema.md)를 참조 하세요.
 
 다음 표에는 Azure Traffic Manager 프로필 리소스와 관련된 로그 스키마가 나와 있습니다.
 

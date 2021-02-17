@@ -1,17 +1,15 @@
 ---
 title: Azure 마이크로 서비스에서 실패 시뮬레이션
 description: 이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aea918f75ad9c8aa58b5201d2fdd967794085438
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547080"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595019"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
 불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
@@ -29,7 +27,7 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 다양한 정상 및 비정상 오류를 유도하면서 서비스 및 비즈니스 작업을 실행하면 보다 완벽하게 품질을 확인할 수 있습니다. 비정상적 오류의 경우 워크플로 도중에 서비스 프로세스가 갑자기 종료되는 시나리오를 실행합니다. 이 시나리오는 Service Fabric에서 서비스 복제본을 복원할 때 복구 경로를 테스트합니다. 데이터 일관성을 테스트하고 실패 후 서비스 상태가 올바르게 유지되는지 테스트하는 데 도움이 됩니다. 다른 실패 집합(정상적인 실패)은 서비스 패브릭에 의해 이동되는 복제본에 대해 서비스가 올바르게 반응하는지를 테스트 합니다. 이 테스트는 RunAsync 메서드의 취소 처리를 테스트합니다. 서비스에서 설정되는 취소 토큰을 확인하고 상태를 올바르게 저장한 후 RunAsync 메서드를 종료해야 합니다.
 
 ## <a name="testability-actions-list"></a>테스트 용이성 작업 목록
-| 작업 | Description | 관리되는 API | PowerShell cmdlet | 정상/비정상 오류 |
+| 작업 | 설명 | 관리되는 API | PowerShell cmdlet | 정상/비정상 오류 |
 | --- | --- | --- | --- | --- |
 | CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |해당 없음 |
 | InvokeDataLoss |서비스 파티션으로 데이터 손실을 유도합니다. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |정상 |

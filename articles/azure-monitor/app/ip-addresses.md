@@ -3,12 +3,12 @@ title: Azure Monitor에서 사용 하는 IP 주소
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 72f825630ec94b5c32a949a4395c431318afa87f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220805"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584113"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Azure Monitor에서 사용 하는 IP 주소
 [Azure Monitor](../overview.md) 는 여러 개의 IP 주소를 사용 합니다. Azure Monitor은 Log Analytics 및 Application Insights 외에도 핵심 플랫폼 메트릭과 로그로 구성 됩니다. 모니터링 하는 응용 프로그램 또는 인프라를 방화벽 뒤에서 호스트 하는 경우 이러한 주소를 알아야 할 수 있습니다.
@@ -254,21 +254,21 @@ USDoD East
    1. 리소스 그룹 이름을 추가 하 고 *인스턴스 세부 정보* 를 입력 합니다.
    1. **검토 + 만들기** 를 클릭 한 다음 *만들기* 를 클릭 합니다.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="네트워크 보안 그룹을 만드는 방법에 대 한 예입니다."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="네트워크 보안 그룹을 만드는 방법에 대 한 예입니다."border="true":::
 
 3. 리소스 그룹으로 이동한 다음 만든 *네트워크 보안 그룹* 을 클릭 합니다.
 
     1. *인바운드 보안 규칙* 을 선택 합니다.
     1. **추가** 를 클릭합니다.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
 
 4. 오른쪽 창에 새 창이 열립니다.
     1.  원본 선택: **서비스 태그**
     1.  원본 서비스 태그: **Actiongroup**
     1.  **추가** 를 클릭합니다.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다."border="true":::
 
 
 ## <a name="profiler"></a>프로파일러

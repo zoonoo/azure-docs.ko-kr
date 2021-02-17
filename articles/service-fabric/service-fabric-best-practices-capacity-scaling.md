@@ -1,19 +1,19 @@
 ---
-title: Azure Service Fabric에 대 한 용량 계획 및 크기 조정
+title: Azure Service Fabric에 대한 용량 계획 및 크기 조정
 description: Service Fabric 클러스터 및 애플리케이션 계획 및 크기 조정을 위한 모범 사례를 소개합니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784683"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595069"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대한 용량 계획 및 크기 조정
 
 Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하는 계산 리소스의 크기를 조정 하기 전에 용량을 계획 하는 것이 중요 합니다. 용량 계획에 대한 자세한 내용은 [Service Fabric 클러스터 용량 계획](./service-fabric-cluster-capacity.md)을 참조하세요. 클러스터 확장성에 대 한 추가 모범 사례 지침은 [Service Fabric 확장성 고려 사항](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)을 참조 하세요.
 
@@ -26,7 +26,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 * 적절한 용량을 선언하여 Resource Manager 템플릿을 배포하는 과정에서 사용 사례가 지원되지 않는 경우
      
-   수동으로 크기를 조정 하는 것 외에도 [Azure 리소스 그룹 배포 프로젝트를 사용 하 여 Azure DevOps Services에서 지속적인 통합 및 배달 파이프라인](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)을 구성할 수 있습니다. 이 파이프라인은 일반적으로 [Azure Monitor REST API](../azure-monitor/platform/rest-api-walkthrough.md)에서 쿼리 된 가상 컴퓨터 성능 메트릭을 사용 하는 논리 앱에 의해 트리거됩니다. 파이프라인은 리소스 관리자 템플릿을 최적화 하는 동안 원하는 메트릭에 따라 효율적으로 크기를 조정 합니다.
+   수동으로 크기를 조정 하는 것 외에도 [Azure 리소스 그룹 배포 프로젝트를 사용 하 여 Azure DevOps Services에서 지속적인 통합 및 배달 파이프라인](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)을 구성할 수 있습니다. 이 파이프라인은 일반적으로 [Azure Monitor REST API](../azure-monitor/essentials/rest-api-walkthrough.md)에서 쿼리 된 가상 컴퓨터 성능 메트릭을 사용 하는 논리 앱에 의해 트리거됩니다. 파이프라인은 리소스 관리자 템플릿을 최적화 하는 동안 원하는 메트릭에 따라 효율적으로 크기를 조정 합니다.
 * 한 번에 하나의 가상 머신 확장 집합 노드만 수평 확장 해야 합니다.
    
    한 번에 세 개 이상의 노드로 확장 하려면 [가상 머신 확장 집합을 추가 하 여 Service Fabric 클러스터를 확장](virtual-machine-scale-set-scale-node-type-scale-out.md)해야 합니다. 가상 머신 확장 집합을 한 번에 하나씩 수평으로 확장 및 축소 하는 것이 가장 안전 합니다.
@@ -42,7 +42,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 예를 들면 다음과 같습니다.
+Azure Service Fabric에서 노드 유형을 [수직 확장](./virtual-machine-scale-set-scale-node-type-scale-out.md) 하려면 여러 단계와 고려 사항이 필요 합니다. 다음은 그 예입니다. 
 
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않으면 클러스터를 추가로 불안정 하 게 됩니다.
 * 상태 저장 서비스를 호스트 하는 모든 Service Fabric 클러스터 노드 형식에는 실버 내구성 수준 이상이 필요 합니다.
@@ -117,7 +117,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 }
 ```
 
-프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 예를 들면 다음과 같습니다.
+프로그래밍 방식으로 크기를 조정 하려면 종료 하기 위해 노드를 준비 해야 합니다. 제거할 노드 (가장 높은 인스턴스 노드)를 찾습니다. 다음은 그 예입니다. 
 
 ```csharp
 using (var client = new FabricClient())
@@ -160,7 +160,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음 작업을 수행할 수 있습니다.
+> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음과 같습니다.
 > * 해당 노드 이름을 사용 하 여 [remove-servicefabricnodestate 명령을](/powershell/module/servicefabric/remove-servicefabricnodestate) 호출 합니다.
 > * 클러스터에 [Service Fabric 자동 크기 조정 도우미 응용 프로그램](https://github.com/Azure/service-fabric-autoscale-helper/) 을 배포 합니다. 이 응용 프로그램은 축소 된 노드가 Service Fabric Explorer에서 지워지는 지 확인 합니다.
 

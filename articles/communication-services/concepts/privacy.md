@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572030"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -73,7 +73,7 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor 및 Log Analytics
 
-Azure Communication Services는 서비스 운영 상태 및 사용률을 이해하기 위해 Azure Monitor 로깅 데이터에 제공됩니다. 이러한 로그 중 일부에는 Communication Service ID와 전화 번호가 필드 데이터로 포함됩니다. 잠재적으로 개인 데이터를 삭제하려면 [이러한 절차를 Azure Monitor에 사용](../../azure-monitor/platform/personal-data-mgmt.md)합니다. [Azure Monitor에 대한 기본 보존 기간](../../azure-monitor/platform/manage-cost-storage.md)을 구성해야 할 수도 있습니다.
+Azure Communication Services는 서비스 운영 상태 및 사용률을 이해하기 위해 Azure Monitor 로깅 데이터에 제공됩니다. 이러한 로그 중 일부에는 Communication Service ID와 전화 번호가 필드 데이터로 포함됩니다. 잠재적으로 개인 데이터를 삭제하려면 [이러한 절차를 Azure Monitor에 사용](../../azure-monitor/logs/personal-data-mgmt.md)합니다. [Azure Monitor에 대한 기본 보존 기간](../../azure-monitor/logs/manage-cost-storage.md)을 구성해야 할 수도 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 82edc70befb7fce95869b238d26c9154ec999c7b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0151e7b3a30cd4b00dba75b7490563923cd5b8ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966839"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580290"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows 용 Azure Monitor 종속성 가상 머신 확장
 
@@ -28,7 +28,7 @@ VM용 Azure Monitor 맵 기능은 Microsoft Dependency Agent에서 해당 데이
 
 ## <a name="operating-system"></a>운영 체제
 
-Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포 문서의 [지원 되는 운영 체제](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 섹션에 나열 된 지원 되는 운영 체제에 대해 실행할 수 있습니다.
+Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포 문서의 [지원 되는 운영 체제](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) 섹션에 나열 된 지원 되는 운영 체제에 대해 실행할 수 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
