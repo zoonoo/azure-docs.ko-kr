@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 7e3292a9070e6676faad15e73d357e7f6875b5f4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 824308b66803d2dfa05383ff06ce97c48626619d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557583"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -63,7 +63,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 | 설정 | 값 |
 | ------- | ----- |
 | Name    | 네임 스페이스 이름 선택 |
-| 가격 책정 계층 | 기본 |
+| 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
 | 위치 | 미국 동부 |
@@ -119,26 +119,26 @@ Sendgrid 계정이 없는 경우 시작 하기 전에 [무료 계정](https://ap
 
 Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다. 
 
-    :::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
 
-## <a name="define-the-function"></a>함수 정의
+## Define the function
 
-이 솔루션은 Stream Analytics 작업에서 중지 된 장치를 검색할 때 Azure Functions 앱을 사용 하 여 전자 메일 알림을 보냅니다. 함수 앱을 만들려면 다음을 수행 합니다.
+This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
 
-1. Azure Portal에서 **DetectStoppedDevices** 리소스 그룹의 **App Service** 인스턴스로 이동 합니다.
-1. **+** 새 함수를 만들려면 선택 합니다.
-1. **HTTP 트리거** 를 선택 합니다.
-1. **추가** 를 선택합니다.
+1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
+1. Select **+** to create a new function.
+1. Select **HTTP Trigger**.
+1. Select **Add**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="기본 HTTP 트리거 함수의 이미지"::: 
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
 
-## <a name="edit-code-for-http-trigger"></a>HTTP 트리거에 대 한 코드 편집
+## Edit code for HTTP Trigger
 
-포털에서 **HttpTrigger1** 라는 기본 함수를 만듭니다.
+The portal creates a default function called **HttpTrigger1**:
 
-    :::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
 
-1. C # 코드를 다음 코드로 바꿉니다.
+1. Replace the C# code with the following code:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -177,50 +177,50 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
     }
     ```
 
-    새 코드를 저장할 때까지 오류 메시지가 표시 될 수 있습니다.
-1. **저장** 을 선택 하 여 함수를 저장 합니다.
+    You may see an error message until you save the new code.
+1. Select **Save** to save the function.
 
-## <a name="add-sendgrid-key"></a>SendGrid 키 추가
+## Add SendGrid Key
 
-SendGrid API 키를 추가 하려면 다음과 같이 **함수 키** 에 추가 해야 합니다.
+To add your SendGrid API Key, you need to add it to your **Function Keys** as follows:
 
-1. **기능 키** 를 선택 합니다.
-1. **+ 새 함수 키** 를 선택 합니다.
-1. 이전에 만든 API 키의 *이름과* *값* 을 입력 합니다.
-1. **확인.**
+1. Select **Function Keys**.
+1. Choose **+ New Function Key**.
+1. Enter the *Name* and *Value* of the API Key you created before.
+1. Click **OK.**
 
-    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Add Sangrid Key의 스크린샷":::
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
 
 
-## <a name="configure-httptrigger-function-to-use-sendgrid"></a>SendGrid를 사용 하도록 HttpTrigger 함수 구성
+## Configure HttpTrigger function to use SendGrid
 
-SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수에 대 한 바인딩을 구성 해야 합니다.
+To send emails with SendGrid, you need to configure the bindings for your function as follows:
 
-1. **통합** 을 선택합니다.
-1. **HTTP ($return)** 아래에서 **출력 추가** 를 선택 합니다.
-1. **삭제를 선택 합니다.**
-1. **+ 새 출력** 을 선택 합니다.
-1. 바인딩 형식에 대해 **SendGrid** 를 선택 합니다.
-1. SendGrid API 키 설정 형식에서 새로 만들기를 클릭 합니다.
-1. SendGrid API 키의 *이름과* *값* 을 입력 합니다.
-1. 다음 정보를 추가합니다.
+1. Select **Integrate**.
+1. Choose **Add Output** under **HTTP ($return)**.
+1. Select **Delete.**
+1. Choose **+ New Output**.
+1. For Binding Type, then choose **SendGrid**.
+1. For SendGrid API Key Setting Type, click New.
+1. Enter the *Name* and *Value* of your SendGrid API key.
+1. Add the following information:
 
-| 설정 | 값 |
+| Setting | Value |
 | ------- | ----- |
-| 메시지 매개 변수 이름 | 이름 선택 |
-| 대상 주소 | 주소록의 이름을 선택 합니다. |
-| 보낸 사람 주소 | 보낸 사람 주소의 이름을 선택 합니다. |
-| 메시지 제목 | 제목 머리글 입력 |
-| 메시지 텍스트 | 통합에서 메시지 입력 |
+| Message parameter name | Choose your name |
+| To address | Choose the name of your To Address |
+| From address | Choose the name of your From Address |
+| Message subject | Enter your subject header |
+| Message text | Enter the message from your integration |
 
-1. **확인** 을 선택합니다.
+1. Select **OK**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="SandGrid Output 추가의 스크린샷":::
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
 
 
-### <a name="test-the-function-works"></a>함수 작동 테스트
+### Test the function works
 
-포털에서 함수를 테스트 하려면 먼저 코드 편집기의 맨 아래에 있는 **로그** 를 선택 합니다. 그런 다음 코드 편집기의 오른쪽에 있는 **테스트** 를 선택 합니다. **요청 본문** 으로 다음 JSON을 사용 합니다.
+To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -228,9 +228,9 @@ SendGrid를 사용 하 여 전자 메일을 보내려면 다음과 같이 함수
 
 함수 로그 메시지는 **로그** 패널에 표시 됩니다.
 
-    :::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
 
-몇 분 후 받는 **사람 전자 메일 주소는 다음** 내용이 포함 된 전자 메일을 받습니다.
+After a few minutes, the **To** email address receives an email with the following content:
 
 ```txt
 The following device(s) have stopped sending telemetry:
@@ -311,9 +311,11 @@ test-device-3    2019-05-02T14:24:28.919Z
 
     :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Stream Analytics의 스크린샷":::
 
-## <a name="configure-export-in-iot-central"></a>IoT Central에서 내보내기 구성
+## <a name="configure-export-in-iot-central"></a>IoT Central에서 내보내기 구성 
 
-[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
+[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 사용자가 만든 IoT Central 응용 프로그램으로 이동 합니다.
+
+이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기** 를 선택 하 고, **Azure Event Hubs** 를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장** 을 선택 합니다. 
@@ -322,13 +324,11 @@ test-device-3    2019-05-02T14:24:28.919Z
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
     | 사용 | 켜기 |
-    | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
-    | 이벤트 허브 | centralexport |
-    | 측정 | 켜기 |
-    | 디바이스 | 끄기 |
-    | 디바이스 템플릿 | 끄기 |
+    | 내보낼 데이터 형식 | 원격 분석 |
+    | 강화 | 내보낸 데이터를 구성 하는 방법의 원하는 키/값을 입력 합니다. | 
+    | 대상 | 새 데이터를 만들고 데이터를 내보낼 위치에 대 한 정보를 입력 합니다. |
 
-    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="연속 데이터 내보내기 구성의 스크린샷":::
+    :::image type="content" source="media/howto-create-custom-rules/cde-configuration.png" alt-text="데이터 내보내기의 스크린샷":::
 
 계속 하기 전에 내보내기 상태가 **실행 중** 이 될 때까지 기다립니다.
 

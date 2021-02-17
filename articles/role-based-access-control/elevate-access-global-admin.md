@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 30c7e6b1412373cf3bfe1c511206aa4b916bf1ee
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557495"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -80,7 +80,7 @@ Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azur
 
 1. 관리자 권한으로 변경 해야 합니다.
 
-    역할 할당에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)를 참조 하세요. Privileged Identity Management를 사용 하는 경우 azure 리소스 [를 검색 하](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 여 [azure 리소스 역할](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 관리 하거나 할당을 참조 하세요.
+    역할 할당에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)을 참조 하세요. Privileged Identity Management를 사용 하는 경우 azure 리소스 [를 검색 하](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) 여 [azure 리소스 역할](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 관리 하거나 할당을 참조 하세요.
 
 1. 다음 섹션의 단계를 수행 하 여 관리자 권한 액세스를 제거 합니다.
 
@@ -149,7 +149,7 @@ CanDelegate        : False
 
 Azure CLI를 사용 하 여 전역 관리자에 대 한 액세스 권한을 상승 시키려면 다음 기본 단계를 사용 합니다.
 
-1. [Az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) 명령을 사용 하 여 `elevateAccess` 끝점을 호출 합니다 .이 끝점은 루트 범위 ()에서 사용자 액세스 관리자 역할을 부여 합니다 `/` .
+1. [Az rest](/cli/azure/reference-index#az_rest) 명령을 사용 하 여 `elevateAccess` 끝점을 호출 합니다 .이 끝점은 루트 범위 ()에서 사용자 액세스 관리자 역할을 부여 합니다 `/` .
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -157,7 +157,7 @@ Azure CLI를 사용 하 여 전역 관리자에 대 한 액세스 권한을 상�
 
 1. 관리자 권한으로 변경 해야 합니다.
 
-    역할 할당에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-cli.md)를 참조 하세요.
+    역할 할당에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Azure 역할 할당](role-assignments-cli.md)을 참조 하세요.
 
 1. 이후 섹션의 단계를 수행 하 여 관리자 권한 액세스를 제거 합니다.
 
@@ -213,7 +213,7 @@ az role assignment list --role "User Access Administrator" --scope "/"
 
 1. 관리자 권한으로 변경 해야 합니다.
 
-    역할 할당에 대 한 자세한 내용은 [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)를 참조 하세요.
+    역할 할당에 대 한 자세한 내용은 [REST API를 사용 하 여 Azure 역할 할당](role-assignments-rest.md)을 참조 하세요.
 
 1. 이후 섹션의 단계를 수행 하 여 관리자 권한 액세스를 제거 합니다.
 
@@ -330,4 +330,4 @@ az role assignment list --role "User Access Administrator" --scope "/"
 ## <a name="next-steps"></a>다음 단계
 
 - [여러 역할의 이해](rbac-and-directory-admin-roles.md)
-- [REST API를 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-rest.md)
+- [REST API를 사용 하 여 Azure 역할 할당](role-assignments-rest.md)

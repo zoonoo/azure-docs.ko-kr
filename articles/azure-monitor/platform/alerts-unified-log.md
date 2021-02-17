@@ -4,14 +4,14 @@ description: 지정 하는 로그 쿼리 조건을 충족 하는 경우 전자 �
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 5/31/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 0f81dd14988b069931bddf5f5636cb1bab426641
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857429"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544871"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -25,7 +25,7 @@ ms.locfileid: "97857429"
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../log-query/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../log-query/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "97857429"
 - [리소스 간 쿼리](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)를 사용 하는 여러 리소스 
  
 > [!IMPORTANT]
-> 경고 쿼리에는 최적의 성능 및 결과의 관련성을 보장 하는 제약 조건이 있습니다. [자세한 내용은 여기를 참조](./alerts-log-query.md)하세요.
+> 경고 쿼리에는 최적의 성능 및 결과의 관련성을 보장 하는 제약 조건이 있습니다. [여기를 참조하세요](./alerts-log-query.md).
 
 > [!IMPORTANT]
 > 리소스 중심 및 [리소스 간 쿼리](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 는 현재 scheduledQueryRules API를 사용 하는 경우에만 지원 됩니다. 레거시 [Log Analytics 경고 API](api-alerts.md)를 사용 하는 경우를 전환 해야 합니다. [전환에 대 한 자세한 정보](./alerts-log-api-switch.md)
@@ -102,7 +102,7 @@ requests
 
 ### <a name="aggregation-type"></a>집계 유형
 
-단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들면 다음과 같습니다.
+단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들어 다음과 같습니다.
 - **Count** 는 쿼리의 레코드 수를 반환 합니다.
 - **Average** 는 정의 된 측정값 열 [**집계 세분성**](#aggregation-granularity) 의 평균을 반환 합니다.
 
@@ -184,7 +184,7 @@ requests
 
 이 경고 평가 예를 참조 하세요.
 
-| Time    | 로그 조건 평가 | 결과 
+| 시간    | 로그 조건 평가 | 결과 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | 경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
 | 00:10 | TRUE  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 새 경고 상태가 활성입니다.

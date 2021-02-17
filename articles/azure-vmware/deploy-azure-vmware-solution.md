@@ -2,17 +2,20 @@
 title: Azure VMware Solution 배포 및 구성
 description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861524"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "99822505"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
-이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포합니다. 정보가 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
+이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포합니다. 
+
+>[!IMPORTANT]
+>정보가 아직 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
 
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
@@ -36,19 +39,20 @@ ms.locfileid: "96861524"
 >[!IMPORTANT]
 >**프라이빗 클라우드 만들기** 화면의 초기 프로비저닝 단계에서 **Virtual Network** 옵션을 비워 둔 경우 이 섹션을 진행하기 **전에** [VMware 프라이빗 클라우드에 대한 네트워킹 구성](tutorial-configure-networking.md) 자습서를 완료하세요.  
 
-Azure VMware Solution이 배포되면 vCenter 및 NSX에 연결하는 가상 네트워크의 점프 상자를 만듭니다. ExpressRoute 회로 및 ExpressRoute Global Reach가 구성되었으면 점프 상자가 필요하지 않습니다.  그러나 Azure VMware Solution에서 vCenter 및 NSX에 도달하는 것이 편리합니다.  
+Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 네트워크의 점프 상자를 만듭니다. ExpressRoute 회로 및 ExpressRoute Global Reach가 구성되었으면 점프 상자가 필요하지 않습니다.  그러나 Azure VMware Solution에서 vCenter 및 NSX에 도달하는 것이 편리합니다.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Azure VMware Solution 점프 상자 만들기" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-[배포 프로세스의 일부로 확인하거나 만든](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution) 가상 네트워크에서 VM(가상 머신)을 만들려면 다음 지침을 따릅니다. 
+[배포 프로세스의 일부로 확인하거나 만든](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution) 가상 네트워크에서 VM(가상 머신)을 만들려면 다음 지침을 따릅니다. 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>ExpressRoute를 사용하여 가상 네트워크에 연결
 
-배포 단계에서 가상 네트워크가 정의되지 않았고 Azure VMware Solution의 ExpressRoute를 기존 ExpressRoute 게이트웨이에 연결하려는 경우 다음 단계를 따릅니다.
+>[!IMPORTANT]
+>Azure의 배포 화면에서 가상 네트워크가 이미 정의된 경우 다음 섹션으로 건너뜁니다.
 
-Azure의 배포 화면에서 가상 네트워크가 이미 정의된 경우 다음 섹션으로 건너뜁니다.
+배포 단계에서 가상 네트워크가 정의되지 않았고 Azure VMware Solution의 ExpressRoute를 기존 ExpressRoute 게이트웨이에 연결하려는 경우 다음 단계를 따릅니다.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
@@ -79,7 +83,7 @@ NSX-T를 사용하여 Azure VMware Solution 환경에 새 네트워크 세그먼
 
 ## <a name="verify-advertised-nsx-t-segment"></a>보급된 NSX-T 세그먼트 확인
 
-[보급된 네트워크 경로 확인](#verify-network-routes-advertised) 단계로 돌아갑니다. 이전 단계에서 만든 네트워크 세그먼트를 나타내는 추가 경로가 목록에 표시됩니다.  
+[보급된 네트워크 경로 확인](#verify-network-routes-advertised) 단계로 돌아갑니다. 이전 단계에서 만든 네트워크 세그먼트를 나타내는 다른 경로가 목록에 표시됩니다.  
 
 가상 머신의 경우 [Azure VMware Solution에서 네트워크 세그먼트 만들기](#create-a-network-segment-on-azure-vmware-solution) 단계에서 만든 세그먼트를 할당합니다.  
 
@@ -120,11 +124,10 @@ Azure VMware Solution vCenter에서 VM을 배포하고, 이를 사용하여 Azur
 이전 단계에서 만든 VM에 로그인하고, 연결을 확인합니다.
 
 1. 인터넷에서 IP를 ping합니다.
-2. 웹 브라우저를 통해 인터넷 사이트로 이동합니다.
+2. 웹 브라우저에서 인터넷 사이트로 이동합니다.
 3. Azure Virtual Network에 있는 점프 상자를 ping합니다.
 
->[!IMPORTANT]
->이 시점에서 Azure VMware Solution이 가동 중이며, Azure Virtual Network 및 인터넷과의 연결을 성공적으로 설정했습니다.
+이제 Azure VMware Solution이 가동 중이며, Azure Virtual Network 및 인터넷과의 연결을 성공적으로 설정했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

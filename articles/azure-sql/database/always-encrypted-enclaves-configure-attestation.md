@@ -1,7 +1,7 @@
 ---
 title: Azure SQL 논리 서버에 대 한 Azure 증명 구성
 description: Azure SQL Database에서 secure enclaves를 사용 하 여 Always Encrypted에 대 한 Azure 증명을 구성 합니다.
-keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요 한 데이터, Always Encrypted, secure enclaves, SGX, 증명
+keywords: 데이터 암호화, SQL 암호화, 데이터베이스 암호화, 중요한 데이터, Always Encrypted, 보안 enclave, SGX, 증명
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,19 +11,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733824"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555670"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Azure SQL 논리 서버에 대 한 Azure 증명 구성
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Always Encrypted secure enclaves for Azure SQL Database는 현재 **공개 미리 보기로** 제공 됩니다.
+> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 [Microsoft Azure 증명](../../attestation/overview.md) 은 intel SGX (Software Guard Extensions) enclaves를 포함 하 여 TEEs (증명 Trusted Execution environment)를 위한 솔루션입니다. 
 
@@ -31,7 +31,7 @@ Azure SQL Database에서 [보안 enclaves의 Always Encrypted](/sql/relational-d
 
 1. [증명 공급자](../../attestation/basic-concepts.md#attestation-provider) 를 만들고 권장 증명 정책으로 구성 합니다.
 
-2. Azure SQL 논리 서버에 증명 공급자에 대 한 액세스 권한을 부여 합니다.
+2. Azure SQL 논리 서버에 증명 공급자에 대한 액세스 권한을 부여합니다.
 
 > [!NOTE]
 > 증명을 구성 하는 것은 증명 관리자의 책임입니다. [SGX enclaves 및 증명을 구성할 때의 역할 및 책임](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation)을 참조 하세요.
@@ -76,7 +76,7 @@ authorizationrules
 
 증명 공급자를 만들고를 사용 하 여 증명 정책을 구성 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [빠른 시작: Azure Portal을 사용 하 여 Azure 증명 설정](../../attestation/quickstart-portal.md)
+- [빠른 시작: Azure Portal을 사용하여 Azure Attestation 설정](../../attestation/quickstart-portal.md)
     > [!IMPORTANT]
     > Azure Portal를 사용 하 여 증명 정책을 구성 하는 경우 증명 형식을로 설정 `SGX-IntelSDK` 합니다.
 - [빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정](../../attestation/quickstart-powershell.md)
@@ -114,7 +114,7 @@ Write-Host "Your attestation URL is: " $attestationUrl
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Azure Portal를 사용 하 여 사용 권한 할당
 
-증명 공급자의 증명 판독기 역할에 Azure SQL server의 id를 할당 하려면 [Azure Portal을 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)의 일반 지침을 따릅니다. **역할 할당 추가** 창에 있는 경우:
+증명 공급자의 증명 판독기 역할에 Azure SQL server의 id를 할당 하려면 [Azure Portal을 사용 하 여 azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)의 일반 지침을 따릅니다. **역할 할당 추가** 창에 있는 경우:
 
 1. **역할** 드롭다운에서 **증명 판독기** 역할을 선택 합니다.
 1. **Select** 필드에서 검색할 Azure SQL server의 이름을 입력 합니다.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples)를 참조 하세요.
+자세한 내용은 [Azure PowerShell를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [보안 Enclave를 사용한 Always Encrypted 키 관리](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작](always-encrypted-enclaves-getting-started.md)

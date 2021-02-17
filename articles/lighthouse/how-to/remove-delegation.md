@@ -1,14 +1,14 @@
 ---
 title: 위임에 대한 액세스 권한 제거
 description: Azure Lighthouse의 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법에 대해 알아봅니다.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791359"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555782"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
@@ -21,7 +21,7 @@ ms.locfileid: "98791359"
 
 ## <a name="customers"></a>고객
 
-구독에 대 한 [소유자 기본 제공 역할이](../../role-based-access-control/built-in-roles.md#owner) 있는 고객 테 넌 트의 사용자는 해당 구독 또는 해당 구독의 리소스 그룹에 대 한 서비스 공급자 액세스를 제거할 수 있습니다. 이렇게 하려면 고객 테 넌 트의 사용자가 Azure Portal의 [서비스 공급자 페이지로](view-manage-service-providers.md#add-or-remove-service-provider-offers) 이동 하 여 **서비스 공급자가 제공** 하는 화면에서 제품을 찾은 다음 해당 제품에 대 한 행에서 휴지통 아이콘을 선택할 수 있습니다.
+소유자와 같이 권한이 있는 역할이 있는 고객 테 넌 트의 사용자는 `Microsoft.Authorization/roleAssignments/write` 해당 구독 [](../../role-based-access-control/built-in-roles.md#owner)에 대 한 서비스 공급자 액세스 또는 해당 구독의 리소스 그룹을 제거할 수 있습니다. 이렇게 하려면 사용자가 Azure Portal의 [서비스 공급자 페이지로](view-manage-service-providers.md#add-or-remove-service-provider-offers) 이동 하 여 **서비스 공급자가 제공** 하는 화면에서 제품을 찾고 해당 제품에 대 한 행에서 휴지통 아이콘을 선택할 수 있습니다.
 
 삭제를 확인 한 후에는 서비스 공급자의 테 넌 트에 있는 사용자가 이전에 위임 된 리소스에 액세스할 수 없게 됩니다.
 

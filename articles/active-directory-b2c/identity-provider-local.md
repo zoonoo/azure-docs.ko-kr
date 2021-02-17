@@ -12,12 +12,12 @@ ms.date: 01/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e6b520a32755379fce5326e25b90f135b0d67755
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98574356"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555236"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>로컬 계정 id 공급자 설정
 
@@ -150,5 +150,5 @@ SMS 문자 메시지를 사용 하 여 일회용 암호를 사용자에 게 보�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [외부 id 공급자 추가](tutorial-add-identity-providers.md)
+- [외부 id 공급자 추가](add-identity-provider.md)
 - [사용자 흐름 만들기](tutorial-create-user-flows.md)

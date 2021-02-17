@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 26c4e154deec02b0642e6c131ced50acb02f9899
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: d69675d7ab07e4097556d269c97c3ecb66dc2fc6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98951536"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545837"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -32,19 +32,19 @@ ms.locfileid: "98951536"
 
 ## <a name="create-a-weibo-application"></a>Weibo 애플리케이션 만들기
 
-Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 [Weibo 개발자 포털](https://open.weibo.com/)에서 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
+Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 사용 하는 사용자에 대 한 로그인을 사용 하도록 설정 하려면 Weibo 개발자 포털에서 응용 프로그램을 만들어야 합니다. Weibo 계정이 아직 없는 경우에서 등록할 수 있습니다 [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
-1. Weibo 계정 자격 증명을 사용하여 [Weibo 개발자 포털](https://open.weibo.com/)에 로그인합니다.
+1. Weibo 계정 자격 증명을 사용하여 Weibo 개발자 포털에 로그인합니다.
 1. 로그인한 후 오른쪽 위 모서리의 표시 이름을 선택합니다.
 1. 드롭다운에서 **编辑开发者信息**(개발자 정보 편집)을 선택합니다.
 1. 필요한 정보를 입력하고 **提交**(제출)을 선택합니다.
 1. 전자 메일 확인 프로세스를 완료합니다.
-1. [ID 확인 페이지](https://open.weibo.com/developers/identity/edit)로 이동합니다.
+1. ID 확인 페이지로 이동합니다.
 1. 필요한 정보를 입력하고 **提交**(제출)을 선택합니다.
 
 ### <a name="register-a-weibo-application"></a>Weibo 애플리케이션 등록
 
-1. [새 Weibo 앱 등록 페이지](https://open.weibo.com/apps/new)로 이동합니다.
+1. 새 Weibo 앱 등록 페이지로 이동합니다.
 1. 필요한 애플리케이션 정보를 입력합니다.
 1. **创 建**(만들기)를 선택합니다.
 1. **앱 키** 및 **앱 암호** 의 값을 복사합니다. 테넌트에 ID 공급자를 추가하려면 두 값이 모두 필요합니다.

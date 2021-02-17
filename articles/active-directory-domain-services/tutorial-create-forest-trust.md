@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 01/21/2021
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618334"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "99821673"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기
 
@@ -73,7 +73,7 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 
 온-프레미스 환경에서 관리되는 도메인을 올바르게 확인하려면 전달자를 기존 DNS 서버에 추가해야 할 수 있습니다. 관리되는 도메인과 통신하도록 온-프레미스 환경을 구성하지 않은 경우 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
-1. **시작 | 관리 도구 | DNS** 를 차례로 선택합니다.
+1. **시작** > **관리 도구** > **DNS** 를 선택합니다.
 1. 마우스 오른쪽 단추로 DNS 서버(예: *myAD01*)를 선택한 다음, **속성** 을 선택합니다.
 1. **전달자** 를 선택한 다음, **편집** 을 선택하여 추가 전달자를 추가합니다.
 1. 관리되는 도메인의 IP 주소(예: *10.0.2.4* 및 *10.0.2.5*)를 추가합니다.
@@ -84,15 +84,23 @@ Azure AD DS에서 포리스트 트러스트를 구성하려면 먼저 Azure와 �
 
 온-프레미스 AD DS 도메인에서 인바운드 트러스트를 구성하려면 온-프레미스 AD DS 도메인의 관리 워크스테이션에서 다음 단계를 완료합니다.
 
-1. **시작 | 관리 도구 | Active Directory 도메인 및 트러스트** 를 차례로 선택합니다.
-1. 마우스 오른쪽 단추로 도메인(예: *onprem.contoso.com*)을 선택한 다음, **속성** 을 선택합니다.
+1. **시작** > **관리 도구** > **Active Directory 도메인 및 트러스트** 를 차례로 선택합니다.
+1. 마우스 오른쪽 단추로 도메인(예: *onprem.contoso.com*)을 클릭한 다음, **속성** 을 선택합니다.
 1. **트러스트** 탭, **새 트러스트** 를 차례로 선택합니다.
-1. Azure AD DS 도메인 이름에 이름(예: *aaddscontoso.com*)을 입력하고, **다음** 을 선택합니다.
+1. Azure AD DS 도메인 이름에 이름(예: *aaddscontoso.com*)을 입력한 다음, **다음** 을 선택합니다.
 1. **포리스트 트러스트** 를 만드는 옵션, **단방향: 들어오는 트러스트** 를 만드는 옵션을 차례로 선택합니다.
 1. **이 도메인만** 에 대한 트러스트를 만들도록 선택합니다. 다음 단계에서는 Azure Portal에서 관리되는 도메인에 대한 트러스트를 만듭니다.
 1. **전체 포리스트 인증** 을 사용하도록 선택한 다음, 트러스트 암호를 입력하고 확인합니다. 다음 섹션의 Azure Portal에서도 동일한 암호가 입력됩니다.
 1. 기본 옵션을 사용하여 다음 몇 개의 창을 단계별로 실행한 다음, **아니요, 보내는 트러스트를 확인하지 않습니다.** 옵션을 선택합니다.
 1. **마침** 을 선택합니다.
+
+환경에 더 이상 포리스트 트러스트가 필요하지 않으면 다음 단계를 완료하여 온-프레미스 도메인에서 제거합니다.
+
+1. **시작** > **관리 도구** > **Active Directory 도메인 및 트러스트** 를 차례로 선택합니다.
+1. 마우스 오른쪽 단추로 도메인(예: *onprem.contoso.com*)을 클릭한 다음, **속성** 을 선택합니다.
+1. **트러스트** 탭을 선택한 다음, **이 도메인을 트러스트하는 도메인(받는 트러스트)** 을 선택하고, 제거할 트러스트를 클릭한 다음, **제거** 를 클릭합니다.
+1. 트러스트 탭의 **이 도메인이 트러스트하는 도메인(보내는 트러스트)** 에서 제거할 트러스트를 클릭한 다음, 제거를 클릭합니다.
+1. **아니요, 로컬 도메인에서만 트러스트를 제거합니다.** 를 클릭합니다.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Azure AD DS에서 아웃바운드 포리스트 트러스트 만들기
 
@@ -112,6 +120,12 @@ Azure Portal에서 관리되는 도메인에 대한 아웃바운드 트러스트
 1. 준비가 되면 아웃바운드 포리스트 트러스트를 **저장** 합니다.
 
     ![Azure Portal에서 아웃바운드 포리스트 트러스트 만들기](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
+
+환경에 더 이상 포리스트 트러스트가 필요하지 않으면 다음 단계를 완료하여 Azure AD DS에서 제거합니다.
+
+1. Azure Portal에서 **Azure AD Domain Services** 를 검색하여 선택한 다음, 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. 관리되는 도메인의 왼쪽 메뉴에서 **트러스트** 를 선택하고, 트러스트를 선택한 다음, **제거** 를 클릭합니다.
+1. 포리스트 트러스트를 구성하는 데 사용된 것과 동일한 트러스트 암호를 제공하고 **확인** 을 클릭합니다.
 
 ## <a name="validate-resource-authentication"></a>리소스 인증 유효성 검사
 

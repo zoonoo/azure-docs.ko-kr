@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856156"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555924"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Azure RBAC의 범위 이해
 
@@ -32,7 +32,7 @@ Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독
 
 ## <a name="scope-format"></a>범위 형식
 
-명령줄을 사용 하 여 역할 할당을 추가 하는 경우 범위를 지정 해야 합니다. 명령줄 도구의 경우 범위는 역할 할당의 정확한 범위를 식별 하는 잠재적으로 긴 문자열입니다. Azure Portal에서이 범위는 일반적으로 *리소스 ID*로 나열 됩니다.
+명령줄을 사용 하 여 역할을 할당 하는 경우 범위를 지정 해야 합니다. 명령줄 도구의 경우 범위는 역할 할당의 정확한 범위를 식별 하는 잠재적으로 긴 문자열입니다. Azure Portal에서이 범위는 일반적으로 *리소스 ID* 로 나열 됩니다.
 
 범위는 슬래시 (/) 문자로 구분 된 일련의 식별자로 구성 됩니다. 이 문자열을 다음 계층 구조의 표현으로 간주할 수 있으며, 여기서 자리 표시자(`{}`) 없는 텍스트는 고정 식별자입니다.
 
@@ -122,6 +122,6 @@ Azure에서 [관리 그룹](../governance/management-groups/overview.md), 구독
 
 ## <a name="next-steps"></a>다음 단계
 
-- [역할 할당을 추가하는 단계](role-assignments-steps.md)
+- [Azure 역할을 할당 하는 단계](role-assignments-steps.md)
 - [Azure 서비스의 리소스 공급자](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Azure 관리 그룹이란?](../governance/management-groups/overview.md)

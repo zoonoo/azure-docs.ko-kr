@@ -1,42 +1,42 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 역할 할당 추가 또는 제거-Azure RBAC
+title: Azure PowerShell를 사용 하 여 Azure 역할 할당-Azure RBAC
 description: Azure PowerShell 및 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 3bb09133ba6991554072b4bf68b5306c78f868a7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 00f663b90f34f3b557329692f844bbbc1bf3207d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964289"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556807"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거
+# <a name="assign-azure-roles-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] 이 문서에서는 Azure PowerShell를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
+역할을 할당 하려면 다음을 수행 해야 합니다.
 
-- `Microsoft.Authorization/roleAssignments/write` 및 `Microsoft.Authorization/roleAssignments/delete` 사용 권한(예: [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner))
+- `Microsoft.Authorization/roleAssignments/write`[사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 또는 [소유자](built-in-roles.md#owner) 와 같은 사용 권한
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](../cloud-shell/overview.md)
 - PowerShell 명령을 실행 하는 데 사용 하는 계정에는 Microsoft Graph `Directory.Read.All` 권한이 있어야 합니다.
 
-## <a name="steps-to-add-a-role-assignment"></a>역할 할당을 추가하는 단계
+## <a name="steps-to-assign-an-azure-role"></a>Azure 역할을 할당 하는 단계
 
-Azure RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 추가합니다. 역할 할당은 보안 주체, 역할 정의, 범위의 세 가지 요소로 구성됩니다. 역할 할당을 추가 하려면 다음 단계를 수행 합니다.
+역할을 할당 하려면 보안 주체, 역할 정의 및 범위의 세 가지 요소로 구성 됩니다.
 
 ### <a name="step-1-determine-who-needs-access"></a>1 단계: 액세스 해야 하는 사용자 확인
 
-사용자, 그룹, 서비스 주체 또는 관리 id에 역할을 할당할 수 있습니다. 역할 할당을 추가 하려면 개체의 고유 ID를 지정 해야 할 수 있습니다. ID의 형식은 `11111111-1111-1111-1111-111111111111`입니다. Azure Portal 또는 Azure PowerShell를 사용 하 여 ID를 가져올 수 있습니다.
+사용자, 그룹, 서비스 주체 또는 관리 id에 역할을 할당할 수 있습니다. 역할을 할당 하려면 개체의 고유 ID를 지정 해야 할 수 있습니다. ID의 형식은 `11111111-1111-1111-1111-111111111111`입니다. Azure Portal 또는 Azure PowerShell를 사용 하 여 ID를 가져올 수 있습니다.
 
 **사용자**
 
@@ -74,7 +74,7 @@ Get-AzADServicePrincipal -SearchString <principalName>
 (Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
     
-### <a name="step-2-find-the-appropriate-role"></a>2 단계: 적절 한 역할 찾기
+### <a name="step-2-select-the-appropriate-role"></a>2 단계: 적절 한 역할 선택
 
 사용 권한은 역할에 함께 그룹화 됩니다. 여러 [Azure 기본 제공 역할](built-in-roles.md) 목록에서 선택 하거나 고유한 사용자 지정 역할을 사용할 수 있습니다. 필요한 최소한의 권한을 사용 하 여 액세스 권한을 부여 하는 것이 가장 좋습니다. 따라서 더 광범위 한 역할을 할당 하지 마십시오.
 
@@ -128,9 +128,9 @@ Get-AzSubscription
 Get-AzManagementGroup
 ```
     
-### <a name="step-4-add-role-assignment"></a>4 단계: 역할 할당 추가
+### <a name="step-4-assign-role"></a>4 단계: 역할 할당
 
-역할 할당을 추가 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용 합니다. 범위에 따라 명령은 일반적으로 다음 형식 중 하나를 갖습니다.
+역할을 할당 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용 합니다. 범위에 따라 명령은 일반적으로 다음 형식 중 하나를 갖습니다.
 
 **리소스 범위**
 
@@ -190,9 +190,9 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
     
-## <a name="add-role-assignment-examples"></a>역할 할당 예제 추가
+## <a name="assign-role-examples"></a>역할 할당 예제
 
-#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>저장소 계정 리소스 범위에서 모든 blob 컨테이너에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-all-blob-containers-in-a-storage-account-resource-scope"></a>저장소 계정 리소스 범위에서 모든 blob 컨테이너에 대 한 역할 할당
 
 *Storage12345* 라는 저장소 계정에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
@@ -212,7 +212,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>특정 blob 컨테이너 리소스 범위에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-specific-blob-container-resource-scope"></a>특정 blob 컨테이너 리소스 범위에 대 한 역할 할당
 
 Blob 컨테이너 *-01* 이라는 blob 컨테이너에 대 한 리소스 범위에서 개체 ID가 *55555555-5555-5555-5555-555555555555* 인 서비스 사용자에 게 [저장소 Blob 데이터 참가자](built-in-roles.md#storage-blob-data-contributor) 역할을 할당 합니다.
 
@@ -233,7 +233,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>특정 가상 네트워크 리소스 범위에서 그룹에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-group-in-a-specific-virtual-network-resource-scope"></a>특정 가상 네트워크 리소스 범위에서 그룹에 대 한 역할 할당
 
 *Pharma-sales-projectforcast* 이라는 가상 네트워크에 대 한 리소스 범위에서 ID가 Aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa 인 *pharma-sales-projectforcast Sales Admins* 그룹에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -258,7 +258,7 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-#### <a name="add-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>리소스 그룹 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-user-at-a-resource-group-scope"></a>리소스 그룹 범위에서 사용자에 대 한 역할 할당
 
 *Pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 *patlong \@ Contoso.com* user에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -297,7 +297,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>리소스 그룹 범위에서 고유한 역할 ID를 사용 하 여 사용자에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>리소스 그룹 범위에서 고유한 역할 ID를 사용 하 여 사용자에 대 한 역할 할당
 
 역할 이름이 변경 될 수 있는 몇 가지 경우가 있습니다. 예를 들면 다음과 같습니다.
 
@@ -324,7 +324,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>리소스 그룹 범위에서 응용 프로그램에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-an-application-at-a-resource-group-scope"></a>리소스 그룹 범위에서 응용 프로그램에 대 한 역할 할당
 
 *Pharma-sales-projectforcast-sales* 리소스 그룹 범위에서 서비스 사용자 개체 ID가 77777777-7777-7777-7777-777777777777 인 응용 프로그램에 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다.
 
@@ -344,7 +344,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>구독 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-user-at-a-subscription-scope"></a>구독 범위에서 사용자에 대 한 역할 할당
 
 구독 범위에서 *\@ example.com* 사용자에 게 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 합니다.
 
@@ -364,7 +364,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>관리 그룹 범위에서 사용자에 대 한 역할 할당 추가
+#### <a name="assign-a-role-for-a-user-at-a-management-group-scope"></a>관리 그룹 범위에서 사용자에 대 한 역할 할당
 
 관리 그룹 범위에서 *alain \@ example.com* 사용자에 게 [청구 읽기 권한자](built-in-roles.md#billing-reader) 역할을 할당 합니다.
 
@@ -383,36 +383,6 @@ ObjectId           : 44444444-4444-4444-4444-444444444444
 ObjectType         : User
 CanDelegate        : False
 ```
-
-## <a name="remove-a-role-assignment"></a>역할 할당 제거
-
-Azure RBAC에서 액세스 권한을 제거 하려면 [AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)를 사용 하 여 역할 할당을 제거 합니다.
-
-다음 예에서는 *pharma-sales-projectforcast sales* 리소스 그룹의 *patlong \@ Contoso.com* 사용자에서 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할 할당을 제거 합니다.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
--RoleDefinitionName "Virtual Machine Contributor" `
--ResourceGroupName pharma-sales
-```
-
-구독 범위에서 ID가 22222222-2222-2222-2222-222222222222 인 *Ann Mack 팀* 그룹에서 [판독기](built-in-roles.md#reader) 역할을 제거 합니다.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
--RoleDefinitionName "Reader" `
--Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-관리 그룹 범위의 *alain \@ example.com* 사용자에서 [청구 읽기 권한자](built-in-roles.md#billing-reader) 역할을 제거 합니다.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
--RoleDefinitionName "Billing Reader" `
--Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
-```
-
-"제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 되 면 `-Scope` 또는 매개 변수도 지정 해야 합니다 `-ResourceGroupName` . 자세한 내용은 [AZURE RBAC 문제 해결](troubleshooting.md#role-assignments-with-identity-not-found)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

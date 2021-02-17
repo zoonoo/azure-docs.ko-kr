@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797862"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556144"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -22,7 +22,7 @@ Azure Digital Twins는 [OAUTH 2.0을 기반으로 하는 AZURE AD 보안 토큰�
 
 이 문서에서는 클라이언트 라이브러리를 사용 하 여 자격 증명을 가져오는 방법을 설명 합니다 `Azure.Identity` . 이 문서에서는 [.net (c #) sdk](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)에 대해 작성 하는 것과 같은 c #의 코드 예제를 보여 주지만, 사용 중인 sdk에 관계 없이 버전을 사용할 수 있습니다. `Azure.Identity` Azure digital twins에 사용할 수 있는 sdk에 대 한 자세한 내용은 [*방법: azure 디지털 쌍 api 및 sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있는지 확인할 수 있습니다. 설치 후에 클라이언트 앱 코드를 작성할 준비가 되었습니다.
 
@@ -104,7 +104,7 @@ Azure 함수에서 다음과 같이 관리 되는 id 자격 증명을 사용할 
 방법: 함수 컨텍스트에서 중요 한 구성 옵션 중 일부를 설명 하는 보다 완전 한 예제에 대 한 [*데이터 처리를 위한 Azure 함수 설정을*](how-to-create-azure-function.md) 참조 하세요.
 
 또한 함수에서 인증을 사용 하려면 다음을 수행 해야 합니다.
-* [관리 ID 사용](../app-service/overview-managed-identity.md?tabs=dotnet)
+* [관리 id 사용](../app-service/overview-managed-identity.md?tabs=dotnet)
 * [환경 변수](/sandbox/functions-recipes/environment-variables?tabs=csharp) 를 적절 하 게 사용
 * 디지털 쌍 Api에 액세스할 수 있도록 하는 함수 앱에 사용 권한을 할당 합니다. Azure Functions 프로세스에 대 한 자세한 내용은 [*방법: 데이터 처리를 위한 Azure 함수 설정을*](how-to-create-azure-function.md)참조 하세요.
 
@@ -117,5 +117,5 @@ Azure 함수에서 다음과 같이 관리 되는 id 자격 증명을 사용할 
 Azure Digital Twins에서 보안이 작동 하는 방식에 대해 자세히 알아보세요.
 * [*개념: Azure Digital Twins 솔루션에 대 한 보안*](concepts-security.md)
 
-또는 이제 인증이 설정 되었으므로 인스턴스에서 모델 만들기로 이동 합니다.
-* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
+또는 이제 인증이 설정 되었으므로 인스턴스에서 모델 만들기 및 관리로 이동 합니다.
+* [*방법: DTDL 모델 관리*](how-to-manage-model.md)

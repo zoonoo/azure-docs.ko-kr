@@ -3,23 +3,25 @@ title: 자습서 - 사용자 지정 HSM(하드웨어 보안 모듈)을 사용하
 description: 이 자습서에서는 등록 그룹을 사용합니다. 이 자습서에서는 사용자 지정 HSM(하드웨어 보안 모듈) 및 Azure IoT Hub DPS용 C 디바이스 SDK를 사용하여 X.509 디바이스를 프로비저닝하는 방법을 알아봅니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/18/2020
+ms.date: 01/28/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 25d084b8af148707685b2cbb4368394a12d99db2
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97005310"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99821702"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
-이 자습서에서는 X.509 인증서를 인증에 사용하는 IoT 디바이스 그룹을 프로비저닝하는 방법을 알아봅니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드는 개발 머신을 IoT 디바이스로 프로비저닝하는 데 사용됩니다. 
+이 자습서에서는 X.509 인증서를 인증에 사용하는 IoT 디바이스 그룹을 프로비저닝하는 방법을 알아봅니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 디바이스 코드는 개발 컴퓨터에서 실행되어 X.509 디바이스의 프로비저닝을 시뮬레이션합니다. 실제 디바이스에서 디바이스 코드는 IoT 디바이스에서 배포되고 실행됩니다.
 
-Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
+이 자습서를 계속 진행하기 전에 적어도 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 또한 자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토합니다. 
+
+Azure IoT Device Provisioning Service는 디바이스 프로비저닝에 대해 다음 두 가지 유형의 등록을 지원합니다.
 
 * [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
 * [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
@@ -27,8 +29,6 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 이 자습서는 등록 그룹을 사용하여 디바이스 세트를 프로비저닝하는 방법을 보여주는 이전 자습서와 비슷합니다. 그러나 이 자습서에서는 대칭 키 대신 X.509 인증서가 사용됩니다. [대칭 키](./concepts-symmetric-key-attestation.md)를 사용하는 간단한 방법을 보려면 이 섹션의 이전 자습서를 검토하세요.
 
 이 자습서에서는 하드웨어 기반의 보안 스토리지와 상호 작용하기 위한 스텁 구현을 제공하는 [사용자 지정 HSM 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example)을 보여 줍니다. [HSM(하드웨어 보안 모듈)](./concepts-service.md#hardware-security-module)은 디바이스 비밀을 안전한 하드웨어 기반 스토리지에 저장하는 데 사용됩니다. HSM은 대칭 키, X.509 인증서 또는 TPM 증명에 사용하여 비밀을 안전하게 저장할 수 있습니다. 디바이스 비밀의 하드웨어 기반 스토리지는 필수는 아니지만 디바이스 인증서의 프라이빗 키와 같은 중요한 정보를 보호하는 데 적극 권장됩니다.
-
-자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 또한 이 자습서를 계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](quick-setup-auto-provision.md)의 단계를 먼저 완료해야 합니다. 
 
 
 이 자습서에서는 다음 목표를 달성할 것입니다.
@@ -44,9 +44,11 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
+디바이스를 시뮬레이션하는 데 사용되는 Windows 개발 환경에 대한 필수 구성 요소는 다음과 같습니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다. 
+
+    Visual Studio는 이 문서에서 사용하여 IoT 디바이스에 배포할 디바이스 샘플 코드를 빌드합니다.  이 경우 Visual Studio가 디바이스 자체에 필요한 것은 아닙니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -56,7 +58,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다.
 
-    `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소([Visual Studio](https://visualstudio.microsoft.com/vs/) 및 ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드)를 컴퓨터에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
+    `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소([Visual Studio](https://visualstudio.microsoft.com/vs/) 및 ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드)를 컴퓨터에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
 
 2. Azure IoT C SDK의 [최신 릴리스](https://github.com/Azure/azure-iot-sdk-c/releases/latest)에 대한 태그 이름을 찾습니다.
 
@@ -87,7 +89,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     $ cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=/d/azure-iot-sdk-c/cmake/provisioning_client/samples/custom_hsm_example/Debug/custom_hsm_example.lib ..
     ```
 
-    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다.
+    `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다.
 
     빌드가 성공적으로 완료되면 Visual Studio 솔루션이 `cmake` 디렉터리에 생성됩니다. 마지막 몇 개의 출력 줄은 다음 출력과 비슷합니다.
 
@@ -106,7 +108,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="create-an-x509-certificate-chain"></a>X.509 인증서 체인 만들기
 
-이 섹션에서는 이 자습서에서 테스트할 세 가지 인증서로 구성된 X.509 인증서 체인을 생성합니다. 인증서의 계층 구조는 다음과 같습니다.
+이 섹션에서는 이 자습서를 사용하여 각 디바이스를 테스트하기 위해 세 개의 인증서로 구성된 X.509 인증서 체인을 생성합니다. 인증서의 계층 구조는 다음과 같습니다.
 
 ![자습서 디바이스 인증서 체인](./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png#lightbox)
 
@@ -114,15 +116,17 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 [중간 인증서](concepts-x509-attestation.md#intermediate-certificate): 중간 인증서를 사용하여 디바이스를 제품 라인, 회사 부서 또는 기타 기준에 따라 논리적으로 그룹화하는 것은 매우 흔한 일입니다. 이 자습서에서는 하나의 중간 인증서로 구성된 인증서 체인을 사용합니다. 중간 인증서는 루트 인증서를 통해 서명됩니다. 이 인증서는 DPS에서 만든 등록 그룹에도 사용되어 디바이스 세트를 논리적으로 그룹화합니다. 이렇게 구성하면 동일한 중간 인증서로 서명된 디바이스 인증서가 있는 디바이스 그룹 전체를 관리할 수 있습니다. 디바이스 그룹을 사용하도록 또는 사용하지 않도록 설정하는 등록 그룹을 만들 수 있습니다. 디바이스 그룹을 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [등록 그룹을 사용하여 X.509 중간 인증서 또는 루트 CA 인증서 허용 안 함](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group)을 참조하세요.
 
-[디바이스 인증서](concepts-x509-attestation.md#end-entity-leaf-certificate): 디바이스(리프) 인증서는 중간 인증서로 서명되고 프라이빗 키와 함께 디바이스에 저장됩니다. 프로비저닝을 시도할 때 디바이스에서 인증서 체인과 함께 이 인증서와 프라이빗 키를 제공합니다. 
+[디바이스 인증서](concepts-x509-attestation.md#end-entity-leaf-certificate): 디바이스(리프) 인증서는 중간 인증서로 서명되고 프라이빗 키와 함께 디바이스에 저장됩니다. 이상적으로 이러한 중요한 항목은 HSM을 사용하여 안전하게 저장됩니다. 각 디바이스에서 프로비저닝을 시도할 때 인증서 및 프라이빗 키를 인증서 체인과 함께 제공합니다. 
 
-인증서 체인을 만들려면 다음을 수행합니다.
+#### <a name="create-root-and-intermediate-certificates"></a>루트 및 중간 인증서 만들기
+
+인증서 체인의 루트 및 중간 부분을 만들려면 다음을 수행합니다.
 
 1. Git Bash 명령 프롬프트를 엽니다. [샘플 및 자습서에 사용되는 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials)에 있는 Bash 셸 지침에 따라 1단계와 2단계를 완료합니다.
 
-    이 단계에서는 인증서 스크립트의 작업 디렉터리를 만들고, openssl을 사용하여 인증서 체인에 대한 예제 루트 인증서 및 중간 인증서를 생성합니다. 
-
-    출력을 보면 자체 서명된 루트 인증서의 위치가 나옵니다. 이 인증서는 나중에 소유권을 확인하기 위해 [소유 증명](how-to-verify-certificates.md)을 거칩니다.
+    그러면 인증서 스크립트에 대한 작업 디렉터리가 만들어지고, openssl을 사용하여 인증서 체인에 대한 루트 및 중간 인증서 예제가 생성됩니다. 
+    
+2. 출력을 보면 자체 서명된 루트 인증서의 위치가 나옵니다. 이 인증서는 나중에 소유권을 확인하기 위해 [소유 증명](how-to-verify-certificates.md)을 거칩니다.
 
     ```output
     Creating the Root CA Certificate
@@ -142,8 +146,8 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
                 Not After : Nov 22 21:30:30 2020 GMT
             Subject: CN=Azure IoT Hub CA Cert Test Only
     ```        
-
-    출력을 보면 루트 인증서로 서명/발급된 중간 인증서의 위치가 나옵니다. 이 인증서는 나중에 만들 등록 그룹에 사용됩니다.
+    
+3. 출력을 보면 루트 인증서로 서명/발급된 중간 인증서의 위치가 나옵니다. 이 인증서는 나중에 만들 등록 그룹에 사용됩니다.
 
     ```output
     Intermediate CA Certificate Generated At:
@@ -161,8 +165,12 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
                 Not After : Nov 22 21:30:33 2020 GMT
             Subject: CN=Azure IoT Hub Intermediate Cert Test Only
     ```    
+    
+#### <a name="create-device-certificates"></a>디바이스 인증서 만들기
 
-2. 이제 다음 명령을 실행하여 매개 변수로 지정하는 주체 이름으로 새 디바이스/리프 인증서를 만듭니다. 이 자습서에 지정된 예제 주체 이름 `custom-hsm-device-01`을 사용합니다. 이 주체 이름은 IoT 디바이스의 디바이스 ID가 됩니다. 
+체인의 중간 인증서로 서명된 디바이스 인증서를 만들려면 다음을 수행합니다.
+
+1. 다음 명령을 실행하여 매개 변수로 지정하는 주체 이름을 사용하여 새 디바이스/리프 인증서를 만듭니다. 이 자습서에 지정된 예제 주체 이름 `custom-hsm-device-01`을 사용합니다. 이 주체 이름은 IoT 디바이스의 디바이스 ID가 됩니다. 
 
     > [!WARNING]
     > 공백이 포함된 주체 이름은 사용하지 마세요. 이 주체 이름은 프로비저닝되는 IoT 디바이스의 디바이스 ID입니다. 따라서 디바이스 ID에 대한 규칙을 따라야 합니다. 자세한 내용은 [디바이스 ID 속성](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties)을 참조하세요.
@@ -192,13 +200,13 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
             Subject: CN=custom-hsm-device-01
     ```    
     
-3. 다음 명령을 실행하여 새 디바이스 인증서를 포함하는 완전한 인증서 체인 .pem 파일을 만듭니다.
+2. 다음 명령을 실행하여 `custom-hsm-device-01`에 대한 새 디바이스 인증서가 포함된 전체 인증서 체인 파일(.pem)을 만듭니다.
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-01-full-chain.cert.pem && cd ..
     ```
 
-    텍스트 편집기를 사용하여 인증서 체인 파일 *./certs/new-device-full-chain.cert.pem* 을 엽니다. 인증서 체인 텍스트에는 세 가지 인증서의 전체 체인이 포함됩니다. 이 텍스트를 이 자습서의 뒷부분에 나오는 사용자 지정 HSM 코드에서 인증서 체인으로 사용할 것입니다.
+    텍스트 편집기를 사용하여 *./certs/new-device-01-full-chain.cert.pem* 인증서 체인 파일을 엽니다. 인증서 체인 텍스트에는 세 가지 인증서의 전체 체인이 포함됩니다. 이 텍스트는 이 자습서의 뒷부분에 나오는 `custom-hsm-device-01`에 대한 사용자 지정 HSM 디바이스 코드에서 인증서 체인으로 사용됩니다.
 
     전체 체인 텍스트는 다음과 같은 형식입니다.
  
@@ -214,115 +222,25 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     -----END CERTIFICATE-----
     ```
 
-5. 새 디바이스 인증서의 프라이빗 키는 *./private/new-device.key.pem* 에 기록되었습니다. 프로비저닝할 때 디바이스에서 이 키의 텍스트가 필요합니다. 이 텍스트는 나중에 사용자 지정 HSM 예제에 추가됩니다.
+3. 새 디바이스 인증서의 프라이빗 키는 *./private/new-device.key.pem* 에 기록되었습니다. 이 키 파일의 이름을 `custom-hsm-device-01` 디바이스에 대한 */private/new-device-01.key.pem* 으로 바꿉니다. 프로비저닝할 때 디바이스에서 이 키의 텍스트가 필요합니다. 이 텍스트는 나중에 사용자 지정 HSM 예제에 추가됩니다.
+
+    ```bash
+    $ mv private/new-device.key.pem private/new-device-01.key.pem
+    ```
 
     > [!WARNING]
     > 인증서의 텍스트에는 공개 키 정보만 포함됩니다. 
     >
     > 그러나 디바이스는 디바이스 인증서의 프라이빗 키에 대한 액세스 권한도 필요합니다. 프로비저닝을 시도할 때 디바이스에서 런타임에 해당 키를 사용하여 확인을 수행해야 하기 때문에 이 액세스 권한이 필요합니다. 이 키는 매우 중요하기 때문에 실제 HSM에서는 프라이빗 키를 안전하게 보관할 수 있도록 하드웨어 기반 스토리지를 사용하는 것이 좋습니다.
 
+4. 디바이스 ID가 `custom-hsm-device-02`인 두 번째 디바이스에 대해 1~3단계를 반복합니다. 해당 디바이스에 대해 다음 값을 사용합니다.
 
-
-## <a name="configure-the-custom-hsm-stub-code"></a>사용자 지정 HSM 스텁 코드 구성
-
-실제 보안 하드웨어 기반 스토리지와 이루어지는 구체적인 상호 작용은 하드웨어에 따라 달라집니다. 따라서 이 자습서의 디바이스에 사용되는 인증서 체인은 사용자 지정 HSM 스텁 코드에 하드 코딩됩니다. 실제 시나리오에서 인증서 체인은 중요한 정보를 보다 안전하게 보호하기 위해 실제 HSM 하드웨어에 저장됩니다. 그런 다음, 이 샘플의 스텁 방법과 비슷한 방법을 구현하여 해당 하드웨어 기반 스토리지에서 비밀을 읽습니다. 
-
-HSM 하드웨어는 필요하지는 않지만 인증서의 프라이빗 키와 같은 중요한 정보를 소스 코드에 체크 인하지 않는 것이 좋습니다. 그러면 코드를 볼 수 있는 모든 사용자에게 키가 노출됩니다. 이 문서에서는 학습을 지원하기 위해서만 이 작업을 수행합니다.
-
-이 자습서의 사용자 지정 HSM 스텁 코드를 업데이트하려면 다음을 수행합니다.
-
-1. Visual Studio를 시작하고, azure-iot-sdk-c git 리포지토리의 루트에 만든 `cmake` 디렉터리에 생성된 새 솔루션 파일을 엽니다. 솔루션 파일의 이름은 `azure_iot_sdks.sln`입니다.
-
-2. Visual Studio의 솔루션 탐색기에서 **Provisioning_Samples > custom_hsm_example > 원본 파일** 로 이동하여 *custom_hsm_example.c* 를 엽니다.
-
-3. 디바이스 인증서를 생성할 때 사용한 일반적인 이름을 사용하여 `COMMON_NAME` 문자열 상수의 문자열 값을 업데이트합니다.
-
-    ```c
-    static const char* const COMMON_NAME = "custom-hsm-device-01";
-    ```
-
-4. 동일한 파일에서 인증서를 생성한 후 *./certs/new-device-full-chain.cert.pem* 에 저장한 인증서 체인 텍스트를 사용하여 `CERTIFICATE` 상수 문자열의 문자열 값을 업데이트해야 합니다.
-
-    인증서 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
-
-    ```c
-    // <Device/leaf cert>
-    // <intermediates>
-    // <root>
-    static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
-        ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
-    "-----END CERTIFICATE-----\n"
-    "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
-        ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
-    "-----END CERTIFICATE-----\n"
-    "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
-        ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
-    "-----END CERTIFICATE-----";        
-    ```
-
-    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 Git Bash 명령 프롬프트에 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `CERTIFICATE` 문자열 상수 값에 대한 구문을 생성합니다.
-
-    ```Bash
-    input="./certs/new-device-full-chain.cert.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then   
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi  
-    done < "$input"
-    ```
-
-    새 상수 값에 대한 출력 인증서 텍스트를 복사하여 붙여넣습니다. 
-
-
-5. 동일한 파일에서 `PRIVATE_KEY` 상수의 문자열 값도 디바이스 인증서의 프라이빗 키로 업데이트해야 합니다.
-
-    프라이빗 키 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
-
-    ```c
-    static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
-        ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
-    "-----END RSA PRIVATE KEY-----";
-    ```
-
-    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수도 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `PRIVATE_KEY` 문자열 상수 값에 대한 구문을 생성합니다.
-
-    ```Bash
-    input="./private/new-device.key.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then   
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi  
-    done < "$input"
-    ```
-
-    새 상수 값에 대한 출력 프라이빗 키 텍스트를 복사하여 붙여넣습니다. 
-
-6. *custom_hsm_example.c* 를 저장합니다.
-
+    |   Description                 |  값  |
+    | :---------------------------- | :--------- |
+    | 주체 이름                  | `custom-hsm-device-02` |
+    | 전체 인증서 체인 파일   | *./certs/new-device-02-full-chain.cert.pem* |
+    | 프라이빗 키 파일 이름          | *private/new-device-02.key.pem* |
+    
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>루트 인증서의 소유권 확인
 
@@ -351,7 +269,10 @@ HSM 하드웨어는 필요하지는 않지만 인증서의 프라이빗 키와 �
 
 Windows 이외의 디바이스는 코드에서 인증서 체인을 인증서 저장소로 전달할 수 있습니다.
 
-Windows 기반 디바이스는 서명 인증서(루트 및 중간)를 Windows [인증서 저장소](https://docs.microsoft.com/windows/win32/secauthn/certificate-stores)에 추가해야 합니다. 그렇지 않으면 TLS(전송 계층 보안)를 사용하는 보안 채널을 통해 서명 인증서가 DPS로 전송되지 않습니다.
+Windows 기반 디바이스는 서명 인증서(루트 및 중간)를 Windows [인증서 저장소](/windows/win32/secauthn/certificate-stores)에 추가해야 합니다. 그렇지 않으면 TLS(전송 계층 보안)를 사용하는 보안 채널을 통해 서명 인증서가 DPS로 전송되지 않습니다.
+
+> [!TIP]
+> C SDK에서 보안 채널(Schannel) 대신 OpenSSL을 사용할 수도 있습니다. OpenSSL을 사용하는 방법에 대한 자세한 내용은 [SDK에서 OpenSSL 사용](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk)을 참조하세요.
 
 Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추가하려면 다음을 수행합니다.
 
@@ -408,21 +329,23 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
 
 ## <a name="configure-the-provisioning-device-code"></a>프로비저닝 디바이스 코드 구성
 
-이 섹션에서는 디바이스에 Device Provisioning Service 인스턴스를 프로비저닝하도록 샘플 코드를 업데이트합니다. 디바이스가 인증되면 Device Provisioning Service 인스턴스에 연결된 IoT 허브에 디바이스가 할당됩니다.
+이 섹션에서는 샘플 코드를 Device Provisioning Service 인스턴스 정보로 업데이트합니다. 디바이스가 인증되면 이 섹션에 구성한 Device Provisioning Service 인스턴스에 연결된 IoT 허브에 디바이스가 할당됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
     ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Visual Studio의 솔루션 탐색기에서 **Provisioning_Samples > prov_dev_client_sample > 원본 파일** 로 이동하여 *prov_dev_client_sample.c* 를 엽니다.
+2. Visual Studio를 시작하고, azure-iot-sdk-c git 리포지토리의 루트에 만든 `cmake` 디렉터리에 생성된 새 솔루션 파일을 엽니다. 솔루션 파일의 이름은 `azure_iot_sdks.sln`입니다.
 
-3. `id_scope` 상수를 찾고, 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
+3. Visual Studio의 솔루션 탐색기에서 **Provisioning_Samples > prov_dev_client_sample > 원본 파일** 로 이동하여 *prov_dev_client_sample.c* 를 엽니다.
+
+4. `id_scope` 상수를 찾고, 값을 앞에서 복사한 **ID 범위** 값으로 바꿉니다. 
 
     ```c
     static const char* id_scope = "0ne00000A0A";
     ```
 
-4. 동일한 파일에서 `main()` 함수에 대한 정의를 찾습니다. 아래와 같이 `hsm_type` 변수가 `SECURE_DEVICE_TYPE_X509`로 설정되었는지 확인합니다.
+5. 동일한 파일에서 `main()` 함수에 대한 정의를 찾습니다. 아래와 같이 `hsm_type` 변수가 `SECURE_DEVICE_TYPE_X509`로 설정되었는지 확인합니다.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -431,11 +354,110 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
     //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-5. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
+6. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정** 을 선택합니다.
+
+
+## <a name="configure-the-custom-hsm-stub-code"></a>사용자 지정 HSM 스텁 코드 구성
+
+실제 보안 하드웨어 기반 스토리지와 이루어지는 구체적인 상호 작용은 하드웨어에 따라 달라집니다. 따라서 이 자습서의 시뮬레이션된 디바이스에서 사용되는 인증서 체인은 사용자 지정 HSM 스텁 코드에서 하드 코딩됩니다. 실제 시나리오에서 인증서 체인은 중요한 정보를 보다 안전하게 보호하기 위해 실제 HSM 하드웨어에 저장됩니다. 그런 다음, 이 샘플에 사용된 스텁 메서드와 비슷한 메서드를 구현하여 해당 하드웨어 기반 스토리지에서 비밀을 읽습니다. 
+
+HSM 하드웨어가 필요하지는 않지만 인증서의 프라이빗 키와 같은 중요한 정보를 보호하는 것이 좋습니다. 샘플에서 실제 HSM을 호출하는 경우 프라이빗 키는 소스 코드에 표시되지 않습니다. 키가 소스 코드에 있으면 해당 키가 코드를 볼 수 있는 모든 사용자에게 공개됩니다. 이 문서에서는 학습을 지원하기 위해서만 이 작업을 수행합니다.
+
+ID가 `custom-hsm-device-01`인 디바이스의 ID를 시뮬레이션하도록 사용자 지정 HSM 스텁 코드를 업데이트하려면 다음 단계를 수행합니다.
+
+1. Visual Studio의 솔루션 탐색기에서 **Provisioning_Samples > custom_hsm_example > 원본 파일** 로 이동하여 *custom_hsm_example.c* 를 엽니다.
+
+2. 디바이스 인증서를 생성할 때 사용한 일반적인 이름을 사용하여 `COMMON_NAME` 문자열 상수의 문자열 값을 업데이트합니다.
+
+    ```c
+    static const char* const COMMON_NAME = "custom-hsm-device-01";
+    ```
+
+3. 동일한 파일에서 인증서를 생성한 후 *./certs/new-device-01-full-chain.cert.pem* 에 저장한 인증서 체인 텍스트를 사용하여 `CERTIFICATE` 상수 문자열의 문자열 값을 업데이트해야 합니다.
+
+    인증서 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
+
+    ```c
+    // <Device/leaf cert>
+    // <intermediates>
+    // <root>
+    static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
+    "-----BEGIN CERTIFICATE-----\n"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
+        ...
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
+    "-----BEGIN CERTIFICATE-----\n"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
+    ```
+
+    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 Git Bash 명령 프롬프트에 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `CERTIFICATE` 문자열 상수 값에 대한 구문을 생성합니다.
+
+    ```Bash
+    input="./certs/new-device-01-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    새 상수 값에 대한 출력 인증서 텍스트를 복사하여 붙여넣습니다. 
+
+
+4. 동일한 파일에서 `PRIVATE_KEY` 상수의 문자열 값도 디바이스 인증서의 프라이빗 키로 업데이트해야 합니다.
+
+    프라이빗 키 텍스트 구문은 Visual Studio에서 수행한 추가 공백이나 구문 분석 없이 아래 패턴을 따라야 합니다.
+
+    ```c
+    static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
+        ...
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
+    ```
+
+    이 단계에서 이 문자열 값을 올바르게 업데이트하는 것은 매우 번거로울 수 있으며 오류가 발생할 수도 있습니다. Git Bash 프롬프트에서 적절한 구문을 생성하려면 다음 Bash 셸 명령을 복사하여 붙여넣고 **ENTER** 를 누릅니다. 이러한 명령은 `PRIVATE_KEY` 문자열 상수 값에 대한 구문을 생성합니다.
+
+    ```Bash
+    input="./private/new-device-01.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    새 상수 값에 대한 출력 프라이빗 키 텍스트를 복사하여 붙여넣습니다. 
+
+5. *custom_hsm_example.c* 를 저장합니다.
 
 6. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작** 을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 메시지가 표시되면 **예** 를 선택하여 프로젝트를 다시 빌드한 후 실행합니다.
 
-    다음 출력은 성공적으로 부팅된 후 프로비저닝 서비스에 연결된 디바이스 클라이언트 프로비저닝 샘플입니다. 이 디바이스는 IoT 허브에 할당되고 등록되었습니다.
+    다음 출력은 성공적으로 부팅되고 프로비저닝 서비스에 연결하는 `custom-hsm-device-01` 시뮬레이션된 디바이스에 대한 예제입니다. 이 디바이스는 IoT 허브에 할당되고 등록되었습니다.
 
     ```cmd
     Provisioning API Version: 1.3.9
@@ -452,6 +474,29 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
 7. 포털에서 프로비저닝 서비스와 연결된 IoT 허브로 이동하여 **IoT 디바이스** 탭을 선택합니다. X.509 디바이스가 허브에 성공적으로 프로비저닝되면 디바이스 ID가 **IoT 디바이스** 블레이드에 나타나고 *상태* 는 **사용** 으로 표시됩니다. 위쪽에서 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
     ![사용자 지정 HSM 디바이스가 IoT 허브에 등록됨](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
+
+8. 디바이스 ID가 `custom-hsm-device-02`인 두 번째 디바이스에 대해 1~7단계를 반복합니다. 해당 디바이스에 대해 다음 값을 사용합니다.
+
+    |   Description                 |  값  |
+    | :---------------------------- | :--------- |
+    | `COMMON_NAME`                 | `"custom-hsm-device-02"` |
+    | 전체 인증서 체인        | `input="./certs/new-device-02-full-chain.cert.pem"`을 사용하여 텍스트 생성 |
+    | 프라이빗 키                   | `input="./private/new-device-02.key.pem"`을 사용하여 텍스트 생성 |
+
+    다음 출력은 성공적으로 부팅되고 프로비저닝 서비스에 연결하는 `custom-hsm-device-02` 시뮬레이션된 디바이스에 대한 예제입니다. 이 디바이스는 IoT 허브에 할당되고 등록되었습니다.
+
+    ```cmd
+    Provisioning API Version: 1.3.9
+    
+    Registering Device
+    
+    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+    
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-02
+    Press enter key to exit:
+    ```
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

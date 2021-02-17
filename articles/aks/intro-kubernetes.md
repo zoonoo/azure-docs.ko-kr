@@ -3,34 +3,40 @@ title: Azure Kubernetes Service 소개
 description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 02/09/2021
 ms.custom: mvc
-ms.openlocfilehash: 4115ab2140cd3bf67135e494e16fb8121c040ff6
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 128195a32542923fba7b3f12c970c4cd941834b2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246199"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006975"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
-AKS(Azure Kubernetes Service)를 사용하면 Azure에서 관리되는 Kubernetes 클러스터를 간단하게 배포할 수 있습니다. AKS는 대부분의 부담을 Azure에 오프로딩하여 Kubernetes를 관리하는 복잡성 및 운영 과부하를 감소시킵니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리 같은 중요 작업을 처리합니다. Kubernetes 마스터는 Azure에서 관리됩니다. 에이전트 노드만 관리하고 유지하면 됩니다. 관리되는 Kubernetes 서비스, AKS가 무료이므로 마스터가 아니라 클러스터 내의 에이전트 노드에 대해서만 지불합니다.
+AKS(Azure Kubernetes Service)는 복잡성 및 운영 오버헤드의 대부분을 Azure로 오프로드하여 Azure에서의 관리되는 Kubernetes 클러스터 배포를 간소화합니다. 호스팅되는 Kubernetes 서비스인 Azure는 상태 모니터링 및 유지 관리와 같은 중요한 작업을 처리합니다.  
 
-Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 기반 배포 옵션을 사용하여 Azure Portal에서 AKS 클러스터를 만들 수 있습니다. AKS 클러스터를 배포할 때 Kubernetes 마스터 및 모든 노드가 배포되고 구성됩니다. 배포 프로세스 중에 고급 네트워킹, Azure Active Directory 통합 및 모니터링 등의 추가 기능을 구성할 수도 있습니다. Windows Server 컨테이너는 AKS에서 지원됩니다.
+Kubernetes 마스터는 Azure에서 관리되므로 에이전트 노드만 관리하고 유지 관리합니다. 따라서 관리되는 Kubernetes 서비스인 AKS는 무료이므로 마스터가 아닌 클러스터 내의 에이전트 노드에 대해서만 비용을 지불합니다.  
+
+AKS 클러스터는 Azure Portal, Azure CLI, Azure PowerShell을 사용하거나 템플릿 기반 배포 옵션(예: Resource Manager 템플릿 및 Terraform)을 사용하여 만들 수 있습니다. AKS 클러스터를 배포할 때 Kubernetes 마스터 및 모든 노드가 배포되고 구성됩니다. 배포 프로세스 중에 고급 네트워킹, Azure Active Directory 통합 및 모니터링 등의 추가 기능을 구성할 수도 있습니다. Windows Server 컨테이너는 AKS에서 지원됩니다.
 
 Kubernetes 기본 사항에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
-시작하려면 [Azure Portal][aks-portal]이나 [Azure CLI][aks-cli]를 사용하여 AKS 빠른 시작을 완료합니다.
+시작하려면 [Azure Portal][aks-portal] 또는 [Azure CLI][aks-cli]를 사용하여 AKS 빠른 시작을 완료합니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="access-security-and-monitoring"></a>액세스, 보안 및 모니터링
 
-향상된 보안 및 관리를 위해 AKS를 사용하면 Azure Active Directory와 통합하고 Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용할 수 있습니다. 클러스터 및 리소스의 상태를 모니터링할 수도 있습니다.
+향상된 보안 및 관리를 위해 AKS를 사용하면 Azure AD(Azure Active Directory)와 통합하여 다음을 수행할 수 있습니다.
+* Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)를 사용합니다. 
+* 클러스터 및 리소스의 상태를 모니터링합니다.
 
 ### <a name="identity-and-security-management"></a>ID 및 보안 관리
 
-클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. Kubernetes RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
+클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC][kubernetes-rbac]를 지원합니다. Kubernetes RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스 및 권한을 제어할 수 있습니다.  
+
+또한 Azure AD와 통합하도록 AKS 클러스터를 구성할 수 있습니다. Azure AD 통합을 사용하면 기존 ID 및 그룹 멤버 자격을 기반으로 하여 Kubernetes 액세스를 구성할 수 있습니다. AKS 리소스에 대한 통합 로그온 환경과 액세스를 기존 Azure AD 사용자 및 그룹에 제공할 수 있습니다.  
 
 ID에 대한 자세한 내용은 [AKS에 대한 액세스 및 ID 옵션][concepts-identity]을 참조하세요.
 
@@ -38,13 +44,15 @@ AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-a
 
 ### <a name="integrated-logging-and-monitoring"></a>통합된 로깅 및 모니터링
 
-AKS 클러스터 및 배포된 애플리케이션이 수행되는 방법을 이해하기 위해 컨테이너 상태에 대한 Azure Monitor는 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 메트릭을 수집합니다. 컨테이너 로그를 사용할 수 있으며, [Kubernetes 마스터 로그를 검토][aks-master-logs]할 수도 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 제공됩니다.
+컨테이너 상태용 Azure Monitor는 AKS 클러스터 및 배포된 애플리케이션 내의 컨테이너, 노드 및 컨트롤러에서 메모리 및 프로세서 성능 메트릭을 수집합니다. 컨테이너 로그와 [Kubernetes 마스터 로그][aks-master-logs]를 모두 검토할 수 있습니다. 이 모니터링 데이터는 Azure Log Analytics 작업 영역에 저장되고, Azure Portal, Azure CLI 또는 REST 엔드포인트를 통해 사용할 수 있습니다.
 
 자세한 내용은 [Azure Kubernetes Service 컨테이너 상태 모니터링][container-health]을 참조하세요.
 
 ## <a name="clusters-and-nodes"></a>클러스터 및 노드
 
-AKS 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다. AKS는 혼합된 운영 체제 및 Windows Server 컨테이너를 지원하기 위해 여러 노드 풀을 실행하는 Kubernetes 클러스터를 지원합니다. Linux 노드는 사용자 지정된 Ubuntu OS 이미지를 실행하고 Windows 서버 노드는 사용자 지정된 Windows Server 2019 OS 이미지를 실행합니다.
+AKS 노드는 Azure VM(가상 머신)에서 실행됩니다. AKS 노드를 사용하면 스토리지를 노드 및 Pod에 연결하고, 클러스터 구성 요소를 업그레이드하고, GPU를 사용할 수 있습니다. AKS는 혼합된 운영 체제 및 Windows Server 컨테이너를 지원하기 위해 여러 노드 풀을 실행하는 Kubernetes 클러스터를 지원합니다.  
+
+Kubernetes 클러스터, 노드 및 노드 풀 기능에 대한 자세한 내용은 [AKS의 Kubernetes 핵심 개념][concepts-clusters-workloads]을 참조하세요.
 
 ### <a name="cluster-node-and-pod-scaling"></a>클러스터 노드 및 Pod 크기 조정
 
@@ -54,7 +62,7 @@ AKS 노드는 Azure 가상 머신에서 실행됩니다. 스토리지를 노드 
 
 ### <a name="cluster-node-upgrades"></a>클러스터 노드 업그레이드
 
-Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 애플리케이션의 중단을 최소화합니다.
+AKS는 여러 Kubernetes 버전을 제공합니다. AKS에서 새 버전을 사용할 수 있으므로 Azure Portal 또는 Azure CLI를 사용하여 클러스터를 업그레이드할 수 있습니다. 업그레이드 프로세스 중에는 노드를 신중하게 통제하고 드레이닝하여 실행 중인 애플리케이션의 중단을 최소화합니다.  
 
 수명 주기 버전에 대해 자세히 알아보려면 [AKS의 지원되는 Kubernetes 버전][aks-supported versions]을 참조하세요. 업그레이드하는 방법에 대한 단계는 [AKS(Azure Kubernetes Service) 클러스터 업그레이드][aks-upgrade]를 참조하세요.
 
@@ -66,13 +74,13 @@ AKS는 GPU 지원 노드 풀 생성을 지원합니다. Azure는 현재, 단일 
 
 ### <a name="confidential-computing-nodes-public-preview"></a>기밀 컴퓨팅 노드(공개 미리 보기)
 
-AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원합니다. 기밀 컴퓨팅 노드를 통해 하드웨어 기반의 신뢰할 수 있는 환경(enclaves)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 Docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
+AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 만들기를 지원합니다. 기밀 컴퓨팅 노드를 통해 신뢰할 수 있는 하드웨어 기반 환경(enclave)에서 컨테이너를 실행할 수 있습니다. 증명을 통해 코드 무결성과 결합된 컨테이너 간의 격리는 심층 방어 컨테이너 보안 전략에 도움이 될 수 있습니다. 기밀 컴퓨팅 노드는 기밀 컨테이너(기존 Docker 앱)와 enclave 인식 컨테이너를 모두 지원합니다.
 
 자세한 내용은 [AKS의 기밀 컴퓨팅 노드][conf-com-node]를 참조하세요.
 
 ### <a name="storage-volume-support"></a>스토리지 볼륨 지원
 
-애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 스토리지 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 스토리지를 공유하기 위해 연결된 Pod 수에 따라 단일 Pod 액세스에 대한 Azure 디스크 또는 여러 동시 Pod 액세스에 대한 Azure Files 중 하나에서 지원되는 스토리지를 사용할 수 있습니다.
+애플리케이션 워크로드를 지원하기 위해 영구 데이터에 대한 스토리지 볼륨을 탑재할 수 있습니다. 정적 및 동적 볼륨을 모두 사용할 수 있습니다. 스토리지 볼륨을 공유하는 데 필요한 연결된 Pod의 수에 따라 단일 Pod 액세스에는 Azure Disks, 여러 동시 Pod 액세스에는 Azure Files를 통해 지원되는 스토리지를 사용할 수 있습니다.
 
 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
@@ -80,25 +88,31 @@ AKS는 Intel SGX 기반 기밀 컴퓨팅 노드 풀(DCSv2 VM) 생성을 지원�
 
 ## <a name="virtual-networks-and-ingress"></a>가상 네트워크 및 수신
 
-AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. 이 구성에서 클러스터의 모든 Pod는 가상 네트워크의 IP 주소가 할당되고, 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크의 다른 서비스와 연결할 수 있으며, ExpressRoute 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크와 연결할 수 있습니다.
+AKS 클러스터는 기존 가상 네트워크로 배포될 수 있습니다. 이 구성에서 클러스터의 모든 Pod는 가상 네트워크의 IP 주소를 할당받고, 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다. 또한 Pod는 피어링된 가상 네트워크에서 다른 서비스에 연결하고, ExpressRoute 또는 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결할 수 있습니다.  
 
 자세한 내용은 [애플리케이션에 대한 AKS의 네트워크 개념][aks-networking]을 참조하세요.
 
-수신 트래픽을 시작하려면 [HTTP 애플리케이션 라우팅][aks-http-routing]을 참조하세요.
-
 ### <a name="ingress-with-http-application-routing"></a>HTTP 애플리케이션 라우팅을 사용하여 수신
 
-HTTP 애플리케이션 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. HTTP 애플리케이션 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 애플리케이션이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 애플리케이션 라우팅은 DNS 영역을 구성하고 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.
+HTTP 애플리케이션 라우팅 추가 기능을 사용하면 AKS 클러스터에 배포된 애플리케이션에 쉽게 액세스할 수 있습니다. HTTP 애플리케이션 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다.  
+
+애플리케이션이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다. HTTP 애플리케이션 라우팅은 DNS 영역을 설정하고 이를 AKS 클러스터와 통합합니다. 그런 다음, 정상적으로 Kubernetes 수신 리소스를 배포할 수 있습니다.  
 
 수신 트래픽을 시작하려면 [HTTP 애플리케이션 라우팅][aks-http-routing]을 참조하세요.
 
 ## <a name="development-tooling-integration"></a>개발 도구 통합
 
-Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: Helm 및 Kubernetes 확장)가 있습니다. 이러한 도구는 AKS를 사용하여 원활하게 작동합니다.
+Kubernetes에는 AKS와 원활하게 작동하는 풍부한 개발 및 관리 도구 에코시스템이 있습니다. 이러한 도구에는 Helm과 Visual Studio Code용 Kubernetes 확장이 포함되어 있습니다. 이러한 도구는 AKS를 사용하여 원활하게 작동합니다.  
 
-또한 Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS에서 바로 컨테이너를 실행하고 디버그할 수 있습니다. 시작하려면 [Azure Dev Spaces][azure-dev-spaces]를 참조하세요.
+또한 Azure는 Azure Dev Spaces 및 DevOps Starter와 같이 Kubernetes를 간소화하는 데 도움이 되는 여러 도구를 제공합니다.  
 
-DevOps Starter는 기존 코드 및 Git 리포지토리를 Azure로 가져오는 간단한 솔루션을 제공합니다. DevOps Starter는 자동으로 AKS, CI의 빌드 파이프라인을 포함하는 Azure DevOps Services의 릴리스 파이프라인과 같은 Azure 리소스를 만들고 CD의 릴리스 파이프라인을 설정한 다음, 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
+Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS에서 바로 컨테이너를 실행하고 디버그할 수 있습니다. 시작하려면 [Azure Dev Spaces][azure-dev-spaces]를 참조하세요.
+
+DevOps Starter는 기존 코드 및 Git 리포지토리를 Azure로 가져오는 간단한 솔루션을 제공합니다. DevOps Starter는 자동으로 다음을 수행합니다.
+* Azure 리소스(예: AKS)를 만듭니다. 
+* Azure DevOps Services에서 CI용 빌드 파이프라인이 포함된 릴리스 파이프라인을 구성합니다. 
+* CD용 릴리스 파이프라인을 설정합니다. 
+* 모니터링을 위한 Azure Application Insights 리소스를 생성합니다. 
 
 자세한 내용은 [DevOps Starter][azure-devops]를 참조하세요.
 
@@ -110,15 +124,15 @@ AKS는 Docker 이미지 형식을 지원합니다. Docker 이미지의 프라이
 
 ## <a name="kubernetes-certification"></a>Kubernetes 인증
 
-AKS(Azure Kubernetes Service)는 Kubernetes 규칙을 따르는 CNCF로 인증되었습니다.
+AKS는 CNCF에서 Kubernetes 규격을 준수하는 것으로 인증되었습니다.
 
 ## <a name="regulatory-compliance"></a>규정 준수
 
-AKS(Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA와 호환됩니다. 자세한 내용은 [Microsoft Azure 규정 준수 개요][compliance-doc]를 참조하세요.
+AKS는 SOC, ISO, PCI DSS 및 HIPAA를 준수합니다. 자세한 내용은 [Microsoft Azure 규정 준수 개요][compliance-doc]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아봅니다.
+Azure CLI 빠른 시작을 사용하여 AKS를 배포하고 관리하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [AKS 빠른 시작][aks-cli]

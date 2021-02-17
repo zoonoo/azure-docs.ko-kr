@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 1517c066fe20d478094f57d85d6e27f355a93601
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: ad28b3300e9107c7f6d4b1987205583ef60ed658
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049816"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545703"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>서비스 요청이 실패 했습니다. 상태: 403 (사용할 수 없음)
 
@@ -26,8 +26,6 @@ ms.locfileid: "98049816"
 ### <a name="cause-1"></a>원인 #1
 
 일반적으로이 오류는 서비스에 대 한 Azure RBAC (역할 기반 액세스 제어) 권한이 올바르게 설정 되지 않았음을 나타냅니다. Azure Digital Twins 인스턴스에 대 한 많은 작업을 수행 하려면 **관리 하려는 인스턴스에** *Azure Digital Twins 데이터 소유자* 역할이 있어야 합니다. 
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>원인 #2
 

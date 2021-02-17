@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379610"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547828"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Azure Cosmos DB 계정에 대해 노트북 사용 (미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -95,15 +95,15 @@ Azure Cosmos DB에 대 한 기본 제공 노트북은 현재 29 개 Azure 지역
 - 독일 중서부
 - 일본 서부
 - 한국 남부
-- 미국 중 북부
+- 미국 중북부
 - 북유럽
-- 미국 중 남부
+- 미국 중남부
 - 동남 아시아
 - 스위스 북부
 - 아랍에미리트 중부
 - 영국 남부
 - 영국 서부
-- 미국 서 부 중부
+- 미국 중서부
 - 서유럽
 - 인도 서부
 - 미국 서부 2

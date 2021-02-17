@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 96915fe5cc7bc7b2f88e0cbd8619c10a6433dd71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631315"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557476"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
 
@@ -207,5 +207,5 @@ New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actio
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 역할 정의 이해](role-definitions.md)
-- [빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당 추가](quickstart-role-assignments-template.md)
+- [빠른 시작: Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](quickstart-role-assignments-template.md)
 - [ARM 템플릿 설명서](../azure-resource-manager/templates/index.yml)

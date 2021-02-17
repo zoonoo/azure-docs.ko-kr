@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 02/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 24fbe843986b732a04c9e356c54f3d768d6739be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558176"
 ---
 # <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성
 
@@ -175,10 +175,11 @@ Azure Storage는 암호화에 사용 되는 고객 관리 키를 최신 키 버�
 Azure Portal에서 키 버전의 자동 업데이트를 사용 하 여 고객 관리 키를 구성 하려면 다음 단계를 수행 합니다.
 
 1. 스토리지 계정으로 이동합니다.
-1. 스토리지 계정에 대한 **설정** 블레이드에서 **암호화** 를 클릭합니다. 다음 그림에 표시 된 것 처럼 **고객 관리 키** 옵션을 선택 합니다.
+1. 스토리지 계정에 대한 **설정** 블레이드에서 **암호화** 를 클릭합니다. 기본적으로 키 관리는 다음 이미지와 같이 **Microsoft 관리 키** 로 설정 됩니다.
 
     ![암호화 옵션을 보여 주는 포털 스크린샷](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
+1. **고객 관리 키** 옵션을 선택 합니다.
 1. **Key Vault에서 선택** 옵션을 선택합니다.
 1. **키 자격 증명 모음 및 키 선택** 을 선택 합니다.
 1. 사용할 키를 포함 하는 키 자격 증명 모음을 선택 합니다.

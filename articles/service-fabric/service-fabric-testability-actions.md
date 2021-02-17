@@ -1,17 +1,17 @@
 ---
 title: Azure 마이크로 서비스에서 실패 시뮬레이션
 description: 이 문서에서는 Microsoft Azure 서비스 패브릭에서 발견되는 테스트 용이성 작업에 대해 다룹니다.
-author: motanv
+author: georgewallace
 ms.topic: conceptual
 ms.date: 06/07/2017
-ms.author: motanv
+ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aea918f75ad9c8aa58b5201d2fdd967794085438
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022176"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547080"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
 불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
@@ -29,9 +29,9 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 다양한 정상 및 비정상 오류를 유도하면서 서비스 및 비즈니스 작업을 실행하면 보다 완벽하게 품질을 확인할 수 있습니다. 비정상적 오류의 경우 워크플로 도중에 서비스 프로세스가 갑자기 종료되는 시나리오를 실행합니다. 이 시나리오는 Service Fabric에서 서비스 복제본을 복원할 때 복구 경로를 테스트합니다. 데이터 일관성을 테스트하고 실패 후 서비스 상태가 올바르게 유지되는지 테스트하는 데 도움이 됩니다. 다른 실패 집합(정상적인 실패)은 서비스 패브릭에 의해 이동되는 복제본에 대해 서비스가 올바르게 반응하는지를 테스트 합니다. 이 테스트는 RunAsync 메서드의 취소 처리를 테스트합니다. 서비스에서 설정되는 취소 토큰을 확인하고 상태를 올바르게 저장한 후 RunAsync 메서드를 종료해야 합니다.
 
 ## <a name="testability-actions-list"></a>테스트 용이성 작업 목록
-| 작업 | 설명 | 관리되는 API | PowerShell cmdlet | 정상/비정상 오류 |
+| 작업 | Description | 관리되는 API | PowerShell cmdlet | 정상/비정상 오류 |
 | --- | --- | --- | --- | --- |
-| CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |적용할 수 없음 |
+| CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |해당 없음 |
 | InvokeDataLoss |서비스 파티션으로 데이터 손실을 유도합니다. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |정상 |
 | InvokeQuorumLoss |지정된 상태 저장 서비스 파티션을 쿼럼 손실에 배치합니다. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |정상 |
 | MovePrimary |상태 저장 서비스의 지정된 주 복제본을 지정된 클러스터 노드로 이동합니다. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |정상 |
@@ -41,10 +41,10 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 | RestartNode |노드를 다시 시작하여 서비스 패브릭 클러스터 노드 오류를 시뮬레이션합니다. |RestartNodeAsync |Restart-ServiceFabricNode |비정상 |
 | RestartPartition |파티션의 일부 또는 모든 복제본을 다시 시작하여 데이터 센터 블랙아웃 또는 클러스터 블랙아웃 시나리오를 시뮬레이션합니다. |RestartPartitionAsync |Restart-ServiceFabricPartition |정상 |
 | RestartReplica |클러스터에 보관된 복제본을 다시 시작하고, 복제본을 닫은 후 다시 열어서 복제본 오류를 시뮬레이션합니다. |RestartReplicaAsync |Restart-ServiceFabricReplica |정상 |
-| StartNode |클러스터에서 이미 중지된 노드를 시작합니다. |StartNodeAsync |Start-ServiceFabricNode |적용할 수 없음 |
+| StartNode |클러스터에서 이미 중지된 노드를 시작합니다. |StartNodeAsync |Start-ServiceFabricNode |해당 없음 |
 | StopNode |클러스터의 노드를 중지하여 노드 오류를 시뮬레이션합니다. StartNode가 호출될 때까지 노드가 계속 중지됩니다. |StopNodeAsync |Stop-ServiceFabricNode |비정상 |
-| ValidateApplication |일반적으로 시스템에 일부 오류를 유도한 후 애플리케이션 내의 모든 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateApplicationAsync |Test-ServiceFabricApplication |적용할 수 없음 |
-| ValidateService |일반적으로 시스템에 일부 오류를 유도한 후 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateServiceAsync |Test-ServiceFabricService |적용할 수 없음 |
+| ValidateApplication |일반적으로 시스템에 일부 오류를 유도한 후 애플리케이션 내의 모든 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateApplicationAsync |Test-ServiceFabricApplication |해당 없음 |
+| ValidateService |일반적으로 시스템에 일부 오류를 유도한 후 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateServiceAsync |Test-ServiceFabricService |해당 없음 |
 
 ## <a name="running-a-testability-action-using-powershell"></a>PowerShell을 사용하여 테스트 용이성 작업 실행
 이 자습서에서는 PowerShell을 사용하여 테스트 용이성 작업을 실행하는 방법을 보여 줍니다. 로컬(one-box) 클러스터 또는 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법을 배울 것입니다. Microsoft.Fabric.Powershell.dll(서비스 패브릭PowerShell 모듈)은 Microsoft 서비스 패브릭 MSI를 설치할 때 자동으로 설치됩니다. PowerShell 프롬프트를 열면 이 모듈이 자동으로 로드됩니다.
@@ -76,7 +76,7 @@ Connect-ServiceFabricCluster $connection
 Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 ```
 
-**Restart-ServiceFabricNode**를 사용하여 클러스터의 Service Fabric 노드를 다시 시작해야 합니다. 이 방법을 사용하면 Fabric.exe 프로세스가 중지됩니다. 이 프로세스는 해당 노드에 호스팅되는 모든 시스템 서비스 및 사용자 서비스 복제본을 다시 시작합니다. 이 API를 사용하여 서비스를 테스트하면 장애 조치(failover) 복구 경로를 따라 버그를 발견할 수 있습니다. 이는 클러스터의 노드 오류를 시뮬레이션하는 데 도움이 됩니다.
+**Restart-ServiceFabricNode** 를 사용하여 클러스터의 Service Fabric 노드를 다시 시작해야 합니다. 이 방법을 사용하면 Fabric.exe 프로세스가 중지됩니다. 이 프로세스는 해당 노드에 호스팅되는 모든 시스템 서비스 및 사용자 서비스 복제본을 다시 시작합니다. 이 API를 사용하여 서비스를 테스트하면 장애 조치(failover) 복구 경로를 따라 버그를 발견할 수 있습니다. 이는 클러스터의 노드 오류를 시뮬레이션하는 데 도움이 됩니다.
 
 다음 스크린샷은 동작 중인 **Restart-ServiceFabricNode** 테스트 용이성 명령을 보여 줍니다.
 

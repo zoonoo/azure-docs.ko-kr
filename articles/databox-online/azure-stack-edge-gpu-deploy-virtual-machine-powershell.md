@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
-description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
+title: Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
+description: Azure PowerShell를 사용 하 여 Azure Stack Edge 장치에서 가상 컴퓨터를 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: d4a4a2e6e04f8f6247df663aba033d387e66c437
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98802984"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546893"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
 
-이 문서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
+이 문서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이 문서는 Azure Stack Edge Pro GPU, Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R 장치에 적용 됩니다.
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
-다음 다이어그램에 배포 워크플로가 나와 있습니다.
+배포 워크플로는 다음과 같습니다.
 
-![VM 배포 워크플로](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
+![VM 배포 워크플로의 다이어그램입니다.](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -59,7 +59,7 @@ Azure Resource Manager의 경우 사용자가 볼 수 있는 단일 고정 구�
     PS C:\windows\system32>
     ```
         
-3.  장치에서 실행 되는 등록 된 리소스 공급자의 목록을 가져옵니다. 일반적으로이 목록에는 Compute, Network 및 Storage가 포함 됩니다.
+1. 장치에서 실행 되는 등록 된 리소스 공급자의 목록을 가져옵니다. 일반적으로이 목록에는 compute, network 및 storage가 포함 됩니다.
 
     ```powershell
     Get-AzureRMResourceProvider
@@ -100,7 +100,7 @@ Azure Resource Manager의 경우 사용자가 볼 수 있는 단일 고정 구�
     
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
+[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크 및 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
 
 > [!IMPORTANT]
 > 모든 리소스는 장치와 동일한 위치에 만들어지고 위치는 **Dbelocal** 로 설정 됩니다.
@@ -118,14 +118,14 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이전 단계에서 만든 리소스 그룹을 사용 하 여 새 저장소 계정을 만듭니다. 이 계정은 VM에 대 한 가상 디스크 이미지를 업로드 하는 데 사용 되는 **로컬 저장소 계정** 입니다.
+이전 단계에서 만든 리소스 그룹을 사용 하 여 새 저장소 계정을 만듭니다. VM에 대 한 가상 디스크 이미지를 업로드 하는 데 사용 하는 로컬 저장소 계정입니다.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
 ```
 
 > [!NOTE]
-> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
+> Azure Resource Manager를 사용 하 여 로컬 저장소 계정 (예: 로컬 중복 저장소 (standard 또는 premium))만 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [자습서: Edge PRO GPU Azure Stack를 사용 하 여 저장소 계정을 통해 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)(영문)을 참조 하세요.
 
 샘플 출력은 다음과 같습니다.
 
@@ -175,20 +175,19 @@ key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
 
-## <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 Blob URI 추가
+## <a name="add-the-blob-uri-to-the-host-file"></a>호스트 파일에 blob URI를 추가 합니다.
 
-[끝점 이름 확인에 대 한 호스트 파일 수정](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)섹션에서 blob 저장소에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. 이 항목은 blob URI를 추가 하는 데 사용 되었습니다.
+[끝점 이름 확인에 대 한 호스트 파일 수정](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)섹션에서 Azure Blob Storage에 연결 하는 데 사용 하 고 있는 클라이언트에 대 한 호스트 파일에 blob URI를 이미 추가 했습니다. 이 항목은 blob URI를 추가 하는 데 사용 되었습니다.
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 
-
 ## <a name="install-certificates"></a>인증서 설치
 
-*Https* 를 사용 하는 경우 장치에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요.
+*Https* 를 사용 하는 경우 장치에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [Azure Stack Edge PRO GPU 장치와 함께 인증서 사용](azure-stack-edge-gpu-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요.
 
 ## <a name="upload-a-vhd"></a>VHD 업로드
 
-이전 단계에서 만든 로컬 저장소 계정의 페이지 blob에 사용할 디스크 이미지를 복사 합니다. [AzCopy](../storage/common/storage-use-azcopy-v10.md) 와 같은 도구를 사용 하 여 이전 단계에서 만든 저장소 계정에 VHD를 업로드할 수 있습니다. 
+이전 단계에서 만든 로컬 저장소 계정의 페이지 blob에 사용할 디스크 이미지를 복사 합니다. [AzCopy](../storage/common/storage-use-azcopy-v10.md) 와 같은 도구를 사용 하 여 저장소 계정에 VHD를 업로드할 수 있습니다. 
 
 <!--Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
@@ -197,11 +196,11 @@ AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storag
 ```
 
 > [!NOTE]
-> Set `BlobType` to page for creating a managed disk out of VHD. Set `BlobType` to block when writing to tiered storage accounts using AzCopy.
+> Set `BlobType` to `page` for creating a managed disk out of VHD. Set `BlobType` to `block` when you're writing to tiered storage accounts by using AzCopy.
 
-You can download the disk images from the marketplace. For detailed steps, go to [Get the virtual disk image from Azure marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
+You can download the disk images from Azure Marketplace. For detailed steps, see [Get the virtual disk image from Azure Marketplace](azure-stack-edge-j-series-create-virtual-machine-image.md).
 
-A sample output using AzCopy 7.3 is shown below. For more information on this command, go to [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
+Here's a sample output using AzCopy 7.3. For more information on this command, see [Upload VHD file to storage account using AzCopy](../devtest-labs/devtest-lab-upload-vhd-using-azcopy.md).
 
 
 ```powershell
@@ -221,7 +220,7 @@ $StorageAccountSAS = New-AzureStorageAccountSASToken -Service Blob,File,Queue,Ta
 <AzCopy exe path> cp "Full VHD path" "<BlobEndPoint>/<ContainerName><StorageAccountSAS>"
 ```
 
-출력의 예제는 다음과 같습니다. 
+다음은 출력의 예입니다. 
 
 ```powershell
 $ContainerName = <ContainerName>
@@ -249,6 +248,7 @@ C:\AzCopy.exe  cp "$VHDPath\$VHDFile" "$endPoint$ContainerName$StorageAccountSAS
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 샘플 출력은 다음과 같습니다. 
+
 <code>
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
@@ -317,15 +317,14 @@ Tags                 : {}
 VM을 만들고 배포 하기 전에 가상 네트워크를 하나 만들고 가상 네트워크 인터페이스를 연결 해야 합니다.
 
 > [!IMPORTANT]
-> 가상 네트워크 및 가상 네트워크 인터페이스를 만드는 동안 다음 규칙이 적용 됩니다.
-> - 하나의 Vnet만 만들 수 있으며 (리소스 그룹의 경우에도) 주소 공간을 기준으로 논리 네트워크와 정확히 일치 해야 합니다.
-> - Vnet에는 서브넷이 하나만 허용 됩니다. 서브넷은 Vnet과 정확히 동일한 주소 공간 이어야 합니다.
-> - Vnic를 만드는 동안에는 정적 할당 메서드만 허용 되며 사용자는 개인 IP 주소를 제공 해야 합니다.
+> 다음 규칙이 적용됩니다.
+> - 리소스 그룹 간에도 가상 네트워크를 하나만 만들 수 있습니다. 가상 네트워크에는 논리 네트워크와 정확히 동일한 주소 공간이 있어야 합니다.
+> - 가상 네트워크에는 서브넷이 하나만 있을 수 있습니다. 서브넷에는 가상 네트워크와 정확히 동일한 주소 공간이 있어야 합니다.
+> - 가상 네트워크 인터페이스 카드를 만들 때 정적 할당 메서드만 사용할 수 있습니다. 사용자는 개인 IP 주소를 제공 해야 합니다.
 
- 
-**자동으로 만들어진 Vnet 쿼리**
+### <a name="query-the-automatically-created-virtual-network"></a>자동으로 만들어진 가상 네트워크 쿼리
 
-장치의 로컬 UI에서 계산을 사용 하도록 설정 하면 Vnet `ASEVNET` 이 리소스 그룹 아래에 자동으로 만들어집니다 `ASERG` . 다음 명령을 사용 하 여 기존 Vnet을 쿼리 합니다.
+장치의 로컬 UI에서 계산을 사용 하도록 설정 하면 이라는 가상 네트워크가 `ASEVNET` 리소스 그룹 아래에 자동으로 만들어집니다 `ASERG` . 다음 명령을 사용 하 여 기존 가상 네트워크를 쿼리 합니다.
 
 ```powershell
 $aRmVN = Get-AzureRMVirtualNetwork -Name ASEVNET -ResourceGroupName ASERG 
@@ -336,7 +335,9 @@ $subNetId=New-AzureRmVirtualNetworkSubnetConfig -Name <Subnet name> -AddressPref
 $aRmVN = New-AzureRmVirtualNetwork -ResourceGroupName <Resource group name> -Name <Vnet name> -Location DBELocal -AddressPrefix <Address prefix> -Subnet $subNetId
 ```-->
 
-**Vnet 서브넷 ID를 사용 하 여 Vnic 만들기**
+### <a name="create-a-virtual-network-interface-card"></a>가상 네트워크 인터페이스 카드 만들기
+
+가상 네트워크 서브넷 ID를 사용 하 여 가상 네트워크 인터페이스 카드를 만드는 명령은 다음과 같습니다.
 
 ```powershell
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <IP config Name> -SubnetId $aRmVN.Subnets[0].Id -PrivateIpAddress <Private IP>
@@ -405,7 +406,7 @@ Primary                     : True
 MacAddress                  : 00155D18E432                :
 ```
 
-필요에 따라 VM에 대 한 Vnic를 만들 때 공용 IP를 전달할 수 있습니다. 이 인스턴스에서 공용 IP는 개인 IP를 반환 합니다. 
+필요에 따라 VM에 대 한 가상 네트워크 인터페이스 카드를 만들 때 공용 IP를 전달할 수 있습니다. 이 인스턴스에서 공용 IP는 개인 IP를 반환 합니다. 
 
 ```powershell
 New-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <ResourceGroupName> -AllocationMethod Static -Location DBELocal
@@ -413,8 +414,7 @@ $publicIP = (Get-AzureRmPublicIPAddress -Name <Public IP> -ResourceGroupName <Re
 $ipConfig = New-AzureRmNetworkInterfaceIpConfig -Name <ConfigName> -PublicIpAddressId $publicIP -SubnetId $subNetId
 ```
 
-
-**VM 만들기**
+### <a name="create-a-vm"></a>VM 만들기
 
 이제 VM 이미지를 사용 하 여 VM을 만들고 이전에 만든 가상 네트워크에 연결할 수 있습니다.
 
@@ -458,15 +458,15 @@ Windows VM에 연결 하려면 다음 단계를 수행 합니다.
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
 
-<!--Connect to the VM using the private IP that you passed during the VM creation.
+<!--Connect to the VM by using the private IP that you passed during the VM creation.
 
 Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-When prompted, provide the password that you used when creating the VM.
+When you're prompted, provide the password that you used when creating the VM.
 
-If you need to provide the SSH key, use this command.
+If you need to provide the SSH key, use this command:
 
 ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
@@ -475,16 +475,16 @@ If you used a public IP address during VM creation, you can use that IP to conne
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
+The public IP in this case is the same as the private IP that you passed during the virtual network interface creation.-->
 
 
-## <a name="manage-vm"></a>VM 관리
+## <a name="manage-the-vm"></a>VM 관리
 
-다음 섹션에서는 Azure Stack Edge Pro 장치에서 만들 VM에 대 한 몇 가지 일반적인 작업에 대해 설명 합니다.
+다음 섹션에서는 Azure Stack Edge Pro 장치에서 만들 수 있는 몇 가지 일반적인 작업에 대해 설명 합니다.
 
 ### <a name="list-vms-running-on-the-device"></a>장치에서 실행 되는 Vm 나열
 
-Azure Stack Edge Pro 장치에서 실행 되는 모든 Vm의 목록을 반환 하려면 다음 명령을 실행 합니다.
+Azure Stack Edge 장치에서 실행 되는 모든 Vm의 목록을 반환 하려면 다음 명령을 실행 합니다.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -497,18 +497,16 @@ Azure Stack Edge Pro 장치에서 실행 되는 모든 Vm의 목록을 반환 �
 
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
-
 이 cmdlet에 대 한 자세한 내용은 [new-azurermvm](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true)를 참조 하세요.
 
 ### <a name="suspend-or-shut-down-the-vm"></a>VM 일시 중단 또는 종료
 
-다음 cmdlet을 실행하여 디바이스에서 실행되는 가상 머신을 중지하거나 종료합니다.
+다음 cmdlet을 실행 하 여 장치에서 실행 되는 가상 컴퓨터를 중지 하거나 종료 합니다.
 
 
 ```powershell
 Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
-
 
 이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true)을 참조 하세요.
 
@@ -531,8 +529,6 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
 이 cmdlet에 대 한 자세한 내용은 [new-azurermvm cmdlet](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true)을 참조 하세요.
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

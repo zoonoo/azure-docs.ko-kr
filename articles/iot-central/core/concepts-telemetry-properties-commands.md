@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: f027b2d41f63b5aa7ea3df87e06224abd629799b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127909"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535317"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>원격 분석, 속성 및 명령 페이로드
 
@@ -727,8 +727,8 @@ IoT Central 장치에서 쓰기 가능한 속성 업데이트에 대 한 응답�
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업을 성공적으로 완료 했습니다. |
 | `'ac': 202`  디스크나 `'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
-| `'ac': 4xx` | Error | 요청 된 속성 변경이 올바르지 않거나 오류가 발생 했습니다. |
-| `'ac': 5xx` | Error | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
+| `'ac': 4xx` | 오류 | 요청 된 속성 변경이 올바르지 않거나 오류가 발생 했습니다. |
+| `'ac': 5xx` | 오류 | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
 `av` 장치에 전송 된 버전 번호입니다.
 
@@ -1068,7 +1068,7 @@ IoT Central 웹 UI에서 명령에 대 한 **오프 라인 상태인 경우 큐*
                 "displayName": {
                   "en": "Bank3"
                 },
-                "enumValue": 2,
+                "enumValue": 3,
                 "name": "Bank3"
               }
             ],

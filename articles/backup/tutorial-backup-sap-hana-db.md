@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695217"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987780"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -98,6 +98,46 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅
 
 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 필요한 서비스에 대한 액세스를 허용하려면 위에서 언급한 IP 및 FQDN 목록을 사용하세요. 인증된 프록시 서버는 지원되지 않습니다.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>백업 및 복원 처리량 성능 이해
+
+Backint를 통해 제공되는 SAP HANA Azure VM의 백업(로그 및 비로그)은 Azure Recovery Services 자격 증명 모음으로 스트리밍되므로 이 스트리밍 방법론을 이해하는 것이 중요합니다.
+
+HANA의 Backint 구성 요소는 데이터베이스 파일이 있는 기본 디스크에 연결된 '파이프'(읽을 파이프 및 쓸 파이프)를 제공하며, 이는 Azure Backup 서비스에서 읽고 Azure Recovery Services 자격 증명 모음으로 전송됩니다. 또한 Azure Backup 서비스는 backint 네이티브 유효성 검사뿐만 아니라 스트림의 유효성을 검사하는 체크섬을 수행합니다. 이러한 유효성 검사를 통해 Azure Recovery Services 자격 증명 모음에 있는 데이터가 실제로 안정적이며 복구 가능한지 확인할 수 있습니다.
+
+스트림은 주로 디스크와 관련이 있으므로 백업 및 복원 성능을 측정하려면 디스크 성능을 이해해야 합니다. Azure VM의 디스크 처리량 및 성능을 자세히 이해하려면[이 문서](https://docs.microsoft.com/azure/virtual-machines/disks-performance)를 참조하세요. 이는 백업 및 복원 성능에도 적용됩니다.
+
+**Azure Backup 서비스는 비로그 백업(예: 전체, 차등 및 증분)의 경우 최대 420MBps, HANA 로그 백업의 경우 최대 100MBps의 속도를 구현합니다**. 위에서 설명한 것처럼, 이러한 속도는 보장되는 것이 아니라 다음과 같은 요인에 따라 달라집니다.
+
+* VM의 최대 캐시되지 않은 디스크 처리량
+* 기본 디스크 유형 및 처리량
+* 동일한 디스크에 동시에 읽기와 쓰기를 시도하는 프로세스의 수입니다.
+
+> [!IMPORTANT]
+> 캐시되지 않은 디스크 처리량이 400MBps 미만이거나 이에 매우 근접한 경우, 백업 서비스에서 전체 디스크 IOPS를 사용하여 디스크 읽기/쓰기와 관련된 SAP HANA 작업에 영향이 있을지 여부가 염려될 수 있습니다. 이 경우 백업 서비스 사용을 제한하거나 최대 한도까지 제한하려면 다음 섹션을 참조하면 됩니다.
+
+### <a name="limiting-backup-throughput-performance"></a>백업 처리량 성능 제한
+
+백업 서비스 디스크 IOPS 사용량을 최댓값으로 제한하려면 다음 단계를 수행합니다.
+
+1. "opt/msawb/bin" 폴더로 이동합니다.
+2. "ExtensionSettingOverrides.JSON"이라는 새 JSON 파일을 만듭니다.
+3. 다음과 같이 JSON 파일에 키-값 쌍을 추가합니다.
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. 파일의 사용 권한 및 소유권을 다음과 같이 변경합니다.
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. 서비스를 다시 시작할 필요가 없습니다. Azure Backup 서비스는 이 파일에 설명된 대로 처리량 성능 제한을 시도합니다.
 
 ## <a name="what-the-pre-registration-script-does"></a>사전 등록 스크립트의 기능
 

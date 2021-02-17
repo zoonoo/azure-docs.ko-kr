@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9dad8ffc9971894a2777e8bda9bcf6d78eee00a9
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369279"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555960"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
@@ -344,10 +344,10 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 형식 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | 구독 |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
@@ -356,7 +356,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. *{Filter}* 를 역할 정의 목록 필터에 적용 하려는 조건으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | Assert | 설명 |
+    > | 필터 | Description |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | 지정 된 범위 및 모든 하위 범위에 대 한 역할 정의를 나열 합니다. |
     > | `$filter=type+eq+'{type}'` | 지정 된 형식의 역할 정의를 나열 합니다. 역할의 형식은 또는 일 수 있습니다 `CustomRole` `BuiltInRole` . |
@@ -429,10 +429,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
 1. URI 내에서 *{scope}* 를 역할 정의를 나열 하려는 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 형식 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | 구독 |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
      
@@ -478,5 +478,5 @@ GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitio
 
 - [Azure 기본 제공 역할](built-in-roles.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
-- [Azure Portal를 사용 하 여 Azure 역할 할당 나열](role-assignments-list-portal.md)
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당을 나열](role-assignments-list-portal.md)합니다.
+- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
