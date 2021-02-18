@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092131"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650731"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -37,7 +37,7 @@ ms.locfileid: "100092131"
 
 ## <a name="change-your-pricing-tier"></a>가격 책정 계층 변경 
 
-S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 사용 하도록 업데이트할 수 있습니다.
+S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 사용 하도록 업데이트 해야 합니다. S0 ~ S4 가격 책정 계층은 사용이 중지 됩니다. 리소스의 가격을 업데이트 하려면:
 
 1. [Azure Portal](https://portal.azure.com/)에서 Text Analytics 리소스로 이동 합니다.
 2. 왼쪽 탐색 메뉴에서 **가격 책정 계층** 을 선택 합니다. **리소스 관리** 아래에 있습니다. 
@@ -123,7 +123,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 
 | 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
-|`displayName` | String | Optional | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
+|`displayName` | String | 선택 사항 | 작업에 대 한 고유 식별자의 표시 이름으로 사용 됩니다.|
 |`analysisInput` | 아래 필드가 포함 됩니다. `documents` | 필수 | 보내려는 문서에 대 한 정보를 포함 합니다. |
 |`documents` | `id`아래와 필드를 포함 합니다. `text` | 필수 | 전송 중인 각 문서와 문서의 원시 텍스트에 대 한 정보를 포함 합니다. |
 |`id` | String | 필수 | 제공 하는 Id는 출력을 구조화 하는 데 사용 됩니다. |
@@ -132,7 +132,7 @@ API 요청 형식은 모든 동기 작업에 대해 동일 합니다. 문서는 
 |`parameters` | `model-version`아래와 필드를 포함 합니다. `stringIndexType` | 필수 | 이 필드는 사용자가 선택한 위의 기능 작업 내에 포함 되어 있습니다. 여기에는 사용 하려는 모델 버전과 인덱스 형식에 대 한 정보가 포함 됩니다. |
 |`model-version` | String | 필수 | 사용 하려는 모델의 버전을 지정 합니다.  |
 |`stringIndexType` | String | 필수 | 프로그래밍 환경에 맞는 텍스트 디코더를 지정 합니다.  지원 되는 형식은 `textElement_v8` (기본값), `unicodeCodePoint` , `utf16CodeUnit` 입니다. 자세한 내용은 [텍스트 오프셋 문서](../concepts/text-offsets.md#offsets-in-api-version-31-preview) 를 참조 하세요.  |
-|`domain` | String | Optional | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
+|`domain` | String | 선택 사항 | 는 작업에 매개 변수로만 적용 `entityRecognitionPiiTasks` 되며 또는로 설정할 수 있습니다 `pii` `phi` . `pii`지정 되지 않은 경우 기본적으로로 설정 됩니다.  |
 
 ```json
 {
@@ -207,7 +207,7 @@ example.json
 
 ## <a name="set-up-a-request"></a>요청 설정 
 
-Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 예를 들면 다음과 같습니다.
+Postman (또는 다른 web API 테스트 도구)에서 사용 하려는 기능에 대 한 끝점을 추가 합니다. 아래 표를 사용 하 여 적절 한 끝점 형식을 찾고를 `<your-text-analytics-resource>` 리소스 끝점으로 바꿉니다. 다음은 그 예입니다. 
 
 `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.0/languages`
 
@@ -276,7 +276,7 @@ API 요청을 제출 합니다. 동기 끝점에 대 한 호출을 수행한 경
 비동기 또는 끝점에 대 한 호출을 수행한 경우 `/analyze` `/health` 202 응답 코드를 받았는지 확인 합니다. 결과를 보려면 응답을 받아야 합니다.
 
 1. API 응답에서, `Operation-Location` api로 보낸 작업을 식별 하는 헤더에서를 찾습니다. 
-2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 예를 들면 다음과 같습니다.
+2. 사용한 끝점에 대 한 GET 요청을 만듭니다. 끝점 형식에 대 한 [위의 표](#set-up-a-request) 를 참조 하 고 [API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토 하세요. 다음은 그 예입니다. 
 
     `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze/jobs/<Operation-Location>`
 

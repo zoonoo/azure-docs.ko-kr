@@ -2,15 +2,14 @@
 title: Azure Automation 기능 배포 문제 해결
 description: 이 문서에서는 Azure Automation 기능을 배포할 때 발생하는 문제를 해결하는 방법을 설명합니다.
 services: automation
-ms.subservice: ''
-ms.date: 06/30/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: d7803976ad76f0b4c9da5c9c3a78932adbcee106
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581029"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651122"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
 

@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fee285aa3beb308f5e6b3b233d40597c2a287eb7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392768"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651972"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -195,3 +195,4 @@ REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으
 
 - 분류 된 중요 한 데이터에 대 한 액세스 모니터링 및 감사를 위해 [AZURE SQL 감사](../../azure-sql/database/auditing-overview.md) 를 구성 하는 것이 좋습니다.
 - 데이터 검색 & 분류를 포함 하는 프레젠테이션은 [SQL 데이터 검색, 분류, 레이블 지정 & 보호를 참조 하세요. 데이터가 노출](https://www.youtube.com/watch?v=itVi9bkJUNc)됩니다.
+- T-sql 명령을 사용 하 여 azure 부서의 범위 레이블을 사용 하 여 azure SQL Database 및 Azure Synapse Analytics를 분류 하려면 [Azure 부서의 범위 레이블을 사용 하 여 AZURE sql 데이터 분류](https://docs.microsoft.com/azure/sql-database/scripts/sql-database-import-purview-labels)를 참조 하세요.

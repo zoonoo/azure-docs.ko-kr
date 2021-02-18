@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: f6b68ea756253a30f006983c214e287c75637278
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642447"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650782"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
@@ -108,7 +108,7 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 * 샘플 중 하나에서 코드를 복사 하 여 프로젝트에 붙여넣습니다.
 * 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
 * 프로그램을 실행합니다. 예: `python translate.py`
-  
+
 ### <a name="java"></a>[Java](#tab/java)
 
 * 프로젝트에 대한 작업 디렉터리를 만듭니다. 다음은 그 예입니다. 
@@ -127,7 +127,7 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Java 원본 파일 (예: _java_)은 src/main/**java** 에서 라이브입니다.
+**참고**: java 원본 파일 (예: _java_)은 src/main/**Java** 에서 라이브입니다.
 
 * 루트 디렉터리 (예: *샘플 프로젝트*)에서 Gradle를 사용 하 여 프로젝트를 초기화 합니다.
 
@@ -136,6 +136,7 @@ gradle init --type basic
 ```
 
 * **DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
+
 * 파일을 업데이트 `build.gradle.kts`  합니다. 샘플에 따라를 업데이트 해야 한다는 점에 유의 하세요 `mainClassName` .
 
   ```java
@@ -155,7 +156,8 @@ gradle init --type basic
   ```
 
 * **Java** 디렉터리에서 java 파일을 만들고 제공 된 샘플에서 코드를 복사 하 여 붙여넣습니다. 구독 키와 끝점을 추가 하는 것을 잊지 마세요.
-**루트 디렉터리에서 샘플을 빌드하고 실행 합니다**.
+
+* **루트 디렉터리에서 샘플을 빌드하고 실행 합니다**.
 
 ```powershell
 gradle build
@@ -172,7 +174,7 @@ gradle run
 * 파일을 빌드합니다(예: 'go build example-code.go').
 * 파일을 실행합니다(예: 'example-code').
 
----
+ ---
 
 ## <a name="make-document-translation-requests"></a>문서 번역 요청 만들기
 

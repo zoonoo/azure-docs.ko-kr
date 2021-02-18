@@ -10,16 +10,24 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071666"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651683"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>원격 모델 배포 문제 해결 
 
 Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)에 모델을 배포할 때 발생할 수 있는 일반적인 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아봅니다.
+
+> [!NOTE]
+> Azure Kubernetes Service (AKS)에 모델을 배포 하는 경우 해당 클러스터에 대 한 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) 를 사용 하도록 설정 하는 것이 좋습니다. 이를 통해 전반적인 클러스터 상태와 리소스 사용을 이해할 수 있습니다. 또한 다음과 같은 리소스를 유용 하 게 사용할 수 있습니다.
+>
+> * [AKS 클러스터에 영향을 주는 Resource Health 이벤트 확인](https://docs.microsoft.com/azure/aks/aks-resource-health)
+> * [Azure Kubernetes Service 진단](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+>
+> 비정상 또는 오버 로드 된 클러스터에 모델을 배포 하려는 경우 문제가 발생할 수 있습니다. AKS 클러스터 문제를 해결 하는 데 도움이 필요한 경우 AKS 지원에 문의 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -181,7 +189,7 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|Error  | 해결 방법  |
+|오류  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

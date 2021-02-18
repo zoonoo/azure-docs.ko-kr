@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: ac9c8efbe29bf1420a94d486b650758cc22bec2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 61ac4c979445ef48b5986ec3793a9880cedc837a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575764"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650255"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터, 메트릭 및 로그 업로드
 
@@ -29,7 +29,7 @@ ms.locfileid: "100575764"
 다음 작업을 수행 해야 하는 사용 현황 데이터, 메트릭 또는 로그를 업로드할 수 있습니다.
 
 * 도구 설치 
-* [`Microsoft.AzureData`리소스 공급자 등록](#register-the-resource-provider) 
+* [`Microsoft.AzureArcData`리소스 공급자 등록](#register-the-resource-provider) 
 * [서비스 주체 만들기](#create-service-principal)
 
 ## <a name="install-tools"></a>도구 설치
