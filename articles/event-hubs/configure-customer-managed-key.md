@@ -3,12 +3,12 @@ title: 휴지 상태의 Azure Event Hubs 데이터를 암호화 하기 위한 �
 description: 이 문서에서는 Azure Event Hubs 데이터 rest를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430682"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595996"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs 서비스는 Azure Storage를 사용 하 여 데이터를 저장 합니다. Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 사용자 고유의 키 (BYOK 또는 고객이 관리 Bring Your Own Key 하는 키 라고도 함)를 사용 하는 경우 데이터는 Microsoft 관리 키를 사용 하 여 계속 암호화 되지만 Microsoft 관리 키는 고객 관리 키를 사용 하 여 암호화 됩니다. 이 기능을 사용 하면 Microsoft에서 관리 하는 키를 암호화 하는 데 사용 되는 고객 관리 키에 대 한 액세스를 만들고, 회전, 사용 하지 않도록 설정 및 취소할 수 있습니다. BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에서 한 번만 설정 하면 됩니다.
@@ -70,7 +70,7 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 암호화 키가 해지 되 면 암호화 된 네임 스페이스의 Event Hubs 서비스가 작동 하지 않게 됩니다. 키에 대 한 액세스를 사용 하도록 설정 하거나 delete 키를 복원 하는 경우 암호화 된 Event Hubs 네임 스페이스의 데이터에 액세스할 수 있도록 Event Hubs 서비스에서 키를 선택 합니다.
 
 ## <a name="set-up-diagnostic-logs"></a>진단 로그 설정 
-BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 작업에 대 한 필수 정보가 제공 됩니다. 이러한 로그를 사용 하도록 설정 하 고 나중에 이벤트 허브로 스트림 하거나, log analytics를 통해 분석 하거나, 사용자 지정 분석을 수행 하기 위해 저장소로 스트리밍할 수 있습니다. 진단 로그에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 작업에 대 한 필수 정보가 제공 됩니다. 이러한 로그를 사용 하도록 설정 하 고 나중에 이벤트 허브로 스트림 하거나, log analytics를 통해 분석 하거나, 사용자 지정 분석을 수행 하기 위해 저장소로 스트리밍할 수 있습니다. 진단 로그에 대 한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 ## <a name="enable-user-logs"></a>사용자 로그 사용
 고객 관리 키에 대 한 로그를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.

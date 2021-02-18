@@ -1,5 +1,5 @@
 ---
-title: Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
+title: Azure Windows Virtual Machines의 높은 CPU 문제 해결
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 124650f4570608efabba3d8002c14ad06c4782ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977258"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571500"
 ---
-# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Azure Windows 가상 머신에 대 한 높은 CPU 문제 해결
+# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Azure Windows Virtual Machines의 높은 CPU 문제 해결
 
 ## <a name="summary"></a>요약
 
@@ -104,25 +104,25 @@ VM 블레이드를 찾아보고 **성능 진단** 옵션을 선택 합니다. �
 
 #### <a name="azure-portal-option-2"></a>Azure Portal 옵션 2
 
-VM 블레이드에서 **문제 진단 및 해결** 을 찾아 **vm 성능 문제**를 확인 합니다.
+VM 블레이드에서 **문제 진단 및 해결** 을 찾아 **vm 성능 문제** 를 확인 합니다.
 
   ![VM 성능 문제 해결](./media/troubleshoot-high-cpu-issues-azure-windows-vm/2-troubleshoot-vm-performance-issues.png)
 
-**문제 해결**을 선택 하는 경우 PerfInsights 설치 화면이 로드 됩니다.
+**문제 해결** 을 선택 하는 경우 PerfInsights 설치 화면이 로드 됩니다.
 
-**설치**를 선택 하면 설치 시 다른 컬렉션 옵션이 제공 됩니다.
+**설치** 를 선택 하면 설치 시 다른 컬렉션 옵션이 제공 됩니다.
 
   ![성능 분석](./media/troubleshoot-high-cpu-issues-azure-windows-vm/3-performance-analysis.png)
 
 스크린샷에서 번호가 매겨진 옵션은 다음 주석과 관련이 있습니다.
 
-1. **높은 CPU**의 옵션을 선택 하려면 **성능 분석** 또는 **고급**을 선택 합니다.
+1. **높은 CPU** 의 옵션을 선택 하려면 **성능 분석** 또는 **고급** 을 선택 합니다.
 
 2. 여기에서 증상을 추가 하면 보고서에 추가 되어 Azure 지원과 정보를 공유 하는 데 도움이 됩니다.
 
 3. 데이터 수집 기간을 선택 합니다. 높은 CPU 옵션의 경우 15 분 이상을 선택 합니다. Azure Portal 모드에서 최대 15 분의 데이터를 수집할 수 있습니다. 더 긴 수집 기간 동안에는 VM 내에서 실행 파일로 프로그램을 실행 해야 합니다.
 
-4. 이 데이터를 수집 하기 위해 Azure 지원에서 요청 하는 경우 여기에 티켓 번호를 추가할 수 있습니다. 이 필드는 선택 항목입니다.
+4. 이 데이터를 수집 하기 위해 Azure 지원에서 요청 하는 경우 여기에 티켓 번호를 추가할 수 있습니다. 이 필드는 선택 사항입니다.
 
 5. EULA (최종 사용자 사용권 계약)에 동의 하려면이 필드를 선택 합니다.
 
@@ -170,13 +170,13 @@ VM 블레이드에서 **문제 진단 및 해결** 을 찾아 **vm 성능 문제
 
 1. 이벤트 로그에는 유용한 시스템 수준 또는 프로세스 충돌 정보에 대 한 빠른 보기가 표시 됩니다.
 
-#### <a name="where-to-start"></a>시작 위치
+#### <a name="where-to-start"></a>어디서부터 시작할 것인가?
 
 PerfInsights 보고서를 엽니다. 검색 **결과** 탭은 리소스 사용량과 관련 된 모든 이상 값을 기록 합니다. CPU 사용량이 많은 경우에는 **결과** 탭에서이를 높은 영향 또는 중간 영향으로 분류 합니다.
 
   ![영향 수준 리소스](./media/troubleshoot-high-cpu-issues-azure-windows-vm/8-impact-level-resources.png)
 
-이전 예제와 마찬가지로 PerfInsights는 30 분 동안 실행 되었습니다. 절반의 경우 강조 표시 된 프로세스는 더 높은 쪽에서 CPU를 소모 했습니다. 수집 시간 동안 동일한 프로세스가 실행 된 경우 영향 수준이 **높음**으로 변경 된 것입니다.
+이전 예제와 마찬가지로 PerfInsights는 30 분 동안 실행 되었습니다. 절반의 경우 강조 표시 된 프로세스는 더 높은 쪽에서 CPU를 소모 했습니다. 수집 시간 동안 동일한 프로세스가 실행 된 경우 영향 수준이 **높음** 으로 변경 된 것입니다.
 
 **발견** 이벤트를 확장 하면 몇 가지 주요 세부 정보가 표시 됩니다. 이 탭은 **평균 CPU** 사용량을 기준으로 프로세스를 내림차순으로 나열 하 고 프로세스가 시스템, Microsoft 소유의 앱 (SQL, IIS) 또는 타사 프로세스와 관련 되어 있는지 여부를 표시 합니다.
 
@@ -188,7 +188,7 @@ PerfInsights 보고서를 엽니다. 검색 **결과** 탭은 리소스 사용�
 
   ![높은 CPU 사용량](./media/troubleshoot-high-cpu-issues-azure-windows-vm/9-high-cpu-usage.png)
 
-두 번째 섹션 (동일 하 게 중요)은 **상위 장기 실행 CPU 소비자**입니다. 이 섹션에서는 프로세스 정보 및 해당 CPU 사용 패턴을 모두 보여 줍니다. 목록은 위쪽에 높은 평균 CPU 소비자를 포함 하 여 정렬 됩니다.
+두 번째 섹션 (동일 하 게 중요)은 **상위 장기 실행 CPU 소비자** 입니다. 이 섹션에서는 프로세스 정보 및 해당 CPU 사용 패턴을 모두 보여 줍니다. 목록은 위쪽에 높은 평균 CPU 소비자를 포함 하 여 정렬 됩니다.
 
   ![Tom 장기 실행 CPU 소비자](./media/troubleshoot-high-cpu-issues-azure-windows-vm/10-top-long-running-cpu-consumers.png)
 
@@ -204,7 +204,7 @@ PerfInsights는 VMSlow 및 고급 시나리오에 대 한 추가 로그로 Perfm
 
 - 원격으로 수집할 수 있습니다.
 
-- **작업**을 통해 예약할 수 있습니다.
+- **작업** 을 통해 예약할 수 있습니다.
 
 - 롤백 기능을 사용 하 여 기간이 길거나 연속 모드로 수집 될 수 있습니다.
 
@@ -214,7 +214,7 @@ PerfInsights에 표시 된 것과 동일한 예제를 고려 하 여 Perfmon에�
 
 - >% ProcessorTime > 모든 인스턴스 처리
 
-#### <a name="where-to-start"></a>시작 위치
+#### <a name="where-to-start"></a>어디서부터 시작할 것인가?
 
 Perfmon의 출력 파일 이름에는 `.blg` 확장명이 있습니다. 이러한 파일은 독립적으로 또는 PerfInsights을 사용 하 여 수집할 수 있습니다. 이 토론에서는 `.blg` PerfInsights 데이터에 포함 되어 있으며 이전 예제에 수집 된 Perfmon을 사용 합니다.
 
@@ -225,11 +225,11 @@ Perfmon에는 사용할 수 있는 기본 사용자 지원 보고서가 없습�
 
 시작 하려면 **카운터 추가** 범주를 선택 합니다.
 
-1. **사용 가능한 카운터**에서 **프로세서 정보** 범주의 **% ProcessorTime** 카운터를 선택 합니다.
+1. **사용 가능한 카운터** 에서 **프로세서 정보** 범주의 **% ProcessorTime** 카운터를 선택 합니다.
 
-1. 모든 결합 코어의 통계를 제공 하는 **_Total**를 선택 합니다.
+1. 모든 결합 코어의 통계를 제공 하는 **_Total** 를 선택 합니다.
 
-1. **추가**를 선택합니다. 이 창에는 추가 된 **카운터**아래에 **% ProcessorTime** 가 표시 됩니다.
+1. **추가** 를 선택합니다. 이 창에는 추가 된 **카운터** 아래에 **% ProcessorTime** 가 표시 됩니다.
 
   ![프로세서 시간 추가](./media/troubleshoot-high-cpu-issues-azure-windows-vm/11-add-processor-time.png)
 
@@ -237,7 +237,7 @@ Perfmon에는 사용할 수 있는 기본 사용자 지원 보고서가 없습�
 
   ![성능 모니터 설정](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-모든 카운터에는 **평균**, **최소값**및 **최대값이** 있습니다. 평균 값은 데이터 수집 기간에 따라 달라질 수 있으므로 **평균과** **최 댓** 값에 모두 중점을 둡니다. 전체 컬렉션이 40 분 동안 10 분 동안 CPU 사용량이 많은 경우 평균 값이 훨씬 더 낮습니다.
+모든 카운터에는 **평균**, **최소값** 및 **최대값이** 있습니다. 평균 값은 데이터 수집 기간에 따라 달라질 수 있으므로 **평균과** **최 댓** 값에 모두 중점을 둡니다. 전체 컬렉션이 40 분 동안 10 분 동안 CPU 사용량이 많은 경우 평균 값이 훨씬 더 낮습니다.
 
 이전 추세 그래프는 **총 프로세서** 의 범위는 약 15 분 동안 80% 부근에 표시 되는 것을 보여 줍니다.
 
@@ -255,9 +255,9 @@ Perfmon에는 사용할 수 있는 기본 사용자 지원 보고서가 없습�
 
 일반적인 프로덕션 컴퓨터에서 수백 또는 프로세스를 실행할 수 있습니다. 따라서 낮은 추세 또는 평면 추세 그래프가 있는 모든 카운터를 삭제 하는 데 시간이 걸릴 수 있습니다.
 
-이 프로세스를 가속화 하려면 **히스토그램** 뷰를 사용 하 고 보기 유형을 **꺾은선형** 에서 **히스토그램**으로 변경 하면 막대 그래프가 제공 됩니다. 수집 시간 동안 CPU 사용량이 많은 프로세스를 선택 하는 것이 더 쉬울 수 있습니다.
+이 프로세스를 가속화 하려면 **히스토그램** 뷰를 사용 하 고 보기 유형을 **꺾은선형** 에서 **히스토그램** 으로 변경 하면 막대 그래프가 제공 됩니다. 수집 시간 동안 CPU 사용량이 많은 프로세스를 선택 하는 것이 더 쉬울 수 있습니다.
 
-항상 **합계**에 대 한 막대가 있으므로 높은 소모 비율을 표시 하는 막대에 집중 합니다. 다른 막대를 삭제 하 여 뷰를 정리할 수 있습니다. 이제 다시 **줄** 뷰로 전환 합니다.
+항상 **합계** 에 대 한 막대가 있으므로 높은 소모 비율을 표시 하는 막대에 집중 합니다. 다른 막대를 삭제 하 여 뷰를 정리할 수 있습니다. 이제 다시 **줄** 뷰로 전환 합니다.
 
   ![성능 모니터 표시기](./media/troubleshoot-high-cpu-issues-azure-windows-vm/14-performance-monitor-2.png)
 
@@ -265,7 +265,7 @@ Perfmon에는 사용할 수 있는 기본 사용자 지원 보고서가 없습�
 
   ![성능 모니터 결과](./media/troubleshoot-high-cpu-issues-azure-windows-vm/15-performance-monitor-3.png)
 
-사용 가능한 도구 목록은 Perfmon의 PerfInsights에서 끝나지 않습니다. **Processmonitor** (procmon) 또는 **Xperf**와 같은 다른 도구에 액세스할 수 있습니다. 필요한 경우 많은 타사 도구를 사용할 수 있습니다.
+사용 가능한 도구 목록은 Perfmon의 PerfInsights에서 끝나지 않습니다. **Processmonitor** (procmon) 또는 **Xperf** 와 같은 다른 도구에 액세스할 수 있습니다. 필요한 경우 많은 타사 도구를 사용할 수 있습니다.
 
 ### <a name="azure-monitoring-tools"></a>Azure 모니터링 도구
 
@@ -281,7 +281,7 @@ Azure Monitor 메트릭을 사용 하도록 설정 하면 소프트웨어에서 
 
   ![진단 스토리지 계정](./media/troubleshoot-high-cpu-issues-azure-windows-vm/17-diagnostics-storage-account.png)
 
-기본 **카운터 범주** 는 **기본값으로**설정 됩니다. 그러나 **사용자 지정** 컬렉션을 설정할 수도 있습니다.
+기본 **카운터 범주** 는 **기본값으로** 설정 됩니다. 그러나 **사용자 지정** 컬렉션을 설정할 수도 있습니다.
 
   ![성능 카운터](./media/troubleshoot-high-cpu-issues-azure-windows-vm/18-performance-counters.png)
 
@@ -289,7 +289,7 @@ Azure Monitor 메트릭을 사용 하도록 설정 하면 소프트웨어에서 
 
   ![메트릭 네임 스페이스](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Azure monitor를 사용 하 여 Azure Vm을 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure virtual Machines 모니터링](../../azure-monitor/insights/monitor-vm-azure.md)을 참조 하세요.
+Azure monitor를 사용 하 여 Azure Vm을 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 azure virtual Machines 모니터링](../../azure-monitor/vm/monitor-vm-azure.md)을 참조 하세요.
 
 ### <a name="reactive-troubleshooting"></a>사후 문제 해결
 
@@ -303,7 +303,7 @@ PerfInsights에 **예약 된 실행** 기능이 아직 없습니다. 그러나 P
 
 ### <a name="logman-command"></a>Logman 명령
 
-**Logman Create Counter** 명령은 명령줄을 통해 Perfmon 수집을 실행 하 고, **작업 관리자**를 통해 예약 하거나, 원격으로 실행 하는 데 사용 됩니다.
+**Logman Create Counter** 명령은 명령줄을 통해 Perfmon 수집을 실행 하 고, **작업 관리자** 를 통해 예약 하거나, 원격으로 실행 하는 데 사용 됩니다.
 
 **Sample** (원격 컬렉션 모드 포함)
 

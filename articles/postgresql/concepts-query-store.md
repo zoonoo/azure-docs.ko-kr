@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657025"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581555"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
@@ -162,8 +162,8 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | user_id | oid | pg_authid.oid | 문을 실행한 사용자의 OID |
 | db_id | oid | pg_database.oid | 문이 실행된 데이터베이스의 OID |
 | query_id | bigint |  | 문의 구문 분석 트리에서 계산된 내부 해시 코드 |
-| event_type | 텍스트 |  | 백 엔드가 대기 중인 이벤트 유형 |
-| 이벤트 | 텍스트 |  | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
+| event_type | text |  | 백 엔드가 대기 중인 이벤트 유형 |
+| 이벤트 | text |  | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
 | calls | 정수 |  | 캡처된 동일한 이벤트 수 |
 
 ### <a name="functions"></a>Functions
@@ -178,7 +178,7 @@ Query_store.staging_data_reset() returns void
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-Azure Database for PostgreSQL은 [Azure Monitor 진단 설정과](../azure-monitor/platform/diagnostic-settings.md)통합 됩니다. 진단 설정을 사용 하면 분석 및 경고를 위해 Postgres 로그를 JSON 형식으로 [Azure Monitor](../azure-monitor/log-query/log-query-overview.md) 하 고, 스트리밍 Event Hubs 하 고, 보관에 Azure Storage 보낼 수 있습니다.
+Azure Database for PostgreSQL은 [Azure Monitor 진단 설정과](../azure-monitor/essentials/diagnostic-settings.md)통합 됩니다. 진단 설정을 사용 하면 분석 및 경고를 위해 Postgres 로그를 JSON 형식으로 [Azure Monitor](../azure-monitor/logs/log-query-overview.md) 하 고, 스트리밍 Event Hubs 하 고, 보관에 Azure Storage 보낼 수 있습니다.
 
 >[!IMPORTANT]
 > 의이 진단 기능은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 사용할 수 있습니다.
@@ -195,7 +195,7 @@ Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하�
 5. **QueryStoreRuntimeStatistics 및 Query** **waitstatistics** 로그 유형을 선택 합니다.
 6. 설정을 저장합니다.
 
-PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 설정 하려면 [진단 설정 문서](../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
+PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 설정 하려면 [진단 설정 문서](../azure-monitor/essentials/diagnostic-settings.md)를 참조 하세요.
 
 ### <a name="json-log-format"></a>JSON 로그 형식
 다음 표에서는 두 가지 로그 유형에 대 한 필드에 대해 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다.

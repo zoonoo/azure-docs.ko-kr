@@ -4,12 +4,12 @@ description: Azure Service Fabric 클러스터의 스케일 인 또는 스케일
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 610c43f64f9073aefe8008473209039122cf36d7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610203"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591787"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 크기 조정
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 클러스터는 잠재적으로 수천 개의 노드를 포함할 수 있습니다. Service Fabric 클러스터를 만든 후에 수평으로(노드 수 변경) 또는 수직으로(노드의 리소스 변경) 클러스터 크기를 조정할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 애플리케이션 크기도 자동으로 조정됩니다.
@@ -40,7 +40,7 @@ Azure 클러스터 크기를 조정할 때는 다음 지침에 유의하세요.
 - 수동으로 크기를 조정 하려면 로그인 하 고 크기 조정 작업을 명시적으로 요청 해야 합니다. 크기 조정 작업을 자주 또는 예기치 않은 시점에 수행해야 하는 경우에는 이 방법이 좋지 않을 수 있습니다.
 - 자동 크기 조정 규칙은 가상 머신 확장 집합에서 인스턴스를 제거할 때 노드 형식의 내구성 수준이 Silver 또는 Gold가 아닌 한 연결된 Service Fabric 클러스터에서 해당 노드의 지식을 제거하지 않습니다. 자동 크기 조정 규칙은 Service Fabric 수준이 아닌 확장 집합 수준에서 작동하기 때문에 Service Fabric 노드를 정상적으로 종료하지 않아도 자동 크기 조정 규칙이 Service Fabric 노드를 제거할 수 있습니다. 이 강제 노드 제거는 규모 감축 작업 후 'ghost' Service Fabric 노드 상태를 남깁니다. 개인(또는 서비스)은 Service Fabric 클러스터에서 제거된 노드 상태를 주기적으로 정리해야 합니다.
 - 내구성 수준이 Gold 또는 Silver인 노드 유형은 제거된 노드를 자동으로 정리하므로 추가 정리가 필요하지 않습니다.
-- 자동 크기 조정 규칙이 지원되는 [여러 메트릭](../azure-monitor/platform/autoscale-common-metrics.md)이 있지만 아직은 제한된 집합입니다. 이 집합에 포함되지 않는 일부 메트릭을 기반으로 하는 크기 조정이 필요한 시나리오의 경우 자동 크기 조정 규칙은 좋은 옵션이 아닐 수 있습니다.
+- 자동 크기 조정 규칙이 지원되는 [여러 메트릭](../azure-monitor/autoscale/autoscale-common-metrics.md)이 있지만 아직은 제한된 집합입니다. 이 집합에 포함되지 않는 일부 메트릭을 기반으로 하는 크기 조정이 필요한 시나리오의 경우 자동 크기 조정 규칙은 좋은 옵션이 아닐 수 있습니다.
 
 Service Fabric 크기 조정에 접근하는 방식은 시나리오에 달렸습니다. 크기 조정을 자주 하지 않는다면 노드를 수동으로 추가 또는 제거할 수만 있으면 충분할 것입니다. 좀 더 복잡한 시나리오의 경우 프로그래밍 방식으로 확장하는 기능을 노출하는 자동 크기 조정 규칙과 SDK가 강력한 대안이 될 수 있습니다.
 

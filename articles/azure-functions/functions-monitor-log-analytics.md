@@ -6,20 +6,20 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491225"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591077"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure Functions 모니터링
 
-Azure Functions는 함수를 모니터링 하기 위해 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 와의 통합을 제공 합니다. 이 문서에서는 시스템 생성 및 사용자 생성 로그를 Azure Monitor 로그에 보내도록 Azure Functions를 구성 하는 방법을 보여 줍니다.
+Azure Functions는 함수를 모니터링 하기 위해 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md) 와의 통합을 제공 합니다. 이 문서에서는 시스템 생성 및 사용자 생성 로그를 Azure Monitor 로그에 보내도록 Azure Functions를 구성 하는 방법을 보여 줍니다.
 
-Azure Monitor 로그는 동일한 작업 영역에 있는 여러 리소스의 로그를 통합 하는 기능을 제공 합니다 .이를 통해 [쿼리](../azure-monitor/log-query/log-query-overview.md) 를 사용 하 여 분석 하 여 수집 된 데이터를 신속 하 게 검색, 통합 및 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](../azure-monitor/visualizations.md) 또는 [경고 규칙](../azure-monitor/platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor 로그는 동일한 작업 영역에 있는 여러 리소스의 로그를 통합 하는 기능을 제공 합니다 .이를 통해 [쿼리](../azure-monitor/logs/log-query-overview.md) 를 사용 하 여 분석 하 여 수집 된 데이터를 신속 하 게 검색, 통합 및 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](../azure-monitor/logs/log-query-overview.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](../azure-monitor/visualizations.md) 또는 [경고 규칙](../azure-monitor/alerts/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
-Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](../azure-monitor/log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.
+Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](../azure-monitor/logs/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.
 
 > [!NOTE]
 > Azure Monitor 로그와의 통합은 현재 Windows 사용량, 프리미엄 및 전용 호스팅 계획에서 실행 되는 v2 및 v3 함수 앱에 대 한 공개 미리 보기로 제공 됩니다.
@@ -124,5 +124,5 @@ FunctionAppLogs
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Functions 개요](functions-overview.md)를 검토 합니다.
-- [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)에 대해 자세히 알아보세요.
-- [쿼리 언어](../azure-monitor/log-query/get-started-queries.md)에 대해 자세히 알아보기
+- [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md)에 대해 자세히 알아보세요.
+- [쿼리 언어](../azure-monitor/logs/get-started-queries.md)에 대해 자세히 알아보기

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 11/06/2020
-ms.openlocfilehash: db85594ad4fef37ec7411f7d5791fdb5279ec504
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c9e6107e981d2bae96c5d9f368c8122d3ce245f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581655"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570945"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
 
@@ -32,7 +32,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 Azure IoT Hub는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
 
-다음 개념을 설명하는 [Azure Monitor를 사용하여 Azure 리소스 모니터링 문서](../azure-monitor/insights/monitor-azure-resource.md)로 시작하세요.
+다음 개념을 설명하는 [Azure Monitor를 사용하여 Azure 리소스 모니터링 문서](../azure-monitor/essentials/monitor-azure-resource.md)로 시작하세요.
 
 - Azure Monitor란?
 - 모니터링과 관련된 비용
@@ -44,7 +44,7 @@ Azure IoT Hub는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monit
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Azure IoT Hub는 [azure 리소스의 데이터 모니터링](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)에 설명 된 다른 azure 리소스와 동일한 종류의 모니터링 데이터를 수집 합니다.
+Azure IoT Hub는 [azure 리소스의 데이터 모니터링](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명 된 다른 azure 리소스와 동일한 종류의 모니터링 데이터를 수집 합니다.
 
 Azure IoT Hub에서 만든 메트릭 및 로그에 대 한 자세한 내용은 [모니터링 Azure IoT Hub 데이터 참조](monitor-iot-hub-reference.md) 를 참조 하세요.
 
@@ -68,31 +68,31 @@ Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 에서 **진
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="IoT hub에 대 한 진단 설정 창.":::
 
-Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Azure IoT Hub에 대 한 범주는 [모니터링 Azure IoT Hub 데이터 참조의 리소스 로그에](monitor-iot-hub-reference.md#resource-logs)나열 됩니다.
+Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Azure IoT Hub에 대 한 범주는 [모니터링 Azure IoT Hub 데이터 참조의 리소스 로그에](monitor-iot-hub-reference.md#resource-logs)나열 됩니다.
 
 IoT Hub 플랫폼 메트릭을 다른 위치로 라우팅하는 경우 다음에 유의 하세요.
 
 - 진단 설정, *연결 된 장치 (미리 보기)* 및 *총 장치 (미리 보기)* 를 통해 다음 플랫폼 메트릭을 내보낼 수 없습니다.
 
-- 예를 들어, 다차원 메트릭 (예: 일부 [라우팅 메트릭](monitor-iot-hub-reference.md#routing-metrics))은 현재 차원 값에 걸쳐 집계 된 평면화 된 단일 차원 메트릭으로 내보내집니다. 자세한 내용은 [플랫폼 메트릭을 다른 위치로 내보내기](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations)를 참조 하세요.
+- 예를 들어, 다차원 메트릭 (예: 일부 [라우팅 메트릭](monitor-iot-hub-reference.md#routing-metrics))은 현재 차원 값에 걸쳐 집계 된 평면화 된 단일 차원 메트릭으로 내보내집니다. 자세한 내용은 [플랫폼 메트릭을 다른 위치로 내보내기](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations)를 참조 하세요.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-**Azure Monitor** 메뉴에서 **메트릭을 열어 메트릭 탐색기를 사용** 하 여 다른 Azure 서비스의 메트릭과 함께 Azure IoT Hub에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조하세요.
+**Azure Monitor** 메뉴에서 **메트릭을 열어 메트릭 탐색기를 사용** 하 여 다른 Azure 서비스의 메트릭과 함께 Azure IoT Hub에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요.
 
 Azure Portal에서 IoT hub의 왼쪽 창에 있는 **모니터링** 아래에서 **메트릭** 을 선택 하 여 기본적으로 메트릭 탐색기 범위를 iot hub에서 내보낸 플랫폼 메트릭에 열 수 있습니다.
 
 :::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="IoT hub에 대 한 메트릭 탐색기 페이지.":::
 
-Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure IoT Hub 데이터 참조의 메트릭](monitor-iot-hub-reference.md#metrics)을 참조 하세요. 모든 Azure 서비스에 대해 수집 되는 플랫폼 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
+Azure IoT Hub에 대해 수집 되는 플랫폼 메트릭의 목록은 [모니터링 Azure IoT Hub 데이터 참조의 메트릭](monitor-iot-hub-reference.md#metrics)을 참조 하세요. 모든 Azure 서비스에 대해 수집 되는 플랫폼 메트릭 목록은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조 하세요.
 
 개수 단위로 수집 되는 IoT Hub 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다. 자세히 알아보려면 [모니터링 Azure IoT Hub 데이터 참조에서 지원 되는 집계](monitor-iot-hub-reference.md#supported-aggregations)를 참조 하세요.
 
-[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](../azure-monitor/platform/metrics-charts.md#filters) 및 [분할](../azure-monitor/platform/metrics-charts.md#apply-splitting) 을 적용할 수 있습니다.
+[라우팅 메트릭과](monitor-iot-hub-reference.md#routing-metrics)같은 일부 IoT Hub 메트릭은 다차원입니다. 이러한 메트릭에 대해 차원을 기반으로 하는 차트에 [필터](../azure-monitor/essentials/metrics-charts.md#filters) 및 [분할](../azure-monitor/essentials/metrics-charts.md#apply-splitting) 을 적용할 수 있습니다.
 
 ## <a name="analyzing-logs"></a>로그 분석
 
-Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다. 이러한 테이블의 데이터는 Log Analytics 작업 영역과 연결 되며 Log Analytics에서 쿼리할 수 있습니다. Azure Monitor 로그에 대 한 자세한 내용은 Azure Monitor 설명서에서 [Azure Monitor 로그 개요](../azure-monitor/platform/data-platform-logs.md) 를 참조 하세요. 
+Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다. 이러한 테이블의 데이터는 Log Analytics 작업 영역과 연결 되며 Log Analytics에서 쿼리할 수 있습니다. Azure Monitor 로그에 대 한 자세한 내용은 Azure Monitor 설명서에서 [Azure Monitor 로그 개요](../azure-monitor/logs/data-platform-logs.md) 를 참조 하세요. 
 
 Azure Monitor 로그에 데이터를 라우팅하려면 Log Analytics 작업 영역에 리소스 로그 또는 플랫폼 메트릭을 전송 하는 진단 설정을 만들어야 합니다. 자세히 알아보려면 [수집 및 라우팅](#collection-and-routing)을 참조 하세요.
 
@@ -102,17 +102,17 @@ Azure Portal에서 iot hub의 왼쪽 창에 있는 **모니터링** 에서 **로
 
 Azure Monitor 로그 및 Log Analytics에서 쿼리할 때 사용 하는 테이블 목록은 [모니터링 Azure IoT Hub 데이터 참조에서 Azure Monitor Logs 테이블](monitor-iot-hub-reference.md#azure-monitor-logs-tables)을 참조 하세요.
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다. [모니터링 Azure IoT Hub 데이터 참조에서 리소스 로그](monitor-iot-hub-reference.md#resource-logs)의 Azure IoT Hub에 대해 수집 된 리소스 로그의 스키마 및 범주를 찾을 수 있습니다.
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다. [모니터링 Azure IoT Hub 데이터 참조에서 리소스 로그](monitor-iot-hub-reference.md#resource-logs)의 Azure IoT Hub에 대해 수집 된 리소스 로그의 스키마 및 범주를 찾을 수 있습니다.
 
-[활동 로그](../azure-monitor/platform/activity-log.md) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 Azure의 플랫폼 로그입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
+[활동 로그](../azure-monitor/essentials/activity-log.md) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 Azure의 플랫폼 로그입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 
 IoT Hub 플랫폼 메트릭을 Azure Monitor 로그에 라우팅하는 경우 다음에 유의 하세요.
 
 - 진단 설정, *연결 된 장치 (미리 보기)* 및 *총 장치 (미리 보기)* 를 통해 다음 플랫폼 메트릭을 내보낼 수 없습니다.
 
-- 예를 들어, 다차원 메트릭 (예: 일부 [라우팅 메트릭](monitor-iot-hub-reference.md#routing-metrics))은 현재 차원 값에 걸쳐 집계 된 평면화 된 단일 차원 메트릭으로 내보내집니다. 자세한 내용은 [플랫폼 메트릭을 다른 위치로 내보내기](../azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations)를 참조 하세요.
+- 예를 들어, 다차원 메트릭 (예: 일부 [라우팅 메트릭](monitor-iot-hub-reference.md#routing-metrics))은 현재 차원 값에 걸쳐 집계 된 평면화 된 단일 차원 메트릭으로 내보내집니다. 자세한 내용은 [플랫폼 메트릭을 다른 위치로 내보내기](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations)를 참조 하세요.
 
-IoT Hub를 사용 하는 몇 가지 일반적인 쿼리는 [샘플 Kusto 쿼리](#sample-kusto-queries)를 참조 하세요. Log Analytics 쿼리를 사용 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+IoT Hub를 사용 하는 몇 가지 일반적인 쿼리는 [샘플 Kusto 쿼리](#sample-kusto-queries)를 참조 하세요. Log Analytics 쿼리를 사용 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 ### <a name="sdk-version-in-iot-hub-logs"></a>IoT Hub 로그의 SDK 버전
 
@@ -120,7 +120,7 @@ IoT Hub 리소스 로그의 일부 작업 `sdkVersion` 은 개체의 속성을 �
 
 다음 표에서는 다양 한 Azure IoT Sdk에 사용 되는 SDK 이름을 보여 줍니다.
 
-| SdkVersion 속성의 SDK 이름 | 언어 |
+| SdkVersion 속성의 SDK 이름 | Language |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft. azure. 장치 | .NET (c #) 서비스 SDK |
@@ -153,7 +153,7 @@ AzureDiagnostics
 ### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
 > [!IMPORTANT]
-> IoT hub 메뉴에서 **로그** 를 선택 하면 현재 iot hub로 설정 된 쿼리 범위를 사용 하 여 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 IoT hub의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../azure-monitor/log-query/scope.md)를 참조하세요.
+> IoT hub 메뉴에서 **로그** 를 선택 하면 현재 iot hub로 설정 된 쿼리 범위를 사용 하 여 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 IoT hub의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../azure-monitor/logs/scope.md)를 참조하세요.
 
 IoT hub를 모니터링 하는 데 사용할 수 있는 쿼리는 다음과 같습니다.
 
@@ -289,7 +289,7 @@ class Program
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../azure-monitor/platform/alerts-metric-overview.md), [로그](../azure-monitor/platform/alerts-unified-log.md) 및 [활동 로그](../azure-monitor/platform/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../azure-monitor/alerts/alerts-metric-overview.md), [로그](../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 서로 다른 유형의 경고에는 장점과 단점이 있습니다.
 
 플랫폼 메트릭을 기반으로 경고 규칙을 만들 때 개수 단위로 수집 되는 IoT Hub 플랫폼 메트릭의 경우 일부 집계를 사용 하지 않거나 사용할 수 없는 경우도 있습니다. 자세히 알아보려면 [모니터링 Azure IoT Hub 데이터 참조에서 지원 되는 집계](monitor-iot-hub-reference.md#supported-aggregations)를 참조 하세요.
 
@@ -305,4 +305,4 @@ Event Grid 및 Azure Monitor를 사용 하 여 장치 연결을 모니터링 하
 
 - [Service name]에서 만든 메트릭, 로그 및 기타 중요 한 값에 대 한 참조는 [모니터링 Azure IoT Hub 데이터 참조](monitor-iot-hub-reference.md) 를 참조 하세요.
 
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

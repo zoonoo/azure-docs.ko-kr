@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 02/03/2021
-ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575445"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581980"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR에 대 한 진단 로깅 사용
 
-이 문서에서는 FHIR 용 Azure API에서 진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 몇 가지 샘플 쿼리를 검토할 수 있는 방법에 대해 설명 합니다. 진단 로그에 대 한 액세스는 HIPAA와 같은 규정 요구 사항을 준수 해야 하는 의료 서비스에 필수적입니다. 진단 로그를 사용 하도록 설정 하는 Azure API for FHIR의 기능은 Azure Portal의 [**진단 설정**](../azure-monitor/platform/diagnostic-settings.md) 입니다. 
+이 문서에서는 FHIR 용 Azure API에서 진단 로깅을 사용 하도록 설정 하 고 이러한 로그에 대 한 몇 가지 샘플 쿼리를 검토할 수 있는 방법에 대해 설명 합니다. 진단 로그에 대 한 액세스는 HIPAA와 같은 규정 요구 사항을 준수 해야 하는 의료 서비스에 필수적입니다. 진단 로그를 사용 하도록 설정 하는 Azure API for FHIR의 기능은 Azure Portal의 [**진단 설정**](../azure-monitor/essentials/diagnostic-settings.md) 입니다. 
 
 ## <a name="enable-audit-logs"></a>감사 로그 사용
 1. Azure API for FHIR에서 진단 로깅을 사용 하도록 설정 하려면 Azure Portal에서 Azure API for FHIR 서비스를 선택 합니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "99575445"
 > [!Note] 
 > Log Analytics에 첫 번째 로그가 표시 되는 데 최대 15 분이 걸릴 수 있습니다.  
  
-진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](../azure-monitor/platform/platform-logs-overview.md) 를 참조 하세요.
+진단 로그를 사용 하는 방법에 대 한 자세한 내용은 [Azure 리소스 로그 설명서](../azure-monitor/essentials/platform-logs-overview.md) 를 참조 하세요.
 
 ## <a name="audit-log-details"></a>감사 로그 정보
 이번에는 Azure API for FHIR 서비스에서 감사 로그에 다음 필드를 반환 합니다. 

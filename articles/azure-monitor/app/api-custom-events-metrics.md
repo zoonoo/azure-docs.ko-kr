@@ -4,12 +4,12 @@ description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 �
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 881c657b25d04834d83221c738c578b8281752b7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927819"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593744"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -108,7 +108,7 @@ Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentat
 
 ## <a name="trackevent"></a>TrackEvent
 
-Application Insights에서 *사용자 지정 이벤트* 는 [메트릭 탐색기](../platform/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](./diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
+Application Insights에서 *사용자 지정 이벤트* 는 [메트릭 탐색기](../essentials/metrics-charts.md)에 집계된 개수로 표시하고 [진단 검색](./diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
 
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>분석의 사용자 지정 이벤트
 
-원격 분석은 `customEvents` [Application Insights 로그 탭](../log-query/log-query-overview.md) 또는 [사용 환경의](usage-overview.md)표에서 확인할 수 있습니다. 이벤트가 발생 `trackEvent(..)` 하거나 [분석 자동 수집 플러그 인을 클릭할](javascript-click-analytics-plugin.md)수 있습니다.
+원격 분석은 `customEvents` [Application Insights 로그 탭](../logs/log-query-overview.md) 또는 [사용 환경의](usage-overview.md)표에서 확인할 수 있습니다. 이벤트가 발생 `trackEvent(..)` 하거나 [분석 자동 수집 플러그 인을 클릭할](javascript-click-analytics-plugin.md)수 있습니다.
 
  
 
@@ -169,7 +169,7 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 * 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_ 라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="single-values"></a>단일 값
 
@@ -204,7 +204,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>분석의 사용자 지정 메트릭
 
-[Application Insights 분석](../log-query/log-query-overview.md)의 `customMetrics` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackMetric(..)` 호출을 나타냅니다.
+[Application Insights 분석](../logs/log-query-overview.md)의 `customMetrics` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackMetric(..)` 호출을 나타냅니다.
 
 * `valueSum` - 측정값의 합계입니다. 평균 값을 가져오려면 `valueCount`로 나눕니다.
 * `valueCount` - 이 `trackMetric(..)` 호출로 집계된 측정값의 수입니다.
@@ -274,7 +274,7 @@ appInsights.stopTrackPage("Page1", url, properties, measurements);
 
 ### <a name="page-telemetry-in-analytics"></a>분석의 페이지 원격 분석
 
-[분석](../log-query/log-query-overview.md)에서 두 테이블이 브라우저 작업의 데이터를 보여 줍니다.
+[분석](../logs/log-query-overview.md)에서 두 테이블이 브라우저 작업의 데이터를 보여 줍니다.
 
 * URL 및 페이지 제목에 대한 데이터가 포함된 `pageViews` 테이블
 * 들어오는 데이터를 처리하는 데 걸리는 시간 등의 클라이언트 성능에 대한 데이터가 포함된 `browserTimings` 테이블
@@ -310,7 +310,7 @@ pageViews
 
 ## <a name="operation-context"></a>작업 컨텍스트
 
-원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](./diagnostic-search.md) 및 [분석](../log-query/log-query-overview.md)에서 해당 작업 ID를 사용 하 여 요청과 연결 된 모든 이벤트를 쉽게 찾을 수 있습니다.
+원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](./diagnostic-search.md) 및 [분석](../logs/log-query-overview.md)에서 해당 작업 ID를 사용 하 여 요청과 연결 된 모든 이벤트를 쉽게 찾을 수 있습니다.
 
 상관 관계에 대한 자세한 내용은 [Application Insights의 원격 분석 상관 관계](./correlation.md)를 참조하세요.
 
@@ -348,7 +348,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 ### <a name="requests-in-analytics"></a>분석의 요청
 
-[Application Insights 분석](../log-query/log-query-overview.md)에서 요청은 `requests` 테이블에 표시됩니다.
+[Application Insights 분석](../logs/log-query-overview.md)에서 요청은 `requests` 테이블에 표시됩니다.
 
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackRequest()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 요청 이름별로 분할된 정확한 요청 수 및 평균 기간을 가져오려면 다음과 같은 코드를 사용합니다.
 
@@ -361,7 +361,7 @@ requests
 
 Application Insights로 예외를 보냅니다.
 
-* 문제의 빈도 표시로 [계산](../platform/metrics-charts.md)하려면
+* 문제의 빈도 표시로 [계산](../essentials/metrics-charts.md)하려면
 * [개별 항목을 검사](./diagnostic-search.md)하려면
 
 보고서는 스택 추적을 포함합니다.
@@ -430,7 +430,7 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
 ### <a name="exceptions-in-analytics"></a>분석의 예외
 
-[Application Insights 분석](../log-query/log-query-overview.md)에서 예외는 `exceptions` 테이블에 표시됩니다.
+[Application Insights 분석](../logs/log-query-overview.md)에서 예외는 `exceptions` 테이블에 표시됩니다.
 
 [샘플링](./sampling.md)이 작동 중이면 `itemCount` 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
@@ -439,7 +439,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들면 다음과 같습니다.
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 다음은 그 예입니다. 
 
 ```kusto
 exceptions
@@ -491,7 +491,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | Description
+ 매개 변수 | 설명
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](#properties) 하는 데 사용 되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -502,7 +502,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 다음은 그 예입니다. 
 
 *C#*
 
@@ -525,7 +525,7 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 
 ### <a name="traces-in-analytics"></a>분석의 추적
 
-[Application Insights 분석](../log-query/log-query-overview.md)에서 TrackTrace에 대한 호출은 `traces` 테이블에 표시됩니다.
+[Application Insights 분석](../logs/log-query-overview.md)에서 TrackTrace에 대한 호출은 `traces` 테이블에 표시됩니다.
 
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 `trackTrace()`에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
@@ -607,7 +607,7 @@ C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.
 
 ### <a name="dependencies-in-analytics"></a>분석의 종속성
 
-[Application Insights 분석](../log-query/log-query-overview.md)에서 trackDependency 호출은 `dependencies` 테이블에 표시됩니다.
+[Application Insights 분석](../logs/log-query-overview.md)에서 trackDependency 호출은 `dependencies` 테이블에 표시됩니다.
 
 [샘플링](./sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackDependency()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 대상 구성 요소별로 분할된 정확한 종속 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
@@ -695,7 +695,7 @@ ASP.NET 웹 MVC 애플리케이션에서의 예:
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-[메트릭 탐색기](../platform/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정** 을 계산하는 차트를 만들 수 있습니다.
+[메트릭 탐색기](../essentials/metrics-charts.md)에서 **사용자, 인증** 및 **사용자 계정** 을 계산하는 차트를 만들 수 있습니다.
 
 특정 사용자 이름 및 계정을 사용 하 여 클라이언트 데이터 요소를 [검색할](./diagnostic-search.md) 수도 있습니다.
 
@@ -816,7 +816,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>분석의 사용자 지정 측정 및 속성
 
-[분석](../log-query/log-query-overview.md)에서 사용자 지정 메트릭 및 속성은 각 원격 분석 레코드의 `customMeasurements` 및 `customDimensions` 특성에 표시됩니다.
+[분석](../logs/log-query-overview.md)에서 사용자 지정 메트릭 및 속성은 각 원격 분석 레코드의 `customMeasurements` 및 `customDimensions` 특성에 표시됩니다.
 
 예를 들어 요청 원격 분석에 "game"이라는 속성을 추가한 경우 다음 쿼리는 "game"의 값이 다를 때마다의 횟수를 계산하여 사용자 지정 메트릭 "score"의 평균을 표시합니다.
 
@@ -1068,7 +1068,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들면 다음과 같습니다.
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 다음은 그 예입니다. 
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

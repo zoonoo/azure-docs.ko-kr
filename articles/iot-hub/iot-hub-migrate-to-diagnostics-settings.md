@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461588"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591838"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>IoT Hub를 작업 모니터링에서 Azure Monitor 리소스 로그로 마이그레이션
 
-[작업 모니터링](iot-hub-operations-monitoring.md) 을 사용 하 여 IoT Hub 작업의 상태를 추적 하는 고객은 Azure Monitor 기능으로 해당 워크플로를 [Azure Monitor 리소스 로그](../azure-monitor/platform/platform-logs-overview.md)로 마이그레이션할 수 있습니다. 리소스 로그는 여러 Azure 서비스에 대 한 리소스 수준 진단 정보를 제공 합니다.
+[작업 모니터링](iot-hub-operations-monitoring.md) 을 사용 하 여 IoT Hub 작업의 상태를 추적 하는 고객은 Azure Monitor 기능으로 해당 워크플로를 [Azure Monitor 리소스 로그](../azure-monitor/essentials/platform-logs-overview.md)로 마이그레이션할 수 있습니다. 리소스 로그는 여러 Azure 서비스에 대 한 리소스 수준 진단 정보를 제공 합니다.
 
 **IoT Hub의 작업 모니터링 기능은 더 이상 사용** 되지 않으며 포털에서 제거 되었습니다. 이 문서에서는 작업을 작업 모니터링에서 Azure Monitor 리소스 로그로 이동 하는 단계를 제공 합니다. 사용 중단 타임라인에 대한 자세한 내용은 [Azure Monitor 및 Azure Resource Health로 Azure IoT 솔루션 모니터링](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/)을 참조하세요.
 
@@ -49,9 +49,9 @@ Azure Portal에서 IoT Hub를 업데이트 하려면 먼저 진단 설정을 만
 
 1. **저장** 을 선택하여 설정을 저장합니다.
 
-새 설정은 약 10분 후에 적용됩니다. 그런 다음 로그는 구성 된 대상에 표시 됩니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/platform-logs-overview.md)을 참조 하세요.
+새 설정은 약 10분 후에 적용됩니다. 그런 다음 로그는 구성 된 대상에 표시 됩니다. 진단을 구성 하는 방법에 대 한 자세한 내용은 [Azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/essentials/platform-logs-overview.md)을 참조 하세요.
 
-PowerShell 및 Azure CLI을 포함 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 Azure Monitor 설명서의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md) 을 참조 하세요.
+PowerShell 및 Azure CLI을 포함 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 Azure Monitor 설명서의 [진단 설정](../azure-monitor/essentials/diagnostic-settings.md) 을 참조 하세요.
 
 ### <a name="turn-off-operations-monitoring"></a>작업 모니터링 끄기
 

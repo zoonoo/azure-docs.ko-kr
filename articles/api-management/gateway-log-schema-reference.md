@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379897"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582505"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>참조: API Management 리소스 로그 스키마
 
-이 문서에서는 Azure API Management GatewayLogs 리소스 로그에 대한 스키마 참조를 제공합니다. 로그 항목에는 [최상위 공통 스키마](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)의 필드도 포함됩니다.
+이 문서에서는 Azure API Management GatewayLogs 리소스 로그에 대한 스키마 참조를 제공합니다. 로그 항목에는 [최상위 공통 스키마](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)의 필드도 포함됩니다.
 
 API Management에서 리소스 로그의 컬렉션을 사용하도록 설정하려면 [게시된 API 모니터링](api-management-howto-use-azure-monitor.md#resource-logs)을 참조하세요.
 
@@ -49,5 +49,5 @@ API Management에서 리소스 로그의 컬렉션을 사용하도록 설정하�
 ## <a name="next-steps"></a>다음 단계
 
 * API Management의 API 모니터링에 대한 자세한 내용은 [게시된 API 모니터링](api-management-howto-use-azure-monitor.md)을 참조하세요.
-* [Azure 리소스 로그에 대한 공통 및 서비스별 스키마](../azure-monitor/platform/resource-logs-schema.md)에 대해 자세히 알아보세요.
+* [Azure 리소스 로그에 대한 공통 및 서비스별 스키마](../azure-monitor/essentials/resource-logs-schema.md)에 대해 자세히 알아보세요.
 

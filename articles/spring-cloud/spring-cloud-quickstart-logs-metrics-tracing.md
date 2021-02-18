@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a935b34c4fcebe9128d8af0316658072e20ddfbe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746642"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596220"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>빠른 시작: 로그, 메트릭 및 추적을 사용하여 Azure Spring Cloud 앱 모니터링
 
@@ -32,7 +32,7 @@ Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡�
 
 ## <a name="logs"></a>로그
 
-Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics** .
+Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics**.
 
 ### <a name="log-streaming"></a>스트리밍 로그
 
@@ -69,13 +69,13 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. 경고 및 오류 로그에 대한 표시를 제한하는 Where 절을 제거하도록 쿼리를 편집합니다.
 
-1. 그런 다음, `Run`을 선택하면 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/log-query/get-started-queries.md)를 참조하세요.
+1. 그런 다음, `Run`을 선택하면 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
    [ ![Logs Analytics 쿼리 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
 ## <a name="metrics"></a>메트릭
 
-1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. **메트릭** 드롭다운의 **성능(.NET)** 또는 **요청(.NET** )에서 .NET 메트릭 중 하나를 선택하여 첫 번째 메트릭을 추가하고 해당 메트릭에 대한 타임라인을 확인하려면 **집계** 의 `Avg`를 선택합니다.
+1. Azure Portal에서 **서비스 | 개요** 페이지로 이동하여 **모니터링** 섹션에서 **메트릭** 을 선택합니다. **메트릭** 드롭다운의 **성능(.NET)** 또는 **요청(.NET**)에서 .NET 메트릭 중 하나를 선택하여 첫 번째 메트릭을 추가하고 해당 메트릭에 대한 타임라인을 확인하려면 **집계** 의 `Avg`를 선택합니다.
 
    [ ![메트릭 항목 - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
@@ -119,7 +119,7 @@ Azure Spring Cloud의 기본 제공 모니터링 기능을 사용하여 복잡�
 
 ## <a name="logs"></a>로그
 
-Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics** .
+Azure Spring Cloud에 대한 로그를 확인하는 방법에는 두 가지가 있습니다. 앱 인스턴스당 실시간 로그의 **로그 스트리밍** 또는 고급 쿼리 기능이 있는 집계 로그의 **Log Analytics**.
 
 ### <a name="log-streaming"></a>스트리밍 로그
 
@@ -165,7 +165,7 @@ Azure Toolkit for IntelliJ를 사용하여 로그를 가져오려면 다음을 �
 
    [ ![Logs Analytics 항목](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. 그러면 필터링된 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/log-query/get-started-queries.md)를 참조하세요.
+1. 그러면 필터링된 로그가 표시됩니다. 쿼리 작성에 대한 자세한 지침은 [Azure Log Analytics 문서](../azure-monitor/logs/get-started-queries.md)를 참조하세요.
 
    [ ![Logs Analytics 쿼리](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

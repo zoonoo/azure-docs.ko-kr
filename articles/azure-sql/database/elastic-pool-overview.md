@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732697"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653638"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>탄력적 풀이 Azure SQL Database의 여러 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ VCore 구매 모델에서 탄력적 풀에 대 한 vCore 단가는 단일 데이
 다음 단계는 풀이 단일 데이터베이스 보다 비용 효율적인 지 여부를 예측 하는 데 도움이 될 수 있습니다.
 
 1. 다음 수식에 따라 풀에 필요한 eDTU 또는 vCore를 예측합니다.
-
-DTU 기반 구매 모델의 경우:
-
-최대 (< *DB 당 총 DB x 평균 dtu 사용률*>, <*동시 최고* *db x 초당 최대 dtu 사용률*>)
-
-vCore 기반 구매 모델의 경우:
-
-최대 (< *DB 당 총 Db x 평균 vcore 사용률*>, <*동시 최고* *db x 최대 vcore 사용률*>)
-
+   - DTU 기반 구매 모델의 경우:
+     - 최대 (< &times; *db 당 총 db 평균 dtu 사용률*>, <*동시 최고* db 최대 &times; *dtu 사용률*>)
+   - VCore 기반 구매 모델의 경우:
+     - 최대 (< &times; *db 당 총 db 평균 vcore 사용률*>, <*동시 최고* db &times; *최대 vcore 사용률*>)
 2. 풀에 있는 모든 데이터베이스에 필요한 데이터 크기를 추가 하 여 풀에 필요한 총 저장소 공간을 예상 합니다. DTU 구매 모델의 경우이 저장소 크기를 제공 하는 eDTU 풀 크기를 확인 합니다.
 3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델의 경우 1단계의 vCore 예상을 사용합니다.
 4. [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 풀 크기를 찾습니다.

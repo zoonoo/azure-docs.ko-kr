@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azu
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629899"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590062"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 추천에 대한 Azure Advisor 경고 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "91629899"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때마다 이벤트가 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 저장됩니다. 추천별 경고 만들기 환경을 사용하여 Azure Advisor에서 이러한 이벤트에 대한 경고를 설정할 수 있습니다. 구독을 선택하고 필요에 따라 리소스 그룹을 선택하여 경고를 받도록 하려는 리소스를 지정할 수 있습니다.
+Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때마다 이벤트가 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에 저장됩니다. 추천별 경고 만들기 환경을 사용하여 Azure Advisor에서 이러한 이벤트에 대한 경고를 설정할 수 있습니다. 구독을 선택하고 필요에 따라 리소스 그룹을 선택하여 경고를 받도록 하려는 리소스를 지정할 수 있습니다.
 
 다음 속성을 사용하여 추천 유형을 확인할 수도 있습니다.
 
@@ -30,7 +30,7 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
 - 기존 작업 그룹 선택
 - 새 작업 그룹 만들기
 
-작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
+작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md)를 참조하세요.
 
 > [!NOTE]
 > Advisor 경고는 현재 고가용성, 성능 및 비용 추천에만 사용할 수 있습니다. 보안 추천은 지원되지 않습니다.
@@ -42,7 +42,7 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이메일 대상이 포함된 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 템플릿은 다음과 같습니다. 이 템플릿을 *CreateAdvisorAlert.json*으로 저장합니다.
+이메일 대상이 포함된 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 템플릿은 다음과 같습니다. 이 템플릿을 *CreateAdvisorAlert.json* 으로 저장합니다.
 
 ```json
 {
@@ -146,7 +146,7 @@ Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** 및 **emailAddress**에 대한 샘플 값을 사용자 환경에 적합한 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
+CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** 및 **emailAddress** 에 대한 샘플 값을 사용자 환경에 적합한 값으로 바꿉니다. 작업 영역 이름은 모든 Azure 구독에서 고유해야 합니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -167,7 +167,7 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
-다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹**에 대한 샘플 값을 위에서 사용한 값으로 바꿉니다.
+다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹** 에 대한 샘플 값을 위에서 사용한 값으로 바꿉니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>다음 단계
 
-- [활동 로그 경고의 개요](../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.
-- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+- [활동 로그 경고의 개요](../azure-monitor/alerts/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.
+- [작업 그룹](../azure-monitor/alerts/action-groups.md)에 대해 자세히 알아보세요.

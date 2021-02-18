@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589105"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>정보를 사용 하 여 Azure Load Balancer 모니터링 및 구성
 
@@ -40,7 +40,7 @@ Azure에서 Load Balancer 리소스의 Insights 블레이드를 방문 하 여�
 
 ## <a name="metrics-dashboard"></a>메트릭 대시보드
 
-Load Balancer의 정보 블레이드에서 더 자세한 메트릭을 선택 하 여 Load Balancer의 특정 측면과 관련 된 메트릭 시각적 개체를 포함 하는 미리 구성 된 [Azure Monitor 통합 문서](../azure-monitor/platform/workbooks-overview.md) 를 볼 수 있습니다. 이 대시보드는 페이지 맨 위에 있는 관련 설명서에 대 한 링크 및 Load Balancer 상태를 표시 합니다.
+Load Balancer의 정보 블레이드에서 더 자세한 메트릭을 선택 하 여 Load Balancer의 특정 측면과 관련 된 메트릭 시각적 개체를 포함 하는 미리 구성 된 [Azure Monitor 통합 문서](../azure-monitor/visualize/workbooks-overview.md) 를 볼 수 있습니다. 이 대시보드는 페이지 맨 위에 있는 관련 설명서에 대 한 링크 및 Load Balancer 상태를 표시 합니다.
 
 처음에는 개요 탭이 표시 됩니다. Load Balancer의 특정 측면과 관련 된 시각적 개체를 포함 하는 사용 가능한 탭을 탐색할 수 있습니다. 각 탭의 아래쪽에 있는 대시보드에서 각각에 대 한 명시적 지침을 사용할 수 있습니다.
 
@@ -80,4 +80,4 @@ Load Balancer의 정보 블레이드에서 더 자세한 메트릭을 선택 하
 * 개선할 수 있는 항목이 있는 경우 대시보드를 검토 하 고 아래 링크를 사용 하 여 피드백을 제공 하세요.
 * [메트릭 설명서를 검토 하 여 각 메트릭이 계산 되는 방식을 이해 했는지 확인 합니다.](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Load Balancer에 대 한 연결 모니터 만들기](../network-watcher/connection-monitor.md)
-* [사용자 고유의 통합 문서를 만들](../azure-monitor/platform/workbooks-overview.md)수 있습니다. 자세한 메트릭 대시보드에서 편집 단추를 클릭 하 여이를 수행할 수 있습니다.
+* [사용자 고유의 통합 문서를 만들](../azure-monitor/visualize/workbooks-overview.md)수 있습니다. 자세한 메트릭 대시보드에서 편집 단추를 클릭 하 여이를 수행할 수 있습니다.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 39950b4d62b7dbfacba94f5ba3c5de50bbb974b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805945"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653676"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Azure Static Web Apps의 경로 미리 보기
 
@@ -77,7 +77,7 @@ _routes.json_ 파일은 앱의 빌드 아티팩트 폴더의 루트에 있어야
 }
 ```
 
-- 역할 이름을 완전히 제어할 수 있습니다. 역할이 준수해야 하는 마스터 목록이 없습니다.
+- 역할 이름을 완전히 제어할 수 있습니다. 역할이 준수 해야 하는 목록이 없습니다.
 - 개별 사용자는 [초대](authentication-authorization.md)를 통해 역할에 연결됩니다.
 
 ## <a name="wildcards"></a>와일드카드

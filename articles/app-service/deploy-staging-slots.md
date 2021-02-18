@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150326"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594239"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](./overview.md)에 배포 하는 경우 **표준**, **프리미엄**또는 **격리** 된 App Service 계획 계층에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
+웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](./overview.md)에 배포 하는 경우 **표준**, **프리미엄** 또는 **격리** 된 App Service 계획 계층에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
 
 애플리케이션을 비프로덕션 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "92150326"
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>슬롯 추가
-여러 배포 슬롯을 사용 하도록 설정 하려면 앱이 **표준**, **프리미엄**또는 **격리** 계층에서 실행 되어야 합니다.
+여러 배포 슬롯을 사용 하도록 설정 하려면 앱이 **표준**, **프리미엄** 또는 **격리** 계층에서 실행 되어야 합니다.
 
 
 1. [Azure Portal](https://portal.azure.com/)에서 **App Services** 를 검색 하 여 선택 하 고 앱을 선택 합니다. 
@@ -38,12 +38,12 @@ ms.locfileid: "92150326"
     ![App Services 검색](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. 왼쪽 창에서 **배포 슬롯**  >  **슬롯 추가**를 선택 합니다.
+2. 왼쪽 창에서 **배포 슬롯**  >  **슬롯 추가** 를 선택 합니다.
    
     ![새 배포 슬롯 추가](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > 앱이 아직 **Standard**, **Premium**또는 **Isolated** 계층에 있지 않은 경우 준비 된 게시를 사용 하도록 지원 되는 계층을 나타내는 메시지가 표시 됩니다. 이 시점에서 **업그레이드** 를 선택 하 고 계속 하기 전에 앱의 **크기 조정** 탭으로 이동할 수 있는 옵션이 있습니다.
+   > 앱이 아직 **Standard**, **Premium** 또는 **Isolated** 계층에 있지 않은 경우 준비 된 게시를 사용 하도록 지원 되는 계층을 나타내는 메시지가 표시 됩니다. 이 시점에서 **업그레이드** 를 선택 하 고 계속 하기 전에 앱의 **크기 조정** 탭으로 이동할 수 있는 옵션이 있습니다.
    > 
 
 3. **슬롯 추가** 대화 상자에서 슬롯에 이름을 지정 하 고 다른 배포 슬롯에서 앱 구성을 복제할 것인지 여부를 선택 합니다. **추가** 를 선택 하 여 계속 합니다.
@@ -99,7 +99,7 @@ ms.locfileid: "92150326"
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-특정 슬롯 (교환 되지 않음)에 맞게 앱 설정 또는 연결 문자열을 구성 하려면 해당 슬롯에 대 한 **구성** 페이지로 이동 합니다. 설정을 추가 하거나 편집한 후 **배포 슬롯 설정**을 선택 합니다. 이 확인란을 선택 하면 설정이 스왑할 수 없음을 App Service에 알려 줍니다. 
+특정 슬롯 (교환 되지 않음)에 맞게 앱 설정 또는 연결 문자열을 구성 하려면 해당 슬롯에 대 한 **구성** 페이지로 이동 합니다. 설정을 추가 하거나 편집한 후 **배포 슬롯 설정** 을 선택 합니다. 이 확인란을 선택 하면 설정이 스왑할 수 없음을 App Service에 알려 줍니다. 
 
 ![슬롯 설정](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -115,19 +115,19 @@ ms.locfileid: "92150326"
 
 배포 슬롯을 교환 하려면:
 
-1. 앱의 **배포 슬롯** 페이지로 이동 하 고 **교환**을 선택 합니다.
+1. 앱의 **배포 슬롯** 페이지로 이동 하 고 **교환** 을 선택 합니다.
    
     ![교환 단추](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
     **교환** 대화 상자에는 선택한 원본 및 대상 슬롯에서 변경 될 설정이 표시 됩니다.
 
-2. 원하는 **원본** 및 **대상** 슬롯을 선택합니다. 일반적으로 대상은 프로덕션 슬롯입니다. 또한 **원본 변경** 내용 및 **대상 변경** 탭을 선택 하 고 구성 변경이 예상 되는지 확인 합니다. 완료 되 면 **교환**을 선택 하 여 슬롯을 즉시 교환할 수 있습니다.
+2. 원하는 **원본** 및 **대상** 슬롯을 선택합니다. 일반적으로 대상은 프로덕션 슬롯입니다. 또한 **원본 변경** 내용 및 **대상 변경** 탭을 선택 하 고 구성 변경이 예상 되는지 확인 합니다. 완료 되 면 **교환** 을 선택 하 여 슬롯을 즉시 교환할 수 있습니다.
 
     ![전체 교환](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    교환이 실제로 수행 되기 전에 대상 슬롯이 새 설정으로 실행 되는 방식을 확인 하려면 **바꾸기**를 선택 하지 말고 [preview와 바꾸기](#Multi-Phase)의 지침을 따르세요.
+    교환이 실제로 수행 되기 전에 대상 슬롯이 새 설정으로 실행 되는 방식을 확인 하려면 **바꾸기** 를 선택 하지 말고 [preview와 바꾸기](#Multi-Phase)의 지침을 따르세요.
 
-3. 완료 되 면 **닫기**를 선택 하 여 대화 상자를 닫습니다.
+3. 완료 되 면 **닫기** 를 선택 하 여 대화 상자를 닫습니다.
 
 문제가 있는 경우 [교체 문제 해결](#troubleshoot-swaps)을 참조 하세요.
 
@@ -143,21 +143,21 @@ Preview를 사용 하 여 교환을 수행 하는 경우 App Service는 동일�
 
 Preview를 사용 하 여 교환 하려면:
 
-1. [배포 슬롯 교환](#Swap) 의 단계를 수행 하 되 **미리 보기로 전환 수행을**선택 합니다.
+1. [배포 슬롯 교환](#Swap) 의 단계를 수행 하 되 **미리 보기로 전환 수행을** 선택 합니다.
 
     ![미리 보기가 있는 교환](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
     이 대화 상자에는 1 단계에서 원본 슬롯의 구성과 원본 및 대상 슬롯이 2 단계에서 변경 되는 방식이 표시 됩니다.
 
-2. 교환을 시작할 준비가 되 면 **교환 시작**을 선택 합니다.
+2. 교환을 시작할 준비가 되 면 **교환 시작** 을 선택 합니다.
 
     1 단계가 완료 되 면 대화 상자에 알림이 표시 됩니다. 로 이동 하 여 원본 슬롯에서 교환을 미리 봅니다 `https://<app_name>-<source-slot-name>.azurewebsites.net` . 
 
-3. 보류 중인 교체를 완료할 준비가 되 면 **바꾸기 작업** 에서 **전체 바꾸기** 를 선택 하 고 **전체 교체**를 선택 합니다.
+3. 보류 중인 교체를 완료할 준비가 되 면 **바꾸기 작업** 에서 **전체 바꾸기** 를 선택 하 고 **전체 교체** 를 선택 합니다.
 
     보류 중인 교환을 취소 하려면 대신 **바꾸기 취소** 를 선택 합니다.
 
-4. 완료 되 면 **닫기**를 선택 하 여 대화 상자를 닫습니다.
+4. 완료 되 면 **닫기** 를 선택 하 여 대화 상자를 닫습니다.
 
 문제가 있는 경우 [교체 문제 해결](#troubleshoot-swaps)을 참조 하세요.
 
@@ -183,9 +183,9 @@ Preview를 사용 하 여 교환 하려면:
 
 자동 교환을 구성 하려면:
 
-1. 앱의 리소스 페이지로 이동 합니다. **배포 슬롯**  >  *\<desired source slot>*  >  **구성**  >  **일반 설정**을 선택 합니다.
+1. 앱의 리소스 페이지로 이동 합니다. **배포 슬롯**  >  *\<desired source slot>*  >  **구성**  >  **일반 설정** 을 선택 합니다.
    
-2. **자동 교환 사용**에서 **켜기**를 선택 합니다. 그런 다음 **배포 슬롯 자동 교환**에 필요한 대상 슬롯을 선택 하 고 명령 모음에서 **저장** 을 선택 합니다. 
+2. **자동 교환 사용** 에서 **켜기** 를 선택 합니다. 그런 다음 **배포 슬롯 자동 교환** 에 필요한 대상 슬롯을 선택 하 고 명령 모음에서 **저장** 을 선택 합니다. 
    
     ![자동 교환 구성을 위한 선택 항목](./media/web-sites-staged-publishing/AutoSwap02.png)
 
@@ -222,9 +222,9 @@ Preview를 사용 하 여 교환 하려면:
 
 ## <a name="monitor-a-swap"></a>교환 모니터링
 
-[교환 작업](#AboutConfiguration) 을 완료 하는 데 시간이 오래 걸리면 [활동 로그](../azure-monitor/platform/platform-logs-overview.md)에서 교환 작업에 대 한 정보를 가져올 수 있습니다.
+[교환 작업](#AboutConfiguration) 을 완료 하는 데 시간이 오래 걸리면 [활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에서 교환 작업에 대 한 정보를 가져올 수 있습니다.
 
-포털의 앱 리소스 페이지에 있는 왼쪽 창에서 **활동 로그**를 선택 합니다.
+포털의 앱 리소스 페이지에 있는 왼쪽 창에서 **활동 로그** 를 선택 합니다.
 
 교환 작업은 `Swap Web App Slots`으로 로그 쿼리에 표시됩니다. 이를 확장하고 하위 작업 또는 오류 중 하나를 선택하여 세부 정보를 볼 수 있습니다.
 
@@ -236,9 +236,9 @@ Preview를 사용 하 여 교환 하려면:
 
 프로덕션 트래픽을 자동으로 라우팅하려면:
 
-1. 앱의 리소스 페이지로 이동 하 고 **배포 슬롯**을 선택 합니다.
+1. 앱의 리소스 페이지로 이동 하 고 **배포 슬롯** 을 선택 합니다.
 
-2. 라우팅하려는 슬롯의 **트래픽 %** 열에서 라우팅할 트래픽의 총량을 나타내는 백분율(0~100)을 지정합니다. **저장**을 선택합니다.
+2. 라우팅하려는 슬롯의 **트래픽 %** 열에서 라우팅할 트래픽의 총량을 나타내는 백분율(0~100)을 지정합니다. **저장** 을 선택합니다.
 
     ![트래픽 비율 설정](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -262,7 +262,7 @@ Preview를 사용 하 여 교환 하려면:
 
 문자열 `x-ms-routing-name=self` 는 프로덕션 슬롯을 지정합니다. 클라이언트 브라우저는 링크에 액세스 한 후 프로덕션 슬롯으로 리디렉션됩니다. 모든 후속 요청에는 `x-ms-routing-name=self` 프로덕션 슬롯에 세션을 고정 하는 쿠키가 있습니다.
 
-사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 예는 다음과 같습니다.
+사용자가 베타 앱에 옵트인 (opt in) 할 수 있도록 하려면 비프로덕션 슬롯의 이름에 동일한 쿼리 매개 변수를 설정 합니다. 예를 들면 다음과 같습니다.
 
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
@@ -274,7 +274,7 @@ Preview를 사용 하 여 교환 하려면:
 
 ## <a name="delete-a-slot"></a>슬롯 삭제
 
-앱을 검색 하 고 선택 합니다. **배포 슬롯**  >  *\<slot to delete>*  >  **개요**를 선택 합니다. 앱 유형은 배포 슬롯을 보고 있음을 알리기 위해 **App Service (슬롯)** 로 표시 됩니다. 명령 모음에서 **삭제** 를 선택 합니다.  
+앱을 검색 하 고 선택 합니다. **배포 슬롯**  >  *\<slot to delete>*  >  **개요** 를 선택 합니다. 앱 유형은 배포 슬롯을 보고 있음을 알리기 위해 **App Service (슬롯)** 로 표시 됩니다. 명령 모음에서 **삭제** 를 선택 합니다.  
 
 ![배포 슬롯 삭제](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -398,7 +398,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="troubleshoot-swaps"></a>교체 문제 해결
 
-[슬롯 교환](#AboutConfiguration)중에 오류가 발생 하면 *D:\home\LogFiles\eventlog.xml*에 기록 됩니다. 응용 프로그램 관련 오류 로그에도 기록 됩니다.
+[슬롯 교환](#AboutConfiguration)중에 오류가 발생 하면 *D:\home\LogFiles\eventlog.xml* 에 기록 됩니다. 응용 프로그램 관련 오류 로그에도 기록 됩니다.
 
 몇 가지 일반적인 교환 오류는 다음과 같습니다.
 
@@ -406,7 +406,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 - 앱 콘텐츠가 로컬 캐시에 지정 된 로컬 디스크 할당량을 초과 하면 로컬 캐시 초기화가 실패할 수 있습니다. 자세한 내용은 [로컬 캐시 개요](overview-local-cache.md)를 참조 하세요.
 
-- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. *Web.config*에서 특정 URL 재작성 규칙을 사용 하 여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
+- [사용자 지정 준비](#Warm-up)과정에서 HTTP 요청은 외부 URL을 거치지 않고 내부적으로 수행 됩니다. *Web.config* 에서 특정 URL 재작성 규칙을 사용 하 여 실패할 수 있습니다. 예를 들어 도메인 이름을 리디렉션하는 규칙이 나 HTTPS를 적용 하면 준비 요청이 앱 코드에 도달 하지 못할 수 있습니다. 이 문제를 해결 하려면 다음 두 가지 조건을 추가 하 여 재작성 규칙을 수정 합니다.
 
     ```xml
     <conditions>
@@ -424,7 +424,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
     </conditions>
     ```
 
-- 슬롯 교체 후에는 앱에서 예기치 않은 다시 시작이 발생할 수 있습니다. 이는 교환 후 호스트 이름 바인딩 구성이 동기화 되지 않아 자체적으로 다시 시작 되지 않기 때문입니다. 그러나 특정 기본 저장소 이벤트 (예: 저장소 볼륨 장애 조치 (failover))는 이러한 불일치를 감지 하 여 모든 작업자 프로세스를 강제로 다시 시작할 수 있습니다. 이러한 유형의 다시 시작을 최소화 하려면 *모든 슬롯*에서 [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 앱 설정을](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) 설정 합니다. 그러나이 앱 설정은 WCF (Windows Communication Foundation) 앱에서 작동 *하지* 않습니다.
+- 슬롯 교체 후에는 앱에서 예기치 않은 다시 시작이 발생할 수 있습니다. 이는 교환 후 호스트 이름 바인딩 구성이 동기화 되지 않아 자체적으로 다시 시작 되지 않기 때문입니다. 그러나 특정 기본 저장소 이벤트 (예: 저장소 볼륨 장애 조치 (failover))는 이러한 불일치를 감지 하 여 모든 작업자 프로세스를 강제로 다시 시작할 수 있습니다. 이러한 유형의 다시 시작을 최소화 하려면 *모든 슬롯* 에서 [ `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 앱 설정을](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) 설정 합니다. 그러나이 앱 설정은 WCF (Windows Communication Foundation) 앱에서 작동 *하지* 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [비프로덕션 슬롯에 대한 액세스 차단](app-service-ip-restrictions.md)

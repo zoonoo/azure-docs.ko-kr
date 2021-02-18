@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1cca747003a127371db7d110500e2b4168f10219
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: a202ee1d708feebc7643fa6f20aafa9d8603fc38
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99822159"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546774"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R에 대한 네트워크 구성
 
@@ -50,7 +50,7 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
 
 2. 0일 업데이트가 필요한 경우 유선 연결을 사용하여 데이터 포트를 구성하여 여기에서 해당 작업을 수행할 수 있습니다. 이 디바이스에 대해 유선 연결을 설정하는 방법에 대한 자세한 내용은 [디바이스에 케이블 연결](azure-stack-edge-mini-r-deploy-install.md#cable-the-device)을 참조하세요. 업데이트가 끝난 후에는 유선 연결을 제거할 수 있습니다.
 
-3. Wi-Fi 및 서명 체인에 대한 인증서를 만듭니다. 서명 체인과 Wi-Fi 인증서 모두 *.cer* 파일 확장명을 가진 DER 형식이어야 합니다. 자세한 지침은 [인증서 만들기](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요.
+3. Wi-Fi 및 서명 체인에 대한 인증서를 만듭니다. 서명 체인과 Wi-Fi 인증서 모두 *.cer* 파일 확장명을 가진 DER 형식이어야 합니다. 자세한 지침은 [인증서 만들기](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
 4. 로컬 웹 UI에서 **시작** 으로 이동합니다. **보안** 타일에서 **인증서** 를 선택한 다음, **구성** 을 선택합니다. 
 
