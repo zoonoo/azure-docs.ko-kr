@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f6df8c6ff0db74798b71d57feae91e5245f2a6c2
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6d5198f47b6089730ff345eb12ab522fc5ce58a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028721"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575376"
 ---
 # <a name="analyze-unexpected-charges"></a>예기치 않은 요금 분석
 
@@ -76,7 +76,7 @@ VM이 생성되면 각 미터가 사용량 레코드를 내보내기 시작합�
 
 ### <a name="analyze-the-audit-logs-for-the-resource"></a>리소스의 감사 로그 분석
 
-리소스를 볼 수 있는 권한이 있는 경우 해당 감사 로그에 액세스할 수 있어야 합니다. 로그를 검토하여 리소스에 대한 가장 최근의 변경 내용을 담당했던 사용자를 찾습니다. 자세한 정보는 [Azure 활동 로그 이벤트 보기 및 검색](../../azure-monitor/platform/activity-log.md#view-the-activity-log)을 참조하세요.
+리소스를 볼 수 있는 권한이 있는 경우 해당 감사 로그에 액세스할 수 있어야 합니다. 로그를 검토하여 리소스에 대한 가장 최근의 변경 내용을 담당했던 사용자를 찾습니다. 자세한 정보는 [Azure 활동 로그 이벤트 보기 및 검색](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)을 참조하세요.
 
 ### <a name="analyze-user-permissions-to-the-resources-parent-scope"></a>리소스의 부모 범위에 대한 사용자 권한 분석
 

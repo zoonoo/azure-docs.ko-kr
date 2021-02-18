@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590614"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -81,8 +81,8 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
 1. 적절 한 내보내기 빈도를 선택 합니다.
-    - **스트리밍** – 평가는 리소스의 상태가 업데이트 될 때 실시간으로 전송 됩니다. 업데이트가 발생 하지 않으면 데이터가 전송 되지 않습니다.
-    - **스냅숏** -모든 규제 준수 평가의 현재 상태에 대 한 스냅숏이 매주 전송 됩니다 (보안 점수 및 규정 준수 데이터의 주별 스냅숏에 대 한 미리 보기 기능).
+    - **스트리밍** – 리소스의 상태가 업데이트되면 평가가 실시간으로 전송됩니다(업데이트가 발생하지 않으면 데이터가 전송되지 않음).
+    - **스냅샷** – 모든 규정 준수 평가의 현재 상태에 대한 스냅샷이 매주 전송됩니다(이는 보안 점수 및 규정 준수 데이터의 주간 스냅샷에 대한 미리 보기 기능임).
 
 1. 선택 사항에 따라 이러한 권장 사항 중 하나가 포함 된 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
     - SQL 데이터베이스에 대 한 취약성 평가 결과를 재구성 해야 합니다.
@@ -185,7 +185,7 @@ Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 경고 및 권장 사항 보기
 
-[Azure Monitor](../azure-monitor/platform/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수도 있습니다. 
+[Azure Monitor](../azure-monitor/alerts/alerts-overview.md)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수도 있습니다. 
 
 Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고를 비롯 한 다양 한 Azure 경고에 대 한 통합 경고 환경을 제공 합니다.
 
@@ -195,13 +195,13 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
     ![Azure Monitor의 경고 페이지](./media/continuous-export/azure-monitor-alerts.png)
 
-1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](../azure-monitor/platform/alerts-unified-log.md)을 구성 하는 것과 같은 방식으로).
+1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](../azure-monitor/alerts/alerts-unified-log.md)을 구성 하는 것과 같은 방식으로).
 
     * **리소스** 에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택 합니다.
 
     * **조건** 에 대해 **사용자 지정 로그 검색** 을 선택 합니다. 표시 되는 페이지에서 query, lookback period 및 frequency period를 구성 합니다. 검색 쿼리에서는 Log Analytics으로 연속 내보내기를 사용 하도록 설정 하는 경우 *Securityalert* 또는 *securityalert* 을 입력 하 여 Security Center 연속으로 내보낼 데이터 형식을 쿼리할 수 있습니다. 
     
-    * 필요에 따라 트리거할 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
+    * 필요에 따라 트리거할 [작업 그룹](../azure-monitor/alerts/action-groups.md) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
     ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
 
 이제 작업 그룹 (제공 된 경우)의 자동 트리거를 사용 하 여 Azure Monitor 경고에서 구성 된 연속 내보내기 규칙 및 Azure Monitor 경고 규칙에서 정의한 조건에 따라 새로운 Azure Security Center 경고 또는 권장 사항이 표시 됩니다.
@@ -251,7 +251,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 ### <a name="is-continuous-export-available-with-azure-security-center-free"></a>연속 내보내기는 Azure Security Center 무료로 사용할 수 있나요?
 
-예. Azure Defender를 사용 하도록 설정한 경우에만 많은 Security Center 경고가 제공 됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시 된 경고를 확인 하는 것입니다.
+예! Azure Defender를 사용 하도록 설정한 경우에만 많은 Security Center 경고가 제공 됩니다. 내보낸 데이터에서 얻을 수 있는 경고를 미리 보는 좋은 방법은 Azure Portal의 Security Center 페이지에 표시 된 경고를 확인 하는 것입니다.
 
 
 

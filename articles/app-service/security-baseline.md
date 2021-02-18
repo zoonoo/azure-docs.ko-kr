@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807855"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586294"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -241,9 +241,9 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 자동 도구를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 변경 내용을 신속 하 게 검색 하는 프로세스를 만드는 것이 좋습니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [보안 경고 및 권장 사항 내보내기](../security-center/continuous-export.md)
 
@@ -280,7 +280,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 또한 Azure Key Vault는 액세스 정책 및 감사 기록을 통해 중앙 집중화 된 비밀 관리를 제공 합니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure App Service에 대 한 진단 설정을 사용 하도록 설정 하는 방법](troubleshoot-diagnostic-logs.md)
 
@@ -293,7 +293,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 App Service 리소스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -309,7 +309,7 @@ WAF (웹 응용 프로그램 방화벽)를 배포한 경우 실시간 웹 응용
 
 확장 가능한 클라우드 기본 SIEM (보안 정보 이벤트 관리) 인 Azure 센티널을 사용 하 여 요구 사항에 따라 다양 한 데이터 원본 및 커넥터와 통합할 수 있습니다. 필요에 따라 Azure Marketplace의 타사 보안 정보 이벤트 관리 솔루션에 및 온보드 데이터를 사용 하도록 설정 합니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Application Insights를 사용 하도록 설정 하는 방법](../azure-monitor/app/app-insights-overview.md)
 
@@ -640,7 +640,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 App Service 앱 및 기타 중요 또는 관련 된 리소스에 대 한 변경 내용에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 09/30/2020
-ms.openlocfilehash: 3d28cf1a89ff455cfbed26aad234607ec8cd7e63
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490570"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592689"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -99,11 +99,11 @@ Intelligent Insights 리소스 로그를 포함 하 여 여러 대상 중 하나
 
 ### <a name="log-analytics-workspace-in-azure-monitor"></a>Azure Monitor Log Analytics 작업 영역
 
-[Azure Monitor에서 Log Analytics 작업 영역](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)으로 메트릭 및 리소스 로그를 스트리밍할 수 있습니다. 여기에서 스트리밍된 데이터는 성능 보고서, 경고 및 완화 권장 사항을 포함 하는 데이터베이스에 대 한 지능형 모니터링을 제공 하는 클라우드 전용 모니터링 솔루션인 [SQL Analytics](../../azure-monitor/insights/azure-sql.md)에서 사용할 수 있습니다. Log Analytics 작업 영역으로 스트리밍되는 데이터는 수집 된 다른 모니터링 데이터를 사용 하 여 분석할 수 있으며 경고 및 시각화와 같은 다른 Azure Monitor 기능을 활용할 수도 있습니다.
+[Azure Monitor에서 Log Analytics 작업 영역](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)으로 메트릭 및 리소스 로그를 스트리밍할 수 있습니다. 여기에서 스트리밍된 데이터는 성능 보고서, 경고 및 완화 권장 사항을 포함 하는 데이터베이스에 대 한 지능형 모니터링을 제공 하는 클라우드 전용 모니터링 솔루션인 [SQL Analytics](../../azure-monitor/insights/azure-sql.md)에서 사용할 수 있습니다. Log Analytics 작업 영역으로 스트리밍되는 데이터는 수집 된 다른 모니터링 데이터를 사용 하 여 분석할 수 있으며 경고 및 시각화와 같은 다른 Azure Monitor 기능을 활용할 수도 있습니다.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-[Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)에 대 한 메트릭 및 리소스 로그를 스트리밍할 수 있습니다. 진단 원격 분석을 event hubs로 스트리밍 하 여 다음 기능을 제공 합니다.
+[Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)에 대 한 메트릭 및 리소스 로그를 스트리밍할 수 있습니다. 진단 원격 분석을 event hubs로 스트리밍 하 여 다음 기능을 제공 합니다.
 
 - **타사 로깅 및 원격 분석 시스템에 로그 스트리밍**
 
@@ -117,7 +117,7 @@ Intelligent Insights 리소스 로그를 포함 하 여 여러 대상 중 하나
 
 ### <a name="azure-storage"></a>Azure Storage
 
-[Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)에 대 한 스트림 메트릭 및 리소스 로그입니다. Azure storage를 사용 하 여 이전의 두 스트리밍 옵션에 대 한 비용을 절감 하기 위해 방대한 양의 진단 원격 분석을 보관 합니다.
+[Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)에 대 한 스트림 메트릭 및 리소스 로그입니다. Azure storage를 사용 하 여 이전의 두 스트리밍 옵션에 대 한 비용을 절감 하기 위해 방대한 양의 진단 원격 분석을 보관 합니다.
 
 ## <a name="use-extended-events"></a>확장 이벤트 사용 
 

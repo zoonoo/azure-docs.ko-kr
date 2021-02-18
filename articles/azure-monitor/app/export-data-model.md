@@ -3,17 +3,17 @@ title: Azure Application Insights 데이터 모델 | Microsoft Docs
 description: JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324389"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584227"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](./app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
 이러한 속성이 [연속 내보내기](export-telemetry.md)에서 데이터 출력에 표시됩니다
-또한 [메트릭 탐색기](../platform/metrics-charts.md) 및 [진단 검색](./diagnostic-search.md)의 속성 필터에 나타납니다.
+또한 [메트릭 탐색기](../essentials/metrics-charts.md) 및 [진단 검색](./diagnostic-search.md)의 속성 필터에 나타납니다.
 
 주의할 사항:
 
@@ -21,7 +21,7 @@ ms.locfileid: "87324389"
 * 기간의 단위는 10분의 1 마이크로초이므로 10000000은 1초입니다.
 * 날짜와 시간은 UTC이며 ISO 형식 `yyyy-MM-DDThh:mm:ss.sssZ`
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 ```json
 // A server report about an HTTP request
@@ -107,13 +107,13 @@ ms.locfileid: "87324389"
 ## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
 | context.data.eventTime |문자열 |UTC |
 | context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
-| context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
+| context.data.samplingRate |숫자 |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | context.device |object |클라이언트 디바이스 |
 | context.device.browser |문자열 |IE, Chrome, ... |
 | context.device.browserVersion |문자열 |Chrome 48.0, ... |
@@ -154,7 +154,7 @@ ms.locfileid: "87324389"
 ## <a name="events"></a>이벤트
 [TrackEvent()](./api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | event [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |문자열 |이벤트 이름입니다.  최대 길이 250 |
@@ -165,7 +165,7 @@ ms.locfileid: "87324389"
 ## <a name="exceptions"></a>예외
 서버 및 브라우저의 [예외](./asp-net-exceptions.md) 를 보고합니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | basicException [0] assembly |문자열 | |
 | basicException [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
@@ -194,7 +194,7 @@ ms.locfileid: "87324389"
 ## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](./api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](./asp-net-trace-logs.md)에서 전송합니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | message [0] loggerName |문자열 | |
 | message [0] parameters |문자열 | |
@@ -204,14 +204,14 @@ ms.locfileid: "87324389"
 ## <a name="remote-dependency"></a>원격 종속성
 TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |문자열 | |
 | remoteDependency [0] commandName |문자열 |예를 들어 "홈/인덱스" |
 | remoteDependency [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |문자열 |HTTP, SQL, ... |
-| remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
+| remoteDependency [0] durationMetric.value |숫자 |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] `id` |문자열 | |
 | remoteDependency [0] name |문자열 |Url. 최대 길이 250 |
 | remoteDependency [0] resultCode |문자열 |HTTP 종속성에서 |
@@ -225,10 +225,10 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./
 ## <a name="requests"></a>요청
 [TrackRequest](./api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | request [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
-| request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
+| request [0] durationMetric.value |숫자 |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | 요청 [0] `id` |문자열 |`Operation id` |
 | request [0] name |문자열 |GET/POST + url 기본입니다.  최대 길이 250 |
 | request [0] responseCode |정수 |클라이언트에 보낸 HTTP 응답 |
@@ -243,7 +243,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |정수 |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] name |문자열 | |
@@ -260,7 +260,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./
 ## <a name="page-views"></a>페이지 보기
 trackPageView() 또는 [stopTrackPage](./api-custom-events-metrics.md#page-views)에서 전송
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | view [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |정수 |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
@@ -273,15 +273,15 @@ trackPageView() 또는 [stopTrackPage](./api-custom-events-metrics.md#page-views
 ## <a name="availability"></a>가용성
 [가용성 웹 테스트](./monitor-web-app-availability.md)를 보고합니다.
 
-| 경로 | 형식 | 메모 |
+| 경로 | Type | 참고 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |문자열 |availability |
-| availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
+| availability [0] availabilityMetric.value |숫자 |1.0 또는 0.0 |
 | availability [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |문자열 | |
 | availability [0] dataSizeMetric.value |정수 | |
 | availability [0] durationMetric.name |문자열 | |
-| availability [0] durationMetric.value |number |테스트 기간 1e7==1s |
+| availability [0] durationMetric.value |숫자 |테스트 기간 1e7==1s |
 | availability [0] message |문자열 |오류 진단 |
 | availability [0] result |문자열 |성공/실패 |
 | availability [0] runLocation |문자열 |Http 요청의 지역 소스 |
@@ -294,7 +294,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```json
 {
@@ -324,7 +324,7 @@ TrackMetric()에서 생성합니다.
 ```
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예를 들면 다음과 같습니다.
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 다음은 그 예입니다. 
 
 ```json
 "durationMetric": {

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898099"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593050"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -31,7 +31,7 @@ NSG 흐름 로그는 스토리지 계정의 [블록 Blob](/rest/api/storageservi
 
 다음 시나리오에서는 스토리지 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽는 방법을 알아봅니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설치
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
@@ -189,6 +189,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 사용 하 고 다양 한 log analytics 소비자를 내보내는 데 사용 되는 오픈 소스 Azure 함수 방법은 [Azure Network Watcher NSG 흐름 로그 커넥터](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)에서 찾을 수 있습니다.
 
-[Azure 트래픽 분석](./traffic-analytics.md) 를 사용 하 여 트래픽 흐름에 대 한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 를 사용 하 여 트래픽 흐름을 쿼리할 수 있도록 합니다.
+[Azure 트래픽 분석](./traffic-analytics.md) 를 사용 하 여 트래픽 흐름에 대 한 통찰력을 얻을 수 있습니다. 트래픽 분석은 [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) 를 사용 하 여 트래픽 흐름을 쿼리할 수 있도록 합니다.
 
 저장소 blob에 대 한 자세한 내용은 [Azure Functions Blob storage 바인딩](../azure-functions/functions-bindings-storage-blob.md) 을 참조 하세요.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 64eace72b6ea203d4052c39404bcbd7ce4c4bfa0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 32fb95c88d632cc2c51cd2390f0244e9c1927051
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055164"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585901"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Automation 계정에서 변경 내용 추적 및 인벤토리 사용
 
@@ -53,7 +53,7 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. 먼저 컴퓨�
 
 1. Automation 계정의 **구성 관리** 에서 **인벤토리** 또는 **변경 내용 추적** 을 선택합니다.
 
-2. **비Azure 컴퓨터 추가** 를 클릭합니다. 이 작업은 머신이 변경 내용 추적 및 인벤토리 작업 보고를 시작할 수 있게 [Windows에 대한 Log Analytics 에이전트를 설치 및 구성하기 위한 지침](../../azure-monitor/platform/log-analytics-agent.md)이 포함된 새 브라우저 창을 엽니다. Operations Manager에서 현재 관리하고 있는 머신을 사용하도록 설정하는 경우 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
+2. **비Azure 컴퓨터 추가** 를 클릭합니다. 이 작업은 머신이 변경 내용 추적 및 인벤토리 작업 보고를 시작할 수 있게 [Windows에 대한 Log Analytics 에이전트를 설치 및 구성하기 위한 지침](../../azure-monitor/agents/log-analytics-agent.md)이 포함된 새 브라우저 창을 엽니다. Operations Manager에서 현재 관리하고 있는 머신을 사용하도록 설정하는 경우 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
 
 ## <a name="enable-machines-in-the-workspace"></a>작업 영역에서 머신 사용
 

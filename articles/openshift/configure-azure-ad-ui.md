@@ -1,19 +1,19 @@
 ---
 title: Azure Red Hat OpenShift 실행 OpenShift 4-Azure Portal 및 OpenShift 웹 콘솔을 사용 하 여 Azure Active Directory 인증 구성
 description: Azure Portal 및 OpenShift 웹 콘솔을 사용 하 여 OpenShift 4를 실행 하는 Azure Red Hat OpenShift 클러스터에 대 한 Azure Active Directory 인증을 구성 하는 방법에 대해 알아봅니다.
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7f01404f63a32e3a23413b8eaca64f679f7036d8
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635165"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (포털)
 

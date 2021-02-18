@@ -3,18 +3,18 @@ title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089423"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593130"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
 서비스 공급자는 사용자 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)을 통해 테 넌 트에 위임 되거나 이전에 위임 된 리소스가 제거 되는 경우를 인식 하고자 할 수 있습니다.
 
-테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
+테 넌 트 관리에서 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md) 는 테 넌 트 수준에서 위임 작업을 추적 합니다. 이 기록 된 활동에는 모든 고객 테 넌 트에서 추가 되거나 제거 된 위임이 포함 됩니다.
 
 이 항목에서는 모든 고객에 대해 위임 작업을 테 넌 트에 모니터링 하는 데 필요한 권한을 설명 합니다. 또한이 데이터를 쿼리하고 보고 하는 한 가지 방법을 보여 주는 예제 스크립트도 제공 합니다.
 
@@ -104,7 +104,7 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 - 단일 배포에서 여러 리소스 그룹을 위임 하는 경우 각 리소스 그룹에 대해 별도의 항목이 반환 됩니다.
 - 이전 위임에 대 한 변경 내용 (예: 권한 구조 업데이트)은 추가 된 위임으로 기록 됩니다.
 - 위에서 언급 한 것 처럼이 테 넌 트 수준 데이터에 액세스 하려면 계정에 루트 범위 (/)에 모니터링 판독기 Azure 기본 제공 역할이 있어야 합니다.
-- 사용자 고유의 워크플로 및 보고에서이 데이터를 사용할 수 있습니다. 예를 들어 [HTTP 데이터 수집기 API (공개 미리 보기)](../../azure-monitor/platform/data-collector-api.md) 를 사용 하 여 REST API 클라이언트에서 Azure Monitor 데이터를 로그 한 다음, [작업 그룹](../../azure-monitor/platform/action-groups.md) 을 사용 하 여 알림 또는 경고를 만들 수 있습니다.
+- 사용자 고유의 워크플로 및 보고에서이 데이터를 사용할 수 있습니다. 예를 들어 [HTTP 데이터 수집기 API (공개 미리 보기)](../../azure-monitor/logs/data-collector-api.md) 를 사용 하 여 REST API 클라이언트에서 Azure Monitor 데이터를 로그 한 다음, [작업 그룹](../../azure-monitor/alerts/action-groups.md) 을 사용 하 여 알림 또는 경고를 만들 수 있습니다.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Lighthouse](../concepts/azure-delegated-resource-management.md)에 고객을 등록 하는 방법에 대해 알아봅니다.
-- [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에 대해 알아봅니다.
+- [Azure Monitor](../../azure-monitor/index.yml) 및 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)에 대해 알아봅니다.
 - 도메인 샘플 통합 문서를 [기준으로 활동 로그](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) 를 검토 하 여 구독 간에 Azure 활동 로그를 표시 하는 방법, 도메인 이름으로 필터링 하는 옵션을 알아봅니다.

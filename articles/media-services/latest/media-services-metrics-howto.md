@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91e74668224d1cdbbc462bf6c2c0a22c4f0a9837
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ab89c222648a66ad7451f9bb47e254c55b925630
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916578"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590753"
 ---
 # <a name="monitor-media-services-metrics"></a>Media Services 메트릭 모니터링
 
@@ -67,10 +67,10 @@ az monitor metrics list --resource \
 
 다른 메트릭을 가져오려면 관심 있는 메트릭 이름으로 "송신"을 대체 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
-- [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)
+- [Azure Monitor 메트릭](../../azure-monitor/data-platform.md)
+- [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-metric.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,13 +2,13 @@
 title: 스트리밍 이벤트 캡처 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤트를 캡처할 수 있도록 캡처 기능 개요를 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 32741fdd98ec79c38568ff5a6c4fa476f27d794b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 02/16/2021
+ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912619"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595958"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage Gen 1 또는 Gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -79,13 +79,7 @@ Avro 파일을 쉽게 탐색하는 방법은 Apache에서 [Avro 도구][Avro Too
 
 [Apache Drill: Azure Blob Storage 플러그 인][Apache Drill: Azure Blob Storage Plugin]
 
-캡처된 파일을 손쉽게 쿼리하려면 컨테이너를 통해 Apache Drill을 사용하도록 설정된 VM을 만들고 실행하여 Azure Blob Storage에 액세스할 수 있습니다.
-
-https://github.com/yorek/apache-drill-azure-blob
-
-전체 엔드투엔드 샘플은 확장 리포지토리의 스트리밍에 제공됩니다.
-
-[대규모 스트리밍: Event Hubs 캡처]
+캡처 파일을 쉽게 쿼리하려면 컨테이너를 통해 Apache 드릴을 사용 하도록 설정 하 여 Azure Blob 저장소에 액세스 하는 VM을 만들고 실행할 수 있습니다. 다음 샘플을 참조 하세요. [Event Hubs 캡처를 사용 하 여 대규모 스트리밍](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture).
 
 ### <a name="use-apache-spark"></a>Apache Spark 사용
 
@@ -160,4 +154,4 @@ Azure Portal 및 Azure Resource Manager 템플릿을 사용하여 이 기능을 
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[대규모 스트리밍: Event Hubs 캡처]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

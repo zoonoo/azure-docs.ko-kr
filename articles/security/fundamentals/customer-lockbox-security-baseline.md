@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595600"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준
 
@@ -164,7 +164,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 고객 Lockbox와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-* [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -186,7 +186,7 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 * [고객 Lockbox의 감사 로그](./customer-lockbox-overview.md#auditing-logs)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/learn/tutorial-response.md)
+* [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -461,9 +461,9 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 * [고객 Lockbox에서 감사를 사용 하도록 설정 하는 방법](./customer-lockbox-overview.md)
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

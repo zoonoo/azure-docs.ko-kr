@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582824"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -164,7 +164,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - [Azure Resource Health](../../service-health/resource-health-overview.md). TDE 보호기에 대 한 액세스 권한이 손실 된 액세스 불가능 데이터베이스는 데이터베이스에 대 한 첫 번째 연결이 거부 된 후 "사용할 수 없음"으로 표시 됩니다.
 - 고객 관리 키 자격 증명 모음의 TDE 보호기에 대 한 액세스가 실패 하는 [활동 로그](../../service-health/alerts-activity-log-service-notifications-portal.md) 는 활동 로그에 항목을 추가 합니다.  이러한 이벤트에 대 한 경고를 만들면 최대한 빨리 액세스를 복구할 수 있습니다.
-- 사용자의 기본 설정에 따라 알림 및 경고를 보내도록 [작업 그룹](../../azure-monitor/platform/action-groups.md) 을 정의할 수 있습니다 (예: 이메일/SMS/푸시/음성, 논리 앱, 웹 후크, Itsm 또는 Automation Runbook).
+- 사용자의 기본 설정에 따라 알림 및 경고를 보내도록 [작업 그룹](../../azure-monitor/alerts/action-groups.md) 을 정의할 수 있습니다 (예: 이메일/SMS/푸시/음성, 논리 앱, 웹 후크, Itsm 또는 Automation Runbook).
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>고객 관리 TDE를 사용 하 여 데이터베이스 백업 및 복원
 

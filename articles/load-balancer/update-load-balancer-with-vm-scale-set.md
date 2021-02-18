@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594538"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593033"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>가상 머신 확장 집합에서 사용 하는 부하 분산 장치 업데이트 또는 삭제
 
@@ -83,14 +83,15 @@ az network lb inbound-nat-pool update
 
 ## <a name="delete-inbound-nat-rules"></a>인바운드 NAT 규칙 삭제
 
-개별 인바운드 NAT 규칙은 삭제할 수 없지만 인바운드 NAT 규칙의 전체 집합을 삭제할 수 있습니다.
+개별 인바운드 NAT 규칙은 삭제할 수 없지만 인바운드 NAT 풀을 삭제 하 여 전체 인바운드 NAT 규칙 집합을 삭제할 수 있습니다.
 
-확장 집합에서 사용 하는 인바운드 NAT 규칙의 전체 집합을 삭제 하려면 먼저 확장 집합에서 NAT 풀을 제거 합니다. CLI를 사용 하는 전체 예제는 다음과 같습니다.
-    
+NAT 풀을 삭제 하려면 먼저 크기 집합에서 NAT 풀을 제거 합니다. CLI를 사용 하는 전체 예제는 다음과 같습니다.
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup

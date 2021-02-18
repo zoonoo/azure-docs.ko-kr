@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0f3b36729fb07c6f5ae03a46e199e4cadb44a25e
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635594"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Red Hat Enterprise Linux 이미지 개요
 
@@ -65,9 +65,12 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:8-LVM:lat
 
 ## <a name="rhel-6-image-types"></a>RHEL 6 이미지 형식
 
+>[!NOTE]
+> 12 월 30 2020부터 RHEL 6.10은 단종 (EOL)의 끝을 입력 합니다. 지속적인 지원을 받으려면 연장 된 수명 주기 지원 단계의 일부로 ELS를 사용 하도록 설정 하세요. [Red HAT ELS 설명서](./redhat-extended-lifecycle-support.md)를 참조 하세요.
+
 RHEL .x 이미지의 경우 이미지 형식은 다음 표에 나와 있습니다.
 
-|게시자 | 제안 | SKU 값 | Version | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|-----------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 6.9) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.2018010506) | 모든 표준 RHEL .x 이미지는이 규칙을 따릅니다.
 |RedHat | rhel-byos | rhel-raw69 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 6.9.20181023) | 이 이미지는 RHEL 6.9 BYOS 이미지입니다.
@@ -81,7 +84,7 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 >[!NOTE]
 > 달리 지정 되지 않은 경우 모든 이미지는 LVM으로 분할 되 고 일반 RHEL 리포지토리에 연결 됩니다. 즉, 리포지토리가 EUS (연장 업데이트 지원) 되지 않으며 SAP 용 업데이트 서비스 (E4S)가 아닙니다. 앞으로는 LVM 분할 이미지만 게시로 전환 하지만이 결정에 대 한 피드백을 공개 합니다. SAP 용 확장 업데이트 지원 및 업데이트 서비스에 대 한 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata)를 참조 하세요.
 
-|게시자 | 제안 | SKU 값 | Version | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 부 버전 (예: 7.6) | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 4 월 2019 일 전에 게시 된 이미지는 표준 RHEL 리포지토리에 연결 됩니다. 4 월 2019 일 이후에 게시 된 이미지는 Red Hat의 EUS 리포지토리에 연결 되어 특정 부 버전의 버전 잠금을 허용 합니다. 일반 리포지토리를 사용 하려는 고객은 SKU 값에 7LVM 또는 7-RAW가 포함 된 이미지를 사용 해야 합니다 (자세한 내용은 참조). RHEL 7.7 이상 이미지는 LVM 분할 된 이미지입니다. 이 범주의 다른 모든 이미지는 원시 분할 됩니다.
 |RedHat | RHEL | 7-RAW | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 7.6.2019102813) | 이러한 이미지는 원시 분할 됩니다 (예: 논리적 볼륨이 추가 되지 않음).
@@ -101,12 +104,20 @@ RHEL 7.x 이미지의 경우 몇 가지 다른 이미지 유형이 있습니다.
 
 RHEL 8 이미지 형식에 대 한 세부 정보는 아래와 같습니다.
 
-|게시자 | 제안 | SKU 값 | Version | 세부 정보
+|게시자 | 제안 | SKU 값 | 버전 | 세부 정보
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191023) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 RHEL 8 LVM 분할 이미지입니다.
 |RedHat | RHEL | 8-gen2 | RHEL 부 버전의 연결 된 값 및 게시 된 날짜 (예: 8.0.20191024) | 이러한 이미지는 표준 Red Hat 리포지토리에 연결 된 Hyper-v 세대 2 RHEL 8 LVM 분할 이미지입니다. Azure의 2 세대 Vm에 대 한 자세한 내용은 [azure의 2 세대 vm에 대 한 지원](../../generation-2.md)을 참조 하세요.
 
-## <a name="rhel-longer-support-add-ons"></a>RHEL 더 이상 추가 기능을 지원 합니다.
+## <a name="rhel-extended-support-add-ons"></a>RHEL 확장 지원 추가 기능
+
+### <a name="extended-life-cycle-support"></a>연장 된 수명 주기 지원
+
+확장 된 수명 주기 지원 (ELS) 추가 기능은 단종 (EOL)에 도달 하는 릴리스에 대해 중요 하 고 중요 한 보안 픽스를 사용할 수 있도록 하는 선택적 구독입니다. RHEL EUS에 대 한 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support)에서 확인할 수 있습니다.
+
+ELS는 현재 RHEL 6.10 에서만 사용할 수 있습니다. 종 량 제 이미지의 경우 [Red HAT els 설명서](./redhat-extended-lifecycle-support.md)의 단계에 따라 ELS를 사용 하도록 설정할 수 있습니다.
+
+이전 버전에서 실행 하는 경우에는 RHEL 6.10로 업그레이드 해야 ELS를 사용 하도록 설정할 수 있습니다.
 
 ### <a name="extended-update-support"></a>확장 된 업데이트 지원
 

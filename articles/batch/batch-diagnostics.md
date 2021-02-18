@@ -4,22 +4,22 @@ description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 �
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994114"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592674"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
-이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../azure-monitor/platform/data-platform-metrics.md) 및 [진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../azure-monitor/platform/alerts-overview.md)를 구성할 수 있습니다.
+이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../azure-monitor/essentials/data-platform-metrics.md) 및 [진단 로그](../azure-monitor/essentials/platform-logs-overview.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../azure-monitor/alerts/alerts-overview.md)를 구성할 수 있습니다.
 
 ## <a name="batch-metrics"></a>일괄 처리 메트릭
 
 메트릭은 Azure 리소스에서 내보내고 Azure Monitor 서비스에서 사용 하는 Azure 원격 분석 데이터 (성능 카운터 라고도 함)입니다. Batch 계정의 메트릭에 대 한 예로는 풀 만들기 이벤트, Low-Priority 노드 수, 태스크 완료 이벤트 등이 있습니다.
 
-[지원되는 일괄 처리 메트릭 목록](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)을 참조하세요.
+[지원되는 일괄 처리 메트릭 목록](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts)을 참조하세요.
 
 이러한 메트릭은 다음과 같습니다.
 
@@ -34,7 +34,7 @@ Azure Portal에서 계정의 **개요** 페이지에는 기본적으로 키 노�
 Azure Portal에서 모든 Batch 계정 메트릭을 보려면 다음을 수행 합니다.
 
 1. Azure Portal에서 **모든 서비스**  >  **배치 계정** 을 선택 하 고 batch 계정의 이름을 선택 합니다.
-2. **모니터링** 에서 **메트릭** 을 선택합니다.
+2. **모니터링** 아래에서 **메트릭** 을 선택합니다.
 3. **메트릭 추가** 를 선택한 다음 드롭다운 목록에서 메트릭을 선택 합니다.
 4. 메트릭에 대 한 **집계** 옵션을 선택 합니다. 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 **평균** 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 **개수**"집계를 사용 합니다.
 
@@ -68,9 +68,9 @@ Azure Portal에서 메트릭 경고를 구성 하려면 다음을 수행 합니�
 5. **경고 규칙 세부 정보** 섹션에서 **경고 규칙 이름** 및 **설명** 을 입력 하 고 **심각도** 를 선택 합니다.
 6. **경고 규칙 만들기** 를 선택합니다.
 
-메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고의 작동 방식 이해](../azure-monitor/platform/alerts-metric-overview.md) 및 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)를 참조 하세요.
+메트릭 경고를 만드는 방법에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고의 작동 방식 이해](../azure-monitor/alerts/alerts-metric-overview.md) 및 [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-metric.md)를 참조 하세요.
 
-Azure Monitor [REST API](/rest/api/monitor/)를 사용 하 여 거의 실시간 경고를 구성할 수도 있습니다. 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조 하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/learn/tutorial-response.md)에서 검색 쿼리에 대 한 정보를 참조 하세요.
+Azure Monitor [REST API](/rest/api/monitor/)를 사용 하 여 거의 실시간 경고를 구성할 수도 있습니다. 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)에서 검색 쿼리에 대 한 정보를 참조 하세요.
 
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
@@ -88,7 +88,7 @@ Azure Monitor [REST API](/rest/api/monitor/)를 사용 하 여 거의 실시간 
 또는 다음을 수행할 수 있습니다.
 
 - 일괄 처리 진단 로그 이벤트를 [Azure Event Hub](../event-hubs/event-hubs-about.md)로 스트리밍합니다. Event Hubs는 초당 수백 건의 이벤트를 수집하여 모든 실시간 분석 공급자를 통해 변환 및 저장할 수 있습니다.
-- 진단 로그를 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)로 보냅니다. 여기서 진단 로그를 분석하거나 추가 분석을 위해 Power BI 또는 Excel로 내보낼 수 있습니다.
+- 진단 로그를 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)로 보냅니다. 여기서 진단 로그를 분석하거나 추가 분석을 위해 Power BI 또는 Excel로 내보낼 수 있습니다.
 
 > [!NOTE]
 > Azure 서비스를 사용하여 진단 로그 데이터를 저장하거나 처리하려면 추가 비용이 발생할 수 있습니다.
@@ -105,7 +105,7 @@ Azure Portal에서 새 진단 설정을 만들려면 다음 단계를 수행 합
 6. **Servicelog**, **allmetrics** 또는 둘 다를 선택 합니다.
 7. **저장** 을 선택 하 여 진단 설정을 만듭니다.
 
-[리소스 관리자 템플릿을](../azure-monitor/samples/resource-manager-diagnostic-settings.md)사용 하거나 Azure PowerShell 또는 Azure CLI을 사용 하 여 진단 설정을 구성 하기 위해 [Azure Portal에서 Azure Monitor를 통해 수집을 사용 하도록 설정할](../azure-monitor/platform/diagnostic-settings.md) 수도 있습니다. 자세한 내용은 [Azure platform Logs 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+[리소스 관리자 템플릿을](../azure-monitor/essentials/resource-manager-diagnostic-settings.md)사용 하거나 Azure PowerShell 또는 Azure CLI을 사용 하 여 진단 설정을 구성 하기 위해 [Azure Portal에서 Azure Monitor를 통해 수집을 사용 하도록 설정할](../azure-monitor/essentials/diagnostic-settings.md) 수도 있습니다. 자세한 내용은 [Azure platform Logs 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 ### <a name="access-diagnostics-logs-in-storage"></a>스토리지에서 진단 로그에 액세스
 
@@ -119,7 +119,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-예들 들어 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -135,7 +135,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-저장소 계정에서 진단 로그의 스키마에 대 한 자세한 내용은 [Azure 리소스 로그를 저장소 계정에 보관](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)을 참조 하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다.
+저장소 계정에서 진단 로그의 스키마에 대 한 자세한 내용은 [Azure 리소스 로그를 저장소 계정에 보관](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조 하세요. 스토리지 계정에서 로그를 프로그래밍 방식으로 액세스하려면 Storage API를 사용합니다.
 
 ### <a name="service-log-events"></a>서비스 로그 이벤트
 

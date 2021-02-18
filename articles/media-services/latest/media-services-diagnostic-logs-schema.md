@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8015f610dfd9404810a1fa19c951078ebb45ac4f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295430"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588495"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -26,13 +26,13 @@ ms.locfileid: "89295430"
 
 [Azure Monitor](../../azure-monitor/overview.md) 를 사용 하면 응용 프로그램의 작동 방식을 이해 하는 데 도움이 되는 메트릭 및 진단 로그를 모니터링할 수 있습니다. Media Services 진단 로그를 모니터링 하 고 수집 된 메트릭 및 로그에 대 한 경고 및 알림을 만들 수 있습니다. [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송 하 고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하 고, [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내거나 타사 서비스를 사용할 수 있습니다.
 
-자세한 내용은 [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
+자세한 내용은 [Azure Monitor 메트릭](../../azure-monitor/data-platform.md) 및 [Azure Monitor 진단 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요.
 
 이 문서에서는 Media Services 진단 로그 스키마에 대해 설명 합니다.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
 
-최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../azure-monitor/platform/resource-logs-schema.md)를 참조 하세요.
+최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../azure-monitor/essentials/resource-logs-schema.md)를 참조 하세요.
 
 ## <a name="key-delivery-log-schema"></a>키 배달 로그 스키마
 
@@ -40,7 +40,7 @@ ms.locfileid: "89295430"
 
 이러한 속성은 키 배달 로그 스키마에만 적용 됩니다.
 
-|Name|설명|
+|속성|설명|
 |---|---|
 |keyId|요청 된 키의 ID입니다.|
 |keyType|"Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine" 값 중 하나일 수 있습니다.|

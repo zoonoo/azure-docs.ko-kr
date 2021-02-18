@@ -3,12 +3,12 @@ title: Azure Batch 모니터링
 description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진단 로그 및 기타 모니터링 기능에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b926f9c6d173cd0b8d886047eae490e4a151988f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144949"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595422"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -18,15 +18,15 @@ Azure 리소스 모니터링에 사용할 수 있는 Azure 구성 요소 및 서
 
 ## <a name="subscription-level-monitoring"></a>구독 수준 모니터링
 
-Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)는 [여러 범주](../azure-monitor/platform/activity-log.md#view-the-activity-log)에서 작업 이벤트 데이터를 수집합니다.
+Batch 계정을 포함하는 구독 수준에서, [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)는 [여러 범주](../azure-monitor/essentials/activity-log.md#view-the-activity-log)에서 작업 이벤트 데이터를 수집합니다.
 
 특히 Batch 계정의 경우 활동 로그는 계정 생성/삭제 및 키 관리와 관련된 이벤트를 수집합니다.
 
-활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그**를 클릭합니다. 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../azure-monitor/platform/alerts-activity-log.md)를 구성할 수도 있습니다.
+활동 로그에서 이벤트를 검색하는 한 가지 방법은Azure Portal을 사용하는 것입니다. **모든 서비스** > **활동 로그** 를 클릭합니다. 또는 Azure CLI, PowerShell cmdlet 또는 Azure Monitor REST API를 사용하여 이벤트를 쿼리합니다. 활동 로그를 내보내거나 [활동 로그 경고](../azure-monitor/alerts/alerts-activity-log.md)를 구성할 수도 있습니다.
 
 ## <a name="batch-account-level-monitoring"></a>Batch 계정 수준 모니터링
 
-[Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../azure-monitor/platform/data-platform-metrics.md), 그리고 필요에 따라 [진단 로그](../azure-monitor/platform/platform-logs-overview.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
+[Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 각 Batch 계정을 모니터링합니다. Azure Monitor는 Batch 계정 수준에서 범위가 지정된 풀, 작업, 태스크 등의 리소스에 대한 [메트릭](../azure-monitor/essentials/data-platform-metrics.md), 그리고 필요에 따라 [진단 로그](../azure-monitor/essentials/platform-logs-overview.md)를 수집합니다. 이 데이터를 수동으로 또는 프로그래밍 방식으로 수집하고 사용하여 Batch 계정의 활동을 모니터링하고 문제를 진단할 수 있습니다. 자세한 내용은 [진단 평가 및 모니터링을 위한 Batch 메트릭, 경고 및 로그](batch-diagnostics.md)를 참조하세요.
  
 > [!NOTE]
 > 메트릭은 추가 구성 없이 Batch 계정에서 기본적으로 사용할 수 있으며 30일의 롤링 기록이 있습니다. Batch 계정에 진단 로깅을 사용하도록 설정해야 하며, 진단 로그 데이터를 저장 또는 처리하는 추가 비용이 발생할 수 있습니다. 

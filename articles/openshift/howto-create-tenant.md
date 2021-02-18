@@ -3,15 +3,15 @@ title: Azure Red Hat OpenShift에 대 한 Azure AD 테 넌 트 만들기
 description: Microsoft Azure Red Hat OpenShift 클러스터를 호스트 하는 Azure Active Directory (Azure AD) 테 넌 트를 만드는 방법은 다음과 같습니다.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b57bafdc3f4748bf634955334424941b55e02fd8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b98f02adeb850f16127658c7d02d44754512e216
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492372"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635012"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure AD 테 넌 트 만들기
 
