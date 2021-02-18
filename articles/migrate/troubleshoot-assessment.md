@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581788"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -75,7 +75,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 
 - VM SKU 권장 사항은 평가 속성에 따라 달라 집니다.
 - 이는 서버 평가에서 수행 하는 평가 유형 ( *성능 기반* 또는 *온-프레미스)* 의 영향을 받습니다.
-- 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 또한 효과적인 사용률을 결정할 때 쾌적 인자를 추가합니다.
+- 성능 기반 평가의 경우 Server Assessment는 온-프레미스 VM의 데이터 사용률(CPU, 메모리, 디스크 및 네트워크 사용률)을 고려하여 온-프레미스 VM에 적절한 대상 VM SKU를 결정합니다. 또한 효과적인 사용률을 결정할 때 쾌적 인자를 추가합니다.
 - 온-프레미스 크기 조정의 경우 성능 데이터를 고려 하지 않으며 대상 SKU는 온-프레미스 할당을 기반으로 하는 것이 좋습니다.
 
 권장 구성에 영향을 줄 수 있는 방법을 보여 주기 위해 예를 살펴보겠습니다.
@@ -125,7 +125,7 @@ Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 �
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
-' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아봅니다](./concepts-assessment-calculation.md#whats-an-assessment).
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](./concepts-assessment-calculation.md#whats-an-assessment).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
 
@@ -160,12 +160,12 @@ Windows VM의 경우
 
     ![MMA 상태](./media/troubleshoot-assessment/mma-properties.png)
 
-Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다. 자세한 문제 해결 지침은 [여기](../azure-monitor/insights/service-map.md#post-installation-issues)를 참조 하세요.
+Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다. 자세한 문제 해결 지침은 [여기](../azure-monitor/vm/service-map.md#post-installation-issues)를 참조 하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
-- **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
+- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
+- **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
 

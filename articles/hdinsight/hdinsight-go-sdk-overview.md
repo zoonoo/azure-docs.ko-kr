@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945982"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582752"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
 
@@ -22,7 +22,7 @@ HDInsight SDK for Go는 HDInsight 클러스터를 관리 하는 데 사용할 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [ `go get` 도구](https://github.com/golang/go/wiki/GoGetTools)입니다.
 * [이동](https://golang.org/dl/).
@@ -362,7 +362,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>OMS 모니터링 사용
 
 > [!NOTE]  
-> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 만들지 않았으면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)에서 이를 수행하는 방법을 확인할 수 있습니다.
+> OMS 모니터링을 사용하려면 기존 Log Analytics 작업 영역이 있어야 합니다. 아직 만들지 않았으면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)에서 이를 수행하는 방법을 확인할 수 있습니다.
 
 클러스터에서 OMS 모니터링을 사용하려면:
 

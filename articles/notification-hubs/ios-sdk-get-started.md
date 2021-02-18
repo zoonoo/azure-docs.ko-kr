@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: c920c9b3b28df7f5bf3bf169ef88ab967f23649e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c18814230eda6624e8ab1040797c66108f630e30
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001323"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581742"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기
 
@@ -309,4 +309,4 @@ Apple에서 서명된 푸시 인증서를 생성하는 데 사용하는 CSR(인�
 
 이 자습서에서는 Azure에서 알림 허브를 만들고, 구성하고, APNS(Apple Push Notification Service)를 통해 알림을 애플리케이션에 보낼 수 있도록 구성했습니다. 다음으로, iOS 애플리케이션 샘플을 만들고 Azure Notifications Hubs SDK를 통합하여 Azure Portal을 통해 보내는 푸시 알림을 받을 수 있습니다. 선택한 언어에 따라 다음 자습서로 계속 진행하세요.
 
-- [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-300.md)
+- [자습서: Azure Notification Hubs를 사용하여 iOS 앱에 푸시 알림 보내기](ios-sdk-current.md)

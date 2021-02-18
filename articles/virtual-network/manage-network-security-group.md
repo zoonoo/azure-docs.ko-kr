@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222941"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596678"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -56,7 +56,7 @@ ms.locfileid: "98222941"
     | --- | --- |
     | **구독** | 구독을 선택합니다. |
     | **리소스 그룹** | 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. |
-    | **Name** | 리소스 그룹 내에 고유한 텍스트 문자열을 입력 합니다. |
+    | **이름** | 리소스 그룹 내에 고유한 텍스트 문자열을 입력 합니다. |
     | **지역** | 원하는 위치를 선택 합니다. |
 
 4. **검토 + 만들기** 를 선택합니다.
@@ -93,7 +93,7 @@ ms.locfileid: "98222941"
 
 나열된 일반적인 Azure 설정에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [활동 로그](../azure-monitor/platform/platform-logs-overview.md)
+- [활동 로그](../azure-monitor/essentials/platform-logs-overview.md)
 - [액세스 제어(IAM)](../role-based-access-control/overview.md)
 - [태그](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [잠금](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -173,9 +173,9 @@ ms.locfileid: "98222941"
     | **대상 응용 프로그램 보안 그룹** | 기존 응용 프로그램 보안 그룹 | 이 설정은 **대상** 을 **응용 프로그램 보안 그룹** 으로 설정 하는 경우 나타납니다. 네트워크 인터페이스와 동일한 지역에 있는 응용 프로그램 보안 그룹을 선택 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
     | **대상 포트 범위** | 다음 중 하나:<ul><li>단일 포트 (예:) `80`</li><li>와 같은 포트 범위 `1024-65535`</li><li>단일 포트 및/또는 포트 범위 (예:)의 쉼표로 구분 된 목록입니다. `80, 1024-65535`</li><li>`*`모든 포트에서 트래픽을 허용 하는 별표 ()</li></ul> | **원본 포트 범위** 와 마찬가지로 단일 또는 여러 포트와 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요. |
     | **프로토콜** | **모든**, **TCP**, **UDP** 또는 **ICMP** | 규칙을 TCP (전송 제어 프로토콜), UDP (사용자 데이터 그램 프로토콜) 또는 ICMP (Internet Control Message Protocol)로 제한할 수 있습니다. 모든 프로토콜에 적용 되는 규칙의 기본값은입니다. |
-    | **동작** | **허용** 또는 **거부** | 이 설정은이 규칙이 제공 된 원본 및 대상 구성에 대 한 액세스를 허용 하거나 거부 하는지 여부를 지정 합니다. |
+    | **작업** | **허용** 또는 **거부** | 이 설정은이 규칙이 제공 된 원본 및 대상 구성에 대 한 액세스를 허용 하거나 거부 하는지 여부를 지정 합니다. |
     | **우선 순위** | 네트워크 보안 그룹 내의 모든 보안 규칙에 대해 고유한 100에서 4096 사이의 값 | Azure는 보안 규칙을 우선 순위에 따라 처리 합니다. 번호가 낮을수록 우선 순위가 높습니다. 100, 200 및 300와 같이 규칙을 만들 때 우선 순위 번호 사이에 간격을 두는 것이 좋습니다. 간격을 벗어나면 나중에 규칙을 더 쉽게 추가할 수 있으므로 기존 규칙 보다 높거나 낮은 우선 순위를 지정할 수 있습니다. |
-    | **Name** | 네트워크 보안 그룹 내의 규칙에 대 한 고유 이름 | 이름은 최대 80자까지 가능합니다. 문자 또는 숫자로 시작 해야 하며 문자, 숫자 또는 밑줄로 끝나야 합니다. 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 사용할 수 있습니다. |
+    | **이름** | 네트워크 보안 그룹 내의 규칙에 대 한 고유 이름 | 이름은 최대 80자까지 가능합니다. 문자 또는 숫자로 시작 해야 하며 문자, 숫자 또는 밑줄로 끝나야 합니다. 이름에는 문자, 숫자, 밑줄, 마침표 또는 하이픈만 사용할 수 있습니다. |
     | **설명** | 텍스트 설명 | 보안 규칙에 대 한 텍스트 설명을 선택적으로 지정할 수 있습니다. 설명은 140 자를 초과할 수 없습니다. |
 
 #### <a name="commands"></a>명령
@@ -274,7 +274,7 @@ ms.locfileid: "98222941"
     | --- | --- |
     | **구독** | 구독을 선택합니다. |
     | **리소스 그룹** | 기존 리소스 그룹을 선택 하거나 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다. |
-    | **Name** | 리소스 그룹 내에 고유한 텍스트 문자열을 입력 합니다. |
+    | **이름** | 리소스 그룹 내에 고유한 텍스트 문자열을 입력 합니다. |
     | **지역** | 원하는 위치를 선택 합니다. |
 
 5. **검토 + 만들기** 를 선택합니다.
@@ -355,7 +355,7 @@ ms.locfileid: "98222941"
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 작업                                                        |   Name                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -364,7 +364,7 @@ ms.locfileid: "98222941"
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 작업                                                        |   Name                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -372,7 +372,7 @@ ms.locfileid: "98222941"
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 작업                                                                     | Name                                                     |
+| 작업                                                                     | 속성                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

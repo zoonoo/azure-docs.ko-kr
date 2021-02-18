@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: d4bf635c57bcef41cd0f3285d8a91bae4b3e0415
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 1a3f2ae4829c7f4ae41d31e2a2fc35d79adf3d4c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752025"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596700"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -30,11 +30,11 @@ ms.locfileid: "96752025"
         - [VMware](how-to-set-up-appliance-vmware.md) Vm.
         - [Hyper-v](how-to-set-up-appliance-hyper-v.md) Vm.
         - [물리적 서버](how-to-set-up-appliance-physical.md).
-- 종속성 시각화를 사용 하려면 Azure Migrate 프로젝트와 [Log Analytics 작업 영역](../azure-monitor/platform/manage-access.md) 을 연결 합니다.
+- 종속성 시각화를 사용 하려면 Azure Migrate 프로젝트와 [Log Analytics 작업 영역](../azure-monitor/logs/manage-access.md) 을 연결 합니다.
     - Azure Migrate 어플라이언스를 설정 하 고 Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다.
     - Azure Migrate 프로젝트를 포함 하는 구독에 작업 영역이 있는지 확인 합니다.
     - 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 다른 지역의 작업 영역은 프로젝트에 연결할 수 없습니다.
-    - 작업 영역은 [서비스 맵 지원되는](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
+    - 작업 영역은 [서비스 맵 지원되는](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
     - 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결할 수 있습니다.
     - 컴퓨터에 대 한 종속성 시각화를 처음 설정할 때 작업 영역을 연결 합니다. Azure Migrate 프로젝트에 대한 작업 영역은 추가된 후 수정할 수 없습니다.
     - Log Analytics에서 Azure Migrate와 연결된 작업 영역에는 마이그레이션 프로젝트 키와 프로젝트 이름이 태그로 지정됩니다.
@@ -60,7 +60,7 @@ ms.locfileid: "96752025"
 분석 하려는 각 컴퓨터에서 에이전트를 설치 합니다.
 
 > [!NOTE]
-> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. 통합 지침을 [따릅니다](../azure-monitor/insights/service-map-scom.md#prerequisites) .
+> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. 통합 지침을 [따릅니다](../azure-monitor/vm/service-map-scom.md#prerequisites) .
 
 1. **Azure Migrate: 서버 평가** 에서 검색 된 **서버** 를 클릭 합니다.
 2. 종속성 시각화를 사용 하 여 분석 하려는 각 컴퓨터에 대해 **종속성** 열에서 **에이전트 설치 필요** 를 클릭 합니다.
@@ -85,9 +85,9 @@ Windows 컴퓨터에 에이전트를 설치하려면
 5. **추가** 를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음** 을 클릭합니다.
 
 명령줄에서 또는 Configuration Manager 또는 [Intigua](https://www.intigua.com/intigua-for-azure-migration)같은 자동화 된 방법을 사용 하 여 에이전트를 설치할 수 있습니다.
-- 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/agents/log-analytics-agent.md#installation-options).
 - MMA 에이전트는 이 [스크립트](https://github.com/brianbar-MSFT/Install-MMA)를 사용하여 설치할 수도 있습니다.
-- MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
+- MMA에서 지 원하는 Windows 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/agents/agents-overview.md#supported-operating-systems) .
 
 ### <a name="install-mma-on-a-linux-machine"></a>Linux 컴퓨터에 MMA 설치
 
@@ -98,7 +98,7 @@ Linux 컴퓨터에 MMA를 설치 하려면 다음을 수행 합니다.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/platform/agents-overview.md#supported-operating-systems)해 보세요. 
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure-monitor/agents/agents-overview.md#supported-operating-systems)해 보세요. 
 
 ## <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 
@@ -107,8 +107,8 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- 종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) .
+- 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](../azure-monitor/vm/vminsights-enable-hybrid.md#dependency-agent).
+- 종속성 에이전트에서 지 원하는 운영 체제에 [대해 자세히 알아보세요](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) .
 
 
 ## <a name="create-a-group-using-dependency-visualization"></a>종속성 시각화를 사용 하 여 그룹 만들기
@@ -149,8 +149,8 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](../azure
 
 Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서비스 맵 하 여 캡처한 종속성 데이터를 쿼리할 수 있습니다. Log Analytics은 Azure Monitor 로그 쿼리를 작성 하 고 실행 하는 데 사용 됩니다.
 
-- Log Analytics에서 서비스 맵 데이터를 검색 하 [는 방법을 알아봅니다](../azure-monitor/insights/service-map.md#log-analytics-records) .
-- [Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/log-query/get-started-queries.md) 확인 하세요.
+- Log Analytics에서 서비스 맵 데이터를 검색 하 [는 방법을 알아봅니다](../azure-monitor/vm/service-map.md#log-analytics-records) .
+- [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)에서 로그 쿼리를 작성 하는 방법에 대 한 [개요를](../azure-monitor/logs/get-started-queries.md) 확인 하세요.
 
 다음과 같이 종속성 데이터에 대 한 쿼리를 실행 합니다.
 
@@ -165,8 +165,8 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 다음은 종속성 데이터를 추출 하는 데 사용할 수 있는 몇 가지 샘플 쿼리입니다.
 
 - 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다.
-- 종속성 데이터 레코드의 전체 목록을 [검토](../azure-monitor/insights/service-map.md#log-analytics-records) 합니다.
-- 추가 샘플 쿼리를 [검토](../azure-monitor/insights/service-map.md#sample-log-searches) 합니다.
+- 종속성 데이터 레코드의 전체 목록을 [검토](../azure-monitor/vm/service-map.md#log-analytics-records) 합니다.
+- 추가 샘플 쿼리를 [검토](../azure-monitor/vm/service-map.md#sample-log-searches) 합니다.
 
 #### <a name="sample-review-inbound-connections"></a>샘플: 인바운드 연결 검토
 
@@ -174,7 +174,7 @@ Vm 집합의 인바운드 연결을 검토 합니다.
 
 - 연결 메트릭에 대 한 테이블의 레코드 (VMConnection)는 개별 실제 네트워크 연결을 나타내지 않습니다.
 - 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다.
-- VMConnection에서 실제 네트워크 연결 데이터를 집계 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/service-map.md#connections) .
+- VMConnection에서 실제 네트워크 연결 데이터를 집계 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/vm/service-map.md#connections) .
 
 ```
 // the machines of interest

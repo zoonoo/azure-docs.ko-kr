@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833170"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570906"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
 
@@ -186,7 +186,7 @@ Azure Portal에서 연결 모니터에 대 한 경고를 만들려면 다음 필
 
 - **조건 이름**: 메트릭에 대해 경고가 생성 됩니다 `Test Result(preview)` . 연결 모니터 테스트 결과가 실패 결과일 경우 경고 규칙이 실행 됩니다. 
 
-- **작업 그룹 이름**: 전자 메일을 직접 입력 하거나 작업 그룹을 통해 경고를 만들 수 있습니다. 전자 메일을 직접 입력 하면 이름이 **NPM Email actiongroup** 인 작업 그룹이 만들어집니다. 전자 메일 ID가 해당 작업 그룹에 추가 됩니다. 작업 그룹을 사용 하도록 선택 하는 경우 이전에 만든 작업 그룹을 선택 해야 합니다. 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기](../azure-monitor/platform/action-groups.md)를 참조 하세요. 경고가 생성 되 면 [경고를 관리할](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal)수 있습니다. 
+- **작업 그룹 이름**: 전자 메일을 직접 입력 하거나 작업 그룹을 통해 경고를 만들 수 있습니다. 전자 메일을 직접 입력 하면 이름이 **NPM Email actiongroup** 인 작업 그룹이 만들어집니다. 전자 메일 ID가 해당 작업 그룹에 추가 됩니다. 작업 그룹을 사용 하도록 선택 하는 경우 이전에 만든 작업 그룹을 선택 해야 합니다. 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기](../azure-monitor/alerts/action-groups.md)를 참조 하세요. 경고가 생성 되 면 [경고를 관리할](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal)수 있습니다. 
 
 - **경고 규칙 이름**: 연결 모니터의 이름입니다.
 

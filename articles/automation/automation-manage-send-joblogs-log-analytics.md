@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2e7e798967541748b5572994d48cb5bdf7474cb1
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4199c5576662eee1dd6cedc388440a71e21f8b74
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581219"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -72,7 +72,7 @@ Automation 진단 설정은 다음 플랫폼 로그 및 메트릭 데이터 전�
 * DSCNodeStatus
 * 메트릭-총 작업, 총 업데이트 배포 컴퓨터 실행, 총 업데이트 배포 실행
 
-Azure Monitor 로그에 Automation 로그를 보내기 시작 하려면 [진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md) 를 검토 하 여 플랫폼 로그를 전송 하는 진단 설정을 구성 하는 데 사용할 수 있는 기능 및 방법을 이해 하십시오.
+Azure Monitor 로그에 Automation 로그를 보내기 시작 하려면 [진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md) 를 검토 하 여 플랫폼 로그를 전송 하는 진단 설정을 구성 하는 데 사용할 수 있는 기능 및 방법을 이해 하십시오.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 
@@ -140,7 +140,7 @@ Automation 작업 스트림과 로그를 Azure Monitor 로그로 보내기 시�
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. Automation 계정 이름은 `JobLogs` 검색의 `Resource` 필드에서 찾을 수 있습니다.
 
-3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙** 을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.
+3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **새 경고 규칙** 을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/alerts/alerts-unified-log.md)를 참조하세요.
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>오류와 함께 완료된 모든 작업 찾기
 
@@ -192,8 +192,8 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 로그를 사용하여 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
+* Azure Monitor 로그를 사용하여 검색 쿼리를 작성하고 Automation 작업 로그를 검토하는 방법에 대한 자세한 내용은 [Azure Monitor 로그의 로그 검색](../azure-monitor/logs/log-query-overview.md)을 참조하세요.
 * Runbook에서 출력 및 오류 메시지를 만들고 검색하는 방법을 이해하려면 [Runbook 출력 모니터링](automation-runbook-output-and-messages.md)을 참조하세요.
 * Runbook 실행, Runbook 작업 모니터링 방법 및 기타 기술 세부 정보를 알아보려면 [Azure Automation에서 Runbook 실행](automation-runbook-execution.md)을 참조하세요.
-* Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
-* Log Analytics 문제 해결에 대한 도움말은 [Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)을 참조하세요.
+* Azure Monitor 로그 및 데이터 수집 소스에 대해 자세히 알아보려면 [Azure Monitor 로그에서 Azure 스토리지 데이터 수집 개요](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
+* Log Analytics 문제 해결에 대한 도움말은 [Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결](../azure-monitor/logs/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data)을 참조하세요.

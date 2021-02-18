@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439554"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634717"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>FIM(파일 무결성 모니터링)을 사용하여 기준 비교
 
@@ -62,23 +62,22 @@ FIM 기준은 운영 체제 및 지원 응용 프로그램에 대해 알려진 �
 > [!NOTE]
 > 다양 한 운영 체제 버전에서 지원 되는 레지스트리 설정에 대 한 자세한 내용은 [그룹 정책 설정 참조 스프레드시트](https://www.microsoft.com/download/confirmation.aspx?id=25250)를 참조 하세요.
 
-*레지스트리 기준을 모니터링 하도록 FIM을 구성 하려면:*
+레지스트리 기준을 모니터링 하도록 FIM을 구성 하려면:
 
-1. **변경 내용 추적에 대 한 Windows 레지스트리 추가** 창에서 **windows 레지스트리 키** 텍스트 상자에 레지스트리 키를 입력 합니다.
+1. **변경 내용 추적에 대 한 Windows 레지스트리 추가** 창에서 **windows 레지스트리 키** 텍스트 상자에 다음 레지스트리 키를 입력 합니다.
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![레지스트리에서 FIM 사용](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="레지스트리에서 FIM 사용":::
 
 ## <a name="track-changes-to-windows-files"></a>Windows 파일 변경 내용 추적
 
 1. **변경 내용 추적에 대 한 Windows 파일 추가** 창의 **경로 입력** 텍스트 상자에 추적 하려는 파일이 들어 있는 폴더를 입력 합니다. 다음 그림의 예제에서는 **Contoso 웹 앱** 이 D:\에 있습니다. **ContosWebApp** 폴더 구조 내에 있는 드라이브입니다.  
 1. 설정 클래스의 이름을 제공 하 고, 재귀를 사용 하도록 설정 하 고, 와일드 카드 (*) 접미사를 사용 하 여 최상위 폴더를 지정 하 여 사용자 지정 Windows 파일 항목을 만듭니다.
 
-    ![파일에서 FIM 사용](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="파일에서 FIM 사용":::
 
 ## <a name="retrieve-change-data"></a>변경 데이터 검색
 

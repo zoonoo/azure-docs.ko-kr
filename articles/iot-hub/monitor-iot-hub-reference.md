@@ -7,12 +7,12 @@ ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
-ms.openlocfilehash: f198b59f106b7d2a29e35d77b54274328be6fa93
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581604"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570963"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>모니터링 Azure IoT Hub 데이터 참조
 
@@ -24,25 +24,48 @@ Azure IoT Hub의 모니터링 데이터를 수집 및 분석 하는 방법에 �
 
 다음 하위 섹션에서는 일반적인 범주별로 IoT Hub 플랫폼 메트릭을 분리 하 고 Azure Portal에 표시 되는 표시 이름으로 나열 합니다. 또한 정보는 각 하위 섹션에 나타나는 메트릭과 관련 되어 제공 됩니다.
 
-Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/platform/metrics-supported.md#microsoftdevicesiothubs) 에서 메트릭 이름별로 모든 IoT Hub 플랫폼 메트릭을 나열 하는 단일 테이블을 찾을 수도 있습니다. 이 표에서는이 문서에서 사용할 수 있는 일부 메트릭에 대해 [지원 되는 집계](#supported-aggregations) 와 같은 일부 정보는 제공 하지 않습니다.
+Azure Monitor 설명서의 [Microsoft. Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) 에서 메트릭 이름별로 모든 IoT Hub 플랫폼 메트릭을 나열 하는 단일 테이블을 찾을 수도 있습니다. 이 표에서는이 문서에서 사용할 수 있는 일부 메트릭에 대해 [지원 되는 집계](#supported-aggregations) 와 같은 일부 정보는 제공 하지 않습니다.
 
-다른 Azure 서비스에서 지 원하는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조 하세요.
+다른 Azure 서비스에서 지 원하는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조 하세요.
 
 **이 단원의 항목**
 
-- [지원 되는 집계](#supported-aggregations)
-- [클라우드-장치 명령 메트릭](#cloud-to-device-command-metrics)
-- [클라우드-장치 직접 메서드 메트릭](#cloud-to-device-direct-methods-metrics)
-- [클라우드-장치 쌍 작업 메트릭](#cloud-to-device-twin-operations-metrics)
-- [구성 메트릭](#configurations-metrics)
-- [일일 할당량 메트릭](#daily-quota-metrics)
-- [장치 메트릭](#device-metrics)
-- [장치 원격 분석 메트릭](#device-telemetry-metrics)
-- [장치-클라우드 쌍 작업 메트릭](#device-to-cloud-twin-operations-metrics)
-- [Event grid 메트릭](#event-grid-metrics)
-- [작업 메트릭](#jobs-metrics)
-- [라우팅 메트릭](#routing-metrics)
-- [쌍 쿼리 메트릭](#twin-query-metrics)
+- [모니터링 Azure IoT Hub 데이터 참조](#monitoring-azure-iot-hub-data-reference)
+  - [메트릭](#metrics)
+    - [지원 되는 집계](#supported-aggregations)
+    - [클라우드-장치 명령 메트릭](#cloud-to-device-command-metrics)
+    - [클라우드-장치 직접 메서드 메트릭](#cloud-to-device-direct-methods-metrics)
+    - [클라우드-장치 쌍 작업 메트릭](#cloud-to-device-twin-operations-metrics)
+    - [구성 메트릭](#configurations-metrics)
+    - [일일 할당량 메트릭](#daily-quota-metrics)
+    - [장치 메트릭](#device-metrics)
+    - [장치 원격 분석 메트릭](#device-telemetry-metrics)
+    - [장치-클라우드 쌍 작업 메트릭](#device-to-cloud-twin-operations-metrics)
+    - [Event grid 메트릭](#event-grid-metrics)
+    - [작업 메트릭](#jobs-metrics)
+    - [라우팅 메트릭](#routing-metrics)
+    - [쌍 쿼리 메트릭](#twin-query-metrics)
+  - [메트릭 차원](#metric-dimensions)
+  - [리소스 로그](#resource-logs)
+    - [연결](#connections)
+    - [디바이스 원격 분석](#device-telemetry)
+    - [클라우드-디바이스 명령](#cloud-to-device-commands)
+    - [디바이스 ID 작업](#device-identity-operations)
+    - [파일 업로드 작업](#file-upload-operations)
+    - [경로](#routes)
+    - [디바이스-클라우드 쌍 작업](#device-to-cloud-twin-operations)
+    - [클라우드-디바이스 쌍 작업](#cloud-to-device-twin-operations)
+    - [쌍 쿼리](#twin-queries)
+    - [작업 연산](#jobs-operations)
+    - [직접 메서드](#direct-methods)
+    - [분산 추적 (미리 보기)](#distributed-tracing-preview)
+      - [IoT Hub D2C(디바이스-클라우드) 로그](#iot-hub-d2c-device-to-cloud-logs)
+      - [IoT Hub 수신 로그](#iot-hub-ingress-logs)
+      - [IoT Hub 송신 로그](#iot-hub-egress-logs)
+    - [구성](#configurations)
+    - [장치 스트림 (미리 보기)](#device-streams-preview)
+  - [Azure Monitor Logs 테이블](#azure-monitor-logs-tables)
+  - [참고 항목](#see-also)
 
 ### <a name="supported-aggregations"></a>지원 되는 집계
 
@@ -226,31 +249,50 @@ Azure IoT Hub에는 라우팅 및 event grid 메트릭과 관련 된 다음과 �
 |**결과**| **성공** 또는 **실패** 입니다.|
 |**RoutingSource**| 장치 메시지<br>쌍 변경 이벤트<br>장치 수명 주기 이벤트|
 
-메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조 하세요.
+메트릭 차원에 대 한 자세한 내용은 [다차원 메트릭](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)을 참조 하세요.
 
 ## <a name="resource-logs"></a>리소스 로그
 
-이 섹션에서는 Azure IoT Hub에 대해 수집 된 모든 리소스 로그 범주 유형 및 스키마를 나열 합니다. 모든 IoT Hub 로그의 리소스 공급자와 유형은 [Microsoft. Devices/IotHubs](../azure-monitor/platform/resource-logs-categories.md#microsoftdevicesiothubs)입니다.
+이 섹션에서는 Azure IoT Hub에 대해 수집 된 모든 리소스 로그 범주 유형 및 스키마를 나열 합니다. 모든 IoT Hub 로그의 리소스 공급자와 유형은 [Microsoft. Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs)입니다.
 
 **이 단원의 항목**
 
-- [연결](#connections)
-- [디바이스 원격 분석](#device-telemetry)
-- [클라우드-디바이스 명령](#cloud-to-device-commands)
-- [디바이스 ID 작업](#device-identity-operations)
-- [파일 업로드 작업](#file-upload-operations)
-- [경로](#routes)
-- [디바이스-클라우드 쌍 작업](#device-to-cloud-twin-operations)
-- [클라우드-디바이스 쌍 작업](#cloud-to-device-twin-operations)
-- [쌍 쿼리](#twin-queries)
-- [작업 연산](#jobs-operations)
-- [직접 메서드](#direct-methods)
-- [분산 추적 (미리 보기)](#distributed-tracing-preview)
-  - [IoT Hub D2C(디바이스-클라우드) 로그](#iot-hub-d2c-device-to-cloud-logs)
-  - [IoT Hub 수신 로그](#iot-hub-ingress-logs)
-  - [IoT Hub 송신 로그](#iot-hub-egress-logs)
-- [구성](#configurations)
-- [장치 스트림 (미리 보기)](#device-streams-preview)
+- [모니터링 Azure IoT Hub 데이터 참조](#monitoring-azure-iot-hub-data-reference)
+  - [메트릭](#metrics)
+    - [지원 되는 집계](#supported-aggregations)
+    - [클라우드-장치 명령 메트릭](#cloud-to-device-command-metrics)
+    - [클라우드-장치 직접 메서드 메트릭](#cloud-to-device-direct-methods-metrics)
+    - [클라우드-장치 쌍 작업 메트릭](#cloud-to-device-twin-operations-metrics)
+    - [구성 메트릭](#configurations-metrics)
+    - [일일 할당량 메트릭](#daily-quota-metrics)
+    - [장치 메트릭](#device-metrics)
+    - [장치 원격 분석 메트릭](#device-telemetry-metrics)
+    - [장치-클라우드 쌍 작업 메트릭](#device-to-cloud-twin-operations-metrics)
+    - [Event grid 메트릭](#event-grid-metrics)
+    - [작업 메트릭](#jobs-metrics)
+    - [라우팅 메트릭](#routing-metrics)
+    - [쌍 쿼리 메트릭](#twin-query-metrics)
+  - [메트릭 차원](#metric-dimensions)
+  - [리소스 로그](#resource-logs)
+    - [연결](#connections)
+    - [디바이스 원격 분석](#device-telemetry)
+    - [클라우드-디바이스 명령](#cloud-to-device-commands)
+    - [디바이스 ID 작업](#device-identity-operations)
+    - [파일 업로드 작업](#file-upload-operations)
+    - [경로](#routes)
+    - [디바이스-클라우드 쌍 작업](#device-to-cloud-twin-operations)
+    - [클라우드-디바이스 쌍 작업](#cloud-to-device-twin-operations)
+    - [쌍 쿼리](#twin-queries)
+    - [작업 연산](#jobs-operations)
+    - [직접 메서드](#direct-methods)
+    - [분산 추적 (미리 보기)](#distributed-tracing-preview)
+      - [IoT Hub D2C(디바이스-클라우드) 로그](#iot-hub-d2c-device-to-cloud-logs)
+      - [IoT Hub 수신 로그](#iot-hub-ingress-logs)
+      - [IoT Hub 송신 로그](#iot-hub-egress-logs)
+    - [구성](#configurations)
+    - [장치 스트림 (미리 보기)](#device-streams-preview)
+  - [Azure Monitor Logs 테이블](#azure-monitor-logs-tables)
+  - [참고 항목](#see-also)
 
 ### <a name="connections"></a>Connections
 
@@ -560,7 +602,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -594,7 +636,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
 | **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
@@ -626,7 +668,7 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | 유형 | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
 | **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
@@ -690,4 +732,4 @@ IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트
 ## <a name="see-also"></a>참고 항목
 
 * Azure IoT Hub 모니터링에 대 한 설명은 [Azure IoT Hub 모니터링](monitor-iot-hub.md) 을 참조 하세요.
-* Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+* Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

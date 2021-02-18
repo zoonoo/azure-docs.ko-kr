@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b38da5539cb80110b2a769a219213a5c74e1506
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b57de23bf59f1b9c84674fe95495f980c4594e2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198558"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587608"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -207,9 +207,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Functions 배포와 관련 된 네트워크 설정 및 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 네트워크 설정 또는 리소스에 대 한 변경이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -237,7 +237,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure 애플리케이션 Insights를 사용 하 여 Azure Functions를 설정 하는 방법](./functions-monitoring.md)
 
@@ -255,7 +255,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 함수 앱 내에서 기본 제공 사용자 지정 보안/감사 로깅을 사용 하는 경우 진단 설정 "FunctionAppLogs"을 사용 하도록 설정 하 고 로그를 보관을 위해 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure storage 계정으로 보냅니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Functions에 대 한 진단 설정 (사용자 생성 로그)을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
@@ -275,7 +275,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 함수 앱과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -291,7 +291,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
@@ -311,13 +311,13 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Functions에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./functions-monitor-log-analytics.md)
 
 - [Azure Functions에 대해 Application Insights를 사용 하도록 설정 하는 방법](./configure-monitoring.md#enable-application-insights-integration)
 
-- [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Azure 내에서 경고를 만드는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -631,7 +631,7 @@ Microsoft는 Azure Functions에 대 한 기본 인프라를 관리 하 고, 고�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 함수 앱 및 기타 중요 하거나 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

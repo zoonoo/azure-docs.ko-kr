@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3dcb4a7b92f5aab1336e49a7d299614855b48fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965763"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591171"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -64,7 +64,7 @@ Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>사용자 시작 재부팅 또는 종료 작업
 
-Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
+Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
 
 VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 이벤트를 찾을 수 있습니다.
 

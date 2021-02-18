@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dbd2d6dc3034ff64ef6b5d4d36d836ce8462b154
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888796"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591405"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 애플리케이션을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 애플리케이션의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
@@ -142,4 +142,4 @@ App Insights에 대한 자세한 내용은 [Application Insights란?](../azure-m
 
 VM 인스턴스 관리 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 가상 머신 확장 집합 관리](./virtual-machine-scale-sets-manage-powershell.md)를 참조하세요.
 
-자동 크기 조정 규칙이 트리거될 때 경고를 생성하는 방법에 대한 자세한 내용은 [Azure Monitor에서 자동 크기 조정 작업을 사용하여 메일 및 webhook 경고 알림 보내기](../azure-monitor/platform/autoscale-webhook-email.md)를 참조하세요. [Azure Monitor에서 감사 로그를 사용하여 이메일 및 webhook 경고 알림을 보낼](../azure-monitor/platform/alerts-log-webhook.md) 수도 있습니다.
+자동 크기 조정 규칙이 트리거될 때 경고를 생성하는 방법에 대한 자세한 내용은 [Azure Monitor에서 자동 크기 조정 작업을 사용하여 메일 및 webhook 경고 알림 보내기](../azure-monitor/autoscale/autoscale-webhook-email.md)를 참조하세요. [Azure Monitor에서 감사 로그를 사용하여 이메일 및 webhook 경고 알림을 보낼](../azure-monitor/alerts/alerts-log-webhook.md) 수도 있습니다.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986042"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571039"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "98986042"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-다음 작업을 수행할 수 있습니다.
+다음과 같습니다.
 
 * 다양한 VNet에서 손실 및 지연 모니터링, 경고 설정
 
@@ -54,7 +54,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. [Azure Portal](https://portal.azure.com)에서 Vnet이 ExpressRoute 회로에 연결된 구독을 선택합니다. 그런 다음, **Marketplace** 의 서비스 목록에서 '네트워크 성능 모니터'를 검색합니다. 반환된 결과에서 클릭하여 **네트워크 성능 모니터** 페이지를 엽니다.
 
    >[!NOTE]
-   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [추가 정보 ...](../azure-monitor/log-query/log-query-overview.md)
+   >새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다. 기존 작업 영역을 사용하려면 작업 영역이 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. [추가 정보 ...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -118,7 +118,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: 프록시 설정 구성(선택 사항)
 
-웹 프록시를 사용하여 인터넷에 액세스하는 경우 다음 단계에 따라 Microsoft Monitoring Agent에 대한 프록시 설정을 구성합니다. 각 서버에 대해 다음 단계를 수행하세요. 많은 서버를 구성해야 하는 경우, 스크립트를 사용하여 보다 쉽게 이 프로세스를 자동화할 수 있습니다. 서버가 많은 경우 [스크립트를 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면](../azure-monitor/platform/agent-windows.md)을 참조하세요.
+웹 프록시를 사용하여 인터넷에 액세스하는 경우 다음 단계에 따라 Microsoft Monitoring Agent에 대한 프록시 설정을 구성합니다. 각 서버에 대해 다음 단계를 수행하세요. 많은 서버를 구성해야 하는 경우, 스크립트를 사용하여 보다 쉽게 이 프로세스를 자동화할 수 있습니다. 서버가 많은 경우 [스크립트를 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면](../azure-monitor/agents/agent-windows.md)을 참조하세요.
 
 제어판을 사용하여 Microsoft Monitoring Agent에 대한 프록시 설정을 구성하려면
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 1c33011d947d6dc9dd9ee4dd6331c24c06d99b38
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 411a95154c9ca36595dff4472e9ab8e1ae8a767e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693827"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571369"
 ---
 # <a name="azure-monitor-for-sap-solutions-preview"></a>SAP 솔루션에 대 한 Azure monitor (미리 보기)
 
@@ -35,7 +35,7 @@ SAP 솔루션에 대 한 Azure Monitor Azure Marketplace을 통해 제공 됩니
 - SAP HANA 데이터베이스
 - Microsoft SQL server
 
-SAP 솔루션 Azure Monitor은 Log Analytics 및 [통합 문서](../../../azure-monitor/platform/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능을 사용 하 여 더 많은 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/learn/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/log-query/log-analytics-tutorial.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/platform/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
+SAP 솔루션 Azure Monitor은 Log Analytics 및 [통합 문서](../../../azure-monitor/visualize/workbooks-overview.md) 와 같은 기존 [Azure Monitor](../../../azure-monitor/overview.md) 기능을 사용 하 여 더 많은 모니터링 기능을 제공 합니다. 고객은 Azure Log Analytics 작업 영역을 사용 [하 여 Azure Monitor](../../../azure-monitor/alerts/tutorial-response.md) 에서 제공 하는 기본 통합 문서를 편집 하 고, 사용자 지정 [쿼리](../../../azure-monitor/logs/log-analytics-tutorial.md) 를 작성 하 고, [유연한 보존 기간](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 을 활용 하 고, 모니터링 데이터를 티켓 시스템과 연결 하 여 [사용자 지정 시각화](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) 를 만들 수 있습니다.
 
 ## <a name="what-data-does-azure-monitor-for-sap-solutions-collect"></a>SAP 솔루션에 어떤 데이터를 수집 Azure Monitor?
 
@@ -91,9 +91,9 @@ Microsoft 지원 및 엔지니어링 팀에서 고객 환경에 대 한 자세�
    - Azure 가상 머신: *수집기 VM* 이 라고도 합니다. Standard_B2ms VM입니다. 이 VM의 주요 목적은 *모니터링 페이로드* 를 호스트 하는 것입니다. 페이로드 모니터링은 원본 시스템에서 원격 분석을 수집 하 고 수집 된 데이터를 모니터링 프레임 워크로 전송 하는 논리를 나타냅니다. 위의 다이어그램에서 모니터링 페이로드는 SQL 포트를 통해 SAP HANA 데이터베이스에 연결 하는 논리를 포함 합니다.
    - [Azure Key Vault](../../../key-vault/general/basic-concepts.md):이 리소스는 SAP HANA 데이터베이스 자격 증명을 안전 하 게 보관 하 고 [공급자](./azure-monitor-providers.md)에 대 한 정보를 저장 하기 위해 배포 됩니다.
    - Log Analytics 작업 영역: 원격 분석 데이터가 있는 대상입니다.
-      - 시각화는 [Azure 통합 문서](../../../azure-monitor/platform/workbooks-overview.md)를 사용 하 여 Log Analytics에서 원격 분석을 기반으로 빌드됩니다. 고객은 시각화를 사용자 지정할 수 있습니다. 고객은 통합 문서 내에서 통합 문서 또는 특정 시각화를 Azure 대시보드에 고정 하 여 최소 세분성이 30 분인 autorefresh 기능을 사용할 수도 있습니다.
+      - 시각화는 [Azure 통합 문서](../../../azure-monitor/visualize/workbooks-overview.md)를 사용 하 여 Log Analytics에서 원격 분석을 기반으로 빌드됩니다. 고객은 시각화를 사용자 지정할 수 있습니다. 고객은 통합 문서 내에서 통합 문서 또는 특정 시각화를 Azure 대시보드에 고정 하 여 최소 세분성이 30 분인 autorefresh 기능을 사용할 수도 있습니다.
       - 고객은 배포 시이 옵션을 선택 하 여 SAP monitor 리소스와 동일한 구독 내에서 기존 작업 영역을 사용할 수 있습니다.
-      - 고객은 KQL (Kusto query language)를 사용 하 여 Log Analytics 작업 영역 내의 원시 테이블에 대해 [쿼리](../../../azure-monitor/log-query/log-query-overview.md) 를 실행할 수 있습니다. *사용자 지정 로그* 를 확인 합니다.
+      - 고객은 KQL (Kusto query language)를 사용 하 여 Log Analytics 작업 영역 내의 원시 테이블에 대해 [쿼리](../../../azure-monitor/logs/log-query-overview.md) 를 실행할 수 있습니다. *사용자 지정 로그* 를 확인 합니다.
 
 > [!Note]
 > 고객은 관리 되는 리소스 그룹에 배포 된 VM의 패치 및 유지 관리를 담당 합니다.

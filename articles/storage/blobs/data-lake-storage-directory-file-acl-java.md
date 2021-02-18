@@ -1,38 +1,40 @@
 ---
-title: Acl & 파일에 대 한 Java SDK Azure Data Lake Storage Gen2
-description: Java 용 Azure Storage 라이브러리를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정의 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
+title: Java를 사용 하 여 Azure Data Lake Storage Gen2의 데이터 관리
+description: Java 용 Azure Storage 라이브러리를 사용 하 여 계층적 네임 스페이스를 사용 하는 저장소 계정의 디렉터리와 파일을 관리 합니다.
 author: normesta
 ms.service: storage
-ms.date: 01/11/2021
+ms.date: 02/17/2021
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 1cc6954569c509c977634a8e1cdd52c5c55b2100
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 10debe7bb870ddd9f8711e73ccb4b690d7011b62
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108130"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650190"
 ---
-# <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
+# <a name="use-java-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리 및 파일 관리
 
-이 문서에서는 Java를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
+이 문서에서는 Java를 사용 하 여 계층적 네임 스페이스를 포함 하는 저장소 계정의 디렉터리와 파일을 만들고 관리 하는 방법을 보여 줍니다.
+
+디렉터리 및 파일의 ACL (액세스 제어 목록)을 가져오거나 설정 하 고 업데이트 하는 방법에 대 한 자세한 내용은 사용을 참조 하세요 [. Azure Data Lake Storage Gen2에서 Acl을 관리 하는 Java](data-lake-storage-acl-java.md)
 
 [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](/java/api/overview/azure/storage-file-datalake-readme)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-> [!div class="checklist"]
-> * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * HNS(계층 구조 네임스페이스)를 사용하도록 설정된 스토리지 계정입니다. 만들려면 [다음 지침](../common/storage-account-create.md)을 수행합니다.
+- Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+
+- 계층적 네임 스페이스를 사용 하는 저장소 계정입니다. 만들려면 [다음 지침](create-data-lake-storage-account.md)을 수행합니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
 시작 하려면 [이 페이지](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) 를 열고 최신 버전의 Java 라이브러리를 찾습니다. 그런 다음 텍스트 편집기에서 *pom.xml* 파일을 엽니다. 해당 버전을 참조 하는 종속성 요소를 추가 합니다.
 
-AD (Azure Active Directory)를 사용 하 여 클라이언트 응용 프로그램을 인증 하려는 경우 Azure Secret Client 라이브러리에 종속성을 추가 합니다. [프로젝트에 비밀 클라이언트 라이브러리 패키지 추가를](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)참조 하세요.
+Azure Active Directory (Azure AD)를 사용 하 여 클라이언트 응용 프로그램을 인증할 계획인 경우 Azure Secret Client 라이브러리에 종속성을 추가 합니다. [프로젝트에 비밀 클라이언트 라이브러리 패키지 추가를](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)참조 하세요.
 
 그런 다음 이러한 imports 문을 코드 파일에 추가 합니다.
 
@@ -56,7 +58,7 @@ import com.azure.storage.file.datalake.models.RolePermissions;
 import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOptions;
 ```
 
-## <a name="connect-to-the-account"></a>계정에 연결 
+## <a name="connect-to-the-account"></a>계정에 연결
 
 이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다. 
 
@@ -78,7 +80,6 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 > [!NOTE]
 > 더 많은 예제는 [Java 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) 설명서를 참조 하세요.
-
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -147,38 +148,7 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 
-## <a name="manage-access-control-lists-acls"></a>Acl (액세스 제어 목록) 관리
-
-디렉터리 및 파일의 액세스 권한을 가져오고 설정하고 업데이트할 수 있습니다.
-
-> [!NOTE]
-> Azure AD (Azure Active Directory)를 사용 하 여 액세스 권한을 부여 하는 경우 보안 주체가 [저장소 Blob 데이터 소유자 역할](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)를 참조하세요.
-
-### <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
-
-이 예제에서는 이름이 인 디렉터리의 ACL을 가져온 다음 설정 합니다 `my-directory` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
-
-> [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)를 참조하세요.
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_ManageDirectoryACLs":::
-
-컨테이너의 루트 디렉터리에 대 한 ACL을 가져오고 설정할 수도 있습니다. 루트 디렉터리를 가져오려면 `""` **DataLakeFileSystemClient client** 메서드에 빈 문자열 ()을 전달 합니다.
-
-### <a name="manage-a-file-acl"></a>파일 ACL 관리
-
-이 예제에서는 라는 파일의 ACL을 가져온 다음 설정 합니다 `upload-file.txt` . 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
-
-> [!NOTE]
-> 응용 프로그램에서 Azure Active Directory (Azure AD)를 사용 하 여 액세스 권한을 부여 하는 경우 응용 프로그램에서 액세스 권한을 부여 하는 데 사용 하는 보안 주체가 [저장소 Blob 데이터 소유자 역할](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)에 할당 되었는지 확인 합니다. ACL 권한이 적용되는 방식과 권한 변경의 영향에 대한 자세한 내용은 [Azure Data Lake Storage Gen2의 액세스 제어](./data-lake-storage-access-control.md)를 참조하세요.
-
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/ACL_DataLake.java" id="Snippet_ManageFileACLs":::
-
-### <a name="set-an-acl-recursively"></a>재귀적으로 ACL 설정
-
-각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에서 Acl을 재귀적으로 추가, 업데이트 및 제거할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에 대해 재귀적으로 acl (액세스 제어 목록) 설정](recursive-access-control-lists.md)을 참조 하세요.
-
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [API 참조 설명서](/java/api/overview/azure/storage-file-datalake-readme)
 * [패키지(Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)

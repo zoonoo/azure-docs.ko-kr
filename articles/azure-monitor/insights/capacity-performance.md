@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fce67c0ffe1951b0bfc325603b6d8f985dd804d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592200"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>용량 및 성능 솔루션을 사용 하 여 Hyper-v 가상 머신 용량 계획 (사용 되지 않음)
 
@@ -39,19 +39,19 @@ ms.locfileid: "87317997"
 
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | Support(지원) | 설명 |
+| 연결된 소스 | 지원 | 설명 |
 |---|---|---|
-| [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
-| [SCOM 관리 그룹](../platform/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
-| [Azure storage 계정](../platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
+| [Windows 에이전트](../agents/agent-windows.md) | 예 | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
+| [Linux 에이전트](../vm/quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [SCOM 관리 그룹](../agents/om-agents.md) | 예 |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
+| [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage는 용량 및 성능 데이터를 포함하지 않습니다.|
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Windows 또는 Operations Manager 에이전트는 가상 머신이 아닌 Windows Server 2012 이상의 Hyper-V 호스트에 설치해야 합니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 용량 및 성능 솔루션을 업데이트하면 버전 번호가 변경됩니다.
 
-솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
+솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../agents/om-agents.md)을 참조하세요.
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -83,7 +83,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 ### <a name="review-utilization"></a>사용률 검토
 
-[용량 및 성능] 타일을 클릭하여 [용량 및 성능] 대시보드를 엽니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 최대 열 개의 항목을 나열합니다. 열 아래쪽의 **모두 보기**를 클릭하거나 열 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
+[용량 및 성능] 타일을 클릭하여 [용량 및 성능] 대시보드를 엽니다. 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 최대 열 개의 항목을 나열합니다. 열 아래쪽의 **모두 보기** 를 클릭하거나 열 헤더를 클릭하여 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
 - **호스트**
     - **호스트 CPU 사용률** 선택한 기간을 기준으로 호스트 컴퓨터 CPU 사용률과 호스트 목록의 그래픽 추세를 표시합니다. 특정 시점의 세부 정보를 보려면 마우스로 꺾은선형 차트 위를 가리킵니다. 자세한 로그 검색 정보를 보려면 차트를 클릭합니다. 로그 검색을 열어 호스팅된 VM의 CPU 카운터 세부 정보를 보려면 호스트 이름을 클릭합니다.
@@ -129,5 +129,5 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../log-query/log-query-overview.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
+* [Log Analytics의 로그 검색](../logs/log-query-overview.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: b80e50cb4823632f054de3b7f9da71392f8578d7
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 23cd42458c396afd31741c648d713934250a4112
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560179"
+ms.locfileid: "100587795"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 대규모(미리 보기)
 
@@ -74,4 +74,4 @@ Azure Policy를 사용 하려면 기존 정책 정의를 선택 하 고 정책 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Arc에서 Kubernetes 클러스터를 사용하는 컨테이너에 대한 Azure Monitor 설정](../../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md)
+* [Arc에서 Kubernetes 클러스터를 사용하는 컨테이너에 대한 Azure Monitor 설정](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)

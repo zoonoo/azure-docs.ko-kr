@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c1e2b6abe378df1450967ee0e1df6021ca0d5744
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185906"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650374"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)
 
@@ -28,18 +28,20 @@ Azure Data Lake Storage Gen2은 azure RBAC (역할 기반 액세스 제어) 및 
 > [!NOTE]
 > Acl은 동일한 테 넌 트의 보안 주체에만 적용 되며 공유 키 또는 SAS (공유 액세스 서명) 토큰 인증을 사용 하는 사용자에 게는 적용 되지 않습니다. Id가 호출자와 연결 되어 있지 않으므로 보안 주체 권한 기반 권한 부여를 수행할 수 없기 때문입니다.  
 
+<a id="set-access-control-lists"></a>
+
 ## <a name="how-to-set-acls"></a>Acl을 설정 하는 방법
 
 파일 및 디렉터리 수준 권한을 설정 하려면 다음 문서 중 하나를 참조 하세요.
 
-| 환경 | 기사 |
+| Environment | 문서 |
 |--------|-----------|
-|Azure Storage Explorer |[Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 ACL 관리](data-lake-storage-explorer.md#managing-access)|
-|.NET |[.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
-|Java|[Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
-|Python|[Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
-|PowerShell|[PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-powershell.md#manage-access-control-lists-acls)|
-|Azure CLI|[Azure Data Lake Storage Gen2에서 Azure CLI를 사용하여 디렉터리, 파일 및 ACL 관리](data-lake-storage-directory-file-acl-cli.md#manage-access-control-lists-acls)|
+|Azure Storage Explorer |[Azure Storage 탐색기를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-explorer-acl.md)|
+|.NET |[.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-dotnet.md)|
+|Java|[Java를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-java.md)|
+|Python|[Python을 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-python.md)|
+|PowerShell|[PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 설정](data-lake-storage-acl-cli.md)|
 |REST API |[경로-업데이트](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -200,7 +202,7 @@ def access_check( user, desired_perms, path ) :
 
 새 Data Lake Storage Gen2 컨테이너의 경우 루트 디렉터리 ("/")의 액세스 ACL에 대 한 마스크는 기본적으로 디렉터리의 경우 **750** 이 고 파일의 경우 **640** 입니다. 다음 표에서는 이러한 권한 수준의 기호화 된 표기법을 보여 줍니다.
 
-|엔터티|디렉터리|Files|
+|엔터티|디렉터리|파일|
 |--|--|--|
 |소유 사용자|`rwx`|`r-w`|
 |소유 그룹|`r-x`|`r--`|
@@ -273,7 +275,7 @@ HNS가 꺼져 있으면 Azure Azure RBAC 권한 부여 규칙이 계속 적용 �
 
 ### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Azure 역할 할당 및 ACL 항목에 대 한 제한은 무엇 인가요?
 
-다음 표에서는 Azure RBAC를 사용 하 여 "정교 하지 않은" 권한 (저장소 계정 또는 컨테이너에 적용 되는 권한)을 관리 하 고 Acl을 사용 하 여 "세분화 된" 권한 (파일 및 디렉터리에 적용 되는 권한)을 관리 하는 동안 고려해 야 하는 제한 사항에 대 한 요약 보기를 제공 합니다. ACL 할당에 보안 그룹을 사용 합니다. 그룹을 사용 하 여 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACl 항목의 최대 수를 초과할 가능성이 줄어듭니다. 
+다음 표에서는 Azure RBAC를 사용 하 여 "정교 하지 않은" 권한 (저장소 계정 또는 컨테이너에 적용 되는 권한)을 관리 하 고 Acl을 사용 하 여 "세분화 된" 권한 (파일 및 디렉터리에 적용 되는 권한)을 관리 하는 동안 고려해 야 하는 제한 사항에 대 한 요약 보기를 제공 합니다. ACL 할당에 보안 그룹을 사용 합니다. 그룹을 사용 하 여 구독 당 최대 역할 할당 수와 파일 또는 디렉터리 당 ACL 항목의 최대 수를 초과할 가능성이 줄어듭니다. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -289,7 +291,7 @@ Azure 역할 할당은 상속 됩니다. 할당은 구독, 리소스 그룹 및 
 
 - 호출자에 게 ' 슈퍼 사용자 ' 권한이 있습니다.
 
-또는
+Or
 
 - 부모 디렉터리에 쓰기 + 실행 권한이 있어야 합니다.
 - 삭제할 디렉터리와 그 안의 모든 디렉터리에 읽기 + 쓰기 + 실행 권한이 필요합니다.

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a5bbcc4c07826a5093da3f51c709f49ceb231753
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127892"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596077"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 가상 WAN 로그 및 메트릭
 
@@ -130,4 +130,4 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](../firewall/firewall-diagnostics.md)을 참조하세요.
-* Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.
+* Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조 하세요.

@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347641"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579803"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation에 안전 하 게 연결
 
@@ -34,7 +34,7 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 - 공용 네트워크 액세스를 열지 않고 Azure Monitor Log Analytics 작업 영역에 비공개로 연결 합니다.
 
     >[!NOTE]
-    >Log Analytics 작업 영역에 대 한 별도의 개인 끝점은 작업 데이터를 전달 하기 위해 Automation 계정이 Log Analytics 작업 영역에 연결 되어 있고 업데이트 관리, 변경 내용 추적 및 인벤토리, 상태 구성 또는 작업 시간 외 VM 시작/중지 같은 기능을 사용 하도록 설정한 경우에 필요 합니다. Azure Monitor에 대 한 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 네트워크를 Azure Monitor에 안전 하 게 연결을](../../azure-monitor/platform/private-link-security.md)참조 하세요.
+    >Log Analytics 작업 영역에 대 한 별도의 개인 끝점은 작업 데이터를 전달 하기 위해 Automation 계정이 Log Analytics 작업 영역에 연결 되어 있고 업데이트 관리, 변경 내용 추적 및 인벤토리, 상태 구성 또는 작업 시간 외 VM 시작/중지 같은 기능을 사용 하도록 설정한 경우에 필요 합니다. Azure Monitor에 대 한 개인 링크에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 네트워크를 Azure Monitor에 안전 하 게 연결을](../../azure-monitor/logs/private-link-security.md)참조 하세요.
 
 - 권한 있는 개인 네트워크를 통해 자동화 데이터가 액세스 되는지 확인 합니다.
 - 개인 끝점을 통해 연결 되는 Azure Automation 리소스를 정의 하 여 개인 네트워크에서 데이터 반출을 방지 합니다.
@@ -46,10 +46,10 @@ Private Link를 사용하면 다음을 수행할 수 있습니다.
 ## <a name="limitations"></a>제한 사항
 
 - 현재 개인 링크 구현에서 Automation 계정 클라우드 작업은 개인 끝점을 사용 하 여 보호 되는 Azure 리소스에 액세스할 수 없습니다. 예를 들어 Azure Key Vault, Azure SQL, Azure Storage 계정 등이 있습니다. 이 문제를 해결 하려면 [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md) 를 대신 사용 합니다.
-- Windows 또는 Linux 용 [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 의 최신 버전을 사용 해야 합니다.
-- [Log Analytics 게이트웨이에서](../../azure-monitor/platform/gateway.md) 개인 링크를 지원 하지 않습니다.
+- Windows 또는 Linux 용 [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md) 의 최신 버전을 사용 해야 합니다.
+- [Log Analytics 게이트웨이에서](../../azure-monitor/agents/gateway.md) 개인 링크를 지원 하지 않습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 개인 링크 Azure Automation 하나 이상의 개인 끝점 (그리고 그에 포함 된 가상 네트워크)을 Automation 계정 리소스에 연결 합니다. 이러한 끝점은 웹 후크를 사용 하 여 runbook을 시작 하는 컴퓨터, Hybrid Runbook Worker 역할을 호스트 하는 컴퓨터 및 DSC (Desired State Configuration) 노드를 사용 합니다.
 
@@ -76,7 +76,7 @@ JRDS 끝점은 hybrid worker가 runbook을 시작/중지 하 고, runbook을 작
 
 업데이트 관리를 위해 구성 된 컴퓨터가 개인 링크 채널 보다 안전한 방식으로 자동화 & Log Analytics 작업 영역에 연결 되도록 하려면 개인 링크로 구성 된 Automation 계정에 연결 된 Log Analytics 작업 영역에 대 한 개인 링크를 사용 하도록 설정 해야 합니다.
 
-[Log Analytics 구성](../../azure-monitor/platform/private-link-security.md#configure-log-analytics)에 설명 된 단계를 수행 하 여 개인 링크 범위 외부에서 Log Analytics 작업 영역에 연결할 수 있는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다.
+[Log Analytics 구성](../../azure-monitor/logs/private-link-security.md#configure-log-analytics)에 설명 된 단계를 수행 하 여 개인 링크 범위 외부에서 Log Analytics 작업 영역에 연결할 수 있는 방법을 제어할 수 있습니다. **수집을 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 연결된 범위 외부의 머신에서 데이터를 이 작업 영역에 업로드할 수 없습니다. **쿼리를 위해 공용 네트워크 액세스 허용** 을 **아니요** 로 설정하면 범위 외부의 머신에서 이 작업 영역의 데이터에 액세스할 수 없습니다.
 
 **DSCAndHybridWorker** 대상 하위 리소스를 사용 하 여 사용자 & 시스템 hybrid worker에 대 한 개인 링크를 사용 하도록 설정 합니다.
 
@@ -113,7 +113,7 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
-    | Name | *PrivateEndpoint* 를 입력 합니다. |
+    | 속성 | *PrivateEndpoint* 를 입력 합니다. |
     | 지역 | **영역** 을 선택 합니다. |
     |||
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831776"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581075"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -341,10 +341,10 @@ Azure Cache for Redis를 모니터링하고 진단하는 방법에 대한 자세
 
 ### <a name="diagnostics"></a>진단
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/platform/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단** 을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../azure-monitor/essentials/data-platform-metrics.md)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단** 을 클릭하여 캐시 진단을 저장하는 데 사용되는 [스토리지 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)수 있습니다.
+>캐시 메트릭을 저장소에 보관 하는 것 외에도 [이벤트 허브로 스트림 하거나 Azure Monitor 로그에 보낼](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)수 있습니다.
 >
 >
 

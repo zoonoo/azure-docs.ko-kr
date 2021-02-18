@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880762"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592517"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>경고 및 디버깅을 위해 Application Insights에서 기계 학습 파이프라인 로그 파일 수집
 
@@ -164,6 +164,6 @@ Application Insights 결과에는 로그 메시지 및 수준, 파일 경로 및
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Insights 인스턴스에 로그가 있으면 쿼리 결과에 따라 [Azure Monitor 경고](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) 를 설정 하는 데 사용할 수 있습니다.
+Application Insights 인스턴스에 로그가 있으면 쿼리 결과에 따라 [Azure Monitor 경고](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) 를 설정 하는 데 사용할 수 있습니다.
 
-추가 정보를 얻기 위해 쿼리 결과를 [Azure 대시보드에](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) 추가할 수도 있습니다.
+추가 정보를 얻기 위해 쿼리 결과를 [Azure 대시보드에](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) 추가할 수도 있습니다.

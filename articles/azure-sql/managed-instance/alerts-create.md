@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499274"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592710"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Managed Instance에 대한 경고 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * Azure runbook 호출
 * 외부 티켓 ITSM 호환 시스템 호출
 
-[Azure Portal, PowerShell 또는 Azure CLI](../../azure-monitor/platform/alerts-classic-portal.md) 또는 [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용 하 여 경고 규칙에 대 한 정보를 구성 하 고 가져올 수 있습니다. 
+[Azure Portal, PowerShell 또는 Azure CLI](../../azure-monitor/alerts/alerts-classic-portal.md) 또는 [Azure Monitor REST API](/rest/api/monitor/alertrules)를 사용 하 여 경고 규칙에 대 한 정보를 구성 하 고 가져올 수 있습니다. 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>관리 되는 인스턴스에 사용할 수 있는 경고 메트릭
 
@@ -113,7 +113,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="verifying-alerts"></a>경고 확인
 
 > [!NOTE]
-> 잡음이 있는 경고를 표시 하지 않도록 하려면 [작업 규칙을 사용 하 여 경고 Supression](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts)를 참조 하세요.
+> 잡음이 있는 경고를 표시 하지 않도록 하려면 [작업 규칙을 사용 하 여 경고 Supression](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts)를 참조 하세요.
 
 경고 규칙을 설정 하는 동안 경고 트리거와 해당 빈도로 만족 하는지 확인 합니다. 사용 되는 저장소 공간에 대 한 경고를 설정 하는 데 사용 되는 저장소 공간에 대 한 경고를 설정 하는이 페이지의 예제에서는 경고 옵션이 전자 메일 인 경우 아래와 같은 전자 메일을 받을 수 있습니다.
 
@@ -142,8 +142,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 경고 시스템에 대 한 자세한 내용은의 [경고 개요](../../azure-monitor/platform/alerts-overview.md) 를 참조 하세요 Microsoft Azure
-* 메트릭 경고에 대 한 자세한 내용은 [메트릭 경고 작동 방법 이해 Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
-* 경고에서 웹 후크를 구성 하는 방법에 대 한 자세한 내용은 [클래식 메트릭 경고로 Webhook 호출](../../azure-monitor/platform/alerts-webhooks.md)
+* Azure Monitor 경고 시스템에 대 한 자세한 내용은의 [경고 개요](../../azure-monitor/alerts/alerts-overview.md) 를 참조 하세요 Microsoft Azure
+* 메트릭 경고에 대 한 자세한 내용은 [메트릭 경고 작동 방법 이해 Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)
+* 경고에서 웹 후크를 구성 하는 방법에 대 한 자세한 내용은 [클래식 메트릭 경고로 Webhook 호출](../../azure-monitor/alerts/alerts-webhooks.md)
 * PowerShell을 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [작업 규칙](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * API를 사용 하 여 경고를 구성 하 고 관리 하는 방법에 대 한 자세한 내용은 [Azure Monitor REST API 참조](/rest/api/monitor/)

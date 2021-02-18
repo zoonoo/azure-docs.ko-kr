@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693615"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595493"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -94,7 +94,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 >[!Note]
 >Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](../../security-center/security-center-permissions.md)을 참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](../../azure-monitor/platform/manage-access.md) 중 하나에 저장됩니다.
+Security Center에서는 Microsoft Monitoring Agent를 사용하며, Azure Monitor 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](../../azure-monitor/logs/manage-access.md) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ Azure Monitor에는 다음 구성 요소가 포함되어 있습니다.
 
 ### <a name="azure-activity-log"></a>Azure 동작 로그
 
-[Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하기 때문에 이전에는 "감사 로그" 또는 "작업 로그"라고 했습니다.
+[Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 정보를 제공합니다. 활동 로그는 구독에 대한 제어 평면 이벤트를 보고하기 때문에 이전에는 "감사 로그" 또는 "작업 로그"라고 했습니다.
 
 ### <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
-[Azure 진단 로그](../../azure-monitor/platform/platform-logs-overview.md)는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
+[Azure 진단 로그](../../azure-monitor/essentials/platform-logs-overview.md)는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 
 Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주입니다. Blob, 테이블 및 큐 로그는 스토리지 계정에 대한 진단 로그의 범주입니다.
 
-진단 로그는 [활동 로그](../../azure-monitor/platform/platform-logs-overview.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
+진단 로그는 [활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
 ### <a name="metrics"></a>메트릭
 
-Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](../../azure-monitor/platform/data-platform.md)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
+Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](../../azure-monitor/data-platform.md)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md)에서 현재 지원됩니다.
+Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수집할 수 있도록 합니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. [Azure 클라우드 서비스 역할](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), Microsoft Windows를 실행하는 [Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) 및 [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md)에서 현재 지원됩니다.
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
