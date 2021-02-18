@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: fad3e5dcb0ecda82f3fb35cadf1719a62c99bd97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: abea192f209b968c6842e985620c067c93990687
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464695"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548151"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-r"></a>자습서: Azure Stack Edge Pro R을 위한 인증서 구성
 
@@ -37,7 +37,7 @@ Azure Stack Edge Pro R 디바이스를 구성하고 설정하기 전에 다음 �
 
 * [Azure Stack Edge Pro R 설치](azure-stack-edge-pro-r-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 * 사용자 고유의 인증서를 가져오려는 경우:
-    - 서명 체인 인증서를 포함하는 적절한 형식으로 인증서를 준비해야 합니다. 인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요.
+    - 서명 체인 인증서를 포함하는 적절한 형식으로 인증서를 준비해야 합니다. 인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
 
 
