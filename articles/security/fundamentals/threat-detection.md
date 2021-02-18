@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590347"
 ---
 # <a name="azure-threat-protection"></a>Azure 위협 방지
 
@@ -89,7 +89,7 @@ Azure Monitor 로그는 자체적으로 중요 서비스를 제공하는 것 외
 Azure Monitor 로그를 사용하면 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 포함하여 IT 운영 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 빠르고 쉽게 이해할 수 있습니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
 
 ### <a name="insight-and-analytics"></a>인사이트 및 분석
-[Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)는 Azure에서 호스트되는 리포지토리입니다.
+[Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)는 Azure에서 호스트되는 리포지토리입니다.
 
 ![인사이트 및 분석 다이어그램](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Azure Monitor 로그를 사용하면 소프트웨어 업데이트 평가, 맬웨
 데이터 원본 및 솔루션은 각각 고유한 속성 집합을 가진 서로 다른 레코드 유형을 만들지만 리포지토리에 대한 쿼리에서 여전히 함께 분석할 수 있습니다. 동일한 도구 및 메서드를 사용하여 다양한 원본에서 수집된 다양한 데이터로 작업할 수 있습니다.
 
 Azure Monitor 로그와의 상호 작용은 대부분 모든 브라우저에서 실행되고 수집된 데이터를 분석 및 조작하는 구성 설정 및 여러 도구에 대한 액세스를 제공하는 Azure Portal을 통해 이루어집니다. 포털에서 다음을 수행할 수 있습니다.
-* [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
-* [대시보드](../../azure-monitor/learn/tutorial-logs-dashboards.md)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
+* [로그 검색](../../azure-monitor/logs/log-query-overview.md)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
+* [대시보드](../../azure-monitor/visualize/tutorial-logs-dashboards.md)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
 * [솔루션](../../azure-monitor/insights/solutions.md)에서는 추가 기능 및 분석 도구를 제공합니다.
 
 솔루션은 Azure Monitor 로그에 기능을 추가합니다. 주로 클라우드에서 실행되며 로그 분석 리포지토리에 수집된 데이터의 분석을 제공합니다. 또한 솔루션에서는 수집할 새 레코드 유형을 정의하여 로그 검색을 사용하거나 솔루션이 로그 분석 대시보드에서 제공하는 추가 사용자 인터페이스를 사용하여 분석할 수 있습니다.

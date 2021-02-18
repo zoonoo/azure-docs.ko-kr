@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349959"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650690"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps 미리 보기에 API 추가
 
@@ -234,7 +234,7 @@ Visual Studio Code를 사용하여 변경 내용을 원격 git 리포지토리�
 1. **GitHub로 로그인** 단추를 클릭하고 GitHub로 인증합니다.
 1. 원하는 _조직_ 을 선택합니다.
 1. _리포지토리_ 드롭다운에서 **my-vanilla-api** 를 선택합니다.
-1. _분기_ 드롭다운에서 **마스터** 를 선택합니다.
+1. _분기_ 드롭다운에서 **주** 를 선택합니다.
 1. _빌드 사전 설정_ 드롭다운에서 빌드 구성에 대해 선택한 프레임 워크를 선택 합니다.
 
  > 이러한 필드는 앱 형식의 기본 프로젝트 구조를 반영 합니다. 앱에 맞게 값을 변경 합니다.

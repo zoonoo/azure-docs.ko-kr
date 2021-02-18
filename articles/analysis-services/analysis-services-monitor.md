@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc517ac3c903930eddb95a4813a8146cae2ec2c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84690379"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582675"
 ---
 # <a name="monitor-server-metrics"></a>서버 메트릭 모니터링
 
-Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 서버의 성능 및 상태를 모니터링 하는 데 도움이 되는 메트릭을 제공 합니다. 예를 들어 메모리와 CPU 사용량, 클라이언트 연결 수 및 쿼리 리소스 소비를 모니터링합니다. Analysis Services에서는 대부분의 다른 Azure 서비스와 동일한 모니터링 프레임워크를 사용합니다. 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)을 참조 하세요.
+Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 서버의 성능 및 상태를 모니터링 하는 데 도움이 되는 메트릭을 제공 합니다. 예를 들어 메모리와 CPU 사용량, 클라이언트 연결 수 및 쿼리 리소스 소비를 모니터링합니다. Analysis Services에서는 대부분의 다른 Azure 서비스와 동일한 모니터링 프레임워크를 사용합니다. 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)을 참조 하세요.
 
 심층 진단을 수행하고, 성능을 추적하고, 리소스 그룹이나 구독의 여러 서비스 리소스에서 추세를 식별하려면 [Azure Monitor](../azure-monitor/overview.md)를 사용합니다. Azure Monitor(서비스)는 요금이 청구될 수 있는 서비스입니다.
 
 
 ## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>Analysis Services 서버에 대한 메트릭을 모니터링하려면
 
-1. Azure Portal에서 **메트릭**을 선택합니다.
+1. Azure Portal에서 **메트릭** 을 선택합니다.
 
     ![Azure Portal에서 모니터링](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. **메트릭**에서 차트에 포함할 메트릭을 선택 합니다. 
+2. **메트릭** 에서 차트에 포함할 메트릭을 선택 합니다. 
 
     ![모니터링 차트](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -89,5 +89,5 @@ Analysis Services는 포털의 무료 도구인 Azure 메트릭 탐색기에서 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Monitor 개요](../azure-monitor/overview.md)      
-[Azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md)      
+[Azure 메트릭 탐색기 시작](../azure-monitor/essentials/metrics-getting-started.md)      
 [Azure Monitor REST API의 메트릭](/rest/api/monitor/metrics)

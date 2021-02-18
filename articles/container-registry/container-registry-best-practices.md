@@ -2,19 +2,19 @@
 title: 레지스트리 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83682690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578133"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
-다음 모범 사례를 따르면 Azure에서 프라이빗 Docker 레지스트리 사용의 성능 및 비용 효과적 측면을 극대화하는 데 도움이 될 수 있습니다.
+이러한 모범 사례를 따르면 Azure에서 컨테이너 이미지 및 기타 아티팩트를 저장 하 고 배포 하는 데 Azure에서 사용 하는 개인 레지스트리의 성능 및 비용 효율적 사용을 최대화할 수 있습니다.
 
-레지스트리의 태그 및 버전 이미지과 관련된 전략에 대해서는 [컨테이너 이미지 태그 지정 및 버전 관리 권장 사항](container-registry-image-tag-version.md)을 참조하세요. 
+레지스트리 개념에 대 한 배경 정보는 레지스트리 [, 리포지토리 및 이미지 정보](container-registry-concepts.md)를 참조 하세요. 레지스트리의 태그 및 버전 이미지과 관련된 전략에 대해서는 [컨테이너 이미지 태그 지정 및 버전 관리 권장 사항](container-registry-image-tag-version.md)을 참조하세요. 
 
 ## <a name="network-close-deployment"></a>네트워크가 가까운 배포
 
@@ -25,13 +25,24 @@ ms.locfileid: "83682690"
 
 ## <a name="geo-replicate-multi-region-deployments"></a>다중 지역 배포 지리적 복제
 
-여러 영역에 컨테이너를 배포하려는 경우 Azure Container Registry의 [지리적 복제](container-registry-geo-replication.md) 기능을 사용합니다. 로컬 데이터 센터에서 글로벌 고객에게 서비스를 제공하거나 개발 팀이 여러 다른 위치에 있더라도, 레지스트리를 지리적으로 복제하여 레지스트리 관리를 간소화하고 대기 시간을 최소화할 수 있습니다. 지역 복제는 [프리미엄](container-registry-skus.md) 레지스트리에서만 사용할 수 있습니다.
+여러 영역에 컨테이너를 배포하려는 경우 Azure Container Registry의 [지리적 복제](container-registry-geo-replication.md) 기능을 사용합니다. 로컬 데이터 센터에서 글로벌 고객에게 서비스를 제공하거나 개발 팀이 여러 다른 위치에 있더라도, 레지스트리를 지리적으로 복제하여 레지스트리 관리를 간소화하고 대기 시간을 최소화할 수 있습니다. 또한 이미지가 푸시되는 경우와 같이 특정 복제본의 이벤트를 알리도록 지역 [웹 후크](container-registry-webhook.md) 를 구성할 수 있습니다.
 
-지리적 복제 사용 방법을 알아보려면 총 3부로 구성된 자습서 시리즈 [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)를 참조하세요.
+지역에서 복제는 [프리미엄](container-registry-skus.md) 레지스트리에서 사용할 수 있습니다. 지리적 복제 사용 방법을 알아보려면 총 3부로 구성된 자습서 시리즈 [Azure Container Registry의 지리적 복제](container-registry-tutorial-prepare-registry.md)를 참조하세요.
+
+## <a name="maximize-pull-performance"></a>풀 성능 최대화
+
+이미지를 배포에 가깝게 배치 하는 것 외에도 이미지의 특성은 끌어오기 성능에 영향을 줄 수 있습니다.
+
+* **이미지 크기** -불필요 한 [레이어](container-registry-concepts.md#manifest) 를 제거 하거나 계층의 크기를 줄여 이미지 크기를 최소화 합니다. 이미지 크기를 줄이는 한 가지 방법은 [다중 단계 Docker 빌드](https://docs.docker.com/develop/develop-images/multistage-build/) 방식을 사용 하 여 필요한 런타임 구성 요소만 포함 하는 것입니다. 
+
+  또한 이미지에 가벼운 기본 OS 이미지가 포함 될 수 있는지 여부도 확인 합니다. 특정 기본 이미지를 캐시 하는 Azure Container Instances와 같은 배포 환경을 사용 하는 경우 캐시 된 이미지 중 하나에 대해 이미지 계층을 교환할 수 있는지 여부를 확인 합니다. 
+* **계층 수** -사용 되는 계층 수의 균형을 조정 합니다. 너무 적은 경우에는 호스트에서 계층 재사용 및 캐싱을 활용 하지 않는 것이 좋습니다. 너무 많고 배포 환경에서 더 많은 시간을 풀링 하 고 압축을 푸는 데 더 많은 시간이 소요 됩니다. 5 ~ 10 개의 레이어가 최적입니다.
+
+또한 성능 요구를 충족 하는 Azure Container Registry [서비스 계층](container-registry-skus.md) 을 선택 합니다. 프리미엄 계층은 대용량 배포가 있는 경우 동시 읽기 및 쓰기 작업의 최대 대역폭 및 최고 요금을 제공 합니다.
 
 ## <a name="repository-namespaces"></a>리포지토리 네임스페이스
 
-리포지토리 네임스페이스를 활용하여 조직 내의 여러 그룹에서 단일 레지스트리 공유를 허용할 수 있습니다. 레지스트리는 배포 및 팀 간에 공유할 수 있습니다. Azure Container Registry는 중첩된 네임스페이스를 지원하여 그룹 격리를 허용합니다.
+리포지토리 네임 스페이스를 사용 하 여 조직 내의 여러 그룹에서 단일 레지스트리를 공유 하도록 허용할 수 있습니다. 레지스트리는 배포 및 팀 간에 공유할 수 있습니다. Azure Container Registry는 중첩된 네임스페이스를 지원하여 그룹 격리를 허용합니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다.
 
 예를 들어 다음 컨테이너 이미지 태그를 고려해 보세요. `aspnetcore`처럼 기업 전체에서 사용되는 이미지는 루트 네임스페이스에 두고, 제품 및 마케팅 그룹에서 소유하는 컨테이너 이미지에는 각각 자체 네임스페이스를 사용합니다.
 
@@ -44,22 +55,24 @@ ms.locfileid: "83682690"
 
 컨테이너 레지스트리는 여러 컨테이너 호스트에서 사용되는 리소스이므로 레지스트리가 자체 리소스 그룹에 상주해야 합니다.
 
-Azure Container Instances와 같은 특정 호스트 유형으로 시험해 볼 수 있지만 완료되면 컨테이너 인스턴스를 삭제하려고 할 것입니다. 그러나 Azure Container Registry에 푸시한 이미지의 컬렉션은 유지하려고 할 수 있습니다. 레지스트리를 자체 리소스 그룹에 배치하여 컨테이너 인스턴스 리소스 그룹을 삭제할 때 레지스트리의 이미지의 컬렉션을 실수로 삭제의 위험을 최소화할 수 있습니다.
+[Azure Container Instances](../container-instances/container-instances-overview.md)와 같은 특정 호스트 유형을 시험해 볼 수도 있지만 완료 되 면 컨테이너 인스턴스를 삭제 하는 것이 좋습니다. 그러나 Azure Container Registry에 푸시한 이미지의 컬렉션은 유지하려고 할 수 있습니다. 레지스트리를 자체 리소스 그룹에 배치하여 컨테이너 인스턴스 리소스 그룹을 삭제할 때 레지스트리의 이미지의 컬렉션을 실수로 삭제의 위험을 최소화할 수 있습니다.
 
-## <a name="authentication"></a>인증
+## <a name="authentication-and-authorization"></a>인증 및 권한 부여
 
 Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉 개별 인증과 서비스(또는 "헤드리스") 인증이 있습니다. 다음 표에서는 이러한 시나리오와 각 시나리오의 권장 인증 방법에 대해 간략하게 설명합니다.
 
 | Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
-| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
+| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr#az-acr-login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
 
-Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container Registry로 인증](container-registry-authentication.md)을 참조하세요.
+이러한 Azure Container Registry 인증 시나리오에 대 한 자세한 내용은 [Azure Container Registry를 사용 하 여 인증](container-registry-authentication.md)을 참조 하세요.
 
-## <a name="manage-registry-size"></a>레지스트리 크기 관리
+Azure Container Registry는 조직의 보안 관행을 지원 하 여 다양 한 id에 의무 및 권한을 분산 시킬 수 있습니다. [역할 기반 액세스 제어](container-registry-roles.md)를 사용 하 여 다른 사용자, 서비스 주체 또는 다른 레지스트리 작업을 수행 하는 다른 id에 적절 한 사용 권한을 할당 합니다. 예를 들어 빌드 파이프라인에서 사용 되는 서비스 사용자에 게 푸시 권한을 할당 하 고 배포에 사용 되는 다른 id에 끌어오기 권한을 할당 합니다. 특정 리포지토리에 대 한 세분화 된 시간 제한 액세스에 대 한 [토큰](container-registry-repository-scoped-permissions.md) 을 만듭니다.
 
-일반적인 시나리오에 맞게 각 [컨테이너 레지스트리 서비스 계층][container-registry-skus]의 스토리지 제약 조건이 결정됩니다. **기본**은 시작하는 고객, **표준**은 대부분의 프로덕션 애플리케이션, **프리미엄**은 하이퍼스케일 성능 및 [지역 복제][container-registry-geo-replication] 시나리오에 적합합니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
+## <a name="manage-registry-size"></a>레지스트리 크기 관리      
+
+각 [컨테이너 레지스트리 서비스 계층][container-registry-skus] 의 저장소 제약 조건은 일반적인 시나리오 (시작의 경우 **기본** , 대부분의 프로덕션 응용 프로그램의 경우 **표준** , 그리고 하이퍼 규모의 성능 및 [지역에서 복제][container-registry-geo-replication]를 위한 **프리미엄** )에 맞게 설계 되었습니다. 레지스트리 수명 동안에 미사용 콘텐츠는 정기적으로 삭제하여 크기를 관리해야 합니다.
 
 Azure CLI 명령 [az acr show-usage][az-acr-show-usage]를 사용하여 레지스트리의 현재 크기를 표시합니다.
 
@@ -74,7 +87,7 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-Azure Portal의 레지스트리 **개요**에서도 현재 스토리지 사용량을 확인할 수 있습니다.
+Azure Portal의 레지스트리 **개요** 에서도 현재 스토리지 사용량을 확인할 수 있습니다.
 
 ![Azure Portal의 레지스트리 사용량 정보][registry-overview-quotas]
 
@@ -86,7 +99,9 @@ Azure Container Registry는 컨테이너 레지스트리에서 이미지 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Container Registry는 각각 서로 다른 기능을 제공하는 SKU라고도 하는 여러 계층에서 사용될 수 있습니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [Azure 컨테이너 레지스트리 서비스 계층](container-registry-skus.md)을 참조하세요.
+Azure Container Registry는 여러 가지 기능을 제공 하는 여러 계층 (Sku 라고도 함)에서 사용할 수 있습니다. 사용 가능한 서비스 계층에 대한 자세한 내용은 [Azure 컨테이너 레지스트리 서비스 계층](container-registry-skus.md)을 참조하세요.
+
+컨테이너 레지스트리의 보안 상태를 개선 하기 위한 권장 사항은 [Azure Container Registry의 Azure 보안 기준](security-baseline.md)을 참조 하세요.
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

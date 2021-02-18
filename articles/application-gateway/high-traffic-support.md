@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: a5f7569fc46d4678ca0c12299e33caa3c78df849
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d8940d791920daca6ef0af186a4bb5e17009637b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586113"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Application Gateway 높은 트래픽 지원
 
@@ -23,7 +23,7 @@ ms.locfileid: "96182923"
 
 트래픽 증가 또는 급증에 대비 하 여 QoS에 포함 될 수 있는 영향을 최소화 하도록 트래픽 및 버퍼에 따라 Application Gateway 크기를 조정 하는 것이 중요 합니다. 다음 제안 사항은 추가 트래픽을 처리하도록 WAF를 사용하여 Application Gateway를 설정하는 데 유용합니다.
 
-Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 확인 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/platform/alerts-metric.md) 를 참조 하세요.
+Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 확인 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/alerts/alerts-metric.md) 를 참조 하세요.
 
 ## <a name="scaling-for-application-gateway-v1-sku-standardwaf-sku"></a>Application Gateway v1 SKU에 대 한 크기 조정 (표준/WAF SKU)
 
@@ -35,7 +35,7 @@ V1 SKU 게이트웨이를 사용 하는 경우 크기를 조정 하기 위해 Ap
 ### <a name="use-the-v2-sku-over-v1-for-its-autoscaling-capabilities-and-performance-benefits"></a>자동 크기 조정 기능 및 성능 혜택을 위해 v1에서 v2 SKU 사용
 v2 SKU는 트래픽이 늘어남에 따라 Application Gateway 확장할 수 있도록 자동 크기 조정을 제공합니다. 또한 v1과 비교할 때 5배 더 나은 TLS 오프로드 성능, 더 빠른 배포 및 업데이트 시간, 영역 중복성 등의 기타 중요한 성능상의 이점을 제공합니다. 자세한 내용은 [v2 설명서](./application-gateway-autoscaling-zone-redundant.md) 를 참조 하 고 v1에서 v2로 [마이그레이션 설명서](./migrate-v1-v2.md) 를 참조 하 여 기존 v1 SKU 게이트웨이를 v2 sku로 마이그레이션하는 방법에 대해 알아보세요. 
 
-## <a name="autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku"></a>Application Gateway v2 SKU에 대 한 자동 크기 조정 (Standard_v2/WAF_v2 SKU)
+## <a name="autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku"></a>Application Gateway v2 SKU(Standard_v2/WAF_v2 SKU)의 자동 크기 조정
 
 ### <a name="set-maximum-instance-count-to-the-maximum-possible-125"></a>최대 인스턴스 수를 가능한 최대 수(125)로 설정
  
@@ -65,7 +65,7 @@ Application Gateway v2 SKU의 경우 자동 크기 조정을 통해 트래픽을
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 
-트래픽 또는 사용 변칙에 대 한 알림을 받으려면 특정 메트릭에 대 한 경고를 설정할 수 있습니다. Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 참조 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/platform/alerts-metric.md) 를 참조 하세요.
+트래픽 또는 사용 변칙에 대 한 알림을 받으려면 특정 메트릭에 대 한 경고를 설정할 수 있습니다. Application Gateway에서 제공 하는 메트릭의 전체 목록은 [메트릭 설명서](./application-gateway-metrics.md) 를 참조 하세요. 메트릭에 대 한 경고를 설정 하는 방법에 대 한 자세한 내용은 Azure Portal [메트릭 시각화](./application-gateway-metrics.md#metrics-visualization) 및 [Azure monitor 설명서](../azure-monitor/alerts/alerts-metric.md) 를 참조 하세요.
 
 ## <a name="alerts-for-application-gateway-v1-sku-standardwaf"></a>Application Gateway v1 SKU에 대 한 경고 (표준/WAF)
 
@@ -75,7 +75,7 @@ Application Gateway v2 SKU의 경우 자동 크기 조정을 통해 트래픽을
 
 ### <a name="alert-if-unhealthy-host-count-crosses-threshold"></a>비정상 호스트 수가 임계값을 초과 하는 경우 경고
 
-이 메트릭은 application gateway에서 검색할 수 없는 백 엔드 서버 수를 나타냅니다. 이렇게 하면 Application gateway 인스턴스가 백 엔드에 연결할 수 없는 문제를 파악할 수 있습니다. 이 수가 백 엔드 용량의 20%를 초과 하면 경고를 표시 합니다. 예: 현재 백 엔드 풀에 30 백 엔드 서버가 있는 경우 비정상 호스트 수가 6 개를 초과 하면 경고를 설정 합니다.
+이 메트릭은 application gateway에서 검색할 수 없는 백 엔드 서버 수를 나타냅니다. 이렇게 하면 Application gateway 인스턴스가 백 엔드에 연결할 수 없는 문제를 파악할 수 있습니다. 이 수가 백 엔드 용량의 20%를 초과 하면 경고를 표시 합니다. 예를 들어 현재 백 엔드 풀에 30 백 엔드 서버가 있는 경우 비정상 호스트 수가 6 개를 초과 하면 경고를 설정 합니다.
 
 ### <a name="alert-if-response-status-4xx-5xx-crosses-threshold"></a>응답 상태 (4xx, 5xx)가 임계값을 교차 하는 경우 경고 
 
@@ -121,7 +121,7 @@ Compute unit은 Application Gateway 계산 사용률을 측정 한 것입니다.
 
 ### <a name="alert-if-unhealthy-host-count-crosses-threshold"></a>비정상 호스트 수가 임계값을 초과 하는 경우 경고 
 
-이 메트릭은 application gateway에서 검색할 수 없는 백 엔드 서버 수를 나타냅니다. 이렇게 하면 Application gateway 인스턴스가 백 엔드에 연결할 수 없는 문제를 파악할 수 있습니다. 이 수가 백 엔드 용량의 20%를 초과 하면 경고를 표시 합니다. 예: 현재 백 엔드 풀에 30 백 엔드 서버가 있는 경우 비정상 호스트 수가 6 개를 초과 하면 경고를 설정 합니다.
+이 메트릭은 application gateway에서 검색할 수 없는 백 엔드 서버 수를 나타냅니다. 이렇게 하면 Application gateway 인스턴스가 백 엔드에 연결할 수 없는 문제를 파악할 수 있습니다. 이 수가 백 엔드 용량의 20%를 초과 하면 경고를 표시 합니다. 예를 들어 현재 백 엔드 풀에 30 백 엔드 서버가 있는 경우 비정상 호스트 수가 6 개를 초과 하면 경고를 설정 합니다.
 
 ### <a name="alert-if-response-status-4xx-5xx-crosses-threshold"></a>응답 상태 (4xx, 5xx)가 임계값을 교차 하는 경우 경고 
 

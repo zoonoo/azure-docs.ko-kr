@@ -3,12 +3,12 @@ title: 일반적인 Azure Service Fabric 진단 시나리오
 description: Azure Service Fabric 애플리케이션 내에서 일반적인 모니터링 및 진단 시나리오의 문제 해결을 알아봅니다.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257733"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580483"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
@@ -28,7 +28,7 @@ ms.locfileid: "86257733"
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>내 애플리케이션에서 처리되지 않은 예외를 확인하려면 어떻게 해야 할까요?
 
 1. 애플리케이션이 구성된 Application Insight 리소스로 이동합니다.
-2. 왼쪽 위에 있는 *검색*을 클릭합니다. 그러면 다음 패널에서 필터를 클릭합니다.
+2. 왼쪽 위에 있는 *검색* 을 클릭합니다. 그러면 다음 패널에서 필터를 클릭합니다.
 
     ![AI 개요](media/service-fabric-diagnostics-common-scenarios/ai-search-filter.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "86257733"
 ![Log Analytics 컨테이너 메트릭](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
->컨테이너 **내**에서 원격 분석을 계측하려면 [컨테이너에 대한 Application Insights nuget 패키지](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios)를 추가해야 합니다.
+>컨테이너 **내** 에서 원격 분석을 계측하려면 [컨테이너에 대한 Application Insights nuget 패키지](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios)를 추가해야 합니다.
 
 ## <a name="how-can-i-monitor-performance-counters"></a>성능 카운터를 모니터링하려면 어떻게 해야 할까요?
 
@@ -133,9 +133,9 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 ## <a name="next-steps"></a>다음 단계
 
 * [일반 코드 패키지 활성화 오류 조회](./service-fabric-diagnostics-code-package-errors.md)
-* [AI에 경고 설정](../azure-monitor/platform/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [AI에 경고 설정](../azure-monitor/alerts/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 검색](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
-* 검색 및 진단에 도움이 되도록 Azure Monitor 로그 [경고](../azure-monitor/platform/alerts-overview.md)에 대해 자세히 알아보세요.
-* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Azure Monitor 로그에 컴퓨터 연결](../azure-monitor/platform/gateway.md)을 참조하세요.
-* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/log-query/log-query-overview.md) 기능을 알아봅니다.
+* 검색 및 진단에 도움이 되도록 Azure Monitor 로그 [경고](../azure-monitor/alerts/alerts-overview.md)에 대해 자세히 알아보세요.
+* 온-프레미스 클러스터의 경우 Azure Monitor 로그는 Azure Monitor 로그로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Azure Monitor 로그에 컴퓨터 연결](../azure-monitor/agents/gateway.md)을 참조하세요.
+* Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
 * Azure Monitor 로그에 대한 자세한 개요와 제공되는 사항을 알아보려면 [Azure Monitor 로그란?](../azure-monitor/overview.md)을 참조하세요.

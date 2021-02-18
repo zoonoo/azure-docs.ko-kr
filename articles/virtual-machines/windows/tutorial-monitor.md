@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99822500"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570100"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
 
@@ -86,18 +86,18 @@ VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 
 
 3. **인사이트(미리 보기)** 페이지에서 **지금 시도해 보기** 를 선택합니다.
 
-    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. **Azure Monitor Insights 등록** 페이지에서 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
 
     이 목록은 구독에서 VM이 배포된 기본 작업 영역 및 위치를 미리 선택합니다. 
 
     >[!NOTE]
-    >VM의 모니터링 데이터를 저장할 새 Log Analytics 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. 작업 영역은 [지원 지역](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) 중 하나에 속해야 합니다.
+    >VM의 모니터링 데이터를 저장할 새 Log Analytics 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요. 작업 영역은 [지원 지역](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions) 중 하나에 속해야 합니다.
 
 모니터링을 사용하도록 설정한 후 몇 분 정도 기다려야 VM에 대한 성능 메트릭을 볼 수 있습니다.
 
-![배포 처리를 모니터링하도록 VM용 Azure Monitor 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![배포 처리를 모니터링하도록 VM용 Azure Monitor 설정](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>VM 성능 메트릭 보기
 

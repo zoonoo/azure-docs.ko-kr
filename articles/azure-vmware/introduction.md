@@ -3,12 +3,12 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 11/11/2020
-ms.openlocfilehash: 57edfc5786dfc95070b66eb9c8e2e038bafdcd35
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 255d3599385c60d3b13f4769796ced41a1177311
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534656"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579295"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Azure VMware Solution이란?
 
@@ -48,12 +48,12 @@ Azure VMware Solution이 구독에 배포되면 [Azure Monitor 로그](../azure-
 
 프라이빗 클라우드에서 다음을 수행할 수 있습니다.
 - 각 VM에서 로그를 수집합니다.
-- Linux 및 Windows VM에서 [MMA 에이전트를 다운로드하고 설치](../azure-monitor/platform/log-analytics-agent.md#installation-options)합니다.
-- [Azure 진단 확장](../azure-monitor/platform/diagnostics-extension-overview.md)을 사용하도록 설정합니다.
-- [새 쿼리를 만들고 실행](../azure-monitor/platform/data-platform-logs.md#log-queries)합니다.
+- Linux 및 Windows VM에서 [MMA 에이전트를 다운로드하고 설치](../azure-monitor/agents/log-analytics-agent.md#installation-options)합니다.
+- [Azure 진단 확장](../azure-monitor/agents/diagnostics-extension-overview.md)을 사용하도록 설정합니다.
+- [새 쿼리를 만들고 실행](../azure-monitor/logs/data-platform-logs.md#log-queries)합니다.
 - 일반적으로 VM에서 실행하는 것과 동일한 쿼리를 실행합니다.
 
-Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내의 Azure VM과 유사합니다. 자세한 내용 및 방법은 [Azure Monitor를 사용하여 Azure VM 모니터링](../azure-monitor/insights/monitor-vm-azure.md)을 참조하세요.
+Azure VMware Solution 내의 모니터링 패턴은 IaaS 플랫폼 내의 Azure VM과 유사합니다. 자세한 내용 및 방법은 [Azure Monitor를 사용하여 Azure VM 모니터링](../azure-monitor/vm/monitor-vm-azure.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

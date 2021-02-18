@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580762"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대 한 장애 조치
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 가동 중지 시간에 대한 애플리케이션 허용 범위 및 가능한 비즈니스 책임에 따라 다음과 같은 복구 옵션을 고려할 수 있습니다.
 
-[Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) ( *LastAvailableBackupDate* )를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
+[Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*)를 사용하여 가장 최근의 지역에서 복제된 복원 지점을 가져옵니다.
 
 ## <a name="wait-for-service-recovery"></a>서비스 복구 대기
 
@@ -109,7 +109,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 기존 경고 규칙 설정을 업데이트하여 복구된 데이터베이스와 다른 서버에 매핑하도록 해야 합니다.
 
-데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../../azure-monitor/platform/alerts-overview.md) 및 [서비스 상태 추적](../../service-health/service-notifications.md)을 참조하세요.
+데이터베이스 경고 규칙에 대한 자세한 내용은 [경고 알림 수신](../../azure-monitor/alerts/alerts-overview.md) 및 [서비스 상태 추적](../../service-health/service-notifications.md)을 참조하세요.
 
 ### <a name="enable-auditing"></a>감사 사용
 

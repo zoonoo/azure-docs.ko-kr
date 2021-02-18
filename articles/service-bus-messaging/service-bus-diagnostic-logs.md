@@ -3,12 +3,12 @@ title: Azure Service Bus 진단 로그 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064437"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585271"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
@@ -25,7 +25,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| Name | Description |
+| 속성 | Description |
 | ------- | ------- |
 | ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
 | EventName | 작업 이름 |
@@ -76,11 +76,11 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 작업 로그는 기본적으로 사용 되지 않습니다. 진단 로그를 사용 하도록 설정 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Service Bus 네임 스페이스로 이동한 후 **모니터링**아래에서 **진단 설정**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Service Bus 네임 스페이스로 이동한 후 **모니터링** 아래에서 **진단 설정** 을 선택 합니다.
 
    !["진단 설정" 링크](./media/service-bus-diagnostic-logs/image1.png)
 
-1. **진단 설정** 창에서 **진단 설정 추가**를 선택 합니다.  
+1. **진단 설정** 창에서 **진단 설정 추가** 를 선택 합니다.  
 
    !["진단 설정 추가" 링크](./media/service-bus-diagnostic-logs/image2.png)
 
@@ -89,19 +89,19 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
    a. **이름** 상자에 진단 설정의 이름을 입력합니다.  
 
    b. 진단 로그에 다음 세 가지 대상 중 하나를 선택합니다.  
-   - **저장소 계정에 보관**을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
-   - **이벤트 허브로 스트림**을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
-   - **Log Analytics 보내기를**선택 하는 경우 진단이 전송 될 Log Analytics 인스턴스를 지정 해야 합니다.  
+   - **저장소 계정에 보관** 을 선택 하는 경우 진단 로그가 저장 되는 저장소 계정을 구성 해야 합니다.  
+   - **이벤트 허브로 스트림** 을 선택 하는 경우 진단 로그를 스트리밍할 이벤트 허브를 구성 해야 합니다.
+   - **Log Analytics 보내기를** 선택 하는 경우 진단이 전송 될 Log Analytics 인스턴스를 지정 해야 합니다.  
 
    다. **OperationalLogs** 확인란을 선택 합니다.
 
     !["진단 설정" 창](./media/service-bus-diagnostic-logs/image3.png)
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
 새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다.
 
-진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
+진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a8cb997337d26a166b4c73d33965820da5ae2a86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807227"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596310"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -98,4 +98,4 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 
 이 문서에서는 Security Center에서 제공하는 다양한 보안 경고 유형에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-- **Azure 활동 로그의 보안 경고** - 보안 경고와 인시던트는 Azure Portal에서 또는 프로그래밍 방식으로 사용할 수 있을 뿐만 아니라 [Azure 활동 로그](../azure-monitor/platform/activity-log.md#view-the-activity-log)에서 이벤트로 감사됩니다. 이벤트 스키마에 대한 자세한 내용은 [Azure 활동 로그의 보안 경고](https://go.microsoft.com/fwlink/?linkid=2114113)를 참조하세요.
+- **Azure 활동 로그의 보안 경고** - 보안 경고와 인시던트는 Azure Portal에서 또는 프로그래밍 방식으로 사용할 수 있을 뿐만 아니라 [Azure 활동 로그](../azure-monitor/essentials/activity-log.md#view-the-activity-log)에서 이벤트로 감사됩니다. 이벤트 스키마에 대한 자세한 내용은 [Azure 활동 로그의 보안 경고](https://go.microsoft.com/fwlink/?linkid=2114113)를 참조하세요.

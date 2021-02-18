@@ -3,12 +3,12 @@ title: 영국 공식 및 영국 NHS 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 영국 공식 및 영국 NHS 청사진 샘플의 배포 단계를 설명합니다.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: fc41e7d9d3867123286f970d7c54f5e6fff2d276
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99821315"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578031"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 영국 NHS 청사진 샘플 배포
 
@@ -93,9 +93,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브|정책 할당 |진단 로그를 감사하는 리소스 종류(정책: 영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브) |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다.  허용되는 값은 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../../../../azure-monitor/platform/resource-logs-schema.md)를 참조하세요. |
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_ 입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_ 입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
+|영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브|정책 할당 |진단 로그를 감사하는 리소스 종류(정책: 영국 공식 또는 영국 NHS에 대한 청사진 이니셔티브) |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다.  허용되는 값은 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주](../../../../azure-monitor/essentials/resource-logs-schema.md)를 참조하세요. |
+|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_ 입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요. |
+|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록(정책: \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포) |(선택 사항) 기본값은 _없음_ 입니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 

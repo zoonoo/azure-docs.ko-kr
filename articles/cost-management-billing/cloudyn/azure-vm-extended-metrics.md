@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14ea98ecc4d9682353038088a124802d60a5dd5d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da2e20e333fe499998fff72b175442650f5f1e28
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595306"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가
 
@@ -31,7 +31,7 @@ Cloudyn은 Azure VM의 Azure 메트릭 데이터를 사용하여 리소스 관�
 예를 들어 Azure VM의 CPU %와 메모리 %를 모니터링하고자 할 수 있습니다. Azure VM 메트릭은 _백분율 CPU_ 및 _\Memory\% 사용 중인 커밋된 바이트_ 에 해당합니다.
 
 > [!NOTE]
-> 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn은 [Log Analytics 에이전트](../../azure-monitor/platform/agents-overview.md)와 호환되지 않습니다.
+> 확장 메트릭 데이터 수집은 Azure 게스트 수준 모니터링을 통해서만 지원됩니다. Cloudyn은 [Log Analytics 에이전트](../../azure-monitor/agents/agents-overview.md)와 호환되지 않습니다.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 

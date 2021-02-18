@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855076"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589550"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -478,7 +478,7 @@ Application Insights 사용 하도록 JavaScript 기반 웹 페이지를 구성�
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>샘플링이 작동 중인지 여부 확인
 
-적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../log-query/log-query-overview.md) 를 사용합니다.
+적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](../logs/log-query-overview.md) 를 사용합니다.
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

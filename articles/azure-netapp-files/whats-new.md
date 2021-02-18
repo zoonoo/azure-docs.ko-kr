@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631162"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571028"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
@@ -99,7 +99,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 ## <a name="may-2020"></a>2020년 5월
 
-* [백업 정책 사용자](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)(미리 보기)
+* [백업 정책 사용자](create-active-directory-connections.md)(미리 보기)
 
     Azure NetApp Files를 사용하면 Azure NetApp Files에서 사용하기 위해 만든 컴퓨터 계정에 대한 상승된 권한이 필요한 추가 계정을 포함할 수 있습니다. 지정된 계정은 파일 또는 폴더 수준에서 NTFS 권한을 변경할 수 있습니다. 예를 들어 Azure NetApp Files에서 SMB 파일 공유로 데이터를 마이그레이션하는 데 사용되는 권한 없는 서비스 계정을 지정할 수 있습니다. 백업 정책 사용자 기능은 현재 미리 보기 상태입니다.
 

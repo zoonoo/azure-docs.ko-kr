@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a0acbe84a98bc63e5806d25241811c0a7591b897
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6f487467b08332eea4ee19a7fb8836d843bd254f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872624"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582648"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>가상 WAN에 대 한 Azure 보안 기준
 
@@ -288,7 +288,7 @@ GitHub의 경우 네이티브 암호 검색 기능을 사용하여 코드 내에
 
 ### <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Azure 리소스에 대 한 위협 감지 사용
 
-**지침**: 가상 WAN을 사용 하는 지점 및 사이트 간 VPN은 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD는 Azure AD reporting에서 볼 수 있거나 Azure Monitor, Azure 센티널, SIEM 또는 모니터링 도구와 통합 하 여 보다 정교한 위협 모니터링 및 분석 사용 사례를 제공 하는 다음과 같은 사용자 로그를 제공 합니다. 해당 경고는 다음과 같습니다.
+**지침**: 가상 WAN을 사용 하는 지점 및 사이트 간 VPN은 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD는 Azure AD reporting에서 볼 수 있거나 Azure Monitor, Azure 센티널, SIEM 또는 모니터링 도구와 통합 하 여 보다 정교한 위협 모니터링 및 분석 사용 사례를 제공 하는 다음과 같은 사용자 로그를 제공 합니다. 이러한 항목은 다음과 같습니다.
 
 - 로그인-로그인 보고서는 관리 되는 응용 프로그램 및 사용자 로그인 활동 사용에 대 한 정보를 제공 합니다.
 - 감사 로그 - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예로는 사용자, 앱, 그룹, 역할 및 정책을 추가 하거나 제거 하는 등 Azure AD 내의 모든 리소스에 대 한 변경 내용이 포함 됩니다.
@@ -309,7 +309,7 @@ Azure Security Center를 사용 하 여 구독에 사용 되지 않는 계정을
 
 ### <a name="lt-2-enable-threat-detection-for-azure-identity-and-access-management"></a>LT-2: Azure ID 및 액세스 관리를 위한 위협 탐지 사용
 
-**지침**: 가상 WAN을 사용 하는 지점 및 사이트 간 VPN은 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD는 Azure AD reporting에서 볼 수 있거나 Azure Monitor, Azure 센티널, SIEM 또는 모니터링 도구와 통합 하 여 보다 정교한 위협 모니터링 및 분석 사용 사례를 제공 하는 다음과 같은 사용자 로그를 제공 합니다. 해당 경고는 다음과 같습니다.
+**지침**: 가상 WAN을 사용 하는 지점 및 사이트 간 VPN은 Azure Active Directory (Azure AD)와 통합 됩니다. Azure AD는 Azure AD reporting에서 볼 수 있거나 Azure Monitor, Azure 센티널, SIEM 또는 모니터링 도구와 통합 하 여 보다 정교한 위협 모니터링 및 분석 사용 사례를 제공 하는 다음과 같은 사용자 로그를 제공 합니다. 이러한 항목은 다음과 같습니다.
 
 - 로그인-로그인 보고서는 관리 되는 응용 프로그램 및 사용자 로그인 활동 사용에 대 한 정보를 제공 합니다.
 - 감사 로그 - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예로는 사용자, 앱, 그룹, 역할 및 정책을 추가 하거나 제거 하는 등 Azure AD 내의 모든 리소스에 대 한 변경 내용이 포함 됩니다.
@@ -349,9 +349,9 @@ Azure Security Center를 사용 하 여 구독에 사용 되지 않는 계정을
 
 가상 WAN에 대 한 Azure 리소스 로그를 사용 하도록 설정 합니다. Azure Security Center 및 Azure Policy를 사용 하 여 리소스 로그 및 로그 데이터 수집을 사용 하도록 설정할 수 있습니다. 이러한 로그는 나중에 보안 인시던트를 조사 하 고 법정 연습을 수행 하는 데 중요할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md) 
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
 
@@ -382,7 +382,7 @@ Azure 가상 WAN 보안은 Azure 방화벽을 통해 제공 됩니다.
 
 **지침**: 규정 준수, 규정 및 비즈니스 요구 사항에 따라 로그 보존을 구성 합니다. Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정할 수 있습니다. 장기 및 보관 저장소에 대 한 Azure Storage, Data Lake 또는 Log Analytics 작업 영역 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -515,7 +515,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 **책임**: 공유됨
 
-## <a name="endpoint-security"></a>끝점 보안
+## <a name="endpoint-security"></a>엔드포인트 보안
 
 *자세한 내용은 [Azure 보안 벤치 마크: 끝점 보안](../security/benchmarks/security-controls-v2-endpoint-security.md)을 참조 하세요.*
 

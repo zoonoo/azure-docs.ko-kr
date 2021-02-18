@@ -3,18 +3,18 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 리소스, 경고 및 가용성 테스트 생성 및 관리를 자동화합니다.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: c380880845c162a1e8fb38e699a439ac04fb3b5a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c2e3d33be487b6a92cb7038d814e17fcd5a10064
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186289"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589806"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](./app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](./monitor-web-app-availability.md)를 만들고, [경고](../platform/alerts-log.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
+이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](./app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](./monitor-web-app-availability.md)를 만들고, [경고](../alerts/alerts-log.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
 
 이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md)용 JSON 템플릿입니다. 기본 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음, 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 스토리지를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
@@ -404,12 +404,12 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
-메트릭 경고 만들기를 자동화하려면 [메트릭 경고 템플릿 문서](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)를 참조하세요.
+메트릭 경고 만들기를 자동화하려면 [메트릭 경고 템플릿 문서](../alerts/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)를 참조하세요.
 
 
 ## <a name="add-an-availability-test"></a>가용성 테스트 추가
 
-가용성 테스트를 자동화하려면 [메트릭 경고 템플릿 문서](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert)를 참조하세요.
+가용성 테스트를 자동화하려면 [메트릭 경고 템플릿 문서](../alerts/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert)를 참조하세요.
 
 ## <a name="add-more-resources"></a>리소스 추가
 
@@ -469,6 +469,6 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 다른 자동화 문서:
 
 * [Application Insights 리소스 만들기](./create-new-resource.md#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
-* [웹 테스트 만들기](../samples/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
+* [웹 테스트 만들기](../alerts/resource-manager-alerts-metric.md#availability-test-with-metric-alert)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)
 * [릴리스 주석 만들기](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

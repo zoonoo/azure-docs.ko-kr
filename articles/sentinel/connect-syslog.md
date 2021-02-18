@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: d35a97b0008a7ce3069185dd557a60221776b0ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530521"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595458"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Syslog를 사용 하 여 Linux 기반 원본에서 데이터 수집
 
@@ -30,11 +30,11 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 >
 > - Log Analytics **는 rsyslog 또는** **syslog-기능** 디먼에서 보낸 메시지의 컬렉션을 지원 합니다. 여기서 rsyslog는 기본값입니다. Red Hat Enterprise Linux (RHEL), CentOS 및 Oracle Linux 버전 (**sy log**)의 버전 5에 있는 기본 syslog 디먼은 syslog 이벤트 수집에 대해 지원 되지 않습니다. 이 배포의 해당 버전에서 syslog 데이터를 수집하려면 rsyslog 디먼을 설치하고 sysklog를 대체하도록 구성해야 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 **Syslog** 는 Linux에 공통적인 이벤트 로깅 프로토콜입니다. **Linux 용 Log Analytics 에이전트가** VM 또는 어플라이언스에 설치 된 경우 설치 루틴은 TCP 포트 25224의 에이전트로 메시지를 전달 하도록 로컬 Syslog 데몬을 구성 합니다. 그러면 에이전트는 HTTPS를 통해 Log Analytics 작업 영역으로 메시지를 보냅니다. 그러면 **Azure 센티널 > 로그** 의 Syslog 테이블에 있는 이벤트 로그 항목으로 구문 분석 됩니다.
 
-자세한 내용은 [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/platform/data-sources-syslog.md)을 참조 하세요.
+자세한 내용은 [Azure Monitor의 Syslog 데이터 원본](../azure-monitor/agents/data-sources-syslog.md)을 참조 하세요.
 
 ## <a name="configure-syslog-collection"></a>Syslog 컬렉션 구성
 
@@ -83,7 +83,7 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 
 1. **로그** 에서 syslog 로그 데이터를 쿼리하려면 `Syslog` 쿼리 창에를 입력 합니다.
 
-1. [Azure Monitor 로그 쿼리의 함수를 사용 하 여](../azure-monitor/log-query/functions.md) Syslog 메시지를 구문 분석 하는 데 설명 된 쿼리 매개 변수를 사용할 수 있습니다. 그런 다음 쿼리를 새 Log Analytics 함수로 저장 하 고 새 데이터 형식으로 사용할 수 있습니다.
+1. [Azure Monitor 로그 쿼리의 함수를 사용 하 여](../azure-monitor/logs/functions.md) Syslog 메시지를 구문 분석 하는 데 설명 된 쿼리 매개 변수를 사용할 수 있습니다. 그런 다음 쿼리를 새 Log Analytics 함수로 저장 하 고 새 데이터 형식으로 사용할 수 있습니다.
 
 > [!NOTE]
 > **동일한 컴퓨터를 사용 하 여 일반 Syslog *및* cef 메시지 모두 전달**
@@ -92,7 +92,7 @@ Linux에 대 한 Log Analytics 에이전트 (이전의 OMS 에이전트)를 사�
 >
 >    이미 [CEF 원본에서 데이터 수집](connect-common-event-format.md)을 설정 하 고 위와 같이 Log Analytics 에이전트를 구성 했습니다.
 >
-> 1. CEF 형식으로 로그를 전송 하는 각 컴퓨터에서 Syslog 구성 파일을 편집 하 여 CEF 메시지를 보내는 데 사용 되는 기능을 제거 해야 합니다. 이러한 방식으로 CEF에서 전송 되는 기능은 Syslog로 보내지지 않습니다. 이 작업을 수행 하는 방법에 대 한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) 을 참조 하세요.
+> 1. CEF 형식으로 로그를 전송 하는 각 컴퓨터에서 Syslog 구성 파일을 편집 하 여 CEF 메시지를 보내는 데 사용 되는 기능을 제거 해야 합니다. 이러한 방식으로 CEF에서 전송 되는 기능은 Syslog로 보내지지 않습니다. 이 작업을 수행 하는 방법에 대 한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) 을 참조 하세요.
 >
 > 1. Azure 센티널의 Syslog 구성과 에이전트의 동기화를 사용 하지 않도록 설정 하려면 해당 컴퓨터에서 다음 명령을 실행 해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성 변경을 덮어쓰지 않습니다.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
