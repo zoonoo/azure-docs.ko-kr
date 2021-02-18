@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 17a2d04fd6519dfdaf3c97c4ef56e87e162c9e9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591573"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -567,7 +567,7 @@ az storage account network-rule list \
 | Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용합니다. [자세히 알아보기](../files/storage-sync-files-planning.md) |
 | Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대한 기본 파일 시스템의 초기 콘텐츠를 프로비저닝합니다. [자세히 알아보기](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Azure Import/Export      | Microsoft.ImportExport     | Azure Storage Import/Export 서비스를 사용 하 여 Azure Storage 데이터를 Azure Storage 하거나 내보낼 데이터를 가져올 수 있습니다. [자세히 알아보기](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | Microsoft.Insights         | 리소스 로그 Azure Active Directory 로그인 및 감사 로그, Microsoft Intune 로그를 포함하는 모니터링 데이터를 보안 스토리지 계정에 쓸 수 있습니다. [자세히 알아보기](../../azure-monitor/platform/roles-permissions-security.md). |
+| Azure Monitor            | Microsoft.Insights         | 리소스 로그 Azure Active Directory 로그인 및 감사 로그, Microsoft Intune 로그를 포함하는 모니터링 데이터를 보안 스토리지 계정에 쓸 수 있습니다. [자세히 알아보기](../../azure-monitor/roles-permissions-security.md). |
 | Azure 네트워킹         | Microsoft.Network          | Network Watcher 및 트래픽 분석 서비스를 비롯 하 여 네트워크 트래픽 로그를 저장 하 고 분석 합니다. [자세히 알아보기](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 지원 캐시, 원본 또는 대상 스토리지 계정을 사용하는 경우 Azure IaaS 가상 머신의 재해 복구를 위해 복제를 사용하도록 설정합니다.  [자세히 알아보기](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 833e2f7808b4b8efa210bc6a903ed30fe9ac53e0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592862"
 ---
 # <a name="query-update-management-logs"></a>업데이트 관리 로그 쿼리
 
-업데이트 관리 배포 중에 제공되는 세부 정보 외에도 Log Analytics 작업 영역에 저장된 로그를 검색할 수 있습니다. Automation 계정에서 로그를 검색하려면 **업데이트 관리**를 선택하고 배포와 연결된 Log Analytics 작업 영역을 엽니다.
+업데이트 관리 배포 중에 제공되는 세부 정보 외에도 Log Analytics 작업 영역에 저장된 로그를 검색할 수 있습니다. Automation 계정에서 로그를 검색하려면 **업데이트 관리** 를 선택하고 배포와 연결된 Log Analytics 작업 영역을 엽니다.
 
 또한 로그 쿼리를 사용자 지정하거나 다른 클라이언트에서 사용할 수도 있습니다. [Log Analytics 검색 API 설명서](https://dev.loganalytics.io/)를 참조하세요.
 
@@ -191,11 +191,11 @@ Heartbeat
 
 Windows 컴퓨터에서 다음 정보를 검토하여 에이전트가 Azure Monitor 로그에 연결되었는지 확인할 수 있습니다.
 
-1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트가 다음 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Log Analytics 서비스에 성공적으로 연결되었습니다.**
+1. 제어판에서 **Microsoft Monitoring Agent** 를 엽니다. **Azure Log Analytics** 탭에서 에이전트가 다음 메시지를 표시합니다. **Microsoft Monitoring Agent가 Microsoft Log Analytics 서비스에 성공적으로 연결되었습니다.**
 
-1. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
+1. Windows 이벤트 로그를 엽니다. **애플리케이션 및 서비스 로그\Operations Manager** 로 이동한 후, 원본 **서비스 커넥터** 에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
-에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../../azure-monitor/platform/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../../azure-monitor/learn/quick-collect-linux-computer.md)을 참조하세요.
+에이전트가 Azure Monitor 로그와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 인터넷과 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../../azure-monitor/agents/agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../../azure-monitor/vm/quick-collect-linux-computer.md)을 참조하세요.
 
 > [!NOTE]
 > Linux 시스템에서 프록시 또는 Log Analytics 게이트웨이와 통신하도록 구성되고 업데이트 관리를 사용하도록 설정하는 경우, 다음 명령을 수행하여 omiuser 그룹 읽기 권한을 파일에 부여하도록 `proxy.conf` 권한을 업데이트합니다.
@@ -203,9 +203,9 @@ Windows 컴퓨터에서 다음 정보를 검토하여 에이전트가 Azure Moni
 > `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
-평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨**으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
+평가가 수행된 후 새로 추가된 Linux 에이전트의 상태가 **업데이트됨** 으로 표시됩니다. 이 프로세스는 최대 6시간까지 걸릴 수 있습니다.
 
-Operations Manager 관리 그룹이 Azure Monitor 로그와 통신하는지 확인하려면 [Azure Monitor 로그와 Operations Manager 통합 유효성 검사](../../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)를 참조하세요.
+Operations Manager 관리 그룹이 Azure Monitor 로그와 통신하는지 확인하려면 [Azure Monitor 로그와 Operations Manager 통합 유효성 검사](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor)를 참조하세요.
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>단일 Azure VM 평가 쿼리(Windows)
 
@@ -410,5 +410,5 @@ Update
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+* Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 * 경고에 대한 도움말은 [경고 구성](configure-alerts.md)을 참조하세요.

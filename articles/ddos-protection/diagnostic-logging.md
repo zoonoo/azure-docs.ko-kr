@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591879"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
@@ -57,9 +57,9 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 7. **대상 세부 정보** 아래에서 필요한 만큼 다음 옵션을 선택 합니다.
 
-    - **스토리지 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대해 자세히 알아보려면 [리소스 로그 보관](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)을 참조 하세요.
-    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대 한 자세한 내용은 [이벤트 허브로 리소스 로그 스트리밍](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs)을 참조 하세요.
-    - **Log Analytics 보내기**: Azure Monitor 서비스에 로그를 기록 합니다. 이 옵션에 대 한 자세한 내용은 [Azure Monitor 로그에서 사용할 로그 수집](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace)을 참조 하세요.
+    - **스토리지 계정에 보관**: 데이터가 Azure Storage 계정에 기록됩니다. 이 옵션에 대해 자세히 알아보려면 [리소스 로그 보관](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)을 참조 하세요.
+    - **이벤트 허브로의 스트림**: 로그 수신기에서 Azure Event Hub를 사용하여 로그를 선택할 수 있도록 합니다. 이벤트 허브는 Splunk 또는 기타 SIEM 시스템과 통합할 수 있습니다. 이 옵션에 대 한 자세한 내용은 [이벤트 허브로 리소스 로그 스트리밍](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs)을 참조 하세요.
+    - **Log Analytics 보내기**: Azure Monitor 서비스에 로그를 기록 합니다. 이 옵션에 대 한 자세한 내용은 [Azure Monitor 로그에서 사용할 로그 수집](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace)을 참조 하세요.
 
 ### <a name="log-schemas"></a>로그 스키마
 
@@ -73,7 +73,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
+| **구독** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.  |
@@ -89,7 +89,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 흐름 로그의 경우이는 `DDoSMitigationFlowLogs` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
+| **구독** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 흐름 로그의 경우이는 `DDoSMitigationFlowLogs` 입니다. |
@@ -108,7 +108,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceId** | 공용 IP 주소의 리소스 ID입니다. |
 | **범주** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.|
 | **ResourceGroup** | 공용 IP 주소 및 가상 네트워크를 포함 하는 리소스 그룹입니다. |
-| **SubscriptionId** | DDoS 보호 계획 구독 ID입니다. |
+| **구독** | DDoS 보호 계획 구독 ID입니다. |
 | **리소스** | 공용 IP 주소의 이름입니다. |
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 완화 보고서의 경우이는 `DDoSMitigationReports` 입니다. |

@@ -4,12 +4,12 @@ description: Application Insights를 사용 하 여 온-프레미스 또는 Micr
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263932"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652006"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -109,9 +109,10 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
 위의 플랫폼별 단계 외에도 applicationInsights.config 파일을 다음과 같이 수정 **하 여 SQL 명령 컬렉션을 사용 하도록 명시적으로 옵트인 해야 합니다** .
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 위의 경우, 계측 엔진의 유효성을 검사 하는 올바른 방법은 수집 된의 SDK 버전이 ' rddp ' 인지 확인 하는 것입니다 `DependencyTelemetry` . ' rdddsd ' 또는 ' rddf '은 종속성이 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되므로 전체 SQL 쿼리가 캡처되지 않습니다.

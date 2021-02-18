@@ -1,18 +1,18 @@
 ---
 title: Azure Red Hat OpenShift 클러스터 업그레이드
 description: OpenShift 4를 실행 하는 Azure Red Hat OpenShift 클러스터를 업그레이드 하는 방법을 알아봅니다.
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 1/10/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, red hat, cli
-ms.openlocfilehash: 98ab8ff1e321929a9007c28f487d5861f6ac9930
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 2c2c8607374493aa4e1135bbef0156b9c0b66fa6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063960"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634978"
 ---
 # <a name="upgrade-an-azure-red-hat-openshift-aro-cluster"></a>Azure Red Hat OpenShift (ARO) 클러스터 업그레이드
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b04dacfdedded417e2557d1568e01bc9fa8f5745
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590131"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 응용 프로그램용 SMB (Azure NetApp Files)를 사용 하는 Windows의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -81,7 +81,7 @@ ms.locfileid: "94958951"
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오](./sap-high-availability-architecture-scenarios.md)
 * [ASCS 클러스터 구성에서 프로브 포트 추가](sap-high-availability-installation-wsfc-file-share.md)
 * [장애 조치 (Failover) 클러스터에 (A) SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Azure NetApp Files에 대한 SMB 볼륨 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Azure NetApp Files에 대한 SMB 볼륨 만들기](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 
 ## <a name="overview"></a>개요
@@ -114,9 +114,9 @@ Azure NetApp Files 사용 준비로 다음 단계를 수행 합니다.
 4. Azure NetApp Files 리소스는 위임 된 서브넷에 상주해 야 합니다. 서브넷 위임의 지침에 따라 [Azure NetApp Files 하](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) 여 위임 된 서브넷을 만듭니다.  
 
    > [!IMPORTANT]
-   > SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다. [Active Directory 연결에 대 한 요구 사항을](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)검토 합니다.  
+   > SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다. [Active Directory 연결에 대 한 요구 사항을](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)검토 합니다.  
 
-5. [Active Directory 연결 만들기](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) 에 설명 된 대로 Active Directory 연결을 만듭니다.  
+5. [Active Directory 연결 만들기](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection) 에 설명 된 대로 Active Directory 연결을 만듭니다.  
 6. Smb [볼륨 추가](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 의 지침에 따라 smb Azure NetApp Files smb 볼륨을 만듭니다.  
 7. Windows 가상 머신에 SMB 볼륨을 탑재 합니다.
 

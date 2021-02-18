@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 5659f3b2d020a97ed2460c55283bb41f2f7606cc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 16c18d8f86890baaf1882c532c19ff32ab2017da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943742"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592654"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -140,7 +140,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="trigger-an-action-group"></a>작업 그룹 트리거
 
-구독 또는 리소스 그룹 범위에 대한 예산을 만들거나 편집하는 경우 작업 그룹을 호출하도록 구성할 수 있습니다. 작업 그룹은 예산 임계값이 충족되면 다양한 작업을 수행할 수 있습니다. 작업 그룹은 현재 구독 및 리소스 그룹 범위에서만 지원됩니다. 작업 그룹에 대해 자세히 알아보려면 [Azure Portal에서 작업 그룹 만들기 및 관리](../../azure-monitor/platform/action-groups.md)를 참조하세요. 작업 그룹에서 예산 기반 자동화를 사용하는 방법에 대한 자세한 내용은 [Azure 예산으로 비용 관리](../manage/cost-management-budget-scenario.md)를 참조하세요.
+구독 또는 리소스 그룹 범위에 대한 예산을 만들거나 편집하는 경우 작업 그룹을 호출하도록 구성할 수 있습니다. 작업 그룹은 예산 임계값이 충족되면 다양한 작업을 수행할 수 있습니다. 작업 그룹은 현재 구독 및 리소스 그룹 범위에서만 지원됩니다. 작업 그룹에 대해 자세히 알아보려면 [Azure Portal에서 작업 그룹 만들기 및 관리](../../azure-monitor/alerts/action-groups.md)를 참조하세요. 작업 그룹에서 예산 기반 자동화를 사용하는 방법에 대한 자세한 내용은 [Azure 예산으로 비용 관리](../manage/cost-management-budget-scenario.md)를 참조하세요.
 
 작업 그룹을 만들거나 업데이트하려면 예산을 만들거나 편집하는 동안 **작업 그룹 관리** 를 선택합니다.
 
@@ -160,7 +160,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![다양한 작업 그룹 및 동작 유형을 사용하여 구성된 경고 조건을 보여주는 예제](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
-작업 그룹에 대한 예산 통합은 일반 경고 스키마를 사용하지 않는 작업 그룹에 대해서만 작동합니다. 스키마를 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [일반 경고 스키마를 사용하도록 설정하려면 어떻게 할까요?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)를 참조하세요.
+작업 그룹에 대한 예산 통합은 일반 경고 스키마를 사용하지 않는 작업 그룹에 대해서만 작동합니다. 스키마를 사용하지 않도록 설정하는 방법에 대한 자세한 내용은 [일반 경고 스키마를 사용하도록 설정하려면 어떻게 할까요?](../../azure-monitor/alerts/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)를 참조하세요.
 
 ## <a name="create-and-edit-budgets-with-powershell"></a>PowerShell을 사용하여 예산 만들기 및 편집
 

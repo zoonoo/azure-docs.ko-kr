@@ -8,12 +8,12 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559700"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650986"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>다중 지역 환경에서 Azure Cosmos Sdk의 가용성 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,17 @@ ms.locfileid: "100559700"
 | 여러 쓰기 지역 | 주 지역  | 주 지역  |
 
 > [!NOTE]
-> 주 지역은 [Azure Cosmos 계정 지역 목록의](distribute-data-globally.md) 첫 번째 지역을 나타냅니다.
+> 주 지역은 [Azure Cosmos 계정 지역 목록의](distribute-data-globally.md)첫 번째 지역을 나타냅니다.
+> 국가별 기본 설정으로 지정 된 값이 기존 Azure 지역과 일치 하지 않으면 해당 값은 무시 됩니다. 이러한 항목이 기존 지역과 일치 하지만 계정이 복제 되지 않으면 클라이언트는와 일치 하는 다음 기본 설정 영역 또는 주 지역에 연결 됩니다.
+
+> [!WARNING]
+> 클라이언트 구성에서 끝점 재검색 (false로 설정)을 사용 하지 않도록 설정 하면이 문서에 설명 된 모든 장애 조치 (failover) 및 가용성 논리를 사용 하지 않도록 설정 됩니다.
+> 이 구성은 각 Azure Cosmos SDK의 다음 매개 변수를 통해 액세스할 수 있습니다.
+>
+> * .NET V2 SDK의 [Connectionpolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) 속성입니다.
+> * Java V4 SDK의 endpointDiscoveryEnabled 메서드를 [CosmosClientBuilder.](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled)
+> * Python SDK의 [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) 매개 변수입니다.
+> * JS SDK의 CosmosClientOptions 매개 변수를 [검색](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) 합니다.
 
 일반적인 상황에서 SDK 클라이언트는 기본 지역 (지역 기본 설정이 설정 된 경우) 또는 주 지역 (기본 설정 되지 않은 경우)에 연결 되 고, 아래 시나리오 중 하나가 발생 하지 않는 한 작업은 해당 지역으로 제한 됩니다.
 
@@ -59,7 +69,7 @@ ms.locfileid: "100559700"
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>계정에서 하위 지역 제거
 
-Azure Cosmos 계정에서 영역을 제거 하면 해당 계정을 사용 하는 모든 SDK 클라이언트에서 백 엔드 응답 코드를 통해 지역 제거를 검색 합니다. 그러면 클라이언트는 지역 끝점을 사용할 수 없는 것으로 표시 합니다. 클라이언트는 현재 작업을 다시 시도 하 고, 모든 후속 작업은 우선 순위에 따라 다음 지역으로 영구적으로 라우팅됩니다.
+Azure Cosmos 계정에서 영역을 제거 하면 해당 계정을 사용 하는 모든 SDK 클라이언트에서 백 엔드 응답 코드를 통해 지역 제거를 검색 합니다. 그러면 클라이언트는 지역 끝점을 사용할 수 없는 것으로 표시 합니다. 클라이언트는 현재 작업을 다시 시도 하 고, 모든 후속 작업은 우선 순위에 따라 다음 지역으로 영구적으로 라우팅됩니다. 기본 설정 목록에 항목이 하나만 있거나 비어 있는 경우 해당 계정에 다른 지역이 있으면 계정 목록에서 다음 지역으로 라우팅합니다.
 
 ## <a name="adding-a-region-to-an-account"></a>계정에 지역 추가
 

@@ -3,12 +3,12 @@ title: Application Insights 배포를 설계하는 방법 - 하나의 리소스 
 description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536356"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589527"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>배포해야 하는 Application Insights 리소스의 수
 
@@ -86,7 +86,7 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 ## <a name="filter-on-build-number"></a>빌드 번호 필터링
 앱의 새 버전을 게시하면서 다른 빌드의 원격 분석을 구분하고자 할 수 있습니다.
 
-애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/platform/metrics-charts.md) 결과를 필터링할 수 있습니다.
+애플리케이션 버전 속성을 설정하여 [검색](../../azure-monitor/app/diagnostic-search.md) 및 [메트릭 탐색기](../../azure-monitor/essentials/metrics-charts.md) 결과를 필터링할 수 있습니다.
 
 애플리케이션 버전 속성은 몇 가지 다른 방법으로 설정할 수 있습니다.
 
@@ -132,7 +132,7 @@ Application Insights 리소스를 만들려면 [리소스 생성 가이드](./cr
 </PropertyGroup>
 ```
 
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전** 을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/platform/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전** 을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/essentials/metrics-charts.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성됩니다.
 

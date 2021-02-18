@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780929"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592315"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files 모니터링 데이터 참조
 
@@ -36,7 +36,7 @@ Azure Files Azure Monitor에서 다음과 같은 용량 메트릭을 제공 합�
 
 #### <a name="azure-files"></a>Azure 파일
 
-다음 표에서는 [Azure Files 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices)보여 줍니다.
+다음 표에서는 [Azure Files 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
@@ -88,4 +88,4 @@ Azure Files Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지�
 ## <a name="see-also"></a>참고 항목
 
 - Azure Storage 모니터링에 대 한 설명은 [monitoring Azure Files](storage-files-monitoring-reference.md) 를 참조 하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

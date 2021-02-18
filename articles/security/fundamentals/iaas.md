@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e7e8d51b8227acd033c95583d6e61d78a56d62a3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698787"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590276"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -40,7 +40,7 @@ VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정�
 **모범 사례**: VM 액세스 제어   
 **세부 정보**: [Azure 정책](../../governance/policy/overview.md)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](../../azure-resource-manager/management/overview.md)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
 
-조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](../../governance/management-groups/overview.md) 은 구독 위의 범위 수준을 제공 합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 사용하는 구독 유형에 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](../../governance/management-groups/overview.md) 은 구독 위의 범위 수준을 제공 합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 
 **모범 사례**: VM 설정 및 배포에서 가변성 감소   
 **세부 정보**: [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿을 사용하여 배포 선택을 강화하고 사용자 환경에서 VM을 쉽게 이해하고 목록을 만듭니다.
@@ -130,17 +130,17 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 
 Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center는 [Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)에 데이터를 저장 합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작동에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Security Center는 [Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)에 데이터를 저장 합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작동에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 
 ## <a name="monitor-vm-performance"></a>VM 성능 모니터링
 리소스 남용은 VM 프로세스가 소비해야 하는 것보다 더 많은 리소스를 소비하는 경우 문제가 될 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. CPU 또는 메모리 사용량이 높으면 DoS(서비스 거부) 공격을 나타낼 수 있기 때문에 IIS 또는 다른 웹 서버를 호스팅하는 VM에 특히 중요합니다. 문제가 발생하는 동안 VM 액세스를 적극적으로 모니터링할 뿐만 아니라 정상 작업 중에 측정된 기준 성능에 대해 사전 대처식으로 모니터링해야 합니다.
 
-[Azure Monitor](../../azure-monitor/platform/data-platform.md)를 사용하여 리소스 상태에 대한 가시성을 얻는 것이 좋습니다. Azure Monitor 기능:
+[Azure Monitor](../../azure-monitor/data-platform.md)를 사용하여 리소스 상태에 대한 가시성을 얻는 것이 좋습니다. Azure Monitor 기능:
 
-- [리소스 진단 로그 파일](../../azure-monitor/platform/platform-logs-overview.md): VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다.
-- [Azure Diagnostics 확장](../../azure-monitor/platform/diagnostics-extension-overview.md): Windows VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../../virtual-machines/extensions/diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
+- [리소스 진단 로그 파일](../../azure-monitor/essentials/platform-logs-overview.md): VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다.
+- [Azure Diagnostics 확장](../../azure-monitor/agents/diagnostics-extension-overview.md): Windows VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../../virtual-machines/extensions/diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
 
 VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인할 수 없습니다. 정상보다 더 많은 리소스를 소비하는 VM은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
 
