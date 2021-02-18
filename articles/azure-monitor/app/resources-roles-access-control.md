@@ -4,19 +4,19 @@ description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니�
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076687"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589592"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
 Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용 하 여 azure [Application Insights][start]에서 데이터에 대 한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아보기](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -54,7 +54,7 @@ Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/ro
 
 ![Azure Portal의 액세스 제어 단추 스크린샷](./media/resources-roles-access-control/0001-access-control.png)
 
-**역할 할당 추가** 선택
+**역할 할당 추가** 를 선택합니다.
 
 ![빨간색으로 강조 표시된 추가 단추를 사용하는 액세스 제어 메뉴의 스크린샷](./media/resources-roles-access-control/0002-add.png)
 
@@ -76,7 +76,7 @@ Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/ro
 | [판독기](../../role-based-access-control/built-in-roles.md#reader) |모든 것을 볼 수 있지만 변경할 수는 없습니다. |
 | [Application Insights 스냅샷 디버거](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | 사용자에게 Application Insights 스냅샷 디버거 기능을 사용할 수 있는 권한을 부여합니다. 이 역할은 소유자 또는 기여자 역할 모두에 포함되지 않습니다. |
 | Azure Service Deploy 릴리스 관리 기여자 | Azure Service Deploy를 통해 배포하는 서비스에 대한 기여자 역할입니다. |
-| [데이터 제거자](../../role-based-access-control/built-in-roles.md#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](../platform/personal-data-mgmt.md)을 참조하세요.   |
+| [데이터 제거자](../../role-based-access-control/built-in-roles.md#data-purger) | 개인 데이터 제거를 위한 특별 역할입니다. 자세한 내용은 [개인 데이터에 대한 지침](../logs/personal-data-mgmt.md)을 참조하세요.   |
 | ExpressRoute 관리자 | 기본 경로를 삭제하고 관리할 수 있습니다.|
 | [Log Analytics 기여자](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics 참가자는 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 스토리지 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.  |
 | [Log Analytics 독자](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. |

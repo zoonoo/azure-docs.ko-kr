@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스 모니터링
 description: Azure Container Instances에서 컨테이너의 CPU 및 메모리와 같은 컴퓨팅 리소스의 소비를 모니터링하는 방법입니다.
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 83a8a5ab2c8c49f4044564c2d899685914103b0b
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916089"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589292"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -146,6 +146,6 @@ Azure Container Instances에 대한 메트릭이 임계값을 초과할 때 알�
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../azure-monitor/overview.md
-[metric-alert]: ..//azure-monitor/platform/alerts-metric.md
-[monitor-dimension]: ../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics
-[supported-metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftcontainerinstancecontainergroups
+[metric-alert]: ..//azure-monitor/alerts/alerts-metric.md
+[monitor-dimension]: ../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics
+[supported-metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups

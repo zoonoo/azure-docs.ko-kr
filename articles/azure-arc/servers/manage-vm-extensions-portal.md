@@ -3,12 +3,12 @@ title: Azure Portal에서 VM 확장 사용
 description: 이 문서에서는 Azure Portal에서 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728955"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587657"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용 하도록 설정
 
@@ -33,7 +33,7 @@ Azure Portal를 통해 서버 관리 컴퓨터에 대 한 Arc를 VM 확장에 �
 
     ![Log Analytics VM 확장 설치](./media/manage-vm-extensions/mma-extension-config.png)
 
-    설치를 완료 하려면 작업 영역 ID 및 기본 키를 제공 해야 합니다. 이 정보를 찾는 방법에 익숙하지 않은 경우 [작업 영역 ID 및 키 가져오기](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)를 참조 하세요.
+    설치를 완료 하려면 작업 영역 ID 및 기본 키를 제공 해야 합니다. 이 정보를 찾는 방법에 익숙하지 않은 경우 [작업 영역 ID 및 키 가져오기](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)를 참조 하세요.
 
 4. 제공 된 필수 정보를 확인 한 후 **만들기** 를 선택 합니다. 배포에 대 한 요약이 표시 되 고 배포 상태를 검토할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586785"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -462,7 +462,7 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 
 ## <a name="v1-schema-vs-v2-schema"></a>V1 스키마 및 V2 스키마
 
-이전에는 Azure Backup 에이전트 및 Azure VM 백업용 진단 데이터가 ***V1 스키마***라는 스키마의 Azure Diagnostics 테이블로 전송되었습니다. 이후에는 새 열이 추가되어 다른 시나리오 및 워크로드를 지원하고, 진단 데이터를 ***V2 스키마***라는 새 스키마에 푸시했습니다.  
+이전에는 Azure Backup 에이전트 및 Azure VM 백업에 대 한 진단 데이터를 ***V1 schema** _ 라고 하는 스키마의 Azure 진단 테이블로 보냈습니다. 이후에는 새 열을 추가 하 여 다른 시나리오 및 워크 로드를 지원 하 고, 진단 데이터가 _ *_V2 schema_* *로 참조 되는 새 스키마에 푸시 되었습니다.  
 
 이전 버전과의 호환성을 위해 Azure Backup 에이전트 및 Azure VM 백업에 대한 진단 데이터는 현재 V1 및 V2 스키마 모두의 Azure Diagnostics 테이블로 전송됩니다(현재는 사용 중단 경로의 V1 스키마 사용). 로그 쿼리에서 SchemaVersion_s=="V1"에 대한 레코드를 필터링하여 Log Analytics에서 V1 스키마의 레코드를 식별할 수 있습니다.
 
@@ -495,4 +495,4 @@ V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 모델을 검토한 후에는 Azure Monitor 로그에서 [사용자 지정 쿼리 만들기](../azure-monitor/learn/tutorial-logs-dashboards.md)를 시작하여 사용자 고유의 대시보드를 작성할 수 있습니다.
+데이터 모델을 검토한 후에는 Azure Monitor 로그에서 [사용자 지정 쿼리 만들기](../azure-monitor/visualize/tutorial-logs-dashboards.md)를 시작하여 사용자 고유의 대시보드를 작성할 수 있습니다.

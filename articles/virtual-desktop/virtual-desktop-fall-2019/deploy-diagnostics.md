@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 05d312296b48f35ea87c5443cc587989e2d11fd5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515635"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587965"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Windows 가상 데스크톱 (클래식) 진단 도구 배포
 
@@ -27,7 +27,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -116,7 +116,7 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
     -   프로세서 정보 ( \* ) \\ 프로세서 시간
     -   세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연
 
-[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/platform/data-sources-performance-counters.md)에서 성능 카운터에 대해 자세히 알아보세요.
+[Azure Monitor의 Windows 및 Linux 성능 데이터 원본](../../azure-monitor/agents/data-sources-performance-counters.md)에서 성능 카운터에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >구성 하는 추가 카운터는 진단 도구 자체에 표시 되지 않습니다. 진단 도구에 표시 되도록 하려면 도구의 구성 파일을 구성 해야 합니다. 고급 관리를 사용 하 여이 작업을 수행 하는 방법에 대 한 지침은 GitHub의 이후 날짜로 제공 됩니다.
@@ -199,7 +199,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
 진단 도구를 사용자에 게 제공 하기 전에 다음 권한이 있는지 확인 합니다.
 
-- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](../../azure-monitor/platform/roles-permissions-security.md)을 참조 하세요.
+- 사용자는 log analytics에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 Azure Monitor를 사용 하 여 [역할, 권한 및 보안 시작](../../azure-monitor/roles-permissions-security.md)을 참조 하세요.
 -  또한 사용자에 게는 Windows 가상 데스크톱 테 넌 트 (RDS Reader 역할)에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [Windows 가상 데스크톱의 위임 된 액세스](delegated-access-virtual-desktop-2019.md)를 참조 하세요.
 
 또한 사용자에 게 다음 정보를 제공 해야 합니다.
