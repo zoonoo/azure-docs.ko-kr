@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920446"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634171"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Azure Defender의 경고 표시 안 함
 
@@ -60,9 +60,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 
 1. Security Center의 보안 경고 페이지에서 다음을 수행합니다.
 
-    - 더 이상 표시하지 않을 특정 경고를 찾고, 경고의 줄임표 메뉴(...)에서 **중복된 경고 제거 규칙 만들기** 를 선택합니다.
-
-        [![**중복된 경고 제거 규칙 만들기** 옵션](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - 더 이상 표시 하지 않을 특정 경고를 선택 하 고 세부 정보 창에서 **작업 수행** 을 선택 합니다.
 
     - 또는 페이지 맨 위에 있는 **중복된 경고 제거 규칙** 링크를 선택하고, 중복된 경고 제거 규칙 페이지에서 **새 중복된 경고 제거 규칙 만들기** 를 선택합니다.
 
@@ -85,7 +83,7 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 1. 규칙을 저장합니다. 
 
 
-## <a name="edit-a-suppression-rules"></a>비 표시 규칙 편집
+## <a name="edit-a-suppression-rule"></a>비 표시 규칙 편집
 
 만든 규칙을 편집 하려면 비 표시 규칙 페이지를 사용 합니다.
 
@@ -106,20 +104,6 @@ Azure Portal에서 직접 규칙을 만들려면 다음을 수행합니다.
 1. 단일 규칙을 삭제하려면 규칙에 대한 줄임표 메뉴(...)를 열고 **삭제** 를 선택합니다.
 1. 여러 규칙을 삭제하려면 삭제할 규칙의 확인란을 선택하고 **삭제** 를 선택합니다.
     ![하나 이상의 중복된 경고 제거 규칙 삭제](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>표시 되지 않은 경고 보기
-
-활성화된 중복된 경고 제거 규칙과 일치하는 경고는 계속 생성되지만 해당 상태는 **해제됨** 으로 설정됩니다. Azure Portal에서 상태를 보거나 Security Center 보안 경고에 액세스할 수 있습니다. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)은 제거된 경고에 대한 인시던트를 만들지 않습니다. 다른 SIEM의 경우 경고의 상태('해제됨')를 사용하여 제거된 경고를 필터링할 수 있습니다.
-
-Security Center의 필터를 사용하여 규칙에 의해 해제된 경고를 볼 수 있습니다.
-
-* Security Center의 보안 경고 페이지에서 필터 옵션을 열고 **해제됨** 을 선택합니다.  
-
-   [![해제된 경고 보기](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>API를 사용 하 여 비 표시 규칙 만들기 및 관리
 
