@@ -4,12 +4,12 @@ description: 활성 권장 사항에 대 한 정기 요약 받기
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: sagupt
-ms.openlocfilehash: e446fca11e029e28e44ada884efd071f3142514c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c82abf3c8bea07941f860b94fcfe92954fb7641
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518082"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579827"
 ---
 # <a name="configure-periodic-summary-for-recommendations"></a>권장 구성에 대 한 정기 요약 구성
 
@@ -21,7 +21,7 @@ Advisor **권장 다이제스트** 는 다양 한 범주에 걸쳐 활성 권장
 **권장 사항 다이제스트** 생성 환경을 통해 요약을 구성할 수 있습니다. 구성에 대 한 다음 매개 변수를 선택할 수 있습니다.
 1. 범주: 비용, 고가용성, 성능 및 운영 등의 권장 범주가 있습니다. 보안 권장 사항에 대 한 기능을 아직 사용할 수 없습니다.
 2. 다이제스트 빈도: 요약 알림의 빈도는 주별, 격주, 매월 일 수 있습니다.
-3. 작업 그룹: 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조 하세요.
+3. 작업 그룹: 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md)를 참조 하세요.
 4. 다이제스트 언어
 5. 권장 사항 다이제스트 이름: 사용자에 게 친숙 한 문자열을 사용 하 여 다이제스트를 보다 효율적으로 추적 하 고 모니터링할 수 있습니다.
 
@@ -44,11 +44,11 @@ Advisor **권장 다이제스트** 는 다양 한 범주에 걸쳐 활성 권장
 
    ![권장 사항 다이제스트 입력 조건 제공](./media/digest-2.png)
 
-* **5 단계:** **작업 그룹** 섹션에서 다이제스트의 **작업 그룹** 을 선택 합니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md) 를 참조 하세요.
+* **5 단계:** **작업 그룹** 섹션에서 다이제스트의 **작업 그룹** 을 선택 합니다. 자세한 내용은 [작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md) 를 참조 하세요.
 
    ![권장 사항 다이제스트 입력 작업 그룹 제공](./media/digest-3.png)
 
-* **6 단계:** **다이제스트 세부 정보**에 대 한이 마지막 섹션에서는 권장 사항 다이제스트에 이름 및 상태를 할당할 수 있습니다. **권장 사항 다이제스트 만들기** 를 눌러 설정을 완료 합니다.
+* **6 단계:** **다이제스트 세부 정보** 에 대 한이 마지막 섹션에서는 권장 사항 다이제스트에 이름 및 상태를 할당할 수 있습니다. **권장 사항 다이제스트 만들기** 를 눌러 설정을 완료 합니다.
    ![권장 사항 다이제스트 만들기 완료](./media/digest-4.png)
 
 ## <a name="next-steps"></a>다음 단계

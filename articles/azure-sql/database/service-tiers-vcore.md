@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735514"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634212"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ VCore 모델의 compute 계층 옵션에는 프로 비전 및 서버를 사용 �
 
 ## <a name="hardware-generations"></a>하드웨어 생성
 
-VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈, Fsv2 시리즈 및 DC 시리즈가 포함 됩니다. 하드웨어 생성은 일반적으로 계산 및 메모리 제한과 작업의 성능에 영향을 주는 기타 특성을 정의 합니다.
+VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈, Fsv2 시리즈 및 DC 시리즈가 포함 됩니다. 하드웨어 세대는 일반적으로 컴퓨팅 및 메모리 제한과 워크로드 성능에 영향을 주는 기타 특성을 정의합니다.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -204,7 +204,7 @@ az sql mi update -g mygroup -n myinstance --family Gen5
 
 Gen4 하드웨어가 [단계적으로 진행](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) 되 고 있으며 새 배포에 더 이상 사용할 수 없습니다. 모든 새 데이터베이스는 Gen5 하드웨어에 배포 되어야 합니다.
 
-Gen5는 전 세계 대부분의 지역에서 사용할 수 있습니다.
+Gen5는 전 세계 모든 공용 지역에서 사용할 수 있습니다.
 
 #### <a name="fsv2-series"></a>Fsv2 시리즈
 

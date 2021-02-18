@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683121"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596468"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>SQL API 계정으로 Azure Cosmos DB Java SDK v4를 사용하는 경우 발생하는 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Azure Cosmos DB Java SDK v4는 Azure Cosmos DB SQL API에 액세스하기 위한
 * 솔루션을 찾지 못한 경우 이 문서의 나머지 부분을 읽어봅니다. 그런 후, [GitHub 문제](https://github.com/Azure/azure-sdk-for-java/issues)를 제출합니다. GitHub 문제에 태그를 추가하는 옵션이 있는 경우 *cosmos:v4-item* 태그를 추가합니다.
 
 ### <a name="retry-logic"></a>다시 시도 논리 <a id="retry-logics"></a>
-SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한 작업을 다시 시도 합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
+IO 실패 시 Cosmos DB SDK는 SDK에서 다시 시도할 수 있는 경우 실패한 작업을 다시 시도합니다. 모든 오류에 대 한 재시도를 수행 하는 것이 좋은 방법 이지만 구체적으로 처리 하 고 다시 시도 하는 것이 반드시 필요 합니다. 재시도 논리가 지속적으로 개선 되므로 최신 SDK를 사용 하는 것이 좋습니다.
 
 1. 읽기 및 쿼리 IO 오류는 SDK에서 최종 사용자에 게 표시 하지 않고 다시 시도 됩니다.
 2. 쓰기 (Create, Upsert, Replace, Delete)는 "not" idempotent 이므로 SDK는 항상 실패 한 쓰기 작업을 무조건 다시 시도할 수 없습니다. 사용자의 응용 프로그램 논리에서 오류를 처리 하 고 다시 시도 해야 합니다.
@@ -54,7 +54,7 @@ SDK에서 재시도를 가능한 경우 IO 오류의 Cosmos DB SDK가 실패 한
 최상의 성능을 얻으려면:
 * 앱이 Azure Cosmos DB 계정과 동일한 지역에서 실행되고 있는지 확인합니다. 
 * 앱이 실행되는 호스트에서 CPU 사용량을 확인합니다. CPU 사용량이 50% 이상인 경우 더 높은 구성을 사용해서 호스트에서 앱을 실행합니다. 또는 더 많은 컴퓨터에서 부하를 분산할 수 있습니다.
-    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](../azure-monitor/insights/container-insights-analyze.md)할 수 있습니다.
+    * Azure Kubernetes Service에서 애플리케이션이 실행 중인 경우 [Azure Monitor를 사용하여 CPU 사용률을 모니터링](../azure-monitor/containers/container-insights-analyze.md)할 수 있습니다.
 
 #### <a name="connection-throttling"></a>연결 제한
 연결 제한은 [호스트 컴퓨터의 연결 제한] 또는 [Azure SNAT(PAT) 포트 고갈] 중 하나로 인해 발생할 수 있습니다.

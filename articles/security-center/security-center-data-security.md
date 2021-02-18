@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0c21c916d152188031212b47704dfb41d3f64a82
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339478"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596273"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 
@@ -72,7 +72,7 @@ Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에�
 |                                             |                |
 
 > [!NOTE]
-> **Azure Defender for Storage**는 관련 Azure 리소스의 위치에 따라 지역적으로 아티팩트를 저장합니다. [Azure Defender for Storage 소개](defender-for-storage-introduction.md)에서 자세히 알아보세요.
+> **Azure Defender for Storage** 는 관련 Azure 리소스의 위치에 따라 지역적으로 아티팩트를 저장합니다. [Azure Defender for Storage 소개](defender-for-storage-introduction.md)에서 자세히 알아보세요.
 
 
 ## <a name="data-consumption"></a>데이터 사용
@@ -82,8 +82,8 @@ Azure Defender를 사용하지 않는 경우 보안 정책의 가상 머신에�
 
 | STREAM                                                                                | 데이터 형식                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure 활동 로그](../azure-monitor/platform/activity-log.md)                       | 모든 보안 경고, 승인된 Security Center [Just-In-Time](security-center-just-in-time.md) 액세스 요청 및 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에서 생성된 모든 경고.|
-| [Azure Monitor 로그](../azure-monitor/platform/data-platform.md)                      | 모든 보안 경고.                                                                                                                                                                                                |
+| [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)                       | 모든 보안 경고, 승인된 Security Center [Just-In-Time](security-center-just-in-time.md) 액세스 요청 및 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에서 생성된 모든 경고.|
+| [Azure Monitor 로그](../azure-monitor/data-platform.md)                      | 모든 보안 경고.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | 보안 경고, 보안 권장 사항, 취약성 평가 결과, 보안 점수 정보, 규정 준수 확인 상태 등.                                                                       |
 | [Azure Security Center REST API](/rest/api/securitycenter/) | 보안 경고, 보안 권장 사항 등.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |

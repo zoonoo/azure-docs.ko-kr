@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: cbb962cd6ddde3d0ee8280c0a548067446a58d55
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: f59c18aecf577bc7f7d0b1360dd36504305af893
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548576"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633192"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -622,7 +622,7 @@ Vm을 보호 한 자격 증명 모음에서 지역 간 복원이 사용 하도�
 3. 템플릿을 배포 하 여 [여기](../azure-resource-manager/templates/deploy-powershell.md)에 설명 된 대로 새 VM을 만듭니다.
 
     ```powershell
-    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI -storageAccountType Standard_GRS
+    New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobFullURI
     ```
 
 ### <a name="create-a-vm-using-the-config-file"></a>구성 파일을 사용 하 여 VM 만들기

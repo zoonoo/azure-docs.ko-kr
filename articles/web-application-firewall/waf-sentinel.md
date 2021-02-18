@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 10/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 6e1d9b8a53eaf69c2294ab42dc0718863e6c1837
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d905dd1e6acab8f9f6d3885c882dd9c32133cb4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804940"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596437"
 ---
 # <a name="using-azure-sentinel-with-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽과 함께 Azure 센티널 사용
 
@@ -82,4 +82,4 @@ WAF 통합 문서는 모든 Azure Front 도어, Application Gateway 및 CDN WAFs
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 센티널에 대해 자세히 알아보기](../sentinel/overview.md)
-- [Azure Monitor 통합 문서에 대 한 자세한 정보](../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor 통합 문서에 대 한 자세한 정보](../azure-monitor/visualize/workbooks-overview.md)

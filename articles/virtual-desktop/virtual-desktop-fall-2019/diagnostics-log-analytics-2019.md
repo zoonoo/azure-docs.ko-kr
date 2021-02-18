@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfe8026f099c341b68a1aa1fc5e3fac425e29403
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997679"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578906"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱의 진단 기능 Log Analytics 사용 (클래식)
 
@@ -32,9 +32,9 @@ Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제�
 
 ## <a name="before-you-get-started"></a>시작하기 전에
 
-진단 기능과 함께 Log Analytics를 사용 하려면 먼저 [작업 영역을 만들어야](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace)합니다.
+진단 기능과 함께 Log Analytics를 사용 하려면 먼저 [작업 영역을 만들어야](../../azure-monitor/vm/quick-collect-windows-computer.md#create-a-workspace)합니다.
 
-작업 영역을 만든 후에는 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) 의 지침에 따라 다음 정보를 가져옵니다.
+작업 영역을 만든 후에는 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) 의 지침에 따라 다음 정보를 가져옵니다.
 
 - 작업 영역 ID
 - 작업 영역의 기본 키
