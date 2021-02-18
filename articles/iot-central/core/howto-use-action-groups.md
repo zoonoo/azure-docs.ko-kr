@@ -8,18 +8,18 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a723023bf8614b837ba9783bae987403921c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157690"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585478"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>하나 이상의 규칙에서 실행할 여러 작업 그룹화
 
 *이 문서는 빌더 및 관리자에 게 적용 됩니다.*
 
-Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규칙을 만듭니다. 규칙은 장치 원격 분석 또는 이벤트를 기반으로 합니다. 예를 들어 장치의 온도가 임계값을 초과 하는 경우 운영자에 게 알릴 수 있습니다. 이 문서에서는 [Azure Monitor](../../azure-monitor/overview.md) *작업 그룹* 을 사용 하 여 여러 작업을 IoT Central 규칙에 연결 하는 방법을 설명 합니다. 여러 규칙에 작업 그룹을 연결할 수 있습니다. [작업 그룹](../../azure-monitor/platform/action-groups.md) 은 Azure 구독의 소유자가 정의한 알림 기본 설정 모음입니다.
+Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규칙을 만듭니다. 규칙은 장치 원격 분석 또는 이벤트를 기반으로 합니다. 예를 들어 장치의 온도가 임계값을 초과 하는 경우 운영자에 게 알릴 수 있습니다. 이 문서에서는 [Azure Monitor](../../azure-monitor/overview.md) *작업 그룹* 을 사용 하 여 여러 작업을 IoT Central 규칙에 연결 하는 방법을 설명 합니다. 여러 규칙에 작업 그룹을 연결할 수 있습니다. [작업 그룹](../../azure-monitor/alerts/action-groups.md) 은 Azure 구독의 소유자가 정의한 알림 기본 설정 모음입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,7 +28,7 @@ Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규�
 
 ## <a name="create-action-groups"></a>작업 그룹 만들기
 
-Azure Portal 또는 [Azure Resource Manager 템플릿을](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)사용 하 여 [작업 그룹을 만들고 관리할](../../azure-monitor/platform/action-groups.md) 수 있습니다.
+Azure Portal 또는 [Azure Resource Manager 템플릿을](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md)사용 하 여 [작업 그룹을 만들고 관리할](../../azure-monitor/alerts/action-groups.md) 수 있습니다.
 
 작업 그룹은 다음을 수행할 수 있습니다.
 
@@ -43,7 +43,7 @@ IoT Central 규칙에서 작업 그룹을 사용 하려면 작업 그룹이 IoT 
 
 ## <a name="use-an-action-group"></a>작업 그룹 사용
 
-IoT Central 응용 프로그램에서 작업 그룹을 사용 하려면 먼저 규칙을 만듭니다. 규칙에 작업을 추가 하는 경우 **Azure Monitor 작업 그룹**을 선택 합니다.
+IoT Central 응용 프로그램에서 작업 그룹을 사용 하려면 먼저 규칙을 만듭니다. 규칙에 작업을 추가 하는 경우 **Azure Monitor 작업 그룹** 을 선택 합니다.
 
 ![작업 선택](media/howto-use-action-groups/chooseaction.png)
 
@@ -51,7 +51,7 @@ Azure 구독에서 작업 그룹을 선택 합니다.
 
 ![작업 그룹 선택](media/howto-use-action-groups/chooseactiongroup.png)
 
-**저장**을 선택합니다. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
+**저장** 을 선택합니다. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
 
 ![작업 그룹 저장 됨](media/howto-use-action-groups/savedactiongroup.png)
 
@@ -59,7 +59,7 @@ Azure 구독에서 작업 그룹을 선택 합니다.
 
 | 작업 유형 | 출력 형식 |
 | ----------- | -------------- |
-| 메일       | 표준 IoT Central 전자 메일 템플릿 |
+| Email       | 표준 IoT Central 전자 메일 템플릿 |
 | SMS         | Azure IoT Central 경고: $ {applicationName}-"$ {ruleName}"이 (가) $ {triggerDate} $ {Triggerdate} (으)로 "$ {장치 이름}"에서 트리거 되었습니다. |
 | 음성       | Azure. $. T 중앙 경고: $ {applicationName}의 $ {triggerDate} $ {Triggerdate}에서 장치 "$ {ruleName}"에 대 한 규칙 "$ {}"이 (가) 트리거 되었습니다. |
 | 웹후크     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[regular webhook 페이로드](howto-create-webhooks.md#payload)}} |

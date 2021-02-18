@@ -3,16 +3,16 @@ title: Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그
 description: Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: 마이그레이션, aro, openshift, red hat
-ms.openlocfilehash: f9bfc924581d5dbe33c7c2683a0f6083cb2abc23
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071038"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653281"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
 
@@ -100,13 +100,13 @@ Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원 합
 
 Azure Red Hat OpenShift 4는 소스 코드에서 이미지를 빌드하고, 배포 하 고, 해당 수명 주기를 관리할 수 있습니다. 이를 사용 하도록 설정 하기 위해 Azure Red Hat OpenShift는 Azure Red Hat OpenShift 환경에 배포 하 여 이미지를 로컬로 관리할 수 있는 4 개의 [내부 통합 컨테이너 이미지 레지스트리](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) 를 제공 합니다.
 
-[Azure Container Registry](../container-registry/index.yml), [red hat](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
+[Azure Container Registry](../container-registry/index.yml), [red hat](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
 
 ### <a name="monitoring"></a>모니터링
 
 Azure Red Hat OpenShift에는 프로메테우스 오픈 소스 프로젝트 및 더 광범위 한 에코 시스템을 기반으로 하는 미리 구성 되 고 사전 설치 된 자동 업데이트 모니터링 스택이 포함 됩니다. 클러스터 구성 요소에 대 한 모니터링을 제공 하며, 발생 하는 문제와 Grafana 대시보드의 집합에 대해 클러스터 관리자에 게 즉시 알리기 위한 경고 집합을 포함 합니다. 클러스터 모니터링 스택은 Azure Red Hat OpenShift 클러스터 모니터링에만 지원 됩니다. 자세한 내용은 [Azure Red Hat OpenShift에 대 한 클러스터 모니터링](https://docs.openshift.com/container-platform/4.6/monitoring/understanding-the-monitoring-stack.html)을 참조 하세요.
 
-[Azure Red Hat openshift 3.11 용 컨테이너에 Azure Monitor](../azure-monitor/insights/container-insights-azure-redhat-setup.md)를 사용한 경우 [Azure Red hat openshift 4 클러스터](../azure-monitor/insights/container-insights-azure-redhat4-setup.md) 의 컨테이너에 대해 Azure Monitor을 사용 하도록 설정 하 고 동일한 Log Analytics 작업 영역을 계속 사용할 수도 있습니다.
+[Azure Red Hat openshift 3.11 용 컨테이너에 Azure Monitor](../azure-monitor/containers/container-insights-azure-redhat-setup.md)를 사용한 경우 [Azure Red hat openshift 4 클러스터](../azure-monitor/containers/container-insights-azure-redhat4-setup.md) 의 컨테이너에 대해 Azure Monitor을 사용 하도록 설정 하 고 동일한 Log Analytics 작업 영역을 계속 사용할 수도 있습니다.
 
 ## <a name="move-your-dns-or-load-balancer-configuration-to-the-new-cluster"></a>DNS 또는 부하 분산 장치 구성을 새 클러스터로 이동
 

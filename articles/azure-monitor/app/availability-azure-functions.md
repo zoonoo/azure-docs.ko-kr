@@ -3,12 +3,12 @@ title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 �
 description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945654"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589942"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -30,7 +30,7 @@ ms.locfileid: "91945654"
 
             ![기존 Application Insights 리소스 선택](media/availability-azure-functions/app-insights-resource.png)
 
-        - **검토 + 만들기**를 선택합니다.
+        - **검토 + 만들기** 를 선택합니다.
 - 타이머 트리거 함수에 대해 아직 Application Insights 리소스가 생성 되지 않은 경우:
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
@@ -125,7 +125,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-파일 보기 오른쪽에서 **추가**를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **함수 proj** 를 호출 합니다.
+파일 보기 오른쪽에서 **추가** 를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **함수 proj** 를 호출 합니다.
 
 ```C#
 <Project Sdk="Microsoft.NET.Sdk">
@@ -142,7 +142,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 >[!div class="mx-imgBorder"]
 >![오른쪽 select에서을 추가 합니다. File 함수 이름을 proj로 합니다.](media/availability-azure-functions/addfile.png)
 
-파일 보기 오른쪽에서 **추가**를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **runAvailabilityTest** 를 호출 합니다.
+파일 보기 오른쪽에서 **추가** 를 선택 합니다. 다음 구성을 사용 하 여 새 파일 **runAvailabilityTest** 를 호출 합니다.
 
 ```C#
 public async static Task RunAvailbiltyTestAsync(ILogger log)
@@ -175,7 +175,7 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ## <a name="query-in-logs-analytics"></a>로그에서 쿼리 (분석)
 
-로그 (분석)를 사용 하 여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대 한 자세한 내용을 보려면 [로그 쿼리 개요](../log-query/log-query-overview.md)를 참조 하세요.
+로그 (분석)를 사용 하 여 가용성 결과, 종속성 등을 볼 수 있습니다. 로그에 대 한 자세한 내용을 보려면 [로그 쿼리 개요](../logs/log-query-overview.md)를 참조 하세요.
 
 >[!div class="mx-imgBorder"]
 >![가용성 결과](media/availability-azure-functions/availabilityresults.png)

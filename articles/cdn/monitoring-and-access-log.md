@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501563"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575451"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Azure CDN에 대 한 실시간 모니터링, 메트릭 및 액세스 로그
 Microsoft에서 Azure CDN 하 여 다음과 같은 방법으로 문제를 해결 하 고 문제를 해결 하 고 디버그할 수 있도록 리소스를 모니터링할 수 있습니다. 
@@ -75,7 +75,7 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
 
 ### <a name="enable-diagnostic-logs-in-a-storage-account"></a>저장소 계정에서 진단 로그 사용
 
-1. Azure PowerShell에 로그인 합니다.
+1. Azure PowerShell에 로그인합니다.
 
     ```azurepowershell-interactive
     Connect-AzAccount 
@@ -101,7 +101,7 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
 
 ### <a name="enable-diagnostics-logs-for-log-analytics-workspace"></a>Log Analytics 작업 영역에 대 한 진단 로그 사용
 
-1. Azure PowerShell에 로그인 합니다.
+1. Azure PowerShell에 로그인합니다.
 
     ```azurepowershell-interactive
     Connect-AzAccount 
@@ -125,7 +125,7 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
     ```
 ### <a name="enable-diagnostics-logs-for-event-hub-namespace"></a>이벤트 허브 네임 스페이스에 대 한 진단 로그 사용
 
-1. Azure PowerShell에 로그인 합니다.
+1. Azure PowerShell에 로그인합니다.
 
     ```azurepowershell-interactive
     Connect-AzAccount 
@@ -215,7 +215,7 @@ Microsoft의 Azure CDN는 Azure Monitor와 통합 되어 문제를 추적 하 �
 
 Microsoft 측정값에서 Azure CDN 하 고 60 초 간격으로 메트릭을 보냅니다. 메트릭은 포털에 표시 되는 데 최대 3 분 정도 걸릴 수 있습니다. 
 
-자세한 내용은 [Azure Monitor 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조하세요.
+자세한 내용은 [Azure Monitor 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조하세요.
 
 **Microsoft에서 Azure CDN 지원 되는 메트릭**
 
@@ -226,7 +226,7 @@ Microsoft 측정값에서 Azure CDN 하 고 60 초 간격으로 메트릭을 보
 | ResponseSize | CDN에 지에서 클라이언트로 보낸 응답으로 보낸 바이트 수입니다. |엔드포인트 </br> 클라이언트 국가. </br> 클라이언트 영역. </br> HTTP 상태입니다. </br> HTTP 상태 그룹입니다. |
 | TotalLatency | Cdn **에서 클라이언트에 마지막 응답 바이트가 전송 될 때까지** cdn에서 받은 총 시간입니다. |엔드포인트 </br> 클라이언트 국가. </br> 클라이언트 영역. </br> HTTP 상태입니다. </br> HTTP 상태 그룹입니다. |
 
-**_Bytes Hit r = (edge에서 송신 원본에서 송신)/에 지에서 송신_*
+***Bytes Hit r = (edge에서 송신 원본에서 송신)/에 지에서 송신**
 
 바이트 적중률 계산에서 제외 되는 시나리오:
 
@@ -259,13 +259,13 @@ Microsoft 측정값에서 Azure CDN 하 고 60 초 간격으로 메트릭을 보
 
 ### <a name="alerts"></a>경고
 
-경고 **모니터링** 을 선택 하 여 Microsoft CDN에 대 한 경고를 설정할 수 있습니다  >>  **Alerts**.
+경고 **모니터링** 을 선택 하 여 Microsoft CDN에 대 한 경고를 설정할 수 있습니다  >>  .
 
 메트릭 섹션에 나열 된 메트릭에 대 한 **새 경고 규칙** 을 선택 합니다.
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="CDN 끝점에 대 한 경고를 구성 합니다." border="true":::
 
-경고는 Azure Monitor 기반으로 청구 됩니다. 경고에 대 한 자세한 내용은 [Azure Monitor 경고](../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
+경고는 Azure Monitor 기반으로 청구 됩니다. 경고에 대 한 자세한 내용은 [Azure Monitor 경고](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요.
 
 ### <a name="additional-metrics"></a>추가 메트릭
 추가 비용을 위해 Azure Log Analytics 및 원시 로그를 사용 하 여 추가 메트릭을 사용할 수 있습니다.
@@ -299,4 +299,4 @@ Azure CDN 및 이 문서에 언급된 다른 Azure 서비스에 대한 자세한
 
 * [Azure Monitor](../azure-monitor/overview.md)에 대해 자세히 알아봅니다.
 
-* [Azure Monitor의 Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)를 구성합니다.
+* [Azure Monitor의 Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)를 구성합니다.

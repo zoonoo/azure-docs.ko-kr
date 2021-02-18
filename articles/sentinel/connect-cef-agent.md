@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747309"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585374"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
 
@@ -70,7 +70,7 @@ ms.locfileid: "98747309"
 >
 > 이 로그 전달자 컴퓨터를 사용 하 여 CEF 뿐만 아니라 [syslog 메시지](connect-syslog.md) 를 전달 하려는 경우 Syslog 및 CommonSecurityLog 테이블에 대 한 이벤트 중복을 방지 하기 위해 다음을 수행 합니다.
 >
-> 1. CEF 형식의 전달자에 게 로그를 전송 하는 각 원본 컴퓨터에서 Syslog 구성 파일을 편집 하 여 CEF 메시지를 보내는 데 사용 되는 기능을 제거 해야 합니다. 이러한 방식으로 CEF에서 전송 되는 기능은 Syslog로 보내지지 않습니다. 이 작업을 수행 하는 방법에 대 한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) 을 참조 하세요.
+> 1. CEF 형식의 전달자에 게 로그를 전송 하는 각 원본 컴퓨터에서 Syslog 구성 파일을 편집 하 여 CEF 메시지를 보내는 데 사용 되는 기능을 제거 해야 합니다. 이러한 방식으로 CEF에서 전송 되는 기능은 Syslog로 보내지지 않습니다. 이 작업을 수행 하는 방법에 대 한 자세한 지침은 [Linux 에이전트에서 Syslog 구성](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) 을 참조 하세요.
 >
 > 1. Azure 센티널의 Syslog 구성과 에이전트의 동기화를 사용 하지 않도록 설정 하려면 해당 컴퓨터에서 다음 명령을 실행 해야 합니다. 이렇게 하면 이전 단계에서 변경한 구성 변경을 덮어쓰지 않습니다.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

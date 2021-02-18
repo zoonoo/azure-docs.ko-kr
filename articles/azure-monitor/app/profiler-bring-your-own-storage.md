@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202541"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589669"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Application Insights Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)를 구성 합니다.
 
@@ -21,16 +21,16 @@ Application Insights Profiler 또는 스냅숏 디버거를 사용 하는 경우
 사용자 고유의 저장소를 사용 하 여 이러한 아티팩트는 사용자가 제어 하는 저장소 계정에 업로드 됩니다. 즉, rest 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 제어 합니다. 그러나 해당 스토리지 계정과 관련된 비용은 사용자가 부담합니다.
 
 > [!NOTE]
-> 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](../platform/private-link-security.md)
+> 개인 링크를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 개인 링크에 대 한 자세한 내용은 [설명서를 참조 하십시오.](../logs/private-link-security.md)
 >
-> Customer-Managed 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 Customer-Managed 키에 대 한 자세한 내용은 [설명서를 참조](../platform/customer-managed-keys.md)하십시오.
+> Customer-Managed 키를 사용 하도록 설정 하는 경우 사용자 고유의 저장소를 요구 해야 합니다. Application Insights에 대 한 Customer-Managed 키에 대 한 자세한 내용은 [설명서를 참조](../logs/customer-managed-keys.md)하십시오.
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>내 저장소 계정에 액세스 하는 방법
 1. Virtual Machines 또는 App Service에서 실행 되는 에이전트는 아티팩트 (프로필, 스냅숏 및 기호)를 계정의 blob 컨테이너에 업로드 합니다. 이 프로세스에는 저장소 계정에서 새 blob에 대 한 SAS (공유 액세스 서명) 토큰을 가져오기 위해 Application Insights Profiler 또는 스냅숏 디버거 서비스에 연결 하는 과정이 포함 됩니다.
 1. Application Insights Profiler 또는 스냅숏 디버거 서비스는 들어오는 blob를 분석 하 고 분석 결과 및 로그 파일을 blob 저장소에 다시 씁니다. 사용 가능한 계산 용량에 따라 업로드 후 언제 든 지이 프로세스가 발생할 수 있습니다.
 1. 프로파일러 추적 또는 스냅숏 디버거 분석을 볼 때이 서비스는 blob 저장소에서 분석 결과를 인출 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Application Insights 리소스와 동일한 위치에 저장소 계정을 만들어야 합니다. 예: Application Insights 리소스가 미국 서 부 2에 있는 경우 저장소 계정은 미국 서 부에도 있어야 합니다. 
 * Access Control (IAM) UI를 통해 저장소 계정의 AAD 응용 프로그램 "진단 서비스의 신뢰할 수 있는 저장소 액세스"에 "저장소 Blob 데이터 참가자" 역할을 부여 합니다.
 * 개인 링크를 사용 하도록 설정한 경우 Virtual Network에서 신뢰할 수 있는 Microsoft 서비스에 대 한 연결을 허용 하도록 추가 설정을 구성 합니다. 
@@ -198,7 +198,7 @@ _![ 그림 1.1](media/profiler-bring-your-own-storage/figure-11.png)_
 
 1. PowerShell 콘솔에서 메시지가 표시 되 면 다음 매개 변수를 제공 합니다.
     
-    |           매개 변수           |                                Description                               |
+    |           매개 변수           |                                설명                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | application_insights_name     | BYOS를 사용 하도록 설정 하는 Application Insights 리소스의 이름입니다.            |
     | storage_account_name          | BYOS로 사용할 저장소 계정 리소스의 이름입니다. |

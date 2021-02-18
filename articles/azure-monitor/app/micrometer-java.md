@@ -6,16 +6,18 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 11/01/2018
-ms.openlocfilehash: df3ed451776f30e8b7c13b95618f1a7f0c7688db
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8dba7280f6abd6026fabdde500dc76b73129d557
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937546"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589756"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Azure 애플리케이션 Insights Java SDK에서 마이크로 측정기를 사용 하는 방법 (권장 하지 않음)
 
 > [!IMPORTANT]
+> 이 문서에서 설명 하는 방법은 더 이상 권장 되지 않습니다.
+> 
 > Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. Application Insights Java 3.0 에이전트를 사용 하 여 마이크로 측정기 원격 분석이 자동으로 수집 됩니다. [Application Insights java 3.0 agent](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
 > [!NOTE]

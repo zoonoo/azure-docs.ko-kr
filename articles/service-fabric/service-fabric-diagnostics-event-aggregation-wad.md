@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076136"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588371"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-e
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>진단 확장을 사용하여 클러스터 만들기
 Resource Manager를 사용하여 클러스터를 만들려면 진단 구성 JSON을 전체 Resource Manager 템플릿에 추가해야 합니다. Resource Manager 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 Resource Manager 템플릿이 제공됩니다. Azure 샘플 갤러리의 [진단 Resource Manager 템플릿 샘플이 포함된 5노드 클러스터](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 샘플을 볼 수 있습니다.
 
-Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.json 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 이전 링크에 제공된 **Azure에 배포** 버튼을 선택합니다.
+Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.json 파일을 열고 **IaaSDiagnostics** 를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 이전 링크에 제공된 **Azure에 배포** 버튼을 선택합니다.
 
 또는 리소스 관리자 샘플을 다운로드하여 변경한 후 Azure PowerShell 창에서 `New-AzResourceGroupDeployment` 명령을 사용하여 수정된 템플릿으로 클러스터를 만들 수 있습니다. 명령에 전달할 매개 변수는 다음 코드를 참조하세요. PowerShell을 사용하여 리소스 그룹을 배포하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 리소스 그룹 배포](../azure-resource-manager/templates/deploy-powershell.md) 문서를 참조하세요.
 
@@ -177,7 +177,7 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
 }
 ```
 
-template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플릿을 다시 게시합니다. 템플릿을 내보낸 후 deploy.ps1 파일을 실행하면 템플릿이 다시 게시됩니다. 배포 후에는 **ProvisioningState**가 **성공**했는지 확인합니다.
+template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플릿을 다시 게시합니다. 템플릿을 내보낸 후 deploy.ps1 파일을 실행하면 템플릿이 다시 게시됩니다. 배포 후에는 **ProvisioningState** 가 **성공** 했는지 확인합니다.
 
 > [!TIP]
 > 클러스터에 컨테이너를 배포하려는 경우, **WadCfg > DiagnosticMonitorConfiguration** 섹션에 이 컨테이너를 추가하는 방식으로 WAD를 통해 Docker 통계를 선택할 수 있습니다.
@@ -229,7 +229,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 >이 채널에는 많은 이벤트가 있으므로 이 상세 채널에서 이벤트 수집을 설정하면 많은 추적이 빠르게 생성되어 스토리지 용량을 소비할 수 있습니다. 반드시 필요한 경우에만 이 옵션을 설정하세요.
 
 
-**기본 작동 채널**을 사용하도록 설정하려면 노이즈가 가장 적은 포괄적인 로깅을 사용하는 것이 좋습니다. 템플릿의 `WadCfg`에 있는 `EtwManifestProviderConfiguration`은 다음과 같습니다.
+**기본 작동 채널** 을 사용하도록 설정하려면 노이즈가 가장 적은 포괄적인 로깅을 사용하는 것이 좋습니다. 템플릿의 `WadCfg`에 있는 `EtwManifestProviderConfiguration`은 다음과 같습니다.
 
 ```json
   "WadCfg": {
@@ -346,7 +346,7 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
 위의 두 코드 조각에서 "applicationInsights"라는 이름은 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
 
-현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 플랫폼에서 발생 하는 대부분의 추적은 "정보" 수준 이므로 "경고" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
+현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적** 으로 표시됩니다. 플랫폼에서 발생 하는 대부분의 추적은 "정보" 수준 이므로 "경고" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
 
 >[!NOTE]
 >포털 또는 Resource Manager 템플릿에서 잘못된 Application Insights 키를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다.

@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166497"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653835"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Azure Storage 계정의 기본 액세스 계층 관리
 
-각 Azure Storage 계정에는 핫, 쿨 또는 보관 등의 기본 액세스 계층이 있습니다. 저장소 계정을 만들 때 액세스 계층을 할당 합니다. 기본 액세스 계층은 활성 상태입니다.
+각 Azure Storage 계정에는 핫 또는 쿨의 기본 액세스 계층이 있습니다. 저장소 계정을 만들 때 액세스 계층을 할당 합니다. 기본 액세스 계층은 활성 상태입니다.
 
 저장소 계정에 **액세스 계층** 특성을 설정 하 여 기본 계정 계층을 변경할 수 있습니다. 계정 계층 변경은 명시적 계층 집합이 없는 계정에 저장 된 모든 개체에 적용 됩니다. 계정 계층을 핫에서 쿨로 전환 하면 GPv2 계정의 집합 계층 없이 모든 blob에 대해 쓰기 작업 (1만 당)이 발생 하 고 쿨에서 핫으로 전환 하면 Blob Storage 및 GPv2 계정의 모든 blob에 대 한 읽기 작업 (1만 당) 및 데이터 검색 (GB 당) 요금이 발생 합니다.
 

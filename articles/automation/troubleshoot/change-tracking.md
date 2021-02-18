@@ -3,18 +3,63 @@ title: Azure Automation 변경 내용 추적 및 인벤토리 문제 해결
 description: 이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 기능과 관련된 문제를 해결하는 방법을 설명합니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896548"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651166"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>변경 내용 추적 및 인벤토리 문제 해결
 
 이 문서에서는 Azure Automation 변경 내용 추적 및 인벤토리 문제를 해결하는 방법을 설명합니다. 변경 내용 추적 및 인벤토리에 대한 일반 정보는 [변경 내용 추적 및 인벤토리 개요](../change-tracking/overview.md)를 참조하세요.
+
+## <a name="general-errors"></a>일반 오류
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>시나리오: 컴퓨터가 이미 다른 계정에 등록되어 있습니다.
+
+### <a name="issue"></a>문제
+
+다음과 같은 오류 메시지가 표시됩니다.
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>원인
+
+컴퓨터가 변경 내용 추적의 다른 작업 영역에 이미 배포 되었습니다.
+
+### <a name="resolution"></a>해결 방법
+
+1. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이를 확인 하는 방법에 대 한 지침은 [Azure Monitor에 대 한 에이전트 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
+
+1. Automation 계정에 연결된 Log Analytics 작업 영역에 머신이 표시되는지 확인합니다. Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   쿼리 결과에 컴퓨터가 표시 되지 않으면 최근에 체크 인 되지 않은 것입니다. 로컬 구성 문제가 있을 수 있습니다. Log Analytics 에이전트를 다시 설치 해야 합니다.
+
+   컴퓨터가 쿼리 결과에 표시 되는 경우 솔루션 속성 아래에서 **changeTracking** 이 나열 되는지 확인 합니다. 그러면 변경 내용 추적 및 인벤토리에 등록 되었는지 확인 됩니다. 그렇지 않으면 범위 구성 문제를 확인 합니다. 범위 구성은 변경 내용 추적 및 인벤토리에 대해 구성 된 컴퓨터를 결정 합니다. 대상 컴퓨터에 대 한 범위 구성을 구성 하려면 [Automation 계정에서 변경 내용 추적 및 인벤토리 사용](../change-tracking/enable-from-automation-account.md)을 참조 하세요.
+
+   작업 영역에서 이 쿼리를 실행합니다.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` 결과를 얻는 경우 작업 영역에 정의된 할당량에 도달하여 중지된 데이터를 저장하지 못한 것입니다. 작업 영역에서 **사용량 및 예상 비용** 으로 이동 합니다. 더 많은 데이터를 사용할 수 있는 새로운 **가격 책정 계층** 을 선택 하거나, **일일** 한도를 클릭 하 고, 캡을 제거 합니다.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="사용량 및 예상 비용" lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+그래도 문제가 해결되지 않으면 [Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Windows용 Hybrid Worker를 다시 설치합니다. Linux의 경우  [linux Hybrid Runbook Worker 배포](../automation-linux-hrw-install.md)의 단계를 따르세요.
 
 ## <a name="windows"></a>Windows
 
@@ -96,11 +141,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 에이전트를 다시 설치해야 합니다. 설치 및 구성에 대한 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](../../azure-monitor/platform/log-analytics-agent.md)을 참조하세요.
+쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 에이전트를 다시 설치해야 합니다. 설치 및 구성에 대한 자세한 내용은 [Log Analytics 에이전트를 사용하여 로그 데이터 수집](../../azure-monitor/agents/log-analytics-agent.md)을 참조하세요.
 
 머신이 쿼리 결과에 표시되면 범위 구성을 확인합니다. [Azure Monitor의 모니터링 솔루션 대상 지정](../../azure-monitor/insights/solution-targeting.md)을 참조하세요.
 
-이 문제의 해결 방법에 대한 자세한 내용은 [문제: Linux 데이터가 보이지 않음](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data)을 참조하세요.
+이 문제의 해결 방법에 대한 자세한 내용은 [문제: Linux 데이터가 보이지 않음](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data)을 참조하세요.
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Linux용 Log Analytics 에이전트가 올바르게 구성되지 않았습니다.
 
