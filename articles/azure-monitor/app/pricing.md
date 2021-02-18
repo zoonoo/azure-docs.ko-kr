@@ -7,17 +7,17 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: db5506f1f1fcabf3a922115c24aa64e35b888fbd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384506"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573753"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
 > [!NOTE]
-> 이 문서에서는 Application Insights의 비용을 이해하고 관리하는 방법을 설명합니다.  관련 문서인 [사용량 및 예상 비용 모니터링](../platform/usage-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.
+> 이 문서에서는 Application Insights의 비용을 이해하고 관리하는 방법을 설명합니다.  관련 문서인 [사용량 및 예상 비용 모니터링](..//usage-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.
 
 Application Insights는 Azure와 온-프레미스에 호스트된 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링하는 데 필요한 모든 것을 제공하도록 설계되어 있습니다. Application Insights는 .NET, Java, Node.js와 같이 널리 사용되는 언어 및 프레임워크를 지원하며, Azure DevOps, Jira, PagerDuty와 같은 DevOps 프로세스 및 도구와 통합됩니다. 애플리케이션 모니터링 비용을 결정하는 요소가 무엇인지 이해하는 것이 중요합니다. 이 문서에서는 애플리케이션 모니터링 비용을 결정하는 요소가 무엇인지 알아보고 비용을 선제적으로 모니터링하고 제어하는 방법을 살펴봅니다.
 
@@ -33,7 +33,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ### <a name="workspace-based-application-insights"></a>작업 영역 기반 Application Insights
 
-데이터를 Log Analytics 작업 영역으로 보내는 Application Insights 리소스([작업 영역 기반 Application Insights 리소스](create-workspace-resource.md))의 경우, 데이터 수집 및 보존에 대한 요금 청구는 해당 Application Insights 데이터가 위치한 작업 영역에 의해 이루어집니다. 이로 인해 고객은 종량제에 더해 용량 예약까지 포함하는 Log Analytics [가격 책정 모델](../platform/manage-cost-storage.md#pricing-model)의 모든 옵션을 활용할 수 있습니다. Log Analytics에는 [데이터 형식에 따른 보존](../platform/manage-cost-storage.md#retention-by-data-type)을 포함하여 더 많은 데이터 보존 옵션이 있습니다. 작업 영역에 있는 Application Insights 데이터 형식은 추가 요금 없이 90일 동안 보존됩니다. 웹 테스트를 사용하는 경우와 사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정하는 경우는 Application Insights를 통해 보고됩니다. [사용량 및 예상 비용](../platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + 청구](../platform/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) 및 [Log Analytics 쿼리](#data-volume-for-workspace-based-application-insights-resources)를 사용하여 Log Analytics의 데이터 수집 및 보존 비용을 추적하는 방법을 알아보세요. 
+데이터를 Log Analytics 작업 영역으로 보내는 Application Insights 리소스([작업 영역 기반 Application Insights 리소스](create-workspace-resource.md))의 경우, 데이터 수집 및 보존에 대한 요금 청구는 해당 Application Insights 데이터가 위치한 작업 영역에 의해 이루어집니다. 이로 인해 고객은 종량제에 더해 용량 예약까지 포함하는 Log Analytics [가격 책정 모델](../logs/manage-cost-storage.md#pricing-model)의 모든 옵션을 활용할 수 있습니다. Log Analytics에는 [데이터 형식에 따른 보존](../logs/manage-cost-storage.md#retention-by-data-type)을 포함하여 더 많은 데이터 보존 옵션이 있습니다. 작업 영역에 있는 Application Insights 데이터 형식은 추가 요금 없이 90일 동안 보존됩니다. 웹 테스트를 사용하는 경우와 사용자 지정 메트릭 차원에 대한 경고를 사용하도록 설정하는 경우는 Application Insights를 통해 보고됩니다. [사용량 및 예상 비용](../logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs), [Azure Cost Management + 청구](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill) 및 [Log Analytics 쿼리](#data-volume-for-workspace-based-application-insights-resources)를 사용하여 Log Analytics의 데이터 수집 및 보존 비용을 추적하는 방법을 알아보세요. 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>애플리케이션 관리 비용 추정
 
@@ -106,7 +106,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-이 쿼리는 [Azure 로그 경고](../platform/alerts-unified-log.md)에서 데이터 볼륨에 대한 경고를 설정하는 데 사용할 수 있습니다.  
+이 쿼리는 [Azure 로그 경고](../alerts/alerts-unified-log.md)에서 데이터 볼륨에 대한 경고를 설정하는 데 사용할 수 있습니다.  
 
 원격 분석 데이터 변경 사항에 대해 자세히 알아보기 위해 다음 쿼리를 사용하여 형식을 기준으로 이벤트의 개수를 확인할 수 있습니다.
 
@@ -224,7 +224,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 ### <a name="create-alerts-for-the-daily-cap"></a>일일 한도 경고 만들기
 
-Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수준이나 일일 한도 수준에 도달하면 Azure 활동 로그에 이벤트를 만듭니다.  [이러한 활동 로그 이벤트를 기반으로 경고를 만들 수 있습니다](../platform/alerts-activity-log.md#create-with-the-azure-portal). 이러한 이벤트의 신호는 다음과 같습니다.
+Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수준이나 일일 한도 수준에 도달하면 Azure 활동 로그에 이벤트를 만듭니다.  [이러한 활동 로그 이벤트를 기반으로 경고를 만들 수 있습니다](../alerts/alerts-activity-log.md#create-with-the-azure-portal). 이러한 이벤트의 신호는 다음과 같습니다.
 
 * Application Insights 구성 요소 일일 상한 경고 임계값에 도달함
 
@@ -248,7 +248,7 @@ Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수�
 > **데이터 샘플링** 창은 수집 샘플링의 값만을 제어합니다. 앱에 있는 Application Insights SDK에서 적용하는 샘플링 속도를 반영하지 않습니다. 들어오는 원격 분석이 SDK에서 이미 샘플링된 경우 수집 샘플링은 적용되지 않습니다.
 >
 
-적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 [Analytics 쿼리](../log-query/log-query-overview.md)를 사용합니다. 쿼리는 다음과 같습니다.
+적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 [Analytics 쿼리](../logs/log-query-overview.md)를 사용합니다. 쿼리는 다음과 같습니다.
 
 ```kusto
 requests | where timestamp > ago(1d)
@@ -288,7 +288,7 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 
 이 레거시 가격 책정 계층의 이름이 변경되었습니다. Enterprise 가격 책정 계층은 **노드당** 계층으로 변경되었고, Basic 가격 책정 계층은 **GB당** 계층으로 변경되었습니다. 아래에서, 그리고 Azure Portal에서 이 새로운 이름이 사용됩니다.  
 
-노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다. 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](../platform/usage-estimated-costs.md)에 대해 자세히 알아보세요.
+노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다. 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](..//usage-estimated-costs.md)에 대해 자세히 알아보세요.
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요.
 

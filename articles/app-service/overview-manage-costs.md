@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573367"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593984"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대 한 비용 계획 및 관리
 
@@ -38,7 +38,7 @@ App Service에서 사용 하는 기능에 따라 다음과 같은 비용 발생 
 - **App Service 계획**  App Service 앱을 호스트 하는 데 필요 합니다.
 - **격리 계층**  App Service 환경에 [Virtual Network](../virtual-network/index.yml) 필요 합니다.
 - **백업**  백업을 수행 하려면 [저장소 계정이](../storage/index.yml) 필요 합니다.
-- **진단 로그**  [저장소 계정을](../storage/index.yml) 로깅 옵션으로 선택 하거나 [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)와 통합할 수 있습니다.
+- **진단 로그**  [저장소 계정을](../storage/index.yml) 로깅 옵션으로 선택 하거나 [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)와 통합할 수 있습니다.
 - **인증서 App Service**  Azure에서 구입한 인증서는 [Azure Key Vault](../key-vault/index.yml)에서 유지 관리 해야 합니다.
 
 App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service 가격 책정](https://azure.microsoft.com/pricing/details/app-service/) 참조):
@@ -51,7 +51,7 @@ App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service
 
 App Service 계획의 모든 앱을 삭제 하는 경우 계획은 구성 된 가격 책정 계층 및 인스턴스 수에 따라 요금이 계속 청구 됩니다. 원치 않는 요금을 방지 하려면 계획을 삭제 하거나 **무료** 계층으로 축소 합니다.
 
-Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예를 들면 다음과 같습니다.
+Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 다음은 그 예입니다. 
 
 - **격리** 된 계층 App Service 계획에 대해 만든 Virtual Network
 - 백업 또는 진단 로그를 저장 하기 위해 만든 저장소 계정
@@ -114,7 +114,7 @@ App Service 계획은 둘 이상의 앱을 호스트할 수 있습니다. 배포
 > [!NOTE]
 > **Premium V3** 은 Windows 컨테이너와 Linux 컨테이너를 모두 지원 합니다. 
 
-원하는 가격 책정 계층을 선택한 후에는 유휴 인스턴스를 최소화 해야 합니다. 스케일 아웃 배포에서는 미달 사용 계산 인스턴스에 대 한 비용을 낭비 하 게 됩니다. **표준** 계층 이상에서 사용할 수 있는 자동 크기 [조정을 구성](../azure-monitor/platform/autoscale-get-started.md)해야 합니다. 메트릭 기반 스케일 아웃 규칙 뿐만 아니라 스케일 아웃 일정을 만들어 지정 된 시간에 정말 필요한 인스턴스에만 요금을 지불 하면 됩니다.
+원하는 가격 책정 계층을 선택한 후에는 유휴 인스턴스를 최소화 해야 합니다. 스케일 아웃 배포에서는 미달 사용 계산 인스턴스에 대 한 비용을 낭비 하 게 됩니다. **표준** 계층 이상에서 사용할 수 있는 자동 크기 [조정을 구성](../azure-monitor/autoscale/autoscale-get-started.md)해야 합니다. 메트릭 기반 스케일 아웃 규칙 뿐만 아니라 스케일 아웃 일정을 만들어 지정 된 시간에 정말 필요한 인스턴스에만 요금을 지불 하면 됩니다.
 
 ### <a name="azure-reservations"></a>Azure Reservations
 

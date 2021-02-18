@@ -1,22 +1,18 @@
 ---
 title: Azure Portal을 통해 변경 내용 추적을 사용하여 데이터 증분 복사
 description: 이 자습서에서는 Azure SQL Database의 원본 데이터베이스에 있는 변경 내용 추적 정보를 기반으로 Azure Blob 스토리지에 델타 데이터를 로드하는 파이프라인을 사용하여 Azure Data Factory를 만듭니다.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 3ea231258f7a60ce90ec119803b5abc8b6e525fe
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 42ca5b2c58568a6b38ed71bcd54badbac603cf16
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510620"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378726"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Azure Portal을 통해 변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드
 

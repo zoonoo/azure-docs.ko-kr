@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585217"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -94,7 +94,7 @@ ms.locfileid: "98787963"
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>스토리지 서비스 모니터링
 Windows 성능 모니터링에 대해 잘 알고 있는 경우 Storage 메트릭은 Windows 성능 모니터 카운터의 Azure Storage 버전이라고 생각하면 됩니다. Storage 메트릭에서는 서비스 가용성, 처리할 총 요청 수, 처리할 성공한 요청의 백분율 등 포괄적인 메트릭(Windows 성능 모니터 용어로는 카운터) 집합이 제공됩니다. 사용 가능한 메트릭의 전체 목록은 [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)를 참조하세요. 스토리지 서비스가 메트릭을 수집 및 집계하는 간격(1시간마다/1분마다)을 지정할 수 있습니다. 메트릭을 사용하도록 설정하고 스토리지 계정을 모니터링하는 방법에 대한 자세한 내용은 [스토리지 메트릭 설정 및 메트릭 데이터 보기](../blobs/monitor-blob-storage.md)를 참조하세요.
 
-[Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](../../azure-monitor/platform/alerts-overview.md)를 참조하세요.
+[Azure Portal](https://portal.azure.com)에 표시할 시간 메트릭을 선택하고 시간 메트릭이 특정 임계값을 초과할 때마다 관리자에게 전자 메일로 알리는 규칙을 구성할 수 있습니다. 자세한 내용은 [경고 알림 받기](../../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
 [스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로 Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 

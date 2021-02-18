@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576172"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>가상 머신 네트워크 대역폭
 
@@ -55,12 +55,12 @@ Azure 가상 머신은 하나지만 여기에 연결된 네트워크 인터페�
 ## <a name="flow-limits-and-active-connections-recommendations"></a>흐름 제한 및 활성 연결 권장 사항
 
 현재 Azure 네트워킹 스택은 VM에 대해 1M의 총 흐름 (500k 인바운드 및 500k 아웃 바운드)을 지원 합니다. 여러 시나리오에서 VM에 의해 처리 될 수 있는 총 활성 연결은 다음과 같습니다.
-- VNET에 속하는 Vm은 _*_각 방향에 500k 활성 흐름이_*_ 있는 모든 VM 크기에 대해 500k **_활성 연결_* _을 처리할 수 있습니다.  
-- 게이트웨이, 프록시, 방화벽과 같은 Nva (네트워크 가상 어플라이언스)를 사용 하는 Vm은 위의 다이어그램에 표시 된 대로 새 연결 설정에서 새 연결 설정에 대 한 새 흐름 만들기 및 추가 새 흐름 만들기로 인해 *_각 방향에서_* 500k _ 활성 흐름이 있는 250k _*_활성 연결_*_ 을 처리할 수 있습니다. 
+- VNET에 속하는 Vm은 _각 방향으로_ 500k _ * 활성 흐름이 있는 모든 VM 크기에 대해 500k ***활성 연결** _을 처리할 수 있습니다 * *.  
+- 게이트웨이, 프록시, 방화벽 등의 Nva (네트워크 가상 어플라이언스)를 사용 하는 Vm은 위의 다이어그램에 표시 된 대로 새 연결 설정에서 새 연결 설정에 대 한 새 흐름 만들기 및 추가 새 흐름 만들기로 인해 각 방향에 대 한 250k ***활성 연결** _ *_의 활성 흐름_* 을 처리할 수 있습니다. 
 
 이 제한에 도달 하면 추가 연결이 삭제 됩니다. 연결 설정 및 종료 속도는 패킷 처리 루틴을 사용 하 여 CPU를 공유 하 고 연결을 설정 하면 네트워크 성능에 영향을 줄 수도 있습니다. 예상 되는 트래픽 패턴에 대해 워크 로드를 벤치 마크 하 고 성능 요구 사항에 맞게 워크 로드를 적절히 확장 하는 것이 좋습니다.
 
-[Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) 에서 메트릭을 사용 하 여 VM 또는 vmss 인스턴스의 네트워크 흐름 수와 흐름 생성 률을 추적할 수 있습니다.
+[Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) 에서 메트릭을 사용 하 여 VM 또는 vmss 인스턴스의 네트워크 흐름 수와 흐름 생성 률을 추적할 수 있습니다.
 
 ![스크린 샷에서는 꺾은선형 차트와 인바운드 및 아웃 바운드 흐름에 대 한 합계를 사용 하 Azure Monitor의 메트릭 페이지를 보여 줍니다.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 

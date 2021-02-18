@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: b5d33a962078ab7bd49c58fe16f271cdd1c8eea4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fce7ba090d5aa86c85452ca41ce606d2fa52a6ee
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379196"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645492"
 ---
 - 방화벽 및 가상 네트워크 구성을 사용하여 스토리지 계정 액세스를 제한해야 함
 - 자동화 계정 변수를 암호화해야 합니다.

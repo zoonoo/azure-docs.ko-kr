@@ -1,22 +1,19 @@
 ---
 title: Azure Data Factory 파이프라인 분기
 description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
-services: data-factory
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 111fff6e35bed9c2af9c638549362039f25def12
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496945"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386019"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -610,7 +607,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +750,7 @@ Press any key to exit...
 이 자습서에서는 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
-> _ 데이터 팩터리 만들기
+> * 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기

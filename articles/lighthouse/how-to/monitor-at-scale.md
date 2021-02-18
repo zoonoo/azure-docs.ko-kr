@@ -3,21 +3,21 @@ title: 대규모로 위임 된 리소스 모니터링
 description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 Azure Monitor 로그를 효과적으로 사용 하는 방법을 알아봅니다.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379236"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593120"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링
 
 서비스 공급자로 서 [Azure Lighthouse](../overview.md)에 여러 고객 테 넌 트를 등록 했을 수 있습니다. Azure Lighthouse를 사용하여 서비스 공급자는 여러 테넌트에 걸쳐 대규모로 작업을 한 번에 수행할 수 있으므로 관리 작업을 보다 효율적으로 수행할 수 있습니다.
 
-이 항목에서는 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 [Azure Monitor 로그](../../azure-monitor/platform/data-platform-logs.md) 를 사용 하는 방법을 보여 줍니다. 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
+이 항목에서는 관리 중인 고객 테 넌 트에서 확장 가능한 방식으로 [Azure Monitor 로그](../../azure-monitor/logs/data-platform-logs.md) 를 사용 하는 방법을 보여 줍니다. 이 항목의 서비스 공급자 및 고객을 참조 하지만이 지침은 [Azure Lighthouse를 사용 하 여 여러 테 넌 트를 관리](../concepts/enterprise.md)하는 기업에도 적용 됩니다.
 
 > [!NOTE]
-> 사용자를 관리 하는 테 넌 트의 사용자에 게 위임 된 고객 구독의 [Log Analytics 작업 영역을 관리 하는 데 필요한 역할이](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) 부여 되어 있어야 합니다.
+> 사용자를 관리 하는 테 넌 트의 사용자에 게 위임 된 고객 구독의 [Log Analytics 작업 영역을 관리 하는 데 필요한 역할이](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) 부여 되어 있어야 합니다.
 
 ## <a name="create-log-analytics-workspaces"></a>Log Analytics 작업 영역 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "100379236"
 > [!TIP]
 > Log Analytics 작업 영역에서 데이터에 액세스 하는 데 사용 되는 모든 automation 계정은 작업 영역과 동일한 테 넌 트에 만들어야 합니다.
 
-[Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
+[Azure Portal](../../azure-monitor/logs/quick-create-workspace.md)를 사용 하거나 [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md)를 사용 하거나 [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 모든 작업 영역이 고객 테 넌 트에서 생성 되더라도 Microsoft Insights 리소스 공급자는 관리 테 넌 트의 구독에도 등록 해야 합니다.
@@ -43,11 +43,11 @@ Log Analytics 작업 영역을 만든 후에는 각 테 넌 트의 적절 한 �
 
 ## <a name="analyze-the-gathered-data"></a>수집 된 데이터 분석
 
-정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다.
+정책을 배포한 후에는 각 고객 테 넌 트에서 만든 Log Analytics 작업 영역에 데이터가 로깅됩니다. 모든 관리 되는 고객에 대 한 통찰력을 얻기 위해 [Azure Monitor 통합 문서](../../azure-monitor/visualize/workbooks-overview.md) 와 같은 도구를 사용 하 여 여러 데이터 원본의 정보를 수집 하 고 분석할 수 있습니다.
 
 ## <a name="view-alerts-across-customers"></a>고객 간에 경고 보기
 
-사용자가 관리 하는 고객 테 넌 트에서 위임 된 구독에 대 한 [경고](../../azure-monitor/platform/alerts-overview.md) 를 볼 수 있습니다.
+사용자가 관리 하는 고객 테 넌 트에서 위임 된 구독에 대 한 [경고](../../azure-monitor/alerts/alerts-overview.md) 를 볼 수 있습니다.
 
 관리 테 넌 트에서 Azure Portal 또는 Api 및 관리 도구를 통해 [활동 로그 경고를 만들고, 보고, 관리할](../../azure-monitor/platform/alerts-activity-log.md) 수 있습니다.
 

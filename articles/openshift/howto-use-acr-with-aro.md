@@ -3,21 +3,21 @@ title: Azure Red Hat OpenShift를 사용 하 여 Azure Container Registry 사용
 description: Azure Red Hat OpenShift 클러스터에서 Azure Container Registry 컨테이너를 가져오고 실행 하는 방법에 대해 알아봅니다.
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 01/10/2021
-ms.openlocfilehash: 91b43aa939579f5df8115048cf52b9bcdd7ade3d
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 651b73db084e8090f59faeffa9991c2ac468ca08
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063987"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634416"
 ---
 # <a name="use-azure-container-registry-with-azure-red-hat-openshift-aro"></a>Azure Red Hat OpenShift (ARO)를 사용 하 여 Azure Container Registry 사용
 
 ACR (Azure Container Registry)는 지리적 복제와 같은 엔터프라이즈 기능을 사용 하 여 개인 Docker 컨테이너 이미지를 저장 하는 데 사용할 수 있는 관리 되는 컨테이너 레지스트리 서비스입니다. ARO 클러스터에서 ACR에 액세스 하기 위해 클러스터는 Docker 로그인 자격 증명을 Kubernetes 암호에 저장 하 여 ACR으로 인증할 수 있습니다.  마찬가지로, ARO 클러스터는 pod 사양에서 imagePullSecret을 사용 하 여 이미지를 끌어올 때 레지스트리에 대해 인증할 수 있습니다. 이 문서에서는 개인 Docker 컨테이너 이미지를 저장 하 고 끌어오는 Azure Red Hat OpenShift 클러스터를 사용 하 여 Azure Container Registry를 설정 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드에서는 기존 Azure Container Registry 있다고 가정 합니다. 그렇지 않으면 Azure Portal 또는 [Azure CLI 지침](../container-registry/container-registry-get-started-azure-cli.md) 을 사용 하 여 컨테이너 레지스트리를 만듭니다.
 

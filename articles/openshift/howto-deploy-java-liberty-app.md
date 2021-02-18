@@ -3,16 +3,16 @@ title: Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liber
 description: Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램을 배포 합니다.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493947"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633889"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "96493947"
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 성공적으로 진행 하려면 다음 필수 구성 요소를 완료 합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "96493947"
 클러스터를 만들고 연결한 후 Open Liberty 연산자를 설치 합니다.  Open Liberty 연산자의 기본 시작 페이지는 [GitHub](https://github.com/OpenLiberty/open-liberty-operator)에 있습니다.
 
 1. 자격 증명을 사용 하 여 브라우저에서 OpenShift 웹 콘솔에 로그인 `kubeadmin` 합니다.
-2. **Operators** OperatorHub로 이동 하 여  >  **OperatorHub** **Open Liberty Operator** 를 검색 합니다.
+2. **Operators** OperatorHub로 이동 하 여  >   **Open Liberty Operator** 를 검색 합니다.
 3. 검색 결과에서 **Open Liberty Operator** 를 선택 합니다.
 4. **설치** 를 선택합니다.
 5. Popup **Create Operator Subscription** 에서 **클러스터의 모든 네임 스페이스 (기본값)** 를 선택 하 고 **,** **업데이트 채널** 의 경우 **beta** 를, **승인 전략** 의 경우 **자동** 을 선택 합니다.

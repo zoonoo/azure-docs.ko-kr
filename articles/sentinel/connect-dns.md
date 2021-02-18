@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590230"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 
@@ -43,10 +43,10 @@ DNS 로그 연결을 사용 하도록 설정 하면 다음을 수행할 수 있�
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure Storage 계정](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](../azure-monitor/agents/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../azure-monitor/vm/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../azure-monitor/agents/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure Storage 계정](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 

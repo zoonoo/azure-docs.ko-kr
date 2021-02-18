@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186221"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583819"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
 
@@ -67,7 +67,7 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
   - [ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet을 사용 하 여 사용이 성공 했는지 확인할 수 있습니다.
   - 앱에서 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하려면 [라이브 메트릭을](./live-stream.md) 사용 하는 것이 좋습니다.
 
-  - [Log Analytics](../log-query/log-analytics-tutorial.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
+  - [Log Analytics](../logs/log-analytics-tutorial.md) 를 사용 하 여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열할 수도 있습니다.
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 
 원격 분석 보기:
 
-* [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
+* [메트릭을 탐색](../essentials/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
 * [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
-* 고급 쿼리를 위해 [분석을 사용](../log-query/log-query-overview.md) 합니다.
+* 고급 쿼리를 위해 [분석을 사용](../logs/log-query-overview.md) 합니다.
 * [대시보드를 만듭니다](./overview-dashboard.md).
 
 원격 분석 더 추가:

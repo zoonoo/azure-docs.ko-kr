@@ -4,12 +4,12 @@ description: 에서 수집 하 고 Azure 애플리케이션 Insights에 저장 �
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9e03a36824853a3e43bbf8628fd12481cfbcaf25
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 56af6af6f4204a819c06fd97cda357dca20a19b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549561"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591176"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
 
@@ -64,12 +64,12 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 | ---- | ----------- |
 | **[실패](../azure-monitor/app/asp-net-exceptions.md)** |  함수 오류 및 서버 예외를 기반으로 차트와 경고를 만듭니다. **작업 이름** 은 함수 이름입니다. 종속성에 대한 사용자 지정 원격 분석을 구현하지 않으면 종속성 오류가 표시되지 않습니다. |
 | **[성능](../azure-monitor/app/performance-counters.md)** | **클라우드 역할 인스턴스** 당 리소스 사용률 및 처리량을 확인하여 성능 문제를 분석합니다. 이 성능 데이터는 함수가 기본 리소스를 정체 하는 시나리오를 디버깅 하는 데 유용할 수 있습니다. |
-| **[메트릭](../azure-monitor/platform/metrics-charts.md)** | 메트릭 기반의 차트 및 경고를 만듭니다. 메트릭에는 함수 호출 수, 실행 시간 및 성공률이 포함됩니다. |
+| **[메트릭](../azure-monitor/essentials/metrics-charts.md)** | 메트릭 기반의 차트 및 경고를 만듭니다. 메트릭에는 함수 호출 수, 실행 시간 및 성공률이 포함됩니다. |
 | **[라이브 메트릭](../azure-monitor/app/live-stream.md)** | 거의 실시간으로 생성 된 메트릭 데이터를 봅니다. |
 
 ## <a name="query-telemetry-data"></a>원격 분석 데이터 쿼리
 
-[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md)를 사용하면 데이터베이스의 모든 원격 분석 데이터를 테이블 형식으로 사용할 수 있습니다. Analytics는 데이터를 추출, 조작 및 시각화하는 쿼리 언어를 제공합니다. 
+[Application Insights Analytics](../azure-monitor/logs/log-query-overview.md)를 사용하면 데이터베이스의 모든 원격 분석 데이터를 테이블 형식으로 사용할 수 있습니다. Analytics는 데이터를 추출, 조작 및 시각화하는 쿼리 언어를 제공합니다. 
 
 로깅된 이벤트를 살펴보거나 쿼리하려면 **로그** 를 선택합니다.
 

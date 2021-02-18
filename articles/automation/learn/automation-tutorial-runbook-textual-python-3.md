@@ -3,14 +3,14 @@ title: Azure Automation에서 Python 3 Runbook(미리 보기) 만들기
 description: 이 문서에서는 간단한 Python 3 Runbook(미리 보기)을 만들고, 테스트하고, 게시하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
-ms.openlocfilehash: e03eba29d634fafa9302441b17ca3a6bf6598556
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: c19f7e177d51a3de75e7d7ae2b83442e23efd243
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104980"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546145"
 ---
 # <a name="tutorial-create-a-python-3-runbook-preview"></a>자습서: Python 3 Runbook(미리 보기) 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "100104980"
    * Python 2와 Python 3이 모두 설치되어 있는 경우 두 가지 유형의 Runbook을 모두 실행하려면 다음 환경 변수를 구성해야 합니다.
 
      * Python 2 - `PYTHON_2_PATH`라는 새 환경 변수를 만들고 설치 폴더를 지정합니다. 예를 들어 설치 폴더가 `C:\Python27`인 경우 이 경로를 변수에 추가해야 합니다.
-     
+
      * Python 3 - `PYTHON_3_PATH`라는 새 환경 변수를 만들고 설치 폴더를 지정합니다. 예를 들어 설치 폴더가 `C:\Python3`인 경우 이 경로를 변수에 추가해야 합니다.
 
 ## <a name="create-a-new-runbook"></a>새 Runbook 만들기
@@ -128,23 +128,17 @@ print("Hello World!")
 
 2. 다음 코드를 추가하여 Azure에 인증합니다.
 
-   ```python
-   import os
-   from azure.mgmt.compute import ComputeManagementClient
-   import azure.mgmt.resource 
-   import automationassets 
-   
-   def get_automation_runas_credential(runas_connection): 
+    ```python
     from OpenSSL import crypto 
     import binascii 
     from msrestazure import azure_active_directory 
     import adal 
-    
+
     # Get the Azure Automation RunAs service principal certificate 
     cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
     pks12_cert = crypto.load_pkcs12(cert) 
     pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
-
+    
     # Get run as connection information for the Azure Automation service principal 
     application_id = runas_connection["ApplicationId"] 
     thumbprint = runas_connection["CertificateThumbprint"] 
@@ -155,17 +149,13 @@ print("Hello World!")
     authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
     context = adal.AuthenticationContext(authority_url) 
     return azure_active_directory.AdalAuthentication( 
-        lambda: context.acquire_token_with_client_certificate( 
-                resource, 
-                application_id, 
-                pem_pkey, 
-                thumbprint) 
+      lambda: context.acquire_token_with_client_certificate( 
+          resource, 
+          application_id, 
+          pem_pkey, 
+          thumbprint) 
     ) 
-    
-   # Authenticate to Azure using the Azure Automation RunAs service principal 
-   runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 
-   azure_credential = get_automation_runas_credential(runas_connection) 
-   ```
+    ```
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Python 컴퓨팅 클라이언트를 만들고 VM을 시작하는 코드 추가
 

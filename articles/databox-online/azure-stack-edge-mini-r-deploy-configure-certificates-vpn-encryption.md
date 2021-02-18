@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e81ab61b04f9cca6aff57de1736eac25a871c97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c3a09242b895234c96c64d9e23449d980e47e387
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465070"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546740"
 ---
 # <a name="tutorial-configure-certificates-vpn-encryption-for-your-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R에 대한 인증서, VPN, 암호화 구성
 
@@ -38,10 +38,10 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
 * [Azure Stack Edge Mini R 설치](azure-stack-edge-mini-r-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 
 * 사용자 고유의 인증서를 가져오려는 경우:
-    - 서명 체인 인증서를 포함하는 적절한 형식으로 인증서를 준비해야 합니다. 인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요.
+    - 서명 체인 인증서를 포함하는 적절한 형식으로 인증서를 준비해야 합니다. 인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
     - 디바이스가 Azure Government 또는 Azure Government Secret 또는 Azure Government 상위 비밀 클라우드에 배포되어 있고 Azure 퍼블릭 클라우드에 배포되지 않은 경우 디바이스를 활성화하려면 서명 체인 인증서가 필요합니다. 
-    인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요.
+    인증서에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요.
 
 
 ## <a name="configure-certificates-for-device"></a>디바이스에 대한 인증서 구성

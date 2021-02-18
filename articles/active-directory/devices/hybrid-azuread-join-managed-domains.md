@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99822367"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365772"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -82,7 +82,7 @@ WPAD를 사용하지 않는 경우 Windows 10 1709부터 컴퓨터에서 WinHTTP
 
 조직에서 인증된 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터가 아웃바운드 프록시에 성공적으로 인증될 수 있는지 확인합니다. Windows 10 컴퓨터는 머신 컨텍스트를 사용하여 디바이스 등록을 실행하므로 머신 컨텍스트를 사용하여 아웃바운드 프록시 인증을 구성합니다. 아웃바운드 프록시 공급자와 함께 구성 요구 사항을 준수하세요.
 
-디바이스에서 [디바이스 등록 연결 테스트](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) 스크립트를 사용하여 시스템 계정을 통해 위의 Microsoft 리소스에 액세스할 수 있는지 확인합니다.
+디바이스에서 [디바이스 등록 연결 테스트](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) 스크립트를 사용하여 시스템 계정을 통해 위의 Microsoft 리소스에 액세스할 수 있는지 확인합니다.
 
 ## <a name="configure-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성
 

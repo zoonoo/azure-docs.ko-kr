@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4fc51c8bb8a07f768da16224b9258bbdbf6d9b4
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096660"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632937"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상머신에 대한 cloud-init 지원
 이 문서에서는 Azure에서 프로비저닝 시간에 VM(가상 머신) 또는 가상 머신 확장 집합을 구성하는 [cloud-init](https://cloudinit.readthedocs.io)에 대한 지원을 설명합니다. Azure에서 리소스가 프로비저닝된 후 처음 부팅할 때 이러한 cloud-init 구성이 실행됩니다.  
@@ -25,7 +25,7 @@ Azure는 [cloud-init](https://cloudinit.readthedocs.io) 및 [WALA(Azure Linux Ag
 ## <a name="cloud-init-overview"></a>cloud-init 개요
 [cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일 또는 다른 입력의 형식을 올바르게 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
 
-cloud-init는 배포 간에도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init는 선택한 배포판에 대해 기본 패키지 관리 도구를 자동으로 사용합니다.
+cloud-init는 배포 간에도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install** 은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init는 선택한 배포판에 대해 기본 패키지 관리 도구를 자동으로 사용합니다.
 
 Azure Marketplace에서 클라우드 초기화 사용 이미지를 사용할 수 있도록 보증 Linux 배포판 파트너와 적극적으로 작업 하 고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. 처음에는 보증된 Linux 배포판 파트너 및 공급업체와의 협력을 통해 cloud-init가 Azure의 해당 OS에서 작동하게 하였고, 이후 패키지를 업데이트하고 배포판 패키지 리포지토리에서 공개 제공했습니다. 
 
@@ -46,7 +46,7 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 | 예 - 지원 시작 패키지 버전: *18.2-1.el7_6.2*|
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | N/A |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | 예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | 해당 없음 |
 |RedHat 7.7(Gen1)|RHEL |7.7 | 7.7.2020051912 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
 |RedHat 7.7(Gen2)|RHEL | 77-gen2 | 7.7.2020051913 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
 |RedHat 7.7(Gen1)|RHEL |7-LVM | 7.7.2020051921 | 예 | 예 - 지원 시작 패키지 버전: *18.5-6.el7*|
@@ -61,7 +61,7 @@ Azure에서 보증된 Linux 배포판 OS에 cloud-init를 제공하는 것은 �
 
 | 게시자/버전 | 제안 | SKU | 버전 | 이미지 cloud-init 준비 여부 | Azure에서의 cloud-init 패키지 지원|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | N/A |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |예 (참고: 미리 보기 이미지 이며 더 이상 사용 하지 **않아야 합니다** . 1 월 2020 일에 제거 됩니다.) | 해당 없음 |
 |OpenLogic 7.7 |CentOS | 7.7 |7.7.2020062400 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 (Gen2) |CentOS | 7_7-gen2 |7.7.2020062401 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|
 |OpenLogic 7.7 |CentOS-HPC | 7.7 |7.6.2020062600 |예 | 예-패키지 버전에 대 한 지원: `18.5-6.el7.centos.5`|
@@ -121,13 +121,13 @@ cloud-init를 사용하는 가상 머신 배포 방법은 배포하는 동안 cl
 
 이미지 배포의 첫 번째 단계로 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-그 다음 단계로 현재 셸에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
+그 다음 단계로 현재 셸에서 *cloud-init.txt* 라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
 ```yaml
 #cloud-config
@@ -135,11 +135,15 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> 클라우드 초기화에는 여러 [입력 형식이](https://cloudinit.readthedocs.io/en/latest/topics/format.html)있습니다. 클라우드 초기화는 CustomData/userData의 첫 번째 줄을 사용 하 여 입력을 처리 하는 방법을 나타냅니다. 예를 들어 `#cloud-config` 콘텐츠를 클라우드 init 구성으로 처리 해야 함을 나타냅니다.
+
+
 `ctrl-X` 키를 눌러 파일을 종료하고, `y`를 입력하여 파일을 저장하고 `enter` 키를 눌러 종료 시 파일 이름을 확인합니다.
 
 마지막 단계로 [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만듭니다. 
 
-다음 예제에서는 *centos74*라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 
+다음 예제에서는 *centos74* 라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  `--custom-data` 매개 변수를 사용하여 cloud-init 구성 파일을 전달합니다. 현재 작업 디렉터리 외부에 파일을 저장한 경우 *cloud-init.txt* 구성의 전체 경로를 제공합니다. 
 
 ```azurecli-interactive 
 az vm create \
@@ -155,7 +159,7 @@ VM이 생성되면 Azure CLI가 배포에 대한 정보를 표시합니다. `pub
 [ARM 템플릿에서 매개 변수](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters)를 전달 하 여 클라우드 초기화를 사용 하도록 설정 된 VM을 배포할 수도 있습니다.
 
 ## <a name="troubleshooting-cloud-init"></a>cloud-init 문제 해결
-VM이 프로비전되면 cloud-init는 `--custom-data`에 정의된 모든 모듈과 스크립트를 실행하여 VM을 구성합니다.  구성 오류 또는 누락을 해결해야 하는 경우 **/var/log/cloud-init.log**에 있는 cloud-init 로그에서 모듈 이름(예: `disk_setup` 또는 `runcmd`)을 검색해야 합니다.
+VM이 프로비전되면 cloud-init는 `--custom-data`에 정의된 모든 모듈과 스크립트를 실행하여 VM을 구성합니다.  구성 오류 또는 누락을 해결해야 하는 경우 **/var/log/cloud-init.log** 에 있는 cloud-init 로그에서 모듈 이름(예: `disk_setup` 또는 `runcmd`)을 검색해야 합니다.
 
 > [!NOTE]
 > 모든 모듈 실패가 심각한 cloud-init 전체 구성 실패로 이어지는 것은 아닙니다. 예를 들어 `runcmd` 모듈을 사용하는 경우 스크립트가 실패해도 runcmd 모듈이 실행되었기 때문에 cloud-init는 성공한 프로비전을 계속 보고합니다.

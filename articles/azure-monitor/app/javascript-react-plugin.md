@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4c6d8fabbd236a2653fff8168ad73c0b45f09d64
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027845"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593645"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 플러그 인 반응
 
@@ -30,7 +30,7 @@ npm install @microsoft/applicationinsights-react-js
 
 ```
 
-## <a name="basic-usage"></a>기본 사용법
+## <a name="basic-usage"></a>기본적인 사용 방법
 
 Application Insights에 대 한 연결을 초기화 합니다.
 
@@ -75,7 +75,7 @@ class MyComponent extends React.Component {
 export default withAITracking(reactPlugin, MyComponent);
 ```
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 | 속성    | 기본값 | 설명                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
@@ -226,4 +226,4 @@ const App = () => {
 ## <a name="next-steps"></a>다음 단계
 
 - JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JAVASCRIPT sdk 설명서](javascript.md)를 참조 하세요.
-- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.

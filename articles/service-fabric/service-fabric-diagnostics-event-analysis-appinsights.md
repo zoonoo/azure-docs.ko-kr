@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f4d77cc3b2f2182b02d47f047070b819daa5f3c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329579"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589022"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -42,13 +42,13 @@ Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Appl
 
 ### <a name="configuring-application-insights-with-eventflow"></a>EventFlow로 Application Insights 구성
 
-EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet 패키지를 가져와야 합니다. 다음 코드는 *eventFlowConfig.json*의 *outputs* 섹션에 필요합니다.
+EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet 패키지를 가져와야 합니다. 다음 코드는 *eventFlowConfig.json* 의 *outputs* 섹션에 필요합니다.
 
 ```json
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
     }
 ]
 ```
@@ -65,13 +65,13 @@ EventFlow 및 WAD를 집계 솔루션으로 사용 하는 것이 좋습니다. �
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Azure Portal에서 Application Insights 리소스 이동
 
-Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇 분 내에 Application Insights 리소스에 정보가 표시되기 시작합니다. Application Insights 리소스로 이동합니다. 그러면 Application Insights 리소스 대시보드가 표시됩니다. Application Insights 작업 표시줄에서 _*검색**을 선택 하 여 받은 최신 추적을 확인 하 고이를 통해 필터링 할 수 있습니다.
+Application Insights를 이벤트 및 로그의 출력으로 구성했으면 몇 분 내에 Application Insights 리소스에 정보가 표시되기 시작합니다. Application Insights 리소스로 이동합니다. 그러면 Application Insights 리소스 대시보드가 표시됩니다. Application Insights 작업 표시줄에서 **검색** 을 선택 하 여 받은 최신 추적을 확인 하 고이를 통해 필터링 할 수 있습니다.
 
-*메트릭 탐색기*는 애플리케이션, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../azure-monitor/platform/metrics-charts.md)을 참조하세요.
+*메트릭 탐색기* 는 애플리케이션, 서비스 및 클러스터가 보고할 수 있는 메트릭을 기반으로 사용자 지정 대시보드를 만드는 데 유용한 도구입니다. 수집 중인 데이터를 기반으로 직접 몇 가지 차트를 설정하려면 [Application Insights에서 메트릭 탐색](../azure-monitor/essentials/metrics-charts.md)을 참조하세요.
 
-**분석**을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
+**분석** 을 클릭하면 Application Insights 분석 포털로 이동합니다. 이 포털에서는 보다 넓은 범위 및 다양한 옵션으로 이벤트 및 추적을 쿼리할 수 있습니다. 자세한 내용은 [Application Insights의 분석](../azure-monitor/logs/log-query-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AI에 경고 설정](../azure-monitor/platform/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
+* [AI에 경고 설정](../azure-monitor/alerts/alerts-log.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 Application Insights에 전송되는 원격 분석에 대한 사전 분석 수행
