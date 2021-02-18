@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356213"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529717"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
@@ -56,13 +56,19 @@ ms.locfileid: "96356213"
 | 최대 쿼리 실행 시간 | 10분 | 자세한 내용은 [시간 제한](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts)을 참조하세요.  |
 | 최대 요청 속도 | Azure AD 사용자 또는 클라이언트 IP 주소별로 30초당 200개 요청 | 자세한 내용은 [속도 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)을 참조하세요. |
 
+**Azure Monitor 로그 커넥터**
+| 범주 | 제한 | 주석 |
+|:---|:---|:---|
+| 최대 레코드 수 | 500,000 | |
+| 최대 쿼리 제한 시간 | 110초 | |
+| 차트 | | 로그 페이지 및 커넥터의 시각화는 다른 차트 라이브러리를 사용하고 있으며 현재 커넥터에서 일부 기능을 사용할 수 없습니다. |
+
 **일반 작업 영역 제한**
 
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
 | 테이블의 최대 열 수         | 500 | |
 | 열 이름의 최대 문자 수 | 500 | |
-| 데이터 내보내기 | 현재 사용할 수 없음 | Azure Function 또는 Logic App을 사용하여 데이터를 집계하고 내보냅니다. | 
 
 **<a name="data-ingestion-volume-rate">데이터 수집 볼륨 속도</a>**
 

@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956535"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529681"
 ---
-1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택하고 **대상** 에서 **Azure** 를 선택한 다음, **다음** 을 선택합니다.
 
-1. **대상** 에서 **Azure** :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Azure 대상 선택":::을 선택합니다.
+1. **특정 대상** 의 경우 Windows에서 실행되는 함수 앱을 만드는 **Azure 함수 앱(Windows)** 을 선택합니다.
 
-1. **특정 대상** 에서 **Azure 함수 앱(Windows)** 을 선택합니다.
+1. **함수 인스턴스** 에서 **새 Azure 함수 만들기...** 를 선택합니다. 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Azure 함수 앱 선택":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="새 함수 앱 인스턴스 만들기":::
 
-1. **함수 인스턴스** 에서 **새 Azure 함수 만들기...** 를 선택한 후 다음 표에 지정된 값을 사용합니다.
+1. 다음 표에 지정된 값을 사용하여 새 인스턴스를 만듭니다.
 
     | 설정      | 값  | 설명                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956535"
 
     ![App Service 만들기 대화 상자](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. **만들기** 를 선택하여 Azure에서 함수 앱 및 관련된 리소스를 만듭니다. 
-1. **함수 인스턴스** 에서 **패키지 파일에서 실행** 이 선택되어 있는지 확인합니다. [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) 모드를 사용하도록 설정된 상태에서 [Zip 배포](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)를 사용하여 함수 앱이 배포됩니다. 이는 성능이 향상되므로 함수 프로젝트에 권장되는 배포 방법입니다. 
+1. **만들기** 를 선택하여 Azure에서 함수 앱 및 관련된 리소스를 만듭니다. 리소스 만들기 상태는 창의 왼쪽 하단에 표시됩니다. 
+
+1. **함수 인스턴스** 로 돌아가서 **패키지 파일에서 실행** 이 선택되어 있는지 확인합니다. [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) 모드를 사용하도록 설정된 상태에서 [Zip 배포](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy)를 사용하여 함수 앱이 배포됩니다. 이는 성능이 향상되므로 함수 프로젝트에 권장되는 배포 방법입니다. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="프로필 만들기 완료":::
 

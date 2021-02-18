@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 3112c93e0877a8441875e3c7627c2a7b84ac8ab1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 8ba24d5a59beade1429b9d86ed549f1dae3c2f1f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808465"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551469"
 ---
 > [!NOTE]
 > 이 가이드에서는 cURL을 사용하여 REST API 호출을 실행합니다. 또한 Python을 사용하여 REST API를 호출하는 방법을 보여 주는 [샘플 코드가 GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest)에 있습니다.
@@ -85,9 +85,14 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/layout/analyzeR
 
 JSON 콘텐츠가 포함된 `200 (success)` 응답을 받게 됩니다.
 
-다음 청구서 이미지와 해당 JSON 출력을 참조하세요. 출력은 가독성을 위해 줄였습니다. `"readResults"` 노드에는 페이지의 각 경계 상자 배치가 있는 모든 텍스트 줄이 포함되어 있습니다. `"selectionMarks"` 노드(v2.1 미리 보기에서)는 모든 선택 표시(확인란, 라디오 표시) 및 상태가 "선택됨" 또는 "선택되지 않음"인지 여부를 표시합니다. `"pageResults"` 섹션에는 추출된 표가 포함됩니다. 각 표에서 텍스트, 행 및 열 인덱스, 행 및 열 스패닝, 경계 상자 등이 추출됩니다.
+다음 청구서 이미지와 해당 JSON 출력을 참조하세요.
+* `"readResults"` 노드에는 페이지의 각 경계 상자 배치가 있는 모든 텍스트 줄이 포함되어 있습니다. 
+* `"selectionMarks"` 노드(v2.1 미리 보기에서)는 모든 선택 표시(확인란, 라디오 표시) 및 상태가 "선택됨" 또는 "선택되지 않음"인지 여부를 표시합니다. 
+* `"pageResults"` 섹션에는 추출된 표가 포함됩니다. 각 표에서 텍스트, 행 및 열 인덱스, 행 및 열 스패닝, 경계 상자 등이 추출됩니다.
 
 :::image type="content" source="../../media/contoso-invoice.png" alt-text="테이블이 포함된 Contoso 프로젝트 문 문서.":::
+
+이 출력은 편의상 간소화되었습니다. [GitHub의 전체 샘플 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout-output.json)을 참조하세요.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)    
 ```json
@@ -355,11 +360,16 @@ curl -v -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/invoic
 
 ### <a name="examine-the-response"></a>응답 검사
 
-JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. `"readResults"` 필드에는 청구서에서 추출된 모든 텍스트가, `"pageResults"`에는 청구서에서 추출된 테이블 및 선택 항목 표시가, `"documentResults"` 필드에는 청구서의 가장 적절한 부분에 대한 키/값 정보가 포함됩니다.
+JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 
+* `"readResults"` 필드는 청구서에서 추출된 모든 텍스트 줄이 포함되어 있습니다.
+* `"pageResults"`는 청구서에서 추출된 표 및 선택 표시를 포함합니다.
+* `"documentResults"` 필드에는 청구서의 가장 관련성이 높은 부분에 대한 키/값 정보가 포함되어 있습니다.
 
-다음 청구서 문서와 해당 JSON 출력을 참조하세요. JSON 콘텐츠는 가독성을 위해 축소되었습니다.
+다음 청구서 문서와 해당 JSON 출력을 참조하세요. 
 
 * [샘플 청구서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-invoice.pdf)
+
+이 JSON 콘텐츠는 가독성을 위해 줄였습니다. [GitHub의 전체 샘플 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-invoice-output.json)을 참조하세요.
 
 ```json
 {
@@ -712,11 +722,11 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview/custom/models/{model
 ```
 ---
 
-다음 형식의 JSON 본문이 포함된 `200 (Success)` 응답을 받게 됩니다. 출력은 가독성을 위해 줄였습니다. 아래쪽에 `"status"` 필드를 유의하세요. 분석 작업이 완료되면 여기에 `"succeeded"` 값이 포함됩니다. 분석 작업이 완료되지 않은 경우 명령을 다시 실행하여 서비스를 다시 쿼리해야 합니다. 호출 간에 1초 이상의 간격을 사용하는 것이 좋습니다.
+다음 형식의 JSON 본문이 포함된 `200 (Success)` 응답을 받게 됩니다. 출력은 편의상 간소화되었습니다. 아래쪽에 `"status"` 필드를 유의하세요. 분석 작업이 완료되면 여기에 `"succeeded"` 값이 포함됩니다. 분석 작업이 완료되지 않은 경우 명령을 다시 실행하여 서비스를 다시 쿼리해야 합니다. 호출 간에 1초 이상의 간격을 사용하는 것이 좋습니다.
 
 레이블을 사용하지 않고 학습된 사용자 지정 모델에서는 키/값 쌍 연결 및 표가 JSON 출력의 `"pageResults"` 노드에 있습니다. 레이블을 사용하여 학습된 사용자 지정 모델에서는 키/값 쌍 연결이 `"documentResults"` 노드에 있습니다. *includeTextDetails* URL 매개 변수를 통해 일반 텍스트 추출도 지정한 경우 `"readResults"` 노드에는 문서에 있는 모든 텍스트의 콘텐츠와 위치가 표시됩니다.
 
-이 샘플 JSON 출력은 편의상 간소화되었습니다.
+이 샘플 JSON 출력은 편의상 간소화되었습니다. [GitHub의 전체 샘플 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/analyze-result-invoice-6.pdf.json)을 참조하세요.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 ```JSON
@@ -1041,13 +1051,15 @@ curl -X GET "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/receipt/a
 
 ### <a name="examine-the-response"></a>응답 검사
 
-JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 상태를 나타내는 첫 번째 필드, `"status"`입니다. 작업이 완료되는 경우 `"readResults"` 필드에는 영수증에서 추출된 텍스트의 모든 줄이 `"documentResults"` 필드에는 영수증의 가장 적절한 부분에 대한 키/값 정보가 포함됩니다. 작업이 완료되지 않는 경우 `"status"`의 값은 `"running"` 또는 `"notStarted"`가 되며, 수동으로 또는 스크립트를 통해 API를 다시 호출해야 합니다. 호출 간에 1초 이상의 간격을 사용하는 것이 좋습니다.
+JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 상태를 나타내는 첫 번째 필드, `"status"`입니다. 작업이 완료되지 않는 경우 `"status"`의 값은 `"running"` 또는 `"notStarted"`가 되며, 수동으로 또는 스크립트를 통해 API를 다시 호출해야 합니다. 호출 간에 1초 이상의 간격을 사용하는 것이 좋습니다.
 
-다음 영수증 이미지와 해당 JSON 출력을 참조하세요. 출력은 가독성을 위해 줄였습니다.
+`"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다(선택적 *includeTextDetails* 매개 변수를 `true`로 설정한 경우). 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 수신 특정 값이 포함됩니다. 여기서는 세금, 합계, 판매자 주소 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
+
+다음 영수증 이미지와 해당 JSON 출력을 참조하세요.
 
 ![Contoso 매장의 영수증](../../media/contoso-allinone.jpg)
 
-`"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다(선택적 *includeTextDetails* 매개 변수를 `true`로 설정한 경우). 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 수신 특정 값이 포함됩니다. 여기서는 세금, 합계, 판매자 주소 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
+이 출력은 가독성을 위해 줄였습니다. [GitHub의 전체 샘플 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)을 참조하세요.
 
 ```json
 {
@@ -1386,11 +1398,11 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요. 명함 분석을 시작하려면 아래 cURL 명령을 사용하여 **[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
 1. `{Endpoint}`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
-1. `{your receipt URL}`을 영수증 이미지의 URL 주소로 바꿉니다.
+1. `{your business card URL}`을 영수증 이미지의 URL 주소로 바꿉니다.
 1. `{subscription key}`를 이전 단계에서 복사한 구독 키로 바꿉니다.
 
 ```bash
-curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your receipt URL}'}"
+curl -i -X POST "https://{Endpoint}/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your business card URL}'}"
 ```
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더의 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 작업 ID가 포함됩니다.
@@ -1414,11 +1426,13 @@ curl -v -X GET "https://westcentralus.api.cognitive.microsoft.com/formrecognizer
 
 ### <a name="examine-the-response"></a>응답 검사
 
-JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 회사 이름, 이름, 성, 전화 등과 같은 유용한 연락처 정보를 찾을 수 있습니다.
+JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 
+
+`"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 회사 이름, 이름, 성, 전화 등과 같은 유용한 연락처 정보를 찾을 수 있습니다.
 
 ![Contoso 회사의 명함](../../media/business-card-english.jpg)
 
-이 샘플은 Form Recognizer에서 반환하는 JSON 출력을 보여줍니다. 가독성을 위해 잘렸습니다.
+이 샘플 JSON 출력은 가독성을 위해 줄였습니다. [GitHub의 전체 샘플 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)을 참조하세요.
 
 ```json
 {

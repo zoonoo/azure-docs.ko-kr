@@ -6,22 +6,22 @@ services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: translator-text
 ms.topic: overview
-ms.date: 09/11/2020
+ms.subservice: translator-text
+ms.date: 02/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 번역기, 텍스트 번역, 기계 번역, 번역 서비스
-ms.openlocfilehash: 37f0d64879493abcf3e5b9448068b86b7a36dccb
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 12f6d22f263747a8c43b2d98e6ade1de78aea1ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896700"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556267"
 ---
 # <a name="what-is-the-translator-service"></a>Translator 서비스란?
 
-Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [70개국 초과 언어](./language-support.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트 번역에 사용되는 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
+Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하는 데 사용되는 [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. 이를 통해 [70개 이상의 언어](./language-support.md)로 다국어 사용자 경험을 추가할 수 있습니다. 또한 텍스트 번역을 위해 모든 운영 체제가 있는 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 
@@ -45,15 +45,15 @@ NMT 모델은 API의 핵심이며, 최종 사용자에게는 보이지 않습니
 
 ## <a name="improve-translations-with-custom-translator"></a>Custom Translator로 번역 향상
 
-Translator 서비스의 확장인 Custom Translator를 Translator와 함께 사용하여 인공신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
+ Translator 서비스의 확장인 Custom Translator를 Translator와 함께 사용하여 인공신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
 
-Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Translator를 통해 여러 유형의 디바이스에서 기존 애플리케이션, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
+Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 빌드할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Translator를 통해 기존 애플리케이션, 워크플로, 웹 사이트 및 디바이스와 통합할 수 있습니다.
 
 [Custom Translator](customization.md)에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 액세스 키를 [등록](./translator-how-to-signup.md)합니다.
+- 액세스 키 및 엔드포인트를 가져오는 [Translator 서비스를 만드세요](./translator-how-to-signup.md).
 - [빠른 시작](quickstart-translator.md)을 통해 Translator 서비스를 신속하게 호출해보세요.
 - [API 참조](./reference/v3-0-reference.md)는 API에 대한 기술 설명서를 제공합니다.
 - [가격 정보](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

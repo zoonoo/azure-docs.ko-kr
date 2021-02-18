@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/12/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 93a0c171497faa9e87457a03da0b78003feaa533
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485079"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362270"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Speech Studio에서 오디오 파일을 사용하여 모델 테스트
 
@@ -23,7 +23,7 @@ ms.locfileid: "96485079"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-음성 포털을 사용하기 전에 [다음 지침에 따라 Azure 계정을 만들고 Speech service를 구독합니다](../custom-speech-overview.md#set-up-your-azure-account). 이 통합 구독은 음성 텍스트, 텍스트 음성 변환, 음성 번역 및 Custom Speech 포털에 대한 액세스를 제공합니다.
+Speech Studio를 사용하기 전에 [다음 지침에 따라 Azure 계정을 만들고 Speech Service를 구독합니다](../custom-speech-overview.md#set-up-your-azure-account). 이 통합 구독은 음성 텍스트 변환, 텍스트 음성 변환, 음성 번역 및 Speech Studio에 대한 액세스를 제공합니다.
 
 ## <a name="download-an-audio-file"></a>오디오 파일 다운로드
 
@@ -32,7 +32,7 @@ ms.locfileid: "96485079"
 1. 마우스 오른쪽 단추로 링크를 클릭하고 **[이 링크에서 샘플 wav 파일](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** 을 다운로드 하고 **다른 이름으로 링크 저장하기** 를 선택합니다. `whatstheweatherlike.wav`파일을 다운로드하고 **저장하기** 를 클릭합니다.
 2. Zip 도구를 포함한 파일 탐색기 또는 터미널 창을 사용하여 다운로드 한 `whatstheweatherlike.wav`파일을 포함하는 `whatstheweatherlike.zip`이라는 zip 파일을 만듭니다. Windows에서 Windows 탐색기를 열고 `Downloads` 폴더로 이동한 후 `whatstheweatherliike.wav`을 마우스 오른쪽 단추로 클릭하고 **보내기를 클릭하여** 로 보내고 **압축(zip) 폴더** 를 클릭한 다음 엔터키를 눌러 기본 파일 이름을 적용합니다.
 
-## <a name="create-a-project-in-the-custom-speech-portal"></a>Custom Speech 포털에서 프로젝트를 만듭니다.
+## <a name="create-a-project-in-the-speech-studio"></a>Speech Studio에서 프로젝트 만들기
 
 다음 단계를 수행하여 하나의 오디오 파일의 zip을 포함하는 프로젝트를 만듭니다.
 

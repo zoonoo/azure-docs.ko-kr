@@ -4,14 +4,14 @@ description: 이 자습서에서는 Azure API Management에서 제품을 만들�
 author: mikebudzynski
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 2f298f240d8aa7a38b42a8c78ee3c90fe3423d10
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d0420b92fc94e0a1a9c8a4057f419a57a9909223
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993553"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545159"
 ---
 # <a name="tutorial-create-and-publish-a-product"></a>자습서: 제품 만들기 및 게시  
 
@@ -34,6 +34,8 @@ Azure API Management에서 [*제품*](api-management-terminology.md#term-definit
 
 ## <a name="create-and-publish-a-product"></a>제품 만들기 및 게시
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 1. Azure Portal에 로그인하고 API Management 인스턴스로 이동합니다.
 1. 왼쪽 탐색 영역에서 **제품** >  **+ 추가** 를 선택합니다.
 1.  **제품 추가** 창에서, 다음 표에 설명된 값을 입력하여 제품을 만듭니다.
@@ -53,10 +55,53 @@ Azure API Management에서 [*제품*](api-management-terminology.md#term-definit
 
 3. **만들기** 를 선택하여 새 제품을 만듭니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI를 사용하여 시작하려면 다음을 수행합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+제품을 만들려면 [az apim product create](/cli/azure/apim/product#az_apim_product_create) 명령을 실행합니다.
+
+```azurecli
+az apim product create --resource-group apim-hello-word-resource-group \
+    --product-name "Contoso product" --product-id contoso-product \
+    --service-name apim-hello-world --subscription-required true \
+    --state published --description "This is a test."
+```
+
+제품에 대한 다양한 값을 지정할 수 있습니다.
+
+   | 매개 변수 | Description |
+   |-----------|-------------|
+   | `--product-name` | [개발자 포털](api-management-howto-developer-portal.md)에 표시하려는 이름입니다. |
+   | `--description`  | 제품의 용도, 제품에서 액세스할 수 있는 API, 기타 정보 등 제품 정보를 입력합니다. |
+   | `--state`        | 제품을 게시하려면 **게시됨** 을 누릅니다. 제품의 API를 호출하려면 먼저 제품을 게시해야 합니다. 기본적으로 새 제품은 게시되지 않으며 **관리자** 그룹에만 표시됩니다. |
+   | `--subscription-required` | 사용자가 구독해야만 제품을 사용할 수 있게 할 경우 선택합니다. |
+   | `--approval-required` | 관리자가 이 제품에 대한 구독 시도를 검토하고 허용하거나 거부하도록 하려면 선택합니다. 선택하지 않으면 구독 시도가 자동으로 승인됩니다. |
+   | `--subscriptions-limit` | 필요하다면 여러 동시 구독의 수를 제한합니다.|
+   | `--legal-terms`         | 구독자가 제품을 사용하기 위해 허용해야 하는 제품의 사용 약관을 포함할 수 있습니다. |
+
+현재 제품을 보려면 [az apim product list](/cli/azure/apim/product#az_apim_product_list) 명령을 사용합니다.
+
+```azurecli
+az apim product list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+[az apim product delete](/cli/azure/apim/product#az_apim_product_delete) 명령을 사용하여 제품을 삭제할 수 있습니다.
+
+```azurecli
+az apim product delete --product-id contoso-product \
+    --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --delete-subscriptions true
+```
+
+---
+
 ### <a name="add-more-configurations"></a>구성 더 추가
 
 저장 후 제품을 계속 구성합니다. API Management 인스턴스의 **제품** 창에서 제품을 선택합니다. 추가 또는 업데이트:
-
 
 |항목   |Description  |
 |---------|---------|
@@ -74,6 +119,7 @@ Azure API Management에서 [*제품*](api-management-terminology.md#term-definit
 
 ### <a name="add-an-api-to-an-existing-product"></a>기존 제품에 API 추가
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. API Management 인스턴스의 왼쪽 탐색 영역에서 **제품** 을 선택합니다.
 1. 제품을 선택한 다음, **API** 를 선택합니다.
@@ -81,6 +127,40 @@ Azure API Management에서 [*제품*](api-management-terminology.md#term-definit
 1. 하나 이상의 API를 선택한 다음, **선택** 을 선택합니다.
 
 :::image type="content" source="media/api-management-howto-add-products/02-create-publish-product-02.png" alt-text="기존 제품에 API 추가":::
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+1. 관리형 API를 보려면 [az apim api list](/cli/azure/apim/api#az_apim_api_list) 명령을 사용합니다.
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+1. 제품에 API를 추가하려면 [az apim product API add](/cli/azure/apim/product/api#az_apim_product_api_add) 명령을 실행합니다.
+
+   ```azurecli
+   az apim product api add --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --product-id contoso-product \
+       --service-name apim-hello-world
+   ```
+
+1. [az apim product api list](/cli/azure/apim/product/api#az_apim_product_api_list) 명령을 사용하여 추가를 확인합니다.
+
+   ```azurecli
+   az apim product api list --resource-group apim-hello-word-resource-group \
+       --product-id contoso-product --service-name apim-hello-world --output table
+   ```
+
+[az apim product API delete](/cli/azure/apim/product/api#az_apim_product_api_delete) 명령을 사용하여 제품에서 API를 제거할 수 있습니다.
+
+```azurecli
+az apim product api delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --product-id contoso-product \
+    --service-name apim-hello-world
+```
+
+---
 
 > [!TIP]
 > [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) 또는 PowerShell 명령을 통해 사용자 구독을 만들거나 사용자 지정 구독 키가 포함된 제품으로 업데이트할 수 있습니다.

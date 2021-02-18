@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d54207de9d74944e5b44e9970c1c5b896a56a373
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576247"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560757"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기
 
@@ -118,7 +118,7 @@ CreateModels Room
 ```
 
 모델을 덮어쓸 수 없으므로 이제 서비스 오류가 반환됩니다.
-기존 모델을 삭제하는 방법에 대한 자세한 내용은 [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)를 참조하세요.
+기존 모델을 삭제하는 방법에 대한 자세한 내용은 [*방법: DTDL 모델 관리*](how-to-manage-model.md)를 참조하세요.
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
