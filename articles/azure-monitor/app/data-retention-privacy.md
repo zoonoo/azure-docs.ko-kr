@@ -4,12 +4,12 @@ description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579575"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
 
@@ -56,7 +56,7 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 * [예외](./asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id` , CPU 형식. 
 * [종속성](./asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](./monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
-* [추적 로그](./asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](./api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
+* [추적 로그](./asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](./api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것** 입니다.
 
 [자세한 내용](#data-sent-by-application-insights).
 
@@ -120,7 +120,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 로컬 저장소를 활용 하는 원격 분석 채널은 응용 프로그램을 실행 하는 특정 계정으로 제한 되는 TEMP 또는 APPDATA 디렉터리에 임시 파일을 만듭니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조 하세요.)
+이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data)을 참조 하세요.)
 
 고객이 특정 보안 요구 사항을 사용 하 여이 디렉터리를 구성 해야 하는 경우 프레임 워크 당 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
 
@@ -212,7 +212,7 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요.  |
 | Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!)에 대한 공지를 참고하세요. |
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 및 이전 버전에 대 한 자세한 구성 정보는 [다음 지침](/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조 하세요.  |
-|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS Configuration](/windows-server/security/tls/tls-registry-settings)  +  TLS 1.2을 지원 하기 위해 OS 구성[.net 구성](/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
+|상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [](/windows-server/security/tls/tls-registry-settings)  +  TLS 1.2을 지원 하기 위해 OS 구성[.net 구성](/dotnet/framework/network-programming/tls#support-for-tls-12) 에 의존 합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램별 구성에는 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html) 를 사용 합니다. |
 |Java | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
@@ -220,7 +220,7 @@ Tls 1.3와 같이 제공 되는 새로운 더 안전한 프로토콜을 자동�
 | Windows Server 2012 - 2016 | 지원되며 기본적으로 사용하도록 설정됩니다. | [기본 설정을](/windows-server/security/tls/tls-registry-settings) 계속 사용 하 고 있는지 확인 하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원되지만 기본적으로 사용하도록 설정되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | N/A
+|Windows Vista | 지원되지 않습니다. | 해당 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Application Insights에 저장된 개인 데이터
 
-[Application Insights 개인 데이터 아티클](../platform/personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
+[Application Insights 개인 데이터 아티클](../logs/personal-data-mgmt.md)에서는 이 문제를 자세히 설명합니다.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>내 사용자가 Application Insights를 끌 수 있나요?
 직접 끌 수는 없습니다. 사용자가 Application Insights를 끄기 위해 작동할 수 있는 스위치는 제공되지 않습니다.
@@ -262,7 +262,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 예를 들면 다음과 같습니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다.  <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 
@@ -293,7 +293,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
 > [!NOTE]
-> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](./ip-collection.md) 에서 사용자의 옵션을 안내 합니다.
+> 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../logs/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](./ip-collection.md) 에서 사용자의 옵션을 안내 합니다.
 
 ## <a name="credits"></a>크레딧
 이 제품에는에서 사용할 수 있는 MaxMind로 생성 된 GeoLite2 데이터가 포함 됩니다 [https://www.maxmind.com](https://www.maxmind.com) .

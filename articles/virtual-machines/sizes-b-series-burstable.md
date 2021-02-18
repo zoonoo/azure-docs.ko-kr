@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097693"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594390"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -35,7 +35,7 @@ B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 <br>
 <br>
 
-| Size | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_B1ls<sup>1</sup> | 1  | 0.5 | 4   | 5%   | 100%  | 30  | 3   | 72   | 2  | 200/10    | 160/10    | 2  |
 | Standard_B1s              | 1  | 1   | 4   | 10%  | 100%  | 30  | 6   | 144  | 2  | 400/10    | 320/10    | 2  |
@@ -96,7 +96,7 @@ B16 특징:
 
 16 개의 vCPUs 및 64 GiB의 메모리를 포함 하는 D16s_v3의 경우 시간당 요금은 시간당 $0.936 (월간 $673.92)이 고, 16 개의 vCPUs 및 64 GiB memory가 있는 B16ms (월별 $0.794)입니다. <b> 그러면 15% 절감 효과가 발생 합니다.</b>
 
-## <a name="q--a"></a>Q&A
+## <a name="q--a"></a>Q & A
 
 ### <a name="q-what-happens-when-my-credits-run-out"></a>Q: 내 크레딧을 실행 하면 어떻게 되나요?
 **A**: 크레딧이 소진 되 면 VM이 기준 성능으로 돌아옵니다.
@@ -109,7 +109,7 @@ B16 특징:
 
 **A**: **크레딧** 메트릭은 vm에서 적립 된 크레딧 수를 볼 수 있으며 **CONSUMEDCREDIT** 메트릭은 은행에서 사용한 CPU 크레딧 수를 표시 합니다.    포털의 메트릭 창에서 또는 Azure Monitor API를 통한 프로그래밍 방식으로 이러한 메트릭을 볼 수 있습니다.
 
-Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/platform/data-platform.md)를 참조하세요.
+Azure에 대한 메트릭 데이터에 액세스하는 방법에 대한 자세한 내용은 [Microsoft Azure의 메트릭 개요](../azure-monitor/data-platform.md)를 참조하세요.
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>Q: 크레딧을 누적 하 고 소비 하는 방법은 무엇입니까?
 

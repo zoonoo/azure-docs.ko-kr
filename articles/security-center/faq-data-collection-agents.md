@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444518"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595763"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -43,7 +43,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 ## <a name="what-is-the-log-analytics-agent"></a>Log Analytics 에이전트는 무엇 인가요?
 
-보안 취약점 및 위협을 모니터링 하려면 Azure Security Center [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에 따라 달라 집니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 
+보안 취약점 및 위협을 모니터링 하려면 Azure Security Center [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md) 에 따라 달라 집니다 .이 에이전트는 Azure Monitor 서비스에서 사용 하는 것과 동일한 에이전트입니다. 
 
 에이전트를 Microsoft Monitoring Agent (또는 "MMA") 라고도 합니다. 
 
@@ -51,9 +51,9 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 다음 페이지에 설명 된 대로 컴퓨터에서 에이전트에 대해 지원 되는 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
-* [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-* [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 [Log Analytics 에이전트가 수집 하는 데이터](security-center-enable-data-collection.md)에 대해 자세히 알아보세요.
 
@@ -255,7 +255,7 @@ Log Analytics 에이전트를 수동으로 제거할 수 있습니다. Security 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>데이터 수집을 사용하도록 설정하면 어떻게 될까요?
 
-자동 프로비저닝을 사용하도록 설정한 경우 Security Center에서 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Log Analytics 에이전트를 프로비저닝합니다. 자동 프로비저닝을 사용하는 것이 좋지만, 에이전트를 수동으로 설치할 수도 있습니다. [Log Analytics 에이전트 확장을 설치하는 방법에 대해 알아봅니다](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+자동 프로비저닝을 사용하도록 설정한 경우 Security Center에서 지원되는 모든 Azure VM 및 새로 만든 Azure VM에 Log Analytics 에이전트를 프로비저닝합니다. 자동 프로비저닝을 사용하는 것이 좋지만, 에이전트를 수동으로 설치할 수도 있습니다. [Log Analytics 에이전트 확장을 설치하는 방법에 대해 알아봅니다](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 EventLog에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새로운 프로세스에 대해 기록된 세부 정보에 대한 자세한 내용은 [4688의 설명 필드](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)를 참조하세요. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
 
@@ -267,7 +267,7 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>Security Center는 OMS 게이트웨이를 사용하여 작동하나요?
 
 예. Azure Security Center는 Log Analytics 에이전트를 사용하여 Azure VM 및 서버에서 데이터를 수집하는 Azure Monitor를 활용합니다.
-데이터를 수집하려면 각 VM과 서버가 HTTPS를 사용하여 인터넷에 연결되어야 합니다. 직접 연결하거나 프록시를 사용하거나 [OMS 게이트웨이](../azure-monitor/platform/gateway.md)를 통해 연결할 수 있습니다.
+데이터를 수집하려면 각 VM과 서버가 HTTPS를 사용하여 인터넷에 연결되어야 합니다. 직접 연결하거나 프록시를 사용하거나 [OMS 게이트웨이](../azure-monitor/agents/gateway.md)를 통해 연결할 수 있습니다.
 
 
 ## <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>Monitoring Agent가 서버의 성능에 미치는 영향

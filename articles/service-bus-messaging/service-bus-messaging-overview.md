@@ -2,13 +2,13 @@
 title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 간략한 개요를 제공합니다.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219165"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570465"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 Microsoft Azure Service Bus는 메시지 큐와 게시-구독 토픽이 있는 완전 관리형 엔터프라이즈 메시지 broker입니다. Service Bus는 애플리케이션과 서비스를 서로 분리하는 데 사용되며, 다음과 같은 이점을 제공합니다.
@@ -118,11 +118,10 @@ Service Bus에서 FIFO(first-in, first-out) 보장을 만들려면 세션을 사
 트랜잭션 그룹은 두 개 이상의 작업을 *실행 범위* 로 그룹화합니다. Service Bus는 단일 트랜잭션 범위 내에서 여러 메시지 엔터티에 대한 작업을 그룹화할 수 있습니다. 메시지 엔터티는 큐, 토픽 또는 구독일 수 있습니다. 자세한 내용은 [Service Bus 트랜잭션 처리의 개요](service-bus-transactions.md)를 참조하세요.
 
 ### <a name="autodelete-on-idle"></a>유휴 상태에서 자동 삭제
-
-유휴 상태에서 자동 삭제를 사용하여 유휴 간격을 지정할 수 있습니다. 그러면 이 시간이 경과한 후 큐 또는 토픽 구독이 자동으로 삭제됩니다. 최소 기간은 5분입니다. 자세한 내용은 [QueueDescription.AutoDeleteOnIdle 속성](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle)을 참조하세요.
+유휴 상태에서 자동 삭제를 사용하여 유휴 간격을 지정할 수 있습니다. 그러면 이 시간이 경과한 후 큐 또는 토픽 구독이 자동으로 삭제됩니다. 최소 기간은 5분입니다. 
 
 ### <a name="duplicate-detection"></a>중복 검색
-중복 검색 기능을 사용하면 보낸 사람은 동일한 메시지를 다시 전송할 수 있고 broker는 잠재적 중복을 삭제할 수 있습니다. 중복 검색의 기반은 메시지의 `message-id` 속성 추적입니다. 즉, 애플리케이션에서 메시지를 다시 보낼 때 동일한 값을 사용하도록 주의해야 하며, 애플리케이션 관련 컨텍스트에서 직접 파생될 수 있습니다. 자세한 내용은 [중복 검색](duplicate-detection.md)을 참조하세요.
+중복 검색 기능을 사용하면 보낸 사람은 동일한 메시지를 다시 전송할 수 있고 broker는 잠재적 중복을 삭제할 수 있습니다. 자세한 내용은 [중복 검색](duplicate-detection.md)을 참조하세요.
 
 ### <a name="geo-disaster-recovery"></a>지리적 재해 복구
 

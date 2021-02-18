@@ -1,23 +1,18 @@
 ---
 title: Azure Portal을 사용하여 데이터 팩터리 파이프라인 만들기
 description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 작업을 사용하여 Azure Blob 스토리지에서 Azure SQL Database로 데이터를 복사합니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca3250fb54440d6b68a808a3b1b3800bdcfd14eb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375768"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 스토리지에서 Azure SQL Database의 데이터베이스로 데이터 복사
 

@@ -4,12 +4,12 @@ description: 서비스 상태 이벤트에 대한 개인 설정 알림을 Servic
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588183"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
 
@@ -178,7 +178,7 @@ ms.locfileid: "96000643"
 1. 작업 그룹 업데이트가 완료되면 **저장** 을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/platform/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대 한 웹 후크에](../azure-monitor/alerts/activity-log-alerts-webhook.md)service health webhook 페이로드 예제를 찾을 수 있습니다.
 
 1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -195,6 +195,6 @@ ms.locfileid: "96000643"
 
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
-- [활동 로그 경고 웹후크 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토하세요. 
+- [활동 로그 경고 웹후크 스키마](../azure-monitor/alerts/activity-log-alerts-webhook.md)를 검토하세요. 
 - [서비스 상태 알림](./service-notifications.md)에 대해 자세히 알아보세요.
-- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+- [작업 그룹](../azure-monitor/alerts/action-groups.md)에 대해 자세히 알아보세요.

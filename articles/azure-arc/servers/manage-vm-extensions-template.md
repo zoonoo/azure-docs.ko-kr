@@ -3,12 +3,12 @@ title: Azure Resource Manager 템플릿을 사용 하 여 VM 확장 사용
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 하이브리드 클라우드 환경에서 실행 되는 Azure Arc 사용 서버에 가상 머신 확장을 배포 하는 방법을 설명 합니다.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555098"
+ms.locfileid: "100580925"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용 하 여 Azure VM 확장 사용
 
@@ -545,7 +545,7 @@ PowerShell DSC 확장을 사용 하기 위해 Windows 및 Linux에서 실행 하
 
 ## <a name="deploy-the-dependency-agent-extension"></a>종속성 에이전트 확장 배포
 
-Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linux에서 실행할 수 있도록 다음 샘플을 제공 합니다. 종속성 에이전트에 익숙하지 않은 경우 [Azure Monitor 에이전트 개요](../../azure-monitor/platform/agents-overview.md#dependency-agent)를 참조 하세요.
+Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linux에서 실행할 수 있도록 다음 샘플을 제공 합니다. 종속성 에이전트에 익숙하지 않은 경우 [Azure Monitor 에이전트 개요](../../azure-monitor/agents/agents-overview.md#dependency-agent)를 참조 하세요.
 
 ### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
 
@@ -625,7 +625,7 @@ Azure Monitor 종속성 에이전트 확장을 사용 하려면 Windows 및 Linu
 
 ## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 (미리 보기) 배포
 
-다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 특히 다음에 대한 내용을 설명합니다.
+다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 구체적으로는 다음과 같습니다.
 
 ### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
 

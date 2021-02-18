@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: ee3805d128a7b6d122f93e692291db1a387cfcf5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9f4d4f4ad27081bb105cdb1698438837fc2fe02
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464895"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546672"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R에 대한 디바이스 설정 구성
 
@@ -85,7 +85,7 @@ GPU가 있는 Azure Stack Edge Mini R 디바이스에서 디바이스 관련 설
         ![로컬 웹 UI "업데이트 서버" 페이지 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 
         > [!NOTE] 
-        > 별도의 Windows 업데이트 서버가 구성되어 있고 *http* 가 아닌 *https* 를 통해 연결하도록 선택한 경우 업데이트 서버에 연결하는 데 필요한 서명 체인 인증서가 있어야 합니다. 인증서를 만들고 업로드하는 방법에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요. 모듈식 데이터 센터에 대한 Azure Stack Edge 디바이스 계층과 같은 연결 끊김 모드에서 작업하려면 WSUS 옵션을 사용하도록 설정합니다. 활성화하는 동안 디바이스에서 업데이트를 검색하고, 서버가 설정되지 않은 경우 활성화가 실패합니다. 
+        > 별도의 Windows 업데이트 서버가 구성되어 있고 *http* 가 아닌 *https* 를 통해 연결하도록 선택한 경우 업데이트 서버에 연결하는 데 필요한 서명 체인 인증서가 있어야 합니다. 인증서를 만들고 업로드하는 방법에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요. 모듈식 데이터 센터에 대한 Azure Stack Edge 디바이스 계층과 같은 연결 끊김 모드에서 작업하려면 WSUS 옵션을 사용하도록 설정합니다. 활성화하는 동안 디바이스에서 업데이트를 검색하고, 서버가 설정되지 않은 경우 활성화가 실패합니다. 
 
 2. **적용** 을 선택합니다.
 3. 업데이트 서버가 구성되었으면 **다음: 시간** 을 선택합니다.

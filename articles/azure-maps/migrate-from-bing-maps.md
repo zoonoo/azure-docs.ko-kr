@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 52768874ef27bf87846d4abbd68e9e8c1972f996
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679451"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388960"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>자습서: Bing Maps에서 Azure Maps로 마이그레이션
 
@@ -47,8 +47,8 @@ Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및
 | 웹 SDK                               | ✓                  |
 | Android SDK                           | ✓                  |
 | iOS SDK                               | 계획            |
-| UWP SDK                               | 계획            |
-| WPF SDK                               | 계획            |
+| UWP SDK                               | 해당 없음                 |
+| WPF SDK                               | 해당 없음                 |
 | REST 서비스 API                     | ✓                  |
 | 자동 제안                           | ✓                  |
 | 방향(트럭 포함)          | ✓                  |

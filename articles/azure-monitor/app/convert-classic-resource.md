@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights 클래식 리소스를 작업 영역 �
 description: Azure Monitor Application Insights 클래식 리소스를 새 작업 영역 기반 모델로 업그레이드 하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945114"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584253"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -22,21 +22,21 @@ ms.locfileid: "98945114"
 
 작업 영역 기반 Application Insights를 사용 하면 다음을 포함 하 여 Azure Monitor 및 Log Analytics의 모든 최신 기능을 활용할 수 있습니다.
 
-* [CMK (고객 관리 키](../platform/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
-* [Azure Private Link](../platform/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
+* [CMK (고객 관리 키](../logs/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
+* [Azure Private Link](../logs/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
 * [Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)](./profiler-bring-your-own-storage.md) 를 사용 하면 Application Insights Profiler 및 스냅숏 디버거와 연결 된 모든 데이터에 대 한 전체 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽 하 게 제어할 수 있습니다. 
-* [용량 예약 계층](../platform/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
+* [용량 예약 계층](../logs/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
 * Log Analytics 스트리밍 수집을 통한 더 빠른 데이터 수집
 
 ## <a name="migration-process"></a>마이그레이션 프로세스
 
 작업 영역 기반 리소스로 마이그레이션하면 클래식 리소스의 저장소에서 새 작업 영역 기반 저장소로 데이터가 전송 되지 않습니다. 마이그레이션을 선택 하면 기존 리소스 데이터에 대 한 액세스를 유지 하면서 새 데이터가 Log Analytics 작업 영역에 기록 되는 위치가 변경 됩니다. 
 
-클래식 리소스 데이터는 유지 되 고 클래식 Application Insights 리소스의 보존 설정이 적용 됩니다. 모든 새 데이터 수집 사후 마이그레이션에는 연결 된 Log Analytics 작업 영역의 [보존 설정이](../platform/manage-cost-storage.md#change-the-data-retention-period) 적용 됩니다 .이 설정은 [데이터 형식에 따라 다른 보존 설정](../platform/manage-cost-storage.md#retention-by-data-type)도 지원 합니다.
+클래식 리소스 데이터는 유지 되 고 클래식 Application Insights 리소스의 보존 설정이 적용 됩니다. 모든 새 데이터 수집 사후 마이그레이션에는 연결 된 Log Analytics 작업 영역의 [보존 설정이](../logs/manage-cost-storage.md#change-the-data-retention-period) 적용 됩니다 .이 설정은 [데이터 형식에 따라 다른 보존 설정](../logs/manage-cost-storage.md#retention-by-data-type)도 지원 합니다.
 마이그레이션 프로세스는 **영구적 이며 되돌릴 수 없습니다**. 리소스를 작업 영역 기반 Application Insights로 마이그레이션하면 항상 작업 영역 기반 리소스가 됩니다. 그러나 마이그레이션한 후에는 필요에 따라 대상 작업 영역을 자주 변경할 수 있습니다. 
 
 > [!NOTE]
-> 작업 영역 기반 Application Insights 리소스에 대 한 데이터 수집 및 보존은 데이터가 있는 [Log Analytics 작업 영역을 통해 청구](../platform/manage-cost-storage.md) 됩니다. 마이그레이션 전에 데이터 수집에서 클래식 Application Insights 리소스로 데이터 보존을 90 일 이상 선택한 경우에는 해당 Application Insights 리소스를 통해 데이터 보존 비용이 계속 청구 됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
+> 작업 영역 기반 Application Insights 리소스에 대 한 데이터 수집 및 보존은 데이터가 있는 [Log Analytics 작업 영역을 통해 청구](../logs/manage-cost-storage.md) 됩니다. 마이그레이션 전에 데이터 수집에서 클래식 Application Insights 리소스로 데이터 보존을 90 일 이상 선택한 경우에는 해당 Application Insights 리소스를 통해 데이터 보존 비용이 계속 청구 됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
 
 기존 리소스를 마이그레이션할 필요가 없으며 대신 새 작업 영역 기반 Application Insights 리소스를 만들려는 경우 [작업 영역 기반 리소스 생성 가이드](create-workspace-resource.md)를 사용 합니다.
 
@@ -44,12 +44,12 @@ ms.locfileid: "98945114"
 
 - 액세스 제어 모드가 설정으로 설정 된 Log Analytics 작업 영역 **`use resource or workspace permissions`** 입니다. 
 
-    - 작업 영역 기반 Application Insights 리소스는 전용 설정으로 설정 된 작업 영역과 호환 되지 않습니다 **`workspace based permissions`** . Log Analytics 작업 영역 access control에 대 한 자세한 내용은 [액세스 제어 모드 구성 Log Analytics](../platform/manage-access.md#configure-access-control-mode) 을 참조 하세요.
+    - 작업 영역 기반 Application Insights 리소스는 전용 설정으로 설정 된 작업 영역과 호환 되지 않습니다 **`workspace based permissions`** . Log Analytics 작업 영역 access control에 대 한 자세한 내용은 [액세스 제어 모드 구성 Log Analytics](../logs/manage-access.md#configure-access-control-mode) 을 참조 하세요.
 
-    - 기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../learn/quick-create-workspace.md).
+    - 기존 Log Analytics 작업 영역이 아직 없는 경우 [Log Analytics 작업 영역 만들기 설명서를 참조하세요](../logs/quick-create-workspace.md).
     
 - 연속 내보내기는 작업 영역 기반 리소스에 대해 지원 되지 않으므로 사용 하지 않도록 설정 해야 합니다.
-마이그레이션이 완료 되 면 [진단 설정을](../platform/diagnostic-settings.md) 사용 하 여 저장소 계정에 대 한 데이터 보관 또는 Azure 이벤트 허브로의 스트리밍을 구성할 수 있습니다.  
+마이그레이션이 완료 되 면 [진단 설정을](../essentials/diagnostic-settings.md) 사용 하 여 저장소 계정에 대 한 데이터 보관 또는 Azure 이벤트 허브로의 스트리밍을 구성할 수 있습니다.  
 
 -   >  Log Analytics 작업 영역에 대 한 일반 **사용량 및 예상 비용**  >  **데이터 보존** 에서 현재 보존 설정을 확인 합니다. 이 설정은 Application Insights 리소스를 마이그레이션한 후 새 수집 데이터가 저장 되는 기간에 영향을 줍니다. 현재 Application Insights 데이터를 기본 90 일 보다 오래 저장 하 고이 더 큰 보존 기간을 유지 하려는 경우 작업 영역 보존 설정을 조정 해야 할 수 있습니다.
 
@@ -209,7 +209,7 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log An
 
 **오류 메시지:** *선택한 작업 영역은 작업 영역 기반 액세스 모드로 구성 되어 있습니다. 일부 APM 기능이 영향을 받을 수 있습니다. 작업 영역 설정에서 다른 작업 영역을 선택 하거나 리소스 기반 액세스를 허용 합니다. CLI를 사용 하 여이 오류를 재정의할 수 있습니다.* 
 
-작업 영역 기반 Application Insights 리소스가 제대로 작동 하도록 하려면 대상 Log Analytics 작업 영역의 액세스 제어 모드를 **리소스 또는 작업 영역 권한** 설정으로 변경 해야 합니다. 이 설정은 Log Analytics 작업 영역 UI의 **속성**  >  **액세스 제어 모드** 에 있습니다. 자세한 지침은 [Log Analytics access control mode 구성 지침](../platform/manage-access.md#configure-access-control-mode)을 참조 하세요. 액세스 제어 모드가 전용 **필요 작업 영역 권한** 설정으로 설정 된 경우 포털 마이그레이션 환경을 통한 마이그레이션은 차단 된 상태로 유지 됩니다.
+작업 영역 기반 Application Insights 리소스가 제대로 작동 하도록 하려면 대상 Log Analytics 작업 영역의 액세스 제어 모드를 **리소스 또는 작업 영역 권한** 설정으로 변경 해야 합니다. 이 설정은 Log Analytics 작업 영역 UI의 **속성**  >  **액세스 제어 모드** 에 있습니다. 자세한 지침은 [Log Analytics access control mode 구성 지침](../logs/manage-access.md#configure-access-control-mode)을 참조 하세요. 액세스 제어 모드가 전용 **필요 작업 영역 권한** 설정으로 설정 된 경우 포털 마이그레이션 환경을 통한 마이그레이션은 차단 된 상태로 유지 됩니다.
 
 현재 대상 작업 영역에 대 한 보안 이유로 액세스 제어 모드를 변경할 수 없는 경우 마이그레이션에 사용할 새 Log Analytics 작업 영역을 만드는 것이 좋습니다. 
 
@@ -229,7 +229,7 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log An
 
 - 사용 안 함을 선택 하면 마이그레이션 UI로 다시 이동할 수 있습니다. 연속 내보내기 편집 페이지에 설정이 저장 되지 않는다는 메시지가 표시 되는 경우 연속 내보내기를 사용 하거나 사용 하지 않도록 설정 하는 것과 관련이 없으므로이 프롬프트에 대해 확인을 선택할 수 있습니다.
 
-- Application Insights 리소스를 작업 영역 기반으로 성공적으로 마이그레이션한 후에는 진단 설정을 사용 하 여에서 제공 하는 데 사용 되는 연속 내보내기 기능을 대체할 수 있습니다. Application Insights 리소스 내에서 **진단 설정**  >  **추가 진단 설정** 을 선택 합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다. 진단 설정에 대 한 자세한 지침은 [Azure Monitor 진단 설정 지침](../platform/diagnostic-settings.md)을 참조 하세요.
+- Application Insights 리소스를 작업 영역 기반으로 성공적으로 마이그레이션한 후에는 진단 설정을 사용 하 여에서 제공 하는 데 사용 되는 연속 내보내기 기능을 대체할 수 있습니다. Application Insights 리소스 내에서 **진단 설정**  >  **추가 진단 설정** 을 선택 합니다. 모든 테이블 또는 테이블 하위 집합을 선택하여 스토리지 계정에 보관하거나 Azure Event Hub로 스트리밍할 수 있습니다. 진단 설정에 대 한 자세한 지침은 [Azure Monitor 진단 설정 지침](../essentials/diagnostic-settings.md)을 참조 하세요.
 
 ### <a name="retention-settings"></a>보존 설정
 
@@ -241,5 +241,5 @@ Application Insights 리소스 창에서 **속성**  >  **작업 영역** Log An
 
 ## <a name="next-steps"></a>다음 단계
 
-* [메트릭 탐색](../platform/metrics-charts.md)
-* [분석 쿼리 작성](../log-query/log-query-overview.md)
+* [메트릭 탐색](../essentials/metrics-charts.md)
+* [분석 쿼리 작성](../logs/log-query-overview.md)

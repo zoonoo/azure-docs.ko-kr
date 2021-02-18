@@ -3,12 +3,12 @@ title: DoD 영향 수준 4 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수분 4 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594801"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플 배포
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Administrators 로컬 그룹에 포함할 멤버|관리자 로컬 그룹에서 제외해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Administrators 로컬 그룹에서 제외해야 하는 멤버|관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
-|\[미리 보기\]: DoD 영향 수준 4|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
+|\[미리 보기\]: DoD 영향 수준 4|정책 할당|진단 로그를 사용해야 하는 리소스 종류 목록|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|VM을 구성해야 하는 Log Analytics 작업 영역 ID|VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|Azure SQL Database에 대해 장기 지역 중복 백업을 사용하도록 설정해야 함|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
 |\[미리 보기\]: DoD 영향 수준 4|정책 할당|SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다.|

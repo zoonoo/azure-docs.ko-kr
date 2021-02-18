@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325987"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587248"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
 
@@ -44,9 +44,9 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 SQL Server 서버에 대 한 상태 검사를 수행 하려면 다음 지원 되는 방법 중 하나를 사용 하 여 Azure Monitor에 대 한 에이전트 및 연결이 필요 합니다.
 
-1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../platform/agent-windows.md)를 설치합니다.
+1. 서버를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../agents/agent-windows.md)를 설치합니다.
 2. System Center 2016-Operations Manager 또는 Operations Manager 2012 r 2를 사용 하 여 모니터링 되 고 관리 그룹이 Azure Monitor와 통합 되지 않은 경우에는 서버에서 데이터를 수집 하 여 서비스로 전달 하 고 Operations Manager에서 계속 모니터링 하는 Log Analytics를 사용할 수 있습니다.  
-3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
+3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
 SQL Server의 에이전트가 Operations Manager 관리 그룹에 보고 하 고, 데이터를 수집 하 고, 할당 된 관리 서버로 전달한 다음 관리 서버에서 직접 전송 하 여 Azure Monitor 합니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
@@ -76,16 +76,16 @@ Log Analytics에서는 Operations Manager 에이전트와 관리 그룹을 사�
 >
 >
 
-1. Operations Manager에서 운영 콘솔을 열고 **관리**를 클릭합니다.
-2. **실행 구성**에서 **프로필**을 클릭하고 **프로필로 SQL 평가 실행**을 엽니다.
-3. **실행 계정** 페이지에서 **추가**를 클릭합니다.
-4. SQL Server에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 만듭니다.
+1. Operations Manager에서 운영 콘솔을 열고 **관리** 를 클릭합니다.
+2. **실행 구성** 에서 **프로필** 을 클릭하고 **프로필로 SQL 평가 실행** 을 엽니다.
+3. **실행 계정** 페이지에서 **추가** 를 클릭합니다.
+4. SQL Server에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기** 를 클릭하여 계정을 만듭니다.
 
    > [!NOTE]
    > 실행 계정 유형은 Windows이어야 합니다. 실행 계정은 SQL Server 인스턴스를 호스팅하는 모든 Windows 서버에서 로컬 관리자 그룹의 일부이어야 합니다.
    >
    >
-5. **저장**을 클릭합니다.
+5. **저장** 을 클릭합니다.
 6. 상태 검사에 실행 계정으로 필요한 최소 사용 권한을 부여하도록 각 SQL Server 인스턴스에서 다음 T-SQL 샘플을 수정한 다음 실행합니다. 그러나 실행 계정이 SQL Server 인스턴스에서 이미 sysadmin 서버 역할의 일부인 경우, 이 작업을 수행할 필요가 없습니다.
 
 ```
@@ -156,18 +156,18 @@ Azure Monitor에서 평가 솔루션을 사용 하려면 먼저 솔루션이 설
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택 합니다.
-3. 메뉴의 **Insights** 섹션에서 **자세히**를 선택 합니다.  
+2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스** 를 클릭합니다. 리소스 목록에 **모니터** 를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터** 를 선택 합니다.
+3. 메뉴의 **Insights** 섹션에서 **자세히** 를 선택 합니다.  
 4. **개요** 페이지에서 **SQL Health Check** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![SQL Health Check 권장 사항의 이미지](./media/sql-assessment/sql-healthcheck-dashboard-02.png)<br>
-7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
+7. **권장 조치** 에 제안된 올바른 조치를 수행할 수 있습니다. 항목의 주소가 지정되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체** 로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 Azure Monitor에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
-1. Azure Monitor 메뉴에서 **로그**를 클릭 합니다.
+1. Azure Monitor 메뉴에서 **로그** 를 클릭 합니다.
 2. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
     ```
@@ -182,7 +182,7 @@ Azure Monitor에서 평가 솔루션을 사용 하려면 먼저 솔루션이 설
 2. Azure Monitor에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음, 파일을 저장하고 닫습니다.
 3. Azure Monitor에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
-   * Operations Manager 관리 *서버-가*중: Files\Microsoft: 서버인 System Center 2012 R2\Operations Manager\Server
+   * Operations Manager 관리 *서버-가* 중: Files\Microsoft: 서버인 System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
@@ -257,5 +257,5 @@ SQLAssessmentRecommendation
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 자세한 SQL Health Check 데이터 및 권장 사항을 분석 하는 방법을 알아보려면 [로그 쿼리](../log-query/log-query-overview.md) 를 참조 하세요.
+* 자세한 SQL Health Check 데이터 및 권장 사항을 분석 하는 방법을 알아보려면 [로그 쿼리](../logs/log-query-overview.md) 를 참조 하세요.
 

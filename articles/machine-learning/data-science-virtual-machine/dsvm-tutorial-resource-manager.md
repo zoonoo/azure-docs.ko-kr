@@ -7,15 +7,14 @@ author: lobrien
 ms.author: laobri
 ms.custom: subject-armqs
 ms.date: 06/10/2020
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7feacec9f0e78749f17359a9080411b6d9696136
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90883157"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518218"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Data Science Virtual Machine 만들기
 
@@ -31,7 +30,7 @@ ms.locfileid: "90883157"
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/services/machine-learning/)을 만듭니다.
 
-* **로컬 환경**에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
+* **로컬 환경** 에서 이 문서의 CLI 명령을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli)가 필요합니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 

@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930563"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584192"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
@@ -109,7 +109,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 > [!NOTE]
 > 원시 원격 분석 항목에는 명시적 sum 속성/필드가 수집 한 번만 포함 되지 않았습니다. 이 경우와 속성은 모두 동일한 작업을 `value` `valueSum` 나타냅니다.
 
-포털의 [_메트릭_](../platform/metrics-charts.md) 섹션에서 사용자 지정 메트릭 원격 분석에 액세스할 수도 있습니다. [로그 기반 및 사용자 지정 메트릭으로](pre-aggregated-metrics-log-metrics.md)모두 사용 됩니다. (아래 스크린샷은 로그 기반의 예입니다.) ![메트릭 탐색기 보기](./media/get-metric/metrics-explorer.png)
+포털의 [_메트릭_](../essentials/metrics-charts.md) 섹션에서 사용자 지정 메트릭 원격 분석에 액세스할 수도 있습니다. [로그 기반 및 사용자 지정 메트릭으로](pre-aggregated-metrics-log-metrics.md)모두 사용 됩니다. (아래 스크린샷은 로그 기반의 예입니다.) ![메트릭 탐색기 보기](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>높은 처리량 사용을 위한 캐싱 메트릭 참조
 
@@ -188,9 +188,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 
 ### <a name="enable-multi-dimensional-metrics"></a>다차원 메트릭 사용
 
-Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용**사용자 지정 메트릭을 선택 하 여  >  **Custom Metrics**  >  **사용자 지정 메트릭 차원에 대 한 경고 사용**  >  **을**선택 합니다. 이에 대 한 자세한 내용은 [여기](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 찾을 수 있습니다.
+Application Insights 리소스에 대해 다차원 메트릭을 사용 하도록 설정 하려면 **사용량 및 예상 비용** 사용자 지정 메트릭을 선택 하 여  >    >  **사용자 지정 메트릭 차원에 대 한 경고 사용**  >  **을** 선택 합니다. 이에 대 한 자세한 내용은 [여기](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 찾을 수 있습니다.
 
-이러한 변경을 수행 하 고 새 다차원 원격 분석을 보내면 **분할을 적용할**수 있습니다.
+이러한 변경을 수행 하 고 새 다차원 원격 분석을 보내면 **분할을 적용할** 수 있습니다.
 
 > [!NOTE]
 > 포털에서 기능이 설정 된 후 새로 전송 된 메트릭만 차원이 저장 됩니다.
@@ -221,7 +221,7 @@ computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
 
 메트릭에 액세스 하는 데 사용 되는의 원격 분석 컨텍스트를 사용 하지 않습니다 `TelemetryClient` . 클래스의 상수로 사용할 수 있는 특수 차원 이름이 `MetricDimensionNames` 이 제한에 대 한 최상의 해결 방법입니다.
 
-아래 "특수 작업 요청 크기"에 의해 전송 된 메트릭 집계-메트릭은 **not** `Context.Operation.Name` "특수 작업"으로 설정 되지 않습니다. `TrackMetric()`또는 다른 모든 조합 xxx ()는 `OperationName` "특수 작업"으로 올바르게 설정 됩니다.
+아래 "특수 작업 요청 크기"에 의해 전송 된 메트릭 집계-메트릭은  `Context.Operation.Name` "특수 작업"으로 설정 되지 않습니다. `TrackMetric()`또는 다른 모든 조합 xxx ()는 `OperationName` "특수 작업"으로 올바르게 설정 됩니다.
 
 ``` csharp
         //...
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * Worker 서비스 응용 프로그램 모니터링에 [대해 자세히 알아보세요 ](./worker-service.md).
 * [로그 기반 및 미리 집계 된 메트릭에](./pre-aggregated-metrics-log-metrics.md)대 한 자세한 내용은을 참조 하세요.
-* [메트릭 탐색기](../platform/metrics-getting-started.md)
+* [메트릭 탐색기](../essentials/metrics-getting-started.md)
 * [ASP.NET Core 응용 프로그램](asp-net-core.md) 에 대해 Application Insights를 사용 하도록 설정 하는 방법
 * [ASP.NET 응용 프로그램](asp-net.md) 에 대해 Application Insights를 사용 하도록 설정 하는 방법

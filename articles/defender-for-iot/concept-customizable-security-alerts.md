@@ -1,32 +1,32 @@
 ---
-title: 사용자 지정 보안 경고
-description: IoT 기능 및 서비스에 대해 Defender를 사용 하 여 사용자 지정 가능한 보안 경고 및 권장 해결 방법에 대해 알아봅니다.
+title: IoT Hub에 대 한 사용자 지정 보안 경고
+description: IoT Hub의 기능 및 서비스에 대해 Defender를 사용 하 여 사용자 지정 가능한 보안 경고 및 권장 해결 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2020
-ms.author: mlottner
-ms.openlocfilehash: 021b05176da141fad2f4555b0617b5a4a51e453f
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 2/16/2021
+ms.author: shhazam
+ms.openlocfilehash: 04198432f2b600a3c703d5e4f253656f116000db
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809289"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636529"
 ---
-# <a name="defender-for-iot-custom-security-alerts"></a>IoT 용 Defender 사용자 지정 보안 경고
+# <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender IoT Hub 사용자 지정 보안 경고
 
 IoT 용 Defender는 고급 분석 및 위협 인텔리전스를 사용 하 여 IoT 솔루션을 지속적으로 분석 하 여 악의적인 활동을 경고 합니다.
 
 사용자가 고유한 조직 배포 및 환경에서 잠재적인 손상에 대 한 가장 효율적인 지표로 경고를 제공 하도록 예상 되는 장치 동작에 대 한 지식을 바탕으로 사용자 지정 경고를 만드는 것이 좋습니다.
 
-다음 IoT 경고 목록은 예상 IoT Hub 및/또는 장치 동작에 따라 사용자가 정의할 수 있습니다. 각 경고를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조 하세요.
+다음 IoT 경고 목록은 예상 IoT Hub 동작에 따라 사용자가 정의할 수 있습니다. 각 경고를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 경고 만들기](quickstart-create-custom-alerts.md)를 참조 하세요.
 
 ## <a name="built-in-custom-alerts-in-the-iot-hub"></a>IoT Hub에서 기본 제공 되는 사용자 지정 경고
 
@@ -46,18 +46,6 @@ IoT 용 Defender는 고급 분석 및 위협 인텔리전스를 사용 하 여 I
 | 낮음 | 사용자 지정 경고-허용 된 범위를 벗어난 명령 큐 제거의 수 | IoT Hub | 특정 시간 범위 내의 명령 큐 제거 수가 현재 구성된 허용 범위를 벗어납니다. |  |
 | 낮음 | 사용자 지정 경고-모듈 쌍 업데이트 수가 허용 된 범위를 벗어남 | IoT Hub | 특정 시간 범위 내의 모듈 쌍 업데이트 수가 현재 구성된 허용 범위를 벗어납니다. |
 | 낮음 | 사용자 지정 경고-허용 된 범위를 벗어난 권한 없는 작업 수입니다. | IoT Hub | 특정 시간 범위 내의 권한 없는 작업 수가 현재 구성된 허용 범위를 벗어납니다. |
-
-
-## <a name="agent-based-security-custom-alerts"></a>에이전트 기반 보안 사용자 지정 경고
-
-| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항 |
-|--|--|--|--|--|
-| 낮음 | 사용자 지정 경고-활성 연결 수가 허용 된 범위를 벗어남 | 클래식 보안 모듈, Azure RTOS | 특정 시간 범위 내의 활성 연결 수가 현재 구성된 허용 범위를 벗어납니다. | 디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 연결 허용 목록에 추가합니다. |
-| 낮음 | 사용자 지정 경고-허용 되지 않는 IP에 생성 된 아웃 바운드 연결 | 클래식 보안 모듈, Azure RTOS | 아웃바운드 연결이 IP 허용 목록을 벗어난 IP에 만들어졌습니다. | 디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 IP 허용 목록에 추가합니다. |
-| 낮음 | 사용자 지정 경고-실패 한 로컬 로그인 수가 허용 된 범위를 벗어남 | 클래식 보안 모듈, Azure RTOS | 특정 기간 내에 실패 한 로컬 로그인 수가 현재 구성 된 범위 및 허용 되는 범위를 벗어납니다. |  |
-| 낮음 | 사용자 지정 경고-허용 된 사용자 목록에 없는 사용자의 로그인 | 클래식 보안 모듈, Azure RTOS | 사용자 허용 목록에 없는 로컬 사용자가 디바이스에 로그인했습니다. | 원시 데이터를 저장 하는 경우 log analytics 계정으로 이동 하 여 데이터를 사용 하 여 장치를 조사 하 고 원본을 확인 한 다음 해당 설정에 대 한 허용/차단 목록을 수정 합니다. 현재 원시 데이터를 저장하지 않는 경우 디바이스로 이동하여 해당 설정에 대한 허용/차단 목록을 수정합니다. |
-| 낮음 | 사용자 지정 경고-허용 되지 않는 프로세스가 실행 되었습니다. | 클래식 보안 모듈, Azure RTOS | 디바이스에서 허용되지 않는 프로세스가 실행되었습니다. | 원시 데이터를 저장 하는 경우 log analytics 계정으로 이동 하 여 데이터를 사용 하 여 장치를 조사 하 고 원본을 확인 한 다음 해당 설정에 대 한 허용/차단 목록을 수정 합니다. 현재 원시 데이터를 저장하지 않는 경우 디바이스로 이동하여 해당 설정에 대한 허용/차단 목록을 수정합니다. |
-|
 
 ## <a name="next-steps"></a>다음 단계
 

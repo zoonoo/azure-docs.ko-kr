@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737238"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593310"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
 
@@ -142,7 +142,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -200,7 +200,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Batch 모니터링 및 로깅을 구성 하는 방법](monitoring-overview.md)
 
-- [Azure Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
+- [Azure Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -514,7 +514,7 @@ Azure disk encryption을 사용 하 여 조직의 보안 및 규정 준수 약�
 
 풀 데이터에 대 한 모든 CRUD 작업을 모니터링 하 고 기록 하기 위해 Azure Batch 풀과 연결 된 저장소 계정에 대 한 진단 설정을 구성 합니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage 계정에 대 한 추가 로깅/감사를 사용 하도록 설정 하는 방법](../storage/common/storage-monitor-storage-account.md)
 

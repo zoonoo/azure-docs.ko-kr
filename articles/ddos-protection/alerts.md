@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a5639d583d9b98f6527e47bf5db213cb191ebeb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832524"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575301"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>DDoS 보호 경고 보기 및 구성
 
@@ -30,7 +30,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 > * Azure Security Center에서 경고 보기
 > * 경고 유효성 검사 및 테스트
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하려면 먼저 [Azure DDoS standard 보호 계획](manage-ddos-protection.md) 을 만들고 가상 네트워크에서 DDoS Protection standard를 사용 하도록 설정 해야 합니다.
@@ -72,7 +72,7 @@ Azure Monitor 경고 구성을 사용하면 공격 중에 활성 완화가 있�
 
 ![공격 경고](./media/manage-ddos-protection/ddos-alert.png)
 
-경고를 만들기 위해 [웹후크 구성](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아볼 수도 있습니다.
+경고를 만들기 위해 [웹후크 구성](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Logic Apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아볼 수도 있습니다.
 
 ## <a name="view-alerts-in-azure-security-center"></a>Azure Security Center에서 경고 보기
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588340"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Azure Monitor Azure 부서의 범위 메트릭
 
@@ -24,7 +24,7 @@ Azure 부서의 범위 관리자는 Azure Monitor를 사용 하 여 부서의 �
 
 ## <a name="aggregated-metrics"></a>집계 된 메트릭
 
-부서의 범위 계정에 대 한 Azure Portal에서 메트릭에 액세스할 수 있습니다. 메트릭에 대 한 액세스는 부서의 범위 계정의 역할 할당에 의해 제어 됩니다. 메트릭을 보려면 Azure 부서의 범위의 "모니터링 독자" 역할의 일부 여야 합니다. 역할 액세스 수준에 대 한 자세한 내용은 [모니터링 읽기 권한자 역할 권한](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) 을 참조 하세요.
+부서의 범위 계정에 대 한 Azure Portal에서 메트릭에 액세스할 수 있습니다. 메트릭에 대 한 액세스는 부서의 범위 계정의 역할 할당에 의해 제어 됩니다. 메트릭을 보려면 Azure 부서의 범위의 "모니터링 독자" 역할의 일부 여야 합니다. 역할 액세스 수준에 대 한 자세한 내용은 [모니터링 읽기 권한자 역할 권한](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) 을 참조 하세요.
 
 부서의 범위 계정을 만든 사람에 게는 메트릭을 볼 수 있는 권한이 자동으로 부여 됩니다. 다른 사용자가 메트릭을 보려면 다음 단계를 수행 하 여 **모니터링 판독기** 역할에 추가 합니다.
 
@@ -58,11 +58,11 @@ Azure 부서의 범위 사용자는 Azure 부서의 범위 계정의 관리 센�
 
 ### <a name="available-metrics"></a>사용 가능한 메트릭
 
-Azure Portal에서 메트릭 섹션을 사용 하는 방법에 대 한 자세한 내용을 보려면 다음 두 문서를 미리 읽으십시오. 메트릭 탐색기 및 [메트릭 탐색기의 고급 기능](../azure-monitor/platform/metrics-charts.md) [을 시작](../azure-monitor/platform/metrics-getting-started.md) 합니다.
+Azure Portal에서 메트릭 섹션을 사용 하는 방법에 대 한 자세한 내용을 보려면 다음 두 문서를 미리 읽으십시오. 메트릭 탐색기 및 [메트릭 탐색기의 고급 기능](../azure-monitor/essentials/metrics-charts.md) [을 시작](../azure-monitor/essentials/metrics-getting-started.md) 합니다.
 
 다음 표에는 Azure Portal에서 탐색할 수 있는 메트릭 목록이 포함 되어 있습니다.
 
-| 메트릭 이름 | 메트릭 네임스페이스 | 집계 유형 | Description |
+| 메트릭 이름 | 메트릭 네임스페이스 | 집계 유형 | 설명 |
 | ------------------- | ------------------- | ------------------- | ----------------- |
 | 검사 취소 됨 | 자동 검색 | 합계 <br> 개수 | 기간에 따라 취소 된 데이터 원본 검색 집계 |
 | 검사 완료 | 자동 검색 | 합계 <br> 개수 | 기간에 따라 완료 된 데이터 원본 검색 집계 |
@@ -75,7 +75,7 @@ Azure Portal에서 메트릭 섹션을 사용 하는 방법에 대 한 자세한
 
 단계에 따라 Azure 부서의 범위 계정에 대 한 진단 설정을 만듭니다.
 
-1. 플랫폼 로그 및 메트릭을 [다른 대상으로 보내기 위한 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)문서에 따라 새 진단 설정을 만들어 플랫폼 로그 및 메트릭을 수집 합니다. 대상만 Azure storage 계정으로 선택 합니다.
+1. 플랫폼 로그 및 메트릭을 [다른 대상으로 보내기 위한 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)문서에 따라 새 진단 설정을 만들어 플랫폼 로그 및 메트릭을 수집 합니다. 대상만 Azure storage 계정으로 선택 합니다.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="진단 로그를 만드는 과정을 보여 주는 스크린샷" lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 

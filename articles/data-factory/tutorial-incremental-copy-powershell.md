@@ -1,22 +1,18 @@
 ---
 title: PowerShell을 사용하여 테이블 증분 복사
 description: 이 자습서에서는 Azure SQL 데이터베이스에서 Azure Blob Storage로 데이터를 증분 복사하는 Azure Data Factory 파이프라인을 만듭니다.'
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a3346f3f126b880a5a2983f9dd35aa84f6389a31
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222822"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367727"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>PowerShell을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 

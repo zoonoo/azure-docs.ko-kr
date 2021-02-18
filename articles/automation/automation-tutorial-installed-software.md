@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207566"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593783"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>VM에 설치된 소프트웨어 검색
 
@@ -46,9 +46,9 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 >[!NOTE]
 >필드가 회색으로 표시되면 해당 VM에 다른 자동화 기능을 사용하도록 설정하고 동일한 작업 영역과 Automation 계정을 사용해야 합니다.
 
-1. Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
+1. Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적** 을 선택합니다.
 
-2. [Log Analytics](../azure-monitor/log-query/log-query-overview.md) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
+2. [Log Analytics](../azure-monitor/logs/log-query-overview.md) 작업 영역을 선택합니다. 이 작업 영역은 변경 내용 추적 및 인벤토리 같은 기능에 의해 생성된 데이터를 수집합니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -56,7 +56,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 4. 배포 위치를 구성합니다.
 
-5. **사용**을 클릭하여 VM용 기능을 배포합니다. 
+5. **사용** 을 클릭하여 VM용 기능을 배포합니다. 
 
     ![인벤토리 구성 배너](./media/automation-tutorial-installed-software/enableinventory.png)
 
@@ -66,13 +66,13 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="add-an-azure-vm-to-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리에 Azure VM 추가
 
-1. Automation 계정의 **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**으로 이동합니다.
+1. Automation 계정의 **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적** 으로 이동합니다.
 
-2. **+ Azure VM 추가**를 선택합니다.
+2. **+ Azure VM 추가** 를 선택합니다.
 
 3. VM 목록에서 VM을 선택합니다. 
 
-4. VM에서 변경 내용 추적 및 인벤토리를 사용하도록 설정하려면 **사용**을 클릭합니다. Windows용 Log Analytics 에이전트는 VM에 배포되고 Log Analytics 작업 영역과 통신하도록 VM을 구성합니다. 설정 작업은 몇 분 정도 걸릴 수 있습니다. 
+4. VM에서 변경 내용 추적 및 인벤토리를 사용하도록 설정하려면 **사용** 을 클릭합니다. Windows용 Log Analytics 에이전트는 VM에 배포되고 Log Analytics 작업 영역과 통신하도록 VM을 구성합니다. 설정 작업은 몇 분 정도 걸릴 수 있습니다. 
 
 5. 이때 원하는 경우 목록에서 새 VM을 선택하여 기능을 사용하도록 설정할 수 있습니다.
 
@@ -80,11 +80,11 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 기능에 비 Azure 머신을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 운영 체제에 따라 [Windows용 Log Analytics 에이전트](../azure-monitor/platform/agent-windows.md) 또는 [Linux용 Log Analytics 에이전트](automation-linux-hrw-install.md)를 설치합니다. 
+1. 운영 체제에 따라 [Windows용 Log Analytics 에이전트](../azure-monitor/agents/agent-windows.md) 또는 [Linux용 Log Analytics 에이전트](automation-linux-hrw-install.md)를 설치합니다. 
 
-2. Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**으로 이동합니다. 
+2. Automation 계정으로 이동하고, **구성 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적** 으로 이동합니다. 
 
-3. **머신 관리**를 클릭합니다. 변경 내용 추적 및 인벤토리가 활성화되지 않은 Log Analytics 작업 영역에 보고하는 머신의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
+3. **머신 관리** 를 클릭합니다. 변경 내용 추적 및 인벤토리가 활성화되지 않은 Log Analytics 작업 영역에 보고하는 머신의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
 
     * **사용 가능한 모든 머신에서 사용하도록 설정** - 이 옵션은 이 시점에 Log Analytics 작업 영역에 보고하는 모든 머신에서 이 기능을 사용하도록 설정합니다.
     * **사용 가능한 모든 머신 및 이후 머신에서 사용하도록 설정** - 이 옵션은 Log Analytics 작업 영역에 보고하는 모든 머신과 이후에 작업 영역에 추가되는 향후 모든 머신에서 이 기능을 사용하도록 설정합니다.
@@ -96,7 +96,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 변경 내용 추적 및 인벤토리 기능이 사용하도록 설정되면 인벤토리 페이지에서 결과를 볼 수 있습니다.
 
-1. Automation 계정에서 **Configuration Management** 아래의 **인벤토리**를 선택합니다.
+1. Automation 계정에서 **Configuration Management** 아래의 **인벤토리** 를 선택합니다.
 
 2. 인벤토리 페이지에서 **소프트웨어** 탭을 클릭합니다.
 
@@ -107,11 +107,11 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 4. 소프트웨어 레코드의 속성 및 해당 소프트웨어가 있는 컴퓨터의 이름을 보려면 행을 클릭합니다.
 
 5. 특정 소프트웨어 또는 소프트웨어 그룹을 찾으려면 소프트웨어 목록 바로 위에 있는 텍스트 상자에서 검색할 수 있습니다.
-필터를 사용하면 소프트웨어 이름, 버전 또는 게시자를 기반으로 하여 검색할 수 있습니다. 예를 들어 **Contoso**를 검색하면 **Contoso**가 포함된 이름, 게시자 또는 버전이 있는 모든 소프트웨어가 반환됩니다.
+필터를 사용하면 소프트웨어 이름, 버전 또는 게시자를 기반으로 하여 검색할 수 있습니다. 예를 들어 **Contoso** 를 검색하면 **Contoso** 가 포함된 이름, 게시자 또는 버전이 있는 모든 소프트웨어가 반환됩니다.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>설치된 소프트웨어에 대한 인벤토리 로그 검색
 
-변경 내용 추적 및 인벤토리에서 Azure Monitor 로그로 전송되는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 인벤토리 페이지 상단에 있는 **Log Analytics**를 선택합니다. 인벤토리 데이터는 `ConfigurationData` 형식 아래에 저장됩니다.
+변경 내용 추적 및 인벤토리에서 Azure Monitor 로그로 전송되는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 인벤토리 페이지 상단에 있는 **Log Analytics** 를 선택합니다. 인벤토리 데이터는 `ConfigurationData` 형식 아래에 저장됩니다.
 
 다음 예시 Log Analytics 쿼리는 게시자의 인벤토리 결과를 Microsoft Corporation에 반환합니다.
 
@@ -122,11 +122,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ## <a name="see-the-software-inventory-for-a-single-machine"></a>단일 머신에 대한 소프트웨어 인벤토리 보기
 
-단일 머신에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Azure Monitor 로그를 사용하여 해당 머신으로 필터링할 수 있습니다. 다음 Log Analytics 쿼리 예제에서는 **ContosoVM**이라는 머신의 소프트웨어 목록을 반환합니다.
+단일 머신에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Azure Monitor 로그를 사용하여 해당 머신으로 필터링할 수 있습니다. 다음 Log Analytics 쿼리 예제에서는 **ContosoVM** 이라는 머신의 소프트웨어 목록을 반환합니다.
 
 ```loganalytics
 ConfigurationData

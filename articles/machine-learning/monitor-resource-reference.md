@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585129"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575084"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Azure machine learning 데이터 참조 모니터링
 
@@ -23,7 +23,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ## <a name="metrics"></a>메트릭
 
-이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces)입니다.
+이 섹션에서는 Azure Machine Learning에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 이러한 메트릭에 대 한 리소스 공급자는 [MachineLearningServices/작업 영역](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces)입니다.
 
 **모델**
 
@@ -74,7 +74,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 ## <a name="metric-dimensions"></a>메트릭 차원
 
-메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)을 참조하세요.
+메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)을 참조하세요.
 
 Azure Machine Learning에는 해당 메트릭과 관련 된 다음과 같은 차원이 있습니다.
 
@@ -117,7 +117,7 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 
 이 섹션에서는 Azure Machine Learning 작업 영역에 대해 수집할 수 있는 리소스 로그 유형을 나열 합니다.
 
-리소스 공급자 및 유형: [MachineLearningServices/작업 영역](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+리소스 공급자 및 유형: [MachineLearningServices/작업 영역](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | 범주 | 표시 이름 |
 | ----- | ----- |
@@ -232,4 +232,4 @@ RunType 차원의 유효한 값은 다음과 같습니다.
 ## <a name="see-also"></a>참고 항목
 
 - Azure Machine Learning 모니터링에 대 한 설명은 [monitoring Azure Machine Learning](monitor-azure-machine-learning.md) 를 참조 하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

@@ -7,17 +7,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 561375eb41600ba1404bba2bcbf15b6cbfc61851
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684861"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595338"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용 하 여 Azure Cosmos DB 데이터 모니터링
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Azure에서 진단 설정을 사용하여 Azure Cosmos DB 데이터 모니터링
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다. Azure 리소스 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이러한 로그는 요청당 캡처되고 "데이터 평면 로그" 라고도 합니다. 데이터 평면 작업의 몇 가지 예로는 delete, insert 및 readFeed 있습니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
+Azure의 진단 설정은 리소스 로그를 수집하는 데 사용됩니다. Azure 리소스 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이러한 로그는 요청당 캡처되고 "데이터 평면 로그" 라고도 합니다. 데이터 평면 작업의 몇 가지 예로는 delete, insert 및 readFeed 있습니다. 이러한 로그의 내용은 리소스 종류에 따라 달라집니다.
 
 플랫폼 메트릭과 활동 로그는 자동으로 수집 되지만 리소스 로그를 수집 하거나 Azure Monitor 외부로 전달 하려면 진단 설정을 만들어야 합니다. 다음 단계를 사용 하 여 Azure Cosmos 계정에 대 한 진단 설정을 켤 수 있습니다.
 
@@ -103,7 +103,7 @@ Azure의 진단 설정은 리소스 로그를 수집 하는 데 사용 됩니다
 
 * **요청**: Azure Cosmos DB에서 진단 설정의 대상으로 메트릭 데이터를 수집 하려면이 옵션을 선택 합니다. Azure 메트릭에 의해 자동으로 수집 되는 동일한 데이터입니다. 리소스 로그를 사용 하 여 메트릭 데이터를 수집 하 여 두 종류의 데이터를 함께 분석 하 고 Azure Monitor 외부에서 메트릭 데이터를 보냅니다.
 
-Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
+Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 방법에 대 한 자세한 내용은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조 하세요.
 
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> 진단 쿼리와 관련 된 문제 해결

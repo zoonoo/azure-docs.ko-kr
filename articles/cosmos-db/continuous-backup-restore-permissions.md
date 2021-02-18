@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393057"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648606"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 복원 하는 권한 관리
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,9 +46,9 @@ Azure Cosmos DB를 사용 하면 연속 백업 (미리 보기) 계정에 대 한
 
 ## <a name="permission-scopes"></a>사용 권한 범위
 
-|Scope  |예  |
+|범위  |예제  |
 |---------|---------|
-|구독 | /subscriptions/00000000-0000-0000-0000-000000000000 |
+|Subscription | /subscriptions/00000000-0000-0000-0000-000000000000 |
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB 복원 가능한 계정 리소스 | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/위치/미국 서 부/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
@@ -61,7 +61,7 @@ Azure Cosmos DB를 사용 하면 연속 백업 (미리 보기) 계정에 대 한
 |사용 권한  |영향  |최소 범위  |최대 범위  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | 이러한 권한은 ARM 템플릿 배포에서 복원 된 계정을 만드는 데 필요 합니다. 이 역할을 설정 하는 방법은 아래의 sample permission [RestorableAction](#custom-restorable-action) 을 참조 하십시오. | 해당 없음 | 해당 없음  |
-|Microsoft.DocumentDB/databaseAccounts/write | 계정을 리소스 그룹으로 복원 하려면이 권한이 필요 합니다. | 복원 된 계정이 만들어진 리소스 그룹입니다. | 복원 된 계정이 만들어진 구독 |
+|`Microsoft.DocumentDB/databaseAccounts/write` | 계정을 리소스 그룹으로 복원 하려면이 권한이 필요 합니다. | 복원 된 계정이 만들어진 리소스 그룹입니다. | 복원 된 계정이 만들어진 구독 |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |이 권한은 원본 복원 가능한 데이터베이스 계정 범위에서 복원 동작을 수행할 수 있도록 하는 데 필요 합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 `ID` 복원 가능한 데이터베이스 계정 리소스의 속성에도 제공 됩니다. 복원 가능한 계정의 예는 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/위치/지역 이름/restorableDatabaseAccounts/<guid-instanceid>* | 복원 가능한 데이터베이스 계정이 포함 된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |이 권한은 원본 복원 가능한 데이터베이스 계정 범위에서 복원할 수 있는 데이터베이스 계정을 나열 하는 데 필요 합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 `ID` 복원 가능한 데이터베이스 계정 리소스의 속성에도 제공 됩니다. 복원 가능한 계정의 예는 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/위치/지역 이름/restorableDatabaseAccounts/<guid-instanceid>*| 복원 가능한 데이터베이스 계정이 포함 된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | 이 권한은 원본 복원 가능한 계정 범위에서 복원 가능한 계정에 대 한 데이터베이스 및 컨테이너 목록과 같은 복원 가능한 리소스를 읽을 수 있도록 하는 데 필요 합니다.  | 복원 중인 원본 계정에 속하는 *RestorableDatabaseAccount* 리소스입니다. 이 값은 `ID` 복원 가능한 데이터베이스 계정 리소스의 속성에도 제공 됩니다. 복원 가능한 계정의 예는 */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/위치/지역 이름/restorableDatabaseAccounts/<guid-instanceid>*| 복원 가능한 데이터베이스 계정이 포함 된 구독입니다. 리소스 그룹을 범위로 선택할 수 없습니다. |
