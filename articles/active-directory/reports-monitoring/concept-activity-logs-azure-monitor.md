@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586196"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571274"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
@@ -126,7 +126,7 @@ Azure AD 라이선스가 이미 있는 경우 스토리지 계정 및 이벤트 
 
 
 
-Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monitor 로그에서 데이터 볼륨 및 보존을 제어하여 비용 관리](../../azure-monitor/platform/manage-cost-storage.md)를 참조하세요.
+Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monitor 로그에서 데이터 볼륨 및 보존을 제어하여 비용 관리](../../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -180,7 +180,7 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 **Q: 현재 지원되는 SIEM 도구는 무엇입니까?** 
 
-**A**: **a**: 현재 Azure Monitor은 [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM qradar, [sumo 논리](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [arcsight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm 및 Logz.io에서 지원 됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 참조하세요.
+**A**: **a**: 현재 Azure Monitor은 [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM qradar, [sumo 논리](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [arcsight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm 및 Logz.io에서 지원 됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)을 참조하세요.
 
 ---
 

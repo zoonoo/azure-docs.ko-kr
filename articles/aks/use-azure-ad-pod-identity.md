@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 AAD pod 관리 되는 관리
 services: container-service
 ms.topic: article
 ms.date: 12/01/2020
-ms.openlocfilehash: 22b7a03a8598aa6e4b7c392567905d467776360c
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: f5b5095e95115ce5a28d81d83b725349d43ecc8f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557359"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635543"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure Active Directory pod 관리 id 사용 (미리 보기)
 
@@ -79,6 +79,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## <a name="assign-permissions-for-the-managed-identity"></a>관리 id에 대 한 사용 권한 할당
+
+관리 되는 *IDENTITY_CLIENT_ID* id에는 AKS 클러스터의 가상 머신 확장 집합을 포함 하는 리소스 그룹에 대 한 읽기 권한이 있어야 합니다.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## <a name="create-a-pod-identity"></a>Pod id 만들기

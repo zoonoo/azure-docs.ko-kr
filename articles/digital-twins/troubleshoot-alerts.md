@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: 461d7a82854ce62ee99eef1227c13c7a8f0371e2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616605"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594870"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Azure Digital Twins 문제 해결: 경고
 
 Azure Digital Twins는 리소스의 상태에 대 한 정보를 제공 하는 서비스 인스턴스에 대 한 [메트릭을](troubleshoot-metrics.md) 수집 합니다. 이러한 메트릭을 사용 하 여 Azure Digital Twins 서비스의 전반적인 상태와 연결 된 리소스를 평가할 수 있습니다.
 
-**경고** 는 메트릭 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [*Microsoft Azure의 경고 개요*](../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
+**경고** 는 메트릭 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알려 줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 경고에 대 한 자세한 내용은 [*Microsoft Azure의 경고 개요*](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요.
 
 ## <a name="turn-on-alerts"></a>경고 설정
 
@@ -38,7 +38,7 @@ Azure Digital Twins 인스턴스에 대해 경고를 사용 하도록 설정 하
 
 :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="범위, 조건, 작업 그룹 및 경고 규칙 세부 정보에 대 한 섹션을 포함 하는 경고 규칙 만들기 페이지를 보여 주는 스크린샷" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
-이러한 필드를 작성 하는 방법에 대 한 단계별 연습은 [*Microsoft Azure의 경고 개요*](../azure-monitor/platform/alerts-overview.md)를 참조 하세요. 다음은 Azure Digital Twins에 대해 단계가 표시 되는 몇 가지 예입니다.
+이러한 필드를 작성 하는 방법에 대 한 단계별 연습은 [*Microsoft Azure의 경고 개요*](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요. 다음은 Azure Digital Twins에 대해 단계가 표시 되는 몇 가지 예입니다.
 
 ### <a name="select-conditions"></a>조건 선택
 
@@ -58,6 +58,6 @@ Azure Digital Twins에 사용할 수 있는 경고 신호의 유형을 보여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Monitor 경고에 대 한 자세한 내용은 [*Microsoft Azure의 경고 개요*](../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
+* Azure Monitor 경고에 대 한 자세한 내용은 [*Microsoft Azure의 경고 개요*](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요.
 * Azure Digital Twins 메트릭에 대 한 자세한 내용은 [*문제 해결: Azure Monitor 사용 하 여 메트릭 보기*](troubleshoot-metrics.md)를 참조 하세요.
 * 메트릭에 대해 진단 로깅을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [*문제 해결: 진단 설정*](troubleshoot-diagnostics.md)을 참조 하세요.

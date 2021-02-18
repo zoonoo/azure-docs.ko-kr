@@ -1,30 +1,30 @@
 ---
 title: Azure 파일 동기화 모니터링 | Microsoft Docs
-description: Azure Monitor, Storage 동기화 서비스 및 Windows Server를 사용 하 여 Azure File Sync 배포를 모니터링 하는 방법을 검토 합니다.
+description: Azure Monitor, Storage 동기화 서비스 및 Windows Server를 사용 하 여 Azure 파일 동기화 배포를 모니터링 하는 방법을 검토 합니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586553"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576783"
 ---
 # <a name="monitor-azure-file-sync"></a>Azure 파일 동기화 모니터링
 
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
-이 문서에서는 Azure Monitor, Storage 동기화 서비스 및 Windows Server를 사용 하 여 Azure File Sync 배포를 모니터링 하는 방법을 설명 합니다.
+이 문서에서는 Azure Monitor, Storage 동기화 서비스 및 Windows Server를 사용 하 여 Azure 파일 동기화 배포를 모니터링 하는 방법을 설명 합니다.
 
 이 가이드에서 다루는 시나리오는 다음과 같습니다. 
-- Azure Monitor에서 Azure File Sync 메트릭을 봅니다.
+- Azure Monitor에서 Azure 파일 동기화 메트릭을 봅니다.
 - Azure Monitor에서 경고를 만들어 중요 상태를 사전에 알려 줍니다.
-- Azure Portal를 사용 하 여 Azure File Sync 배포의 상태를 확인 합니다.
-- Windows 서버에서 이벤트 로그 및 성능 카운터를 사용 하 여 Azure File Sync 배포의 상태를 모니터링 하는 방법입니다. 
+- Azure Portal를 사용 하 여 Azure 파일 동기화 배포의 상태를 확인 합니다.
+- Windows 서버에서 이벤트 로그 및 성능 카운터를 사용 하 여 Azure 파일 동기화 배포의 상태를 모니터링 하는 방법입니다. 
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -34,11 +34,11 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 Azure 파일 동기화의 메트릭은 기본적으로 사용하도록 설정되며 15분마다 Azure Monitor로 전송됩니다.
 
-**Azure Monitor에서 Azure File Sync 메트릭을 보는 방법**
+**Azure Monitor에서 Azure 파일 동기화 메트릭을 보는 방법**
 1. **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 하 고 **메트릭** 을 클릭 합니다.
 2. **메트릭** 드롭다운을 클릭 하 고 보려는 메트릭을 선택 합니다.
 
-![Azure File Sync 메트릭의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
+![Azure 파일 동기화 메트릭의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다음과 같습니다.
 
@@ -56,9 +56,9 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ### <a name="alerts"></a>경고
 
-경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/platform/alerts-overview.md)를 참조 하세요.
+경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요](../../azure-monitor/alerts/alerts-overview.md)를 참조 하세요.
 
-**Azure File Sync에 대 한 경고를 만드는 방법**
+**Azure 파일 동기화에 대 한 경고를 만드는 방법**
 
 1. **Azure Portal** 에서 **저장소 동기화 서비스로** 이동 합니다. 
 2. 모니터링 섹션에서 **경고** 를 클릭 한 다음 **+ 새 경고 규칙** 을 클릭 합니다.
@@ -83,7 +83,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ## <a name="storage-sync-service"></a>스토리지 동기화 서비스
 
-**Azure Portal** 에서 Azure File Sync 배포의 상태를 보려면 **저장소 동기화 서비스로** 이동 하 여 다음 정보를 사용할 수 있습니다.
+**Azure Portal** 에서 Azure 파일 동기화 배포의 상태를 보려면 **저장소 동기화 서비스로** 이동 하 여 다음 정보를 사용할 수 있습니다.
 
 - 등록 된 서버 상태
 - 서버 끝점 상태
@@ -101,7 +101,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 ![등록 된 서버 상태의 스크린샷](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
 - 등록 된 **서버** 상태가 **온라인** 인 경우 서버는 서비스와 성공적으로 통신 하 고 있는 것입니다.
-- 등록 된 **서버** 상태가 **오프 라인으로 표시** 되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure File Sync 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
+- 등록 된 **서버** 상태가 **오프 라인으로 표시** 되는 경우 AzureStorageSyncMonitor.exe (저장소 동기화 모니터 프로세스)가 실행 되 고 있지 않거나 서버에서 Azure 파일 동기화 서비스에 액세스할 수 없습니다. 지침은 [문제 해결 설명서](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) 를 참조 하세요.
 
 ### <a name="server-endpoint-health"></a>서버 끝점 상태
 
@@ -133,7 +133,7 @@ Azure Monitor에서 사용 가능한 Azure 파일 동기화용 메트릭은 다�
 
 ## <a name="windows-server"></a>Windows Server
 
-Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤트 로그** 및 **성능 카운터** 를 사용 하 여 해당 서버에서 서버 끝점의 상태를 볼 수 있습니다.
+Azure 파일 동기화 에이전트가 설치 된 **Windows server** 에서는 **이벤트 로그** 및 **성능 카운터** 를 사용 하 여 해당 서버에서 서버 끝점의 상태를 볼 수 있습니다.
 
 ### <a name="event-logs"></a>이벤트 로그
 
@@ -174,7 +174,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 
 동기화 활동을 모니터링할 서버에서 Azure 파일 동기화 성능 카운터를 사용합니다.
 
-서버에서 Azure File Sync 성능 카운터를 보려면 성능 모니터 (Perfmon.exe)를 엽니다. 이 카운터는 **Afs 바이트 전송** 및 **afs 동기화 작업** 개체 아래에서 찾을 수 있습니다.
+서버에서 Azure 파일 동기화 성능 카운터를 보려면 성능 모니터 (Perfmon.exe)를 엽니다. 이 카운터는 **Afs 바이트 전송** 및 **afs 동기화 작업** 개체 아래에서 찾을 수 있습니다.
 
 성능 모니터에서 사용 가능한 Azure 파일 동기화용 성능 카운터는 다음과 같습니다.
 
@@ -188,7 +188,7 @@ Azure File Sync 에이전트가 설치 된 **Windows server** 에서는 **이벤
 | AFS Sync Operations\Total Sync File Operations/sec | 동기화된 파일의 총 수(업로드/다운로드)입니다. |
 
 ## <a name="alert-examples"></a>경고 예
-이 섹션에서는 Azure File Sync에 대 한 몇 가지 예제 경고를 제공 합니다.
+이 섹션에서는 Azure 파일 동기화에 대 한 몇 가지 예제 경고를 제공 합니다.
 
   > [!Note]  
   > 경고를 만들고 너무 잡음이 있는 경우 임계값 및 경고 논리를 조정 합니다.

@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 115e1ec347cdcd80904b47a0c8798206360d0dad
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: cdad5a0ec158f216a63ae7e1e2abc10d2841b3bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131783"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593730"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
@@ -168,7 +168,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ![특정 샘플 뷰로 드릴](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
-더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../log-query/log-query-overview.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
+더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../logs/log-query-overview.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
 ![분석 예제](./media/java-get-started/0025.png)
 
@@ -292,7 +292,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 * [Unix 성능 카운터 모니터링](java-collectd.md)
 * [웹 페이지에 모니터링](javascript.md)을 추가하여 페이지 로드 시간, AJAX 호출, 브라우저 예외를 모니터링합니다.
 * [사용자 지정 원격 분석](./api-custom-events-metrics.md)을 작성하여 브라우저 또는 서버에서 사용량을 추적합니다.
-* 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](../log-query/log-query-overview.md)을 사용합니다.
+* 앱의 원격 분석을 통해 강력한 쿼리를 수행하려면 [분석](../logs/log-query-overview.md)을 사용합니다.
 * 자세한 내용은 [Java 개발자용 Azure](/java/azure)를 방문하세요.
 
 <!--Link references-->
@@ -302,5 +302,5 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [availability]: ./monitor-web-app-availability.md
 [diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [usage]: javascript.md

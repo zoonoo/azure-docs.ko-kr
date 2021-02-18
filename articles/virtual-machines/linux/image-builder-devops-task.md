@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636427"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Azure 이미지 작성기 서비스 DevOps 작업
 
@@ -21,12 +21,12 @@ ms.locfileid: "99807617"
 ## <a name="devops-task-versions"></a>DevOps 태스크 버전
 두 개의 Azure VM AIB (이미지 빌더) DevOps 태스크가 있습니다.
 
-* [' 안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 통해 최신 업데이트 및 기능을 사용할 수 있으며,이를 통해 고객은 나중에 약 1 주일 후에 ' 안정적인 ' 작업으로 수준을 올릴 수 있습니다. 
+* [' 안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)은 테스트를 거친 가장 안정적인 안정적인 빌드 이며, 원격 분석은 문제를 표시 하지 않습니다. 
 
 
 * [' 불안정 ' AIB 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)으로,이를 통해 최신 업데이트 및 기능을 사용 하 여 고객을 ' 안정적인 ' 작업으로 승격 하기 전에 테스트할 수 있습니다. 보고 된 문제가 없고 원격 분석에서 약 1 주일 후에 문제를 표시 하지 않으면 작업 코드를 ' 안정 '로 승격 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio Marketplace에서 안정적인 DevOps 작업](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)을 설치 합니다.
 * VSTS DevOps 계정이 있어야 하 고 빌드 파이프라인이 생성 되어 있어야 합니다.

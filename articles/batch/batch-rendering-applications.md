@@ -3,12 +3,12 @@ title: 렌더링 애플리케이션
 description: Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다. 그러나 Azure Marketplace VM 이미지는 미리 설치된 일반적인 애플리케이션에 사용할 수 있습니다.
 ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362236"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635339"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>일괄 처리 렌더링 VM 이미지에 미리 설치 된 응용 프로그램
 
@@ -20,7 +20,7 @@ Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>최신 CentOS 7 렌더링 이미지의 응용 프로그램
 
-다음 목록은 CentOS 렌더링 이미지 버전 1.1.7에 적용 됩니다.
+다음 목록은 CentOS 렌더링 이미지 버전 1.2.0에 적용 됩니다.
 
 * Autodesk Maya i/o 2020 업데이트 4.6
 * Maya 2020에 대 한 Autodesk Arnold (Arnold version 6.2.0.0) MtoA-4.2.0-2020

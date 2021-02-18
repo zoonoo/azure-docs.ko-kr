@@ -1,22 +1,17 @@
 ---
 title: Azure 데이터 복사 도구를 사용하여 데이터 복사
 description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 48624e415649be2fb76aed99c5cb0e1b3b12f04b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013516"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372861"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807210"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571653"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Azure 센티널에 대 한 azure 보안 기준
 
@@ -37,9 +37,9 @@ ms.locfileid: "99807210"
 
 - [Azure 센티널에서 감사를 사용 하도록 설정 하는 방법](resources.md)
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -73,7 +73,7 @@ ms.locfileid: "99807210"
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure 센티널 작업 영역과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -341,7 +341,7 @@ Log Analytics 역할에 Log Analytics 참가자 및 Log Analytics 판독기가 �
 
 **지침**: Azure 센티널 및 Azure Monitor Log Analytics 작업 영역은 현재 미사용 데이터를 암호화 하기 위해 Microsoft에서 관리 하는 키를 사용 합니다. 사용자 고유의 키를 가져오는 기능은 아직 센티널에 대해 완전히 지원 되지 않지만 가까운 장래에 제공 될 예정입니다.
 
-- [Azure Monitor 고객 관리 키 개요](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Azure Monitor 고객 관리 키 개요](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Azure 센티널에서 고객이 관리 하는 키 이해 (미리 보기)](customer-managed-keys.md)
 

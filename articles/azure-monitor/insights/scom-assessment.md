@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 685bf35bfb6d6e85d70bd1f1b446370d66a320f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573390"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -153,7 +153,7 @@ System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Mi
 
 1. Operations Manager 운영 콘솔의 **제작** 작업 영역에서 **규칙** 창의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
 2. 검색 결과에서 *유형: 관리 서버* 라는 텍스트를 포함하는 항목을 선택합니다.
-3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Overrides**  >  **클래스의 특정 개체: 관리 서버에 대해** 재정의를 클릭 합니다.
+3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음   >  **클래스의 특정 개체: 관리 서버에 대해** 재정의를 클릭 합니다.
 4.  사용 가능한 관리 서버 목록에서 규칙을 실행할 관리 서버를 선택합니다.  앞에서 실행 계정에 연결하도록 구성한 것과 같은 관리 서버여야 합니다.
 5.  **사용** 매개 변수 값에 대한 재정의 값을 **참** 으로 변경해야 합니다.<br><br> ![재정의 매개 변수](./media/scom-assessment/rule.png)
 
@@ -165,7 +165,7 @@ System Center Operations Manager 상태 검사 솔루션의 관리 팩에는 *Mi
 
 1. Operations Manager 콘솔의 **제작** 작업 영역에서 **규칙** 섹션의 *Microsoft System Center Operations Manager Health Check rule 실행* 규칙을 검색 합니다.
 2. 검색 결과에서 *유형: 관리 서버* 라는 텍스트를 포함하는 항목을 선택합니다.
-3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 **Override the Rule** 다음  >  **클래스의 모든 개체에 대 한 규칙 재정의: Management Server** 를 클릭 합니다.
+3. 규칙을 마우스 오른쪽 단추로 클릭 한 다음 다음  >  **클래스의 모든 개체에 대 한 규칙 재정의: Management Server** 를 클릭 합니다.
 4. **간격** 매개 변수 값을 원하는 간격 값으로 변경합니다. 아래 예의 경우 값이 1440분(1일)으로 설정되어 있습니다.<br><br> ![간격 매개 변수](./media/scom-assessment/interval.png)<br>  
 
     값이 1440분 미만으로 설정되면 규칙이 하루 간격으로 실행됩니다. 이 예의 경우 규칙이 간격 값을 무시하고 하루 빈도로 실행됩니다.
@@ -229,7 +229,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../logs/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
     ```
 
     >[!NOTE]
-    > 작업 영역을 [새 Log Analytics 쿼리 언어](../log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+    > 작업 영역을 [새 Log Analytics 쿼리 언어](../logs/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +295,5 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로그를 검색하여](../log-query/log-query-overview.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+- [로그를 검색하여](../logs/log-query-overview.md) 상세 System Center Operations Manager Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
 

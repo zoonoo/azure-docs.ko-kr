@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059224"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571000"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>서버를 사용 하지 않는 Azure Cosmos DB (미리 보기)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,7 +64,7 @@ Azure Cosmos DB 사용 하는 경우 모든 데이터베이스 작업에는 [요
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="사용 된 요청 단위를 보여 주는 차트" border="false":::
 
-[여기](monitor-request-unit-usage.md)에 설명 된 대로 Azure Monitor를 사용 하는 경우 동일한 차트를 찾을 수 있습니다. Azure Monitor를 사용 하면 요청 단위 사용이 특정 임계값을 통과 한 경우 사용자에 게 알리는 데 사용할 수 있는 [경고](../azure-monitor/platform/alerts-metric-overview.md)를 설정할 수 있습니다.
+[여기](monitor-request-unit-usage.md)에 설명 된 대로 Azure Monitor를 사용 하는 경우 동일한 차트를 찾을 수 있습니다. Azure Monitor를 사용 하면 요청 단위 사용이 특정 임계값을 통과 한 경우 사용자에 게 알리는 데 사용할 수 있는 [경고](../azure-monitor/alerts/alerts-metric-overview.md)를 설정할 수 있습니다.
 
 ## <a name="performance"></a><a id="performance"></a>성능
 

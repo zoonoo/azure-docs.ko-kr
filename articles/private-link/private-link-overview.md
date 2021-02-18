@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986483"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577032"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -70,7 +70,7 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 | Azure Automation  | 모든 공용 지역<br/> Azure Government 지역 |  | 미리 보기 </br> [Azure Automation에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [Azure IoT Hub에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | 미국 동부, 미국 중남부,<br/>미국 서부 2, 모든 중국 지역      |  | 미리 보기   <br/> [Azure SignalR에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | 다음을 제외한 모든 공용 지역: 독일 중부, 독일 북동부 <br/> Azure Government 지역  | | GA <br/> [Azure Batch에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../batch/private-connectivity.md) |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
 |Azure Managed Disks | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | [알려진 제한 사항을 보려면 여기를 클릭하세요.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Azure Managed Disks에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

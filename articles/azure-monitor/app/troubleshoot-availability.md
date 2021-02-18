@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546756"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583723"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -62,7 +62,7 @@ ms.locfileid: "96546756"
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>webhook 알림을 받지 못했습니다.
 
-webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook 요청을 성공적으로 처리하는지 확인합니다. 자세한 내용은 [이것](../platform/alerts-log-webhook.md)을 참조하세요.
+webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook 요청을 성공적으로 처리하는지 확인합니다. 자세한 내용은 [이것](../alerts/alerts-log-webhook.md)을 참조하세요.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>403 금지 오류가 발생 합니다 .이는 무엇을 의미 하나요?
 
@@ -113,7 +113,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>누가 (클래식) 경고 알림을 받나요?
 
-이 섹션은 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [클래식 경고](../platform/alerts-classic.overview.md)와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../platform/alerts-overview.md)를 참조하세요. 새 경고 환경에서 경고 알림을 제어하려면 [작업 그룹](../platform/action-groups.md)을 사용합니다.
+이 섹션은 클래식 경고에만 적용되며, 원하는 수신자만 알림을 받도록 경고 알림을 최적화하는 데 도움이 됩니다. [클래식 경고](../alerts/alerts-classic.overview.md)와 새 경고 환경 간의 차이점에 대해 자세히 알아보려면 [경고 개요 문서](../alerts/alerts-overview.md)를 참조하세요. 새 경고 환경에서 경고 알림을 제어하려면 [작업 그룹](../alerts/action-groups.md)을 사용합니다.
 
 * 클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
 
@@ -124,7 +124,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 > [!NOTE]
 > 현재 **대량/그룹** 확인란 옵션을 사용하고 있고 사용 안 함으로 설정하는 경우에는 변경 내용을 되돌릴 수 없습니다.
 
-역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
+역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../alerts/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

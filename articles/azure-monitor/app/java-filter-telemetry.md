@@ -6,16 +6,18 @@ ms.date: 3/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 71858be97404344bad88ea20e31b17fa44f669a2
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 35a95ac32fc4390e08d3c7fee2b9f9ff52202e4b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131188"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573817"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java 웹앱에서 원격 분석 필터링
 
 > [!IMPORTANT]
+> 이 문서에서 설명 하는 방법은 더 이상 권장 되지 않습니다.
+>
 > Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](./java-in-process-agent.md)에 대 한 지침을 따르세요.
 
 필터는 [Java 웹앱이 Application Insights로 보내는](java-get-started.md) 원격 분석을 선택하는 방법을 제공합니다. 사용할 수 있는 몇 가지 기본 필터가 있으며 사용자 지정 필터를 직접 작성할 수도 있습니다.

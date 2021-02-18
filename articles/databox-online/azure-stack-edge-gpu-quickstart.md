@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953940"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546791"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>빠른 시작: GPU가 있는 Azure Stack Edge Pro 시작 
 
@@ -64,7 +64,7 @@ ms.locfileid: "98953940"
 10. **인증서 구성**: 디바이스 이름 및/또는 DNS 도메인을 변경한 경우 디바이스를 활성화하기 위해 인증서를 생성하거나 추가해야 합니다. 
 
     - 비 프로덕션 워크로드를 테스트하려면 [인증서 생성 옵션](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates)을 사용합니다. 
-    - 서명 체인을 포함하여 자체 인증서를 가져오는 경우 [인증서를 적절한 형식으로 추가](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)합니다. 먼저 서명 체인을 업로드해야 합니다. [인증서 만들기](azure-stack-edge-j-series-create-certificates-tool.md) 및 [로컬 UI를 통해 인증서 업로드](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)를 참조하세요.
+    - 서명 체인을 포함하여 자체 인증서를 가져오는 경우 [인증서를 적절한 형식으로 추가](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)합니다. 먼저 서명 체인을 업로드해야 합니다. [인증서 만들기](azure-stack-edge-gpu-create-certificates-tool.md) 및 [로컬 UI를 통해 인증서 업로드](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)를 참조하세요.
 
 11. **활성화**: 활성화 키를 가져오려면, 
 
@@ -73,7 +73,7 @@ ms.locfileid: "98953940"
 
 12. **컴퓨팅 구성**: Azure Portal에서 **개요 > 디바이스** 로 차례로 이동합니다. 디바이스가 **온라인** 인지 확인합니다. 왼쪽 창에서 **Edge 컴퓨팅 > 시작 > Edge 컴퓨팅 구성 > 컴퓨팅** 으로 차례로 이동합니다. 기존 또는 새 IoT Hub 서비스를 제공하고, 컴퓨팅이 구성될 때까지 약 20분 정도 기다립니다. 자세한 내용은 [자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
-[IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) 또는 [Azure Arc 지원 Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)를 통해 컴퓨팅 워크로드를 디바이스에 배포할 준비가 되었습니다. 설치하는 동안 문제가 발생하면 [디바이스 문제](), [주문 문제](azure-stack-edge-gpu-troubleshoot.md), [인증서 문제](azure-stack-edge-j-series-certificate-troubleshooting.md), 또는 Kubernetes 문제 해결로 이동합니다. 
+[IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) 또는 [Azure Arc 지원 Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)를 통해 컴퓨팅 워크로드를 디바이스에 배포할 준비가 되었습니다. 설치하는 동안 문제가 발생하면 [디바이스 문제](), [주문 문제](azure-stack-edge-gpu-troubleshoot.md), [인증서 문제](azure-stack-edge-gpu-certificate-troubleshooting.md), 또는 Kubernetes 문제 해결로 이동합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

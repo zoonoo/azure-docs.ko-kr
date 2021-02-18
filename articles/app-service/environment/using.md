@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209732"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586404"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
 
@@ -108,7 +108,7 @@ ASE를 사용 하 여 게시 끝점은 개인 끝점에서 사용 하는 인바�
 
 추가 변경 없이, 게시 끝점은 인터넷에 액세스할 수 없기 때문에 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 ILB ASE와 작동 하지 않습니다. ILB ASE가 포함 된 가상 네트워크에 자체 호스트 된 릴리스 에이전트를 설치 하 여 Azure DevOps에서 ILB ASE에 게시를 사용 하도록 설정할 수 있습니다. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
@@ -143,7 +143,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 **경고 만들기**
 
-로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-log.md)의 지침을 따르세요. 개요:
+로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-log.md)의 지침을 따르세요. 개요:
 
 * ASE 포털에서 경고 페이지를 엽니다.
 * **새 경고 규칙** 선택
@@ -164,7 +164,7 @@ App Service Environment는 시스템 내에서 내부 구성 요소나 통신을
 
 Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그레이드 해야 할 수 있습니다. ASE **HostingEnvironment 리소스 관리자** 개체 내에서 **upgradepreference** 설정에 대 한 값을 설정할 수 있습니다. **Upgradepreference** 설정은 템플릿, ARMClient 또는를 사용 하 여 구성할 수 있습니다 https://resources.azure.com . 가능한 세 가지 값은 다음과 같습니다.
 
-- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값은 기본값입니다.
+- **없음**: Azure는 특정 일괄 처리 없이 ASE를 업그레이드 합니다. 이 값이 기본값입니다.
 - **초기**: ASE는 App Service 업그레이드의 처음 절반에서 업그레이드 됩니다.
 - **후기**: ASE는 App Service 업그레이드의 후반부에서 업그레이드 됩니다.
 
@@ -206,4 +206,4 @@ ASE를 삭제하려면 다음을 수행합니다.
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

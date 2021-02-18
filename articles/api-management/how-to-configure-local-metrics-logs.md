@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526673"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594176"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 로컬 메트릭 및 로그 구성
 
@@ -204,7 +204,7 @@ kubectl rollout restart deployment/<deployment-name>
 kubectl logs <pod-name>
 ```
 
-자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포 되는 경우 [컨테이너에 대해 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 를 사용 하도록 설정 하 여 작업을 수집 하 `stdout` `stderr` 고 Log Analytics에서 로그를 볼 수 있습니다. 
+자체 호스팅 게이트웨이가 Azure Kubernetes Service에 배포 되는 경우 [컨테이너에 대해 Azure Monitor](../azure-monitor/containers/container-insights-overview.md) 를 사용 하도록 설정 하 여 작업을 수집 하 `stdout` `stderr` 고 Log Analytics에서 로그를 볼 수 있습니다. 
 
 자체 호스팅 게이트웨이는,, 등의 다양 한 프로토콜도 `localsyslog` 지원 `rfc5424` `journal` 합니다. 아래 표에는 지원 되는 모든 옵션이 요약 되어 있습니다. 
 

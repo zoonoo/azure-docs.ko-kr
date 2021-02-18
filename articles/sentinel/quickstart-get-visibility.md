@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188584"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570581"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -52,7 +52,7 @@ ms.locfileid: "96188584"
 
 ## <a name="use-built-in-workbooks"></a>기본 제공 통합 문서 사용<a name="dashboards"></a>
 
-기본 제공 통합 문서는 연결된 데이터 원본의 통합 데이터를 제공하여 해당 서비스에서 생성된 이벤트를 자세히 분석할 수 있도록 합니다. 기본 제공 통합 문서에는 방화벽 트래픽 로그, Office 365 및 Windows 이벤트 기반 비보안 프로토콜을 포함하여 서버의 Windows 이벤트, 자사 경고, 타사의 데이터가 될 수 있는 Azure AD, Azure 활동 이벤트 및 온-프레미스가 포함됩니다. 통합 문서는 Azure Monitor 통합 문서에 기반하기 때문에, 자신의 통합 문서를 직접 디자인할 때 향상된 사용자 지정 기능으로 보다 유연하게 디자인할 수 있습니다. 자세한 내용은 [통합 문서](../azure-monitor/platform/workbooks-overview.md)를 참조하세요.
+기본 제공 통합 문서는 연결된 데이터 원본의 통합 데이터를 제공하여 해당 서비스에서 생성된 이벤트를 자세히 분석할 수 있도록 합니다. 기본 제공 통합 문서에는 방화벽 트래픽 로그, Office 365 및 Windows 이벤트 기반 비보안 프로토콜을 포함하여 서버의 Windows 이벤트, 자사 경고, 타사의 데이터가 될 수 있는 Azure AD, Azure 활동 이벤트 및 온-프레미스가 포함됩니다. 통합 문서는 Azure Monitor 통합 문서에 기반하기 때문에, 자신의 통합 문서를 직접 디자인할 때 향상된 사용자 지정 기능으로 보다 유연하게 디자인할 수 있습니다. 자세한 내용은 [통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 참조하세요.
 
 1. **설정** 에서 **통합 문서** 를 선택합니다. **설치됨** 아래에서 설치된 통합 문서를 모두 볼 수 있습니다. **모두** 아래에서 설치할 수 있는 기본 제공 통합 문서의 전체 갤러리를 볼 수 있습니다. 
 2. 특정 통합 문서를 검색하여 각 통합 문서가 제공하는 항목의 전체 목록 및 설명을 볼 수 있습니다. 
@@ -66,14 +66,14 @@ ms.locfileid: "96188584"
       ![Palo Alto 대시보드](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-주 쿼리를 편집하여(![쿼리 편집 단추](./media/qs-get-visibility/edit-query-button.png)) 통합 문서를 사용자 지정할 수 있습니다. ![Log Analytics 단추](./media/qs-get-visibility/go-to-la-button.png) 단추를 클릭하여 [쿼리 편집을 위한 Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)로 이동한 다음, 줄임표(...)를 선택하고 **타일 데이터의 사용자 지정** 을 선택할 수 있습니다. 여기서 주 시간 필터를 편집하거나 통합 문서에서 특정 타일을 제거할 수 있습니다.
+주 쿼리를 편집하여(![쿼리 편집 단추](./media/qs-get-visibility/edit-query-button.png)) 통합 문서를 사용자 지정할 수 있습니다. ![Log Analytics 단추](./media/qs-get-visibility/go-to-la-button.png) 단추를 클릭하여 [쿼리 편집을 위한 Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)로 이동한 다음, 줄임표(...)를 선택하고 **타일 데이터의 사용자 지정** 을 선택할 수 있습니다. 여기서 주 시간 필터를 편집하거나 통합 문서에서 특정 타일을 제거할 수 있습니다.
 
-쿼리 작업에 대한 자세한 내용은 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/learn/tutorial-logs-dashboards.md)를 참조하세요.
+쿼리 작업에 대한 자세한 내용은 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/visualize/tutorial-logs-dashboards.md)를 참조하세요.
 
 ### <a name="add-a-new-tile"></a>새 타일 추가
 
 새 타일을 추가하려는 경우 직접 만든 통합 문서 또는 Azure Sentinel 기본 제공 통합 문서에 추가할 수 있습니다. 
-1. Log Analytics에서 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/learn/tutorial-logs-dashboards.md)에 제공되는 지침에 따라 타일을 만듭니다. 
+1. Log Analytics에서 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/visualize/tutorial-logs-dashboards.md)에 제공되는 지침에 따라 타일을 만듭니다. 
 2. 타일이 생성되면 **고정** 아래에서 타일을 표시할 통합 문서를 선택합니다.
 
 ## <a name="create-new-workbooks"></a>새 통합 문서 만들기

@@ -3,12 +3,12 @@ title: Azure Event Grid 메트릭 보기 및 경고 설정
 description: 이 문서에서는 Azure Portal를 사용 하 여 토픽 및 구독에 대 한 메트릭을 확인 하 고이에 대 Azure Event Grid 한 경고를 만드는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008959"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577413"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Event Grid 메시지 배달 모니터링 
 이 문서에서는 포털을 사용 하 여 토픽 및 구독 Event Grid에 대 한 메트릭을 확인 하 고이에 대 한 경고를 만드는 방법을 설명 합니다. 
@@ -52,7 +52,7 @@ ms.locfileid: "96008959"
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="토픽-메트릭 페이지":::
 
-메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md) 을 참조 하세요.
+메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md) 을 참조 하세요.
 
 예를 들어 **게시 된 이벤트** 메트릭에 대 한 메트릭 차트를 참조 하세요.
 
@@ -91,7 +91,7 @@ ms.locfileid: "96008959"
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="시스템 항목-메트릭 페이지":::
 
-메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md) 을 참조 하세요.
+메트릭에 대해 자세히 알아보려면 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md) 을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

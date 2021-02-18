@@ -3,12 +3,12 @@ title: Azure VMware 솔루션 Vm의 수명 주기 관리
 description: Microsoft Azure native tools를 사용 하 여 Azure VMware 솔루션 Vm의 수명 주기에 대 한 모든 측면을 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988537"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572202"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm의 수명 주기 관리
 
@@ -45,9 +45,9 @@ Microsoft Azure native tools를 사용 하 여 Azure 환경에서 Vm (가상 머
 Azure를 처음 접하는 경우 앞에서 언급 한 서비스를 잘 모르는 경우 다음 문서를 검토 하세요.
 
 - [Automation 계정 인증 개요](../automation/automation-security-overview.md)
-- [Azure Monitor 로그 배포](../azure-monitor/platform/design-logs-deployment.md) 및 [Azure Monitor](../azure-monitor/overview.md) 디자인
+- [Azure Monitor 로그 배포](../azure-monitor/logs/design-logs-deployment.md) 및 [Azure Monitor](../azure-monitor/overview.md) 디자인
 - Azure Security Center에 대 한 [계획](../security-center/security-center-planning-and-operations-guide.md) 및 [지원 플랫폼](../security-center/security-center-os-coverage.md)
-- [VM용 Azure Monitor 사용 개요](../azure-monitor/insights/vminsights-enable-overview.md)
+- [VM용 Azure Monitor 사용 개요](../azure-monitor/vm/vminsights-enable-overview.md)
 - [Azure Arc 사용 서버 란 무엇 인가요?](../azure-arc/servers/overview.md) [Azure Arc 사용 Kubernetes 무엇 인가요?](../azure-arc/kubernetes/overview.md)
 - [업데이트 관리 개요](../automation/update-management/overview.md)
 
@@ -59,7 +59,7 @@ Azure Automation의 Azure 업데이트 관리는 하이브리드 환경에서 Wi
 
 1.  Azure 업데이트 관리에 Log Analytics를 추가 하려면 먼저 [Azure Automation 계정을 만들어야](../automation/automation-create-standalone-account.md)합니다. 템플릿을 사용하여 계정을 만들려면 [Azure Resource Manager 템플릿을 사용하여 Automation 계정 만들기](../automation/quickstart-create-automation-account-template.md)를 참조하세요.
 
-2. **Log Analytics 작업 영역** 을 사용 하면 Log Analytics 에이전트 또는 확장을 사용 하 여 로그 수집 및 성능 카운터를 수집할 수 있습니다. Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 원하는 경우 [CLI](../azure-monitor/learn/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)또는 [Azure Resource Manager 템플릿을](../azure-monitor/samples/resource-manager-workspace.md)통해 작업 영역을 만들 수도 있습니다.
+2. **Log Analytics 작업 영역** 을 사용 하면 Log Analytics 에이전트 또는 확장을 사용 하 여 로그 수집 및 성능 카운터를 수집할 수 있습니다. Log Analytics 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요. 원하는 경우 [CLI](../azure-monitor/logs/quick-create-workspace-cli.md), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md)또는 [Azure Resource Manager 템플릿을](../azure-monitor/logs/resource-manager-workspace.md)통해 작업 영역을 만들 수도 있습니다.
 
 3. Vm에 대 한 Azure 업데이트 관리를 사용 하도록 설정 하려면 [Automation 계정에서 업데이트 관리 사용](../automation/update-management/enable-from-automation-account.md)을 참조 하세요. 이 프로세스에서는 Log Analytics 작업 영역을 automation 계정에 연결 합니다. 
  
@@ -99,22 +99,14 @@ Azure VMware 솔루션 Vm은 Log Analytics 에이전트 (MMA (Microsoft Monitori
 
 Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동 하는 포괄적인 솔루션입니다. 배포가 필요 하지 않습니다. Azure Monitor를 사용 하 여 게스트 운영 체제 성능을 모니터링 하 고 Azure VMware 솔루션 또는 온-프레미스 Vm에 대 한 응용 프로그램 종속성을 검색 하 고 매핑할 수 있습니다.
 
-- Azure Monitor를 사용 하면 다양 한 원본에서 데이터를 수집 하 여 모니터링 하 고 분석할 수 있습니다. 자세한 내용은 [Azure Monitor의 모니터링 데이터 원본](../azure-monitor/platform/data-sources.md)을 참조 하세요.
+- Azure Monitor를 사용 하면 다양 한 원본에서 데이터를 수집 하 여 모니터링 하 고 분석할 수 있습니다. 자세한 내용은 [Azure Monitor의 모니터링 데이터 원본](../azure-monitor/agents/data-sources.md)을 참조 하세요.
 
-- 분석, 시각화 및 경고에 대 한 다양 한 유형의 데이터를 수집 합니다. 자세한 내용은 [Azure Monitor data platform](../azure-monitor/platform/data-platform.md)을 참조 하십시오.
+- 분석, 시각화 및 경고에 대 한 다양 한 유형의 데이터를 수집 합니다. 자세한 내용은 [Azure Monitor data platform](../azure-monitor/data-platform.md)을 참조 하십시오.
 
-- Log Analytics 작업 영역을 사용 하 여 Azure Monitor를 구성 하려면 [VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성](../azure-monitor/insights/vminsights-configure-workspace.md)을 참조 하세요.
+- Log Analytics 작업 영역을 사용 하 여 Azure Monitor를 구성 하려면 [VM용 Azure Monitor에 대 한 Log Analytics 작업 영역 구성](../azure-monitor/vm/vminsights-configure-workspace.md)을 참조 하세요.
 
 - 리소스의 많은 사용, 누락 된 패치, 디스크 공간 부족, Vm의 하트 비트와 같이 사용자 환경의 문제를 식별 하는 경고 규칙을 만들 수 있습니다. ITSM (IT Service Management) 도구에 경고를 전송 하 여 검색 된 이벤트에 대 한 자동화 된 응답을 설정할 수도 있습니다. 전자 메일을 통해 경고 검색 알림을 보낼 수도 있습니다. 이러한 규칙을 만들려면 다음을 참조 하세요.
-    - [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)
-    - [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
-    - 자동화 된 작업 및 알림을 설정 하는 [작업 규칙](../azure-monitor/platform/alerts-action-rules.md)
-    - [IT 서비스 관리 커넥터를 사용 하 여 Azure를 ITSM 도구에 연결](../azure-monitor/platform/itsmc-overview.md)합니다.
-    
- ## <a name="next-steps"></a>다음 단계
-
-이제 Azure의 네이티브 도구를 사용 하 여 수명 주기 동안 Azure VMware 솔루션 Vm을 관리 했으므로 다음에 대해 알아볼 수 있습니다.
-
-- [Azure Security Center를 사용 하 여 Azure VMware 솔루션 Vm 보호](azure-security-integration.md).
-- [Azure VMware 솔루션에 대 한 Azure Backup Server를 설정](set-up-backup-server-for-azure-vmware-solution.md)합니다.
-- [허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합](concepts-hub-and-spoke.md)
+    - [Azure Monitor를 사용 하 여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-metric.md)
+    - [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
+    - 자동화 된 작업 및 알림을 설정 하는 [작업 규칙](../azure-monitor/alerts/alerts-action-rules.md)
+    - [IT 서비스 관리 커넥터를 사용 하 여 Azure를 ITSM 도구에 연결](../azure-monitor/alerts/itsmc-overview.md)합니다.

@@ -1,23 +1,23 @@
 ---
-title: Computer Vision 공간 분석 소개
+title: 공간 분석 개요
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Computer Vision 공간 분석 컨테이너의 기본 개념 및 기능을 설명 합니다.
 services: cognitive-services
-author: tchristiani
+author: nitinme
 manager: nitinme
-ms.author: terrychr
+ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/14/2020
-ms.openlocfilehash: f90e4e5e187977f0ee77a565ff9143902ea3a10d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/01/2021
+ms.openlocfilehash: ad05dd59c925242baf5c2b0e36c1f51bc4fec5d4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736838"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575368"
 ---
-# <a name="introduction-to-computer-vision-spatial-analysis"></a>Computer Vision 공간 분석 소개
+# <a name="overview-of-computer-vision-spatial-analysis"></a>Computer Vision 공간 분석 개요
 
 Computer Vision 공간 분석은 조직에서 지정 된 영역 내에서 사람의 이동과 상태를 파악 하 여 실제 공간의 가치를 극대화 하는 데 도움이 되는 Azure Cognitive Services Computer Vision의 새로운 기능입니다. 이를 통해 CCTV 또는 감시 카메라에서 비디오를 수집 하 고 AI 작업을 실행 하 여 비디오 스트림에서 정보를 추출 하 고 다른 시스템에서 사용할 이벤트를 생성할 수 있습니다. 카메라 스트림의 입력을 통해 AI 작업은 공간을 입력 하는 사용자 수 또는 얼굴 마스크 및 소셜 distancing 지침을 사용 하 여 규정 준수를 측정 하는 것과 같은 작업을 수행할 수 있습니다.
 
@@ -35,37 +35,9 @@ Computer Vision 공간 분석은 조직에서 지정 된 영역 내에서 사람
 | 관심 영역 | 구성의 일부로 입력 비디오에 정의 된 영역 또는 선입니다. 개인이 비디오 영역을 조작 하는 경우 시스템에서 이벤트를 생성 합니다. 예를 들어 PersonCrossingLine 작업의 경우 비디오에서 줄이 정의 됩니다. 사용자가 해당 줄을 교차할 때 이벤트가 생성 됩니다. |
 | 이벤트 | 이벤트는 공간 분석의 기본 출력입니다. 각 작업은 주기적으로 특정 이벤트를 내보냅니다 (예: 분당 한 번) 또는 특정 트리거가 발생 하는 경우 이벤트는 입력 비디오에서 발생 한 작업에 대 한 정보를 포함 하지만 이미지 또는 비디오는 포함 하지 않습니다. 예를 들어, PeopleCount 작업은 사용자 수가 변경 될 때마다 (트리거) 또는 1 분 마다 (주기적으로) 업데이트 된 수를 포함 하는 이벤트를 내보낼 수 있습니다. |
 
-## <a name="example-use-cases-for-spatial-analysis"></a>공간 분석에 대 한 예제 사용 사례
+## <a name="responsible-use-of-spatial-analysis-technology"></a>공간 분석 기술의 책임 된 사용
 
-다음은 공간 분석을 설계 하 고 테스트 했을 때 염두에 두어야 하는 예제 사용 사례입니다.
-
-**소셜 Distancing 규정 준수** -사무실 공간에는 사람 간의 거리를 측정 하 여 소셜 Distancing 규정 준수를 모니터링 하기 위해 공간 분석을 사용 하는 몇 가지 카메라가 있습니다. 시설 관리자는 시간에 따른 소셜 distancing 준수의 집계 통계를 보여 주는 열 지도를 사용 하 여 작업 영역을 조정 하 고 소셜 distancing를 더 쉽게 만들 수 있습니다.
-
-**쇼핑객 분석** -식품 스토어는 제품 디스플레이를 사용 하는 카메라를 사용 하 여 매장 트래픽에 대 한 머천다이징 변경의 영향을 측정 합니다. 시스템을 사용 하면 저장소 관리자가 engagement에 가장 많이 변경 되는 새 제품을 식별할 수 있습니다.
-
-**큐 관리** -체크 아웃 큐에서 가리키는 카메라는 대기 시간이 너무 오래 되어 더 많은 줄을 열 수 있는 경우 관리자에 게 경고를 제공 합니다. 큐 중단 기록 데이터는 소비자 동작에 대 한 통찰력을 제공 합니다.
-
-**얼굴 마스크 준수** – 소매점을 가리키는 카메라를 사용 하 여 상점을 탐색 하는 고객이 얼굴 마스크를 사용 하 여 안전 준수를 유지 하 고 집계 통계를 분석 하 여 마스크 사용 추세에 대 한 통찰력을 얻을 수 있는지 확인할 수 있습니다. 
-
-**& 분석 빌드** -office 빌딩에서는 entrances에 초점을 맞춘 카메라를 사용 하 여 footfall를 측정 하 고 사용자가 작업 공간을 사용 하는 방법을 측정 합니다. Insights를 사용 하면 건물 관리자가 서비스 및 레이아웃을 조정 하 여 더 occupants 서비스를 제공할 수 있습니다.
-
-**최소 직원 검색** -데이터 센터에서 카메라는 서버와 관련 된 활동을 모니터링 합니다. 직원 들이 중요 한 장비를 실제로 수정 하는 경우에는 보안을 위해 복구 하는 동안 항상 사용자 두 명이 있어야 합니다. 카메라는이 지침이 준수 되는지 확인 하는 데 사용 됩니다.
-
-**작업 공간 최적화** -빠른 임시 식당에서 부엌의 카메라는 직원 워크플로에 대 한 집계 정보를 생성 하는 데 사용 됩니다. 이는 관리자가 팀의 프로세스 및 교육을 개선 하는 데 사용 됩니다.
-
-## <a name="considerations-when-choosing-a-use-case"></a>사용 사례를 선택할 때의 고려 사항
-
-**위험 안전 경고 방지** -공간 분석은 중요 한 보안 실시간 경고를 위해 설계 되지 않았습니다. 사용자가 있을 때 많은 기계를 끄는 것과 같이 부상을 방지 하기 위해 작업을 트리거하는 데 실시간 경고가 필요한 경우에는이 기능을 사용할 수 없습니다. 제한 된/금지 된 영역을 입력 하는 것과 같은 위험한 동작을 줄이기 위해 통계 및 작업을 사용 하 여 위험 감소에 사용할 수 있습니다.
-
-**고용 관련 결정에 사용 하지 않음** -공간 분석은 공간 내 사용자의 위치 및 이동과 관련 된 확률 메트릭을 제공 합니다. 이 데이터는 집계 프로세스 향상에 유용할 수 있지만, 데이터는 개별 작업자 성능을 파악 하는 데 적합 하지 않으며 고용 관련 결정을 내리는 데 사용 하면 안 됩니다.
-
-**의료 관련 결정에 사용 방지** -공간 분석은 사용자의 이동과 관련 된 확률 및 부분 데이터를 제공 합니다. 데이터는 상태 관련 결정을 내리는 데 적합 하지 않습니다.
-
-Restrooms와 같은 보호 된 영역을 간과 하지 않도록 카메라 위치 및 위치를 평가 하 고, 관심사의 각도와 지역을 조정 하 여 보호 된 공간 보호 개인의 개인 정보 보호를 **사용 하지 마세요** .
-
-**학교 또는 elderly의 사용을 신중 하 게 고려해 야** 합니다. 공간 분석은 연령 65을 초과 하는 18 또는 성인에 해당 하는 데이터를 사용 하 여 과도 하 게 테스트 되지 않았습니다. 이러한 나이가 predominate 환경에서 고객의 시나리오에 대 한 오류 비율을 철저 하 게 평가 하는 것이 좋습니다.
-
-**공개 공간에서 사용을 신중** 하 게 고려 하세요. 카메라 위치 및 위치를 평가 하 고, 면의 각도와 지역을 조정 하 여 공용 공간에서 컬렉션을 최소화 합니다. 거리 및 공원와 같은 공용 공간의 조명 및 날씨는 공간 분석 시스템의 성능에 큰 영향을 주므로 공용 공간에 효과적으로 노출 되는 것이 매우 어렵습니다.
+공간 분석 기술을 사용 하는 방법에 대 한 자세한 내용은 [투명성 메모](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)를 참조 하세요. Microsoft의 투명 정보는 AI 기술의 작동 방식을 이해 하는 데 도움을 주기 위해 작성 된 시스템 소유자는 시스템 성능 및 동작에 영향을 줄 수 있으며 기술, 사용자 및 환경을 포함 하 여 전체 시스템에 대해 생각 하는 중요성을 이해 하는 데 도움을 주기 위한 것입니다.
 
 ## <a name="spatial-analysis-gating-for-public-preview"></a>공개 미리 보기용 공간 분석 제어
 
@@ -76,4 +48,4 @@ Restrooms와 같은 보호 된 영역을 간과 하지 않도록 카메라 위�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [공간 분석의 특징 및 제한 사항](/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext)
+> [공간 분석 컨테이너 시작](spatial-analysis-container.md)

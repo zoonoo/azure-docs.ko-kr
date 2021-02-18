@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: surmb
-ms.openlocfilehash: be629d9f8441ad40fe15f005f4aeb0ec5565a7ec
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 9faa3a284aa7151880526c1ee70cfadc3dbf3089
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437068"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576112"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
-Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Application Gateway 및 백엔드 인스턴스의 성능을 [Azure Monitor](../azure-monitor/overview.md) 합니다. 이러한 메트릭은 특정 시간에 응용 프로그램 게이트웨이의 일부 측면을 설명 하는 시계열 데이터의 정렬 된 집합에 있는 숫자 값입니다. Application Gateway을 통해 흐르는 요청이 있는 경우 해당 메트릭을 측정 하 고 60 초 간격으로 보냅니다. Application Gateway를 통해 전달 되는 요청이 없거나 메트릭에 대 한 데이터가 없는 경우 메트릭은 보고 되지 않습니다. 자세한 내용은 [Azure Monitor 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조하세요.
+Application Gateway는 메트릭 이라는 데이터 요소를 게시 하 여 Application Gateway 및 백엔드 인스턴스의 성능을 [Azure Monitor](../azure-monitor/overview.md) 합니다. 이러한 메트릭은 특정 시간에 응용 프로그램 게이트웨이의 일부 측면을 설명 하는 시계열 데이터의 정렬 된 집합에 있는 숫자 값입니다. Application Gateway을 통해 흐르는 요청이 있는 경우 해당 메트릭을 측정 하 고 60 초 간격으로 보냅니다. Application Gateway를 통해 전달 되는 요청이 없거나 메트릭에 대 한 데이터가 없는 경우 메트릭은 보고 되지 않습니다. 자세한 내용은 [Azure Monitor 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조하세요.
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Application Gateway V2 SKU에서 지원 되는 메트릭
 
@@ -200,7 +200,7 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭** 을 
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="메트릭 보기." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/platform/metrics-supported.md)을 참조하세요.
+현재 지원되는 메트릭 목록을 보려면 [Azure Monitor에서 지원되는 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
 
 ### <a name="alert-rules-on-metrics"></a>메트릭에 대 한 경고 규칙
 
@@ -230,9 +230,9 @@ Application gateway로 이동 하 고 **모니터링** 에서 **메트릭** 을 
 
 ![경고 및 규칙 목록][9]
 
-경고 알림에 대한 자세한 내용은 [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)를 참조하세요.
+경고 알림에 대한 자세한 내용은 [경고 알림 받기](../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
-웹후크에 대한 자세한 내용 및 경고와 함께 웹후크를 사용하는 방법을 알아보려면 [Azure 메트릭 경고에 대한 웹후크 구성](../azure-monitor/platform/alerts-webhooks.md)을 참조하세요.
+웹후크에 대한 자세한 내용 및 경고와 함께 웹후크를 사용하는 방법을 알아보려면 [Azure 메트릭 경고에 대한 웹후크 구성](../azure-monitor/alerts/alerts-webhooks.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

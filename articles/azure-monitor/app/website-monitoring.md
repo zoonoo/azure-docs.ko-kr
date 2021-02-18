@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure Monitor Application Insights를 �
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611333"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583451"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링 시작
 
@@ -27,7 +27,7 @@ Azure Monitor Application Insights를 사용하면 웹 애플리케이션의 가
 Application Insights는 온-프레미스 또는 클라우드에서 실행되고 인터넷에 연결된 모든 애플리케이션에서 원격 분석 데이터를 수집할 수 있습니다. 다음 단계를 사용하여 이 데이터를 봅니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **리소스 만들기** > **관리 도구** > **Application Insights**를 선택합니다.
+1. **리소스 만들기** > **관리 도구** > **Application Insights** 를 선택합니다.
 
    > [!NOTE]
    >Application Insights 리소스를 처음 만드는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조하세요.
@@ -38,7 +38,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스팅되는 위치 근처를 선택합니다. |
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ## <a name="create-an-html-file"></a>HTML 파일 만들기
 
@@ -60,7 +60,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 ## <a name="configure-application-insights-sdk"></a>Application Insights SDK 구성
 
-1. **개요** > **기본 정보**를 차례로 선택한 다음, 애플리케이션의 **계측 키**를 복사합니다.
+1. **개요** > **기본 정보** 를 차례로 선택한 다음, 애플리케이션의 **계측 키** 를 복사합니다.
 
    ![새 Application Insights 리소스 양식](media/website-monitoring/instrumentation-key-001.png)
 
@@ -91,7 +91,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
    개요 페이지의 기본 차트 4개는 그 범위가 서버 쪽 애플리케이션 데이터로 지정됩니다. 우리가 계측하려는 것은 JavaScript SDK와의 클라이언트/브라우저 쪽 상호 작용이므로 서버 쪽 SDK도 설치되어 있지 않으면 이 특정 보기가 적용되지 않습니다.
 
-1. **분석** ![애플리케이션 맵 아이콘](media/website-monitoring/006.png)을 선택합니다.  이 작업으로 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics**가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
+1. **분석** ![애플리케이션 맵 아이콘](media/website-monitoring/006.png)을 선택합니다.  이 작업으로 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics** 가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
 
     ```kusto
     // average pageView duration by name
@@ -110,7 +110,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/website-monitoring/analytics-query.png)
 
-1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **브라우저**를 선택한 다음, **성능**을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플**을 선택하여 [엔드투엔드 트랜잭션 세부 정보](./transaction-diagnostics.md)에 액세스할 수 있습니다.
+1. **개요** 페이지로 돌아갑니다. **조사** 헤더에서 **브라우저** 를 선택한 다음, **성능** 을 선택합니다.  웹 사이트의 성능과 관련된 메트릭이 표시됩니다. 웹 사이트의 실패 및 예외를 분석할 수 있는 보기가 있습니다. **샘플** 을 선택하여 [엔드투엔드 트랜잭션 세부 정보](./transaction-diagnostics.md)에 액세스할 수 있습니다.
 
    ![서버 메트릭 그래프](./media/website-monitoring/browser-performance.png)
 
@@ -131,11 +131,11 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 > [!NOTE]
 > 기존 리소스 그룹을 사용하는 경우 다음 지침이 작동하지 않습니다. 대신 개별 Application Insights 리소스를 삭제하기만 하면 됩니다. 리소스 그룹을 삭제할 때 해당 그룹의 구성원인 모든 underyling 리소스도 삭제됩니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택한 다음, **myResourceGroup** 또는 임시 리소스 그룹 이름을 선택합니다.
-1. 리소스 그룹 페이지에서 **삭제**를 선택하고, 텍스트 상자에서 **myResourceGroup**을 입력한 다음, **삭제**를 선택합니다.
+1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹** 을 선택한 다음, **myResourceGroup** 또는 임시 리소스 그룹 이름을 선택합니다.
+1. 리소스 그룹 페이지에서 **삭제** 를 선택하고, 텍스트 상자에서 **myResourceGroup** 을 입력한 다음, **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [성능 문제 찾기 및 진단](../log-query/log-query-overview.md)
+> [성능 문제 찾기 및 진단](../logs/log-query-overview.md)
 

@@ -1,6 +1,6 @@
 ---
-title: 보안 권장 사항
-description: 보안 권장 사항의 개념과 IoT 용 Defender에서 사용 하는 방법에 대해 알아봅니다.
+title: IoT Hub에 대 한 보안 권장 사항
+description: 보안 권장 사항의 개념과 Defender for IoT Hub에 사용 되는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,44 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/16/2021
 ms.author: shhazam
-ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4ae479fcff0514b42d46aef455d8a32d6ebfaf23
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521869"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636546"
 ---
-# <a name="security-recommendations"></a>보안 권장 사항
+# <a name="security-recommendations-for-iot-hub"></a>IoT Hub에 대 한 보안 권장 사항
 
 Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권장 사항을 제공 하 여 공격 노출 영역을 줄입니다.
 보안 권장 사항은 보안 모범 사례를 준수 하는 고객을 지원 하기 위해 조치를 취할 수 있는 목표입니다.
 
-이 문서에는 IoT Hub 및/또는 IoT 장치에서 트리거할 수 있는 권장 사항 목록이 나와 있습니다.
-
-## <a name="agent-based-recommendations"></a>에이전트 기반 권장 사항
-
-장치 권장 사항은 장치 보안 상태를 개선 하기 위한 정보 및 제안을 제공 합니다.
-
-| 심각도 | 속성 | 데이터 원본 | Description |
-|--|--|--|--|
-| 중간 | 장치에서 포트 열기 | 클래식 보안 모듈 | 장치에서 수신 대기 끝점을 찾았습니다. |
-| 중간 | 체인 중 하나에서 허용 되는 방화벽 정책을 찾았습니다. | 클래식 보안 모듈 | 허용 되는 방화벽 정책을 찾았습니다 (입/출력). 방화벽 정책에서는 기본적으로 모든 트래픽을 거부 하 고 장치에 대 한 필요한 통신을 허용 하는 규칙을 정의 합니다. |
-| 중간 | 입력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 클래식 보안 모듈 | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. |
-| 중간 | 출력 체인에서 허용 되는 방화벽 규칙을 찾았습니다. | 클래식 보안 모듈 | 광범위 한 IP 주소 또는 포트에 대 한 허용 패턴이 포함 된 방화벽의 규칙이 있습니다. |
-| 중간 | 운영 체제 기준 유효성 검사에 실패 했습니다. | 클래식 보안 모듈 | 장치는 [Ci Linux 벤치 마크](https://www.cisecurity.org/cis-benchmarks/)를 준수 하지 않습니다. |
-
-### <a name="agent-based-operational-recommendations"></a>에이전트 기반 운영 권장 사항
-
-운영 권장 사항은 보안 에이전트 구성을 향상 시키기 위한 정보 및 제안을 제공 합니다.
-
-| 심각도 | 속성 | 데이터 원본 | Description |
-|--|--|--|--|
-| 낮음 | 에이전트가 미달 사용 메시지를 보냅니다. | 클래식 보안 모듈 | 지난 24 시간 동안 10% 이상의 보안 메시지가 4kb 보다 작습니다. |
-| 낮음 | 보안 쌍 구성이 최적이 아닙니다. | 클래식 보안 모듈 | 보안 쌍 구성이 최적이 아닙니다. |
-| 낮음 | 보안 쌍 구성 충돌 | 클래식 보안 모듈 | 보안 쌍 구성에서 충돌을 식별 했습니다. |  |
-
+이 문서에는 IoT Hub에서 트리거될 수 있는 권장 사항 목록이 있습니다.
 
 ## <a name="built-in-recommendations-in-iot-hub"></a>IoT Hub의 기본 제공 권장 사항
 
