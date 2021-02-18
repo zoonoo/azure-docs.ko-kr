@@ -4,12 +4,12 @@ description: 이 문서에서는 관리 되는 id를 Service Fabric 관리 되�
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ff5d66160ddbb037469378634826fd9eeae0c54
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878429"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651649"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>관리 되는 id를 Service Fabric 관리 되는 클러스터 노드 형식에 추가 (미리 보기)
 
@@ -54,10 +54,10 @@ Service Fabric 리소스 공급자 응용 프로그램을 사용 하 여 관리 
 
 해당 하는 경우 다음 값을 사용 해야 합니다.
 
-|이름|해당 Service Fabric 리소스 공급자 값|
+|속성|해당 Service Fabric 리소스 공급자 값|
 |----|-------------------------------------|
 |애플리케이션 ID|74cb6831-0dbb-4be1-8206-fd4df301cdc2|
-|개체 ID입니다.|fbc587f2-66f5-4459-a027-bcd908b9d278|
+|개체 ID|fbc587f2-66f5-4459-a027-bcd908b9d278|
 
 
 |역할 정의 이름|역할 정의 ID|
@@ -99,23 +99,28 @@ New-AzRoleAssignment -PrincipalId fbc587f2-66f5-4459-a027-bcd908b9d278 -RoleDefi
 
 ## <a name="add-managed-identity-properties-to-node-type-definition"></a>노드 유형 정의에 관리 되는 id 속성 추가
 
-마지막으로 `vmManagedIdentity` `userAssignedIdentities` 관리 되는 클러스터의 노드 형식 정의에 및 속성을 추가 합니다.
+마지막으로 `vmManagedIdentity` `userAssignedIdentities` 관리 되는 클러스터의 노드 형식 정의에 및 속성을 추가 합니다. 에 대해 **2021-01-01-preview** 이상을 사용 해야 `apiVersion` 합니다.
 
 ```json
 
-"properties": {
-    "isPrimary" : true,
-    "vmInstanceCount": 5,
-    "dataDiskSizeGB": 100,
-    "vmSize": "Standard_D2",
-    "vmImagePublisher" : "MicrosoftWindowsServer",
-    "vmImageOffer" : "WindowsServer",
-    "vmImageSku" : "2019-Datacenter",
-    "vmImageVersion" : "latest",
-    "vmManagedIdentity": {
-        "userAssignedIdentities": [
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
-        ]
+ {
+    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+    "apiVersion": "2021-01-01-preview",
+    ...
+    "properties": {
+        "isPrimary" : true,
+        "vmInstanceCount": 5,
+        "dataDiskSizeGB": 100,
+        "vmSize": "Standard_D2_v2",
+        "vmImagePublisher" : "MicrosoftWindowsServer",
+        "vmImageOffer" : "WindowsServer",
+        "vmImageSku" : "2019-Datacenter",
+        "vmImageVersion" : "latest",
+        "vmManagedIdentity": {
+            "userAssignedIdentities": [
+                "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName'))]"
+            ]
+        }
     }
 }
 ```

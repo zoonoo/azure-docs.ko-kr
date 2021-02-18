@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560514"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653309"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,33 @@ ms.locfileid: "100560514"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="february-2021"></a>2021년 2월
+
+### <a name="multiple-account-owners"></a>여러 계정 소유자 
+
+계정 소유자 역할이 Video Indexer에 추가 되었습니다. 사용자를 추가, 변경 및 제거할 수 있습니다. 해당 역할을 변경 합니다. 계정을 공유 하는 방법에 대 한 자세한 내용은 [사용자 초대](invite-users.md)를 참조 하세요.
+
+### <a name="audio-event-detection-public-preview"></a>오디오 이벤트 검색 (공개 미리 보기)
+
+> [!NOTE]
+> 이 기능은 평가판 계정 에서만 사용할 수 있습니다. 
+
+Video Indexer는 이제 콘텐츠의 음성이 아닌 세그먼트에서 다음과 같은 오디오 효과를 검색 합니다. gunshot, 투명 분할, 경보, siren, 폭발, dog 짖, 흥미, 웃음,, 반응, 응원, 박수) 및 무음. 
+
+새로 추가 된 오디오에 영향을 주는 기능은 **고급 옵션인**  ->  **고급 오디오** 사전 설정 (비디오 + 오디오 인덱싱 아래)을 선택 하 여 파일을 인덱싱할 때 사용할 수 있습니다. 표준 인덱싱에는 **대기** 중인 **반응** 만 포함 됩니다. 
+
+이전 오디오 효과 모델에 포함 된 **박수** 이벤트 유형은 이제 가장 된 **반응** 이벤트 유형의 일부로 추출 됩니다.
+
+[Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 비디오의 웹 **사이트** 를 표시 하도록 선택 하는 경우 오디오 효과가 페이지에 표시 됩니다.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="오디오 이벤트 감지":::
+
+### <a name="named-entities-enhancement"></a>명명 된 엔터티 기능 향상  
+
+추출한 사용자 및 위치 목록이 일반적으로 확장 되 고 업데이트 되었습니다. 
+
+또한 모델에는 비디오에서 ' Sam ' 또는 ' Home '과 같이 유명 하지 않은 사람 및 위치가 포함 되어 있습니다. 
 
 ## <a name="january-2021"></a>2021년 1월
 

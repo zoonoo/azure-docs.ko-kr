@@ -5,22 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 772be332af1476975d91eb270bec24d6d241a616
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8ccc7b641e2bfcb4ea8733b9d4f793229c430bc0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706566"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652876"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 데이터 내보내기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 스토리지 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 내보내기 작업을 만들어 Azure Blob Storage에서 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -43,13 +43,13 @@ ms.locfileid: "98706566"
 다음 단계를 수행하여 Azure Portal에서 내보내기 작업을 만듭니다.
 
 1. <https://portal.azure.com/>에 로그온합니다.
-2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기** 로 차례로 이동합니다.
+2. **가져오기/내보내기 작업** 을 검색 합니다.
 
-    ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+    ![가져오기/내보내기 작업 검색](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. **가져오기/내보내기 작업 만들기** 를 클릭 합니다.
+3. **+새로 만들기** 를 선택합니다.
 
-    ![작업 가져오기/내보내기 클릭](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![+ 새로 만들기를 선택 하 여 새를 만듭니다. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. **기본 사항** 에서
 
@@ -60,7 +60,7 @@ ms.locfileid: "98706566"
     - 구독을 선택합니다.
     - 리소스 그룹을 입력하거나 선택합니다.
 
-        ![기본](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![기본 사항](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
 5. **작업 세부 정보** 에서:
 
@@ -69,17 +69,17 @@ ms.locfileid: "98706566"
     - 스토리지 계정에서 빈 드라이브로 내보내려는 Blob 데이터를 지정합니다.
     - 스토리지 계정의 Blob 데이터를 모두 내보내도록 선택합니다(**모두 내보내기**).
 
-         ![모두 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
+         ![모두 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
     - 내보낼 컨테이너와 Blob을 지정할 수 있습니다.
         - **내보낼 Blob을 지정하려면**: **같음** 선택기를 사용합니다. 컨테이너 이름으로 시작하는 Blob에 대한 상대 경로를 지정합니다. 루트 컨테이너를 지정하려면 *$root* 를 사용합니다.
         - **접두사로 시작하는 모든 Blob을 지정하려면**: **시작** 선택기를 사용합니다. 슬래시('/')로 시작하는 접두사를 지정합니다. 접두사는 컨테이너 이름의 접두사, 완전한 컨테이너 이름 또는 Blob 이름 접두사가 뒤에 오는 완전한 컨테이너 이름일 수 있습니다. 처리 중에 오류가 발생하지 않도록 방지하려면 다음 스크린샷과 같이 유효한 형식의 Blob 경로를 제공해야 합니다. 자세한 내용은 [유효한 Blob 경로의 예](#examples-of-valid-blob-paths)를 참조하세요.
 
-           ![선택한 컨테이너 및 Blob 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
+           ![선택한 컨테이너 및 Blob 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - Blob 목록 파일에서 내보낼 수 있습니다.
 
-        ![Blob 목록 파일에서 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
+        ![Blob 목록 파일에서 내보내기](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > 내보낼 Blob가 데이터 복사 중에 사용되는 경우 Azure Import/Export 서비스는 Blob의 스냅샷을 가져와 해당 스냅샷을 복사합니다.

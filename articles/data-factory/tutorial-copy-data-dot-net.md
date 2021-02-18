@@ -1,22 +1,17 @@
 ---
 title: Azure Blob Storage에서 Azure SQL Database로 데이터 복사
 description: 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 단계별 지침을 제공합니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513272"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380885"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -83,28 +78,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 2. Azure 서비스에서 SQL Database에 액세스하도록 허용합니다. Data Factory 서비스에서 SQL Database에 데이터를 쓸 수 있도록 서버의 Azure 서비스에 액세스할 수 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
-    1. SQL 서버를 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **SQL 서버**를 검색하여 선택합니다.
+    1. SQL 서버를 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **SQL 서버** 를 검색하여 선택합니다.
 
     2. 서버를 선택합니다.
 
-    3. SQL server 메뉴의 **보안** 머리글 아래에서 **방화벽 및 가상 네트워크**를 선택합니다.
+    3. SQL server 메뉴의 **보안** 머리글 아래에서 **방화벽 및 가상 네트워크** 를 선택합니다.
 
-    4. **방화벽 및 가상 네트워크** 페이지의 **Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용**에서 **ON**을 선택합니다.
+    4. **방화벽 및 가상 네트워크** 페이지의 **Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용** 에서 **ON** 을 선택합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
 Visual Studio를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 1. Visual Studio를 엽니다.
-2. **시작** 창에서 **새 프로젝트 만들기**를 선택합니다.
-3. **새 프로젝트 만들기** 창의 프로젝트 형식 목록에서 C# 버전의 **콘솔 앱(.NET Framework)** 을 선택합니다. 그런 후 **다음**을 선택합니다.
-4. **새 프로젝트 구성** 창에서 **프로젝트 이름**으로 *ADFv2Tutorial*을 입력합니다. **위치**의 경우 프로젝트를 저장할 디렉터리를 찾아보거나 만듭니다. 그런 다음 **만들기**를 선택합니다. Visual Studio IDE에 새 프로젝트가 표시됩니다.
+2. **시작** 창에서 **새 프로젝트 만들기** 를 선택합니다.
+3. **새 프로젝트 만들기** 창의 프로젝트 형식 목록에서 C# 버전의 **콘솔 앱(.NET Framework)** 을 선택합니다. 그런 후 **다음** 을 선택합니다.
+4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *ADFv2Tutorial* 을 입력합니다. **위치** 의 경우 프로젝트를 저장할 디렉터리를 찾아보거나 만듭니다. 그런 다음 **만들기** 를 선택합니다. Visual Studio IDE에 새 프로젝트가 표시됩니다.
 
 ## <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
 다음으로, NuGet 패키지 관리자를 사용하여 필요한 라이브러리 패키지를 설치합니다.
 
-1. 메뉴 모음에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
+1. 메뉴 모음에서 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔** 을 선택합니다.
 2. **패키지 관리자 콘솔** 페이지에서 다음 명령을 실행하여 패키지를 설치합니다. Azure Data Factory NuGet 패키지에 대한 자세한 내용은 [Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)를 참조하세요.
 
     ```package manager console
@@ -117,7 +112,7 @@ Visual Studio를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 데이터 팩터리 클라이언트를 만들려면 다음 단계를 수행합니다.
 
-1. *Program.cs*를 열고, 네임스페이스에 대한 참조를 추가하는 다음 코드로 기존 `using` 문을 덮어씁니다.
+1. *Program.cs* 를 열고, 네임스페이스에 대한 참조를 추가하는 다음 코드로 기존 `using` 문을 덮어씁니다.
 
     ```csharp
     using System;
@@ -133,7 +128,7 @@ Visual Studio를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 2. `Main` 메서드에 변수를 설정하는 다음 코드를 추가합니다. 14개 자리 표시자를 사용자 고유의 값으로 바꿉니다.
 
-    현재 Data Factory를 사용할 수 있는 Azure 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. **제품** 드롭다운 목록에서 **찾아보기** > **Analytics** > **Data Factory**를 선택합니다. 그리고 **Azure 지역** 드롭다운 목록에서 관심 있는 Azure 지역을 선택합니다. 선택한 Azure 지역의 Data Factory 제품 가용성 상태가 포함된 표가 표시됩니다.
+    현재 Data Factory를 사용할 수 있는 Azure 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. **제품** 드롭다운 목록에서 **찾아보기** > **Analytics** > **Data Factory** 를 선택합니다. 그리고 **Azure 지역** 드롭다운 목록에서 관심 있는 Azure 지역을 선택합니다. 선택한 Azure 지역의 Data Factory 제품 가용성 상태가 포함된 표가 표시됩니다.
 
     > [!NOTE]
     > Data Factory에서 사용하는 Azure Storage 및 Azure SQL Database 같은 데이터 저장소 및 HDInsight 같은 컴퓨팅은 사용자가 Data Factory에 대해 선택하는 지역과 다른 지역에 있을 수 있습니다.
@@ -186,7 +181,7 @@ Visual Studio를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-*데이터 팩터리*를 만드는 다음 코드를 `Main` 메서드에 추가합니다.
+*데이터 팩터리* 를 만드는 다음 코드를 `Main` 메서드에 추가합니다.
 
 ```csharp
 // Create a data factory
@@ -218,7 +213,7 @@ while (
 
 ### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
 
-`Main` 메서드에 *Azure Storage 연결된 서비스*를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)을 참조하세요.
+`Main` 메서드에 *Azure Storage 연결된 서비스* 를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 연결된 서비스 속성](connector-azure-blob-storage.md#linked-service-properties)을 참조하세요.
 
 ```csharp
 // Create an Azure Storage linked service
@@ -244,7 +239,7 @@ Console.WriteLine(
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 
-`Main` 메서드에 *Azure SQL Database 연결된 서비스*를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure SQL Database 연결된 서비스 속성](connector-azure-sql-database.md#linked-service-properties)을 참조하세요.
+`Main` 메서드에 *Azure SQL Database 연결된 서비스* 를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure SQL Database 연결된 서비스 속성](connector-azure-sql-database.md#linked-service-properties)을 참조하세요.
 
 ```csharp
 // Create an Azure SQL Database linked service
@@ -271,7 +266,7 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
 
-`Main` 메서드에 *Azure Blob 데이터 세트*를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요.
+`Main` 메서드에 *Azure Blob 데이터 세트* 를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요.
 
 Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
 
@@ -309,7 +304,7 @@ Console.WriteLine(
 
 ### <a name="create-a-dataset-for-sink-azure-sql-database"></a>싱크 Azure SQL Database에 대한 데이터 세트 만들기
 
-`Main` 메서드에 *Azure SQL Database 데이터 세트*를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure SQL Database 데이터 세트 속성](connector-azure-sql-database.md#dataset-properties)을 참조하세요.
+`Main` 메서드에 *Azure SQL Database 데이터 세트* 를 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보에 대한 자세한 내용은 [Azure SQL Database 데이터 세트 속성](connector-azure-sql-database.md#dataset-properties)을 참조하세요.
 
 Azure SQL Database의 싱크 데이터를 나타내는 데이터 세트를 정의합니다. 이 데이터 세트는 이전 단계에서 만든 Azure SQL Database 연결된 서비스를 참조합니다. 또한 복사된 데이터를 보관하는 SQL 테이블을 지정합니다.
 
@@ -337,7 +332,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
-`Main` 메서드에 *복사 작업이 있는 파이프라인*을 만드는 다음 코드를 추가합니다. 이 자습서에서는 이 파이프라인에 하나의 작업(`CopyActivity`), 즉, Blob 데이터 세트를 원본으로, SQL 데이터 세트를 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업에 대한 자세한 내용은 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
+`Main` 메서드에 *복사 작업이 있는 파이프라인* 을 만드는 다음 코드를 추가합니다. 이 자습서에서는 이 파이프라인에 하나의 작업(`CopyActivity`), 즉, Blob 데이터 세트를 원본으로, SQL 데이터 세트를 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업에 대한 자세한 내용은 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 참조하세요.
 
 ```csharp
 // Create a pipeline with copy activity
@@ -371,7 +366,7 @@ Console.WriteLine(
 
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
 
-`Main` 메서드에 *파이프라인 실행을 트리거*하는 다음 코드를 추가합니다.
+`Main` 메서드에 *파이프라인 실행을 트리거* 하는 다음 코드를 추가합니다.
 
 ```csharp
 // Create a pipeline run
@@ -432,7 +427,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 
-**빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 그리고 **디버그** > **디버깅 시작**을 선택하여 애플리케이션을 시작하고, 파이프라인 실행을 확인합니다.
+**빌드** > **솔루션 빌드** 를 선택하여 애플리케이션을 빌드합니다. 그리고 **디버그** > **디버깅 시작** 을 선택하여 애플리케이션을 시작하고, 파이프라인 실행을 확인합니다.
 
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음, SSMS(SQL Server Management Studio) 또는 Visual Studio 같은 도구를 사용하여 대상 Azure SQL Database에 연결하고 지정한 대상 테이블에 데이터가 복사되었는지 확인할 수 있습니다.
 

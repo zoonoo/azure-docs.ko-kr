@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: cbab73a2fb3aecaacdfc92950c0d0b86edf775af
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530436"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653349"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "100530436"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -72,7 +72,7 @@ ms.locfileid: "100530436"
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwin_withHelper":::
 
 >[!NOTE]
-> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 예를 들면 다음과 같습니다.
+> `BasicDigitalTwin` 개체는 필드와 함께 제공 `Id` 됩니다. 이 필드는 비워 둘 수 있지만 ID 값을 추가 하는 경우 호출에 전달 된 ID 매개 변수와 일치 해야 `CreateOrReplaceDigitalTwinAsync()` 합니다. 다음은 그 예입니다. 
 >
 >```csharp
 >twin.Id = "myRoomId";
@@ -160,7 +160,7 @@ Patch 호출은 모든 속성을 원하는 대로 단일 쌍으로 업데이트�
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-SDK에서를 사용 하 여 패치를 만들 수 있습니다 `JsonPatchDocument` . [](how-to-use-apis-sdks.md) 다음은 예제입니다.
+Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용 하 여 패치를 만들 수 있습니다. 다음은 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

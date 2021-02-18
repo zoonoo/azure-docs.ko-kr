@@ -3,12 +3,12 @@ title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635080"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -97,7 +97,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 * 주문형 백업의 보존 범위는 백업을 트리거할 때 지정 하는 보존 값입니다.
 
 > [!NOTE]
-> Azure Backup 서비스는 하루에 최대 9 번의 주문형 백업을 지원 하지만 최상의 성능을 보장 하기 위해 최대 4 개의 매일 주문형 백업을 지원 하지 않는 것이 좋습니다.
+> Azure Backup 서비스는 하루에 최대 3 개의 주문형 백업을 지원 하 고 예약 된 백업 하나를 추가로 지원 합니다.
 
 요청 시 백업을 트리거하려면 다음을 수행합니다.
 

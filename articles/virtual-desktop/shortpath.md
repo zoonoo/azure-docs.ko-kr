@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876701"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571591"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows 가상 데스크톱 RDP Shortpath (미리 보기)
 
@@ -151,7 +151,8 @@ Save-NetGPO -GPOSession $gpoSession
 [네트워크 보안 그룹 설명서](../virtual-machines/windows/nsg-quickstart-portal.md) 에 따라 다음 매개 변수를 사용 하 여 트래픽을 허용 하는 인바운드 보안 규칙을 만듭니다.
 
 * **원본**  -  클라이언트가 있는 **모든** 또는 IP 범위
-* **원본 포트 범위** -* *\** _ _ **대상**  -  **Any**
+* **원본 포트 범위** - **\***
+* **대상**  -  **모든**
 * **대상 포트 범위**  -  **3390**
 * **프로토콜**  -  **UDP**
 * **작업**  -  **허용**
@@ -188,7 +189,7 @@ RDP Shortpath 전송을 사용 하 여에서 특정 서브넷을 차단 해야 �
 * **0** -사용자 연결에서 RDP Shortpath를 사용 하지 않음
 * **1** -사용자 연결이 RDP Shortpath를 사용 하 고 있습니다.
   
-다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
+다음 쿼리 목록에서 연결 정보를 검토할 수 있습니다. [Log Analytics 쿼리 편집기](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query)에서이 쿼리를 실행할 수 있습니다. 각 쿼리에 대해을 `userupn` 조회할 사용자의 UPN으로 바꿉니다.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

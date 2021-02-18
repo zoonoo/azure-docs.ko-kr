@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: conceptual
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: f4f1924ce19ccb0f48aa1a7c9a0515fa89505dae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702137"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652312"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -48,33 +48,34 @@ A. Data Box Disk 가격 정보를 보려면 [가격 책정 페이지](https://az
 A.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인하고 디스크에 대한 Data Box 주문을 작성합니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 가용성을 기준으로 주문이 확정되면 디스크가 10일 이내에 배송됩니다.
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>17. 한 인스턴스에서 Data Box Disk를 통해 전송할 수 있는 최대 데이터 양은 어떻게 되나요?
-A. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 사용 가능한 최대 용량은 35TB입니다. 따라서 한 인스턴스에서 35TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디스크를 더 많이 주문해야 합니다.
+A. 각각 8tb 용량 (7tb의 사용 가능한 용량)이 있는 5 개 디스크의 경우 사용 가능한 최대 용량은 35 TB입니다. 따라서 한 인스턴스에서 35 TB의 데이터를 전송할 수 있습니다. 더 많은 데이터를 전송하려면 디스크를 더 많이 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>17. 내 지역에서 Data Box Disk를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
 A.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성](data-box-disk-overview.md#region-availability)으로 이동합니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>17. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
-
-### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>17. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 유럽 서부, 유럽, 대한민국 및 일본 내 모든 지역에 대해 지원 됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>17. 한 국가/지역에 있는 원본 데이터를 다른 국가의 Azure 지역으로 가져오려면 어떻게 하나요?
 A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데이터 수집을 지원 하며 국가별 테두리를 교차 하지 않습니다. 유일한 예외는 EU (유럽 연합)의 주문에 대 한 것입니다. 여기에서 Data Box 디스크는 EU 국가/지역에 제공 될 수 있습니다.
 
 예를 들어 캐나다의 위치에 있는 데이터를 Azure 미국 서 부 저장소 계정으로 이동 하려는 경우 다음과 같은 방법으로 달성할 수 있습니다.
 
-### <a name="option-1"></a>옵션 1: 
+#### <a name="option-1"></a>옵션 1: 
 
 Microsoft [Azure Import/Export 서비스](../import-export/storage-import-export-service.md) 를 사용 하 여 데이터를 포함 하는 [지원 되는 디스크](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) 를 캐나다의 원본 위치에서 azure 미국 서 부 데이터 센터로 배송 합니다.
 
-### <a name="option-2"></a>옵션 2:
+#### <a name="option-2"></a>옵션 2:
 
 1. 캐나다 중부에서 저장소 계정을 선택 하 여 캐나다의 Data Box Disk 주문 합니다. SSD 디스크는 주문 생성 중에 제공 된 판매 주소 (캐나다)로 캐나다 중부의 Azure 데이터 센터에서 제공 됩니다.
 
 2. 온-프레미스 서버의 데이터를 디스크에 복사한 후 Microsoft에서 제공 하는 반송 레이블을 사용 하 여 캐나다의 Azure 데이터 센터에 반환 합니다. 그러면 Data Box Disk에 있는 데이터가 주문 생성 중에 선택한 캐나다 Azure 지역의 대상 저장소 계정에 업로드 됩니다.
 
 3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 미국 서 부의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box Disk 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
+
+### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>17. 전체 지역이 실패 하는 경우 데이터를 복구 하려면 어떻게 해야 하나요?
+
+A. 상당한 재해가 발생 하 여 지역이 손실 되는 극단적인 경우에는 Microsoft에서 지역 장애 조치 (failover)를 시작할 수 있습니다. 이 경우에는 사용자의 작업이 필요 하지 않습니다. 주문이 동일한 국가 또는 상업 경계 내에 있는 경우 장애 조치 (failover) 지역이 충족 됩니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상업 경계에 쌍으로 연결 된 지역이 없습니다. 이러한 지역에 재해가 발생 한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사 해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>17. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 A. Data Box 디스크에 문제가 발생 하는 경우 [Microsoft 지원에 문의](./data-box-disk-contact-microsoft-support.md)하십시오.
@@ -84,7 +85,7 @@ A. Data Box 디스크에 문제가 발생 하는 경우 [Microsoft 지원에 문
 ### <a name="q-how-do-i-get-data-box-disk"></a>17. Data Box Disk를 가져올 어떻게 할까요? 있나요? 
 A.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인 하 고 Data Box Disk 순서를 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문을 입력 한 후에는 사용 가능 여부에 따라 10 일 이내에 Data Box Disk 제공 됩니다. 자세한 내용은 [Data Box 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 그 이유는 무엇일까요?
+### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 이유가 무엇일까요?
 A. Data Box Disk 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box Disk는 EA (기업계약) 및 CSP (클라우드 솔루션 공급자) 구독 제안에만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.
@@ -128,7 +129,7 @@ A. 예. 여러 개의 Data Box Disk를 동일한 호스트 컴퓨터에 연결�
 ## <a name="track-status"></a>상태 추적
 
 ### <a name="q-how-do-i-track-the-disks-from-when-i-placed-the-order-to-shipping-the-disks-back"></a>17. 주문을 확정했을 때부터 디스크를 반송할 때까지 디스크를 추적하려면 어떻게 할까요? 
-A.  Azure Portal에서 Data Box Disk 주문의 상태를 추적할 수 있습니다. 주문을 만들 때 알림 이메일을 제공하라는 메시지도 표시됩니다. 이메일을 제공한 경우 주문의 모든 상태 변경 내용에 대한 알림을 이 이메일을 통해 받게 됩니다. 자세한 내용은 [알림 이메일을 구성하는 방법](data-box-portal-ui-admin.md#edit-notification-details)을 참조하세요.
+A.  Azure Portal에서 Data Box Disk 주문의 상태를 추적할 수 있습니다. 주문을 만들 때 알림 이메일을 제공하라는 메시지도 표시됩니다. 하나를 제공한 경우 주문의 모든 상태 변경 내용에 대해 전자 메일을 통해 알려줍니다. 자세한 내용은 [알림 이메일을 구성하는 방법](data-box-portal-ui-admin.md#edit-notification-details)을 참조하세요.
 
 ### <a name="q-how-do-i-return-the-disks"></a>17. 디스크를 반환하려면 어떻게 할까요? 
 A.  Microsoft에서는 배송 패키지에 Data Box Disk와 함께 배송 레이블을 제공합니다. 레이블을 배송 상자에 부착하고 봉인된 패키지를 배송업체 지점에 위탁합니다. 레이블이 손상되거나 분실되었으면 **개요 > 배송 레이블 다운로드** 로 차례로 이동하여 새 반송 레이블을 다운로드합니다.
@@ -136,7 +137,7 @@ A.  Microsoft에서는 배송 패키지에 Data Box Disk와 함께 배송 레이
 ### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>주문한 Data Box Disk를 직접 픽업할 수 있나요? 원하는 운송업체를 통해 디스크를 반환할 수 있나요?
 A. 예. Microsoft는 US Gov 지역에만 자체 관리형 배송을 제공합니다. Data Box Disk를 주문할 때 자체 관리형 배송 옵션을 선택할 수 있습니다. 주문한 Data Box Disk를 직접 픽업하려면 다음 단계를 수행합니다.
     
-1. 발주 후 주문이 처리되고 디스크가 준비됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
+1. 주문을 입력 하면 주문이 처리 되 고 디스크가 준비 됩니다. 주문한 제품의 픽업 준비가 완료되었다는 이메일 알림이 발송됩니다. 
 2. 제품 픽업 준비가 완료되면 Azure Portal에서 주문한 제품으로 이동하여 **개요** 블레이드로 이동합니다. 
 3. Azure Portal에 코드가 포함된 알림이 표시됩니다. 이메일을 통해 [Azure Data Box 운영 팀](mailto:adbops@microsoft.com)에 코드를 보냅니다. 그러면 운영 팀에서 위치를 알려주고 픽업 날짜 및 시간을 예약합니다. 이메일 알림을 받은 후 5영업일 내에 팀에게 알려야 합니다.
 
@@ -174,8 +175,8 @@ A.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 다중 데이터 복사 스트림을 사용합니다. 예를 들어를 사용 하 `Robocopy` 는 경우 다중 스레드 옵션을 사용 합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md#copy-data-to-disks)을 참조하세요.
 - 다중 세션을 사용합니다.
 - 네트워크 공유를 통해 복사하는(네트워크 속도로 인해 제한될 수 있음) 대신, 디스크가 연결된 컴퓨터에 데이터가 로컬로 있는지 확인합니다.
-- 복사 프로세스 전체에서 USB 3.0 이상을 사용하고 있는지 확인합니다. 이 [ `USBView` 도구](/windows-hardware/drivers/debugger/usbview) 를 다운로드 하 고 사용 하 여 컴퓨터에 연결 된 USB 컨트롤러 및 usb 장치를 확인 합니다.
-- 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. [Bluestop `FIO` 도구](https://ci.appveyor.com/project/axboe/fio) 를 다운로드 하 고 사용 하 여 서버 하드웨어의 성능을 벤치 마크 합니다. 최신 x86 또는 x64 빌드를 선택하고 **아티팩트** 탭을 선택한 후 MSI를 다운로드합니다.
+- 복사 프로세스 전체에서 USB 3.0 이상을 사용 하 고 있는지 확인 합니다. 이 [ `USBView` 도구](/windows-hardware/drivers/debugger/usbview) 를 다운로드 하 고 사용 하 여 컴퓨터에 연결 된 USB 컨트롤러 및 usb 장치를 확인 합니다.
+- 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. 서버 하드웨어의 성능을 벤치 마크 하려면이 [ `Bluestop` `FIO` 도구](https://ci.appveyor.com/project/axboe/fio) 를 다운로드 하 여 사용 합니다. 최신 x86 또는 x64 빌드를 선택하고 **아티팩트** 탭을 선택한 후 MSI를 다운로드합니다.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>17. 원본 데이터에 작은 파일(KB 또는 수 MB)이 있는 경우 데이터의 속도를 높이려면 어떻게 해야 할까요?
 A.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
@@ -191,7 +192,7 @@ A.  아니요. Data Box Disk에는 현재 하나의 스토리지 계정(범용 �
 A. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도구가 있습니다.
  - **Data Box Disk 잠금 해제 도구**: 이 도구를 사용하여 Microsoft에서 배송하는 암호화된 디스크를 잠금 해제합니다. 이 도구를 사용하여 디스크를 잠금 해제할 때 Azure Portal의 Data Box Disk 주문에 제공되는 암호를 입력해야 합니다. 
  - **Data Box Disk 유효성 검사 도구**: 이 도구를 사용하여 Azure 명명 규칙에 따라 크기, 형식 및 Blob 이름의 유효성을 검사합니다. 또한 복사 된 데이터에 대 한 체크섬을 생성 하며,이는 Azure에 업로드 된 데이터를 확인 하는 데 사용 됩니다.
- - **Data Box Disk 분할 복사 도구**: 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우 이 도구를 사용합니다. 이 도구는 현재 Windows에서 사용할 수 있습니다. 이 도구는 관리 디스크에는 지원되지 않습니다. 또한 이 도구는 데이터 복사 시 유효성을 검사하므로, 이 도구를 사용할 때는 유효성 검사 단계를 건너뛸 수 있습니다.
+ - **Data Box Disk 분할 복사 도구**: 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 세트가 있는 경우 이 도구를 사용합니다. 이 도구는 현재 Windows에서 사용할 수 있습니다. 이 도구는 관리 디스크에는 지원되지 않습니다. 이 도구는 데이터를 복사할 때 데이터의 유효성을 검사 하므로이 도구를 사용 하는 경우 유효성 검사 단계를 건너뛸 수 있습니다.
 
 이 도구 세트는 Windows 및 Linux 모두에 사용할 수 있습니다. 이 도구 세트는 여기서 다운로드할 수 있습니다.
 - [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin) 
@@ -209,7 +210,7 @@ A.  데이터 복사에 대한 주문 상태가 완료됨으로 표시되면 데
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>17. 업로드되면 Azure에서 내 데이터가 어디에 있나요?
 A.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure Storage 계정에 만들어집니다. *Blockblob* 및 *pageblob* 폴더 아래에 있는 파일을 직접 복사한 경우 파일은 기본 컨테이너 *$root* Azure Storage 계정에 있습니다. 데이터를 *AzureFile* 폴더 아래의 폴더에 복사하면 파일 공유가 생성됩니다.
 
-### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>17. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
+### <a name="q-i-just-noticed-that-i-didnt-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>17. 필자는 컨테이너에 대 한 Azure 명명 요구 사항을 따르지 않았습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
 A. 컨테이너 이름에서 모든 대문자는 소문자로 자동 변환 됩니다. 다른 방법으로 이름이 호환 되지 않는 경우, 예를 들어 특수 문자 또는 기타 언어를 포함 하는 경우 업로드가 실패 합니다. 자세한 내용을 보려면 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)으로 이동하세요.
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>17. 여러 Data Box Disk에 복사한 데이터를 확인하려면 어떻게 할까요?
@@ -228,7 +229,7 @@ A. 예. 데이터의 유효성을 검사하기로 결정한 경우(권장)! 디�
 A. 이전 주문을 복제할 수 있습니다. 복제하는 경우 이전과 동일한 주문을 만들고, 주소, 연락처 및 알림 세부 정보를 입력할 필요 없이 주문 세부 정보를 편집할 수 있습니다.
 
 ### <a name="q-i-copied-data-to-the-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-how-can-i-locate-it"></a>17. ManagedDisk 폴더에 데이터를 복사 했습니다. 관리 디스크에 대해 지정된 리소스 그룹이 있는 관리 디스크가 보이지 않습니다. 데이터가 Azure에 업로드 되었습니까? 어떻게 찾을 수 있나요?
-A. 예. 데이터가 Azure에 업로드 되었지만 지정 된 리소스 그룹을 사용 하 여 관리 디스크가 표시 되지 않는 경우 데이터가 올바르지 않기 때문일 수 있습니다. 페이지 blob, 블록 blob, Azure Files 또는 managed disks가 유효 하지 않은 경우 다음 폴더로 이동 합니다.
+A. 예. 데이터가 Azure에 업로드 되었지만 지정 된 리소스 그룹을 사용 하 여 관리 디스크가 표시 되지 않는 경우 데이터가 잘못 되었기 때문일 수 있습니다. 페이지 blob, 블록 blob, Azure Files 또는 managed disks가 유효 하지 않은 경우 다음 폴더로 이동 합니다.
  - 페이지 blob은 *databoxdisk* 로 시작 하는 블록 blob 컨테이너로 이동 합니다.
  - Azure Files는 *databoxdisk* 로 시작 하는 블록 blob 컨테이너로 이동 합니다.
  - 관리 디스크는 *databoxdisk* 로 시작 하는 블록 blob 컨테이너로 이동 합니다.

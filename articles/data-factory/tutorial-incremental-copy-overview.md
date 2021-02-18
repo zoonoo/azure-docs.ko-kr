@@ -1,23 +1,18 @@
 ---
 title: 증분 방식으로 데이터 복사
 description: 이 자습서는 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 증분 복사하는 방법을 보여줍니다. 첫 번째 복사는 한 테이블에서 데이터를 복사합니다.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a27f91f8fe8b6016444ad2d1830f0cc2e702f0a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194485"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384761"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 

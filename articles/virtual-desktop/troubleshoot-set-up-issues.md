@@ -3,15 +3,16 @@ title: Windows 가상 데스크톱 환경 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539643"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652448"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -49,9 +50,21 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>오류: 앱 그룹의 사용자 할당을 볼 수 없습니다.
 
-원인:이 오류는 일반적으로 구독을 AD (Azure Active Directory) 테 넌 트에서 다른 테 넌 트에서 이동한 후에 발생 합니다. 이전 할당이 여전히 이전 Azure AD 테 넌 트에 연결 된 경우에는 Azure Portal에서 추적을 잃게 됩니다.
+**원인**:이 오류는 일반적으로 구독을 AD (Azure Active Directory) 테 넌 트에서 다른 테 넌 트에서 이동한 후에 발생 합니다. 이전 할당이 여전히 이전 Azure AD 테 넌 트에 연결 된 경우에는 Azure Portal에서 추적을 잃게 됩니다.
 
-Fix: 사용자를 앱 그룹에 다시 할당 해야 합니다.
+**Fix**: 사용자를 앱 그룹에 다시 할당 해야 합니다.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>내 서비스 개체의 위치를 설정 하는 경우에만 표시 됩니다.
+
+**원인**: Azure는 현재 Windows 가상 데스크톱 서비스에 대해 해당 지역을 지원 하지 않습니다. 지원 되는 지역에 대해 알아보려면 [데이터 위치](data-locations.md)를 확인 하세요. Windows 가상 데스크톱이 위치를 지원 하지만 위치를 선택 하려고 할 때 여전히 표시 되지 않으면 리소스 공급자가 아직 업데이트 되지 않은 것입니다.
+
+**수정**: 최신 지역 목록을 가져오려면 리소스 공급자를 다시 등록 합니다.
+
+1. **구독** 으로 이동 하 여 관련 구독을 선택 합니다.
+2. **리소스 공급자** 를 선택 합니다.
+3. **Microsoft DesktopVirtualization** 를 선택한 다음 작업 메뉴에서 **다시 등록** 을 선택 합니다.
+
+리소스 공급자를 다시 등록 하면 특정 UI 피드백 또는 업데이트 상태가 표시 되지 않습니다. 또한 다시 등록 프로세스는 기존 환경에 방해가 되지 않습니다.
 
 ## <a name="azure-resource-manager-template-errors"></a>Azure Resource Manager 템플릿 오류
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: bf0df4cc6e686b553baf8c2439c807d2f07ef440
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99821383"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380239"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -218,7 +218,7 @@ config.AddAzureAppConfiguration(options =>
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>종속성 주입을 사용하여 IFeatureManager에 액세스 
 
-기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
+기능 플래그 값을 수동으로 확인하는 것과 같은 일부 작업의 경우 [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview) 인스턴스를 가져와야 합니다. ASP.NET Core MVC에서 종속성 주입을 통해 `IFeatureManager` 기능 관리자에 액세스할 수 있습니다. 다음 예제에서는 `IFeatureManager` 형식의 인수를 컨트롤러에 대한 생성자의 시그니처에 추가합니다. 런타임에서는 참조를 자동으로 확인하고, 생성자를 호출할 때 인터페이스를 제공합니다. 이미 컨트롤러에 생성자의 종속성 주입 인수(예: `ILogger`)가 하나 이상 있는 애플리케이션 템플릿을 사용하는 경우 추가 인수로 `IFeatureManager`만 추가하면 됩니다.
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

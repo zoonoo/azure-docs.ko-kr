@@ -3,16 +3,16 @@ title: Backup Center를 사용 하 여 정보 얻기
 description: 백업 센터에서 기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: c5f707ce3bc8d1172805ac14958a50bf59d1412d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893696"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592006"
 ---
 # <a name="obtain-insights-using-backup-center-preview"></a>Backup Center를 사용 하 여 정보 얻기 (미리 보기)
 
-기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻기 위해 Backup 센터는 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용 하는 [보고서 백업 (미리 보기)](configure-reports.md)에 대 한 인터페이스를 제공 합니다. 백업 보고서는 다음과 같은 기능을 제공 합니다.
+기록 추세를 분석 하 고 백업에 대 한 심층적인 통찰력을 얻기 위해 Backup 센터는 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용 하는 [보고서 백업 (미리 보기)](configure-reports.md)에 대 한 인터페이스를 제공 합니다. 백업 보고서는 다음과 같은 기능을 제공 합니다.
 
 - 사용된 클라우드 스토리지를 할당하고 예측합니다.
 

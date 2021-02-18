@@ -9,18 +9,18 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 738ed3b819a62760408341184daca8a8ba555029
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913677"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516399"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
 이 자습서에서는 계층 구조 네임스페이스가 있는 스토리지 계정에서 이벤트를 처리하는 방법을 보여 줍니다.
 
-판매 주문을 설명하는 csv(쉼표로 구분된 값) 파일을 업로드하여 사용자가 Databricks 델타 테이블을 채울 수 있도록 하는 작은 솔루션을 구축합니다. 이 솔루션은 Azure Databricks에서 Event Grid 구독, Azure Function 및 [작업](https://docs.azuredatabricks.net/user-guide/jobs.html)을 함께 연결하여 구축됩니다.
+판매 주문을 설명하는 csv(쉼표로 구분된 값) 파일을 업로드하여 사용자가 Databricks 델타 테이블을 채울 수 있도록 하는 작은 솔루션을 구축합니다. 이 솔루션은 Azure Databricks에서 Event Grid 구독, Azure Function 및 [작업](/azure/databricks/jobs)을 함께 연결하여 구축됩니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -33,7 +33,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 * 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](../common/storage-auth-aad-rbac-portal.md)이 할당되었는지 확인합니다.
 
@@ -116,7 +116,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 4. **클러스터 만들기** 를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
-클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
+클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](/azure/databricks/clusters/create)를 참조하세요.
 
 ### <a name="create-a-notebook"></a>Notebook 만들기
 
@@ -153,7 +153,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
     이 코드는 **source_file** 이라는 위젯을 만듭니다. 나중에 이 코드를 호출하고 파일 경로를 해당 위젯에 전달하는 Azure Function을 만듭니다.  또한 이 코드는 스토리지 계정을 사용하여 서비스 주체를 인증하고, 다른 셀에서 사용할 몇 가지 변수를 만듭니다.
 
     > [!NOTE]
-    > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. <br><br>예를 들어 `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` 코드 줄을 사용하는 대신 `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` 코드 줄을 사용합니다. <br><br>이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트의 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
+    > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. <br><br>예를 들어 `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` 코드 줄을 사용하는 대신 `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` 코드 줄을 사용합니다. <br><br>이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트의 [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) 문서에서 이 방법에 대한 예제를 살펴보세요.
 
 2. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

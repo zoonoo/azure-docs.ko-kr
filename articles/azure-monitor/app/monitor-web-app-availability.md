@@ -4,12 +4,12 @@ description: Application Insights에서 웹 테스트를 설정합니다. 웹 �
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937410"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585938"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -151,7 +151,7 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 
 ![서버 쪽 진단](./media/monitor-web-app-availability/open-instance-4.png)
 
-원시 결과 외에도 [메트릭 탐색기](../platform/metrics-getting-started.md)의 두 가지 주요 가용성 메트릭을 볼 수 있습니다.
+원시 결과 외에도 [메트릭 탐색기](../essentials/metrics-getting-started.md)의 두 가지 주요 가용성 메트릭을 볼 수 있습니다.
 
 1. 가용성: 모든 테스트 실행에서 성공한 테스트의 비율입니다.
 2. 테스트 지속 시간: 모든 테스트 실행에서의 평균 테스트 지속 시간입니다.
@@ -159,7 +159,7 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 ## <a name="automation"></a>Automation
 
 * [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](./powershell.md#add-an-availability-test)합니다.
-* 경고가 발생하면 호출되는 [웹후크](../platform/alerts-webhooks.md)를 설정합니다.
+* 경고가 발생하면 호출되는 [웹후크](../alerts/alerts-webhooks.md)를 설정합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

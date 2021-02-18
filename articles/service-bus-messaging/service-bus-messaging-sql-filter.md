@@ -3,12 +3,12 @@ title: Azure Service Bus Subscription Rule SQL 필터 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 필터 문법에 대 한 세부 정보를 제공 합니다. SQL 필터는 SQL-92 표준의 하위 집합을 지원 합니다.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742984"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652944"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Subscription Rule SQL 필터 구문
 
@@ -269,8 +269,8 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
   
 -   `+`, `-`, `*`, `/`, `%`와 같은 산술 연산자는 데이터 형식 승격 및 암시적 변환에서 C# 연산자 바인딩과 동일한 의미 체계를 따릅니다.
 
-
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>예제
+예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,17 +2,17 @@
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
 description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742967"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651666"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 
-구독자는 토픽에서 수신할 메시지를 정의할 수 있습니다. 이러한 메시지는 하나 이상의 명명된 구독 규칙의 형태로 지정됩니다. 각 규칙은 특정 메시지를 선택 하 고 **선택적으로** 선택한 메시지를 주석을 추가 하는 **작업** 을 포함 하는 **필터** 조건으로 구성 됩니다. 
+구독자는 토픽에서 수신할 메시지를 정의할 수 있습니다. 이러한 메시지는 하나 이상의 명명된 구독 규칙의 형태로 지정됩니다. 각 규칙은 특정 메시지를 선택 하 고 **선택적으로** 선택한 메시지를 주석을 추가 하는 **작업** 을 포함 하는 **필터 조건** 으로 구성 됩니다. 
 
 **작업이 없는** 모든 규칙은 조건을 사용 하 여 결합 되며 `OR` 여러 일치 규칙이 있는 경우에도 구독에서 **단일 메시지** 를 생성 합니다. 
 
@@ -32,9 +32,7 @@ ms.locfileid: "98742967"
 Service Bus는 세 가지 필터 조건을 지원합니다.
 
 -   *SQL 필터* - **SqlFilter** 는 broker에서 도착 메시지의 사용자 정의 속성 및 시스템 속성과 비교하여 평가되는 SQL과 비슷한 조건식을 유지합니다. 모든 시스템 속성은 조건식에서 `sys.`로 시작되어야 합니다. [필터 조건에 대 한 SQL 언어 하위 집합](service-bus-messaging-sql-filter.md) 은 속성 ( `EXISTS` ), null 값 ( `IS NULL` ), logical NOT/AND/OR, 관계형 연산자, 단순 숫자 산술 및와의 단순 텍스트 패턴 일치 여부를 테스트 합니다 `LIKE` .
-
 -   *부울 필터* - **TrueFilter** 및 **FalseFilter** 는 모든 도착 메시지가 구독에 대해 선택되거나(**true**) 선택되지 않도록(**false**) 합니다. 이러한 두 필터는 SQL 필터에서 파생 됩니다. 
-
 -   *상관 관계 필터* - **CorrelationFilter** 는 도착 메시지의 사용자 및 시스템 속성 중 하나 이상과 일치하는 조건 집합을 보유합니다. 일반적으로 **CorrelationId** 속성을 일치 시키는 것 이지만 응용 프로그램은 다음 속성과 일치 하도록 선택할 수도 있습니다.
 
     - **ContentType**
@@ -66,7 +64,8 @@ SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체
 
 라우팅은 필터를 사용하여 예측 가능한 방식으로 토픽 구독에 메시지를 배포하지만 반드시 배타적이지는 않습니다. [자동 전달](service-bus-auto-forwarding.md) 기능과 함께 토픽 필터를 사용하여 Azure 지역 내에 메시지를 배포하기 위해 Service Bus 네임스페이스 내에 복잡한 라우팅 그래프를 만들 수 있습니다. Azure Service Bus 네임스페이스 간에 브리지 역할을 하는 Azure Functions 또는 Azure Logic Apps를 사용하면 LOB(기간 업무) 애플리케이션에 직접 통합하여 복잡한 글로벌 토폴로지를 만들 수 있습니다.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>예제
+예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조 하세요.
 
 
 

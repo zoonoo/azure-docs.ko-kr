@@ -4,31 +4,29 @@ description: 요금제에 대 한 자동 변칙 검색을 통해 상용 marketpl
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/17/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989467"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653009"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>요금제에 대 한 변칙 검색
+# <a name="anomaly-detection-for-metered-billing"></a>요금제 청구를 위한 변칙 검색
 
-이 문서에서는 marketplace 계량 서비스와 관련 된 자동화 된 변칙 검색 기능에 대 한 세부 정보를 제공 하 여 고객에 게 요금제 사용을 위해 고객에 게 올바르게 청구서를 제공 합니다. 요금제 (요금제) 청구 옵션은 현재 SaaS ( [Software as a service](plan-saas-offer.md) ) 제품 및 관리 되는 응용 프로그램 계획으로 [Azure 응용 프로그램](plan-azure-application-offer.md#types-of-plans) 에 사용할 수 있습니다. 이 옵션을 사용 하면 파트너가 비표준 단위에 따라 요금이 청구 되는 상업적 marketplace 프로그램에 제품을 만들 수 있습니다.
+사용자 지정 데이터 요금 청구 옵션은 현재 SaaS ( [Software as a service](plan-saas-offer.md) ) 제품 및 관리 되는 응용 프로그램 계획으로 [Azure 응용 프로그램](plan-azure-application-offer.md#types-of-plans) 에 사용할 수 있습니다.
 
-SaaS 및 관리 되는 응용 프로그램에 대해 사용자 지정 측정기가 배포 된 파트너는 파트너 센터의 특정 _사용자 지정 미터_ 에 대 한 _초과분 이벤트_ 에 대 한 비정상으로 예상 사용 동작의 편차를 볼 수 있습니다. 위험을 완화 하기 위해 파트너 센터는 기계 학습 알고리즘을 적용 하 여 일반적인 요금제 청구 동작을 결정 하 고, 요금제 사용량을 분석 하 고, 최소한의 사용자 작업으로 변칙을 검색 하는 변칙 검색 서비스를 사용 합니다. 파트너 센터는 데이터 요금 청구 사용 데이터 집합에서 _변칙 검색 모델_ 을 사용 하 여 보고 된 사용이 예상 사용량을 초과 하는 경우 게시자에 게 알립니다.
+요금제를 사용 하 여 비 표준 단위를 기준으로 사용량에 대 한 요금을 청구할 수 있는 상업적 marketplace 프로그램의 제안을 사용 하는 경우 고객이 예상 보다 더 많은 서비스를 사용 하는 시기를 알고 있어야 합니다.
 
-## <a name="usability-experience"></a>유용성 환경
+## <a name="use-the-anomaly-detection-feature"></a>변칙 검색 기능 사용
 
-Microsoft는 파트너를 사용 하 여 고객에 게 고객이 송장을 제공 하기 전에 고객의 SaaS 또는 Azure 관리 되는 응용 프로그램의 초과분 사용을 보고 합니다. 잘못 된 사용량을 보고 하는 경우 고객은 잠재적으로 잘못 된 청구서를 수신 하 여 Microsoft와 파트너의 신뢰성을 모두 마이닝 하 게 됩니다.
+Microsoft는 귀하의 파트너를 사용 하 여 Microsoft에서 고객에 게 송장을 제공 하기 전에 고객의 SaaS 또는 Azure 관리 되는 응용 프로그램의 초과분 사용량을 보고 합니다. 잘못 된 사용량을 보고 하는 경우 고객은 잠재적으로 잘못 된 청구서를 수신 하 여 Microsoft와 파트너의 신뢰성을 모두 마이닝 하 게 됩니다.
 
-이를 완화 하기 위해 SaaS 앱과 Azure 응용 프로그램 관리 응용 프로그램 계획 모두에 대 한 자동 변칙 검색 기능이 제공 됩니다. 이 기능은 데이터 요금제에 대 한 사용량을 사전에 모니터링 하 고 예상 된 범위 내에서 예상 사용량 값을 예측 하는 기계 학습 모델입니다. 사용량이 예상 범위를 벗어나면 비정상으로 처리 되 고 파트너 센터의 상업적 marketplace 프로그램의 제품 개요 페이지에서 파트너에 게 경고 알림이 표시 됩니다.
+고객이 올바르게 청구 되도록 하려면 SaaS 앱과 Azure 응용 프로그램 관리 응용 프로그램 계획 모두에 대 한 **변칙 검색** 기능을 사용 합니다. 이 기능은 요금제에 대 한 사용량을 모니터링 하 고 예상 된 범위 내에서 예상 사용량 값을 예측 합니다. 사용량이 예상 범위를 벗어나면 예기치 않은 (비정상)로 처리 되며 파트너 센터의 상업적 marketplace 프로그램에서 제품 개요 페이지에 대 한 경고 알림을 받게 됩니다. 설정한 모든 사용자 지정 측정기 차원에 대 한 고객의 사용량을 매일 추적할 수 있습니다.
 
-기계 학습 모델은 초과분 사용량을 매일 분석 합니다. 게시자는 모든 제품의 사용자 지정 측정기 차원에 대 한 고객의 초과분 사용량에 대해 보고 된 모든 비정상 상황을 볼 수 있습니다.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>요금제 사용 변칙 보기 및 관리
+## <a name="view-and-manage-metered-usage-anomalies"></a>요금제 사용 변칙 보기 및 관리
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인 합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 마켓플레이스**  >  **분석** 을 선택 합니다.
@@ -79,6 +77,6 @@ Microsoft는 파트너를 사용 하 여 고객에 게 고객이 송장을 제�
 > [!IMPORTANT]
 > 과도 한 요금이 부과 되는 경우 초과분 사용을 다시 제출할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [상용 marketplace 계량 서비스를 사용 하 여 SaaS에 대 한 요금제 청구](./partner-center-portal/saas-metered-billing.md)
 - [관리 되는 응용 프로그램 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)

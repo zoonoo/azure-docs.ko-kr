@@ -7,17 +7,17 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6dd67ff4f7346daf7a590ab4fb45a32d227f1c3e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 801f4840d0d1447f839e5c2c4bc3168741b62b63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147544"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586246"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Azure App Service의 “502 잘못된 게이트웨이” 및 “503 서비스를 사용할 수 없음” HTTP 오류 해결
 “502 잘못된 게이트웨이” 및 “503 서비스를 사용할 수 없음” 오류는 [Azure App Service](./overview.md)에 호스트된 앱에서 일반적으로 나타나는 오류입니다. 이 문서는 이러한 오류를 해결하는 데 도움이 됩니다.
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동한 다음 **지원 받기**를 클릭합니다.
+이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 스택 오버플로 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수도 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 이동한 다음 **지원 받기** 를 클릭합니다.
 
 ## <a name="symptom"></a>증상
 앱을 찾아볼 때 HTTP “502 잘못된 게이트웨이” 또는 HTTP “503 서비스를 사용할 수 없음” 오류를 반환합니다.
@@ -60,7 +60,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 자세한 내용은 다음을 참조하세요.
 
 * [Azure App Service에서 앱 모니터링](web-sites-monitor.md)
-* [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)
+* [경고 알림 받기](../azure-monitor/alerts/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -68,7 +68,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 #### <a name="use-the-diagnostics-tool"></a>진단 도구 사용
 App Service는 앱 문제를 해결하는 데 도움이 되는 지능적인 대화형 환경으로, 구성이 필요하지 않습니다. 앱에서 문제가 발생하면 진단 도구는 무엇이 문제인지를 표시하여 문제를 더 쉽고 빠르게 확인하고 해결하기 위한 올바른 정보로 안내합니다.
 
-App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 또는 App Service 환경으로 이동합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
+App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 또는 App Service 환경으로 이동합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결** 을 클릭합니다.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
 App Service는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 엔드포인트 및 파일 디버그, 탐색, 업로드에 사용할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔을 ‘Kudu 콘솔’ 또는 앱에 대한 ‘SCM 대시보드’라고 합니다. 

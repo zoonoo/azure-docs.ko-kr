@@ -4,12 +4,12 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET 성�
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937381"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583893"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>분석에서의 성능 카운터
-[분석](../log-query/log-query-overview.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.
+[분석](../logs/log-query-overview.md)에서 성능 카운터 보고서를 검색하고 표시할 수 있습니다.
 
 **performanceCounters** 스키마는 `category`, `counter` 이름 및 각 성능 카운터의 `instance` 이름을 노출합니다.  각 애플리케이션에 대한 원격 분석 데이터에는 해당 애플리케이션에 대한 카운터에만 표시됩니다. 예를 들면 어떤 카운터를 사용할 수 있는지 알아보기: 
 
@@ -148,7 +148,7 @@ ASP.NET Core의 성능 카운터에 대한 지원은 제한적입니다.
 * SDK 버전 2.8.0 이상에서는 Linux의 cpu/메모리 카운터를 지원합니다. 다른 카운터는 Linux에서 지원되지 않습니다. Linux 및 기타 비 Windows 환경에서 시스템 카운터를 가져오는 권장 방법은 [EventCounters](eventcounters.md)를 사용하는 것입니다.
 
 ## <a name="alerts"></a>경고
-다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
+다른 메트릭과 마찬가지로 성능 카운터에서 지정한 제한을 벗어나는 경우 경고 메시지를 표시하도록 [경고를 설정](../alerts/alerts-log.md)할 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 

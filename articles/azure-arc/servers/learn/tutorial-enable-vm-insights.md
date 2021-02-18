@@ -3,16 +3,16 @@ title: 자습서 - VM용 Azure Monitor를 사용하여 하이브리드 머신 �
 description: Azure Monitor에서 하이브리드 머신의 데이터를 수집하고 분석하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/23/2020
-ms.openlocfilehash: 76565e40a8d85003c5a03be5fa48f83459657f29
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 409ad0976e02e42e385e22a103cfc06af5a4f3f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94738087"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587695"
 ---
 # <a name="tutorial-monitor-a-hybrid-machine-with-azure-monitor-for-vms"></a>자습서: VM용 Azure Monitor를 사용하여 하이브리드 머신 모니터링
 
-[Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 하이브리드 머신에서 Log Analytics 작업 영역으로 데이터를 직접 수집할 수 있습니다. 일반적으로 이는 구성 관리 표준에 따라 스크립트, 수동으로 또는 자동화된 방법을 사용하여 머신에 [Log Analytics 에이전트](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent)를 설치해야 합니다. Arc 사용 서버는 최근에 Windows 및 Linux용 Log Analytics 및 종속성 에이전트 [VM 확장](../manage-vm-extensions.md)을 설치하는 기능을 지원하여 Azure Monitor가 Azure가 아닌 VM에서 데이터를 수집할 수 있도록 합니다.
+[Azure Monitor](../overview.md)는 상세한 분석 및 상관 관계 파악을 위해 하이브리드 머신에서 Log Analytics 작업 영역으로 데이터를 직접 수집할 수 있습니다. 일반적으로 이는 구성 관리 표준에 따라 스크립트, 수동으로 또는 자동화된 방법을 사용하여 머신에 [Log Analytics 에이전트](../../../azure-monitor/agents/agents-overview.md#log-analytics-agent)를 설치해야 합니다. Arc 사용 서버는 최근에 Windows 및 Linux용 Log Analytics 및 종속성 에이전트 [VM 확장](../manage-vm-extensions.md)을 설치하는 기능을 지원하여 Azure Monitor가 Azure가 아닌 VM에서 데이터를 수집할 수 있도록 합니다.
 
 이 자습서에서는 간단한 단계 세트에 따라 VM용 Azure Monitor를 사용하도록 설정하여 Linux 또는 Windows 머신에서 데이터를 구성하고 수집하는 방법을 보여 줍니다. 이는 환경을 간소화하고 시간을 단축하는 데 사용됩니다.  
 
@@ -22,9 +22,9 @@ ms.locfileid: "94738087"
 
 * VM 확장 기능은 [지원되는 지역](../overview.md#supported-regions) 목록에서만 사용할 수 있습니다.
 
-* 사용하도록 설정하는 서버 운영 체제가 VM용 Azure Monitor에서 지원되는지 확인하려면 [지원되는 운영 체제](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems)를 참조하세요.
+* 사용하도록 설정하는 서버 운영 체제가 VM용 Azure Monitor에서 지원되는지 확인하려면 [지원되는 운영 체제](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems)를 참조하세요.
 
-* [Log Analytics 에이전트 개요](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements)에 제공된 Log Analytics 에이전트에 대한 방화벽 요구 사항을 검토합니다. VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다.
+* [Log Analytics 에이전트 개요](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements)에 제공된 Log Analytics 에이전트에 대한 방화벽 요구 사항을 검토합니다. VM용 Azure Monitor 맵 Dependency Agent는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다.
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 

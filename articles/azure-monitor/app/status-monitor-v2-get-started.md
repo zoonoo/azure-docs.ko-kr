@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f340b4fdf7fef6daecf8801d16d19aee9b89e4d5
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 21184e1623fd47e8367d4c5dfbc2c85debe93124
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746461"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587396"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 시작
 
@@ -21,7 +21,7 @@ ms.locfileid: "98746461"
 
 이러한 명령에 대 한 설명, 사용자 지정 지침 및 문제 해결에 대 한 정보는 [자세한 지침](status-monitor-v2-detailed-instructions.md)을 참조 하세요.
 
-Azure 구독이 없는 경우 시작하기 전에 먼저 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="download-and-install-via-powershell-gallery"></a>PowerShell 갤러리를 통해 다운로드 및 설치
 
@@ -79,9 +79,9 @@ Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-x
 
  원격 분석 보기:
 
-- [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
+- [메트릭을 탐색](../essentials/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
 - [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석을 사용](../log-query/log-query-overview.md) 합니다.
+- 고급 쿼리를 위해 [분석을 사용](../logs/log-query-overview.md) 합니다.
 - [대시보드를 만듭니다](./overview-dashboard.md).
 
  원격 분석 더 추가:

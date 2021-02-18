@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: e24a2a19eb39e2c6c7612631ad98f95cb4c5b9ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4430ed34858077b13b4fec69756c1c7e9f3ef7ac
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250167"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652374"
 ---
 # <a name="tutorial-publish-a-gatsby-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Gatsby 사이트 게시
 
@@ -64,7 +64,7 @@ Gatsby CLI(명령줄 인터페이스)를 사용하여 Gatsby 앱을 만듭니다
 
 새 Azure Static Web Apps 리소스를 만들려면 GitHub에 리포지토리가 있어야 합니다.
 
-1. **gatsby-static-web-app**이라는 [https://github.com/new](https://github.com/new)에서 빈 GitHub 리포지토리(추가 정보를 만들지 않음)를 만듭니다.
+1. **gatsby-static-web-app** 이라는 [https://github.com/new](https://github.com/new)에서 빈 GitHub 리포지토리(추가 정보를 만들지 않음)를 만듭니다.
 
 1. 그런 다음, 방금 만든 GitHub 리포지토리를 로컬 리포지토리에 원격으로 추가합니다. 다음 명령에서 `<YOUR_USER_NAME>` 자리 표시자 대신 GitHub 사용자 이름을 추가해야 합니다.
 
@@ -75,7 +75,7 @@ Gatsby CLI(명령줄 인터페이스)를 사용하여 Gatsby 앱을 만듭니다
 1. 로컬 리포지토리를 GitHub로 푸시합니다.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>웹앱 배포
@@ -85,34 +85,34 @@ Gatsby CLI(명령줄 인터페이스)를 사용하여 Gatsby 앱을 만듭니다
 ### <a name="create-the-application"></a>애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기**를 클릭합니다.
-1. **Static Web Apps**를 검색합니다.
+1. **리소스 만들기** 를 클릭합니다.
+1. **Static Web Apps** 를 검색합니다.
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 
    :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
 
-1. _구독_의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
+1. _구독_ 의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
 
-1. _리소스 그룹_에서 **새로 만들기**를 선택합니다. _새 리소스 그룹 이름_에서 **gatsby-static-web-app**을 입력하고 **확인**을 선택합니다.
+1. _리소스 그룹_ 에서 **새로 만들기** 를 선택합니다. _새 리소스 그룹 이름_ 에서 **gatsby-static-web-app** 을 입력하고 **확인** 을 선택합니다.
 
 1. 그런 다음, **이름** 상자에 있는 앱 이름을 선택합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
 
-1. _지역_에 대해 가까운 사용 가능한 지역을 선택합니다.
+1. _지역_ 에 대해 가까운 사용 가능한 지역을 선택합니다.
 
-1. _SKU_에 대해 **무료**를 선택합니다.
+1. _SKU_ 에 대해 **무료** 를 선택합니다.
 
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
+   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="세부 정보 입력":::
 
 1. **GitHub로 로그인** 단추를 클릭합니다.
 
-1. 리포지토리를 만든 **조직**을 선택합니다.
+1. 리포지토리를 만든 **조직** 을 선택합니다.
 
-1. **gatsby-static-web-app**을 _리포지토리_로 선택합니다.
+1. **gatsby-static-web-app** 을 _리포지토리_ 로 선택합니다.
 
-1. _분기_에 대해 **마스터**를 선택합니다.
+1. _분기_ 에 대해 **기본** 을 선택합니다.
 
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
+   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="완료된 GitHub 정보":::
 
 ### <a name="build"></a>빌드
 
@@ -120,25 +120,25 @@ Gatsby CLI(명령줄 인터페이스)를 사용하여 Gatsby 앱을 만듭니다
 
 1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
 
-1. GitHub Actions에서 단계 설정을 구성하려면 _앱 위치_를 **/** 로 설정합니다.
+1. GitHub Actions에서 단계 설정을 구성하려면 _앱 위치_ 를 **/** 로 설정합니다.
 
-1. _앱 아티팩트 위치_를 **공개**로 설정합니다.
+1. _앱 아티팩트 위치_ 를 **공개** 로 설정합니다.
 
-   현재 API를 배포하지 않으므로 _API 위치_에 대한 값이 필요하지 않습니다.
+   현재 API를 배포하지 않으므로 _API 위치_ 에 대한 값이 필요하지 않습니다.
 
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
+   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="빌드 설정":::
 
 ### <a name="review-and-create"></a>검토 및 만들기
 
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
 
-1. **만들기**를 클릭하여 App Service Static Web App 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
+1. **만들기** 를 클릭하여 App Service Static Web App 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
 
-1. 배포가 완료되면 **리소스로 이동**을 클릭합니다.
+1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 
 1. 리소스 화면에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다. GitHub Action이 완료되려면 1~2분 정도 기다려야 할 수 있습니다.
 
-   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
+   :::image type="content" source="./media/publish-gatsby/deployed-app.png" alt-text="배포된 애플리케이션":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 12951f25feb6f3710b8d35fbc682caeeb480e788
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953154"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555618"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
@@ -164,4 +164,4 @@ Azure AD B2C에 의해 보호되는 데스크톱 애플리케이션은 역시 Az
 > * 애플리케이션을 사용하도록 샘플 업데이트
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](tutorial-add-identity-providers.md)
+> [Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](add-identity-provider.md)

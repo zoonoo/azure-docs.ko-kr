@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834088"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570851"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
@@ -137,7 +137,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 2. **대상 선택** 을 클릭한 다음, 대상으로 지정하려는 리소스를 선택합니다. **구독** 을 선택하고 **리소스 종류** 를 설정하여 사용하려는 연결 모니터로 필터링합니다.
 
     ![대상이 선택된 경고 화면](./media/connection-monitor/set-alert-rule.png)
-1. 대상으로 지정할 리소스를 선택했으면 **조건 추가** 를 선택합니다. Network Watcher에는 [경고를 만들 때 사용할 수 있는 메트릭](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)이 있습니다. **사용 가능한 신호** 를 ProbesFailedPercent 및 AverageRoundtripMs 메트릭으로 설정합니다.
+1. 대상으로 지정할 리소스를 선택했으면 **조건 추가** 를 선택합니다. Network Watcher에는 [경고를 만들 때 사용할 수 있는 메트릭](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)이 있습니다. **사용 가능한 신호** 를 ProbesFailedPercent 및 AverageRoundtripMs 메트릭으로 설정합니다.
 
     ![신호가 선택된 경고 페이지](./media/connection-monitor/set-alert-signals.png)
 1. 경고 규칙 이름, 설명, 심각도 등의 경고 세부 정보를 입력합니다. 또한 경고에 작업 그룹을 추가하여 경고 응답을 자동화하고 사용자 지정할 수도 있습니다.
