@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743890"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652023"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Azure Active Directory 암호 보호를 사용 하 여 잘못 된 암호 제거
 
@@ -125,7 +125,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
    | $               | 초                  |
    | \@              | a                  |
 
-다음 예제를 참조하세요.
+다음 예제를 살펴보겠습니다.
 
 * 암호 "blank"는 금지 됩니다.
 * 사용자가 암호를 "" (으)로 변경 하려고 Bl@nK 합니다.
@@ -140,7 +140,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 
 유사 일치는 정규화된 암호가 전역 또는 사용자 지정 금지된 암호 목록에 있는 암호를 포함하는지를 확인하는 데 사용됩니다. 일치 프로세스는 편집 거리 1 비교를 기준으로 합니다.
 
-다음 예제를 참조하세요.
+다음 예제를 살펴보겠습니다.
 
 * 암호 "abcdef"는 금지 되어 있습니다.
 * 사용자는 암호를 다음 중 하나로 변경 하려고 합니다.
@@ -161,7 +161,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 > [!IMPORTANT]
 > 부분 문자열 일치는 4 자 이상으로 된 이름 및 기타 조건에만 적용 됩니다.
 
-다음 예제를 참조하세요.
+다음 예제를 살펴보겠습니다.
 
 * 자신의 암호를 "p0LL23fb"로 다시 설정 하려는 설문 이라는 사용자입니다.
 * 정규화 후이 암호는 "poll23fb"이 됩니다.
@@ -174,7 +174,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 다음 단계에서는 사용자의 정규화된 새 암호에서 금지된 암호의 모든 인스턴스를 확인합니다. 점수는 다음 기준에 따라 할당 됩니다.
 
 1. 사용자의 암호에 있는 각각의 금지 된 암호는 한 지점에 지정 됩니다.
-1. 나머지 각 고유 문자도 1점으로 계산됩니다.
+1. 금지 된 암호의 일부가 아닌 나머지 문자는 한 지점에 지정 됩니다.
 1. 암호는 허용 되는 5 개의 점수 이상 이어야 합니다.
 
 다음 두 가지 예제 시나리오의 경우 Contoso는 Azure AD 암호 보호를 사용 하며 사용자 지정 금지 된 암호 목록에 "contoso"가 있습니다. 또한 전역 목록에 "blank"가 있다고 가정해 보겠습니다.

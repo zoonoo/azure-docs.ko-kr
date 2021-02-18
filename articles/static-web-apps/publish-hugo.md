@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: e49a84f5ac507ac80481313c103701a88934083a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900776"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652344"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
 
@@ -88,7 +88,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 1. 로컬 리포지토리를 GitHub로 푸시합니다.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## <a name="deploy-your-web-app"></a>웹앱 배포
@@ -123,7 +123,7 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 1. **hugo-static-app** 을 _리포지토리_ 로 선택합니다.
 
-1. _분기_ 에 대해 **마스터** 를 선택합니다.
+1. _분기_ 에 대해 **기본** 을 선택합니다.
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="완료된 GitHub 정보":::
 

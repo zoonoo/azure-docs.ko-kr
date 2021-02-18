@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 2cc7e1d0c108d45383a68258fb6f62fcab87d1f7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886076"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653818"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
 
@@ -60,7 +60,7 @@ Azure 통신 JavaScript 클라이언트 라이브러리는 다양 한 텍스트,
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="통신 서비스 PSTN 아키텍처를 보여 주는 다이어그램":::
 
-PSTN 및 SMS 솔루션에 대 한 자세한 내용은 [pstn 및 sms 솔루션 계획](../concepts/telephony-sms/plan-solution.md) 을 참조 하세요.
+PSTN 전화 번호에 대 한 자세한 내용은 [전화 번호 유형](../concepts/telephony-sms/plan-solution.md) 을 참조 하세요.
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>봇 및 기타 서비스와 통신 하는 사람
 
@@ -80,10 +80,10 @@ Azure 통신 서비스는 Azure 통신 서비스 데이터 평면에 직접 액�
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 - [인증](../concepts/authentication.md) 에 대 한 자세한 정보
-- [PSTN 및 SMS 솔루션](../concepts/telephony-sms/plan-solution.md) 에 대 한 자세한 정보
+- [전화 번호 형식](../concepts/telephony-sms/plan-solution.md) 에 대 한 자세한 정보
 
 - [앱에 채팅 추가](../quickstarts/chat/get-started.md)
 - [앱에 음성 통화 추가](../quickstarts/voice-video-calling/getting-started-with-calling.md)

@@ -2,18 +2,18 @@
 title: Azure Arc 사용 Kubernetes 질문과 대답
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: 이 문서에는 Azure Arc enabled Kubernetes와 관련 된 질문과 대답 목록이 포함 되어 있습니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너, 구성, GitOps, faq
-ms.openlocfilehash: 237b2629b833a63552b172636f46a1ac92e321c0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561742"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652499"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>질문과 대답-Azure Arc 사용 Kubernetes
 
@@ -31,11 +31,11 @@ Azure Arc enabled Kubernetes를 사용 하면 Kubernetes 클러스터를 Azure�
     
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Azure Stack Azure Stack 허브에 있는 AKS-HCI 클러스터 및 Kubernetes 클러스터를 Azure Arc에 연결 해야 하나요?
 
-예, Azure Stack Edge 또는 Azure Stack Hub에 있는 AKS-HCI 클러스터 또는 Kubernetes 클러스터를 Azure Arc에 연결 하면 Azure Resource Manager에서 리소스를 표시 하는 클러스터가 제공 됩니다. 이 리소스 표현은 클러스터 구성, Azure Monitor 및 Azure Policy (게이트 키퍼)와 같은 기능을 연결 하는 Kubernetes 클러스터로 확장 합니다.
+예, Azure Stack Edge 또는 Azure Stack Hub에 있는 AKS-HCI 클러스터 또는 Kubernetes 클러스터를 Azure Arc에 연결 하면 Azure Resource Manager에서 리소스를 표시 하는 클러스터가 제공 됩니다. 이 리소스 표현은 클러스터 구성, Azure Monitor 및 Azure Policy (게이트 키퍼)와 같은 기능을 연결 된 Kubernetes 클러스터로 확장 합니다.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>만료 된 Azure Arc 활성화 된 Kubernetes 리소스를 해결 하는 방법
 
-Azure Arc enabled Kuberenetes와 연결 된 MSI (관리 서비스 id) 인증서의 만료 기간은 90 일입니다. 이 인증서가 만료 되 면 리소스가 고려 되 `Expired` 고 구성, 모니터링 및 정책과 같은 모든 기능이이 클러스터에서 작동 하지 않습니다. 다음 단계를 수행 하 여 Kubernetes 클러스터에서 Azure Arc를 다시 사용할 수 있도록 합니다.
+Azure Arc enabled Kubernetes와 연결 된 MSI (관리 서비스 ID) 인증서의 만료 기간은 90 일입니다. 이 인증서가 만료 되 면 리소스가 고려 되며 `Expired` 모든 기능 (예: 구성, 모니터링 및 정책)이이 클러스터에서 작동 하지 않습니다. Kubernetes 클러스터에서 Azure Arc를 다시 사용 하려면 다음을 수행 합니다.
 
 1. 클러스터에서 Azure Arc enabled Kubernetes 리소스 및 에이전트를 삭제 합니다. 
 
@@ -43,14 +43,14 @@ Azure Arc enabled Kuberenetes와 연결 된 MSI (관리 서비스 id) 인증서�
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
-1. 클러스터에 에이전트를 다시 배포 하 여 Azure Arc enabled Kubernetes 리소스를 다시 만듭니다.
+1. 클러스터에 에이전트를 배포 하 여 Azure Arc enabled Kubernetes 리소스를 다시 만듭니다.
     
     ```console
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` 는 또한 클러스터의 위쪽에서 구성을 삭제 합니다. 을 실행 한 후 `az connectedk8s connect` 수동으로 또는 Azure Policy를 사용 하 여 클러스터에서 구성을 만듭니다.
+> `az connectedk8s delete` 는 또한 클러스터의 위쪽에서 구성을 삭제 합니다. 을 실행 한 후 `az connectedk8s connect` 수동으로 또는 Azure Policy를 사용 하 여 클러스터에 구성을 다시 만듭니다.
 
 ## <a name="if-i-am-already-using-cicd-pipelines-can-i-still-use-azure-arc-enabled-kubernetes-and-configurations"></a>이미 CI/CD 파이프라인을 사용 하 고 있는 경우 Azure Arc enabled Kubernetes 및 구성을 계속 사용할 수 있나요?
 
@@ -62,9 +62,11 @@ CI/CD 파이프라인은 파이프라인 실행 중에 한 번만 변경 내용�
 
 **대규모로 GitOps 적용**
 
-CI/CD 파이프라인은 Kubernetes 클러스터에 대 한 이벤트 기반 배포에 적합 합니다. 여기서 이벤트는 Git 리포지토리에 푸시할 수 있습니다. 그러나 모든 Kubernetes 클러스터에 동일한 구성을 배포 하려면 이러한 각 Kubernetes 클러스터의 자격 증명을 사용 하 여 CI/CD 파이프라인을 수동으로 구성 해야 합니다. 반면, Azure Arc enabled Kubernetes의 경우에는 Azure Resource Manager에서 구성을 관리 하기 때문에 Azure Policy를 사용 하 여 구독 또는 리소스 그룹 범위의 모든 Kubernetes 클러스터에서 원하는 구성의 응용 프로그램을 한 번의 이동으로 자동화할 수 있습니다. 이 기능은 정책 할당 후에 생성 된 Azure Arc enabled Kubernetes 리소스에도 적용 됩니다.
+CI/CD 파이프라인은 Kubernetes 클러스터에 대 한 이벤트 기반 배포 (예: Git 리포지토리에 푸시)에 유용 합니다. 그러나 모든 Kubernetes 클러스터에 동일한 구성을 배포 하려는 경우에는 CI/CD 파이프라인에 각 Kubernetes 클러스터의 자격 증명을 수동으로 구성 해야 합니다. 
 
-구성 기능은 규정 준수 및 거 버 넌 스 요구 사항에 대 한 Kubernetes 클러스터의 전체 인벤토리에 네트워크 정책, 역할 바인딩 및 pod 보안 정책과 같은 기준 구성을 적용 하는 데 사용 됩니다.
+Azure Arc enabled Kubernetes의 경우 Azure Resource Manager에서 구성을 관리 하므로 구독 또는 리소스 그룹의 범위 내에서 Azure Policy를 사용 하 여 모든 Azure Arc enabled Kubernetes 리소스에 대해 동일한 구성 만들기를 자동화할 수 있습니다. 이 기능은 정책 할당 후에 생성 된 Azure Arc enabled Kubernetes 리소스에도 적용 됩니다.
+
+이 기능은 규정 준수 및 거 버 넌 스 요구 사항을 충족 하기 위해 전체 Kubernetes 클러스터 인벤토리에 있는 기준 구성 (예: 네트워크 정책, 역할 바인딩 및 pod 보안 정책)을 적용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

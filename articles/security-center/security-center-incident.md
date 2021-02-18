@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341349"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652109"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -29,11 +29,19 @@ Security Center는 [분석](./security-center-alerts-overview.md) 을 사용 하
 
 ## <a name="managing-security-incidents"></a>보안 인시던트 관리
 
-1. Security Center 개요 페이지에서 **보안 경고** 타일을 선택 합니다. 인시던트 및 경고가 나열 됩니다. 보안 인시던트에는 보안 경고와 다른 아이콘이 있습니다.
+1. Security Center의 경고 페이지에서 **필터 추가** 단추를 사용 하 여 **여러 리소스에서 검색** 된 경고 이름에 대 한 경고 이름으로 필터링 할 수 있습니다. 
 
-    ![보안 인시던트 보기](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="의 경고 페이지에서 인시던트 찾기 Azure Security Center":::
 
-1. 세부 정보를 보려면 인시던트를 선택 합니다. **보안 인시던트** 페이지에 자세한 정보가 표시 됩니다. 
+    이제 인시던트가 표시 되도록 목록이 필터링 됩니다. 보안 인시던트에는 보안 경고와 다른 아이콘이 있습니다.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="의 경고 페이지에 표시 되는 인시던트 목록 Azure Security Center":::
+
+1. 인시던트에 대 한 세부 정보를 보려면 목록에서 인시던트를 선택 합니다. 인시던트에 대 한 세부 정보가 포함 된 사이드 창이 표시 됩니다.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="인시던트의 세부 정보를 표시 하는 측면 창":::
+
+1. 자세한 내용을 보려면 **전체 세부 정보 보기** 를 선택 합니다.
 
     [![Azure Security Center의 보안 인시던트에 대응](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

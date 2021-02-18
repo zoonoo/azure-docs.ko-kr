@@ -6,22 +6,22 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 828794715af1e7676253714da6fdc1a487c7c107
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 00c28a9ede01a74f4ae64109d277276050047461
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361896"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653767"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Azure Key Vault](../key-vault/general/overview.md)에 데이터 저장소 및 컴퓨터의 자격 증명을 저장할 수 있습니다. Azure Data Factory에서는 데이터 저장소/계산을 사용하는 작업을 실행할 때 자격 증명을 검색합니다.
 
 현재, 사용자 지정 활동을 제외한 모든 활동 유형에서 이 기능이 지원됩니다. 구체적인 커넥터 구성에 대해서는 [각 커넥터 항목](copy-activity-overview.md#supported-data-stores-and-formats)의 "연결된 서비스 속성" 섹션을 확인하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다. [데이터 팩터리에 대 한 관리 id](data-factory-service-identity.md) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리에 연결 된 id가 있는지 확인 합니다.
 
@@ -40,8 +40,8 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **AzureKeyVault** 로 설정되어야 합니다. | Yes |
-| baseUrl | Azure Key Vault URL을 지정합니다. | Yes |
+| type | 형식 속성은 **AzureKeyVault** 로 설정되어야 합니다. | 예 |
+| baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
 
 **제작 UI 사용:**
 
@@ -73,10 +73,10 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 필드의 형식 속성을 **AzureKeyVaultSecret** 으로 설정해야 합니다. | Yes |
-| secretName | Azure Key Vault의 비밀 이름입니다. | Yes |
-| secretVersion | Azure Key Vault에 있는 암호의 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 예 |
-| store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | Yes |
+| type | 필드의 형식 속성을 **AzureKeyVaultSecret** 으로 설정해야 합니다. | 예 |
+| secretName | Azure Key Vault의 비밀 이름입니다. | 예 |
+| secretVersion | Azure Key Vault에 있는 암호의 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니요 |
+| store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |
 
 **제작 UI 사용:**
 

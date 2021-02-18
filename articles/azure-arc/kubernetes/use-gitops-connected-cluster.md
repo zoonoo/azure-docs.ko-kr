@@ -2,22 +2,22 @@
 title: Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포(미리 보기)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: GitOps를 사용 하 여 Azure Arc enabled Kubernetes 클러스터 구성 (미리 보기)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, 컨테이너
-ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b30ecde0e128a955967638828dcb7bec008205ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560163"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652482"
 ---
 # <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Arc enabled Kubernetes cluster에서 GitOps를 사용 하 여 구성 배포 (미리 보기)
 
-이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에 구성을 적용 하는 방법을 보여 줍니다. 이와 동일한 개념에 대 한 개념적인 개요는 [여기](./conceptual-configurations.md)에서 찾을 수 있습니다.
+이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에 구성을 적용 하는 방법을 보여 줍니다. 이 프로세스에 대 한 개념은 [구성 및 GitOps-Azure Arc Enabled Kubernetes 문서](./conceptual-configurations.md)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -85,24 +85,24 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
   ```
 
-#### <a name="use-a-public-git-repo"></a>공용 Git 리포지토리 사용
+#### <a name="use-a-public-git-repository"></a>공용 Git 리포지토리 사용
 
 | 매개 변수 | 형식 |
 | ------------- | ------------- |
 | `--repository-url` | http [s]:/server/ss [. git] 또는 git:/server/wers [. git]
 
-#### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>SSH 및 Flux에서 만든 키로 개인 Git 리포지토리 사용
+#### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>SSH 및 Flux에서 만든 키를 사용 하 여 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모
+| 매개 변수 | 형식 | 참고
 | ------------- | ------------- | ------------- |
 | `--repository-url` | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@`
 
 > [!NOTE]
 > Flux에서 생성 된 공개 키를 Git 서비스 공급자의 사용자 계정에 추가 해야 합니다. 키가 사용자 계정 대신 리포지토리에 추가 되 면 URL에서 대신를 사용 `git@` `user@` 합니다. 자세한 내용은 [개인 Git 리포지토리에서 구성 적용](#apply-configuration-from-a-private-git-repository) 섹션으로 이동 합니다.
 
-#### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>SSH 및 사용자 제공 키가 포함 된 개인 Git 리포지토리 사용
+#### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>SSH 및 사용자 제공 키가 포함 된 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@` |
 | `--ssh-private-key` | [PEM 형식의](https://aka.ms/PEMformat) base64 인코딩 키 | 키 직접 제공 |
@@ -113,7 +113,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>SSH 및 사용자가 제공한 알려진 호스트에서 개인 Git 호스트 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] 또는 user@server:repo [. git] | `git@` 바꿀 수 있습니다. `user@` |
 | `--ssh-known-hosts` | base64 인코딩 | 알려진 호스트 콘텐츠 직접 제공 |
@@ -122,9 +122,9 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > SSH 연결을 설정 하기 전에 Git 리포지토리를 인증 하기 위해 Flux 연산자는 알려진 호스트 파일의 일반 Git 호스트 목록을 유지 관리 합니다. 드물게 사용 되는 Git 리포지토리 또는 자체 Git 호스트를 사용 하는 경우 Flux가 리포지토리를 식별할 수 있도록 호스트 키를 제공 해야 할 수 있습니다. Known_hosts 콘텐츠를 직접 또는 파일에 제공할 수 있습니다. 사용자 고유의 콘텐츠를 제공 하는 경우 위에서 설명한 SSH 키 시나리오 중 하 나와 함께 [known_hosts 콘텐츠 형식 사양을](https://aka.ms/KnownHostsFormat) 사용 합니다.
 
-#### <a name="use-a-private-git-repo-with-https"></a>HTTPS를 사용 하 여 개인 Git 리포지토리 사용
+#### <a name="use-a-private-git-repository-with-https"></a>HTTPS를 사용 하 여 개인 Git 리포지토리 사용
 
-| 매개 변수 | 형식 | 메모 |
+| 매개 변수 | 형식 | 참고 |
 | ------------- | ------------- | ------------- |
 | `--repository-url` | https://server/repo[. git] | 기본 인증을 사용 하는 HTTPS |
 | `--https-user` | 원시 또는 b a s e 64로 인코딩된 | HTTPS 사용자 이름 |
@@ -139,7 +139,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 다음과 같은 선택적 매개 변수를 사용 하 여 구성을 사용자 지정 합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | ------------- | ------------- |
 | `--enable-helm-operator`| 투구 차트 배포에 대 한 지원을 사용 하도록 전환 합니다. |
 | `--helm-operator-params` | 투구 연산자 (설정 된 경우)에 대 한 차트 값입니다. 예들 들어 `--set helm.versions=v3`입니다. |
@@ -149,19 +149,19 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ##### <a name="options-supported-in----operator-params"></a>에서 지원 되는 옵션  `--operator-params` :
 
-| 옵션 | Description |
+| 옵션 | 설명 |
 | ------------- | ------------- |
 | `--git-branch`  | Kubernetes 매니페스트에 사용할 Git 리포지토리의 분기입니다. 기본값은 'master'입니다. 최신 리포지토리에는 이라는 루트 분기가 있습니다 `main` .이 경우를 설정 해야 `--git-branch=main` 합니다. |
-| `--git-path`  | Kubernetes 매니페스트를 찾는 Flux에 대한 Git 리포지토리 내의 상대 경로입니다. |
-| `--git-readonly` | Git 리포지토리는 읽기 전용으로 간주됩니다. Flux는 리포지토리에 쓰기를 시도하지 않습니다. |
+| `--git-path`  | Kubernetes 매니페스트를 찾는 Flux에 대 한 Git 리포지토리 내의 상대 경로입니다. |
+| `--git-readonly` | Git 리포지토리는 읽기 전용으로 간주 됩니다. Flux는 쓰기를 시도 하지 않습니다. |
 | `--manifest-generation`  | 사용 설정된 경우 Flux는 .flux.yaml을 찾고 Kustomize 또는 기타 매니페스트 생성기를 실행합니다. |
-| `--git-poll-interval`  | Git 리포지토리에서 새 커밋을 폴링하는 주기입니다. 기본값은 `5m` (5 분)입니다. |
+| `--git-poll-interval`  | 새 커밋에 대해 Git 리포지토리를 폴링하는 기간입니다. 기본값은 `5m` (5 분)입니다. |
 | `--sync-garbage-collection`  | 사용 설정된 경우 Flux는 만들었지만 더 이상 Git에 존재하지 않는 리소스를 삭제합니다. |
 | `--git-label`  | 동기화 진행률을 추적 하기 위한 레이블입니다. Git 분기에 태그를 사용 하는 데 사용 됩니다.  기본값은 `flux-sync`입니다. |
 | `--git-user`  | Git 커밋에 대 한 사용자 이름입니다. |
 | `--git-email`  | Git 커밋에 사용할 전자 메일입니다. 
 
-Flux에서 리포지토리에 쓰거나 설정 하지 않으려는 경우가 `--git-user` `--git-email` `--git-readonly` 자동으로 설정 됩니다.
+Flux가 리포지토리에 쓰거나 설정 되지 않도록 하려면가 `--git-user` `--git-email` `--git-readonly` 자동으로 설정 됩니다.
 
 자세한 내용은 [Flux 설명서](https://aka.ms/FluxcdReadme)를 참조 하세요.
 
@@ -229,7 +229,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 프로비전 프로세스가 진행되는 동안 `sourceControlConfiguration`이 몇 가지 상태 변경을 거칩니다. 위의 `az k8sconfiguration show ...` 명령을 사용하여 진행률을 모니터링합니다.
 
-| 단계 변경 | Description |
+| 단계 변경 | 설명 |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | 초기 및 진행 중인 상태를 나타냅니다. |
 | `complianceStatus` -> `Installed`  | `config-agent` 에서 클러스터를 성공적으로 구성 하 고 오류 없이 배포할 수 있습니다 `flux` . |
@@ -237,7 +237,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>개인 Git 리포지토리에서 구성 적용
 
-개인 Git 리포지토리를 사용 하는 경우 리포지토리의 SSH 공개 키를 구성 해야 합니다. SSH 공개 키는 Flux에서 생성 하는 키 또는 사용자가 제공 하는 키 중 하나입니다. 특정 Git 리포지토리 또는 리포지토리에 대 한 액세스 권한이 있는 Git 사용자에서 공개 키를 구성할 수 있습니다. 
+개인 Git 리포지토리를 사용 하는 경우 리포지토리에 SSH 공개 키를 구성 해야 합니다. SSH 공개 키는 Flux에서 생성 하는 키 또는 사용자가 제공 하는 키 중 하나입니다. 특정 Git 리포지토리 또는 리포지토리에 대 한 액세스 권한이 있는 Git 사용자에서 공개 키를 구성할 수 있습니다. 
 
 ### <a name="get-your-own-public-key"></a>사용자 고유의 공개 키 가져오기
 

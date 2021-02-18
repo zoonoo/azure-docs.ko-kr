@@ -3,12 +3,12 @@ title: ISO 27001 Shared Services 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 Shared Services 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 8b28954b6145a9e6c1827107cf11aa85326dcc1f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99821664"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577316"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 배포
 
@@ -110,7 +110,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |허용되는 리소스 유형|정책 할당|허용되는 리소스 유형|배포할 수 있는 리소스 종류 목록입니다. 이 목록은 Shared Services에 배포된 모든 리소스 종류로 구성 됩니다.|
 |허용되는 스토리지 계정 SKU|정책 할당|허용되는 스토리지 SKU|허용되는 진단 로그 스토리지 계정 SKU의 목록입니다. 기본값은 _["Standard_LRS"]_ 입니다.|
 |허용되는 가상 머신 SKU|정책 할당|배포할 수 있는 가상 머신 SKU의 목록입니다. 기본값은 _["Standard_DS1_v2", "Standard_DS2_v2"]_ 입니다.|
-|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 감사하는 리소스 종류|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
+|ISO 27001의 청사진 이니셔티브|정책 할당|진단 로그를 감사하는 리소스 종류|진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다.|
 |Log Analytics 리소스 그룹|Resource group|Name|**잠김** - **조직 이름** 을 `-sharedsvsc-log-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Log Analytics 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Log Analytics 템플릿|Resource Manager 템플릿|서비스 계층|Log Analytics 작업 영역의 계층을 설정합니다. 기본값은 _PerNode_ 입니다.|

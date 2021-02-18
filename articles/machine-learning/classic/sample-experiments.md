@@ -3,22 +3,22 @@ title: 'ML Studio(클래식): 예제에서 실험 시작 - Azure'
 description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio(클래식)를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: cfee8a32c54bff5aecb1e298db8b4814255418b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 40306973dde989862f8dfe9df5c9d873ac18fdd0
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325747"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517504"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio(클래식) 실험 만들기
 
-**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio(클래식)  ![적용되지 않는 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -43,9 +43,9 @@ ms.locfileid: "93325747"
 1. 페이지 위쪽에 있는 **모두 찾아보기** 를 클릭합니다.
 2. 왼쪽에 있는 **범주** 섹션의 **구체화 기준** 에서 **실험** 을 선택하여 갤러리에 있는 모든 실험을 볼 수 있습니다.
 3. 두 가지 방법으로 요구 사항을 충족하는 실험을 찾을 수 있습니다.
-   * **왼쪽에 필터를 선택합니다.** 예를 들어 PCA 기반 변칙 검색 알고리즘을 사용하는 실험을 찾아보려면: **범주** 아래에서 **실험** 을 클릭합니다. 그런 다음 **Algorithms Used** (사용 알고리즘) 아래에서 **모두 표시** 를 클릭하고 대화 상자에서 **PCA 기반 변칙 검색** 을 선택합니다. 이 필터를 찾기 위해 스크롤해야 할 수도 있습니다.<br></br>
+   * **왼쪽에 필터를 선택합니다.** 예를 들어 PCA 기반 변칙 검색 알고리즘을 사용하는 실험을 찾아보려면: **범주** 아래에서 **실험** 을 클릭합니다. 그런 다음 **Algorithms Used**(사용 알고리즘) 아래에서 **모두 표시** 를 클릭하고 대화 상자에서 **PCA 기반 변칙 검색** 을 선택합니다. 이 필터를 찾기 위해 스크롤해야 할 수도 있습니다.<br></br>
      ![필터 선택](./media/sample-experiments/choose-an-algorithm.png)
-   * **검색 상자를 사용합니다.** 예를 들어 제공하는 두 개의 클래스 지원 벡터 컴퓨터 알고리즘을 사용하는 숫자 인식과 관련된 Microsoft의 실험을 찾으려면 검색 상자에 "숫자 인식"을 입력합니다. 그런 다음 **실험** , **Microsoft 콘텐츠만** 및 **2클래스 Support Vector Machine** 을 선택합니다.<br></br>
+   * **검색 상자를 사용합니다.** 예를 들어 제공하는 두 개의 클래스 지원 벡터 컴퓨터 알고리즘을 사용하는 숫자 인식과 관련된 Microsoft의 실험을 찾으려면 검색 상자에 "숫자 인식"을 입력합니다. 그런 다음 **실험**, **Microsoft 콘텐츠만** 및 **2클래스 Support Vector Machine** 을 선택합니다.<br></br>
      ![검색 상자를 사용합니다](./media/sample-experiments/search-for-experiments.png).
 4. 실험을 클릭하여 자세히 알아봅니다.
 5. 실험을 실행 및/또는 수정하려면 실험 페이지에서 **Studio에서 열기** 를 클릭합니다. <br></br>

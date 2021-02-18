@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 6bb787084d4396737d3002bb98fe50e283c5764a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582891"
+ms.locfileid: "100635492"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
 Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMB3 또는 이중 프로토콜 (NFSv3 및 SMB)을 사용 하 여 볼륨을 만들 수 있습니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMB3 볼륨을 만드는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에 
-용량 풀을 설정해야 합니다.   
-[용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)   
-Azure NetApp Files에 서브넷을 위임해야 합니다.  
-[Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+
+* 용량 풀을 설정해야 합니다. [용량 풀 설정을](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.     
+* Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임을](azure-netapp-files-delegate-subnet.md)참조 하세요.
 
 ## <a name="configure-active-directory-connections"></a>Active Directory 연결 구성 
 

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827559"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593857"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지에서 로그 쿼리
 
-Azure Automation은 연결된 Log Analytics 작업 영역에 작업 로그 및 작업 스트림이라는 두 가지 유형의 레코드를 전달합니다. 이 문서에서는 Azure Monitor에서 [쿼리](../azure-monitor/log-query/log-query-overview.md)에 사용할 수 있는 데이터를 검토합니다.
+Azure Automation은 연결된 Log Analytics 작업 영역에 작업 로그 및 작업 스트림이라는 두 가지 유형의 레코드를 전달합니다. 이 문서에서는 Azure Monitor에서 [쿼리](../azure-monitor/logs/log-query-overview.md)에 사용할 수 있는 데이터를 검토합니다.
 
 ## <a name="job-logs"></a>작업 로그
 
@@ -56,7 +56,7 @@ Azure Automation은 연결된 Log Analytics 작업 영역에 작업 로그 및 �
 |StreamType | 작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행률<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다.|
 |Time | runbook 작업이 실행된 날짜 및 시간입니다.|
 
-**JobLogs** 또는 **JobStreams**의 범주 레코드를 반환하는 로그 검색을 수행하는 경우, 검색에 의해 반환되는 업데이트를 요약하는 타일 집합을 표시하는 **JobLogs** 또는 **JobStreams** 보기를 선택할 수 있습니다.
+**JobLogs** 또는 **JobStreams** 의 범주 레코드를 반환하는 로그 검색을 수행하는 경우, 검색에 의해 반환되는 업데이트를 요약하는 타일 집합을 표시하는 **JobLogs** 또는 **JobStreams** 보기를 선택할 수 있습니다.
 
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 
@@ -72,5 +72,5 @@ Azure Automation은 연결된 Log Analytics 작업 영역에 작업 로그 및 �
 ## <a name="next-steps"></a>다음 단계
 
 * 기능을 설정하려면 [작업 시간 외 VM 중지/시작 구성](automation-solution-vm-management-config.md)을 참조하세요.
-* 기능 배포 중 로그 경고에 대한 자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기](../azure-monitor/platform/alerts-log.md)를 참조하세요.
+* 기능 배포 중 로그 경고에 대한 자세한 내용은 [Azure Monitor를 사용하여 로그 경고 만들기](../azure-monitor/alerts/alerts-log.md)를 참조하세요.
 * 기능 오류를 해결하려면 [작업 시간 외 VM 시작/중지 문제 해결](troubleshoot/start-stop-vm.md)을 참조하세요.

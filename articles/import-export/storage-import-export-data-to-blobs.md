@@ -5,22 +5,22 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706527"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652958"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -101,13 +101,13 @@ ms.locfileid: "98706527"
 다음 단계를 수행하여 Azure Portal에서 가져오기 작업을 만듭니다.
 
 1. https://portal.azure.com/에 로그온합니다.
-2. **모든 서비스 &gt; 스토리지 &gt; 작업 가져오기/내보내기** 로 차례로 이동합니다.
+2. **가져오기/내보내기 작업** 을 검색 합니다.
 
-    ![작업 가져오기/내보내기로 이동](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![가져오기/내보내기 작업에서 검색](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. **가져오기/내보내기 작업 만들기** 를 클릭 합니다.
+3. **+새로 만들기** 를 선택합니다.
 
-    ![가져오기/내보내기 작업 만들기 클릭](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![새로 만들기를 선택 하 여 새를 만듭니다. ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. **기본 사항** 에서
 
@@ -118,7 +118,7 @@ ms.locfileid: "98706527"
    * 구독을 선택합니다.
    * 리소스 그룹을 입력하거나 선택합니다.
 
-     ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![가져오기 작업 만들기 - 1단계](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. **작업 세부 정보** 에서:
 
@@ -126,7 +126,7 @@ ms.locfileid: "98706527"
    * 데이터가 저장될 대상 스토리지 계정을 선택합니다.
    * 하차 위치는 선택한 스토리지 계정의 지역을 기반으로 자동으로 채워집니다.
 
-   ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. **반송 정보** 에서:
 
@@ -137,14 +137,14 @@ ms.locfileid: "98706527"
        > [!TIP]
        > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-     ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. **요약** 에서:
 
    * 요약에 제공된 직업 정보를 검토합니다. 작업 이름과 디스크를 Azure로 반송할 Azure 데이터 센터 배송 주소를 적어 둡니다. 이 정보는 나중에 운송 레이블에 사용됩니다.
    * **확인** 을 클릭하여 가져오기 작업을 만듭니다.
 
-     ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![가져오기 작업 만들기 - 4단계](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

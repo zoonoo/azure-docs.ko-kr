@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053910"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586051"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -85,18 +85,18 @@ Runbook을 사용하려면 Azure 또는 타사 시스템의 리소스에 액세�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Automation은 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 컴퓨터 작업을 모니터링 합니다. 작업에는 Log Analytics 작업 영역 및 [Log Analytics 에이전트가](../azure-monitor/platform/log-analytics-agent.md)필요 합니다.
+Azure Automation은 [Azure Monitor](../azure-monitor/overview.md) 를 사용 하 여 컴퓨터 작업을 모니터링 합니다. 작업에는 Log Analytics 작업 영역 및 [Log Analytics 에이전트가](../azure-monitor/agents/log-analytics-agent.md)필요 합니다.
 
 ### <a name="log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트
 
-[Windows용 Log Analytics 에이전트](../azure-monitor/platform/agent-windows.md)는 Azure Monitor와 함께 작동하여 Windows VM과 물리적 컴퓨터를 관리합니다. 머신은 Azure에서 실행될 수도 있고 로컬 데이터 센터와 같은 비 Azure 환경에서 실행될 수도 있습니다.
+[Windows용 Log Analytics 에이전트](../azure-monitor/agents/agent-windows.md)는 Azure Monitor와 함께 작동하여 Windows VM과 물리적 컴퓨터를 관리합니다. 머신은 Azure에서 실행될 수도 있고 로컬 데이터 센터와 같은 비 Azure 환경에서 실행될 수도 있습니다.
 
 >[!NOTE]
 >Windows용 Log Analytics 에이전트의 이전 명칭은 MMA(Microsoft Monitoring Agent)입니다.
 
 ### <a name="log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트
 
-[Linux용 Log Analytics 에이전트](../azure-monitor/platform/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 **nxautomation** 사용자 계정을 사용 하 여 설치 됩니다. 예를 들어 Hybrid Runbook Worker에서 루트 권한이 필요한 명령을 실행할 수 있습니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
+[Linux용 Log Analytics 에이전트](../azure-monitor/agents/agent-linux.md)는 Linux 컴퓨터를 Azure Monitor에 연결해 준다는 점을 제외하면 Windows용 에이전트와 비슷하게 작동합니다. 에이전트는 **nxautomation** 사용자 계정을 사용 하 여 설치 됩니다. 예를 들어 Hybrid Runbook Worker에서 루트 권한이 필요한 명령을 실행할 수 있습니다. **nxautomation** 계정은 암호를 요구하지 않는 시스템 계정입니다.
 
 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md)를 설치할 때는 해당 sudo 권한이 있는 **nxautomation** 계정이 있어야 합니다. 작업자를 설치하려고 시도했는데 계정이 없거나 계정에 적절한 권한이 없는 경우 설치가 실패합니다.
 
@@ -137,7 +137,7 @@ Azure Automation은 동일한 Automation 계정에서 작업을 실행하는 환
 
 다음 표에서는 작업의 가능한 여러 상태를 설명합니다. Azure Portal에서 모든 Runbook 작업의 상태 요약을 보거나 특정 Runbook 작업의 세부 정보로 드릴할 수 있습니다. 또한 Runbook의 작업 상태와 작업 스트림을 전달하기 위해 Log Analytics 작업 영역과 통합하도록 구성할 수도 있습니다. Azure Monitor 로그와의 통합에 대한 자세한 내용은 [Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요. Runbook의 상태를 사용하는 예제는 [작업 상태 가져오기](manage-runbooks.md#obtain-job-statuses)를 참조하세요.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |:--- |:--- |
 | 토폴로지만 |작업이 활성화 되 고 있습니다. |
 | Completed |작업이 완료되었습니다. |

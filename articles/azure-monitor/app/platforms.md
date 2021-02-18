@@ -4,12 +4,12 @@ description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: d3bb1473d94db04d1dedf2b09e19b83197cc6e0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399e57377a779622aa3073dfd3313cee1db345f8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225107"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583854"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -26,16 +26,16 @@ ms.locfileid: "88225107"
 * [Azure App Service](./azure-web-apps.md)
 * [ASP.NET - 이미 운영 중인 앱용](./monitor-performance-live-website-now.md)
 * 웹 및 작업자 역할을 모두 포함 하는 [Azure Cloud Services](./cloudservices.md)
-* [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure 기능](../../azure-functions/functions-monitoring.md)
 ### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측 (Sdk)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Android](../learn/mobile-center-quickstart.md)(App Center)
-* [iOS](../learn/mobile-center-quickstart.md)(App Center)
+* [Android](../app/mobile-center-quickstart.md)(App Center)
+* [iOS](../app/mobile-center-quickstart.md)(App Center)
 * [Java EE](./java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](./opencensus-python.md)
-* [유니버설 Windows 앱](../learn/mobile-center-quickstart.md)(App Center)
+* [유니버설 Windows 앱](../app/mobile-center-quickstart.md)(App Center)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](./windows-desktop.md)
 * [React](./javascript-react-plugin.md)
 * [React Native](./javascript-react-native-plugin.md)

@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 822a4249b6ed054f36605d0367803da68bab090b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524471"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652261"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>휴지 상태의 데이터 암호화 Custom Vision
 
@@ -24,15 +24,6 @@ Azure Custom Vision는 데이터를 클라우드에 보관할 때 자동으로 �
 
 > [!IMPORTANT]
 > 고객이 관리 하는 키는 11 월 2020 일 이후 생성 된 리소스만 사용할 수 있습니다. Custom Vision에서 CMK를 사용 하려면 새 Custom Vision 리소스를 만들어야 합니다. 리소스를 만든 후 Azure Key Vault를 사용 하 여 관리 id를 설정할 수 있습니다.
-
-## <a name="regional-availability"></a>국가별 가용성
-
-고객 관리 키는 현재 다음 지역에서 사용할 수 있습니다.
-
-* 미국 중남부
-* 미국 서부 2
-* 미국 동부
-* US Gov 버지니아
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

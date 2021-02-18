@@ -4,12 +4,12 @@ description: Kubernetes 리소스와 상호 작용 하 여 Azure Portal에서 AK
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 4f34535f74de562c0a1b65c31f28476ca02e540f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: ce5dc74dc3625b2b1fed447c4e6480308267d32a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631878"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578675"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Azure Portal에서 Kubernetes 리소스에 액세스
 
@@ -17,7 +17,7 @@ Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리
 
 Azure Portal의 Kubernetes 리소스 뷰가 더 이상 사용 되지 않는 [AKS dashboard 추가 기능][kubernetes-dashboard]을 대체 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다. [Azure Portal를 사용][portal-cluster] 하 여 새 AKS 클러스터를 만들 수도 있습니다.
 
@@ -99,5 +99,5 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 [deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [aks-managed-aad]: managed-aad.md
 [cli-aad-upgrade]: managed-aad.md#upgrading-to-aks-managed-azure-ad-integration
-[enable-monitor]: ../azure-monitor/insights/container-insights-enable-existing-clusters.md
+[enable-monitor]: ../azure-monitor/containers/container-insights-enable-existing-clusters.md
 [portal-cluster]: kubernetes-walkthrough-portal.md

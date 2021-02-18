@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798140"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652611"
 ---
 다음 표에서는 현재 지원 Azure Service Bus는 JMS (Java Message Service) 기능을 보여 줍니다. 또한 지원 되지 않는 기능을 보여 줍니다.
 
@@ -34,4 +34,5 @@ ms.locfileid: "87798140"
 | 메시지 선택기 | 만든 소비자에 따라 다릅니다. | **지원됨** |
 | 배달 지연 (예약 된 메시지) | <ul> <li> JMSProducer. setDeliveryDelay (long deliveryDelay) </li> </ul>|**지원됨**|
 | 메시지 작성 |<ul> <li> JMSContext () </li> <li> JMSContext. createBytesMessage () </li> <li> JMSContext () </li> <li> JMSContext. createObjectMessage (직렬화 가능 개체) </li> <li> JMSContext () </li> <li> JMSContext () </li> <li> JMSContext (문자열 텍스트) </li> </ul>| **지원됨** |
+| 엔터티 간 트랜잭션 |<ul> <li> CreateSession (true, Session.SESSION_TRANSACTED) </li> </ul> | **지원됨** |
 | 분산 트랜잭션 || 지원 안 함 |

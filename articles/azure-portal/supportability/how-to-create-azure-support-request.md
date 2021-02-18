@@ -4,16 +4,16 @@ description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 �
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745590"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652397"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
-Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관리할 수 있습니다. 이 문서에서 설명하는 것처럼 [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
+Azure를 통해 지원 티켓이라고도 하는 지원 요청을 만들고 관리할 수 있습니다. 이 문서에서 설명하는 것처럼 [Azure Portal](https://portal.azure.com)에서 요청을 만들고 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용 하 여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
 
 > [!NOTE]
 > Azure Portal URL은 조직이 배포되는 Azure 클라우드에 특정합니다.

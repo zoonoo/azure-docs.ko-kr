@@ -10,18 +10,18 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a43a27a8e880c76ba21639437c0c20f583620d50
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737339"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653621"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 (미리 보기)를 설치 하 고 실행 합니다.
 
 공간 분석 컨테이너를 사용 하 여 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 이해할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독이 있으면 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Computer Vision 리소스를 만들고, "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure Portal에서 표준 S1 계층에 대 한 Computer Vision 리소스를 만들어 키와 끝점을 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
@@ -249,7 +249,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터에서 Azure IoT Edge 구성
 
-공간 분석 컨테이너를 호스트 컴퓨터에 배포 하려면 Standard (S1) 또는 Free (F0) 가격 책정 계층을 사용 하 여 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) 서비스의 인스턴스를 만듭니다. 호스트 컴퓨터가 Azure Stack Edge 인 경우 Azure Stack Edge 리소스에서 사용 하는 것과 동일한 구독 및 리소스 그룹을 사용 합니다.
+공간 분석 컨테이너를 호스트 컴퓨터에 배포 하려면 Standard (S1) 또는 Free (F0) 가격 책정 계층을 사용 하 여 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) 서비스의 인스턴스를 만듭니다. 
 
 Azure CLI를 사용 하 여 Azure IoT Hub의 인스턴스를 만듭니다. 해당 하는 경우 매개 변수를 바꿉니다. 또는 [Azure Portal](https://portal.azure.com/)에서 Azure IoT Hub를 만들 수 있습니다.
 
@@ -264,7 +264,7 @@ sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test
 sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-호스트 컴퓨터가 Azure Stack Edge 장치가 아닌 경우 [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
+[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
 
 Ubuntu Server 18.04:
 ```bash
@@ -396,7 +396,73 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
-VM을 설정 하 고 구성 했으므로 다음 단계에 따라 공간 분석 컨테이너를 배포 합니다. 
+VM을 설정 하 고 구성 했으므로 다음 단계에 따라 Azure IoT Edge를 구성 합니다. 
+
+## <a name="configure-azure-iot-edge-on-the-vm"></a>VM에서 Azure IoT Edge 구성
+
+VM에 공간 분석 컨테이너를 배포 하려면 Standard (S1) 또는 Free (F0) 가격 책정 계층을 사용 하 여 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) 서비스의 인스턴스를 만듭니다.
+
+Azure CLI를 사용 하 여 Azure IoT Hub의 인스턴스를 만듭니다. 해당 하는 경우 매개 변수를 바꿉니다. 또는 [Azure Portal](https://portal.azure.com/)에서 Azure IoT Hub를 만들 수 있습니다.
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo az login
+sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az group create --name "test-resource-group" --location "WestUS"
+
+sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
+
+sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+
+[Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) 버전 1.0.9를 설치 해야 합니다. 올바른 버전을 다운로드 하려면 다음 단계를 따르세요.
+
+Ubuntu Server 18.04:
+```bash
+curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
+생성 된 목록을 복사 합니다.
+```bash
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+```
+
+Microsoft GPG 공개 키를 설치합니다.
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+장치에서 패키지 목록을 업데이트 합니다.
+
+```bash
+sudo apt-get update
+```
+
+1.0.9 릴리스를 설치 합니다.
+
+```bash
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+```
+
+그런 다음 [연결 문자열](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06)을 사용 하 여 IoT Hub 인스턴스의 IOT EDGE 장치로 VM을 등록 합니다.
+
+IoT Edge 장치를 Azure IoT Hub에 연결 해야 합니다. 이전에 만든 IoT Edge 장치에서 연결 문자열을 복사 해야 합니다. 또는 Azure CLI에서 아래 명령을 실행할 수 있습니다.
+
+```bash
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+```
+
+편집용으로 VM을 엽니다  `/etc/iotedge/config.yaml` . `ADD DEVICE CONNECTION STRING HERE`연결 문자열로 대체 합니다. 파일을 저장하고 닫습니다. VM에서 IoT Edge 서비스를 다시 시작 하려면이 명령을 실행 합니다.
+
+```bash
+sudo systemctl restart iotedge
+```
+
+[Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) 또는 [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows)에서 VM의 IoT 모듈로 공간 분석 컨테이너를 배포 합니다. 포털을 사용 하는 경우 이미지 URI를 Azure Container Registry 위치로 설정 합니다. 
+
+다음 단계를 사용 하 여 Azure CLI를 사용 하 여 컨테이너를 배포 합니다.
 
 ---
 
@@ -406,7 +472,7 @@ VM을 설정 하 고 구성 했으므로 다음 단계에 따라 공간 분석 �
 
 다음 표에서는 IoT Edge 모듈에서 사용 하는 다양 한 환경 변수를 보여 줍니다. 에서 특성을 사용 하 여 위에 연결 된 배포 매니페스트에 설정할 수도 있습니다 `env` `spatialanalysis` .
 
-| 설정 이름 | Value | 설명|
+| 설정 이름 | 값 | 설명|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | 나타납니다 구문 | 로깅 수준에서 두 값 중 하나를 선택 합니다.|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | 수정 안 함|

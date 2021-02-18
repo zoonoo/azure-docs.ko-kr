@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: fced0cfb1836be0f90c606b9a9753dad4200670d
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 8de819fc5444146f40a6a052cd51e6164cdfb230
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635628"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653060"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -23,7 +23,7 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 ## <a name="cluster-configuration-requirements"></a>클러스터 구성 요구 사항
 
 * 모든 OpenShift 클러스터 연산자는 관리 상태로 유지되어야 합니다. 클러스터 연산자 목록은 `oc get clusteroperators`를 실행하여 반환할 수 있습니다.
-* 클러스터에는 최소한 두 개의 작업자 노드가 있어야 합니다. 클러스터 작업자의 크기를 0으로 조정 하지 마십시오. 또는 클러스터를 종료 하는 것이 정상입니다.
+* 클러스터에는 최소한 두 개의 작업자 노드가 있어야 합니다. OpenShift 구성 요소를 예약 하지 못하도록 하는 taints 없습니다. 클러스터 작업자의 크기를 0으로 조정 하지 마십시오. 또는 클러스터를 종료 하는 것이 정상입니다.
 * 클러스터 Prometheus 및 Alertmanager 서비스를 제거하거나 수정하지 마세요.
 * Service Alertmanager 규칙을 제거하지 마세요.
 * 네트워크 보안 그룹을 제거 하거나 수정 하지 마십시오.

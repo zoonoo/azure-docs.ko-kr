@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 87ec1f03a1f2294a4423e26129644eafcf7c915c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655478"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652788"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -69,6 +69,10 @@ Data Box는 대상과 동일한 국가/지역 내 에서만 데이터 수집 또
 
 3. 그런 다음 AzCopy와 같은 도구를 사용 하 여 미국 서 부의 저장소 계정에 데이터를 복사할 수 있습니다. 이 단계에서는 Data Box 요금 청구에 포함 되지 않은 [표준 저장소](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금이](https://azure.microsoft.com/pricing/details/bandwidth/) 발생 합니다.
 
+### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>17. 전체 지역이 실패 하는 경우 데이터를 복구 하려면 어떻게 해야 하나요?
+
+A. 상당한 재해가 발생 하 여 지역이 손실 되는 극단적인 경우에는 Microsoft에서 지역 장애 조치 (failover)를 시작할 수 있습니다. 이 경우에는 사용자의 작업이 필요 하지 않습니다. 주문이 동일한 국가 또는 상업 경계 내에 있는 경우 장애 조치 (failover) 지역이 충족 됩니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상업 경계에 쌍으로 연결 된 지역이 없습니다. 이러한 지역에 재해가 발생 한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사 해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+
 ### <a name="q-who-should-i-contact-if-i-come-across-any-issues-with-data-box"></a>17. Data Box 관련 된 문제가 있는 경우 누구에 게 연락 해야 하나요?
 A. Data Box 관련 된 문제가 있는 경우 [Microsoft 지원에 문의 하세요](data-box-disk-contact-microsoft-support.md).
 
@@ -81,7 +85,7 @@ A. 예. 분실 하거나 손상 된 장치에 대 한 요금이 부과 됩니다
 ### <a name="q-how-do-i-get-data-box"></a>17. Data Box를 얻으려면 어떻게 할까요? 
 A.  Azure Data Box를 가져오려면 Azure Portal에 로그인하고 Data Box 주문을 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문 후에는 가용성에 따라 10일 안에 Data Box가 배송됩니다. 자세한 내용은 [Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 이유
+### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 이유가 무엇일까요?
 A. Data Box 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box는 EA(기업계약), CSP(클라우드 솔루션 공급자) 구독 제품에서만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.
@@ -104,7 +108,7 @@ A. 주문 처리의 각 단계에 대 한 다음과 같은 예상 지연 시간�
 6. 데이터 센터에서 장치 처리: 1-2 영업일, 처리 보류 중인 다른 주문의 영향
 7. Azure에 데이터 업로드: 처리가 완료 되 고 장치가 연결 되는 즉시 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 
-### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 이유
+### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 이유가 무엇일까요?
 A. 상거래 경계 (국가 및 지역 조합) 당 구독 당 최대 5 개의 활성 주문을 허용 합니다. 디바이스를 더 주문하려면 Microsoft 지원에 문의하여 구독 한도를 늘리세요.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>17. 주문을 만들 때 Data Box 서비스를 사용할 수 없다는 알림을 받았습니다. 무슨 의미인가요?
@@ -160,7 +164,7 @@ A. Data Box 맨 앞에 있는 전원 단추 아래에 LED 표시등이 2 개 있
 
 시스템 오류 표시기 표시등이 아직 켜져 있으면 [Microsoft 지원에 문의 하세요](data-box-disk-contact-microsoft-support.md).
 
-### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 이유
+### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 이유가 무엇일까요?
 A. Azure Portal의 잠금 해제 암호에 액세스할 수 없는 경우 구독 및 저장소 계정에 대 한 사용 권한을 확인 합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 액세스 자격 증명을 보려면 적어도 Data Box Operator 역할 권한이 있어야 합니다.
 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>17. Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?
@@ -201,7 +205,7 @@ A.  복사 프로세스의 속도를 높이려면 다음을 수행합니다.
 - 다중 데이터 복사 스트림을 사용합니다. 예를 들어를 사용 하 `Robocopy` 는 경우 다중 스레드 옵션을 사용 합니다. 사용되는 정확한 명령에 대한 자세한 내용은 [자습서: Azure Data Box에 데이터 복사 및 확인](data-box-deploy-copy-data.md)을 완료했는지 확인합니다.
 - 다중 세션을 사용합니다.
 - 네트워크 공유를 통해 복사 하는 대신 네트워크 속도에서 복사 속도를 제한할 수 있는 경우 Data Box 연결 된 컴퓨터에 로컬로 데이터를 저장 합니다.
-- 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. [ `Bluestop` Fio 도구](https://ci.appveyor.com/project/axboe/fio) 를 다운로드 하 고 사용 하 여 서버 하드웨어의 성능을 벤치 마크 합니다. 최신 x86 또는 x64 빌드를 선택하고 **아티팩트** 탭을 선택한 후 MSI를 다운로드합니다.
+- 데이터를 복사하는 데 사용되는 컴퓨터의 성능을 벤치마크합니다. 서버 하드웨어의 성능을 벤치 마크 하려면이 [ `Bluestop` `FIO` 도구](https://ci.appveyor.com/project/axboe/fio) 를 다운로드 하 여 사용 합니다. 최신 x86 또는 x64 빌드를 선택하고 **아티팩트** 탭을 선택한 후 MSI를 다운로드합니다.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:

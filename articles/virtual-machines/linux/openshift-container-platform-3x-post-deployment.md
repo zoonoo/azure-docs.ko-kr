@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible, devx-track-azurecli
-ms.openlocfilehash: dd967ad08b628f9073edfe548033f7e97845d047
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a28c47493f0f775c9e489daf3232371a65d4a7e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016066"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581448"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -160,7 +160,7 @@ OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지�
 - 각 OpenShift 노드에서 Azure Monitor VM 확장을 사용 하도록 설정
 - Log Analytics 에이전트를 OpenShift 디먼 집합으로 설치 합니다.
 
-자세한 내용은 전체 [지침](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) 을 읽어 보세요.
+자세한 내용은 전체 [지침](../../azure-monitor/containers/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) 을 읽어 보세요.
 
 ## <a name="configure-metrics-and-logging"></a>메트릭 및 로깅 구성
 

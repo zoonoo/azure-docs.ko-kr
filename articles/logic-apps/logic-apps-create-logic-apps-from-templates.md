@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066239"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593094"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 1. 아직 로그인하지 않은 경우 [Azure Portal](https://portal.azure.com "Azure portal")에 로그인합니다.
 
-2. Azure 주 메뉴에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱**을 선택합니다.
+2. Azure 주 메뉴에서 **리소스 만들기** > **엔터프라이즈 통합** > **논리 앱** 을 선택합니다.
 
    ![Azure Portal, New, 엔터프라이즈 통합, Logic App](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -50,10 +50,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    | **구독** | *your-Azure-subscription-name* | 사용할 Azure 구독을 선택합니다. | 
    | **리소스 그룹** | *your-Azure-resource-group-name* | 이 논리 앱에 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)을 만들거나 선택하고 이 앱과 연결된 모든 리소스를 구성합니다. | 
    | **위치** | *your-Azure-datacenter-region* | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다(예: 미국 서부). | 
-   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 사용하여 논리 앱에 대한 [진단 로깅](../logic-apps/monitor-logic-apps-log-analytics.md)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
+   | **Log Analytics** | **끄기**(기본값) 또는 **켜기** | [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)를 사용하여 논리 앱에 대한 [진단 로깅](../logic-apps/monitor-logic-apps-log-analytics.md)을 설정합니다. Log Analytics 작업 영역이 이미 있어야 합니다. | 
    |||| 
 
-4. 준비가 되면 **대시보드에 고정**을 선택합니다. 이런 방식으로 논리 앱은 자동으로 Azure 대시보드에 표시되고 배포 후에 열립니다. **만들기**를 선택합니다.
+4. 준비가 되면 **대시보드에 고정** 을 선택합니다. 이런 방식으로 논리 앱은 자동으로 Azure 대시보드에 표시되고 배포 후에 열립니다. **만들기** 를 선택합니다.
 
    > [!NOTE]
    > 논리 앱을 고정하지 않으려면 계속할 수 있도록 배포 후에 논리 앱을 수동으로 찾고 열어야 합니다.
@@ -61,19 +61,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    Azure가 논리 앱을 배포한 후에 Logic Apps 디자이너가 열리고 소개 비디오가 포함된 페이지를 보여줍니다. 
    비디오 아래에서 공통 논리 앱 패턴의 템플릿을 찾을 수 있습니다. 
 
-5. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 다음은 그 예입니다.
+5. **템플릿** 에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 다음은 그 예입니다.
 
    ![논리 앱 템플릿을 선택합니다.](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
    > [!TIP]
-   > 처음부터 논리 앱을 빌드하려면 **빈 Logic App**을 선택합니다.
+   > 처음부터 논리 앱을 빌드하려면 **빈 Logic App** 을 선택합니다.
 
    미리 빌드된 템플릿을 선택하면 해당 템플릿에 대한 자세한 정보를 볼 수 있습니다. 
    다음은 그 예입니다.
 
    ![미리 빌드된 템플릿 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-6. 선택한 템플릿을 계속하려면 **이 템플릿 사용**을 선택합니다. 
+6. 선택한 템플릿을 계속하려면 **이 템플릿 사용** 을 선택합니다. 
 
 7. 템플릿에 있는 커넥터에 따라 다음 단계 중 하나를 수행하라는 메시지가 표시됩니다.
 
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    * 템플릿에서 참조하는 서비스 또는 시스템에 대한 연결을 만듭니다. 연결하려면 연결에 이름을 지정하고 필요한 경우 사용하려는 리소스를 선택합니다. 
 
-   * 이러한 연결을 이미 설정한 경우 **계속**을 선택합니다.
+   * 이러한 연결을 이미 설정한 경우 **계속** 을 선택합니다.
 
    다음은 그 예입니다.
 
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
    작업이 완료되면 논리 앱이 열리고 Logic Apps 디자이너에 표시됩니다.
 
    > [!TIP]
-   > 템플릿 뷰어로 돌아가려면 디자이너 도구 모음에서 **템플릿**을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 요청을 확인하라는 경고 메시지가 표시됩니다.
+   > 템플릿 뷰어로 돌아가려면 디자이너 도구 모음에서 **템플릿** 을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 요청을 확인하라는 경고 메시지가 표시됩니다.
 
 8. 논리 앱을 계속 빌드합니다.
 
@@ -101,11 +101,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 1. [Azure Portal](https://portal.azure.com "Azure portal")의 Logic App Designer에서 논리 앱을 찾아서 엽니다.
 
-2. 디자이너 도구 모음에서 **템플릿**을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인**을 선택합니다. 다음은 그 예입니다.
+2. 디자이너 도구 모음에서 **템플릿** 을 선택합니다. 이 작업은 저장되지 않은 변경 내용을 삭제하므로 계속하려는지 확인할 수 있도록 경고 메시지가 표시됩니다. 확인하려면 **확인** 을 선택합니다. 다음은 그 예입니다.
 
    !["템플릿" 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-update-existing-with-template.png)
 
-3. **템플릿**에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 다음은 그 예입니다.
+3. **템플릿** 에 대한 소개 비디오 및 공통 트리거는 넘어갑니다. 미리 빌드된 템플릿을 선택합니다. 다음은 그 예입니다.
 
    ![논리 앱 템플릿을 선택합니다.](./media/logic-apps-create-logic-apps-from-templates/choose-logic-app-template.png)
 
@@ -114,7 +114,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    ![미리 빌드된 템플릿 선택](./media/logic-apps-create-logic-apps-from-templates/logic-app-choose-prebuilt-template.png)
 
-4. 선택한 템플릿을 계속하려면 **이 템플릿 사용**을 선택합니다. 
+4. 선택한 템플릿을 계속하려면 **이 템플릿 사용** 을 선택합니다. 
 
 5. 템플릿에 있는 커넥터에 따라 다음 단계 중 하나를 수행하라는 메시지가 표시됩니다.
 
@@ -122,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    * 템플릿에서 참조하는 서비스 또는 시스템에 대한 연결을 만듭니다. 연결하려면 연결에 이름을 지정하고 필요한 경우 사용하려는 리소스를 선택합니다. 
 
-   * 이러한 연결을 이미 설정한 경우 **계속**을 선택합니다.
+   * 이러한 연결을 이미 설정한 경우 **계속** 을 선택합니다.
 
    ![연결 만들기](./media/logic-apps-create-logic-apps-from-templates/logic-app-create-connection.png)
 
@@ -131,7 +131,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 8. 논리 앱을 계속 빌드합니다. 
 
    > [!TIP]
-   > 변경 내용을 저장하지 않은 경우 작업을 삭제하고 이전 논리 앱에 반환할 수 있습니다. 디자이너 도구 모음에서 **삭제**를 선택합니다.
+   > 변경 내용을 저장하지 않은 경우 작업을 삭제하고 이전 논리 앱에 반환할 수 있습니다. 디자이너 도구 모음에서 **삭제** 를 선택합니다.
 
 > [!NOTE] 
 > 많은 템플릿에는 필수 속성을 미리 채울 수 있는 커넥터가 포함됩니다. 그러나 일부 템플릿에서는 여전히 논리 앱을 올바르게 배포하기 전에 값을 제공해야 합니다. 누락된 속성 필드를 완료하지 않고 배포하려고 하면 오류 메시지가 발생합니다.
@@ -140,7 +140,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
 템플릿을 변경한 후에 변경 내용을 저장할 수 있습니다. 또한 이 작업은 논리 앱을 자동으로 게시합니다.
 
-디자이너 도구 모음에서 **저장**을 선택합니다.
+디자이너 도구 모음에서 **저장** 을 선택합니다.
 
 ![논리 앱 저장 및 게시](./media/logic-apps-create-logic-apps-from-templates/logic-app-save.png)  
 

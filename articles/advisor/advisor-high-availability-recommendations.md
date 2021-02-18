@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포에서 안정성을 보장 하 고 향상 시킵니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078037"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579967"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 
@@ -68,7 +68,7 @@ Azure Advisor는 기본 SKU를 사용 하는 VPN gateway를 확인 하 고 대�
 
 ## <a name="ensure-availability-set-fault-tolerance-temporarily-disabled"></a>가용성 집합 내결함성 보장 (일시적으로 사용 안 함)
 
-응용 프로그램에 중복성을 제공 하려면 가용성 집합에서 두 개 이상의 가상 머신을 그룹화 하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다.이 구성은 계획 된 유지 관리 또는 계획 되지 않은 유지 관리 중에 하나 이상의 가상 머신을 사용할 수 있고 Azure virtual machine SLA를 충족 하도록 보장 합니다.가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
+응용 프로그램에 중복성을 제공 하려면 가용성 집합에서 두 개 이상의 가상 머신을 그룹화 하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획 된 유지 관리 또는 계획 되지 않은 유지 관리 중에 하나 이상의 가상 머신을 사용할 수 있고 Azure virtual machine SLA를 충족 하도록 보장 합니다. 가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability-temporarily-disabled"></a>관리 디스크를 사용 하 여 데이터 안정성 향상 (일시적으로 사용 안 함)
 
@@ -76,7 +76,7 @@ Azure Advisor는 기본 SKU를 사용 하는 VPN gateway를 확인 하 고 대�
 
 ## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙 복구
 
-Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 로그 경고 규칙을 검색 합니다. Azure Monitor 로그 경고 규칙은 지정 된 빈도로 쿼리를 실행 하 고 결과에 따라 경고를 발생 시킵니다. 참조 된 리소스, 테이블 또는 명령의 변경으로 인해 시간이 지남에 따라 쿼리가 잘못 될 수 있습니다. Advisor는 규칙을 자동으로 사용 하지 않도록 설정 하 고 모니터링 범위를 확인 하기 위해 경고 쿼리를 수정 하는 것을 권장 합니다. 자세한 내용은 [경고 규칙 문제 해결](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid) 을 참조 하세요.
+Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 로그 경고 규칙을 검색 합니다. Azure Monitor 로그 경고 규칙은 지정 된 빈도로 쿼리를 실행 하 고 결과에 따라 경고를 발생 시킵니다. 참조 된 리소스, 테이블 또는 명령의 변경으로 인해 시간이 지남에 따라 쿼리가 잘못 될 수 있습니다. Advisor는 규칙을 자동으로 사용 하지 않도록 설정 하 고 모니터링 범위를 확인 하기 위해 경고 쿼리를 수정 하는 것을 권장 합니다. 자세한 내용은 [경고 규칙 문제 해결](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid) 을 참조 하세요.
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Azure Cosmos DB 컬렉션에서 일관 된 인덱싱 모드 구성
 

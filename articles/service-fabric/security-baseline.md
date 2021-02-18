@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805481"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582644"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Service Fabric에 대 한 Azure 보안 기준
 
@@ -178,9 +178,9 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 azure Service Fabric 배포와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -224,7 +224,7 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 * [노드에 Log Analytics 에이전트를 배포 하는 방법](./service-fabric-diagnostics-oms-agent.md)
 
-* [로그 검색 Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [로그 검색 Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -240,7 +240,7 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 * [노드에 Log Analytics 에이전트를 배포 하는 방법](./service-fabric-diagnostics-oms-agent.md)
 
-* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
+* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -256,7 +256,7 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 * [노드에 Log Analytics 에이전트를 배포 하는 방법](./service-fabric-diagnostics-oms-agent.md)
 
-* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
+* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -266,7 +266,7 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 **지침**: azure Log Analytics 작업 영역 쿼리를 사용 하 여 azure Service Fabric 로그를 쿼리 합니다.
 
-* [로그 검색 Log Analytics](../azure-monitor/log-query/log-query-overview.md)
+* [로그 검색 Log Analytics](../azure-monitor/logs/log-query-overview.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -278,7 +278,7 @@ Azure PowerShell 또는 Azure CLI (명령줄 인터페이스)를 사용 하 여 
 
 * [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+* [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -586,7 +586,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
