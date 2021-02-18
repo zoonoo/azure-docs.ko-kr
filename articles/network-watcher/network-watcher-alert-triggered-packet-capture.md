@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965678"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570979"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -332,7 +332,7 @@ $Encryptedpassword
 
     ![함수 URL 복사][2]
 
-웹후크 POST 요청의 페이로드에 사용자 지정 속성이 필요한 경우 [Azure 메트릭 경고에 대한 웹후크 구성](../azure-monitor/platform/alerts-webhooks.md)을 참조하세요.
+웹후크 POST 요청의 페이로드에 사용자 지정 속성이 필요한 경우 [Azure 메트릭 경고에 대한 웹후크 구성](../azure-monitor/alerts/alerts-webhooks.md)을 참조하세요.
 
 ## <a name="configure-an-alert-on-a-vm"></a>VM에서 경고 구성
 
@@ -340,7 +340,7 @@ $Encryptedpassword
 
 ### <a name="create-the-alert-rule"></a>경고 규칙 만들기
 
-기존 가상 머신으로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../azure-monitor/platform/alerts-classic-portal.md)에서 확인할 수 있습니다. **경고 규칙** 블레이드에 다음 값을 입력하고 **확인** 을 선택합니다.
+기존 가상 머신으로 이동하고 경고 규칙을 추가합니다. 경고 구성에 대한 보다 자세한 설명서는 [Azure 서비스에 대한 Azure Monitor에서 경고 만들기 - Azure Portal](../azure-monitor/alerts/alerts-classic-portal.md)에서 확인할 수 있습니다. **경고 규칙** 블레이드에 다음 값을 입력하고 **확인** 을 선택합니다.
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
@@ -349,7 +349,7 @@ $Encryptedpassword
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
   |**Condition**|보다 큼| 메트릭을 평가할 때 사용할 조건입니다.|
   |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
-  |**간격이**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
+  |**기간**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
   |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|
 
 > [!NOTE]

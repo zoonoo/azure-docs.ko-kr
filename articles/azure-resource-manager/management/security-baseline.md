@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4f0c64abf150165e3239e78e8cf9b824b34eed6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5e44515c8ca71d115ced65c9123e2b1ae3bdf23a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202371"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578242"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 Azure 보안 기준
 
@@ -31,9 +31,9 @@ ms.locfileid: "98202371"
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../../azure-monitor/learn/quick-collect-azurevm.md) 
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -45,9 +45,9 @@ ms.locfileid: "98202371"
 
 **지침**: Azure Resource Manager에서는 자동으로 사용 하도록 설정 된 활동 로그를 사용 하 여 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -61,9 +61,9 @@ ms.locfileid: "98202371"
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Log Analytics 쿼리 시작](../../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -77,7 +77,7 @@ ms.locfileid: "98202371"
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Log Analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/learn/tutorial-response.md)
+- [Log Analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -261,7 +261,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 중요 한 azure 리소스에 변경 내용이 발생 하는 경우 경고를 만들려면 Azure 활동 로그와 Azure Monitor를 사용 합니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

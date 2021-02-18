@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: 213f7d95916555ea32925a5b0af0865d900b0209
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257916"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580065"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음 섹션에서는 효율적인 배포 환경에 맞게 설정 하는 주요 계획 요소를 광범위 하 게 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 구현을 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. 이러한 필수 구성 요소를 포함 하 여 환경을 설정 하는 방법에 대 한 자세한 내용은이 [자습서](application-proxy-add-on-premises-application.md)에서 확인할 수 있습니다.
 
@@ -200,7 +200,7 @@ SSO (Single sign-on)를 사용 하 여 단일 응용 프로그램에 대해 원�
 
 혜택 앱에 대 한 링크 변환을 사용 하도록 설정 하면 비용 및 여행에 대 한 링크가 해당 앱에 대 한 외부 Url로 리디렉션되고 회사 네트워크 외부에서 응용 프로그램에 액세스 하는 사용자가 액세스할 수 있습니다. 이러한 두 앱에 대해 링크 변환을 사용 하도록 설정 하지 않았기 때문에 비용에서의 링크 및 혜택에 대 한 다시 이동은 작동 하지 않습니다. 외부 URL이 없기 때문에 피드백 링크가 리디렉션되지 않으므로 혜택 앱을 사용 하는 사용자는 회사 네트워크 외부에서 피드백 앱에 액세스할 수 없습니다. [링크 변환 및 기타 리디렉션 옵션](application-proxy-configure-hard-coded-link-translation.md)에 대 한 자세한 정보를 참조 하세요.
 
-### <a name="access-your-application"></a>응용 프로그램 액세스
+### <a name="access-your-application"></a>애플리케이션 액세스
 
 앱 프록시 게시 된 리소스에 대 한 액세스를 관리 하기 위한 몇 가지 옵션이 있습니다. 따라서 지정 된 시나리오 및 확장성 요구 사항에 가장 적합 한 옵션을 선택 합니다. 일반적인 방법으로는 Azure AD Connect을 통해 동기화 되는 온-프레미스 그룹 사용, 사용자 특성에 따라 Azure AD에서 동적 그룹 만들기, 리소스 소유자가 관리 하는 셀프 서비스 그룹 사용 또는 이러한 모든의 조합이 포함 됩니다. 각의 이점에 대 한 링크 된 리소스를 참조 하세요.
 
@@ -302,7 +302,7 @@ Azure AD는 [감사 로그 및 보고서](../reports-monitoring/concept-provisio
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Windows 이벤트 로그 및 성능 카운터
 
-커넥터에는 관리자와 세션 로그가 모두 있습니다. 관리 로그에는 주요 이벤트와 해당 오류가 포함됩니다. 세션 로그에는 모든 트랜잭션 및 처리 세부 정보가 포함됩니다. 로그 및 카운터는 Windows 이벤트 로그에 있습니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시 커넥터 이해](./application-proxy-connectors.md#under-the-hood)를 참조 하세요. 이 [자습서에 따라 Azure Monitor에서 이벤트 로그 데이터 원본을 구성할 수](../../azure-monitor/platform/data-sources-windows-events.md)있습니다.
+커넥터에는 관리자와 세션 로그가 모두 있습니다. 관리 로그에는 주요 이벤트와 해당 오류가 포함됩니다. 세션 로그에는 모든 트랜잭션 및 처리 세부 정보가 포함됩니다. 로그 및 카운터는 Windows 이벤트 로그에 있습니다. 자세한 내용은 [Azure AD 응용 프로그램 프록시 커넥터 이해](./application-proxy-connectors.md#under-the-hood)를 참조 하세요. 이 [자습서에 따라 Azure Monitor에서 이벤트 로그 데이터 원본을 구성할 수](../../azure-monitor/agents/data-sources-windows-events.md)있습니다.
 
 ### <a name="troubleshooting-guide-and-steps"></a>문제 해결 가이드 및 단계
 

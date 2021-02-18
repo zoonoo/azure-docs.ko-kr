@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 �
 services: container-service
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: a14659b64bbc86cfc50cbf8a377c0245fba25065
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 3fcdca6cf2b0ef05494156e25e437af9c2ced712
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588043"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -268,7 +268,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
-[aks-monitor]: ../azure-monitor/insights/container-insights-onboard.md
+[aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az-aks-browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

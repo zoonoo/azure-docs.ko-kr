@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 317c02fe03a56ea3cd3a98b00f8a0080b3917108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67e7765a1f46c2be5790c11687e06ea624702b9b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930284"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589573"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Service Fabric 애플리케이션 프로파일링
 
@@ -29,7 +29,7 @@ Application Insights Profiler는 Azure Diagnostics에 포함되어 있습니다.
 
 1. 프로파일러는 .NET Framework 및 .NET Core를 지원 합니다. .NET Framework를 사용 하는 경우 [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 하 고 있는지 확인 합니다. 배포 된 OS가 이상 인지 확인 하는 데에는 충분 `Windows Server 2012 R2` 합니다. 프로파일러는 .NET Core 2.1 및 최신 응용 프로그램을 지원 합니다.
 
-1. 배포 템플릿 파일에서 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 확장을 검색합니다.
+1. 배포 템플릿 파일에서 [Azure Diagnostics](../agents/diagnostics-extension-overview.md) 확장을 검색합니다.
 
 1. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다. `ApplicationInsightsProfiler` 속성 값을 고유한 Application Insights 계측 키로 바꿉니다.  
 

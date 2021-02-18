@@ -3,12 +3,12 @@ title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519102"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570577"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 
@@ -21,9 +21,9 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Azure Monitor 로그 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Azure Monitor 로그 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 참조하세요.
 
-메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간 동안 데이터를 유지 해야 하는 경우 Azure Storage 계정에 메트릭 데이터를 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../azure-monitor/platform/diagnostic-settings.md)에서 구성합니다.
+메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간 동안 데이터를 유지 해야 하는 경우 Azure Storage 계정에 메트릭 데이터를 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../azure-monitor/essentials/diagnostic-settings.md)에서 구성합니다.
 
 ## <a name="access-metrics-in-the-portal"></a>포털에서 메트릭에 액세스
 
@@ -100,7 +100,7 @@ Azure Monitor에 대한 메트릭 및 경고는 경고 단위로 요금이 부�
 > [!NOTE] 
 > 다음 메트릭은 **프리미엄** 계층에서만 제공됩니다. 
 > 
-> 프리미엄 계층 네임스페이스의 작동 중단을 모니터링하는 중요 메트릭은 **네임스페이스당 CPU 사용량** 및 **네임스페이스당 메모리 크기** 입니다. Azure Monitor를 사용하여 이러한 메트릭에 대한 [경고를 설정](../azure-monitor/platform/alerts-metric.md)합니다.
+> 프리미엄 계층 네임스페이스의 작동 중단을 모니터링하는 중요 메트릭은 **네임스페이스당 CPU 사용량** 및 **네임스페이스당 메모리 크기** 입니다. Azure Monitor를 사용하여 이러한 메트릭에 대한 [경고를 설정](../azure-monitor/alerts/alerts-metric.md)합니다.
 > 
 > 모니터링할 수 있는 다른 메트릭은 **제한된 요청** 입니다. 그렇지만 네임스페이스가 해당 메모리, CPU 및 조정된 연결 제한을 벗어나지 않으면 문제가 되지 않습니다. 자세한 내용은 [Azure Service Bus 프리미엄 계층의 제한](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)을 참조하세요.
 

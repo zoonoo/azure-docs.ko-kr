@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
-ms.openlocfilehash: f4da14c1fbdaf71018e62b0f97e288a66edef5c8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677279"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572224"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 
@@ -42,11 +42,11 @@ Azure Blob storage에 저장 된 감사 로그는 `sqldbauditlogs` azure storage
 
 ### <a name="log-analytics"></a>Log Analytics
 
-감사 이벤트는 구성 하는 동안 정의 된 작업 영역 Log Analytics 범주가 있는 `AzureDiagnostics` 테이블에 기록 됩니다 `SQLSecurityAuditEvents` . Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+감사 이벤트는 구성 하는 동안 정의 된 작업 영역 Log Analytics 범주가 있는 `AzureDiagnostics` 테이블에 기록 됩니다 `SQLSecurityAuditEvents` . Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>감사 로그 필드
 
-| 이름 (blob) | 이름 (Event Hubs/Log Analytics) | Description | Blob 유형 | Event Hubs/Log Analytics 형식 |
+| 이름 (blob) | 이름 (Event Hubs/Log Analytics) | 설명 | Blob 유형 | Event Hubs/Log Analytics 형식 |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | 동작의 ID입니다. | varchar(4) | 문자열 |
 | action_name | action_name_s | 작업의 이름입니다. | 해당 없음 | 문자열 |

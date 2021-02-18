@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833017"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587273"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -43,7 +43,7 @@ Linux 기반 노드를 사용 하 여 네트워크를 모니터링 하는 기능
 네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM를 실행 하는 데 별도의 노드를 사용할 필요가 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU가 5% 넘게 사용 되는 경우 모니터링 프로세스를 중지할 수 있는 기능이 있습니다.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM을 사용하려면 내 노드를 직접 에이전트로 또는 System Center Operations Manager를 통해 연결해야 하나요?
-성능 모니터와 서비스 연결 모니터 기능은 모두 [직접 에이전트로 연결 되](../platform/agent-windows.md) 고 [Operations Manager를 통해 연결](../platform/om-agents.md)된 노드를 지원 합니다.
+성능 모니터와 서비스 연결 모니터 기능은 모두 [직접 에이전트로 연결 되](../agents/agent-windows.md) 고 [Operations Manager를 통해 연결](../agents/om-agents.md)된 노드를 지원 합니다.
 
 ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로만 연결해야 합니다. Operations Manager를 통해 연결된 Azure 노드는 지원되지 않습니다. 온-프레미스 노드의 경우 직접 에이전트로 연결 된 노드와 Operations Manager를 통해 Express 경로 회로를 모니터링 하는 데 사용할 수 있습니다.
 
@@ -98,7 +98,7 @@ NPM은 원본 에이전트와 대상 간의 모든 가능한 경로 검색할 �
 NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수를 기반으로 각 네트워크 경로, 네트워크 세그먼트 및 구성 요소 네트워크 홉에 고장 확률을 할당합니다. 네트워크 세그먼트와 홉이 더 많은 비정상 경로의 일부가 됨에 따라 그와 연결된 고장 확률도 높아집니다. 서로 연결된 NPM 에이전트가 있는 노드 수가 많은 경우 고장 확률 계산을 위한 데이터 요소가 증가하므로 이 알고리즘이 가장 적합합니다.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>NPM에서 경고를 얼마나 많이 만들 수 있나요?
-현재는 알려진 문제로 인해 NPM UI에서 경고를 만드는 데 실패 합니다. [경고를 수동으로 만드세요](../platform/alerts-log.md).
+현재는 알려진 문제로 인해 NPM UI에서 경고를 만드는 데 실패 합니다. [경고를 수동으로 만드세요](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
 성능 모니터 쿼리

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542221"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591751"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 감사 로그를 사용 하 여 데이터베이스 작업 추적
 
@@ -50,7 +50,7 @@ ms.locfileid: "94542221"
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
 
-감사 로그는 Azure Monitor 진단 설정과 통합 됩니다. MySQL 유연한 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](how-to-configure-audit-logs-portal.md#set-up-diagnostics)를 참조 하세요.
+감사 로그는 Azure Monitor 진단 설정과 통합 됩니다. MySQL 유연한 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/essentials/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](how-to-configure-audit-logs-portal.md#set-up-diagnostics)를 참조 하세요.
 
 다음 섹션에서는 이벤트 유형을 기반으로 하는 MySQL 감사 로그의 출력을 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 

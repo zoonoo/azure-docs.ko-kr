@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f393c5df23b9552f598e05d25aaf09e529324abe
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201997"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591810"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 azure 보안 기준
 
@@ -171,7 +171,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -185,7 +185,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Cognitive Search에 대 한 로그 데이터를 수집 하 고 분석 하는 방법](./search-monitor-logs.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
 **Azure Security Center 모니터링**: 예
 
@@ -205,7 +205,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다. 
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -223,9 +223,9 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대해 알아보기](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics에 대해 알아보기](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -239,7 +239,7 @@ Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작�
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -532,7 +532,7 @@ Microsoft는 Cognitive Search에 대 한 기본 인프라를 관리 하 고, 고
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 인스턴스 Cognitive Search 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Cognitive Search 작업에 대 한 경고를 만드는 방법](./search-monitor-logs.md)
 

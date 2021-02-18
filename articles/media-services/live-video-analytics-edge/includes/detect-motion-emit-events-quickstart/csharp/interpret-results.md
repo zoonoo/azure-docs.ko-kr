@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: eff73888a449de20b2b460d519b36c0f03c4ea77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcef40dad9c67e9e2c6d6c4a051045999487027
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88691098"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99531013"
 ---
 미디어 그래프를 실행하면 동작 감지기 프로세서 노드의 결과가 IoT Hub 싱크 노드를 통해 IoT 허브에 전송됩니다. Visual Studio Code의 **출력** 창에 표시되는 메시지에는 `body` 섹션과 `applicationProperties` 섹션이 포함되어 있습니다. 자세한 내용은 [IoT Hub 메시지 만들기 및 읽기](../../../../../iot-hub/iot-hub-devguide-messages-construct.md)를 참조하세요.
 
@@ -61,21 +61,12 @@ ms.locfileid: "88691098"
         }  
       }  
     ]  
-  },  
-  "applicationProperties": {  
-    "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",  
-    "subject": "/graphInstances/GRAPHINSTANCENAME/processors/md",  
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",  
-    "eventTime": "2020-04-17T20:26:32.7010000Z",
-    "dataVersion": "1.0"  
-  }  
+  } 
 }  
 ```
 
 이 예제에서: 
 
-* `applicationProperties`에서 `subject`는 메시지가 생성된 미디어 그래프의 노드를 참조합니다. 이 경우 메시지는 동작 감지 프로세서 노드에서 시작됩니다.
-* `applicationProperties`에서 `eventType`은 이 이벤트가 분석 이벤트임을 나타냅니다.
 * `eventTime` 값은 이벤트가 발생한 시간을 나타냅니다.
 * `body` 값은 분석 이벤트에 대한 데이터입니다. 이 경우 이벤트는 유추 이벤트이므로 본문에 `timestamp` 및 `inferences` 데이터가 포함됩니다.
 * `inferences` 데이터는 `type`이 `motion`임을 나타냅니다. 해당 `motion` 이벤트에 대한 추가 데이터가 있습니다.

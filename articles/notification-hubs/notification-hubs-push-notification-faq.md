@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591740"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -196,7 +196,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 
 - [.Net을 사용 하 여 Azure Monitor 메트릭을 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)합니다. 이 샘플에서는 사용자 이름 및 암호를 사용 합니다. 인증서를 사용 하려면 [다음 예제](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs)와 같이 FromServicePrincipal 메서드를 오버 로드 하 여 인증서를 제공 합니다. 
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Azure Monitoring REST API 연습](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > 성공적인 알림은 푸시 알림이 외부 PNS (예: iOS 용 APNs 및 macOS 또는 Android 장치용 FCM)에 전달 되었다는 것을 의미 합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
@@ -211,7 +211,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 모델]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Notification Hubs 보안 푸시 자습서]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Notification Hubs 문제 해결]: ./notification-hubs-push-notification-fixer.md
-[Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs 메트릭]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [등록 내보내기/가져오기]: ./export-modify-registrations-bulk.md
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

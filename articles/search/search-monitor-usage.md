@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935010"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592367"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Azure Cognitive Search의 작업 및 활동 모니터링
 
@@ -37,7 +37,7 @@ Azure Cognitive Search는 포털에서 또는 이러한 [REST api](#monitoring-a
 다음 스크린샷은 포털에서 모니터링 정보를 찾는 데 도움이 됩니다. 서비스 사용을 시작 하는 즉시 데이터를 사용할 수 있게 됩니다. 포털 페이지는 몇 분 마다 새로 고쳐집니다.
 
 * **모니터링** 탭의 기본 개요 페이지에는 쿼리 볼륨, 대기 시간, 서비스의 압력 상태 여부 등이 표시 됩니다.
-* 왼쪽 탐색 창에서 **활동 로그**는 Azure Resource Manager에 연결 됩니다. 활동 로그는 서비스 가용성 및 상태, 용량 (복제본 및 파티션)에 대 한 변경 및 API 키 관련 활동을 리소스 관리자에서 수행 하는 작업에 대해 보고 합니다.
+* 왼쪽 탐색 창에서 **활동 로그** 는 Azure Resource Manager에 연결 됩니다. 활동 로그는 서비스 가용성 및 상태, 용량 (복제본 및 파티션)에 대 한 변경 및 API 키 관련 활동을 리소스 관리자에서 수행 하는 작업에 대해 보고 합니다.
 * **모니터링** 설정은 구성 가능한 경고, 메트릭 및 진단 로그를 제공 합니다. 필요할 때 이러한 항목을 만듭니다. 데이터를 수집 하 고 저장 하면 정보를 쿼리하거나 시각화할 수 있습니다.
 
 ![검색 서비스의 Azure Monitor 통합](./media/search-monitor-usage/azure-monitor-search.png
@@ -59,11 +59,11 @@ Azure Cognitive Search는 포털에서 또는 이러한 [REST api](#monitoring-a
 
 ### <a name="activity-logs-and-service-health"></a>활동 로그 및 서비스 상태
 
-포털의 [**활동 로그**](../azure-monitor/platform/activity-log.md#view-the-activity-log) 페이지는 Azure Resource Manager에서 정보를 수집 하 고 서비스 상태에 대 한 변경 내용을 보고 합니다. 서비스 상태와 관련 된 위험, 오류 및 경고 조건에 대 한 활동 로그를 모니터링할 수 있습니다.
+포털의 [**활동 로그**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 페이지는 Azure Resource Manager에서 정보를 수집 하 고 서비스 상태에 대 한 변경 내용을 보고 합니다. 서비스 상태와 관련 된 위험, 오류 및 경고 조건에 대 한 활동 로그를 모니터링할 수 있습니다.
 
-공통 항목에는 API 키에 대 한 참조- *관리자 키 가져오기* 및 *쿼리 키 가져오기*와 같은 일반 정보 알림이 포함 됩니다. 이러한 활동은 관리 키 (개체 만들기 또는 삭제) 또는 쿼리 키를 사용 하 여 수행 된 요청을 나타내지만 요청 자체를 표시 하지는 않습니다. 이 수준에 대 한 자세한 내용은 진단 로깅을 구성 해야 합니다.
+공통 항목에는 API 키에 대 한 참조- *관리자 키 가져오기* 및 *쿼리 키 가져오기* 와 같은 일반 정보 알림이 포함 됩니다. 이러한 활동은 관리 키 (개체 만들기 또는 삭제) 또는 쿼리 키를 사용 하 여 수행 된 요청을 나타내지만 요청 자체를 표시 하지는 않습니다. 이 수준에 대 한 자세한 내용은 진단 로깅을 구성 해야 합니다.
 
-**활성 로그**는 왼쪽 탐색 창, 위쪽 창 명령 모음의 알림 또는 **진단 및 문제 해결** 페이지에서 액세스할 수 있습니다.
+**활성 로그** 는 왼쪽 탐색 창, 위쪽 창 명령 모음의 알림 또는 **진단 및 문제 해결** 페이지에서 액세스할 수 있습니다.
 
 ### <a name="monitor-storage-in-the-usage-tab"></a>사용량 탭에서 저장소 모니터링
 
@@ -90,7 +90,7 @@ Azure Monitor에서는 몇 가지 저장소 옵션을 제공 하며, 선택에 �
 * Power BI 보고서에서 [로그 데이터를 시각화](search-monitor-logs-powerbi.md) 하려면 Azure Blob storage를 선택 합니다.
 * Kusto 쿼리를 통해 데이터를 탐색 하려면 Log Analytics을 선택 합니다.
 
-Azure Monitor에는 자체 청구 구조가 있으며이 섹션에서 참조 하는 진단 로그에는 관련 비용이 포함 됩니다. 자세한 내용은 [Azure Monitor의 사용량 및 예상 비용](../azure-monitor/platform/usage-estimated-costs.md)을 참조 하세요.
+Azure Monitor에는 자체 청구 구조가 있으며이 섹션에서 참조 하는 진단 로그에는 관련 비용이 포함 됩니다. 자세한 내용은 [Azure Monitor의 사용량 및 예상 비용](../azure-monitor//usage-estimated-costs.md)을 참조 하세요.
 
 ## <a name="monitor-user-access"></a>사용자 액세스 모니터링
 
@@ -107,4 +107,4 @@ $Filter 매개 변수를 포함 하는 쿼리 문자열과 별도로이 정보�
 Azure Cognitive Search와 같은 리소스를 포함 하 여 Azure 서비스를 감독 하는 데 Azure Monitor 능숙가 필요 합니다. Azure Monitor에 익숙하지 않은 경우 리소스와 관련 된 문서를 검토 하는 시간을 소요 합니다. 자습서 외에도 다음 문서를 시작 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/insights/monitor-azure-resource.md)
+> [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)

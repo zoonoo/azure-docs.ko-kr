@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f13909d3835bdbd2931277a88244abfae3f80759
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467731"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576615"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Windows 가상 데스크톱 (미리 보기) 용어집에 대 한 Azure Monitor
 
@@ -24,7 +24,7 @@ ms.locfileid: "96467731"
 
 ## <a name="alerts"></a>경고
 
-구독에서 구성 하 고 [심각도 1](#severity-1-alerts) 로 분류 한 활성 Azure Monitor 경고가 개요 페이지에 표시 됩니다. 경고를 설정 하는 방법에 대 한 자세한 내용은 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/learn/tutorial-response.md)을 참조 하세요.
+구독에서 구성 하 고 [심각도 1](#severity-1-alerts) 로 분류 한 활성 Azure Monitor 경고가 개요 페이지에 표시 됩니다. 경고를 설정 하는 방법에 대 한 자세한 내용은 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)을 참조 하세요.
 
 ## <a name="available-sessions"></a>사용 가능한 세션
 
@@ -128,7 +128,7 @@ Windows 가상 데스크톱에 대 한 Azure Monitor의 "입력 지연"은 각 �
 |RemoteFX 네트워크 ( \* ) \\ 현재 TCP RTT|30초|
 |RemoteFX 네트워크 ( \* ) \\ 현재 UDP 대역폭|30초|
 
-성능 카운터를 읽는 방법에 대 한 자세한 내용은 [성능 카운터 구성](../azure-monitor/platform/data-sources-performance-counters.md)을 참조 하세요.
+성능 카운터를 읽는 방법에 대 한 자세한 내용은 [성능 카운터 구성](../azure-monitor/agents/data-sources-performance-counters.md)을 참조 하세요.
 
 입력 지연 성능 카운터에 대 한 자세한 내용은 [사용자 입력 지연 성능 카운터](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)를 참조 하세요.
 
@@ -186,7 +186,7 @@ Windows 이벤트 로그는 Windows 가상 컴퓨터의 Log Analytics 에이전�
 | Microsoft-FSLogix-앱/운영|오류, 경고 및 정보|
 |Microsoft-FSLogix-앱/관리자|오류, 경고 및 정보|
 
-Windows 이벤트에 대해 자세히 알아보려면 [windows 이벤트 레코드 속성](../azure-monitor/platform/data-sources-windows-events.md)을 참조 하세요.
+Windows 이벤트에 대해 자세히 알아보려면 [windows 이벤트 레코드 속성](../azure-monitor/agents/data-sources-windows-events.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

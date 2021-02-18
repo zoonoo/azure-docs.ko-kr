@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460417"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570824"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -42,7 +42,7 @@ Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수�
 
 ## <a name="audit-log"></a>감사 로그
 
-Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/platform/platform-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음을 확인할 수 있습니다.
+Security Center에서 수행되는 대부분의 문제 해결은 실패한 구성 요소에 대한 [감사 로그](../azure-monitor/essentials/platform-logs-overview.md) 기록을 먼저 확인하여 수행됩니다. 감사 로그를 통해 다음을 확인할 수 있습니다.
 
 * 수행된 작업
 * 작업을 시작한 사람
@@ -87,8 +87,8 @@ Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 �
 | 전원 상태 끄기 | VM이 중지됩니다.  Log Analytics 에이전트는 실행 중인 VM에만 설치할 수 있습니다. | VM을 다시 시작합니다. |
 | 누락되었거나 잘못된 Azure VM 에이전트 | Log Analytics 에이전트가 아직 설치되지 않았습니다.  Security Center에서 확장을 설치하려면 유효한 Azure VM 에이전트가 필요합니다. | Azure VM 에이전트를 VM에 설치, 다시 설치 또는 업그레이드합니다. |
 | 설치할 준비가 되지 않은 VM 상태  | VM을 설치할 준비가 되지 않았기 때문에 Log Analytics 에이전트가 아직 설치되지 않았습니다. VM 에이전트 또는 VM 프로비전 문제로 인해 VM을 설치할 준비가 되지 않았습니다. | VM의 상태를 확인합니다. 포털의 **Virtual Machines** 로 돌아가서 상태 정보에 대한 VM을 선택합니다. |
-|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하거나 확장을 제거하여 Security Center에서 설치를 다시 시도합니다. |
-| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Security Center에서 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
+|설치 실패 - 일반 오류 | Log Analytics 에이전트가 설치되었지만 오류로 인해 실패했습니다. | [수동으로 확장을 설치](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하거나 확장을 제거하여 Security Center에서 설치를 다시 시도합니다. |
+| 설치 실패 - 로컬 에이전트가 이미 설치되어 있음 | Log Analytics 에이전트를 설치하지 못했습니다. Security Center에서 VM에 이미 설치된 로컬 에이전트(Log Analytics 또는 System Center Operations Manager)를 식별했습니다. VM이 두 개의 개별 작업 영역에 보고하는 멀티 호밍 구성을 방지하기 위해 Log Analytics 에이전트 설치가 중지되었습니다. | 두 가지 해결 방법이 있습니다. [수동으로 확장을 설치](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)하고 원하는 작업 영역에 연결합니다. 또는 원하는 작업 영역을 기본 작업 영역으로 설정하고 에이전트의 자동 프로비전을 사용하도록 설정합니다.  [자동 프로비전 사용](security-center-enable-data-collection.md)을 참조하세요. |
 | 에이전트에서 작업 영역에 연결할 수 없음 | Log Analytics 에이전트가 설치되었지만 네트워크 연결로 인해 실패했습니다.  인터넷 액세스가 있는지 또는 에이전트에 대해 유효한 HTTP 프록시가 구성되어 있는지 확인합니다. | [모니터링 에이전트 네트워크 요구 사항]을 참조하세요. |
 | 누락되었거나 알 수 없는 작업 영역에 연결된 에이전트 | Security Center에서 VM에 설치된 Log Analytics 에이전트가 액세스 권한이 없는 작업 영역에 연결되어 있음을 확인했습니다. | 이는 두 가지 경우에 발생할 수 있습니다. 하나는 작업 영역이 삭제되어 더 이상 존재하지 않습니다. 에이전트를 올바른 작업 영역으로 다시 설치하거나, 에이전트를 제거하고 Security Center에서 자동 프로비전 설치를 수행하도록 합니다. 두 번째 경우는 작업 영역이 Security Center에 대한 권한이 없는 구독의 일부입니다. Security Center에는 Microsoft 보안 리소스 공급자가 액세스할 수 있게 하는 구독이 필요합니다. 이 경우 Microsoft 보안 리소스 공급자에 대한 구독을 등록하여 해당 구독을 사용합니다. 이 작업은 API, PowerShell, 포털을 통하거나 Security Center **개요** 대시보드에서 구독을 필터링하여 수행할 수 있습니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요. |
 | 에이전트가 응답하지 않거나 ID가 누락되었음 | 에이전트가 설치되어 있어도 VM에서 검색한 보안 데이터를 Security Center에서 검색할 수 없습니다. | 에이전트에서 하트비트를 포함한 모든 데이터를 보고하지 않습니다. 에이전트가 손상되었거나 트래픽을 차단하는 것이 있습니다. 또는 에이전트가 데이터를 보고하지만 Azure 리소스 ID가 누락되어 있으므로 Azure VM에 데이터를 일치시킬 수 없습니다. Linux 문제를 해결하려면 [Linux용 Log Analytics 에이전트에 대한 문제 해결 가이드](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal)를 참조하세요. Windows 문제를 해결하려면 [Windows 가상 머신 문제 해결](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support)을 참조하세요. |
@@ -98,7 +98,7 @@ Security Center는 Azure Monitor 서비스에서 사용하는 것과 동일한 �
 
 에이전트를 Security Center에 연결하고 등록한 경우 포트 번호 및 도메인 URL을 비롯한 네트워크 리소스에 대한 액세스 권한을 가져야 합니다.
 
-* 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](../azure-monitor/platform/agent-windows.md)에 대한 자세한 내용은 이 문서를 참조하세요.
+* 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](../azure-monitor/agents/agent-windows.md)에 대한 자세한 내용은 이 문서를 참조하세요.
 * 인터넷에 대한 액세스를 제한하는 방화벽을 사용하여 경우 Log Analytics에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 에이전트 설정에서 아무 작업도 필요하지 않습니다.
 
 다음 표에서는 통신에 필요한 리소스를 보여줍니다.

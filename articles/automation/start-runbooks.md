@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5c5166785ad8c82c114fb7193cd49716536b408
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7cc1a25fbfc4d3f063c6fc6d225c3f5c7a4b5a3c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896599"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572560"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 
@@ -22,7 +22,7 @@ ms.locfileid: "98896599"
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Windows PowerShell cmdlet을 사용하여 명령줄에서 호출<br> <li>여러 단계로 구성된 자동화된 기능에 포함할 수 있음<br> <li>인증서 또는 OAuth 사용자 계정/서비스 보안 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공<br> <li>작업 상태 추적<br> <li>클라이언트에서 PowerShell cmdlet을 지원해야 함 |
 | [Azure Automation API](/rest/api/automation/) |<li>가장 유연하지만 가장 복잡한 방법<br> <li>HTTP 요청을 수행할 수 있는 모든 사용자 지정 코드에서 호출<br> <li>인증서 또는 OAuth 사용자 계정/서비스 보안 주체를 사용하여 요청 인증<br> <li>단순한 매개 변수 값 및 복잡한 매개 변수 값 제공 ‘API를 사용하여 Python Runbook을 호출하는 경우 JSON 페이로드를 직렬화해야 합니다.’<br> <li>작업 상태 추적 |
 | [Webhook](automation-webhooks.md) |<li>단일 HTTP 요청에서 Runbook 시작<br> <li>URL의 보안 토큰으로 인증<br> <li>웹후크를 만들 때 지정된 매개 변수 값을 클라이언트에서 재정의할 수 없음 Runbook에서 HTTP 요청 세부 정보로 채워진 단일 매개 변수를 정의할 수 있음<br> <li>Webhook URL을 통해 작업 상태를 추적할 수 없음 |
-| [Azure 경고에 응답](../azure-monitor/platform/alerts-overview.md) |<li>Azure 경고에 답하여 Runbook을 시작합니다.<br> <li>Runbook에 대한 Webhook과 경고 링크를 구성합니다.<br> <li>URL의 보안 토큰으로 인증 |
+| [Azure 경고에 응답](../azure-monitor/alerts/alerts-overview.md) |<li>Azure 경고에 답하여 Runbook을 시작합니다.<br> <li>Runbook에 대한 Webhook과 경고 링크를 구성합니다.<br> <li>URL의 보안 토큰으로 인증 |
 | [일정](./shared-resources/schedules.md) |<li>매시간, 매일, 매주 또는 매월 일정에 따라 Runbook을 자동으로 시작<br> <li>Azure Portal, PowerShell cmdlet 또는 Azure API를 통해 일정 조작<br> <li>일정에서 사용할 매개 변수 값 제공 |
 | [다른 Runbook에서](automation-child-runbooks.md) |<li>Runbook을 다른 Runbook의 활동으로 사용<br> <li>여러 Runbook에서 사용하는 기능에 유용<br> <li>자식 Runbook에 매개 변수 값을 제공하고 부모 Runbook에서 출력 사용 |
 

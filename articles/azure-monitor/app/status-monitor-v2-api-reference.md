@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319000"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587526"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 에이전트 API 참조
 
@@ -38,7 +38,7 @@ ms.locfileid: "87319000"
 - Enable cmdlet을 사용 하 여 모니터링을 이미 사용 하도록 설정 했지만 계측 엔진을 사용 하도록 설정 하지 않았습니다.
 - 수동으로 .NET Sdk를 사용 하 여 앱을 계측 하 고 추가 원격 분석을 수집 하려고 합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
@@ -47,7 +47,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**필드.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 #### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
@@ -73,7 +73,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 
 모니터링을 사용 하도록 설정한 후에는 [라이브 메트릭을](live-stream.md) 사용 하 여 앱이 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하는 것이 좋습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -83,7 +83,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에 대한 설명:
+이 예제에서는 다음이 적용됩니다.
 - `MachineFilter` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
@@ -127,12 +127,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**필드.** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
 
 계측 엔진은 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
 #### <a name="-acceptlicense"></a>-AcceptLicense
-**필드.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 웹 서버 클러스터가 있는 경우 [공유 구성을](/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.
@@ -186,7 +186,7 @@ Successfully enabled Application Insights Status Monitor
 일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```powershell
 PS C:\> Disable-InstrumentationEngine
@@ -215,7 +215,7 @@ Configuring registry for instrumentation engine...
 대상 컴퓨터에서 모니터링을 사용 하지 않도록 설정 합니다.
 이 cmdlet은 IIS applicationHost.config 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
@@ -257,7 +257,7 @@ Successfully disabled Application Insights Status Monitor
 
 구성 파일을 가져오고 값을 콘솔에 출력 합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```powershell
 PS C:\> Get-ApplicationInsightsMonitoringConfig
@@ -286,7 +286,7 @@ Filters:
 이 cmdlet을 사용 하 여 PowerShell 모듈의 모니터링 상태와 버전을 조사 하 고 실행 중인 프로세스를 검사할 수 있습니다.
 이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일에 대 한 정보를 보고 합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
@@ -392,7 +392,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 계측 된 컴퓨터에서 프로세스를 검사 하 여 모든 Dll이 로드 되었는지 확인할 수 있습니다. 모니터링이 작동 하는 경우 12 개 이상의 Dll을 로드 해야 합니다.
 
-다음 명령을 실행 합니다 `Get-ApplicationInsightsMonitoringStatus -InspectProcess` .
+`Get-ApplicationInsightsMonitoringStatus -InspectProcess` 명령을 실행합니다.
 
 
 ```
@@ -465,7 +465,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -475,7 +475,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 ```
 
 #### <a name="example-with-an-instrumentation-key-map"></a>계측 키 맵이 있는 예제
-이 예제에 대한 설명:
+이 예제에서는 다음이 적용됩니다.
 - `MachineFilter` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다 `'.*'` .
 - `AppFilter='WebAppExclude'``null`계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
 - `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
@@ -558,7 +558,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 이 cmdlet은 제한 시간 (기본값 5 분)에 도달할 때까지 실행 되거나 수동으로 중지 됩니다 ( `Ctrl + C` ).
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="how-to-collect-events"></a>이벤트를 수집 하는 방법
 
@@ -585,17 +585,17 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ### <a name="parameters"></a>매개 변수
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**필드.** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
+**선택 사항입니다.** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**필드.** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**필드.** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**필드.** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
+**선택 사항입니다.** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
 
 #### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>다음 단계
 
   원격 분석 보기:
- - [메트릭을 탐색](../platform/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
+ - [메트릭을 탐색](../essentials/metrics-charts.md) 하 여 성능 및 사용량을 모니터링 합니다.
 - [이벤트와 로그를 검색](./diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석](../log-query/log-query-overview.md) 을 사용 합니다.
+- 고급 쿼리를 위해 [분석](../logs/log-query-overview.md) 을 사용 합니다.
 - [대시보드를 만듭니다](./overview-dashboard.md).
  
  원격 분석 더 추가:

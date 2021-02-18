@@ -5,12 +5,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41412a4ec95bb9b89df5fded6962965594e823fc
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 131469a955190561d8854aad4a7f77c8ca15a222
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248516"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578790"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -235,7 +235,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![Azure Kubernetes Service에 배포된 투표 앱](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 [컨테이너에 대한 Azure Monitor](../azure-monitor/insights/container-insights-overview.md)가 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다.
+AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 [컨테이너에 대한 Azure Monitor](../azure-monitor/containers/container-insights-overview.md)가 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

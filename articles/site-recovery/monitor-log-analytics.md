@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499818"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571684"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
-이 문서에서는 [Azure Monitor 로그](../azure-monitor/platform/data-platform-logs.md)및 [Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 사용 하 여 Azure [Site Recovery](site-recovery-overview.md)에서 복제 된 컴퓨터를 모니터링 하는 방법을 설명 합니다.
+이 문서에서는 [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md)및 [Log Analytics](../azure-monitor/logs/log-query-overview.md)를 사용 하 여 Azure [Site Recovery](site-recovery-overview.md)에서 복제 된 컴퓨터를 모니터링 하는 방법을 설명 합니다.
 
 Azure Monitor 로그는 다른 모니터링 데이터와 함께 작업 및 리소스 로그를 수집 하는 로그 데이터 플랫폼을 제공 합니다. Azure Monitor 로그 내에서 Log Analytics를 사용 하 여 로그 쿼리를 작성 및 테스트 하 고 로그 데이터를 대화형으로 분석할 수 있습니다. 로그 결과를 시각화 하 고 쿼리할 수 있으며 모니터링 되는 데이터에 따라 동작을 수행 하도록 경고를 구성할 수 있습니다.
 
@@ -35,8 +35,8 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 다음 항목이 필요합니다.
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
-- Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/log-query/log-analytics-tutorial.md).
+- Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/logs/quick-create-workspace.md) .
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/logs/log-analytics-tutorial.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
@@ -62,9 +62,9 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 1. Log Analytics 작업 영역으로 이동한 다음 **고급 설정** 을 클릭 합니다.
 2. **연결 된 원본** 페이지를 클릭 하 고 **Windows 서버** 를 추가로 선택 합니다.
 3. 프로세스 서버에서 Windows 에이전트 (64 비트)를 다운로드 합니다. 
-4. [작업 영역 ID 및 키 가져오기](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
-5. [TLS 1.2를 사용 하도록 에이전트 구성](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. 가져온 작업 영역 ID 및 키를 제공 하 여 [에이전트 설치를 완료](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) 합니다.
+4. [작업 영역 ID 및 키 가져오기](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+5. [TLS 1.2를 사용 하도록 에이전트 구성](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+6. 가져온 작업 영역 ID 및 키를 제공 하 여 [에이전트 설치를 완료](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) 합니다.
 7. 설치가 완료 되 면 Log Analytics 작업 영역으로 이동한 다음 **고급 설정** 을 클릭 합니다. **데이터** 페이지로 이동 하 여 **Windows 성능 카운터** 를 추가로 클릭 합니다. 
 8. **' + '** 를 클릭 하 여 샘플 간격이 300 초인 다음 두 카운터를 추가 합니다.
 
@@ -76,7 +76,7 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 
 ## <a name="query-the-logs---examples"></a>로그 쿼리-예제
 
-[Kusto 쿼리 언어로](../azure-monitor/log-query/get-started-queries.md)작성 된 로그 쿼리를 사용 하 여 로그에서 데이터를 검색 합니다. 이 섹션에서는 Site Recovery 모니터링에 사용할 수 있는 일반적인 쿼리의 몇 가지 예를 제공 합니다.
+[Kusto 쿼리 언어로](../azure-monitor/logs/get-started-queries.md)작성 된 로그 쿼리를 사용 하 여 로그에서 데이터를 검색 합니다. 이 섹션에서는 Site Recovery 모니터링에 사용할 수 있는 일반적인 쿼리의 몇 가지 예를 제공 합니다.
 
 > [!NOTE]
 > 일부 예제에서는 **A2A** 로 설정 된 **replicationProviderName_s** 를 사용 합니다. Site Recovery를 사용 하 여 보조 Azure 지역에 복제 되는 Azure Vm을 검색 합니다. 이 예제에서는 Site Recovery를 사용 하 여 Azure에 복제 된 온-프레미스 VMware Vm 또는 물리적 서버를 검색 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>경고 설정-예제
 
-Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) . 
+Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) . 
 
 > [!NOTE]
 > 일부 예제에서는 **A2A** 로 설정 된 **replicationProviderName_s** 를 사용 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.

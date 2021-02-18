@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 850171a4f1f303ef344fa5007325093c6363615b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ac2982b021172893e4aabe0f21c7077115684eff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789080"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592625"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Azure HPC 캐시용 azure 보안 기준
 
@@ -613,9 +613,9 @@ Azure HPC 캐시 리소스가 배포 되는 네트워크에 네트워크 보안 
 
 또한 Azure Security Center 및 Azure Policy를 사용 하 여 HPC 캐시에 대해 Azure 리소스 로그를 사용 하도록 설정 하 고 데이터 수집을 수행할 수 있습니다. 이러한 로그는 나중에 보안 인시던트를 조사 하 고 법정 연습을 수행 하는 데 중요할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md) 
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
 
@@ -633,7 +633,7 @@ Azure 활동 로그를 중앙 로깅에 통합 하 고 있는지 확인 합니�
 
 많은 조직에서 자주 사용 되는 "핫" 데이터에 대해 Azure 센티널을 사용 하 고 덜 자주 사용 되는 "콜드" 데이터를 Azure Storage 하는 것을 선택 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -812,7 +812,7 @@ Azure Backup, Azure Key Vault 또는 기타 리소스의 역할 기반 액세스
 
 - [Azure Backup의 보안 기능 개요](../backup/security-overview.md) 
 
-- [고객 관리 키를 사용 하 여 백업 데이터 암호화](../backup/encryption-at-rest-with-cmk.md)  
+- [고객 관리형 키를 사용하여 백업 데이터 암호화](../backup/encryption-at-rest-with-cmk.md)  
 
 - [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 

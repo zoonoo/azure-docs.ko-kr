@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d46c1d8efb5234d47c80ca4256c2f56d56ccf805
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060722"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576127"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -454,7 +454,7 @@ PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` 또는 포털을 사�
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway로 경고를 설정할 수 있나요?
 
-예. Application Gateway에서 경고는 메트릭에 대해 구성됩니다. 자세한 내용은 [Application Gateway 메트릭](./application-gateway-metrics.md) 및 [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)를 참조하세요.
+예. Application Gateway에서 경고는 메트릭에 대해 구성됩니다. 자세한 내용은 [Application Gateway 메트릭](./application-gateway-metrics.md) 및 [경고 알림 받기](../azure-monitor/alerts/alerts-overview.md)를 참조하세요.
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?
 

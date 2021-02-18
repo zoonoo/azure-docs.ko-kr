@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 8dcc6dd355e0c89aa4120a6cc7f331159d56c1bc
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 0b6096f980234c09bf1c2da2b4621b8ed66b495d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742185"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578172"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-classic-using-powershell"></a>PowerShell을 사용 하 여 Azure Cloud Services (클래식)에서 진단 사용
 
@@ -134,5 +134,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>다음 단계
 * 문제 해결을 위한 Azure 진단 및 기타 기법 사용에 대한 추가 지침은 [Azure Cloud Services 및 Virtual Machines에서 진단 사용](cloud-services-dotnet-diagnostics.md)을 참조하세요.
-* [진단 구성 스키마](../azure-monitor/platform/diagnostics-extension-schema-windows.md) 는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
+* [진단 구성 스키마](../azure-monitor/agents/diagnostics-extension-schema-windows.md) 는 진단 확장에 대한 다양한 XML 구성 옵션을 설명합니다.
 * Virtual Machines에 대해 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿을 사용한 모니터링 및 진단으로 Windows Virtual Machines 만들기(영문)](../virtual-machines/extensions/diagnostics-template.md)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595967"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Azure Monitor 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "99493915"
 이 문서에서는 장치에서 Azure Monitor를 사용 하도록 설정 하 고 Log Analytics 작업 영역에서 컨테이너 로그를 수집 하는 데 필요한 단계를 설명 합니다. Azure Monitor 메트릭 저장소는 현재 Azure Stack Edge Pro GPU 장치에서 지원 되지 않습니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음이 필요 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "99493915"
 
         ![Log Analytics 작업 영역에 대 한 검토 + 만들기](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-자세한 내용은 [Azure Portal를 통해 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)의 자세한 단계를 참조 하세요.
+자세한 내용은 [Azure Portal를 통해 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)의 자세한 단계를 참조 하세요.
 
 
 
@@ -57,7 +57,7 @@ ms.locfileid: "99493915"
 
 작업 영역에서 컨테이너 정보를 사용 하도록 설정 하려면 다음 단계를 수행 합니다. 
 
-1. [Azure Monitor 컨테이너 솔루션을 추가](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution)하는 방법의 자세한 단계를 따르세요. 다음 템플릿 파일을 사용 합니다 `containerSolution.json` .
+1. [Azure Monitor 컨테이너 솔루션을 추가](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution)하는 방법의 자세한 단계를 따르세요. 다음 템플릿 파일을 사용 합니다 `containerSolution.json` .
 
     ```yml
     {

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: a0653f24eeb0a96c28714d00f1d943dfc7d336db
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979711"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580828"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -183,7 +183,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버 또는 리소스 그룹이 삭제 된 후 LTR 백업을 삭제 하려면 구독 범위 권한이 있어야 합니다. ' 장기 보존 백업 삭제 ' 작업을 필터링 하 여 Azure Monitor의 각 삭제에 대 한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요.
+> LTR 백업을 삭제하면 되돌릴 수 없습니다. 서버를 삭제 한 후 LTR 백업을 삭제 하려면 구독 범위 권한이 있어야 합니다. ' 장기 보존 백업 삭제 ' 작업을 필터링 하 여 Azure Monitor의 각 삭제에 대 한 알림을 설정할 수 있습니다. 활동 로그에는 요청한 사람과 시기에 대한 정보가 포함되어 있습니다. 자세한 지침은 [활동 로그 경고 만들기](../../azure-monitor/alerts/alerts-activity-log.md)를 참조하세요.
 
 ### <a name="restore-from-ltr-backups"></a>LTR 백업에서 복원
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: cde84a018d307bada6a6b6f3b5467b8addd007b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573312"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571431"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "98573312"
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Azure IAAS 가상 머신 모니터링
 
-게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](../../azure-monitor/learn/tutorial-resource-logs.md)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
+게스트 VM을 모니터링 하려면 Azure VM 모니터링을 사용 합니다. 그러면 특정 개략적인 리소스 조건에 대해 경고를 표시 합니다. VM 진단을 사용 하도록 설정 했는지 여부를 확인 하려면 [Azure 리소스 로그 개요](../../azure-monitor/essentials/tutorial-resource-logs.md)를 참조 하세요. 다음이 표시 되는 경우 진단이 사용 하도록 설정 되어 있지 않을 가능성이 높습니다.
 
 ![모니터링 사용 안 함](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -101,7 +101,7 @@ VM 진단을 사용 하도록 설정 하려면:
 
 ### <a name="cpu-observe-trends"></a>CPU 관찰 추세
 
-성능 문제를 살펴보면 추세를 파악 하 고이에 영향을 주는지 파악 해야 합니다. 다음 섹션에서는 포털의 모니터링 그래프를 사용 하 여 추세를 보여 줍니다. 동일한 기간의 상호 참조 차이 리소스 동작에도 유용할 수 있습니다. 그래프를 사용자 지정 하려면 [Azure Monitor data platform](../../azure-monitor/platform/data-platform.md)을 클릭 합니다.
+성능 문제를 살펴보면 추세를 파악 하 고이에 영향을 주는지 파악 해야 합니다. 다음 섹션에서는 포털의 모니터링 그래프를 사용 하 여 추세를 보여 줍니다. 동일한 기간의 상호 참조 차이 리소스 동작에도 유용할 수 있습니다. 그래프를 사용자 지정 하려면 [Azure Monitor data platform](../../azure-monitor/data-platform.md)을 클릭 합니다.
 
 의 급격 –의 급격은 예약 된 작업/알려진 이벤트와 관련 될 수 있습니다. 작업을 식별할 수 있는 경우 작업이 필요한 성능 수준에서 실행 되는지 확인 합니다. 성능을 허용할 수 있는 경우 리소스를 늘릴 필요가 없습니다.
 
