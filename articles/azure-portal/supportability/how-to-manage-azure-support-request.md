@@ -5,16 +5,16 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6c68dd341e0794a690b41b73ecc4be954db7359
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504817"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653852"
 ---
 # <a name="manage-an-azure-support-request"></a>Azure 지원 요청 관리
 
-[Azure 지원 요청을 만든](how-to-create-azure-support-request.md)후에는이 문서에서 설명 하는 [Azure Portal](https://portal.azure.com)에서 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)를 사용하여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
+[Azure 지원 요청을 만든](how-to-create-azure-support-request.md)후에는이 문서에서 설명 하는 [Azure Portal](https://portal.azure.com)에서 관리할 수 있습니다. [Azure 지원 티켓 REST API](/rest/api/support)또는 [Azure CLI](/cli/azure/azure-cli-support-request)를 사용 하 여 프로그래밍 방식으로 요청을 만들고 관리할 수도 있습니다.
 
 ## <a name="view-support-requests"></a>지원 요청 보기
 

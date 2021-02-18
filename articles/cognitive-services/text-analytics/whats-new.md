@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/16/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220703"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653920"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+
+## <a name="february-2021"></a>2021년 2월
+
+* S0 ~ S4 가격 책정 계층은 2021 년 3 월 8 일에 사용 중지 됩니다. S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)을 사용 하도록 업데이트 해야 합니다.
 
 ## <a name="january-2021"></a>2021년 1월
 
@@ -203,7 +207,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 * 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
     * PersonType
-    * Product
+    * 제품
     * 이벤트
     * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
     * 기술
@@ -213,7 +217,7 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
     * 조직
     * 수량 아래의 하위 형식으로 사용 기간
     * DateTime 아래의 하위 형식으로 날짜
-    * 메일 
+    * Email 
     * 전화 번호 (미국에만 해당)
     * URL
     * IP 주소
