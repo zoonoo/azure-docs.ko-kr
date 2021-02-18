@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954904"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092436"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계
 
@@ -66,8 +66,8 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 * Widevine은 모든 Android 디바이스, Chrome 및 일부 다른 디바이스에서 고유하게 구현됩니다. Widevine은 또한 DASH를 통해 Firefox 및 Opera 브라우저에서 지원됩니다.
 * FairPlay는 iOS, macOS 및 tvOS에서 사용할 수 있습니다.
 
-
 ## <a name="a-reference-design"></a>참조 디자인
+
 이 섹션에서는 구현에 사용되는 기술과 관계 없이 적용할 수 있는 참조 디자인을 제공합니다.
 
 DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.

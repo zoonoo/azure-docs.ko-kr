@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f21c819f82051572e8a3dd01664053ade9196484
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586294"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095042"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -347,7 +347,7 @@ WAF (웹 응용 프로그램 방화벽)를 배포한 경우 실시간 웹 응용
 
 - [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
+- [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -612,9 +612,9 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
 
-**지침**: Azure Active Directory (azure AD)의 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 Azure Portal의 App Service 제어 평면에 대 한 액세스를 제어 합니다.
+**지침**: azure AD (역할 기반 access control Azure Active Directory)를 사용 하 여 Azure Portal의 App Service 제어 평면에 대 한 액세스를 제어 합니다.
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 

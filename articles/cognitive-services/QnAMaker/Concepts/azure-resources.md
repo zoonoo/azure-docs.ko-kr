@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: f5a248b8701c71b2dcf0415c6656b9b565535232
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979765"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096532"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -93,7 +93,7 @@ QnA Maker 관리 되는 기술 자료를 처음으로 개발 하는 경우에는
 |                            |Azure Cognitive Search | 제한 사항                      |
 | -------------------------- |------------ | -------------------------------- |
 | **실험**        |체험 계층    | KB 최대 2개, 50MB 크기까지 게시  |
-| **개발/테스트 환경**   |기본        | 최대 14KB, 2GB 크기까지 게시    |
+| **개발/테스트 환경**   |Basic        | 최대 14KB, 2GB 크기까지 게시    |
 | **프로덕션 환경** |Standard     | KB 최대 49개, 25GB 크기까지 게시 |
 
 ---
@@ -142,16 +142,16 @@ QnA Maker 서비스는 App service에서 호스팅되는 런타임과 함께 사
 
 Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 합니다.
 
-![키 관리](../media/qnamaker-how-to-key-management/key-management.png)
+![키 관리](../media/authoring-key.png)
 
 |이름|위치|목적|
 |--|--|--|
-|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키 및 끝점** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |쿼리 끝점 키|[QnA Maker 포털](https://www.qnamaker.ai)|이러한 키는 게시 된 기술 자료 끝점을 쿼리하여 사용자 질문에 대 한 응답을 가져오는 데 사용 됩니다. 일반적으로이 쿼리 끝점은 채팅 봇 또는 QnA Maker 서비스에 연결 하는 클라이언트 응용 프로그램 코드에서 사용 합니다. 이러한 키는 QnA Maker 기술 자료를 게시할 때 생성 됩니다.<br><br>**서비스 설정** 페이지에서 이러한 키를 찾습니다. 드롭다운 메뉴의 페이지 오른쪽 위에 있는 사용자 메뉴에서이 페이지를 찾습니다.|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
 
-QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
+QnA Maker 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다.
 
 1. Azure Portal의 QnA Maker 리소스로 이동 하 고 _Cognitive Services_ 형식의 리소스를 선택 합니다.
 
@@ -189,12 +189,12 @@ Api를 통해 서비스에 대 한 요청을 만들 때 이러한 키를 사용 
 
 |이름|위치|목적|
 |--|--|--|
-|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
+|제작/구독 키|[Azure Portal](https://azure.microsoft.com/free/cognitive-services/)|이러한 키는 [QnA Maker 관리 서비스 API](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase)에 액세스하는 데 사용됩니다. 이러한 Api를 사용 하면 기술 자료의 질문과 대답을 편집 하 고 기술 자료를 게시할 수 있습니다. 이러한 키는 새 QnA Maker 서비스를 만들 때 생성 됩니다.<br><br>**키 및 끝점** 페이지의 **Cognitive Services** 리소스에서 이러한 키를 찾습니다.|
 |Azure Cognitive Search 관리자 키|[Azure Portal](../../../search/search-security-api-keys.md)|이러한 키는 사용자의 Azure 구독에 배포 된 Azure 인식 검색 서비스와 통신 하는 데 사용 됩니다. Azure 인식 검색을 QnA Maker 관리 (미리 보기) 서비스와 연결 하면 관리자 키가 자동으로 QnA Maker 서비스에 전달 됩니다. <br><br>**키** 페이지의 **Azure Cognitive Search** 리소스에서 이러한 키를 찾을 수 있습니다.|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Azure Portal에서 제작 키 찾기
 
-QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다. 이러한 키를 구독 키 라고 합니다.
+QnA Maker 관리 (미리 보기) 리소스를 만든 Azure Portal에서 작성 키를 확인 하 고 다시 설정할 수 있습니다.
 
 1. Azure Portal에서 QnA Maker 관리 (미리 보기) 리소스로 이동 하 고 *Cognitive Services* 유형의 리소스를 선택 합니다.
 
@@ -317,7 +317,7 @@ QnA Maker 리소스 생성 프로세스의 일부로 생성 된 것과 다른 �
 
 `{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>애플리케이션 정보
 
 [Application Insights](../../../azure-monitor/app/app-insights-overview.md) 은 채팅 로그 및 원격 분석을 수집 하는 데 사용 됩니다. 서비스에 대 한 자세한 내용은 common [Kusto 쿼리](../how-to/get-analytics-knowledge-base.md) 를 참조 하세요.
 
@@ -330,7 +330,7 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 
 |Cognitive Services|X|디자인에서 불가능|
 |App Service 계획|✔|App Service 계획에 할당 된 디스크 공간을 고정 했습니다. 동일한 App Service 계획을 공유 하는 다른 앱에서 상당한 디스크 공간을 사용 하는 경우 QnAMaker App Service 인스턴스에 문제가 발생 합니다.|
 |App Service|X|디자인에서 불가능|
-|Application Insights|✔|공유할 수 있습니다.|
+|애플리케이션 정보|✔|공유할 수 있습니다.|
 |Search 서비스|✔|1. `testkb` 은 QnAMaker 서비스에 예약 된 이름이 고 다른 서비스에서는 사용할 수 없습니다.<br>2. 이름이 인 동의어 맵이 `synonym-map` QnAMaker 서비스에 예약 되어 있습니다.<br>3. 게시 된 기술 자료의 수는 검색 서비스 계층에 의해 제한 됩니다. 사용 가능한 인덱스가 있는 경우 다른 서비스에서 사용할 수 있습니다.|
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
@@ -365,6 +365,6 @@ QnA Maker 관리 (미리 보기)를 사용 하면 기술 자료에 대 한 QnA M
 
 ## <a name="next-steps"></a>다음 단계
 
-* QnA Maker [기술 자료](../index.yml) 에 대 한 자세한 정보
+* QnA Maker [기술 자료](../How-To/manage-knowledge-bases.md) 에 대 한 자세한 정보
 * [기술 자료 수명 주기](development-lifecycle-knowledge-base.md) 이해
 * 서비스 및 기술 자료 [제한](../limits.md) 검토

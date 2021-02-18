@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 59eef7654e677ccfef79445f4a9cab26800bdfc5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d2a5dddc8a6d654703ad5da34d775df0d3e4110f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589145"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093144"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Azure 전면 도어에 대 한 azure 보안 기준
 
@@ -104,7 +104,7 @@ Azure RBAC를 사용 하 여 리소스에 할당 된 역할 기반 사용 권한
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md) 
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 

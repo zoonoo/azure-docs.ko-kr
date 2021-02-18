@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618623"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092882"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -162,7 +162,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 자동으로 생성 된 일부 서비스 주체는 관리 되는 도메인에 대 한 리소스를 관리 하 고 만드는 데 사용 됩니다. 이러한 서비스 사용자 중 한 명에 대 한 액세스 권한이 변경 되 면 도메인은 리소스를 올바르게 관리할 수 없습니다. 다음 단계에서는 서비스 주체에 대 한 액세스 권한을 이해 하 고 부여 하는 방법을 보여 줍니다.
 
-1. [역할 기반 액세스 제어 및 Azure Portal 응용 프로그램에 대 한 액세스 권한을 부여 하는 방법](../role-based-access-control/role-assignments-portal.md)에 대해 알아봅니다.
+1. [Azure 역할 기반 액세스 제어 및 Azure Portal 응용 프로그램에 대 한 액세스 권한을 부여 하는 방법](../role-based-access-control/role-assignments-portal.md)에 대해 읽어 보세요.
 2. ID *abba844e-bc0e-44b0-947a-dc74e5d09022* 를 사용 하는 서비스 주체에 대 한 액세스를 검토 하 고 이전 날짜에 거부 된 액세스 권한을 부여 합니다.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: 관리되는 도메인에 IP 주소가 충분하지 않음

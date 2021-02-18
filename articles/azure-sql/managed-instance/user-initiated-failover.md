@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/17/2021
+ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806082"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096517"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 문서에서는 SQL Managed Instance 일반 용도 (GP) 및 중요 비즈니스용 (BC) 서비스 계층에서 주 노드를 수동으로 장애 조치 하는 방법 및 BC 서비스 계층에서 보조 읽기 전용 복제본 노드를 수동으로 장애 조치 (failover) 하는 방법을 설명 합니다.
 

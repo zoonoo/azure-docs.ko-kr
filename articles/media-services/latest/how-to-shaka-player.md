@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: e4be3d4508d342c77507cf824fb036e32084b617
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b4bda5a439b1e0b35dc6d3af99e0273e4987568
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329740"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091340"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Azure Media Services에서 Shaka 플레이어를 사용 하는 방법
 
@@ -33,6 +33,7 @@ Shaka Player는 적응 미디어를 위한 오픈 소스 JavaScript 라이브러
 [Shaka player 설명서](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html)에서 공식 설명서를 찾을 수 있습니다.
 
 ## <a name="sample-code"></a>예제 코드
+
 이 문서에 대 한 샘플 코드는 [Azure-samples/media services-3rdparty-플레이어-샘플](https://github.com/Azure-Samples/media-services-3rdparty-player-samples)에서 제공 됩니다.
 
 ## <a name="implementing-the-player"></a>플레이어 구현

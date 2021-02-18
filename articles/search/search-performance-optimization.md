@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: bbd3e5774c6effa45888f6e59874d29f3b55b45f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 5e8b873e0e4e89979769183cfbf0ad473069e897
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545584"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096436"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Azure Cognitive Search의 성능에 대 한 크기 조정
 
@@ -100,6 +100,7 @@ Azure Cognitive Search는 현재 다음 지역 중 하나에서 만든 표준 �
 + 오스트레일리아 동부 (2021 년 1 월 30 일에 만들어짐)
 + 캐나다 중부 (2021 년 1 월 30 일에 만듦)
 + 미국 중부 (2020 년 12 월 4 일에 만듦)
++ 미국 동부 (2021 년 1 월 27 일에 만들어짐)
 + 미국 동부 2 (2021 년 1 월 30 일에 만들어짐)
 + 프랑스 중부 (2020 년 10 월 23 일 만듦)
 + 일본 동부 (2021 년 1 월 30 일에 만들어짐)

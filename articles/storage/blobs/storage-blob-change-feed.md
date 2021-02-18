@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390575"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095572"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -268,7 +268,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - 의 값이 인 이벤트 레코드를 `eventType` `Control` 내부 시스템 레코드로 변경 하 고 계정의 개체에 대 한 변경 내용을 반영 하지 않습니다. 이러한 레코드는 무시 해도 됩니다.
 
-- `storageDiagnonstics`속성 모음의 값은 내부 전용 이며 응용 프로그램에서 사용 하도록 설계 되지 않았습니다. 응용 프로그램에는 해당 데이터에 대 한 계약 종속성이 없어야 합니다. 이러한 속성은 무시 해도 됩니다.
+- `storageDiagnostics`속성 모음의 값은 내부 전용 이며 응용 프로그램에서 사용 하도록 설계 되지 않았습니다. 응용 프로그램에는 해당 데이터에 대 한 계약 종속성이 없어야 합니다. 이러한 속성은 무시 해도 됩니다.
 
 - 세그먼트가 나타내는 시간은 15 분 범위의 **근사치** 입니다. 따라서 지정 된 시간 내에 모든 레코드의 소비를 보장 하려면 연속 된 이전 및 다음 시간 세그먼트를 사용 합니다.
 
