@@ -3,13 +3,13 @@ title: 개념-Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 description: Azure vmware 솔루션 사설 클라우드에서 VMware ESXi 서버를 모니터링 하 고 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 02/03/2021
-ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/16/2021
+ms.openlocfilehash: 59319b5598be9770e82b9676a28444648230a019
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633141"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Azure VMware 솔루션 사설 클라우드 모니터링 및 복구
 
@@ -17,7 +17,7 @@ Azure VMware 솔루션은 Azure VMware 솔루션 사설 클라우드의 VMware E
 
 ## <a name="what-azure-vmware-solution-monitors"></a>Azure VMware 솔루션 모니터
 
-Azure VMware 솔루션은 다음을 모니터링 하 여 호스트에 대 한 오류 상태를 모니터링 합니다.  
+Azure VMware 솔루션은 호스트에서 다음 조건을 모니터링 합니다.  
 
 - 프로세서 상태 
 - 메모리 상태 
@@ -37,9 +37,9 @@ Azure VMware 솔루션은 다음을 모니터링 하 여 호스트에 대 한 �
 
 ## <a name="azure-vmware-solution-host-remediation"></a>Azure VMware 솔루션 호스트 재구성  
 
-Azure VMware 솔루션은 테 넌 트의 사설 클라우드에서 Azure VMware 솔루션 노드의 성능 저하 또는 실패를 검색할 때 호스트 재구성 프로세스를 트리거합니다. 호스트 재구성에는 잘못 된 노드를 새로운 정상 노드로 대체 하는 작업이 포함 됩니다.  
+Azure vmware 솔루션이 Azure VMware 솔루션 노드에서 성능 저하 또는 실패를 검색 하면 호스트 재구성 프로세스를 트리거합니다. 호스트 재구성에는 잘못 된 노드를 새로운 정상 노드로 대체 하는 작업이 포함 됩니다.  
 
-호스트 재구성 프로세스는 클러스터에 새로운 정상 노드를 추가 하 여 시작 됩니다. 그런 다음 가능 하면 잘못 된 호스트를 VMware vSphere 유지 관리 모드로 전환 합니다. VMware vMotion는 오류가 발생 한 호스트에서 클러스터의 다른 사용 가능한 서버로 Vm을 이동 하는 데 사용 되며, 잠재적으로 작업의 가동 중지 시간을 0으로 유지할 수 있습니다. 오류가 발생 한 호스트를 유지 관리 모드로 전환할 수 없는 경우 호스트는 클러스터에서 제거 됩니다.
+호스트 재구성은 클러스터에 새로운 정상 노드를 추가 하 여 시작 됩니다. 그런 다음 가능 하면 잘못 된 호스트를 VMware vSphere 유지 관리 모드로 전환 합니다. VMware vMotion는 오류가 발생 한 호스트의 Vm을 클러스터의 다른 사용 가능한 서버로 이동 하 여 워크 로드의 실시간 마이그레이션에 대 한 가동 중지 시간을 최소화할 수 있습니다. 오류가 있는 호스트를 유지 관리 모드로 전환할 수 없는 경우 호스트는 클러스터에서 제거 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

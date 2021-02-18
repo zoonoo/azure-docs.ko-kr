@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150965"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579317"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -54,7 +54,7 @@ Azure SignalR Service는 기본적으로 ASP.NET Core SignalR에서 지원하는
 
 [Azure SignalR Service의 메시지 및 연결](signalr-concept-messages-and-connections.md)에서 이러한 메트릭 계산에 대한 세부 정보를 찾을 수 있습니다.
 
-Azure SignalR Service 리소스의 개요 창에서 적절한 집계 유형을 이미 선택했습니다. 메트릭 창으로 이동하면 집계 유형을 참조로 [Azure SignalR Service의 메시지 및 연결](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr)로 사용할 수 있습니다.
+Azure SignalR Service 리소스의 개요 창에서 적절한 집계 유형을 이미 선택했습니다. 메트릭 창으로 이동하면 집계 유형을 참조로 [Azure SignalR Service의 메시지 및 연결](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr)로 사용할 수 있습니다.
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>`Default`, `Serverless` 및 `Classic` 서비스 모드의 의미는 무엇인가요? 어떻게 선택할 수 있나요?
 
@@ -77,11 +77,11 @@ SignalR 인스턴스에서 업스트림을 구성하는 경우 클라이언트�
 Azure SignalR Service를 사용하는 경우 ASP.NET SignalR의 일부 API 및 기능이 지원되지 않습니다.
 - 클라이언트와 허브 간에 임의 상태를 전달하는 기능(종종 `HubState`라고 함)은 지원되지 않습니다.
 - `PersistentConnection` 클래스는 지원되지 않습니다.
-- *Forever Frame 전송*은 지원되지 않습니다.
+- *Forever Frame 전송* 은 지원되지 않습니다.
 - 클라이언트가 오프라인인 경우 Azure SignalR Service가 클라이언트로 전송된 메시지를 더 이상 재생하지 않습니다.
-- Azure SignalR Service를 사용하는 경우 한 클라이언트 연결에 대한 트래픽은 항상 연결 기간 동안 하나의 앱 서버 인스턴스로 라우팅됩니다(*고정*이라고도 함).
+- Azure SignalR Service를 사용하는 경우 한 클라이언트 연결에 대한 트래픽은 항상 연결 기간 동안 하나의 앱 서버 인스턴스로 라우팅됩니다(*고정* 이라고도 함).
 
-ASP.NET SignalR에 대한 지원은 호환성에 중점을 두므로 ASP.NET Core SignalR의 모든 새로운 기능이 지원되지 않습니다. 예를 들어 *MessagePack* 및 *Streaming*은 ASP.NET Core SignalR 애플리케이션에만 사용할 수 있습니다.
+ASP.NET SignalR에 대한 지원은 호환성에 중점을 두므로 ASP.NET Core SignalR의 모든 새로운 기능이 지원되지 않습니다. 예를 들어 *MessagePack* 및 *Streaming* 은 ASP.NET Core SignalR 애플리케이션에만 사용할 수 있습니다.
 
 서로 다른 서비스 모드(`Classic`, `Default` 및 `Serverless`)에 대해 Azure SignalR Service를 구성할 수 있습니다. ASP.NET에는 `Serverless` 모드가 지원되지 않습니다. 데이터 평면 REST API도 지원되지 않습니다.
 

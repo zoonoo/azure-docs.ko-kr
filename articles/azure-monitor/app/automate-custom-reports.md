@@ -4,12 +4,12 @@ description: Azure Application Insights 데이터를 사용하여 사용자 지�
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590049"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -31,7 +31,7 @@ ms.locfileid: "98680453"
 
 [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하여 일정에 따라 사용자 지정 보고서를 생성할 수 있습니다. 다음 옵션은 빠르게 시작할 수 있게 돕습니다.
 
-* [전원 자동화를 사용 하 여 보고서 자동화](../platform/logicapp-flow-connector.md)
+* [전원 자동화를 사용 하 여 보고서 자동화](../logs/logicapp-flow-connector.md)
 * [논리 앱을 사용하여 보고서 자동화](automate-with-logic-apps.md)
 * 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-get-started.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
 
@@ -150,7 +150,7 @@ availabilityResults
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Analytics 쿼리](../log-query/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
+* [Analytics 쿼리](../logs/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 * [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하는 방법에 대해 자세히 알아보기
 * [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
 * [Microsoft Power 자동화](https://ms.flow.microsoft.com)에 대해 자세히 알아보세요.

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c4dbeae0cfb76063fdca70b3ad1d264b59f9ace
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571601"
+ms.locfileid: "100634246"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -212,7 +212,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 
 **앱 관리** 로 이동 하 여 응용 프로그램 상태를 _실행_ 하 고 있는지 확인 _합니다._
 
-응용 프로그램 패키지에서 날씨 _JMX_ 이 사용 하도록 설정 되어 있는지 확인 합니다. 구성 속성을 사용 하 여이 기능을 사용 하도록 설정할 수 있습니다 `spring.jmx.enabled=true` .  
+응용 프로그램 패키지에서 _JMX_ 를 사용할 수 있는지 확인 합니다. 구성 속성을 사용 하 여이 기능을 사용 하도록 설정할 수 있습니다 `spring.jmx.enabled=true` .  
 
 `spring-boot-actuator`응용 프로그램 패키지에서 종속성을 사용 하도록 설정 하 고 성공적으로 부팅 되었는지 확인 하십시오.
 

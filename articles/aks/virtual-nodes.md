@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: AKS (Azure Kubernetes Services)에서 가상 노드를 사용 하는 방법에 대 한 개요
 services: container-service
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684777"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634450"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>가상 노드를 사용 하 여 AKS (Azure Kubernetes Services) 클러스터 만들기 및 구성
 
@@ -45,7 +45,6 @@ ACI (Azure Container Instances)에서 실행 되는 pod는 네트워킹을 구�
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) 는 가상 노드에 pod을 배포 하지 않습니다.
 * 가상 노드는 Linux Pod 예약을 지원합니다. 오픈 소스 [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) 공급자를 수동으로 설치하여 Windows Server 컨테이너를 ACI로 예약할 수 있습니다.
 * 가상 노드에는 Azure CNI 네트워킹을 사용 하는 AKS 클러스터가 필요 합니다.
-* 개인 클러스터가 있는 가상 노드.
 * AKS에 대 한 api 서버 권한이 부여 된 ip 범위를 사용 합니다.
 * 볼륨 탑재 Azure Files 공유는 [범용 V1](../storage/common/storage-account-overview.md#types-of-storage-accounts)을 지원 합니다. [Azure Files 공유를 사용 하 여 볼륨을 탑재 하](azure-files-volume.md) 는 방법에 대 한 지침을 따르세요.
 * I p v 6을 사용할 수 없습니다.

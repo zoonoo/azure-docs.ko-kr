@@ -4,12 +4,12 @@ description: 기본 설정에 맞게 Azure Portal 기본 설정을 변경할 수
 keywords: 설정, 시간 제한, 언어, 지역
 ms.date: 08/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 5a108f1cd3b5af6655b592e7283192d4d54498ac
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 591b1ce6c2c069f9c0266588bf32f7303bf49708
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094113"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588804"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Azure Portal 설정 및 기본 설정 관리
 
@@ -71,7 +71,7 @@ Azure Portal에 로그인 할 때 기본적으로 열리는 페이지를 변경�
 
 ![알림이 강조 표시 된 Azure Portal global 헤더를 보여 주는 스크린샷](./media/set-preferences/read-notifications.png)
 
-이전 세션에서 알림을 읽으려면 활동 로그에서 이벤트를 찾으십시오. 자세한 내용은 [활동 로그 보기](../azure-monitor/platform/activity-log.md#view-the-activity-log)를 참조 하세요. 
+이전 세션에서 알림을 읽으려면 활동 로그에서 이벤트를 찾으십시오. 자세한 내용은 [활동 로그 보기](../azure-monitor/essentials/activity-log.md#view-the-activity-log)를 참조 하세요. 
 
 ## <a name="change-the-inactivity-timeout-setting"></a>비활성 시간 제한 설정 변경
 

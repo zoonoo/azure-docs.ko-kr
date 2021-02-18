@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897278"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591977"
 ---
 # <a name="configure-azure-backup-reports-preview"></a>Azure Backup 보고서 구성 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "98897278"
 - 백업 및 복원을 감사합니다.
 - 여러 세분성 수준에서 주요 추세를 확인합니다.
 
-현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/log-query/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/platform/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
+현재 Azure Backup은 [Azure Monitor 로그](../azure-monitor/logs/log-analytics-tutorial.md) 및 [Azure 통합 문서](../azure-monitor/visualize/workbooks-overview.md)를 사용하는 보고 솔루션을 제공합니다. 이러한 리소스를 통해 전체 백업 자산의 백업에 대한 풍부한 인사이트를 얻을 수 있습니다. 이 문서에서는 Azure Backup 보고서를 구성하고 보는 방법을 설명합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -41,9 +41,9 @@ ms.locfileid: "98897278"
 
 Backup 보고 데이터를 저장할 Log Analytics 작업 영역을 하나 이상 설정합니다. 이 Log Analytics 작업 영역을 만들 수 있는 위치 및 구독은 자격 증명 모음이 있는 위치 및 구독과는 독립적입니다.
 
-Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.
+Log Analytics 작업 영역을 설정하려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조하세요.
 
-기본적으로 Log Analytics 작업 영역의 데이터는 30일 동안 보존됩니다. 더 긴 시간 동안 데이터를 보려면 Log Analytics 작업 영역의 보존 기간을 변경합니다. 보존 기간을 변경하려면 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/platform/manage-cost-storage.md)를 참조하세요.
+기본적으로 Log Analytics 작업 영역의 데이터는 30일 동안 보존됩니다. 더 긴 시간 동안 데이터를 보려면 Log Analytics 작업 영역의 보존 기간을 변경합니다. 보존 기간을 변경하려면 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. 자격 증명 모음의 진단 설정 구성
 

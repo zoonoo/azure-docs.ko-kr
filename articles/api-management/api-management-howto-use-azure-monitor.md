@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 5e5c59d611cb7f4b5333b9919488e6fc083611cd
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 1cb902c4b59193c46dbeca47bb355f0695a0f2c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572806"
 ---
 # <a name="tutorial-monitor-published-apis"></a>자습서: 게시된 API 모니터링
 
@@ -39,7 +39,7 @@ API Management의 기본 제공 [분석](howto-use-analytics.md)을 사용하여
 
 ## <a name="view-metrics-of-your-apis"></a>API의 메트릭 보기
 
-API Management는 1분 간격으로 [메트릭](../azure-monitor/platform/data-platform-metrics.md)을 내보내므로 거의 실시간으로 API 상태를 확인할 수 있습니다. 다음은 가장 많이 사용되는 두 가지 메트릭입니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)을 참조하세요.
+API Management는 1분 간격으로 [메트릭](../azure-monitor/essentials/data-platform-metrics.md)을 내보내므로 거의 실시간으로 API 상태를 확인할 수 있습니다. 다음은 가장 많이 사용되는 두 가지 메트릭입니다. 사용 가능한 모든 메트릭 목록은 [지원되는 메트릭](../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice)을 참조하세요.
 
 * **용량** - APIM 서비스를 업그레이드/다운그레이드할지 결정하는 데 도움이 됩니다. 메트릭은 1분 간격으로 내보내지며 보고 시점의 게이트웨이 용량을 반영합니다. 메트릭의 범위는 0-100이고, CPU 및 메모리 사용률 등의 게이트웨이 리소스를 기반으로 계산됩니다.
 * **요청** - API Management 서비스를 통과하는 API 트래픽을 분석하는 데 도움이 됩니다. 메트릭은 분당 내보내고 응답 코드, 위치, 호스트 이름 및 오류를 포함한 차원으로 게이트웨이 요청 수를 보고합니다. 
@@ -62,7 +62,7 @@ API Management는 1분 간격으로 [메트릭](../azure-monitor/platform/data-p
 
 ## <a name="set-up-an-alert-rule"></a>경고 규칙 설정 
 
-메트릭 및 활동 로그를 기반으로 [경고](../azure-monitor/platform/alerts-metric-overview.md)를 수신할 수 있습니다. Azure Monitor를 사용하여 트리거되면 다음을 수행하도록 [경고를 구성](../azure-monitor/platform/alerts-metric.md)할 수 있습니다.
+메트릭 및 활동 로그를 기반으로 [경고](../azure-monitor/alerts/alerts-metric-overview.md)를 수신할 수 있습니다. Azure Monitor를 사용하여 트리거되면 다음을 수행하도록 [경고를 구성](../azure-monitor/alerts/alerts-metric.md)할 수 있습니다.
 
 * 전자 메일 알림 보내기
 * 웹후크 호출
@@ -140,7 +140,7 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
    리소스 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Log Analytics 작업 영역으로 보낼 수 있습니다. 
 
-자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
+자세한 내용은 [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 ## <a name="view-diagnostic-data-in-azure-monitor"></a>Azure Monitor에서 진단 데이터 보기
 
@@ -151,7 +151,7 @@ Log Analytics 작업 영역에서 GatewayLogs 또는 메트릭을 수집하도�
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="[모니터링] 메뉴의 [로그] 항목 스크린샷":::
 
-쿼리를 실행하여 데이터를 봅니다. 여러 [샘플 쿼리](../azure-monitor/log-query/example-queries.md)가 제공되며, 자체 쿼리를 실행해도 됩니다. 예를 들어 다음 쿼리는 GatewayLogs 테이블에서 최근 24시간 동안의 데이터를 검색합니다.
+쿼리를 실행하여 데이터를 봅니다. 여러 [샘플 쿼리](../azure-monitor/logs/example-queries.md)가 제공되며, 자체 쿼리를 실행해도 됩니다. 예를 들어 다음 쿼리는 GatewayLogs 테이블에서 최근 24시간 동안의 데이터를 검색합니다.
 
 ```kusto
 ApiManagementGatewayLogs
@@ -160,9 +160,9 @@ ApiManagementGatewayLogs
 
 API Management에 대한 리소스 로그 사용에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Monitor Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 또는 [Log Analytics 데모 환경](https://portal.loganalytics.io/demo) 사용
+* [Azure Monitor Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md) 또는 [Log Analytics 데모 환경](https://portal.loganalytics.io/demo) 사용
 
-* [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor의 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)
 
 다음 JSON은 GatewayLogs에서 성공한 API 요청의 샘플 항목을 나타냅니다. 자세한 내용은 [스키마 참조](gateway-log-schema-reference.md)에서 확인할 수 있습니다. 
 

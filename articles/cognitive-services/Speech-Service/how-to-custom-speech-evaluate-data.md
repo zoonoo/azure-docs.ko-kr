@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388943"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591902"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 개선
 
@@ -109,12 +109,13 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 다음 정보를 고려 하세요.
 
-* Custom Speech는 단어 컨텍스트에서만 삽입 또는 삭제 오류가 아닌 대체 오류를 줄일 수 있습니다.
+* 오디오를 사용한 교육은 오디오를 이해 하기 어려운 경우 가장 많은 이점을 제공 합니다. 대부분의 경우 관련 텍스트를 사용 하 여 학습을 시작 해야 합니다.
+* 미국 영어와 같이 가장 많이 사용 되는 언어 중 하나를 사용 하는 경우 오디오 데이터를 트레인 하지 않아도 되는 것이 좋습니다. 이러한 언어의 경우 대부분의 시나리오에서 기본 모델은 이미 매우 좋은 인식 결과를 제공 합니다. 관련 텍스트로 학습 하기에 충분 한 것일 수 있습니다.
+* Custom Speech는 단어 컨텍스트에서만 캡처 하 여 삽입 또는 삭제 오류가 발생 하는 것을 줄일 수 있습니다.
 * 기록 오류가 포함 된 샘플을 사용 하지 말고 오디오 품질의 다양성을 포함 합니다.
 * 문제 도메인과 관련이 없는 문장을 사용 하지 마십시오. 관련이 없는 문장은 모델을 손상 시킬 수 있습니다.
 * 성적 증명서가 변경 되는 경우 매우 좋은 문장 (예: 키 구를 포함 하는 고급 문구)을 복제 하 여 가중치를 늘릴 수 있습니다.
 * 음성 서비스는 관련 텍스트로 추가 된 것 처럼 도메인 특정 단어와 구의 인식 기능을 개선 하기 위해 자동으로 성적 증명서를 사용 합니다.
-* 오디오를 사용한 교육은 오디오를 이해 하기 어려운 경우 가장 많은 이점을 제공 합니다. 대부분의 경우 관련 텍스트를 사용 하 여 학습을 시작 해야 합니다.
 * 학습 작업을 완료 하는 데 몇 일이 걸릴 수 있습니다. 학습 속도를 높이려면 교육용 [전용 하드웨어가 있는 지역](custom-speech-overview.md#set-up-your-azure-account) 에서 음성 서비스 구독을 만들어야 합니다.
 
 > [!NOTE]

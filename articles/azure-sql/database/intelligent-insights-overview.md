@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488870"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592089"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -107,7 +107,7 @@ Azure SQL 분석에서 Intelligent Insights를 사용 하려면 이전 단계에
 
 ### <a name="set-up-with-event-hubs"></a>Event Hubs를 사용하여 설정
 
-Event Hubs에서 Intelligent Insights를 사용 하려면 Event Hubs로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하 고, [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 을 참조 하 고, [Azure 진단 로그를 Event Hubs으로 스트리밍합니다](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Event Hubs에서 Intelligent Insights를 사용 하려면 Event Hubs로 스트리밍할 Intelligent Insights 로그 데이터를 구성 하 고, [메트릭 및 진단 로깅](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) 을 참조 하 고, [Azure 진단 로그를 Event Hubs으로 스트리밍합니다](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 Event Hubs를 사용 하 여 사용자 지정 모니터링 및 경고를 설정 하려면 [Event Hubs에서 메트릭 및 진단 로그를 사용 하 여 수행할 작업](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs)을 참조 하세요.
 
@@ -164,7 +164,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 - 탄력적 풀 리소스 제한에 도달
 - 과도한 작업자 또는 세션 스레드 수
 - 과도한 데이터베이스 잠금
-- 메모리 압력
+- 메모리 부족
 - 다른 대기 통계
 
 리소스 제한이나 탄력적 풀 리소스 제한에 도달하면 구독 또는 탄력적 풀에서 사용할 수 있는 리소스 소모량이 절대 임계값 이상으로 증가했음을 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다. 과도한 작업자 또는 세션 스레드 수는 시작된 작업자 스레드 또는 세션 수가 절대 임계값 이상에 도달한 상태를 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다.

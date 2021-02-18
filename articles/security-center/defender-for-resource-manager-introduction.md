@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 922189909da21aac65d1e2e898df58598868b929
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797740"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590474"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -48,7 +48,7 @@ Azure Defender for Resource Manager에서 제공하는 경고의 전체 목록�
 
 Azure Defender for Resource Manager의 보안 경고는 Azure Resource Manager 작업을 모니터링하여 감지된 위협을 기반으로 합니다. Azure Defender는 Azure Resource Manager의 내부 로그 원본과 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure의 플랫폼 로그인 Azure 활동 로그를 사용합니다.
 
-[Azure 활동 로그](../azure-monitor/platform/activity-log.md)에 대해 자세히 알아보세요.
+[Azure 활동 로그](../azure-monitor/essentials/activity-log.md)에 대해 자세히 알아보세요.
 
 Azure Defender for Resource Manager에서 경고를 조사하려면 다음을 수행합니다.
 

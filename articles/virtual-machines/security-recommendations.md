@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 95ba93c4a5d71e6813c1bee144c983e1dfd8c89d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500328"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571339"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Azure의 가상 컴퓨터에 대 한 보안 권장 사항
 
@@ -56,7 +56,7 @@ Azure Security Center에 대 한 일반 정보 [는 Azure Security Center 무엇
 
 | 권장 | 주석 | Security Center |
 |-|----|--|
-| Vm을 모니터링 합니다. | [VM용 Azure Monitor](../azure-monitor/insights/vminsights-overview.md) 를 사용 하 여 Azure vm 및 가상 머신 확장 집합의 상태를 모니터링할 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. | - |
+| Vm을 모니터링 합니다. | [VM용 Azure Monitor](../azure-monitor/vm/vminsights-overview.md) 를 사용 하 여 Azure vm 및 가상 머신 확장 집합의 상태를 모니터링할 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. | - |
 
 ## <a name="networking"></a>네트워킹
 

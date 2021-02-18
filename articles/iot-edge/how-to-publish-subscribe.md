@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621898"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633974"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
 
@@ -31,7 +31,7 @@ Azure IoT Edge MQTT broker를 사용 하 여 메시지를 게시 하 고 구독�
 - SKU의 **IoT Hub** 는 F1, S1, S2 또는 S3 중 하나입니다.
 - **1.2 이상 버전의 IoT Edge 장치가** 있어야 합니다. IoT Edge MQTT broker는 현재 공개 미리 보기로 제공 되므로 edgeHub 컨테이너에서 다음 환경 변수를 true로 설정 하 여 MQTT broker를 사용 하도록 설정 합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -366,8 +366,8 @@ TLS를 사용 하도록 설정 하려면 포트를 1883 (MQTT)에서 8883 (MQTT)
 
 IoT Hub에 원격 분석 데이터를 보내는 것은 사용자 정의 항목에 게시 하는 것과 비슷하지만 특정 IoT Hub 토픽을 사용 하는 것과 비슷합니다.
 
-- 장치의 경우 항목에서 원격 분석이 전송 됩니다. `devices/<device_name>/messages/events`
-- 모듈의 경우 항목에 대 한 원격 분석이 전송 됩니다. `devices/<device_name>/<module_name>/messages/events`
+- 장치의 경우 항목에서 원격 분석이 전송 됩니다. `devices/<device_name>/messages/events/`
+- 모듈의 경우 항목에 대 한 원격 분석이 전송 됩니다. `devices/<device_name>/<module_name>/messages/events/`
 
 또한 `FROM /messages/* INTO $upstream` IoT Edge MQTT broker에서 IoT hub로 원격 분석을 보내는 등의 경로를 만듭니다. 라우팅에 대 한 자세한 내용은 [선언 경로](module-composition.md#declare-routes)를 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e4c749d875ab22f8cdf26adf6050e1fa0476b28
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 195c264eca0c40712816495a09e1387fcaa2c910
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572930"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Security Center에 대 한 Azure 보안 기준
 
@@ -30,7 +30,7 @@ ms.locfileid: "98202252"
 
 - [네트워크 보안 그룹을 사용 하 여 네트워크 트래픽 필터](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Azure 개인 링크 이해](../private-link/private-link-overview.md) 
 
@@ -46,7 +46,7 @@ ms.locfileid: "98202252"
 
 - [Azure Security Center에서 데이터 수집](security-center-enable-data-collection.md)
 
-- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md) 
 
@@ -70,7 +70,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Security Center에서 데이터 수집](security-center-enable-data-collection.md)
 
-- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
+- [Log Analytics 에이전트를 사용 하기 위한 방화벽 요구 사항](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements)
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md) 
 
@@ -86,9 +86,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 Azure Security Center 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 사용자에 게 알리도록 경고를 Azure Monitor 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인 하 고 검색 하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Azure 활동 로그 이벤트를 확인 하 고 검색 하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -112,9 +112,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -126,11 +126,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor 활동 로그를 자동으로 사용할 수 있으며, 이러한 로그에는 수행 된 작업, 작업을 시작한 사람 및 발생 시기를 비롯 하 여 Azure Security Center 리소스에 대 한 모든 쓰기 작업이 포함 됩니다. 로그 통합 및 보존 증가를 위해 Azure 활동 로그를 Log Analytics 작업 영역으로 보냅니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [활동 로그를 Log Analytics 작업 영역으로 보내기](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace)
+- [활동 로그를 Log Analytics 작업 영역으로 보내기](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -140,7 +140,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다. 
 
-- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -156,9 +156,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -174,11 +174,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Security Center에서 경고를 관리 하는 방법](security-center-managing-and-responding-alerts.md) 
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Sentinel에서 자동화된 위협 응답 설정](../sentinel/tutorial-respond-threats-playbook.md)
 
-- [Azure Monitor의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)
+- [Azure Monitor의 로그 경고](../azure-monitor/alerts/alerts-unified-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -368,7 +368,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 해당 하는 경우 미사용 암호화 및 전송 중인 암호화에 대 한 Azure Security Center 권장 사항을 따릅니다. 
 
-- [데이터를 Log Analytics에 안전 하 게 보내기](../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)
+- [데이터를 Log Analytics에 안전 하 게 보내기](../azure-monitor/logs/data-security.md#sending-data-securely-using-tls-12)
 
 - [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -394,7 +394,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Security Center 구성 된 Log Analytics 작업 영역을 사용 하 여 생성 된 데이터, 경고 및 권장 사항을 저장 합니다. Security Center 데이터 수집을 위해 구성한 작업 영역에 대해 고객 관리 키 (CMK)를 구성 합니다. CMK를 사용 하면 작업 영역에 저장 되거나 전송 되는 모든 데이터를 사용자가 만들고 소유한 Azure Key Vault 키로 암호화할 수 있습니다. 
 
-- [Azure Monitor 고객 관리형 키](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor 고객 관리형 키](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -404,7 +404,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Security Center와 관련 된 중요 한 Azure 리소스에 변경 내용이 적용 되는 경우 경고를 만들려면 Azure Monitor를 사용 합니다. 이러한 변경 내용에는 경고 또는 권장 사항 사용 안 함과 같은 보안 센터와 관련 된 구성을 수정 하는 작업, 데이터 저장소의 업데이트 또는 삭제 등이 포함 될 수 있습니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -596,7 +596,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 **지침**: Azure Security Center 구성 된 Log Analytics 작업 영역을 사용 하 여 생성 된 데이터, 경고 및 권장 사항을 저장 합니다. Security Center 데이터 수집을 위해 구성한 작업 영역에 대해 고객 관리 키 (CMK)를 구성 합니다. CMK를 사용 하면 작업 영역에 저장 되거나 전송 되는 모든 데이터를 사용자가 만들고 소유한 Azure Key Vault 키로 암호화할 수 있습니다. 
 
-- [Azure Monitor 고객 관리형 키](../azure-monitor/platform/customer-managed-keys.md)
+- [Azure Monitor 고객 관리형 키](../azure-monitor/logs/customer-managed-keys.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -656,7 +656,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 **지침**: Azure Resource Manager 지원 되는 템플릿 파일을 사용 하 여 정기적으로 복원을 수행할 수 있도록 합니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](../azure-monitor/samples/resource-manager-workspace.md)
+- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](../azure-monitor/logs/resource-manager-workspace.md)
 
 - [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 1752e6687cd4dda72ee330c489a4642ae32f8219
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633906"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -43,7 +43,7 @@ Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨 백�
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일정 및 보존 설정을 사용하여 백업됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 보존 설정이 축소될 경우 다음 정리 작업에서 기존 복구 지점이 정리되고 결과적으로 삭제됩니다.
 백업 작업 취소| 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
 다른 지역 또는 구독에 VM 백업 |지원되지 않습니다.<br><br>성공적으로 백업하려면 가상 머신이 백업용 자격 증명 모음과 동일한 구독에 있어야 합니다.
-매일 백업(Azure VM 확장을 통해) | 매일 1회 백업 예약<br/><br/>Azure Backup 서비스는 하루에 최대 9번의 주문형 백업을 지원하지만 최상의 성능을 보장하기 위해 하루에 4번 이하의 주문형 백업을 사용하는 것이 좋습니다.
+매일 백업(Azure VM 확장을 통해) | 매일 1회 백업 예약<br/><br/>Azure Backup 서비스는 하루에 최대 3 개의 주문형 백업을 지원 하 고 예약 된 백업 하나를 추가로 지원 합니다.
 매일 백업(MARS 에이전트를 통해) | 매일 3회 백업 예약
 매일 백업(DPM/MABS를 통해) | 매일 2회 백업 예약
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
@@ -144,13 +144,13 @@ VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든
 사용자 지정 이미지(타사)에서 배포한 VM 백업 |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성 백업 | Azure Backup는 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
-[진단 설정](../azure-monitor/platform/platform-logs-overview.md)으로 백업  | 지원되지 않음 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용하여 진단 설정으로 Azure VM 복원이 트리거되면 복원이 실패합니다.
+[진단 설정](../azure-monitor/essentials/platform-logs-overview.md)으로 백업  | 지원되지 않음 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용하여 진단 설정으로 Azure VM 복원이 트리거되면 복원이 실패합니다.
 영역 고정 VM 복원 | 지원 됨 (1 월 2019 일 이후에 백업 된 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우)<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원 하는 기능을 지원 합니다. 그러나 가동 중단으로 인해 영역을 사용할 수 없는 경우 복원이 실패 합니다.
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
 [스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
-[Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | 지원 여부
-독립 실행형 Azure Vm의 Windows 저장소 공간 구성 | 지원 여부
+[Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | 지원됨
+독립 실행형 Azure Vm의 Windows 저장소 공간 구성 | 지원됨
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 
@@ -167,7 +167,7 @@ Write Accelerator가 설정된 디스크 | 2020 년 11 월 23 일부 터는 제�
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
 공유 스토리지| CSV (클러스터 공유 볼륨) 또는 Scale-Out 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
 [공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
-울트라 SSD 디스크 | 지원 안 됨 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
+울트라 SSD 디스크 | 지원되지 않습니다. 자세한 내용은 이러한 [제한 사항](selective-disk-backup-restore.md#limitations)을 참조 하세요.
 [임시 디스크](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | 임시 디스크는 Azure Backup에 의해 백업 되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원

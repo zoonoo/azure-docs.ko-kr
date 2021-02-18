@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: dff83159511c6e8a08e8f212c01244e923ad1f5b
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 4f741c1317f70079755b61f7ad94a415cd039865
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376947"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578891"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
@@ -57,7 +57,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 
 ## <a name="how-to-monitor-your-scale-sets"></a>크기 집합을 모니터링하는 방법
 
-간단한 온보딩 프로세스가 있고 확장 집합의 VM에서 중요한 CPU, 메모리, 디스크 및 네트워크 성능 카운터 컬렉션을 자동화하는 [VM용 Azure Monitor](../azure-monitor/insights/vminsights-overview.md)를 사용합니다. 또한 확장 집합의 가용성과 성능에 집중하는 데 도움이 되는 추가 모니터링 기능 및 미리 정의된 시각화가 포함되어 있습니다.
+간단한 온보딩 프로세스가 있고 확장 집합의 VM에서 중요한 CPU, 메모리, 디스크 및 네트워크 성능 카운터 컬렉션을 자동화하는 [VM용 Azure Monitor](../azure-monitor/vm/vminsights-overview.md)를 사용합니다. 또한 확장 집합의 가용성과 성능에 집중하는 데 도움이 되는 추가 모니터링 기능 및 미리 정의된 시각화가 포함되어 있습니다.
 
 페이지 보기, 애플리케이션 요청 및 예외를 포함하여 애플리케이션에 대한 자세한 정보를 수집하려면 Application Insights를 사용하여 [가상 머신 확장 집합 애플리케이션](../azure-monitor/app/azure-vm-vmss-apps.md)에 대한 모니터링을 사용하도록 설정합니다. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../azure-monitor/app/monitor-web-app-availability.md)를 구성하여 애플리케이션의 가용성을 추가로 확인하세요.
 

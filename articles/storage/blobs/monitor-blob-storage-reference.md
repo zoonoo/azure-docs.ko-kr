@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584909"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571629"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob storage 모니터링 데이터 참조
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="blob-storage"></a>Blob 스토리지
 
-다음 표에서는 [Blob storage 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices)보여 줍니다.
+다음 표에서는 [Blob storage 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
@@ -176,4 +176,4 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="see-also"></a>참고 항목
 
 - Azure Storage 모니터링에 대한 설명은 [Azure Storage 모니터링](monitor-blob-storage.md)을 참조하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

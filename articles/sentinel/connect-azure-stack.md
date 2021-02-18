@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5999e8da5dffce85dd12ecd01cd5991ea4abc098
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807431"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590240"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 허브 가상 머신 연결
 
@@ -50,9 +50,9 @@ Azure Stack 허브에서 실행 되는 가상 머신에 **Azure Monitor, 업데�
 
 1. 확장 설치가 완료 되 면 상태가 **프로 비전 성공** 으로 표시 됩니다. 가상 머신이 Azure 센티널 포털에 표시 되는 데 최대 1 시간이 걸릴 수 있습니다.
 
-Windows 용 에이전트를 설치 하 고 구성 하는 방법에 대 한 자세한 내용은 [windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard)을 참조 하세요.
+Windows 용 에이전트를 설치 하 고 구성 하는 방법에 대 한 자세한 내용은 [windows 컴퓨터 연결](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard)을 참조 하세요.
 
-Linux 에이전트 문제 해결 방법은 [Azure Log Analytics Linux 에이전트 문제 해결](../azure-monitor/platform/agent-linux-troubleshoot.md)을 참조하세요.
+Linux 에이전트 문제 해결 방법은 [Azure Log Analytics Linux 에이전트 문제 해결](../azure-monitor/agents/agent-linux-troubleshoot.md)을 참조하세요.
 
 Azure의 Azure 센티널 포털의 **Virtual Machines** 에는 모든 vm 및 컴퓨터의 상태와 함께 개요가 표시 됩니다. 
 

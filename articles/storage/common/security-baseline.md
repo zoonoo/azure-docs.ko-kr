@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195724"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591554"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대 한 Azure 보안 기준
 
@@ -158,7 +158,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -180,7 +180,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 **지침**: 끝점 장치, 네트워크 리소스 및 기타 보안 시스템에 의해 생성 된 보안 데이터를 집계 하기 위해 Azure Monitor를 통해 로그를 수집 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고, 장기/보관 저장소에 대 한 Azure Storage 계정을 사용 하 고, 필요에 따라 변경 불가능 한 저장소 및 적용 된 보존 유지와 같은 보안 기능을 사용 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -210,7 +210,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 - [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](./storage-monitor-storage-account.md#configure-logging)
 
-- [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -238,7 +238,7 @@ Azure Storage에 대 한 Azure 보안 기준에는 배포의 보안 상태를 �
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/learn/tutorial-response.md)
+- [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Storage 분석 로깅](./storage-analytics-logging.md)
 
@@ -362,7 +362,7 @@ Microsoft 서비스 및 Azure ARM에 대해 Azure AD Privileged Identity Managem
 
 - [Azure AD 위험 탐지 이해](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../../azure-monitor/platform/action-groups.md)
+- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -572,7 +572,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 �
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 저장소 계정 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다. Azure Storage 로깅을 사용 하 여 Azure Storage에 대해 수행 된 각 요청에 대 한 권한이 있는지 추적할 수도 있습니다. 로그는 OAuth 2.0 토큰을 사용 하거나 공유 키를 사용 하거나 공유 액세스 서명 (SAS)을 사용 하 여 요청이 익명으로 수행 되었는지 여부를 나타냅니다. 또한 Azure Monitor를 사용 하 여 익명 인증 조건을 사용 하 여 저장소 계정에 대 한 익명 액세스를 경고 합니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage 분석 로깅](./storage-analytics-logging.md)
 

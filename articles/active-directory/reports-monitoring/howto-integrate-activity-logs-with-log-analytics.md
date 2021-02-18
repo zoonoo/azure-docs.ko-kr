@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180458"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591135"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
 
@@ -52,14 +52,14 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 기능을 사용하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
 * Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자* 인 사용자.
-* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
+* Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](../../azure-monitor/logs/quick-create-workspace.md)을 알아봅니다.
 
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
 
@@ -69,7 +69,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory**  >  **진단 설정**  ->  **추가 진단** 설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지** 에서 **설정 내보내기** 를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
+2.   >  **진단 설정**  ->  **추가 진단** 설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지** 에서 **설정 내보내기** 를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     
 3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성** 을 선택합니다.
 
