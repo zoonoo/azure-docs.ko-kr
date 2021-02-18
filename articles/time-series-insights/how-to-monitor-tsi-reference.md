@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 0b564ddfdea2cf24b7f9b1bc608d47fa4cfe541b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632796"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591392"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>모니터링 Azure Time Series Insights 데이터 참조
 
@@ -23,7 +23,7 @@ Azure Time Series Insights 환경에서 Azure Monitor 하 여 수집 된 데이�
 
 ## <a name="metrics"></a>메트릭
 
-이 섹션에서는 Azure Time Series Insights에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 모든 Azure Monitor 지원 메트릭 (Azure Time Series Insights 포함)의 목록은 [지원 되는 메트릭 Azure Monitor](../azure-monitor/platform/metrics-supported.md)을 참조 하세요. 이러한 메트릭에 대 한 리소스 공급자는 [microsoft. TimeSeriesInsights/environment/eventsources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) 및 [Microsoft timeseriesinsights/environment](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments)입니다.
+이 섹션에서는 Azure Time Series Insights에 대해 수집 된 자동으로 수집 된 모든 플랫폼 메트릭을 나열 합니다. 모든 Azure Monitor 지원 메트릭 (Azure Time Series Insights 포함)의 목록은 [지원 되는 메트릭 Azure Monitor](../azure-monitor/essentials/metrics-supported.md)을 참조 하세요. 이러한 메트릭에 대 한 리소스 공급자는 [microsoft. TimeSeriesInsights/environment/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) 및 [Microsoft timeseriesinsights/environment](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments)입니다.
 
 
 ### <a name="ingress"></a>수신

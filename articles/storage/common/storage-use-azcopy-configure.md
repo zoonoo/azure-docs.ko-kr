@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881047"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596946"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -42,7 +42,7 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `HTTPS_PROXY` 환경 변�
 
 Windows에서 AzCopy를 실행 하는 경우 설정을 자동으로 검색 하는 대신 프록시를 사용 _하지 않도록_ 지시 하려면 이러한 명령을 사용 합니다. 이러한 설정을 사용 하면 AzCopy는 프록시를 조회 하거나 사용 하지 않습니다.
 
-| 운영 체제 | 환경 | 명령  |
+| 운영 체제 | Environment | 명령  |
 |--------|-----------|----------|
 | **Windows** | 명령 프롬프트 (CMD) | `set HTTPS_PROXY=dummy.invalid` <br>`set NO_PROXY=*`|
 | **Windows** | PowerShell | `$env:HTTPS_PROXY="dummy.invalid"` <br>`$env:NO_PROXY="*"`<br>|
@@ -183,7 +183,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>계획 및 로그 파일의 위치를 변경 합니다.
 
-기본적으로 계획 및 로그 파일은 `%USERPROFILE%\.azcopy` Windows의 디렉터리 또는 `$HOME$\.azcopy` Mac 및 Linux의 디렉터리에 있습니다. 이 위치를 변경할 수 있습니다.
+기본적으로 계획 및 로그 파일은 `%USERPROFILE%\.azcopy` Windows의 디렉터리 또는 `$HOME/.azcopy` Mac 및 Linux의 디렉터리에 있습니다. 이 위치를 변경할 수 있습니다.
 
 ### <a name="change-the-location-of-plan-files"></a>계획 파일의 위치를 변경 합니다.
 

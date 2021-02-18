@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2020
 ms.author: memildin
-ms.openlocfilehash: b7cb6edf825519bb3048de7a8c5326842f2db097
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: f24785336642570ae3f21d96462317890526a4c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524296"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578948"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -296,7 +296,7 @@ SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능�
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)
 
-[Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md)를 Azure Arc 컴퓨터에 배포하고 Azure Security Center에서 보호하도록 하는 데 도움이 되는 두 가지 추천 사항이 새로 추가되었습니다.
+[Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)를 Azure Arc 컴퓨터에 배포하고 Azure Security Center에서 보호하도록 하는 데 도움이 되는 두 가지 추천 사항이 새로 추가되었습니다.
 
 - **Windows 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**
 - **Linux 기반 Azure Arc 컴퓨터에 Log Analytics 에이전트를 설치해야 함(미리 보기)**

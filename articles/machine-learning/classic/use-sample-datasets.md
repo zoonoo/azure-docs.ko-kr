@@ -3,22 +3,22 @@ title: 'ML Studio(클래식): 샘플 데이터 세트 사용 - Azure'
 description: Machine Learning Studio(클래식)에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 737c63c02ea852e8cf17e2d520ca91b05a5ba12b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8a848f6589902c2eabf5b4e14a4d000dc4ed081e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325619"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518439"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio(클래식)에서 샘플 데이터 세트 사용
 
-**적용 대상:**  ![적용 대상: ](../../../includes/media/aml-applies-to-skus/no.png)[Machine Learning Studio(클래식)  ](../../../includes/media/aml-applies-to-skus/yes.png)적용되지 않는 대상:![Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**적용 대상:**  ![적용 대상:](../../../includes/media/aml-applies-to-skus/no.png)[Machine Learning Studio(클래식)  ](../../../includes/media/aml-applies-to-skus/yes.png)적용되지 않는 대상:![Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [top]: #machine-learning-sample-datasets

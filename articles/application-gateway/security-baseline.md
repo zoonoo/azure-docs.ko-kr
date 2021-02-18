@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4f28665998dcac9f641d4142a0dea60707fb02e9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 579baa611db47215c8ada554328d254ce99f17cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805363"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579762"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Azure 애플리케이션 Gateway에 대 한 Azure 보안 기준
 
@@ -188,9 +188,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure 애플리케이션 Gateway 배포와 관련 된 네트워크 설정 및 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 네트워크 설정 또는 리소스에 대 한 변경이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -216,7 +216,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또한 Azure 애플리케이션 게이트웨이는 Azure 애플리케이션 Insights와의 기본 제공 통합 기능을 제공 합니다. Application Insights는 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights는 성능 변칙을 자동으로 감지 하 고, 문제를 진단 하 고 웹 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 강력한 분석 도구를 포함 합니다. 연속 내보내기를 사용 하 여 Application Insights에서 중앙 위치에 원격 분석을 내보내 표준 보존 기간 보다 오래 지속 되도록 데이터를 유지할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./application-gateway-diagnostics.md)
 
@@ -236,7 +236,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또한 Azure 애플리케이션 게이트웨이는 Azure 애플리케이션 Insights와의 기본 제공 통합 기능을 제공 합니다. Application Insights는 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights는 성능 변칙을 자동으로 감지 하 고, 문제를 진단 하 고 웹 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 강력한 분석 도구를 포함 합니다. 연속 내보내기를 사용 하 여 Application Insights에서 중앙 위치에 원격 분석을 내보내 표준 보존 기간 보다 오래 지속 되도록 데이터를 유지할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./application-gateway-diagnostics.md)
 
@@ -260,7 +260,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -274,7 +274,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다.
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./application-gateway-diagnostics.md)
 
@@ -294,13 +294,13 @@ Azure 활동 로그 진단 설정 및 Azure WAF의 진단 설정을 사용 하�
 
 * [Azure WAF를 배포 하는 방법](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+* [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 * [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./application-gateway-diagnostics.md)
 
 * [네트워크에 Azure Monitor를 사용 하는 방법](../azure-monitor/insights/network-insights-overview.md)
 
-* [Azure 내에서 경고를 만드는 방법](../azure-monitor/learn/tutorial-response.md)
+* [Azure 내에서 경고를 만드는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -591,7 +591,7 @@ Microsoft는 Azure 애플리케이션 Gateway에 대 한 기본 인프라를 관
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 프로덕션 Azure 애플리케이션 게이트웨이 인스턴스 및 기타 중요 하거나 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

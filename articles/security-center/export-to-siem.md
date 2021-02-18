@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3ddc385b9d489e0c2ab4abf35a6ade011970342b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791905"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572947"
 ---
-# <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, 대화 충성도 또는 IT 서비스 관리 솔루션에 대 한 경고 스트림
+# <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>SIEM, SOAR 또는 IT 서비스 관리 솔루션에 대한 경고 스트리밍
 
 Azure Security Center 보안 경고를 가장 인기 있는 SIEM (보안 정보 및 이벤트 관리), 대화 충성도 (Security Orchestration 자동화 된 응답) 및 ITSM (IT Service Management) 솔루션으로 스트리밍할 수 있습니다.
 
@@ -63,22 +63,22 @@ Security Center에는 Microsoft Graph Security API와의 기본 통합 기능이
 - **Power BI**  -  [Power BI Desktop에서 Microsoft Graph 보안 API에 연결](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [지침에 따라 ServiceNow 저장소에서 Microsoft Graph SECURITY API 응용 프로그램을 설치 하 고 구성](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html) 합니다.
 - **Qradar**  -  [MICROSOFT GRAPH API를 통한 Azure Security Center 용 IBM의 장치 지원 모듈](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo Alto Networks** , **Anomali** , **망루** , **InSpark** 및 [Microsoft Graph 보안 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo Alto Networks**, **Anomali**, **망루**, **InSpark** 및 [Microsoft Graph 보안 API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Microsoft Graph 보안 API에 대해 자세히 알아보세요](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Azure Monitor를 사용 하 여 경고 스트림 
 
-경고를 **Arcsight** , **Splunk** , **sumologic** , Syslog 서버, **LogRhythm** , **Logz.io Cloud 관찰성 Platform** 및 기타 모니터링 솔루션으로 스트리밍합니다. Azure Event Hubs를 통해 Azure monitor를 사용 하 여 Security Center 연결:
+경고를 **Arcsight**, **Splunk**, **sumologic**, Syslog 서버, **LogRhythm**, **Logz.io Cloud 관찰성 Platform** 및 기타 모니터링 솔루션으로 스트리밍합니다. Azure Event Hubs를 통해 Azure monitor를 사용 하 여 Security Center 연결:
 
 1. 구독 수준에서 전용 Azure 이벤트 허브로 Security Center 경고를 스트리밍하려면 [연속 내보내기를](continuous-export.md) 사용 하도록 설정 합니다. 
     > [!TIP]
     > Azure Policy를 사용 하 여 관리 그룹 수준에서이 작업을 수행 하려면 [대규모 연속 내보내기 자동화 구성 만들기](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies) 를 참조 하세요.
 
-1. [Azure Monitor의 기본 제공 커넥터를 사용 하 여 Azure Event hub를 기본 솔루션에 연결](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)합니다.
+1. [Azure Monitor의 기본 제공 커넥터를 사용 하 여 Azure Event hub를 기본 솔루션에 연결](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)합니다.
 
-1. 필요에 따라 원시 로그를 Azure 이벤트 허브로 스트리밍하 고 원하는 솔루션에 연결 합니다. [사용 가능한 모니터링 데이터](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available)에 대해 자세히 알아보세요.
+1. 필요에 따라 원시 로그를 Azure 이벤트 허브로 스트리밍하 고 원하는 솔루션에 연결 합니다. [사용 가능한 모니터링 데이터](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available)에 대해 자세히 알아보세요.
 
 > [!TIP]
 > 내보낸 데이터 형식의 이벤트 스키마를 보려면 [이벤트 허브 이벤트 스키마](https://aka.ms/ASCAutomationSchemas)를 방문 하십시오.
@@ -86,8 +86,8 @@ Security Center에는 Microsoft Graph Security API와의 기본 통합 기능이
 
 ## <a name="next-steps"></a>다음 단계
 
-이 페이지에서는 SIEM, 대화 충성도 또는 ITSM 도구에서 Azure Security Center 경고 데이터를 사용할 수 있는지 확인 하는 방법에 대해 설명 했습니다. 관련 자료는 다음을 참조 하세요.
+이 페이지에서는 SIEM, 대화 충성도 또는 ITSM 도구에서 Azure Security Center 경고 데이터를 사용할 수 있는지 확인 하는 방법에 대해 설명 했습니다. 관련 자료는 다음을 참조하세요.
 
 - [Azure Sentinel이란?](../sentinel/overview.md)
 - [Azure Security Center의 경고 유효성 검사](security-center-alert-validation.md) -경고가 올바르게 구성 되었는지 확인
-- [Security Center 데이터를 지속적으로 내보내기](continuous-export.md)
+- [Security Center 데이터 연속 내보내기](continuous-export.md)

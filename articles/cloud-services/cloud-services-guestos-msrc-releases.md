@@ -3,21 +3,21 @@ title: Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Docs
 description: 이 문서에서는 다른 Azure 게스트 OS에 적용 된 Microsoft 보안 대응 센터 업데이트를 나열 합니다. 사용 중인 게스트 OS에 업데이트가 적용 되는지 확인 합니다.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/9/2021
+ms.date: 2/17/2021
 ms.author: gunnarcms
-ms.openlocfilehash: 63aa13c178acd0b560c2bbd9cbc8873464062488
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a77ab15bc4d1095f47d9d411b5a0fd64bb568de
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580654"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650799"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0868c99a29b8da4376b639a54988fc821433e26d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965122"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576981"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -135,7 +135,7 @@ Azure Security Center는 Azure Monitor 서비스에서 사용하는 것과 동�
 
 ### <a name="agent"></a>에이전트
 
-자동 프로비저닝이 보안 정책에서 활성화된 경우 Log Analytics 에이전트([Windows](../azure-monitor/platform/agent-windows.md) 또는 [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)용)는 지원되는 모든 Azure VM 및 새로 만들어진 VM에 설치됩니다. VM 또는 컴퓨터가 Log Analytics 에이전트에 이미 설치된 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 사용자 작업에 영향을 미치지 않으며 VM의 성능에도 거의 영향을 미치지 않습니다.
+자동 프로비저닝이 보안 정책에서 활성화된 경우 Log Analytics 에이전트([Windows](../azure-monitor/agents/agent-windows.md) 또는 [Linux](../azure-monitor/vm/quick-collect-linux-computer.md)용)는 지원되는 모든 Azure VM 및 새로 만들어진 VM에 설치됩니다. VM 또는 컴퓨터가 Log Analytics 에이전트에 이미 설치된 경우 Azure Security Center는 현재 설치된 에이전트를 활용합니다. 에이전트의 프로세스는 사용자 작업에 영향을 미치지 않으며 VM의 성능에도 거의 영향을 미치지 않습니다.
 
 Windows용 Log Analytics 에이전트를 사용하려면 TCP 포트 443을 사용해야 함 추가 세부 정보는 [문제 해결 문서](security-center-troubleshooting-guide.md)를 참조하세요.
 

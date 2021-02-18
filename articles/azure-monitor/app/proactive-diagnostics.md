@@ -3,12 +3,12 @@ title: Azure Application Insights의 스마트 감지 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 자동 심층 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 2b6e9370387bf3bb87555261b3949db2917e9911
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 974795e853416ff7a4c051530b050fc663c9423d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186255"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585662"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 애플리케이션의 잠재적인 성능 문제와 오류 이상을 자동으로 경고해 줍니다. 앱에서 [Application Insights](./app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -53,11 +53,11 @@ _미리 보기_ 로 표시된 규칙을 제외한 모든 스마트 검색 규칙
 ## <a name="next-steps"></a>다음 단계
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
-* [메트릭 탐색기](../platform/metrics-charts.md)
+* [메트릭 탐색기](../essentials/metrics-charts.md)
 * [검색 탐색기](./diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](../log-query/log-analytics-tutorial.md)
+* [분석 - 강력한 쿼리 언어](../logs/log-analytics-tutorial.md)
 
 스마트 감지는 완전 자동입니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
+* [수동으로 구성된 메트릭 경고](../alerts/alerts-log.md)
 * [가용성 웹 테스트](./monitor-web-app-availability.md)

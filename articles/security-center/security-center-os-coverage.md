@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4cc8130d34b5f51728fb2e7fb47c1fb0717d2138
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852645"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595120"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -37,10 +37,10 @@ Azure 구독에서 활성화된 Azure 환경의 경우 Azure Security Center는 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-Security Center는 [Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#log-analytics-agent)에 따라 다릅니다. 다음 페이지에 설명된 대로, 이 에이전트에 지원되는 운영 체제 중 하나를 머신이 실행하고 있는지 확인하세요.
+Security Center는 [Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#log-analytics-agent)에 따라 다릅니다. 다음 페이지에 설명된 대로, 이 에이전트에 지원되는 운영 체제 중 하나를 머신이 실행하고 있는지 확인하세요.
 
-* [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Windows에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Linux에서 지원되는 운영 체제에 대한 Log Analytics 에이전트](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 또한 Log Analytics 에이전트가 [Security Center에 데이터를 전송하도록 제대로 구성](security-center-enable-data-collection.md#manual-agent)되었는지 확인
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1e61e9434d96148fbce840f4bad7f6a3b2ecb6b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202728"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591429"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -114,9 +114,9 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 Stream Analytics 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -138,7 +138,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **지침**: 감사 이벤트 및 요청과 같은 보안 데이터를 집계 하기 위해 Azure Monitor를 통해 로그를 수집 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고, 필요에 따라 변경 불가능 한 저장소 및 적용 된 보존 유지와 같은 보안 기능을 사용 하 여 accountyfor 장기/보관 저장소를 Azure Storage 사용 합니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -170,7 +170,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 * [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-* [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -182,9 +182,9 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역에 대 한 자세한 내용](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Log Analytics 작업 영역에 대 한 자세한 내용](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -196,7 +196,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 * [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+* [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 * [검토할 진단 로그 및 작업 데이터를 제공 하 Azure Stream Analytics](./stream-analytics-job-diagnostic-logs.md)
 
@@ -474,7 +474,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 Azure Stream Analytics 리소스의 프로덕션 인스턴스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

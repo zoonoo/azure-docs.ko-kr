@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519408"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572780"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -100,9 +100,9 @@ AKS 노드에 대해를 사용 하 여 `containerd` pod 시작 대기 시간이 
 * 의 경우 `containerd` [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) Kubernetes 노드의 pod, 컨테이너 및 컨테이너 이미지 **문제를 해결** 하기 위해 DOCKER cli 대신 대체 cli로를 사용 하는 것이 좋습니다 (예: `crictl ps` ). 
    * Docker CLI의 완전 한 기능을 제공 하지 않습니다. 문제 해결을 위한 용도로만 사용 됩니다.
    * `crictl` pod 등과 같은 개념을 포함 하 여 컨테이너에 대 한 보다 kubernetes 보기를 제공 합니다.
-* `Containerd` 표준화 된 `cri` 로깅 형식 (현재 docker의 json 드라이버에서 가져온 것과 다름)을 사용 하 여 로깅을 설정 합니다. 로깅 솔루션은 `cri` [컨테이너에 대 한 Azure Monitor](../azure-monitor/insights/container-insights-enable-new-cluster.md)와 같은 로깅 형식을 지원 해야 합니다.
+* `Containerd` 표준화 된 `cri` 로깅 형식 (현재 docker의 json 드라이버에서 가져온 것과 다름)을 사용 하 여 로깅을 설정 합니다. 로깅 솔루션은 `cri` [컨테이너에 대 한 Azure Monitor](../azure-monitor/containers/container-insights-enable-new-cluster.md)와 같은 로깅 형식을 지원 해야 합니다.
 * 더 이상 docker 엔진에 액세스 하거나 docker (docker)를 사용할 수 없습니다 `/var/run/docker.sock` .
-  * 현재 Docker 엔진에서 응용 프로그램 로그 또는 모니터링 데이터를 추출 하는 경우 [컨테이너에 Azure Monitor](../azure-monitor/insights/container-insights-enable-new-cluster.md) 와 같은 항목을 대신 사용 하세요. 또한 AKS는 에이전트 노드에서 모든 대역외 명령이 실행 되는 것을 지원 하지 않습니다 .이로 인해 불안정 해질 수 있습니다.
+  * 현재 Docker 엔진에서 응용 프로그램 로그 또는 모니터링 데이터를 추출 하는 경우 [컨테이너에 Azure Monitor](../azure-monitor/containers/container-insights-enable-new-cluster.md) 와 같은 항목을 대신 사용 하세요. 또한 AKS는 에이전트 노드에서 모든 대역외 명령이 실행 되는 것을 지원 하지 않습니다 .이로 인해 불안정 해질 수 있습니다.
   * Moby/docker를 사용 하는 경우에도 위의 방법으로 이미지를 빌드하고 docker 엔진을 직접 활용 하는 것은 권장 되지 않습니다. Kubernetes는 소비 된 리소스를 완전히 인식 하지 못하므로 이러한 접근 방식은 [여기](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) 및 [여기](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)에서 자세히 설명 하는 다양 한 문제를 제공 합니다.
 * 이미지 빌드-AKS 클러스터 내에서 이미지를 빌드하지 않는 한 현재 docker 빌드 워크플로를 정상적으로 계속 사용할 수 있습니다. 이 경우 [ACR 작업](../container-registry/container-registry-quickstart-task-cli.md)을 사용 하 여 이미지를 빌드하기 위한 권장 접근 방법으로 전환 하거나 [docker buildx](https://github.com/docker/buildx)와 같은 좀 더 안전한 클러스터 내 옵션으로 전환 하는 것을 고려해 보세요.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093624"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572640"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 관리
 
@@ -49,7 +49,7 @@ ms.locfileid: "97093624"
 
 7. 변경 내용 추적에 대 한 Windows 파일 추가 창에서 추적할 파일이 나 폴더에 대 한 정보를 입력 하 고 **저장** 을 클릭 합니다. 다음 표에는 정보에 사용할 수 있는 속성이 정의되어 있습니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |사용     | 설정이 적용되면 True이고, 그렇지 않으면 False입니다.        |
     |Item Name     | 추적할 파일의 이름입니다.        |
@@ -78,7 +78,7 @@ ms.locfileid: "97093624"
 
 3. **변경 내용 추적에 대 한 Linux 파일 추가** 페이지에서 추적할 파일이 나 디렉터리에 대 한 정보를 입력 하 고 **저장** 을 선택 합니다. 다음 표에는 정보에 사용할 수 있는 속성이 정의되어 있습니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |사용     | 설정이 적용되면 True이고, 그렇지 않으면 False입니다.        |
     |Item Name     | 추적할 파일의 이름입니다.        |
@@ -148,7 +148,7 @@ ms.locfileid: "97093624"
 
 4. **변경 내용 추적에 대 한 Windows 레지스트리 추가** 페이지에서 추적할 키에 대 한 정보를 입력 하 고 **저장** 을 선택 합니다. 다음 표에는 정보에 사용할 수 있는 속성이 정의되어 있습니다. 레지스트리 경로를 지정 하는 경우에는 값이 아니라 키 여야 합니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |사용     | 설정이 적용되면 True이고, 그렇지 않으면 False입니다.        |
     |Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
@@ -167,7 +167,7 @@ ms.locfileid: "97093624"
 ## <a name="next-steps"></a>다음 단계
 
 * 범위 구성에 대 한 자세한 내용은 [제한 변경 내용 추적 및 인벤토리 배포 범위](manage-scope-configurations.md)를 참조 하세요.
-* Azure Monitor 로그에 저장 된 로그를 검색 해야 하는 경우 [Azure Monitor 로그의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 참조 하세요.
+* Azure Monitor 로그에 저장 된 로그를 검색 해야 하는 경우 [Azure Monitor 로그의 로그 검색](../../azure-monitor/logs/log-query-overview.md)을 참조 하세요.
 * 배포가 완료 되 면 [변경 내용 추적 및 인벤토리 제거](remove-feature.md)를 참조 하세요.
 * 변경 내용 추적 및 인벤토리에서 Vm을 삭제 하려면 [변경 내용 추적 및 인벤토리에서 Vm 제거](remove-vms-from-change-tracking.md)를 참조 하세요.
 * 기능 오류를 해결하려면 [변경 내용 추적 및 인벤토리 문제 해결](../troubleshoot/change-tracking.md)을 참조하세요.

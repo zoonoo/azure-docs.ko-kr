@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890784"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579744"
 ---
 # <a name="troubleshoot-update-management-issues"></a>업데이트 관리 문제 해결
 
@@ -135,7 +135,7 @@ Error details: Failed to enable the Update solution
 
 1. OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline)에 대한 문제 해결사를 실행합니다.
 
-2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인 하는 방법에 대 한 지침은 [에이전트에서 Azure Monitor에 대 한 연결 확인](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
+2. 머신이 올바른 작업 영역에 보고하고 있는지 확인합니다. 이 측면을 확인 하는 방법에 대 한 지침은 [에이전트에서 Azure Monitor에 대 한 연결 확인](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor)을 참조 하세요. 또한 이 작업 영역이 Azure Automation 계정에 연결되어 있는지 확인합니다. 이를 확인하려면 Automation 계정으로 이동하고 **관련 리소스** 에서 **연결된 작업 영역** 을 선택합니다.
 
 3. Automation 계정에 연결된 Log Analytics 작업 영역에 머신이 표시되는지 확인합니다. Log Analytics 작업 영역에서 다음 쿼리를 실행합니다.
 
@@ -144,7 +144,7 @@ Error details: Failed to enable the Update solution
    | summarize by Computer, Solutions
    ```
 
-    쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
+    쿼리 결과에 머신이 표시되지 않으면 최근에 체크인되지 않은 것입니다. 로컬 구성 문제가 있는 것이므로 [에이전트를 다시 설치](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows)해야 합니다.
 
     컴퓨터가 쿼리 결과에 표시 되는 경우 **솔루션** 속성에 **업데이트가** 나열 되어 있는지 확인 합니다. 이렇게 하면 업데이트 관리에 등록 되었는지 확인 합니다. 그렇지 않으면 범위 구성 문제를 확인 합니다. [범위 구성](../update-management/scope-configuration.md)은 업데이트 관리에 대해 구성되는 머신을 결정합니다. 컴퓨터를 대상으로 하는 범위 구성을 구성 하려면 [작업 영역에서 컴퓨터 사용](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace)을 참조 하세요.
 

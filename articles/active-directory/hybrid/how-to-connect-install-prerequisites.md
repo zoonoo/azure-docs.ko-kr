@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368968"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650153"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -167,6 +167,17 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. 또한 동기화 엔진 서버와 원격 SQL Server 간에 TLS 1.2을 사용 하도록 설정 하려면 [Microsoft SQL Server에 대 한 tls 1.2 지원](https://support.microsoft.com/kb/3135244)에 필요한 버전이 설치 되어 있는지 확인 합니다.
+
+### <a name="dcom-prerequisites-on-the-synchronization-server"></a>동기화 서버에 대 한 DCOM 필수 조건
+동기화 서비스를 설치 하는 동안 Azure AD Connect는 다음 레지스트리 키가 있는지 확인 합니다.
+
+- HKEY_LOCAL_MACHINE: Software\Microsoft\Ole
+
+이 레지스트리 키에서 Azure AD Connect 다음 값이 존재 하 고 손상 되지 않았는지 확인 합니다. 
+
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>페더레이션 설치 및 구성을 위한 필수 조건
 ### <a name="windows-remote-management"></a>Windows 원격 관리

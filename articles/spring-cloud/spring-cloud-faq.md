@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 307afc8f1caafac1a511f0f9895cc73dd9b47eb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 50c8a36b943abb24f2c31bfc2bc33e646a74524a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196047"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596624"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -90,9 +90,9 @@ Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS �
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>내 스프링 클라우드 응용 프로그램 로그 및 메트릭은 어디에서 볼 수 있나요?
 
-메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer) 탭에서 찾습니다.
+메트릭은 [앱 개요] 탭 및 [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) 탭에서 찾습니다.
 
-Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/platform/data-platform-logs.md)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
+Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로그 및 메트릭을 Azure Storage, EventHub 및 [Log Analytics](../azure-monitor/logs/data-platform-logs.md)으로 내보내는 것을 지원 합니다. Log Analytics의 테이블 이름은 *AppPlatformLogsforSpring* 입니다. 사용 하도록 설정 하는 방법을 알아보려면 [진단 서비스](diagnostic-services.md)를 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 

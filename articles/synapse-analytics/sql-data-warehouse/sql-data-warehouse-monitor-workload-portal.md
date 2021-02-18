@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3334c5ca300b6dbeb0ad055c7dbd2c15e1c5481a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2a2161fd24ccde596630549163a631626a961773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677124"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596655"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크 로드 모니터링-Azure Portal
 
@@ -36,7 +36,7 @@ Log Analytics 작업 영역에 대 한 찾아보기 블레이드로 이동 하 �
 
 ![값을 입력할 수 있는 Log Analytics 작업 영역을 보여 주는 스크린샷](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-작업 영역에 대 한 자세한 내용은 다음 [설명서](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)를 참조 하세요.
+작업 영역에 대 한 자세한 내용은 다음 [설명서](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)를 참조 하세요.
 
 ## <a name="turn-on-resource-logs"></a>리소스 로그 설정
 

@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574536"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596927"
 ---
 # <a name="monitoring-azure-files"></a>모니터링 Azure Files
 
@@ -28,7 +28,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 Azure Files는 Azure에서 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다. 
 
-다음을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)문서를 시작 합니다.
+다음을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)문서를 시작 합니다.
 
 - Azure Monitor란?
 - 모니터링과 관련된 비용
@@ -40,7 +40,7 @@ Azure Files는 Azure에서 전체 스택 모니터링 서비스인 [Azure Monito
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Azure Files는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data)에 설명 되어 있습니다. 
+Azure Files는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명 되어 있습니다. 
 
 Azure Files에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 내용은 [Azure 파일 모니터링 데이터 참조](storage-files-monitoring-reference.md) 를 참조 하세요.
 
@@ -67,7 +67,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 > [!NOTE]
 > Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 blob (Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대 한 로그를 사용 하도록 설정 합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. [저장소 계정 개요](../common/storage-account-overview.md)를 참조 하세요.
 
-일반적인 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
+일반적인 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조 하세요.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -106,7 +106,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 2. **저장소 계정** 드롭다운 목록에서 로그를 보관 하려는 저장소 계정을 선택 하 고 **확인** 단추를 클릭 한 다음 **저장** 단추를 클릭 합니다.
 
    > [!NOTE]
-   > 저장소 계정을 내보내기 대상으로 선택 하기 전에 저장소 계정에 대 한 필수 구성 요소를 이해 하기 위해 [Azure 리소스 로그 보관](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 을 참조 하세요.
+   > 저장소 계정을 내보내기 대상으로 선택 하기 전에 저장소 계정에 대 한 필수 구성 요소를 이해 하기 위해 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 을 참조 하세요.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs로 로그 스트림
 
@@ -160,7 +160,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccoun
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-각 매개 변수에 대 한 설명은 [Azure PowerShell를 통해 Azure 리소스 로그 보관](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)을 참조 하세요.
+각 매개 변수에 대 한 설명은 [Azure PowerShell를 통해 Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조 하세요.
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
@@ -176,7 +176,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAutho
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-각 매개 변수에 대 한 설명은 [PowerShell cmdlet을 통해 Event Hubs 스트림 데이터](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)를 참조 하세요.
+각 매개 변수에 대 한 설명은 [PowerShell cmdlet을 통해 Event Hubs 스트림 데이터](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)를 참조 하세요.
 
 #### <a name="send-logs-to-log-analytics"></a>Log Analytics에 로그 보내기
 
@@ -190,7 +190,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍을](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)참조 하세요.
+자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍을](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)참조 하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -222,7 +222,7 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-각 매개 변수에 대 한 설명은 [Azure CLI를 통해 보관 리소스 로그](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage)를 참조 하세요.
+각 매개 변수에 대 한 설명은 [Azure CLI를 통해 보관 리소스 로그](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)를 참조 하세요.
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
@@ -238,7 +238,7 @@ az monitor diagnostic-settings create --name <setting-name> --event-hub <event-h
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-각 매개 변수에 대 한 설명은 [Azure CLI를 통해 Event Hubs 스트림 데이터](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)를 참조 하세요.
+각 매개 변수에 대 한 설명은 [Azure CLI를 통해 Event Hubs 스트림 데이터](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)를 참조 하세요.
 
 #### <a name="send-logs-to-log-analytics"></a>Log Analytics에 로그 보내기
 
@@ -252,24 +252,24 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍을](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)참조 하세요.
+ 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍을](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)참조 하세요.
 
 ### <a name="template"></a>[템플릿](#tab/template)
 
-진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대 한 진단 설정](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage)을 참조 하세요.
+진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대 한 진단 설정](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage)을 참조 하세요.
 
 ---
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭과 함께 Azure Storage의 메트릭을 분석할 수 있습니다. **Azure Monitor** 메뉴에서 **메트릭** 을 선택하여 메트릭 탐색기를 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)을 참조하세요. 
+메트릭 탐색기를 사용하여 다른 Azure 서비스의 메트릭과 함께 Azure Storage의 메트릭을 분석할 수 있습니다. **Azure Monitor** 메뉴에서 **메트릭** 을 선택하여 메트릭 탐색기를 엽니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요. 
 
 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 메트릭을 필터링할 수 있습니다.  Azure Storage에서 지원하는 차원의 전체 목록은 [메트릭 차원](storage-files-monitoring-reference.md#metrics-dimensions)을 참조하세요. Azure Files에 대 한 메트릭은 다음 네임 스페이스에 있습니다. 
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/fileServices
 
-Azure Files를 포함 하는 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 메트릭 Azure Monitor](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices)을 참조 하세요.
+Azure Files를 포함 하는 모든 Azure Monitor 지원 메트릭의 목록은 [지원 되는 메트릭 Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices)을 참조 하세요.
 
 ### <a name="accessing-metrics"></a>메트릭 액세스
 
@@ -513,20 +513,20 @@ Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget
 
 ![감사 로그](media/storage-files-monitoring/event-hub-log.png)
 
-보안 정보와 이벤트 관리 및 모니터링 도구를 사용하여 이벤트 허브로 전송된 로그 데이터에 액세스하여 읽을 수 있습니다. 자세한 내용은 [내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)를 참조하세요.
+보안 정보와 이벤트 관리 및 모니터링 도구를 사용하여 이벤트 허브로 전송된 로그 데이터에 액세스하여 읽을 수 있습니다. 자세한 내용은 [내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)를 참조하세요.
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 로그 액세스
 
 Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 전송된 로그에 액세스할 수 있습니다. 데이터는 **Storagefilelogs** 테이블에 저장 됩니다. 
 
-자세한 내용은 [Log Analytics 자습서](../../azure-monitor/log-query/log-analytics-tutorial.md)를 참조 하세요.
+자세한 내용은 [Log Analytics 자습서](../../azure-monitor/logs/log-analytics-tutorial.md)를 참조 하세요.
 
 #### <a name="sample-kusto-queries"></a>샘플 Kusto 쿼리
 
-Azure Files를 모니터링 하는 데 도움이 되도록 **로그 검색** 표시줄에 입력할 수 있는 몇 가지 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../../azure-monitor/log-query/log-query-overview.md)에서 작동합니다.
+Azure Files를 모니터링 하는 데 도움이 되도록 **로그 검색** 표시줄에 입력할 수 있는 몇 가지 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../../azure-monitor/logs/log-query-overview.md)에서 작동합니다.
 
 > [!IMPORTANT]
-> 저장소 계정 리소스 그룹 메뉴에서 **로그** 를 선택 하면 현재 리소스 그룹으로 설정 된 쿼리 범위를 사용 하 여 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함 됩니다. 다른 리소스의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/log-query/scope.md)를 참조하세요.
+> 저장소 계정 리소스 그룹 메뉴에서 **로그** 를 선택 하면 현재 리소스 그룹으로 설정 된 쿼리 범위를 사용 하 여 Log Analytics 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함 됩니다. 다른 리소스의 데이터 또는 다른 Azure 서비스의 데이터를 포함 하는 쿼리를 실행 하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/logs/scope.md)를 참조하세요.
 
 이러한 쿼리를 사용 하 여 Azure 파일 공유를 모니터링할 수 있습니다.
 
@@ -567,11 +567,11 @@ StorageFileLogs
 
 Azure Files에 대 한 열 이름 및 설명의 목록을 보려면 [Storagefilelogs](/azure/azure-monitor/reference/tables/storagefilelogs)를 참조 하십시오.
 
-쿼리를 작성 하는 방법에 대 한 자세한 내용은 [Log Analytics 자습서](../../azure-monitor/log-query/log-analytics-tutorial.md)를 참조 하십시오.
+쿼리를 작성 하는 방법에 대 한 자세한 내용은 [Log Analytics 자습서](../../azure-monitor/logs/log-analytics-tutorial.md)를 참조 하십시오.
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../../azure-monitor/platform/alerts-metric-overview.md), [로그](../../azure-monitor/platform/alerts-unified-log.md) 및 [활동 로그](../../azure-monitor/platform/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../../azure-monitor/alerts/alerts-metric-overview.md), [로그](../../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다. 
 
 다음 표에서는 모니터링할 몇 가지 예제 시나리오와 해당 경고에 사용할 적절 한 메트릭을 보여 줍니다.
 
@@ -689,7 +689,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Files 모니터링 데이터 참조](storage-files-monitoring-reference.md)
-- [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)
+- [Azure Monitor를 사용 하 여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Azure Storage 메트릭 마이그레이션](../common/storage-metrics-migration.md)
 - [Azure Files 배포 계획](./storage-files-planning.md)
 - [Azure Files를 배포하는 방법](./storage-how-to-create-file-share.md)

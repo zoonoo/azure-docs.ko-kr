@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017715"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650391"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어 모델
 
@@ -35,9 +35,9 @@ Azure RBAC 및 ACL은 모두 사용자 (또는 응용 프로그램)가 Azure AD�
 
 Azure RBAC는 역할 할당을 사용 하 여 [보안 주체](../../role-based-access-control/overview.md#security-principal)에 권한 집합을 적용 합니다. 보안 주체는 AD (Azure Active Directory)에 정의 된 사용자, 그룹, 서비스 주체 또는 관리 되는 id를 나타내는 개체입니다. 권한 집합은 보안 주체에 게 저장소 계정의 **모든** 데이터에 대 한 읽기 또는 쓰기 액세스, 컨테이너의 **모든** 데이터에 대 한 읽기 또는 쓰기 액세스와 같은 "정교 하지 않은" 수준의 액세스를 제공할 수 있습니다. 
 
-다음 역할은 보안 주체가 저장소 계정의 데이터에 액세스할 수 있도록 허용 합니다. 
+다음 역할은 보안 주체가 저장소 계정의 데이터에 액세스할 수 있도록 허용 합니다.
 
-|역할|Description|
+|역할|설명|
 |--|--|
 | [Storage Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Blob storage 컨테이너 및 데이터에 대 한 모든 권한 이 액세스는 보안 주체가 항목의 소유자를 설정 하 고 모든 항목의 Acl을 수정할 수 있도록 허용 합니다. |
 | [Storage Blob 데이터 기여자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Blob storage 컨테이너 및 blob에 대 한 읽기, 쓰기 및 삭제 권한입니다. 이 액세스는 보안 주체가 항목의 소유권을 설정 하는 것을 허용 하지 않지만 보안 주체가 소유 하는 항목의 ACL을 수정할 수 있습니다. |
@@ -71,9 +71,9 @@ Acl을 사용 하면 디렉터리 및 파일에 대 한 "세분화 된" 수준�
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>사용 권한 테이블: Azure RBAC 및 ACL 결합
 
-다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 Azure 역할 및 ACL 항목을 결합 하는 방법을 보여 줍니다. 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `/` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 이러한 열에는 사용 권한을 부여 하는 데 필요한 ACL 항목의 [약식](data-lake-storage-access-control.md#short-forms-for-permissions) 표현이 표시 됩니다. **N/A** 작업을 수행 하는 데 ACL 항목이 필요 하지 않은 경우 _해당 없음 (해당 없음_)이 열에 표시 됩니다.
+다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 Azure 역할 및 ACL 항목을 결합 하는 방법을 보여 줍니다. 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `/` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 이러한 열에는 사용 권한을 부여 하는 데 필요한 ACL 항목의 [약식](data-lake-storage-access-control.md#short-forms-for-permissions) 표현이 표시 됩니다.  작업을 수행 하는 데 ACL 항목이 필요 하지 않은 경우 _해당 없음 (해당 없음_)이 열에 표시 됩니다.
 
-|    작업(Operation)             | 할당 된 Azure 역할               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    작업             | 할당 된 Azure 역할               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Read Data.txt            |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |  
 |                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |

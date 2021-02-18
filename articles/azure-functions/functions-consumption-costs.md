@@ -3,12 +3,12 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934886"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578562"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획 비용 예측
 
@@ -47,7 +47,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
 
 함수 앱 및 관련 서비스의 전체 비용을 예측 하는 경우 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=functions)를 사용 합니다. 
 
-| 관련 비용 | Description |
+| 관련 비용 | 설명 |
 | ------------ | ----------- |
 | **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세한 내용은 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.|
 | **Application Insights** | 함수는 [Application Insights](../azure-monitor/app/app-insights-overview.md) 을 사용 하 여 함수 앱에 고성능 모니터링 환경을 제공 합니다. 필수는 아니지만 [Application Insights 통합을 사용 하도록 설정](configure-monitoring.md#enable-application-insights-integration)해야 합니다. 원격 분석 데이터의 무료 부여는 매달 포함 됩니다. 자세히 알아보려면 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조 하세요. |
@@ -67,11 +67,11 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
 
 ### <a name="function-app-level-metrics"></a>함수 앱 수준 메트릭
 
-함수의 비용 영향을 보다 잘 이해 하기 위해 Azure Monitor를 사용 하 여 함수 앱에서 현재 생성 하 고 있는 비용 관련 메트릭을 볼 수 있습니다. [Azure Portal] 또는 REST api에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여이 데이터를 가져올 수 있습니다.
+함수의 비용 영향을 보다 잘 이해 하기 위해 Azure Monitor를 사용 하 여 함수 앱에서 현재 생성 하 고 있는 비용 관련 메트릭을 볼 수 있습니다. [Azure Portal] 또는 REST api에서 [Azure Monitor 메트릭 탐색기](../azure-monitor/essentials/metrics-getting-started.md) 를 사용 하 여이 데이터를 가져올 수 있습니다.
 
 #### <a name="monitor-metrics-explorer"></a>메트릭 탐색기 모니터링
 
-[Azure Monitor 메트릭 탐색기](../azure-monitor/platform/metrics-getting-started.md) 를 사용 하 여 소비 계획 함수 앱에 대 한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
+[Azure Monitor 메트릭 탐색기](../azure-monitor/essentials/metrics-getting-started.md) 를 사용 하 여 소비 계획 함수 앱에 대 한 비용 관련 데이터를 그래픽 형식으로 볼 수 있습니다. 
 
 1. **검색 서비스, 리소스 및 문서** 에서 [Azure Portal] 맨 위에 있는 `monitor` **서비스** 에서 **모니터** 를 검색 하 고 선택 합니다.
 
@@ -80,7 +80,7 @@ HTTP 트리거 함수의 경우 함수 코드가 실행 되기 전에 오류가 
     ![함수 앱 리소스 선택](media/functions-consumption-costing/select-a-resource.png)
 
       
-    |설정  |제안 값  |Description  |
+    |설정  |제안 값  |설명  |
     |---------|---------|---------|
     | Subscription    |  사용자의 구독  | 함수 앱을 사용 하는 구독입니다.  |
     | Resource group     | 리소스 그룹  | 함수 앱을 포함 하는 리소스 그룹입니다.   |

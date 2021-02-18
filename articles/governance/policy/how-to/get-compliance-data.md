@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 112badce00ec56df0f80c7b51bb4789a414cdcbd
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920239"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577113"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -683,7 +683,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-구독에 연결 된 활동 로그 분석 솔루션에서 [Log Analytics 작업 영역](../../../azure-monitor/log-query/log-query-overview.md) 을 사용 하는 경우 `AzureActivity` 단순 kusto 쿼리 및 테이블을 사용 하 여 새 리소스와 업데이트 된 리소스를 평가 하 여 비호환 결과를 볼 수도 있습니다 [Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) `AzureActivity` . Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+구독에 연결 된 활동 로그 분석 솔루션에서 [Log Analytics 작업 영역](../../../azure-monitor/logs/log-query-overview.md) 을 사용 하는 경우 `AzureActivity` 단순 kusto 쿼리 및 테이블을 사용 하 여 새 리소스와 업데이트 된 리소스를 평가 하 여 비호환 결과를 볼 수도 있습니다 [](../../../azure-monitor/essentials/activity-log.md) `AzureActivity` . Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="AzureActivity 테이블의 Azure Policy 작업을 보여 주는 Azure Monitor 로그의 스크린샷" border="false":::
 

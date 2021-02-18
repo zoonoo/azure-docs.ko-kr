@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3210829b3281aa862cdf0dbdc9c915249a55e423
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c4dc7e4d3c19a341daaf8e75844e175451a91f03
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518008"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592985"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 
@@ -73,7 +73,7 @@ VM에 대한 업데이트 관리를 사용합니다.
 이 VM에 대해 업데이트 관리가 사용되도록 설정되어 있는지를 확인하기 위해 유효성 검사가 수행됩니다.
 유효성 검사 중에는 Log Analytics 작업 영역 및 연결된 Automation 계정이 확인되고 솔루션이 작업 영역에 있는지 여부가 확인됩니다.
 
-[Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다.
+[Log Analytics](../../azure-monitor/logs/log-query-overview.md) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 업데이트가 필요한 VM에서 추가 작업을 수행하려면 Azure Automation에서 VM에 대해 Runbook(예: 업데이트 다운로드 및 적용)을 실행할 수 있습니다.
 
@@ -83,7 +83,7 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용** 을
 
 등록 중에 다음 필수 구성 요소 중 하나가 누락된 것으로 확인되면 자동으로 추가됩니다.
 
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 작업 영역
+* [Log Analytics](../../azure-monitor/logs/log-query-overview.md) 작업 영역
 * [Automation 계정](../../automation/index.yml)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)가 VM에서 사용되도록 설정됩니다.
 
@@ -107,12 +107,12 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용** 을
 
 새 업데이트 배포를 만들려면 **업데이트 배포 예약** 을 선택합니다. **새 업데이트 배포** 페이지가 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기** 를 클릭합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
-| Name |업데이트 배포를 식별하는 고유 이름입니다. |
+| 속성 |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| Linux 또는or Windows|
 | 업데이트할 그룹 |Azure 머신의 경우 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. </br></br>비 Azure 머신의 경우 저장된 기존 검색을 선택하여 배포에 포함할 비 Azure 머신 그룹을 선택합니다. </br></br>자세한 내용은 [동적 그룹](../../automation/update-management/configure-groups.md)을 참조하세요.|
-| 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신** 을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)을 참조하세요. |
+| 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신** 을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../../azure-monitor/logs/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
 |업데이트 포함/제외|**포함/제외** 페이지를 엽니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [업데이트 배포 예약](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment)을 참조하세요. |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|

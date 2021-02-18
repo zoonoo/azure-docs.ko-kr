@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0ccba15e210f1737deae00448d63053907e90aeb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: c05abc6b761b9839df83f3170ce295d4480ca96a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807804"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577911"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 Azure 보안 기준
 
@@ -160,9 +160,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure Database for MySQL 인스턴스 관련 네트워크 리소스에 대한 변경 내용을 검색합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -202,7 +202,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Database for MySQL에 대 한 감사 로그를 구성 및 액세스 하는 방법](howto-configure-audit-logs-portal.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -220,9 +220,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **지침**: Azure Monitor 내에서 조직의 준수 규정에 따라 Azure Database for MySQL 로그를 보관하는 데 사용되는 Log Analytics 작업 영역에 대한 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -234,9 +234,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics에 대 한 자세한 내용은](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -256,7 +256,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 - [Azure Database for MySQL에 대 한 감사 로그를 구성 및 액세스 하는 방법](howto-configure-audit-logs-portal.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -588,7 +588,7 @@ AskAzureDBforMySQL@service.microsoft.com
 
 **지침**: Azure Monitor에서 Azure 활동 로그를 사용하여 Azure Database for MySQL의 프로덕션 인스턴스 및 기타 중요하거나 관련된 리소스에 변경 내용이 발생하는 경우에 대한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

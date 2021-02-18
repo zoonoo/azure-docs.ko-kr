@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778498"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577777"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Azure Active Directory 모니터링이란?
 
@@ -79,7 +79,7 @@ Azure 스토리지 계정으로 로그를 라우팅하면 [보존 정책](refere
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Azure Monitor 로그에 로그 보내기
 
-[Azure Monitor 로그](../../azure-monitor/log-query/log-query-overview.md)는 여러 원본의 모니터링 데이터를 통합하고, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공하는 솔루션입니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내면 수집된 데이터를 빠르게 검색, 모니터링 및 경고할 수 있습니다. [데이터를 Azure Monitor 로그에 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)에 대해 알아보세요.
+[Azure Monitor 로그](../../azure-monitor/logs/log-query-overview.md)는 여러 원본의 모니터링 데이터를 통합하고, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공하는 솔루션입니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내면 수집된 데이터를 빠르게 검색, 모니터링 및 경고할 수 있습니다. [데이터를 Azure Monitor 로그에 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)에 대해 알아보세요.
 
 Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그에 대한 로그 분석 보기 설치 및 사용](howto-install-use-log-analytics-views.md) 방법에 대해 알아보세요.
 

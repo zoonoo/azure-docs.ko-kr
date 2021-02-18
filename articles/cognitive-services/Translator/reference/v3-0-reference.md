@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 567e28ee7f698565d6ad0020db7abdca0557f053
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582202"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650765"
 ---
 # <a name="translator-v30"></a>Translator v 3.0
 
@@ -35,7 +35,7 @@ Microsoft Translator는 여러 데이터 센터 위치에서 제공됩니다. �
 
 * **미주:** 미국 동부, 미국 서 부, 미국 중부, 미국 서 부 2 
 * **아시아 태평양:** 한국 남부, 일본 동부, 동남 아시아 및 오스트레일리아 동부
-* **유럽:** 서유럽 및 유럽 서부
+* **유럽:** 서유럽, 유럽 서부, 스위스 북부 <sup>1, 2</sup>및 스위스 서부 <sup>1, 2</sup>
 
 Microsoft Translator에 대 한 요청은 대부분의 경우 요청이 시작 된 위치와 가장 가까운 데이터 센터에 의해 처리 됩니다. 데이터 센터 오류가 발생 하는 경우 요청은 Azure 지리 외부에서 라우팅될 수 있습니다.
 
@@ -47,6 +47,17 @@ Microsoft Translator에 대 한 요청은 대부분의 경우 요청이 시작 �
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
 |Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> 고객이 스위스 북부 또는 스위스 서부에 있는 리소스를 사용 하 여 텍스트 API 요청이 스위스 내에서 제공 되도록 할 수 있습니다. 요청이 스위스에서 처리 되도록 하려면 ' 리소스 영역 ' ' 스위스 북부 ' 또는 ' 스위스 서부 '에 Translator 리소스를 만든 다음 API 요청에서 리소스의 사용자 지정 끝점을 사용 합니다. 예를 들어 ' 리소스 지역 '을 ' 스위스 북부 '로 Azure Portal에서 변환기 리소스를 만들고 리소스 이름이 ' my ch-n ' 이면 사용자 지정 끝점은 " https://my-ch-n.cognitiveservices.azure.com "입니다. 변환할 샘플 요청은 다음과 같습니다.
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup> 사용자 지정 번역기는 현재 스위스에서 사용할 수 없습니다.
 
 ## <a name="authentication"></a>인증
 

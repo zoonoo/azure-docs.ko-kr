@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594058"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -161,7 +161,7 @@ ILB ASE를 사용 하 여 게시 끝점은 ILB를 통해서만 사용할 수 있
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요**  >  **필수** 및 **속성**)에서 볼 수 있습니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
@@ -196,7 +196,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 **경고 만들기**
 
-로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-log.md)의 지침을 따르세요. 개요:
+로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-log.md)의 지침을 따르세요. 개요:
 
 * ASE 포털에서 경고 페이지를 엽니다.
 * **새 경고 규칙** 선택
@@ -303,4 +303,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md
