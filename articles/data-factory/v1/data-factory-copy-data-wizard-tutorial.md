@@ -1,23 +1,18 @@
 ---
 title: '자습서: 복사 마법사를 사용하여 파이프라인 만들기 '
 description: 이 자습서에서는 데이터 팩터리가 지원하는 복사 마법사를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 60a575fc211c512c8657bffd567c96f98cc3d69a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128405"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377009"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>자습서: Data Factory 복사 마법사를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -52,7 +47,7 @@ Azure Data Factory **복사 마법사** 를 사용하면 지원되는 원본 데
 2. **새 데이터 팩터리** 블레이드에서 다음을 수행합니다.
    
    1. **ADFTutorialDataFactory** 를 **이름** 으로 입력합니다.
-       Azure Data Factory 이름은 전역적으로 고유해야 합니다. `Data factory name “ADFTutorialDataFactory” is not available` 오류가 표시되면 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactoryYYYYMMDD) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
+       Azure Data Factory 이름은 전역적으로 고유해야 합니다. `Data factory name "ADFTutorialDataFactory" is not available` 오류가 표시되면 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactoryYYYYMMDD) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
       
        ![데이터 팩터리 이름을 사용할 수 없음](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
    2. Azure **구독** 을 선택합니다.
