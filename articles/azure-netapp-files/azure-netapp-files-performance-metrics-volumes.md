@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184470"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593404"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
@@ -113,7 +113,7 @@ Azure NetApp Files 성능 데이터는 Azure Monitor 카운터를 통해 사용�
 
 ### <a name="azure-monitor-api-access"></a>Azure Monitor API 액세스
 
-REST API 호출을 사용 하 여 Azure NetApp Files 카운터에 액세스할 수 있습니다. 용량 풀 및 볼륨에 대 한 카운터는 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) 을 참조 하세요.
+REST API 호출을 사용 하 여 Azure NetApp Files 카운터에 액세스할 수 있습니다. 용량 풀 및 볼륨에 대 한 카운터는 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) 을 참조 하세요.
 
 다음 예제에서는 논리 볼륨 크기를 보기 위한 GET URL을 보여 줍니다.
 

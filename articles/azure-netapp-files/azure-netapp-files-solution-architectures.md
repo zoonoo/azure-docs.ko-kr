@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: e9e7451e411ed9160eace0a60c65b5b74bf8f750
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f36a7827b9351b5565eab19abd4bfdb3d8b4a273
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559466"
+ms.locfileid: "100635407"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -94,8 +94,8 @@ ms.locfileid: "100559466"
 * [Azure NetApp Files – 클라우드 동기화를 사용 하 여 백업 오프 로드 SAP HANA](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Azure NetApp Files를 사용 하 여 SAP HANA 시스템 복사본 속도 향상](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [클라우드 볼륨 ONTAP 및 Azure NetApp Files: SAP HANA 시스템 마이그레이션을 손쉽게 수행할 수 있습니다.](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
-* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-1 부-Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
-* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-2 부-Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-1 부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
+* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-2 부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware 솔루션
 

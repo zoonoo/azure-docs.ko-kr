@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f0b5325ff95d2c2f34572239967151986621bcb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 2448840fcbbea686972f8f948d428bda7b3c2bf2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937188"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391748"
 ---
 # <a name="sms-client-library-overview"></a>SMS 클라이언트 라이브러리 개요
 
@@ -49,4 +49,4 @@ Azure Communication Services SMS 클라이언트 라이브러리를 사용하여
 
 - 일반적인 [SMS 개념](../telephony-sms/concepts.md) 숙지
 - SMS 지원 [전화 번호](../../quickstarts/telephony-sms/get-phone-number.md) 가져오기
-- [SMS 솔루션 계획](../telephony-sms/plan-solution.md)
+- [Azure Communication Services의 전화 번호 유형](../telephony-sms/plan-solution.md)

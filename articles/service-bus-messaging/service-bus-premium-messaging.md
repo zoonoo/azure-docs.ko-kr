@@ -2,13 +2,13 @@
 title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명 합니다. 는 이러한 계층을 비교 하 고 기술적 차이를 제공 합니다.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90966784"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636512"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -23,12 +23,12 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 | 높은 처리량 |가변 처리량 |
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
-| 작업을 확장 및 축소하는 기능 |N/A |
+| 작업을 확장 및 축소하는 기능 |해당 없음 |
 | 메시지 크기는 최대 1mb입니다. 이 제한은 향후 발생할 수 있습니다. 서비스에 대 한 최신 중요 업데이트는 [Azure의 Messaging 블로그](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog)를 참조 하세요. |최대 256KB의 메시지 크기 |
 
-**Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임 스페이스에 대해 1, 2, 4 또는 8 개의 메시징 단위를 구입할 수 있습니다. 단일 작업 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 변경 될 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
+**Service Bus 프리미엄 메시지** 는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위* 라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임 스페이스에 대해 1, 2, 4 또는 8 개의 메시징 단위를 구입할 수 있습니다. 단일 작업 또는 엔터티는 여러 메시징 단위에 걸쳐 있을 수 있으며 메시징 단위 수는 변경 될 수 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
 
-이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다. Service Bus 프리미엄 메시징은 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)에 도입 된 저장소 엔진을 기반으로 합니다. 프리미엄 메시징을 사용할 경우 표준 계층을 사용하는 것보다 최고 성능이 훨씬 더 빠릅니다.
+이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다. 프리미엄 메시징을 사용할 경우 표준 계층을 사용하는 것보다 최고 성능이 훨씬 더 빠릅니다.
 
 ## <a name="premium-messaging-technical-differences"></a>프리미엄 메시징 기술 차이
 
@@ -40,9 +40,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ### <a name="express-entities"></a>Express 엔터티
 
-프리미엄 메시징은 격리 된 런타임 환경에서 실행 되므로 프리미엄 네임 스페이스에서는 express 엔터티가 지원 되지 않습니다. Express 기능에 대한 자세한 내용은 [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성을 참조하세요.
-
-표준 메시지에서 실행되는 코드가 있고 프리미엄 계층으로 이식하려는 경우 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성이 **false**(기본값)로 설정되어 있는지 확인합니다.
+프리미엄 메시징은 격리 된 런타임 환경에서 실행 되므로 프리미엄 네임 스페이스에서는 express 엔터티가 지원 되지 않습니다. Express 엔터티는 영구 저장소에 쓰기 전에 일시적으로 메모리에 메시지를 보관 합니다. 표준 메시징에서 실행 되는 코드가 있고 프리미엄 계층으로 이식 하려는 경우 express 엔터티 기능을 사용 하지 않도록 설정 해야 합니다.
 
 ## <a name="premium-messaging-resource-usage"></a>프리미엄 메시징 리소스 사용량
 일반적으로 엔터티에 대 한 모든 작업을 수행 하면 CPU 및 메모리 사용이 발생할 수 있습니다. 이러한 작업 중 일부는 다음과 같습니다. 
@@ -69,8 +67,8 @@ Service Bus Premium 네임 스페이스에 할당 된 메시징 단위 수는 �
 
 - 네임 스페이스에 할당 된 ***1 ~ 2 개의 메시징 단위*** 를 사용 하 여 시작 합니다.
 - 네임 스페이스에 대 한 [리소스 사용 메트릭](service-bus-metrics-azure-monitor.md#resource-usage-metrics) 내에서 CPU 사용 메트릭을 연구 합니다.
-    - CPU 사용량이 ***20% 미만이***면 네임 스페이스에 할당 된 메시징 단위의 수를 ***줄일*** 수 있습니다.
-    - CPU 사용량이 ***70%를 초과***하면 응용 프로그램은 네임 스페이스에 할당 된 메시징 단위 수를 ***확장*** 하는 이점을 누릴 수 있습니다.
+    - CPU 사용량이 **20% 미만인** 경우에는 네임 스페이스에 할당 된 메시징 단위의 수 *_를 _ 축소할_* 수 있습니다.
+    - CPU *_사용량이 *_***70% _ 이상인** 경우 응용 프로그램은 네임 스페이스에 할당 된 메시징 단위의 수를 표시 하는 데 도움이 됩니다.
 
 자동으로 크기를 조정 (메시징 단위 증가 또는 감소) 하도록 Service Bus 네임 스페이스를 구성 하는 방법을 알아보려면 [메시징 단위 자동 업데이트](automate-update-messaging-units.md)를 참조 하세요.
 
@@ -86,7 +84,7 @@ Service Bus Premium 네임 스페이스에 할당 된 메시징 단위 수는 �
 
 ## <a name="get-started-with-premium-messaging"></a>프리미엄 메시징 시작
 
-프리미엄 메시징 시작은 간단하며 프로세스는 표준 메시징의 프로세스와 비슷합니다. 먼저 [Azure Portal](https://portal.azure.com)에서 [네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **가격 책정 계층**에서 **프리미엄** 을 선택 했는지 확인 합니다. **전체 가격 책정 세부 정보 보기**를 클릭하여 각 계층에 대해 자세히 알아봅니다.
+프리미엄 메시징 시작은 간단하며 프로세스는 표준 메시징의 프로세스와 비슷합니다. 먼저 [Azure Portal](https://portal.azure.com)에서 [네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **가격 책정 계층** 에서 **프리미엄** 을 선택 했는지 확인 합니다. **전체 가격 책정 세부 정보 보기** 를 클릭하여 각 계층에 대해 자세히 알아봅니다.
 
 ![create-premium-namespace][create-premium-namespace]
 

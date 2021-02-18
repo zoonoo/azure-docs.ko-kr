@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183203"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586280"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
 
@@ -78,7 +78,7 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 다음 명령을 실행하여 AppServiceConsoleLogs(표준 출력/오류) 및 AppServiceHTTPLogs(웹 서버 로그)에 대한 진단 설정을 만듭니다. _\<app-name>_ 및 _\<workspace-name>_ 를 값으로 바꿉니다. 
 
 > [!NOTE]
-> 처음 두 명령인 `resourceID` 및 `workspaceID`는 `az monitor diagnostic-settings create` 명령에 사용되는 변수입니다. 이 명령에 대한 자세한 내용은 [Azure CLI를 사용하여 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli)를 참조하세요.
+> 처음 두 명령인 `resourceID` 및 `workspaceID`는 `az monitor diagnostic-settings create` 명령에 사용되는 변수입니다. 이 명령에 대한 자세한 내용은 [Azure CLI를 사용하여 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli)를 참조하세요.
 >
 
 ```bash
@@ -129,7 +129,7 @@ Azure Portal에서 Log Analytics 작업 영역을 선택합니다.
 
 ### <a name="log-queries"></a>로그 쿼리
 
-로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>로그 쿼리를 사용하여 AppServiceHTTPLogs 보기
 
@@ -269,6 +269,6 @@ az monitor diagnostic-settings delete --resource $resourceID -n myMonitorLogs
 > * 로그 쿼리를 사용하여 웹앱 오류 식별 및 해결
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
-* [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/log-query/log-query-overview.md)
+* [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/logs/log-query-overview.md)
 * [Visual Studio에서 Azure App Service 문제 해결](troubleshoot-dotnet-visual-studio.md)
 * [HDInsight에서 앱 로그 분석](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

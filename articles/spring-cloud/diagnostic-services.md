@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499529"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585210"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -40,7 +40,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 
 메트릭의 전체 목록은 [스프링 클라우드 메트릭](./spring-cloud-concept-metrics.md#user-metrics-options)을 참조 하세요.
 
-시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
+시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/logs/log-analytics-tutorial.md)을 참조 하세요.
 
 ## <a name="configure-diagnostics-settings"></a>진단 설정 구성
 
@@ -131,11 +131,11 @@ Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [
 1. 응용 프로그램 로그를 검토 하려면 **insights-logs-applicationconsole** 이라는 이벤트 허브를 검색 합니다.
 1. 응용 프로그램 메트릭을 검토 하려면 **pt1m** 이라는 이벤트 허브를 검색 합니다.
 
-이벤트 허브에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Event Hubs를 사용 하 여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)을 참조 하세요.
+이벤트 허브에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Event Hubs를 사용 하 여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md)을 참조 하세요.
 
 ## <a name="analyze-the-logs"></a>로그 분석
 
-Azure Log Analytics는 Kusto 엔진과 함께 실행 되므로 로그에서 분석을 쿼리할 수 있습니다. Kusto를 사용 하 여 로그를 쿼리 하는 방법에 대 한 간략 한 소개는 [Log Analytics 자습서](../azure-monitor/log-query/log-analytics-tutorial.md)를 검토 하세요.
+Azure Log Analytics는 Kusto 엔진과 함께 실행 되므로 로그에서 분석을 쿼리할 수 있습니다. Kusto를 사용 하 여 로그를 쿼리 하는 방법에 대 한 간략 한 소개는 [Log Analytics 자습서](../azure-monitor/logs/log-analytics-tutorial.md)를 검토 하세요.
 
 응용 프로그램 로그는 응용 프로그램의 상태, 성능 등에 대해 중요 한 정보와 자세한 로그를 제공 합니다. 다음 섹션에서는 응용 프로그램의 현재 및 과거 상태를 이해 하는 데 도움이 되는 몇 가지 간단한 쿼리를 소개 합니다.
 
@@ -176,7 +176,7 @@ AppPlatformLogsforSpring
 
 ### <a name="learn-more-about-querying-application-logs"></a>응용 프로그램 로그 쿼리에 대 한 자세한 정보
 
-Azure Monitor Log Analytics를 사용 하 여 응용 프로그램 로그를 쿼리 하기 위한 광범위 한 지원을 제공 합니다. 이 서비스에 대해 자세히 알아보려면 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조 하세요. 응용 프로그램 로그를 분석 하는 쿼리를 작성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+Azure Monitor Log Analytics를 사용 하 여 응용 프로그램 로그를 쿼리 하기 위한 광범위 한 지원을 제공 합니다. 이 서비스에 대해 자세히 알아보려면 [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/logs/get-started-queries.md)을 참조 하세요. 응용 프로그램 로그를 분석 하는 쿼리를 작성 하는 방법에 대 한 자세한 내용은 [Azure Monitor의 로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 

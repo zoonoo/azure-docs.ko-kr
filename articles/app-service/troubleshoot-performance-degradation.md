@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763811"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586228"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
 이 문서에서는 [Azure App Service](./overview.md)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -61,7 +61,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 자세한 내용은 다음을 참조하세요.
 
 * [Azure App Service에서 앱 모니터링](web-sites-monitor.md)
-* [경고 알림 받기](../azure-monitor/platform/alerts-overview.md)
+* [경고 알림 받기](../azure-monitor/alerts/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>웹 엔드포인트 상태 모니터링
 **표준** 가격 책정 계층에서 앱을 실행할 경우, App Service를 통해 3곳의 지리적 위치에서 엔드포인트 2개를 모니터링할 수 있습니다.

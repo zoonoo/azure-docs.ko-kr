@@ -4,12 +4,12 @@ description: Application Insights를 사용하여 Node.js 서비스의 성능을
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611018"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585756"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -25,7 +25,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 Azure 구독이 있는지 확인하여 없는 경우 [무료 계정을 새로 만듭니다][azure-free-offer]. 조직에 이미 Azure 구독이 있으면 관리자가 [다음 지침][add-aad-user]에 따라 사용자를 구독에 추가할 수 있습니다.
 
@@ -383,7 +383,7 @@ appInsights.defaultClient.addTelemetryProcessor(removeStackTraces);
 
 여러 Application Insights 리소스를 만들고 각각의 계측 키 ("ikey")를 사용 하 여 서로 다른 데이터를 보낼 수 있습니다.
 
- 예:
+ 다음은 그 예입니다. 
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -425,7 +425,7 @@ client.config.PROPERTYNAME = VALUE;
 ## <a name="next-steps"></a>다음 단계
 
 * [포털에서 원격 분석 모니터링](./overview-dashboard.md)
-* [원격 분석에 분석 쿼리 작성](../log-query/log-analytics-tutorial.md)
+* [원격 분석에 분석 쿼리 작성](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

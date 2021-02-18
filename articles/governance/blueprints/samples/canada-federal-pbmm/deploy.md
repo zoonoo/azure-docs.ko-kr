@@ -3,12 +3,12 @@ title: 캐나다 연방 PBMM 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 비롯한 캐나다 연방 PBMM 청사진 샘플을 배포하는 단계를 설명합니다.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 376c6329c0c3c571364c7d5d23a21c9f8cad2e53
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: ec7b0f4bd049b8cb2ead9301ac9ddb76ae727cca
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99821915"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594781"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PBMM 청사진 샘플 배포
 
@@ -93,12 +93,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |Linux VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
+|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |Linux VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요. |
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록 |빈 배열(`[]`)을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다. |
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록 |빈 배열(`[]`)을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다. |
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요. |
+|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요. |
 |\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
-|\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다. |
+|\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정을 사용하도록 설정하지 않은 경우 감사할 리소스 종류의 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas)에서 확인할 수 있습니다. |
 |\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |관리자 그룹 |그룹입니다. 예: `Administrator; myUser1; myUser2` |
 |\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사 및 감사 요구 사항을 지원하기 위한 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
 |스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../../policy/concepts/effects.md)에서 찾을 수 있습니다. |

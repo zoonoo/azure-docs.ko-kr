@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 3dac47aa7cf93ca882c4c1d0d191dabf0eb7178c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c122a21fc7149e9943825cafbed77069b7919f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227434"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593600"
 ---
 # <a name="native-react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK의 네이티브 반응 플러그 인
 
@@ -59,4 +59,4 @@ appInsights.loadAppInsights();
 ## <a name="next-steps"></a>다음 단계
 
 - JavaScript SDK에 대해 자세히 알아보려면 [Application Insights JAVASCRIPT sdk 설명서](javascript.md)를 참조 하세요.
-- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+- Kusto 쿼리 언어에 대해 알아보고 Log Analytics에서 데이터를 쿼리 하는 방법에 대 한 자세한 내용은 [로그 쿼리 개요](../../azure-monitor/logs/log-query-overview.md)를 참조 하세요.

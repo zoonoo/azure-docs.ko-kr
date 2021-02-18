@@ -3,21 +3,21 @@ title: 진단 로그 설정 - Azure Event Hub | Microsoft Docs
 description: Azure에서 이벤트 허브의 활동 로그 및 진단 로그를 설정하는 방법을 배웁니다.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131987"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573173"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
-* **[활동 로그](../azure-monitor/platform/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그** 를 선택하여 활동 로그 항목을 볼 수 있습니다. 예를 들면 다음과 같습니다. "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
+* **[활동 로그](../azure-monitor/essentials/platform-logs-overview.md)** : 이러한 로그에는 작업에 대해 수행된 작업 관련 정보가 포함됩니다. 로그는 항상 켜져 있습니다. Azure Portal의 왼쪽 창에서 이벤트 허브 네임스페이스에 대한 **활동 로그** 를 선택하여 활동 로그 항목을 볼 수 있습니다. 예를 들면 다음과 같습니다. "네임스페이스 만들기 또는 업데이트", "이벤트 허브 만들기 또는 업데이트"
 
     ![Event Hubs 네임스페이스에 대한 활동 로그](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[진단 로그](../azure-monitor/platform/platform-logs-overview.md)** : 진단 로그는 API를 사용하거나 언어 SDK의 관리 클라이언트를 통해 네임스페이스에 대해 수행된 작업 및 동작에 대한 자세한 정보를 제공합니다. 
+* **[진단 로그](../azure-monitor/essentials/platform-logs-overview.md)** : 진단 로그는 API를 사용하거나 언어 SDK의 관리 클라이언트를 통해 네임스페이스에 대해 수행된 작업 및 동작에 대한 자세한 정보를 제공합니다. 
     
     다음 섹션에서는 Event Hubs 네임스페이스에 대한 진단 로그를 사용하도록 설정하는 방법을 보여 줍니다.
 
@@ -36,7 +36,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
     새 설정은 약 10분 후에 적용됩니다. 그런 다음 구성된 보관 대상의 **진단 로그** 창에 로그가 나타납니다.
 
-    진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
+    진단 구성에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/essentials/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="diagnostic-logs-categories"></a>진단 로그 범주
 
@@ -97,7 +97,7 @@ Name | Description
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-Name | 설명
+속성 | 설명
 ------- | -------
 `ActivityId` | 추적 목적으로 사용되는 내부 ID |
 `EventName` | 작업 이름입니다. 이 요소에 대 한 값 목록은 [이벤트 이름을](#event-names) 참조 하십시오. |
@@ -129,14 +129,14 @@ Example:
 ### <a name="event-names"></a>이벤트 이름
 이벤트 이름은 다음 열거형에서 작업 유형 + 리소스 유형으로 채워집니다. `Create Queue`, `Retrieve Event Hu` 또는 `Delete Rule`). 
 
-| 작업 유형 | 리소스 유형 | 
+| 작업 유형 | 리소스 종류 | 
 | -------------- | ------------- | 
-| <ul><li>만들기</li><li>업데이트</li><li>삭제</li><li>장치</li><li>알 수 없음</li></ul> | <ul><li>네임스페이스</li><li>큐</li><li>항목</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>규칙</li>ConsumerGroup</li> |
+| <ul><li>생성</li><li>업데이트</li><li>DELETE</li><li>장치</li><li>알 수 없음</li></ul> | <ul><li>네임스페이스</li><li>큐</li><li>항목</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>규칙</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>자동 크기 조정 로그 스키마
 자동 크기 조정 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `TrackingId` | 추적 목적으로 사용되는 내부 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID입니다. |
@@ -155,7 +155,7 @@ Example:
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka 코디네이터 로그 스키마
 Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `RequestId` | 추적 목적으로 사용되는 요청 ID |
 | `ResourceId` | Azure Resource Manager 리소스 ID |
@@ -183,7 +183,7 @@ Kafka 코디네이터 로그 JSON에는 다음 표에 나열된 요소가 포함
 ## <a name="kafka-user-error-logs-schema"></a>Kafka 사용자 오류 로그 스키마
 Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| 속성 | 설명 |
 | ---- | ----------- |
 | `TrackingId` | 추적 목적으로 사용되는 추적 ID입니다. |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -197,7 +197,7 @@ Kafka 사용자 오류 로그 JSON에는 다음 표에 나열된 요소가 포�
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Event Hubs 가상 네트워크 연결 이벤트 스키마
 Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| 속성 | 설명 |
 | ---  | ----------- | 
 | `SubscriptionId` | Azure 구독 ID |
 | `NamespaceName` | 네임스페이스 이름 |
@@ -227,7 +227,7 @@ Event Hubs VNet(가상 네트워크) 연결 이벤트 JSON에는 다음 표에 �
 ## <a name="customer-managed-key-user-logs"></a>고객 관리형 키 사용자 로그
 고객 관리형 키 사용자 로그 JSON에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-| Name | 설명 |
+| 속성 | 설명 |
 | ---- | ----------- | 
 | `Category` | 메시지의 범주 유형입니다. **오류** 및 **정보** 중 하나입니다. |
 | `ResourceId` | Azure 구독 ID 및 네임스페이스 이름을 포함하는 내부 리소스 ID |

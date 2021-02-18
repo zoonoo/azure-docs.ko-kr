@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509556"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586096"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](./overview.md) 은 [Azure Portal](https://portal.azure.com)에서 웹 앱, 모바일 및 API 앱에 대 한 기본 제공 모니터링 기능을 제공 합니다.
@@ -136,7 +136,7 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 **CPU 백분율**: 규모를 확장할 수 있으므로 Basic, Standard 및 Premium 요금제에서 호스트 되는 앱에 유용 합니다. CPU 백분율은 모든 인스턴스의 전체 사용량을 표시 하는 데 적합 합니다.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>메트릭 세분성 및 보존 정책
-앱 및 app service 계획에 대 한 메트릭은 서비스에 의해 기록 및 집계 되며 [이러한 규칙에 따라 유지](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)됩니다.
+앱 및 app service 계획에 대 한 메트릭은 서비스에 의해 기록 및 집계 되며 [이러한 규칙에 따라 유지](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics)됩니다.
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Azure Portal에서 할당량 및 메트릭을 모니터링합니다.
 앱에 영향을 주는 다양한 할당량 및 메트릭 상태를 검토하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
@@ -153,14 +153,14 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 
 이러한 차트 중 하나를 클릭 하면 사용자 지정 차트를 만들고 다양 한 메트릭을 쿼리할 수 있는 메트릭 뷰로 이동 합니다. 
 
-메트릭에 대한 자세한 내용은 [서비스 메트릭 모니터링](../azure-monitor/platform/data-platform.md)을 참조하세요.
+메트릭에 대한 자세한 내용은 [서비스 메트릭 모니터링](../azure-monitor/data-platform.md)을 참조하세요.
 
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
-앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../azure-monitor/platform/alerts-classic-portal.md)를 참조 하세요.
+앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../azure-monitor/alerts/alerts-classic-portal.md)를 참조 하세요.
 
 기본 이상 App Service 계획에서 호스트 되는 App Service 앱은 자동 크기 조정을 지원 합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다.
 
-자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../azure-monitor/platform/autoscale-get-started.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
+자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../azure-monitor/autoscale/autoscale-get-started.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/autoscale/autoscale-best-practices.md)를 참조하세요.
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

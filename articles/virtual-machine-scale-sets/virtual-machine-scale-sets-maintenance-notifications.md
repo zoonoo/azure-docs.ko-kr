@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564772"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594449"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
 
@@ -28,7 +28,7 @@ Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대�
 
 다시 부팅해야 하는 계획된 유지 관리는 웨이브에서 예약됩니다. 각 웨이브에는 서로 다른 범위(지역)가 있습니다.
 
-- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 보내집니다. Azure [활동 로그 경고](../azure-monitor/platform/platform-logs-overview.md)를 사용하여 받는 사람 및 메시지 옵션(예: 이메일, SMS 및 웹후크)을 알림에 추가할 수 있습니다.  
+- 웨이브는 고객에게 알림을 보내면서 시작합니다. 기본적으로 알림은 구독 소유자 및 공동 소유자에게 보내집니다. Azure [활동 로그 경고](../azure-monitor/essentials/platform-logs-overview.md)를 사용하여 받는 사람 및 메시지 옵션(예: 이메일, SMS 및 웹후크)을 알림에 추가할 수 있습니다.  
 - 알림을 통해 *셀프 서비스 기간* 을 사용할 수 있습니다. 이 기간 동안 일반적으로 35 일 동안 웨이브에 포함 된 Vm을 찾을 수 있습니다. 사용자 고유의 일정 요구 사항에 따라 사전에 유지 관리를 시작할 수 있습니다.
 - 셀프 서비스 기간이 끝나면 *예약된 유지 관리 기간* 이 시작됩니다. 이 기간 동안의 어떤 시점에서 Azure는 VM에 필요한 유지 관리를 예약하고 적용합니다. 
 
@@ -84,22 +84,22 @@ Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 �
 | 값 | 설명 |
 |-------|-------------|
 | 예 | 가상 머신 확장 집합에 있는 하나 이상의 VM이 셀프 서비스 기간에 있습니다. 이 셀프 서비스 기간 동안 언제든지 유지 관리를 시작할 수 있습니다. | 
-| 예 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
+| 아니요 | 영향을 받는 가상 머신 확장 집합의 셀프 서비스 기간에 VM이 없습니다. | 
 | - | 가상 머신 확장 집합이 계획된 유지 관리 웨이브에 속하지 않습니다.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
 
-Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. 활동 로그 경고를 만들어 받는 사람 및 채널을 이 통신에 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/platform/platform-logs-overview.md)을 참조하세요.
+Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. 활동 로그 경고를 만들어 받는 사람 및 채널을 이 통신에 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../azure-monitor/essentials/platform-logs-overview.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모니터** 를 선택합니다. 
 3. **모니터 - 경고(클래식)** 창에서 **+ 활동 로그 경고 추가** 를 선택합니다.
 4. **활동 로그 경고 추가** 페이지에서 필요한 정보를 선택하거나 입력합니다. **조건** 에서 다음 값을 설정해야 합니다.
-   - **이벤트 범주** : **서비스 상태** 를 선택합니다.
-   - **서비스** : **Virtual Machine Scale Sets 및 Virtual Machines** 를 선택합니다.
-   - **유형** : **계획된 유지 관리** 를 선택합니다. 
+   - **이벤트 범주**: **서비스 상태** 를 선택합니다.
+   - **서비스**: **Virtual Machine Scale Sets 및 Virtual Machines** 를 선택합니다.
+   - **유형**: **계획된 유지 관리** 를 선택합니다. 
     
-활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../azure-monitor/platform/activity-log-alerts.md)를 참조하세요.
+활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../azure-monitor/alerts/activity-log-alerts.md)를 참조하세요.
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>포털에서 가상 머신 확장 집합에 대해 유지 관리 시작
@@ -122,7 +122,7 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -153,7 +153,7 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 각 VM 인스턴스에 대 한 **MaintenanceRedeployStatus** 아래에 다음 속성이 반환 됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 현재 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있는 유지 관리 셀프 서비스 기간의 시작 시간입니다. |

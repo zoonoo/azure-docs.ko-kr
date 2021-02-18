@@ -1,22 +1,18 @@
 ---
 title: Azure Portal을 사용하여 여러 테이블 증분 복사
 description: 이 자습서에서는 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database의 데이터베이스로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f3060a7308d728b31266008d75e18470883e4480
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 10ebca487e8149b509935b5eb4c8d9f67ced8ade
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508597"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361131"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 

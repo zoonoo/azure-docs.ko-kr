@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ef5cddc131e25a1966ca86c3c8650452f73be69e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5a9bc576541c5991bb5f9352dc41fb0cce99c601
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879683"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594275"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Windows Virtual Machines에 대 한 Azure 보안 기준
 
@@ -174,9 +174,9 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 Azure Policy를 사용 하 여 Windows Virtual Machines와 관련 된 네트워크 리소스에 대 한 구성을 확인 (및/또는 재구성) 합니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -220,13 +220,13 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 또한 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 하는 감사 및 활동 로그에 대 한 액세스를 Azure Monitor 수 있습니다.
 
-* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/platform/diagnostic-settings.md)
+* [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Log analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics 에이전트 개요](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Windows 용 Log analytics 가상 머신 확장](../extensions/oms-windows.md)
 
-* [Azure 활동 로그 이벤트를 보고 검색하기](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 보고 검색하기](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Application Insights 개요](../../azure-monitor/app/app-insights-overview.md)
 
@@ -242,7 +242,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure Security Center에서 데이터 수집](../../security-center/security-center-enable-data-collection.md)
 
-* [모니터링할 Syslog 데이터를 캡처하려면 Log Analytics 확장을 사용 하도록 설정 해야 합니다.](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+* [모니터링할 Syslog 데이터를 캡처하려면 Log Analytics 확장을 사용 하도록 설정 해야 합니다.](../../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 
 **Azure Security Center 모니터링**: 예
 
@@ -252,9 +252,9 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **참고**: 가상 머신 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
-* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/vm/monitor-vm-azure.md)
 
-* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/platform/manage-cost-storage.md)
+* [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../../azure-monitor/logs/manage-cost-storage.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -268,15 +268,15 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 또는 Azure 센티널 또는 타사 SIEM에 대 한 온보드 데이터를 사용 하도록 설정 하 여 로그를 모니터링 하 고 검토할 수 있습니다.
 
-* [Log analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md)
+* [Log analytics 에이전트 개요](../../azure-monitor/agents/log-analytics-agent.md)
 
 * [Windows 용 Log analytics 가상 머신 확장](../extensions/oms-windows.md)
 
 * [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md)
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -292,7 +292,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure Security Center에서 경고를 관리 하는 방법](../../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/learn/tutorial-response.md)
+* [Log analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/alerts/tutorial-response.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -410,7 +410,7 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 * [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../../azure-monitor/platform/action-groups.md)
+* [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../../azure-monitor/alerts/action-groups.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -452,13 +452,13 @@ Virtual Machines (VM)에 진단 확장을 배포 하 여 게스트 OS 진단 데
 
 **지침**: Azure Active Directory에 대 한 진단 설정을 구성 하 여 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. 또한 Azure Monitor를 사용 하 여 Azure 가상 머신에서 로그 데이터에 대 한 로그를 검토 하 고 쿼리를 수행 합니다.
 
-* [Log Analytics 작업 영역 이해](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Log Analytics 작업 영역 이해](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/log-query/get-started-queries.md)
+* [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/logs/get-started-queries.md)
 
-* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/insights/monitor-vm-azure.md)
+* [Azure에서 가상 머신을 모니터링하는 방법](../../azure-monitor/vm/monitor-vm-azure.md)
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
@@ -592,9 +592,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 가상 머신 및 관련 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage 분석 로깅](../../storage/common/storage-analytics-logging.md)
 

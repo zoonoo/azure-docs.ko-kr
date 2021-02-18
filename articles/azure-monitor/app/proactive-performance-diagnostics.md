@@ -4,12 +4,12 @@ description: Application Insights는 앱 원격 분석의 스마트 분석을 �
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763777"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573741"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -70,12 +70,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 * *나만의 이상 감지 규칙을 만들거나 기존 규칙을 사용자 지정할 수 있나요?*
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
-    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../platform/alerts-log.md)할 수 있습니다.
+    * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../alerts/alerts-log.md)할 수 있습니다.
     * 직접 분석할 수 있는 [데이터베이스](./code-sample-export-sql-stream-analytics.md), [Power BI](./export-power-bi.md)에 [원격 분석을 내보냅니다](./export-telemetry.md).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
-* 이것이 *메트릭 경고 [를 대신하나요](../platform/alerts-log.md)?*
+* 이것이 *메트릭 경고 [를 대신하나요](../alerts/alerts-log.md)?*
   * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
@@ -175,10 +175,10 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 
 * [프로파일러](profiler.md) 
 * [스냅숏 디버거](./snapshot-debugger.md)
-* [분석](../log-query/log-analytics-tutorial.md)
-* [분석 스마트 진단](../log-query/log-query-overview.md)
+* [분석](../logs/log-analytics-tutorial.md)
+* [분석 스마트 진단](../logs/log-query-overview.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 
-* [수동으로 구성된 메트릭 경고](../platform/alerts-log.md)
+* [수동으로 구성된 메트릭 경고](../alerts/alerts-log.md)
 * [가용성 웹 테스트](./monitor-web-app-availability.md)

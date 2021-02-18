@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ceaa16ee2a54886cde45f37ea90ed617abafffc1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976082"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546910"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro에 대한 디바이스 설정 구성
 
@@ -49,9 +49,9 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
     1. 디바이스의 식별 이름을 입력합니다. 식별 이름은 1~13자로 구성되어야 하며 문자, 숫자 및 하이픈을 포함할 수 있습니다.
 
-    2. 디바이스의 **DNS 도메인**을 지정합니다. 이 도메인은 디바이스를 파일 서버로 설정하는 데 사용됩니다.
+    2. 디바이스의 **DNS 도메인** 을 지정합니다. 이 도메인은 디바이스를 파일 서버로 설정하는 데 사용됩니다.
 
-    3. 구성된 디바이스 설정의 유효성을 검사하고 설정을 적용하려면 **적용**을 선택합니다.
+    3. 구성된 디바이스 설정의 유효성을 검사하고 설정을 적용하려면 **적용** 을 선택합니다.
 
         ![로컬 웹 UI "디바이스" 페이지 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
@@ -65,7 +65,7 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
     4. 디바이스 이름 및 DNS 도메인이 변경되면 SMB 엔드포인트가 생성됩니다.  
 
-    5. 설정이 적용된 후 **다음: 업데이트 서버**를 선택합니다.
+    5. 설정이 적용된 후 **다음: 업데이트 서버** 를 선택합니다.
 
         ![로컬 웹 UI "디바이스" 페이지 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
@@ -73,7 +73,7 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
 1. 이제 **업데이트** 페이지에서 디바이스에 대한 업데이트를 다운로드할 위치를 구성할 수 있습니다.  
 
-    - **Microsoft 업데이트 서버**에서 직접 업데이트를 가져올 수 있습니다.
+    - **Microsoft 업데이트 서버** 에서 직접 업데이트를 가져올 수 있습니다.
 
         ![로컬 웹 UI "업데이트 서버" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
 
@@ -82,10 +82,10 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
         ![로컬 웹 UI "업데이트 서버" 페이지 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > 별도의 Windows 업데이트 서버가 구성되어 있고 *http*가 아닌 *https*를 통해 연결하도록 선택한 경우 업데이트 서버에 연결하는 데 필요한 서명 체인 인증서가 있어야 합니다. 인증서를 만들고 업로드하는 방법에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-j-series-manage-certificates.md)를 참조하세요. 
+        > 별도의 Windows 업데이트 서버가 구성되어 있고 *http* 가 아닌 *https* 를 통해 연결하도록 선택한 경우 업데이트 서버에 연결하는 데 필요한 서명 체인 인증서가 있어야 합니다. 인증서를 만들고 업로드하는 방법에 대한 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)를 참조하세요. 
 
-2. **적용**을 선택합니다.
-3. 업데이트 서버가 구성되었으면 **다음: 시간**을 선택합니다.
+2. **적용** 을 선택합니다.
+3. 업데이트 서버가 구성되었으면 **다음: 시간** 을 선택합니다.
     
 
 ## <a name="configure-time"></a>시간 구성
@@ -107,11 +107,11 @@ GPU가 있는 Azure Stack Edge Pro 디바이스에서 디바이스 관련 설정
 
     3. 필요에 따라 **보조 NTP 서버** 상자에 디바이스의 보조 서버를 입력합니다.
 
-    4. 구성된 시간 설정의 유효성을 검사하고 설정을 적용하려면 **적용**을 선택합니다.
+    4. 구성된 시간 설정의 유효성을 검사하고 설정을 적용하려면 **적용** 을 선택합니다.
 
         ![로컬 웹 UI "시간" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-2.png)
 
-2. 설정이 적용된 후 **다음: 인증서**를 선택합니다.
+2. 설정이 적용된 후 **다음: 인증서** 를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

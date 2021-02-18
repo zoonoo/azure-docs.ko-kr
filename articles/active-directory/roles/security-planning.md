@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9f2fe29ede2bf0f92049d1ae82bae87326057a63
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090793"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594283"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -212,7 +212,7 @@ Xbox, Live 및 Outlook과 같은 다른 프로그램의 Microsoft 계정은 조�
 
 #### <a name="monitor-azure-activity"></a>Azure 활동 모니터링
 
-Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합니다. 즉 누가 어떤 리소스를 생성, 업데이트, 삭제했는지와 언제 이러한 이벤트가 발생했는지에 대한 정보를 제공합니다. 자세한 내용은 [Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신](../../azure-monitor/platform/alerts-activity-log.md)을 참조하세요.
+Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합니다. 즉 누가 어떤 리소스를 생성, 업데이트, 삭제했는지와 언제 이러한 이벤트가 발생했는지에 대한 정보를 제공합니다. 자세한 내용은 [Azure 구독에서 중요한 작업에 대한 알림 감사 및 수신](../../azure-monitor/alerts/alerts-activity-log.md)을 참조하세요.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Azure AD를 통해 다른 클라우드 앱에 대한 액세스를 관리하는 조직을 위한 추가 단계
 

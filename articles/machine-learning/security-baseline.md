@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 08aa69db90901447297e06cd111b6b0174e6637a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881319"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575099"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -155,9 +155,9 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Machine Learning와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -193,9 +193,9 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 또한 보안 및 규정 준수를 위해 Machine Learning 서비스 작업 로그의 상관 관계를 지정할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Azure Machine Learning에서 로깅 사용](./how-to-track-experiments.md)
 
@@ -211,7 +211,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 모든 계산 리소스에 대해 Azure Security Center를 사용 하 여 운영 체제를 모니터링 합니다. 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
 
@@ -223,7 +223,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Machine Learning 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -241,9 +241,9 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -257,7 +257,7 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 - [Azure Machine Learning 경고에 대 한 자세한 내용은](monitor-azure-machine-learning.md#alerts)
 
-- [Log Analytics 작업 영역 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
+- [Log Analytics 작업 영역 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -565,7 +565,7 @@ Microsoft는 Machine Learning에 대 한 기본 인프라를 관리 하 고, 고
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 인스턴스 Azure Machine Learning 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 

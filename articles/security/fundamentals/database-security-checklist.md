@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: e9845eaf6d84caad3ddb8c7e615cb72f71c91f3b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412836"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595583"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -53,7 +53,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 |<br> 데이터베이스 액세스 | <ul><li>[인증](../../azure-sql/database/logins-create-manage.md)(Azure Active Directory 인증) - AD 인증은 Azure Active Directory에서 관리되는 ID를 사용합니다.</li><li>[권한 부여](../../azure-sql/database/logins-create-manage.md) - 사용자에게 필요한 최소 권한을 부여합니다.</li></ul> |
 |<br>애플리케이션 액세스| <ul><li>[행 수준 보안](/sql/relational-databases/security/row-level-security) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](../../azure-sql/database/dynamic-data-masking-overview.md) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|
 |**사전 모니터링**||  
-| <br>추적 및 검색| <ul><li>[감사](../../azure-sql/database/auditing-overview.md) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](../../storage/common/storage-account-create.md)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](../../azure-monitor/platform/platform-logs-overview.md)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](../../azure-sql/database/threat-detection-configure.md) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
+| <br>추적 및 검색| <ul><li>[감사](../../azure-sql/database/auditing-overview.md) - 데이터베이스 이벤트를 추적하고 [Azure Storage 계정](../../storage/common/storage-account-create.md)의 감사 로그/활동 로그에 이벤트를 기록합니다.</li><li>[Azure Monitor 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md)를 사용하여 Azure 데이터베이스 상태를 추적합니다.</li><li>[위협 검색](../../azure-sql/database/threat-detection-configure.md) - 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. </li></ul> |
 |<br>Azure Security Center| <ul><li>[데이터 모니터링](../../security-center/security-center-remediate-recommendations.md) - SQL 및 기타 Azure 서비스에 대한 중앙 집중식 보안 모니터링 솔루션으로 Azure Security Center를 사용합니다.</li></ul>|        
 
 ## <a name="conclusion"></a>결론

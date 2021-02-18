@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754252"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595145"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 삭제
 
@@ -26,8 +26,8 @@ ms.locfileid: "96754252"
 - 종속성 분석을 위해 서버 평가 도구에 Log Analytics 작업 영역을 연결한 경우 작업 영역을 삭제할지 여부를 결정 합니다. 
     - 작업 영역이 자동으로 삭제 되지 않습니다. 수동으로 삭제합니다.
     - 작업 영역을 삭제 하기 전에 사용 되는 작업 영역을 확인 합니다. 여러 시나리오에 동일한 Log Analytics 작업 영역을 사용할 수 있습니다.
-    - 프로젝트를 삭제 하기 전에 **Azure Migrate - Servers**  >  **OMS 작업 영역** 아래의 Azure Migrate 서버 **Azure Migrate-서버 평가** 에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
-    - 프로젝트를 삭제 한 후 작업 영역을 삭제 하려면 관련 리소스 그룹에서 작업 영역을 찾고 [다음 지침](../azure-monitor/platform/delete-workspace.md)을 따릅니다.
+    - 프로젝트를 삭제 하기 전에   >  **OMS 작업 영역** 아래의 Azure Migrate 서버 **Azure Migrate-서버 평가** 에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
+    - 프로젝트를 삭제 한 후 작업 영역을 삭제 하려면 관련 리소스 그룹에서 작업 영역을 찾고 [다음 지침](../azure-monitor/logs/delete-workspace.md)을 따릅니다.
 
 
 ## <a name="delete-a-project"></a>프로젝트 삭제

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b346cf37a8275b1783e94e0f51859b8c87eb9b67
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185564"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546825"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
 
@@ -137,9 +137,9 @@ https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단�
 
 HTTPS를 통해 Blob 스토리지에 액세스하려면 디바이스에 대한 SSL 인증서가 필요합니다. 또한 이 인증서를 프라이빗 키가 연결된 *.pfx* 파일로 Azure Stack Edge Pro 디바이스에 업로드합니다. 테스트 및 개발 목적으로만 이러한 인증서를 만들고 Azure Stack Edge Pro 디바이스에 업로드하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Blob 엔드포인트 인증서 만들기](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional)
-- [Blob 엔드포인트 인증서 업로드](azure-stack-edge-j-series-manage-certificates.md#upload-certificates)
-- [디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
+- [Blob 엔드포인트 인증서 만들기](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional)
+- [Blob 엔드포인트 인증서 업로드](azure-stack-edge-gpu-manage-certificates.md#upload-certificates)
+- [디바이스에 액세스하는 클라이언트에서 인증서 가져오기](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
 
 ### <a name="import-certificate"></a>인증서 가져오기
 

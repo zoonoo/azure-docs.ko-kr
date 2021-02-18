@@ -1,22 +1,18 @@
 ---
 title: Azure Portal을 사용하여 테이블 증분 복사
 description: 이 자습서에서는 Azure SQL Database의 테이블에서 Azure Blob 스토리지로 델타 데이터를 로드하는 파이프라인이 있는 Azure Data Factory를 만듭니다.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: d1a7f47b1cdccb02952bd7d9d333855f5eec27d5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 1f88571b407c138516568a7f74476ca35425da75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508529"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384693"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database에서 Azure Blob 스토리지로 데이터 증분 로드
 

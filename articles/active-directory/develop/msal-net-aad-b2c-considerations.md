@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: b28454e9b60654541d4f62ec1d8455b30cfc2906
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: bdb9e12fdf721204ce98d23e5d5aeea535ddf23d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580830"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574800"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -67,31 +67,27 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 공용 클라이언트 응용 프로그램에서 Azure AD B2C로 보호 되는 API에 대 한 토큰을 획득 하려면 권한으로 재정의를 사용 해야 합니다.
 
 ```csharp
-IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
-AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
-                                           .WithAccount(GetAccountByPolicy(accounts, policy))
-                                           .WithParentActivityOrWindow(ParentActivityOrWindow)
-                                           .ExecuteAsync();
+AuthenticationResult authResult = null;
+IEnumerable<IAccount> accounts = await application.GetAccountsAsync(policy);
+IAccount account = accounts.FirstOrDefault();
+try
+{
+    authResult = await application.AcquireTokenSilent(scopes, account)
+                      .ExecuteAsync();
+}
+catch (MsalUiRequiredException ex)
+{
+    authResult = await application.AcquireTokenInteractive(scopes)
+                        .WithAccount(account)
+                        .WithParentActivityOrWindow(ParentActivityOrWindow)
+                        .ExecuteAsync();
+}  
 ```
 
 앞의 코드 조각에서 다음을 확인할 수 있습니다.
 
 - `policy` Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
 - `ParentActivityOrWindow` 는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` 는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 다음은 그 예입니다. 
-
-  ```csharp
-  private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
-  {
-      foreach (var account in accounts)
-      {
-          string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
-          if (userIdentifier.EndsWith(policy.ToLower()))
-              return account;
-      }
-      return null;
-  }
-  ```
 
 사용자 흐름 또는 사용자 지정 정책 적용 (예: 사용자가 프로필을 편집 하거나 암호를 다시 설정 하는 등)은 현재를 호출 하 여 수행 됩니다 `AcquireTokenInteractive` . 이러한 두 정책의 경우 반환 된 토큰/인증 결과를 사용 하지 않습니다.
 
@@ -104,16 +100,16 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 {
-    IEnumerable<IAccount> accounts = await app.GetAccountsAsync();
+    IEnumerable<IAccount> accounts = await application.GetAccountsAsync(PolicyEditProfile);
+    IAccount account = accounts.FirstOrDefault();
     try
     {
-        var authResult = await app.AcquireToken(scopes:App.ApiScopes)
-                            .WithAccount(GetUserByPolicy(accounts, App.PolicyEditProfile)),
+        var authResult = await application.AcquireTokenInteractive(scopes)
                             .WithPrompt(Prompt.NoPrompt),
-                            .WithB2CAuthority(App.AuthorityEditProfile)
+                            .WithAccount(account)
+                            .WithB2CAuthority(AuthorityEditProfile)
                             .ExecuteAsync();
-        DisplayBasicTokenInfo(authResult);
-    }
+     }
     catch
     {
     }

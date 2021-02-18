@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070944"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585514"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -46,8 +46,8 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 - **NSG(네트워크 보안 그룹)** : Azure Virtual Network에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷, 개별 VM(클래식) 또는 VM(Resource Manager)에 연결된 개별 NIC(네트워크 인터페이스)와 연결될 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **NSG(네트워크 보안 그룹) 흐름 로그**: 네트워크 보안 그룹을 통한 송/수신 IP 트래픽에 대한 정보를 볼 수 있습니다. NSG 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP 주소, 원본/대상 포트, 프로토콜)를 보여줍니다. NSG 흐름 로그에 대한 자세한 내용은 [NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md)를 참조하세요.
-- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 애플리케이션 모니터링은 Azure Monitor 로그를 기반으로 사용하여 빌드됩니다. 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
-- **Log Analytics 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 Azure Monitor 로그의 인스턴스입니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **Log Analytics**: 모니터링 데이터를 수집하고 중앙 리포지토리에 데이터를 저장하는 Azure 서비스입니다. 이 데이터에는 이벤트, 성능 데이터 또는 Azure API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다. 네트워크 성능 모니터 및 트래픽 분석 같은 애플리케이션 모니터링은 Azure Monitor 로그를 기반으로 사용하여 빌드됩니다. 자세한 내용은 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+- **Log Analytics 작업 영역**: Azure 계정과 관련된 데이터가 저장되는 Azure Monitor 로그의 인스턴스입니다. Log Analytics 작업 영역에 대한 자세한 내용은 [Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - **Network Watcher**: Azure에서 네트워크 시나리오 수준으로 상태를 모니터링하고 진단할 수 있는 지역 서비스입니다. Network Watcher에서 NSG 흐름 로그를 켜고 끌 수 있습니다. 자세한 내용은 [Network Watcher](network-watcher-monitoring-overview.md)를 참조하세요.
 
 ## <a name="how-traffic-analytics-works"></a>트래픽 분석의 작동 원리
@@ -232,7 +232,7 @@ New-AzStorageAccount `
 4. **보존** 을 데이터를 저장하려는 일 수로 설정합니다. 데이터를 무기한 저장하려면 값을 *0* 으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 
 5. **트래픽 분석 상태** 를 *켜기* 로 선택합니다.
 6. 처리 간격을 선택합니다. 선택에 따라 흐름 로그는 스토리지 계정에서 수집되고 트래픽 분석에 의해 처리됩니다. 1시간마다 또는 10분마다 처리 간격을 선택할 수 있습니다. 
-7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기** 를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기** 를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
 > [!NOTE]
 >트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 서유럽의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.

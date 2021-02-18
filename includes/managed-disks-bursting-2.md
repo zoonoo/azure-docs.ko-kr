@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061215"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585072"
 ---
 ## <a name="common-scenarios"></a>일반적인 시나리오
 다음 시나리오는 버스트에서 크게 이점을 누릴 수 있습니다.
@@ -37,7 +37,8 @@ ms.locfileid: "98061215"
 - **상수** – 리소스의 트래픽은 성능 목표에 정확히 맞습니다.
 
 ## <a name="examples-of-bursting"></a>버스트의 예
-다음 예에서는 다양 한 가상 컴퓨터 및 디스크 조합에서 버스트가 작동 하는 방법을 보여 줍니다. 예제를 쉽게 수행할 수 있도록 MB/s에 집중 하지만 동일한 논리가 IOPS에 독립적으로 적용 됩니다.
+
+다음 예에서는 다양 한 VM 및 디스크 조합에서 버스트가 작동 하는 방법을 보여 줍니다. 예제를 쉽게 수행할 수 있도록 MB/s에 집중 하지만 동일한 논리가 IOPS에 독립적으로 적용 됩니다.
 
 ### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>안정적인 디스크를 사용 하는 비 삼로 안정화 된 가상 머신
 **VM 및 디스크 조합:** 
@@ -50,17 +51,17 @@ ms.locfileid: "98061215"
     - 프로 비전 된 MB/s: 100
     - 최대 버스트 MB/s: 170
 
- VM이 부팅 되 면 OS 디스크에서 데이터를 검색 합니다. OS 디스크는 시작 되는 VM의 일부 이기 때문에 OS 디스크는 버스트 크레딧을 차지 합니다. 이러한 크레딧을 통해 OS 디스크는 아래에 표시 된 대로 170 m b/초 후에 시작을 버스트 합니다.
+ VM이 부팅 되 면 OS 디스크에서 데이터를 검색 합니다. OS 디스크는 부팅 중인 VM의 일부 이므로 OS 디스크는 버스트 크레딧을 차지 합니다. 이러한 크레딧을 통해 OS 디스크는 170 m b/초 초에 시작을 버스트 합니다.
 
-![비 버스트 vm 버스트 디스크 시작](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![VM이 192 m b/s의 처리량에 대 한 요청을 OS 디스크로 보내고 OS 디스크는 170 m b/초 데이터를 사용 하 여 응답 합니다.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
 부팅이 완료 되 면 응용 프로그램은 VM에서 실행 되 고 중요 하지 않은 작업을 포함 합니다. 이 워크 로드에는 모든 디스크에서 균등 하 게 분산 되는 15 m b/S가 필요 합니다.
 
-![비 버스트 vm 버스트 디스크 유휴 상태](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![응용 프로그램에서 VM에 대 한 처리량을 15 m b/초 동안 요청 하 고, VM에서 요청을 수행 하 여 각 디스크를 5 m b/s에 대해 요청 하 고, 각 디스크가 5 m b/s를 반환 합니다.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
 그런 다음 응용 프로그램에서 192 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 2 m b/s는 OS 디스크에서 사용 되며 나머지는 데이터 디스크 간에 균등 하 게 분할 됩니다.
 
-![비 버스트 vm 버스트 디스크 버스트](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![응용 프로그램에서 VM에 대 한 처리량 95 (192 m b/초)을 요청 하 고, VM에서 요청을 보내고, OS 디스크에 대 한 요청을 대량으로 전송 하 고, 데이터 디스크가 수요를 충족 하기 위해 버스트 하 고, 모든 디스크가 요청 된 처리량을 VM에 반환 하 여 응용 프로그램에 반환 합니다.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>비 다른 안정적인 디스크로 안정화 된 안정적인 가상 머신
 **VM 및 디스크 조합:** 
@@ -72,11 +73,12 @@ ms.locfileid: "98061215"
 - 2 P10 데이터 디스크 
     - 프로 비전 된 MB/s: 250
 
- 초기 부팅 후 응용 프로그램은 VM에서 실행 되 고 중요 하지 않은 워크 로드를 포함 합니다. 이 워크 로드에는 모든 디스크에 균등 하 게 분산 되는 30mb/s가 필요 합니다. ![ 버스트 vm 비 버스트 디스크 유휴 상태](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ 초기 부팅 후 응용 프로그램은 VM에서 실행 되 고 중요 하지 않은 워크 로드를 포함 합니다. 이 워크 로드에는 모든 디스크에 균등 하 게 분산 되는 30 m b/s가 필요 합니다.
+![응용 프로그램에서 VM에 대 한 처리량의 30 m b/초 요청을 보내고, VM에서 요청을 수행 하 고 각각 10mb/s에 대 한 요청을 보냅니다. 각 디스크는 10mb/s를 반환 하 고, VM은 응용 프로그램에 30 m b/초를 반환 합니다.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 그런 다음 응용 프로그램에서 600 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 이 수요를 충족 하는 Standard_L8s_v2 버스트 된 다음 디스크에 대 한 요청은 P50 디스크에 고르게 분산 됩니다.
 
-![버스트 vm 비 버스트 디스크 버스트](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+![응용 프로그램에서 VM에 대 한 처리량 (600 m b/초)을 요청 하 고 VM에서 요청을 하 여 각 디스크를 200 m b/s에 대 한 요청을 전송 합니다. 각 디스크는 200 m b/s를 반환 하 고 VM 버스트를 반환 하 여 응용 프로그램에 600 MB/s를 반환](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>안정적인 디스크를 사용 하는 안정적인 가상 머신
 **VM 및 디스크 조합:** 
 - Standard_L8s_v2 
@@ -89,14 +91,14 @@ ms.locfileid: "98061215"
     - 프로 비전 된 MB/s: 25
     - 최대 버스트 MB/s: 170 
 
-VM이 부팅 되 면 OS 디스크에서 1280 m b/s의 버스트 제한을 요청 하기 위해 버스트 하 고 OS 디스크는 170 m b/초 버스트 성능으로 응답 합니다.
+VM이 시작 되 면 OS 디스크에서 해당 버스트 제한인 1280 m b/s를 요청 하기 위해 버스트 되 고 OS 디스크는 170 m b/초 버스트 성능으로 응답 합니다.
 
-![버스트 vm 버스트 디스크 시작](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![시작할 때 VM은 OS 디스크에 1280 m b/s 요청을 전송 하 고, OS 디스크 버스트는 1280 m b/초를 반환 합니다.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-그런 다음 부팅이 완료 되 면 응용 프로그램이 VM에서 실행 됩니다. 응용 프로그램에는 모든 디스크에 균등 하 게 분산 되는 15 m b/초를 필요로 하는 중요 하지 않은 워크 로드가 있습니다.
+시작한 후에는 중요 하지 않은 작업을 포함 하는 응용 프로그램을 시작 합니다. 이 응용 프로그램은 모든 디스크에서 균등 하 게 분산 되는 15 m b/초를 요구 합니다.
 
-![버스트 vm 버스트 디스크 유휴 상태](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![응용 프로그램에서 VM에 대 한 처리량을 15 m b/초 동안 요청 하 고, VM에서 요청을 수행 하 여 각 디스크를 5 m b/s에 대해 요청 하 고, 각 디스크가 5 m b/s를 반환 합니다.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-그런 다음 응용 프로그램에서 360 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 이 수요와 요청을 충족 하는 Standard_L8s_v2 버스트 됩니다. OS 디스크에는 20mb/s만 필요 합니다. 나머지 340 m b/s는 버스트 P4 데이터 디스크에 의해 처리 됩니다.  
+그런 다음 응용 프로그램에서 360 m b/s가 필요한 일괄 처리 된 작업을 처리 해야 합니다. 이 수요와 요청을 충족 하는 Standard_L8s_v2 버스트 됩니다. OS 디스크에는 20mb/s만 필요 합니다. 나머지 340 m b/s는 버스트 P4 데이터 디스크에 의해 처리 됩니다.
 
-![버스트 vm 버스트 디스크 버스트](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![응용 프로그램에서 VM에 대 한 처리량 (360 m b/초)을 요청 하 고, VM에서 요청을 하 고 각 데이터 디스크를 OS 디스크에서 170 m b/초 및 20mb/s에 대 한 요청으로 전송 합니다. 각 디스크는 요청 된 MB/s를 반환 하 고, VM 버스트는 360 m b/초를 응용 프로그램에 반환 합니다.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)

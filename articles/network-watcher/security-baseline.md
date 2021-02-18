@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574431"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Network Watcher에 대 한 Azure 보안 기준
 
@@ -118,9 +118,9 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: Azure 활동 로그를 사용 하 여 azure Network Watcher에 대 한 변경 내용을 모니터링 합니다. 변경이 수행 될 때 트리거되는 Azure Monitor 내에서 경고를 만들 수 있습니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -142,7 +142,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: Azure 활동 로그를 사용 하 여 azure Network Watcher 인스턴스에 대 한 구성을 모니터링 하 고 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외의 Network Watcher 자체는 네트워크 트래픽과 관련 된 로그를 생성 하지 않습니다. Network Watcher는 Azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구를 제공 합니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Network Watcher 이해](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: Azure 활동 로그를 사용 하 여 azure Network Watcher 인스턴스에 대 한 구성을 모니터링 하 고 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외에 Network Watcher 자체는 감사 로그를 생성 하지 않습니다. Network Watcher는 Azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구를 제공 합니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Network Watcher 이해](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Network Watcher와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-* [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -184,7 +184,7 @@ Network Watcher를 사용하도록 설정해야 합니다.
 
 **지침**: Azure 활동 로그를 사용 하 여 azure Network Watcher 인스턴스에 대 한 구성을 모니터링 하 고 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외의 Network Watcher 자체는 네트워크 트래픽과 관련 된 로그를 생성 하지 않습니다. Network Watcher는 Azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구를 제공 합니다.
 
-* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Network Watcher 이해](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Network Watcher 기능을 사용 하려면를 사용 하 여 Azure에 로그인 
 
 **지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 azure Network Watcher 및 기타 중요 또는 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+* [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 예
 

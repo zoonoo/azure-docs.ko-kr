@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574998"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Azure Sentinel로 위협 인텔리전스 가져오기
 
@@ -419,7 +419,7 @@ Azure 센티널에 제공 된 위협 인텔리전스 통합 문서를 찾는 방
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="가로 막대형 차트":::
 
-통합 문서는 Azure 센티널의 모든 측면에 대 한 정보를 제공 하는 강력한 대화형 대시보드를 제공 합니다. 통합 문서를 사용 하면 많은 작업을 수행할 수 있으며, 제공 된 템플릿이 좋은 출발점 이지만, 이러한 템플릿을 사용 하 여 사용자 지정 하거나, 다양 한 데이터 소스를 결합 하는 새로운 대시보드를 만들어 데이터를 고유한 방식으로 시각화할 수 있습니다. Azure 센티널 통합 문서는 Azure Monitor 통합 문서를 기반으로 하기 때문에 이미 광범위 한 설명서를 사용할 수 있으며 더 많은 템플릿이 있습니다. [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/platform/workbooks-overview.md)방법에 대 한이 문서를 시작 하는 것이 좋습니다. 
+통합 문서는 Azure 센티널의 모든 측면에 대 한 정보를 제공 하는 강력한 대화형 대시보드를 제공 합니다. 통합 문서를 사용 하면 많은 작업을 수행할 수 있으며, 제공 된 템플릿이 좋은 출발점 이지만, 이러한 템플릿을 사용 하 여 사용자 지정 하거나, 다양 한 데이터 소스를 결합 하는 새로운 대시보드를 만들어 데이터를 고유한 방식으로 시각화할 수 있습니다. Azure 센티널 통합 문서는 Azure Monitor 통합 문서를 기반으로 하기 때문에 이미 광범위 한 설명서를 사용할 수 있으며 더 많은 템플릿이 있습니다. [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/visualize/workbooks-overview.md)방법에 대 한이 문서를 시작 하는 것이 좋습니다. 
 
 또한 GitHub에는 추가 템플릿을 다운로드 하 고 사용자 고유의 템플릿을 제공할 수 있는 다양 한 [Azure Monitor 통합 문서](https://github.com/microsoft/Application-Insights-Workbooks) 커뮤니티가 있습니다.
 

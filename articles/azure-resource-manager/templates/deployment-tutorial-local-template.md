@@ -1,16 +1,16 @@
 ---
 title: 자습서 - 로컬 Azure Resource Manager 템플릿 배포
 description: 로컬 컴퓨터에서 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법 알아보기
-ms.date: 01/12/2021
+ms.date: 02/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 3b2368f5adcfa4b7140c4ec00243ca2cba5c566a
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: d8d54acfa345994edcc401170e70495b3826bfdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134129"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384234"
 ---
 # <a name="tutorial-deploy-a-local-arm-template"></a>자습서: 로컬 ARM 템플릿 배포
 
