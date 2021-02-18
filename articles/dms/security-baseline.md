@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 002c6762c71d5ffb45e56f3bc74d911570bca8bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79743ba2c733855a377ae8e2522ce54eca9e8c04
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571945"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091097"
 ---
 # <a name="azure-security-baseline-for-azure-database-migration-service"></a>Azure Database Migration Service에 대 한 Azure 보안 기준
 
@@ -269,7 +269,7 @@ GitHub를 사용 하는 경우 네이티브 암호 검색 기능을 사용 하 �
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md)
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 

@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/21/2021
-ms.openlocfilehash: ea95b2097c611635eb937498c6f1d87cb544bcd1
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681097"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095183"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
@@ -37,7 +37,7 @@ LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이�
 
     사용자의 전자 메일이 있으면 계정을 선택 하 고 **저장** 을 선택 합니다.
 
-    이 역할 할당에 문제가 있는 경우 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 및 [azure access control 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)을 검토 하세요.
+    이 역할 할당에 문제가 있는 경우 [azure 역할](../../role-based-access-control/role-assignments-portal.md) 및 [azure 액세스 제어 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)을 참조 하세요.
 
 ## <a name="view-the-app-as-a-contributor"></a>앱을 참가자로 표시
 

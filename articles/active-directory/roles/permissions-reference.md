@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518830"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095868"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -2176,6 +2176,6 @@ API 이름 | Azure Portal 이름 | 메모
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 구독의 관리자로 사용자를 할당 하는 방법에 대해 자세히 알아보려면 [azure 역할 할당 추가 또는 제거 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md) 를 참조 하세요.
+* 사용자를 Azure 구독의 관리자로 할당 하는 방법에 대 한 자세한 내용은 [azure 구독의 관리자로 사용자 할당](../../role-based-access-control/role-assignments-portal-subscription-admin.md) 을 참조 하세요.
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법에 대한 자세한 내용은 [여러 역할의 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 * 구독과 Azure AD 테 넌 트 간의 관계 또는 구독을 연결 하거나 추가 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 테 넌 트에 Azure 구독 연결 또는 추가](../fundamentals/active-directory-how-subscriptions-associated-directory.md) 를 참조 하세요.

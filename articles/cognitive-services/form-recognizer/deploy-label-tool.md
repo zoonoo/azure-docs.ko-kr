@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370045"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093393"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -69,19 +69,8 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
    > ![Docker 선택](./media/quickstarts/select-docker.png)
 
 6. 이제 Docker 컨테이너를 구성 하겠습니다. 다른 설명이 없는 한 모든 필드는 필수입니다.
-
-    # <a name="v20"></a>[v2.0](#tab/v2-0)
-
-* 옵션- **단일 컨테이너** 선택
-* 이미지 원본- **개인 레지스트리** 선택 
-* 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
-* Username (선택 사항)-사용자 이름을 만듭니다. 
-* 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
-* 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
-* 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
-
-    # <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
 
 * 옵션- **단일 컨테이너** 선택
 * 이미지 원본- **개인 레지스트리** 선택 
@@ -92,19 +81,30 @@ Azure Portal를 사용 하 여 새 리소스를 만들려면 다음 단계를 �
 * 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
 * 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
 
-    ---
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+* 옵션- **단일 컨테이너** 선택
+* 이미지 원본- **개인 레지스트리** 선택 
+* 서버 URL-로 설정 합니다. `https://mcr.microsoft.com`
+* Username (선택 사항)-사용자 이름을 만듭니다. 
+* 암호 (선택 사항)-기억할 보안 암호를 만듭니다.
+* 이미지 및 태그-로 설정 합니다. `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* 연속 배포-개발 팀이 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면이를 **On** 으로 설정 합니다.
+* 시작 명령-이를로 설정 합니다. `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Docker 구성](./media/quickstarts/configure-docker.png)
 
-7. 이제 끝났습니다! 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
+7. 정말 간단하죠. 그런 다음 **검토 + 만들기**, **만들기** 를 차례로 선택 하 여 웹 앱을 배포 합니다. 완료 되 면 리소스에 대 한 **개요** 에 제공 된 URL에서 웹 앱에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 웹 앱을 만들 때 권한 부여/인증을 구성할 수도 있습니다. 시작 하는 데 필요 하지 않습니다.
 
 > [!IMPORTANT]
 > 웹 앱에 대 한 TLS를 사용 하도록 설정 해야 해당 주소에서 볼 수 있습니다 `https` . 웹 앱에 TLS/SSL을 사용 하도록 설정 하는 것 보다 사이드카 컨테이너를 설정 하려면 [tls 끝점 사용](../../container-instances/container-instances-container-group-ssl.md) 의 지침을 따르세요.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>Azure CLI
 
 Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 만들 수 있습니다. 계속 하기 전에 [Azure CLI](/cli/azure/install-azure-cli)을 설치 해야 합니다. 이미 Azure CLI 작업 하 고 있는 경우이 단계를 건너뛸 수 있습니다. 
@@ -113,12 +113,32 @@ Azure Portal를 사용 하는 대신 Azure CLI를 사용 하 여 리소스를 �
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` 임의의 DNS 이름을 생성 합니다. 
 * 이 샘플에서는 리소스를 만드는 데 사용할 수 있는 리소스 그룹이 있다고 가정 합니다. 를 `<resource_group_name>` 구독과 연결 된 유효한 리소스 그룹으로 바꿉니다. 
-* 리소스를 만들 위치를 지정 해야 합니다. 을 `<region name>` 웹 앱의 원하는 지역으로 바꿉니다. 
+* 리소스를 만들 위치를 지정 해야 합니다. 을 `<region name>` 웹 앱의 원하는 지역으로 바꿉니다.
 * 이 명령은 자동으로 EULA에 동의 합니다.
 
 Azure CLI에서이 명령을 실행 하 여 샘플 레이블 지정 도구에 대 한 웹 앱 리소스를 만듭니다.
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[v2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

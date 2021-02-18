@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962029"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095839"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -45,14 +45,14 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정 해야 하는 속성을 보여 주므로 템플릿 제작에 매우 유용 합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음 탐색기 도구에서 해당 JSON 정의를 검사 하 여 리소스 그룹을 templatize 수 있습니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
-소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
+소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
 
 ## <a name="get-the-sample-resource-group-template"></a>샘플 리소스 그룹 템플릿 가져오기
 이제 바로 살펴보겠습니다.
 
 1. [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service 샘플을 탐색합니다.
-2. Readme.md에서 **Azure에 배포**를 클릭합니다.
-3. [azure 배포](https://deploy.azure.com) 사이트로 이동하면 배포 매개 변수를 입력하라는 메시지가 표시됩니다. 대부분의 필드가 저장소 이름 및 일부 임의 문자열로 채워져 있는지 확인합니다. 원하는 모든 필드를 변경할 수 있지만 유일하게 입력해야 할 것은 SQL Server 관리 로그인 및 암호이며 그런 다음 **다음**을 클릭합니다.
+2. Readme.md에서 **Azure에 배포** 를 클릭합니다.
+3. [azure 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) 사이트로 이동하면 배포 매개 변수를 입력하라는 메시지가 표시됩니다. 대부분의 필드가 저장소 이름 및 일부 임의 문자열로 채워져 있는지 확인합니다. 원하는 모든 필드를 변경할 수 있지만 유일하게 입력해야 할 것은 SQL Server 관리 로그인 및 암호이며 그런 다음 **다음** 을 클릭합니다.
    
    ![배포-azure 사이트에 입력 배포 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. 그런 다음 배포 프로세스를 시작하려면 **배포** 를 클릭합니다. 프로세스가 완료되면 배포된 애플리케이션을 탐색하기 위해 http://todoapp*XXXX*.azurewebsites.net 링크를 클릭합니다. 
@@ -182,19 +182,19 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 ## <a name="deploy-the-resource-group-template-yourself"></a>리소스 그룹 템플릿을 직접 배포
 **Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 아래 단계를 수행합니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
-2. **Visual c #**  >  **Cloud**  >  **Azure 리소스 그룹**을 클릭 한 다음 **확인**을 클릭 합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 클릭합니다.
+2. **Visual c #**  >  **Cloud**  >  **Azure 리소스 그룹** 을 클릭 한 다음 **확인** 을 클릭 합니다.
    
    ![Azure .NET SDK에서 Azure 리소스 그룹으로 새 프로젝트를 만듭니다.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
-3. **Azure 템플릿 선택**에서 **빈 템플릿**을 선택하고 **확인**을 클릭합니다.
+3. **Azure 템플릿 선택** 에서 **빈 템플릿** 을 선택하고 **확인** 을 클릭합니다.
 4. Azuredeploy.json을 새 프로젝트의 **템플릿** 폴더로 끌어옵니다.
    
    ![파일에 azuredeploy.js을 프로젝트의 템플릿 폴더로 끌어 온 결과를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 5. 솔루션 탐색기에서 복사한 azuredeploy.json를 엽니다.
-6. 여기서는 설명을 위해 **리소스 추가**를 클릭하여 일부 표준 Application Insight 리소스를 JSON 파일에 추가해 보겠습니다. JSON 파일 배포에 관심이 있다면 배포 단계를 건너뜁니다.
+6. 여기서는 설명을 위해 **리소스 추가** 를 클릭하여 일부 표준 Application Insight 리소스를 JSON 파일에 추가해 보겠습니다. JSON 파일 배포에 관심이 있다면 배포 단계를 건너뜁니다.
    
    ![JSON 파일에 표준 응용 프로그램 정보 리소스를 추가 하는 데 사용할 수 있는 리소스 추가 단추를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. **Web Apps용 Application Insights**를 선택한 다음, 기존 App Service 계획 및 앱을 선택했는지 확인하고 **추가**를 클릭합니다.
+7. **Web Apps용 Application Insights** 를 선택한 다음, 기존 App Service 계획 및 앱을 선택했는지 확인하고 **추가** 를 클릭합니다.
    
    ![Web Apps, 이름, App Service 계획 및 웹 앱에 대 한 Application Insights 선택이 표시 됩니다.](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
@@ -209,26 +209,26 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 11. `location` 및 `isEnabled` 속성을 찾아 아래와 같이 설정합니다. 다른 3 개의 경고(자주색 전구)에 대해 동일한 작업을 수행합니다.
     
     ![CPUHigh appInsights JSON 코드 및 사용자가 설정 해야 하는 값에 위치 및 isEnabled 속성을 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포**  >  **새 배포**를 선택 합니다.
+12. 배포할 준비가 되었습니다. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **배포**  >  **새 배포** 를 선택 합니다.
     
     ![새 프로젝트를 배포 하는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 아직 수행하지 않은 경우 Azure 계정에 로그인합니다.
-14. 구독에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 **azuredeploy.json**을 클릭한 다음 **매개 변수 편집**을 클릭합니다.
+14. 구독에서 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만들고 **azuredeploy.json** 을 클릭한 다음 **매개 변수 편집** 을 클릭합니다.
     
     ![파일의 azuredeploy.js에서 매개 변수를 편집 하는 방법을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
     이제 좋은 테이블에서 템플릿 파일에 정의된 모든 매개 변수를 편집할 수 있습니다. 기본값을 정의하는 매개 변수는 기본값이 이미 있고 허용된 값의 목록을 정의하는 매개 변수는 드롭다운으로 표시됩니다.
     
     ![허용 되는 값 목록을 드롭다운 목록으로 정의 하는 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
-15. 모든 빈 매개 변수를 입력하고 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 에서 **ToDoApp용 GitHub 리포지토리 주소**를 사용합니다. 그런 다음 **저장**을 클릭합니다.
+15. 모든 빈 매개 변수를 입력하고 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 에서 **ToDoApp용 GitHub 리포지토리 주소** 를 사용합니다. 그런 다음 **저장** 을 클릭합니다.
     
     ![파일의 azuredeploy.js에 대해 새로 채워진 매개 변수를 표시 합니다.](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
     
     > [!NOTE]
-    > 자동 크기 조정은 **표준** 계층 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 확인하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄**으로 설정해야 합니다.
+    > 자동 크기 조정은 **표준** 계층 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 확인하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄** 으로 설정해야 합니다.
     > 
     > 
-16. **배포**를 클릭합니다. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
+16. **배포** 을 참조하십시오. **암호 저장** 을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
 정말 간단하죠. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure Resource Explorer](https://resources.azure.com) 도구로 이동해야 합니다.
 

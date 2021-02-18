@@ -3,12 +3,12 @@ title: Azure 대시보드를 프로그래밍 방식으로 만들기
 description: Azure Portal 대시보드를 템플릿으로 사용 하 여 프로그래밍 방식으로 Azure 대시보드를 만듭니다. JSON 참조를 포함 합니다.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745811"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095178"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "96745811"
 
 ![대시보드 공유](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 ![공유 및 액세스 변경](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -665,7 +665,7 @@ az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-[Az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 명령을 사용 하 여 대시보드를 업데이트할 수 있습니다.
+[az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 명령을 사용하여 대시보드를 업데이트할 수 있습니다.
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
@@ -678,13 +678,13 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-현재 구독에 대 한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)를 사용 합니다.
+현재 구독에 대한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)를 사용합니다.
 
 ```azurecli
 az portal dashboard list
 ```
 
-리소스 그룹에 대 한 모든 대시보드를 볼 수도 있습니다.
+리소스 그룹에 대한 모든 대시보드를 볼 수도 있습니다.
 
 ```azurecli
 az portal dashboard list --resource-group myResourceGroup
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 데스크톱에 대 한 자세한 내용은 [Azure Portal 설정 및 기본 설정 관리](set-preferences.md)를 참조 하세요.
 
-대시보드에 대 한 Azure CLI 지원에 대 한 자세한 내용은 [az portal dashboard](/cli/azure/ext/portal/portal/dashboard)를 참조 하세요.
+대시보드용 Azure CLI 지원에 대한 자세한 내용은 [az portal dashboard](/cli/azure/ext/portal/portal/dashboard)를 참조하세요.

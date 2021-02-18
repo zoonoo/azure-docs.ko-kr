@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547165"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094565"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -55,7 +55,7 @@ Azure는 Azure Digital Twins [데이터 평면 api](how-to-use-apis-sdks.md#over
 | Azure Digital Twins 데이터 판독기 | Azure Digital Twins 리소스에 대 한 읽기 전용 액세스를 제공 합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
-* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거*](../role-based-access-control/role-assignments-portal.md)참조)
+* Azure Portal에서 Azure Digital Twins의 액세스 제어 (IAM) 창을 통해 ( [*Azure Portal를 사용 하 여 azure 역할 할당*](../role-based-access-control/role-assignments-portal.md)참조)
 * CLI 명령을 통해 역할 추가 또는 제거
 
 이 작업을 수행 하는 방법에 대 한 자세한 단계는 Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](tutorial-end-to-end.md)에서 사용해 보세요.
@@ -108,7 +108,7 @@ Azure digital twins 인스턴스에 대 한 개인 끝점을 구성 하면 azure
 
 Azure Digital Twins에 대해 개인 링크를 설정 하는 방법에 대 한 지침은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기)*](how-to-enable-private-link.md)을 참조 하세요.
 
-### <a name="design-considerations"></a>디자인 고려 사항 
+### <a name="design-considerations"></a>설계 고려 사항 
 
 Azure Digital Twins의 개인 링크를 사용 하 여 작업할 때 고려해 야 할 몇 가지 요소는 다음과 같습니다.
 * **가격** 책정에 대 한 자세한 내용은  [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조 하세요. 

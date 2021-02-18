@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f144c1f09f87e0b915daf86ba0391c2934e60095
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c028dcf6649da9abd196997d077b58386a5e6dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932679"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092789"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Azure Active Directory 권한 부여-REST API 참조
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>역할 할당 관리
 
-모든 Azure 서비스에서 standard 인 [RBAC 절차](../role-based-access-control/overview.md) 를 사용 하 여 역할 할당을 관리할 수 있습니다. Azure CLI, PowerShell 및 Azure Portal를 통해이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+모든 Azure 서비스에서 standard 인 [AZURE RBAC 절차](../role-based-access-control/overview.md) 를 사용 하 여 역할 할당을 관리할 수 있습니다. Azure CLI, PowerShell 및 Azure Portal를 통해이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.

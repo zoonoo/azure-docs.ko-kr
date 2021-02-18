@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954432"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095939"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 미리 설정을 사용 하 여 지정 된 해상도에 대 한 최적의 비트 전송률 값을 찾습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "98954432"
 
 Microsoft의 [적응 스트리밍](autogen-bitrate-ladder.md) 사전 설정은 원본 비디오의 품질 및 해상도에 대 한 가변성 문제를 부분적으로 해결 합니다. 고객은 다양 한 콘텐츠를 포함 하는 다양 한 콘텐츠를 포함 하 고 있습니다. 일부는 1080p로, 다른 하나는 SD 및 낮은 해상도입니다. 또한 모든 소스 콘텐츠가 필름 또는 TV 스튜디오의 고품질 mezzanines입니다. 적응 스트리밍 사전 설정은 비트 전송률 사다리가 입력 된 메자닌의 해상도 또는 평균 비트 전송률을 초과 하지 않도록 하 여 이러한 문제를 해결 합니다. 그러나이 사전 설정은 해상도 및 비트 전송률 이외의 원본 속성을 검사 하지 않습니다.
 
-## <a name="the-content-aware-encoding"></a>내용 인식 인코딩 
+## <a name="the-content-aware-encoding"></a>내용 인식 인코딩
 
 콘텐츠 인식 인코딩 사전 설정은 인코더가 지정 된 해상도에 대해 최적의 비트 전송률 값을 검색할 수 있도록 하는 사용자 지정 논리를 통합 하 여 "적응 비트 전송률 스트리밍" 메커니즘을 확장 하지만 광범위 한 계산 분석이 필요 하지 않습니다. 이 사전 설정은 GOP 정렬 Mp4 집합을 생성 합니다. 입력 콘텐츠를 제공 하는 경우 서비스는 입력 콘텐츠에 대 한 초기 경량 분석을 수행 하 고 결과를 사용 하 여 최적의 계층 수, 적절 한 비트 전송률 및 적응 스트리밍을 통해 배달할 해상도 설정을 결정 합니다. 이 사전 설정은 저렴 하 고 보통 수준의 복잡 한 비디오에 특히 효과적입니다 .이 경우 출력 파일은 적응 스트리밍 사전 설정 보다 더 낮은 비트 전송률이 고 여전히 좋은 경험을 제공 하는 품질로 제공 됩니다. 출력에는 비디오 및 오디오가 있는 MP4 파일이 포함 됩니다.
 

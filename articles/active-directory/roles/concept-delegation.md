@@ -15,12 +15,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77ba93b9017fa75f7247bda639880415eda1d280
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 9074fdbf31cdd8516b8d42f7cc13b4bc16f6634a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740315"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095738"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Azure Active Directory의 관리 위임
 
@@ -38,7 +38,7 @@ ms.locfileid: "98740315"
 
 Azure AD 포털에서 [모든 역할의 모든 멤버를 확인](manage-roles-portal.md)할 수 있으므로 배포 및 대리자 권한을 빠르게 검토할 수 있습니다.
 
-Azure AD에서 관리 액세스 대신 Azure 리소스에 대 한 액세스를 위임 하는 데 관심이 있는 경우 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+Azure AD에서 관리 액세스 대신 Azure 리소스에 대 한 액세스를 위임 하려는 경우 [Azure Portal를 사용 하 여 azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 ## <a name="delegation-planning"></a>위임 계획
 

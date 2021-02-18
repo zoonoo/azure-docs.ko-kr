@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 8b04119f4a9ff702356f942cec5bebed1e23926b
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: d3aea23c816b9d8b32b0563d3116cdc2b92e080f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515940"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094314"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Azure Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 웹 서비스 관리
 
@@ -44,7 +44,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조 하세요.
 
-액세스 권한 설정에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+액세스 권한 설정에 대 한 자세한 내용은 [Azure Portal 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 
 ## <a name="manage-new-web-services"></a>새 웹 서비스 관리

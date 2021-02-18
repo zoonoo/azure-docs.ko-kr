@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905318"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094104"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -84,13 +84,13 @@ Azure Maps은 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리�
 
 다음 섹션에서는 Azure RBAC와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명 합니다. Azure Maps 계정을 설정 하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결 됩니다. 
 
-Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당에 적용 합니다. Azure Portal에 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+Azure RBAC를 구성 하는 경우 보안 주체를 선택 하 여 역할 할당에 적용 합니다. Azure Portal에 역할 할당을 추가 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 ### <a name="picking-a-role-definition"></a>역할 정의 선택
 
 응용 프로그램 시나리오를 지원 하기 위해 다음 역할 정의 형식이 있습니다.
 
-| Azure 역할 정의       | Description                                                                                              |
+| Azure 역할 정의       | 설명                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Azure Maps 데이터 읽기 권한자      | 변경할 수 없는 Azure Maps REST Api에 대 한 액세스를 제공 합니다.                                                       |
 | Azure Maps 데이터 기여자 | 변경 가능한 Azure Maps REST Api에 대 한 액세스를 제공 합니다. 가변성는 write 및 delete 작업으로 정의 됩니다. |

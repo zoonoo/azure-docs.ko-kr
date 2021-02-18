@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371255"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093699"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -36,16 +36,16 @@ ms.locfileid: "91371255"
 2. **리소스 그룹** 선택
 
     ![리소스 그룹 추가](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
-3. **추가**를 선택합니다.
+3. **추가** 를 선택합니다.
 4. 다음 값을 입력합니다.
 
    - **구독**: Azure 구독을 선택합니다. 
    - **리소스 그룹**: 새 리소스 그룹 이름을 입력합니다. 
-   - **지역**: **미국 중부**와 같은 Azure 위치를 선택 합니다.
+   - **지역**: **미국 중부** 와 같은 Azure 위치를 선택 합니다.
 
      ![리소스 그룹 만들기](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. **검토 및 만들기**를 선택합니다.
-6. **만들기**를 선택합니다. 리소스 그룹을 만드는 데 몇 초 정도 걸립니다.
+5. **검토 및 만들기** 를 선택합니다.
+6. **만들기** 를 선택합니다. 리소스 그룹을 만드는 데 몇 초 정도 걸립니다.
 7. 상단 메뉴에서 **새로 고침** 을 선택 하 여 리소스 그룹 목록을 새로 고친 다음 새로 만든 리소스 그룹을 선택 하 여 엽니다. 또는 위쪽에서 **알림**(벨 아이콘)을 선택 하 고 **리소스 그룹으로 이동** 을 선택 하 여 새로 만든 리소스 그룹을 엽니다.
 
     ![리소스 그룹으로 이동](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
@@ -57,18 +57,18 @@ ms.locfileid: "91371255"
 
     ![리소스 그룹 찾아보기](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. 리소스 그룹에 대해 표시 되는 정보를 사용자 지정 하려면 **열 편집**을 선택 합니다. 다음 스크린샷에서는 표시에 추가할 수 있는 추가 열을 보여 줍니다.
+3. 리소스 그룹에 대해 표시 되는 정보를 사용자 지정 하려면 **열 편집** 을 선택 합니다. 다음 스크린샷에서는 표시에 추가할 수 있는 추가 열을 보여 줍니다.
 
 ## <a name="open-resource-groups"></a>리소스 그룹 열기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 그룹**을 선택 합니다.
+2. **리소스 그룹** 을 선택합니다.
 3. 열려는 리소스 그룹을 선택 합니다.
 
 ## <a name="delete-resource-groups"></a>리소스 그룹 삭제
 
 1. 삭제 하려는 리소스 그룹을 엽니다.  [리소스 그룹 열기](#open-resource-groups)를 참조 하세요.
-2. **리소스 그룹 삭제**를 선택합니다.
+2. **리소스 그룹 삭제** 를 선택합니다.
 
     ![azure 리소스 그룹 삭제](./media/manage-resource-groups-portal/delete-group.png)
 
@@ -87,13 +87,13 @@ ms.locfileid: "91371255"
 잠금은 조직의 다른 사용자가 실수로 Azure 구독, 리소스 그룹 또는 리소스와 같은 중요 한 리소스를 삭제 하거나 수정 하는 것을 방지 합니다. 
 
 1. 잠글 리소스 그룹을 엽니다.  [리소스 그룹 열기](#open-resource-groups)를 참조 하세요.
-2. 왼쪽 창에서 **잠금**을 선택 합니다.
-3. 리소스 그룹에 잠금을 추가 하려면 **추가**를 선택 합니다.
-4. **잠금 이름**, **잠금 유형**및 **메모**를 입력 합니다. 잠금 유형에는 **읽기**전용 및 **삭제가**포함 됩니다.
+2. 왼쪽 창에서 **잠금** 을 선택 합니다.
+3. 리소스 그룹에 잠금을 추가 하려면 **추가** 를 선택 합니다.
+4. **잠금 이름**, **잠금 유형** 및 **메모** 를 입력 합니다. 잠금 유형에는 **읽기** 전용 및 **삭제가** 포함 됩니다.
 
     ![azure 리소스 그룹 잠금](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](lock-resources.md)를 참조 하세요.
+자세한 내용은 [예기치 않은 변경을 방지하기 위해 리소스 잠그기](lock-resources.md)를 참조하세요.
 
 ## <a name="tag-resource-groups"></a>리소스 그룹 태그
 
@@ -105,7 +105,7 @@ ms.locfileid: "91371255"
 
 ## <a name="manage-access-to-resource-groups"></a>리소스 그룹에 대 한 액세스 관리
 
-Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 는 azure에서 리소스에 대 한 액세스를 관리 하는 방법입니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

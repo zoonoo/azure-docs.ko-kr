@@ -1,14 +1,14 @@
 ---
 title: Azure Marketplace의 관리되는 서비스 제안
 description: 관리 서비스 제공을 사용 하면 Azure Marketplace에서 고객에 게 리소스 관리 제안을 판매할 수 있습니다.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375547"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092990"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Azure Marketplace의 관리되는 서비스 제안
 
@@ -19,6 +19,9 @@ ms.locfileid: "100375547"
 관리 서비스를 통해 Azure Lighthouse에 고객을 온 보 딩 하는 프로세스를 간소화할 수 있습니다. 고객이 Azure Marketplace에서 제품을 구매하는 경우 등록해야 하는 구독 및/또는 리소스 그룹을 지정할 수 있습니다.
 
 그런 다음, 조직의 사용자는 제품을 만들 때 정의한 액세스에 따라 [Azure 위임 된 리소스 관리](azure-delegated-resource-management.md)를 통해 관리 되는 테 넌 트 내에서 해당 리소스에 대해 작업을 수행할 수 있습니다. 이 작업은 액세스 수준을 정의 하는 [역할과](tenants-users-roles.md) 함께 고객 리소스에 대 한 액세스 권한이 있는 Azure Active Directory (Azure AD) 사용자, 그룹 및 서비스 주체를 지정 하는 매니페스트를 통해 수행 됩니다.
+
+> [!NOTE]
+> 관리 서비스 제품은 Azure Government 및 기타 국가에서 제공 되지 않을 수 있습니다.
 
 ## <a name="public-and-private-offers"></a>퍼블릭 및 프라이빗 제품
 
@@ -43,4 +46,4 @@ ms.locfileid: "100375547"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 위임 리소스 관리](azure-delegated-resource-management.md) 및 [테넌트 간 관리 환경](cross-tenant-management-experience.md)에 대해 자세히 알아봅니다.
-- Azure Marketplace에 [관리 되는 서비스 제공을 게시](../how-to/publish-managed-services-offers.md) 합니다.
+- Azure Marketplace에 [관리 서비스 제공을 게시](../how-to/publish-managed-services-offers.md) 합니다.

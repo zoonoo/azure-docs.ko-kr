@@ -1,5 +1,5 @@
 ---
-title: IoT 용 Azure Defender에 대 한 azure 보안 기준
+title: Azure Defender for IoT용 Azure 보안 기준
 description: IoT 용 Azure Defender 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: defender-for-iot
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6fbd70c1de99818e2baf73d15ed365db3a54e43d
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: adb9cb234e76da5dab4503c59eb19ba6645e56c8
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246726"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092658"
 ---
-# <a name="azure-security-baseline-for-azure-defender-for-iot"></a>IoT 용 Azure Defender에 대 한 azure 보안 기준
+# <a name="azure-security-baseline-for-azure-defender-for-iot"></a>Azure Defender for IoT용 Azure 보안 기준
 
 이 보안 기준은 [Azure Security 벤치 마크 버전 2.0](../security/benchmarks/overview.md) 의 지침을 IoT 용 Microsoft Azure Defender에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 Azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 IoT 용 azure Defender에 적용 되는 관련 지침에 따라 그룹화 됩니다. IoT 용 Azure Defender에 적용할 수 없는 **컨트롤** 은 제외 되었습니다.
 
@@ -167,7 +167,7 @@ Azure ATP(Advanced Threat Protection)는 Active Directory 신호를 사용하여
 
 - [Azure 역할 기반 access control (Azure RBAC) 이란?](../role-based-access-control/overview.md) 
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 

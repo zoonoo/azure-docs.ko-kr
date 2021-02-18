@@ -4,12 +4,12 @@ description: Azure Blockchain 서비스 트랜잭션 노드를 구성 하는 방
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150876"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091264"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain 서비스 트랜잭션 노드 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "92150876"
 기본 트랜잭션 노드 세부 정보를 보려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**를 선택 합니다.
+1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드** 를 선택 합니다.
 
     ![기본 트랜잭션 노드 선택](./media/configure-transaction-nodes/nodes.png)
 
@@ -30,17 +30,17 @@ ms.locfileid: "92150876"
 
 트랜잭션 노드를 추가 하려면:
 
-1. Azure Portal에서 Azure Blockchain 서비스 구성원으로 이동 하 고 **트랜잭션 노드 > 추가**를 선택 합니다.
+1. Azure Portal에서 Azure Blockchain 서비스 구성원으로 이동 하 고 **트랜잭션 노드 > 추가** 를 선택 합니다.
 1. 새 트랜잭션 노드에 대 한 설정을 완료 합니다.
 
     ![트랜잭션 노드 추가](./media/configure-transaction-nodes/add-node.png)
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     |---------|-------------|
-    | Name | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예들 들어 `newnode-myblockchainmember.blockchain.azure.com`입니다. 노드 이름을 만든 후에는 변경할 수 없습니다. |
+    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 노드 이름을 만든 후에는 변경할 수 없습니다. |
     | 암호 | 강력한 암호를 설정 합니다. 기본 인증을 사용 하 여 트랜잭션 노드 끝점에 액세스 하려면 암호를 사용 합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
     새 트랜잭션 노드를 프로비저닝하는 데 약 10분이 걸립니다. 추가 트랜잭션 노드는 비용을 발생 시킵니다. 비용에 대 한 자세한 내용은 [Azure 가격 책정](https://aka.ms/ABSPricing)을 참조 하세요.
 
@@ -50,7 +50,7 @@ ms.locfileid: "92150876"
 
 트랜잭션 노드의 끝점 세부 정보를 보려면 다음을 수행 합니다.
 
-1. Azure Portal에서 Azure Blockchain 서비스 구성원 트랜잭션 노드 중 하나로 이동 하 고 **개요**를 선택 합니다.
+1. Azure Portal에서 Azure Blockchain 서비스 구성원 트랜잭션 노드 중 하나로 이동 하 고 **개요** 를 선택 합니다.
 
     ![화면 캡처는 블록 체인 구성원의 트랜잭션 노드에 대 한 개요를 보여 줍니다.](./media/configure-transaction-nodes/endpoints.png)
 
@@ -62,20 +62,20 @@ Azure Blockchain 서비스 트랜잭션 노드 끝점은 Azure AD (Azure Active 
 
 끝점에 Azure AD 액세스 제어를 부여 하려면:
 
-1. Azure Portal에서 Azure Blockchain 서비스 구성원으로 이동한 후 **트랜잭션 노드 > 액세스 제어 (IAM)를 선택 하 > 역할 할당 추가 > 추가**합니다.
+1. Azure Portal에서 Azure Blockchain 서비스 구성원으로 이동한 후 **트랜잭션 노드 > 액세스 제어 (IAM)를 선택 하 > 역할 할당 추가 > 추가** 합니다.
 1. 사용자, 그룹 또는 서비스 사용자 (응용 프로그램 역할)에 대 한 새 역할 할당을 만듭니다.
 
     ![IAM 역할 추가](./media/configure-transaction-nodes/add-role.png)
 
     | 설정 | 작업 |
     |---------|-------------|
-    | 역할 | **소유자**, **참가자**또는 **읽기 권한자**를 선택 합니다.
-    | 다음에 대한 액세스 할당 | **AZURE AD 사용자, 그룹 또는 서비스 주체**를 선택 합니다.
+    | 역할 | **소유자**, **참가자** 또는 **읽기 권한자** 를 선택 합니다.
+    | 다음에 대한 액세스 할당 | **AZURE AD 사용자, 그룹 또는 서비스 주체** 를 선택 합니다.
     | 선택 | 추가 하려는 사용자, 그룹 또는 서비스 주체를 검색 합니다.
 
 1. **저장** 을 선택 하 여 역할 할당을 추가 합니다.
 
-Azure AD access control에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md) 를 참조 하세요.
+Azure AD access control에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 을 참조 하세요.
 
 Azure AD 인증을 사용 하 여 연결 하는 방법에 대 한 자세한 내용은 [AAD 인증을 사용 하 여 노드에 연결](configure-aad.md)을 참조 하세요.
 
@@ -89,7 +89,7 @@ Azure Portal에서 트랜잭션 노드의 기본 인증 끝점 세부 정보를 
 
 사용자 이름은 노드의 이름이 며 변경할 수 없습니다.
 
-URL을 사용 하려면를 \<password\> 노드가 프로 비전 될 때 설정 된 암호로 바꿉니다. **암호 재설정**을 선택 하 여 암호를 업데이트할 수 있습니다.
+URL을 사용 하려면를 \<password\> 노드가 프로 비전 될 때 설정 된 암호로 바꿉니다. **암호 재설정** 을 선택 하 여 암호를 업데이트할 수 있습니다.
 
 ### <a name="access-keys"></a>액세스 키
 

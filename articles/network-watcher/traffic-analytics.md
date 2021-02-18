@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585514"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095359"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -71,33 +71,34 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
       미국 중부  
       중국 동부 2  
       중국 북부 2  
+      동아시아       
    :::column-end:::
    :::column span="":::
-      동아시아  
       미국 동부  
       미국 동부 2  
       미국 동부 2 EUAP  
       프랑스 중부  
-      일본 동부  
+      독일 중서부 일본 동부  
       일본 서부  
       한국 중부  
       한국 남부  
       미국 중북부  
+      북유럽    
    :::column-end:::
    :::column span="":::
-      북유럽  
       남아프리카 북부  
       미국 중남부  
       인도 남부  
       동남 아시아  
       스위스 북부  
       스위스 서부  
+      아랍에미리트 북부  
       영국 남부  
-      영국 서부  
+      영국 서부   
       USGov 애리조나  
+      USGov 텍사스
    :::column-end:::
    :::column span="":::
-      USGov 텍사스  
       USGov 버지니아  
       USNat 동부  
       USNat 서 부  
@@ -143,14 +144,15 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
       스위스 북부  
       스위스 서부  
       아랍에미리트 중부  
+      아랍에미리트 북부  
       영국 남부  
-      영국 서부  
+      영국 서부   
       USGov 애리조나  
       USGov 버지니아  
-      USNat 동부  
-      USNat 서 부  
+      USNat 동부   
    :::column-end:::
    :::column span="":::
+      USNat 서 부   
       USSec 동부  
       USSec 서 부  
       미국 중서부  

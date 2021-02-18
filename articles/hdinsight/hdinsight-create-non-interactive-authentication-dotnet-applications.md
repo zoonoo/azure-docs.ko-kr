@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0fffe763f77fffcec6010d43deb92ffea9ece15d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946085"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094913"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 애플리케이션 만들기
 
@@ -28,7 +28,7 @@ HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-g
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD 애플리케이션에 역할 할당
 
-Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대 한 읽기 권한자 역할에 응용 프로그램을 추가 하면 응용 프로그램이 리소스 그룹 및 해당 리소스 그룹의 모든 리소스를 읽을 수 있습니다. 이 문서에서는 리소스 그룹 수준에서 범위를 설정 합니다. 자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure AD 애플리케이션에 [역할](../role-based-access-control/built-in-roles.md)을 할당하여 작업을 수행할 권한을 부여합니다. 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 리소스 그룹에 대 한 읽기 권한자 역할에 응용 프로그램을 추가 하면 응용 프로그램이 리소스 그룹 및 해당 리소스 그룹의 모든 리소스를 읽을 수 있습니다. 이 문서에서는 리소스 그룹 수준에서 범위를 설정 합니다. 자세한 내용은 azure [역할 할당을 참조 하 여 azure 구독 리소스에 대 한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 **Azure AD 애플리케이션에 소유자 역할을 추가하려면**
 

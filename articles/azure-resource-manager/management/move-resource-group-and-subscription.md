@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319557"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093629"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
@@ -37,9 +37,9 @@ ms.locfileid: "91319557"
 
 1. Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 리소스를 이동 하기 전에 역할 할당을 제거 하는 것이 가장 좋습니다.
 
-    역할 할당을 관리 하는 방법에 대 한 자세한 내용은 [azure 역할 할당 나열](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) 및 [Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
+    역할 할당을 관리 하는 방법에 대 한 자세한 내용은 [azure 역할 할당 나열](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) 및 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
-1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../../azure-portal/supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
+1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../../azure-portal/supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리** 를 선택합니다.
 
 1. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "91319557"
    * [Azure 구독의 소유권을 다른 계정으로 이전](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [Azure Active Directory에 Azure 구독을 연결 하거나 추가 하는 방법](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.
+1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음** 을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.
 
    PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
@@ -178,11 +178,11 @@ Authorization: Bearer <access-token>
 
 이동 옵션을 사용 하도록 설정 하려면 이동 하려는 리소스를 선택 합니다. 모든 리소스를 선택 하려면 목록의 맨 위에 있는 확인란을 선택 합니다. 또는 리소스를 개별적으로 선택 합니다. 리소스를 선택한 후에는 이동 옵션을 사용할 수 있습니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="move 옵션 사용 안 함":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="리소스 선택":::
 
 **이동** 단추를 선택 합니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="move 옵션 사용 안 함":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="이동 옵션":::
 
 이 단추는 세 가지 옵션을 제공 합니다.
 
@@ -192,19 +192,19 @@ Authorization: Bearer <access-token>
 
 리소스를 새 리소스 그룹으로 이동할지 또는 새 구독으로 이동할지를 선택합니다.
 
-대상 리소스 그룹을 선택 합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인**을 선택합니다. 새 구독으로 이동 하도록 선택한 경우에도 대상 구독을 선택 해야 합니다.
+대상 리소스 그룹을 선택 합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인** 을 선택합니다. 새 구독으로 이동 하도록 선택한 경우에도 대상 구독을 선택 해야 합니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="move 옵션 사용 안 함":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="대상 선택":::
 
 리소스를 이동할 수 있는지 확인 한 후 이동 작업이 실행 중임을 확인할 수 있습니다.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="move 옵션 사용 안 함":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="알림":::
 
 완료되면 결과를 알려 줍니다.
 
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
 
