@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 3b029a9cb14a81c80072847dc17d6b71f480743f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746580"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585664"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>OpenCensus Python을 사용 하 여 들어오는 요청 추적
 
@@ -177,6 +177,6 @@ OpenCensus에는 FastAPI에 대 한 확장명이 없습니다. 고유한 FastAPI
 * [애플리케이션 맵](./app-map.md)
 * [가용성](./monitor-web-app-availability.md)
 * [검색](./diagnostic-search.md)
-* [로그 (분석) 쿼리](../log-query/log-query-overview.md)
+* [로그 (분석) 쿼리](../logs/log-query-overview.md)
 * [트랜잭션 진단](./transaction-diagnostics.md)
 

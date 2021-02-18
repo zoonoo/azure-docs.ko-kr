@@ -7,31 +7,35 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636563"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Defender for IoT CLI 명령 작업
 
-이 문서에서는 센서 및 온-프레미스 관리 콘솔에 대 한 CLI 명령을 설명 합니다. 이 명령은 관리자, cyberx 사용자 및 지원 사용자가 액세스할 수 있습니다.
+이 문서에서는 센서 및 온-프레미스 관리 콘솔에 대 한 CLI 명령을 설명 합니다. 명령을 다음 사용자가 액세스할 수 있습니다.
 
-유지 관리 작업을 계획 중이거나 경고를 요구 하지 않는 작업을 계획 하는 경우 제외 규칙을 정의 합니다.
+- 관리자
+- CyberX 
+- 지원
+
+CLI에서 작업을 시작 하려면 터미널을 사용 하 여 연결 합니다. 예를 들어 터미널 이름 `Putty` 및 `Support` 사용자가 있습니다. 
 
 ## <a name="create-local-alert-exclusion-rules"></a>로컬 경고 제외 규칙 만들기
 
-CLI에 다음 명령을 입력 하 여 제외 규칙을 만들 수 있습니다.
+CLI에 다음 명령을 입력 하 여 로컬 경고 제외 규칙을 만들 수 있습니다.
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-경고 제외 규칙 내에서 정의할 수 있는 특성은 다음과 같습니다.
+경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| attribute | Description |
+| attribute | 설명 |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | -n 이름 | 만들고 있는 규칙의 이름입니다. |
@@ -42,18 +46,18 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 ## <a name="append-local-alert-exclusion-rules"></a>로컬 경고 제외 규칙 추가
 
-CLI에서 다음 명령을 입력 하 여 현재 경고 제외 규칙에 새 규칙을 추가할 수 있습니다.
+CLI에서 다음 명령을 입력 하 여 로컬 경고 제외 규칙을 추가할 수 있습니다.
 
 ```azurecli-interactive
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-여기서 사용 되는 특성은 로컬 경고 제외 규칙을 만들 때 설명 된 특성과 유사 합니다. 여기서 사용 하는 특성은 기존 규칙에 적용 됩니다.
+여기서 사용 되는 특성은 로컬 경고 제외 규칙 만들기 섹션에 설명 된 특성과 동일 합니다. 여기서는 특성이 기존 규칙에 적용 된다는 점이 다릅니다.
 
 ## <a name="show-local-alert-exclusion-rules"></a>로컬 경고 제외 규칙 표시
 
-다음 명령을 입력 하 여 기존 제외 규칙을 모두 표시 합니다.
+다음 명령을 입력 하 여 기존 제외 규칙 목록을 표시 합니다.
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -71,17 +75,17 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| attribute | Description|
+| attribute | 설명|
 | --------- | ---------------------------------- |
 | -n 이름 | 삭제할 규칙의 이름입니다. |
 
 ## <a name="sync-time-from-the-ntp-server"></a>NTP 서버의 동기화 시간
 
-NTP 서버에서 시간 동기화를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+지정 된 NTP 서버에서 시간 동기화를 사용 하도록 설정 하거나 사용 하지 않도록 설정할 수 있습니다.
 
 ### <a name="enable-ntp-sync"></a>NTP 동기화 사용
 
-다음 명령을 입력 하면 지정 된 NTP 서버에서 현재 시간을 정기적으로 검색할 수 있습니다.
+다음 명령을 입력 하 여 지정 된 NTP 서버에서 시간을 주기적으로 검색 합니다.
 
 ```azurecli-interactive
 ntp enable IP
@@ -91,7 +95,7 @@ ntp enable IP
 
 ### <a name="disable-ntp-sync"></a>NTP 동기화 사용 안 함
 
-다음 명령을 입력 하면 지정 된 NTP 서버와의 시간 동기화를 사용 하지 않도록 설정 합니다.
+다음 명령을 입력 하 여 지정 된 NTP 서버와의 시간 동기화를 사용 하지 않도록 설정 합니다.
 
 ```azurecli-interactive
 ntp disable IP
@@ -99,23 +103,23 @@ ntp disable IP
 
 명령 내에서 정의할 수 있는 특성은 NTP 서버의 IP 주소입니다.
 
-## <a name="configure-the-network"></a>네트워크 구성
+## <a name="network-configuration"></a>네트워크 구성
 
 다음 표에서는 IoT 용 Azure Defender에 대 한 네트워크 옵션을 구성 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|속성|명령|Description|
+|속성|명령|설명|
 |-----------|-------|-----------|
-|Ping|`ping IP `| IoT 용 Defender 플랫폼 외부에서 주소를 ping 합니다.|
-|Blink|`network blink`|네트워크 구성 매개 변수를 변경할 수 있습니다.|
+|Ping|`ping IP`| IoT 플랫폼용 Defender 외부에서 주소를 Ping 합니다.|
+|Blink|`network blink`| 인터페이스 표시등이 깜박이 게 하 여 연결을 찾습니다. |
 |네트워크 다시 구성 |`network edit-settings`| 네트워크 구성 매개 변수를 변경할 수 있습니다. |
 |네트워크 설정 표시 |`network list`|네트워크 어댑터 매개 변수를 표시 합니다. |
-|네트워크 구성의 유효성을 검사 합니다. |`network validate` |출력 네트워크 설정을 표시 합니다. <br /> <br />예를 들면 다음과 같습니다. <br /> <br />현재 네트워크 설정: <br /> 인터페이스: eth0 <br /> ip: 10.100.100.1 <br />서브넷: 255.255.255.0 <br />기본 게이트웨이: 10.100.100.254 <br />dns: 10.100.100.254 <br />인터페이스 모니터링: eth1|
+|네트워크 구성의 유효성을 검사 합니다. |`network validate` |출력 네트워크 설정을 표시 합니다. <br /> <br />다음은 그 예입니다.  <br /> <br />현재 네트워크 설정: <br /> 인터페이스: eth0 <br /> ip: 10.100.100.1 <br />서브넷: 255.255.255.0 <br />기본 게이트웨이: 10.100.100.254 <br />dns: 10.100.100.254 <br />인터페이스 모니터링: eth1|
 |인증서 가져오기 |`certificate import FILE` |HTTPS 인증서를 가져옵니다. .Crt 파일로 이어지는 전체 경로를 지정 해야 합니다. \* |
 |날짜 표시 |`date` |호스트에서 GMT 형식으로 현재 날짜를 반환 합니다. |
 
 ## <a name="filter-network-configurations"></a>네트워크 구성 필터링
 
-`network capture-filter`관리자는이 명령을 사용 하 여 분석 하지 않아도 되는 네트워크 트래픽을 제거할 수 있습니다. 포함 목록 또는 제외 목록을 사용 하 여 트래픽을 필터링 합니다.
+이 `network capture-filter` 명령을 사용 하 여 관리자는 분석 하지 않아도 되는 네트워크 트래픽을 제거할 수 있습니다. 포함 목록 또는 제외 목록을 사용 하 여 트래픽을 필터링 할 수 있습니다.
 
 ```azurecli-interactive
 network capture-filter
@@ -127,7 +131,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | Description |
+| attribute | 설명 |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 포함 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 포함 합니다. |
@@ -137,13 +141,13 @@ network capture-filter
 
 장치, 채널 또는 서브넷을 포함 하는 경우 센서는 일반적으로 처리 되지 않는 포트 및 트래픽을 포함 하 여 해당 인수에 대해 유효한 모든 트래픽을 처리 합니다.
 
-그러면 다음을 묻는 메시지가 표시 됩니다.
+그러면 다음 질문에 대 한 메시지가 표시 됩니다.
 
 >`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | Description |
+| attribute | 설명 |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 제외 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 제외 합니다. 즉, 두 장치 간의 모든 트래픽을 의미 합니다. |
@@ -173,7 +177,7 @@ network capture-filter
 
 ### <a name="components"></a>구성 요소
 
-다음을 묻는 메시지가 표시 됩니다.
+다음 질문에 대 한 메시지가 표시 됩니다.
 
 >`In which component do you wish to apply this capture filter?`
 
@@ -232,7 +236,7 @@ sudo cyberx-xsense-capture-filter -p all -m all-connected
 
 ## <a name="define-client-and-server-hosts"></a>클라이언트 및 서버 호스트 정의
 
-IoT 용 Defender가 클라이언트 및 서버 호스트를 자동으로 검색 하지 않는 경우 다음 명령을 입력 하 여 클라이언트 및 서버 호스트를 설정 합니다.
+IoT 용 Defender가 클라이언트 및 서버 호스트를 자동으로 검색 하지 않은 경우 다음 명령을 입력 하 여 클라이언트 및 서버 호스트를 설정 합니다.
 
 ```azurecli-interactive
 directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]  
@@ -241,7 +245,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 명령을 사용 하 여 다음 특성을 사용할 수 있습니다 `directions` .
 
-| attribute | Description |
+| attribute | 설명 |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | [--식별자 식별자] | 서버 식별자입니다. |
@@ -256,6 +260,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 |속성|코드|Description|
 |----|----|-----------|
+|날짜 표시|`date`|호스트에서 GMT 형식으로 현재 날짜를 반환 합니다.|
 |호스트 다시 부팅|`system reboot`|호스트 장치를 다시 부팅 합니다.|
 |호스트 종료|`system shutdown`|호스트를 종료 합니다.|
 |시스템 백업|`system backup`|즉시 백업 (예약 되지 않은 백업)을 시작 합니다.|
@@ -290,6 +295,6 @@ cyberx-xsense-certificate-import
 
 - DNS 서버와 해당 IP 주소를 사용 하 여 어플라이언스 도메인 (인증서에 표시 된 대로)을 확인 합니다. 
     
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [IoT API 센서 및 관리 콘솔 Api 용 Defender](references-work-with-defender-for-iot-apis.md)

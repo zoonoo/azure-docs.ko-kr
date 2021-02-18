@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ad56b6af9a9071812ad6fa581954010df3b6b5d7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780300"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574835"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Azure 테이블 저장소 모니터링 데이터 참조
 
@@ -36,7 +36,7 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 #### <a name="table-storage"></a>Table Storage
 
-다음 표에서는 [테이블 저장소 메트릭을](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)보여 줍니다.
+다음 표에서는 [테이블 저장소 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices)보여 줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
@@ -80,4 +80,4 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="see-also"></a>참고 항목
 
 - Azure Storage 모니터링에 대 한 설명은 [Azure 테이블 저장소 모니터링](monitor-table-storage.md) 을 참조 하세요.
-- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/insights/monitor-azure-resource.md)을 참조하세요.
+- Azure 리소스 모니터링에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure 리소스 모니터링](../../azure-monitor/essentials/monitor-azure-resource.md)을 참조하세요.

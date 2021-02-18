@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0003384676f420c5ece043b1eb6120ed8ee2435
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937290"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574899"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>컨테이너 및 blob에 대 한 익명 공용 읽기 액세스 차단
 
@@ -35,7 +35,7 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>메트릭 탐색기를 사용 하 여 익명 요청 모니터링
 
-저장소 계정에 대 한 익명 요청을 추적 하려면 Azure Portal에서 Azure 메트릭 탐색기를 사용 합니다. 메트릭 탐색기에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)하기를 참조 하세요.
+저장소 계정에 대 한 익명 요청을 추적 하려면 Azure Portal에서 Azure 메트릭 탐색기를 사용 합니다. 메트릭 탐색기에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)하기를 참조 하세요.
 
 익명 요청을 추적 하는 메트릭을 만들려면 다음 단계를 수행 합니다.
 
@@ -61,7 +61,7 @@ Azure Storage의 컨테이너 및 Blob에 대한 익명 공용 읽기 액세스�
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Blob 저장소에 대 한 집계 된 익명 요청을 보여 주는 스크린샷":::
 
-또한 저장소 계정에 대해 특정 수의 익명 요청이 수행 되는 경우 사용자에 게 알리도록 경고 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
+또한 저장소 계정에 대해 특정 수의 익명 요청이 수행 되는 경우 사용자에 게 알리도록 경고 규칙을 구성할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-metric.md)를 참조하세요.
 
 ### <a name="analyze-logs-to-identify-containers-receiving-anonymous-requests"></a>로그를 분석 하 여 익명 요청을 받는 컨테이너 식별
 
@@ -69,7 +69,7 @@ Azure Storage 로그는 요청에 대 한 권한이 부여 된 방법을 포함 
 
 익명 요청을 평가 하기 위해 Azure Storage 계정에 요청을 기록 하려면 Azure Monitor (미리 보기)에서 Azure Storage 로깅을 사용할 수 있습니다. 자세한 내용은 [Azure Storage 모니터링](./monitor-blob-storage.md)을 참조 하세요.
 
-Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/log-query/log-analytics-tutorial.md)을 참조 하세요.
+Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데이터를 분석 합니다. 로그를 쿼리하려면 Azure Log Analytics 작업 영역을 사용할 수 있습니다. 로그 쿼리에 대해 자세히 알아보려면 [자습서: Log Analytics 쿼리 시작](../../azure-monitor/logs/log-analytics-tutorial.md)을 참조 하세요.
 
 > [!NOTE]
 > Azure Monitor Azure Storage 로그인의 미리 보기는 Azure 공용 클라우드에서만 지원 됩니다. 정부 클라우드는 Azure Monitor에서 Azure Storage에 대 한 로깅을 지원 하지 않습니다.
@@ -79,7 +79,7 @@ Azure Monitor Azure Storage 로깅은 로그 쿼리를 사용 하 여 로그 데
 Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure Log Analytics를 사용 하 여 분석 하려면 먼저 요청 유형과 데이터를 기록할 저장소 서비스를 나타내는 진단 설정을 만들어야 합니다. Azure Portal에서 진단 설정을 만들려면 다음 단계를 수행 합니다.
 
 1. [Azure Monitor 미리 보기에서 Azure Storage 로그인](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u)에 등록 합니다.
-1. Azure Storage 계정을 포함 하는 구독에 새 Log Analytics 작업 영역을 만듭니다. 저장소 계정에 대 한 로깅을 구성한 후 Log Analytics 작업 영역에서 로그를 사용할 수 있습니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.
+1. Azure Storage 계정을 포함 하는 구독에 새 Log Analytics 작업 영역을 만듭니다. 저장소 계정에 대 한 로깅을 구성한 후 Log Analytics 작업 영역에서 로그를 사용할 수 있습니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/logs/quick-create-workspace.md)를 참조하세요.
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. 모니터링 섹션에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. Blob 저장소에 대 한 요청을 기록 하려면 **blob** 을 선택 합니다.
@@ -90,7 +90,7 @@ Azure Monitor를 사용 하 여 Azure Storage 데이터를 기록 하 고 Azure 
 
     :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="요청 로깅에 대 한 진단 설정을 만드는 방법을 보여 주는 스크린샷":::
 
-진단 설정을 만든 후에는 해당 설정에 따라 저장소 계정에 대 한 요청이 나중에 기록 됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요.
+진단 설정을 만든 후에는 해당 설정에 따라 저장소 계정에 대 한 요청이 나중에 기록 됩니다. 자세한 내용은 [Azure에서 리소스 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조 하세요.
 
 Azure Monitor의 Azure Storage 로그에서 사용할 수 있는 필드에 대 한 참조는 [리소스 로그 (미리 보기)](./monitor-blob-storage-reference.md#resource-logs-preview)를 참조 하세요.
 
@@ -106,7 +106,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-이 쿼리를 기반으로 하는 경고 규칙을 구성 하 여 익명 요청에 대해 알릴 수도 있습니다. 자세한 내용은 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-log.md)를 참조 하세요.
+이 쿼리를 기반으로 하는 경고 규칙을 구성 하 여 익명 요청에 대해 알릴 수도 있습니다. 자세한 내용은 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/alerts/alerts-log.md)를 참조 하세요.
 
 ## <a name="remediate-anonymous-public-access"></a>익명 공용 액세스 재구성
 
@@ -290,13 +290,13 @@ Azure Policy는 Azure 리소스가 요구 사항 및 표준을 준수 하도록 
 
 ## <a name="permissions-for-allowing-or-disallowing-public-access"></a>공용 액세스를 허용 하거나 허용 하지 않는 권한
 
-저장소 계정에 대해 **Allowblobpublicaccess** 속성을 설정 하려면 사용자에 게 저장소 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 이러한 권한을 제공 하는 azure RBAC (역할 기반 access control) 역할은 **Microsoft storage/storageAccounts/write** 또는 **Microsoft Storage/storageaccounts/ \** _ 동작을 포함 합니다. 이 작업을 사용 하는 기본 제공 역할은 다음과 같습니다.
+저장소 계정에 대해 **Allowblobpublicaccess** 속성을 설정 하려면 사용자에 게 저장소 계정을 만들고 관리할 수 있는 권한이 있어야 합니다. 이러한 권한을 제공 하는 azure RBAC (역할 기반 access control) 역할에는 **Microsoft storage/storageAccounts/write** 또는 **Microsoft Storage/storageaccounts/ \*** action이 포함 됩니다. 이 작업을 사용 하는 기본 제공 역할은 다음과 같습니다.
 
 - Azure Resource Manager [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할
 - Azure Resource Manager [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할
 - [저장소 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할
 
-이러한 역할은 Azure Active Directory (Azure AD)를 통해 저장소 계정의 데이터에 대 한 액세스를 제공 하지 않습니다. 그러나 여기에는 계정 액세스 키에 대 한 액세스 권한을 부여 하는 _ * Microsoft Storage/storageAccounts/listkeys/action * *이 포함 됩니다. 이 사용 권한을 사용 하는 경우 사용자는 계정 액세스 키를 사용 하 여 저장소 계정의 모든 데이터에 액세스할 수 있습니다.
+이러한 역할은 Azure Active Directory (Azure AD)를 통해 저장소 계정의 데이터에 대 한 액세스를 제공 하지 않습니다. 그러나 계정 액세스 키에 대 한 액세스 권한을 부여 하는 **Microsoft Storage/storageAccounts/listkeys/action** 이 포함 되어 있습니다. 이 사용 권한을 사용 하는 경우 사용자는 계정 액세스 키를 사용 하 여 저장소 계정의 모든 데이터에 액세스할 수 있습니다.
 
 사용자가 저장소 계정에 대 한 공용 액세스를 허용 하거나 허용 하지 않도록 허용 하려면 역할 할당의 범위를 저장소 계정 이상으로 지정 해야 합니다. 역할 범위에 대 한 자세한 내용은 [AZURE RBAC의 범위 이해](../../role-based-access-control/scope-overview.md)를 참조 하세요.
 

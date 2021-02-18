@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530612"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573425"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -76,7 +76,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](../../expres
 
 ### <a name="install-and-configure-agents"></a>에이전트 설치 및 구성 
 
-기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor](../platform/agent-windows.md)에 에이전트를 설치 하 고 [Azure Monitor (미리 보기)에 Linux 컴퓨터를 연결](../../virtual-machines/extensions/oms-linux.md) 하 고 [Operations Manager Azure Monitor에 연결](../platform/om-agents.md)합니다.
+기본 프로세스를 사용 하 여 [Windows 컴퓨터 연결 Azure Monitor](../agents/agent-windows.md)에 에이전트를 설치 하 고 [Azure Monitor (미리 보기)에 Linux 컴퓨터를 연결](../../virtual-machines/extensions/oms-linux.md) 하 고 [Operations Manager Azure Monitor에 연결](../agents/om-agents.md)합니다.
 
 ### <a name="where-to-install-the-agents"></a>에이전트 설치 위치 
 
@@ -266,13 +266,13 @@ Linux 컴퓨터의 경우 사용할 포트 번호를 수동으로 변경 해야 
 
 ## <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
 
-네트워크 성능 모니터 대시보드 및 드릴 다운 페이지를 통해 그래픽으로 노출 되는 모든 데이터는 [로그 쿼리에서](../log-query/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의 **일반 쿼리** 영역에는 고유한 쿼리 및 보고서를 만들기 위한 시작 지점으로 사용할 수 있는 몇 가지 유용한 쿼리가 있습니다. 
+네트워크 성능 모니터 대시보드 및 드릴 다운 페이지를 통해 그래픽으로 노출 되는 모든 데이터는 [로그 쿼리에서](../logs/log-query-overview.md)기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의 **일반 쿼리** 영역에는 고유한 쿼리 및 보고서를 만들기 위한 시작 지점으로 사용할 수 있는 몇 가지 유용한 쿼리가 있습니다. 
 
 ## <a name="alerts"></a>경고
 
-네트워크 성능 모니터는 [Azure Monitor](../platform/alerts-overview.md)의 경고 기능을 사용합니다.
+네트워크 성능 모니터는 [Azure Monitor](../alerts/alerts-overview.md)의 경고 기능을 사용합니다.
 
-즉, 모든 알림은 [작업 그룹](../platform/action-groups.md)을 사용하여 관리됩니다.  
+즉, 모든 알림은 [작업 그룹](../alerts/action-groups.md)을 사용하여 관리됩니다.  
 
 Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우: 
 1. Azure Portal로 리디렉션하는 링크가 표시 됩니다. 이 링크를 클릭하여 포털에 액세스합니다.
@@ -282,8 +282,8 @@ Log Analytics를 통해 경고를 만드는 NPM 사용자인 경우:
 
 Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:  
 1. 이메일을 직접 입력할 수도 있고 작업 그룹을 통해 경고를 만들 수도 있습니다.
-2. 전자 메일을 직접 입력 하도록 선택 하면 이름이 **NPM Email ActionGroup** 인 작업 그룹이 만들어지고 해당 작업 그룹에 전자 메일 ID가 추가 됩니다.
-3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
+2. 이메일을 직접 입력하기로 선택하면 **NPM Email ActionGroup** 이라는 이름의 작업 그룹이 만들어지고 이 작업 그룹에 이메일 id가 추가됩니다.
+3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
 경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5 분 마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/pricing/details/monitor/)에 따라 요금을 부과합니다.

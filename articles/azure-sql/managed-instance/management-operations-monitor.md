@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589343"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 모니터링
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,13 +37,13 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 관리 되는 인스턴스 관리 작업을 모니터링 하는 방법에는 여러 가지가 있습니다.
 
 - [리소스 그룹 배포](../../azure-resource-manager/templates/deployment-history.md)
-- [활동 로그](../../azure-monitor/platform/activity-log.md)
+- [활동 로그](../../azure-monitor/essentials/activity-log.md)
 - [관리 되는 인스턴스 작업 API](#managed-instance-operations-api)
 
 
 다음 표에서는 관리 작업 모니터링 옵션을 비교 합니다. 
 
-| 옵션 | 보존 | 취소 지원 | 만들기 | 업데이트 | 삭제 | 취소 | 단계 |
+| 옵션 | 보존 | 취소 지원 | 생성 | 업데이트 | DELETE | 취소 | 단계 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 리소스 그룹 배포 | 무한<sup>1</sup> | 아니요<sup>2</sup> | 표시 | 표시 | 표시되지 않음 | 표시 | 표시되지 않음 |
 | 활동 로그 | 90일 | 아니요 | 표시 | 표시 | 표시 | 표시 |  표시되지 않음 |
@@ -60,7 +60,7 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 Api는 다음과 같습니다. 
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[Managed Instance 작업-가져오기](/rest/api/sql/managedinstanceoperations/get)|관리 되는 인스턴스의 관리 작업을 가져옵니다.|
 |[Managed Instance 작업-취소](/rest/api/sql/managedinstanceoperations/cancel)|관리 되는 인스턴스에서 비동기 작업을 취소 합니다.|

@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746005"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572908"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -62,7 +62,7 @@ ms.locfileid: "98746005"
     * `ClientEnabled="true"` 페이지 보기 및 클라이언트 쪽 오류 추적을 위한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. 을 설정 하 여 `ClientEnabled= "true"` 페이지 스크립트에 Application Insights을 추가 하면 페이지 로드 및 ajax 호출의 타이밍, 브라우저 예외 및 ajax 오류에 대 한 세부 정보, 사용자 및 세션 수가 표시 됩니다. 이 필드는 **선택 사항이** 며 기본적으로로 설정 됩니다 `false` .
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예:
+    다음은 그 예입니다. 
 
     ```xml
     <TrustFrameworkPolicy
@@ -101,7 +101,7 @@ Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 
 
 항목이 길어질 수 있습니다. 자세히 보기 위해 CSV로 내보냅니다.
 
-쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조 하세요.
+쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](../azure-monitor/logs/log-query-overview.md)를 참조 하세요.
 
 ## <a name="configure-application-insights-in-production"></a>프로덕션 환경에서 Application Insights 구성
 

@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: Kubernetes에 대 한 정책 정의, 다양 한 Sdk 및 추가 기능을 만들 때 발생 하는 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917746"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592615"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Azure Policy를 사용 하 여 오류 해결
 
@@ -87,7 +87,7 @@ ms.locfileid: "98917746"
 
 #### <a name="issue"></a>문제
 
-작업을 수행할 Azure Policy는 것으로 간주 되는 리소스가 작업 중인 것이 아니며 [Azure 활동 로그](../../../azure-monitor/platform/platform-logs-overview.md)에 항목이 없습니다.
+작업을 수행할 Azure Policy는 것으로 간주 되는 리소스가 작업 중인 것이 아니며 [Azure 활동 로그](../../../azure-monitor/essentials/platform-logs-overview.md)에 항목이 없습니다.
 
 #### <a name="cause"></a>원인
 
@@ -123,7 +123,7 @@ ms.locfileid: "98917746"
 
 #### <a name="resolution"></a>해결 방법
 
-거부 정책 할당의 오류 메시지에는 정책 정의 및 정책 할당 Id가 포함 됩니다. 메시지의 오류 정보가 누락 된 경우에도 [활동 로그](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)에서 사용할 수 있습니다. 이 정보를 사용 하 여 리소스 제한을 이해 하 고 허용 되는 값과 일치 하도록 요청에서 리소스 속성을 조정 하는 방법에 대 한 자세한 내용을 확인 하세요.
+거부 정책 할당의 오류 메시지에는 정책 정의 및 정책 할당 Id가 포함 됩니다. 메시지의 오류 정보가 누락 된 경우에도 [활동 로그](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log)에서 사용할 수 있습니다. 이 정보를 사용 하 여 리소스 제한을 이해 하 고 허용 되는 값과 일치 하도록 요청에서 리소스 속성을 조정 하는 방법에 대 한 자세한 내용을 확인 하세요.
 
 ## <a name="template-errors"></a>템플릿 오류
 

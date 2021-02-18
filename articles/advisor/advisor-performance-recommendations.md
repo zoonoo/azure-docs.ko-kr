@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 Azure 앱의 성능 향상
 description: Azure Advisor의 성능 권장 사항을 사용 하 여 비즈니스에 중요 한 응용 프로그램의 속도 및 응답성을 향상 시킬 수 있습니다.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735531"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579916"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 Azure 응용 프로그램의 성능 향상
 
@@ -88,7 +88,7 @@ Advisor는 복제 된 테이블이 아닌 변환을 통해 이점을 누릴 수 
 Advisor는 클래식 배포 모델을 사용 하는 독립 실행형 저장소 계정을 식별 하 고 리소스 관리자 배포 모델로 마이그레이션하는 것을 권장 합니다.
 
 > [!NOTE]
-> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)사용 중지를 참조 하세요.
+> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)사용 중지를 참조 하세요.
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>최대 구독 제한에 도달 하지 않도록 저장소 계정 디자인
 

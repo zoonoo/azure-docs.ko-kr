@@ -3,12 +3,12 @@ title: Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 
 description: Azure Security Center 대시보드에서 Azure의 기본 보안 도구를 사용 하 여 Azure VMware 솔루션 Vm을 보호 합니다.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516365"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578260"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호
 
@@ -50,7 +50,7 @@ Log Analytics 작업 영역에서 로그를 수집한 후에는 Azure Security C
 
 ## <a name="create-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
 
-다양 한 원본에서 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. 
+다양 한 원본에서 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../azure-monitor/logs/quick-create-workspace.md)를 참조 하세요. 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Azure VMware 솔루션 Vm Security Center 배포 및 구성
 
@@ -81,7 +81,7 @@ Azure Defender는 온-프레미스와 클라우드에서 하이브리드 워크 
 4. **필수 구성 요소** 탭에서 **다음** 을 선택 합니다.
 
 5. **리소스 세부 정보** 탭에서 다음 세부 정보를 입력 합니다. 
-    - 구독
+    - Subscription
     - Resource group
     - 지역 
     - 운영 체제
@@ -159,7 +159,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 4. **일반** 탭에서 필요한 정보를 입력 합니다.
 
-    - Name
+    - 속성
     - 설명
     - 전술
     - 심각도
@@ -230,7 +230,7 @@ Azure 센티널을 사용 하 여 생성 된 인시던트를 볼 수 있습니�
 
 2. 다음 정보를 입력 하 여 사용자 지정 쿼리를 만듭니다.
 
-    - Name
+    - 속성
     - 설명
     - 사용자 지정 쿼리
     - 매핑 입력
@@ -243,5 +243,5 @@ Azure 센티널을 사용 하 여 생성 된 인시던트를 볼 수 있습니�
 이제 Azure VMware 솔루션 Vm을 보호 하는 방법을 살펴보았습니다. 다음에 대해 알아볼 수 있습니다.
 
 - [Azure Defender 대시보드](../security-center/azure-defender-dashboard.md)사용.
-- [Azure 센티널에서 Advanced 다단계 공격 감지](../azure-monitor/learn/quick-create-workspace.md).
+- [Azure 센티널에서 Advanced 다단계 공격 감지](../azure-monitor/logs/quick-create-workspace.md).
 - [Azure VMware 솔루션 vm의 수명 주기 관리](lifecycle-management-of-azure-vmware-solution-vms.md).

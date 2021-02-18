@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: be8123d3c8a4acc684610aeaa9ee263c5defa17d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813618"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596169"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장 자동 프로비저닝
 
@@ -83,7 +83,7 @@ Log Analytics 에이전트를 자동으로 프로비저닝하도록 설정하려
 
     - **다른 작업 영역에 Azure VM 연결** - 드롭다운 목록에서 수집된 데이터를 저장할 작업 영역을 선택합니다. 드롭다운 목록에는 모든 구독에 대한 모든 작업 영역이 포함됩니다. 이 옵션을 사용하여 서로 다른 구독에서 실행되는 가상 머신에서 데이터를 수집하고 선택한 작업 영역에 모두 저장할 수 있습니다.  
 
-        이미 기존 Log Analytics 작업 영역이 있는 경우 동일한 작업 영역을 사용하는 것이 좋습니다(작업 영역에 대한 읽기 및 쓰기 권한 필요). 이 옵션은 조직에서 중앙 집중식 작업 영역을 사용하고 있고 보안 데이터 수집에 사용하려는 경우에 유용합니다. [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](../azure-monitor/platform/manage-access.md)에서 자세히 알아보세요.
+        이미 기존 Log Analytics 작업 영역이 있는 경우 동일한 작업 영역을 사용하는 것이 좋습니다(작업 영역에 대한 읽기 및 쓰기 권한 필요). 이 옵션은 조직에서 중앙 집중식 작업 영역을 사용하고 있고 보안 데이터 수집에 사용하려는 경우에 유용합니다. [Azure Monitor에서 로그 데이터 및 작업 영역에 대한 액세스 관리](../azure-monitor/logs/manage-access.md)에서 자세히 알아보세요.
 
         선택한 작업 영역에서 이미 Security 또는 SecurityCenterFree 솔루션을 사용하도록 설정된 경우 가격 책정이 자동으로 설정됩니다. 그렇지 않은 경우 Security Center 솔루션을 작업 영역에 설치합니다.
 
@@ -218,7 +218,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
    - [Windows용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-windows.md)
    - [Linux용 Log Analytics 에이전트 설치](../virtual-machines/extensions/oms-linux.md)
 
-1. 에이전트를 기존 VM에 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/learn/quick-collect-azurevm.md)의 지침을 따릅니다(**이벤트 및 성능 데이터 수집** 섹션은 선택 사항임).
+1. 에이전트를 기존 VM에 배포하려면 [Azure Virtual Machines에 대한 데이터 수집](../azure-monitor/vm/quick-collect-azurevm.md)의 지침을 따릅니다(**이벤트 및 성능 데이터 수집** 섹션은 선택 사항임).
 
 1. PowerShell을 사용하여 에이전트를 배포하려면 가상 머신 설명서의 지침을 사용하세요.
 

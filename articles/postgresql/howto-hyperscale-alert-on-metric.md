@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577083"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
@@ -26,8 +26,8 @@ ms.locfileid: "95026457"
 * Webhook를 호출합니다.
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Azure Portal에서 메트릭에 대한 경고 규칙 만들기
@@ -109,5 +109,5 @@ ms.locfileid: "95026457"
 CPU 사용량 모니터링은 성능에 대 한 기준선을 설정 하는 데 유용 합니다. 예를 들어 CPU 사용량은 일반적으로 40-60%를 기준으로 합니다. CPU 사용량이 갑자기 95%를 가리키기 시작 하면 변칙을 인식할 수 있습니다. CPU 사용량은 유기적 증가를 반영할 수 있지만 흩어진 쿼리를 나타낼 수도 있습니다. CPU 경고를 만들 때 긴 집계 세분성을 설정 하 여 장기간 증가를 catch 하 고 일시적 급증을 무시 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [경고에서의 webhook 구성](../azure-monitor/platform/alerts-webhooks.md)에 대해 자세히 알아봅니다.
-* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/platform/data-platform.md) 의 개요를 살펴봅니다.
+* [경고에서의 webhook 구성](../azure-monitor/alerts/alerts-webhooks.md)에 대해 자세히 알아봅니다.
+* 서비스를 사용 가능하며 응답할 수 있는 상태로 유지하기 위한 [메트릭 수집](../azure-monitor/data-platform.md) 의 개요를 살펴봅니다.

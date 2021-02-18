@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184580"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576680"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -347,7 +347,7 @@ Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정
 
 각 엔드포인트의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](/rest/api/trafficmanager/), [PowerShell cmdlets](/powershell/module/az.trafficmanager) 및 [크로스 플랫폼 Azure CLI](/cli/azure/install-classic-cli)를 통해서도 사용할 수 있습니다.
 
-Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](../azure-monitor/platform/data-platform.md)를 참조하세요.
+Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](../azure-monitor/data-platform.md)를 참조하세요.
 
 ### <a name="can-i-monitor-https-endpoints"></a>HTTPS 엔드포인트를 모니터링할 수 있나요?
 
@@ -458,7 +458,7 @@ Traffic Manager를 사용하면 시작하는 HTTP(S) 상태 검사에서 사용�
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>내 엔드포인트 중 하나가 중단된 경우 알림을 받으려면 어떻게 해야 할까요?
 
-Traffic Manager에서 제공하는 메트릭 중 하나로 프로필의 엔드포인트 상태가 있습니다. 이 상태는 프로필 내의 모든 엔드포인트에 대한 집계(예: 엔드포인트의 75%가 정상) 또는 엔드포인트 수준별 집계로 확인할 수 있습니다. Traffic Manager 메트릭은 Azure Monitor를 통해 공개되며, 엔드포인트 상태가 변경되면 알림을 받을 수 있도록 [경고 기능](../azure-monitor/platform/alerts-metric.md)을 사용할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.  
+Traffic Manager에서 제공하는 메트릭 중 하나로 프로필의 엔드포인트 상태가 있습니다. 이 상태는 프로필 내의 모든 엔드포인트에 대한 집계(예: 엔드포인트의 75%가 정상) 또는 엔드포인트 수준별 집계로 확인할 수 있습니다. Traffic Manager 메트릭은 Azure Monitor를 통해 공개되며, 엔드포인트 상태가 변경되면 알림을 받을 수 있도록 [경고 기능](../azure-monitor/alerts/alerts-metric.md)을 사용할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager 중첩 프로필
 

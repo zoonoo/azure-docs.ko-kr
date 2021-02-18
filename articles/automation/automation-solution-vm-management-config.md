@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751294"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593930"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -145,7 +145,7 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="업데이트 된 예제 전자 메일 주소를 보여 주는 전자 메일/SMS/푸시/음성 페이지의 스크린샷":::
 
-    또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../azure-monitor/platform/action-groups.md)을 참조하세요.
+    또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../azure-monitor/alerts/action-groups.md)을 참조하세요.
 
 기능이 가상 머신을 종료할 때 전송되는 예제 메일은 다음과 같습니다.
 

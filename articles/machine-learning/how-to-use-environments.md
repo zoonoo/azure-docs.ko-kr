@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4388c1a43cf958133356ed9d1ac80aec3ba0ce16
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 75882701984dfff3005aa3661274a8dc94b22a28
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596352"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "100093644"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -205,7 +205,8 @@ myenv = Environment.from_existing_conda_environment(name="myenv",
 환경 정의는 메서드를 사용 하 여 쉽게 편집할 수 있는 형식으로 디렉터리에 저장할 수 있습니다 [`save_to_directory()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-to-directory-path--overwrite-false-) . 수정 되 면 디렉터리에서 파일을 로드 하 여 새 환경을 인스턴스화할 수 있습니다.
 
 ```python
-myenv = Environment.save_to_directory(path="path-to-destination-directory", overwrite=False)
+# save the enviroment
+myenv.save_to_directory(path="path-to-destination-directory", overwrite=False)
 # modify the environment definition
 newenv = Environment.load_from_directory(path="path-to-source-directory")
 ```

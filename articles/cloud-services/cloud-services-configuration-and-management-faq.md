@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 04a30a2446061df75d133bdbd088b7e71c59cade
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578219"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 구성 및 관리 문제: Faq (질문과 대답)
 
@@ -240,9 +240,9 @@ Cloud Services를 위한 메모리 메트릭 기반의 자동 크기 조정은 �
 
 이 문제를 해결하려면 Application Insights를 사용하세요. 자동 크기 조정은 Application Insights를 메트릭 소스로 지원하며 "메모리" 같은 게스트 메트릭에 따라 역할 인스턴스 수를 확장할 수 있습니다.  클라우드 서비스 프로젝트 패키지 파일(*.cspkg)에서 Application Insights를 구성하고 서비스에서 Azure Diagnostics 확장을 사용하도록 설정하여 이 기능을 구현해야 합니다.
 
-Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud Services에서 자동 크기 조정을 구성하는 방법에 대한 자세한 내용은 [Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작](../azure-monitor/platform/autoscale-custom-metric.md)을 참조하세요.
+Application Insights를 통해 사용자 지정 메트릭을 사용하여 Cloud Services에서 자동 크기 조정을 구성하는 방법에 대한 자세한 내용은 [Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작](../azure-monitor/autoscale/autoscale-custom-metric.md)을 참조하세요.
 
-Azure Diagnostics를 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)를 참조하세요.
+Azure Diagnostics를 Cloud Services용 Application Insights와 통합하는 방법에 대한 자세한 내용은 [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)를 참조하세요.
 
 Cloud Services용 Application Insights를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md)를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58aabd52b8c5493671e0a76d0032a6d7c3081f40
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937169"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582039"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Azure 데이터 공유에 대 한 azure 보안 기준
 
@@ -34,7 +34,7 @@ Azure 데이터 공유가 Azure 보안 벤치 마크에 완전히 매핑되는 �
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -48,11 +48,11 @@ Azure 데이터 공유가 Azure 보안 벤치 마크에 완전히 매핑되는 �
 
 Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentShareSnapshotsLog MicrosoftDataShareReceivedShareSnapshotsLog에 대 한 진단 로그를 사용 하도록 설정 &amp; 합니다. 이러한 로그를 통해 동기화 시작 시간, 종료 시간, 상태 및 기타 세부 정보와 같은 주요 정보를 캡처할 수 있습니다. 이러한 로그는 나중에 보안 인시던트를 조사 하 고 법정 연습을 수행 하는 데 중요할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/platform/diagnostic-settings.md) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/platform/platform-logs-overview.md)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -62,9 +62,9 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure 데이터 공유 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
-- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/platform/manage-cost-storage.md)
+- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -78,9 +78,9 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md) 
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md) 
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -94,7 +94,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md) 
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md) 
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -209,7 +209,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 Azure Monitor 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md) 
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Azure Security Center 모니터링**: 예
 

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2b77708609f61eeb4ce33148f020027d646836b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 30cb023b8ca78f252dbf087a604a61b8aa5c6659
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813601"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577392"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
@@ -91,7 +91,7 @@ Communication Services에 디바이스 핸들을 등록하는 방법을 알아�
 
 알림이 삭제될 수 있는 첫 번째 위치(Azure Notification Hubs가 Azure Communication Services의 알림을 수락하지 않음)는 아래에 설명되어 있습니다. 다른 두 위치는 [Azure Notification Hubs의 삭제된 알림 진단](../../notification-hubs/notification-hubs-push-notification-fixer.md)을 참조하세요.
 
-Communication Services 리소스가 Azure Notification Hubs에 알림을 전송하는지 확인하는 한 가지 방법은 연결된 [Azure Notification Hub 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs)에서 `incoming messages` 메트릭을 살펴보는 것입니다.
+Communication Services 리소스가 Azure Notification Hubs에 알림을 전송하는지 확인하는 한 가지 방법은 연결된 [Azure Notification Hub 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs)에서 `incoming messages` 메트릭을 살펴보는 것입니다.
 
 다음은 Azure Notification Hub가 Communication Services 리소스의 알림을 수락하지 않는 원인이 될 수 있는 몇 가지 일반적인 잘못된 구성을 설명합니다.
 

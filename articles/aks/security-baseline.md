@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4cf623ed960fd2efe6fdf506751858796008cef4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8e86679e7531bb70d6d4f1a27718c2fc8f0e8a9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202031"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578546"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -196,9 +196,9 @@ Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리�
 
 Azure Monitor 로그를 사용 하 여 마스터 구성 요소인 kube-apiserver 및 kube에서 로그를 사용 하도록 설정 하 고 쿼리 합니다. 컨테이너 런타임을 사용 하 여 kubelet를 실행 하 고 관리 되는 Kubernetes API 서버를 통해 응용 프로그램을 배포 하는 노드를 만들고 관리 합니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](view-master-logs.md)
 
@@ -240,9 +240,9 @@ Log Analytics 또는 다른 저장소 플랫폼으로 이러한 로그를 내보
 
 - [여기에 로그 역할을 포함 하 여 로그 스키마를 검토 합니다.](view-master-logs.md)
 
-- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/insights/container-insights-overview.md)
+- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/containers/container-insights-overview.md)
 
-- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/insights/container-insights-onboard.md)
+- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/containers/container-insights-onboard.md)
 
 - [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](view-master-logs.md)
 
@@ -294,7 +294,7 @@ Kube 등의 다른 감사 로그를 설정 합니다.
 
 **지침**: Azure Kubernetes 서비스 (AKS) 인스턴스 Azure Monitor를 등록 하 고 조직의 규정 준수 요구 사항에 따라 해당 azure Log Analytics 작업 영역 보존 기간을 설정 합니다. 
 
-- [Log Analytics 작업 영역에 대한 로그 보존 매개 변수를 설정하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -312,7 +312,7 @@ Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/log-query/get-started-queries.md)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -422,7 +422,7 @@ Coredns-custom ConfigMap에 문서화 된 구성을 적용 하 여 DNS 쿼리 �
 
 **지침**: AKS 클러스터에 대 한 Azure Active Directory (azure AD) 통합 인증을 사용 하 여 AKS (Azure Kubernetes Service)에 대 한 Single Sign-On를 사용 합니다.
 
-- [Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법](../azure-monitor/insights/container-insights-livedata-overview.md)
+- [Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -518,7 +518,7 @@ Azure Id 액세스 검토를 수행 하 여 그룹 멤버 자격, 엔터프라�
 **지침**: Azure Kubernetes 서비스 (AKS)에 대 한 사용자 인증을 azure AD (Azure Active Directory)와 통합 합니다. Azure AD에 대 한 진단 설정을 만들어 Azure Log Analytics 작업 영역에 감사 및 로그인 로그를 보냅니다. Azure Log Analytics 작업 영역 내에서 원하는 경고 (예: 비활성화 된 계정이 로그인을 시도 하는 경우)를 구성 합니다.
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Azure Monitor를 사용 하 여 로그 경고를 만들고, 보고, 관리 하는 방법](../azure-monitor/platform/alerts-log.md)
+- [Azure Monitor를 사용 하 여 로그 경고를 만들고, 보고, 관리 하는 방법](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -673,11 +673,11 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 콘텐츠를 중�
 
 Azure 활동 로그를 사용 하 여 AKS 클러스터 및 관련 리소스를 높은 수준으로 모니터링 합니다. 프로메테우스와 통합 하 여 사용자 지정 경고, 대시보드 및 자세한 분석을 만드는 쿼리를 사용 하 여 노드 및 Kubernetes에서 수집한 응용 프로그램 및 워크 로드 메트릭을 볼 수 있습니다.
 
-- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/insights/container-insights-overview.md)
+- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/containers/container-insights-overview.md)
 
-- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/insights/container-insights-onboard.md)
+- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Azure Security Center 모니터링**: 예
 
@@ -1235,7 +1235,7 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호에 대 한 정기적으로 자동화 된 백업을 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다. 
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

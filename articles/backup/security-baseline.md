@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 77af95f2decbfb81ed930591b03f71fb71780def
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e71beb4e4b5d23dcd1cffa1f60462d782d37db2e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805251"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572189"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -116,9 +116,9 @@ ms.locfileid: "99805251"
 
 **지침**: nsg 또는 azure 방화벽으로 보호 중인 Azure 가상 머신에서 MARS 에이전트를 사용 하는 경우 Azure 활동 로그를 사용 하 여 Nsg 또는 방화벽의 구성을 모니터링 합니다. Azure Monitor 내에서 이러한 리소스에 대 한 변경 내용이 발생 하는 경우 트리거되는 경고를 만들 수 있습니다.
 
-- [Azure 활동 로그 이벤트 보기 및 검색](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Azure 활동 로그 이벤트 보기 및 검색](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -142,7 +142,7 @@ ms.locfileid: "99805251"
 
 또한 Azure Monitor를 통해 로그를 수집 하 여 Azure Backup 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)을 사용하도록 설정하고 데이터를 온보딩할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Recovery Services 자격 증명 모음에 대 한 진단 설정 사용](./backup-azure-diagnostic-events.md)
 
@@ -158,7 +158,7 @@ ms.locfileid: "99805251"
 
 또한 Azure Backup는 분석, 경고 및 보고를 위해 수집 하 고 사용할 수 있는 진단 이벤트를 보냅니다. Azure Portal를 통해 Recovery Services 자격 증명 모음에 대 한 진단 설정을 구성할 수 있습니다. 하나 이상의 진단 이벤트를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Recovery Services 자격 증명 모음에 대 한 진단 설정 사용](./backup-azure-diagnostic-events.md)
 
@@ -178,7 +178,7 @@ ms.locfileid: "99805251"
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Recovery Services 자격 증명 모음과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -192,9 +192,9 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 - [Azure Backup 워크 로드 모니터링](./backup-azure-monitoring-built-in-monitor.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/activity-log.md)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -212,7 +212,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-log.md)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -518,7 +518,7 @@ MARS 에이전트로 백업 하거나 고객이 관리 하는 키로 암호화 �
 
 **지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 Azure Recovery Services 자격 증명 모음 및 기타 중요 하거나 관련 된 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/platform/alerts-activity-log.md)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

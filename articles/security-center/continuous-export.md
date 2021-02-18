@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590614"
+ms.locfileid: "100634069"
 ---
 # <a name="continuously-export-security-center-data"></a>Security Center 데이터 연속 내보내기
 
@@ -210,7 +210,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 경고 또는 권장 사항에 대 한 CSV 보고서를 다운로드 하려면 **보안 경고** 또는 **권장 사항** 페이지를 열고 **csv 보고서 다운로드** 단추를 선택 합니다.
 
-[![경고 데이터를 CSV 파일로 다운로드](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
+:::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="경고 데이터를 CSV 파일로 다운로드" lightbox="./media/continuous-export/download-alerts-csv.png":::
 
 > [!NOTE]
 > 이러한 보고서에는 현재 선택한 구독의 리소스에 대 한 경고 및 권장 사항이 포함 되어 있습니다.

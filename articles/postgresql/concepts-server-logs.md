@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 621d5a6a91a8c22c52e6febc7c2638571f5bf113
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92481298"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595805"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 
@@ -57,24 +57,24 @@ Azure Database for PostgreSQL은 Azure Monitor 진단 설정과 통합 됩니다
 
 ### <a name="configure-diagnostic-settings"></a>진단 설정 구성
 
-Azure Portal, CLI, REST API 및 Powershell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 선택할 로그 범주는 **PostgreSQLLogs**입니다. [쿼리 저장소](concepts-query-store.md)를 사용 하는 경우 구성할 수 있는 다른 로그가 있습니다.
+Azure Portal, CLI, REST API 및 Powershell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 선택할 로그 범주는 **PostgreSQLLogs** 입니다. [쿼리 저장소](concepts-query-store.md)를 사용 하는 경우 구성할 수 있는 다른 로그가 있습니다.
 
 Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면
 
    1. 포털에서 Postgres server의 탐색 메뉴에 있는 *진단 설정* 으로 이동 합니다.
-   2. *진단 설정 추가*를 선택 합니다.
+   2. *진단 설정 추가* 를 선택 합니다.
    3. 이 설정의 이름을로 설정 합니다. 
    4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다. 
-   5. **PostgreSQLLogs**로그 유형을 선택 합니다.
+   5. **PostgreSQLLogs** 로그 유형을 선택 합니다.
    7. 설정을 저장합니다.
 
-Powershell, CLI 또는 REST API를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면 [진단 설정](../azure-monitor/platform/diagnostic-settings.md) 문서를 참조 하세요.
+Powershell, CLI 또는 REST API를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면 [진단 설정](../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조 하세요.
 
 ### <a name="access-resource-logs"></a>리소스 로그 액세스
 
-로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
+로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
 
-Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
 
 다음은 시작 하기 위해 시도할 수 있는 쿼리입니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 
@@ -103,7 +103,7 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics`입니다. |
+| 유형 | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL`입니다. |

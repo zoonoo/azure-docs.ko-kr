@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050671"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581093"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 
@@ -80,11 +80,11 @@ JSON 템플릿은 환경에서 표준 구성으로 사용될 수 있는 다른 �
 
 Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정보를 이해하는 것이 중요합니다. 새 자동화 계정에 연결된 Log Analytics 작업 영역을 만들고 구성하고 사용하려고 할 때 오류를 방지하는 데 도움이 될 수 있습니다.
 
-* 액세스 제어 모드, 가격 책정 계층, 보존 및 용량 예약 수준과 같은 작업 영역 구성 옵션을 완전히 이해하려면 [추가 세부 정보](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace)를 검토하세요.
+* 액세스 제어 모드, 가격 책정 계층, 보존 및 용량 예약 수준과 같은 작업 영역 구성 옵션을 완전히 이해하려면 [추가 세부 정보](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace)를 검토하세요.
 
 * [작업 영역 매핑](how-to/region-mappings.md)을 검토하여 지원되는 지역 인라인 또는 매개 변수 파일에서 지정합니다. 특정 Azure 지역에서만 구독의 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
 
-* Azure Monitor 로그를 처음 접하고 아직 작업 영역을 배포하지 않은 경우 [작업 영역 디자인 지침](../azure-monitor/platform/design-logs-deployment.md)을 검토해야 합니다. 이 지침은 액세스 제어에 대해 알아보고 조직에 권장되는 디자인 구현 전략을 이해하는 데 도움이 됩니다.
+* Azure Monitor 로그를 처음 접하고 아직 작업 영역을 배포하지 않은 경우 [작업 영역 디자인 지침](../azure-monitor/logs/design-logs-deployment.md)을 검토해야 합니다. 이 지침은 액세스 제어에 대해 알아보고 조직에 권장되는 디자인 구현 전략을 이해하는 데 도움이 됩니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

@@ -6,13 +6,13 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
-ms.date: 10/23/2020
-ms.openlocfilehash: 542528bb0a3f76705e61f28338ccf1460159871d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.date: 2/11/2021
+ms.openlocfilehash: 1f6abb62086bf92be8ae2fe50abbfa5300185fd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96749082"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384268"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -98,7 +98,7 @@ _postgres-flexible-server-template.json_ 파일을 만들고 여기에 다음 JS
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -209,6 +209,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

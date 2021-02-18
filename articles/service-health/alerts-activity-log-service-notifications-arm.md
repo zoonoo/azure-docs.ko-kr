@@ -4,12 +4,12 @@ description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후�
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630222"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594962"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 서비스 알림에 대한 활동 로그 경고 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "91630222"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-서비스 상태 알림은 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 저장됩니다. 활동 로그에 저장된 정보의 양이 많을 수 있으므로, 서비스 상태 알림에 대한 경고를 보다 쉽게 확인하고 설정할 수 있도록 별도의 사용자 인터페이스가 있습니다.
+서비스 상태 알림은 [Azure 활동 로그](../azure-monitor/essentials/platform-logs-overview.md)에 저장됩니다. 활동 로그에 저장된 정보의 양이 많을 수 있으므로, 서비스 상태 알림에 대한 경고를 보다 쉽게 확인하고 설정할 수 있도록 별도의 사용자 인터페이스가 있습니다.
 
 Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 받을 수 있습니다. 다음 항목에 따라 경고를 구성할 수 있습니다.
 
@@ -34,7 +34,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 - 기존 작업 그룹을 선택합니다.
 - 새 작업 그룹을 만듭니다(향후 경고에 사용할 수 있음).
 
-작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
+작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/alerts/action-groups.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -43,7 +43,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이메일 대상이 포함된 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 템플릿은 다음과 같습니다. 이 템플릿을 *CreateServiceHealthAlert.json*으로 저장합니다.
+이메일 대상이 포함된 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 템플릿은 다음과 같습니다. 이 템플릿을 *CreateServiceHealthAlert.json* 으로 저장합니다.
 
 ```json
 {
@@ -138,7 +138,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** 및 **emailAddress**에 대한 샘플 값을 사용자 환경에 적합한 값으로 바꿉니다.
+CLI 및 PowerShell을 사용하는 다음 예제처럼 [ARM 템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 위한 표준 방법을 사용하여 템플릿을 배포합니다. **리소스 그룹** 및 **emailAddress** 에 대한 샘플 값을 사용자 환경에 적합한 값으로 바꿉니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -159,7 +159,7 @@ New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName 
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
-다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹**에 대한 샘플 값을 위에서 사용한 값으로 바꿉니다.
+다음 명령 중 하나를 사용하여 작업 영역이 생성되었는지 확인합니다. **리소스 그룹** 에 대한 샘플 값을 위에서 사용한 값으로 바꿉니다.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - [Azure Service Health에 대한 모바일 푸시 알림을 설정](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)하는 방법을 알아봅니다.
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.
 - [서비스 상태 알림](service-notifications.md)에 대해 자세히 알아보세요.
-- [알림 속도 제한](../azure-monitor/platform/alerts-rate-limiting.md)에 대해 자세히 알아보세요.
-- [활동 로그 경고 웹후크 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토하세요.
-- [활동 로그 경고의 개요](../azure-monitor/platform/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.
-- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.
+- [알림 속도 제한](../azure-monitor/alerts/alerts-rate-limiting.md)에 대해 자세히 알아보세요.
+- [활동 로그 경고 웹후크 스키마](../azure-monitor/alerts/activity-log-alerts-webhook.md)를 검토하세요.
+- [활동 로그 경고의 개요](../azure-monitor/alerts/alerts-overview.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.
+- [작업 그룹](../azure-monitor/alerts/action-groups.md)에 대해 자세히 알아보세요.

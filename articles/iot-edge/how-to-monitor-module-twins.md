@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876161"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633181"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
@@ -187,7 +187,7 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON
 모듈 쌍에 대 한 JSON을 보려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
-1. 왼쪽 창 메뉴에서 **IoT Edge**를 선택합니다.
+1. 왼쪽 창 메뉴에서 **IoT Edge** 를 선택합니다.
 1. **IoT Edge 장치** 탭에서 모니터링 하려는 모듈이 있는 장치의 **장치 ID** 를 선택 합니다.
 1. **모듈 탭에서** 모듈 이름을 선택한 다음 위쪽 메뉴 모음에서 **모듈 id** 쌍을 선택 합니다.
 
@@ -200,8 +200,8 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON
 모듈 쌍을 검토 하 고 편집 하려면 다음을 수행 합니다.
 
 1. 아직 설치 하지 않은 경우 Visual Studio Code 용 [Azure IoT 도구 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 을 설치 합니다.
-1. **탐색기**에서 **Azure IoT Hub**을 확장 한 다음 모니터링 하려는 모듈이 포함 된 장치를 확장 합니다.
-1. 모듈을 마우스 오른쪽 단추로 클릭 하 고 **모듈 쌍 편집**을 선택 합니다. 모듈 쌍의 임시 파일은 컴퓨터에 다운로드 되 고 Visual Studio Code 표시 됩니다.
+1. **탐색기** 에서 **Azure IoT Hub** 을 확장 한 다음 모니터링 하려는 모듈이 포함 된 장치를 확장 합니다.
+1. 모듈을 마우스 오른쪽 단추로 클릭 하 고 **모듈 쌍 편집** 을 선택 합니다. 모듈 쌍의 임시 파일은 컴퓨터에 다운로드 되 고 Visual Studio Code 표시 됩니다.
 
   ![Visual Studio Code에서 편집할 모듈 쌍 가져오기](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
 
@@ -213,7 +213,7 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON
 
 IoT Edge 실행 중인지 확인 하려면 [az IoT hub invoke-module 메서드](how-to-edgeagent-direct-method.md#ping) 를 사용 하 여 IoT Edge 에이전트를 ping 합니다.
 
-[Az iot hub 모듈](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
+[Az iot hub 모듈](/cli/azure/ext/azure-iot/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
 
 * **az iot hub module-쌍 표시** -모듈 쌍 정의를 표시 합니다.
 * **az iot hub module-쌍 업데이트** -모듈 쌍 정의를 업데이트 합니다.

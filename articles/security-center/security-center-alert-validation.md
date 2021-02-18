@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560104"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633600"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -36,11 +36,6 @@ ms.locfileid: "97560104"
 
 - Azure Defender의 가치 및 기능 평가
 - 보안 경고에 대해 수행한 모든 구성 (예: SIEM 통합, 워크플로 자동화 및 전자 메일 알림)의 유효성을 검사 합니다.
-
-> [!NOTE]
-> 이 절차를 수행 하려면 **보안 경고** 페이지 맨 위에 있는 배너에서 새로운 (미리 보기) 경고 환경을 사용 해야 합니다.
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="새 미리 보기 경고 환경에 대 한 링크가 포함 된 배너":::
 
 샘플 경고를 만들려면 다음을 수행 합니다.
 

@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2d27c4eb1ea4586e0f2eac48930d86217052b2d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950689"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585452"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 문제 해결
 
@@ -44,7 +44,7 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 7. **조건 추가** 를 선택한 다음 프롬프트에 따라 원하는 메트릭 및 임계값을 선택 합니다.
 
-자세한 내용은 [Microsoft Azure의 클래식 경고 란?](../azure-monitor/platform/alerts-overview.md) 을 참조 하세요.
+자세한 내용은 [Microsoft Azure의 클래식 경고 란?](../azure-monitor/alerts/alerts-overview.md) 을 참조 하세요.
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>로그 분석을 사용 하 여 오류 확인 및 해결
 

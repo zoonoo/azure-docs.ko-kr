@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5141c7fcfe1128574145930548f41731529c2ad8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 484e8853d02aa68c8a8695ba7cc724adb5a8766a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012464"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572976"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Stream Analytics 작업 모니터링 및 쿼리를 모니터링하는 방법 이해
 
@@ -48,7 +48,7 @@ Azure Portal은 쿼리 및 작업 성능을 모니터링하고 문제를 해결�
 이러한 메트릭을 사용하여 [Stream Analytics 작업의 성능을 모니터링](./stream-analytics-set-up-alerts.md#scenarios-to-monitor)할 수 있습니다. 
 
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 사용자 지정하기
-차트 편집 설정에서 차트 유형, 표시되는 메트릭 및 시간 범위를 조정할 수 있습니다. 자세한 내용은 [모니터링을 사용자 지정하는 방법](../azure-monitor/platform/data-platform.md)을 참조하세요.
+차트 편집 설정에서 차트 유형, 표시되는 메트릭 및 시간 범위를 조정할 수 있습니다. 자세한 내용은 [모니터링을 사용자 지정하는 방법](../azure-monitor/data-platform.md)을 참조하세요.
 
   ![Stream Analytics 쿼리 모니터 시간 그래프](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
