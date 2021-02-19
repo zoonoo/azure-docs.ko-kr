@@ -4,24 +4,24 @@ description: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: e33f48c9496ffa3cca9d8b1aa71d524be9a311bb
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: 326fed659be43be3115cae1d7c2b14d0708f4a96
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122248"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377808"
 ---
-# <a name="iot-central-device-development-overview"></a>IoT Central 디바이스 개발 개요
+# <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
 *이 문서는 디바이스 개발자에게 적용됩니다.*
 
-IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 개요는 IoT Central에 연결하는 디바이스에서 실행되는 코드를 구현하는 디바이스 개발자를 위해 작성되었습니다.
+IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 가이드는 IoT Central에 연결하는 디바이스에서 실행되는 코드를 구현하는 디바이스 개발자를 위해 작성되었습니다.
 
 디바이스는 다음과 같은 기본 원칙을 사용하여 IoT Central 애플리케이션과 상호 작용합니다.
 

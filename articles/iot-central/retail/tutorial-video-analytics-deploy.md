@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e524905aaeed54de6501eb6f024bf28dbab9c594
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831946"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362168"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿을 사용하여 IoT Central 애플리케이션을 배포하는 방법
 
@@ -22,6 +22,13 @@ ms.locfileid: "99831946"
 다음 비디오에서는 _비디오 분석 - 개체 및 동작 감지 애플리케이션 템플릿_ 을 사용하여 IoT Central 솔루션을 배포하는 방법을 연습합니다.
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+이 자습서 세트에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 애플리케이션 배포
+> * 애플리케이션에 연결하는 IoT Edge 인스턴스 배포
+> * 애플리케이션 모니터링 및 관리
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

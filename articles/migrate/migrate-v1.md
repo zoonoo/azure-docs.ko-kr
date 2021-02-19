@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 719fcca74d2cd048bf170940eff7da6a25425469
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753946"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373286"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "96753946"
 Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
 
 - **현재 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 이 버전의 새로운 기능에 대해 [자세히 알아보세요](whats-new.md).
-- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이 문서에서는 이전 버전 프로젝트를 클래식 프로젝트라고 합니다. 이전 버전에서 만든 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
+- **이전 버전**: 이전 버전의 Azure Migrate를 사용하고 있었다면(온-프레미스 VMware VM의 평가만 지원됨) 이제 현재 버전을 사용해야 합니다. 이 문서에서는 이전 버전 프로젝트를 클래식 프로젝트라고 합니다. 클래식 Azure Migrate는 2024년 2월에 만료됩니다. 2024년 2월 이후에는 클래식 버전의 Azure Migrate는 더 이상 지원되지 않으며 클래식 프로젝트의 인벤토리 메타데이터가 삭제됩니다. 클래식 Azure Migrate 프로젝트를 계속 사용해야 하는 경우 수행할 수 있는 작업과 할 수 없는 작업은 다음과 같습니다.
     - 더 이상 마이그레이션 프로젝트를 만들 수 없습니다.
     - 새 검색은 수행하지 않는 것이 좋습니다.
     - 기존 프로젝트에 계속 액세스할 수 있습니다.

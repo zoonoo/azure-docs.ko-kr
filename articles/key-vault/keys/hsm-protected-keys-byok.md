@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 51ba981dcc6f36df3bfaacebb503782faed5c91f
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
-ms.translationtype: MT
+ms.openlocfilehash: 1e7ea0dc929fdbb4ca306405e6ed8993ed2e4afe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581009"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386104"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Key Vault로 HSM 보호 키 가져오기(BYOK)
 
@@ -52,7 +52,7 @@ ms.locfileid: "99581009"
 | Azure 구독 |Azure Key Vault에서 키 자격 증명 모음을 만들려면 Azure 구독이 필요합니다. [평가판에 가입](https://azure.microsoft.com/pricing/free-trial/)합니다. |
 | HSM 보호 키를 가져올 Key Vault Premium SKU |Azure Key Vault의 서비스 계층 및 기능에 대한 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/)을 참조하세요. |
 | 지원되는 HSM 목록의 HSM과 HSM 공급업체에서 제공한 BYOK 도구 및 지침 | HSM 사용 권한과 HSM 사용 방법에 대한 기본 지식이 필요합니다. [지원되는 HSM](#supported-hsms)을 참조하세요. |
-| Azure CLI 버전 2.1.0 이상 | [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.|
+| Azure CLI 버전 2.1.0 이상 | [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)를 참조하세요.|
 
 ## <a name="supported-hsms"></a>지원되는 HSM
 
@@ -63,9 +63,10 @@ ms.locfileid: "99581009"
 |Fortanix|제조업체,<br/>서비스로 제공되는 HSM|<ul><li>SDKMS(자체 방어 키 관리 서비스)</li><li>Equinix SmartKey</li></ul>|[BYOK용 클라우드 공급자에게 SDKMS 키 내보내기 - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|제조업체|다음을 사용하는 모든 LiquidSecurity HSM<ul><li>펌웨어 버전 2.0.4 이상</li><li>펌웨어 버전 3.2 이상</li></ul>|[Marvell BYOK 도구 및 설명서](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>자세한 내용은 [Cryptomathic 사이트](https://www.cryptomathic.com/azurebyok) 참조|[Cryptomathic BYOK 도구 및 설명서](https://www.cryptomathic.com/azurebyok)|
-|Securosys SA|제조업체, 서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
+|Securosys SA|제조업체,<br/>서비스로 제공되는 HSM|Primus HSM 제품군, Securosys 클라우드 HSM|[Primus BYOK 도구 및 설명서](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV(엔터프라이즈 키 관리 시스템)|다음을 포함한 여러 HSM 브랜드 및 모델<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>[자세한 내용은 StorMagic 사이트](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)를 참조하세요.|[SvKMS 및 Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
-|IBM|제조업체|IBM 476x, CryptoExpress|[IBM Enterprise 키 관리 파운데이션](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|IBM|제조업체|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Utimaco|제조업체,<br/>서비스로 제공되는 HSM|u.trust Anchor, CryptoServer|[Utimaco BYOK 도구 및 통합 가이드](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 
@@ -100,7 +101,7 @@ KEK는 다음과 같아야 합니다.
 > [!NOTE]
 > KEK의 유일하게 허용되는 키 작업은 'import'여야 합니다. 'import'는 다른 모든 키 작업과 상호 배타적 관계입니다.
 
-[az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
+[az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-create) 명령을 사용하여 키 작업이 `import`로 설정된 KEK를 만듭니다. 다음 명령에서 반환된 키 식별자(`kid`)를 기록해 둡니다. ([3단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값이 사용됩니다.)
 
 ```azurecli
 az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
@@ -108,7 +109,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 
 ### <a name="step-2-download-the-kek-public-key"></a>2단계: KEK 공개 키 다운로드
 
-[az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
+[az keyvault key download](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-download) 명령을 사용하여 KEK 공개 키를 .pem 파일로 다운로드합니다. 가져오는 대상 키는 KEK 공개 키를 사용하여 암호화됩니다.
 
 ```azurecli
 az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
@@ -123,20 +124,20 @@ HSM 공급업체의 설명서를 참조하여 BYOK 도구를 다운로드하고 
 BYOK 파일을 연결된 컴퓨터로 전송합니다.
 
 > [!NOTE] 
-> RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. P-256K 곡선을 사용 하 여 타원 Curve 키를 가져오는 것은 지원 되지 않습니다.
+> RSA 1024비트 키를 가져오는 것은 지원되지 않습니다. 곡선 P-256K가 있는 타원 곡선 키를 가져올 수 없습니다.
 > 
 > **알려진 문제**: Luna HSM에서 RSA 4K 대상 키 가져오기는 펌웨어 7.4.0 이상에서만 지원됩니다.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>4단계: Azure Key Vault에 키 전송
 
-키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용하여 BYOK 파일을 Key Vault HSM에 업로드합니다.
+키 가져오기를 완료하려면 연결이 끊어진 컴퓨터의 키 전송 패키지(BYOK 파일)를 인터넷에 연결된 컴퓨터로 전송합니다. [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest&preserve-view=true#az-keyvault-key-import) 명령을 사용하여 BYOK 파일을 Key Vault HSM에 업로드합니다.
 
-RSA 키를 가져오려면 다음 명령을 사용 합니다. 매개 변수--kty는 선택 사항이 며 기본값은 ' RSA-HSM '입니다.
+RSA 키를 가져오려면 다음 명령을 사용합니다. 매개 변수 --kty는 선택 사항이며 기본값은 'RSA-HSM'입니다.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
-EC 키를 가져오려면 키 유형과 곡선 이름을 지정 해야 합니다.
+EC 키를 가져오려면 키 유형과 곡선 이름을 지정해야 합니다.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
