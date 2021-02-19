@@ -38,7 +38,7 @@
     - name: 컨테이너 컴퓨팅
       expanded: true
       items:
-        - name: 기밀 컨테이너(리프트 및 시프트)
+        - name: 기밀 컨테이너
           items:
             - name: 시작
               href: confidential-containers.md
