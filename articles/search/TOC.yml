@@ -212,6 +212,8 @@
       items:
         - name: 인덱서 만들기
           href: search-howto-create-indexers.md
+        - name: 인덱서 실행 또는 다시 설정
+          href: search-howto-run-reset-indexers.md
         - name: 인덱서 예약
           href: search-howto-schedule-indexers.md
         - name: 필드 매핑 정의
@@ -530,6 +532,8 @@
   items:
     - name: Azure 커뮤니티 지원
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: 파트너 스포트라이트
+      href: resource-partners-knowledge-mining.md
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: 피드백 포럼(UserVoice)
@@ -554,8 +558,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: 개발자 과정(Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: 파트너 솔루션
-      href: resource-partners-knowledge-mining.md
     - name: FAQ
       href: search-faq-frequently-asked-questions.md
     - name: 가격 책정
