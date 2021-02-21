@@ -74,7 +74,7 @@
           href: concepts/telephony-sms/concepts.md
         - name: 전화 통신 개념
           href: concepts/telephony-sms/telephony-concept.md
-        - name: Azure Communication Services의 전화 번호 유형
+        - name: 전화 번호 유형
           href: concepts/telephony-sms/plan-solution.md
         - name: SIP 인터페이스 인프라 요구 사항
           href: concepts/telephony-sms/sip-interface-infrastructure.md
