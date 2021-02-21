@@ -14,8 +14,10 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 첫 번째 액세스 패키지 만들기
+    - name: 리소스에 대한 액세스 관리 - Azure Portal
       href: entitlement-management-access-package-first.md
+    - name: 리소스에 대한 액세스 관리 - Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: 개념
   expanded: true
   items:

@@ -1,143 +1,141 @@
-### YamlMime:Hub
-title: IoT Central 솔루션 설명서
-summary: Azure IoT Central 서비스 및 솔루션 설명서를 살펴봅니다.
-brand: azure
+### YamlMime:Landing
+title: Azure IoT Central 설명서
+summary: Azure IoT Central은 IoT 솔루션 만들기를 간소화하는 IoT 애플리케이션 플랫폼입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 애플리케이션을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
 metadata:
-  title: Azure IoT Central 설명서 허브
-  description: Azure IoT Central 서비스 및 솔루션 설명서를 살펴봅니다.
+  title: Azure IoT Central 설명서
+  description: Azure IoT Central 애플리케이션은 IoT 솔루션 만들기를 간소화합니다. Azure IoT Central 애플리케이션을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
+  services: iot-central
   ms.service: iot-central
-  ms.topic: hub-page
-  author: philmea
-  ms.author: philmea
-  ms.date: 06/30/2020
-  ms.openlocfilehash: 59d95b8ce13161999c06993cbbf9194a66e38ed3
-  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 09/02/2021
+  ms.openlocfilehash: f36d2bd704a00a450385d9766fdee3ea7c1f52a6
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/25/2020
-  ms.locfileid: "96122494"
-highlightedContent:
-  items:
-  - title: IoT Central이란?
-    itemType: overview
-    url: ./core/overview-iot-central.md
-  - title: 애플리케이션 템플릿이란?
-    itemType: concept
-    url: ./core/concepts-app-templates.md
-  - title: IoT Central 디바이스 개발 개요
-    itemType: overview
-    url: ./core/overview-iot-central-developer.md
-  - title: 새 애플리케이션 만들기
-    itemType: quickstart
-    url: ./core/quick-deploy-iot-central.md
-  - title: 디바이스 유형 정의 및 디바이스 추가
-    itemType: tutorial
-    url: ./core/howto-set-up-template.md
-  - title: 디바이스 모니터링
-    itemType: tutorial
-    url: ./core/tutorial-create-telemetry-rules.md
-conceptualContent:
-  items:
-  - title: 디바이스 연결 및 개발
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100365143"
+landingContent:
+- title: Azure IoT Central 정보
+  linkLists:
+  - linkListType: overview
     links:
-    - url: ./core/tutorial-connect-device.md
-      itemType: tutorial
-      text: 디바이스 연결
-    - url: ./core/concepts-get-connected.md
-      itemType: concept
-      text: 디바이스 연결
-    - url: ./core/concepts-device-templates.md
-      itemType: concept
-      text: 디바이스 템플릿
-    - url: ./core/troubleshoot-connection.md
-      itemType: how-to-guide
-      text: 디바이스 연결 문제 해결
-    footerLink:
-      url: ./core/index.yml
-      text: 자세히 보기
-  - title: 연결 유지
+    - text: Azure IoT Central이란?
+      url: core/overview-iot-central.md
+    - text: UI 둘러보기
+      url: core/overview-iot-central-tour.md
+  - linkListType: quickstart
     links:
-    - url: ./core/tutorial-use-device-groups.md
-      itemType: how-to-guide
-      text: 디바이스 그룹 사용
-    - url: ./core/howto-manage-devices.md
-      itemType: how-to-guide
-      text: 디바이스 관리
-    - url: ./core/howto-run-a-job.md
-      itemType: concept
-      text: 작업을 실행하는 방법
-    - url: ./core/howto-create-analytics.md
-      itemType: how-to-guide
-      text: 디바이스 데이터 분석
-    footerLink:
-      url: ./core/index.yml
-      text: 자세히 보기
-  - title: 변환
+    - text: 새 애플리케이션 만들기
+      url: core/quick-deploy-iot-central.md
+  - linkListType: architecture
     links:
-    - url: ./core/tutorial-create-telemetry-rules.md
-      itemType: how-to-guide
-      text: 원격 분석 규칙 만들기
-    - url: ./core/howto-export-data.md
-      itemType: how-to-guide
-      text: 클라우드 대상으로 데이터 내보내기
-    footerLink:
-      url: ./core/index.yml
-      text: 자세히 보기
-productDirectory:
-  title: 업계 애플리케이션 템플릿을 사용하여 빌드 시작
-  summary: 빌드할 준비가 되었나요? 솔루션 작성기로 빌드된 업계 관련 애플리케이션 템플릿을 확인하세요.
-  items:
-  - title: 소매업용 빌드
-    imageSrc: ./retail/media/index/iot-central-retail.svg
+    - text: Azure IoT Central 아키텍처
+      url: core/concepts-architecture.md
+    - text: 애플리케이션 템플릿
+      url: core/concepts-app-templates.md
+  - linkListType: whats-new
     links:
-    - text: Azure IoT Central을 사용하여 소매업 솔루션 빌드
-      url: ./retail/overview-iot-central-retail.md
-    - text: 저장소 내 분석 애플리케이션 만들기
-      url: ./retail/tutorial-in-store-analytics-create-app.md
-    - text: 스마트 재고 관리 애플리케이션 만들기
-      url: ./retail/tutorial-iot-central-smart-inventory-management.md
-    - text: 연결된 물류 애플리케이션 만들기
-      url: ./retail/tutorial-iot-central-connected-logistics.md
-    - text: 디지털 배포 센터 애플리케이션 만들기
-      url: ./retail/tutorial-iot-central-digital-distribution-center.md
-    - text: 비디오 분석 애플리케이션 만들기
-      url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md
-  - title: 의료 산업용 빌드
-    imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
-    links:
-    - url: ./healthcare/overview-iot-central-healthcare.md
-      text: IoT Central을 사용하여 의료 산업 솔루션 빌드
-    - url: ./healthcare/tutorial-continuous-patient-monitoring.md
-      text: 환자 연속 모니터링 앱 만들기
-  - title: 에너지 산업용 빌드
-    imageSrc: ./energy/media/index/iot-central-energy.svg
-    links:
-    - url: ./energy/overview-iot-central-energy.md
-      text: IoT Central을 사용하여 에너지 산업 솔루션 빌드
-    - url: ./energy/tutorial-smart-meter-app.md
-      text: 스마트 측정기 모니터링 앱 만들기
-    - url: ./energy/tutorial-solar-panel-app.md
-      text: 태양 전지판 모니터링 앱 만들기
-  - title: 정부 기관용 빌드
-    imageSrc: ./government/media/index/iot-central-government.svg
-    links:
-    - url: ./government/overview-iot-central-government.md
-      text: IoT Central을 사용하여 정부 기관 솔루션 빌드
-    - url: ./government/tutorial-water-quality-monitoring.md
-      text: 용수 품질 모니터링 앱 만들기
-    - url: ./government/tutorial-water-consumption-monitoring.md
-      text: 용수 사용량 모니터링 앱 만들기
-    - url: ./government/tutorial-connected-waste-management.md
-      text: 연결된 폐기물 관리 앱 만들기
-additionalContent:
-  sections:
-  - items:
-    - title: IoT Central API
-      summary: IoT Central API를 살펴보세요.
-      url: /rest/api/iotcentral/
-    - title: Microsoft Learn의 IoT Central
-      summary: 무료 샌드박스 환경에서 IoT Central을 살펴보세요.
-      url: /learn/browse/?products=azure-iot-central
-    - title: 최근 업데이트
-      summary: IoT Central의 새로운 기능을 확인하세요.
+    - text: 최근 업데이트
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+- title: 디바이스 개발 및 연결
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 디바이스 개발자를 위한 개요
+      url: core/overview-iot-central-developer.md
+  - linkListType: tutorial
+    links:
+    - text: 디바이스 만들기 및 연결
+      url: core/tutorial-connect-device.md
+  - linkListType: concept
+    links:
+    - text: 디바이스 연결
+      url: core/concepts-get-connected.md
+    - text: 메시지 페이로드
+      url: core/concepts-telemetry-properties-commands.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Sphere 디바이스 연결
+      url: core/howto-connect-sphere.md
+    - text: 디바이스 연결 문제 해결
+      url: core/troubleshoot-connection.md
+- title: 통합 솔루션 빌드
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 솔루션 작성기를 위한 개요
+      url: core/overview-iot-central-solution-builder.md
+  - linkListType: tutorial
+    links:
+    - text: 사용 규칙
+      url: core/tutorial-create-telemetry-rules.md
+  - linkListType: how-to-guide
+    links:
+    - text: 대시보드 만들기
+      url: core/howto-create-personal-dashboards.md
+    - text: 디바이스 데이터 분석
+      url: core/howto-create-analytics.md
+    - text: 클라우드 대상으로 데이터 내보내기
+      url: core/howto-export-data.md
+  - linkListType: reference
+    links:
+    - text: REST API
+      url: /rest/api/iotcentral/
+- title: 디바이스 관리
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 디바이스 그룹 사용
+      url: core/tutorial-use-device-groups.md
+  - linkListType: how-to-guide
+    links:
+    - text: 디바이스 추가, 가져오기 및 내보내기
+      url: core/howto-manage-devices.md
+    - text: 작업 실행
+      url: core/howto-run-a-job.md
+- title: 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 애플리케이션 관리
+      url: core/howto-administer.md
+    - text: 사용자 및 역할 관리
+      url: core/howto-manage-users-roles.md
+    - text: 청구서 보기
+      url: core/howto-view-bill.md
+    - text: 애플리케이션 UI 사용자 지정
+      url: core/howto-customize-ui.md
+  - linkListType: sample
+    links:
+    - text: ARM SDK 샘플
+      url: /samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/
+- title: Microsoft Learn을 통한 시나리오 기반 학습
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: '학습 경로: Azure IoT Central을 사용하여 IoT 솔루션 개발'
+      url: /learn/paths/develop-iot-solutions-with-azure-iot-central/
+  - linkListType: learn
+    links:
+    - text: '학습 모듈: 첫 번째 Azure IoT Central 앱 만들기'
+      url: /learn/modules/create-your-first-iot-central-app/
+    - text: '학습 모듈: Azure IoT Central에서 원격 분석 데이터에 대한 규칙 설정 및 작업 수행'
+      url: /learn/modules/set-up-rules-take-actions-telemetry-data-azure-iot-central/
+    - text: '학습 모듈: REST API로 IoT Central 애플리케이션을 관리'
+      url: /learn/modules/manage-iot-central-apps-with-rest-api/
+    - text: '학습 모듈: Azure IoT Central에서 Power BI 앱으로 연속 데이터 내보내기 설정'
+      url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+- title: 업계 애플리케이션 템플릿
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 소매
+      url: retail/overview-iot-central-retail.md
+    - text: 의료
+      url: healthcare/overview-iot-central-healthcare.md
+    - text: 정부
+      url: government/overview-iot-central-government.md
+    - text: 에너지
+      url: energy/overview-iot-central-energy.md

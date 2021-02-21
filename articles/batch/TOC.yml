@@ -172,6 +172,11 @@
         - name: 공용 IP 주소가 없는 풀 만들기
           displayName: private
           href: batch-pool-no-public-ip-address.md
+        - name: 풀과 함께 확장 사용
+          href: create-pool-extensions.md
+        - name: 관리되는 ID 구성
+          displayName: user-assigned
+          href: managed-identity-pools.md
         - name: 가상 파일 시스템 탑재
           href: virtual-file-mount.md
         - name: Azure 파일 공유 탑재

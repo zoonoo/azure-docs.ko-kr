@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: 개념
   items:
-    - name: 사용자 지정 모델
+    - name: DTDL 모델
       href: concepts-models.md
+    - name: 온톨로지
+      items:
+        - name: 온톨로지란?
+          href: concepts-ontologies.md
+        - name: 산업 표준 온톨로지 채택
+          href: concepts-ontologies-adopt.md
+        - name: 온톨로지 변환
+          href: concepts-ontologies-convert.md
+        - name: 온톨로지 확장
+          href: concepts-ontologies-extend.md
     - name: Digital Twins 및 쌍 그래프
       href: concepts-twins-graph.md
     - name: 쿼리 언어
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: 디자인 모델
       items:
-        - name: 사용자 지정 모델 관리
+        - name: DTDL 모델 관리
           href: how-to-manage-model.md
-        - name: 산업 표준 모델 통합
-          href: how-to-integrate-models.md
         - name: 모델 구문 분석 및 유효성 검사
           href: how-to-parse-models.md
         - name: 태그 추가
@@ -249,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: DTDL 유효성 검사기(샘플)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: 모델 업로더(샘플)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: 모델 시각화 도우미(샘플)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: OWL2DTDL 변환기
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: DPS 및 IoT Hub 통합 샘플
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: SignalR 통합 샘플

@@ -105,6 +105,8 @@
       items:
         - name: 데이터 흐름 매핑으로 데이터 변환
           items:
+            - name: Delta Lake를 사용하여 레이크에서 데이터 변환
+              href: tutorial-data-flow-delta-lake.md
             - name: 데이터 흐름 매핑으로 데이터 변환
               href: tutorial-data-flow.md
             - name: 데이터 흐름 매핑 비디오 자습서
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: 새 분기
           href: data-flow-new-branch.md
+        - name: 구문 분석
+          href: data-flow-parse.md
         - name: 피벗
           href: data-flow-pivot.md
         - name: 순위
@@ -732,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: 코드 조각을 사용하여 중복 제거 및 Null 검사
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: 데이터 흐름을 사용하여 aml 모델의 데이터 처리
+              href: scenario-dataflow-process-data-aml-models.md
         - name: 온-프레미스에서 SSIS 마이그레이션
           items:
             - name: SSIS 마이그레이션 개요
@@ -806,6 +812,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Azure Policy 기본 제공 기능
+      href: policy-reference.md
 - name: 리소스
   items:
     - name: 백서

@@ -932,7 +932,7 @@
         - name: REST(관리 평면)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1050,7 +1050,7 @@
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1117,6 +1117,8 @@
           items:
             - name: 사전 마이그레이션 가이드
               href: mongodb-pre-migration.md
+            - name: MongoDB 네이티브 도구(오프라인)
+              href: tutorial-mongotools-cosmos-db.md
             - name: Database Migration Service(온라인)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service(오프라인)
@@ -1175,7 +1177,7 @@
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1253,7 +1255,7 @@
         - name: 응답 헤더
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: REST 리소스 공급자
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager 템플릿
@@ -1339,7 +1341,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Table Storage REST API
           href: /rest/api/storageservices/table-service-rest-api
 - name: 방법 가이드
@@ -1419,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Azure Monitor 메트릭 사용
           items:
-            - name: Cosmos용 Azure Monitor(미리 보기)
+            - name: Cosmos DB용 Azure Monitor
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: 모니터링할 시나리오
               href: use-metrics.md

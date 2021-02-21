@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: 네트워크 보안
           href: network-security.md
+    - name: 다른 서비스와 통합
+      items:
+        - name: Azure Service Bus와 Azure Event Grid 통합
+          href: service-bus-to-event-grid-integration-concept.md
 - name: 방법 가이드
   items:
     - name: 지역 간 이동
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: 메시지 만료(TTL(Time To Live))
               href: message-expiration.md
-            - name: Azure Event Grid를 사용하여 메시지 처리
-              href: service-bus-to-event-grid-integration-concept.md
         - name: 토픽 필터 및 작업
           href: topic-filters.md
         - name: 표준에서 프리미엄 네임스페이스로 마이그레이션
@@ -216,7 +218,7 @@
       items:
         - name: ActiveMQ에서 Azure Service Bus로 마이그레이션
           href: migrate-jms-activemq-to-servicebus.md
-    - name: 모니터
+    - name: Monitor
       items:
         - name: 엔드투엔드 추적 및 진단
           href: service-bus-end-to-end-tracing.md

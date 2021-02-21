@@ -978,10 +978,14 @@
               href: app/sharepoint.md
             - name: Windows 데스크톱
               href: app/windows-desktop.md
-        - name: 기타 도구
-          items:
-            - name: 변경 분석
-              href: app/change-analysis.md
+    - name: 변경 분석
+      items:
+        - name: 개요
+          href: app/change-analysis.md
+        - name: 시각화
+          href: app/change-analysis-visualizations.md
+        - name: 문제 해결
+          href: app/change-analysis-troubleshoot.md
     - name: VM용 Azure Monitor
       items:
         - name: 개요

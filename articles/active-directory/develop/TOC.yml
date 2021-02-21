@@ -475,6 +475,10 @@
           href: reference-third-party-cookies-spas.md
         - name: Chrome에서 SameSite 쿠키 변경 내용 처리
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: 암호 없는 인증 지원
+      items:
+        - name: FIDO2 인증 지원
+          href: support-fido2-authentication.md
     - name: 앱 및 서비스 인증
       items:
         - name: Azure PowerShell을 사용하여 서비스 사용자 만들기

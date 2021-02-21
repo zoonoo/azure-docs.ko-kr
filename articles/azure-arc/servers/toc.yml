@@ -59,6 +59,8 @@
           href: managed-identity-authentication.md
         - name: 에이전트 관리
           href: manage-agent.md
+        - name: 지역 간 머신 마이그레이션
+          href: manage-howto-migrate.md
     - name: 시나리오
       items:
         - name: Azure Sentinel에 온보딩

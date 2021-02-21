@@ -25,6 +25,8 @@
   items:
     - name: 보안
       items:
+        - name: 온-프레미스 공격으로부터 Microsoft 365 보호
+          href: protect-m365-from-on-premises-attacks.md
         - name: 보안 외부 협업
           items:
             - name: 외부 액세스 개요 보호
@@ -47,8 +49,20 @@
               href: 8-secure-access-sensitivity-labels.md
             - name: '9 Teams, SharePoint 및 OneDrive에 대한 보안 액세스'
               href: 9-secure-access-teams-sharepoint.md
-        - name: 온-프레미스 공격으로부터 Microsoft 365 보호
-          href: protect-m365-from-on-premises-attacks.md
+        - name: 서비스 계정 보호
+          items:
+            - name: 온-프레미스 서비스 계정 소개
+              href: service-accounts-on-premises.md
+            - name: 그룹 MSA 보안
+              href: service-accounts-group-managed.md
+            - name: 독립 실행형 MSA 보안
+              href: service-accounts-standalone-managed.md
+            - name: 컴퓨터 계정 보안
+              href: service-accounts-computer.md
+            - name: 사용자 기반 서비스 계정 보안
+              href: service-accounts-user-on-premises.md
+            - name: 온-프레미스 서비스 계정 관리
+              href: service-accounts-govern-on-premises.md
         - name: MFA 사용
           href: concept-fundamentals-mfa-get-started.md
         - name: 보안 기본값
@@ -143,6 +157,8 @@
                   href: resilience-client-app.md
                 - name: 디먼 애플리케이션
                   href: resilience-daemon-app.md
+            - name: 복원력을 위한 애플리케이션 상태 모니터링
+              href: monitor-sign-in-health-for-resilience.md
         - name: Azure에서 사용되는 인증 기관
           href: certificate-authorities.md
     - name: 배포 가이드

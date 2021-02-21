@@ -210,6 +210,8 @@
                       href: connect-zscaler.md
                 - name: 3단계 연결 유효성 검사
                   href: connect-cef-verify.md
+        - name: 사용자 지정 커넥터 만들기
+          href: create-custom-connector.md
         - name: 위협 인텔리전스 연결
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
@@ -255,8 +257,6 @@
           href: hunting-with-rest-api.md
         - name: REST API를 사용하여 관심 목록 관리
           href: watchlist-with-rest-api.md
-    - name: Azure Monitor 데이터 참조
-      href: /azure/azure-monitor/reference/
     - name: Azure Sentinel Logic Apps 커넥터
       href: /connectors/azuresentinel/
     - name: 네트워크 정규화 스키마
@@ -275,8 +275,6 @@
   items:
     - name: 유용한 리소스
       href: resources.md
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
       href: /archive/blogs/azuresecurity/
     - name: 국가별 가용성
