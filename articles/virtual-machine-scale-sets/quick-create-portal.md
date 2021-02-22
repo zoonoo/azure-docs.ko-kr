@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913732"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535283"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -39,7 +39,7 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
     | ---| ---|
     | Subscription  | 구독을 선택합니다.    |    
     | Resource group | **새로 만들기** 를 선택하고 텍스트 상자에 *myVMSSResourceGroup* 을 입력합니다.|
-    | Name           | *myLoadBalancer*         |
+    | 속성           | *myLoadBalancer*         |
     | 지역         | **미국 동부** 를 선택합니다.       |
     | Type          | **공용** 을 선택합니다.       |
     | SKU           | **표준** 을 선택합니다.       |
@@ -57,7 +57,7 @@ Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오�
 RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux 이미지를 사용하여 확장 집합을 배포할 수 있습니다.
 
 1. 검색 상자에 **확장 집합** 을 입력합니다. 결과의 **Marketplace** 아래에서 **가상 머신 확장 집합** 을 선택합니다. **가상 머신 크기 집합** 페이지에서 **만들기** 를 선택하면 **가상 머신 확장 집합 만들기** 페이지가 열립니다. 
-1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기** 를 선택합니다. 이름에 *myVMSSResourceGroup* 을 입력하고 **확인** 을 선택합니다. 
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인하고 리소스 그룹 목록에서 *myVMSSResourceGroup* 을 선택합니다. 
 1. 확장 집합의 이름으로 *myScaleSet* 을 입력합니다.
 1. **지역** 에서 사용자 영역과 가까운 지역을 선택합니다.
 1. **이미지** 에 대해 Marketplace 이미지를 선택합니다. 이 예제에서는 *Ubuntu Server 18.04 LTS* 를 선택했습니다.

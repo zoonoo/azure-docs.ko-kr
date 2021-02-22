@@ -1,24 +1,18 @@
 ---
 title: Azure Data Factory를 사용하여 Blob Storage 데이터 복사
 description: PowerShell을 사용하여 Azure Data Factory를 만들어 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9f419d89a9757a11055781335cbf98e9eb651548
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013366"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372725"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 
@@ -40,6 +34,9 @@ ms.locfileid: "96013366"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-Az-ps)의 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
+
+>[!WARNING]
+>최신 버전의 PowerShell 및 Data Factory 모듈을 사용하지 않는 경우 명령을 실행하는 동안 역직렬화 오류가 발생할 수 있습니다. 
 
 #### <a name="log-in-to-powershell"></a>PowerShell에 로그인
 
@@ -341,12 +338,12 @@ $RunId = Invoke-AzDataFactoryV2Pipeline `
             -PipelineRunId $RunId
 
         if ($Run) {
-            if ($run.Status -ne 'InProgress') {
+            if ( ($Run.Status -ne "InProgress") -and ($Run.Status -ne "Queued") ) {
                 Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
                 $Run
                 break
             }
-            Write-Output "Pipeline is running...status: InProgress"
+            Write-Output ("Pipeline is running...status: " + $Run.Status)
         }
 
         Start-Sleep -Seconds 10

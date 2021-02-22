@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 864152d1f1d0074305cbba448946bc05888b4f3b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566761"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521971"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기
 
@@ -85,17 +85,35 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>mysql.exe를 사용하여 서버에 연결
 
-프라이빗 액세스(VNet 통합)를 사용하여 유연한 서버를 만든 경우 서버와 동일한 가상 네트워크 내의 리소스에서 서버에 연결해야 합니다. 가상 머신을 만들고, 유연한 서버를 사용하여 만든 가상 네트워크에 이를 추가할 수 있습니다.
+프라이빗 액세스(VNet 통합)를 사용하여 유연한 서버를 만든 경우 서버와 동일한 가상 네트워크 내의 리소스에서 서버에 연결해야 합니다. 가상 머신을 만들고, 유연한 서버를 사용하여 만든 가상 네트워크에 이를 추가할 수 있습니다. 자세한 정보는 [프라이빗 액세스 설명서](how-to-manage-virtual-network-portal.md) 구성을 참조하세요.
 
-퍼블릭 액세스(허용된 IP 주소)를 사용하여 유연한 서버를 만든 경우 로컬 IP 주소를 서버의 방화벽 규칙 목록에 추가할 수 있습니다.
+퍼블릭 액세스(허용된 IP 주소)를 사용하여 유연한 서버를 만든 경우 로컬 IP 주소를 서버의 방화벽 규칙 목록에 추가할 수 있습니다. 단계별 지침은 [방화벽 규칙 만들기 또는 관리 설명서](how-to-manage-firewall-portal.md)를 참조하세요.
 
 [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) 또는 [MySQL 워크벤치](./connect-workbench.md)를 사용하여 로컬 환경에서 서버에 연결할 수 있습니다. 
 
-mysql.exe를 사용하는 경우 다음 명령을 사용하여 연결합니다. 명령에서는 서버 이름, 사용자 이름 및 암호를 사용합니다. 
-
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
+
+**퍼블릭 액세스** 를 사용하여 유연한 서버를 프로비저닝한 경우 아래와 같이 미리 설치된 mysql 클라이언트를 사용하여 유연한 서버에 연결할 때 [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
+
+Azure Cloud Shell을 사용하여 유연한 서버에 연결하려면 Azure Cloud Shell에서 유연한 서버로의 네트워킹 액세스를 허용해야 합니다. 이를 위해 Azure Portal의 MySQL 유연한 서버 **네트워킹** 블레이드로 이동하고 **방화벽** 섹션 아래에 있는 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)" 확인란을 선택하고 저장을 클릭하여 설정을 유지합니다.
+
+> [!NOTE]
+> 개발 또는 테스트하는 경우에만 **Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)** 를 선택해야 합니다. 다른 고객의 구독에서 들어오는 연결을 포함하여 Azure 서비스 또는 자산에 할당된 IP 주소에서 들어오는 연결을 허용하도록 방화벽을 구성합니다.
+
+**사용해 보기** 를 클릭하여 Azure Cloud Shell을 시작하고 다음 명령을 사용하여 유연한 서버에 연결합니다. 명령에서는 서버 이름, 사용자 이름 및 암호를 사용합니다. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+
+이전 명령을 실행한 후에 유연한 서버에 연결하는 동안 다음과 같은 오류 메시지가 표시되는 경우 앞에서 언급한 "Allow public access from any Azure service within Azure to this server(Azure 내 모든 Azure 서비스에서 이 서버에 대한 퍼블릭 액세스 허용)"를 사용하여 방화벽 규칙을 설정하지 않았거나 옵션이 저장되지 않은 것입니다. 방화벽을 다시 설정하고 다시 시도해 보세요.
+
+오류 2002(HY000): <servername>의 MySQL 서버에 연결할 수 없음(115)
+
 ## <a name="clean-up-resources"></a>리소스 정리
 이제 Azure Database for MySQL 유연한 서버를 리소스 그룹에 만들었습니다. 이러한 리소스가 나중에 필요하지 않을 경우에는 리소스 그룹을 삭제하거나 MySQL 서버만 삭제하여 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제하려면 다음 단계를 완료합니다.
 

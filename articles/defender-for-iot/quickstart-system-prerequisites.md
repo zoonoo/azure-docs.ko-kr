@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8ee3afcae69ca6c082452e590eb8370bcc122af4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844466"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523212"
 ---
 # <a name="system-prerequisites"></a>시스템 필수 구성 요소
 이 문서에서는 Azure Defender for IoT를 실행하기 위한 시스템 필수 구성 요소가 나열되어 있습니다.
@@ -31,7 +31,7 @@ Defender for IoT는 모든 유럽 지역에서 유럽 서부 지역 데이터 �
 
 자세한 내용은 [IoT Hub 지원 지역](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="next-steps"></a>다음 단계
 
-- [필수 어플라이언스 식별](how-to-identify-required-appliances.md)
-- [Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)
+[필요한 어플라이언스 식별](how-to-identify-required-appliances.md)
+[Azure Defender for IoT 네트워크 설정 정보](how-to-set-up-your-network.md)

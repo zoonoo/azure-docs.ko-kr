@@ -658,6 +658,9 @@
         - name: Front Door Service
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
+        - name: Front Door 표준/프리미엄(미리 보기)
+          tocHref: /azure/frontdoor/standard-premium
+          topicHref: /azure/frontdoor/standard-premium
         - name: Internet Analyzer
           tocHref: /azure/internet-analyzer/
           topicHref: /azure/internet-analyzer/

@@ -6,13 +6,13 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/14/2020
-ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/11/2021
+ms.openlocfilehash: fb9f12b3b31f1049cd4d9306294783e514331229
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331644"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382194"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -74,26 +74,26 @@ Azure Database for PostgreSQL 템플릿 샘플은 [Azure 빠른 시작 템플릿
 
 2. 새 리소스 그룹을 만든 경우 리소스 그룹 및 새 서버에 대한 **위치** 를 선택합니다.
 
-3. **서버 이름** , **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
+3. **서버 이름**, **관리자 로그인** 및 **관리자 로그인 암호** 를 입력합니다.
 
     :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for PostgreSQL 배포":::
 
 4. 원하는 경우 다른 기본 설정을 변경합니다.
 
-    * **구독** : 서버에 사용하려는 Azure 구독
-    * **SKU 용량** : vCore 용량( *2* (기본값), *4* , *8* , *16* , *32* 또는 *64* 일 수 있음)
-    * **SKU 이름** : 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1* , *GP_Gen5_2* (기본값) 또는 *MO_Gen5_32* )
-    * **SKU 크기(MB)** : Azure Database for PostgreSQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *51200* )
-    * **SKU 계층** : 배포 계층(예: *기본* , *범용* (기본값) 또는 *메모리 최적화* )
-    * **SKU 제품군** : *Gen4* 또는 *Gen5* (기본값) - 서버 배포용 하드웨어 세대를 나타냄
-    * **Postgresql 버전** : 배포할 PostgreSQL 서버 버전(예: *9.5* , *9.6* , *10* 또는 *11* (기본값))
-    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7* )
-    * **지역 중복 백업** : Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함* (기본값)
-    * **가상 네트워크 이름** : 가상 네트워크의 이름(기본값: *azure_postgresql_vnet* )
-    * **서브넷 이름** : 서브넷의 이름(기본값: *azure_postgresql_subnet* )
-    * **가상 네트워크 규칙 이름** : 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet* )
-    * **Vnet 주소 접두사** : 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16* )
-    * **서브넷 접두사** : 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16* )
+    * **구독**: 서버에 사용하려는 Azure 구독
+    * **SKU 용량**: vCore 용량(*2*(기본값), *4*, *8*, *16*, *32* 또는 *64* 일 수 있음)
+    * **SKU 이름**: 밑줄로 조인된 SKU 계층 접두사, SKU 제품군 및 SKU 용량(예: *B_Gen5_1*, *GP_Gen5_2*(기본값) 또는 *MO_Gen5_32*)
+    * **SKU 크기(MB)** : Azure Database for PostgreSQL 서버의 스토리지 크기(메가바이트 단위)(기본값: *51200*)
+    * **SKU 계층**: 배포 계층(예: *기본*, *범용*(기본값) 또는 *메모리 최적화*)
+    * **SKU 제품군**: *Gen4* 또는 *Gen5*(기본값) - 서버 배포용 하드웨어 세대를 나타냄
+    * **Postgresql 버전**: 배포할 PostgreSQL 서버 버전(예: *9.5*, *9.6*, *10* 또는 *11*(기본값))
+    * **백업 보존 기간(일)** : 원하는 지역 중복 백업 보존 기간(일 단위)(기본값: *7*)
+    * **지역 중복 백업**: Geo-DR(지역 재해 복구) 요구 사항에 따라 *사용* 또는 *사용 안 함*(기본값)
+    * **가상 네트워크 이름**: 가상 네트워크의 이름(기본값: *azure_postgresql_vnet*)
+    * **서브넷 이름**: 서브넷의 이름(기본값: *azure_postgresql_subnet*)
+    * **가상 네트워크 규칙 이름**: 서브넷을 허용하는 가상 네트워크 규칙의 이름(기본값: *AllowSubnet*)
+    * **Vnet 주소 접두사**: 가상 네트워크에 대한 주소 접두사(기본값: *10.0.0.0/16*)
+    * **서브넷 접두사**: 서브넷에 대한 주소 접두사(기본값: *10.0.0.0/16*)
 
 5. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
@@ -174,6 +174,34 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>포털에서 ARM 템플릿 내보내기
+Azure Portal에서 [ARM 템플릿을 내보낼](../azure-resource-manager/templates/export-template-portal.md) 수 있습니다. 두 가지 방법으로 템플릿을 내보낼 수 있습니다.
+
+- [리소스 그룹 또는 리소스에서 내보냅니다](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). 이 옵션은 기존 리소스에서 새 템플릿을 생성합니다. 내보낸 템플릿은 리소스 그룹의 현재 상태에 대한 "스냅샷"입니다. 전체 리소스 그룹 또는 해당 리소스 그룹 내의 특정 리소스를 내보낼 수 있습니다.
+- [배포 전 또는 기록에서 내보냅니다](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). 이 옵션은 배포에 사용되는 템플릿의 정확한 복사본을 검색합니다.
+
+템플릿을 내보낼 때 PostgreSQL 서버 리소스의 ```"properties":{ }``` 섹션에서 ```administratorLogin``` 및 ```administratorLoginPassword```는 보안상의 이유로 포함되지 않습니다. 템플릿을 배포하기 전에 템플릿에 이러한 매개 변수를 추가 **해야** 합니다. 그렇지 않으면 템플릿이 실패합니다.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

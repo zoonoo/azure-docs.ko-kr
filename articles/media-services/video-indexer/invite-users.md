@@ -3,19 +3,19 @@ title: Video Indexer에 사용자 초대 - Azure
 titleSuffix: Azure Media Services
 description: 이 문서에서는 사용자를 Video Indexer에 초대하는 방법을 보여 줍니다.
 services: media-services
-author: ReutAmior
+author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 02/03/2021
 ms.author: juliako
-ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7d3415ffad4820d8651841398ec6d47352869ce2
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364146"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534742"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>빠른 시작: Video Indexer에 사용자 초대
 
@@ -29,26 +29,33 @@ ms.locfileid: "92364146"
 1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다. 관리자 계정으로 연결되어 있는지 확인합니다.
 1. 관리자인 경우 오른쪽 위 모서리에 **계정 공유** 단추가 표시됩니다. 단추를 클릭하면 사용자를 초대할 수 있습니다. 
 
-   ![새 사용자 초대](./media/invite-users/share-account.png)
-1. Video Indexer 계정에 추가할 사용자의 이메일 주소를 추가합니다.
+    :::image type="content" source="./media/invite-users/share-account.png" alt-text="계정 공유":::
+1. **이 계정을 다른 사용자와 공유** 대화 상자에서 Video Indexer 계정에 초대할 사용자의 이메일 주소를 입력합니다.
 
-    ![이 계정에 사용자 초대](./media/invite-users/invite-to-account.png)
-        
-    >[!NOTE]
-    > 초대하는 모든 사용자는 계정의 모든 비디오에 대한 읽기 및 쓰기 권한을 갖게 됩니다.
-1. 초대한 사용자는 링크가 포함된 이메일을 받게 되며, **Video Indexer 조인** 링크를 클릭하면 계정에 액세스할 수 있습니다.
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="이 계정에 사용자 초대":::  
+1. **초대** 를 누르면 대기 중인 초대 목록에 사용자가 추가됩니다. <br/>계정에 아직 조인하지 않은 각 초대받은 사람에 대해 **초대 제거** 또는 **초대 URL 복사** 라는 두 가지 옵션 중에서 선택할 수 있습니다.
 
-    ![확인](./media/invite-users/invite-msg.png)
+    :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="보류 중인 초대":::  
+1. 초대받은 사람이 계정에 조인하면 선택할 수 있는 세 가지 옵션이 표시됩니다. **기여자**(기본값) 또는 **소유자** 의 두 가지 옵션. **제거** 를 눌러 초대받은 사람을 제거하도록 선택할 수 있습니다.
 
-    사용자는 계정에 대한 액세스 권한을 얻기 위해 조인 링크를 클릭해야 합니다. 
+    :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="조인된 초대 대상자":::  
 
-## <a name="removing-existing-users"></a>기존 사용자 제거
+    제거 시 사용자에게 알림이 표시되지 않습니다. 일단 제거되면 사용자에게 로그인할 수 있는 권한이 부여되지 않습니다.
 
-계정에 대한 액세스 권한이 있는 사용자를 제거하려면 해당 이름 옆에 있는 **X** 기호를 클릭하면 됩니다.
+## <a name="manage-roles-invite-more-users"></a>역할 관리, 더 많은 사용자 초대
 
-![사용자 제거](./media/invite-users/remove-users.png)
+위에서 설명한 대로 **계정 공유** 를 클릭하여 **다른 사람과 이 계정 공유** 대화 상자를 표시하는 것 외에도 **설정** 에서 이 작업을 수행할 수 있습니다.
 
-제거 시 사용자에게 알림이 표시되지 않습니다. 일단 제거되면 사용자에게 로그인할 수 있는 권한이 부여되지 않습니다.
+1. 열려 있는 계정에서 **설정** 단추를 누릅니다. 
+
+    :::image type="content" source="./media/invite-users/settings.png" alt-text="계정 설정":::  
+1. **역할 관리** 단추를 클릭합니다.
+1. 다른 사용자를 초대하려면 **이 계정에 더 많은 사람 초대** 를 클릭합니다.
+
+    :::image type="content" source="./media/invite-users/invite-more-people.png" alt-text="더 많은 사용자 초대":::  
+1. **이 계정에 더 많은 사람 초대** 를 누르면 초대 대화 상자가 나타납니다.
+ 
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="이 계정에 사용자 초대":::  
 
 ## <a name="next-steps"></a>다음 단계
 

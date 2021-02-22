@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104606"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590552"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -24,7 +24,8 @@ ms.locfileid: "100104606"
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
 |------------------------------|---------------|---------------|
 | [문서 다시 설정(미리 보기)](search-howto-run-reset-indexers.md) |  인덱서 워크로드에서 개별적으로 선택한 검색 문서를 다시 처리합니다. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| [가용성 영역](search-performance-optimization.md#availability-zones)| 둘 이상의 복제본이 [이 문서](search-performance-optimization.md#availability-zones)에 나열된 특정 지역에 있는 검색 서비스는 복제본을 둘 이상의 고유한 물리적 위치에 저장하여 복원력을 얻습니다.  | 검색 서비스를 만든 지역 및 날짜는 가용성을 결정합니다. 자세한 내용은 성능 튜닝 문서를 참조하세요. |
+| [가용성 영역](search-performance-optimization.md#availability-zones)| [성능 확장](search-performance-optimization.md#availability-zones)에 나열된 대로 특정 지역에 둘 이상의 복제본이 있는 검색 서비스는 복제본을 둘 이상의 고유한 물리적 위치에 저장하여 복원력을 얻습니다.  | 검색 서비스를 만든 지역 및 날짜는 가용성을 결정합니다. 자세한 내용은 성능 확장 문서를 참조하세요. |
+| [Azure CLI](/cli/azure/search) </br>[Azure PowerShell](/powershell/module/az.search/) | 이제 새로운 수정 버전에서는 IP 방화벽 규칙 및 프라이빗 엔드포인트에 대한 지원을 포함하여 관리 REST API 2020-08-01의 전체 작업 범위를 제공합니다. | 일반 공급. |
 
 ## <a name="january-2021"></a>2021년 1월
 
@@ -77,7 +78,7 @@ ms.locfileid: "100104606"
 |11월 | [텍스트 번역 기술](cognitive-search-skill-text-translation.md) | 인덱싱 중에 사용되어 텍스트를 평가하고 번역하는 인식 기술입니다. 일반 공급.|
 |11월 | [Power BI 템플릿](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | 지식 저장소에서 콘텐츠를 시각화하기 위한 템플릿입니다. |
 |11월 | [Azure Data Lake Storage Gen2(미리 보기)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API(미리 보기)](search-howto-index-cosmosdb.md) 및 [Cosmos DB Cassandra API(미리 보기)](search-howto-index-cosmosdb.md) | 공개 미리 보기의 새 인덱서 데이터 원본입니다. |
-|7월 | [Azure Government 클라우드 지원](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | 일반 공급.|
+|7월 | [Azure Government 클라우드 지원](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | 일반 공급.|
 
 <a name="new-service-name"></a>
 

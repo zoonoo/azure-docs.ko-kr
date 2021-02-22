@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625267"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364837"
 ---
 # <a name="chat-client-library-overview"></a>채팅 클라이언트 라이브러리 개요
 
@@ -44,7 +44,7 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 |                   | 멤버가 채팅 스레드에서 메시지를 활발히 입력하는 경우 입력 알림 보내기 및 받기 <br/> *채팅 스레드에 20명 이상의 멤버가 있는 경우 사용할 수 없음*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | 채팅 스레드에서 모든 메시지 가져오기 <br/> *유니코드 이모지 지원*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | 메시지 콘텐츠의 일부로 이모지 보내기                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|실시간 신호(독점적인 신호 패키지에서 사용하도록 설정)| 사용자가 멤버인 채팅 스레드에서 새 메시지를 받을 때 알림 받기                                     | ✔️   | ❌    | ❌  | ❌  |
+|실시간 신호(독점적인 신호 패키지에서 사용하도록 설정**)| 사용자가 멤버인 채팅 스레드에서 새 메시지를 받을 때 알림 받기                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | 사용자가 멤버인 채팅 스레드에서 다른 멤버가 메시지를 편집할 때 알림 받기                | ✔️   | ❌    | ❌    | ❌  |
 |                    | 사용자가 멤버인 채팅 스레드에서 다른 멤버가 메시지를 삭제할 때 알림 받기                | ✔️   | ❌    | ❌    | ❌  |
 |                    | 다른 채팅 스레드 멤버가 입력하는 경우 알림 받기                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ Azure Communication Services 채팅 클라이언트 라이브러리를 사용하
 | 모니터링        | 전송된 메시지의 용어 면에서 사용량 모니터링                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | 앱에서 생성한 API 요청의 품질 및 상태를 모니터링하고 포털을 통해 경고를 구성                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |추가 기능 | [Cognitive Services API](../../../cognitive-services/index.yml)를 채팅 클라이언트 라이브러리와 함께 사용하여 *클라이언트에서 들어오는 메시지의 언어 번역 및 감정 분석, 멤버가 말하는 동안 메시지를 작성하는 음성 텍스트 변환 대화* 와 같은 인텔리전트 기능을 사용하도록 설정합니다.                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+**독점적인 신호 패키지는 웹 소켓을 사용하여 구현됩니다. 웹 소켓이 지원되지 않으면 긴 폴링으로 대체됩니다.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>OS 및 브라우저별 JavaScript 채팅 클라이언트 라이브러리 지원
 

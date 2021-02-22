@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 96b6467d0d529f5839c33182057f3aa3c39cb6e7
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a214e91307308e191ce92b6461c1454d2cc7dd2b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370481"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -43,7 +43,7 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 2. Azure Portal에 로그인합니다.
 
-3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
+3. Microsoft 파트너 ID를 입력합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID** 를 사용해야 합니다.
 
    ![파트너 ID에 연결을 보여 주는 스크린샷](./media/link-partner-id/link-partner-id01.png)
 
@@ -61,7 +61,7 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
+3. 새 파트너 ID에 연결합니다. 파트너 ID는 조직의 [Microsoft 파트너 네트워크](https://partner.microsoft.com/) ID입니다. 파트너 프로필에 표시된 **관련 MPN ID** 를 사용해야 합니다.
 
 
     ```azurepowershell-interactive
@@ -142,7 +142,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **회사에 여러 개의 MPN ID가 있는 경우 어떤 MPN ID를 사용해야 하나요?**
 
-파트너 프로필에 표시된 **관련 MPN ID**를 사용해야 합니다.
+파트너 프로필에 표시된 **관련 MPN ID** 를 사용해야 합니다.
 
 **연결된 파트너 ID에 대한 영향을 받는 수익 보고는 어디에서 찾을 수 있나요?**
 
@@ -162,9 +162,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **회사에서 [Azure Lighthouse](../../lighthouse/overview.md)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
 
-[관리형 서비스 제품을 Azure Marketplace에 게시](../../lighthouse/how-to/publish-managed-services-offers.md)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다.
-
-[Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](../../lighthouse/how-to/onboard-customer.md)하는 경우 MPN ID를 각 온보딩된 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 각 고객 테넌트가 아닌 서비스 공급자 테넌트에서 이 작업을 수행해야 합니다. 간단히 하기 위해 테넌트에 서비스 주체 계정을 만들고, MPN ID와 연결하고, [파트너 획득 크레딧을 받을 수 있는 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용하여 등록한 모든 고객에게 액세스 권한을 부여하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
+Azure Lighthouse 활동을 인식하려면 MPN ID를 각 온보딩된 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 각 고객 테넌트가 아닌 서비스 공급자 테넌트에서 이 작업을 수행해야 합니다. 간단히 하기 위해 테넌트에 서비스 주체 계정을 만들고, MPN ID와 연결하고, [파트너 획득 크레딧을 받을 수 있는 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용하여 등록한 모든 고객에게 액세스 권한을 부여하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결하여 위임된 리소스에 대한 영향 추적](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
 
 **고객에게 PAL(파트너 관리자 링크)을 어떻게 설명하나요?**
 

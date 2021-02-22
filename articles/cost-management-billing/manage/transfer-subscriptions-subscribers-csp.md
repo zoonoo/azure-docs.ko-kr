@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962113"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363052"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -36,6 +36,7 @@ ms.locfileid: "94962113"
 
 다른 Azure 구독을 CSP 파트너에게 전송하려면 구독자가 원본 구독에서 CSP 구독으로 리소스를 이동해야 합니다. 다음 지침을 사용하여 구독 간에 리소스를 이동합니다.
 
+1. 고객과 [재판매인 관계](/partner-center/request-a-relationship-with-a-customer)를 설정합니다. [CSP 지역 권한 부여 개요](/partner-center/regional-authorization-overview)를 검토하여 고객과 파트너 테넌트가 동일한 권한 있는 지역 내에 있는지 확인합니다.
 1. CSP 파트너와 협력하여 대상 Azure CSP 구독을 만듭니다.
 1. 원본 및 대상 CSP 구독이 동일한 Azure AD(Azure Active Directory) 테넌트에 있는지 확인합니다.  
     Azure CSP 구독에 대한 Azure AD 테넌트는 변경할 수 없습니다. 대신 원본 구독을 CSP Azure AD 테넌트에 추가하거나 연결해야 합니다. 더 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조합니다.

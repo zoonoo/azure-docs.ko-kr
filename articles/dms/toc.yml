@@ -37,10 +37,8 @@
   items:
     - name: SQL Server 마이그레이션
       items:
-        - name: Azure SQL Database로(오프라인)
+        - name: Azure SQL Database로
           href: tutorial-sql-server-to-azure-sql.md
-        - name: Azure SQL Database로(온라인)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: Azure SQL Managed Instance로(오프라인)
           href: tutorial-sql-server-to-managed-instance.md
         - name: Azure SQL Managed Instance로(온라인)

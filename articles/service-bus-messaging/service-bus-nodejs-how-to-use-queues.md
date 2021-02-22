@@ -1,18 +1,18 @@
 ---
 title: JavaScript에서 azure/service-bus 큐를 사용하는 방법
-description: '@azure/service-bus 패키지의 최신 미리 보기 버전을 사용하여 메시지를 Service Bus 큐에서 메시지를 보내고 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
+description: '@azure/service-bus 패키지의 최신 버전을 사용하여 메시지를 Service Bus 큐에서 메시지를 보내고 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: ac24d84176f27170648545bc8044c5dcbc77781a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 27ffbafb92dd3269e38092b64e2b74f17ff9f09f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180016"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373082"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.
@@ -205,6 +205,7 @@ Azure Portal의 Service Bus 네임스페이스에 대한 **개요** 페이지에
 ## <a name="next-steps"></a>다음 단계
 다음 설명서와 샘플을 참조하세요. 
 
-- [JS용 Azure Service Bus 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). **javascript** 폴더에는 JavaScript 샘플이 있고 **typescript** 에는 TypeScript 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](/javascript/api/overview/azure/service-bus)
+- [JavaScript용 Azure Service Bus 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/service-bus)
+- [JavaScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [API 참조 설명서](/javascript/api/overview/azure/service-bus)

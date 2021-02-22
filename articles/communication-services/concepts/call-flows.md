@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593640"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559454"
 ---
-# <a name="call-flows"></a>호출 흐름
+# <a name="call-flow-basics"></a>호출 흐름 기본 사항
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ PSTN 미디어 트래픽은 미디어 프로세서라고 하는 구성 요소를
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Communication Services 내의 TCP 미디어 프로세스 흐름을 보여주는 다이어그램":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>사례 5: 예약된 Teams 모임의 Communication Services 클라이언트 라이브러리 및 Microsoft Teams
+
+신호는 신호 컨트롤러를 통해 흐릅니다. 미디어는 미디어 프로세서를 통해 흐릅니다. 신호 컨트롤러와 미디어 프로세서는 Communication Services와 Microsoft Teams 간에 공유됩니다. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="예약된 Teams 모임의 Communication Services 클라이언트 라이브러리 및 Teams 클라이언트를 보여주는 다이어그램.":::
+
+
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ PSTN 미디어 트래픽은 미디어 프로세서라고 하는 구성 요소를
 
 - [전화 유형](../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 - [클라이언트-서버 아키텍처](./client-and-server-architecture.md)에 대한 자세한 정보
+- [호출 흐름 토폴로지](./detailed-call-flows.md)에 대해 알아보기

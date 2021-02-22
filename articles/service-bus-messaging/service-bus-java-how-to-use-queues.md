@@ -3,14 +3,14 @@ title: Java에서 Azure Service Bus 큐 사용(azure-messaging-servicebus)
 description: 이 자습서에서는 Java를 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 알아봅니다. 새 azure-messaging-servicebus 패키지를 사용합니다.
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/09/2020
+ms.date: 02/13/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a910f61389183b77af1f73f8d3553f6c5bbc8452
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: bfe7835bea4415085279fb77eb85d67ed3f5f0f3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881587"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518609"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)
 이 빠른 시작에서는 Azure Service Bus 큐에서 메시지를 보내고 받는 Java 앱을 만듭니다. 
@@ -32,14 +32,41 @@ ms.locfileid: "98881587"
 Eclipse 또는 원하는 도구를 사용하여 Java 프로젝트를 만듭니다. 
 
 ### <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
-Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service Bus용 Java 클라이언트 라이브러리는 [Maven Central Repository](https://search.maven.org/search?q=a:azure-messaging-servicebus)에서 사용할 수 있습니다. Maven 프로젝트 파일 안에 다음 종속성 선언을 사용하여 이 라이브러리를 참조할 수 있습니다.
+Azure Core 및 Azure Service Bus 라이브러리에 대한 참조를 추가합니다. 
+
+Eclipse를 사용하고 Java 콘솔 애플리케이션을 만든 경우 Java 프로젝트를 Maven으로 변환합니다. **패키지 탐색기** 창에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **구성** -> **Maven 프로젝트로 변환** 을 선택합니다. 그런 다음, 다음 예제와 같이 이러한 두 라이브러리에 종속성을 추가합니다.
 
 ```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-servicebus</artifactId>
-    <version>7.0.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.myorg.sbusquickstarts</groupId>
+    <artifactId>sbustopicqs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <release>15</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-messaging-servicebus</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+    </dependencies>
+</project>
 ```
 
 ### <a name="add-code-to-send-messages-to-the-queue"></a>메시지를 큐에 보내는 코드 추가
@@ -47,9 +74,9 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
 
     ```java
     import com.azure.messaging.servicebus.*;
-    import com.azure.messaging.servicebus.models.*;
+    
+    import java.util.concurrent.CountDownLatch;
     import java.util.concurrent.TimeUnit;
-    import java.util.function.Consumer;
     import java.util.Arrays;
     import java.util.List;
     ```    
@@ -94,7 +121,7 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
     ```
 1. 만든 큐에 메시지를 보내는 `sendMessageBatch`라는 메서드를 추가합니다. 이 메서드는 큐에 대한 `ServiceBusSenderClient`를 만들고, `createMessages` 메서드를 호출하여 메시지 목록을 가져오고, 하나 이상의 일괄 처리를 준비하고, 해당 일괄 처리를 큐에 보냅니다. 
 
-```java
+    ```java
     static void sendMessageBatch()
     {
         // create a Service Bus Sender client for the queue 
@@ -139,39 +166,29 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
         //close the client
         senderClient.close();
     }
-```
+    ```
 
 ## <a name="receive-messages-from-a-queue"></a>큐에서 메시지 받기
 이 섹션에서는 큐에서 메시지를 검색하는 코드를 추가합니다. 
 
 1. 큐에서 메시지를 받는 `receiveMessages`라는 메서드를 추가합니다. 이 메서드는 메시지를 처리하기 위한 처리기 및 오류를 처리하기 위한 다른 처리기를 지정하여 큐에 대한 `ServiceBusProcessorClient`를 만듭니다. 그런 다음, 프로세서를 시작하고, 몇 초 동안 기다리고, 받은 메시지를 출력한 다음, 프로세서를 중지하고 닫습니다.
 
+    > [!IMPORTANT]
+    > 코드에서 `QueueTest::processMessage`의 `QueueTest`를 클래스 이름으로 바꿉니다. 
+
     ```java
     // handles received messages
     static void receiveMessages() throws InterruptedException
     {
-        // consumer that processes a single message received from Service Bus
-        Consumer<ServiceBusReceivedMessageContext> messageProcessor = context -> {
-            ServiceBusReceivedMessage message = context.getMessage();
-            System.out.println("Received message: " + message.getBody().toString());
-        };
+        CountDownLatch countdownLatch = new CountDownLatch(1);
 
-        // handles any errors that occur when receiving messages
-        Consumer<Throwable> errorHandler = throwable -> {
-            System.out.println("Error when receiving messages: " + throwable.getMessage());
-            if (throwable instanceof ServiceBusReceiverException) {
-                ServiceBusReceiverException serviceBusReceiverException = (ServiceBusReceiverException) throwable;
-                System.out.println("Error source: " + serviceBusReceiverException.getErrorSource());
-            }
-        };
-
-        // create an instance of the processor through the ServiceBusClientBuilder
+        // Create an instance of the processor through the ServiceBusClientBuilder
         ServiceBusProcessorClient processorClient = new ServiceBusClientBuilder()
             .connectionString(connectionString)
             .processor()
             .queueName(queueName)
-            .processMessage(messageProcessor)
-            .processError(errorHandler)
+            .processMessage(QueueTest::processMessage)
+            .processError(context -> processError(context, countdownLatch))
             .buildProcessorClient();
 
         System.out.println("Starting the processor");
@@ -180,9 +197,55 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
         TimeUnit.SECONDS.sleep(10);
         System.out.println("Stopping and closing the processor");
         processorClient.close();        
+    }   
+    ```
+2. `processMessage` 메서드를 추가하여 Service Bus 구독에서 받은 메시지를 처리합니다. 
+
+    ```java
+    private static void processMessage(ServiceBusReceivedMessageContext context) {
+        ServiceBusReceivedMessage message = context.getMessage();
+        System.out.printf("Processing message. Session: %s, Sequence #: %s. Contents: %s%n", message.getMessageId(),
+            message.getSequenceNumber(), message.getBody());
     }    
     ```
-2. `sendMessage`, `sendMessageBatch` 및 `receiveMessages` 메서드를 호출하고 `InterruptedException`을 throw하도록 `main` 메서드를 업데이트합니다.     
+3. `processError` 메서드를 추가하여 오류 메시지를 처리합니다.
+
+    ```java
+    private static void processError(ServiceBusErrorContext context, CountDownLatch countdownLatch) {
+        System.out.printf("Error when receiving messages from namespace: '%s'. Entity: '%s'%n",
+            context.getFullyQualifiedNamespace(), context.getEntityPath());
+
+        if (!(context.getException() instanceof ServiceBusException)) {
+            System.out.printf("Non-ServiceBusException occurred: %s%n", context.getException());
+            return;
+        }
+
+        ServiceBusException exception = (ServiceBusException) context.getException();
+        ServiceBusFailureReason reason = exception.getReason();
+
+        if (reason == ServiceBusFailureReason.MESSAGING_ENTITY_DISABLED
+            || reason == ServiceBusFailureReason.MESSAGING_ENTITY_NOT_FOUND
+            || reason == ServiceBusFailureReason.UNAUTHORIZED) {
+            System.out.printf("An unrecoverable error occurred. Stopping processing with reason %s: %s%n",
+                reason, exception.getMessage());
+
+            countdownLatch.countDown();
+        } else if (reason == ServiceBusFailureReason.MESSAGE_LOCK_LOST) {
+            System.out.printf("Message lock lost for message: %s%n", context.getException());
+        } else if (reason == ServiceBusFailureReason.SERVICE_BUSY) {
+            try {
+                // Choosing an arbitrary amount of time to wait until trying again.
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                System.err.println("Unable to sleep for period of time");
+            }
+        } else {
+            System.out.printf("Error source %s, reason %s, message: %s%n", context.getErrorSource(),
+                reason, context.getException());
+        }
+    }  
+    ```
+2. `main` 메서드를 업데이트하여 `sendMessage`, `sendMessageBatch` 및 `receiveMessages` 메서드를 호출하고 `InterruptedException`을 throw합니다.     
 
     ```java
     public static void main(String[] args) throws InterruptedException {        
@@ -199,18 +262,18 @@ Azure Service Bus 라이브러리에 대한 참조를 추가합니다. Service B
 Sent a single message to the queue: myqueue
 Sent a batch of messages to the queue: myqueue
 Starting the processor
-Received message: Hello, World!
-Received message: First message in the batch
-Received message: Second message in the batch
-Received message: Three message in the batch
+Processing message. Session: 88d961dd801f449e9c3e0f8a5393a527, Sequence #: 1. Contents: Hello, World!
+Processing message. Session: e90c8d9039ce403bbe1d0ec7038033a0, Sequence #: 2. Contents: First message
+Processing message. Session: 311a216a560c47d184f9831984e6ac1d, Sequence #: 3. Contents: Second message
+Processing message. Session: f9a871be07414baf9505f2c3d466c4ab, Sequence #: 4. Contents: Third message
 Stopping and closing the processor
 ```
 
-Service Bus 네임스페이스에 대한 Azure Portal의 **개요** 페이지에서 **들어오는 메시지** 및 **나가는 메시지** 의 수를 확인할 수 있습니다. 1분 정도 기다린 다음, 페이지를 새로 고쳐 최신 값을 확인해야 할 수도 있습니다. 
+Service Bus 네임스페이스에 대한 Azure Portal의 **개요** 페이지에서 **들어오는 메시지** 및 **나가는 메시지** 의 수를 확인할 수 있습니다. 1분 정도 기다렸다가 페이지를 새로 고쳐 최신 값을 확인해야 할 수 있습니다. 
 
-:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="들어오는 메시지 및 나가는 메시지의 수" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
+:::image type="content" source="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png" alt-text="수신 및 발신 메시지 수" lightbox="./media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png":::
 
-이 **개요** 페이지에서 큐를 선택하여 **Service Bus 큐** 페이지로 이동합니다. 이 페이지에도 **들어오는 메시지** 및 **나가는 메시지** 의 수가 표시됩니다. 또한 큐의 **현재 크기**, **최대 크기**, **활성 메시지 수** 등과 같은 다른 정보도 표시됩니다. 
+이 **개요** 페이지에서 큐를 선택하여 **Service Bus 큐** 페이지로 이동합니다. 이 페이지에도 **수신** 및 **발신** 메시지 수가 표시됩니다. 큐의 **현재 크기**, **최대 크기**, **활성 메시지 수** 등과 같은 기타 정보도 볼 수 있습니다. 
 
 :::image type="content" source="./media/service-bus-java-how-to-use-queues/queue-details.png" alt-text="큐 세부 정보" lightbox="./media/service-bus-java-how-to-use-queues/queue-details.png":::
 
@@ -219,7 +282,7 @@ Service Bus 네임스페이스에 대한 Azure Portal의 **개요** 페이지에
 ## <a name="next-steps"></a>다음 단계
 다음 설명서와 샘플을 참조하세요.
 
-- [Java용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
+- [Python용 Azure Service Bus 클라이언트 라이브러리 - 추가 정보](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [GitHub 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Java API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
 

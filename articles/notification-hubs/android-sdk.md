@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31a411cbcecab8192643f86b6b54d09ac03e7f45
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581712"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>자습서: Firebase SDK 버전 1.0.0-preview1을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -37,7 +37,7 @@ ms.locfileid: "96017256"
 또한 다음 항목이 필요합니다.
 
 - 최신 버전의 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)를 사용하는 것이 좋습니다.
-- 최소 지원 버전은 API 레벨 16입니다.
+- 최소 지원은 API 레벨 19입니다.
 
 ## <a name="create-an-android-studio-project"></a>Android Studio 프로젝트 만들기
 
@@ -162,12 +162,8 @@ ms.locfileid: "96017256"
 1. 앱의 **build.gradle** 파일에서 dependencies 섹션에 다음 줄을 추가합니다.
 
    ```gradle
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.0.0-preview1@aar'
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:1.1.4'
    implementation 'androidx.appcompat:appcompat:1.0.0'
-
-   implementation 'com.google.firebase:firebase-messaging:20.1.5'
-
-   implementation 'com.android.volley:volley:1.1.1'
    ```
 
 2. dependencies 섹션 뒤에 다음 리포지토리를 추가합니다.
@@ -198,18 +194,23 @@ ms.locfileid: "96017256"
    public class CustomNotificationListener implements NotificationHubListener {
 
       @override
+      public void onNotificationReceived(Context context, RemoteMessage message) {
+    
+         /* The following notification properties are available. */
+         Notification notification = message.getNotification();
+         String title = notification.getTitle();
+         String body = notification.getBody();
+         Map<String, String> data = message.getData();
+    
+         if (message != null) {
+            Log.d(TAG, "Message Notification Title: " + title);
+            Log.d(TAG, "Message Notification Body: " + message);
+         }
 
-      public void onNotificationReceived(Context context, NotificationMessage message) {
-
-      /* The following notification properties are available. */
-
-      String title = message.getTitle();
-      String message = message.getMessage();
-      Map<String, String> data = message.getData();
-
-      if (message != null) {
-         Log.d(TAG, "Message Notification Title: " + title);
-         Log.d(TAG, "Message Notification Body: " + message);
+         if (data != null) {
+             for (Map.Entry<String, String> entry : data.entrySet()) {
+                 Log.d(TAG, "key, " + entry.getKey() + " value " + entry.getValue());
+             }
          }
       }
    }

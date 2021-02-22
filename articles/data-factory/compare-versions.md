@@ -1,21 +1,17 @@
 ---
 title: Data Factory 버전 1과 Azure Data Factory 비교
 description: 이 아티클에서는 Azure Data Factory 버전 1과 Azure Data Factory를 비교합니다.
-services: data-factory
-documentationcenter: ''
 author: kromerm
-manager: anandsub
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: makromer
-ms.openlocfilehash: c6a46f6c8a57b681f66bb98fced17bf0e2464fcd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dc5a4c92ee4ac0acd4a69ef94fec0981e328d829
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638247"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393720"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 
@@ -118,13 +114,13 @@ V1에서는 IDotNetActivity 인터페이스의 Execute 메서드를 구현하는
 ## <a name="sdks"></a>SDK
  현재 버전의 Data Factory는 파이프라인을 작성, 관리 및 모니터링하는 데 사용할 수 있는 다양한 SDK 집합을 제공합니다.
 
-- **.NET SDK** : .NET SDK가 현재 버전에서 업데이트되었습니다.
+- **.NET SDK**: .NET SDK가 현재 버전에서 업데이트되었습니다.
 
-- **PowerShell** : PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2** 가 포함됩니다. 예를 들면 Get-AzDataFactoryV2. 
+- **PowerShell**: PowerShell cmdlet이 현재 버전에서 업데이트되었습니다. 현재 버전의 cmdlet은 이름에 **DataFactoryV2** 가 포함됩니다. 예를 들면 Get-AzDataFactoryV2. 
 
-- **Python SDK** : 이 SDK는 현재 버전의 새로운 기능입니다.
+- **Python SDK**: 이 SDK는 현재 버전의 새로운 기능입니다.
 
-- **REST API** : REST API가 현재 버전에서 업데이트되었습니다. 
+- **REST API**: REST API가 현재 버전에서 업데이트되었습니다. 
 
 현재 버전에서 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니다. 
 

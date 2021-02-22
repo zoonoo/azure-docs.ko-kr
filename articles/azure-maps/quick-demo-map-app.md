@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: c017ae8044c14a579190f5f1e76cfb1a73e3ce66
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 24a834c87fe34d90dec5961bb3f8d376c6e5e62d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896194"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373218"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -23,6 +23,8 @@ ms.locfileid: "92896194"
 * 사용자 고유의 Azure Maps 계정을 만듭니다.
 * 데모 웹 애플리케이션에서 사용할 기본 키를 가져옵니다.
 * 데모 맵 애플리케이션을 다운로드하여 엽니다.
+
+이 빠른 시작에서는 Azure Maps Web SDK를 사용하지만 Azure Maps 서비스는 모든 맵 컨트롤에서 사용할 수 있습니다. Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,9 +42,9 @@ ms.locfileid: "92896194"
 2. *Marketplace 검색* 상자에서 **Azure Maps** 를 입력합니다.
 3. *결과* 에서 **Azure Maps** 를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다.
 4. **Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
-    * 이 계정에 사용하려는 *구독* .
+    * 이 계정에 사용하려는 *구독*.
     * 이 계정에 대한 *리소스 그룹* 이름. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
-    * 새 계정의 *이름* .
+    * 새 계정의 *이름*.
     * 이 계정에 대한 *가격 책정 계층* 입니다.
     * *라이선스* 및 *개인정보처리방침* 을 읽고 조건에 동의하는 확인란을 선택합니다.
     * **만들기** 단추를 클릭합니다.
@@ -62,7 +64,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 >[!NOTE]
 > 기본 키 대신 구독 키를 사용하면 맵이 제대로 렌더링되지 않습니다. 또한 보안을 위해 기본 키와 보조 키 사이를 회전하는 것이 좋습니다. 키를 회전하려면 보조 키를 사용하도록 앱을 업데이트하고 배포한 다음, 기본 키 옆에 있는 주기/새로 고침 단추를 눌러 새 기본 키를 생성합니다. 이전 기본 키는 사용할 수 없습니다. 키 회전에 대한 자세한 내용은 [키 회전 및 감사를 사용하여 Azure Key Vault 설정](../key-vault/secrets/tutorial-rotation-dual.md)을 참조하세요.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="포털에서 Maps 계정 만들기":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Azure Portal에서 기본 Key Azure Maps 키 가져오기":::
 
 ## <a name="download-the-demo-application"></a>데모 애플리케이션 다운로드
 
@@ -78,7 +80,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 4. 대화형 검색 환경을 사용해 봅니다. 웹 애플리케이션 데모의 왼쪽 위 모서리에 있는 검색 상자에서 **식당** 을 검색합니다.
 5. 검색 상자 아래에 표시되는 주소와 위치의 목록 위로 마우스를 이동합니다. 지도의 해당 핀이 해당 위치에 대한 정보를 팝업하는 상태를 확인합니다. 프라이빗 비즈니스의 정보 보호를 위해 가상의 이름과 주소가 표시됩니다.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="포털에서 Maps 계정 만들기":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="대화형 맵 검색 웹 애플리케이션":::
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

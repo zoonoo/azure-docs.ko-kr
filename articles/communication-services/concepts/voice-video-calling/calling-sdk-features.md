@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492113"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554737"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -96,9 +96,10 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 
 |           |웹 | Android/iOS|
 |-----------|----|------------|
-|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 + 화면 공유 1개 | 비디오 1개 |
-|**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
+|**# 동시에 보낼 수 있는 나가는 스트림 수** |1개의 오디오/비디오 또는 1개의 오디오/화면 공유 | 1개의 오디오/비디오 | 
+|**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |1개의 오디오/비디오 또는 1개의 오디오/화면 공유| 6개의 오디오/비디오 또는 1개의 화면 공유 |
 
+그룹 시나리오에서는 모든 오디오 참가자를 지원하는 데 하나의 혼합 오디오 스트림이 사용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -106,6 +107,6 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 > [통화 시작](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 자세한 내용은 다음 항목을 참조하세요.
-- 일반적인 [통화 흐름](../call-flows.md) 숙지
+- 일반적인 [통화 흐름](../call-flows.md) 숙지 
 - [통화 형식](../voice-video-calling/about-call-types.md)에 대한 자세한 정보
 - [PSTN 솔루션 계획](../telephony-sms/plan-solution.md)

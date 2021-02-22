@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 09/09/2020
-  ms.openlocfilehash: 844a2e070f5918352044c878657dc2dcee1902d4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 1f92d3b744be76e96b33bc32eafcf7555fccf815
+  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89657256"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "101092054"
 landingContent:
 - title: Azure Front Door에 대해 알아보기
   linkLists:
@@ -23,6 +23,12 @@ landingContent:
     links:
     - text: Azure Front Door란?
       url: front-door-overview.md
+- title: Azure Front Door 표준/프리미엄(미리 보기)에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Front Door 표준/프리미엄(미리 보기)이란?
+      url: standard-premium/overview.md
 - title: Front Door 만들기
   linkLists:
   - linkListType: quickstart

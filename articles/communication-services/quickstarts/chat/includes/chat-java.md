@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: edf48bc75817b3510264d852eb9cc717ed022f33
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94915192"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379676"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,7 +56,7 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -66,9 +66,8 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.3</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
-
 ```
 
 ## <a name="object-model"></a>개체 모델
@@ -83,7 +82,7 @@ POM 파일에서 채팅 API를 사용하여 `azure-communication-chat` 패키지
 | ChatThreadAsyncClient | 이 클래스는 비동기 채팅 스레드 기능에 필요합니다. 사용자는 ChatAsyncClient를 통해 인스턴스를 가져오고, 이를 사용하여 메시지 전송/수신/업데이트/삭제, 사용자 추가/제거/가져오기, 입력 알림 및 읽음 확인 보내기를 수행할 수 있습니다. |
 
 ## <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
-채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. 사용자 액세스 토큰을 사용하면 Azure Communication Service에 직접 인증되는 클라이언트 애플리케이션을 빌드할 수 있습니다. 서버에서 이러한 토큰을 생성한 후 클라이언트 디바이스에 다시 전달합니다. 공통 클라이언트 라이브러리의 CommunicationUserCredential 클래스를 사용하여 토큰을 채팅 클라이언트에 전달해야 합니다. 
+채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. 사용자 액세스 토큰을 사용하면 Azure Communication Service에 직접 인증되는 클라이언트 애플리케이션을 빌드할 수 있습니다. 서버에서 이러한 토큰을 생성한 후 클라이언트 디바이스에 다시 전달합니다. 공통 클라이언트 라이브러리의 CommunicationTokenCredential 클래스를 사용하여 토큰을 채팅 클라이언트에 전달해야 합니다. 
 
 Import 문을 추가할 때 com.azure.communication.chat 및 com.azure.communication.chat.models namespaces의 import 문만 추가하고 com.azure.communication.chat.implementation 네임스페이스의 import 문은 추가하지 마세요. Maven을 통해 생성된 App.java 파일에서 다음 코드를 사용하여 다음 작업을 시작할 수 있습니다.
 
@@ -112,8 +111,8 @@ public class App
         // User access token fetched from your trusted service
         String userAccessToken = "<USER_ACCESS_TOKEN>";
 
-        // Create a CommunicationUserCredential with the given access token, which is only valid until the token is valid
-        CommunicationUserCredential userCredential = new CommunicationUserCredential(userAccessToken);
+        // Create a CommunicationTokenCredential with the given access token, which is only valid until the token is valid
+        CommunicationTokenCredential userCredential = new CommunicationTokenCredential(userAccessToken);
 
         // Initialize the chat client
         final ChatClientBuilder builder = new ChatClientBuilder();
@@ -132,27 +131,27 @@ public class App
 `createChatThreadOptions`는 스레드 요청을 설명하는 데 사용됩니다.
 
 - `topic`을 사용하여 이 채팅의 주제를 제공합니다. 주제는 `UpdateThread` 함수를 사용하여 채팅 스레드를 만든 후 업데이트할 수 있습니다.
-- `members`를 사용하여 채팅 스레드에 추가할 멤버를 나열합니다. `ChatThreadMember`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 만든 사용자를 가져옵니다.
+- `participants`를 사용하여 스레드에 추가할 스레드 참가자를 나열합니다. `ChatParticipant`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 만든 사용자를 가져옵니다.
 
-`chatThreadClient` 응답은 생성된 채팅 스레드에서 작업(예: 채팅 스레드에 멤버 추가, 메시지 보내기, 메시지 삭제 등)을 수행하는 데 사용됩니다. 여기에는 채팅 스레드의 고유 ID인 `chatThreadId` 속성이 포함되어 있습니다. 이 속성은 공용 메서드 .getChatThreadId()에서 액세스할 수 있습니다.
+`chatThreadClient` 응답은 생성된 채팅 스레드에서 작업(예: 채팅 스레드에 참가자 추가, 메시지 보내기, 메시지 삭제 등)을 수행하는 데 사용됩니다. 여기에는 채팅 스레드의 고유 ID인 `chatThreadId` 속성이 포함되어 있습니다. 이 속성은 공용 메서드 .getChatThreadId()에서 액세스할 수 있습니다.
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(firstUser)
-    .setDisplayName("Member Display Name 1");
+    .setDisplayName("Participant Display Name 1");
     
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(secondUser)
-    .setDisplayName("Member Display Name 2");
+    .setDisplayName("Participant Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
 CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
     .setTopic("Topic")
-    .setMembers(members);
+    .setParticipants(participants);
 ChatThreadClient chatThreadClient = chatClient.createChatThread(createChatThreadOptions);
 String chatThreadId = chatThreadClient.getChatThreadId();
 ```
@@ -163,7 +162,7 @@ String chatThreadId = chatThreadClient.getChatThreadId();
 `sendChatMessageOptions`는 채팅 메시지 요청을 설명하는 데 사용됩니다.
 
 - `content`를 사용하여 채팅 메시지 콘텐츠를 제공합니다.
-- `priority`를 사용하여 '보통' 또는 '높음'과 같은 채팅 메시지 우선 순위 수준을 지정합니다. 이 속성은 앱에서 수신 사용자를 위한 UI 표시기를 구현하여 메시지로 주의를 끌거나 사용자 지정 비즈니스 로직을 실행하는 데 사용할 수 있습니다.
+- `type`을 사용하여 채팅 메시지 콘텐츠 유형, TEXT 또는 HTML을 지정합니다.
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다.
 
 응답 `sendChatMessageResult`에는 메시지의 고유 ID인 `id`가 포함됩니다.
@@ -171,7 +170,7 @@ String chatThreadId = chatThreadClient.getChatThreadId();
 ```Java
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Message content")
-    .setPriority(ChatMessagePriority.NORMAL)
+    .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name");
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
@@ -181,7 +180,7 @@ String chatMessageId = sendChatMessageResult.getId();
 
 ## <a name="get-a-chat-thread-client"></a>채팅 스레드 클라이언트 가져오기
 
-`getChatThreadClient` 메서드는 이미 존재하는 스레드에 대한 스레드 클라이언트를 반환합니다. 생성된 스레드에서 멤버 추가, 메시지 보내기 등의 작업을 수행하는 데 사용할 수 있습니다. `chatThreadId`는 기존 채팅 스레드의 고유 ID입니다.
+`getChatThreadClient` 메서드는 이미 존재하는 스레드에 대한 스레드 클라이언트를 반환합니다. 생성된 스레드에서 참가자 추가, 메시지 보내기 등의 작업을 수행하는 데 사용할 수 있습니다. `chatThreadId`는 기존 채팅 스레드의 고유 ID입니다.
 
 ```Java
 String chatThreadId = "Id";
@@ -206,7 +205,7 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages`는 `chatMessage.getType()`으로 식별할 수 있는 다양한 유형의 메시지를 반환합니다. 그 유형은 다음과 같습니다.
 
-- `Text`: 스레드 멤버가 보낸 일반 채팅 메시지
+- `Text`: 스레드 참가자가 보낸 일반 채팅 메시지입니다.
 
 - `ThreadActivity/TopicUpdate`: 주제가 업데이트되었음을 나타내는 시스템 메시지
 
@@ -216,44 +215,44 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 자세한 내용은 [메시지 유형](../../../concepts/chat/concepts.md#message-types)을 참조하세요.
 
-## <a name="add-a-user-as-member-to-the-chat-thread"></a>채팅 스레드에 사용자를 멤버로 추가
+## <a name="add-a-user-as-participant-to-the-chat-thread"></a>채팅 스레드에 사용자를 참가자로 추가
 
-채팅 스레드가 생성되면 스레드에서 사용자를 추가하고 제거할 수 있습니다. 사용자를 추가하면 채팅 스레드에 메시지를 보내고 다른 멤버를 추가/제거할 수 있는 액세스 권한이 사용자에게 부여됩니다. 해당 사용자의 새 액세스 토큰과 ID를 가져오는 것부터 시작해야 합니다. addMembers 메서드를 호출하기 전에, 해당 사용자의 새 액세스 토큰과 ID를 획득했는지 확인하세요. 사용자가 채팅 클라이언트를 초기화하려면 액세스 토큰이 필요합니다.
+채팅 스레드가 생성되면 스레드에서 사용자를 추가하고 제거할 수 있습니다. 사용자를 추가하면 채팅 스레드에 메시지를 보내고 다른 참가자를 추가/제거할 수 있는 액세스 권한이 사용자에게 부여됩니다. 해당 사용자의 새 액세스 토큰과 ID를 가져오는 것부터 시작해야 합니다. addParticipants 메서드를 호출하기 전에 해당 사용자의 새 액세스 토큰과 ID를 획득했는지 확인하세요. 사용자가 채팅 클라이언트를 초기화하려면 액세스 토큰이 필요합니다.
 
-`addMembers` 메서드를 사용하여 threadId로 식별되는 스레드에 스레드 멤버를 추가합니다.
+`addParticipants` 메서드를 사용하여 threadId로 식별되는 스레드에 참가자를 추가합니다.
 
-- `members`를 사용하여 채팅 스레드에 추가할 멤버를 나열합니다.
-- 필수인 `user`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 CommunicationIdentityClient를 통해 만든 CommunicationUser입니다.
-- 선택 사항인 `display_name`은 스레드 멤버의 표시 이름입니다.
-- 선택 사항인 `share_history_time`은 채팅 기록이 멤버와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 멤버가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 필요한 날짜로 설정합니다.
+- `listParticipants`를 사용하여 채팅 스레드에 추가할 참가자를 나열합니다.
+- 필수인 `user`는 [사용자 액세스 토큰](../../access-tokens.md) 빠른 시작에서 CommunicationIdentityClient를 통해 만든 CommunicationUserIdentifier입니다.
+- 선택 사항인 `display_name`은 스레드 참가자의 표시 이름입니다.
+- 선택 사항인 `share_history_time`은 채팅 기록이 참가자와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 참가자가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 필요한 날짜로 설정합니다.
 
 ```Java
-List<ChatThreadMember> members = new ArrayList<ChatThreadMember>();
+List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
-ChatThreadMember firstThreadMember = new ChatThreadMember()
+ChatParticipant firstThreadParticipant = new ChatParticipant()
     .setUser(user1)
     .setDisplayName("Display Name 1");
 
-ChatThreadMember secondThreadMember = new ChatThreadMember()
+ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setUser(user2)
     .setDisplayName("Display Name 2");
 
-members.add(firstThreadMember);
-members.add(secondThreadMember);
+participants.add(firstThreadParticipant);
+participants.add(secondThreadParticipant);
 
-AddChatThreadMembersOptions addChatThreadMembersOptions = new AddChatThreadMembersOptions()
-    .setMembers(members);
-chatThreadClient.addMembers(addChatThreadMembersOptions);
+AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsOptions()
+    .setParticipants(participants);
+chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
 ## <a name="remove-user-from-a-chat-thread"></a>채팅 스레드에서 사용자 제거
 
-스레드에 사용자를 추가하는 것과 마찬가지로 채팅 스레드에서 사용자를 제거할 수 있습니다. 사용자를 제거하려면 추가한 멤버의 사용자 ID를 추적해야 합니다.
+스레드에 사용자를 추가하는 것과 마찬가지로 채팅 스레드에서 사용자를 제거할 수 있습니다. 사용자를 제거하려면 추가한 참가자의 사용자 ID를 추적해야 합니다.
 
-`removeMember`를 사용합니다. 여기서 `user`는 이전에 만든 CommunicationUser입니다.
+`removeParticipant`를 사용합니다. 여기서 `user`는 이전에 만든 CommunicationUserIdentifier입니다.
 
 ```Java
-chatThreadClient.removeMember(user);
+chatThreadClient.removeParticipant(user);
 ```
 
 ## <a name="run-the-code"></a>코드 실행

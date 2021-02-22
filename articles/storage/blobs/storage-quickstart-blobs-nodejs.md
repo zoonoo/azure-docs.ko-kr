@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: ed3a88dbca1788a5c5a265fe91bdd5e88ae1fe36
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2884df3a9b5cb3954c1c5e57d923eff97809a745
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012768"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382177"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
@@ -276,7 +276,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 이 앱은 텍스트 문자열을 만들고 Blob 스토리지에 업로드합니다. 그런 다음, 컨테이너의 blob을 나열하고, blob을 다운로드하고, 다운로드한 데이터를 표시합니다.
 
-콘솔 프롬프트에서 *blob-quickstart-v12.py* 파일이 포함된 디렉터리로 이동한 후 다음 `node` 명령을 실행하여 앱을 실행합니다.
+콘솔 프롬프트에서 *blob-quickstart-v12.js* 파일이 포함된 디렉터리로 이동한 후, 다음 `node` 명령을 실행하여 앱을 실행합니다.
 
 ```console
 node blob-quickstart-v12.js

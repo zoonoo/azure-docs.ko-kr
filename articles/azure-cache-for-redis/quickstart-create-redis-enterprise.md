@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Enterprise 계층 캐시 만들기'
-description: 이 빠른 시작에서는 Azure Cache for Redis Enterprise 계층의 인스턴스를 만드는 방법을 알아봅니다.
+title: '빠른 시작: Redis Enterprise 캐시 만들기'
+description: 이 빠른 시작에서는 엔터프라이즈 계층에서 Azure Cache for Redis의 인스턴스를 만드는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
-ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 02/08/2021
+ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795682"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365007"
 ---
-# <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>빠른 시작: Enterprise 계층 캐시 만들기(미리 보기)
+# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>빠른 시작: Redis Enterprise 캐시 만들기(미리 보기)
 
 Azure Cache for Redis Enterprise 계층은 Azure에서 완전히 통합되고 관리되는 [Redis Enterprise](https://redislabs.com/redis-enterprise/)를 제공합니다. 현재는 미리 보기로 제공됩니다. 이 미리 보기에는 두 개의 새로운 계층이 있습니다.
 * Enterprise는 가상 머신에서 휘발성 메모리(DRAM)를 사용하여 데이터를 저장합니다.
@@ -22,7 +22,7 @@ Azure Cache for Redis Enterprise 계층은 Azure에서 완전히 통합되고 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하려면 Azure 구독이 필요합니다. 계정이 없는 경우 [계정](https://azure.microsoft.com/)을 만들 수 있습니다. 자세한 내용은 [엔터프라이즈 계층 요구 사항](cache-overview.md#enterprise-tier-requirements)을 참조하세요.
+시작하려면 Azure 구독이 필요합니다. 계정이 없는 경우 [계정](https://azure.microsoft.com/)을 만들 수 있습니다. 자세한 내용은 [엔터프라이즈 계층 요구 사항](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements)을 참조하세요.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 1. 캐시를 만들려면 미리 보기 초대 링크를 사용하여 Azure Portal에 로그인하여 **리소스 만들기** 를 선택합니다.

@@ -7,31 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/15/2021
+ms.openlocfilehash: 8a61ad1599a2d4d1aeaf8b36d2f92d95ec1896a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746699"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573044"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
 [Azure Cognitive Search](search-what-is-azure-search.md)는 사용자 지정 앱에 전체 텍스트 검색 환경을 추가하는 데 사용되는 Azure 리소스입니다. 데이터 또는 추가 처리를 제공하는 다른 Azure 서비스, 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 쉽게 통합할 수 있습니다.
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 검색 서비스를 만드는 방법을 알아봅니다.
+이 문서에서 설명하는 [Azure Portal](https://portal.azure.com/)을 사용하여 검색 서비스를 만들 수 있습니다. [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search) 또는 [Azure Resource Manager 서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용할 수도 있습니다.
 
 [![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Cognitive Search 관리](search-manage-powershell.md)를 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
 다음 서비스 속성은 서비스의 수명 동안 고정되어 있습니다. 이 중 하나를 변경하려면 새로운 서비스가 필요합니다. 이러한 속성은 고정되어 있으므로 각 속성을 입력할 때 사용하는 영향을 고려합니다.
 
-* 서비스 이름은 URL 엔드포인트의 일부가 됩니다. 유용한 서비스 이름에 대한 [팁을 검토](#name-the-service)하세요.
-* [서비스 계층](search-sku-tier.md)은 청구에 영향을 주고 용량의 상향 제한을 설정합니다. 일부 기능은 체험 계층에서 사용할 수 없습니다.
-* 서비스 지역에 따라 특정 시나리오의 가용성이 달라질 수 있습니다. [강력한 보인 기능](search-security-overview.md) 또는 [AI 보강](cognitive-search-concept-intro.md)이 필요한 경우 다른 서비스와 동일한 지역 또는 필요한 기능을 제공하는 지역에 Azure Cognitive Search를 만들어야 합니다. 
++ 서비스 이름은 URL 엔드포인트의 일부가 됩니다. 유용한 서비스 이름에 대한 [팁을 검토](#name-the-service)하세요.
++ [서비스 계층](search-sku-tier.md)은 청구에 영향을 주고 용량의 상향 제한을 설정합니다. 일부 기능은 체험 계층에서 사용할 수 없습니다.
++ 서비스 지역에 따라 특정 시나리오의 가용성이 달라질 수 있습니다. [강력한 보인 기능](search-security-overview.md) 또는 [AI 보강](cognitive-search-concept-intro.md)이 필요한 경우 다른 서비스와 동일한 지역 또는 필요한 기능을 제공하는 지역에 Azure Cognitive Search를 만들어야 합니다. 
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 
@@ -74,33 +72,30 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 서비스 이름 요구 사항:
 
-* search.windows.net 네임스페이스 내에서 고유해야 함
-* 길이는 2~60자여야 합니다.
-* 소문자, 숫자 또는 대시("-")를 사용해야 합니다.
-* 처음 두 문자 또는 마지막 단일 문자로 대시("-")를 사용하지 마세요.
-* 어디서든 연속 대시("--")를 사용할 수 없습니다.
++ search.windows.net 네임스페이스 내에서 고유해야 함
++ 길이는 2~60자여야 합니다.
++ 소문자, 숫자 또는 대시("-")를 사용해야 합니다.
++ 처음 두 문자 또는 마지막 단일 문자로 대시("-")를 사용하지 마세요.
++ 어디서든 연속 대시("--")를 사용할 수 없습니다.
 
 > [!TIP]
 > 여러 서비스를 사용하려는 경우 지역(또는 위치)을 명명 규칙으로 서비스 이름에 포함하는 것이 좋습니다. 동일한 지역 내의 서비스는 체험 서비스로 데이터를 교환할 수 있으므로, Azure Cognitive Search가 미국 서부에 있고 다른 서비스도 미국 서부에 있는 경우 `mysearchservice-westus`와 같은 이름은 리소스를 결합하거나 연결하는 방법을 결정할 때 속성 페이지로 이동하는 횟수를 줄일 수 있습니다.
 
 ## <a name="choose-a-location"></a>위치 선택
 
-Azure Cognitive Search는 대부분의 지역에서 사용할 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
+Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 설명된 대로 대부분의 지역에서 사용할 수 있습니다. 일반적으로 여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스도 호스팅하는 지역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
 
-> [!Note]
-> 인도 중부 및 아랍에미리트 북부는 현재 새 서비스에 사용할 수 없습니다. 해당 지역에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 제한 사항은 일시적이며 새로운 서비스만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
->
-> 이중 암호화는 특정 지역에서만 사용할 수 있습니다. 자세한 내용은 [이중 암호화](search-security-overview.md#double-encryption)를 참조하세요.
++ [AI 보강](cognitive-search-concept-intro.md)은 Cognitive Services가 Azure Cognitive Search와 동일한 물리적 지역에 있어야 합니다. 따라서 일부 지역에서는 두 기능을 모두 제공하지 않습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지는 두 개의 누적 확인 표시를 표시하여 이중 가용성을 나타냅니다. 사용할 수 없는 조합에 확인 표시가 없습니다.
 
-### <a name="requirements"></a>요구 사항
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="국가별 가용성" border="true":::
 
- AI 보강을 사용하는 경우 검색 서비스를 Cognitive Services와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Cognitive Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
++ BCDR(비즈니스 연속성 및 재해 복구) 요구 사항은 [지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)으로 여러 검색 서비스를 만들어 충족해야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 검색 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 미국 중남부를 선택할 수 있습니다.
 
- BCDR(비즈니스 연속성 및 재해 복구) 요구 사항을 충족하는 고객은 [지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)으로 서비스를 만들어야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 남부 중남부를 선택할 수 있습니다.
+일부 기능은 지역에 따라 가용성이 제한됩니다. 제한 사항은 기능 설명서에 설명되어 있습니다.
 
-### <a name="recommendations"></a>권장 사항
++ [이중 암호화](search-security-overview.md#double-encryption)
 
-여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스를 호스트하는 영역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
++ [성능 확장의 "가용성 영역"](search-performance-optimization.md#availability-zones)입니다.
 
 ## <a name="choose-a-pricing-tier"></a>가격 책정 계층 선택
 
@@ -126,7 +121,7 @@ Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.mic
 
 1. **개요** 페이지의 오른쪽에서 URL 엔드포인트를 찾아 복사합니다.
 
-2. **키** 페이지에서 관리 키(동급임) 중 하나를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다. 반대로 쿼리 키는 인덱스 콘텐츠에 대한 읽기 액세스를 제공합니다.
+1. **키** 페이지에서 관리 키(동급임) 중 하나를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다. 반대로 쿼리 키는 인덱스 콘텐츠에 대한 읽기 액세스를 제공합니다.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="URL 엔드포인트를 사용하는 서비스 개요 페이지" border="false":::
 
@@ -136,9 +131,9 @@ Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.mic
 
 서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Cognitive Search 서비스에 대한 표준 계층을 선택한 경우 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
 
-**_파티션_* _을 사용하면 서비스를 저장하고 더 많은 문서를 통해 검색할 수 있습니다.
+***파티션*** 을 사용하면 서비스를 저장하고 더 많은 문서를 통해 검색할 수 있습니다.
 
-_*_복제본_*_ 을 사용하면 서비스가 더 큰 부하의 검색 쿼리를 처리할 수 있습니다.
+***복제본*** 을 사용하면 서비스가 더 큰 부하의 검색 쿼리를 처리할 수 있습니다.
 
 리소스를 추가하면 월별 청구서가 증가합니다. [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)는 리소스 추가의 청구 영향을 이해하는 데 도움이 됩니다. 부하에 따라 리소스를 조정할 수 있도록 해야 합니다. 예를 들어 전체 초기 인덱스를 만들려면 리소스를 늘린 다음, 나중에 증분 인덱싱에 더 적합한 수준으로 리소스를 줄일 수 있습니다.
 
@@ -146,8 +141,8 @@ _*_복제본_*_ 을 사용하면 서비스가 더 큰 부하의 검색 쿼리를
 > 서비스는 [SLA 읽기 전용으로 2개의 복제본과 SLA 읽기/쓰기용으로 3개의 복제본](https://azure.microsoft.com/support/legal/sla/search/v1_0/)이 있어야 합니다.
 
 1. Azure Portal의 검색 서비스 페이지로 이동합니다.
-2. 왼쪽 탐색 창에서 _ *설정** > **규모** 를 선택합니다.
-3. 슬라이드 바를 사용하여 두 형식의 리소스 중 하나를 추가합니다.
+1. 왼쪽 탐색 창에서 **설정** > **규모** 를 선택합니다.
+1. 슬라이드 바를 사용하여 두 형식의 리소스 중 하나를 추가합니다.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="복제본과 파티션을 통해 용량 추가" border="false":::
 

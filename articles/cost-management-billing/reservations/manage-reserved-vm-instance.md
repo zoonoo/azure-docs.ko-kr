@@ -6,14 +6,14 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 02/09/2021
 ms.author: banders
-ms.openlocfilehash: 2cd0611d5701f5ca407afd6d4e3b1b0ae22b6c12
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 717cf5acb63ee04852ccbb9aae2f7aed2b3c179a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562976"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392275"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -35,7 +35,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ![예약 주문 ID를 보여주는 예약 주문 세부 정보의 예 ](./media/manage-reserved-vm-instance/reservation-order-details.png)
 
-예약은 예약 주문에서 권한을 상속합니다.
+예약은 예약 주문에서 권한을 상속합니다. 예약을 교환하거나 환불하려면 예약 주문에 사용자를 추가해야 합니다.
 
 ## <a name="change-the-reservation-scope"></a>예약 범위 변경
 

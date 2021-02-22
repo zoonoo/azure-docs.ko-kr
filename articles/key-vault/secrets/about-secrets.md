@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786042"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526643"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -74,7 +74,7 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 - [CLI를 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-cli.md)
 - [PowerShell을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-powershell.md)
 - [Azure Portal을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-portal.md)
-- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공(미리 보기)](../general/rbac-guide.md)
+- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>비밀 태그  
 애플리케이션 관련 메타데이터를 태그 형식으로 추가로 지정할 수 있습니다. Key Vault는 최대 15개의 태그를 지원하며, 각 태그는 256자 이름과 256자의 값을 가질 수 있습니다.  
@@ -124,7 +124,7 @@ Key Vault에서 액세스를 제어하는 방법 가이드:
 - [CLI를 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-cli.md)
 - [PowerShell을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-powershell.md)
 - [Azure Portal을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-portal.md)
-- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공(미리 보기)](../general/rbac-guide.md)
+- [Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공](../general/rbac-guide.md)
 
 
 ## <a name="next-steps"></a>다음 단계
