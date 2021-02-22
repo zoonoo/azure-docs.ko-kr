@@ -262,7 +262,7 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
-    - name: 스폿 가상 머신
+    - name: Azure Spot Virtual Machines
       displayName: 'pre-empt, preempt, spot'
       items:
         - name: 개요
@@ -328,12 +328,12 @@
         - name: LAMP 스택 만들기
           href: ./linux/tutorial-lamp-stack.md
         - name: TLS\SSL로 웹 서버 보안
-          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
             - name: Windows
               href: ./windows/tutorial-secure-web-server.md
+          displayname: SSL TLS
     - name: Linux VM에 연결
       items:
         - name: Linux VM용 SSH
@@ -362,8 +362,8 @@
           href: /azure/developer/chef/windows-vm-configure
         - name: Java 사용
           href: ./windows/java.md
-        - name: Python 사용
-          href: ./windows/python.md
+        - name: Python
+          href: 'https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context'
         - name: ARM 템플릿 사용
           displayName: Azure Resource Manager template
           href: ./windows/ps-template.md
@@ -445,7 +445,7 @@
         - name: Azure Monitor
           items:
             - name: Azure Monitor 에이전트
-              href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
             - name: 진단 확장
               href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
             - name: Log Analytics
@@ -950,6 +950,8 @@
           href: disks-reserved-capacity.md
         - name: 고성능을 위한 디자인
           href: premium-storage-performance.md
+        - name: 디스크 관련 메트릭
+          href: disks-metrics.md
         - name: 디스크 버스팅
           href: disk-bursting.md
         - name: 디스크 성능 계층
@@ -1143,6 +1145,8 @@
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: 보안
   items:
+    - name: 개요
+      href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: Azure Security Center
       href: ../security-center/security-center-introduction.md
     - name: 보안 기준
@@ -1285,7 +1289,7 @@
     - name: 에이전트
       items:
         - name: 에이전트 개요
-          href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: FAQ
           href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
         - name: Azure Diagnostics 확장
@@ -1306,29 +1310,29 @@
             - name: 개요
               href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
             - name: Linux 에이전트
-              href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
             - name: Log Analytics 게이트웨이
               href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
             - name: 에이전트 관리
-              href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
             - name: 에이전트 상태
               href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
             - name: 데이터 원본
               items:
                 - name: 개요
-                  href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/agent-data-sources.md?context=/azure/virtual-machines/context/context
                 - name: 사용자 지정 JSON 데이터
-                  href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
                 - name: 수집된 성능 데이터
-                  href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: syslog
-                  href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-syslog.md?context=/azure/virtual-machines/context/context
                 - name: 성능 카운터
-                  href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
                 - name: Linux 애플리케이션 성능
-                  href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
                 - name: 사용자 지정 로그
-                  href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
                 - name: 사용자 지정 필드
                   href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
         - name: 문제 해결
@@ -1337,7 +1341,7 @@
               href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
             - name: Log Analytics Linux 에이전트
-              href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
         - name: VM용 Azure Monitor
           items:

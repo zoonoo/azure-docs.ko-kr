@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: 방법 가이드
   items:
-    - name: Azure VMware 솔루션 사용
+    - name: 호스트 할당량 요청 및 Azure VMware Solution 사용
       href: enable-azure-vmware-solution.md
     - name: 예약 인스턴스로 비용 절감
       href: reserved-instance.md
