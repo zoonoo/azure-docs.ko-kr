@@ -1,21 +1,17 @@
 ---
 title: 'Azure Data Factory에서 Spark를 사용하여 데이터 변환 '
 description: 이 자습서에서는 Azure Data Factory에서 Spark 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409096"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377621"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 
@@ -41,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 
 ### <a name="upload-python-script-to-your-blob-storage-account"></a>Blob Storage 계정에 Python 스크립트 업로드
-1. 다음 내용이 포함된 **WordCount_Spark.py**라는 Python 파일을 만듭니다. 
+1. 다음 내용이 포함된 **WordCount_Spark.py** 라는 Python 파일을 만듭니다. 
 
     ```python
     import sys
@@ -67,14 +63,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         main()
     ```
 2. **&lt;storageAccountName&gt;** 을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
-3. Azure Blob Storage에 아직 없는 경우 **adftutorial**이라는 컨테이너를 만듭니다. 
-4. **spark**라는 폴더를 만듭니다.
-5. **spark** 폴더 아래에 **script**라는 하위 폴더를 만듭니다. 
+3. Azure Blob Storage에 아직 없는 경우 **adftutorial** 이라는 컨테이너를 만듭니다. 
+4. **spark** 라는 폴더를 만듭니다.
+5. **spark** 폴더 아래에 **script** 라는 하위 폴더를 만듭니다. 
 6. **script** 하위 폴더에 **WordCount_Spark.py** 파일을 업로드합니다. 
 
 
 ### <a name="upload-the-input-file"></a>입력 파일 업로드
-1. 일부 텍스트가 포함된 **minecraftstory.txt**라는 파일을 만듭니다. Spark 프로그램은 이 텍스트의 단어 수를 계산합니다. 
+1. 일부 텍스트가 포함된 **minecraftstory.txt** 라는 파일을 만듭니다. Spark 프로그램은 이 텍스트의 단어 수를 계산합니다. 
 2. `spark` 폴더에 `inputfiles`이라는 하위 폴더를 만듭니다. 
 3. `inputfiles` 하위 폴더에 `minecraftstory.txt`를 업로드합니다. 
 
@@ -85,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - 주문형 HDInsight 연결된 서비스 - Azure Data Factory는 HDInsight 클러스터를 자동으로 만들고, Spark 프로그램을 실행한 다음, 미리 구성된 시간 동안 유휴 상태가 되면 이 HDInsight 클러스터를 삭제합니다. 
 
 ### <a name="azure-storage-linked-service"></a>Azure Storage 연결된 서비스
-원하는 편집기를 사용하여 JSON 파일을 만들고, 다음과 같은 Azure Storage 연결된 서비스의 JSON 정의를 복사하고, 파일을 **MyStorageLinkedService.json**으로 저장합니다.  
+원하는 편집기를 사용하여 JSON 파일을 만들고, 다음과 같은 Azure Storage 연결된 서비스의 JSON 정의를 복사하고, 파일을 **MyStorageLinkedService.json** 으로 저장합니다.  
 
 ```json
 {
@@ -102,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 
 ### <a name="on-demand-hdinsight-linked-service"></a>주문형 HDInsight 연결된 서비스
-원하는 편집기를 사용하여 JSON 파일을 만들고, 다음과 같은 Azure HDInsight 연결된 서비스의 JSON 정의를 복사하고, 파일을 **MyOnDemandSparkLinkedService.json**으로 저장합니다.  
+원하는 편집기를 사용하여 JSON 파일을 만들고, 다음과 같은 Azure HDInsight 연결된 서비스의 JSON 정의를 복사하고, 파일을 **MyOnDemandSparkLinkedService.json** 으로 저장합니다.  
 
 ```json
 {
@@ -136,7 +132,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - **hostSubscriptionId** - &lt;subscriptionID&gt;를 Azure 구독의 ID로 바꿉니다. 이 구독에 주문형 HDInsight 클러스터가 만들어집니다. 
 - **tenant** - &lt;tenantID&gt;를 Azure 테넌트의 ID로 바꿉니다. 
-- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. **서비스 주체 ID**는 ‘애플리케이션 ID’와 동일하고, **서비스 주체 키**는 ‘클라이언트 비밀’ 값과 동일합니다.  
+- **servicePrincipalId**, **servicePrincipalKey** - &lt;servicePrincipalID&gt; 및 &lt;servicePrincipalKey&gt;를 Azure Active Directory에 있는 서비스 주체의 ID와 키로 바꿉니다. 이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. **서비스 주체 ID** 는 ‘애플리케이션 ID’와 동일하고, **서비스 주체 키** 는 ‘클라이언트 비밀’ 값과 동일합니다.  
 - **clusterResourceGroup** - &lt;resourceGroupOfHDICluster&gt;를 HDInsight 클러스터를 만들어야 하는 리소스 그룹의 이름으로 바꿉니다. 
 
 > [!NOTE]
@@ -146,7 +142,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="author-a-pipeline"></a>파이프라인 작성 
 이 단계에서는 Spark 작업이 있는 새 파이프라인을 만듭니다. 이 작업은 **단어 개수** 샘플을 사용합니다. 아직 다운로드하지 않았으면 이 위치에서 콘텐츠를 다운로드합니다.
 
-원하는 편집기에서 JSON 파일을 만들고, 다음과 같은 파이프라인 정의에 대한 JSON 정의를 복사하고, **MySparkOnDemandPipeline.json**으로 저장합니다. 
+원하는 편집기에서 JSON 파일을 만들고, 다음과 같은 파이프라인 정의에 대한 JSON 정의를 복사하고, **MySparkOnDemandPipeline.json** 으로 저장합니다. 
 
 ```json
 {
@@ -182,7 +178,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기 
-JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습니다. 이제 데이터 팩터리를 만들고 PowerShell cmdlet을 사용하여 연결된 Service 및 파이프라인 JSON 파일을 배포해 보겠습니다. 다음 PowerShell 명령을 개별적으로 실행합니다. 
+JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습니다. 이제 데이터 팩터리를 만들고 PowerShell cmdlet을 사용하여 연결된 서비스 및 파이프라인 JSON 파일을 배포해 보겠습니다. 다음 PowerShell 명령을 개별적으로 실행합니다. 
 
 1. 개별적으로 변수를 설정합니다.
 
@@ -200,7 +196,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     ```powershell
     $pipelineName = "MySparkOnDemandPipeline" # Name of the pipeline
     ```
-2. **PowerShell**을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+2. **PowerShell** 을 시작합니다. 이 빠른 시작을 완료할 때까지 Azure PowerShell을 열어 둡니다. 닫은 후 다시 여는 경우 명령을 다시 실행해야 합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     다음 명령을 실행하고 Azure Portal에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
         
@@ -212,7 +208,7 @@ JSON 파일에서 연결된 서비스 및 파이프라인 정의를 작성했습
     ```powershell
     Get-AzSubscription
     ```
-    다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId**를 Azure 구독의 ID로 바꿉니다.
+    다음 명령을 실행하여 사용하려는 구독을 선택합니다. **SubscriptionId** 를 Azure 구독의 ID로 바꿉니다.
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"    

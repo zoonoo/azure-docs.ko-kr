@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/08/2021
 ms.author: jeedes
-ms.openlocfilehash: b004394d3f0cc1c4d285c9eba9952a43e8cf65f2
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 28bfce2ad300ddb389ddd1585b7b4e218dfceabe
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674052"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>자습서: ArcGIS Online과 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 ArcGIS Online을 통합하는 방법에 대해 알아봅니다.
-ArcGIS Online을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 ArcGIS Online을 통합하는 방법에 대해 알아봅니다. Azure AD와 ArcGIS Online을 통합하면 다음 작업을 수행할 수 있습니다.
 
-* ArcGIS Online에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 해당 Azure AD 계정으로 ArcGIS Online에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
-
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+* ArcGIS Online에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 해당 Azure AD 계정으로 ArcGIS Online에 자동으로 로그인되도록 설정할 수 있습니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-ArcGIS Online과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* ArcGIS Online Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* ArcGIS Online SSO(Single Sign-On)가 설정된 구독.
 
 > [!NOTE]
 > 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
@@ -46,63 +42,41 @@ ArcGIS Online과 Azure AD 통합을 구성하려면 다음 항목이 필요합�
 
 * ArcGIS Online에서 **SP** 시작 SSO를 지원합니다.
 
-## <a name="adding-arcgis-online-from-the-gallery"></a>갤러리에서 ArcGIS Online 추가
+## <a name="add-arcgis-online-from-the-gallery"></a>갤러리에서 ArcGIS Online 추가
 
 ArcGIS Online의 Azure AD 통합을 구성하려면 갤러리의 ArcGIS Online을 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-**갤러리에서 ArcGIS Online을 추가하려면 다음 단계를 수행합니다.**
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
+1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **ArcGIS Online** 을 입력합니다.
+1. 결과 패널에서 **ArcGIS Online** 을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
+## <a name="configure-and-test-azure-ad-sso-for-arcgis-online"></a>ArcGIS Online에 대한 Azure AD SSO 구성 및 테스트
 
-    ![Azure Active Directory 단추](common/select-azuread.png)
+**B.Simon** 이라는 테스트 사용자를 사용하여 ArcGIS Online에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 ArcGIS Online의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-2. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 옵션을 선택합니다.
+ArcGIS Online에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[ArcGIS Online SSO 구성](#configure-arcgis-online-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[ArcGIS Online 테스트 사용자 만들기](#create-arcgis-online-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 ArcGIS Online에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
-    ![새 애플리케이션 단추](common/add-new-app.png)
+Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-4. 검색 상자에 **ArcGIS Online** 을 입력하고 결과 패널에서 **ArcGIS Online** 을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+1. Azure Portal의 **ArcGIS Online** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
-    ![결과 목록의 ArcGIS Online](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
-
-이 섹션에서는 **Britta Simon** 이라는 테스트 사용자를 기반으로 하여 ArcGIS Online에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 ArcGIS Online의 관련 사용자 간에 연결 관계를 설정해야 합니다.
-
-ArcGIS Online에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
-
-1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[ArcGIS Online Single Sign-On 구성](#configure-arcgis-online-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[ArcGIS Online 테스트 사용자 만들기](#create-arcgis-online-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ArcGIS Online에 만듭니다.
-6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
-
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
-
-ArcGIS Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com/)의 **ArcGIS Online** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
-
-    ![Single Sign-On 구성 링크](common/select-sso.png)
-
-2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
-
-    ![Single Sign-On 선택 모드](common/select-saml-option.png)
-
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
-
-    ![기본 SAML 구성 편집](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
-
-    ![ArcGIS Online 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
     a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.maps.arcgis.com` 패턴을 사용하는 URL을 입력합니다.
 
@@ -117,29 +91,53 @@ ArcGIS Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
 6. **ArcGIS Online** 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
 
-    ![이미지](./media/arcgis-tutorial/install_extension.png)
+    ![이미지](./media/arcgis-tutorial/install-extension.png)
 
 7. 브라우저에 확장을 추가한 후 **ArcGIS Online 설정** 을 클릭하면 ArcGIS Online 애플리케이션으로 이동하게 됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 ArcGIS Online에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 **ArcGIS Online Single Sign-On 구성** 섹션의 단계를 자동화합니다.
 
-### <a name="configure-arcgis-online-single-sign-on"></a>ArcGIS Online Single Sign-On 구성
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
+
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
+   1. **만들기** 를 클릭합니다.
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 ArcGIS Online에 대한 액세스 권한을 부여합니다.
+
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
+1. 애플리케이션 목록에서 **ArcGIS Online** 을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-arcgis-online-sso"></a>ArcGIS Online SSO 구성
 
 1. ArcGIS Online을 수동으로 설치하려는 경우 새 웹 브라우저 창을 열고 ArcGIS 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
 2. **설정 편집** 을 클릭합니다.
 
-    ![설정 편집](./media/arcgis-tutorial/ic784742.png "설정 편집")
+    ![설정 편집](./media/arcgis-tutorial/settings.png "설정 편집")
 
 3. **보안** 을 클릭합니다.
 
-    ![보안](./media/arcgis-tutorial/ic784743.png "보안")
+    ![보안](./media/arcgis-tutorial/secure.png "보안")
 
 4. **회사 로그인** 에서 **ID 공급자 설정** 을 클릭합니다.
 
-    ![회사 로그인](./media/arcgis-tutorial/ic784744.png "회사 로그인")
+    ![회사 로그인](./media/arcgis-tutorial/enterprise.png "회사 로그인")
 
 5. **ID 공급자 설정** 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![ID 공급자 설정](./media/arcgis-tutorial/ic784745.png "ID 공급자 설정")
+    ![ID 공급자 설정](./media/arcgis-tutorial/identity-provider.png "ID 공급자 설정")
 
     a. **이름** 텍스트 상자에 조직의 이름을 입력합니다.
 
@@ -148,57 +146,6 @@ ArcGIS Online에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
     다. 다운로드한 메타데이터 파일을 업로드하려면 **파일 선택** 을 클릭합니다.
 
     d. **ID 공급자 설정** 을 클릭합니다.
-
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
-
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
-
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
-
-2. 화면 위쪽에서 **새 사용자** 를 선택합니다.
-
-    ![새 사용자 단추](common/new-user.png)
-
-3. 사용자 속성에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](common/user-properties.png)
-
-    a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
-
-    b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension** 을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
-
-    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기** 를 클릭합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ArcGIS Online에 대한 액세스 권한을 부여합니다.
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ArcGIS Online** 을 차례로 선택합니다.
-
-    ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
-
-2. 애플리케이션 목록에서 **ArcGIS Online** 을 입력하고 선택합니다.
-
-    ![애플리케이션 목록의 ArcGIS Online 링크](common/all-applications.png)
-
-3. 왼쪽 메뉴에서 **사용자 및 그룹** 을 선택합니다.
-
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-4. **사용자 추가** 단추를 클릭한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![할당 추가 창](common/add-assign-user.png)
-
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-
-6. SAML 어설션 및 **역할 선택** 대화 상자에서 모든 역할 값이 필요한 경우 목록에서 적절한 사용자 역할을 선택한 다음, 화면 맨 아래에 있는 **선택** 단추를 클릭합니다.
-
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ### <a name="create-arcgis-online-test-user"></a>ArcGIS Online 테스트 사용자 만들기
 
@@ -211,36 +158,36 @@ ArcGIS Online의 경우 프로비전은 수동 작업입니다.
 
 2. **멤버 초대** 를 클릭합니다.
 
-    ![멤버 초대](./media/arcgis-tutorial/ic784747.png "멤버 초대")
+    ![멤버 초대](./media/arcgis-tutorial/invite.png "멤버 초대")
 
 3. **전자 메일을 보내지 않고 멤버를 자동으로 추가** 를 선택하고 **다음** 을 클릭합니다.
 
-    ![멤버를 자동으로 추가](./media/arcgis-tutorial/ic784748.png "멤버를 자동으로 추가")
+    ![멤버를 자동으로 추가](./media/arcgis-tutorial/members.png "멤버를 자동으로 추가")
 
 4. **멤버** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    ![추가 및 검토](./media/arcgis-tutorial/ic784749.png "추가 및 검토")
+    ![추가 및 검토](./media/arcgis-tutorial/review.png "추가 및 검토")
 
      a. 프로비저닝하려는 유효한 Azure AD의 계정 **이메일**, **이름** 및 **성** 을 입력합니다.
 
      b. **추가 및 검토** 를 클릭합니다.
 5. 입력한 데이터를 검토한 다음 **멤버 추가** 를 클릭합니다.
 
-    ![멤버 추가](./media/arcgis-tutorial/ic784750.png "멤버 추가")
+    ![멤버 추가](./media/arcgis-tutorial/add.png "멤버 추가")
 
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 활성화되기 전에 전자 메일을 받고 링크를 따라 계정을 확인합니다.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 ArcGIS Online 타일을 클릭하면 SSO를 설정한 ArcGIS Online에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 ArcGIS Online 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+* ArcGIS Online 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 ArcGIS Online 타일을 클릭하면 ArcGIS Online 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+ArcGIS Online이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

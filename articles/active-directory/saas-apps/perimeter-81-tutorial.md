@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/09/2020
+ms.date: 02/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 4d095c3cc7e67938120260c35376b128be73ffa8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: cd6ba1da92a19a1f73fc67c0165bfb19b3bb77aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99821623"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363852"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perimeter-81"></a>자습서: Perimeter 81과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -71,13 +71,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Perimeter 81** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `urn:auth0:perimeter81:<SUBDOMAIN>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 `urn:auth0:perimeter81:<SUBDOMAIN>` 패턴을 사용하여 값을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://auth.perimeter81.com/login/callback?connection=<SUBDOMAIN>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -88,9 +88,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 가져오려면 [Perimeter 81 클라이언트 지원 팀](mailto:support@perimeter81.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/copy-metadataurl.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
+
+1. **Perimeter 81 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+
+    ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -117,7 +122,42 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-perimeter-81-sso"></a>Perimeter 81 SSO 구성
 
-**Perimeter 81** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL** 을 [Perimeter 81 지원 팀](mailto:support@perimeter81.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. Perimeter 81 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Perimeter 81 설정** 을 클릭하면 Perimeter 81 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Perimeter 81에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-7단계를 자동화합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Perimeter 81을 수동으로 설정하려면 다른 웹 브라우저 창에서 관리자 권한으로 Perimeter 81 회사 사이트에 로그인합니다.
+
+4. **설정** 으로 이동하여 **ID 공급자** 를 클릭합니다.
+
+    ![Perimeter 81 설정](./media/perimeter-81-tutorial/settings.png)
+
+5. **공급자 추가** 단추를 클릭합니다.
+
+    ![Perimeter 81 공급자 추가](./media/perimeter-81-tutorial/add-provider.png)
+
+6. **SAML 2.0 ID 공급자** 를 선택하고 **계속** 단추를 클릭합니다.
+
+    ![Perimeter 81 ID 공급자 추가](./media/perimeter-81-tutorial/add-identity-provider.png)
+
+7. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
+
+    ![Perimeter 81 설정 saml](./media/perimeter-81-tutorial/setting-up-saml.png)
+
+    a. **로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+
+    b. **도메인 별칭** 텍스트 상자에 도메인 별칭 값을 입력합니다.
+
+    다. Azure Portal에서 다운로드한 **인증서(Base64)** 를 메모장으로 열고, 콘텐츠를 **X509 서명 인증서** 텍스트 상자에 붙여넣습니다.
+
+    > [!NOTE]
+    > 또는 **PEM/CERT 파일 업로드** 를 클릭하여 Azure Portal에서 다운로드한 **인증서(Base64)** 를 업로드할 수 있습니다.
+    
+    d. **Done** 을 클릭합니다.
 
 ### <a name="create-perimeter-81-test-user"></a>Perimeter 81 테스트 사용자 만들기
 
@@ -135,7 +175,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Perimeter 81에 자동으로 로그인됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Perimeter 81에 자동으로 로그인됩니다.
 
 Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Perimeter 81 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Perimeter 81에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 02adb6f47b907fea402f8b312b3f4e8e117927ed
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
-ms.translationtype: MT
+ms.openlocfilehash: 4ee3e9e7d2aa0247011415b43517147fd421902a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693683"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094938"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -72,7 +72,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
     > * 모든 네트워크에서 스토리지 계정에 액세스할 수 있도록 허용합니다.
     > * MI 서브넷에서 [서브넷 위임](../virtual-network/manage-subnet-delegation.md)을 켜고 이 서브넷을 허용하도록 스토리지 계정 방화벽 규칙을 업데이트합니다.
 
-* 가상 네트워크의 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 아웃바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445, 12000. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
+* 가상 네트워크 Network Security Group 규칙이 ServiceBus, Storage 및 AzureMonitor용 ServiceTag의 아웃바운드 포트 443을 차단하지 않는지 확인합니다. 가상 네트워크 NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/virtual-network-vnet-plan-design-arm.md) 문서를 참조하세요.
 * [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 * Azure Database Migration Service가 원본 SQL Server(기본적으로 1433 TCP 포트)에 액세스할 수 있도록 Windows 방화벽을 엽니다. 기본 인스턴스가 일부 다른 포트에서 수신 중인 경우 이를 방화벽에 추가합니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고, 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
@@ -211,7 +211,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
     | | |
     |--------|---------|
-    |**SMB 네트워크 위치 공유** | Azure Database Migration Service에서 마이그레이션에 사용할 수 있는 전체 데이터베이스 백업 파일과 트랜잭션 로그 백업 파일이 포함된 로컬 SMB 네트워크 공유 및 Azure 파일 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 읽기/쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder'). 성능 향상을 위해 마이그레이션할 각 데이터베이스마다 별도의 폴더를 사용하는 것이 좋습니다. **고급 설정** 옵션을 사용하여 데이터베이스 수준 파일 공유 경로를 제공할 수 있습니다. SMB 공유에 연결 하는 데 문제가 발생 하는 경우 [smb 공유](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity)를 참조 하세요. |
+    |**SMB 네트워크 위치 공유** | Azure Database Migration Service에서 마이그레이션에 사용할 수 있는 전체 데이터베이스 백업 파일과 트랜잭션 로그 백업 파일이 포함된 로컬 SMB 네트워크 공유 및 Azure 파일 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 읽기/쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder'). 성능 향상을 위해 마이그레이션할 각 데이터베이스마다 별도의 폴더를 사용하는 것이 좋습니다. **고급 설정** 옵션을 사용하여 데이터베이스 수준 파일 공유 경로를 제공할 수 있습니다. SMB 공유에 연결하는 데 문제가 발생하는 경우 [SMB 공유](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity)를 참조하세요. |
     |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. Azure 파일 공유를 사용하는 경우 AZURE\가 앞에 나오는 스토리지 계정 이름을 사용자 이름으로 사용합니다. |
     |**암호** | 사용자에 대한 암호입니다. Azure 파일 공유를 사용하는 경우 스토리지 계정 키를 암호로 사용합니다. |
     |**Azure Storage 계정의 구독** | Azure Storage 계정이 포함된 구독을 선택합니다. |

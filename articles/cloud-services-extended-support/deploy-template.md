@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99822366"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548780"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>ARM 템플릿을 사용하여 Cloud Service(추가 지원)를 배포합니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "99822366"
     ```
  
 
-4. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+4. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. Key Vault는 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
      
     ```json
     "osProfile": { 
@@ -441,14 +441,15 @@ ms.locfileid: "99822366"
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
  
-8. 템플릿을 배포하고, Cloud Service(추가 지원) 배포를 만듭니다. 
+8. 템플릿 및 매개 변수 파일(템플릿 파일의 매개 변수 정의)을 배포하여 클라우드 서비스(확장 지원) 배포를 만듭니다. 필요에 따라 이러한 [샘플 템플릿](https://github.com/Azure-Samples/cloud-services-extended-support)을 참조하세요.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
     ```
  
 ## <a name="next-steps"></a>다음 단계 

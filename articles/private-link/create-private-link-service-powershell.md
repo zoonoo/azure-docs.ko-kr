@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: Azure PowerShell을 사용 하 여 Azure 개인 링크 서비스 만들기'
-description: Azure PowerShell를 사용 하 여 Azure 개인 링크 서비스를 만드는 방법을 알아봅니다.
+title: '빠른 시작: Azure PowerShell을 사용하여 Azure 프라이빗 링크 서비스 만들기'
+description: Azure PowerShell을 사용하여 Azure 프라이빗 링크 서비스를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.openlocfilehash: d48903a05a4e9b530dcd3e83e0c14c37dcc74797
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
-ms.translationtype: MT
+ms.openlocfilehash: 4780bc573796581438b8d331b1d1d9421a65414f
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757528"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653247"
 ---
-# <a name="create-a-private-link-service-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기
+# <a name="create-a-private-link-service-using-azure-powershell"></a>Azure PowerShell을 사용하여 Private Link 서비스 만들기
 
 서비스를 참조하는 Private Link 서비스 만들기를 시작합니다.  Azure 표준 Load Balancer 배후에 배포된 서비스 또는 리소스에 대한 Private Link 액세스를 제공합니다.  서비스 사용자는 가상 네트워크에서 비공개로 액세스할 수 있습니다.
 
@@ -137,11 +137,11 @@ New-AzLoadBalancer @loadbalancer
 
 ## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기
 
-이 섹션에서는 이전 단계에서 만든 표준 Azure Load Balancer를 사용 하는 개인 링크 서비스를 만듭니다.
+이 섹션에서는 이전 단계에서 만든 표준 Azure Load Balancer를 사용하는 프라이빗 링크 서비스를 만듭니다.
 
-* [AzPrivateLinkServiceIpConfig](/powershell/module/az.network/new-azprivatelinkserviceipconfig)를 사용 하 여 개인 링크 서비스 IP 구성을 만듭니다.
+* [New-AzPrivateLinkServiceIpConfig](/powershell/module/az.network/new-azprivatelinkserviceipconfig)를 사용하여 프라이빗 링크 서비스 IP 구성을 만듭니다.
 
-* [AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice)를 사용 하 여 개인 링크 서비스를 만듭니다.
+* [New-AzPrivateLinkService](/powershell/module/az.network/new-azprivatelinkservice)를 사용하여 프라이빗 링크 서비스를 만듭니다.
 
 ```azurepowershell
 ## Place the virtual network into a variable. ##
@@ -205,13 +205,13 @@ $vnetpe = New-AzVirtualNetwork @net
 
 ```
 
-### <a name="create-endpoint-and-connection"></a>끝점 및 연결 만들기
+### <a name="create-endpoint-and-connection"></a>엔드포인트 및 연결 만들기
 
-* 나중에 사용할 수 있도록 [AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice) 를 사용 하 여 초기에 만든 개인 링크 서비스의 구성을 변수에 넣습니다.
+* [Get-AzPrivateLinkService](/powershell/module/az.network/get-azprivatelinkservice)를 사용하여 초기에 만든 프라이빗 링크 서비스의 구성을 나중에 사용할 수 있도록 변수에 배치합니다.
 
-* [AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection) 를 사용 하 여 연결 구성을 만듭니다.
+* [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection)을 사용하여 연결 구성을 만듭니다.
 
-* [AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) 를 사용 하 여 끝점을 만듭니다.
+* [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)를 사용하여 엔드포인트를 만듭니다.
 
 
 
@@ -248,11 +248,11 @@ $par4 = @{
 New-AzPrivateEndpoint @par4 -ByManualRequest
 ```
 
-### <a name="approve-the-private-endpoint-connection"></a>개인 끝점 연결 승인
+### <a name="approve-the-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 승인
 
-이 섹션에서는 이전 단계에서 만든 연결을 승인 합니다.
+이 섹션에서는 이전 단계에서 만든 연결을 승인합니다.
 
-* [AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) 를 사용 하 여 연결을 승인 합니다.
+* [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection)을 사용하여 연결을 승인합니다.
 
 ```azurepowershell-interactive
 ## Place the private link service configuration into variable. ##
@@ -276,7 +276,7 @@ Approve-AzPrivateEndpointConnection @par2
 
 이 섹션에서는 부하 분산 장치 및 프라이빗 링크 서비스에 해당하는 프라이빗 엔드포인트의 IP 주소를 찾을 수 있습니다.
 
-* [AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint) 를 사용 하 여 IP 주소를 검색 합니다.
+* [Get-AzPrivateEndpoint](/powershell/module/az.network/get-azprivateendpoint)를 사용하여 IP 주소를 검색합니다.
 
 ```azurepowershell-interactive
 ## Get private endpoint and the IP address and place in a variable for display. ##
@@ -313,5 +313,5 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 
 Azure 프라이빗 엔드포인트에 대해 자세히 알아보려면 계속 진행하세요.
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Powershell을 사용 하 여 개인 끝점 만들기](create-private-endpoint-powershell.md)
+> [빠른 시작: Azure Powershell을 사용하여 Private Endpoint 만들기](create-private-endpoint-powershell.md)
 

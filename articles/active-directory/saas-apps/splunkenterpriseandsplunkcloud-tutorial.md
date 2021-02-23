@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 18d64e2b2ac359a9036ebd548ef886cb0efd3405
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d99ed71e284ae2e986a93591a61c3c9011857eb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99822475"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>자습서: Splunk Enterprise and Splunk Cloud와 Azure Active Directory 통합
 
@@ -28,10 +28,10 @@ ms.locfileid: "99822475"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Splunk Enterprise and Splunk Cloud와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
-* Splunk Enterprise and Splunk Cloud Single Sign-On이 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Splunk Enterprise and Splunk Cloud SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -63,7 +63,7 @@ Splunk Enterprise and Splunk Cloud에서 Azure AD SSO를 구성하려면 다음 
     1. **[Splunk Enterprise and Splunk Cloud 테스트 사용자 만들기](#create-splunk-enterprise-and-splunk-cloud-test-user)** - B.Simon의 Azure AD 표현과 연결되는 해당 사용자를 Splunk Enterprise and Splunk Cloud에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -111,16 +111,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Splunk Enterprise and Splunk Cloud SSO 구성
+## <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Splunk Enterprise and Splunk Cloud SSO 구성
 
   **Splunk Enterprise and Splunk Cloud** 쪽에 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 로그인 URL을 [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/en_us/about-splunk/contact-us.html)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Splunk Enterprise and Splunk Cloud 테스트 사용자 만들기
 
 이 섹션에서는 Splunk Enterprise and Splunk Cloud에서 Britta Simon이라는 사용자를 만듭니다. [Splunk Enterprise and Splunk Cloud 지원 팀](https://www.splunk.com/en_us/about-splunk/contact-us.html)과 협의하여 Splunk Enterprise and Splunk Cloud 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 

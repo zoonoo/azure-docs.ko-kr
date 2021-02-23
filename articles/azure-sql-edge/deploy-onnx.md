@@ -1,38 +1,38 @@
 ---
-title: ONNX를 사용 하 여 배포 및 예측
+title: ONNX를 통해 배포 및 예측
 titleSuffix: SQL machine learning
-description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure sql Edge 또는 Azure SQL Managed Instance (미리 보기)에 배포 하 고, 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
+description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge 또는 Azure SQL Managed Instance(미리 보기)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
 keywords: SQL Edge 배포
 ms.prod: sql
 ms.technology: machine-learning
-ms.topic: conceptual
+ms.topic: quickstart
 author: dphansen
 ms.author: davidph
 ms.date: 10/13/2020
-ms.openlocfilehash: 6dd7715292470d186806443d0a0b05bdbb084a43
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: MT
+ms.openlocfilehash: 755111b2fc48ec119c30d09f2e51b9db6c333848
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93392183"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653213"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL machine learning을 사용 하 여 배포 및 예측
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL 기계 학습을 통해 배포 및 예측
 
-이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge](onnx-overview.md) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 후 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
+이 빠른 시작에서는 모델을 학습하고, ONNX로 변환하고, [Azure SQL Edge](onnx-overview.md) 또는 [Azure SQL Managed Instance(미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
 
 이 빠른 시작은 **scikit-learn** 을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure SQL edge를 사용 하는 경우 Azure SQL edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL edge 배포](deploy-portal.md)의 단계를 따르세요.
+* Azure SQL Edge를 사용 중이고 Azure SQL Edge 모듈을 배포하지 않은 경우 [Azure Portal을 사용하여 SQL Edge 배포](deploy-portal.md)의 단계를 수행합니다.
 
 * [Azure Data Studio](/sql/azure-data-studio/download)를 설치합니다.
 
-* 이 빠른 시작에 필요한 Python 패키지를 설치 합니다.
+* 이 빠른 시작에 필요한 Python 패키지를 설치합니다.
 
   1. Python 3 커널에 연결된 [새 Notebook](/sql/azure-data-studio/sql-notebooks)을 엽니다. 
-  1. **패키지 관리** 클릭
-  1. **설치 됨** 탭의 설치 된 패키지 목록에서 다음 Python 패키지를 찾습니다. 이러한 패키지 중 하나라도 설치 되지 않은 경우 **새로 추가** 탭을 선택 하 고 패키지를 검색 한 다음 **설치** 를 클릭 합니다.
+  1. **패키지 관리** 를 클릭합니다.
+  1. **설치됨** 탭의 설치된 패키지 목록에서 다음 Python 패키지를 찾습니다. 이러한 패키지 중 하나라도 설치되지 않은 경우 **새로 추가** 탭을 선택하고 패키지를 검색한 다음, **설치** 를 클릭합니다.
      - **scikit-learn**
      - **numpy**
      - **onnxmltools**
@@ -72,14 +72,14 @@ y_train = pd.DataFrame(df.iloc[:,df.columns.tolist().index(target_column)])
 print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n**_ Training dataset y\n")
+print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
-_ * 출력 * *:
+**출력**:
 
 ```text
-**_ Training dataset x
+*** Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -95,7 +95,7 @@ _ * 출력 * *:
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-_*_ Training dataset y
+*** Training dataset y
 
 0    24.0
 1    21.6
@@ -137,15 +137,15 @@ from sklearn.metrics import r2_score, mean_squared_error
 y_pred = model.predict(x_train)
 sklearn_r2_score = r2_score(y_train, y_pred)
 sklearn_mse = mean_squared_error(y_train, y_pred)
-print('_*_ Scikit-learn r2 score: {}'.format(sklearn_r2_score))
-print('_*_ Scikit-learn MSE: {}'.format(sklearn_mse))
+print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
+print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-_ * 출력 * *:
+**출력**:
 
 ```text
-**_ Scikit-learn r2 score: 0.7406426641094094
-_*_ Scikit-learn MSE: 21.894831181729206
+*** Scikit-learn r2 score: 0.7406426641094094
+*** Scikit-learn MSE: 21.894831181729206
 ```
 
 ## <a name="convert-the-model-to-onnx"></a>모델을 ONNX로 변환
@@ -208,18 +208,18 @@ onnx_r2_score = r2_score(y_train, y_pred)
 onnx_mse = mean_squared_error(y_train, y_pred)
 
 print()
-print('_*_ Onnx r2 score: {}'.format(onnx_r2_score))
-print('_*_ Onnx MSE: {}\n'.format(onnx_mse))
+print('*** Onnx r2 score: {}'.format(onnx_r2_score))
+print('*** Onnx MSE: {}\n'.format(onnx_mse))
 print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
 print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
 print()
 ```
 
-_ * 출력 * *:
+**출력**:
 
 ```text
-**_ Onnx r2 score: 0.7406426691136831
-_*_ Onnx MSE: 21.894830759270633
+*** Onnx r2 score: 0.7406426691136831
+*** Onnx MSE: 21.894830759270633
 
 R2 Scores are equal
 MSE are equal
@@ -227,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>ONNX 모델 삽입
 
-모델을 Azure SQL Edge 또는 Azure SQL Managed Instance 데이터베이스의 테이블에 저장 `models` `onnx` 합니다. 연결 문자열에서 _ * 서버 주소 * *, **사용자 이름** 및 **암호** 를 지정 합니다.
+Azure SQL Edge 또는 Azure SQL Managed Instance의 모델을 데이터베이스 `onnx`의 `models` 테이블에 저장합니다. 연결 문자열에서 **서버 주소**, **사용자 이름** 및 **암호** 를 지정합니다.
 
 ```python
 import pyodbc
@@ -285,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>데이터 로드
 
-SQL에 데이터를 로드 합니다.
+데이터를 SQL에 로드합니다.
 
 먼저 **features** 및 **target** 이란 두 개의 테이블을 만들어 보스턴 하우징 데이터 세트의 하위 집합을 저장합니다.
 
@@ -358,7 +358,7 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 
 ## <a name="run-predict-using-the-onnx-model"></a>ONNX 모델을 사용하여 PREDICT 실행
 
-SQL의 모델을 사용 하 여 업로드 된 ONNX 모델을 사용 하 여 데이터에서 기본 PREDICT를 실행 합니다.
+SQL의 모델을 통해 업로드된 ONNX 모델을 사용하여 데이터에 대해 네이티브 PREDICT를 실행합니다.
 
 > [!NOTE]
 > 나머지 셀을 실행하려면 Notebook 커널을 SQL로 변경합니다.
@@ -398,4 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>다음 단계
 
 * [SQL Edge에서 ONNX를 통한 Machine Learning 및 AI](onnx-overview.md)
-* [Azure SQL Managed Instance (미리 보기)의 Machine Learning Services](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Azure SQL Managed Instance의 Machine Learning Services(미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)

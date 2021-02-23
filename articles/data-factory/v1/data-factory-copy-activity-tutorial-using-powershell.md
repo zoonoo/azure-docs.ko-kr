@@ -1,24 +1,18 @@
 ---
 title: '자습서: Azure PowerShell을 사용하여 데이터를 이동하는 파이프라인 만들기 '
 description: 이 자습서에서는 Azure PowerShell을 사용하여 복사 작업을 사용하는 Azure Data Factory 파이프라인을 만듭니다.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608632"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377043"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -114,7 +108,7 @@ ms.locfileid: "97608632"
 * Azure Data Factory 이름은 전역적으로 고유해야 합니다. 다음과 같은 오류가 발생하면 이름(예: yournameADFTutorialDataFactoryPSH)을 변경합니다. 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다. Data Factory 아티팩트에 대한 내용은 [Data Factory - 명명 규칙](data-factory-naming-rules.md)을 참조하세요.
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Data Factory 인스턴스를 만들려면 Azure 구독의 참가자 또는 관리자여야 합니다.
 * Data Factory의 이름은 나중에 DNS 이름으로 표시되므로 공개적으로 등록될 수도 있습니다.
@@ -452,7 +446,7 @@ Azure Storage 연결된 서비스는 런타임에 Data Factory 서비스에서 A
 **축하합니다.** Azure Blob 스토리지에서 Azure SQL Database에 데이터를 복사하는 파이프라인이 있는 Azure 데이터 팩터리를 성공적으로 만들었습니다. 
 
 ## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
-이 단계에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.
+이 단계에서는 Azure PowerShell을 사용하여 Azure 데이터 팩터리에서 진행되는 작업을 모니터링합니다.
 
 1. &lt;DataFactoryName&gt;을 데이터 팩터리 이름으로 바꿔 **Get-AzDataFactory** 를 실행하고, 출력을 $df 변수에 할당합니다.
 

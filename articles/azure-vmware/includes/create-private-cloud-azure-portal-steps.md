@@ -1,20 +1,20 @@
 ---
-title: Azure VMware Solution 배포
-description: Azure Portal을 사용하여 Azure VMware Solution을 배포하는 단계입니다.
+title: Azure VMware Solution 프라이빗 클라우드 만들기
+description: Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드를 만드는 단계입니다.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578321"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653139"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **새 리소스 만들기**를 선택합니다. **Marketplace 검색** 텍스트 상자에서 `Azure VMware Solution`을 입력하고, 목록에서 **Azure VMware 솔루션**을 선택합니다. **Azure VMware Solution** 창에서 **만들기**를 선택합니다.
+1. **새 리소스 만들기** 를 선택합니다. **Marketplace 검색** 텍스트 상자에서 `Azure VMware Solution`을 입력하고, 목록에서 **Azure VMware 솔루션** 을 선택합니다. **Azure VMware Solution** 창에서 **만들기** 를 선택합니다.
 
 1. **기본** 탭에서 필드 값을 입력합니다. 다음 표에서는 필드에 대한 속성을 나열합니다.
 
@@ -33,11 +33,11 @@ ms.locfileid: "91578321"
 
    :::image type="content" source="../media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="기본 탭에서 필드 값을 입력합니다." border="true":::
 
-1. 완료되면 **검토 + 만들기**를 선택합니다. 다음 화면에서 입력한 정보를 확인합니다. 정보가 모두 올바르면 **만들기**를 선택합니다.
+1. 완료되면 **검토 + 만들기** 를 선택합니다. 다음 화면에서 입력한 정보를 확인합니다. 정보가 모두 올바르면 **만들기** 를 선택합니다.
 
    > [!NOTE]
    > 이 단계는 약 두 시간 정도 걸립니다. 
 
 1. 배포가 성공했는지 확인합니다. 만든 리소스 그룹으로 이동하고 프라이빗 클라우드를 선택합니다.  배포가 완료되면 **성공** 상태가 표시됩니다. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="기본 탭에서 필드 값을 입력합니다." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="배포가 성공했는지 확인합니다." border="true":::

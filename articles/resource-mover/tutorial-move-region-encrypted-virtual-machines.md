@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981956"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361012"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>자습서: 지역 간에 암호화된 Azure VM 이동
 
@@ -54,26 +54,49 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **대상 지역 요금** | 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인하세요. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하면 도움이 됩니다.
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>키 자격 증명 모음 권한 확인(Azure Disk Encryption)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)를 사용하여 VMS용 키 자격 증명 모음에 대한 사용자 권한 확인
 
-Azure 디스크 암호화를 사용하는 VM을 이동하려는 경우 원본 지역과 대상 지역의 키 자격 증명 모음에서 암호화된 VM 이동이 예상대로 작동하도록 권한을 확인/설정합니다. 
+Azure 디스크 암호화가 활성화된 VM을 이동하는 경우 스크립트를 실행하는 사용자에게 적절한 사용 권한이 있어야 하는 [아래](#copy-the-keys-to-the-destination-key-vault)에 언급된 스크립트를 실행해야 합니다. 필요한 사용 권한에 대해 알아보려면 아래 표를 참조하세요. Azure Portal의 키 자격 증명 모음으로 이동하여 **설정** 아래에서 **액세스 정책** 을 선택하여 사용 권한을 변경하는 옵션을 찾을 수 있습니다.
 
-1. Azure Portal에서 원본 지역의 키 자격 증명 모음을 엽니다.
-2. **설정** 에서 **액세스 정책** 을 선택합니다.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="키 자격 증명 모음 액세스 정책을 여는 단추" lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="키 자격 증명 모음 액세스 정책을 여는 단추" lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+사용자 권한이 없는 경우 **액세스 정책 추가** 를 선택하고 권한을 지정합니다. 사용자 계정에 이미 정책이 있는 경우 **사용자** 에서 아래 표에 따라 권한을 설정합니다.
 
-3. 사용자 권한이 없는 경우 **액세스 정책 추가** 를 선택하고 권한을 지정합니다. 사용자 계정에 이미 정책이 있는 경우 **사용자** 에서 권한을 설정합니다.
+ADE를 사용하는 Azure VM은 다음과 같이 변동될 수 있으며 관련 구성 요소에 따라 사용 권한을 적절하게 설정해야 합니다.
+- 디스크가 비밀만 사용하여 암호화되는 기본 옵션
+- [키 암호화 키](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)를 사용하여 보안 추가
 
-    - 이동하려는 VM에서 ADE(Azure 디스크 암호화)를 사용하도록 설정된 경우 키 관리 작업이 선택되지 않았으면 **키 권한** > **키 관리 작업** 에서 **가져오기** 및 **나열** 을 선택합니다.
-    - 미사용 데이터 암호화(서버 쪽 암호화)에 사용되는 디스크 암호화 키를 암호화하기 위해 CMK(고객 관리형 키)를 사용하는 경우에는 **키 권한** > **키 관리 작업** 에서 **가져오기** 및 **나열** 을 선택합니다. 또한 **암호화 작업** 에서 **암호 해독** 및 **암호화** 를 선택합니다.
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="키 자격 증명 모음 권한을 선택하는 드롭다운 목록" lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>원본 지역 키 자격 증명 모음
 
-4. **비밀 권한** 의 **비밀 관리 작업** 에서 **가져오기**, **나열**, **설정** 을 선택합니다. 
-5. 새 사용자 계정에 권한을 할당하려는 경우 **주체 선택** 에서 권한을 할당할 사용자를 선택합니다.
-6. **액세스 정책** 에서 **볼륨 암호화를 위한 Azure Disk Encryption** 을 사용하도록 설정합니다.
-7. 대상 지역의 키 자격 증명 모음에도 같은 절차를 반복합니다.
+스크립트를 실행하는 사용자에 대해 아래 권한을 설정해야 합니다. 
+
+**구성 요소** | **권한이 필요함**
+--- | ---
+비밀|  권한 가져오기 <br> </br> **비밀 권한**>  **비밀 관리 작업** 에서 **가져오기** 를 선택합니다. 
+구성 <br> </br> KEK(키 암호화 키)를 사용하는 경우 비밀 외에도 이 권한이 필요합니다.| 권한 가져오기 및 암호 해독 <br> </br> **키 권한** > **키 관리 작업** 에서 **가져오기** 를 선택합니다. **암호화 작업** 에서 **암호 해독** 을 선택합니다.
+
+### <a name="destination-region-keyvault"></a>대상 지역 키 자격 증명 모음
+
+**액세스 정책** 에서 **볼륨 암호화를 위한 Azure Disk Encryption** 을 사용하도록 설정합니다. 
+
+스크립트를 실행하는 사용자에 대해 아래 권한을 설정해야 합니다. 
+
+**구성 요소** | **권한이 필요함**
+--- | ---
+비밀|  권한 설정 <br> </br> **비밀 권한**>  **비밀 관리 작업** 에서 **설정** 을 선택합니다. 
+구성 <br> </br> KEK(키 암호화 키)를 사용하는 경우 비밀 외에도 이 권한이 필요합니다.| 권한 가져오기, 만들기, 암호화 <br> </br> **키 권한** > **키 관리 작업** 에서 **가져오기** 및 **만들기** 를 선택합니다. **암호화 작업** 에서 **암호화** 를 선택합니다.
+
+위의 권한 외에도 대상 키 자격 증명 모음에서 Resource Mover가 사용자 대신 Azure 리소스에 액세스하는 데 사용하는 [Managed System ID](./common-questions.md#how-is-managed-identity-used-in-resource-mover)에 대한 권한을 추가해야 합니다. 
+
+1. **설정** 에서 **액세스 정책 추가** 를 선택합니다. 
+2. **보안 주체 선택** 에서 MSI를 검색합니다. MSI 이름은 ```movecollection-<sourceregion>-<target-region>-<metadata-region>```입니다. 
+3. MSI에 대한 아래 권한 추가
+
+**구성 요소** | **권한이 필요함**
+--- | ---
+비밀|  권한 가져오기 및 나열 <br> </br> **비밀 권한**>  **비밀 관리 작업** 에서 **가져오기** 및 **나열** 을 선택합니다. 
+구성 <br> </br> KEK(키 암호화 키)를 사용하는 경우 비밀 외에도 이 권한이 필요합니다.| Get, List 권한 <br> </br> **키 권한** > **키 관리 작업** 에서 **가져오기** 및 **나열** 을 선택합니다.
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>대상 키 자격 증명 모음에 키 복사

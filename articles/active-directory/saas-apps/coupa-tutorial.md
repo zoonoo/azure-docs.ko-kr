@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99822291"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 
@@ -28,10 +28,10 @@ ms.locfileid: "99822291"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Coupa와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
-* Coupa Single Sign-On이 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Coupa SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -63,7 +63,7 @@ Coupa에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수
     1. **[Coupa 테스트 사용자 만들기](#create-coupa-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Coupa에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -128,17 +128,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-coupa-sso"></a>Coupa SSO 구성
+## <a name="configure-coupa-sso"></a>Coupa SSO 구성
 
 1. Coupa 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. **설치 \> 보안 제어** 로 이동합니다.
 
-    ![보안 컨트롤](./media/coupa-tutorial/ic791900.png "Single Sign On 설정")
+    ![보안 컨트롤](./media/coupa-tutorial/setup.png "Single Sign On 설정")
 
 3. **Coupa 자격 증명을 사용하여 로그인** 섹션에서 다음 단계를 수행합니다.
 
-    ![Coupa SP 메타데이터](./media/coupa-tutorial/ic791901.png "Coupa SP 메타데이터")
+    ![Coupa SP 메타데이터](./media/coupa-tutorial/login.png "Coupa SP 메타데이터")
 
     a. **SAML을 사용하여 로그인** 을 선택합니다.
 
@@ -158,15 +158,15 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 
 2. 상단 메뉴에서 **설정** 을 클릭한 후 **사용자** 를 클릭합니다.
 
-    ![사용자](./media/coupa-tutorial/ic791908.png "사용자")
+    ![사용자](./media/coupa-tutorial/user.png "사용자")
 
 3. **만들기** 를 클릭합니다.
 
-    ![사용자 만들기](./media/coupa-tutorial/ic791909.png "사용자 만들기")
+    ![사용자 만들기](./media/coupa-tutorial/create.png "사용자 만들기")
 
 4. **사용자 만들기** 섹션에서 다음 단계를 수행합니다.
 
-    ![사용자 세부 정보](./media/coupa-tutorial/ic791910.png "사용자 세부 정보")
+    ![사용자 세부 정보](./media/coupa-tutorial/details.png "사용자 세부 정보")
 
     a. 프로비전하려는 유효한 Azure Active Directory 계정의 **로그인**, **이름**, **성**, **Single Sign-On ID**, **메일** 특성을 관련 텍스트 상자에 입력합니다.
 
@@ -179,7 +179,7 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 >[!NOTE]
 >다른 Coupa 사용자 계정 생성 도구 또는 Coupa가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 

@@ -1,22 +1,18 @@
 ---
 title: 작업으로 Databricks Notebook 실행
 description: Azure Data Factory에서 Databricks Notebook 작업을 사용하여 databricks 작업 클러스터에 대해 Databricks Notebook을 실행하는 방법을 알아봅니다.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 27425717f6d96953326edde621966530d240c015
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 20253954035798187f28c18c8207c114d27bc9c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632365"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374085"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -48,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 
-1.  왼쪽 메뉴에서 **리소스 만들기** , **분석** , **데이터 팩터리** 를 차례로 선택합니다.
+1.  왼쪽 메뉴에서 **리소스 만들기**, **분석**, **데이터 팩터리** 를 차례로 선택합니다.
 
     ![새 데이터 팩터리 만들기](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
@@ -72,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  **위치** 에 데이터 팩터리의 위치를 선택합니다.
 
-    현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory** : [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+    현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics** 를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 1.  **만들기** 를 선택합니다.
 
 
@@ -90,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![새 연결된 서비스 편집](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  창의 아래쪽에서 **연결** , **+ 새로 만들기** 를 차례로 클릭합니다.
+1.  창의 아래쪽에서 **연결**, **+ 새로 만들기** 를 차례로 클릭합니다.
     
     ![새 연결 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
@@ -100,9 +96,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1.  **새 연결된 서비스** 창에서 다음 단계를 완료합니다.
     
-    1.  **이름** 에 * *_AzureDatabricks\_LinkedService_* _를 입력합니다.
+    1.  **이름** 에 **_AzureDatabricks\_LinkedService_** 를 입력합니다.
     
-    1.  Notebook을 실행하기에 적절한 _ *Databricks 작업 영역* *을 선택합니다.
+    1.  다음에서 노트북을 실행하기에 적절한 **Databricks 작업 영역** 을 선택
 
     1.  **클러스터 선택** 에 대해 **새 작업 클러스터** 를 선택
     
@@ -110,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     1.  **액세스 토큰** 에 대해 Azure Databricks 작업 공간에서 생성합니다. 단계는 [여기](https://docs.databricks.com/api/latest/authentication.html#generate-token)서 찾을 수 있습니다.
 
-    1.  **클러스터 버전** 에 대해 **4.2** (Apache Spark 2.3.1, Scala 2.11에서)를 선택합니다.
+    1.  **클러스터 버전** 에 대해 **4.2**(Apache Spark 2.3.1, Scala 2.11에서)를 선택합니다.
 
     1.  **클러스터 노드 유형** 에 대해 이 자습서의 **범용(HDD)** 범주 아래에서 **표준\_D3\_v2** 를 선택합니다. 
     
@@ -126,7 +122,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![새 파이프라인 만들기에 대한 단추](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-1.  **파이프라인** 에서 사용할 **매개 변수** 를 만듭니다. 나중에 이 매개 변수를 Databricks Notebook 작업에 전달합니다. 빈 파이프라인에서 **매개 변수** 탭, **새로 만들기** 를 차례로 클릭한 다음, 이름으로 ' **name** '을 지정합니다.
+1.  **파이프라인** 에서 사용할 **매개 변수** 를 만듭니다. 나중에 이 매개 변수를 Databricks Notebook 작업에 전달합니다. 빈 파이프라인에서 **매개 변수** 탭, **새로 만들기** 를 차례로 클릭한 다음, 이름으로 '**name**'을 지정합니다.
 
     ![새 매개 변수 만들기](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 

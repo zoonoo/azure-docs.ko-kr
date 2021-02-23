@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131936"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368832"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[탄력적 작업(미리 보기)](job-automation-overview.md#elastic-database-jobs-preview)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
+[탄력적 작업(미리 보기)](job-automation-overview.md)을 사용하면 여러 데이터페이스에 병렬적으로 하나 이상의 T-SQL(Transact-SQL) 스크립트를 실행할 수 있습니다.
 
 이 자습서에서는 여러 데이터베이스에서 쿼리를 실행하는 데 필요한 단계를 알아봅니다.
 
@@ -63,7 +63,7 @@ Get-Module Az.Sql
 
 ## <a name="create-required-resources"></a>필수 리소스 만들기
 
-탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](job-automation-overview.md#job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다.
+탄력적 작업 에이전트를 만들려면 [작업 데이터베이스](job-automation-overview.md#elastic-job-database)로 사용할 데이터베이스(S0 이상)가 필요합니다.
 
 아래 스크립트에서는 작업 데이터베이스로 사용할 새 리소스 그룹, 서버 및 데이터베이스를 만듭니다. 두 번째 스크립트에서는 작업을 실행할 수 있도록 빈 데이터베이스 2개가 포함된 두 번째 서버를 만듭니다.
 

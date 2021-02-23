@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 02/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 60b49e5b6e103a85d79cf8495f2743b22e434c96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586789"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>자습서: Bastion을 구성하고 브라우저를 통해 Windows VM에 연결
 
@@ -53,21 +53,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="베스천 호스트 만들기" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
 
-    * **구독** : 새 Bastion 리소스를 만드는 데 사용할 Azure 구독입니다.
-    * **리소스 그룹** : 새 Bastion 리소스가 만들어질 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
-    * **이름** : 새 Bastion 리소스의 이름입니다.
-    * **지역** : 리소스가 만들어질 Azure 공용 지역입니다.
-    * **가상 네트워크** : Bastion 리소스를 만들 가상 네트워크입니다. 이 과정에서 포털에서 새 가상 네트워크를 만들어도 되고, 아니면 기존 가상 네트워크를 사용해도 됩니다. 기존 가상 네트워크를 사용하는 경우 기존 가상 네트워크에 Bastion 서브넷 요구 사항을 수용하기에 충분한 여유 주소 공간이 있는지 확인합니다. 드롭다운에 가상 네트워크가 보이지 않는 경우 올바른 리소스 그룹을 선택했는지 확인합니다.
-    * **서브넷** : 가상 네트워크를 만들거나 선택하면 서브넷 필드가 나타납니다. 가상 네트워크의 이 서브넷에 새 Bastion 호스트 리소스가 배포됩니다. 이 서브넷은 Bastion 호스트 전용입니다. **서브넷 구성 관리** 를 선택하고 Azure Bastion 서브넷을 만듭니다. **+서브넷** 을 선택하고 다음 지침에 따라 서브넷을 만듭니다.
+    * **구독**: 새 Bastion 리소스를 만드는 데 사용할 Azure 구독입니다.
+    * **리소스 그룹**: 새 Bastion 리소스가 만들어질 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
+    * **이름**: 새 Bastion 리소스의 이름입니다.
+    * **지역**: 리소스가 만들어질 Azure 공용 지역입니다.
+    * **가상 네트워크**: Bastion 리소스를 만들 가상 네트워크입니다. 이 과정에서 포털에서 새 가상 네트워크를 만들어도 되고, 아니면 기존 가상 네트워크를 사용해도 됩니다. 기존 가상 네트워크를 사용하는 경우 기존 가상 네트워크에 Bastion 서브넷 요구 사항을 수용하기에 충분한 여유 주소 공간이 있는지 확인합니다. 드롭다운에 가상 네트워크가 보이지 않는 경우 올바른 리소스 그룹을 선택했는지 확인합니다.
+    * **서브넷**: 가상 네트워크를 만들거나 선택하면 서브넷 필드가 나타납니다. 가상 네트워크의 이 서브넷에 새 Bastion 호스트 리소스가 배포됩니다. 이 서브넷은 Bastion 호스트 전용입니다. **서브넷 구성 관리** 를 선택하고 Azure Bastion 서브넷을 만듭니다. **+서브넷** 을 선택하고 다음 지침에 따라 서브넷을 만듭니다.
 
          * 서브넷 이름은 **AzureBastionSubnet** 이어야 합니다.
          * 서브넷은 /27 이상이어야 합니다.
 
       추가 필드는 입력하지 않아도 됩니다. **확인** 을 선택한 다음, 페이지 맨 위에서 **Bastion 만들기** 를 선택하여 Bastion 구성 페이지로 돌아갑니다.
-    * **공용 IP 주소** : 포트 443을 통해 RDP/SSH에 액세스할 Bastion 리소스의 공용 IP입니다. 새 공용 IP를 만듭니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다. 이 IP 주소는 우리가 연결하려는 VM과 아무 관련이 없습니다. Bastion 호스트 리소스에 사용할 공용 IP입니다.
-    * **공용 IP 주소 이름** : 공용 IP 주소 리소스의 이름입니다. 이 자습서에서는 기본 설정을 그대로 사용해도 됩니다.
-    * **공용 IP 주소 SKU** : 이 설정은 기본적으로 **표준** 으로 미리 채워져 있습니다. Azure Bastion은 표준 공용 IP SKU만 사용/지원합니다.
-    * **할당** : 이 설정은 기본적으로 **정적** 으로 미리 채워져 있습니다.
+    * **공용 IP 주소**: 포트 443을 통해 RDP/SSH에 액세스할 Bastion 리소스의 공용 IP입니다. 새 공용 IP를 만듭니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다. 이 IP 주소는 연결하려는 VM과 아무 관련이 없습니다. Bastion 호스트 리소스에 사용할 공용 IP입니다.
+    * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다. 이 자습서에서는 기본 설정을 그대로 사용해도 됩니다.
+    * **공용 IP 주소 SKU**: 이 설정은 기본적으로 **표준** 으로 미리 채워져 있습니다. Azure Bastion은 표준 공용 IP SKU만 사용/지원합니다.
+    * **할당**: 이 설정은 기본적으로 **정적** 으로 미리 채워져 있습니다.
 
 1. 설정 지정을 마쳤으면, **검토 + 만들기** 를 선택합니다. 그러면 값의 유효성이 검사됩니다. 유효성 검사를 통과하면 Bastion 리소스를 만들 수 있습니다.
 1. **만들기** 를 선택합니다.

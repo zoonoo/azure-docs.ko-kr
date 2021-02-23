@@ -1,19 +1,19 @@
 ---
 title: 캡쳐를 사용하도록 설정된 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
 description: Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브가 있는 Azure Event Hubs 네임스페이스를 만들고 캡처를 사용하도록 설정
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 658defcef5c9d145d499eb72ae372d1a7edfb740
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: MT
+ms.openlocfilehash: 17157e05e4ad123ba2bbdffa199c111df9f8912e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705424"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653026"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>이벤트 허브가 있는 네임스페이스를 만들고 템플릿을 사용하여 캡처를 사용하도록 설정
 
-이 문서에서는 하나의 이벤트 허브 인스턴스를 사용 하 여 [Event Hubs](./event-hubs-about.md) 네임 스페이스를 만들고 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md) 을 사용 하도록 설정 하는 Azure Resource Manager 템플릿을 사용 하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 하나의 이벤트 허브 인스턴스가 있는 [Event Hubs](./event-hubs-about.md) 네임스페이스를 만들고 해당 이벤트 허브에서 [캡처 기능](event-hubs-capture-overview.md)을 사용하도록 설정하는 방법을 보여 줍니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다.
 
 이 문서에는 선택한 대상에 따라 이벤트가 Azure Storage Blobs에 캡처되는지, 아니면 Azure Data Lake Store에 캡쳐되는지를 지정하는 방법을 보여줍니다.
 
@@ -225,7 +225,7 @@ Azure Storage를 대상으로 선택한 경우 다음 매개 변수를 사용합
 }
 ```
 
-Azure Data Lake Store Gen 1을 대상으로 선택 하는 경우 다음 매개 변수를 사용 합니다. 이벤트를 캡처하려는 Data Lake Store 경로에서 사용 권한을 설정해야 합니다. 권한을 설정 하려면 [Azure Data Lake Storage Gen 1로 데이터 캡처](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1)를 참조 하세요.
+Azure Data Lake Store Gen 1을 대상으로 선택한 경우 다음 매개 변수를 사용합니다. 이벤트를 캡처하려는 Data Lake Store 경로에서 사용 권한을 설정해야 합니다. 권한을 설정하려면 [Azure Data Lake Storage Gen 1에 데이터 캡처](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1)를 참조하세요.
 
 ### <a name="subscriptionid"></a>subscriptionId
 

@@ -1,20 +1,20 @@
 ---
-title: Azure CLI를 사용 하 여 Azure 개인 링크 서비스 만들기
-description: Azure CLI를 사용 하 여 Azure 개인 링크 서비스를 만드는 방법을 알아봅니다.
+title: Azure CLI를 사용하여 Azure Private Link 서비스 만들기
+description: Azure CLI를 사용하여 Azure Private Link 서비스를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: 567ed736c52e8b3cbb03edeb19b3c0e2364e4112
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
-ms.translationtype: MT
+ms.openlocfilehash: 27ce0b2646b6c380e86b377d3dba287f7791794e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757343"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653733"
 ---
-# <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
+# <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용하여 Private Link 서비스 만들기
 
 서비스를 참조하는 Private Link 서비스 만들기를 시작합니다.  Azure 표준 Load Balancer 배후에 배포된 서비스 또는 리소스에 대한 Private Link 액세스를 제공합니다.  서비스 사용자는 가상 네트워크에서 비공개로 액세스할 수 있습니다.
 
@@ -30,7 +30,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다.
 
-* 명명 된 **CreatePrivLinkService-rg**. 
+* 이름을 **CreatePrivLinkService-rg** 로 지정합니다. 
 * 위치: **eastus**
 
 ```azurecli-interactive
@@ -52,11 +52,11 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 * 이름: **myVNet**
 * **10.1.0.0/16** 의 주소 접두사.
-* 이름이 **mysubnet** 인 서브넷.
+* 이름이 **mySubnet** 인 서브넷.
 * **10.1.0.0/24** 의 서브넷 접두사.
 * **CreatePrivLinkService-rg** 리소스 그룹에 있습니다.
-* **Eastus2** 의 위치입니다.
-* 서브넷의 개인 링크 서비스에 대 한 네트워크 정책을 사용 하지 않도록 설정 합니다.
+* 위치: **eastus2**.
+* 서브넷에서 프라이빗 링크 서비스에 대한 네트워크 정책을 사용하지 않도록 설정합니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -69,7 +69,7 @@ Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 �
 
 ```
 
-개인 링크 서비스 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용 합니다.
+프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -96,7 +96,7 @@ az network vnet subnet update \
 * **myFrontEnd** 라는 프런트 엔드 풀
 * **myBackEndPool** 이라는 백 엔드 풀
 * 가상 네트워크 **myVNet** 과 연결됩니다.
-* 백 엔드 서브넷 **mysubnet** 과 연결 됩니다.
+* 백 엔드 서브넷 **mySubnet** 과 연결됩니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -166,14 +166,14 @@ az network vnet subnet update \
 
 ## <a name="create-a-private-link-service"></a>Private Link 서비스 만들기
 
-이 섹션에서는 이전 단계에서 만든 Azure Load Balancer를 사용 하는 개인 링크 서비스를 만듭니다.
+이 섹션에서는 이전 단계에서 만든 Azure Load Balancer를 사용하는 프라이빗 링크 서비스를 만듭니다.
 
-[Az network private link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create)를 사용 하 여 표준 부하 분산 장치 프런트 엔드 IP 구성을 사용 하 여 개인 링크 서비스를 만듭니다.
+[az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create)를 통해 표준 부하 분산 장치 프런트 엔드 IP 구성을 사용하여 프라이빗 링크 서비스를 만듭니다.
 
-* 이름이 **myPrivateLinkService** 입니다.
+* 이름을 **myPrivateLinkService** 로 지정합니다.
 * 가상 네트워크: **myVNet**
-* 표준 부하 분산 장치 **Myloadbalancer** 및 프런트 엔드 구성 **myloadbalancer** 와 연결 됩니다.
-* **Eastus2** 위치에 있습니다.
+* 표준 부하 분산 장치 **myLoadBalancer** 및 프런트 엔드 구성 **myFrontEnd** 와 연결됩니다.
+* **eastus2** 위치에 있습니다.
  
 ```azurecli-interactive
 az network private-link-service create \
@@ -197,12 +197,12 @@ az network private-link-service create \
 
 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다.
 
-* 명명 된 **Myvnetpe**.
-* **11.1.0.0/16** 의 주소 접두사입니다.
-* **MySubnetPE** 라는 서브넷
-* **11.1.0.0/24** 의 서브넷 접두사입니다.
+* 이름을 **myVNetPE** 로 지정합니다.
+* **11.1.0.0/16** 의 주소 접두사.
+* 이름이 **mySubnetPE** 인 서브넷.
+* **11.1.0.0/24** 의 서브넷 접두사.
 * **CreatePrivLinkService-rg** 리소스 그룹에 있습니다.
-* **Eastus2** 의 위치입니다.
+* 위치: **eastus2**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -214,7 +214,7 @@ az network private-link-service create \
     --subnet-prefixes 11.1.0.0/24
 ```
 
-개인 끝점 네트워크 정책을 사용 하지 않도록 서브넷을 업데이트 하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용 합니다.
+프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트하려면 [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -224,17 +224,17 @@ az network vnet subnet update \
     --disable-private-endpoint-network-policies true
 ```
 
-### <a name="create-endpoint-and-connection"></a>끝점 및 연결 만들기
+### <a name="create-endpoint-and-connection"></a>엔드포인트 및 연결 만들기
 
-* [Az network private-link-service show](/cli/azure/network/private-link-service#az_network_private_link_service_show) 를 사용 하 여 개인 링크 서비스의 리소스 ID를 가져옵니다. 명령을 사용 하 여 리소스 ID를 나중에 사용 하기 위해 변수에 배치 합니다.
+* [az network private-link-service show](/cli/azure/network/private-link-service#az_network_private_link_service_show)를 사용하여 프라이빗 링크 서비스의 리소스 ID를 가져옵니다. 이 명령은 나중에 사용할 수 있도록 리소스 ID를 변수에 배치합니다.
 
-* [Az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) 를 사용 하 여 이전에 만든 가상 네트워크에 개인 끝점을 만듭니다.
+* [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create)를 사용하여 이전에 만든 가상 네트워크에 프라이빗 엔드포인트를 만듭니다.
 
-* 이름이 **MyPrivateEndpoint** 입니다.
+* 이름을 **MyPrivateEndpoint** 로 지정합니다.
 * **CreatePrivLinkService-rg** 리소스 그룹에 있습니다.
-* **MyPEconnectiontoPLS** 연결 이름입니다.
-* **Eastus2** 의 위치입니다.
-* 가상 네트워크 **Myvnetpe** 및 서브넷 **mySubnetPE** 에 있습니다.
+* 연결 이름 **myPEconnectiontoPLS**.
+* 위치: **eastus2**.
+* 가상 네트워크 **myVNetPE** 및 서브넷 **mySubnetPE** 에 있습니다.
 
 ```azurecli-interactive
   export resourceid=$(az network private-link-service show \
@@ -256,7 +256,7 @@ az network vnet subnet update \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용 하 여 리소스 그룹, 개인 링크 서비스, 부하 분산 장치 및 모든 관련 된 리소스를 제거 합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 프라이빗 링크 서비스, 부하 분산 장치 및 모든 관련 리소스를 제거합니다.
 
 ```azurecli-interactive
   az group delete \

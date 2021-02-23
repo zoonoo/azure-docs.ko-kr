@@ -5,14 +5,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: 4a107b4cc0dbf0b0845211ca64691fb0e792a47c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679083"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546655"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>자습서: 여러 버전의 API 게시 
 
@@ -60,7 +60,7 @@ Azure API Management에서 *버전 관리 체계*: **경로, 헤더** 또는 **�
 
 
 
-|설정   |값  |Description  |
+|설정   |값  |설명  |
 |---------|---------|---------|
 |**이름**     |  *demo-conference-api-v1*       |  API Management 인스턴스의 고유한 이름입니다.<br/><br/>버전은 API의 [수정 버전](api-management-get-started-revise-api.md)을 기반으로 하는 새 API이므로, 이 설정은 새 API의 이름입니다.   |
 |**버전 관리 체계**     |  **Path**       |  호출자가 API 버전을 지정하는 방식입니다.     |
@@ -87,6 +87,32 @@ Azure API Management에서 *버전 관리 체계*: **경로, 헤더** 또는 **�
 1. **선택** 을 클릭합니다.
 
 :::image type="content" source="media/api-management-getstarted-publish-versions/08-add-multiple-versions-03-add-version-product.png" alt-text="제품에 버전 추가":::
+
+## <a name="use-version-sets"></a>버전 집합 사용
+
+여러 버전을 만들 때 Azure Portal은 단일 논리적 API에 대한 버전 세트를 나타내는 *버전 집합* 을 만듭니다. 여러 버전이 있는 API 이름을 선택합니다. Azure Portal은 해당 **버전 집합** 을 표시합니다. 가상 집합의 **이름** 및 **설명** 을 사용자 지정할 수 있습니다.
+
+Azure CLI를 사용하여 버전 집합과 직접 상호 작용할 수 있습니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+모든 버전 집합을 보려면 [az apim api versionset list](/cli/azure/apim/api/versionset#az_apim_api_versionset_list) 명령을 실행합니다.
+
+```azurecli
+az apim api versionset list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+Azure Portal에서 버전 집합을 만들 때 목록의 **이름** 열에 표시되는 영숫자 이름이 할당됩니다. 다른 Azure CLI 명령에서 이 이름을 사용합니다.
+
+버전 집합에 대한 세부 정보를 보려면 [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) 명령을 실행합니다.
+
+```azurecli
+az apim api versionset show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --version-set-id 00000000000000000000000
+```
+
+버전 집합에 대한 자세한 내용은 [Azure API Management의 버전](api-management-versions.md#how-versions-are-represented)을 참조하세요.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>개발자 포털을 검색하여 버전 확인
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 18f76480d1327d6ab41c475395a689f8024d7b25
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071156"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369030"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>자습서: "Hello world!" Python 스크립트 실행(2/4부)
 
@@ -48,15 +48,7 @@ print("Hello world!")
 
 이제 프로젝트 디렉터리 구조는 다음과 같습니다.
 
-```Bash
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="src 하위 디렉터리에 hello.py가 표시되는 디렉터리 구조":::
 
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>로컬로 스크립트 테스트

@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377508"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546638"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>자습서: 수정 버전을 사용하여 작업을 중단하지 않는 API 변경을 안전하게 수행
 개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. 
@@ -37,7 +37,7 @@ Azure API Management에서 *수정 버전* 을 사용하여 작업을 중단하�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-revision"></a>새 수정 버전 추가
@@ -78,6 +78,8 @@ Azure API Management에서 *수정 버전* 을 사용하여 작업을 중단하�
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>수정 버전을 현재 항목으로 설정하고 변경 로그 항목 추가
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 1. 페이지 상단 근처의 메뉴에서 **수정 버전** 탭을 선택합니다.
 1. **수정 버전 2** 의 상황에 맞는 메뉴(**...**)를 엽니다.
 1. **현재로 설정** 을 선택합니다.
@@ -86,6 +88,61 @@ Azure API Management에서 *수정 버전* 을 사용하여 작업을 중단하�
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="수정 버전 창의 수정 버전 메뉴":::
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Azure CLI 사용을 시작하려면 다음을 수행합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+이 절차를 통해 릴리스를 만들고 업데이트합니다.
+
+1. [az apim api list](/cli/azure/apim/api#az_apim_api_list) 명령을 실행하여 API ID를 확인합니다.
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   다음 명령에서 사용할 API ID는 `Name` 값입니다. API 수정 버전은 `ApiRevision` 열에 있습니다.
+
+1. 릴리스 정보를 사용하여 릴리스를 만들려면 [az apim api release create](/cli/azure/apim/api/release#az_apim_api_release_create) 명령을 실행합니다.
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   릴리스한 수정 버전은 현재 수정 버전이 됩니다.
+
+1. 릴리스를 보려면 [az apim api release list](/cli/azure/apim/api/release#az_apim_api_release_list) 명령을 사용합니다.
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   지정한 메모는 변경 로그에 표시됩니다. 이전 명령의 출력에서 볼 수 있습니다.
+
+1. 릴리스를 생성할 때 `--notes` 매개 변수는 선택 사항입니다. [az apim api release update](/cli/azure/apim/api/release#az_apim_api_release_update) 명령을 사용하여 나중에 메모를 추가하거나 변경할 수 있습니다.
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   릴리스 ID에 대한 `Name` 열의 값을 사용합니다.
+
+[az apim api release delete](/cli/azure/apim/api/release#az_apim_api_release_delete) 명령을 실행하여 모든 릴리스를 제거할 수 있습니다.
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>개발자 포털로 이동하여 변경 내용과 변경 로그 확인
 

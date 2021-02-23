@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2020
+ms.date: 02/03/2021
 ms.author: jeedes
-ms.openlocfilehash: d9e348d456d517cd20e899648b9e92b3cd802ffb
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: dd4114f417fa266d8d638e28167d513fdf01aa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "99821284"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380847"
 ---
 # <a name="tutorial-integrate-bynder-with-azure-active-directory"></a>자습서: Azure Active Directory와 Bynder 통합
 
@@ -30,7 +30,7 @@ ms.locfileid: "99821284"
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 다운로드할 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Bynder SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -40,7 +40,7 @@ ms.locfileid: "99821284"
 * Bynder에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Bynder에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
 
-## <a name="adding-bynder-from-the-gallery"></a>갤러리에서 Bynder 추가
+## <a name="add-bynder-from-the-gallery"></a>갤러리에서 Bynder 추가
 
 Bynder의 Azure AD 통합을 구성하려면 갤러리의 Bynder를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -56,7 +56,7 @@ Bynder의 Azure AD 통합을 구성하려면 갤러리의 Bynder를 관리되는
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Bynder에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Bynder의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Bynder에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Bynder에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
@@ -65,13 +65,13 @@ Bynder에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
    1. **[Bynder 테스트 사용자 만들기](#create-bynder-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Bynder에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **Bynder** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -163,4 +163,4 @@ Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-Bynder를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+Bynder를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56e92a698446bd417c74820d6da662ad9ee55c77
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953021"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555689"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>자습서: Python 웹 애플리케이션에서 Azure AD B2C를 사용하여 인증 사용
 
@@ -185,4 +185,4 @@ CLIENT_SECRET = "22222222-2222-2222-2222-222222222222" # Placeholder - for use O
 다음으로 Azure AD B2C로 사용자에게 표시되는 사용자 흐름 페이지의 UI를 사용자 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [자습서: Azure AD B2C의 사용자 환경 인터페이스 사용자 지정](tutorial-customize-ui.md)
+> [Azure AD B2C의 사용자 환경 인터페이스 사용자 지정 >](customize-ui.md)

@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503905"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517385"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio(클래식)
 
@@ -48,12 +48,12 @@ ms.locfileid: "95503905"
 ## <a name="prepare-for-deployment"></a>배포 준비
 여러분이 이 자습서에서 개발한 예측 모델을 다른 사용자가 사용할 수 있도록, 모델을 Azure에 웹 서비스로 배포할 수 있습니다.
 
-지금까지는 모델을 학습하는 실험을 진행했습니다. 하지만 배포된 서비스는 더 이상 학습을 수행하지 않고 모델에 따라 사용자 입력의 점수를 매겨서 새 예측을 생성합니다. 그러므로 몇 가지 예측을 수행하여 ***학습** _ 실험을 _*_예측_*_ 실험으로 변환하겠습니다. 
+지금까지는 모델을 학습하는 실험을 진행했습니다. 하지만 배포된 서비스는 더 이상 학습을 수행하지 않고 모델에 따라 사용자 입력의 점수를 매겨서 새 예측을 생성합니다. 그러므로 몇 가지 예측을 수행하여 ***학습** _ 실험을 _ *_예측_** 실험으로 변환하겠습니다. 
 
 배포 준비는 다음과 같은 3단계로 이루어진 프로세스입니다.  
 
 1. 모델 중 하나 제거
-1. 만든 _학습 실험*을 *예측 실험* 으로 변환
+1. 만든 *학습 실험* 을 *예측 실험* 으로 변환
 1. 예측 실험을 웹 서비스로 배포
 
 ### <a name="remove-one-of-the-models"></a>모델 중 하나 제거

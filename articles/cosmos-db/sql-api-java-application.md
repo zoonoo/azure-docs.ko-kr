@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b3cb6bf56820da84d17f0b981f461a545bbe5ab6
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: d39c1d8c3ac60dda62556b1a8da0dfe29e3c1ee3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549262"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383622"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "96549262"
 :::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="My ToDo List Java 애플리케이션":::
 
 > [!TIP]
-> 이 애플리케이션 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
+> 이 애플리케이션 개발 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 구성 요소 도구](#Prerequisites)를 처음 사용하는 경우 GitHub에서 전체 [todo]https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.  
 >
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>이 Java 웹 애플리케이션 자습서의 필수 구성 요소
@@ -110,15 +110,15 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
    
    * **그룹 ID** 상자에 `com.azure`를 입력합니다.
    * **아티팩트 ID** 상자에 `azure-cosmos`를 입력합니다.
-   * **버전** 상자에 `4.0.1-beta.1`을 입력합니다.
+   * **버전** 상자에 `4.11.0`을 입력합니다.
   
    또는 그룹 ID 및 아티팩트 ID에 대한 종속성 XML을 *pom.xml* 파일에 직접 추가합니다.
 
    ```xml
    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-cosmos</artifactId>
-      <version>4.0.1-beta.1</version>
+     <groupId>com.azure</groupId>
+     <artifactId>azure-cosmos</artifactId>
+     <version>4.11.0</version>
    </dependency>
    ```
 
@@ -132,7 +132,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 
 먼저 새 파일 *TodoItem.java* 에 모델을 정의하겠습니다. `TodoItem` 클래스는 getter 및 setter 메서드와 함께 항목의 스키마를 정의합니다.
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/model/TodoItem.java":::
 
 ### <a name="add-the-data-access-objectdao-classes"></a>DAO(Data Access Object) 클래스 추가
 
@@ -140,37 +140,37 @@ DAO(Data Access Object)를 만들어서 영구적인 ToDo 항목을 Azure Cosmos
 
 1. Azure Cosmos DB 서비스를 호출하려면 새 `cosmosClient` 개체를 인스턴스화해야 합니다. 일반적으로 각 후속 요청마다 새 클라이언트를 생성하는 것보다는 `cosmosClient` 개체를 다시 사용하는 것이 가장 좋습니다. `cosmosClientFactory` 클래스 내에 클라이언트를 정의하면 재사용할 수 있습니다. [1단계](#CreateDB)에서 저장한 HOST 및 MASTER_KEY 값을 업데이트합니다. HOST 변수를 URI로 바꾸고 MASTER_KEY를 기본 키로 바꿉니다. 다음 코드를 사용하여 *CosmosClientFactory.java* 파일 내에 `CosmosClientFactory` 클래스를 만듭니다.
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/CosmosClientFactory.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/CosmosClientFactory.java":::
 
 1. 새 *TodoDao.java* 파일을 만들고 `TodoDao` 클래스를 추가하여 todo 항목을 만들고, 업데이트하고, 읽고, 삭제합니다.
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/TodoDao.java":::
 
 1. 새 *MockDao* 파일을 만들고 `MockDao` 클래스를 추가합니다. 이 클래스는 항목에 대한 CRUD 작업을 수행하는 `TodoDao` 클래스를 구현합니다.
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/MockDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/MockDao.java":::
 
 1. 새 *DocDbDao.java* 파일을 만들고 `DocDbDao` 클래스를 추가합니다. 이 클래스는 컨테이너에 TodoItem을 유지하는 코드를 정의하거나, 데이터베이스 및 컬렉션(있는 경우)을 검색하거나, 없을 경우 새로 만듭니다. 이 예제에서는 [Gson](https://code.google.com/p/google-gson/)을 사용하여 TodoItem POJO(Plain Old Java Object)를 JSON 문서에 직렬화하고 역직렬화합니다. ToDo 항목을 컬렉션에 저장하려면 클라이언트는 유지할 데이터베이스 및 컬렉션(셀프 link로 참조)을 알고 있어야 합니다. 또한 이 클래스는 자체 링크가 아닌 다른 특성(예: "ID")으로 문서를 검색하는 도우미 함수를 정의합니다. 도우미 메서드를 사용하여 ID로 TodoItem JSON 문서를 검색한 다음, POJO로 역직렬화할 수 있습니다.
 
    또한 `cosmosClient` 클라이언트 개체를 사용하여 SQL 쿼리를 사용하는 TodoItem의 컬렉션 또는 목록을 가져올 수 있습니다. 마지막으로, 목록에서 TodoItem을 삭제하는 delete 메서드를 정의합니다. 다음 코드는 `DocDbDao` 클래스의 콘텐츠를 보여 줍니다.
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/DocDbDao.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/DocDbDao.java":::
 
 1. 다음으로, 새 *TodoDaoFactory.java* 파일을 만들고 새 DocDbDao 개체를 만드는 `TodoDaoFactory` 클래스를 추가합니다.
 
-   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/dao/TodoDaoFactory.java":::
+   :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/TodoDaoFactory.java":::
 
 ### <a name="add-a-controller"></a>컨트롤러 추가
 
 애플리케이션에 *TodoItemController* 컨트롤러를 추가합니다. 이 프로젝트에서는 [Project Lombok](https://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/controller/TodoItemController.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/controller/TodoItemController.java":::
 
 ### <a name="create-a-servlet"></a>서블릿 만들기
 
 다음으로, HTTP 요청을 컨트롤러로 라우팅하는 서블릿을 만듭니다. *ApiServlet.java* 파일을 만들고 다음 코드를 정의합니다.
 
-:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/ApiServlet.java":::
+:::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/ApiServlet.java":::
 
 ## <a name="wire-the-rest-of-the-of-java-app-together"></a><a id="Wire"></a>Java 앱의 나머지 부분을 함께 연결
 
@@ -194,17 +194,17 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. **WAR 내보내기** 창에서 다음을 수행합니다.
    
-   * 웹 프로젝트 상자에 azure-documentdb-java-sample을 입력합니다.
+   * 웹 프로젝트 상자에 azure-cosmos-java-sample을 입력합니다.
    * 대상 상자에서 WAR 파일을 저장할 대상을 선택합니다.
    * **Finish** 를 클릭합니다.
 
 1. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure App Service Web Apps에 Java 애플리케이션 추가](../app-service/quickstart-java.md)를 참조하세요. WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
 
-1. 완성된 제품을 보려면 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/`로 이동하고 작업 추가를 시작하세요.
+1. 완성된 제품을 보려면 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-cosmos-java-sample/`로 이동하고 작업 추가를 시작하세요.
 
 ## <a name="get-the-project-from-github"></a><a id="GetProject"></a>GitHub에서 프로젝트 가져오기
 
-이 자습서의 모든 샘플은 GitHub의 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트에 포함되어 있습니다. Todo 프로젝트를 Eclipse로 가져오려면 [필수 조건](#Prerequisites) 섹션에 나열된 소프트웨어 및 리소스가 있는지 확인한 후 다음을 수행합니다.
+이 자습서의 모든 샘플은 GitHub의 [todo](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app) 프로젝트에 포함되어 있습니다. Todo 프로젝트를 Eclipse로 가져오려면 [필수 조건](#Prerequisites) 섹션에 나열된 소프트웨어 및 리소스가 있는지 확인한 후 다음을 수행합니다.
 
 1. [Project Lombok](https://projectlombok.org/)을 설치합니다. Lombok은 프로젝트에서 생성자, getter, setter를 생성하는 데 사용됩니다. lombok.jar 파일을 다운로드한 다음에는 두 번 클릭하여 설치하거나 명령줄을 사용해서 설치합니다.
 
@@ -216,7 +216,7 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. **리포지토리 원본 선택** 화면에서 **URI 복제** 를 클릭합니다.
 
-1. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/documentdb-java-todo-app.git 를 입력한 다음, **다음** 을 클릭합니다.
+1. **원본 Git 리포지토리** 화면의 **URI** 상자에 https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app 를 입력한 다음, **다음** 을 클릭합니다.
 
 1. **분기 선택** 화면에서 **주** 가 선택되었는지 확인한 후, **다음** 을 클릭합니다.
 
@@ -226,9 +226,9 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. **프로젝트 가져오기** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **마침** 을 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 Azure Cosmos DB Java SDK가 포함됩니다.
 
-1. **프로젝트 탐색기** 에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
+1. **프로젝트 탐색기** 에서 azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 Azure Cosmos DB 계정의 URI 및 기본 키로 바꾼 다음, 파일을 저장합니다. 자세한 내용은 [1단계를 참조하세요. Azure Cosmos 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 
-1. **프로젝트 탐색기** 에서 **azure-documentdb-java-sample** 을 마우스 오른쪽 단추로 클릭하고 **빌드 경로** 를 클릭한 후 **빌드 경로 구성** 을 클릭합니다.
+1. **프로젝트 탐색기** 에서 **azure-cosmos-java-sample** 을 마우스 오른쪽 단추로 클릭하고 **빌드 경로** 를 클릭한 다음, **빌드 경로 구성** 을 클릭합니다.
 
 1. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가** 를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기** 를 클릭한 후 **확인** 을 클릭합니다.
 
@@ -242,11 +242,11 @@ Azure 웹 사이트에서는 Java 애플리케이션을 간단히 배포할 수 
 
 1. 화면 하단에 있는 **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버** 를 마우스 오른쪽 단추로 클릭하고 **추가 및 제거** 를 클릭합니다.
 
-1. **추가 및 제거** 창에서 **azure-documentdb-java-sample** 을 **구성됨** 상자로 이동하고 **마침** 을 클릭합니다.
+1. **추가 및 제거** 창에서 **azure-cosmos-java-sample** 을 **구성됨** 상자로 이동한 다음, **마침** 을 클릭합니다.
 
 1. **서버** 탭에서 **로컬 호스트의 Tomcat v7.0 서버** 를 마우스 오른쪽 단추로 클릭하고 **다시 시작** 을 클릭합니다.
 
-1. 브라우저에서 `http://localhost:8080/azure-documentdb-java-sample/`로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
+1. 브라우저에서 `http://localhost:8080/azure-cosmos-java-sample/`로 이동하고 작업 목록에 추가하기 시작합니다. 기본 포트 값을 변경한 경우 8080을 선택한 값으로 변경합니다.
 
 1. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 애플리케이션 배포](#Deploy)를 참조하세요.
 

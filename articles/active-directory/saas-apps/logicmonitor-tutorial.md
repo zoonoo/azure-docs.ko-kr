@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ab2aa1df0719b685800529f32e36674bf85e57ee
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c330ce9b9eec693d7dabda55ad65d297ca78ca01
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99821982"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>자습서: LogicMonitor와 Azure Active Directory 통합
 
@@ -80,7 +80,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.logicmonitor.com` 패턴을 사용하는 URL을 입력합니다.
-
+    
+    다. **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 `https://companyname.logicmonitor.com/santaba/saml/SSO/` 패턴을 사용하는 URL을 입력합니다. 
+  
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [LogicMonitor 클라이언트 지원 팀](https://www.logicmonitor.com/contact/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 

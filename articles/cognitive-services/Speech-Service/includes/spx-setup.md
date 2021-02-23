@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514988"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645357"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -19,11 +19,12 @@ ms.locfileid: "100514988"
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
 1. Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
-1. [.NET Core 3.1](/dotnet/core/install/linux)을 설치합니다.
+1. [.NET Core 3.1 SDK](/dotnet/core/install/linux)를 설치합니다.
 2. 다음 명령을 입력하여 NuGet을 통해 음성 CLI를 설치합니다.
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
 > [!NOTE]

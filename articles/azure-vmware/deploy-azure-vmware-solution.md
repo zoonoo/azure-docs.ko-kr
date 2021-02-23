@@ -1,35 +1,27 @@
 ---
 title: Azure VMware Solution 배포 및 구성
-description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하는 방법을 알아봅니다.
+description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "99822505"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652737"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
-이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포합니다. 
+이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포하고 구성합니다. 
 
 >[!IMPORTANT]
 >정보가 아직 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
 
-## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Azure VMware Solution 프라이빗 클라우드 만들기
 
-
-## <a name="deploy-azure-vmware-solution"></a>Azure VMware Solution 배포
-
-[Azure VMware Solution 배포 계획](production-ready-deployment-steps.md) 문서에서 수집한 정보를 사용합니다.
-
->[!NOTE]
->Azure VMware Solution을 배포하려면 구독에서 최소 기여자 수준이어야 합니다.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+[Azure VMware Solution 프라이빗 클라우드 만들기](tutorial-create-private-cloud.md) 자습서의 필수 구성 요소 및 단계를 따릅니다. Azure VMware Solution 프라이빗 클라우드는 [Azure Portal](tutorial-create-private-cloud.md#azure-portal) 또는 [Azure CLI](tutorial-create-private-cloud.md#azure-cli)를 사용하여 만들 수 있습니다.  
 
 >[!NOTE]
 >이 단계의 엔드투엔드 개요는 [Azure VMware Solution: 배포](https://www.youtube.com/embed/gng7JjxgayI) 비디오를 참조하세요.
@@ -60,7 +52,7 @@ Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 �
 
 점프 상자는 Azure VMware Solution에서 ExpressRoute 회로를 통해 연결하는 가상 네트워크에 있습니다.  Azure에서 점프 상자의 네트워크 인터페이스로 이동하여 [유효한 경로를 확인](../virtual-network/manage-route-table.md#view-effective-routes)합니다.
 
-유효한 경로 목록에는 Azure VMware Solution 배포의 일부로 만들어진 네트워크가 표시됩니다. 이 문서의 앞부분에 나오는 [배포 단계](#deploy-azure-vmware-solution)에서 [정의한 `/22` 네트워크](production-ready-deployment-steps.md#ip-address-segment)에서 파생된 여러 네트워크가 표시됩니다.
+유효한 경로 목록에는 Azure VMware Solution 배포의 일부로 만들어진 네트워크가 표시됩니다. [프라이빗 클라우드를 만들](#create-an-azure-vmware-solution-private-cloud) 때 [정의한 `/22` 네트워크](production-ready-deployment-steps.md#ip-address-segment)에서 파생된 여러 네트워크가 표시됩니다.  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Azure VMware Solution에서 Azure Virtual Network로 보급된 네트워크 경로 확인" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -68,13 +60,13 @@ Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 �
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>vCenter 및 NSX-T에 연결 및 로그인
 
-이전 단계에서 만든 점프 상자에 로그인합니다. 로그인되면 웹 브라우저를 열고, vCenter 및 NSX-T 관리 콘솔로 이동하여 로그인합니다.  
+이전 단계에서 만든 점프 상자에 로그인합니다. 로그인되면 웹 브라우저를 열고, vCenter 및 NSX-T Manager로 이동하여 로그인합니다.  
 
-Azure Portal에서 vCenter 및 NSX-T 관리 콘솔의 IP 주소와 자격 증명을 확인할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값** 을 차례로 선택합니다. 
+Azure Portal에서 vCenter 및 NSX-T Manager 콘솔의 IP 주소와 자격 증명을 식별할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값** 을 차례로 선택합니다. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Azure VMware Solution에서 네트워크 세그먼트 만들기
 
-NSX-T를 사용하여 Azure VMware Solution 환경에 새 네트워크 세그먼트를 만듭니다.  [계획 섹션](production-ready-deployment-steps.md)에서 만들려는 네트워크가 정의되었습니다.  아직 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
+NSX-T Manager를 사용하여 Azure VMware Solution 환경에 새 네트워크 세그먼트를 만듭니다.  [계획 섹션](production-ready-deployment-steps.md)에서 만들려는 네트워크가 정의되었습니다.  아직 정의되지 않은 경우 계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)으로 돌아가세요.
 
 >[!IMPORTANT]
 >정의한 CIDR 네트워크 주소 블록이 Azure 또는 온-프레미스 환경의 주소 블록과 겹치지 않는지 확인합니다.  

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/10/2021
 ms.author: alkohli
-ms.openlocfilehash: ce063e27620c3b0ccec9336e7a45ebb2ee1ad10d
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100908"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382823"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro FPGA에서 Azure Stack Edge Pro GPU로 워크로드 마이그레이션
 
@@ -190,8 +190,8 @@ IoT 워크로드에 대한 로컬 공유 데이터를 보호하기 위해 타사
 
 IoT Edge 모듈을 준비한 후에는 대상 디바이스에 IoT Edge 워크로드를 배포해야 합니다. IoT Edge 모듈을 배포하는 동안 오류가 발생하면 다음 문서를 참조하세요.
 
-- [Azure IoT Edge에 대한 일반적인 문제 및 해결 방법](../iot-edge/troubleshoot-common-errors.md) 
-- [IoT Edge 런타임 오류][Windows PowerShell을 통해 Azure Stack Edge Pro GPU 디바이스 관리](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors)
+- [Azure IoT Edge에 대한 일반적인 문제 및 해결 방법](../iot-edge/troubleshoot-common-errors.md). 
+- [IoT Edge 런타임 오류](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
 
 ## <a name="verify-data"></a>데이터 확인
 

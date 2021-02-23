@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99821563"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378005"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -82,21 +82,8 @@ optimizer = optim.SGD(
 
 이제 스크립트에서 _데이터 경로_ 를 인수로 허용합니다. 먼저 로컬로 테스트합니다. `data`라는 폴더를 자습서 디렉터리 구조에 추가합니다. 디렉터리 구조는 다음과 같습니다.
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="디렉터리 구조에는 .azureml, 데이터 및 src 하위 디렉터리가 표시됨":::
+
 
 이전 자습서에서 `train.py`를 로컬로 실행하지 않은 경우 `data/` 디렉터리가 없습니다. 이 경우 `train.py` 스크립트에서 `download=True`를 사용하여 `torchvision.datasets.CIFAR10` 메서드를 로컬로 실행합니다.
 
