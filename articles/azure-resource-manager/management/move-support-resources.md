@@ -1193,8 +1193,8 @@ ms.locfileid: "98072108"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | labaccounts | 예 | 예 |
-> | users | 예 | 예 |
+> | labaccounts | 아니요 | 아니요 |
+> | users | 아니요 | 아니요 |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
