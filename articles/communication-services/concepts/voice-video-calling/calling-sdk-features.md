@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554737"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650935"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -109,4 +109,4 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 자세한 내용은 다음 항목을 참조하세요.
 - 일반적인 [통화 흐름](../call-flows.md) 숙지 
 - [통화 형식](../voice-video-calling/about-call-types.md)에 대한 자세한 정보
-- [PSTN 솔루션 계획](../telephony-sms/plan-solution.md)
+- [전화 번호 유형](../telephony-sms/plan-solution.md)에 대한 자세한 정보
